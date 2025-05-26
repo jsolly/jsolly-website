@@ -1,6 +1,6 @@
 import { visit } from "unist-util-visit";
 
-const allowedHosts = ["johnsolly.dev", "www.johnsolly.dev"];
+const allowedHosts = ["jsolly.com", "www.jsolly.com"];
 
 export function remarkExternalAnchor() {
 	return (tree, _) => {

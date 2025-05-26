@@ -9,7 +9,7 @@ export default defineConfig({
 	site:
 		process.env.NODE_ENV === "development"
 			? "http://localhost:4321"
-			: "https://www.johnsolly.dev",
+			: "https://www.jsolly.com",
 	markdown: {
 		remarkPlugins: [remarkExternalAnchor, remarkReadingTime],
 	},
@@ -19,7 +19,7 @@ export default defineConfig({
 			customPages:
 				process.env.NODE_ENV === "development"
 					? ["http://localhost:4321/John-Solly-Resume.pdf"]
-					: ["https://www.johnsolly.dev/John-Solly-Resume.pdf"],
+					: ["https://www.jsolly.com/John-Solly-Resume.pdf"],
 		}),
 	],
 });

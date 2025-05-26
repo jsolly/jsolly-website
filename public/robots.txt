@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.johnsolly.dev/sitemap-index.xml
+Sitemap: https://www.jsolly.com/sitemap-index.xml
