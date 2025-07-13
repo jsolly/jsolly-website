@@ -29,7 +29,6 @@
 		"@astrojs/ts-plugin": "^1.10.4",
 		"@biomejs/biome": "^2.0.6",
 		"@tailwindcss/typography": "^0.5.16",
-		"@types/node": "^24.0.13",
 		"constructs": "^10.4.2",
 		"globby": "^14.1.0",
 		"html-minifier": "^4.0.0",
