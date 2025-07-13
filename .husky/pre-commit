@@ -9,7 +9,7 @@ error_handler() {
 trap error_handler ERR
 
 # Run linting, formatting, type checking, and unit tests
-echo "Running lint/format..."
+echo "Running Biome lint/format..."
 npm run check:changed:fix
 
 echo "Running TypeScript type check..."
