@@ -2,6 +2,7 @@
 @import "@fontsource/poppins/latin.css";
 @import "@fontsource/jetbrains-mono/latin.css";
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* =============
 Theme Configuration
@@ -93,7 +94,7 @@ Base Typography & Layout
 	}
 
 	body {
-		@apply mx-auto max-w-4xl p-4 bg-card font-body leading-relaxed;
+		@apply mx-auto max-w-7xl p-4 bg-card font-body leading-relaxed;
 	}
 
 	/* Heading hierarchy */
@@ -150,6 +151,18 @@ a {
 	position: relative;
 }
 
+/* =============
+Header Link Tooltip
+============== */
+
+.header-link {
+	@apply ml-1 transition-opacity duration-300 ease-in-out relative;
+}
+
+.header-link-tooltip {
+	@apply absolute bg-black text-white text-xs py-1 px-2 rounded whitespace-nowrap left-1/2 transform -translate-x-1/2 translate-y-[-20px] transition-opacity duration-300 ease-in-out;
+}
+
 /* External link indicator */
 a[target="_blank"]:not(.social-link)::after {
 	content: "↗";
@@ -161,7 +174,6 @@ a:not(
 		.primary-btn,
 		.secondary-btn,
 		.project-card-link,
-		.toc-link,
 		.link-card-link,
 		.social-link
 	) {
@@ -175,15 +187,17 @@ a:not(
 
 a:not(
 		.primary-btn,
+		.header-link,
 		.secondary-btn,
 		.project-card-link,
-		.toc-link,
 		.link-card-link,
 		.social-link
 	):hover {
 	@apply text-primary-900;
 	text-decoration-color: #2563eb;
 }
+
+
 
 /* =============
 Button System
