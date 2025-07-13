@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import gisLectureImage from "../../images/gisLecture.webp";
 import accordionIcon from "../../images/svg/accordion_arrow.svg";
 ---
@@ -20,11 +21,12 @@ import accordionIcon from "../../images/svg/accordion_arrow.svg";
             >
                 Read More About Me
             </span>
-            <img
+            <Image
                 id="accordion-expand-collapse-arrow"
-                src={accordionIcon as unknown as string}
+                src={accordionIcon}
                 alt="expand/collapse"
-                loading="eager"
+                width={24}
+                height={24}
                 class="accordion-icon w-6 h-6"
             />
         </button>
@@ -33,11 +35,12 @@ import accordionIcon from "../../images/svg/accordion_arrow.svg";
         class="accordion-collapse transition-max-height duration-300 ease-in-out"
     >
         <div class="accordion-body text-base p-4 md:p-6">
-            <img
+            <Image
                 class="bio-image rounded-md float-left mr-4 mb-4"
-                src={gisLectureImage as unknown as string}
+                src={gisLectureImage}
                 alt="John at 2015 AAG conference with Rebecca Rice and Michael Goodchild"
-                loading="eager"
+                width={400}
+                height={300}
             />
             <p>
                 As a highly skilled software engineer, I have a wealth of

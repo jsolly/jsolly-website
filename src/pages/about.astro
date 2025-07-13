@@ -2,47 +2,10 @@
 import ContactMe from "../components/ContactMe.astro";
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
+import SocialLinks from "../components/SocialLinks.astro";
 
 // Static Images
-import blogthedataLogo from "../images/social/blogthedataLogo.webp";
-import githubLogo from "../images/social/githubLogo.svg";
 import jsollyImage from "../images/jsolly.webp";
-import linkedInLogo from "../images/social/linkedinLogo.svg";
-import xLogo from "../images/social/xLogo.svg";
-import youtubeLogo from "../images/social/youtubeLogo.png";
-
-const socialLinks = [
-	{
-		href: "https://x.com/_jsolly",
-		icon: xLogo,
-		alt: "X",
-		rel: "me noopener noreferrer",
-	},
-	{
-		href: "https://www.linkedin.com/in/jsolly/",
-		icon: linkedInLogo,
-		alt: "LinkedIn",
-		rel: "me noopener noreferrer",
-	},
-	{
-		href: "https://github.com/jsolly",
-		icon: githubLogo,
-		alt: "Github",
-		rel: "me noopener noreferrer",
-	},
-	{
-		href: "https://www.youtube.com/channel/UCxsK9UorVj2F17DMSXLuSQw",
-		icon: youtubeLogo,
-		alt: "Youtube",
-		rel: "me noopener noreferrer",
-	},
-	{
-		href: "https://blogthedata.com/",
-		icon: blogthedataLogo,
-		alt: "Blogthedata Blog",
-		rel: "me",
-	},
-];
 ---
 
 <Layout
@@ -69,23 +32,7 @@ const socialLinks = [
                     Senior Software Engineer, Geospatial Developer
                 </p>
                 <div class="social-links flex mt-3">
-                    {
-                        socialLinks.map((link) => (
-                            <a
-                                href={link.href}
-                                rel={link.rel}
-                                target="_blank"
-                                class="social-link mr-4  opacity-80 hover:scale-110 hover:opacity-100 transition-all duration-300 ease-in-out"
-                            >
-                                <Image
-                                    src={link.icon}
-                                    alt={link.alt}
-                                    class="w-8 h-8"
-                                    loading="eager"
-                                />
-                            </a>
-                        ))
-                    }
+                    <SocialLinks />
                 </div>
             </div>
         </div>

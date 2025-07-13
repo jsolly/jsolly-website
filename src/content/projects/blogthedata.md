@@ -6,9 +6,6 @@ metaimgWidth: 480
 metaimgHeight: 320
 snippet: "Blogthedata.com is a blogging platform with everything but the kitchen sink. Built lovingly with Django web framework."
 logos:
-  - url: /src/images/logos/linodeLogo.svg
-    alt: "Linode logo"
-    label: "LINODE"
   - url: /src/images/logos/pythonLogo.svg
     alt: "Python logo"
     label: "PYTHON"
@@ -18,12 +15,6 @@ logos:
   - url: /src/images/logos/postgresLogo.svg
     alt: "Postgres logo"
     label: "POSTGRES"
-  - url: /src/images/logos/NGINXlogo.svg
-    alt: "NGINX logo"
-    label: "NGINX"
-  - url: /src/images/logos/gunicornLogo.svg
-    alt: "Gunicorn logo"
-    label: "GUNICORN"
   - url: /src/images/logos/cloudflareLogo.svg
     alt: "Cloudflare logo"
     label: "CLOUDFLARE"

@@ -34,7 +34,7 @@ const _isRelativeLink = href.startsWith("/") && !href.endsWith(".pdf");
     <a
         href={href}
         target={_isRelativeLink ? "_self" : "_blank"}
-        class="project-card-link block h-full rounded-2xl p-8 bg-white border border-neutral-200 shadow-soft hover:shadow-medium transition-all duration-400 ease-out transform hover:scale-[1.02] hover:-translate-y-1 focus:scale-[1.02] focus:shadow-medium focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2"
+        class="project-card-link block h-full rounded-2xl p-8 bg-white border border-neutral-200 shadow-soft hover:shadow-medium transition-all duration-400 ease-out transform hover:scale-[1.02] hover:-translate-y-1 focus:scale-[1.02] focus:shadow-medium focus:outline-hidden focus:ring-2 focus:ring-primary-400 focus:ring-offset-2"
     >
         <!-- Enhanced header with better typography -->
         <div class="mb-6">
@@ -63,20 +63,18 @@ const _isRelativeLink = href.startsWith("/") && !href.endsWith(".pdf");
             </p>
         </div>
         
-        <!-- Enhanced footer with logos and reading time -->
         <div class="mt-6 pt-6 border-t border-neutral-100">
             {logos ? (
                 <div class="flex flex-wrap gap-2 mb-4">
                     {logos.map((logo) => (
-                        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-black text-white">
+                        <div class="flex items-center gap-1">
                             <Image
                                 src={logo.url}
                                 alt={logo.alt}
-                                class="w-5 h-5 filter invert"
                                 loading={imgLoading}
                             />
-                            {logo.label}
-                        </span>
+                            <span class="text-sm text-neutral-600">{logo.label}</span>
+                        </div>
                     ))}
                 </div>
             ) : null}

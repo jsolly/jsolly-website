@@ -15,6 +15,9 @@ logos:
   - url: /src/images/logos/mongoLogo.svg
     alt: "MongoDB logo"
     label: "MONGODB"
+  - url: /src/images/logos/serverlessLogo.svg
+    alt: "Serverless logo"
+    label: "SERVERLESS"
 ---
 
 ## Purpose and Objective

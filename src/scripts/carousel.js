@@ -10,7 +10,10 @@ if (carouselItems.length > 0) {
 		});
 
 		indicators.forEach((indicator, index) => {
-			indicator.classList.toggle("bg-accent", index === currentCarouselIndex);
+			indicator.classList.toggle(
+				"bg-accent-primary",
+				index === currentCarouselIndex,
+			);
 			indicator.classList.toggle("bg-gray-300", index !== currentCarouselIndex);
 		});
 	};

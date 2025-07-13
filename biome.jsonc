@@ -3,10 +3,21 @@
 	"vcs": {
 		"enabled": true,
 		"clientKind": "git",
-		"useIgnoreFile": true
+		"useIgnoreFile": true,
+		"defaultBranch": "main"
 	},
 	"files": {
-		"includes": ["**", "!**/src/scripts/stripeBuyButton.js"],
+		"includes": [
+			"**/*.ts",
+			"**/*.js",
+			"**/*.json",
+			"**/*.jsonc",
+			"**/*.mjs",
+			"**/*.css",
+			"**/*.html",
+			"**/*.md",
+			"!**/src/scripts/stripeBuyButton.js"
+		],
 		"ignoreUnknown": true
 	},
 	"overrides": [

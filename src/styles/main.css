@@ -1,0 +1,307 @@
+@import "@fontsource/inter/latin.css";
+@import "@fontsource/poppins/latin.css";
+@import "@fontsource/jetbrains-mono/latin.css";
+@import "tailwindcss";
+
+/* =============
+Theme Configuration
+============== */
+
+@theme {
+	/* =============
+  Color Palette
+  ============== */
+
+	/* Primary grayscale palette */
+	--color-primary-50: #fafafa;
+	--color-primary-100: #f5f5f5;
+	--color-primary-200: #e5e5e5;
+	--color-primary-300: #d4d4d4;
+	--color-primary-400: #a3a3a3;
+	--color-primary-500: #737373;
+	--color-primary-600: #404040;
+	--color-primary-700: #262626;
+	--color-primary-800: #171717;
+	--color-primary-900: #0a0a0a;
+
+	/* Accent colors */
+	--color-accent-50: #f7fafc;
+	--color-accent-100: #f1f1f1;
+	--color-accent-200: #e2e2e2;
+	--color-accent-300: #cccccc;
+	--color-accent-400: #b3b3b3;
+	--color-accent-500: #8c8c8c;
+	--color-accent-600: #666666;
+	--color-accent-700: #4d4d4d;
+	--color-accent-800: #333333;
+	--color-accent-900: #1a1a1a;
+
+	/* Blue accent */
+	--color-blue-500: #2563eb;
+
+	/* Semantic colors */
+	--color-background: #fafafa;
+	--color-card: #ffffff;
+	--color-text-primary: #171717;
+	--color-text-secondary: #525252;
+	--color-text-muted: #737373;
+	--color-border: #e5e5e5;
+	--color-success: #10b981;
+	--color-warning: #f59e0b;
+	--color-error: #ef4444;
+
+	/* =============
+  Typography
+  ============== */
+
+	--font-family-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+	--font-family-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+	--font-family-heading:
+		"Poppins", "Inter", ui-sans-serif, system-ui, sans-serif;
+	--font-family-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+	/* =============
+  Shadows
+  ============== */
+
+	--shadow-soft:
+		0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+	--shadow-medium:
+		0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* =============
+Custom Utilities
+============== */
+
+@utility font-body {
+	font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-heading {
+	font-family: "Poppins", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* =============
+Base Typography & Layout
+============== */
+
+@layer base {
+	html {
+		@apply min-h-full text-text-secondary bg-background antialiased scroll-smooth font-body;
+		font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+	}
+
+	body {
+		@apply mx-auto max-w-4xl p-4 bg-card font-body leading-relaxed;
+	}
+
+	/* Heading hierarchy */
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply text-text-primary font-heading font-semibold tracking-tight;
+	}
+
+	h1 {
+		@apply text-4xl md:text-5xl lg:text-6xl;
+	}
+	h2 {
+		@apply text-3xl md:text-4xl;
+	}
+	h3 {
+		@apply text-2xl md:text-3xl;
+	}
+	h4 {
+		@apply text-xl md:text-2xl;
+	}
+	h5 {
+		@apply text-lg md:text-xl;
+	}
+	h6 {
+		@apply text-base md:text-lg;
+	}
+
+	/* Paragraph styling */
+	p {
+		@apply text-text-secondary leading-7;
+	}
+
+	/* Code styling */
+	code {
+		@apply font-mono text-sm bg-neutral-100 px-1.5 py-0.5 rounded-md text-neutral-800;
+	}
+
+	pre {
+		@apply font-mono text-sm bg-neutral-900 text-neutral-100 p-4 rounded-lg overflow-x-auto;
+	}
+}
+
+/* =============
+Link Styling
+============== */
+
+a {
+	@apply text-primary-800 transition-all duration-300 ease-out;
+	text-decoration: none;
+	position: relative;
+}
+
+/* External link indicator */
+a[target="_blank"]:not(.social-link)::after {
+	content: "↗";
+	vertical-align: middle;
+}
+
+/* Link underline effect */
+a:not(
+		.primary-btn,
+		.secondary-btn,
+		.project-card-link,
+		.toc-link,
+		.link-card-link,
+		.social-link
+	) {
+	text-decoration: underline;
+	text-decoration-color: transparent;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 4px;
+	text-decoration-skip-ink: none;
+	transition: text-decoration-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:not(
+		.primary-btn,
+		.secondary-btn,
+		.project-card-link,
+		.toc-link,
+		.link-card-link,
+		.social-link
+	):hover {
+	@apply text-primary-900;
+	text-decoration-color: #2563eb;
+}
+
+/* =============
+Button System
+============== */
+
+.primary-btn {
+	@apply bg-primary-900 text-white py-3 px-6 rounded-xl font-semibold no-underline transition-all duration-300 ease-out transform hover:scale-105 hover:shadow-medium focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+	box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.15);
+}
+
+.secondary-btn {
+	@apply bg-transparent hover:bg-primary-100 text-primary-900 py-3 px-6 border-2 border-primary-900 hover:border-primary-800 rounded-xl font-semibold no-underline transition-all duration-300 ease-out transform hover:scale-105 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+/* =============
+Text Gradients
+============== */
+
+.text-gradient {
+	background: linear-gradient(135deg, #2563eb 0%, #171717 100%);
+	background-clip: text;
+	color: transparent;
+	background-size: 200% 200%;
+}
+
+/* =============
+Card Components
+============== */
+
+.card {
+	@apply bg-card rounded-2xl border border-neutral-200 shadow-soft transition-all duration-300 ease-out hover:shadow-medium hover:border-neutral-300;
+}
+
+/* =============
+Accent Colors
+============== */
+
+.bg-accent-primary {
+	@apply bg-blue-500;
+}
+.text-accent-primary {
+	@apply text-blue-500;
+}
+.text-accent {
+	@apply text-blue-500;
+}
+
+/* =============
+Animations
+============== */
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeInDown {
+	from {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Homepage card animations */
+.homepage-card {
+	animation: fadeInUp 0.6s ease-out forwards;
+	opacity: 0;
+}
+
+.homepage-card:nth-child(1) {
+	animation-delay: 0.1s;
+}
+.homepage-card:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.homepage-card:nth-child(3) {
+	animation-delay: 0.3s;
+}
+.homepage-card:nth-child(4) {
+	animation-delay: 0.4s;
+}
+.homepage-card:nth-child(5) {
+	animation-delay: 0.5s;
+}
+.homepage-card:nth-child(6) {
+	animation-delay: 0.6s;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+	.homepage-card {
+		animation: none;
+		opacity: 1;
+	}
+}
+
+/* =============
+Focus & Accessibility
+============== */
+
+*:focus {
+	@apply outline-hidden ring-2 ring-primary-500 ring-offset-2;
+}
+
+/* =============
+Selection Styling
+============== */
+
+::selection {
+	@apply bg-primary-100 text-primary-900;
+}

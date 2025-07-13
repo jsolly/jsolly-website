@@ -9,26 +9,20 @@ import Layout from "../layouts/Layout.astro";
 	description="Welcome to jsolly.com, the personal website of John Solly. Explore my portfolio, blog, and geospatial consulting services."
 >
 	<main class="min-h-screen" role="main" aria-label="Main content">
-		<!-- Hero Section - Enhanced with better spacing and visual impact -->
 		<section 
-			class="min-h-[90vh] flex items-center bg-gradient-to-br from-neutral-50 via-white to-neutral-50"
+			class="min-h-[90vh] flex items-center"
 			aria-labelledby="hero-heading"
 			role="banner"
 		>
 			<Hero />
 		</section>
 		
-		<!-- Featured Projects Section - Enhanced with better visual separation -->
 		<section 
-			class="py-20 md:py-32 bg-white relative"
+			class="py-20 md:py-32 relative"
 			aria-labelledby="featured-projects-heading"
 			role="region"
 		>
 			<!-- Decorative background elements -->
-			<div class="absolute inset-0 bg-gradient-to-br from-neutral-50 to-white opacity-50" aria-hidden="true"></div>
-			<div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-64 h-64 bg-primary-100 rounded-full blur-3xl opacity-20" aria-hidden="true"></div>
-			<div class="absolute bottom-0 right-1/4 w-48 h-48 bg-accent-100 rounded-full blur-2xl opacity-30" aria-hidden="true"></div>
-			
 			<div class="relative">
 				<FeaturedProjects />
 			</div>
