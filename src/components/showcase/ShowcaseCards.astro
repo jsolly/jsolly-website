@@ -1,7 +1,8 @@
 ---
+import type { ImageMetadata } from "astro";
 import { getCollection } from "astro:content";
+import type { Logo } from "../../types";
 import ProjectCard from "../projects/ProjectCard.astro";
-import jsollyLarge from "../../images/jsollyLarge.webp";
 
 const allProjects = await getCollection("projects");
 ---
@@ -15,25 +16,17 @@ const allProjects = await getCollection("projects");
                 const loading = index === 0 ? "eager" : undefined;
                 return (
                     <ProjectCard
-                        title={project.data.title}
+                        title={project.data.title as string}
                         href={`/projects/${project.slug}/`}
-                        readingTime={remarkPluginFrontmatter.minutesRead}
-                        metaimg={project.data.metaimg}
-                        metaimgAlt={project.data.metaimgAlt}
+                        readingTime={remarkPluginFrontmatter.minutesRead as string}
+                        metaimg={project.data.metaimg as ImageMetadata}
+                        metaimgAlt={project.data.metaimgAlt as string}
                         imgLoading={loading}
-                        snippet={project.data.snippet}
-                        logos={project.data.logos}
+                        snippet={project.data.snippet as string}
+                        logos={project.data.logos as Logo[] | undefined}
                     />
                 );
             })
         }
-        <ProjectCard
-            title="John Solly's Resume"
-            href="/John-Solly-Resume.pdf"
-            readingTime="7 min read"
-            metaimg={jsollyLarge}
-            metaimgAlt="John Solly"
-            snippet="A two-page resume for John Solly, a lead software engineer with a focus on cloud computing and geospatial technologies."
-        />
     </ul>
 </nav>

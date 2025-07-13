@@ -1,82 +1,308 @@
+@import "@fontsource/inter/latin.css";
+@import "@fontsource/poppins/latin.css";
+@import "@fontsource/jetbrains-mono/latin.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-a {
-    text-decoration: none;
-    position: relative;
-    color: rgb(148, 105, 179);
-}
-
-/* Link underline effect, hidden by default because of scaleX(0) */
-a:not(.primary-btn, .secondary-btn, .project-card-link, .toc-link, .link-card-link, .view-source-link, .social-link, .header-link)::before {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 1px;
-    bottom: -0.05rem;
-    left: 0;
-    background-color: rgb(148, 105, 179);
-    transform: scaleX(0);
-    /* Transform + color transition */
-    transition: all 0.3s ease;
-}
-
-/* Link underline transition */
-a:not(.primary-btn, .secondary-btn, .project-card-link, .toc-link, .link-card-link, .view-source-link, .social-link, .header-link):hover::before {
-    background-color: rgb(136, 58, 234);
-    transform: scaleX(1);
-}
-
-/* Link text color transition */
-a:not(.primary-btn, .secondary-btn, .project-card-link, .link-card-link):hover {
-    color: rgb(136, 58, 234);
-}
+/* =============
+Base Typography & Layout
+============== */
 
 @layer base {
-    html {
-        @apply min-h-full text-custom-gray bg-custom-dark antialiased scroll-smooth;
-    }
+	html {
+		@apply min-h-full text-text-secondary bg-background antialiased scroll-smooth font-body;
+		font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+	}
 
-    body {
-        @apply mx-auto max-w-4xl p-4 bg-custom-dark-overlay;
-    }
+	body {
+		@apply mx-auto max-w-4xl p-4 bg-card font-body leading-relaxed;
+	}
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        @apply text-custom-offwhite;
-    }
+	/* Modern heading hierarchy */
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply text-text-primary font-heading font-semibold tracking-tight;
+	}
 
-    .primary-btn {
-        @apply bg-accent hover:bg-accent-hover text-white py-2.5 px-5 rounded-lg font-bold no-underline transition-colors duration-500 ease-in-out hover:text-white;
-    }
+	h1 {
+		@apply text-4xl md:text-5xl lg:text-6xl;
+	}
 
-    .secondary-btn {
-        @apply my-3 bg-transparent hover:bg-accent text-white py-2.5 px-5 border-2 border-accent rounded-lg font-bold no-underline transition-colors duration-300 ease-in-out hover:text-white;
-    }
+	h2 {
+		@apply text-3xl md:text-4xl;
+	}
 
-    .text-gradient {
-        background-image: linear-gradient(45deg,
-                rgb(136, 58, 234),
-                rgb(224, 204, 250) 30%,
-                white 60%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-size: 400%;
-        background-position: 0%;
-    }
+	h3 {
+		@apply text-2xl md:text-3xl;
+	}
 
-    .header-link {
-        @apply ml-1 transition-opacity duration-300 ease-in-out relative;
-    }
+	h4 {
+		@apply text-xl md:text-2xl;
+	}
 
-    .header-link-tooltip {
-        @apply absolute bg-black text-white text-xs py-1 px-2 rounded whitespace-nowrap left-1/2 transform -translate-x-1/2 translate-y-[-20px] transition-opacity duration-300 ease-in-out;
-    }
+	h5 {
+		@apply text-lg md:text-xl;
+	}
+
+	h6 {
+		@apply text-base md:text-lg;
+	}
+
+	/* Enhanced paragraph styling */
+	p {
+		@apply text-text-secondary leading-7;
+	}
+
+	/* Code styling */
+	code {
+		@apply font-mono text-sm bg-neutral-100 px-1.5 py-0.5 rounded-md text-neutral-800;
+	}
+
+	pre {
+		@apply font-mono text-sm bg-neutral-900 text-neutral-100 p-4 rounded-lg overflow-x-auto;
+	}
+}
+
+/* =============
+Enhanced Link Styling
+============== */
+
+a {
+	@apply text-primary-800 transition-all duration-300 ease-out;
+	text-decoration: none;
+	position: relative;
+}
+
+/* Modern link underline effect: now thin blue only on hover */
+a:not(
+		.primary-btn,
+		.secondary-btn,
+		.project-card-link,
+		.toc-link,
+		.link-card-link,
+		.view-source-link,
+		.social-link,
+		.header-link
+	)::before {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 2px;
+	bottom: -2px;
+	left: 0;
+	background: #2563eb; /* Only blue accent */
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	border-radius: 1px;
+}
+
+a:not(
+		.primary-btn,
+		.secondary-btn,
+		.project-card-link,
+		.toc-link,
+		.link-card-link,
+		.view-source-link,
+		.social-link,
+		.header-link
+	):hover {
+	@apply text-primary-900;
+}
+
+a:not(
+		.primary-btn,
+		.secondary-btn,
+		.project-card-link,
+		.toc-link,
+		.link-card-link,
+		.view-source-link,
+		.social-link,
+		.header-link
+	):hover::before {
+	transform: scaleX(1);
+}
+
+/* =============
+Modern Button System
+============== */
+
+.primary-btn {
+	@apply bg-primary-900 text-white py-3 px-6 rounded-xl font-semibold no-underline transition-all duration-300 ease-out transform hover:scale-105 hover:shadow-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+	box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.15);
+}
+
+.secondary-btn {
+	@apply bg-transparent hover:bg-primary-100 text-primary-900 py-3 px-6 border-2 border-primary-900 hover:border-primary-800 rounded-xl font-semibold no-underline transition-all duration-300 ease-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+/* =============
+Enhanced Text Gradients
+============== */
+
+.text-gradient {
+	background: linear-gradient(135deg, #2563eb 0%, #171717 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-size: 200% 200%;
+	animation: none;
+}
+
+/* =============
+Header Link Enhancements
+============== */
+
+.header-link {
+	@apply ml-1 transition-all duration-300 ease-out relative opacity-60 hover:opacity-100;
+}
+
+.header-link-tooltip {
+	@apply absolute bg-neutral-900 text-white text-xs py-2 px-3 rounded-lg whitespace-nowrap left-1/2 transform -translate-x-1/2 translate-y-[-30px] transition-all duration-300 ease-out opacity-0 pointer-events-none shadow-medium;
+}
+
+.header-link:hover .header-link-tooltip {
+	@apply opacity-100 translate-y-[-25px];
+}
+
+/* =============
+Card & Component Enhancements
+============== */
+
+.card {
+	@apply bg-card rounded-2xl border border-neutral-200 shadow-soft transition-all duration-300 ease-out hover:shadow-medium hover:border-neutral-300;
+}
+
+.card-hover {
+	@apply transform hover:scale-[1.02] hover:-translate-y-1;
+}
+
+/* =============
+Entry Animations for Homepage Cards
+============== */
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeInScale {
+	from {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+/* Staggered animation for homepage cards */
+.homepage-card {
+	animation: fadeInUp 0.6s ease-out forwards;
+	opacity: 0;
+}
+
+.homepage-card:nth-child(1) {
+	animation-delay: 0.1s;
+}
+.homepage-card:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.homepage-card:nth-child(3) {
+	animation-delay: 0.3s;
+}
+.homepage-card:nth-child(4) {
+	animation-delay: 0.4s;
+}
+.homepage-card:nth-child(5) {
+	animation-delay: 0.5s;
+}
+.homepage-card:nth-child(6) {
+	animation-delay: 0.6s;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+	.homepage-card {
+		animation: none;
+		opacity: 1;
+	}
+}
+
+/* =============
+Page Header Animation
+============== */
+
+@keyframes fadeInDown {
+	from {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.page-header {
+	animation: fadeInDown 0.8s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.page-header {
+		animation: none;
+	}
+}
+
+/* =============
+Focus & Accessibility
+============== */
+
+*:focus {
+	@apply outline-none ring-2 ring-primary-500 ring-offset-2;
+}
+
+/* =============
+Scrollbar Styling
+============== */
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-neutral-100;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply bg-neutral-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	@apply bg-neutral-400;
+}
+
+/* =============
+Selection Styling
+============== */
+
+::selection {
+	@apply bg-primary-100 text-primary-900;
+}
+
+::-moz-selection {
+	@apply bg-primary-100 text-primary-900;
 }

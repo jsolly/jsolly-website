@@ -1,56 +1,76 @@
 ---
+import FeaturedProjects from "../components/home/FeaturedProjects.astro";
+import Hero from "../components/home/Hero.astro";
 import Layout from "../layouts/Layout.astro";
-import LinkCard from "../components/LinkCard.astro";
 ---
 
 <Layout
 	title="John Solly's Personal Website"
 	description="Welcome to jsolly.com, the personal website of John Solly. Explore my portfolio, blog, and geospatial consulting services."
 >
-	<h1 class="text-5xl font-bold leading-none text-center my-8">
-		Welcome to <span class="text-gradient">jsolly.com</span>
-	</h1>
-	<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-		<LinkCard
-			href="/showcase/"
-			title="Showcase"
-			snippet="Explore my portfolio featuring projects in geospatial analysis and custom software solutions."
-		/>
+	<main class="min-h-screen" role="main" aria-label="Main content">
+		<!-- Hero Section - Enhanced with better spacing and visual impact -->
+		<section 
+			class="min-h-[90vh] flex items-center bg-gradient-to-br from-neutral-50 via-white to-neutral-50"
+			aria-labelledby="hero-heading"
+			role="banner"
+		>
+			<Hero />
+		</section>
 		
-		<!-- <LinkCard
-			href="/ask-me-anything/"
-			title="Ask Me Anything Sessions"
-			snippet="Book a 30 minute or one-hour video call where you can ask me anything about career growth, job searching, or life in general. (I'm not a doctor or lawyer!)"
-			rel="me"
-		/> -->
-	  
-		<LinkCard
-			href="/about/"
-			title="About"
-			snippet="Learn more about my background and professional journey."
-			rel="author"
-		/>
-		<LinkCard
-		href="https://blogthedata.com/"
-			title="Blog"
-			snippet="Dive into my posts on geospatial analysis, software development, and tech tools."
-			rel="me"
-		/>
-		<LinkCard
-			href="https://www.youtube.com/@johnsolly/"
-			title="Tutorial Videos"
-			snippet="Watch my video tutorials on geospatial analysis, software development, and tech tools."
-			rel="me noopener noreferrer"
-		/>
-		<LinkCard
-			href="https://blogthedata.com/post/my-favorite-youtube-channels-podcasts-newsletters/"
-			title="Tech Resources"
-			snippet="A curated list of my favorite tech resources, newsletters, podcasts, and YouTubers"
-		/>
-		<LinkCard
-			href="https://hackmycareer.lol/"
-			title="Career Tools"
-			snippet="Access free career tools including resume and cover letter optimizers, and a LinkedIn job search query builder."
-		/>
-	</ul>
+		<!-- Featured Projects Section - Enhanced with better visual separation -->
+		<section 
+			class="py-20 md:py-32 bg-white relative"
+			aria-labelledby="featured-projects-heading"
+			role="region"
+		>
+			<!-- Decorative background elements -->
+			<div class="absolute inset-0 bg-gradient-to-br from-neutral-50 to-white opacity-50" aria-hidden="true"></div>
+			<div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-64 h-64 bg-primary-100 rounded-full blur-3xl opacity-20" aria-hidden="true"></div>
+			<div class="absolute bottom-0 right-1/4 w-48 h-48 bg-accent-100 rounded-full blur-2xl opacity-30" aria-hidden="true"></div>
+			
+			<div class="relative">
+				<FeaturedProjects />
+			</div>
+		</section>
+		
+		<!-- Enhanced Call to Action Section -->
+		<section 
+			class="py-20 md:py-28 bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 text-white relative overflow-hidden"
+			aria-labelledby="cta-heading"
+			role="region"
+		>
+			<!-- Decorative elements -->
+			<div class="absolute inset-0 bg-gradient-to-br from-primary-900/20 to-accent-900/20" aria-hidden="true"></div>
+			<div class="absolute top-1/4 right-1/4 w-32 h-32 bg-primary-500 rounded-full blur-3xl opacity-20 animate-pulse" aria-hidden="true"></div>
+			<div class="absolute bottom-1/4 left-1/4 w-24 h-24 bg-accent-500 rounded-full blur-2xl opacity-30 animate-pulse" style="animation-delay: 1s;" aria-hidden="true"></div>
+			
+			<article class="relative max-w-2xl mx-auto px-4 text-center bg-white rounded-3xl shadow-2xl py-16 md:py-20 px-6 md:px-12 border border-neutral-200">
+				<header>
+					<h2 id="cta-heading" class="text-3xl md:text-4xl font-bold mb-8 text-neutral-900">
+						Ready to work together?
+					</h2>
+				</header>
+				<p class="text-xl md:text-2xl text-neutral-700 mb-12 max-w-3xl mx-auto leading-relaxed">
+					I'm always interested in new opportunities and collaborations. Whether you have a project in mind or just want to connect, I'd love to hear from you.
+				</p>
+				<footer class="flex flex-col sm:flex-row gap-6 justify-center">
+					<a 
+						href="/about" 
+						class="primary-btn"
+						aria-label="Learn more about John Solly"
+					>
+						Learn More About Me
+					</a>
+					<a 
+						href="/showcase" 
+						class="secondary-btn"
+						aria-label="View all projects and work"
+					>
+						View All My Work
+					</a>
+				</footer>
+			</article>
+		</section>
+	</main>
 </Layout>

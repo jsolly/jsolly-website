@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import lightHouseScores from "../../images/svg/lighthouseScores.svg";
 ---
 
@@ -19,8 +18,8 @@ import lightHouseScores from "../../images/svg/lighthouseScores.svg";
                         jsolly.com PageSpeed Insights
                     </a>
                 </figcaption>
-                <Image
-                    src={lightHouseScores}
+                <img
+                    src={lightHouseScores as unknown as string}
                     alt="Lighthouse scores for jsolly.com: 100 for Performance, Accessibility, Best Practices, and SEO."
                     class="h-40 w-auto mx-auto"
                 />

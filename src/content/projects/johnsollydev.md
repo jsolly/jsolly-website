@@ -8,17 +8,22 @@ snippet: "Learn more about the website you are currently on! This project was bu
 logos:
   - url: /src/images/logos/awsLogo.svg
     alt: "AWS logo"
+    label: "AWS"
   - url: /src/images/logos/typescriptLogo.svg
     alt: "TypeScript logo"
+    label: "TYPESCRIPT"
   - url: /src/images/logos/astroLogo.svg
     alt: "Astro logo"
+    label: "ASTRO"
   - url: /src/images/logos/vueLogo.svg
     alt: "Vue.js logo"
+    label: "VUE.JS"
   - url: /src/images/logos/tailwindLogo.svg
     alt: "Tailwind CSS logo"
+    label: "TAILWIND CSS"
   - url: /src/images/logos/stripeLogo.svg
     alt: "Stripe logo"
-  
+    label: "STRIPE"
 ---
 
 ## Purpose and Objective

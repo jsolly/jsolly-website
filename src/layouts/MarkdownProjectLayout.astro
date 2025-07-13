@@ -1,9 +1,10 @@
 ---
-const { frontmatter, headings, readingTime } = Astro.props;
-import Layout from "./Layout.astro";
 import { Image } from "astro:assets";
-import clockIcon from "../images/svg/clockIcon.svg";
 import TableOfContents from "../components/projects/TableOfContents.astro";
+import clockIcon from "../images/svg/clockIcon.svg";
+import Layout from "./Layout.astro";
+
+const { frontmatter, headings, readingTime } = Astro.props;
 ---
 
 <Layout title={frontmatter.title} description={frontmatter.snippet}>

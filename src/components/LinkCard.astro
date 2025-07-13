@@ -1,45 +1,16 @@
 ---
-interface Props {
-	title: string;
-	snippet: string;
-	href: string;
-	rel?: string;
-}
-
-const { title, snippet, href, rel } = Astro.props;
-const isRelativeLink = href.startsWith("/") && !href.endsWith(".pdf");
+const { href, title, snippet } = Astro.props;
+const _isRelativeLink = href.startsWith("/") && !href.endsWith(".pdf");
 ---
 
-<li class="link-card text-lg rounded-lg flex bg-accent-dark-overlay-lvl-2">
-    <a
-        href={href}
-        target={isRelativeLink ? "_self" : "_blank"}
-        class="link-card-link rounded-lg py-6 px-5 no-underline text-custom-gray hover:text-custom-gray"
-        rel={rel}
-    >
-        <h2 class="text-white text-2xl font-bold mb-4 flex justify-between">
-            <span class="link-card-title">{title}</span>
-            <span>&rarr;</span>
-        </h2>
-        <p>{snippet}</p>
-    </a>
-</li>
-<style>
-    .link-card {
-        opacity: 0.8;
-        /* Darker than "rgb(39, 40, 51)" but lighter than "rgb(6, 9, 19)", */
-        border: 1px solid rgb(30, 30, 30);
-        transition:
-            border-color 300ms ease-in-out,
-            opacity 300ms ease-in-out;
-    }
-
-    .link-card:is(:hover, :focus-within) {
-        border-color: rgb(100, 80, 120);
-        opacity: 1;
-    }
-    .link-card:is(:hover, :focus-within) .link-card-title {
-        text-decoration: underline;
-        text-underline-offset: 0.2em;
-    }
-</style>
+<a
+    href={href}
+    target={_isRelativeLink ? "_self" : "_blank"}
+    class="link-card-link group block rounded-2xl p-6 bg-gradient-to-br from-primary-50 via-accent-50 to-primary-100 border border-neutral-200 shadow-soft transition-all duration-400 ease-out transform hover:scale-[1.03] hover:shadow-medium focus:scale-[1.03] focus:shadow-medium focus:outline-none focus:ring-2 focus:ring-primary-400"
+>
+    <h2 class="text-2xl font-heading font-bold mb-4 flex justify-between items-center text-text-primary group-hover:text-primary-700 transition-colors duration-400">
+        <span class="link-card-title">{title}</span>
+        <span class="text-primary-500 group-hover:text-accent-600 transition-colors duration-400">&rarr;</span>
+    </h2>
+    <p class="text-text-secondary">{snippet}</p>
+</a>

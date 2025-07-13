@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import AmyBrazilAvatar from "/src/images/AmyBrazil.webp";
 import CraigUtleyAvatar from "/src/images/CraigUtley.webp";
 import MeredithBeanAvatar from "/src/images/MeredithBean.webp";
@@ -77,10 +76,10 @@ const carouselItems = [
                             } data-index=${index}`}
                         >
                             <div class="mb-3 flex flex-col items-center">
-                                <Image
+                                <img
                                     class="rounded-full shadow-lg mb-3 max-w-[150px] max-h-[150px]"
-                                    src={item.avatar}
-                                    alt="avatar"
+                                    src={item.avatar as unknown as string}
+                                    alt={item.name}
                                     loading="eager"
                                 />
                                 <div class="flex flex-col items-center gap-2 min-h-[160px]">

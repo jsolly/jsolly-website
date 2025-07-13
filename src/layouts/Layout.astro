@@ -1,5 +1,10 @@
 ---
+import { Image } from "astro:assets";
 import "../main.css";
+import githubLogo from "../images/social/githubLogo.svg";
+import linkedinLogo from "../images/social/linkedinLogo.svg";
+import xLogo from "../images/social/xLogo.svg";
+
 interface Props {
 	title: string;
 	description: string;
@@ -9,116 +14,152 @@ const { title, description } = Astro.props;
 const isRootPath = Astro.url.pathname === "/";
 const socialImageURL = new URL("/images/jsolly.webp", Astro.url);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-import githubLogo from "../images/social/githubLogo.svg";
-import { Image } from "astro:assets";
 ---
 
 <!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="description" content={description} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{title}</title>
-        <link rel="canonical" href={canonicalURL} />
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="canonical" href={canonicalURL} />
 
-        <!-- Favicons -->
-        <link rel="icon" href="/favicon.ico" />
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/favicons/apple-touch-icon.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/favicons/favicon-32x32.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/favicons/favicon-16x16.png"
-        />
-        <link
-            rel="icon"
-            sizes="192x192"
-            href="/favicons/android-chrome-192x192.png"
-        />
-        <link
-            rel="icon"
-            sizes="512x512"
-            href="/favicons/android-chrome-512x512.png"
-        />
-        <link rel="manifest" href="/favicons/site.webmanifest" />
-        <link rel="sitemap" href="/sitemap-index.xml" />
+		<!-- Favicons -->
+		<link rel="icon" href="/favicon.ico" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/favicons/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/favicons/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/favicons/favicon-16x16.png"
+		/>
+		<link
+			rel="icon"
+			sizes="192x192"
+			href="/favicons/android-chrome-192x192.png"
+		/>
+		<link
+			rel="icon"
+			sizes="512x512"
+			href="/favicons/android-chrome-512x512.png"
+		/>
+		<link rel="manifest" href="/favicons/site.webmanifest" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
 
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={canonicalURL} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={socialImageURL} />
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={socialImageURL} />
 
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={canonicalURL} />
-        <meta property="twitter:title" content={title} />
-        <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={socialImageURL} />
-    </head>
-    <body>
-        <header class="flex justify-between items-center mt-6 mb-6">
-            <nav class="flex-1">
-                {
-                    !isRootPath && (
-                        <a
-                            href="/"
-                            id="home-btn"
-                            class="secondary-btn"
-                            transition:persist="home-btn"
-                        >
-                            Home
-                        </a>
-                    )
-                }
-            </nav>
-            <div class="flex-1"></div>
-        </header>
-
-        <main>
-            <slot />
-            {
-                !isRootPath && (
-                    <a
-                        href="javascript:history.back()"
-                        id="back-btn"
-                        class="secondary-btn inline-block mt-6"
-                        transition:persist="back-btn"
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={socialImageURL} />
+	</head>
+	<body class="bg-background text-text-primary font-body">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<header class="flex justify-between items-center py-6 md:py-8" role="banner">
+                <a href="/" class="text-2xl font-bold font-heading text-primary-700 hover:text-primary-600 transition-colors" aria-label="John Solly - Home">
+                    John Solly
+                </a>
+				<nav class="hidden md:flex items-center space-x-8" role="navigation" aria-label="Primary navigation">
+					<a href="/about" class="text-lg font-medium text-text-secondary hover:text-primary-600 transition-colors" aria-label="About John Solly">About</a>
+					<a href="/showcase" class="text-lg font-medium text-text-secondary hover:text-primary-600 transition-colors" aria-label="View portfolio and projects">Showcase</a>
+					<a href="/John-Solly-Resume.pdf" target="_blank" rel="noopener noreferrer" class="text-lg font-medium text-text-secondary hover:text-primary-600 transition-colors" aria-label="Download John Solly's resume (opens in new tab)">Resume</a>
+				</nav>
+                <div class="md:hidden">
+                    <button 
+                        id="mobile-menu-button" 
+                        class="text-text-primary"
+                        aria-label="Toggle mobile menu"
+                        aria-expanded="false"
+                        aria-controls="mobile-menu"
                     >
-                        Back
-                    </a>
-                )
-            }
-        </main>
-        <footer class="group flex justify-center mt-5 mb-16">
-            <a
-                href="https://github.com/jsolly/jsolly-website"
-                target="_blank"
-                rel="noopener noreferrer"
-                id="github-btn"
-                transition:persist="github-btn"
-                class="flex items-center justify-center content-center text-xs view-source-link"
-            >
-                <Image
-                    src={githubLogo}
-                    alt="GitHub Logo"
-                    class="w-5 h-5 mr-2 opacity-80 group-hover:opacity-100 transition-opacity duration-300 ease-in-out"
-                />
-                View Source
-            </a>
-        </footer>
-    </body>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+			</header>
+            <nav id="mobile-menu" class="hidden md:hidden" role="navigation" aria-label="Mobile navigation">
+                <div class="flex flex-col space-y-4 px-2 pt-2 pb-3">
+                    <a href="/about" class="block px-3 py-2 rounded-md text-base font-medium text-text-secondary hover:text-primary-600 hover:bg-neutral-100" aria-label="About John Solly">About</a>
+                    <a href="/showcase" class="block px-3 py-2 rounded-md text-base font-medium text-text-secondary hover:text-primary-600 hover:bg-neutral-100" aria-label="View portfolio and projects">Showcase</a>
+                    <a href="/John-Solly-Resume.pdf" target="_blank" rel="noopener noreferrer" class="block px-3 py-2 rounded-md text-base font-medium text-text-secondary hover:text-primary-600 hover:bg-neutral-100" aria-label="Download John Solly's resume (opens in new tab)">Resume</a>
+                </div>
+            </nav>
+
+			<main role="main" aria-label="Main content">
+				<slot />
+				{
+					!isRootPath && (
+						<nav aria-label="Back navigation">
+							<a
+								href="javascript:history.back()"
+								id="back-btn"
+								class="secondary-btn inline-block mt-6"
+								transition:persist="back-btn"
+								aria-label="Go back to previous page"
+							>
+								Back
+							</a>
+						</nav>
+					)
+				}
+			</main>
+			<footer class="mt-16 md:mt-24 pb-8" role="contentinfo">
+				<div class="border-t border-border pt-8">
+					<div class="flex flex-col md:flex-row justify-between items-center gap-8">
+						<nav class="flex gap-8" role="navigation" aria-label="Footer navigation">
+							<a href="/about" class="text-lg font-medium text-text-secondary hover:text-primary-600 transition-colors" aria-label="About John Solly">About</a>
+							<a href="/showcase" class="text-lg font-medium text-text-secondary hover:text-primary-600 transition-colors" aria-label="View portfolio and projects">Showcase</a>
+							<a href="/John-Solly-Resume.pdf" target="_blank" rel="noopener noreferrer" class="text-lg font-medium text-text-secondary hover:text-primary-600 transition-colors" aria-label="Download John Solly's resume (opens in new tab)">Resume</a>
+						</nav>
+						<nav class="flex gap-6" role="navigation" aria-label="Social media links">
+							<a href="https://github.com/jsolly" target="_blank" rel="noopener noreferrer" class="text-text-secondary hover:text-primary-600" aria-label="Visit John Solly's GitHub profile (opens in new tab)">
+								<Image src={githubLogo} alt="GitHub" class="w-6 h-6" />
+							</a>
+							<a href="https://www.linkedin.com/in/johnsolly/" target="_blank" rel="noopener noreferrer" class="text-text-secondary hover:text-primary-600" aria-label="Visit John Solly's LinkedIn profile (opens in new tab)">
+								<Image src={linkedinLogo} alt="LinkedIn" class="w-6 h-6" />
+							</a>
+							<a href="https://x.com/jsolly" target="_blank" rel="noopener noreferrer" class="text-text-secondary hover:text-primary-600" aria-label="Visit John Solly's X (Twitter) profile (opens in new tab)">
+								<Image src={xLogo} alt="X" class="w-6 h-6" />
+							</a>
+						</nav>
+					</div>
+					<p class="text-center text-text-muted mt-8 text-sm">
+						&copy; {new Date().getFullYear()} John Solly. All rights reserved.
+					</p>
+				</div>
+			</footer>
+		</div>
+		<script>
+			const mobileMenuButton = document.getElementById('mobile-menu-button');
+			const mobileMenu = document.getElementById('mobile-menu');
+
+			if (mobileMenuButton && mobileMenu) {
+				mobileMenuButton.addEventListener('click', () => {
+					const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+					mobileMenuButton.setAttribute('aria-expanded', (!isExpanded).toString());
+					mobileMenu.classList.toggle('hidden');
+				});
+			}
+		</script>
+	</body>
 </html>
