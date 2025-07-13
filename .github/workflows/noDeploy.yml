@@ -1,35 +1,35 @@
 name: No Deploy (Test and Build)
 
 on:
-  # Run on any push to any branch except master
-  push:
-    branches-ignore: [master]
-
-  # Run on any pull request targeting master
   pull_request:
-    branches: [master]
 
 jobs:
   testAndBuild:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [23]
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Setup pnpm
-      uses: pnpm/action-setup@v4
-      with:
-        version: 9
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'pnpm'
-    - name: Install dependencies
-      run: pnpm install
-    - name: Lint
-      run: pnpm run lint
-    - name: Build application
-      run: pnpm run build
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
+        with:
+          version: 2.0.6
+
+      - name: Run Biome
+        run: npx biome ci .
+
+      - name: Setup Node.js from .nvmrc
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Deep Type check
+        run: npm run check:ts
+
+      - name: Build application
+        run: npm run build

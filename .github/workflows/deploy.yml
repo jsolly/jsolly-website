@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
 
 permissions:
   id-token: write
@@ -12,29 +13,24 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [22]
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        role-to-assume: arn:aws:iam::730335616323:role/GitHubActionsDeploymentRole
-        aws-region: us-east-1
-    - name: Setup pnpm
-      uses: pnpm/action-setup@v4
-      with:
-          version: 8
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'pnpm'
-    - name: Install dependencies
-      run: pnpm install
-    - name: Lint
-      run: pnpm run lint
-    - name: Build application
-      run: pnpm run build
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
+        with:
+          version: 2.0.6
+      - name: Run Biome
+        run: npx biome ci .
+      - name: Setup Node.js from .nvmrc
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Install dependencies
+        run: npm ci
+      - name: Deep Type check
+        run: npm run check:ts
+      - name: Build application
+        run: npm run build
