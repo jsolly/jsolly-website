@@ -1,7 +1,6 @@
 ---
-import { fade } from "astro:transitions";
 import ContactMe from "../components/ContactMe.astro";
-import LongSollyBio from "../components/showcase/LongSollyBio.astro";
+import ShortSollyBio from "../components/showcase/ShortSollyBio.astro";
 import PageSpeedInsights from "../components/showcase/PageSpeedInsights.astro";
 import ShowcaseCards from "../components/showcase/ShowcaseCards.astro";
 import Testimonials from "../components/showcase/Testimonials.astro";
@@ -13,14 +12,7 @@ import Layout from "../layouts/Layout.astro";
     description="Explore the comprehensive showcase of John Solly's impactful work, projects, and contributions to the geospatial and software engineering fields."
 >
     <div class="flex flex-col gap-6">
-        <h1
-            id="showcaseHello"
-            class="text-6xl font-bold leading-none tracking-tight text-center"
-            transition:animate={fade({ duration: "0.6s" })}
-        >
-            <span>Hello World,</span><br><span class="text-gradient">I'm John!</span>
-        </h1>
-        <LongSollyBio />
+        <ShortSollyBio />
         <Testimonials />
         <ShowcaseCards />
         <ContactMe />
@@ -28,5 +20,4 @@ import Layout from "../layouts/Layout.astro";
     </div>
 </Layout>
 
-<script src="/src/scripts/accordion.js"></script>
 <script src="/src/scripts/carousel.js"></script>

@@ -12,8 +12,6 @@ const allProjects = await getCollection("projects");
         {
             allProjects.reverse().map(async (project, index) => {
                 const { remarkPluginFrontmatter } = await project.render();
-                // eagerly load the first image (above the fold)
-                const loading = index === 0 ? "eager" : undefined;
                 return (
                     <ProjectCard
                         title={project.data.title}
@@ -21,7 +19,6 @@ const allProjects = await getCollection("projects");
                         readingTime={remarkPluginFrontmatter.minutesRead}
                         metaimg={project.data.metaimg}
                         metaimgAlt={project.data.metaimgAlt}
-                        imgLoading={loading}
                         snippet={project.data.snippet}
                         logos={project.data.logos}
                     />

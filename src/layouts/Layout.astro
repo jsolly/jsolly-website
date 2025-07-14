@@ -78,15 +78,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 				<slot />
 				{
 					!isRootPath && (
-						<nav aria-label="Back navigation">
+						<nav aria-label="Home navigation">
 							<a
-								href="javascript:history.back()"
-								id="back-btn"
+								href="/"
+								id="home-btn"
 								class="secondary-btn inline-block mt-6"
-								transition:persist="back-btn"
-								aria-label="Go back to previous page"
+								transition:persist="home-btn"
+								aria-label="Go to home page"
 							>
-								Back
+								Home
 							</a>
 						</nav>
 					)

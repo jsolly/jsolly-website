@@ -66,4 +66,4 @@ Card Components
 
 .card {
 	@apply bg-card rounded-2xl border border-neutral-200 shadow-soft transition-all duration-300 ease-out hover:shadow-medium hover:border-neutral-300;
-} 
+}

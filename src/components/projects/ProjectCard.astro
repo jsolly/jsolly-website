@@ -12,7 +12,7 @@ export interface Props {
 	readingTime: string;
 	metaimgAlt: string;
 	logos?: Logo[];
-	imgLoading?: "eager" | undefined;
+	imgLoading?: "eager" | "lazy";
 	style?: string;
 }
 
@@ -24,7 +24,7 @@ const {
 	metaimg,
 	metaimgAlt,
 	logos,
-	imgLoading,
+	imgLoading = "lazy",
 } = Astro.props;
 const isRelativeLink = href.startsWith("/") && !href.endsWith(".pdf");
 ---
@@ -79,7 +79,7 @@ const isRelativeLink = href.startsWith("/") && !href.endsWith(".pdf");
             
             {readingTime ? (
                 <div class="flex items-center justify-between">
-                    <span class="text-sm text-neutral-500 flex items-center gap-2 opacity-80 group-hover:opacity-100 transition-opacity duration-400">
+                    <span class="text-sm text-text-secondary flex items-center gap-2 group-hover:text-text-primary transition-colors duration-400">
                         <Image
                             src={clockIcon}
                             alt="Clock icon"
