@@ -1,0 +1,73 @@
+/* =============
+Base Typography & Layout
+============== */
+
+@layer base {
+	html {
+		@apply min-h-full text-text-secondary bg-background antialiased scroll-smooth font-body;
+		font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+	}
+
+	body {
+		@apply mx-auto max-w-7xl p-4 bg-card font-body leading-relaxed;
+	}
+
+	/* Heading hierarchy */
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply text-text-primary font-heading font-semibold tracking-tight;
+	}
+
+	h1 {
+		@apply text-4xl md:text-5xl lg:text-6xl;
+	}
+	h2 {
+		@apply text-3xl md:text-4xl;
+	}
+	h3 {
+		@apply text-2xl md:text-3xl;
+	}
+	h4 {
+		@apply text-xl md:text-2xl;
+	}
+	h5 {
+		@apply text-lg md:text-xl;
+	}
+	h6 {
+		@apply text-base md:text-lg;
+	}
+
+	/* Paragraph styling */
+	p {
+		@apply text-text-secondary leading-7;
+	}
+
+	/* Code styling */
+	code {
+		@apply font-mono text-sm bg-neutral-100 px-1.5 py-0.5 rounded-md text-neutral-800;
+	}
+
+	pre {
+		@apply font-mono text-sm bg-neutral-900 text-neutral-100 p-4 rounded-lg overflow-x-auto;
+	}
+}
+
+/* =============
+Focus & Accessibility
+============== */
+
+*:focus {
+	@apply outline-hidden ring-2 ring-primary-500 ring-offset-2;
+}
+
+/* =============
+Selection Styling
+============== */
+
+::selection {
+	@apply bg-primary-100 text-primary-900;
+} 

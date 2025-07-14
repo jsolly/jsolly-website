@@ -16,14 +16,14 @@ const allProjects = await getCollection("projects");
                 const loading = index === 0 ? "eager" : undefined;
                 return (
                     <ProjectCard
-                        title={project.data.title as string}
+                        title={project.data.title}
                         href={`/projects/${project.slug}/`}
-                        readingTime={remarkPluginFrontmatter.minutesRead as string}
-                        metaimg={project.data.metaimg as ImageMetadata}
-                        metaimgAlt={project.data.metaimgAlt as string}
+                        readingTime={remarkPluginFrontmatter.minutesRead}
+                        metaimg={project.data.metaimg}
+                        metaimgAlt={project.data.metaimgAlt}
                         imgLoading={loading}
-                        snippet={project.data.snippet as string}
-                        logos={project.data.logos as Logo[] | undefined}
+                        snippet={project.data.snippet}
+                        logos={project.data.logos}
                     />
                 );
             })

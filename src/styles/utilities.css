@@ -1,0 +1,36 @@
+/* =============
+Custom Utilities
+============== */
+
+@utility font-body {
+	font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-heading {
+	font-family: "Poppins", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* =============
+Text Gradients
+============== */
+
+.text-gradient {
+	background: linear-gradient(135deg, #2563eb 0%, #171717 100%);
+	background-clip: text;
+	color: transparent;
+	background-size: 200% 200%;
+}
+
+/* =============
+Accent Colors
+============== */
+
+.bg-accent-primary {
+	@apply bg-blue-500;
+}
+.text-accent-primary {
+	@apply text-blue-500;
+}
+.text-accent {
+	@apply text-blue-500;
+} 

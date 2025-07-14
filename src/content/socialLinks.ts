@@ -1,10 +1,19 @@
+import type { ImageMetadata } from "astro";
 import blogthedataLogo from "../images/social/blogthedataLogo.svg";
 import githubLogo from "../images/social/githubLogo.svg";
 import linkedinLogo from "../images/social/linkedinLogo.svg";
 import xLogo from "../images/social/xLogo.svg";
 import youtubeLogo from "../images/social/youtubeLogo.svg";
 
-export const socialLinks = [
+interface SocialLink {
+	href: string;
+	icon: ImageMetadata;
+	alt: string;
+	ariaLabel: string;
+	rel: string;
+}
+
+export const socialLinks: readonly SocialLink[] = [
 	{
 		href: "https://github.com/jsolly",
 		icon: githubLogo,
@@ -29,7 +38,7 @@ export const socialLinks = [
 	{
 		href: "https://www.youtube.com/channel/UCxsK9UorVj2F17DMSXLuSQw",
 		icon: youtubeLogo,
-		alt: "Youtube",
+		alt: "YouTube",
 		ariaLabel: "Visit John Solly's YouTube channel (opens in new tab)",
 		rel: "me noopener noreferrer",
 	},

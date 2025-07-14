@@ -1,8 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import ProjectCard from "../projects/ProjectCard.astro";
-import type { ImageMetadata } from "astro";
-import type { Logo } from "../../types";
 
 const allProjects = await getCollection("projects");
 const featuredProjects = allProjects.reverse().slice(0, 2);
@@ -11,18 +9,25 @@ const renderedProjects = await Promise.all(
 	featuredProjects.map(async (project, index) => {
 		const { remarkPluginFrontmatter } = await project.render();
 		const loading: "eager" | undefined = index === 0 ? "eager" : undefined;
+		
+		// Validate required fields exist
+		if (!project.data.metaimg) {
+			console.warn(`Project ${project.slug} is missing required metaimg`);
+			return null;
+		}
+
 		return {
-			title: project.data.title as string,
+			title: project.data.title ?? "Untitled Project",
 			href: `/projects/${project.slug}/`,
-			readingTime: remarkPluginFrontmatter.minutesRead as string,
-			metaimg: project.data.metaimg as ImageMetadata,
-			metaimgAlt: project.data.metaimgAlt as string,
-			snippet: project.data.snippet as string,
-			logos: project.data.logos as Logo[] | undefined,
+			readingTime: remarkPluginFrontmatter?.minutesRead ?? "Unknown reading time",
+			metaimg: project.data.metaimg,
+			metaimgAlt: project.data.metaimgAlt ?? "Project image",
+			snippet: project.data.snippet ?? "No description available",
+			logos: project.data.logos ?? [],
 			imgLoading: loading,
 		};
 	}),
-);
+).then(projects => projects.filter((project): project is NonNullable<typeof project> => project !== null));
 ---
 
 <section class="max-w-7xl mx-auto px-4" aria-labelledby="featured-projects-heading">
@@ -46,7 +51,7 @@ const renderedProjects = await Promise.all(
         {
             renderedProjects.map((projectProps, index) => (
                 <li role="listitem">
-                    <ProjectCard {...projectProps} extraClass={`homepage-card`} style={`animation-delay: ${(index + 1) * 0.1}s`} />
+                    <ProjectCard {...projectProps} />
                 </li>
             ))
         }

@@ -1,36 +1,47 @@
-name: Deploy Website
+name: Lint and Build
 
 on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
+        
+  schedule:
+    # Run every 24 hours at 2 AM UTC
+    - cron: '0 2 * * *'
+    # Run manually
   workflow_dispatch:
 
-permissions:
-  id-token: write
-  contents: read
-
 jobs:
-  deploy:
+  lintAndBuild:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Biome
-        uses: biomejs/setup-biome@v2
-        with:
-          version: 2.0.6
-      - name: Run Biome
-        run: biome ci .
+
       - name: Setup Node.js from .nvmrc
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
           cache: npm
-          cache-dependency-path: package-lock.json
+          cache-dependency-path: |
+            **/package-lock.json
+
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
+        with:
+          version: 2.0.6
+
+      - name: Run Biome
+        run: npx biome ci .
+
       - name: Install dependencies
         run: npm ci
+
       - name: Deep Type check
         run: npm run check:ts
+
       - name: Build application
-        run: npm run build
+        run: npm run build 
