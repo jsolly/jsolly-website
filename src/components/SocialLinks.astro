@@ -23,4 +23,21 @@ const { imgLoading = "lazy" } = Astro.props;
             </a>
         ))
     }
-</nav> 
+</nav>
+
+<style>
+    .social-link {
+        opacity: 0.8;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .social-link:hover {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    /* Hide external link indicator for social links */
+    a[target="_blank"].social-link::after {
+        content: none;
+    }
+</style> 
