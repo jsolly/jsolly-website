@@ -1,7 +1,8 @@
 ---
+import type { ImageMetadata } from "astro";
 import { getCollection } from "astro:content";
+import type { Logo } from "../../types";
 import ProjectCard from "../projects/ProjectCard.astro";
-import jsollyLarge from "../../images/jsollyLarge.webp";
 
 const allProjects = await getCollection("projects");
 ---
@@ -27,13 +28,5 @@ const allProjects = await getCollection("projects");
                 );
             })
         }
-        <ProjectCard
-            title="John Solly's Resume"
-            href="/John-Solly-Resume.pdf"
-            readingTime="7 min read"
-            metaimg={jsollyLarge}
-            metaimgAlt="John Solly"
-            snippet="A two-page resume for John Solly, a lead software engineer with a focus on cloud computing and geospatial technologies."
-        />
     </ul>
 </nav>

@@ -1,0 +1,46 @@
+---
+---
+
+<header class="flex justify-between items-center py-6 md:py-8" role="banner">
+    <a href="/" class="text-2xl font-bold font-heading text-primary-700 hover:text-primary-600 transition-colors" aria-label="Home">
+        Home
+    </a>
+    <nav class="hidden md:flex items-center space-x-8" role="navigation" aria-label="Primary navigation">
+        <a href="/about" class="text-lg font-medium text-text-secondary hover:text-primary-600 transition-colors" aria-label="About John Solly">About</a>
+        <a href="/showcase" class="text-lg font-medium text-text-secondary hover:text-primary-600 transition-colors" aria-label="View portfolio and projects">Showcase</a>
+        <a href="/John-Solly-Resume.pdf" target="_blank" rel="noopener noreferrer" class="text-lg font-medium text-text-secondary hover:text-primary-600 transition-colors" aria-label="Download John Solly's resume (opens in new tab)">Resume</a>
+    </nav>
+    <div class="md:hidden">
+        <button 
+            id="mobile-menu-button" 
+            class="text-text-primary"
+            aria-label="Toggle mobile menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+        >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </div>
+</header>
+<nav id="mobile-menu" class="hidden md:hidden" role="navigation" aria-label="Mobile navigation">
+    <div class="flex flex-col space-y-4 px-2 pt-2 pb-3">
+        <a href="/about" class="block px-3 py-2 rounded-md text-base font-medium text-text-secondary hover:text-primary-600 hover:bg-neutral-100" aria-label="About John Solly">About</a>
+        <a href="/showcase" class="block px-3 py-2 rounded-md text-base font-medium text-text-secondary hover:text-primary-600 hover:bg-neutral-100" aria-label="View portfolio and projects">Showcase</a>
+        <a href="/John-Solly-Resume.pdf" target="_blank" rel="noopener noreferrer" class="block px-3 py-2 rounded-md text-base font-medium text-text-secondary hover:text-primary-600 hover:bg-neutral-100" aria-label="Download John Solly's resume (opens in new tab)">Resume</a>
+    </div>
+</nav>
+
+<script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+            mobileMenuButton.setAttribute('aria-expanded', (!isExpanded).toString());
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+</script> 

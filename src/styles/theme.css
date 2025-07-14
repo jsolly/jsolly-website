@@ -1,0 +1,66 @@
+/* =============
+Theme Configuration
+============== */
+
+@theme {
+	/* =============
+  Color Palette
+  ============== */
+
+	/* Primary grayscale palette */
+	--color-primary-50: #fafafa;
+	--color-primary-100: #f5f5f5;
+	--color-primary-200: #e5e5e5;
+	--color-primary-300: #d4d4d4;
+	--color-primary-400: #a3a3a3;
+	--color-primary-500: #737373;
+	--color-primary-600: #404040;
+	--color-primary-700: #262626;
+	--color-primary-800: #171717;
+	--color-primary-900: #0a0a0a;
+
+	/* Accent colors */
+	--color-accent-50: #f7fafc;
+	--color-accent-100: #f1f1f1;
+	--color-accent-200: #e2e2e2;
+	--color-accent-300: #cccccc;
+	--color-accent-400: #b3b3b3;
+	--color-accent-500: #8c8c8c;
+	--color-accent-600: #666666;
+	--color-accent-700: #4d4d4d;
+	--color-accent-800: #333333;
+	--color-accent-900: #1a1a1a;
+
+	/* Blue accent */
+	--color-blue-500: #2563eb;
+
+	/* Semantic colors */
+	--color-background: #fafafa;
+	--color-card: #ffffff;
+	--color-text-primary: #171717;
+	--color-text-secondary: #525252;
+	--color-text-muted: #737373;
+	--color-border: #e5e5e5;
+	--color-success: #10b981;
+	--color-warning: #f59e0b;
+	--color-error: #ef4444;
+
+	/* =============
+  Typography
+  ============== */
+
+	--font-family-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+	--font-family-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+	--font-family-heading:
+		"Poppins", "Inter", ui-sans-serif, system-ui, sans-serif;
+	--font-family-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+	/* =============
+  Shadows
+  ============== */
+
+	--shadow-soft:
+		0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+	--shadow-medium:
+		0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+} 

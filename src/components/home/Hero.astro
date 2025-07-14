@@ -1,0 +1,59 @@
+---
+import { Image } from "astro:assets";
+import jsollyLarge from "../../images/jsollyLarge.webp";
+---
+
+<article class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto px-4" role="banner">
+    <header class="order-2 md:order-1 space-y-8">
+        <div class="space-y-4">
+            <h1 id="hero-heading" class="text-5xl md:text-7xl font-bold leading-tight tracking-tighter text-text-primary">
+                Hi, I'm <span class="text-gradient">John Solly</span>.
+            </h1>
+            <div class="w-24 h-1 bg-gradient-to-r from-accent-primary to-black rounded-full" aria-hidden="true"></div>
+        </div>
+        
+        <!-- Enhanced bio with better typography -->
+        <p class="text-xl md:text-2xl text-text-secondary leading-relaxed max-w-lg">
+            A Software Engineer specializing in <span class="font-semibold text-accent-primary">Geospatial Technology</span>. I turn complex spatial data into powerful, high-performance applications.
+        </p>
+        
+        <!-- Enhanced CTA buttons with better styling -->
+        <nav class="flex flex-col sm:flex-row gap-4 pt-4" aria-label="Primary navigation">
+            <a 
+                href="/about" 
+                class="primary-btn text-center group"
+                aria-label="Learn more about John Solly"
+            >
+                More About Me
+                <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true">&rarr;</span>
+            </a>
+            <a 
+                href="/showcase" 
+                class="secondary-btn text-center group"
+                aria-label="View John Solly's portfolio and projects"
+            >
+                View My Work
+                <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true">&rarr;</span>
+            </a>
+        </nav>
+    </header>
+    
+    <!-- Enhanced image container with better styling -->
+    <figure class="order-1 md:order-2 flex justify-center md:justify-end">
+        <div class="relative">
+            <!-- Decorative background elements -->
+            <div class="absolute inset-0 bg-gradient-to-br from-primary-100 to-accent-100 rounded-full blur-3xl opacity-30 animate-pulse" aria-hidden="true"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-neutral-200 to-neutral-300 rounded-full blur-2xl opacity-20" aria-hidden="true"></div>
+            
+            <!-- Main image with enhanced styling -->
+            <Image
+                src={jsollyLarge}
+                alt="John Solly - Software Engineer specializing in Geospatial Technology"
+                class="relative rounded-full shadow-2xl w-56 h-56 md:w-72 md:h-72 object-cover border-4 border-white ring-4 ring-primary-100 hover:ring-primary-200 transition-all duration-500 hover:scale-105"
+                loading="eager"
+                widths={[288, 576]}
+                sizes="(max-width: 768px) 224px, 288px"
+            />
+        </div>
+    </figure>
+</article> 

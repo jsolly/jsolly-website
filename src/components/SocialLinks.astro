@@ -1,0 +1,20 @@
+---
+import { Image } from "astro:assets";
+import { socialLinks } from "../content/socialLinks";
+---
+
+<nav class="flex gap-6" role="navigation" aria-label="Social media links">
+    {
+        socialLinks.map((link) => (
+            <a 
+                href={link.href} 
+                target="_blank" 
+                rel={link.rel} 
+                class="social-link opacity-80 hover:scale-110 hover:opacity-100 transition-all duration-300 ease-in-out" 
+                aria-label={link.ariaLabel}
+            >
+                <Image src={link.icon} alt={link.alt} />
+            </a>
+        ))
+    }
+</nav> 

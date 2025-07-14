@@ -1,0 +1,69 @@
+/* =============
+Link Styling
+============== */
+
+a {
+	@apply text-primary-800 transition-all duration-300 ease-out;
+	text-decoration: none;
+	position: relative;
+}
+
+/* =============
+Header Link Tooltip
+============== */
+
+.header-link {
+	@apply ml-1 transition-opacity duration-300 ease-in-out relative;
+}
+
+.header-link-tooltip {
+	@apply absolute bg-black text-white text-xs py-1 px-2 rounded whitespace-nowrap left-1/2 transform -translate-x-1/2 translate-y-[-20px] transition-opacity duration-300 ease-in-out;
+}
+
+/* External link indicator */
+a[target="_blank"]:not(.social-link)::after {
+	content: "↗";
+	vertical-align: middle;
+}
+
+/* Link underline effect */
+a:not(.primary-btn, .secondary-btn, .project-card-link, .social-link) {
+	text-decoration: underline;
+	text-decoration-color: transparent;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 4px;
+	text-decoration-skip-ink: none;
+	transition: text-decoration-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:not(
+		.primary-btn,
+		.header-link,
+		.secondary-btn,
+		.project-card-link,
+		.social-link
+	):hover {
+	@apply text-primary-900;
+	text-decoration-color: #2563eb;
+}
+
+/* =============
+Button System
+============== */
+
+.primary-btn {
+	@apply bg-primary-900 text-white py-3 px-6 rounded-xl font-semibold no-underline transition-all duration-300 ease-out transform hover:scale-105 hover:shadow-medium focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+	box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.15);
+}
+
+.secondary-btn {
+	@apply bg-transparent hover:bg-primary-100 text-primary-900 py-3 px-6 border-2 border-primary-900 hover:border-primary-800 rounded-xl font-semibold no-underline transition-all duration-300 ease-out transform hover:scale-105 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+/* =============
+Card Components
+============== */
+
+.card {
+	@apply bg-card rounded-2xl border border-neutral-200 shadow-soft transition-all duration-300 ease-out hover:shadow-medium hover:border-neutral-300;
+} 

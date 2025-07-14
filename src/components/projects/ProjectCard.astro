@@ -4,7 +4,7 @@ import type { ImageMetadata } from "astro";
 import type { Logo } from "../../types";
 import clockIcon from "../../images/svg/clockIcon.svg";
 
-interface Props {
+export interface Props {
 	title: string;
 	snippet: string;
 	href: string;
@@ -13,6 +13,7 @@ interface Props {
 	metaimgAlt: string;
 	logos?: Logo[];
 	imgLoading?: "eager" | undefined;
+	style?: string;
 }
 
 const {
@@ -25,81 +26,78 @@ const {
 	logos,
 	imgLoading,
 } = Astro.props;
-
 const isRelativeLink = href.startsWith("/") && !href.endsWith(".pdf");
 ---
 
-<li class="project-card flex text-lg rounded-lg bg-accent-dark-overlay-lvl-2">
+<li class="project-card group h-full" style={Astro.props.style}>
     <a
         href={href}
         target={isRelativeLink ? "_self" : "_blank"}
-        class="project-card-link rounded-lg py-6 px-5 no-underline text-custom-gray hover:text-custom-gray"
+        class="project-card-link block h-full rounded-2xl p-8 bg-white border border-neutral-200 shadow-soft hover:shadow-medium transition-all duration-400 ease-out transform hover:scale-[1.02] hover:-translate-y-1 focus:scale-[1.02] focus:shadow-medium focus:outline-hidden focus:ring-2 focus:ring-primary-400 focus:ring-offset-2"
     >
-        <h2
-            class="text-3xl font-bold mb-4 flex justify-between tracking-tight leading-none text-balance"
-        >
-            <span class="project-card-title hover:">{title}</span>
-            <span>&rarr;</span>
-        </h2>
-        <div
-            class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6"
-        >
-            <Image
-                class="meta-img w-full md:w-1/2 lg:w-1/3 xl:w-1/4 rounded-lg h-auto object-cover opacity-80"
-                src={metaimg}
-                alt={metaimgAlt ?? "Meta image"}
-                loading={imgLoading}
-            />
-            <p class="text-xl">{snippet}</p>
+        <!-- Enhanced header with better typography -->
+        <div class="mb-6">
+            <h2 class="text-2xl md:text-3xl font-bold tracking-tight leading-tight text-text-primary group-hover:text-primary-700 transition-colors duration-400 mb-2">
+                {title}
+            </h2>
+            <div class="w-12 h-0.5 bg-gradient-to-r from-primary-600 to-accent-500 rounded-full group-hover:w-16 transition-all duration-400"></div>
         </div>
-        {
-            logos ? (
-                <div class="logos flex flex-wrap mt-2 gap-1 opacity-90">
+        
+        <!-- Enhanced content layout -->
+        <div class="space-y-6">
+            <!-- Enhanced image with better styling -->
+            <div class="relative overflow-hidden rounded-xl">
+                <Image
+                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                    src={metaimg}
+                    alt={metaimgAlt ?? "Project preview"}
+                    loading={imgLoading}
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
+            </div>
+            
+            <!-- Enhanced description -->
+            <p class="text-lg text-text-secondary leading-relaxed group-hover:text-text-primary transition-colors duration-400">
+                {snippet}
+            </p>
+        </div>
+        
+        <div class="mt-6 pt-6 border-t border-neutral-100">
+            {logos ? (
+                <div class="flex flex-wrap gap-2 mb-4">
                     {logos.map((logo) => (
-                        <Image
-                            src={logo.url}
-                            alt={logo.alt}
-                            class="rounded-md"
-                            loading={imgLoading}
-                        />
+                        <div class="flex items-center gap-1">
+                            <Image
+                                src={logo.url}
+                                alt={logo.alt}
+                                loading={imgLoading}
+                            />
+                        </div>
                     ))}
                 </div>
-            ) : null
-        }
-        {
-            readingTime ? (
-                <div class="mt-3">
-                    <span class="text-sm text-gray-400 flex items-center justify-end opacity-80">
+            ) : null}
+            
+            {readingTime ? (
+                <div class="flex items-center justify-between">
+                    <span class="text-sm text-neutral-500 flex items-center gap-2 opacity-80 group-hover:opacity-100 transition-opacity duration-400">
                         <Image
                             src={clockIcon}
                             alt="Clock icon"
-                            class="w-4 h-4 mr-1"
+                            class="w-4 h-4"
                         />
-                        {readingTime}
+                        {readingTime} read
+                    </span>
+                    <span class="text-primary-600 font-semibold group-hover:translate-x-1 transition-transform duration-300">
+                        View Project &rarr;
                     </span>
                 </div>
-            ) : null
-        }
+            ) : (
+                <div class="flex justify-end">
+                    <span class="text-primary-600 font-semibold group-hover:translate-x-1 transition-transform duration-300">
+                        View Project &rarr;
+                    </span>
+                </div>
+            )}
+        </div>
     </a>
 </li>
-<style>
-    .project-card {
-        opacity: 0.8;
-        /* Darker than "rgb(39, 40, 51)" but lighter than "rgb(6, 9, 19)", */
-        border: 1px solid rgb(30, 30, 30);
-        transition:
-            border-color 300ms ease-in-out,
-            opacity 300ms ease-in-out;
-    }
-
-    .project-card:is(:hover, :focus-within) {
-        border-color: rgb(100, 80, 120);
-        opacity: 1;
-    }
-
-    /* The title underline effect */
-    .project-card:is(:hover, :focus-within) .project-card-title {
-        text-decoration: underline;
-        text-underline-offset: 0.2em;
-    }
-</style>

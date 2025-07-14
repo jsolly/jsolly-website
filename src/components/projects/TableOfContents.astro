@@ -1,5 +1,6 @@
 ---
 import TableOfContentsHeading from "./TableOfContentsHeading.astro";
+
 const { headings } = Astro.props as { headings: Heading[] };
 const toc = buildToc(headings);
 

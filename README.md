@@ -10,6 +10,6 @@ The code for <https://jsolly.com>
 ```sh
 git clone git@github.com:jsolly/jsolly-website.git
 cd jsolly-website
-pnpm i
-pnpm dev
+npm install
+npm run dev
 ```

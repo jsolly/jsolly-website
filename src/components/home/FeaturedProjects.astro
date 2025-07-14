@@ -1,0 +1,78 @@
+---
+import { getCollection } from "astro:content";
+import ProjectCard from "../projects/ProjectCard.astro";
+
+const allProjects = await getCollection("projects");
+const featuredProjects = allProjects.reverse().slice(0, 2);
+
+const renderedProjects = await Promise.all(
+	featuredProjects.map(async (project, index) => {
+		const { remarkPluginFrontmatter } = await project.render();
+		const loading: "eager" | undefined = index === 0 ? "eager" : undefined;
+		
+		// Validate required fields exist
+		if (!project.data.metaimg) {
+			console.warn(`Project ${project.slug} is missing required metaimg`);
+			return null;
+		}
+
+		return {
+			title: project.data.title ?? "Untitled Project",
+			href: `/projects/${project.slug}/`,
+			readingTime: remarkPluginFrontmatter?.minutesRead ?? "Unknown reading time",
+			metaimg: project.data.metaimg,
+			metaimgAlt: project.data.metaimgAlt ?? "Project image",
+			snippet: project.data.snippet ?? "No description available",
+			logos: project.data.logos ?? [],
+			imgLoading: loading,
+		};
+	}),
+).then(projects => projects.filter((project): project is NonNullable<typeof project> => project !== null));
+---
+
+<section class="max-w-7xl mx-auto px-4" aria-labelledby="featured-projects-heading">
+    <!-- Enhanced header section -->
+    <header class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 mb-6" aria-hidden="true">
+            <div class="w-12 h-1 bg-gradient-to-r from-blue-500 to-black rounded-full"></div>
+            <span class="text-sm font-semibold text-text-muted uppercase tracking-wider">Portfolio</span>
+            <div class="w-12 h-1 bg-gradient-to-r from-black to-blue-500 rounded-full"></div>
+        </div>
+        <h2 id="featured-projects-heading" class="text-4xl md:text-5xl font-bold mb-6 text-text-primary">
+            Featured <span class="text-gradient">Projects</span>
+        </h2>
+        <p class="text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
+            Here are a few projects I'm proud of. Each one represents a unique challenge and solution in the world of geospatial technology.
+        </p>
+    </header>
+    
+    <!-- Enhanced project grid -->
+    <ul class="projects-list grid grid-cols-1 gap-y-16 mb-20" role="list" aria-label="Featured projects">
+        {
+            renderedProjects.map((projectProps, index) => (
+                <li role="listitem">
+                    <ProjectCard {...projectProps} />
+                </li>
+            ))
+        }
+    </ul>
+    
+    <!-- Enhanced CTA section -->
+    <footer class="text-center">
+        <nav class="inline-flex items-center gap-4 group" aria-label="View all projects">
+            <a 
+                href="/showcase" 
+                class="text-lg font-semibold text-primary-600 hover:text-primary-700 transition-colors duration-300"
+                aria-label="View all projects in the portfolio"
+            >
+                View All Projects
+            </a>
+            <span class="text-primary-600 group-hover:translate-x-1 transition-transform duration-300 text-xl font-bold" aria-hidden="true">
+                &rarr;
+            </span>
+        </nav>
+        <p class="text-text-muted mt-2 text-sm">
+            Explore my complete portfolio of geospatial and web development projects
+        </p>
+    </footer>
+</section> 

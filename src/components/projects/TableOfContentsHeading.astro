@@ -6,13 +6,13 @@ type SubheadingType = {
 };
 ---
 
-<li class="mb-2">
-    <a class="toc-link text-gray-50 text-sm" href={"#" + heading.slug}>
+<li class="mb-3">
+    <a class="toc-link text-xs" href={"#" + heading.slug}>
         {heading.text}
     </a>
     {
         heading.subheadings.length > 0 && (
-            <ul>
+            <ul class="ml-4 mt-1">
                 {heading.subheadings.map((subheading: SubheadingType) => (
                     <Astro.self heading={subheading} />
                 ))}

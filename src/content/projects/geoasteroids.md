@@ -8,11 +8,16 @@ snippet: "Asteroids was one of my favorite arcade games growing up. I wanted to 
 logos:
   - url: /src/images/logos/vercelLogo.svg
     alt: "Vercel logo"
+    label: "VERCEL"
   - url: /src/images/logos/typescriptLogo.svg
     alt: "TypeScript logo"
+    label: "TYPESCRIPT"
   - url: /src/images/logos/mongoLogo.svg
     alt: "MongoDB logo"
-
+    label: "MONGODB"
+  - url: /src/images/logos/serverlessLogo.svg
+    alt: "Serverless logo"
+    label: "SERVERLESS"
 ---
 
 ## Purpose and Objective
