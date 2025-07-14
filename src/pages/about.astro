@@ -18,7 +18,7 @@ import jsollyImage from "../images/jsolly.webp";
         <div class="profile flex flex-col md:flex-row items-center">
             <Image
                 src={jsollyImage}
-                alt="John Solly Profile Picture"
+                alt="John Solly Avatar"
                 class="rounded-full mb-4 md:mb-0 md:mr-6 w-48"
                 loading="eager"
             />
@@ -32,24 +32,124 @@ import jsollyImage from "../images/jsolly.webp";
                     Senior Software Engineer, Geospatial Developer
                 </p>
                 <div class="social-links flex mt-3">
-                    <SocialLinks />
+                    <SocialLinks imgLoading="eager" />
                 </div>
             </div>
         </div>
         <div class="about-content mt-4 text-xl">
             <p>
-                With over a decade of experience in the geospatial industry, I
-                specialize in developing and scaling geospatial applications
-                that transform complex data into actionable insights. As a
-                Software Engineer at HazardHub (A Guidewire Offering), I work on
-                infrastructure and application development, focusing on
-                integrating geospatial data and risk analytics into scalable,
-                cloud-native solutions. I am passionate about creating resilient
-                and maintainable systems that deliver high-performance API
-                services to customers. Check out my
-                <a href="/showcase">showcase</a> to see my latest work!
+                As a highly skilled software engineer, I have a wealth of
+                experience blending GIS domain knowledge with software
+                development to create stunning and efficient geospatial
+                applications. My academic background includes a bachelor's
+                degree in GIS and Remote Sensing from U.C.S.B., where I had the
+                privilege of studying under renowned thought leaders Michael
+                Goodchild and Waldo Tobler. I further honed my skills with an
+                M.S. in Geoinformatics and Geospatial Intelligence at George
+                Mason University. After graduation, I played a pivotal role in
+                launching one of the world's most viewed geospatial web
+                applications, <a
+                    href="https://www.esri.com/en-us/arcgis/products/arcgis-dashboards/overview"
+                    rel="noopener noreferrer"
+                    target="_blank">ArcGIS Dashboards</a
+                >, as a product engineer at Esri.
+            </p>
+            <p>
+                After Esri, I spent a year as an Integration Consultant at a
+                business intelligence startup called YellowfinBI, which was
+                acquired by Idera Inc. in 2022. I left Yellowfin after the
+                acquisition to work on this blog while also raising my son,
+                Justice Solly was born on 2/20/22. Six months later, I joined
+                University of Maryland as a Senior Geospatial Developer for the <a
+                    href="https://easierdata.org"
+                    rel="noopener noreferrer"
+                    target="_blank">EASIER Data Initiative</a
+                >, a UMD project in collaboration with the <a
+                    href="https://ffdweb.org/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    >Filecoin Foundation For the Decentralized Web</a
+                >. I was responsible for developing infrastructure that enables
+                efficient, accessible, and sustainable onloading, analysis, and
+                extraction of large geospatial datasets into blockchain-managed
+                decentralized storage systems such as Filecoin and IPFS. During
+                my time there, I authored a comprehensive <a
+                    href="https://easierdata.org/notebooks/ndvi_stac_ipfs"
+                    rel="noopener noreferrer"
+                    target="_blank">technical guide</a
+                > demonstrating how to leverage IPFS for processing Landsat imagery
+                and calculating vegetation indices.
+            </p>
+            <p>
+                In Fall 2023, I joined <a
+                    href="https://www.newlighttechnologies.com/"
+                    rel="noopener noreferrer"
+                    target="_blank">NLT</a
+                > as a senior software engineer, contributing to some of NLT's largest
+                and most influential contracts. One of my major projects was a web-based
+                geospatial application for the Census Enterprise Dissemination Services
+                and Consumer Innovation (CEDSCI) division of the <a
+                    href="https://www.census.gov/"
+                    rel="noopener noreferrer"
+                    target="_blank">U.S. Census Bureau</a
+                >. I also led development on a serverless application for the <a
+                    href="https://www.worldbank.org/"
+                    rel="noopener noreferrer"
+                    target="_blank">World Bank</a
+                > that visualizes Vietnam's strategies for carbon emission reduction.
+                This project, built with Vue.js and TypeScript and deployed on AWS
+                using Terraform, transformed complex Excel data into an interactive
+                web platform. I implemented dynamic model output functionality and
+                added administrative CRUD operations using AWS Cognito, significantly
+                enhancing user interaction and data visualization capabilities.
+            </p>
+            <p>
+                Currently, I work as a Software Engineer at <a
+                    href="https://www.hazardhub.com/"
+                    rel="noopener noreferrer"
+                    target="_blank">HazardHub</a
+                >, A Guidewire Offering, where I lead and maintain our location
+                services microservice. HazardHub is a leader in the P&C
+                insurance industry, providing comprehensive property risk
+                assessment through APIs that analyze over 1,400 risk factors for
+                any U.S. address. My role involves architecting and maintaining
+                critical infrastructure that powers organization-wide geocoding,
+                routing, and geospatial transformations, handling millions of
+                monthly API requests. I also design and implement ETL workflows
+                that process terabytes of geospatial data from various formats,
+                and manage cloud infrastructure using Terraform on AWS, ensuring
+                our services remain scalable, secure, and cost-efficient.
+            </p>
+            <p>
+                If you're facing complex geospatial challenges that require an
+                experienced developer's expertise, feel free to <a
+                    href="https://us14.list-manage.com/contact-form?u=3fb3f4adf8ab2cd1ebd6ff743&form_id=7c78cd242677faaebfc3d4a2bc0d5fda"
+                    rel="noopener noreferrer"
+                    target="_blank">drop me a message</a
+                >. Let's connect and find the perfect fit for a successful
+                collaboration!
             </p>
         </div>
     </div>
     <ContactMe />
 </Layout>
+
+<style>
+    .about-content p + p {
+        margin-top: 16px;
+    }
+
+    .about-section {
+        background-color: rgba(0, 0, 0, 0.05);
+        color: #171717;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        padding: 1.5rem;
+        margin: 0 auto;
+    }
+
+    .social-links {
+        display: flex;
+        margin-top: 0.75rem;
+    }
+</style>

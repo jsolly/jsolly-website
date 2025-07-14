@@ -1,27 +1,14 @@
-/* =============
-Main Styles Entry Point
-============== */
-
-/* Font imports */
 @import "@fontsource/inter/latin.css";
 @import "@fontsource/poppins/latin.css";
 @import "@fontsource/jetbrains-mono/latin.css";
-
-/* Tailwind CSS */
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
-
-/* Theme and configuration */
 @import "./theme.css";
-
-/* Base styles */
 @import "./base.css";
-
-/* Component styles */
 @import "./components.css";
-
-/* Utility classes */
 @import "./utilities.css";
-
-/* Animations */
 @import "./animations.css";
+
+/* =============
+Main Styles Entry Point
+============== */
+@plugin "@tailwindcss/typography";

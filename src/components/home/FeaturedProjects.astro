@@ -8,8 +8,6 @@ const featuredProjects = allProjects.reverse().slice(0, 2);
 const renderedProjects = await Promise.all(
 	featuredProjects.map(async (project, index) => {
 		const { remarkPluginFrontmatter } = await project.render();
-		const loading: "eager" | undefined = index === 0 ? "eager" : undefined;
-		
 		// Validate required fields exist
 		if (!project.data.metaimg) {
 			console.warn(`Project ${project.slug} is missing required metaimg`);
@@ -24,7 +22,6 @@ const renderedProjects = await Promise.all(
 			metaimgAlt: project.data.metaimgAlt ?? "Project image",
 			snippet: project.data.snippet ?? "No description available",
 			logos: project.data.logos ?? [],
-			imgLoading: loading,
 		};
 	}),
 ).then(projects => projects.filter((project): project is NonNullable<typeof project> => project !== null));

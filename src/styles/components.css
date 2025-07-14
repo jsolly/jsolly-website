@@ -8,26 +8,14 @@ a {
 	position: relative;
 }
 
-/* =============
-Header Link Tooltip
-============== */
-
-.header-link {
-	@apply ml-1 transition-opacity duration-300 ease-in-out relative;
-}
-
-.header-link-tooltip {
-	@apply absolute bg-black text-white text-xs py-1 px-2 rounded whitespace-nowrap left-1/2 transform -translate-x-1/2 translate-y-[-20px] transition-opacity duration-300 ease-in-out;
-}
-
 /* External link indicator */
-a[target="_blank"]:not(.social-link)::after {
+a[target="_blank"]::after {
 	content: "↗";
 	vertical-align: middle;
 }
 
 /* Link underline effect */
-a:not(.primary-btn, .secondary-btn, .project-card-link, .social-link) {
+a:not(.primary-btn, .secondary-btn) {
 	text-decoration: underline;
 	text-decoration-color: transparent;
 	text-decoration-thickness: 2px;
@@ -36,13 +24,7 @@ a:not(.primary-btn, .secondary-btn, .project-card-link, .social-link) {
 	transition: text-decoration-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-a:not(
-		.primary-btn,
-		.header-link,
-		.secondary-btn,
-		.project-card-link,
-		.social-link
-	):hover {
+a:not(.primary-btn, .secondary-btn, .project-card-link):hover {
 	@apply text-primary-900;
 	text-decoration-color: #2563eb;
 }
@@ -66,4 +48,4 @@ Card Components
 
 .card {
 	@apply bg-card rounded-2xl border border-neutral-200 shadow-soft transition-all duration-300 ease-out hover:shadow-medium hover:border-neutral-300;
-} 
+}

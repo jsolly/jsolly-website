@@ -1,6 +1,12 @@
 ---
 import { Image } from "astro:assets";
 import { socialLinks } from "../content/socialLinks";
+
+export interface Props {
+	imgLoading?: "eager" | "lazy";
+}
+
+const { imgLoading = "lazy" } = Astro.props;
 ---
 
 <nav class="flex gap-6" role="navigation" aria-label="Social media links">
@@ -13,8 +19,25 @@ import { socialLinks } from "../content/socialLinks";
                 class="social-link opacity-80 hover:scale-110 hover:opacity-100 transition-all duration-300 ease-in-out" 
                 aria-label={link.ariaLabel}
             >
-                <Image src={link.icon} alt={link.alt} />
+                <Image src={link.icon} alt={link.alt} loading={imgLoading} />
             </a>
         ))
     }
-</nav> 
+</nav>
+
+<style>
+    .social-link {
+        opacity: 0.8;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .social-link:hover {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    /* Hide external link indicator for social links */
+    a[target="_blank"].social-link::after {
+        content: none;
+    }
+</style> 
