@@ -11,7 +11,7 @@
 		"format": "biome format --no-errors-on-unmatched --write",
 		"check:ts": "tsc --noEmit",
 		"check:fix": "biome check --write --no-errors-on-unmatched",
-		"check:changed:fix": "biome check --changed --no-errors-on-unmatched --write",
+		"check:staged:fix": "biome check --staged --write --no-errors-on-unmatched",
 		"fix": "npm run check:fix && npm run check:ts",
 		"outdated": "npm outdated",
 		"update": "npx npm-check-updates -u && npm install"
