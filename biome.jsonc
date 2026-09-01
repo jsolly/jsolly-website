@@ -1,0 +1,47 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.5.8/schema.json",
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true,
+		"defaultBranch": "main"
+	},
+	"files": {
+		"includes": [
+			"**",
+			"!.agents",
+			"**/*.ts",
+			"**/*.js",
+			"**/*.json",
+			"**/*.jsonc",
+			"**/*.mjs",
+			"**/*.css",
+			"**/*.html",
+			"**/*.md"
+		],
+		"ignoreUnknown": true
+	},
+	"css": {
+		"parser": {
+			// Tailwind CSS 4 directives (@theme, @utility, @apply) — required since Biome 2.5
+			"tailwindDirectives": true
+		}
+	},
+	"overrides": [
+		{
+			"includes": ["**/*.astro"],
+			"linter": {
+				"rules": {
+					"style": {
+						"useConst": "off",
+						"useImportType": "off"
+					},
+					"correctness": {
+						"noUnusedVariables": "off",
+						"noUnusedImports": "off"
+					}
+				}
+			}
+		}
+	]
+}

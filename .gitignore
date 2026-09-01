@@ -1,0 +1,41 @@
+# build output
+dist/
+
+# local env / secrets (never commit)
+.env
+.env.local
+.env.*.local
+
+# vercel (local CLI state; the hook passes VERCEL_ORG_ID/VERCEL_PROJECT_ID)
+.vercel
+
+# Playwright MCP scratch output (browser snapshots/screenshots)
+.playwright-mcp/
+
+# SEO skill audit baselines (Squirrel / Lighthouse)
+.seo-audit/
+
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# macOS-specific files
+.DS_Store
+
+# editor (local symlinks to ~/.agents rules — machine-specific)
+
+# Cursor: track local-editor rules; ignore other editor state
+.cursor/*
+!.cursor/hooks.json
+!.cursor/worktrees.json
+!.cursor/rules/
+!.cursor/rules/**
+!.cursor/CLOUD.md
+!.cursor/environment.json
+!.cursor/install-cloud-skills.sh
+!.cursor/aws-oidc-login.sh
+
+
+# Materialized agent config (fetched by .dotagents/bootstrap.sh; not committed)

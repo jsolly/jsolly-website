@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.jsolly.com/sitemap-index.xml
+
+# Machine-readable index for AI agents: https://www.jsolly.com/llms.txt

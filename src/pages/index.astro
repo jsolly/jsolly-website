@@ -1,0 +1,26 @@
+---
+import Hero from "../components/home/Hero.astro";
+import SiteIntro from "../components/home/SiteIntro.astro";
+import Testimonials from "../components/home/Testimonials.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+	title="John Solly — Health-IT CTO at Leidos & Software Engineer"
+	description="Welcome to jsolly.com, the personal website of John Solly. Health-IT Division CTO at Leidos, software engineer, and builder of things."
+>
+	<div class="min-h-screen">
+		<section
+			class="py-10 md:py-24 flex items-center"
+			aria-labelledby="hero-heading"
+		>
+			<Hero />
+		</section>
+
+		<SiteIntro />
+
+		<section class="py-8 md:py-16">
+			<Testimonials />
+		</section>
+	</div>
+</Layout>

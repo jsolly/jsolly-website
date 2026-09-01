@@ -1,0 +1,133 @@
+---
+import "../styles/main.css";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Maintenance from "../components/Maintenance.astro";
+import StructuredData from "../components/StructuredData.astro";
+import { RELEASE_ID } from "../release-id";
+
+interface Props {
+	title: string;
+	description: string;
+	noindex?: boolean;
+}
+
+const { title, description, noindex = false } = Astro.props;
+const isRootPath = Astro.url.pathname === "/";
+const isMaintenanceMode = process.env.MAINTENANCE_MODE === "true";
+const socialImageURL = new URL("/images/og-image.jpg", Astro.site);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const pageKey = Astro.url.pathname.replace(/\/+$/, "") || "/index";
+const markdownHref = new URL(
+	pageKey === "/index" || pageKey === "" ? "/index.md" : `${pageKey}.md`,
+	Astro.site,
+);
+const llmsTxtURL = new URL("/llms.txt", Astro.site);
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		{noindex && <meta name="robots" content="noindex, nofollow" />}
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="release-id" content={RELEASE_ID} />
+		<title>{title}</title>
+		<link rel="canonical" href={canonicalURL} />
+		{!noindex && (
+			<link rel="alternate" type="text/markdown" href={markdownHref} />
+		)}
+		<link
+			rel="alternate"
+			type="text/plain"
+			title="LLM information"
+			href={llmsTxtURL}
+		/>
+
+		<StructuredData />
+
+		<!-- Favicons -->
+		<link rel="icon" href="/favicon.ico" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/favicons/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/favicons/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/favicons/favicon-16x16.png"
+		/>
+		<link
+			rel="icon"
+			sizes="192x192"
+			href="/favicons/android-chrome-192x192.png"
+		/>
+		<link
+			rel="icon"
+			sizes="512x512"
+			href="/favicons/android-chrome-512x512.png"
+		/>
+		<link rel="manifest" href="/favicons/site.webmanifest" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="John Solly" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={socialImageURL} />
+		<meta property="og:image:type" content="image/jpeg" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="1200" />
+		<meta property="og:image:alt" content="John Solly, Health-IT Division CTO at Leidos" />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={canonicalURL} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={socialImageURL} />
+		<meta name="twitter:image:alt" content="John Solly, Health-IT Division CTO at Leidos" />
+	</head>
+	<body class="bg-background text-text-primary font-body">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<Header />
+
+			<main role="main" aria-label="Main content">
+				{isMaintenanceMode ? (
+					<Maintenance />
+				) : (
+					<>
+						<slot />
+						{!isRootPath && (
+							<nav aria-label="Home navigation">
+								<a
+									href="/"
+									id="home-btn"
+									class="secondary-btn inline-block mt-6"
+									transition:persist="home-btn"
+									aria-label="Go to home page"
+								>
+									Home
+								</a>
+							</nav>
+						)}
+					</>
+				)}
+			</main>
+			<Footer />
+		</div>
+	</body>
+</html>

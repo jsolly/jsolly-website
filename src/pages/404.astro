@@ -1,0 +1,65 @@
+---
+import { Image } from "astro:assets";
+import ScarecrowImg from "../images/scarecrow.webp";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout noindex title="404 Not Found" description="Page not found">
+	<div class="flex flex-col items-center text-center">
+		<header class="mt-8 mb-8">
+			<span class="text-4xl font-bold text-accent"> 404 NOT FOUND</span>
+		</header>
+		<Image
+			src={ScarecrowImg}
+			alt=""
+			width="300"
+			height="300"
+			class="shadow-lg rounded-lg"
+		/>
+		<section class="mt-8">
+			<h1 class="text-5xl font-bold mt-8 tracking-tighter">
+				I have bad news for you...
+			</h1>
+			<p class="mt-4 text-lg text-text">
+				The page you are looking for might be removed or is temporarily
+				unavailable.
+			</p>
+			<nav
+				class="mt-6 text-left max-w-md mx-auto"
+				aria-label="Suggested next steps"
+			>
+				<p class="text-lg text-text mb-2">Try one of these instead:</p>
+				<ul class="list-disc pl-6 text-lg text-text space-y-1">
+					<li><a href="/">Home</a></li>
+					<li><a href="/about/">About</a></li>
+					<li><a href="/contact/">Contact</a></li>
+					<li>
+						<a href="/llms.txt">Agent index (llms.txt)</a>
+					</li>
+					<li>
+						<a href="/sitemap-index.xml">Sitemap</a>
+					</li>
+					<li>
+						<a
+							href="/John-Solly-Resume.pdf"
+							target="_blank"
+							rel="noopener noreferrer">Resume</a
+						>
+					</li>
+				</ul>
+			</nav>
+		</section>
+		<footer class="mt-8">
+			<p class="text-text text-xs">
+				404 page by
+				<a
+					href="https://github.com/OnlyManu/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="hover:text-accent transition-colors duration-300 ease-in-out"
+					>onlymanu</a
+				>
+			</p>
+		</footer>
+	</div>
+</Layout>

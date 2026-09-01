@@ -1,0 +1,15 @@
+{
+	"extends": ["astro/tsconfigs/strict", "./tsconfig/fleet/strict-astro.json"],
+	"include": [".astro/types.d.ts", "src/**/*"],
+	"exclude": ["**/node_modules/**", "dist/**", ".astro", "src/**/*.test.ts"],
+	"compilerOptions": {
+		"plugins": [
+			{
+				"name": "@astrojs/ts-plugin"
+			}
+		],
+		"strictNullChecks": true,
+		"baseUrl": ".",
+		"skipLibCheck": true
+	}
+}

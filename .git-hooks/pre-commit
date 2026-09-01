@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# Pre-commit GATE for jsolly-website (gate-only — this hook does NOT deploy).
+#
+# Thin shim over the shared fleet gate library (dotagents/gate/gate-lib.sh): the
+# shared boilerplate — the staged secrets scan, markdown-lint-on-change, the
+# doc-only fast path, the merge/rebase and empty-commit skips, and run_step
+# (silent on green, full output on red) — live in the lib. This file declares
+# only jsolly-website's quality steps, gated per commit. Production deploy is
+# owned by Vercel's GitHub integration after the commit lands on main; CI
+# backstops the gate on the PR.
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"; cd "$ROOT"
+# shellcheck source=/dev/null
+source "${DOTAGENTS_GATE_LIB:-$HOME/code/dotagents/gate/gate-lib.sh}" || {
+  echo "✗ dotagents gate-lib not found (expected ~/code/dotagents/gate/gate-lib.sh) — re-run install-local-agent-runtime.sh." >&2
+  exit 1
+}
+
+gate_begin_commit "jsolly-website"    # staged secrets/md-lint; merge/empty skips; doc-only fast path; banner; ERR trap
+gate_require_node                     # enforce the pinned Node (.nvmrc), not whatever's on PATH
+
+# --- Quality gate (run_step: silent on green, full output + abort on red) ---
+run_step "dep grounding" gate_check_dep_grounding .git-hooks/pre-commit scripts/*.sh
+run_step "biome ci"  npx --no-install biome ci . --error-on-warnings
+run_step "yaml lint" npm run check:yaml
+run_step "actionlint"             npm run check:actions
+run_step "release-id contract" npm run check:release-id
+run_step "astro check (types)" npm run check:ts
+run_step "unit tests" npm test
+run_step "build"     npm run build
+
+echo "✓ pre-commit gate passed — commit will land; Vercel deploys via GitHub integration after merge to main."

@@ -1,0 +1,72 @@
+---
+const origin = Astro.site?.origin ?? "https://www.jsolly.com";
+---
+
+<section class="py-8 md:py-4 max-w-3xl" aria-labelledby="about-this-site-heading">
+	<h2
+		id="about-this-site-heading"
+		class="text-3xl md:text-4xl font-bold text-text-primary font-heading tracking-tight mb-4"
+	>
+		About this site
+	</h2>
+	<p class="text-lg text-text-secondary leading-relaxed mb-4">
+		jsolly.com is the personal website of John Solly, Health-IT Division CTO at
+		Leidos. It is a small static site: who I am, how to reach me, and pointers
+		to work I publish elsewhere. It is not a Leidos corporate page and it does
+		not ship a product API.
+	</p>
+	<p class="text-lg text-text-secondary leading-relaxed mb-8">
+		Most of my career has been building spatial systems — at Esri, startups, and
+		federal agencies. I now lead technology strategy for Leidos' Health IT
+		division, supporting agencies such as SSA, VA, and HHS. My focus is the
+		convergence of spatial computing and AI: helping machines interpret the
+		physical world and putting that to work on missions that matter.
+	</p>
+
+	<h3
+		id="pages-on-this-site-heading"
+		class="text-xl font-bold text-text-primary font-heading tracking-tight mb-3"
+	>
+		Pages
+	</h3>
+	<ul class="list-disc pl-6 text-lg text-text-secondary leading-relaxed mb-8 space-y-2">
+		<li>
+			<a href="/about/">About</a> — background, focus areas, and how I got here
+		</li>
+		<li>
+			<a href="/contact/">Contact</a> — social profiles and a contact form
+		</li>
+		<li>
+			<a href="/privacy/">Privacy</a> — data practices for this static site
+		</li>
+		<li>
+			<a href="/John-Solly-Resume.pdf" target="_blank" rel="noopener noreferrer"
+				>Resume</a
+			>
+			(PDF)
+		</li>
+		<li>
+			<a href="https://www.blogthedata.com/" target="_blank" rel="noopener noreferrer"
+				>Blog</a
+			>
+			— writing lives on Blogthedata, not here
+		</li>
+	</ul>
+
+	<h3
+		id="for-agents-heading"
+		class="text-xl font-bold text-text-primary font-heading tracking-tight mb-3"
+	>
+		For agents
+	</h3>
+	<p class="text-lg text-text-secondary leading-relaxed">
+		Start at
+		<a href={`${origin}/llms.txt`}>{origin}/llms.txt</a>
+		for when-to-use guidance. Request any page with
+		<code class="text-base">Accept: text/markdown</code>
+		(or fetch the
+		<code class="text-base">.md</code>
+		sibling) to get a Markdown body without the layout chrome. Missing paths
+		return HTTP 404 with recovery links to the sitemap and that index.
+	</p>
+</section>

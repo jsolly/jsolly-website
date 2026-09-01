@@ -1,0 +1,29 @@
+---
+import ContactMe from "../components/ContactMe.astro";
+import SocialLinks from "../components/SocialLinks.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+	title="Contact John Solly — Health-IT CTO & Software Engineer"
+	description="Get in touch with John Solly, Health-IT Division CTO at Leidos and software engineer — reach out about spatial computing, AI, or federal health IT."
+>
+	<section class="max-w-2xl mx-auto py-8 text-center">
+		<h1
+			class="text-3xl md:text-4xl font-bold text-text-primary font-heading tracking-tight mb-6"
+		>
+			Contact
+		</h1>
+		<p class="text-lg text-text-secondary mb-6">
+			Reach out about spatial computing, GIS, applied AI, or federal health IT
+			(SSA, VA, HHS). I am glad to hear from other technical leaders and from
+			engineers who care about craft. There is no public inbox on this site —
+			use Say Hello below, or find me on the profiles listed here.
+		</p>
+		<p class="text-lg text-text-secondary mb-6">Find me across the web:</p>
+		<div class="flex justify-center">
+			<SocialLinks imgLoading="eager" />
+		</div>
+	</section>
+	<ContactMe />
+</Layout>
