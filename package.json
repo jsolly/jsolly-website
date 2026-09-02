@@ -45,7 +45,7 @@
 		"shellcheck": "^4.1.0",
 		"tailwindcss": "^4.3.3",
 		"typescript": "^6.0.3",
-		"vercel": "^59.3.0"
+		"vercel": "^59.10.0"
 	},
 	"overrides": {
 		"esbuild": ">=0.28.1",
