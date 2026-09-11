@@ -108,7 +108,7 @@ export function shouldNegotiate(pathname: string, method: string): boolean {
 	return true;
 }
 
-/** Canonical page key: `/`, `/about`, `/contact`, `/privacy`. */
+/** Canonical page key: `/`, `/about`, `/contact`, `/privacy`, `/terms`. */
 export function normalizePagePath(pathname: string): string {
 	const isMarkdownSibling = /\.md(?:\/+)?$/i.test(pathname);
 	let path = pathname.replace(/\/+$/, "") || "/";
