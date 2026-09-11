@@ -120,6 +120,20 @@ describe("agentResponse", () => {
 		assert.match(await res.text(), /^# John Solly/m);
 	});
 
+	it("serves terms page markdown", async () => {
+		const res = agentResponse(
+			new Request(`${origin}/terms/`, {
+				headers: { accept: "text/markdown" },
+			}),
+			"abc",
+		);
+		assert.ok(res);
+		assert.equal(res.status, 200);
+		const body = await res.text();
+		assert.match(body, /^# Terms of Service/m);
+		assert.match(body, /You may visit, read, copy, share, and reuse/);
+	});
+
 	it("serves .md siblings as markdown regardless of Accept", async () => {
 		for (const accept of ["text/html", "application/json"]) {
 			const res = agentResponse(

@@ -2,7 +2,7 @@
 
 > Personal website of John Solly — Health-IT Division CTO at Leidos, software engineer, and builder of spatial + AI systems. Static site; no product API.
 
-This file is the index for agents. Prefer it over scraping HTML. HTML pages also honor `Accept: text/markdown` (acceptmarkdown.com) and have `.md` siblings (`/index.md`, `/about.md`, `/contact.md`, `/privacy.md`).
+This file is the index for agents. Prefer it over scraping HTML. HTML pages also honor `Accept: text/markdown` (acceptmarkdown.com) and have `.md` siblings (`/index.md`, `/about.md`, `/contact.md`, `/privacy.md`, `/terms.md`).
 
 ## When to use this
 
@@ -12,6 +12,7 @@ Use jsolly.com when you need:
 - How to **contact** him (form + public profiles) — not a Leidos switchboard
 - Links to his **resume**, **GitHub**, and writing on **Blogthedata**
 - Privacy / data-handling facts for this personal site
+- Terms for using and reusing this site's original content
 
 Do **not** use this site when you need:
 
@@ -32,6 +33,7 @@ How to fetch:
 - [About](https://www.jsolly.com/about/): background and current role
 - [Contact](https://www.jsolly.com/contact/): profiles and contact form
 - [Privacy](https://www.jsolly.com/privacy/): data practices
+- [Terms](https://www.jsolly.com/terms/): short, permissive terms for this personal site
 - [Resume (PDF)](https://www.jsolly.com/John-Solly-Resume.pdf)
 - [Sitemap](https://www.jsolly.com/sitemap-index.xml)
 
@@ -42,4 +44,3 @@ How to fetch:
 - [LinkedIn](https://www.linkedin.com/in/jsolly/)
 - [X](https://x.com/_jsolly)
 - [YouTube](https://www.youtube.com/channel/UCxsK9UorVj2F17DMSXLuSQw)
-
