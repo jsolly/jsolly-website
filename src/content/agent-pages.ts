@@ -3,6 +3,7 @@ const PAGES: Record<string, (origin: string) => string> = {
 	"/about": aboutMarkdown,
 	"/contact": contactMarkdown,
 	"/privacy": privacyMarkdown,
+	"/terms": termsMarkdown,
 };
 
 export function markdownForPath(
@@ -31,6 +32,7 @@ This path does not exist on jsolly.com.
 - [About](${origin}/about/)
 - [Contact](${origin}/contact/)
 - [Privacy](${origin}/privacy/)
+- [Terms](${origin}/terms/)
 - [Agent index (llms.txt)](${origin}/llms.txt)
 - [Sitemap](${origin}/sitemap-index.xml)
 - [Resume (PDF)](${origin}/John-Solly-Resume.pdf)
@@ -55,6 +57,7 @@ I spent most of my career building spatial systems — at Esri, startups, and fe
 - [About](${origin}/about/) — background, focus areas, and how I got here
 - [Contact](${origin}/contact/) — social profiles and a contact form
 - [Privacy](${origin}/privacy/) — data practices for this static site
+- [Terms](${origin}/terms/) — a short, permissive note about using this site
 - [Resume (PDF)](${origin}/John-Solly-Resume.pdf)
 - [Blog](https://www.blogthedata.com/) — writing lives on Blogthedata, not here
 
@@ -112,6 +115,7 @@ This site does not publish a public inbox address. Use Say Hello on the HTML con
 - [Home](${origin}/)
 - [About](${origin}/about/)
 - [Privacy](${origin}/privacy/)
+- [Terms](${origin}/terms/)
 - [Agent index (llms.txt)](${origin}/llms.txt)
 `;
 }
@@ -138,5 +142,30 @@ This site sets no first-party tracking cookies.
 ## Questions
 
 Questions about this policy? [Get in touch](${origin}/contact/).
+`;
+}
+
+function termsMarkdown(origin: string): string {
+	return `# Terms of Service
+
+Last updated: September 2026
+
+jsolly.com is the personal website of John Solly. It is not a product, a company portal, or a commercial service. These terms are a short plain-language note about that site.
+
+## Use and reuse
+
+You may visit, read, copy, share, and reuse the original content on this site for any purpose, including commercial use. Attribution is appreciated but not required. Third-party names and marks (for example Leidos or Esri) belong to their owners — don't imply those organizations endorse you.
+
+## No signup, no fees
+
+There is nothing to create an account for and nothing to buy. Visiting does not create extra obligations for you.
+
+## As-is
+
+The site is provided as-is, with no warranty. I am not liable for how you use it.
+
+## Contact
+
+John Solly — [jsolly.com](${origin}/). Questions? [Get in touch](${origin}/contact/).
 `;
 }
