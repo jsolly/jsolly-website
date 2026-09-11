@@ -16,7 +16,7 @@ curl -sSIL https://www.jsolly.com/ | rg -i '^x-release-id:'
 
 ## Purpose
 
-Personal website at [jsolly.com](https://www.jsolly.com). Astro static site, six pages (`index`, `about`, `contact`, `privacy`, `404`, `500`), no CMS.
+Personal website at [jsolly.com](https://www.jsolly.com). Astro static site, seven pages (`index`, `about`, `contact`, `privacy`, `terms`, `404`, `500`), no CMS.
 
 ## Stack
 
@@ -40,7 +40,7 @@ npm run fix                 # check:fix + check:ts (combined)
 
 ## Architecture
 
-- `src/pages/` — four `.astro` pages.
+- `src/pages/` — content pages (`index`, `about`, `contact`, `privacy`, `terms`) plus `404` and `500`.
 - `src/components/` — `Header`, `Footer`, `ContactMe`, `SocialLinks`, `Maintenance`, plus a `home/` subdir for index-page sections.
 - `src/layouts/` — page layout wrappers.
 - `src/content/` — Astro content collections (if used).
