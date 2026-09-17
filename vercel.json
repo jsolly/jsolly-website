@@ -1,6 +1,16 @@
 {
 	"$schema": "https://openapi.vercel.sh/vercel.json",
 	"trailingSlash": true,
+	"git": {
+		"deploymentEnabled": {
+			"main": true,
+			"*": false,
+			"*/*": false,
+			"*/*/*": false,
+			"*/*/*/*": false,
+			"**": false
+		}
+	},
 	"redirects": [
 		{
 			"source": "/:path*",
