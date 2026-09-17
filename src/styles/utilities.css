@@ -10,24 +10,26 @@ Custom Utilities
 	font-family: "Poppins", "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
-/* =============
-Text Gradients
-============== */
+@layer utilities {
+	/* =============
+	Text Gradients
+	============== */
 
-.text-gradient {
-	background: linear-gradient(135deg, #2563eb 0%, #171717 100%);
-	background-clip: text;
-	color: transparent;
-	background-size: 200% 200%;
-}
+	.text-gradient {
+		background: linear-gradient(135deg, #2563eb 0%, #171717 100%);
+		background-clip: text;
+		color: transparent;
+		background-size: 200% 200%;
+	}
 
-/* =============
-Accent Colors
-============== */
+	/* =============
+	Accent Colors
+	============== */
 
-.text-accent-primary {
-	@apply text-blue-700;
-}
-.text-accent {
-	@apply text-blue-700;
+	.text-accent-primary {
+		@apply text-blue-700;
+	}
+	.text-accent {
+		@apply text-blue-700;
+	}
 }

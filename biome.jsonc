@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.5.8/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.5.14/schema.json",
 	"vcs": {
 		"enabled": true,
 		"clientKind": "git",
@@ -10,6 +10,7 @@
 		"includes": [
 			"**",
 			"!.agents",
+			"!**/*.svg",
 			"**/*.ts",
 			"**/*.js",
 			"**/*.json",
@@ -27,6 +28,276 @@
 			"tailwindDirectives": true
 		}
 	},
+	"html": {
+		// Resolves `.astro` / `astro:assets` for project-domain + a11y rules
+		"experimentalFullSupportEnabled": true
+	},
+	"linter": {
+		"domains": {
+			"types": "all",
+			"project": "all",
+			"astro": "all",
+			"tailwind": "all",
+			"test": "all"
+		},
+		"rules": {
+			"preset": "recommended",
+			"nursery": {
+				"noFloatingPromises": "error",
+				"noMisusedPromises": "error",
+				"useExhaustiveSwitchCases": "error",
+				"useAwaitThenable": "error",
+				"useModernMathApis": "error",
+				"useIncludes": "error",
+				"useFlatMathMinMax": "error",
+				"noUnmodifiedLoopCondition": "error",
+				"useBetterDomTraversing": "error",
+				"useDomNodeTextContent": "error",
+				"useDomQuerySelector": "error",
+				"useLayeredStyles": {
+					"level": "error",
+					"options": { "requireImportLayers": false }
+				},
+				"useNamedLayer": "error",
+				"noNegationInEqualityCheck": "error",
+				"noXorAsExponentiation": "error",
+				"noBaseToString": "error",
+				"noMisleadingReturnType": "error",
+				"noUnsafePlusOperands": "error",
+				"noUselessTypeConversion": "error",
+				"useDisposables": "error",
+				"useNullishCoalescing": "error",
+				"useRegexpExec": "error",
+				"useRegexpTest": "error",
+				"useStringStartsEndsWith": "error",
+				"useArraySome": "error",
+				"useMathMinMax": "error",
+				"noLoopFunc": "error",
+				"noImpliedEval": "error",
+				"noUnnecessaryTemplateExpression": "error",
+				"noUnsafeTypeAssertion": "error",
+				"noExtendNative": "error",
+				"noEmptyObjectKeys": "error",
+				"noExcessiveNestedCallbacks": "error",
+				"noDuplicateSelectors": "error",
+				"noExcessiveSelectorClasses": "error",
+				"noInvalidPropertyInitValue": "error",
+				// HOLD: does not see Tailwind 4 `@theme` tokens declared in another CSS file.
+				"noUndeclaredCustomProperties": "off",
+				"noObsoleteTags": "error",
+				"noNonScalableViewport": "error",
+				"noInvalidFileInputAccept": "error",
+				"noUnsafeIframeSandbox": "error",
+				"useIframeSandbox": "error",
+				"useControlLabel": "error",
+				"useImportsFirst": "error",
+				"useVarsOnTop": "error",
+				"useUnicodeRegex": "error",
+				"useNamedCaptureGroup": "error",
+				"useReduceTypeParameter": "error",
+				"noReturnInFinally": "error",
+				"noJsonUnsafeValues": "error",
+				"noAstroSetHtmlDirective": "error",
+				"useAstroClientOnlyDirectiveValue": "error",
+				"noTailwindArbitraryValue": "error",
+				"useTailwindShorthandClasses": "error",
+				"useSortedClasses": {
+					"level": "error",
+					"options": { "attributes": ["class"] }
+				},
+				"noIdenticalTestTitle": "error",
+				"noConditionalExpect": "error",
+				"useConsistentTestIt": "error",
+				"useTestHooksInOrder": "error",
+				"useTestHooksOnTop": "error",
+				// HOLD: flags `RegExp#test()` as a Jest `test()` call.
+				"useValidTestTitle": "off",
+				"noInlineStyles": "error",
+				"noThisOutsideOfClass": "error",
+				"useThisInClassMethods": "error",
+				// Tailwind 4 utilities are generated; noUnusedClasses does not treat
+				// .astro class= as HTML/JSX (biome#9156).
+				"noUndeclaredClasses": "off",
+				"noUnusedClasses": "off"
+				// Skipped (style-only or wrong runner): useBaseline, useExplicitType,
+				// useExplicitReturnType, useConsistentFunctionStyle, useExpect (node:assert).
+			},
+			"security": {
+				"noSecrets": "error",
+				"noScriptUrl": "error",
+				"noGlobalEval": "error"
+			},
+			"a11y": {
+				"noAmbiguousAnchorText": "error",
+				"noAriaHiddenOnFocusable": "error",
+				"noStaticElementInteractions": "error",
+				"noNoninteractiveElementInteractions": "error",
+				"noPositiveTabindex": "error",
+				"useFocusableInteractive": "error",
+				"useSemanticElements": "error",
+				"useGenericFontNames": "error",
+				"useValidAutocomplete": "error"
+			},
+			"suspicious": {
+				"noUnnecessaryConditions": "error",
+				"noImportCycles": "error",
+				"useArraySortCompare": "error",
+				"noShadow": "error",
+				"noNestedPromises": "error",
+				"noDeprecatedImports": "error",
+				"noDuplicateDependencies": "error",
+				"noEvolvingTypes": "error",
+				"noImplicitAnyLet": "error",
+				"noTsIgnore": "error",
+				"noUnassignedVariables": "error",
+				"useAwait": "error",
+				"noDuplicateTestHooks": "error",
+				"noFocusedTests": "error",
+				"noMisplacedAssertion": "error",
+				"noExportsInTest": "error",
+				"noConstantBinaryExpressions": "error",
+				"noUselessEscapeInString": "error",
+				"noAlert": "error",
+				"noDocumentCookie": "error",
+				"noEmptyBlock": "error",
+				"noEmptyBlockStatements": "error",
+				"noEqualsToNull": "error",
+				"noForIn": "error",
+				"noPrototypeBuiltins": "error",
+				"noThenProperty": "error",
+				"noApproximativeNumericConstant": "error",
+				"noAssignInExpressions": "error",
+				"noAsyncPromiseExecutor": "error",
+				"noControlCharactersInRegex": "error",
+				"noConfusingVoidType": "error",
+				"noDoubleEquals": "error",
+				"noFallthroughSwitchClause": "error",
+				"noOctalEscape": "error",
+				"noRedeclare": "error",
+				"noSelfCompare": "error",
+				"noShadowRestrictedNames": "error",
+				"noSparseArray": "error",
+				"noTemplateCurlyInString": "error",
+				"noUnusedExpressions": "error",
+				"noUselessRegexBackrefs": "error",
+				"useAdjacentOverloadSignatures": "error",
+				"useDefaultSwitchClauseLast": "error",
+				"useErrorMessage": "error",
+				"useGetterReturn": "error",
+				"useGuardForIn": "error",
+				"useIsArray": "error",
+				"useIterableCallbackReturn": "error",
+				"useNamespaceKeyword": "error",
+				"useNumberToFixedDigitsArgument": "error",
+				"noUndeclaredEnvVars": {
+					"level": "error",
+					"options": {
+						"allowedEnvVars": [
+							"MAINTENANCE_MODE",
+							"VERCEL_GIT_COMMIT_SHA",
+							"GITHUB_SHA",
+							"NODE_ENV",
+							"CI"
+						]
+					}
+				}
+			},
+			"correctness": {
+				// HOLD: TypeScript / astro check is first-class for module resolution.
+				// Biome cannot resolve jsdom CJS or astro:assets SVG default exports.
+				"noUnresolvedImports": "off",
+				"noUnusedInstantiation": "error",
+				"noUndeclaredDependencies": "error",
+				"noPrivateImports": "error",
+				"noConstantMathMinMaxClamp": "error",
+				"noGlobalDirnameFilename": "error",
+				"noUnusedFunctionParameters": "error",
+				"useImportExtensions": {
+					"level": "error",
+					"options": {
+						// Do not rewrite `.svg` / `.astro` / `.css` to `.js`.
+						"forceJsExtensions": false,
+						"extensionMappings": {
+							"ts": "js",
+							"mts": "js",
+							"cts": "js"
+						}
+					}
+				},
+				"useJsonImportAttributes": "error",
+				"useImageSize": "error",
+				"useUniqueElementIds": "error",
+				"useParseIntRadix": "error",
+				"useIsNan": "error",
+				"useYield": "error"
+			},
+			"complexity": {
+				"useArrayFind": "error",
+				"useDateNow": "error",
+				"useOptionalChain": "error",
+				"useFlatMap": "error",
+				"useIndexOf": "error",
+				"noUselessUndefined": "error",
+				"noUselessStringConcat": "error",
+				"noUselessTernary": "error",
+				"noExtraBooleanCast": "error",
+				"noImplicitCoercions": "error",
+				"useNumericLiterals": "error",
+				"useRegexLiterals": "error",
+				"useWhile": "error",
+				"noFlatMapIdentity": "error",
+				"noBannedTypes": "error",
+				"noUselessCatch": "error",
+				"noUselessContinue": "error",
+				"noUselessRename": "error",
+				"noUselessReturn": "error",
+				"noUselessTypeConstraint": "error",
+				"noUselessUndefinedInitialization": "error",
+				"noUselessLoneBlockStatements": "error",
+				"useLiteralKeys": "error"
+			},
+			"style": {
+				"useErrorCause": "error",
+				"useNodejsImportProtocol": "error",
+				"useTrimStartEnd": "error",
+				"useThrowNewError": "error",
+				"useThrowOnlyError": "error",
+				"useAtIndex": "error",
+				"useExponentiationOperator": "error",
+				"useDefaultSwitchClause": "error",
+				"useDefaultParameterLast": "error",
+				"useConsistentBuiltinInstantiation": "error",
+				"noSubstr": "error",
+				"useObjectSpread": "error",
+				"useTemplate": "error",
+				"useForOf": "error",
+				"useCollapsedElseIf": "error",
+				"useCollapsedIf": "error",
+				"useExportType": "error",
+				"useNodeAssertStrict": "error",
+				"noYodaExpression": "error",
+				"useSpreadOverApply": "error",
+				"useSymbolDescription": "error",
+				"noUnusedTemplateLiteral": "error",
+				"noUselessElse": "error",
+				"useAsConstAssertion": "error",
+				"useShorthandAssign": "error",
+				"useEnumInitializers": "error",
+				"useLiteralEnumMembers": "error"
+			},
+			"performance": {
+				"noAwaitInLoops": "error",
+				"noAccumulatingSpread": "error",
+				"noBarrelFile": "error",
+				"noDelete": "error",
+				"noDynamicNamespaceImportAccess": "error",
+				"noNamespaceImport": "error",
+				"noSyncScripts": "error",
+				"noReExportAll": "error",
+				"useTopLevelRegex": "error"
+			}
+		}
+	},
 	"overrides": [
 		{
 			"includes": ["**/*.astro"],
@@ -38,7 +309,35 @@
 					},
 					"correctness": {
 						"noUnusedVariables": "off",
-						"noUnusedImports": "off"
+						"noUnusedImports": "off",
+						"noUnusedFunctionParameters": "off",
+						// React `useId()` — static Astro ids must stay stable for CSS/JS hooks.
+						"useUniqueElementIds": "off"
+					},
+					"nursery": {
+						"noUndeclaredClasses": "off",
+						"noUnusedClasses": "off"
+					}
+				}
+			}
+		},
+		{
+			"includes": ["**/*.css"],
+			"linter": {
+				"rules": {
+					"nursery": {
+						"noUnusedClasses": "off"
+					}
+				}
+			}
+		},
+		{
+			"includes": ["**/*.test.ts"],
+			"linter": {
+				"rules": {
+					"performance": {
+						// Assertion regexes belong next to the case, not module scope.
+						"useTopLevelRegex": "off"
 					}
 				}
 			}

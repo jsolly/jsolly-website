@@ -3,6 +3,8 @@
  * so Edge-safe TypeScript (Node16 `.js` imports) can run under
  * `node --experimental-strip-types`.
  */
+const JS_EXT_RE = /\.js$/u;
+
 export async function resolve(specifier, context, nextResolve) {
 	if (
 		specifier.startsWith(".") &&
@@ -10,7 +12,7 @@ export async function resolve(specifier, context, nextResolve) {
 		context.parentURL
 	) {
 		const asTs = new URL(specifier, context.parentURL);
-		asTs.pathname = asTs.pathname.replace(/\.js$/, ".ts");
+		asTs.pathname = asTs.pathname.replace(JS_EXT_RE, ".ts");
 		const result = await nextResolve(asTs.href, context);
 		return result;
 	}

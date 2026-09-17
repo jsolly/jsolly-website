@@ -4,7 +4,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Maintenance from "../components/Maintenance.astro";
 import StructuredData from "../components/StructuredData.astro";
-import { RELEASE_ID } from "../release-id";
+import { RELEASE_ID } from "../release-id.js";
 
 interface Props {
 	title: string;
@@ -13,11 +13,12 @@ interface Props {
 }
 
 const { title, description, noindex = false } = Astro.props;
+const TRAILING_SLASHES_RE = /\/+$/u;
 const isRootPath = Astro.url.pathname === "/";
 const isMaintenanceMode = process.env.MAINTENANCE_MODE === "true";
 const socialImageURL = new URL("/images/og-image.jpg", Astro.site);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const pageKey = Astro.url.pathname.replace(/\/+$/, "") || "/index";
+const pageKey = Astro.url.pathname.replace(TRAILING_SLASHES_RE, "") || "/index";
 const markdownHref = new URL(
 	pageKey === "/index" || pageKey === "" ? "/index.md" : `${pageKey}.md`,
 	Astro.site,
@@ -105,7 +106,7 @@ const llmsTxtURL = new URL("/llms.txt", Astro.site);
 		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 			<Header />
 
-			<main role="main" aria-label="Main content">
+			<main aria-label="Main content">
 				{isMaintenanceMode ? (
 					<Maintenance />
 				) : (
@@ -116,7 +117,7 @@ const llmsTxtURL = new URL("/llms.txt", Astro.site);
 								<a
 									href="/"
 									id="home-btn"
-									class="secondary-btn inline-block mt-6"
+									class="secondary-btn mt-6 inline-block"
 									transition:persist="home-btn"
 									aria-label="Go to home page"
 								>

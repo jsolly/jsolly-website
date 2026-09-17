@@ -12,18 +12,24 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"; cd "$ROOT"
 # shellcheck source=/dev/null
-source "${DOTAGENTS_GATE_LIB:-$HOME/code/dotagents/gate/gate-lib.sh}" || {
-  echo "✗ dotagents gate-lib not found (expected ~/code/dotagents/gate/gate-lib.sh) — re-run install-local-agent-runtime.sh." >&2
-  exit 1
-}
-
-gate_begin_commit "jsolly-website"    # staged secrets/md-lint; merge/empty skips; doc-only fast path; banner; ERR trap
-gate_require_node                     # enforce the pinned Node (.nvmrc), not whatever's on PATH
-
-# --- Quality gate (run_step: silent on green, full output + abort on red) ---
-run_step "dep grounding" gate_check_dep_grounding .git-hooks/pre-commit scripts/*.sh
+if source "${DOTAGENTS_GATE_LIB:-$HOME/code/dotagents/gate/gate-lib.sh}"; then
+	gate_begin_commit "jsolly-website"    # staged secrets/md-lint; merge/empty skips; doc-only fast path; banner; ERR trap
+	gate_require_node                     # enforce the pinned Node (.nvmrc), not whatever's on PATH
+	run_step "dep grounding" gate_check_dep_grounding .git-hooks/pre-commit scripts/*.sh
+else
+	# Cloud / CI VMs do not have ~/code/dotagents. Run the same quality battery
+	# without fleet boilerplate (secrets scan, doc-only fast path, node pin).
+	echo "⚠ gate-lib not found — running quality steps without fleet boilerplate." >&2
+	run_step() {
+		local name="$1"
+		shift
+		echo "→ ${name}"
+		"$@"
+	}
+fi
 run_step "biome ci"  npx --no-install biome ci . --error-on-warnings
 run_step "yaml lint" npm run check:yaml
+run_step "knip" npm run check:knip
 run_step "actionlint"             npm run check:actions
 run_step "release-id contract" npm run check:release-id
 run_step "astro check (types)" npm run check:ts

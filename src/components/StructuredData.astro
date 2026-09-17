@@ -1,5 +1,5 @@
 ---
-import { socialLinks } from "../content/socialLinks";
+import { socialLinks } from "../content/socialLinks.js";
 
 const site = Astro.site ?? new URL("https://www.jsolly.com/");
 const origin = site.origin;
@@ -62,4 +62,5 @@ const jsonLd = {
 };
 ---
 
+<!-- biome-ignore lint/nursery/noAstroSetHtmlDirective: first-party JSON-LD must stay raw JSON, not HTML-escaped text -->
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

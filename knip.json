@@ -1,0 +1,17 @@
+{
+	"$schema": "https://unpkg.com/knip@5/schema.json",
+	"entry": [
+		"middleware.ts",
+		"src/lib/*.test.ts",
+		"scripts/**/*.mjs",
+		"public/scripts/**/*.js"
+	],
+	"ignoreBinaries": ["uvx", "npm-check-updates"],
+	"ignoreDependencies": [
+		"github-actionlint",
+		"vercel",
+		"markdownlint-cli2",
+		"sharp"
+	],
+	"treatConfigHintsAsErrors": true
+}

@@ -36,6 +36,7 @@ export const socialLinks: readonly SocialLink[] = [
 		rel: "me noopener noreferrer",
 	},
 	{
+		// biome-ignore lint/security/noSecrets: public YouTube channel URL, not a credential
 		href: "https://www.youtube.com/channel/UCxsK9UorVj2F17DMSXLuSQw",
 		icon: youtubeLogo,
 		alt: "YouTube",

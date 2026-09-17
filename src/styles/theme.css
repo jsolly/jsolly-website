@@ -56,6 +56,9 @@ Theme Configuration
 		"Poppins", "Inter", ui-sans-serif, system-ui, sans-serif;
 	--font-family-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
+	--tracking-eyebrow: 0.2em;
+	--min-height-maintenance: 80vh;
+
 	/* =============
   Shadows
   ============== */

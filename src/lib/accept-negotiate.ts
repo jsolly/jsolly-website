@@ -3,12 +3,12 @@
  * Edge-safe: no Node APIs.
  */
 
-export const PRODUCES = ["text/html", "text/markdown"] as const;
-export type ProducedType = (typeof PRODUCES)[number];
+const PRODUCES = ["text/html", "text/markdown"] as const;
+type ProducedType = (typeof PRODUCES)[number];
 
 type AcceptEntry = { type: string; q: number; specificity: number };
 
-export function parseAccept(header: string): AcceptEntry[] {
+function parseAccept(header: string): AcceptEntry[] {
 	return header.split(",").map((raw) => {
 		const parts = raw
 			.trim()
@@ -88,9 +88,12 @@ export function appendVaryAccept(headers: Headers): void {
 	}
 }
 
-const MARKDOWN_FILE_RE = /\.md$/i;
+const MARKDOWN_FILE_RE = /\.md$/iu;
 const STATIC_EXT_RE =
-	/\.(?:js|css|png|jpe?g|gif|webp|svg|ico|pdf|xml|txt|woff2?|map|webmanifest|json)$/i;
+	/\.(?:js|css|png|jpe?g|gif|webp|svg|ico|pdf|xml|txt|woff2?|map|webmanifest|json)$/iu;
+export const TRAILING_SLASHES_RE = /\/+$/u;
+const MARKDOWN_EXT_RE = /\.md$/iu;
+const MARKDOWN_SIBLING_RE = /\.md(?:\/+)?$/iu;
 
 export function shouldNegotiate(pathname: string, method: string): boolean {
 	const verb = method.toUpperCase();
@@ -110,11 +113,11 @@ export function shouldNegotiate(pathname: string, method: string): boolean {
 
 /** Canonical page key: `/`, `/about`, `/contact`, `/privacy`, `/terms`. */
 export function normalizePagePath(pathname: string): string {
-	const isMarkdownSibling = /\.md(?:\/+)?$/i.test(pathname);
-	let path = pathname.replace(/\/+$/, "") || "/";
-	if (/\.md$/i.test(path)) {
-		path = path.replace(/\.md$/i, "");
-		path = path.replace(/\/+$/, "") || "/";
+	const isMarkdownSibling = MARKDOWN_SIBLING_RE.test(pathname);
+	let path = pathname.replace(TRAILING_SLASHES_RE, "") || "/";
+	if (MARKDOWN_EXT_RE.test(path)) {
+		path = path.replace(MARKDOWN_EXT_RE, "");
+		path = path.replace(TRAILING_SLASHES_RE, "") || "/";
 	}
 	if (isMarkdownSibling && (path === "/index" || path === "")) return "/";
 	return path || "/";
