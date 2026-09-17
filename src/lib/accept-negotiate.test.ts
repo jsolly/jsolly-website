@@ -5,8 +5,8 @@ import {
 	normalizePagePath,
 	preferredType,
 	shouldNegotiate,
-} from "./accept-negotiate.ts";
-import { agentResponse } from "./agent-response.ts";
+} from "./accept-negotiate.js";
+import { agentResponse } from "./agent-response.js";
 
 describe("preferredType", () => {
 	it("defaults to HTML when Accept is missing", () => {
@@ -87,11 +87,11 @@ describe("agentResponse", () => {
 		);
 		assert.ok(res);
 		assert.equal(res.status, 200);
-		assert.match(res.headers.get("content-type") ?? "", /text\/markdown/);
-		assert.match(res.headers.get("vary") ?? "", /Accept/i);
+		assert.match(res.headers.get("content-type") ?? "", /text\/markdown/u);
+		assert.match(res.headers.get("vary") ?? "", /Accept/iu);
 		assert.equal(res.headers.get("x-release-id"), "abc");
 		const body = await res.text();
-		assert.match(body, /^# Hi, I'm John Solly/m);
+		assert.match(body, /^# Hi, I'm John Solly/mu);
 	});
 
 	it("returns markdown 404 with recovery links for unknown paths", async () => {
@@ -103,11 +103,11 @@ describe("agentResponse", () => {
 		);
 		assert.ok(res);
 		assert.equal(res.status, 404);
-		assert.match(res.headers.get("content-type") ?? "", /text\/markdown/);
+		assert.match(res.headers.get("content-type") ?? "", /text\/markdown/u);
 		const body = await res.text();
-		assert.match(body, /^# Not found/m);
-		assert.match(body, /llms\.txt/);
-		assert.match(body, /sitemap-index\.xml/);
+		assert.match(body, /^# Not found/mu);
+		assert.match(body, /llms\.txt/u);
+		assert.match(body, /sitemap-index\.xml/u);
 	});
 
 	it("serves trailing-slash pages as markdown", async () => {
@@ -117,7 +117,7 @@ describe("agentResponse", () => {
 		);
 		assert.ok(res);
 		assert.equal(res.status, 200);
-		assert.match(await res.text(), /^# John Solly/m);
+		assert.match(await res.text(), /^# John Solly/mu);
 	});
 
 	it("serves terms page markdown", async () => {
@@ -130,21 +130,32 @@ describe("agentResponse", () => {
 		assert.ok(res);
 		assert.equal(res.status, 200);
 		const body = await res.text();
-		assert.match(body, /^# Terms of Service/m);
-		assert.match(body, /You may visit, read, copy, share, and reuse/);
+		assert.match(body, /^# Terms of Service/mu);
+		assert.match(body, /You may visit, read, copy, share, and reuse/u);
 	});
 
 	it("serves .md siblings as markdown regardless of Accept", async () => {
-		for (const accept of ["text/html", "application/json"]) {
-			const res = agentResponse(
-				new Request(`${origin}/about.md`, { headers: { accept } }),
-				"abc",
-			);
-			assert.ok(res);
-			assert.equal(res.status, 200);
-			assert.match(res.headers.get("content-type") ?? "", /text\/markdown/);
-			assert.match(await res.text(), /^# John Solly/m);
-		}
+		const htmlRes = agentResponse(
+			new Request(`${origin}/about.md`, {
+				headers: { accept: "text/html" },
+			}),
+			"abc",
+		);
+		assert.ok(htmlRes);
+		assert.equal(htmlRes.status, 200);
+		assert.match(htmlRes.headers.get("content-type") ?? "", /text\/markdown/u);
+		assert.match(await htmlRes.text(), /^# John Solly/mu);
+
+		const jsonRes = agentResponse(
+			new Request(`${origin}/about.md`, {
+				headers: { accept: "application/json" },
+			}),
+			"abc",
+		);
+		assert.ok(jsonRes);
+		assert.equal(jsonRes.status, 200);
+		assert.match(jsonRes.headers.get("content-type") ?? "", /text\/markdown/u);
+		assert.match(await jsonRes.text(), /^# John Solly/mu);
 	});
 
 	it("returns empty-body HEAD markdown", async () => {
@@ -157,7 +168,7 @@ describe("agentResponse", () => {
 		);
 		assert.ok(res);
 		assert.equal(res.status, 200);
-		assert.match(res.headers.get("content-type") ?? "", /text\/markdown/);
+		assert.match(res.headers.get("content-type") ?? "", /text\/markdown/u);
 		assert.equal(await res.text(), "");
 	});
 
@@ -174,8 +185,8 @@ describe("agentResponse", () => {
 			assert.ok(res);
 			assert.equal(res.status, 503);
 			const body = await res.text();
-			assert.match(body, /^# Maintenance/m);
-			assert.doesNotMatch(body, /Health-IT Division CTO/);
+			assert.match(body, /^# Maintenance/mu);
+			assert.doesNotMatch(body, /Health-IT Division CTO/u);
 		} finally {
 			if (previous === undefined) {
 				delete process.env.MAINTENANCE_MODE;
@@ -194,7 +205,7 @@ describe("agentResponse", () => {
 		);
 		assert.ok(res);
 		assert.equal(res.status, 406);
-		assert.match(res.headers.get("vary") ?? "", /Accept/i);
+		assert.match(res.headers.get("vary") ?? "", /Accept/iu);
 	});
 
 	it("falls through to HTML for a normal browser Accept", () => {

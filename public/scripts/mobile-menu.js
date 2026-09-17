@@ -1,5 +1,5 @@
-const mobileMenuButton = document.getElementById("mobile-menu-button");
-const mobileMenu = document.getElementById("mobile-menu");
+const mobileMenuButton = document.querySelector("#mobile-menu-button");
+const mobileMenu = document.querySelector("#mobile-menu");
 
 if (mobileMenuButton && mobileMenu) {
 	mobileMenuButton.addEventListener("click", () => {

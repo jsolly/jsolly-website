@@ -45,20 +45,12 @@ Base Typography & Layout
 	p {
 		@apply text-text-secondary leading-7;
 	}
-}
 
-/* =============
-Focus & Accessibility
-============== */
+	*:focus {
+		@apply outline-hidden ring-2 ring-primary-500 ring-offset-2;
+	}
 
-*:focus {
-	@apply outline-hidden ring-2 ring-primary-500 ring-offset-2;
-}
-
-/* =============
-Selection Styling
-============== */
-
-::selection {
-	@apply bg-primary-100 text-primary-900;
+	::selection {
+		@apply bg-primary-100 text-primary-900;
+	}
 }
