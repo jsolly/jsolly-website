@@ -26,7 +26,7 @@
 		"fix": "npm run check:fix && npm run check:ts",
 		"outdated": "npm outdated",
 		"update": "npx npm-check-updates -u && npm install",
-		"check:actions": "bash scripts/check-actions.sh",
+		"check:actions": "bash scripts/check-actions.sh && bash scripts/vercel-preview-comment-contract.sh && bash scripts/vercel-preview-workflow-contract.sh",
 		"gate": "FLEET_DOC_FAST=0 bash .git-hooks/pre-commit"
 	},
 	"devDependencies": {
