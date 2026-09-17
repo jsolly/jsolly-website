@@ -9,6 +9,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const RELEASE_ID_HEADER_RE = /x-release-id/iu;
 
 const edgeMw = resolve(repoRoot, "middleware.ts");
 const astroMw = resolve(repoRoot, "src/middleware.ts");
@@ -36,7 +37,7 @@ if (existsSync(edgeMw)) {
 const vercelPath = resolve(repoRoot, "vercel.json");
 if (existsSync(vercelPath)) {
 	const vercel = readFileSync(vercelPath, "utf8");
-	if (/x-release-id/i.test(vercel)) {
+	if (RELEASE_ID_HEADER_RE.test(vercel)) {
 		console.error(
 			"FAIL: do not put x-release-id in vercel.json (committed value sticks; use Edge Middleware)",
 		);
@@ -44,6 +45,7 @@ if (existsSync(vercelPath)) {
 	}
 }
 
+// biome-ignore lint/security/noSecrets: deterministic fixture SHA, not a live credential
 const sha = "abcdef1234567890deadbeef";
 execFileSync(
 	process.execPath,

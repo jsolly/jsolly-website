@@ -8,6 +8,7 @@ import {
 	normalizePagePath,
 	preferredType,
 	shouldNegotiate,
+	TRAILING_SLASHES_RE,
 } from "./accept-negotiate.js";
 
 /** Markdown / 406 response, or null to fall through to HTML. */
@@ -18,7 +19,7 @@ export function agentResponse(
 	const url = new URL(request.url);
 	const maintenance = process.env.MAINTENANCE_MODE === "true";
 
-	const pathNoSlash = url.pathname.replace(/\/+$/, "") || "/";
+	const pathNoSlash = url.pathname.replace(TRAILING_SLASHES_RE, "") || "/";
 	if (pathNoSlash.toLowerCase().endsWith(".md")) {
 		if (maintenance) {
 			return markdownBody(
