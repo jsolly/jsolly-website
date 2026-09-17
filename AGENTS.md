@@ -22,6 +22,10 @@ Personal website at [jsolly.com](https://www.jsolly.com). Astro static site, sev
 
 Astro 6, Tailwind CSS 4 (via `@tailwindcss/vite`), TypeScript, Biome 2 for lint/format, `@astrojs/sitemap` for generated sitemap. Inter + Poppins fonts via `@fontsource`. Node version pinned in `.nvmrc`.
 
+## Dependencies / Assets
+
+**No CDN for app assets.** Runtime CSS/JS (and app fonts) come from npm, local files, or same-origin build output. Do not load jsDelivr, unpkg, cdnjs, or similar CDNs at runtime.
+
 ## Commands
 
 ```bash
