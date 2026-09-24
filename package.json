@@ -27,14 +27,15 @@
 		"outdated": "npm outdated",
 		"update": "npx npm-check-updates -u && npm install",
 		"check:actions": "bash scripts/check-actions.sh && bash scripts/vercel-preview-comment-contract.sh && bash scripts/vercel-preview-workflow-contract.sh",
-		"gate": "FLEET_DOC_FAST=0 bash .git-hooks/pre-commit"
+		"gate": "FLEET_DOC_FAST=0 bash .git-hooks/pre-commit",
+		"smoke:production": "node scripts/production-smoke.mjs",
+		"smoke:scenario-contract": "node --test scripts/production-smoke-scenario.test.mjs"
 	},
 	"devDependencies": {
 		"@astrojs/check": "0.9.10",
 		"@astrojs/sitemap": "^3.7.4",
 		"@astrojs/ts-plugin": "^1.10.11",
 		"@biomejs/biome": "2.5.14",
-		"knip": "^6.35.1",
 		"@fontsource/inter": "^5.3.0",
 		"@fontsource/poppins": "^5.3.0",
 		"@tailwindcss/vite": "^4.3.3",
@@ -43,7 +44,9 @@
 		"globby": "^16.2.4",
 		"html-minifier-terser": "^7.2.0",
 		"jsdom": "^30.0.1",
+		"knip": "^6.35.1",
 		"markdownlint-cli2": "^0.23.2",
+		"playwright": "1.63.0",
 		"sharp": "^0.35.3",
 		"tailwindcss": "^4.3.3",
 		"typescript": "^6.0.3",
