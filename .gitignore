@@ -39,3 +39,6 @@ node_modules/
 
 
 # Materialized agent config (fetched by .dotagents/bootstrap.sh; not committed)
+
+# Production browser smoke diagnostics
+production-smoke-artifacts/
