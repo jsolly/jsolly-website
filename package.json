@@ -50,7 +50,7 @@
 		"sharp": "^0.35.3",
 		"tailwindcss": "^4.3.3",
 		"typescript": "^6.0.3",
-		"vercel": "^59.17.0"
+		"vercel": "^59.23.2"
 	},
 	"overrides": {
 		"esbuild": ">=0.28.1",
