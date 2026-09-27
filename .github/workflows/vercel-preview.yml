@@ -23,7 +23,7 @@ permissions:
 jobs:
   preview:
     name: preview
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     timeout-minutes: 15
     # Job-level so skipped issue_comment runs (no /preview) do not cancel
     # an in-flight Preview. Workflow-level concurrency evaluates before job if.
