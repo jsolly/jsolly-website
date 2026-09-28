@@ -2,7 +2,7 @@
 
 Ship profile: `vercel-static`
 
-Integration: `pr-auto-merge`
+Integration: branch → PR → merge on green `CI / ci`. `/ship` opens the PR and merges it once `ci` passes on the head — native auto-merge where the base branch's ruleset requires `ci`, otherwise a head-pinned manual squash (`~/code/dotagents/skills/ship/references/git-discipline.md` → Server-side gate). Agents never push to `main`, change rulesets, or admin-merge.
 
 CI owner: `local`
 
@@ -64,7 +64,6 @@ If a green merge creates no Vercel deployment, verify that the project's Git con
 ## CI (local pre-commit gate)
 
 - `.git-hooks/pre-commit` (wired via `core.hooksPath=.git-hooks`) runs the quality battery on every commit: Biome → Astro/TypeScript checks → `npm run build`. GitHub Actions repeats the gate on the PR; the hook does **not** deploy.
-- The auto-merge bot waits for this repo's `ci` check because Free private repos cannot set required checks.
 
 ## Conventions
 
