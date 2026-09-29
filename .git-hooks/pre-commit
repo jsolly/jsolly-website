@@ -8,10 +8,15 @@
 # only jsolly-website's quality steps, gated per commit. Production deploy is
 # owned by Vercel's GitHub integration after the commit lands on main; CI
 # backstops the gate on the PR.
+((BASH_VERSINFO[0] >= 5)) || { echo "✗ $0 requires Bash >= 5, not $BASH_VERSION. Fix: brew install bash; rerun setup/install-local-agent-runtime.sh; open a new shell." >&2; exit 1; }
 set -euo pipefail
 
-# shellcheck source=/dev/null
-if source "${DOTAGENTS_GATE_LIB:-$HOME/code/dotagents/gate/gate-lib.sh}"; then
+# The degraded branch is only for a genuinely absent lib (Cloud / CI VMs). A lib that exists but
+# refuses to load (e.g. its own Bash floor) aborts the commit under set -e instead of falling through.
+gate_lib="${DOTAGENTS_GATE_LIB:-$HOME/code/dotagents/gate/gate-lib.sh}"
+if [[ -f "$gate_lib" ]]; then
+	# shellcheck source=/dev/null
+	source "$gate_lib"
 	# Gate the tree being committed, not this copy's: under an absolute core.hooksPath (Claude
 	# desktop worktrees) this re-execs the committing tree's own hook; it sets ROOT and cd's.
 	gate_enter_committing_tree "${BASH_SOURCE[0]}"
