@@ -8,19 +8,30 @@
 # only jsolly-website's quality steps, gated per commit. Production deploy is
 # owned by Vercel's GitHub integration after the commit lands on main; CI
 # backstops the gate on the PR.
+((BASH_VERSINFO[0] >= 5)) || { echo "✗ $0 requires Bash >= 5, not $BASH_VERSION. Fix: brew install bash; rerun setup/install-local-agent-runtime.sh; open a new shell." >&2; exit 1; }
 set -euo pipefail
 
-# shellcheck source=/dev/null
-if source "${DOTAGENTS_GATE_LIB:-$HOME/code/dotagents/gate/gate-lib.sh}"; then
+# The degraded branch is only for a genuinely absent lib: GitHub CI, or a Cloud Agent VM before its
+# installer ran. A lib that exists but fails to load (unreadable, syntax error, a refusal at source
+# time) aborts the commit under set -e instead of falling through. An explicit DOTAGENTS_GATE_LIB
+# override that names no file is a misconfiguration, not an absent lib, so it aborts too.
+gate_lib="${DOTAGENTS_GATE_LIB:-$HOME/code/dotagents/gate/gate-lib.sh}"
+if [[ -n "${DOTAGENTS_GATE_LIB:-}" && ! -f "$gate_lib" ]]; then
+	echo "✗ DOTAGENTS_GATE_LIB=$gate_lib is not a file." >&2
+	exit 1
+fi
+if [[ -f "$gate_lib" ]]; then
+	# shellcheck source=/dev/null
+	source "$gate_lib"
 	# Gate the tree being committed, not this copy's: under an absolute core.hooksPath (Claude
 	# desktop worktrees) this re-execs the committing tree's own hook; it sets ROOT and cd's.
 	gate_enter_committing_tree "${BASH_SOURCE[0]}"
 	gate_begin_commit "jsolly-website"    # staged secrets/md-lint; merge/empty skips; doc-only fast path; banner; ERR trap
 	gate_require_node                     # enforce the pinned Node (.nvmrc), not whatever's on PATH
 else
-	# Cloud / CI VMs do not have ~/code/dotagents. Run the same quality battery
-	# without fleet boilerplate (secrets scan, doc-only fast path, node pin).
-	echo "⚠ gate-lib not found — running quality steps without fleet boilerplate." >&2
+	# Run the same quality battery without fleet boilerplate (secrets scan, doc-only fast path,
+	# node pin).
+	echo "⚠ gate-lib not found at $gate_lib — running quality steps without fleet boilerplate." >&2
 	cd "$(git rev-parse --show-toplevel)"
 	run_step() {
 		local name="$1"
