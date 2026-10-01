@@ -7,6 +7,6 @@
 		"public/scripts/**/*.js"
 	],
 	"ignoreBinaries": ["uvx"],
-	"ignoreDependencies": ["vercel", "markdownlint-cli2"],
+	"ignoreDependencies": ["markdownlint-cli2"],
 	"treatConfigHintsAsErrors": true
 }
