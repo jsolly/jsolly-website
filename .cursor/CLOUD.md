@@ -20,7 +20,7 @@ before anonymous HTTPS clone works. There is no public skills mirror.
 | Agents | `~/.cursor/agents/` | One `.md` file per reviewer/scanner agent |
 | Cited rules | `~/.cursor/dotagents-package/rules/` | **Read from here** when a skill cites `rules/<name>.md` |
 | Connector catalog | `~/.cursor/dotagents-package/mcps/catalog.json` | The cloud-first canon for MCP servers + marketplace plugins. `/optimize-workspaces` reconciles the live session against it — no laptop checkout needed |
-| Pre-commit gate lib | `~/.cursor/dotagents-package/gate/gate-lib.sh` | Canonical copy. Export `DOTAGENTS_GATE_LIB` to this path. Child `.git-hooks/pre-commit` shims source `${DOTAGENTS_GATE_LIB:-$HOME/code/dotagents/gate/gate-lib.sh}` |
+| Pre-commit gate lib | `~/.cursor/dotagents-package/gate/gate-lib.sh` | Canonical copy. Child `.git-hooks/pre-commit` shims source `${DOTAGENTS_GATE_LIB:-$HOME/code/dotagents/gate/gate-lib.sh}`; the default path is a stub symlink to this copy, so no `DOTAGENTS_GATE_LIB` export is needed |
 
 ### Agents / Review Task fallback
 
@@ -34,9 +34,9 @@ parallel lenses.
 Laptop-only skills (see `skills/laptop-only.txt`) are **not** installed on cloud.
 
 There is **no** full `~/code/dotagents` checkout on this VM unless the current
-repo *is* dotagents. The installer may plant a **stub symlink** at
+repo *is* dotagents. The installer plants a **stub symlink** at
 `~/code/dotagents/gate/gate-lib.sh` so child pre-commits' default source path
-resolves when `DOTAGENTS_GATE_LIB` is unset (non-login `bash -c` / git hooks).
+resolves in every shell (non-login `bash -c` / git hooks) with `DOTAGENTS_GATE_LIB` unset.
 The installer does **not** replace `gate-lib.sh` inside a real `~/code/dotagents`
 checkout. That stub is **not** a laptop tree — do not look for skills there, do not claim
 child repos inherit home wiring, and do **not** hand-copy `gate-lib.sh` into
@@ -45,8 +45,7 @@ this repo. Do **not** vendor the private dotagents tree into this repo.
 `.cursor/environment.json` sets `repositoryDependencies` to
 `github.com/jsolly/dotagents` so the generated GitHub token can include that
 private repo (it does **not** auto-clone). The Cursor GitHub App must allowlist
-`jsolly/dotagents`. `install` / `start` also export `DOTAGENTS_GATE_LIB` to the
-canonical package path.
+`jsolly/dotagents`.
 
 `~/.cursor/rules` from a laptop home is **not** auto-applied on cloud. User Rules + repo
 `AGENTS.md` + this file carry policy; skills that cite rules must read the copies under
@@ -84,7 +83,7 @@ require the connector. Catalog installation is not authentication proof.
 ## Laptop-only (not on cloud)
 
 - `setup/install-local-agent-runtime.sh` and `setup/doctor-agents.sh`
-- User-level `~/.cursor/hooks.json` and other home hooks/guards
+- User-level `~/.cursor/hooks.json` and other home hooks
 - Laptop-only skills (e.g. `setup-personal-machine`, `solly-create-skill`)
 
 ## Skills / slash commands
@@ -123,7 +122,7 @@ last resort, never the default. There is no outbound skill to load (the former o
 `~/.cursor/dotagents-package/rules/outbound-identity.md` for the hold-surface order and the receipt
 before claiming `done`, `holding`, or `sent`.
 
-## Hooks / guards
+## Hooks
 
 Only hooks committed under this repo's `.cursor/hooks.json` (or team/enterprise hooks) apply.
 User-level hook config from a laptop does not run in cloud.
@@ -139,8 +138,34 @@ That is the **same** IAM role laptop agents use via Identity Center `AgentReadOn
 `agent-deploy`; those laptop deploy identities are gone.
 
 After install, `AWS_PROFILE=agent-readonly` is set. Use it for CloudWatch / Lambda
-describe/get/list. `ssm:GetParameter*` and Secrets Manager gets are explicit deny.
+describe/get/list. Secret reads (SSM parameters, Secrets Manager values) are denied
+except the narrow nonsecret configuration exception defined in
+`~/.cursor/dotagents-package/rules/agent-cloud-access.md` — read that rule for the exact
+parameters and actions. A denied read is reported once, never bypassed.
 Do **not** invoke `*-live-provider-check` — that grant is CI and human-admin only.
+
+## Infra plan (read-only change set)
+
+`/optimize-workspaces` runs `npm run plan:infra -- --json --out <file>` through
+`gate_with_readonly_aws`, which gives the script only minted `agent-readonly`
+credentials, when this repo defines that script (`skills/optimize-workspaces/references/infra-plan.md`).
+The script may create a CloudFormation change set, print it, and delete it.
+It must not call `ExecuteChangeSet`. Do not run `npm run deploy:infra`,
+`sam deploy`, or `aws cloudformation execute-change-set`. A `CreateChangeSet`
+denial is reported once.
+On this VM, run the command only in the current workspace when that checkout
+is the fleet repo. Do not clone other fleet repos onto this VM to plan them.
+A template with no `plan:infra` or `check:infra-drift` script is a boardable gap, not a failed run.
+`check:infra-drift` compares the `InfraDeployCommit` stack tag, which only
+`deploy:infra` writes, with `main`'s infra inputs and warns. It does not block
+pre-commit or CI, but this repo's Deploy may hard-refuse while that tag lags;
+that refusal is John's hand-off, not a fix-red cycle. The `ci`
+workflow holds no AWS identity and runs no drift step; where Deploy carries the
+aws-sam infra gate, that gate is the enforcing check, and `deploy:infra pending` surfaces from this command and
+the `/optimize-workspaces` infra drift row. When you change a template, Terraform file, or CDK app,
+say in the PR body and the final report that a manual infra deploy is needed
+after merge, and include plan output when `plan:infra` exists.
+Pending changes mean `John runs deploy:infra after reviewing`.
 
 Allow `sts.amazonaws.com` (and regional STS if used) on this environment's network
 policy or assume-role will hang. The role ARN may be a Cursor Environment Variable

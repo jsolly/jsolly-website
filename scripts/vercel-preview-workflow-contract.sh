@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
-# Lock SHA injection on .github/workflows/vercel-preview.yml. CLI --archive=tgz
-# deploys omit .git, so gen-release-id.mjs and middleware must receive the PR
-# head SHA via this app's existing env names (no GeoRoids-specific vars).
+# Lock the safety and metadata contract of .github/workflows/vercel-preview.yml.
+# CLI --archive=tgz deploys omit .git, so the build must receive the PR head SHA.
+# Copy from templates/github/.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 WORKFLOW="$ROOT/.github/workflows/vercel-preview.yml"
-VERCEL_JSON="$ROOT/vercel.json"
 
 fail() {
 	echo "✗ $*" >&2
@@ -14,7 +13,6 @@ fail() {
 }
 
 [[ -f "$WORKFLOW" ]] || fail "missing $WORKFLOW"
-[[ -f "$VERCEL_JSON" ]] || fail "missing $VERCEL_JSON"
 
 require() {
 	local needle="$1"
@@ -24,31 +22,16 @@ require() {
 	fi
 }
 
-require 'scripts/vercel-preview-comment.sh' 'run the comment matcher'
-require 'ref: ${{ steps.pr.outputs.head_sha }}' 'check out the PR head SHA'
-require 'not deploying forks' 'refuse fork pull requests'
-require '--archive=tgz' 'upload a tarball because CLI deploys omit .git'
-require '--build-env "VERCEL_GIT_COMMIT_SHA=${HEAD_SHA}"' 'pass the PR SHA as a build env'
-require '--build-env "GITHUB_SHA=${HEAD_SHA}"' 'pass the PR SHA as the gen-release-id fallback'
-require '--env "VERCEL_GIT_COMMIT_SHA=${HEAD_SHA}"' 'pass the PR SHA as middleware runtime env'
-require '--env "GITHUB_SHA=${HEAD_SHA}"' 'pass the PR SHA as the middleware fallback env'
+require '--build-env "VERCEL_GIT_COMMIT_SHA=${HEAD_SHA}"' 'pass the PR SHA as a Vite build env'
 require '--meta "githubDeployment=1"' 'mark the CLI deploy as a GitHub deployment'
 require '--meta "githubCommitSha=${HEAD_SHA}"' 'attach the PR SHA as GitHub commit metadata'
-require 'VERCEL_PROJECT_ID: prj_9irfTPLYZwwuC7YK0oB3bkc1QXtW' 'target project jsolly-website'
-require '--scope jsollys-projects' 'deploy into team jsollys-projects'
+require 'jq -r '"'"'.head.sha'"'"'' 'resolve the Preview SHA from the PR head, not github.sha'
+require 'ref: ${{ steps.pr.outputs.head_sha }}' 'check out the resolved PR head SHA'
+require 'printf '"'"'%s'"'"' "$COMMENT_BODY" | bash scripts/vercel-preview-comment.sh' 'pipe comments through the exact /preview matcher'
+require 'github.event.comment.author_association == '"'"'OWNER'"'"'' 'restrict comment deploys to owner/member/collaborator'
+require 'head_repo" != "$REPO"' 'refuse fork PR heads'
+require 'persist-credentials: false' 'do not persist the Actions token on checkout'
+require 'cd "$RUNNER_TEMP" && npx --yes vercel@59.20.0 deploy --yes --archive=tgz --cwd "$GITHUB_WORKSPACE"' 'run the pinned GeoRoids CLI from outside the PR tree (npm reads no PR .npmrc or node_modules/vercel while VERCEL_TOKEN is set) with the tgz archive that omits .git'
+require 'cancel-in-progress: false' 'not cancel an in-flight /preview when a later comment lands'
 
-node --input-type=module -e '
-import { readFileSync } from "node:fs";
-const vercel = JSON.parse(readFileSync(process.argv[1], "utf8"));
-const enabled = vercel.git?.deploymentEnabled;
-if (enabled?.main !== true) {
-	console.error("✗ vercel.json must keep Git deploys enabled on main");
-	process.exit(1);
-}
-if (enabled?.["*"] !== false || enabled?.["**"] !== false) {
-	console.error("✗ vercel.json must disable Git deploys for non-main branches");
-	process.exit(1);
-}
-' "$VERCEL_JSON"
-
-echo "✓ vercel-preview workflow injects the PR commit SHA"
+echo "✓ vercel-preview workflow contract holds"
