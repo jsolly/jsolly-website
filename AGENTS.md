@@ -105,3 +105,11 @@ again until a drain re-kicks the new head (remove, then re-add). Deferred runs
 report `ci-deferred` and cannot satisfy the required `ci` check. Skipped or
 absent checks never authorize a dependency merge. See the Dependabot CI kick in
 the canonical `dotagents/skills/optimize-workspaces/references/pr-drain.md`.
+
+## Git hooks
+
+`core.hooksPath` is the dotagents dispatcher `~/.local/share/dotagents/hooks`, installed and set by the dotagents installers. Never point it at `.git-hooks` or set it from a package script. The dispatcher runs this repo’s tracked pre-commit hook only when its bytes match a version on `origin/main` or your approved hook blob. Approve only your own edits using the command printed by the refusal. Review fork and third-party PR heads using `gh pr diff`; never check them out here. Canon: dotagents `rules/agent-cloud-access.md` → GitHub.
+
+## Fleet rollout
+
+Changes inside this repo ship normally. For changes other repos must adopt, link the merged PR on the existing dotagents Todoist fleet-rollout task. Do not start that rollout or spawn per-repo chips, PRs or tasks from here. John authorizes one lead to walk the fleet after canon settles. Follow the installed `persist-todos-in-todoist` skill → Fleet rollout.
