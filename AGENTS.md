@@ -2,17 +2,13 @@
 
 Ship profile: `vercel-static`
 
-Integration: `pr-auto-merge`
-
-CI owner: `local`
+**Integration: branch → PR → merge on green `CI / ci`.** `/ship` merges per `skills/ship/references/git-discipline.md` → Merge a same-repo self PR (read the installed `/ship` reference). Agents never push to `main`, change rulesets, or admin-merge.
 
 Production URL: <https://www.jsolly.com>
 
-**Prod verify:** `/ship` requires `x-release-id` to match `origin/main` (12-char). HTTP 200 alone is insufficient.
+Production verification follows Vercel READY and the public navigation and Markdown behavior smoke.
 
-```bash
-curl -sSIL https://www.jsolly.com/ | rg -i '^x-release-id:'
-```
+Local gate before push: `npm run gate`.
 
 ## Purpose
 
@@ -63,8 +59,7 @@ If a green merge creates no Vercel deployment, verify that the project's Git con
 
 ## CI (local pre-commit gate)
 
-- `.git-hooks/pre-commit` (wired via `core.hooksPath=.git-hooks`) runs the quality battery on every commit: Biome → Astro/TypeScript checks → `npm run build`. GitHub Actions repeats the gate on the PR; the hook does **not** deploy.
-- The auto-merge bot waits for this repo's `ci` check because Free private repos cannot set required checks.
+- `.git-hooks/pre-commit` runs through the installed dotagents hook dispatcher and validates Bash, Biome, YAML, Actions, Markdown, browser contract, Knip, Astro types, unit tests and build. GitHub Actions repeats the gate on the PR; the hook does **not** deploy.
 
 ## Conventions
 
@@ -103,8 +98,18 @@ Canonical contract: `~/code/dotagents/templates/github/verified-tree-ci.md`.
 
 ## Dependabot CI
 
-Ordinary Dependabot PR events allocate no validation runners. A manually invoked
-`/optimize-workspace` requests full PR checks with `deps:ci:<full-head-SHA>`.
-Deferred checks cannot satisfy the real `ci` requirement. New commits need a new
-request; skipped or absent checks never authorize a dependency merge. See the
-canonical `dotagents/skills/optimize-workspace/references/dependencies.md`.
+Dependabot PR events allocate no validation runners until a manually invoked
+`/optimize-workspaces drain` applies the `ow-ci` label. Only the `labeled`
+event adding `ow-ci` runs the real `ci` check; later Dependabot pushes defer
+again until a drain re-kicks the new head (remove, then re-add). Deferred runs
+report `ci-deferred` and cannot satisfy the required `ci` check. Skipped or
+absent checks never authorize a dependency merge. See the Dependabot CI kick in
+the canonical `dotagents/skills/optimize-workspaces/references/pr-drain.md`.
+
+## Git hooks
+
+`core.hooksPath` is the dotagents dispatcher `~/.local/share/dotagents/hooks`, installed and set by the dotagents installers. Never point it at `.git-hooks` or set it from a package script. The dispatcher runs this repo’s tracked pre-commit hook only when its bytes match a version on `origin/main` or your approved hook blob. Approve only your own edits using the command printed by the refusal. Review fork and third-party PR heads using `gh pr diff`; never check them out here. Canon: dotagents `rules/agent-cloud-access.md` → GitHub.
+
+## Fleet rollout
+
+Changes inside this repo ship normally. For changes other repos must adopt, link the merged PR on the existing dotagents Todoist fleet-rollout task. Do not start that rollout or spawn per-repo chips, PRs or tasks from here. John authorizes one lead to walk the fleet after canon settles. Follow the installed `persist-todos-in-todoist` skill → Fleet rollout.

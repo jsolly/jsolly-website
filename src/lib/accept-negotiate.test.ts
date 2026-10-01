@@ -83,13 +83,15 @@ describe("agentResponse", () => {
 	it("serves markdown with Vary: Accept for Accept: text/markdown", async () => {
 		const res = agentResponse(
 			new Request(`${origin}/`, { headers: { accept: "text/markdown" } }),
-			"abc",
 		);
 		assert.ok(res);
 		assert.equal(res.status, 200);
 		assert.match(res.headers.get("content-type") ?? "", /text\/markdown/u);
 		assert.match(res.headers.get("vary") ?? "", /Accept/iu);
-		assert.equal(res.headers.get("x-release-id"), "abc");
+		assert.equal(
+			res.headers.get("cache-control"),
+			"public, max-age=0, must-revalidate",
+		);
 		const body = await res.text();
 		assert.match(body, /^# Hi, I'm John Solly/mu);
 	});
@@ -99,7 +101,6 @@ describe("agentResponse", () => {
 			new Request(`${origin}/no-such-page`, {
 				headers: { accept: "text/markdown" },
 			}),
-			"abc",
 		);
 		assert.ok(res);
 		assert.equal(res.status, 404);
@@ -113,7 +114,6 @@ describe("agentResponse", () => {
 	it("serves trailing-slash pages as markdown", async () => {
 		const res = agentResponse(
 			new Request(`${origin}/about/`, { headers: { accept: "text/markdown" } }),
-			"abc",
 		);
 		assert.ok(res);
 		assert.equal(res.status, 200);
@@ -125,7 +125,6 @@ describe("agentResponse", () => {
 			new Request(`${origin}/terms/`, {
 				headers: { accept: "text/markdown" },
 			}),
-			"abc",
 		);
 		assert.ok(res);
 		assert.equal(res.status, 200);
@@ -139,7 +138,6 @@ describe("agentResponse", () => {
 			new Request(`${origin}/about.md`, {
 				headers: { accept: "text/html" },
 			}),
-			"abc",
 		);
 		assert.ok(htmlRes);
 		assert.equal(htmlRes.status, 200);
@@ -150,7 +148,6 @@ describe("agentResponse", () => {
 			new Request(`${origin}/about.md`, {
 				headers: { accept: "application/json" },
 			}),
-			"abc",
 		);
 		assert.ok(jsonRes);
 		assert.equal(jsonRes.status, 200);
@@ -164,7 +161,6 @@ describe("agentResponse", () => {
 				method: "HEAD",
 				headers: { accept: "text/markdown" },
 			}),
-			"abc",
 		);
 		assert.ok(res);
 		assert.equal(res.status, 200);
@@ -180,7 +176,6 @@ describe("agentResponse", () => {
 				new Request(`${origin}/about/`, {
 					headers: { accept: "text/markdown" },
 				}),
-				"abc",
 			);
 			assert.ok(res);
 			assert.equal(res.status, 503);
@@ -201,7 +196,6 @@ describe("agentResponse", () => {
 			new Request(`${origin}/`, {
 				headers: { accept: "application/json" },
 			}),
-			"abc",
 		);
 		assert.ok(res);
 		assert.equal(res.status, 406);
@@ -216,7 +210,6 @@ describe("agentResponse", () => {
 						"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
 				},
 			}),
-			"abc",
 		);
 		assert.equal(res, null);
 	});
