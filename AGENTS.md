@@ -2,17 +2,13 @@
 
 Ship profile: `vercel-static`
 
-Integration: branch → PR → merge on green `CI / ci`. `/ship` opens the PR, arms native auto-merge as the backstop where the base branch's ruleset requires `ci`, and runs the head-pinned squash itself as soon as `ci` passes on the head (`~/code/dotagents/skills/ship/references/git-discipline.md` → Merge a same-repo self PR). Agents never push to `main`, change rulesets, or admin-merge.
-
-CI owner: `local`
+**Integration: branch → PR → merge on green `CI / ci`.** `/ship` merges per `skills/ship/references/git-discipline.md` → Merge a same-repo self PR (read the installed `/ship` reference). Agents never push to `main`, change rulesets, or admin-merge.
 
 Production URL: <https://www.jsolly.com>
 
-**Prod verify:** `/ship` requires `x-release-id` to match `origin/main` (12-char). HTTP 200 alone is insufficient.
+Production verification follows Vercel READY and the public navigation and Markdown behavior smoke.
 
-```bash
-curl -sSIL https://www.jsolly.com/ | rg -i '^x-release-id:'
-```
+Local gate before push: `npm run gate`.
 
 ## Purpose
 
@@ -63,7 +59,7 @@ If a green merge creates no Vercel deployment, verify that the project's Git con
 
 ## CI (local pre-commit gate)
 
-- `.git-hooks/pre-commit` (wired via `core.hooksPath=.git-hooks`) runs the quality battery on every commit: Biome → Astro/TypeScript checks → `npm run build`. GitHub Actions repeats the gate on the PR; the hook does **not** deploy.
+- `.git-hooks/pre-commit` runs through the installed dotagents hook dispatcher and validates Bash, Biome, YAML, Actions, Markdown, browser contract, Knip, Astro types, unit tests and build. GitHub Actions repeats the gate on the PR; the hook does **not** deploy.
 
 ## Conventions
 

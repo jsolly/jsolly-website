@@ -8,7 +8,7 @@
 # only jsolly-website's quality steps, gated per commit. Production deploy is
 # owned by Vercel's GitHub integration after the commit lands on main; CI
 # backstops the gate on the PR.
-((BASH_VERSINFO[0] >= 5)) || { echo "✗ $0 requires Bash >= 5, not $BASH_VERSION. Fix: brew install bash; rerun setup/install-local-agent-runtime.sh; open a new shell." >&2; exit 1; }
+((BASH_VERSINFO[0] >= 5)) || { echo "✗ $0 requires Bash >= 5, not $BASH_VERSION. Fix: brew install bash; rerun bash ~/code/dotagents/setup/install-local-agent-runtime.sh; open a new shell." >&2; exit 1; }
 set -euo pipefail
 
 # The degraded branch is only for a genuinely absent lib: GitHub CI, or a Cloud Agent VM before its
@@ -26,7 +26,9 @@ if [[ -f "$gate_lib" ]]; then
 	# Gate the tree being committed, not this copy's: under an absolute core.hooksPath (Claude
 	# desktop worktrees) this re-execs the committing tree's own hook; it sets ROOT and cd's.
 	gate_enter_committing_tree "${BASH_SOURCE[0]}"
+	gate_require_lib 12  # gate_check_bash_floor
 	gate_begin_commit "jsolly-website"    # staged secrets/md-lint; merge/empty skips; doc-only fast path; banner; ERR trap
+	run_step "bash floor" gate_check_bash_floor   # every Bash entrypoint refuses Bash < 5
 	gate_require_node                     # enforce the pinned Node (.nvmrc), not whatever's on PATH
 else
 	# Run the same quality battery without fleet boilerplate (secrets scan, doc-only fast path,
@@ -44,7 +46,8 @@ run_step "biome ci"  npx --no-install biome ci . --error-on-warnings
 run_step "yaml lint" npm run check:yaml
 run_step "knip" npm run check:knip
 run_step "actionlint"             npm run check:actions
-run_step "release-id contract" npm run check:release-id
+run_step "markdown lint" npm run check:md
+run_step "smoke scenario" npm run smoke:scenario-contract
 run_step "astro check (types)" npm run check:ts
 run_step "unit tests" npm test
 run_step "build"     npm run build

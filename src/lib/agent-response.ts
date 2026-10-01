@@ -12,24 +12,16 @@ import {
 } from "./accept-negotiate.js";
 
 /** Markdown / 406 response, or null to fall through to HTML. */
-export function agentResponse(
-	request: Request,
-	releaseId: string,
-): Response | null {
+export function agentResponse(request: Request): Response | null {
 	const url = new URL(request.url);
 	const maintenance = process.env.MAINTENANCE_MODE === "true";
 
 	const pathNoSlash = url.pathname.replace(TRAILING_SLASHES_RE, "") || "/";
 	if (pathNoSlash.toLowerCase().endsWith(".md")) {
 		if (maintenance) {
-			return markdownBody(
-				request,
-				maintenanceMarkdown(url.origin),
-				503,
-				releaseId,
-			);
+			return markdownBody(request, maintenanceMarkdown(url.origin), 503);
 		}
-		return markdownResponse(request, url, releaseId);
+		return markdownResponse(request, url);
 	}
 
 	if (!shouldNegotiate(url.pathname, request.method)) {
@@ -38,45 +30,34 @@ export function agentResponse(
 
 	const chosen = preferredType(request.headers.get("accept"));
 	if (chosen === null) {
-		return notAcceptable(releaseId);
+		return notAcceptable();
 	}
 	if (chosen === "text/markdown") {
 		if (maintenance) {
-			return markdownBody(
-				request,
-				maintenanceMarkdown(url.origin),
-				503,
-				releaseId,
-			);
+			return markdownBody(request, maintenanceMarkdown(url.origin), 503);
 		}
-		return markdownResponse(request, url, releaseId);
+		return markdownResponse(request, url);
 	}
 	return null;
 }
 
-function markdownResponse(
-	request: Request,
-	url: URL,
-	releaseId: string,
-): Response {
+function markdownResponse(request: Request, url: URL): Response {
 	const origin = url.origin;
 	const pageKey = normalizePagePath(url.pathname);
 	const pageBody = markdownForPath(pageKey, origin);
 	const status = pageBody ? 200 : 404;
 	const body = pageBody ?? notFoundMarkdown(origin);
-	return markdownBody(request, body, status, releaseId);
+	return markdownBody(request, body, status);
 }
 
 function markdownBody(
 	request: Request,
 	body: string,
 	status: number,
-	releaseId: string,
 ): Response {
 	const headers = new Headers({
 		"content-type": "text/markdown; charset=utf-8",
 		"cache-control": "public, max-age=0, must-revalidate",
-		"x-release-id": releaseId,
 	});
 	appendVaryAccept(headers);
 	if (request.method.toUpperCase() === "HEAD") {
@@ -85,10 +66,9 @@ function markdownBody(
 	return new Response(body, { status, headers });
 }
 
-function notAcceptable(releaseId: string): Response {
+function notAcceptable(): Response {
 	const headers = new Headers({
 		"content-type": "text/plain; charset=utf-8",
-		"x-release-id": releaseId,
 	});
 	appendVaryAccept(headers);
 	return new Response(
