@@ -124,3 +124,11 @@ the canonical `dotagents/skills/optimize-workspaces/references/pr-drain.md`.
 ## Fleet rollout
 
 Changes inside this repo ship normally. For changes other repos must adopt, link the merged PR on the existing dotagents Todoist fleet-rollout task. Do not start that rollout or spawn per-repo chips, PRs or tasks from here. John authorizes one lead to walk the fleet after canon settles. Follow the installed `persist-todos-in-todoist` skill → Fleet rollout.
+
+## Content Security Policy
+
+Astro `security.csp` emits per-page hashes for the island bootstrap and owns
+`default-src`/`script-src`. Vercel keeps the other resource restrictions and
+`frame-ancestors` in its response header. Do not add a conflicting header
+`script-src` or `default-src`, or allow arbitrary inline scripts. Verify built
+pages with both policies; Astro dev/preview alone does not apply Vercel headers.
