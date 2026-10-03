@@ -1,3 +1,6 @@
+---
+import Button from "../lib/components/ui/button.svelte";
+---
 <section
     class="my-8 border-y py-16 border-neutral-200 bg-gradient-to-br from-primary-50/30 via-accent-50/20 to-primary-100/30 rounded-2xl"
     aria-labelledby="contact-me-heading"
@@ -15,15 +18,15 @@
             line.
         </p>
         <div class="text-center">
-            <a
+            <Button
                 rel="noopener noreferrer"
                 target="_blank"
                 href="https://us14.list-manage.com/contact-form?u=3fb3f4adf8ab2cd1ebd6ff743&form_id=7c78cd242677faaebfc3d4a2bc0d5fda"
-                class="primary-btn inline-block transform hover:scale-105 transition-all duration-400 ease-out"
+                class="primary-btn h-auto border-0 px-6 py-3 text-base rounded-xl font-semibold inline-block transform hover:scale-105 transition-all duration-400 ease-out"
                 aria-label="Say Hello to John"
             >
                 Say Hello
-            </a>
+            </Button>
         </div>
     </div>
 </section>

@@ -16,7 +16,18 @@ Personal website at [jsolly.com](https://www.jsolly.com). Astro static site, sev
 
 ## Stack
 
-Astro 6, Tailwind CSS 4 (via `@tailwindcss/vite`), TypeScript, Biome 2 for lint/format, `@astrojs/sitemap` for generated sitemap. Inter + Poppins fonts via `@fontsource`. Node version pinned in `.nvmrc`.
+Astro 7 with Svelte 5 islands, Tailwind CSS 4 (via `@tailwindcss/vite`), TypeScript, Biome 2 for lint/format, `@astrojs/sitemap` for generated sitemap. Inter + Poppins fonts via `@fontsource`. Node version pinned in `.nvmrc`.
+
+## Frontend stack
+
+Astro owns static pages; Svelte + shadcn-svelte owns interactive product UI.
+Use the installed generated controls for new or replaced standard controls,
+loading `/shadcn-svelte`. Navigation uses a hydrated Svelte island and the
+hero/contact calls to action use server-rendered Button anchors. Preserve
+native link semantics, first-party assets, the portfolio palette and focus.
+`components.json` configures the pinned local CLI and existing Tailwind styles.
+Reuse `src/lib/components/ui`; import defining component files directly.
+Canon: `~/code/dotagents/rules/frontend-stack.md`.
 
 ## Dependencies / Assets
 
