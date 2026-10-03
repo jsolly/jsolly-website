@@ -1,11 +1,6 @@
 {
 	"$schema": "https://unpkg.com/knip@6/schema.json",
-	"entry": [
-		"middleware.ts",
-		"src/lib/*.test.ts",
-		"scripts/**/*.mjs",
-		"public/scripts/**/*.js"
-	],
+	"entry": ["middleware.ts", "src/lib/*.test.ts", "scripts/**/*.mjs"],
 	"ignoreBinaries": ["uvx"],
 	"ignoreDependencies": ["markdownlint-cli2"],
 	"treatConfigHintsAsErrors": true

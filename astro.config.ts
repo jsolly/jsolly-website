@@ -1,4 +1,5 @@
 import sitemap from "@astrojs/sitemap";
+import svelte from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 
@@ -10,6 +11,7 @@ export default defineConfig({
 			: "https://www.jsolly.com",
 
 	integrations: [
+		svelte(),
 		sitemap({
 			customPages:
 				process.env.NODE_ENV === "development"

@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import jsollyLarge from "../../images/jsollyLarge.webp";
+import Button from "../../lib/components/ui/button.svelte";
 ---
 
 <article class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center max-w-7xl mx-auto px-4">
@@ -19,13 +20,13 @@ import jsollyLarge from "../../images/jsollyLarge.webp";
         
         <!-- Enhanced CTA buttons with better styling -->
         <nav class="flex flex-col sm:flex-row gap-4 pt-4" aria-label="Call to action">
-            <a 
+            <Button
                 href="/about/"
-                class="primary-btn text-center group"
+                class="primary-btn h-auto border-0 px-6 py-3 text-base rounded-xl font-semibold text-center group"
             >
                 More About Me
                 <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true">&rarr;</span>
-            </a>
+            </Button>
         </nav>
     </header>
     
