@@ -20,6 +20,14 @@ export default defineConfig({
 		}),
 	],
 
+	// Astro hashes its generated island bootstrap in each built page.
+	security: {
+		csp: {
+			directives: ["default-src 'self'"],
+			styleDirective: { resources: ["'self'", "'unsafe-inline'"] },
+		},
+	},
+
 	vite: {
 		plugins: [tailwindcss()],
 	},
