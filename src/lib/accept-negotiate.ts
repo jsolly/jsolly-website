@@ -89,26 +89,85 @@ export function appendVaryAccept(headers: Headers): void {
 }
 
 const MARKDOWN_FILE_RE = /\.md$/iu;
-const STATIC_EXT_RE =
-	/\.(?:js|css|png|jpe?g|gif|webp|svg|ico|pdf|xml|txt|woff2?|map|webmanifest|json)$/iu;
+// A file extension in the last path segment. Every file other than a `.md`
+// sibling is static: the middleware never negotiates or 406s it.
+const FILE_EXT_RE = /\.[^./]+$/u;
 export const TRAILING_SLASHES_RE = /\/+$/u;
 const MARKDOWN_EXT_RE = /\.md$/iu;
 const MARKDOWN_SIBLING_RE = /\.md(?:\/+)?$/iu;
 
-export function shouldNegotiate(pathname: string, method: string): boolean {
+const STATIC_DATA_PREFIX = "/recipes/data/";
+/**
+ * Sections whose real routes serve HTML only (J11). A path in one of them
+ * that is not a real route keeps the Markdown 404 that llms.txt promises.
+ */
+const HTML_ONLY_SECTIONS = ["/blog/", "/recipes/"] as const;
+
+function routeKey(pathname: string): string {
+	return pathname.replace(TRAILING_SLASHES_RE, "") || "/";
+}
+
+/**
+ * Request paths arrive percent-encoded (`/blog/caf%C3%A9/`, `/blog/c%2B%2B/`),
+ * while the route manifest lists the decoded paths Astro built. Each segment is
+ * decoded fully, reserved characters included; a malformed escape stays raw.
+ */
+function decodedPath(pathname: string): string {
+	try {
+		return pathname.split("/").map(decodeURIComponent).join("/");
+	} catch {
+		return pathname;
+	}
+}
+
+/**
+ * The build's page routes (route manifest, `/about/` style paths), keyed by
+ * path without trailing slashes. Matching is case-sensitive, like the routes.
+ */
+export function routeSet(routes: readonly string[]): ReadonlySet<string> {
+	return new Set(routes.map(routeKey));
+}
+
+/**
+ * A file under /recipes/data/, served as it is even when it ends in `.md`.
+ * An extensionless path there is not a file and keeps the Markdown 404.
+ */
+export function isStaticDataPath(pathname: string): boolean {
+	const path = routeKey(pathname);
+	return path.startsWith(STATIC_DATA_PREFIX) && FILE_EXT_RE.test(path);
+}
+
+/** A real route in an HTML-only section: passed through untouched. */
+function isHtmlOnlyRoute(
+	pathname: string,
+	routes: ReadonlySet<string>,
+): boolean {
+	const key = routeKey(decodedPath(pathname));
+	const inSection = HTML_ONLY_SECTIONS.some((section) =>
+		`${key}/`.startsWith(section),
+	);
+	return inSection && routes.has(key);
+}
+
+export function shouldNegotiate(
+	pathname: string,
+	method: string,
+	routes: ReadonlySet<string>,
+): boolean {
 	const verb = method.toUpperCase();
 	if (verb !== "GET" && verb !== "HEAD") return false;
 	if (
 		pathname.startsWith("/_astro/") ||
 		pathname.startsWith("/favicons/") ||
 		pathname.startsWith("/images/") ||
-		pathname.startsWith("/scripts/")
+		pathname.startsWith("/scripts/") ||
+		isStaticDataPath(pathname)
 	) {
 		return false;
 	}
 	if (MARKDOWN_FILE_RE.test(pathname)) return true;
-	if (STATIC_EXT_RE.test(pathname)) return false;
-	return true;
+	if (FILE_EXT_RE.test(pathname)) return false;
+	return !isHtmlOnlyRoute(pathname, routes);
 }
 
 /** Canonical page key: `/`, `/about`, `/contact`, `/privacy`, `/terms`. */

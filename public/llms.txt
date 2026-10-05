@@ -24,7 +24,7 @@ How to fetch:
 
 1. Read this file.
 2. GET the page URL with `Accept: text/markdown`, or GET the `.md` sibling.
-3. For a missing path, expect HTTP 404 with a Markdown recovery body (sitemap, this file, contact).
+3. For a missing page path (no file extension) or `.md` sibling, expect HTTP 404 with a Markdown recovery body (sitemap, this file, contact); a missing file returns the site's HTML 404.
 4. To reach John, use [Contact](https://www.jsolly.com/contact/) — there is no public email published here.
 
 ## Pages

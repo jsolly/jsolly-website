@@ -37,11 +37,11 @@ Canon: `~/code/dotagents/rules/frontend-stack.md`.
 
 ```bash
 npm run dev                 # Astro dev server (localhost:4321)
-npm run build               # astro build + node process-html.mjs
-npm run build:maintenance   # Build with MAINTENANCE_MODE=true (renders Maintenance.astro)
+npm run build               # astro build (writes the route manifest) + node process-html.mjs + built-CSP test (csp suite)
+npm run build:maintenance   # MAINTENANCE_MODE=true npm run build (renders Maintenance.astro)
 npm run preview             # Preview the production build locally
 npm run check:fix           # biome check --write
-npm run check:ts            # tsc --noEmit
+npm run check:ts            # astro check (errors only)
 npm run fix                 # check:fix + check:ts (combined)
 npm test                    # unit tests: src/**/*.test.ts and scripts/unit/*.test.mjs
 npm run test:built          # built-output tests: scripts/built/*.test.mjs against dist/ (run after build)
@@ -53,7 +53,7 @@ A built test that needs its own build uses a `scripts/built/temp-copy.mjs` copy 
 
 ## Worktrees
 
-`npm run worktree:init` runs `npm ci` in a fresh worktree. No `.worktreeinclude` is needed because this app has no required gitignored runtime configuration or local state.
+`npm run worktree:init` runs `npm ci` in a fresh worktree. No `.worktreeinclude` is needed: the only gitignored source file, `src/generated/route-manifest.js`, is written by `npm run build`, and nothing before a build needs it. There is no gitignored runtime configuration or local state.
 
 ## Architecture
 
@@ -62,6 +62,8 @@ A built test that needs its own build uses a `scripts/built/temp-copy.mjs` copy 
 - `src/layouts/` — page layout wrappers.
 - `src/content/` — Astro content collections (if used).
 - `process-html.mjs` — post-build pass that adds slugified `id` attributes to `h2/h3/h4` (for anchor links) and runs `html-minifier`. Runs after every `astro build`. The minifier keeps the Svelte and Astro hydration comments and collapses whitespace conservatively, so islands hydrate in place instead of re-rendering; `scripts/built/hydration.test.mjs` pins that contract.
+- `middleware.ts` — Vercel routing middleware (every path; no matcher). The same URL serves HTML or Markdown by `Accept` (`src/lib/accept-negotiate.ts`, `src/lib/agent-response.ts`, pages in `src/content/agent-pages.ts`): the five portfolio pages have Markdown variants and `.md` siblings, and any other path asked for as Markdown gets the Markdown 404 that `public/llms.txt` promises. Any path ending in a file extension other than `.md` is static and never negotiated or answered 406, and files under `/recipes/data/` are served as they are, `.md` included (an extensionless miss there keeps the Markdown 404). Real routes under `/blog/` and `/recipes/` serve HTML only (J11 in the merge plan), with no `Vary: Accept`; the percent-decoded path is looked up in the route manifest, and unknown paths there keep the Markdown 404.
+- Route manifest — the `routeManifest` integration in `astro.config.ts` writes the gitignored `src/generated/route-manifest.js` from Astro's own `astro:build:done` page list (`export const routes = [...]`, one `/path/` per built page, `/` for the index, error pages excluded). `middleware.ts` imports it to tell real routes from unknown paths, and Vercel bundles the middleware after `npm run build`, so it ships that build's list. The tracked `route-manifest.d.ts` types the import, so `check:ts` and knip pass before any build. The lib functions take the route set as a parameter, so unit tests inject their own and never need the generated file.
 - `docs/plans/` — archival planning records (the blogthedata merge plan bundle lives in `docs/plans/blogthedata-merge/`). Biome and markdownlint ignore it, and Tailwind does not scan it.
 - `astro.config.ts` — site URL flips between `localhost:4321` (dev) and `https://www.jsolly.com` (prod) so the sitemap and absolute links resolve correctly per environment.
 
