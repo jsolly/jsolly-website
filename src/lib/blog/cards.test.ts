@@ -4,6 +4,10 @@ import { cards } from "./cards.js";
 import { postSchema } from "./schemas.js";
 import type { CardPost } from "./types.js";
 
+// A US zone, where a UTC morning is still the previous evening: a label
+// computed in local time would show the wrong day.
+process.env.TZ = "America/New_York";
+
 // The frontmatter of src/content/blog/posts/optimizing-ahrefs-orphan-pages-duplicate-content.md.
 const FRONTMATTER = {
 	slug: "optimizing-ahrefs-orphan-pages-duplicate-content",
@@ -60,7 +64,7 @@ describe("blog post cards", () => {
 		]);
 		assert.deepEqual(
 			{
-				slug: card.slug,
+				href: card.href,
 				title: card.title,
 				image: card.image,
 				imageAlt: card.imageAlt,
@@ -68,11 +72,11 @@ describe("blog post cards", () => {
 				imageHeight: card.imageHeight,
 				published: card.published,
 				dateLabel: card.dateLabel,
-				category: card.category,
+				categoryHref: card.categoryHref,
 				categoryName: card.categoryName,
 			},
 			{
-				slug: "optimizing-ahrefs-orphan-pages-duplicate-content",
+				href: "/blog/optimizing-ahrefs-orphan-pages-duplicate-content/",
 				title:
 					"Ahrefs Website Optimization: Fix Orphan Pages & Duplicate Content",
 				image:
@@ -83,7 +87,7 @@ describe("blog post cards", () => {
 				imageHeight: 512,
 				published: "2023-01-09T06:14:18.161Z",
 				dateLabel: "January 9, 2023",
-				category: "web-dev",
+				categoryHref: "/blog/category/web-dev/",
 				categoryName: "Web Dev",
 			},
 		);
@@ -92,13 +96,19 @@ describe("blog post cards", () => {
 	});
 
 	it("An update on the publish day (UTC) shows no Updated line; a later one does", () => {
-		const [sameDay, sameUtcDay, later] = cards([
+		const [sameDay, sameUtcDay, nextUtcDay, later] = cards([
 			post(),
 			post({ updated: "2023-01-09T23:59:59Z" }),
+			// 22:00 on January 9 in New York, but already January 10 in UTC.
+			post({
+				published: "2023-01-09T06:14:18Z",
+				updated: "2023-01-10T03:00:00Z",
+			}),
 			post({ updated: "2026-09-07T12:00:00Z" }),
 		]);
 		assert.equal(sameDay.updatedLabel, null);
 		assert.equal(sameUtcDay.updatedLabel, null);
+		assert.equal(nextUtcDay.updatedLabel, "January 10, 2023");
 		assert.equal(later.updatedLabel, "September 7, 2026");
 		assert.equal(later.updated, "2026-09-07T12:00:00.000Z");
 	});
@@ -117,7 +127,7 @@ describe("blog post cards", () => {
 		);
 	});
 
-	it("A card shows the sanitized excerpt when the post has one and the description otherwise", () => {
+	it("cards() returns the post's excerpt sanitized, an empty excerpt when it has none, and its description either way", () => {
 		const [withExcerpt, unsafeExcerpt, withoutExcerpt] = cards([
 			post(),
 			post({ excerpt: `${SAFE_EXCERPT}<script>steal()</script>` }),
@@ -126,6 +136,9 @@ describe("blog post cards", () => {
 		assert.equal(withExcerpt.excerpt, FRONTMATTER.excerpt);
 		assert.equal(unsafeExcerpt.excerpt, SAFE_EXCERPT);
 		assert.equal(withoutExcerpt.excerpt, "");
-		assert.equal(withoutExcerpt.description, FRONTMATTER.description);
+		assert.deepEqual(
+			[withExcerpt, withoutExcerpt].map((card) => card.description),
+			[FRONTMATTER.description, FRONTMATTER.description],
+		);
 	});
 });

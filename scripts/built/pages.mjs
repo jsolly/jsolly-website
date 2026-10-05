@@ -9,6 +9,10 @@ import { JSDOM } from "jsdom";
 import { parseDocument } from "yaml";
 
 const POSTS = new URL("../../src/content/blog/posts/", import.meta.url);
+const CATEGORIES = new URL(
+	"../../src/content/blog/categories/",
+	import.meta.url,
+);
 // Blog post cards load their images from the legacy CloudFront host; browser
 // tests answer every off-origin request with this stand-in.
 const OFF_ORIGIN_IMAGE =
@@ -122,4 +126,15 @@ export async function publishedPosts() {
 	return posts
 		.filter((post) => post.draft === false)
 		.map(({ slug, category }) => ({ slug, category }));
+}
+
+// Every category slug, read from the category files.
+export async function categorySlugs() {
+	const files = await globby("*.json", { cwd: CATEGORIES });
+	return Promise.all(
+		files.map(
+			async (file) =>
+				JSON.parse(await readFile(new URL(file, CATEGORIES), "utf8")).slug,
+		),
+	);
 }

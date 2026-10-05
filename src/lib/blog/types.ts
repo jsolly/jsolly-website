@@ -27,6 +27,7 @@ export interface CardPost {
 // day (UTC) it was published.
 export interface Card {
 	slug: string;
+	href: string;
 	title: string;
 	description: string;
 	excerpt: string;
@@ -38,7 +39,7 @@ export interface Card {
 	updated: string;
 	dateLabel: string;
 	updatedLabel: string | null;
-	category: string;
+	categoryHref: string;
 	categoryName: string;
 	minutes: number;
 }

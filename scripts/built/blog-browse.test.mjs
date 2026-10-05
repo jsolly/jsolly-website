@@ -5,6 +5,7 @@ import { after, before, it } from "node:test";
 import { JSDOM } from "jsdom";
 import { chromium } from "playwright";
 import {
+	categorySlugs,
 	exists,
 	publishedPosts,
 	serveStatic,
@@ -21,6 +22,18 @@ const DIST = "dist";
 const DESKTOP = { width: 1280, height: 900 };
 const PHONE = { width: 390, height: 844 };
 const CATEGORY_HREF = /^\/blog\/category\/[^/]+\/$/u;
+const COMMENT = /<!--[\s\S]*?-->/gu;
+// Tall enough that the load-more area stays in reach after every batch.
+const TALL = { width: 1280, height: 6000 };
+// A real post's card on the archive, checked against its frontmatter
+// (src/content/blog/posts/optimizing-ahrefs-orphan-pages-duplicate-content.md).
+const AHREFS = {
+	href: "/blog/optimizing-ahrefs-orphan-pages-duplicate-content/",
+	published: "2023-01-09T06:14:18.161Z",
+	dateLabel: "January 9, 2023",
+	excerpt:
+		"<p>Audit your website with Ahrefs to fix orphan pages and duplicate content for better UX, higher SEO, and improved performance.</p>",
+};
 
 let site;
 let browser;
@@ -213,6 +226,45 @@ it("A keyboard user who reaches Load more on a phone gets no automatic batch unt
 	}
 });
 
+it("A viewport taller than a batch keeps loading on its own until the automatic batches are spent", async () => {
+	const { context, page, errors } = await openPage({ viewport: TALL });
+	try {
+		await navigate(page);
+		// 3 server-rendered cards and 3 automatic batches of 3, with no scrolling.
+		await countIs(page, 12);
+		await page.waitForTimeout(300);
+		await countIs(page, 12);
+		assert.equal(await page.locator(".load-more-button.paused").count(), 1);
+		assert.deepEqual(errors, []);
+	} finally {
+		await context.close();
+	}
+});
+
+it("An archive card shows its post's publish date, no Updated line on a same-day update, its reading time and its excerpt", async () => {
+	const card = await readBuilt("blog/all-posts", (document) => {
+		const article = [...document.querySelectorAll(".post-card")].find(
+			(element) =>
+				element.querySelector(".post-card-link")?.getAttribute("href") ===
+				AHREFS.href,
+		);
+		const meta = [...article.querySelectorAll(".post-meta")];
+		const time = meta[0].querySelector("time");
+		return {
+			time: [time.textContent, time.getAttribute("datetime")],
+			meta: meta.map((line) => line.textContent),
+			excerpt: article
+				.querySelector(".card-excerpt")
+				.innerHTML.replace(COMMENT, ""),
+		};
+	});
+	assert.deepEqual(card, {
+		time: [AHREFS.dateLabel, AHREFS.published],
+		meta: [`${AHREFS.dateLabel} in Web Dev`, "6 min read"],
+		excerpt: AHREFS.excerpt,
+	});
+});
+
 it("A ?page= value that is not a positive whole number shows the first three cards", async () => {
 	const { context, page, errors } = await openPage();
 	const firstBatchAt = async (value) => {
@@ -282,13 +334,26 @@ it("Category pages list only their own published posts, an empty category says s
 		await context.close();
 	}
 
-	const empty = await readBuilt("blog/category/uncategorized", (document) => ({
-		cards: document.querySelectorAll(".post-card").length,
-		notice: document
-			.querySelector("main")
-			.textContent.includes("No posts in this category yet."),
-	}));
-	assert.deepEqual(empty, { cards: 0, notice: true });
+	const used = new Set(published.map(({ category }) => category));
+	const emptyCategories = (await categorySlugs()).filter(
+		(slug) => !used.has(slug),
+	);
+	assert.ok(emptyCategories.length > 0, "some category has no published post");
+	const empty = await Promise.all(
+		emptyCategories.map((slug) =>
+			readBuilt(`blog/category/${slug}`, (document) => ({
+				slug,
+				cards: document.querySelectorAll(".post-card").length,
+				notice: document
+					.querySelector("main")
+					.textContent.includes("No posts in this category yet."),
+			})),
+		),
+	);
+	assert.deepEqual(
+		empty,
+		emptyCategories.map((slug) => ({ slug, cards: 0, notice: true })),
+	);
 
 	const archiveLinks = await readBuilt("blog/all-posts", categoryLinks);
 	assert.equal(archiveLinks.length, published.length);

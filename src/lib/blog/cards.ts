@@ -23,6 +23,7 @@ function sameUtcDay(a: Date, b: Date) {
 export function cards(posts: CardPost[]): Card[] {
 	return posts.map(({ data, html, categoryName }) => ({
 		slug: data.slug,
+		href: `/blog/${data.slug}/`,
 		title: data.title,
 		description: data.description,
 		excerpt: articleHtml(data.excerpt),
@@ -36,7 +37,7 @@ export function cards(posts: CardPost[]): Card[] {
 		updatedLabel: sameUtcDay(data.published, data.updated)
 			? null
 			: dateLabel(data.updated),
-		category: data.category,
+		categoryHref: `/blog/category/${data.category}/`,
 		categoryName,
 		minutes: Math.max(
 			1,
