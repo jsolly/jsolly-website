@@ -1,0 +1,1206 @@
+[
+ {
+  "path": ".codex/environments/environment.toml",
+  "kind": "config",
+  "purpose": "Codex environment name",
+  "disposition": "drop",
+  "target": null,
+  "reason": "DST already has the same file; only `name = \"awesome-blog\"` differs.",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": ".cursor/CLOUD.md",
+  "kind": "config",
+  "purpose": "Cloud Agent VM instructions",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Byte-identical to jsolly-website/.cursor/CLOUD.md (diff -q).",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": ".cursor/aws-oidc-login.sh",
+  "kind": "config",
+  "purpose": "AWS OIDC bootstrap for Cursor Cloud VMs (reads for plan:infra)",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Byte-identical to DST copy. SRC `.cursor/environment.json` runs it only because the repo owns an AWS stack; DST does not run it.",
+  "conflicts": [
+   "If the backup stack moves into jsolly-website, DST .cursor/environment.json must start running it (see AWS section)."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": ".cursor/environment.json",
+  "kind": "config",
+  "purpose": "Cursor Cloud install/start commands",
+  "disposition": "drop",
+  "target": null,
+  "reason": "DST variant (install-cloud-skills only) is the right shape for a no-AWS repo. SRC adds `bash .cursor/aws-oidc-login.sh` to install+start solely for the infra scripts.",
+  "conflicts": [
+   "Differs from DST: SRC runs aws-oidc-login.sh in install and start; keep DST unless infra moves."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": ".cursor/install-cloud-skills.sh",
+  "kind": "config",
+  "purpose": "Cloud skill installer",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Byte-identical to DST copy (dotagents template copy).",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": ".cursor/worktrees.json",
+  "kind": "config",
+  "purpose": "Cursor worktree setup command",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Same single command (`npm run worktree:init`) as DST; only whitespace differs.",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": ".fleet-precommit-smoke",
+  "kind": "marker",
+  "purpose": "Fleet pre-commit guard smoke marker (comment says \"Safe to delete\")",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Historical smoke artifact of the fleet hook; no consumer.",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": ".git-hooks/pre-commit",
+  "kind": "gate",
+  "purpose": "Pre-commit gate shim: bash floor, node pin, yaml, actionlint, md, smoke contract, stack protection, infra tests, gate:app",
+  "disposition": "adapt",
+  "target": ".git-hooks/pre-commit",
+  "reason": "Fold only the surviving steps into DST hook (see gate-step table in notes). DST hook already has the degraded no-gate-lib branch and the same gate_begin_commit/bash-floor/node-pin; SRC uses `gate_begin_commit \"awesome-blog\"`.",
+  "conflicts": [
+   "DST hook order: biome ci, yamllint, knip, actionlint, md, smoke scenario, astro check, `npm test`, build. SRC `gate:app` steps (recipes:check, svelte-check, test:astro/search/browse/recipes, verify:*) have to be added as new steps or inside `npm test`.",
+   "Hook edits are guarded by the dotagents dispatcher: the changed hook blob must be approved or landed on origin/main before it runs (rules/agent-cloud-access.md)."
+  ],
+  "tests_covering": [
+   "npm run gate"
+  ]
+ },
+ {
+  "path": ".gitattributes",
+  "kind": "config",
+  "purpose": "Marks the two infra inputs `infra-input` for the shared pre-commit reminder",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Only content is the two aws/migration-backups paths. Conditional on the AWS decision (notes: AWS section). Recommended: stays frozen in the archived repo.",
+  "conflicts": [
+   "scripts/check-infra-drift.test.mjs:290 pins .gitattributes to infra-inputs.json (drops with the infra scripts)."
+  ],
+  "tests_covering": [
+   "scripts/check-infra-drift.test.mjs"
+  ]
+ },
+ {
+  "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+  "kind": "github",
+  "purpose": "Issue template: Bug report",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Issues are disabled on jsolly/awesome-blog (`gh issue list` -> repository has disabled issues); DST has no issue templates. History stays in the archive.",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": ".github/ISSUE_TEMPLATE/documentation.md",
+  "kind": "github",
+  "purpose": "Issue template: Documentation",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Issues are disabled on jsolly/awesome-blog (`gh issue list` -> repository has disabled issues); DST has no issue templates. History stays in the archive.",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": ".github/ISSUE_TEMPLATE/feature_request.md",
+  "kind": "github",
+  "purpose": "Issue template: Feature request",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Issues are disabled on jsolly/awesome-blog (`gh issue list` -> repository has disabled issues); DST has no issue templates. History stays in the archive.",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": ".github/ISSUE_TEMPLATE/refactor_code.md",
+  "kind": "github",
+  "purpose": "Issue template: Refactor",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Issues are disabled on jsolly/awesome-blog (`gh issue list` -> repository has disabled issues); DST has no issue templates. History stays in the archive.",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": ".github/ISSUE_TEMPLATE/style_change_request.md",
+  "kind": "github",
+  "purpose": "Issue template: Style change",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Issues are disabled on jsolly/awesome-blog (`gh issue list` -> repository has disabled issues); DST has no issue templates. History stays in the archive.",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": ".github/dependabot.yml",
+  "kind": "github",
+  "purpose": "Dependabot: npm weekly + github-actions weekly",
+  "disposition": "adapt",
+  "target": ".github/dependabot.yml",
+  "reason": "Keep DST npm (daily). Decision: add the SRC `github-actions` ecosystem entry (DST lacks it; SRC pins actions like actions/setup-node@v7 vs DST @v6, so DST actions drift unwatched). Drain-only policy still applies (CI deferred until ow-ci).",
+  "conflicts": [
+   "Passes DST `.yamllint` (-s) when copied (exit 0), but SRC 2-space-indented sequences differ stylistically from DST file; yamllint relaxed accepts both."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": ".github/workflows/ci.yml",
+  "kind": "github",
+  "purpose": "CI: gitleaks range scan, verified-tree reuse, check:actions, md, stack-protection, infra, yaml, smoke contract, gate:app",
+  "disposition": "adapt",
+  "target": ".github/workflows/ci.yml",
+  "reason": "Add only the steps for ported contracts (see CI diff in notes). Drop `test:stack-protection` and `test:infra` steps unless infra moves. DST already runs biome ci, knip, check:ts, npm test, build and installs playwright + uv. DST uses setup-node@v6; SRC @v7 (do not downgrade or silently upgrade as a side effect).",
+  "conflicts": [
+   "Job name must stay `ci` (ruleset required context `ci`, integration 15368, on both repos).",
+   "New steps must keep the `if: steps.verified-tree.outputs.run_full != 'false'` guard."
+  ],
+  "tests_covering": [
+   "npm run gate"
+  ]
+ },
+ {
+  "path": ".github/workflows/production-smoke.yml",
+  "kind": "github",
+  "purpose": "Production smoke on deployment_status success / manual dispatch",
+  "disposition": "adapt",
+  "target": ".github/workflows/production-smoke.yml",
+  "reason": "Keep DST workflow (dotagents template). SRC adds hardening DST lacks: vercel[bot] creator check, ref==main/sha check, repo variable VERCEL_PRODUCTION_ENVIRONMENT, merge-base ancestor-of-origin/main step (fetch-depth 0). Decision for John: adopt hardening in DST (and upstream to the template) or leave DST as is. Do NOT copy the SRC `vars.VERCEL_PRODUCTION_ENVIRONMENT` gate without setting that variable on jsolly-website (UNVERIFIED: SRC variable value unreadable, 403).",
+  "conflicts": [
+   "Template drift: DST copy is the canonical dotagents shape; changing it here creates cross-repo drift (fleet policy: one repo per chip)."
+  ],
+  "tests_covering": [
+   "npm run smoke:scenario-contract"
+  ]
+ },
+ {
+  "path": ".gitignore",
+  "kind": "config",
+  "purpose": "Ignore rules (Django-era entries, .migration-work/, dist, .astro, .vercel, claude harness state)",
+  "disposition": "drop",
+  "target": null,
+  "reason": "DST .gitignore already covers dist, .astro, .vercel, node_modules, .env*, .seo-audit, production-smoke-artifacts, .cursor/*, .claude/worktrees. Remaining SRC-only entries are Django leftovers and `.migration-work/` (private, stays in the SRC checkout).",
+  "conflicts": [
+   "SRC ignores `**/.claude/*` harness files individually (deploy:infra gate_require_landed needs that); DST has no deploy:infra so not needed."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": ".gitleaks.toml",
+  "kind": "secrets",
+  "purpose": "Gitleaks allowlist for a 2026-10-01 audited public Mapbox token in commit cac84b32 (siteanalytics template)",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Only relevant to history. Evidence: `gitleaks dir .` on the SRC tree with the repo config = no leaks; with only `useDefault=true` = no leaks (scratch clone). `gitleaks git .` full history = 8 findings (django_ckeditor_5 bundle.js.map) beyond the allowlist. CONDITIONAL: drop only if the port is a file copy WITHOUT history (recommended). A history-preserving import would need this file AND would turn DST range scan red.",
+  "conflicts": [
+   "DST ruleset has required_linear_history (rulesets/24115660) so a merge-commit/subtree import cannot land anyway; a squash/rebase PR rewrites SHAs, invalidating commit-pinned allowlists."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": ".gitleaksignore",
+  "kind": "secrets",
+  "purpose": "Two fingerprints (commit 2e06e32\u2026, docs/superpowers plan) of audited AWS key IDs",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Fingerprints are commit-SHA pinned to history that does not travel in a file copy; tree scan is clean without it.",
+  "conflicts": [
+   "Same history-import dependency as .gitleaks.toml."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": ".markdownlint-cli2.jsonc",
+  "kind": "lint",
+  "purpose": "markdownlint-cli2 config",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Semantically identical to DST (differences: SRC also ignores `.venv/**`; formatting). Verified: with posts + `src/content/posts/.markdownlint.json` copied into a DST scratch clone, `bash scripts/lint-md.sh` = 0 issues in 118 files.",
+  "conflicts": [
+   "GOTCHA (not in my assigned set, but required): `src/content/posts/.markdownlint.json` is a tracked DOTFILE disabling 15 rules (MD001,009,010,011,012,024,026,034,036,037,040,051\u2026) for imported HTML posts. `cp src/content/posts/*` or a glob move silently drops it and the 106 posts then fail md lint."
+  ],
+  "tests_covering": [
+   "npm run check:md"
+  ]
+ },
+ {
+  "path": ".mise.toml",
+  "kind": "tooling",
+  "purpose": "Pins awscli 2.35.9 for the infra scripts",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Only consumers are deploy:infra/plan:infra/check:infra-drift/protect:stacks. Conditional on the AWS decision (notes: AWS section). Recommended: stays frozen in the archived repo.",
+  "conflicts": [
+   "DST has no .mise.toml; adding one puts an aws pin on a repo that otherwise has no cloud CLI."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": ".npmrc",
+  "kind": "config",
+  "purpose": "`yes=false` (npx never installs)",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Byte-identical to DST.",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": ".nvmrc",
+  "kind": "config",
+  "purpose": "Node 24",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Same content (`24`); DST has it without trailing newline.",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": ".pages.yml",
+  "kind": "cms",
+  "purpose": "PagesCMS config: media input/output, posts + categories collections",
+  "disposition": "adapt",
+  "target": ".pages.yml",
+  "reason": "Move to DST root (no .pages.yml there, no collision). Required edits listed in notes (.pages.yml section): content paths, collection rename if posts dir is renamed, slug description, GitHub App grant for the new (private) repo.",
+  "conflicts": [
+   "yamllint: DST `.yamllint` (relaxed, -s) accepts the file as-is (verified exit 0).",
+   "`related.options.collection: posts` must be renamed together with the collection name.",
+   "scripts/astro-contract.test.mjs:134 reads `.pages.yml` and `src/content/posts`; update both paths there.",
+   "PagesCMS GitHub App is granted only to jsolly/awesome-blog (docs/publishing.md:3); grant must be extended to jsolly/jsolly-website (private repo) before first CMS edit."
+  ],
+  "tests_covering": [
+   "scripts/astro-contract.test.mjs (CMS fields test)",
+   "scripts/verify-cms.mjs"
+  ]
+ },
+ {
+  "path": ".worktreeinclude",
+  "kind": "config",
+  "purpose": "Worktree include list (empty: \"static builds need no copied secrets\")",
+  "disposition": "drop",
+  "target": null,
+  "reason": "DST AGENTS.md states no .worktreeinclude is needed.",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": "AGENTS.md",
+  "kind": "docs",
+  "purpose": "Agent instructions for awesome-blog (stack, commands, ship, release/smoke, UI verification, infra, cloud safety)",
+  "disposition": "adapt",
+  "target": "AGENTS.md",
+  "reason": "Merge into DST AGENTS.md: blog content/CMS rules (slug case, timestamps, CommonMark config, sanitization), `npm run gate` additions, UI-verification checks (pagination, GET search, heading links, print), recipe workflows pointer. Drop: Vercel project blogthedata/Heroku paragraph, Infra + Cloud-and-data-safety sections (stay in archive unless infra moves).",
+  "conflicts": [
+   "DST AGENTS.md says \"seven pages \u2026 no CMS\": now false.",
+   "DST says Navigation/CTA conventions and `src/lib/components/ui` flat file layout; SRC AGENTS describes `src/lib/components/ui/button/button.svelte` nested layout (src/lib collision belongs to the src inventory).",
+   "Archive README/AGENTS in the old repo must point to jsolly.com/blog (cutover phase)."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "LICENSE",
+  "kind": "docs",
+  "purpose": "MIT license (c) 2023 John Solly",
+  "disposition": "drop",
+  "target": null,
+  "reason": "DST has no LICENSE and is a PRIVATE repo; the public archived repo keeps MIT for the old history. Decision for John: whether the merged blog content/code gets a license (DST /terms/ page covers content reuse).",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": "README.md",
+  "kind": "docs",
+  "purpose": "Project README (develop, content, publish)",
+  "disposition": "adapt",
+  "target": "README.md",
+  "reason": "Two outputs: (1) DST README gains a short Blog/Recipes section; (2) the ARCHIVE README (cutover phase only) is replaced with a pointer to https://www.jsolly.com/blog. Do not write the archive README until redirects are verified in production.",
+  "conflicts": [
+   "DST README is a stub (clone/install/dev)."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "aws/migration-backups/deploy.sh",
+  "kind": "infra",
+  "purpose": "deploy:infra: applies the landed main tip template to stack blogthedata-migration-backups and stamps InfraDeployCommit",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Recommended: leave frozen in the archived repo (stack already CREATE_COMPLETE, template unchanged, all resources Retain). Conditional on the AWS decision (notes: AWS section). Recommended: stays frozen in the archived repo. Alternatives: move to shared-infra (separate cross-repo handoff) or retire (John-only destructive op, blocked by Object Lock until 2026-11-01).",
+  "conflicts": [
+   "deploy.sh hard-codes `gate_require_landed main jsolly/awesome-blog` (line 57), account 730335616323, stack name; an ARCHIVED repo cannot land commits, so deploy:infra cannot run from it after archive (read-only repo -> no new main commit)."
+  ],
+  "tests_covering": [
+   "scripts/stack-protection.test.mjs",
+   "scripts/plan-infra.test.mjs",
+   "scripts/check-infra-drift.test.mjs",
+   "scripts/deploy-infra.test.mjs"
+  ]
+ },
+ {
+  "path": "aws/migration-backups/stack-policy.json",
+  "kind": "infra",
+  "purpose": "CloudFormation stack policy: deny Replace/Delete on BackupBucket and BackupBucketPolicy",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Recommended: leave frozen in the archived repo (stack already CREATE_COMPLETE, template unchanged, all resources Retain). Conditional on the AWS decision (notes: AWS section). Recommended: stays frozen in the archived repo. Alternatives: move to shared-infra (separate cross-repo handoff) or retire (John-only destructive op, blocked by Object Lock until 2026-11-01).",
+  "conflicts": [
+   "Biome (overlay): 2 format diagnostics across template.json/stack-policy.json (DST formatter wants tabs)."
+  ],
+  "tests_covering": [
+   "scripts/stack-protection.test.mjs",
+   "scripts/plan-infra.test.mjs",
+   "scripts/check-infra-drift.test.mjs",
+   "scripts/deploy-infra.test.mjs"
+  ]
+ },
+ {
+  "path": "aws/migration-backups/template.json",
+  "kind": "infra",
+  "purpose": "CloudFormation template: private, versioned, encrypted, Object-Lock (GOVERNANCE 30d) backup bucket + TLS-only policy",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Recommended: leave frozen in the archived repo (stack already CREATE_COMPLETE, template unchanged, all resources Retain). Conditional on the AWS decision (notes: AWS section). Recommended: stays frozen in the archived repo. Alternatives: move to shared-infra (separate cross-repo handoff) or retire (John-only destructive op, blocked by Object Lock until 2026-11-01).",
+  "conflicts": [
+   "Biome (overlay): 2 format diagnostics across template.json/stack-policy.json (DST formatter wants tabs)."
+  ],
+  "tests_covering": [
+   "scripts/stack-protection.test.mjs",
+   "scripts/plan-infra.test.mjs",
+   "scripts/check-infra-drift.test.mjs",
+   "scripts/deploy-infra.test.mjs"
+  ]
+ },
+ {
+  "path": "docs/CODE_OF_CONDUCT.md",
+  "kind": "docs",
+  "purpose": "Contributor Covenant",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Contributions are closed on a private site repo; stays in the public archive.",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": "docs/CONTRIBUTING.md",
+  "kind": "docs",
+  "purpose": "Contributing guide (gate, PR flow, PagesCMS pointer)",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Superseded by DST AGENTS.md ship flow; stays in archive.",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": "docs/SECURITY.md",
+  "kind": "docs",
+  "purpose": "Security policy pointing at blogthedata.com/.well-known/security.txt",
+  "disposition": "drop",
+  "target": null,
+  "reason": "DST is private; vulnerability contact moves to jsolly.com security.txt (see public/.well-known/security.txt). Archive SECURITY.md should be updated in the archive PR to point to jsolly.com.",
+  "conflicts": [
+   "Links to https://www.blogthedata.com/.well-known/security.txt (will redirect after cutover)."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "docs/astro-migration.md",
+  "kind": "docs",
+  "purpose": "Django/Heroku -> Astro/Vercel cutover runbook and release proof (327 lines)",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Historical record of the completed 2026-10-02 cutover; its Heroku rollback path becomes moot once blogthedata.com is redirect-only. Stays in the archive. Extract only still-true facts into the merge plan: Vercel project/repo-ID linkage, S3/CloudFront media retention.",
+  "conflicts": [
+   "Mentions the Vercel project is linked to repo ID 286148731; DST AGENTS warns a recreated repo with the same name can leave Vercel linked to the old ID (relevant if the blogthedata project is reconnected)."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "docs/migration-backups.md",
+  "kind": "docs",
+  "purpose": "Backup stack/bucket runbook, receipts, stack-update procedure",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Follows the AWS decision. Stays in the archive with the stack definition. Contains AWS account ID, bucket and object-version IDs; moving it into a private repo would be safer than the current public copy but is not required.",
+  "conflicts": [
+   "Public repo currently exposes account 730335616323, bucket name and recovery-bundle version ID (not secrets; note for the archive decision)."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "docs/publishing.md",
+  "kind": "docs",
+  "purpose": "PagesCMS publishing workflow",
+  "disposition": "adapt",
+  "target": "docs/publishing.md",
+  "reason": "Move with edits: repo name, editorial-branch flow against jsolly-website (private; gate/CI there), media upload dir, `/blog/<slug>/` URLs, supported iframe providers (needs DST CSP change, see conflicts), remove Heroku/cutover-freeze language.",
+  "conflicts": [
+   "DST has no docs/ dir; gate__docs_only_paths treats docs/*.md as docs-only (fast path, no build).",
+   "Markdown must pass DST md lint."
+  ],
+  "tests_covering": [
+   "npm run check:md"
+  ]
+ },
+ {
+  "path": "docs/pull_request_template.md",
+  "kind": "docs",
+  "purpose": "Generic PR template",
+  "disposition": "drop",
+  "target": null,
+  "reason": "DST has none and /ship composes PR bodies; checkbox template adds nothing.",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": "public/.well-known/security.txt",
+  "kind": "public",
+  "purpose": "RFC 9116 security.txt (Contact mailto:john@blogthedata.com; Expires 2027-10-02; Encryption/Canonical on www.blogthedata.com)",
+  "disposition": "adapt",
+  "target": "public/.well-known/security.txt",
+  "reason": "Serve from jsolly.com (currently 404 there). Rewrite every field: Canonical https://www.jsolly.com/.well-known/security.txt, Encryption https://www.jsolly.com/pgp-key.txt. Contact: `mailto:john@blogthedata.com` is UNDELIVERABLE (Cloudflare DNS zone has no MX record; `dig MX blogthedata.com` returns only SOA) and DST llms.txt states no public email is published, so use `Contact: https://www.jsolly.com/contact/` (RFC 9116 allows web URIs). Expires stays 2027-10-02 or later. Old URL: per-path 301 blogthedata.com/.well-known/security.txt -> jsolly.com copy.",
+  "conflicts": [
+   "Live today: https://www.blogthedata.com/.well-known/security.txt = 200 text/plain; jsolly.com = 404.",
+   "Blog post security-txt-allows-researches-to-contact-you hard-links the old URL (content link rewrite step).",
+   "Middleware: `.txt` is in STATIC_EXT_RE so no Accept negotiation; no conflict."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "public/favicon.ico",
+  "kind": "public",
+  "purpose": "Blog favicon",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Collision with DST public/favicon.ico (md5 differs: ba2f3f15\u2026 vs 2489825b\u2026). DST favicon wins; blog pages use the DST layout/head. Old URL blogthedata.com/favicon.ico returns 200 today; after cutover it 301s to https://www.jsolly.com/favicon.ico.",
+  "conflicts": [
+   "Name collision with DST file; recipes pwa-build.mjs adds /favicon.ico to the offline cache (recipe-owner decision)."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "public/logo.webp",
+  "kind": "public",
+  "purpose": "Legacy blog logo (docs say it shares topographic artwork)",
+  "disposition": "drop",
+  "target": null,
+  "reason": "No reference anywhere in SRC src/ (git grep logo.webp: only docs/recipes.md prose). Live URL https://www.blogthedata.com/logo.webp = 200 so it may be externally embedded; map it per-path in the URL map (suggest 301 -> https://www.jsolly.com/images/jsolly.webp or 404/410 by decision) rather than carrying a dead asset.",
+  "conflicts": [
+   "Externally indexed/embeddable URL; URL-map owner must decide destination."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "public/pgp-key.txt",
+  "kind": "public",
+  "purpose": "Public PGP key (Keybase era) referenced by security.txt Encryption",
+  "disposition": "adapt",
+  "target": "public/pgp-key.txt",
+  "reason": "Move as-is to DST public/ (no collision) so security.txt Encryption resolves on jsolly.com; add per-path 301 from blogthedata.com/pgp-key.txt. Key material unchanged.",
+  "conflicts": [
+   "Blog post security-txt-allows-researches-to-contact-you links https://blogthedata.com/pgp-key.txt."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "public/social/githubLogo.svg",
+  "kind": "public",
+  "purpose": "Social/share icon",
+  "disposition": "drop",
+  "target": null,
+  "reason": "DST already has src/images/social/githubLogo.svg (processed asset); About.astro (SRC) is the only consumer.",
+  "conflicts": [
+   "DST biome.jsonc excludes `**/*.svg` from checks."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "public/social/linkedinLogo.svg",
+  "kind": "public",
+  "purpose": "Social/share icon",
+  "disposition": "drop",
+  "target": null,
+  "reason": "DST has src/images/social/linkedinLogo.svg; share buttons in post layout (SRC src/pages/post/[slug]/index.astro:36) can import the DST asset.",
+  "conflicts": [
+   "DST biome.jsonc excludes `**/*.svg` from checks."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "public/social/xLogo.svg",
+  "kind": "public",
+  "purpose": "Social/share icon",
+  "disposition": "drop",
+  "target": null,
+  "reason": "DST has src/images/social/xLogo.svg.",
+  "conflicts": [
+   "DST biome.jsonc excludes `**/*.svg` from checks."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "public/social/youtubeLogo.svg",
+  "kind": "public",
+  "purpose": "Social/share icon",
+  "disposition": "drop",
+  "target": null,
+  "reason": "DST has src/images/social/youtubeLogo.svg.",
+  "conflicts": [
+   "DST biome.jsonc excludes `**/*.svg` from checks."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "public/social/redditLogo.svg",
+  "kind": "public",
+  "purpose": "Social/share icon",
+  "disposition": "adapt",
+  "target": "src/images/social/redditLogo.svg",
+  "reason": "Only social icon with no DST equivalent; needed by the article Share buttons (post layout line 36). Add to src/images/social/ (DST style: processed asset) or public/social/.",
+  "conflicts": [
+   "DST biome.jsonc excludes `**/*.svg` from checks."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "public/topographic-logo.svg",
+  "kind": "public",
+  "purpose": "Blog header brand mark (\"Solly's Blog\") and source artwork for PWA icons",
+  "disposition": "adapt",
+  "target": "public/blog/topographic-logo.svg",
+  "reason": "Referenced by SRC Base.astro:41 (brand img) and recipes PWA icon exports. Keep ONLY if the blog keeps its own brand header on jsolly.com/blog; otherwise drop. Namespace under /blog/ to avoid claiming a root-level jsolly.com asset. Old URL live (200): 301 -> new location or jsolly.com root.",
+  "conflicts": [
+   "Decision: blog pages use DST Header or retain blog header (src inventory)."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "scripts/check-actions.sh",
+  "kind": "script",
+  "purpose": "Fleet template copy",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Byte-identical to DST copy (diff -q); dotagents template, not forked.",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": "scripts/ci-verified-tree.sh",
+  "kind": "script",
+  "purpose": "Fleet template copy",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Byte-identical to DST copy (diff -q); dotagents template, not forked.",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": "scripts/lint-md.sh",
+  "kind": "script",
+  "purpose": "markdownlint wrapper (npx fallback pin, worktree borrow)",
+  "disposition": "drop",
+  "target": null,
+  "reason": "DST has its own copy. SRC copy is NEWER (fallback pin @0.23.3 + main-checkout binary borrowing) than DST (@0.22.1; package.json is ^0.23.2): template drift to hand to dotagents, not to fix in this merge.",
+  "conflicts": [
+   "DST fallback pin 0.22.1 != DST package.json 0.23.2 (pre-existing)."
+  ],
+  "tests_covering": [
+   "npm run check:md"
+  ]
+ },
+ {
+  "path": "scripts/article-signature.mjs",
+  "kind": "script",
+  "purpose": "Rendered-meaning signature oracle (cheerio) for migration parity",
+  "disposition": "drop",
+  "target": null,
+  "reason": "One-time migration oracle. Consumers: verify-migration.mjs, source-signature.mjs, astro-contract tests \"import preserves body\u2026\" and \"source signatures detect\u2026\" (all dropped).",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 3 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex",
+   "Needs `cheerio` (unlisted in DST package.json; knip: Unlisted dependencies)."
+  ],
+  "tests_covering": [
+   "scripts/astro-contract.test.mjs"
+  ]
+ },
+ {
+  "path": "scripts/astro-contract.test.mjs",
+  "kind": "test",
+  "purpose": "14 build-output/contract tests (node:test) reading dist/ and repo files",
+  "disposition": "adapt",
+  "target": "scripts/blog-contract.test.mjs",
+  "reason": "Port the durable half, drop the one-time half. KEEP/ADAPT: L25 CMS YAML timestamp parse; L64 article rendering (html.ts sanitizer, heading ids); L117 published URLs exist + drafts omitted from index/archive/sitemap (paths -> dist/blog/<slug>/, DST sitemap is @astrojs/sitemap sitemap-index.xml/sitemap-0.xml, not sitemap.xml); L134 CMS fields cover metadata (.pages.yml paths); L149 feeds (URLs -> https://www.jsolly.com/blog/<slug>/, feed paths, vercel.json header entries); L163 related cards; L211 release.json SHA (only if release.json is kept); L82 historical redirects test is REWRITTEN as the redirect-coverage test over the URL map; L174 recipe route test moves to the recipes contract (hub becomes /recipes/ instead of /post/15-minute\u2026/). DROP: L37 import preserves body, L56 invalid exports, L203 source signatures, L216 backup verification. L103 static CSP test is superseded by DST scripts/built-csp.test.mjs (which already scans ALL built pages through jsdom after process-html; SRC only checks dist/index.html and `headers[0]`).",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 63 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex",
+   "Requires a prior `npm run build` (reads dist/); DST `npm test` is `node --test src/lib/*.test.ts` only and the build step already ends with built-csp test: new test must run AFTER build in gate and CI.",
+   "Imports ../src/lib/html.ts, ../src/lib/frontmatter.ts (SRC lib; knip: Unresolved imports until lib is ported), `cheerio`, `yaml` (knip: Unlisted dependencies).",
+   "Hard-codes https://www.blogthedata.com in feed expectations (L158-160) and `config.headers[0]` (L111).",
+   "DST biome noMisplacedAssertion/useConsistentTestIt/noSecrets hits (3 noSecrets)."
+  ],
+  "tests_covering": [
+   "npm run test:astro"
+  ]
+ },
+ {
+  "path": "scripts/browse.test.mjs",
+  "kind": "test",
+  "purpose": "Playwright test against built dist: infinite scroll (3->24 cards), keyboard load-more, back-navigation preserves list, no-IntersectionObserver fallback",
+  "disposition": "adapt",
+  "target": "scripts/blog-browse.test.mjs",
+  "reason": "Durable UX contract; keep. Change: index becomes /blog/ (`/`, `/?page=3`, `/?page=999` -> `/blog/\u2026`), origin `http://blog.test` static server maps pathname directly onto dist so it works if the blog index builds to dist/blog/index.html. Selectors `.menu-toggle`, `.post-card`, `.load-more` are blog-component-specific (src inventory).",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 10 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex",
+   "Needs `npx playwright install chromium` in gate and CI (DST CI already installs chromium for smoke contract).",
+   "Runs ~2.3 s in SRC scratch clone."
+  ],
+  "tests_covering": [
+   "npm run test:browse"
+  ]
+ },
+ {
+  "path": "scripts/check-infra-drift.mjs",
+  "kind": "script",
+  "purpose": "Compare stack InfraDeployCommit tag with origin/main infra inputs",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Frozen with the stack. Conditional on the AWS decision (notes: AWS section). Recommended: stays frozen in the archived repo.",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 5 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex",
+   "Hard-codes CHECKOUT=/Users/johnsolly/code/awesome-blog (line 28)."
+  ],
+  "tests_covering": [
+   "scripts/check-infra-drift.test.mjs"
+  ]
+ },
+ {
+  "path": "scripts/check-infra-drift.test.mjs",
+  "kind": "test",
+  "purpose": "Drift script contract incl. .gitattributes pin",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Frozen with infra scripts.",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 19 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex",
+   "Hard-codes /Users/johnsolly/code/awesome-blog in expected hand-off text (lines 274-275)."
+  ],
+  "tests_covering": [
+   "npm run test:infra"
+  ]
+ },
+ {
+  "path": "scripts/check-yaml.mjs",
+  "kind": "script",
+  "purpose": "Node YAML syntax + duplicate-key check over `.` and `.github`",
+  "disposition": "drop",
+  "target": null,
+  "reason": "DST gate uses `uvx yamllint@1.38.0 -s .` (superset: key-duplicates is a default rule). Verified: DST yamllint passes SRC .pages.yml + all three SRC .github YAML files.",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 6 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex",
+   "Needs `yaml` dep (unlisted in DST)."
+  ],
+  "tests_covering": [
+   "npm run check:yaml"
+  ]
+ },
+ {
+  "path": "scripts/constants.mjs",
+  "kind": "script",
+  "purpose": "REGION/AGENT_ROLE/AGENT_AWS_CONFIG for infra scripts",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Only importers: plan-infra.mjs and check-infra-drift.mjs.",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 1 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex"
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "scripts/content-files.mjs",
+  "kind": "script",
+  "purpose": "serializePost(): YAML-frontmatter writer (6 lines)",
+  "disposition": "adapt",
+  "target": "scripts/blog-contract.test.mjs (inline)",
+  "reason": "Only surviving consumer after drops is verify-drafts (fixture writer). Single-function file: inline into the ported drafts/CMS contract rather than keep a one-function module (dotagents code-style). Drops with import-legacy.",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 2 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex",
+   "Needs `yaml` dep."
+  ],
+  "tests_covering": [
+   "scripts/verify-drafts.mjs"
+  ]
+ },
+ {
+  "path": "scripts/deploy-infra.test.mjs",
+  "kind": "test",
+  "purpose": "deploy.sh behavior against stubs",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Frozen with infra scripts; asserts `gate_require_landed main jsolly/awesome-blog` (line 97).",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 8 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex"
+  ],
+  "tests_covering": [
+   "npm run test:infra"
+  ]
+ },
+ {
+  "path": "scripts/html-to-markdown.mjs",
+  "kind": "script",
+  "purpose": "turndown-based HTML->Markdown importer helper",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Importer-only (import-legacy). One-time Django->Astro conversion already done; posts are frozen Markdown in git.",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 5 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex",
+   "Needs turndown, cheerio (unlisted in DST)."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "scripts/import-legacy.mjs",
+  "kind": "script",
+  "purpose": "Django dumpdata -> posts/categories/redirects.json/migration-receipt.json importer",
+  "disposition": "drop",
+  "target": null,
+  "reason": "One-time. Requires the private Django export; DST must not carry an importer that can overwrite content. History keeps it. NOTE: it is also the generator of migration-receipt.json and redirects.json (kept as static data, see those entries).",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 5 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex"
+  ],
+  "tests_covering": [
+   "scripts/astro-contract.test.mjs L37,L56 (dropped)"
+  ]
+ },
+ {
+  "path": "scripts/infra-inputs.json",
+  "kind": "infra",
+  "purpose": "Single list of the stack deploy command inputs",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Conditional on the AWS decision (notes: AWS section). Recommended: stays frozen in the archived repo.",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 1 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex"
+  ],
+  "tests_covering": [
+   "scripts/check-infra-drift.test.mjs"
+  ]
+ },
+ {
+  "path": "scripts/migration-rewrites.mjs",
+  "kind": "script",
+  "purpose": "Pins the authorized recipe-article rewrite by SHA-256 of source record + replacement",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Used only by verify-migration.mjs and its test; compares against the private legacy export. The rewrite is already landed.",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 7 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex"
+  ],
+  "tests_covering": [
+   "scripts/migration-rewrites.test.mjs"
+  ]
+ },
+ {
+  "path": "scripts/migration-rewrites.test.mjs",
+  "kind": "test",
+  "purpose": "Unit test of verifyRecipeRewrite",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Drops with migration-rewrites.mjs. ACTION: remove it from the `test:recipes` script (package.json: `node --test \u2026 scripts/migration-rewrites.test.mjs`) or that script fails.",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 6 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex"
+  ],
+  "tests_covering": [
+   "npm run test:recipes"
+  ]
+ },
+ {
+  "path": "scripts/plan-infra.mjs",
+  "kind": "script",
+  "purpose": "Create/read/delete a CloudFormation change set as agent-readonly",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Frozen with the stack. NOTE dotagents rules: agent-readonly-plan policy lists change-set grants per stack and covers only shared-infra and asset-buyer stacks; docs/migration-backups.md says the receipt is `status: error` AccessDenied while this stack is not on it => plan:infra is not functional for agents today.",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 5 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex"
+  ],
+  "tests_covering": [
+   "scripts/plan-infra.test.mjs"
+  ]
+ },
+ {
+  "path": "scripts/plan-infra.test.mjs",
+  "kind": "test",
+  "purpose": "plan-infra contract tests (447 lines, no AWS)",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Frozen with infra scripts.",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 43 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex"
+  ],
+  "tests_covering": [
+   "npm run test:infra"
+  ]
+ },
+ {
+  "path": "scripts/production-smoke-scenario.mjs",
+  "kind": "smoke",
+  "purpose": "Blog production scenario: release.json SHA, home->article read, bare/historical routes 200, GET search, RSS/Atom MIME x(with/without slash), mobile menu open/close, nav to All posts",
+  "disposition": "adapt",
+  "target": "scripts/production-smoke-scenario.mjs",
+  "reason": "Fold into DST scenario (one `smoke({page,context,verifyHttp})` export). Port: article read + GET search on /blog/, feeds MIME on new feed URLs, historical-redirect assertions (now cross-domain: assert 301 + Location from blogthedata.com is a SEPARATE job because DST runner pins one origin and rejects noncanonical final URLs: production-smoke.mjs verifyResponse requires final origin == productionUrl origin). Drop `verifyRelease`: DST runner is the canonical template without the hook (see production-smoke.mjs entry).",
+  "conflicts": [
+   "Imports src/content/redirects.json and migration-receipt.json (JSON import attributes) \u2014 those files must exist or the scenario must be rewritten.",
+   "Selectors `a.post-card-link`, `article h1`, `.post-text`, `Open menu`/`Close menu`, `Main navigation` are blog-component specific; DST nav is `Toggle mobile menu`/`Mobile navigation`. Two different mobile menus must both be asserted.",
+   "Smoke runs 90 s behavior deadline (behaviorMs) in runner: merged scenario must fit."
+  ],
+  "tests_covering": [
+   "npm run smoke:scenario-contract"
+  ]
+ },
+ {
+  "path": "scripts/production-smoke-scenario.test.mjs",
+  "kind": "test",
+  "purpose": "Playwright-stubbed contract tests proving the smoke fails on empty article, is read-only (GET only), rejects stale release, rejects HTML-for-XML feeds, rejects 404/misdirected historical routes",
+  "disposition": "adapt",
+  "target": "scripts/production-smoke-scenario.test.mjs",
+  "reason": "Merge with DST test (which has one test: mobile nav without script fails). Keep: empty-article fails, GET-only/read-only, feed MIME, misdirected route. Drop the stale-release test (verifyRelease) unless the release hook is upstreamed.",
+  "conflicts": [
+   "Imports runSmoke from ./production-smoke.mjs with a `verifyRelease` scenario hook that DST runner lacks."
+  ],
+  "tests_covering": [
+   "npm run smoke:scenario-contract"
+  ]
+ },
+ {
+  "path": "scripts/production-smoke.mjs",
+  "kind": "smoke",
+  "purpose": "Production smoke runner (fork of dotagents template + verifyRelease hook)",
+  "disposition": "drop",
+  "target": null,
+  "reason": "DST has the CANONICAL template copy (\"Canonical source: dotagents/templates/github/production-smoke.mjs\"). Diff: SRC adds line 72 `await scenario.verifyRelease(...)` inside the readiness loop (blocks until the alias serves the exact SHA) and inlines the SHA regex. Do not fork in DST. Options: (a) drop SHA gating; (b) check /release.json inside the scenario `smoke()` (cannot poll: runs after readiness); (c) upstream a `verifyRelease` hook to the dotagents template (separate cross-repo handoff). Recommend (a)+(b) now, (c) as a leftover for John.",
+  "conflicts": [
+   "SRC header comment: \"Based on dotagents/templates/github/production-smoke.mjs\"."
+  ],
+  "tests_covering": [
+   "scripts/production-smoke-scenario.test.mjs"
+  ]
+ },
+ {
+  "path": "scripts/protect-stacks.sh",
+  "kind": "script",
+  "purpose": "Termination protection + stack policy apply/check wrapper",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Frozen with the stack; hard-codes `jsolly/awesome-blog` (line 38) and John hand-off path /Users/johnsolly/code/awesome-blog (line 33). Conditional on the AWS decision (notes: AWS section). Recommended: stays frozen in the archived repo. Note `check:stack-protection` is the continuous read-only verification that infra-plan.md expects; it stops running after the archive.",
+  "conflicts": [
+   "Requires dotagents gate-lib v4."
+  ],
+  "tests_covering": [
+   "scripts/stack-protection.test.mjs"
+  ]
+ },
+ {
+  "path": "scripts/search.test.mjs",
+  "kind": "test",
+  "purpose": "Unit test of MiniSearch wrapper createArticleSearch (title ranking, typo tolerance, no arbitrary results)",
+  "disposition": "adapt",
+  "target": "scripts/blog-search.test.mjs (or src/lib/search.test.ts)",
+  "reason": "Durable; keep. Imports ../src/lib/search.ts: relocate with the lib. DST `npm test` only globs src/lib/*.test.ts via a ts-from-js loader; either convert to src/lib/search.test.ts (picked up by knip entry and Biome test domain) or add the .mjs to the test script. Needs `minisearch` dep.",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 5 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex",
+   "Knip: Unresolved import ../src/lib/search.ts until lib is ported."
+  ],
+  "tests_covering": [
+   "npm run test:search"
+  ]
+ },
+ {
+  "path": "scripts/source-signature.mjs",
+  "kind": "script",
+  "purpose": "Source-HTML oracle (explicitly permitted migration transformations: heading ids, CloudFront img rewrite, iframe title, recipe styles)",
+  "disposition": "drop",
+  "target": null,
+  "reason": "One-time migration oracle against raw legacy HTML; used by verify-migration only. Encodes the CloudFront base https://d1d7p8ufhgz4ld.cloudfront.net/media/ (relevant to CSP img-src, see conflicts).",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 7 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex",
+   "Needs cheerio."
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "scripts/stack-protection.test.mjs",
+  "kind": "test",
+  "purpose": "Template/stack policy classification + wrapper tests",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Frozen with infra scripts.",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 11 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex"
+  ],
+  "tests_covering": [
+   "npm run test:stack-protection"
+  ]
+ },
+ {
+  "path": "scripts/verify-cms.mjs",
+  "kind": "verify",
+  "purpose": "Writes a PagesCMS-shaped post (unquoted fractional-second timestamps, no empty optional fields), builds, asserts HTML/time/JSON-LD author; asserts date-only and tz-less timestamps FAIL the build; deletes it and rebuilds",
+  "disposition": "adapt",
+  "target": "scripts/blog-contract.test.mjs (as a test, not an npm script)",
+  "reason": "DURABLE contract (protects real PagesCMS authoring, which continues). Not private-data dependent. Port with: dist/blog/<slug>/index.html, selectors `h1 .heading-link`, `.article-body`, `time`, JSON-LD author; run via node:test. Cost in SRC scratch clone: 8.1 s (2 builds). In DST each `npm run build` also runs process-html + built-csp test, so rewrite to build ONCE per fixture set (or call astro build API programmatically) instead of N sequential full builds.",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 11 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex",
+   "MUTATES the working tree (writes src/content/posts/*.md) and runs `npm run build` inside the gate; a crash leaves a stray file; gate_enter_committing_tree/clean-tree checks in DST gate-lib run on the committing tree.",
+   "Needs cheerio."
+  ],
+  "tests_covering": [
+   "npm run verify:cms"
+  ]
+ },
+ {
+  "path": "scripts/verify-drafts.mjs",
+  "kind": "verify",
+  "purpose": "Writes a real draft with a private sentinel, builds, scans EVERY file in dist for slug/sentinel bytes, asserts the draft route is absent; restores normal build",
+  "disposition": "adapt",
+  "target": "scripts/blog-contract.test.mjs",
+  "reason": "DURABLE contract (drafts must never leak into HTML, search index, feeds, sitemap, JS chunks). Same port notes as verify-cms: paths dist/blog/<slug>; scan walks all of dist (now includes DST pages, fine). 6.4 s in SRC clone (2 builds).",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 6 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex",
+   "Mutates src/content; relies on serializePost from content-files.mjs (inline).",
+   "DST sitemap/search artifacts differ (sitemap-index.xml, search-index.json location) but whole-dist scan is path-agnostic."
+  ],
+  "tests_covering": [
+   "npm run verify:drafts"
+  ]
+ },
+ {
+  "path": "scripts/verify-identities.mjs",
+  "kind": "verify",
+  "purpose": "Copies first post/category file under a new filename and asserts the build FAILS with \"Duplicate post slug:\" / \"Duplicate category slug:\"",
+  "disposition": "adapt",
+  "target": "scripts/blog-contract.test.mjs",
+  "reason": "DURABLE contract (CMS can create duplicate slugs; case-sensitive stable slugs). Depends on the build-time duplicate check in src/lib/content.ts (src inventory) and its exact error text. 8.1 s in SRC clone (3 builds).",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 9 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex",
+   "Asserts a failing `npm run build`: in DST that is build -> process-html -> built-csp; failure must come from the astro step."
+  ],
+  "tests_covering": [
+   "npm run verify:identities"
+  ]
+ },
+ {
+  "path": "scripts/verify-media-backup.mjs",
+  "kind": "verify",
+  "purpose": "Verifies a downloaded S3 backup against inventory (size, SHA-256, path escape)",
+  "disposition": "drop",
+  "target": null,
+  "reason": "One-time cutover check for private downloaded media (bucket `blogthedata`); no durable repo contract. Its unit test lives in astro-contract.test.mjs L216 (dropped). Does not need private data to run its test, but the script has no consumer once the bucket is retired.",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 8 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex"
+  ],
+  "tests_covering": [
+   "scripts/astro-contract.test.mjs L216"
+  ]
+ },
+ {
+  "path": "scripts/verify-migration.mjs",
+  "kind": "verify",
+  "purpose": "Compares the whole build to the PRIVATE authoritative Django dumpdata JSON (source parity of 106 posts, related ranks, rendered signatures, rewrite receipt, feeds, vercel redirects)",
+  "disposition": "drop",
+  "target": null,
+  "reason": "One-time migration check: requires argv[2] = private export (`.migration-work/source-2026-10-02.json`); importing the SRC lib and import-legacy; hard-codes www.blogthedata.com feeds. NOT part of gate:app (verified in package.json). Its durable subset (published URLs exist, feeds match content, redirects present) is already covered by astro-contract tests, which are ported.",
+  "conflicts": [
+   "Overlay run (SRC file copied verbatim into a scratch clone of jsolly-website, `biome ci . --error-on-warnings`): 28 diagnostics; SRC uses 2-space/single-quote/dense one-liners, DST biome.jsonc is tabs/double-quote with ~200 rules incl. useConsistentTestIt, useTopLevelRegex, noAwaitInLoops, noSecrets, useUnicodeRegex",
+   "Depends on private .migration-work data and legacy Django state (blog.post/blog.similarity/sites.site/redirects.redirect models)."
+  ],
+  "tests_covering": [
+   "npm run verify:migration (manual)"
+  ]
+ },
+ {
+  "path": "scripts/worktree-init.sh",
+  "kind": "script",
+  "purpose": "`npm ci` in a fresh worktree via gate-lib node pin",
+  "disposition": "drop",
+  "target": null,
+  "reason": "DST `worktree:init` is plain `npm ci` and AGENTS.md documents it.",
+  "conflicts": [],
+  "tests_covering": []
+ },
+ {
+  "path": "src/content/intentional-rewrites.json",
+  "kind": "data",
+  "purpose": "Receipt pinning the authorized rewrite of the recipe article (sha256 of legacy record + replacement)",
+  "disposition": "drop",
+  "target": null,
+  "reason": "Only reader: verify-migration.mjs (git grep). Hash pins a replacement post that sync-recipe-article regenerates, so it is stale as soon as the recipe article changes.",
+  "conflicts": [
+   "pins legacy Django record hash: meaningless without the private export."
+  ],
+  "tests_covering": [
+   "scripts/verify-migration.mjs"
+  ]
+ },
+ {
+  "path": "src/content/migration-receipt.json",
+  "kind": "data",
+  "purpose": "Frozen list of 106 published post paths (/post/<slug>/) and 6 category paths, produced by the importer",
+  "disposition": "adapt",
+  "target": "scripts/blog-url-map.json (or fold into the redirect map)",
+  "reason": "KEEP as the frozen \"legacy URL inventory\": the redirect-coverage test and smoke need exactly this list (106 posts incl. mixed-case slugs like Geodev, Achieve-consistent-builds-with-Python-constraints; 6 categories). Strip importer metadata (sourceSha256, counts) and add non-post URLs. Readers today: astro-contract L97/L118, smoke scenario + test.",
+  "conflicts": [
+   "Not a source of truth for what is live: live sitemap has 116 URLs = 106 posts + /, /all-posts/, /privacy/, /works-cited/ + 6 categories; /recipes/<id>/, /recipes/meals/, /recipes/smoothies/, /search/, /404.html, feeds, release.json, search-index.json are live but absent from the receipt.",
+   "Contains 106 slugs; the importer-generated `drafts: 0`."
+  ],
+  "tests_covering": [
+   "scripts/astro-contract.test.mjs L117",
+   "scripts/production-smoke-scenario.test.mjs"
+  ]
+ },
+ {
+  "path": "src/content/redirects.json",
+  "kind": "data",
+  "purpose": "2 legacy Django redirect aliases: /post/sollys-favorite-youtube-channels-and-podcasts/ -> /post/my-favorite-youtube-channels-podcasts-newsletters/; /post/how-to-leverage-closed-loops -> /post/stop-asking-questions-to-save-time",
+  "disposition": "adapt",
+  "target": "scripts/blog-url-map.json (fold in) ",
+  "reason": "Keep the two aliases but FLATTEN: blogthedata.com/post/<alias>/ must 301 directly to the final jsolly.com/blog/<target>/ (one hop), not alias->post->blog. DECISION for John: the closed-loops alias targets a post that does not exist (astro-contract L97-101 pins this as the \"sole documented exception\"; migration-receipt lacks that slug). Options: 301 to /blog/ (recommended, no invented content), 410, or drop. Readers: astro-contract L93, smoke scenario + test, verify-migration.",
+  "conflicts": [
+   "Source paths are stored without trailing slash for closed-loops and with for the other (importer artifact); the map must normalise.",
+   "Smoke scenario derives expected 200-routes from this file filtered by migration-receipt.publishedPaths."
+  ],
+  "tests_covering": [
+   "scripts/astro-contract.test.mjs L82",
+   "scripts/production-smoke-scenario.test.mjs"
+  ]
+ },
+ {
+  "path": "vercel.json",
+  "kind": "config",
+  "purpose": "Vercel config: trailingSlash, framework/build, git deployment suppression, security headers + CSP, release.json no-store, RSS/Atom MIME (with/without slash), SW no-cache header, apex->www redirect, 2 legacy redirects",
+  "disposition": "adapt",
+  "target": "vercel.json",
+  "reason": "Merge, do not overwrite. (1) headers: feed Content-Type rules re-pointed to the new feed paths; release.json no-store if kept; service-worker Cache-Control moves to the recipe SW path. (2) redirects: the blogthedata host rules are NOT merged into DST unless the blogthedata.com domains are attached to the jsolly-website project (see Redirect hosting). (3) NO `framework/buildCommand/outputDirectory` (DST relies on project settings; UNVERIFIED that DST project settings match). (4) CSP: DST header is stricter than SRC and conflicts (below).",
+  "conflicts": [
+   "CSP header intersects with Astro meta CSP (both enforced): DST vercel.json:`img-src 'self' data:` blocks the 214 `https://d1d7p8ufhgz4ld.cloudfront.net/media/\u2026` image refs + 1 `d33wubrfki0l68.cloudfront.net` ref in posts (105 of 106 posts contain cloudfront URLs); SRC allows `img-src 'self' https: data:`.",
+   "DST astro.config.ts security.csp has only `default-src 'self'` + style; no `frame-src`: 13 YouTube, 1 diagrams.net, 2 nbviewer iframes in posts would be blocked (SRC astro.config.mjs allows youtube.com, youtube-nocookie.com, viewer.diagrams.net, nbviewer.org) and `connect-src 'self'` (search/PWA fetch).",
+   "DST scripts/built-csp.test.mjs asserts the header has NO script-src/script-src-elem/default-src and requires `frame-ancestors 'none'`; any new header directive must keep that.",
+   "`permanent: true` makes Vercel return 308, not 301 (live check: curl -I https://blogthedata.com/ -> 308; https://www.blogthedata.com/rss -> 308). John asked for 301: rules need `\"statusCode\": 301`; the coverage test must assert the exact code.",
+   "SRC apex rule `/(.*)` host blogthedata.com -> www catches every apex request first: per-path rules must be written so apex URLs reach the final jsolly.com URL in ONE hop (or the apex rule must be removed/ordered after).",
+   "Both repos set `trailingSlash: true`; SRC astro.config.mjs also sets `trailingSlash: 'always'` and `prerenderConflictBehavior: 'error'`; DST astro config sets neither.",
+   "DST middleware.ts runs on every GET/HEAD not matching STATIC_EXT_RE: extensionless /blog/rss/ and /blog/atom/ get Accept negotiation; a strict feed reader sending only `Accept: application/rss+xml` gets 406 (preferredType returns null); `Accept: text/markdown` on /blog/* returns the 404 Markdown body; `/recipes/.../recipe-library.md` is treated as a Markdown sibling (MARKDOWN_FILE_RE) and returns 404 Markdown. Fix: serve feeds at `.xml` paths (e.g. /blog/rss.xml) or exempt in shouldNegotiate, and exempt .md data assets."
+  ],
+  "tests_covering": [
+   "scripts/astro-contract.test.mjs L82,L103,L149",
+   "npm run smoke:scenario-contract"
+  ]
+ },
+ {
+  "path": "public/media/default.webp",
+  "kind": "public",
+  "purpose": "Default cover image: frontmatter default `/media/default.webp`, .pages.yml `image.default`, importer fallback",
+  "disposition": "move",
+  "target": "public/media/default.webp",
+  "reason": "Referenced by .pages.yml, 5 references in SRC src/, and post frontmatter. Keep the /media/ prefix in the first pass (zero rewrites in html.ts imageUrl, posts, recipes.json, pwa-build). Alternatives (/blog/media, /recipes/media) are a cosmetic follow-up. Old URL live: per-path 301.",
+  "conflicts": [
+   "public/media on jsolly.com is a new root namespace; no DST collision (DST public has favicons, images, llms.txt, robots.txt, resume)."
+  ],
+  "tests_covering": [
+   "scripts/astro-contract.test.mjs"
+  ]
+ },
+ {
+  "path": "public/media/recipes/*-{480,960,1440}.webp (36 files)",
+  "kind": "asset",
+  "purpose": "Responsive recipe card/detail images (3 widths x 12 recipes)",
+  "disposition": "move",
+  "target": "public/media/recipes/ (same names)",
+  "reason": "Recipe-owned assets referenced by recipes.json srcset and cached by pwa-build. HARD CONSTRAINT: scripts/recipes/pwa-build.mjs reads `${root}/media/recipes` (readdir) and the SW pre-caches every file: renaming the dir requires editing pwa-build.mjs and recipes.json together. Old URLs: either leave un-redirected (not indexed; hub page is JS) or per-path 301 \u2014 URL-map owner decides.",
+  "conflicts": [
+   "astro-contract recipe test L174-200 asserts every srcset candidate exists in dist."
+  ],
+  "tests_covering": [
+   "scripts/astro-contract.test.mjs L174",
+   "scripts/recipes/pwa.test.mjs"
+  ],
+  "members": [
+   "public/media/recipes/greek-turkey-patties-1440.webp",
+   "public/media/recipes/greek-turkey-patties-480.webp",
+   "public/media/recipes/greek-turkey-patties-960.webp",
+   "public/media/recipes/harissa-chickpea-and-cauliflower-bowls-1440.webp",
+   "public/media/recipes/harissa-chickpea-and-cauliflower-bowls-480.webp",
+   "public/media/recipes/harissa-chickpea-and-cauliflower-bowls-960.webp",
+   "public/media/recipes/lemon-chicken-potatoes-and-green-beans-1440.webp",
+   "public/media/recipes/lemon-chicken-potatoes-and-green-beans-480.webp",
+   "public/media/recipes/lemon-chicken-potatoes-and-green-beans-960.webp",
+   "public/media/recipes/lemon-salmon-and-asparagus-1440.webp",
+   "public/media/recipes/lemon-salmon-and-asparagus-480.webp",
+   "public/media/recipes/lemon-salmon-and-asparagus-960.webp",
+   "public/media/recipes/pesto-cod-and-zucchini-1440.webp",
+   "public/media/recipes/pesto-cod-and-zucchini-480.webp",
+   "public/media/recipes/pesto-cod-and-zucchini-960.webp",
+   "public/media/recipes/salsa-verde-shredded-chicken-1440.webp",
+   "public/media/recipes/salsa-verde-shredded-chicken-480.webp",
+   "public/media/recipes/salsa-verde-shredded-chicken-960.webp",
+   "public/media/recipes/shawarma-chicken-bowls-1440.webp",
+   "public/media/recipes/shawarma-chicken-bowls-480.webp",
+   "public/media/recipes/shawarma-chicken-bowls-960.webp",
+   "public/media/recipes/sheet-pan-chicken-fajitas-1440.webp",
+   "public/media/recipes/sheet-pan-chicken-fajitas-480.webp",
+   "public/media/recipes/sheet-pan-chicken-fajitas-960.webp",
+   "public/media/recipes/sheet-pan-gnocchi-white-beans-and-broccoli-1440.webp",
+   "public/media/recipes/sheet-pan-gnocchi-white-beans-and-broccoli-480.webp",
+   "public/media/recipes/sheet-pan-gnocchi-white-beans-and-broccoli-960.webp",
+   "public/media/recipes/smoky-chicken-thighs-and-broccoli-1440.webp",
+   "public/media/recipes/smoky-chicken-thighs-and-broccoli-480.webp",
+   "public/media/recipes/smoky-chicken-thighs-and-broccoli-960.webp",
+   "public/media/recipes/spinach-feta-and-hemp-frittata-1440.webp",
+   "public/media/recipes/spinach-feta-and-hemp-frittata-480.webp",
+   "public/media/recipes/spinach-feta-and-hemp-frittata-960.webp",
+   "public/media/recipes/tomato-lentil-and-chicken-bake-1440.webp",
+   "public/media/recipes/tomato-lentil-and-chicken-bake-480.webp",
+   "public/media/recipes/tomato-lentil-and-chicken-bake-960.webp"
+  ]
+ },
+ {
+  "path": "public/media/recipes/*.svg (8 files)",
+  "kind": "asset",
+  "purpose": "Generated SVG art for smoothies/soup recipes without photos",
+  "disposition": "move",
+  "target": "public/media/recipes/ (same names)",
+  "reason": "Same constraint as the webp group.",
+  "conflicts": [
+   "DST biome excludes **/*.svg."
+  ],
+  "tests_covering": [
+   "scripts/astro-contract.test.mjs L174"
+  ],
+  "members": [
+   "public/media/recipes/avocado-lime-smoothie.svg",
+   "public/media/recipes/banana-flax-smoothie.svg",
+   "public/media/recipes/chicken-posole.svg",
+   "public/media/recipes/cucumber-spinach-lime-smoothie.svg",
+   "public/media/recipes/keto-zuppa-toscana.svg",
+   "public/media/recipes/strawberry-avocado-smoothie.svg",
+   "public/media/recipes/strawberry-banana-smoothie.svg",
+   "public/media/recipes/strawberry-hemp-smoothie.svg"
+  ]
+ }
+]

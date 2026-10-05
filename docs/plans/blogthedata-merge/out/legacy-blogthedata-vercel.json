@@ -1,0 +1,1128 @@
+{
+	"$schema": "https://openapi.vercel.sh/vercel.json",
+	"framework": null,
+	"installCommand": "",
+	"buildCommand": "",
+	"outputDirectory": "public",
+	"git": {
+		"deploymentEnabled": {
+			"main": true,
+			"*": false,
+			"*/*": false,
+			"*/*/*": false,
+			"*/*/*/*": false,
+			"**": false
+		}
+	},
+	"headers": [
+		{
+			"source": "/(.*)",
+			"headers": [
+				{
+					"key": "X-Content-Type-Options",
+					"value": "nosniff"
+				},
+				{
+					"key": "Referrer-Policy",
+					"value": "strict-origin-when-cross-origin"
+				},
+				{
+					"key": "X-Frame-Options",
+					"value": "DENY"
+				},
+				{
+					"key": "Content-Security-Policy",
+					"value": "default-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'"
+				}
+			]
+		},
+		{
+			"source": "/post/15-minute-dump-and-go-instant-pot-recipes/service-worker.js",
+			"headers": [
+				{
+					"key": "Content-Type",
+					"value": "application/javascript; charset=utf-8"
+				},
+				{
+					"key": "Cache-Control",
+					"value": "no-cache"
+				}
+			]
+		},
+		{
+			"source": "/recipe-service-worker.js",
+			"headers": [
+				{
+					"key": "Content-Type",
+					"value": "application/javascript; charset=utf-8"
+				},
+				{
+					"key": "Cache-Control",
+					"value": "no-cache"
+				}
+			]
+		}
+	],
+	"redirects": [
+		{
+			"source": "/",
+			"destination": "https://www.jsolly.com/blog/",
+			"statusCode": 301
+		},
+		{
+			"source": "/index.html",
+			"destination": "https://www.jsolly.com/blog/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/12-questions-you-should-ask-at-your-next-interview{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/12-questions-you-should-ask-at-your-next-interview/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/Achieve-consistent-builds-with-Python-constraints{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/Achieve-consistent-builds-with-Python-constraints/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/Adding-code-snippets-ckeditor{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/Adding-code-snippets-ckeditor/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/Adding-spell-check-django-ckeditor{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/Adding-spell-check-django-ckeditor/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/Adding-views-likes-to-posts{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/Adding-views-likes-to-posts/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/Exploring-the-STAC-APIs-with-IPython-Notebooks{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/Exploring-the-STAC-APIs-with-IPython-Notebooks/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/Find-Your-Dream-Job-With-LinkedIn-Boolean-Search{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/Find-Your-Dream-Job-With-LinkedIn-Boolean-Search/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/How-Ive-made-blogthedata-more-accessible{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/How-Ive-made-blogthedata-more-accessible/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/I-made-my-code-async-its-388-percent-faster{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/I-made-my-code-async-its-388-percent-faster/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/I-re-created-1979-Atari-game-asteroids-with-JS{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/I-re-created-1979-Atari-game-asteroids-with-JS/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/I-replaced-for-loops-with-for-of-loops-cleaner{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/I-replaced-for-loops-with-for-of-loops-cleaner/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/I-resolved-150-linting-issues-with-eslint{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/I-resolved-150-linting-issues-with-eslint/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/Migrating-from-apache-to-Nginx-Gunicorn{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/Migrating-from-apache-to-Nginx-Gunicorn/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/Planetary-Computer-STAC-Landsat-data{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/Planetary-Computer-STAC-Landsat-data/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/Prettier-code-formatter-breaks-Django-templates{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/Prettier-code-formatter-breaks-Django-templates/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/TypeScript-revealed-210-issues-JavaScript-codebase{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/TypeScript-revealed-210-issues-JavaScript-codebase/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/UI-enhancement-leads-to-major-architecture-changes{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/UI-enhancement-leads-to-major-architecture-changes/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/adding-global-search{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/adding-global-search/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/adding-slugified-urls{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/adding-slugified-urls/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/admin-honeypot-page-to-catch-hackers{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/admin-honeypot-page-to-catch-hackers/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/automate-python-testing-linting-pre-commit-hooks{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/automate-python-testing-linting-pre-commit-hooks/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/break-youtube-addiction-turning-off-your-history{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/break-youtube-addiction-turning-off-your-history/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/calculate-ndvi-ipfs-geoanalysis{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/calculate-ndvi-ipfs-geoanalysis/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/clay-personal-crm-tool-managing-relationships{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/clay-personal-crm-tool-managing-relationships/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/cloudflare-minify-optimizations-broke-sri{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/cloudflare-minify-optimizations-broke-sri/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/code-analysis-and-pip-dependency-check-in-GitHub{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/code-analysis-and-pip-dependency-check-in-GitHub/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/compress-minify-assets-69-percent-faster-page-load{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/compress-minify-assets-69-percent-faster-page-load/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/conventional-commits{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/conventional-commits/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/convert-images-to-webp-25-percent-smaller-payloads{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/convert-images-to-webp-25-percent-smaller-payloads/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/cosine-similarity-better-than-tags{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/cosine-similarity-better-than-tags/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/create-website-title-generator-python-htmx-django{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/create-website-title-generator-python-htmx-django/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/deploy-to-remote-server-on-push-in-10-lines{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/deploy-to-remote-server-on-push-in-10-lines/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/django-automatic-redirects-in-two-lines-of-code{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/django-automatic-redirects-in-two-lines-of-code/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/django-htmx-real-time-comments{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/django-htmx-real-time-comments/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/domain-name-value{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/domain-name-value/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/emotional-intelligence-book-executive-summary{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/emotional-intelligence-book-executive-summary/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/exploring-new-ideas-with-gpt{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/exploring-new-ideas-with-gpt/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/finding-reliable-information{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/finding-reliable-information/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/fixing-coding-pain-ergonomic-tips{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/fixing-coding-pain-ergonomic-tips/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/free-cdn-for-17x-speed{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/free-cdn-for-17x-speed/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/geospatial-job-interview-tips{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/geospatial-job-interview-tips/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/get-a-perfect-score-on-seo-tool-ahrefs{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/get-a-perfect-score-on-seo-tool-ahrefs/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/gis-job-search-resources{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/gis-job-search-resources/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/git-hooks-to-perform-collectstatic{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/git-hooks-to-perform-collectstatic/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/google-lighthouse-audit{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/google-lighthouse-audit/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/google-lighthouse-perfect-score{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/google-lighthouse-perfect-score/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/help-google-spider-with-sitemaps-and-robots-file{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/help-google-spider-with-sitemaps-and-robots-file/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/how-I-present-portfolio-projects-to-impress{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/how-I-present-portfolio-projects-to-impress/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/how-many-manual-qa-do-you-need{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/how-many-manual-qa-do-you-need/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/how-to-add-a-404-page-to-your-django-app{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/how-to-add-a-404-page-to-your-django-app/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/how-to-add-leaflet-js-maps-inside-a-django-site{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/how-to-add-leaflet-js-maps-inside-a-django-site/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/how-to-add-social-share-buttons-to-your-website{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/how-to-add-social-share-buttons-to-your-website/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/how-to-ask-less-questions{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/how-to-ask-less-questions/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/how-to-ask-questions-like-a-senior-engineer{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/how-to-ask-questions-like-a-senior-engineer/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/how-to-create-subtle-shaking-navbar-links{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/how-to-create-subtle-shaking-navbar-links/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/how-to-debug-an-astro-app{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/how-to-debug-an-astro-app/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/how-to-get-100-percent-unit-test-coverage{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/how-to-get-100-percent-unit-test-coverage/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/how-to-get-a-perfect-mozilla-observatory-score{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/how-to-get-a-perfect-mozilla-observatory-score/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/how-to-get-perfect-linting-compliance{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/how-to-get-perfect-linting-compliance/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/how-to-implement-content-security-policy-django{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/how-to-implement-content-security-policy-django/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/how-to-implement-subresource-integrity-django{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/how-to-implement-subresource-integrity-django/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/how-to-send-email-with-python-the-hard-way{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/how-to-send-email-with-python-the-hard-way/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/how-to-setup-logging-in-your-django-app{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/how-to-setup-logging-in-your-django-app/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/how-to-test-and-debug-django-templates{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/how-to-test-and-debug-django-templates/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/how-to-use-ChatGPT-for-GeoDev-Interview-practice{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/how-to-use-ChatGPT-for-GeoDev-Interview-practice/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/implement-continuous-integration-github-actions{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/implement-continuous-integration-github-actions/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/implement-infinite-scroll-in-django-with-htmx{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/implement-infinite-scroll-in-django-with-htmx/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/import-libraries-vs-rolling-own{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/import-libraries-vs-rolling-own/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/improve-sleep-quality-red-screens-ios-macos{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/improve-sleep-quality-red-screens-ios-macos/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/inspiring-aphorisms-axioms{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/inspiring-aphorisms-axioms/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/integration-tests-are-a-scam-i-wrote-them-anyway{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/integration-tests-are-a-scam-i-wrote-them-anyway/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/mastering-gpt-directives-and-parameters{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/mastering-gpt-directives-and-parameters/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/mastering-intuition-pumps-essential-terms-guide{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/mastering-intuition-pumps-essential-terms-guide/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/migrating-bs4-to-bs5{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/migrating-bs4-to-bs5/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/migrating-portfolio-from-django-to-astro-js{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/migrating-portfolio-from-django-to-astro-js/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/migrating-to-ckeditor-5{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/migrating-to-ckeditor-5/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/migrating-to-django-4x{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/migrating-to-django-4x/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/migrating-to-postgres-from-sqllite{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/migrating-to-postgres-from-sqllite/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/my-favorite-youtube-channels-podcasts-newsletters{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/my-favorite-youtube-channels-podcasts-newsletters/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/next-level-emoji-game-with-text-replacement{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/next-level-emoji-game-with-text-replacement/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/on-how-the-world-works{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/on-how-the-world-works/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/one-click-django-debug-runserver-livereload-chrome{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/one-click-django-debug-runserver-livereload-chrome/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/optimizing-ahrefs-orphan-pages-duplicate-content{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/optimizing-ahrefs-orphan-pages-duplicate-content/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/optimizing-gpt-for-nlp-tips-and-tricks{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/optimizing-gpt-for-nlp-tips-and-tricks/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/productivity-flow-chart{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/productivity-flow-chart/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/security-txt-allows-researches-to-contact-you{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/security-txt-allows-researches-to-contact-you/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/simplifying-ai-writing-template-complex-concepts{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/simplifying-ai-writing-template-complex-concepts/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/smartly-load-CSS-JS-page-load-time{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/smartly-load-CSS-JS-page-load-time/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/social-media-share-links-open-graph{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/social-media-share-links-open-graph/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/solly-agent-rules-markdown{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/solly-agent-rules-markdown/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/solly-coverletter-outline-and-philosophy{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/solly-coverletter-outline-and-philosophy/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/sollys-favorite-web-resources-and-tools{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/sollys-favorite-web-resources-and-tools/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/streamlining-todoist-workflow{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/streamlining-todoist-workflow/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/test-strategy-no-existing-tests{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/test-strategy-no-existing-tests/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/three-scenarios-i-dont-use-tailwind{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/three-scenarios-i-dont-use-tailwind/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/timeless-phrases-sayings{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/timeless-phrases-sayings/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/todo-workflow-7619-tasks{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/todo-workflow-7619-tasks/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/two-weird-reasons-I-love-unit-tests{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/two-weird-reasons-I-love-unit-tests/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/upgrading-to-the-latest-3x-django{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/upgrading-to-the-latest-3x-django/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/use-brave-search-goggles-to-improve-web-searches{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/use-brave-search-goggles-to-improve-web-searches/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/use-noopener-norferrer-to-improve-user-privacy{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/use-noopener-norferrer-to-improve-user-privacy/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/using-a-freelancer-to-fix-a-bug{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/using-a-freelancer-to-fix-a-bug/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/web3-notes-personal-reference{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/web3-notes-personal-reference/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/why-I-stopped-using-pip-freeze{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/why-I-stopped-using-pip-freeze/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/write-tests-2x-faster-with-github-copilot{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/write-tests-2x-faster-with-github-copilot/",
+			"statusCode": 301
+		},
+		{
+			"source": "/category/Geodev{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/category/Geodev/",
+			"statusCode": 301
+		},
+		{
+			"source": "/category/dev-tools{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/category/dev-tools/",
+			"statusCode": 301
+		},
+		{
+			"source": "/category/productivity{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/category/productivity/",
+			"statusCode": 301
+		},
+		{
+			"source": "/category/resources{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/category/resources/",
+			"statusCode": 301
+		},
+		{
+			"source": "/category/uncategorized{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/category/uncategorized/",
+			"statusCode": 301
+		},
+		{
+			"source": "/category/web-dev{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/category/web-dev/",
+			"statusCode": 301
+		},
+		{
+			"source": "/all-posts{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/all-posts/",
+			"statusCode": 301
+		},
+		{
+			"source": "/search{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/search/",
+			"statusCode": 301
+		},
+		{
+			"source": "/atom{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/atom.xml",
+			"statusCode": 301
+		},
+		{
+			"source": "/rss{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/rss.xml",
+			"statusCode": 301
+		},
+		{
+			"source": "/sitemap.xml",
+			"destination": "https://www.jsolly.com/sitemap-index.xml",
+			"statusCode": 301
+		},
+		{
+			"source": "/pgp-key.txt",
+			"destination": "https://www.jsolly.com/pgp-key.txt",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/15-minute-dump-and-go-instant-pot-recipes{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/avocado-lime-smoothie{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/avocado-lime-smoothie/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/banana-flax-smoothie{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/banana-flax-smoothie/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/chicken-posole{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/chicken-posole/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/cucumber-spinach-lime-smoothie{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/cucumber-spinach-lime-smoothie/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/greek-turkey-patties{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/greek-turkey-patties/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/harissa-chickpea-and-cauliflower-bowls{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/harissa-chickpea-and-cauliflower-bowls/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/keto-zuppa-toscana{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/keto-zuppa-toscana/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/lemon-chicken-potatoes-and-green-beans{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/lemon-chicken-potatoes-and-green-beans/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/lemon-salmon-and-asparagus{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/lemon-salmon-and-asparagus/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/meals{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/meals/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/pan-fried-greek-turkey-patties{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/pan-fried-greek-turkey-patties/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/pesto-cod-and-zucchini{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/pesto-cod-and-zucchini/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/salsa-verde-shredded-chicken{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/salsa-verde-shredded-chicken/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/shawarma-chicken-bowls{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/shawarma-chicken-bowls/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/sheet-pan-chicken-fajitas{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/sheet-pan-chicken-fajitas/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/sheet-pan-gnocchi-white-beans-and-broccoli{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/sheet-pan-gnocchi-white-beans-and-broccoli/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/smoky-chicken-thighs-and-broccoli{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/smoky-chicken-thighs-and-broccoli/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/smoothies{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/smoothies/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/spinach-feta-and-hemp-frittata{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/spinach-feta-and-hemp-frittata/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/strawberry-avocado-smoothie{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/strawberry-avocado-smoothie/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/strawberry-banana-smoothie{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/strawberry-banana-smoothie/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/strawberry-hemp-smoothie{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/strawberry-hemp-smoothie/",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes/tomato-lentil-and-chicken-bake{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/recipes/tomato-lentil-and-chicken-bake/",
+			"statusCode": 301
+		},
+		{
+			"source": "/data/recipe-library.json",
+			"destination": "https://www.jsolly.com/recipes/data/recipe-library.json",
+			"statusCode": 301
+		},
+		{
+			"source": "/data/recipe-library.md",
+			"destination": "https://www.jsolly.com/recipes/data/recipe-library.md",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes-pwa/icon-180.png",
+			"destination": "https://www.jsolly.com/recipes/pwa/icon-180.png",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes-pwa/icon-192.png",
+			"destination": "https://www.jsolly.com/recipes/pwa/icon-192.png",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes-pwa/icon-512.png",
+			"destination": "https://www.jsolly.com/recipes/pwa/icon-512.png",
+			"statusCode": 301
+		},
+		{
+			"source": "/recipes-pwa/manifest.webmanifest",
+			"destination": "https://www.jsolly.com/recipes/pwa/manifest.webmanifest",
+			"statusCode": 301
+		},
+		{
+			"source": "/favicon.ico",
+			"destination": "https://www.jsolly.com/favicon.ico",
+			"statusCode": 301
+		},
+		{
+			"source": "/logo.webp",
+			"destination": "https://www.jsolly.com/blog/topographic-logo.svg",
+			"statusCode": 301
+		},
+		{
+			"source": "/social/githubLogo.svg",
+			"destination": "https://www.jsolly.com/blog/social/githubLogo.svg",
+			"statusCode": 301
+		},
+		{
+			"source": "/social/linkedinLogo.svg",
+			"destination": "https://www.jsolly.com/blog/social/linkedinLogo.svg",
+			"statusCode": 301
+		},
+		{
+			"source": "/social/redditLogo.svg",
+			"destination": "https://www.jsolly.com/blog/social/redditLogo.svg",
+			"statusCode": 301
+		},
+		{
+			"source": "/social/xLogo.svg",
+			"destination": "https://www.jsolly.com/blog/social/xLogo.svg",
+			"statusCode": 301
+		},
+		{
+			"source": "/social/youtubeLogo.svg",
+			"destination": "https://www.jsolly.com/blog/social/youtubeLogo.svg",
+			"statusCode": 301
+		},
+		{
+			"source": "/topographic-logo.svg",
+			"destination": "https://www.jsolly.com/blog/topographic-logo.svg",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/default.webp",
+			"destination": "https://www.jsolly.com/blog/media/default.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/avocado-lime-smoothie.svg",
+			"destination": "https://www.jsolly.com/recipes/media/avocado-lime-smoothie.svg",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/banana-flax-smoothie.svg",
+			"destination": "https://www.jsolly.com/recipes/media/banana-flax-smoothie.svg",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/chicken-posole.svg",
+			"destination": "https://www.jsolly.com/recipes/media/chicken-posole.svg",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/cucumber-spinach-lime-smoothie.svg",
+			"destination": "https://www.jsolly.com/recipes/media/cucumber-spinach-lime-smoothie.svg",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/greek-turkey-patties-1440.webp",
+			"destination": "https://www.jsolly.com/recipes/media/greek-turkey-patties-1440.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/greek-turkey-patties-480.webp",
+			"destination": "https://www.jsolly.com/recipes/media/greek-turkey-patties-480.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/greek-turkey-patties-960.webp",
+			"destination": "https://www.jsolly.com/recipes/media/greek-turkey-patties-960.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/harissa-chickpea-and-cauliflower-bowls-1440.webp",
+			"destination": "https://www.jsolly.com/recipes/media/harissa-chickpea-and-cauliflower-bowls-1440.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/harissa-chickpea-and-cauliflower-bowls-480.webp",
+			"destination": "https://www.jsolly.com/recipes/media/harissa-chickpea-and-cauliflower-bowls-480.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/harissa-chickpea-and-cauliflower-bowls-960.webp",
+			"destination": "https://www.jsolly.com/recipes/media/harissa-chickpea-and-cauliflower-bowls-960.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/keto-zuppa-toscana.svg",
+			"destination": "https://www.jsolly.com/recipes/media/keto-zuppa-toscana.svg",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/lemon-chicken-potatoes-and-green-beans-1440.webp",
+			"destination": "https://www.jsolly.com/recipes/media/lemon-chicken-potatoes-and-green-beans-1440.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/lemon-chicken-potatoes-and-green-beans-480.webp",
+			"destination": "https://www.jsolly.com/recipes/media/lemon-chicken-potatoes-and-green-beans-480.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/lemon-chicken-potatoes-and-green-beans-960.webp",
+			"destination": "https://www.jsolly.com/recipes/media/lemon-chicken-potatoes-and-green-beans-960.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/lemon-salmon-and-asparagus-1440.webp",
+			"destination": "https://www.jsolly.com/recipes/media/lemon-salmon-and-asparagus-1440.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/lemon-salmon-and-asparagus-480.webp",
+			"destination": "https://www.jsolly.com/recipes/media/lemon-salmon-and-asparagus-480.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/lemon-salmon-and-asparagus-960.webp",
+			"destination": "https://www.jsolly.com/recipes/media/lemon-salmon-and-asparagus-960.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/pesto-cod-and-zucchini-1440.webp",
+			"destination": "https://www.jsolly.com/recipes/media/pesto-cod-and-zucchini-1440.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/pesto-cod-and-zucchini-480.webp",
+			"destination": "https://www.jsolly.com/recipes/media/pesto-cod-and-zucchini-480.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/pesto-cod-and-zucchini-960.webp",
+			"destination": "https://www.jsolly.com/recipes/media/pesto-cod-and-zucchini-960.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/salsa-verde-shredded-chicken-1440.webp",
+			"destination": "https://www.jsolly.com/recipes/media/salsa-verde-shredded-chicken-1440.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/salsa-verde-shredded-chicken-480.webp",
+			"destination": "https://www.jsolly.com/recipes/media/salsa-verde-shredded-chicken-480.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/salsa-verde-shredded-chicken-960.webp",
+			"destination": "https://www.jsolly.com/recipes/media/salsa-verde-shredded-chicken-960.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/shawarma-chicken-bowls-1440.webp",
+			"destination": "https://www.jsolly.com/recipes/media/shawarma-chicken-bowls-1440.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/shawarma-chicken-bowls-480.webp",
+			"destination": "https://www.jsolly.com/recipes/media/shawarma-chicken-bowls-480.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/shawarma-chicken-bowls-960.webp",
+			"destination": "https://www.jsolly.com/recipes/media/shawarma-chicken-bowls-960.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/sheet-pan-chicken-fajitas-1440.webp",
+			"destination": "https://www.jsolly.com/recipes/media/sheet-pan-chicken-fajitas-1440.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/sheet-pan-chicken-fajitas-480.webp",
+			"destination": "https://www.jsolly.com/recipes/media/sheet-pan-chicken-fajitas-480.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/sheet-pan-chicken-fajitas-960.webp",
+			"destination": "https://www.jsolly.com/recipes/media/sheet-pan-chicken-fajitas-960.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/sheet-pan-gnocchi-white-beans-and-broccoli-1440.webp",
+			"destination": "https://www.jsolly.com/recipes/media/sheet-pan-gnocchi-white-beans-and-broccoli-1440.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/sheet-pan-gnocchi-white-beans-and-broccoli-480.webp",
+			"destination": "https://www.jsolly.com/recipes/media/sheet-pan-gnocchi-white-beans-and-broccoli-480.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/sheet-pan-gnocchi-white-beans-and-broccoli-960.webp",
+			"destination": "https://www.jsolly.com/recipes/media/sheet-pan-gnocchi-white-beans-and-broccoli-960.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/smoky-chicken-thighs-and-broccoli-1440.webp",
+			"destination": "https://www.jsolly.com/recipes/media/smoky-chicken-thighs-and-broccoli-1440.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/smoky-chicken-thighs-and-broccoli-480.webp",
+			"destination": "https://www.jsolly.com/recipes/media/smoky-chicken-thighs-and-broccoli-480.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/smoky-chicken-thighs-and-broccoli-960.webp",
+			"destination": "https://www.jsolly.com/recipes/media/smoky-chicken-thighs-and-broccoli-960.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/spinach-feta-and-hemp-frittata-1440.webp",
+			"destination": "https://www.jsolly.com/recipes/media/spinach-feta-and-hemp-frittata-1440.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/spinach-feta-and-hemp-frittata-480.webp",
+			"destination": "https://www.jsolly.com/recipes/media/spinach-feta-and-hemp-frittata-480.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/spinach-feta-and-hemp-frittata-960.webp",
+			"destination": "https://www.jsolly.com/recipes/media/spinach-feta-and-hemp-frittata-960.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/strawberry-avocado-smoothie.svg",
+			"destination": "https://www.jsolly.com/recipes/media/strawberry-avocado-smoothie.svg",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/strawberry-banana-smoothie.svg",
+			"destination": "https://www.jsolly.com/recipes/media/strawberry-banana-smoothie.svg",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/strawberry-hemp-smoothie.svg",
+			"destination": "https://www.jsolly.com/recipes/media/strawberry-hemp-smoothie.svg",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/tomato-lentil-and-chicken-bake-1440.webp",
+			"destination": "https://www.jsolly.com/recipes/media/tomato-lentil-and-chicken-bake-1440.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/tomato-lentil-and-chicken-bake-480.webp",
+			"destination": "https://www.jsolly.com/recipes/media/tomato-lentil-and-chicken-bake-480.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/media/recipes/tomato-lentil-and-chicken-bake-960.webp",
+			"destination": "https://www.jsolly.com/recipes/media/tomato-lentil-and-chicken-bake-960.webp",
+			"statusCode": 301
+		},
+		{
+			"source": "/category/devtools{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/category/dev-tools/",
+			"statusCode": 301
+		},
+		{
+			"source": "/category/geodev{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/category/Geodev/",
+			"statusCode": 301
+		},
+		{
+			"source": "/category/web-development{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/category/web-dev/",
+			"statusCode": 301
+		},
+		{
+			"source": "/category/webdev{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/category/web-dev/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/how-to-leverage-closed-loops{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/how-to-ask-less-questions/",
+			"statusCode": 301
+		},
+		{
+			"source": "/post/sollys-favorite-youtube-channels-and-podcasts{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/my-favorite-youtube-channels-podcasts-newsletters/",
+			"statusCode": 301
+		},
+		{
+			"source": "/blog{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/",
+			"statusCode": 301
+		},
+		{
+			"source": "/privacy{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/privacy/",
+			"statusCode": 301
+		},
+		{
+			"source": "/works-cited{/index.html}?{/}?",
+			"destination": "https://www.jsolly.com/blog/works-cited/",
+			"statusCode": 301
+		}
+	]
+}

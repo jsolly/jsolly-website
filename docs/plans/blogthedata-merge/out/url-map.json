@@ -1,0 +1,6128 @@
+{
+	"meta": {
+		"source_repo": "jsolly/awesome-blog",
+		"source_ref": "bf1f7ff1cb92faacfdc3b98ba17fb2f93cac59b5",
+		"source_sha": "bf1f7ff1cb92faacfdc3b98ba17fb2f93cac59b5",
+		"generated_by": "build-url-map.mjs (blogthedata merge plan bundle, out/); deterministic, node built-ins only",
+		"hosts": [
+			"blogthedata.com",
+			"www.blogthedata.com",
+			"blogthedata.vercel.app"
+		],
+		"host_policy": "Every row is host-agnostic (no `has`): one rule set answers every hostname attached to the redirect project.",
+		"slash_policy": "Exact redirect rows whose source ends in '/' cover the slashless, slash, /index.html and /index.html/ forms (emitted as `<source-without-slash>{/index.html}?{/}?`); file rows match exactly.",
+		"case_policy": "Sources and destinations preserve slug case; matching is case-sensitive (routing-utils sourceToRegex sensitive:true).",
+		"status": "redirect-301 rows emit statusCode 301; http:// adds Vercel's HTTPS 308 first hop.",
+		"counts": {
+			"rows": 305,
+			"by_action": {
+				"redirect-301": 212,
+				"stays-404": 88,
+				"serve-200": 5
+			},
+			"by_match": {
+				"exact": 287,
+				"pattern": 18
+			},
+			"by_class": {
+				"index": 2,
+				"post": 111,
+				"category": 7,
+				"archive": 1,
+				"search": 2,
+				"feed": 2,
+				"sitemap": 1,
+				"robots": 1,
+				"security": 2,
+				"recipe-page": 25,
+				"recipe-data": 2,
+				"recipe-pwa": 4,
+				"service-worker": 2,
+				"asset-chrome": 8,
+				"asset-media": 45,
+				"asset-hashed": 1,
+				"legacy-alias": 7,
+				"legacy-django": 36,
+				"legacy-media": 5,
+				"legacy-static": 1,
+				"other": 40
+			},
+			"by_class_action": {
+				"index": {
+					"redirect-301": 2,
+					"serve-200": 0,
+					"stays-404": 0
+				},
+				"post": {
+					"redirect-301": 105,
+					"serve-200": 0,
+					"stays-404": 6
+				},
+				"category": {
+					"redirect-301": 6,
+					"serve-200": 0,
+					"stays-404": 1
+				},
+				"archive": {
+					"redirect-301": 1,
+					"serve-200": 0,
+					"stays-404": 0
+				},
+				"search": {
+					"redirect-301": 1,
+					"serve-200": 0,
+					"stays-404": 1
+				},
+				"feed": {
+					"redirect-301": 2,
+					"serve-200": 0,
+					"stays-404": 0
+				},
+				"sitemap": {
+					"redirect-301": 1,
+					"serve-200": 0,
+					"stays-404": 0
+				},
+				"robots": {
+					"redirect-301": 0,
+					"serve-200": 1,
+					"stays-404": 0
+				},
+				"security": {
+					"redirect-301": 1,
+					"serve-200": 1,
+					"stays-404": 0
+				},
+				"recipe-page": {
+					"redirect-301": 25,
+					"serve-200": 0,
+					"stays-404": 0
+				},
+				"recipe-data": {
+					"redirect-301": 2,
+					"serve-200": 0,
+					"stays-404": 0
+				},
+				"recipe-pwa": {
+					"redirect-301": 4,
+					"serve-200": 0,
+					"stays-404": 0
+				},
+				"service-worker": {
+					"redirect-301": 0,
+					"serve-200": 2,
+					"stays-404": 0
+				},
+				"asset-chrome": {
+					"redirect-301": 8,
+					"serve-200": 0,
+					"stays-404": 0
+				},
+				"asset-media": {
+					"redirect-301": 45,
+					"serve-200": 0,
+					"stays-404": 0
+				},
+				"asset-hashed": {
+					"redirect-301": 0,
+					"serve-200": 0,
+					"stays-404": 1
+				},
+				"legacy-alias": {
+					"redirect-301": 6,
+					"serve-200": 0,
+					"stays-404": 1
+				},
+				"legacy-django": {
+					"redirect-301": 0,
+					"serve-200": 0,
+					"stays-404": 36
+				},
+				"legacy-media": {
+					"redirect-301": 0,
+					"serve-200": 0,
+					"stays-404": 5
+				},
+				"legacy-static": {
+					"redirect-301": 0,
+					"serve-200": 0,
+					"stays-404": 1
+				},
+				"other": {
+					"redirect-301": 3,
+					"serve-200": 1,
+					"stays-404": 36
+				}
+			},
+			"vercel_redirect_entries": 212,
+			"served_today_paths": 407,
+			"served_today_to_404_ledger": {
+				"total": 57,
+				"astro_hashed": 55,
+				"astro_in_freeze_dist": 55,
+				"astro_live_200": 53,
+				"other": [
+					"/release.json",
+					"/search-index.json"
+				]
+			},
+			"destination_paths": 202,
+			"inputs": {
+				"build_rows": 265,
+				"served_files": 265,
+				"live_rows": 803,
+				"history_rows": 655,
+				"sitemap_locs": 116,
+				"config_entries": 5
+			},
+			"union": {
+				"U": 901,
+				"paths": 885,
+				"templates": 15,
+				"host_rules": 1,
+				"matched_exact": 443,
+				"matched_pattern": 442,
+				"matched_template": 15,
+				"unmatched": 0,
+				"ambiguous": 0
+			}
+		}
+	},
+	"rows": [
+		{
+			"id": "IDX-001",
+			"source": "/",
+			"match": "exact",
+			"class": "index",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Blog home. Required by Search Console Change of Address (old homepage must 301)."
+		},
+		{
+			"id": "IDX-002",
+			"source": "/index.html",
+			"match": "exact",
+			"class": "index",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/",
+			"query": "passthrough",
+			"evidence": [
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Vercel serves dist/index.html directly today (200). Not linked anywhere."
+		},
+		{
+			"id": "PST-001",
+			"source": "/post/12-questions-you-should-ask-at-your-next-interview/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/12-questions-you-should-ask-at-your-next-interview/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-002",
+			"source": "/post/Achieve-consistent-builds-with-Python-constraints/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/Achieve-consistent-builds-with-Python-constraints/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-003",
+			"source": "/post/Adding-code-snippets-ckeditor/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/Adding-code-snippets-ckeditor/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-004",
+			"source": "/post/Adding-spell-check-django-ckeditor/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/Adding-spell-check-django-ckeditor/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-005",
+			"source": "/post/Adding-views-likes-to-posts/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/Adding-views-likes-to-posts/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-006",
+			"source": "/post/Exploring-the-STAC-APIs-with-IPython-Notebooks/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/Exploring-the-STAC-APIs-with-IPython-Notebooks/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-007",
+			"source": "/post/Find-Your-Dream-Job-With-LinkedIn-Boolean-Search/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/Find-Your-Dream-Job-With-LinkedIn-Boolean-Search/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-008",
+			"source": "/post/How-Ive-made-blogthedata-more-accessible/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/How-Ive-made-blogthedata-more-accessible/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-009",
+			"source": "/post/I-made-my-code-async-its-388-percent-faster/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/I-made-my-code-async-its-388-percent-faster/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-010",
+			"source": "/post/I-re-created-1979-Atari-game-asteroids-with-JS/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/I-re-created-1979-Atari-game-asteroids-with-JS/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-011",
+			"source": "/post/I-replaced-for-loops-with-for-of-loops-cleaner/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/I-replaced-for-loops-with-for-of-loops-cleaner/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-012",
+			"source": "/post/I-resolved-150-linting-issues-with-eslint/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/I-resolved-150-linting-issues-with-eslint/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-013",
+			"source": "/post/Migrating-from-apache-to-Nginx-Gunicorn/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/Migrating-from-apache-to-Nginx-Gunicorn/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-014",
+			"source": "/post/Planetary-Computer-STAC-Landsat-data/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/Planetary-Computer-STAC-Landsat-data/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-015",
+			"source": "/post/Prettier-code-formatter-breaks-Django-templates/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/Prettier-code-formatter-breaks-Django-templates/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-016",
+			"source": "/post/TypeScript-revealed-210-issues-JavaScript-codebase/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/TypeScript-revealed-210-issues-JavaScript-codebase/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-017",
+			"source": "/post/UI-enhancement-leads-to-major-architecture-changes/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/UI-enhancement-leads-to-major-architecture-changes/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-018",
+			"source": "/post/adding-global-search/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/adding-global-search/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-019",
+			"source": "/post/adding-slugified-urls/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/adding-slugified-urls/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-020",
+			"source": "/post/admin-honeypot-page-to-catch-hackers/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/admin-honeypot-page-to-catch-hackers/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-021",
+			"source": "/post/automate-python-testing-linting-pre-commit-hooks/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/automate-python-testing-linting-pre-commit-hooks/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-022",
+			"source": "/post/break-youtube-addiction-turning-off-your-history/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/break-youtube-addiction-turning-off-your-history/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-023",
+			"source": "/post/calculate-ndvi-ipfs-geoanalysis/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/calculate-ndvi-ipfs-geoanalysis/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-024",
+			"source": "/post/clay-personal-crm-tool-managing-relationships/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/clay-personal-crm-tool-managing-relationships/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-025",
+			"source": "/post/cloudflare-minify-optimizations-broke-sri/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/cloudflare-minify-optimizations-broke-sri/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-026",
+			"source": "/post/code-analysis-and-pip-dependency-check-in-GitHub/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/code-analysis-and-pip-dependency-check-in-GitHub/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-027",
+			"source": "/post/compress-minify-assets-69-percent-faster-page-load/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/compress-minify-assets-69-percent-faster-page-load/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-028",
+			"source": "/post/conventional-commits/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/conventional-commits/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-029",
+			"source": "/post/convert-images-to-webp-25-percent-smaller-payloads/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/convert-images-to-webp-25-percent-smaller-payloads/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-030",
+			"source": "/post/cosine-similarity-better-than-tags/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/cosine-similarity-better-than-tags/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-031",
+			"source": "/post/create-website-title-generator-python-htmx-django/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/create-website-title-generator-python-htmx-django/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-032",
+			"source": "/post/deploy-to-remote-server-on-push-in-10-lines/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/deploy-to-remote-server-on-push-in-10-lines/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-033",
+			"source": "/post/django-automatic-redirects-in-two-lines-of-code/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/django-automatic-redirects-in-two-lines-of-code/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-034",
+			"source": "/post/django-htmx-real-time-comments/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/django-htmx-real-time-comments/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-035",
+			"source": "/post/domain-name-value/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/domain-name-value/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-036",
+			"source": "/post/emotional-intelligence-book-executive-summary/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/emotional-intelligence-book-executive-summary/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-037",
+			"source": "/post/exploring-new-ideas-with-gpt/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/exploring-new-ideas-with-gpt/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-038",
+			"source": "/post/finding-reliable-information/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/finding-reliable-information/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-039",
+			"source": "/post/fixing-coding-pain-ergonomic-tips/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/fixing-coding-pain-ergonomic-tips/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-040",
+			"source": "/post/free-cdn-for-17x-speed/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/free-cdn-for-17x-speed/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-041",
+			"source": "/post/geospatial-job-interview-tips/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/geospatial-job-interview-tips/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-042",
+			"source": "/post/get-a-perfect-score-on-seo-tool-ahrefs/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/get-a-perfect-score-on-seo-tool-ahrefs/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-043",
+			"source": "/post/gis-job-search-resources/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/gis-job-search-resources/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-044",
+			"source": "/post/git-hooks-to-perform-collectstatic/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/git-hooks-to-perform-collectstatic/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-045",
+			"source": "/post/google-lighthouse-audit/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/google-lighthouse-audit/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-046",
+			"source": "/post/google-lighthouse-perfect-score/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/google-lighthouse-perfect-score/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-047",
+			"source": "/post/help-google-spider-with-sitemaps-and-robots-file/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/help-google-spider-with-sitemaps-and-robots-file/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-048",
+			"source": "/post/how-I-present-portfolio-projects-to-impress/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/how-I-present-portfolio-projects-to-impress/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-049",
+			"source": "/post/how-many-manual-qa-do-you-need/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/how-many-manual-qa-do-you-need/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-050",
+			"source": "/post/how-to-add-a-404-page-to-your-django-app/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/how-to-add-a-404-page-to-your-django-app/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-051",
+			"source": "/post/how-to-add-leaflet-js-maps-inside-a-django-site/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/how-to-add-leaflet-js-maps-inside-a-django-site/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-052",
+			"source": "/post/how-to-add-social-share-buttons-to-your-website/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/how-to-add-social-share-buttons-to-your-website/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-053",
+			"source": "/post/how-to-ask-less-questions/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/how-to-ask-less-questions/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-054",
+			"source": "/post/how-to-ask-questions-like-a-senior-engineer/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/how-to-ask-questions-like-a-senior-engineer/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-055",
+			"source": "/post/how-to-create-subtle-shaking-navbar-links/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/how-to-create-subtle-shaking-navbar-links/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-056",
+			"source": "/post/how-to-debug-an-astro-app/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/how-to-debug-an-astro-app/",
+			"query": "passthrough",
+			"evidence": [
+				"atom",
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"rss",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-057",
+			"source": "/post/how-to-get-100-percent-unit-test-coverage/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/how-to-get-100-percent-unit-test-coverage/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-058",
+			"source": "/post/how-to-get-a-perfect-mozilla-observatory-score/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/how-to-get-a-perfect-mozilla-observatory-score/",
+			"query": "passthrough",
+			"evidence": [
+				"atom",
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"rss",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-059",
+			"source": "/post/how-to-get-perfect-linting-compliance/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/how-to-get-perfect-linting-compliance/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-060",
+			"source": "/post/how-to-implement-content-security-policy-django/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/how-to-implement-content-security-policy-django/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-061",
+			"source": "/post/how-to-implement-subresource-integrity-django/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/how-to-implement-subresource-integrity-django/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-062",
+			"source": "/post/how-to-send-email-with-python-the-hard-way/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/how-to-send-email-with-python-the-hard-way/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-063",
+			"source": "/post/how-to-setup-logging-in-your-django-app/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/how-to-setup-logging-in-your-django-app/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-064",
+			"source": "/post/how-to-test-and-debug-django-templates/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/how-to-test-and-debug-django-templates/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-065",
+			"source": "/post/how-to-use-ChatGPT-for-GeoDev-Interview-practice/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/how-to-use-ChatGPT-for-GeoDev-Interview-practice/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-066",
+			"source": "/post/implement-continuous-integration-github-actions/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/implement-continuous-integration-github-actions/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-067",
+			"source": "/post/implement-infinite-scroll-in-django-with-htmx/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/implement-infinite-scroll-in-django-with-htmx/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-068",
+			"source": "/post/import-libraries-vs-rolling-own/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/import-libraries-vs-rolling-own/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-069",
+			"source": "/post/improve-sleep-quality-red-screens-ios-macos/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/improve-sleep-quality-red-screens-ios-macos/",
+			"query": "passthrough",
+			"evidence": [
+				"atom",
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"rss",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-070",
+			"source": "/post/inspiring-aphorisms-axioms/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/inspiring-aphorisms-axioms/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-071",
+			"source": "/post/integration-tests-are-a-scam-i-wrote-them-anyway/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/integration-tests-are-a-scam-i-wrote-them-anyway/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-072",
+			"source": "/post/mastering-gpt-directives-and-parameters/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/mastering-gpt-directives-and-parameters/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-073",
+			"source": "/post/mastering-intuition-pumps-essential-terms-guide/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/mastering-intuition-pumps-essential-terms-guide/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-074",
+			"source": "/post/migrating-bs4-to-bs5/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/migrating-bs4-to-bs5/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-075",
+			"source": "/post/migrating-portfolio-from-django-to-astro-js/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/migrating-portfolio-from-django-to-astro-js/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-076",
+			"source": "/post/migrating-to-ckeditor-5/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/migrating-to-ckeditor-5/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-077",
+			"source": "/post/migrating-to-django-4x/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/migrating-to-django-4x/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-078",
+			"source": "/post/migrating-to-postgres-from-sqllite/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/migrating-to-postgres-from-sqllite/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-079",
+			"source": "/post/my-favorite-youtube-channels-podcasts-newsletters/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/my-favorite-youtube-channels-podcasts-newsletters/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-080",
+			"source": "/post/next-level-emoji-game-with-text-replacement/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/next-level-emoji-game-with-text-replacement/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-081",
+			"source": "/post/on-how-the-world-works/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/on-how-the-world-works/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-082",
+			"source": "/post/one-click-django-debug-runserver-livereload-chrome/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/one-click-django-debug-runserver-livereload-chrome/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-083",
+			"source": "/post/optimizing-ahrefs-orphan-pages-duplicate-content/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/optimizing-ahrefs-orphan-pages-duplicate-content/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-084",
+			"source": "/post/optimizing-gpt-for-nlp-tips-and-tricks/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/optimizing-gpt-for-nlp-tips-and-tricks/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-085",
+			"source": "/post/productivity-flow-chart/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/productivity-flow-chart/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-086",
+			"source": "/post/security-txt-allows-researches-to-contact-you/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/security-txt-allows-researches-to-contact-you/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-087",
+			"source": "/post/simplifying-ai-writing-template-complex-concepts/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/simplifying-ai-writing-template-complex-concepts/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-088",
+			"source": "/post/smartly-load-CSS-JS-page-load-time/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/smartly-load-CSS-JS-page-load-time/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-089",
+			"source": "/post/social-media-share-links-open-graph/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/social-media-share-links-open-graph/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-090",
+			"source": "/post/solly-agent-rules-markdown/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/solly-agent-rules-markdown/",
+			"query": "passthrough",
+			"evidence": [
+				"atom",
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"rss",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-091",
+			"source": "/post/solly-coverletter-outline-and-philosophy/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/solly-coverletter-outline-and-philosophy/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-092",
+			"source": "/post/sollys-favorite-web-resources-and-tools/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/sollys-favorite-web-resources-and-tools/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-093",
+			"source": "/post/streamlining-todoist-workflow/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/streamlining-todoist-workflow/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-094",
+			"source": "/post/test-strategy-no-existing-tests/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/test-strategy-no-existing-tests/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-095",
+			"source": "/post/three-scenarios-i-dont-use-tailwind/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/three-scenarios-i-dont-use-tailwind/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-096",
+			"source": "/post/timeless-phrases-sayings/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/timeless-phrases-sayings/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-097",
+			"source": "/post/todo-workflow-7619-tasks/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/todo-workflow-7619-tasks/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-098",
+			"source": "/post/two-weird-reasons-I-love-unit-tests/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/two-weird-reasons-I-love-unit-tests/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-099",
+			"source": "/post/upgrading-to-the-latest-3x-django/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/upgrading-to-the-latest-3x-django/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-100",
+			"source": "/post/use-brave-search-goggles-to-improve-web-searches/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/use-brave-search-goggles-to-improve-web-searches/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-101",
+			"source": "/post/use-noopener-norferrer-to-improve-user-privacy/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/use-noopener-norferrer-to-improve-user-privacy/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-102",
+			"source": "/post/using-a-freelancer-to-fix-a-bug/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/using-a-freelancer-to-fix-a-bug/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-103",
+			"source": "/post/web3-notes-personal-reference/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/web3-notes-personal-reference/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-104",
+			"source": "/post/why-I-stopped-using-pip-freeze/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/why-I-stopped-using-pip-freeze/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Mixed-case slug preserved; lowercase variants are not rows."
+		},
+		{
+			"id": "PST-105",
+			"source": "/post/write-tests-2x-faster-with-github-copilot/",
+			"match": "exact",
+			"class": "post",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/write-tests-2x-faster-with-github-copilot/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PST-106",
+			"source": "/post/blogthedata-open-source-blog-portfolio/",
+			"match": "exact",
+			"class": "post",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "Deleted before the Astro migration; 404 today. History agent proposed a topical target (opt-in)."
+		},
+		{
+			"id": "PST-107",
+			"source": "/post/family-constitution-outlines-principles-values/",
+			"match": "exact",
+			"class": "post",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "Deleted before the Astro migration; 404 today. History agent proposed a topical target (opt-in)."
+		},
+		{
+			"id": "PST-108",
+			"source": "/post/find-your-dream-job-with-linkedin-boolean-search/",
+			"match": "exact",
+			"class": "post",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"config",
+				"live"
+			],
+			"decision_ref": null,
+			"notes": "Lowercase probe of a mixed-case slug: 404 today, stays 404 (case-sensitive sources; negative probe for the verifier)."
+		},
+		{
+			"id": "PST-109",
+			"source": "/post/geoasteroids/",
+			"match": "exact",
+			"class": "post",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "Deleted before the Astro migration; 404 today. History agent proposed a topical target (opt-in)."
+		},
+		{
+			"id": "PST-110",
+			"source": "/post/part-1-adding-SEO/",
+			"match": "exact",
+			"class": "post",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "Deleted before the Astro migration; 404 today. History agent proposed a topical target (opt-in)."
+		},
+		{
+			"id": "PST-111",
+			"source": "/post/web-mapping-gallery/",
+			"match": "exact",
+			"class": "post",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "Deleted before the Astro migration; 404 today. History agent proposed a topical target (opt-in)."
+		},
+		{
+			"id": "CAT-001",
+			"source": "/category/Geodev/",
+			"match": "exact",
+			"class": "category",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/category/Geodev/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "?page=N is client-side load-more state; passes through harmlessly."
+		},
+		{
+			"id": "CAT-002",
+			"source": "/category/dev-tools/",
+			"match": "exact",
+			"class": "category",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/category/dev-tools/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "?page=N is client-side load-more state; passes through harmlessly."
+		},
+		{
+			"id": "CAT-003",
+			"source": "/category/productivity/",
+			"match": "exact",
+			"class": "category",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/category/productivity/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "?page=N is client-side load-more state; passes through harmlessly."
+		},
+		{
+			"id": "CAT-004",
+			"source": "/category/resources/",
+			"match": "exact",
+			"class": "category",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/category/resources/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "?page=N is client-side load-more state; passes through harmlessly."
+		},
+		{
+			"id": "CAT-005",
+			"source": "/category/uncategorized/",
+			"match": "exact",
+			"class": "category",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/category/uncategorized/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "?page=N is client-side load-more state; passes through harmlessly."
+		},
+		{
+			"id": "CAT-006",
+			"source": "/category/web-dev/",
+			"match": "exact",
+			"class": "category",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/category/web-dev/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "?page=N is client-side load-more state; passes through harmlessly."
+		},
+		{
+			"id": "CAT-007",
+			"source": "/category/portfolio/",
+			"match": "exact",
+			"class": "category",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "Indexed historically; 404 today."
+		},
+		{
+			"id": "ARC-001",
+			"source": "/all-posts/",
+			"match": "exact",
+			"class": "archive",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/all-posts/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "SRH-001",
+			"source": "/search/",
+			"match": "exact",
+			"class": "search",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/search/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Query passthrough keeps ?searched=<term> (param is `searched`, not `q`)."
+		},
+		{
+			"id": "SRH-002",
+			"source": "/search-index.json",
+			"match": "exact",
+			"class": "search",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"live",
+				"served"
+			],
+			"decision_ref": "J27",
+			"notes": "SERVED 200 TODAY -> deliberately 404 after cutover (brief item 18; served-today ledger). Runtime fetch of the old search page only; a cross-origin redirect would fail CORS anyway."
+		},
+		{
+			"id": "FED-001",
+			"source": "/atom/",
+			"match": "exact",
+			"class": "feed",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/atom.xml",
+			"query": "passthrough",
+			"evidence": [
+				"atom",
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Atom feed <id> unchanged (J8)."
+		},
+		{
+			"id": "FED-002",
+			"source": "/rss/",
+			"match": "exact",
+			"class": "feed",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/rss.xml",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"rss",
+				"served",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Feed id/guid values stay the legacy blogthedata URLs inside the new feed (J8)."
+		},
+		{
+			"id": "SMP-001",
+			"source": "/sitemap.xml",
+			"match": "exact",
+			"class": "sitemap",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/sitemap-index.xml",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"history",
+				"live",
+				"served",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "RBT-001",
+			"source": "/robots.txt",
+			"match": "exact",
+			"class": "robots",
+			"action": "serve-200",
+			"destination": "legacy/blogthedata/public/robots.txt",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Permissive (Allow: /, no Disallow) so crawlers can follow the 301s."
+		},
+		{
+			"id": "SEC-001",
+			"source": "/pgp-key.txt",
+			"match": "exact",
+			"class": "security",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/pgp-key.txt",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"config",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "SEC-002",
+			"source": "/.well-known/security.txt",
+			"match": "exact",
+			"class": "security",
+			"action": "serve-200",
+			"destination": "legacy/blogthedata/public/.well-known/security.txt",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"history",
+				"live",
+				"served",
+				"wayback"
+			],
+			"decision_ref": "J15",
+			"notes": "Vercel cannot redirect /.well-known; served file points Contact/Encryption at jsolly.com."
+		},
+		{
+			"id": "RCP-001",
+			"source": "/post/15-minute-dump-and-go-instant-pot-recipes/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/",
+			"query": "passthrough",
+			"evidence": [
+				"atom",
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"rss",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "John's required special case. Hash deep links (#<recipe-id>, #meal-results) survive client-side."
+		},
+		{
+			"id": "RCP-002",
+			"source": "/recipes/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/",
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live"
+			],
+			"decision_ref": "J10",
+			"notes": "404 on the old host today (and /recipes 308s to it); recommended opt-in to the new recipes home (review finding MU-6)."
+		},
+		{
+			"id": "RCP-003",
+			"source": "/recipes/avocado-lime-smoothie/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/avocado-lime-smoothie/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-004",
+			"source": "/recipes/banana-flax-smoothie/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/banana-flax-smoothie/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-005",
+			"source": "/recipes/chicken-posole/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/chicken-posole/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-006",
+			"source": "/recipes/cucumber-spinach-lime-smoothie/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/cucumber-spinach-lime-smoothie/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-007",
+			"source": "/recipes/greek-turkey-patties/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/greek-turkey-patties/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-008",
+			"source": "/recipes/harissa-chickpea-and-cauliflower-bowls/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/harissa-chickpea-and-cauliflower-bowls/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-009",
+			"source": "/recipes/keto-zuppa-toscana/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/keto-zuppa-toscana/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-010",
+			"source": "/recipes/lemon-chicken-potatoes-and-green-beans/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/lemon-chicken-potatoes-and-green-beans/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-011",
+			"source": "/recipes/lemon-salmon-and-asparagus/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/lemon-salmon-and-asparagus/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-012",
+			"source": "/recipes/meals/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/meals/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Collection page."
+		},
+		{
+			"id": "RCP-013",
+			"source": "/recipes/pan-fried-greek-turkey-patties/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/pan-fried-greek-turkey-patties/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-014",
+			"source": "/recipes/pesto-cod-and-zucchini/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/pesto-cod-and-zucchini/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-015",
+			"source": "/recipes/salsa-verde-shredded-chicken/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/salsa-verde-shredded-chicken/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-016",
+			"source": "/recipes/shawarma-chicken-bowls/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/shawarma-chicken-bowls/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-017",
+			"source": "/recipes/sheet-pan-chicken-fajitas/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/sheet-pan-chicken-fajitas/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-018",
+			"source": "/recipes/sheet-pan-gnocchi-white-beans-and-broccoli/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/sheet-pan-gnocchi-white-beans-and-broccoli/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-019",
+			"source": "/recipes/smoky-chicken-thighs-and-broccoli/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/smoky-chicken-thighs-and-broccoli/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-020",
+			"source": "/recipes/smoothies/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/smoothies/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Collection page."
+		},
+		{
+			"id": "RCP-021",
+			"source": "/recipes/spinach-feta-and-hemp-frittata/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/spinach-feta-and-hemp-frittata/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-022",
+			"source": "/recipes/strawberry-avocado-smoothie/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/strawberry-avocado-smoothie/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-023",
+			"source": "/recipes/strawberry-banana-smoothie/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/strawberry-banana-smoothie/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-024",
+			"source": "/recipes/strawberry-hemp-smoothie/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/strawberry-hemp-smoothie/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RCP-025",
+			"source": "/recipes/tomato-lentil-and-chicken-bake/",
+			"match": "exact",
+			"class": "recipe-page",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/tomato-lentil-and-chicken-bake/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Share links keep ?servings=&starch=."
+		},
+		{
+			"id": "RDA-001",
+			"source": "/data/recipe-library.json",
+			"match": "exact",
+			"class": "recipe-data",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/data/recipe-library.json",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"history",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Assistant data; regenerated at the new path (external consumers unverifiable)."
+		},
+		{
+			"id": "RDA-002",
+			"source": "/data/recipe-library.md",
+			"match": "exact",
+			"class": "recipe-data",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/data/recipe-library.md",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"history",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "PWA-001",
+			"source": "/recipes-pwa/icon-180.png",
+			"match": "exact",
+			"class": "recipe-pwa",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/pwa/icon-180.png",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Manifest or icon; one exact row per tracked file. Installed apps are origin-bound and cannot migrate."
+		},
+		{
+			"id": "PWA-002",
+			"source": "/recipes-pwa/icon-192.png",
+			"match": "exact",
+			"class": "recipe-pwa",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/pwa/icon-192.png",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Manifest or icon; one exact row per tracked file. Installed apps are origin-bound and cannot migrate."
+		},
+		{
+			"id": "PWA-003",
+			"source": "/recipes-pwa/icon-512.png",
+			"match": "exact",
+			"class": "recipe-pwa",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/pwa/icon-512.png",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Manifest or icon; one exact row per tracked file. Installed apps are origin-bound and cannot migrate."
+		},
+		{
+			"id": "PWA-004",
+			"source": "/recipes-pwa/manifest.webmanifest",
+			"match": "exact",
+			"class": "recipe-pwa",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/pwa/manifest.webmanifest",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Manifest or icon; one exact row per tracked file. Installed apps are origin-bound and cannot migrate."
+		},
+		{
+			"id": "SWK-001",
+			"source": "/post/15-minute-dump-and-go-instant-pot-recipes/service-worker.js",
+			"match": "exact",
+			"class": "service-worker",
+			"action": "serve-200",
+			"destination": "legacy/blogthedata/public/post/15-minute-dump-and-go-instant-pot-recipes/service-worker.js",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"history",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Legacy-scope kill-switch SW; identical bytes to the root one."
+		},
+		{
+			"id": "SWK-002",
+			"source": "/recipe-service-worker.js",
+			"match": "exact",
+			"class": "service-worker",
+			"action": "serve-200",
+			"destination": "legacy/blogthedata/public/recipe-service-worker.js",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"history",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Kill-switch SW (scope /). 200, application/javascript, no-cache. Never redirected: SW script fetches use redirect mode 'error'."
+		},
+		{
+			"id": "CHR-001",
+			"source": "/favicon.ico",
+			"match": "exact",
+			"class": "asset-chrome",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/favicon.ico",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "DST favicon wins."
+		},
+		{
+			"id": "CHR-002",
+			"source": "/logo.webp",
+			"match": "exact",
+			"class": "asset-chrome",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/topographic-logo.svg",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"history",
+				"live",
+				"served",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Legacy logo.webp is unreferenced in SRC src/ and shares the topographic artwork (SRC docs/recipes.md:116); not ported, redirected for hot-links."
+		},
+		{
+			"id": "CHR-003",
+			"source": "/social/githubLogo.svg",
+			"match": "exact",
+			"class": "asset-chrome",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/social/githubLogo.svg",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Used by the author card and post share buttons (SRC About.astro:8-11, post page:36)."
+		},
+		{
+			"id": "CHR-004",
+			"source": "/social/linkedinLogo.svg",
+			"match": "exact",
+			"class": "asset-chrome",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/social/linkedinLogo.svg",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Used by the author card and post share buttons (SRC About.astro:8-11, post page:36)."
+		},
+		{
+			"id": "CHR-005",
+			"source": "/social/redditLogo.svg",
+			"match": "exact",
+			"class": "asset-chrome",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/social/redditLogo.svg",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Used by the author card and post share buttons (SRC About.astro:8-11, post page:36)."
+		},
+		{
+			"id": "CHR-006",
+			"source": "/social/xLogo.svg",
+			"match": "exact",
+			"class": "asset-chrome",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/social/xLogo.svg",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Used by the author card and post share buttons (SRC About.astro:8-11, post page:36)."
+		},
+		{
+			"id": "CHR-007",
+			"source": "/social/youtubeLogo.svg",
+			"match": "exact",
+			"class": "asset-chrome",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/social/youtubeLogo.svg",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Used by the author card and post share buttons (SRC About.astro:8-11, post page:36)."
+		},
+		{
+			"id": "CHR-008",
+			"source": "/topographic-logo.svg",
+			"match": "exact",
+			"class": "asset-chrome",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/topographic-logo.svg",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "BlogLayout header brand (SRC Base.astro:41)."
+		},
+		{
+			"id": "MED-001",
+			"source": "/media/default.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/media/default.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "MED-002",
+			"source": "/media/recipes/avocado-lime-smoothie.svg",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/avocado-lime-smoothie.svg",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-003",
+			"source": "/media/recipes/banana-flax-smoothie.svg",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/banana-flax-smoothie.svg",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-004",
+			"source": "/media/recipes/chicken-posole.svg",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/chicken-posole.svg",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-005",
+			"source": "/media/recipes/cucumber-spinach-lime-smoothie.svg",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/cucumber-spinach-lime-smoothie.svg",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-006",
+			"source": "/media/recipes/greek-turkey-patties-1440.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/greek-turkey-patties-1440.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-007",
+			"source": "/media/recipes/greek-turkey-patties-480.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/greek-turkey-patties-480.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-008",
+			"source": "/media/recipes/greek-turkey-patties-960.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/greek-turkey-patties-960.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-009",
+			"source": "/media/recipes/harissa-chickpea-and-cauliflower-bowls-1440.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/harissa-chickpea-and-cauliflower-bowls-1440.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-010",
+			"source": "/media/recipes/harissa-chickpea-and-cauliflower-bowls-480.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/harissa-chickpea-and-cauliflower-bowls-480.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-011",
+			"source": "/media/recipes/harissa-chickpea-and-cauliflower-bowls-960.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/harissa-chickpea-and-cauliflower-bowls-960.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-012",
+			"source": "/media/recipes/keto-zuppa-toscana.svg",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/keto-zuppa-toscana.svg",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-013",
+			"source": "/media/recipes/lemon-chicken-potatoes-and-green-beans-1440.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/lemon-chicken-potatoes-and-green-beans-1440.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-014",
+			"source": "/media/recipes/lemon-chicken-potatoes-and-green-beans-480.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/lemon-chicken-potatoes-and-green-beans-480.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-015",
+			"source": "/media/recipes/lemon-chicken-potatoes-and-green-beans-960.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/lemon-chicken-potatoes-and-green-beans-960.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-016",
+			"source": "/media/recipes/lemon-salmon-and-asparagus-1440.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/lemon-salmon-and-asparagus-1440.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-017",
+			"source": "/media/recipes/lemon-salmon-and-asparagus-480.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/lemon-salmon-and-asparagus-480.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-018",
+			"source": "/media/recipes/lemon-salmon-and-asparagus-960.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/lemon-salmon-and-asparagus-960.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-019",
+			"source": "/media/recipes/pesto-cod-and-zucchini-1440.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/pesto-cod-and-zucchini-1440.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-020",
+			"source": "/media/recipes/pesto-cod-and-zucchini-480.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/pesto-cod-and-zucchini-480.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-021",
+			"source": "/media/recipes/pesto-cod-and-zucchini-960.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/pesto-cod-and-zucchini-960.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-022",
+			"source": "/media/recipes/salsa-verde-shredded-chicken-1440.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/salsa-verde-shredded-chicken-1440.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-023",
+			"source": "/media/recipes/salsa-verde-shredded-chicken-480.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/salsa-verde-shredded-chicken-480.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-024",
+			"source": "/media/recipes/salsa-verde-shredded-chicken-960.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/salsa-verde-shredded-chicken-960.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-025",
+			"source": "/media/recipes/shawarma-chicken-bowls-1440.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/shawarma-chicken-bowls-1440.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-026",
+			"source": "/media/recipes/shawarma-chicken-bowls-480.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/shawarma-chicken-bowls-480.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-027",
+			"source": "/media/recipes/shawarma-chicken-bowls-960.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/shawarma-chicken-bowls-960.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-028",
+			"source": "/media/recipes/sheet-pan-chicken-fajitas-1440.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/sheet-pan-chicken-fajitas-1440.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-029",
+			"source": "/media/recipes/sheet-pan-chicken-fajitas-480.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/sheet-pan-chicken-fajitas-480.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-030",
+			"source": "/media/recipes/sheet-pan-chicken-fajitas-960.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/sheet-pan-chicken-fajitas-960.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-031",
+			"source": "/media/recipes/sheet-pan-gnocchi-white-beans-and-broccoli-1440.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/sheet-pan-gnocchi-white-beans-and-broccoli-1440.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-032",
+			"source": "/media/recipes/sheet-pan-gnocchi-white-beans-and-broccoli-480.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/sheet-pan-gnocchi-white-beans-and-broccoli-480.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-033",
+			"source": "/media/recipes/sheet-pan-gnocchi-white-beans-and-broccoli-960.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/sheet-pan-gnocchi-white-beans-and-broccoli-960.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-034",
+			"source": "/media/recipes/smoky-chicken-thighs-and-broccoli-1440.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/smoky-chicken-thighs-and-broccoli-1440.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-035",
+			"source": "/media/recipes/smoky-chicken-thighs-and-broccoli-480.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/smoky-chicken-thighs-and-broccoli-480.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-036",
+			"source": "/media/recipes/smoky-chicken-thighs-and-broccoli-960.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/smoky-chicken-thighs-and-broccoli-960.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-037",
+			"source": "/media/recipes/spinach-feta-and-hemp-frittata-1440.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/spinach-feta-and-hemp-frittata-1440.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-038",
+			"source": "/media/recipes/spinach-feta-and-hemp-frittata-480.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/spinach-feta-and-hemp-frittata-480.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-039",
+			"source": "/media/recipes/spinach-feta-and-hemp-frittata-960.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/spinach-feta-and-hemp-frittata-960.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-040",
+			"source": "/media/recipes/strawberry-avocado-smoothie.svg",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/strawberry-avocado-smoothie.svg",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-041",
+			"source": "/media/recipes/strawberry-banana-smoothie.svg",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/strawberry-banana-smoothie.svg",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-042",
+			"source": "/media/recipes/strawberry-hemp-smoothie.svg",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/strawberry-hemp-smoothie.svg",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-043",
+			"source": "/media/recipes/tomato-lentil-and-chicken-bake-1440.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/tomato-lentil-and-chicken-bake-1440.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-044",
+			"source": "/media/recipes/tomato-lentil-and-chicken-bake-480.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/tomato-lentil-and-chicken-bake-480.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "MED-045",
+			"source": "/media/recipes/tomato-lentil-and-chicken-bake-960.webp",
+			"match": "exact",
+			"class": "asset-media",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/recipes/media/tomato-lentil-and-chicken-bake-960.webp",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
+		},
+		{
+			"id": "HSH-001",
+			"source": "/_astro/:file",
+			"match": "pattern",
+			"class": "asset-hashed",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"wayback"
+			],
+			"decision_ref": "J27",
+			"notes": "SERVED 200 TODAY -> deliberately 404 after cutover (brief item 18; served-today ledger). Content-hashed build artifacts; the new site emits new hashes and nothing external should depend on one.",
+			"samples": [
+				"/_astro/Base.DLHFH2HS.css",
+				"/_astro/Base.m_Rj0Zf8.css",
+				"/_astro/Navigation.B5s3Ssu4.js",
+				"/_astro/PostCards.DPDW4hcy.js",
+				"/_astro/RecipeLibrary.7lVpaFHf.js",
+				"/_astro/RecipePage.IyTU0Vcs.js",
+				"/_astro/RecipePwa.YV43yijT.css",
+				"/_astro/Search.DRVk9Ilu.js",
+				"/_astro/button.BxLVYe_d.js",
+				"/_astro/client.BWGAztEQ.js",
+				"/_astro/client.svelte.BCbxtS_f.js",
+				"/_astro/disclose-version.xihTtKlq.js",
+				"/_astro/index.DcCK5Hag.css",
+				"/_astro/input.D4B9mNk6.js",
+				"/_astro/inter-cyrillic-400-normal.HOLc17fK.woff",
+				"/_astro/inter-cyrillic-400-normal.obahsSVq.woff2",
+				"/_astro/inter-cyrillic-600-normal.4D_pXhcN.woff",
+				"/_astro/inter-cyrillic-600-normal.CWCymEST.woff2",
+				"/_astro/inter-cyrillic-ext-400-normal.BQZuk6qB.woff2",
+				"/_astro/inter-cyrillic-ext-400-normal.DQukG94-.woff",
+				"/_astro/inter-cyrillic-ext-600-normal.Bcila6Z-.woff",
+				"/_astro/inter-cyrillic-ext-600-normal.Dfes3d0z.woff2",
+				"/_astro/inter-greek-400-normal.B4URO6DV.woff2",
+				"/_astro/inter-greek-400-normal.q2sYcFCs.woff",
+				"/_astro/inter-greek-600-normal.BZpKdvQh.woff",
+				"/_astro/inter-greek-600-normal.plRanbMR.woff2",
+				"/_astro/inter-greek-ext-400-normal.DGGRlc-M.woff2",
+				"/_astro/inter-greek-ext-400-normal.KugGGMne.woff",
+				"/_astro/inter-greek-ext-600-normal.B8X0CLgF.woff",
+				"/_astro/inter-greek-ext-600-normal.DRtmH8MT.woff2",
+				"/_astro/inter-latin-400-normal.C38fXH4l.woff2",
+				"/_astro/inter-latin-400-normal.CyCys3Eg.woff",
+				"/_astro/inter-latin-600-normal.CiBQ2DWP.woff",
+				"/_astro/inter-latin-600-normal.LgqL8muc.woff2",
+				"/_astro/inter-latin-ext-400-normal.77YHD8bZ.woff",
+				"/_astro/inter-latin-ext-400-normal.C1nco2VV.woff2",
+				"/_astro/inter-latin-ext-600-normal.CIVaiw4L.woff",
+				"/_astro/inter-latin-ext-600-normal.D2bJ5OIk.woff2",
+				"/_astro/inter-vietnamese-400-normal.Bbgyi5SW.woff",
+				"/_astro/inter-vietnamese-400-normal.DMkecbls.woff2",
+				"/_astro/inter-vietnamese-600-normal.BuLX-rYi.woff",
+				"/_astro/inter-vietnamese-600-normal.Cc8MFFhd.woff2",
+				"/_astro/no-script.Bu544ZKq.css",
+				"/_astro/poppins-devanagari-600-normal.ClASKHrr.woff",
+				"/_astro/poppins-devanagari-600-normal.STEjXBNN.woff2",
+				"/_astro/poppins-devanagari-700-normal.O-jipLrW.woff2",
+				"/_astro/poppins-devanagari-700-normal.fHs-vx92.woff",
+				"/_astro/poppins-latin-600-normal.BJdTmd5m.woff",
+				"/_astro/poppins-latin-600-normal.zEkxB9Mr.woff2",
+				"/_astro/poppins-latin-700-normal.BVuQR_eA.woff",
+				"/_astro/poppins-latin-700-normal.Qrb0O0WB.woff2",
+				"/_astro/poppins-latin-ext-600-normal.CAhIAdZj.woff2",
+				"/_astro/poppins-latin-ext-600-normal.Df5ffKXP.woff",
+				"/_astro/poppins-latin-ext-700-normal.DctTR6Tg.woff",
+				"/_astro/poppins-latin-ext-700-normal.cby-RkWa.woff2",
+				"/_astro/recipe-print-session.7PzIGi_K.css",
+				"/_astro/recipe-print-session.Do10iOyD.js"
+			]
+		},
+		{
+			"id": "ALI-001",
+			"source": "/category/devtools/",
+			"match": "exact",
+			"class": "legacy-alias",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/category/dev-tools/",
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Legacy Django-era category slug (404 today); brief opts it in."
+		},
+		{
+			"id": "ALI-002",
+			"source": "/category/geodev/",
+			"match": "exact",
+			"class": "legacy-alias",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/category/Geodev/",
+			"query": "passthrough",
+			"evidence": [
+				"config",
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Legacy Django-era category slug (404 today); brief opts it in."
+		},
+		{
+			"id": "ALI-003",
+			"source": "/category/web-development/",
+			"match": "exact",
+			"class": "legacy-alias",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/category/web-dev/",
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Legacy Django-era category slug (404 today); brief opts it in."
+		},
+		{
+			"id": "ALI-004",
+			"source": "/category/webdev/",
+			"match": "exact",
+			"class": "legacy-alias",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/category/web-dev/",
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Legacy Django-era category slug (404 today); brief opts it in."
+		},
+		{
+			"id": "ALI-005",
+			"source": "/post/how-to-leverage-closed-loops/",
+			"match": "exact",
+			"class": "legacy-alias",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/how-to-ask-less-questions/",
+			"query": "passthrough",
+			"evidence": [
+				"config",
+				"history",
+				"live"
+			],
+			"decision_ref": "J5",
+			"notes": "SRC target /post/stop-asking-questions-to-save-time/ never existed (404 today, no Wayback capture). Retargeted to the nearest live post; fallback /blog/."
+		},
+		{
+			"id": "ALI-006",
+			"source": "/post/sollys-favorite-youtube-channels-and-podcasts/",
+			"match": "exact",
+			"class": "legacy-alias",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/my-favorite-youtube-channels-podcasts-newsletters/",
+			"query": "passthrough",
+			"evidence": [
+				"config",
+				"history",
+				"live"
+			],
+			"decision_ref": null,
+			"notes": "SRC vercel.json rename, flattened to the final URL (no chain)."
+		},
+		{
+			"id": "ALI-007",
+			"source": "/post/stop-asking-questions-to-save-time/",
+			"match": "exact",
+			"class": "legacy-alias",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"config",
+				"live"
+			],
+			"decision_ref": null,
+			"notes": "Dead target of the old closed-loops redirect; 404 today."
+		},
+		{
+			"id": "DJG-001",
+			"source": "/about/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-002",
+			"source": "/admin/:path*{/}?",
+			"match": "pattern",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "Django admin; 404 today.",
+			"samples": [
+				"/admin",
+				"/admin/",
+				"/admin/login/"
+			]
+		},
+		{
+			"id": "DJG-003",
+			"source": "/answer-with-gpt/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-004",
+			"source": "/captcha/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-005",
+			"source": "/category/:cat((?!(?:Geodev|dev-tools|productivity|resources|uncategorized|web-dev|geodev|devtools|webdev|web-development|portfolio)/?$)[^/]+){/}?",
+			"match": "pattern",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Django CategoryView template; every slug with evidence has its own row (excluded by the lookahead), any other slug 404s.",
+			"samples": [
+				"/category/x-sample/"
+			]
+		},
+		{
+			"id": "DJG-006",
+			"source": "/cesium-map/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-007",
+			"source": "/ckeditor/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-008",
+			"source": "/ckeditor5/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-009",
+			"source": "/comment/:path*{/}?",
+			"match": "pattern",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Django comment CRUD; 404 today.",
+			"samples": [
+				"/comment/0/delete",
+				"/comment/0/update"
+			]
+		},
+		{
+			"id": "DJG-010",
+			"source": "/comments/new/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-011",
+			"source": "/config/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-012",
+			"source": "/count-characters/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-013",
+			"source": "/delete/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-014",
+			"source": "/generate-with-gpt/:path*{/}?",
+			"match": "pattern",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Django AI endpoint; 404 today.",
+			"samples": [
+				"/generate-with-gpt/",
+				"/generate-with-gpt/0/"
+			]
+		},
+		{
+			"id": "DJG-015",
+			"source": "/geo-asteroids/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-016",
+			"source": "/leaflet-map/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "2022 portfolio demo page; 404 today."
+		},
+		{
+			"id": "DJG-017",
+			"source": "/like/:path*{/}?",
+			"match": "pattern",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Django likes; 404 today.",
+			"samples": [
+				"/like/0",
+				"/like/x-sample-slug"
+			]
+		},
+		{
+			"id": "DJG-018",
+			"source": "/login/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-019",
+			"source": "/logout/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-020",
+			"source": "/mapbox-map/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "2022 portfolio demo page; 404 today."
+		},
+		{
+			"id": "DJG-021",
+			"source": "/maplibre-map/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "2022 portfolio demo page; 404 today."
+		},
+		{
+			"id": "DJG-022",
+			"source": "/openlayers-map/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "2022 portfolio demo page; 404 today."
+		},
+		{
+			"id": "DJG-023",
+			"source": "/password-reset-complete/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-024",
+			"source": "/password-reset-confirm/:path*{/}?",
+			"match": "pattern",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Django password reset confirm; 404 today.",
+			"samples": [
+				"/password-reset-confirm/MQ/x-token/"
+			]
+		},
+		{
+			"id": "DJG-025",
+			"source": "/password-reset/:path*{/}?",
+			"match": "pattern",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"config",
+				"crawl",
+				"django-routes",
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "Django password reset (incl. /done/); 404 today.",
+			"samples": [
+				"/password-reset",
+				"/password-reset/",
+				"/password-reset/done/"
+			]
+		},
+		{
+			"id": "DJG-026",
+			"source": "/post/:id/:action(comment|delete|update)/:rest*{/}?",
+			"match": "pattern",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Django post comment/delete/update routes (int pk and slug forms).",
+			"samples": [
+				"/post/0/comment/",
+				"/post/0/delete",
+				"/post/0/update",
+				"/post/x-sample-slug/comment/new",
+				"/post/x-sample-slug/delete",
+				"/post/x-sample-slug/update"
+			]
+		},
+		{
+			"id": "DJG-027",
+			"source": "/post/:pk(\\d+){/}?",
+			"match": "pattern",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Pre-slug numeric post URLs (2020-08 to 2022-02); no evidence of inbound links.",
+			"samples": [
+				"/post/0/"
+			]
+		},
+		{
+			"id": "DJG-028",
+			"source": "/post/new/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-029",
+			"source": "/profile/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-030",
+			"source": "/register/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-031",
+			"source": "/roadmap/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-032",
+			"source": "/site-analytics/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "2022 portfolio demo page; 404 today."
+		},
+		{
+			"id": "DJG-033",
+			"source": "/siteanalytics/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-034",
+			"source": "/unittests/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-035",
+			"source": "/update/",
+			"match": "exact",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Retired Django route; 404 today."
+		},
+		{
+			"id": "DJG-036",
+			"source": "/user/:path*{/}?",
+			"match": "pattern",
+			"class": "legacy-django",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history"
+			],
+			"decision_ref": "J10",
+			"notes": "Django user profiles; 404 today.",
+			"samples": [
+				"/user/x-sample"
+			]
+		},
+		{
+			"id": "LMD-001",
+			"source": "/media/default.png",
+			"match": "exact",
+			"class": "legacy-media",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "Django default image; 404 today."
+		},
+		{
+			"id": "LMD-002",
+			"source": "/media/django_ckeditor_5/:file",
+			"match": "pattern",
+			"class": "legacy-media",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "CKEditor uploads; 37 have a same-size CloudFront twin (opt-in rows possible). 404 today.",
+			"samples": [
+				"/media/django_ckeditor_5/ClaySearch.png",
+				"/media/django_ckeditor_5/CleanShot 2024-03-28 at 18.23.47.png",
+				"/media/django_ckeditor_5/CleanShot 2024-03-29 at 17.34.52.gif",
+				"/media/django_ckeditor_5/CleanShot 2024-03-29 at 17.36.40.gif",
+				"/media/django_ckeditor_5/CleanShot 2024-05-03 at 20.17.04.png",
+				"/media/django_ckeditor_5/CleanShot 2024-05-03 at 20.18.00.png",
+				"/media/django_ckeditor_5/MomContact.jpg",
+				"/media/django_ckeditor_5/bigData.png",
+				"/media/django_ckeditor_5/clayContacts.jpg",
+				"/media/django_ckeditor_5/image.png",
+				"/media/django_ckeditor_5/image_4BEdjPr.png",
+				"/media/django_ckeditor_5/image_8nDUbmE.png",
+				"/media/django_ckeditor_5/image_FRT9kjw.png",
+				"/media/django_ckeditor_5/image_GiqM5D2.png",
+				"/media/django_ckeditor_5/image_Iu6jxbT.png",
+				"/media/django_ckeditor_5/image_Jv0GYBE.png",
+				"/media/django_ckeditor_5/image_Kfklgyh.png",
+				"/media/django_ckeditor_5/image_LCai4Hv.png",
+				"/media/django_ckeditor_5/image_MgV8fds.png",
+				"/media/django_ckeditor_5/image_OyvV6v2.png",
+				"/media/django_ckeditor_5/image_QCrFTvZ.png",
+				"/media/django_ckeditor_5/image_QLOYT1F.png",
+				"/media/django_ckeditor_5/image_RfZugIM.png",
+				"/media/django_ckeditor_5/image_UFmGGKu.png",
+				"/media/django_ckeditor_5/image_WoJiHcX.png",
+				"/media/django_ckeditor_5/image_XY7J7Pu.png",
+				"/media/django_ckeditor_5/image_XzPquvh.png",
+				"/media/django_ckeditor_5/image_ZguQqLR.png",
+				"/media/django_ckeditor_5/image_aAfvsLu.png",
+				"/media/django_ckeditor_5/image_bpSgp0F.png",
+				"/media/django_ckeditor_5/image_cmjzHRQ.png",
+				"/media/django_ckeditor_5/image_fVz8TIA.png",
+				"/media/django_ckeditor_5/image_gbusLaj.png",
+				"/media/django_ckeditor_5/image_h2u09Xj.png",
+				"/media/django_ckeditor_5/image_h9OEyTH.png",
+				"/media/django_ckeditor_5/image_hQXKHaD.png",
+				"/media/django_ckeditor_5/image_hbCNuZj.png",
+				"/media/django_ckeditor_5/image_jwvYXCX.png",
+				"/media/django_ckeditor_5/image_mXWaXoB.png",
+				"/media/django_ckeditor_5/image_olZnj0G.png",
+				"/media/django_ckeditor_5/image_qzOXJUh.png",
+				"/media/django_ckeditor_5/image_vkktOjM.png",
+				"/media/django_ckeditor_5/image_yIYYPcP.png",
+				"/media/django_ckeditor_5/myEmojis_v84rFnF.png"
+			]
+		},
+		{
+			"id": "LMD-003",
+			"source": "/media/post_metaimgs/:file",
+			"match": "pattern",
+			"class": "legacy-media",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "Django meta images; every file is still 200 on CloudFront (opt-in pattern redirect possible). 404 today.",
+			"samples": [
+				"/media/post_metaimgs/404_page.png",
+				"/media/post_metaimgs/ButtonShake.webp",
+				"/media/post_metaimgs/CI_Workflow.png",
+				"/media/post_metaimgs/ChatGPT.webp",
+				"/media/post_metaimgs/ChatGPT_2hFjyq8.webp",
+				"/media/post_metaimgs/ChatGPT_rqqK0Zr.webp",
+				"/media/post_metaimgs/CodeQL_and_dependabot.png",
+				"/media/post_metaimgs/DjangoToAstro.webp",
+				"/media/post_metaimgs/DuckDuckGo-Logo.webp",
+				"/media/post_metaimgs/GeoAsteroids_screenshot.png",
+				"/media/post_metaimgs/GeoAsteroids_screenshot.webp",
+				"/media/post_metaimgs/LinkedInBooleanSearch.webp",
+				"/media/post_metaimgs/NDVI.webp",
+				"/media/post_metaimgs/RedGlasses.webp",
+				"/media/post_metaimgs/STAC.webp",
+				"/media/post_metaimgs/SeoOptimization.webp",
+				"/media/post_metaimgs/SocialNetwork.webp",
+				"/media/post_metaimgs/TTFB_Results.png",
+				"/media/post_metaimgs/TailwindLogo.webp",
+				"/media/post_metaimgs/TypeScript.webp",
+				"/media/post_metaimgs/YouTubeDalle.webp",
+				"/media/post_metaimgs/a11ylogo_highres.webp",
+				"/media/post_metaimgs/ahrefScore.webp",
+				"/media/post_metaimgs/asteroidLasers.webp",
+				"/media/post_metaimgs/astro-logo-dark.webp",
+				"/media/post_metaimgs/async_code.png",
+				"/media/post_metaimgs/banana-slug.jpeg",
+				"/media/post_metaimgs/blog_comment.webp",
+				"/media/post_metaimgs/blogthedata_homepage.png",
+				"/media/post_metaimgs/blogthedataprice.png",
+				"/media/post_metaimgs/brainBulb.webp",
+				"/media/post_metaimgs/butterChicken.webp",
+				"/media/post_metaimgs/buttonShakeKeyframe.png",
+				"/media/post_metaimgs/cloudflare_auto_minify.png",
+				"/media/post_metaimgs/codeSnippets_xpeqEd5.png",
+				"/media/post_metaimgs/content_security_policy.png",
+				"/media/post_metaimgs/context_processor.png",
+				"/media/post_metaimgs/conventionalCommits.png",
+				"/media/post_metaimgs/debug_thumbnail.png",
+				"/media/post_metaimgs/deploy_linode_gitactions.webp",
+				"/media/post_metaimgs/deploy_linode_gitactions_Nk8sudA.png",
+				"/media/post_metaimgs/devResourcesImage.webp",
+				"/media/post_metaimgs/django.jpg",
+				"/media/post_metaimgs/django.webp",
+				"/media/post_metaimgs/django_support_timeline.jpg",
+				"/media/post_metaimgs/dreamJob.jpeg",
+				"/media/post_metaimgs/dreamJob.webp",
+				"/media/post_metaimgs/ei-skills.webp",
+				"/media/post_metaimgs/email.png",
+				"/media/post_metaimgs/eslint.webp",
+				"/media/post_metaimgs/favoriteResourcs.webp",
+				"/media/post_metaimgs/fiverr_logo_icon_169172.png",
+				"/media/post_metaimgs/flowchart.webp",
+				"/media/post_metaimgs/forOfLoops.png",
+				"/media/post_metaimgs/gears.webp",
+				"/media/post_metaimgs/githooks.png",
+				"/media/post_metaimgs/globalSearch.png",
+				"/media/post_metaimgs/google_lighthouse_score.png",
+				"/media/post_metaimgs/google_lighthouse_score_41bEKet.png",
+				"/media/post_metaimgs/gunicorn-logo.png",
+				"/media/post_metaimgs/hikerTrail.webp",
+				"/media/post_metaimgs/honeypot.jpg",
+				"/media/post_metaimgs/htmx.webp",
+				"/media/post_metaimgs/iPhoneblogthedata.webp",
+				"/media/post_metaimgs/idea_coming_out_of_box.png",
+				"/media/post_metaimgs/idea_coming_out_of_box_l7p9JwK.png",
+				"/media/post_metaimgs/image_compression_jEj4yMk.png",
+				"/media/post_metaimgs/jobInterview.webp",
+				"/media/post_metaimgs/job_interview.webp",
+				"/media/post_metaimgs/job_interview_BswYjX8.jpeg",
+				"/media/post_metaimgs/js.webp",
+				"/media/post_metaimgs/jumpingForJoy.webp",
+				"/media/post_metaimgs/landsat.webp",
+				"/media/post_metaimgs/leaflet_map_fW6awdh.png",
+				"/media/post_metaimgs/logging_screenshot.png",
+				"/media/post_metaimgs/manWildDogs.webp",
+				"/media/post_metaimgs/map_gallery.webp",
+				"/media/post_metaimgs/mozilla_observatory_results.png",
+				"/media/post_metaimgs/myEmojis.webp",
+				"/media/post_metaimgs/noopenerNoreferrer.webp",
+				"/media/post_metaimgs/noopenernoreferrer.png",
+				"/media/post_metaimgs/pip_install.jpg",
+				"/media/post_metaimgs/postModel.png",
+				"/media/post_metaimgs/precommitHook.webp",
+				"/media/post_metaimgs/prettierBad.png",
+				"/media/post_metaimgs/prettierLogo.webp",
+				"/media/post_metaimgs/python_logo_Ca9SNv5.png",
+				"/media/post_metaimgs/python_logo_RINquiv.png",
+				"/media/post_metaimgs/questioningBoy.webp",
+				"/media/post_metaimgs/questioningBoyWithX.png",
+				"/media/post_metaimgs/redirect_slug_K805cL8.png",
+				"/media/post_metaimgs/referenceDirective.webp",
+				"/media/post_metaimgs/relatedblogposts.webp",
+				"/media/post_metaimgs/render_blocking_resources.png",
+				"/media/post_metaimgs/report_bugs.png",
+				"/media/post_metaimgs/robot.webp",
+				"/media/post_metaimgs/security_hacker.jpg",
+				"/media/post_metaimgs/selenium_python.jpg",
+				"/media/post_metaimgs/seo-icon.webp",
+				"/media/post_metaimgs/shakingHandsInterview.webp",
+				"/media/post_metaimgs/social_networks.jpg",
+				"/media/post_metaimgs/solly-goggle.webp",
+				"/media/post_metaimgs/sollyFam.webp",
+				"/media/post_metaimgs/spellcheck.webp",
+				"/media/post_metaimgs/spider.png",
+				"/media/post_metaimgs/successKidResize.webp",
+				"/media/post_metaimgs/tensorFlowModel.png",
+				"/media/post_metaimgs/testingPyramid.png",
+				"/media/post_metaimgs/threeLogos.webp",
+				"/media/post_metaimgs/thumbUp.jpeg",
+				"/media/post_metaimgs/thumbUp.webp",
+				"/media/post_metaimgs/thumbUp_3nUNXzT.webp",
+				"/media/post_metaimgs/thumbUp_LYNVwCg.jpeg",
+				"/media/post_metaimgs/thumbs_up.png",
+				"/media/post_metaimgs/toad.jpg",
+				"/media/post_metaimgs/todoistTasks.webp",
+				"/media/post_metaimgs/todoist_productivity.png",
+				"/media/post_metaimgs/unittest_coverage.png",
+				"/media/post_metaimgs/upgrade.png",
+				"/media/post_metaimgs/upgrade_0qtiEXj.png",
+				"/media/post_metaimgs/upgrade_MOysw88.png",
+				"/media/post_metaimgs/web3Image.webp",
+				"/media/post_metaimgs/webpConvert.webp",
+				"/media/post_metaimgs/wiseMan.webp"
+			]
+		},
+		{
+			"id": "LMD-004",
+			"source": "/media/profile_pics/:file",
+			"match": "pattern",
+			"class": "legacy-media",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "Django profile pictures. 404 today.",
+			"samples": [
+				"/media/profile_pics/jsolly.jpeg"
+			]
+		},
+		{
+			"id": "LMD-005",
+			"source": "/media/uploads/:path*",
+			"match": "pattern",
+			"class": "legacy-media",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "CKEditor 4 uploads; see above. 404 today.",
+			"samples": [
+				"/media/uploads/2022/05/03/image-20220503153928-1.png",
+				"/media/uploads/2022/05/04/image-20220503174158-1.png",
+				"/media/uploads/2022/05/04/image-20220504070637-1.png",
+				"/media/uploads/2022/05/04/immuniweb_message.png",
+				"/media/uploads/2022/05/09/image-20220508222604-1.png",
+				"/media/uploads/2022/05/23/cloudfare_map.svg",
+				"/media/uploads/2022/05/23/image-20220523131059-2.png",
+				"/media/uploads/2022/05/23/image-20220523131236-3.png",
+				"/media/uploads/2022/05/23/image-20220523132813-6.png",
+				"/media/uploads/2022/05/23/image-20220523133854-1.png",
+				"/media/uploads/2022/05/23/image-20220523134258-2.png",
+				"/media/uploads/2022/05/23/image-20220523152057-1.png",
+				"/media/uploads/2022/05/24/image-20220523211713-1.png"
+			]
+		},
+		{
+			"id": "LST-001",
+			"source": "/static/:path*{/}?",
+			"match": "pattern",
+			"class": "legacy-static",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "Django collectstatic output; 404 today.",
+			"samples": [
+				"/static/404.3ef31c643ce3.css",
+				"/static/404.ba1f62ce0f72.css",
+				"/static/admin/css/login.8b76a9f7cbf6.css",
+				"/static/admin/css/nav_sidebar.e32d345464bd.css",
+				"/static/admin/css/responsive.b9e1565b3609.css",
+				"/static/admin/js/nav_sidebar.36a64ecb39ed.js",
+				"/static/android-chrome-192x192.png",
+				"/static/android-chrome-512x512.png",
+				"/static/blog/main.css",
+				"/static/bootstrap.min.9e32533ae9ca.css",
+				"/static/bootstrap.min.f1a8fe9e9894.css",
+				"/static/bootstrap/bootstrap.bundle.min.119fc8956785.js",
+				"/static/bootstrap/bootstrap.bundle.min.35a02ade7913.js",
+				"/static/bootstrap/bootstrap.min.9e32533ae9ca.css",
+				"/static/bootstrap/bootstrap.min.d444c544fbba.css",
+				"/static/css/main.12fea730bbcb.css",
+				"/static/css/main.164d7a0892f7.css",
+				"/static/css/main.231095723890.css",
+				"/static/css/main.23fdb1405abe.css",
+				"/static/css/main.2489e63a5157.css",
+				"/static/css/main.3064d891250d.css",
+				"/static/css/main.4996e358d073.css",
+				"/static/css/main.562644ba5c86.css",
+				"/static/css/main.61154c4a8bcd.css",
+				"/static/css/main.617c348f2876.css",
+				"/static/css/main.70827fa5a0c5.css",
+				"/static/css/main.761f229eeb4a.css",
+				"/static/css/main.9db8d19c1a7e.css",
+				"/static/css/main.d1cd60971af7.css",
+				"/static/css/main.d251230d9db2.css",
+				"/static/css/main.d27dee120b76.css",
+				"/static/css/main.f4b7e60e98d7.css",
+				"/static/css/portfolio.1bd7d2b7dd3c.css",
+				"/static/css/social_share.cdc558eadad1.css",
+				"/static/django_ckeditor_5/ckeditor.2e86c5cca08c.css",
+				"/static/django_ckeditor_5/ckeditor.6483448e43d2.css",
+				"/static/django_ckeditor_5/prism-light.9b04fce7c384.css",
+				"/static/django_ckeditor_5/prism.0571c1872e9f.css",
+				"/static/django_ckeditor_5/prism.2ab55ef8f6c3.js",
+				"/static/django_ckeditor_5/prism.30ad1f7cdcc8.css",
+				"/static/django_ckeditor_5/prism.css",
+				"/static/django_ckeditor_5/prism.d4d709432a4d.css",
+				"/static/django_ckeditor_5/prism.dcb14f9d08ab.js",
+				"/static/django_ckeditor_5/prism.faf5337e68e6.js",
+				"/static/django_ckeditor_5/prism.js",
+				"/static/favicon.ico",
+				"/static/favicon/android-chrome-192x192.07f9eebce58a.webp",
+				"/static/favicon/android-chrome-192x192.4ba39d6e28d7.webp",
+				"/static/favicon/android-chrome-192x192.4d326c144054.png",
+				"/static/favicon/android-chrome-192x192.e614250a293b.png",
+				"/static/favicon/android-chrome-512x512.0383e6998bdb.webp",
+				"/static/favicon/android-chrome-512x512.2c0715cc59b3.png",
+				"/static/favicon/android-chrome-512x512.3e31db92fed3.png",
+				"/static/favicon/android-chrome-512x512.c6730616b1ba.webp",
+				"/static/favicon/apple-touch-icon.122dabdd842c.png",
+				"/static/favicon/apple-touch-icon.215dea93c3b2.webp",
+				"/static/favicon/apple-touch-icon.3d743ea7b9b6.webp",
+				"/static/favicon/apple-touch-icon.44a87d0b6178.png",
+				"/static/favicon/apple-touch-icon.png",
+				"/static/favicon/favicon-16x16.049c483e33dd.png",
+				"/static/favicon/favicon-16x16.60177c87b402.webp",
+				"/static/favicon/favicon-16x16.6561ea050ac8.webp",
+				"/static/favicon/favicon-16x16.b04f4511d417.png",
+				"/static/favicon/favicon-16x16.png",
+				"/static/favicon/favicon-32x32.4f26a991f438.webp",
+				"/static/favicon/favicon-32x32.69d8e5adab2e.png",
+				"/static/favicon/favicon-32x32.eabda7bdfd2b.png",
+				"/static/favicon/favicon-32x32.f23c51cf3684.webp",
+				"/static/favicon/favicon-32x32.png",
+				"/static/favicon/favicon.58f19333ae2e.ico",
+				"/static/favicon/favicon.a251ea9e6003.ico",
+				"/static/github_calendar.e3ec9da1f56d.css",
+				"/static/htmx.min.b1b590503de6.js",
+				"/static/iPhoneblogthedata.8e722d2004c4.webp",
+				"/static/icons/ESLintLogo.svg",
+				"/static/icons/NGINXlogo.svg",
+				"/static/icons/PytestLogo.svg",
+				"/static/icons/bootstrapLogo.svg",
+				"/static/icons/cloudflareLogo.svg",
+				"/static/icons/cypressLogo.svg",
+				"/static/icons/djangoLogo.svg",
+				"/static/icons/expressLogo.svg",
+				"/static/icons/gunicornLogo.svg",
+				"/static/icons/leafletLogo.svg",
+				"/static/icons/linodeLogo.svg",
+				"/static/icons/linuxLogo.svg",
+				"/static/icons/mapboxLogo.svg",
+				"/static/icons/nodeLogo.svg",
+				"/static/icons/openlayersLogo.svg",
+				"/static/icons/postgresLogo.svg",
+				"/static/icons/prettierLogo.svg",
+				"/static/icons/pythonLogo.svg",
+				"/static/icons/seleniumLogo.svg",
+				"/static/icons/typescriptLogo.svg",
+				"/static/icons/vercelLogo.svg",
+				"/static/icons/viteLogo.svg",
+				"/static/img/Scarecrow.9b2e497b2125.webp",
+				"/static/img/Scarecrow.9f720a55ebc8.png",
+				"/static/js/accordion.5e76fb8dea83.js",
+				"/static/js/addHeaderIdsAndLinks.d5a5c6a7c06c.js",
+				"/static/js/addHeaderIdsAndLinks.fde9fda301d4.js",
+				"/static/js/carousel.9323e6de0a63.js",
+				"/static/js/charts/echarts.min.f89d0c9d56ac.js",
+				"/static/js/chatbox.11d35a80212b.js",
+				"/static/js/chatbox.3fbbd6cdfb39.js",
+				"/static/js/chatbox.7027df03bc4c.js",
+				"/static/js/header.8febd4f4a06f.js",
+				"/static/js/header.dd2de5cbb341.js",
+				"/static/js/htmx.min.484d377093d8.js",
+				"/static/js/htmx.min.7b4248da6ee6.js",
+				"/static/js/htmx.min.b1b590503de6.js",
+				"/static/js/htmx.min.d3c8f9166089.js",
+				"/static/jsolly.7cf27f7275f1.jpeg",
+				"/static/jsolly.98b1e6cb9051.webp",
+				"/static/jsolly.ea2e3206ee66.webp",
+				"/static/jsolly.f137bbb97014.webp",
+				"/static/jsolly.f2fecc16621a.webp",
+				"/static/kofi/kofi2_v3.4c7b61dd3d43.png",
+				"/static/kofi/kofi2_v3.png",
+				"/static/kofi/kofi_script1.676e405124b0.js",
+				"/static/kofi/kofi_script1.725795913df1.js",
+				"/static/leaflet_plugins/MarkerCluster.7bc4f5bc3ef9.css",
+				"/static/leaflet_plugins/MarkerCluster.Default.0ba3d71ad098.css",
+				"/static/leaflet_plugins/leaflet-arc.min.14cc993cecdb.js",
+				"/static/leaflet_plugins/leaflet.markercluster.4ef01ec56209.js",
+				"/static/leaflet_plugins/leaflet.textpath.e3da7bf1ee03.js",
+				"/static/logo_transparent_cropped.b12df7720fdf.webp",
+				"/static/logo_transparent_cropped.e8612f85cf92.png",
+				"/static/logo_transparent_cropped_small.97e02551f425.png",
+				"/static/logo_transparent_cropped_small.png",
+				"/static/mailchimp.29d9c4bb106f.css",
+				"/static/mailchimp.5f1a4338349a.css",
+				"/static/mailchimp/branding_logo_text_dark_dtp.aa47f4a2f452.svg",
+				"/static/mailchimp/branding_logo_text_dark_dtp.svg",
+				"/static/mailchimp/classic-10_7_dtp.css",
+				"/static/main.00bd4374d400.css",
+				"/static/main.0497207fcfa2.css",
+				"/static/main.1a258d782ab5.css",
+				"/static/main.22f7c4ebdfd2.css",
+				"/static/main.23b83dceaf59.css",
+				"/static/main.5510e93b14c1.css",
+				"/static/main.5af4c3fe9580.css",
+				"/static/main.5f1434cf1b6f.css",
+				"/static/main.83bf15244db6.css",
+				"/static/main.96fbbb66d41d.css",
+				"/static/main.99979ba5fb26.css",
+				"/static/main.ab5c5bb5c5d4.css",
+				"/static/main.cfc132b9f4cd.css",
+				"/static/main.css",
+				"/static/main.d629185b7e2d.css",
+				"/static/main.de965ff88c98.css",
+				"/static/main.e690e865272e.css",
+				"/static/main.f985d1da2755.css",
+				"/static/main.fc2bbd4e3745.css",
+				"/static/portfolio/AmyBrazil.165203182b26.webp",
+				"/static/portfolio/CraigUtley.3a49c9300728.webp",
+				"/static/portfolio/GeoAsteroids_playthrough.mp4",
+				"/static/portfolio/KathrynThorpe.f62fa282717f.webp",
+				"/static/portfolio/MeredithBean.5fb5edb78658.webp",
+				"/static/portfolio/Solly_John_Resume.1c361db0fdbe.pdf",
+				"/static/portfolio/Solly_John_Resume.f5da5bed18dc.pdf",
+				"/static/portfolio/gisLecture.41c26731f337.webp",
+				"/static/portfolio/lighthouse_scores.95154a588679.svg",
+				"/static/social_share.6e261ab23aff.css",
+				"/static/social_share.92ae132243be.css",
+				"/static/social_share.a1e0461a7719.css",
+				"/static/svg/accordion_arrow.1695bfbe3253.svg",
+				"/static/svg/chatbox-icon.de0ebecbe81e.svg",
+				"/static/svg/chatbox-icon.efab70d3902b.svg",
+				"/static/svg/clock.347f12264e1e.svg",
+				"/static/svg/clock.91da7eeda3d0.svg",
+				"/static/svg/clock.f78bed3cfb44.svg",
+				"/static/svg/comment-icon.769e2fcba46d.svg",
+				"/static/svg/linkedin-share-btn.d613d7b8b3ad.svg",
+				"/static/svg/linkedin-share-btn.dcdb8ebd2cd9.svg",
+				"/static/svg/man-avatar.a4c4a5967c29.svg",
+				"/static/svg/man-avatar.bae9eee0a498.svg",
+				"/static/svg/open-post-icon.a000d74b3f9b.svg",
+				"/static/svg/print-icon.1e5b3d35be1e.svg",
+				"/static/svg/print-icon.a3ed864180bc.svg",
+				"/static/svg/reddit-share-btn.2fc25dc12805.svg",
+				"/static/svg/resume-icon.b9e96db53ea0.svg",
+				"/static/svg/scroll-to-top.404cc10b3cec.svg",
+				"/static/svg/scroll-to-top.960f09ae3c4e.svg",
+				"/static/svg/scroll-to-top.e7b12b628db5.svg",
+				"/static/svg/twitter-share-btn.05aeb040a65d.svg",
+				"/static/svg/x-share-btn.167b622df772.svg"
+			]
+		},
+		{
+			"id": "OTH-001",
+			"source": "/blog/",
+			"match": "exact",
+			"class": "other",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/",
+			"query": "passthrough",
+			"evidence": [
+				"django-routes",
+				"history",
+				"live"
+			],
+			"decision_ref": "J10",
+			"notes": "404 on the old host today; recommended opt-in to the new blog home (review finding MU-6)."
+		},
+		{
+			"id": "OTH-002",
+			"source": "/privacy/",
+			"match": "exact",
+			"class": "other",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/privacy/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": "J14",
+			"notes": "Blog privacy statements merge into jsolly /privacy/ (recipe localStorage, SW cache)."
+		},
+		{
+			"id": "OTH-003",
+			"source": "/works-cited/",
+			"match": "exact",
+			"class": "other",
+			"action": "redirect-301",
+			"destination": "https://www.jsolly.com/blog/works-cited/",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"crawl",
+				"history",
+				"live",
+				"served",
+				"sitemap",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": ""
+		},
+		{
+			"id": "OTH-004",
+			"source": "/404.html",
+			"match": "exact",
+			"class": "other",
+			"action": "serve-200",
+			"destination": "legacy/blogthedata/public/404.html",
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"live",
+				"served"
+			],
+			"decision_ref": null,
+			"notes": "The redirect host's own static 404 page. Vercel serves output files directly, so /404.html is 200 (as today); noindex."
+		},
+		{
+			"id": "OTH-005",
+			"source": "/.well-known/ai-plugin.json",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Crawler probe; 404 today (Vercel serves /.well-known from the filesystem only)."
+		},
+		{
+			"id": "OTH-006",
+			"source": "/.well-known/assetlinks.json",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Crawler probe; 404 today (Vercel serves /.well-known from the filesystem only)."
+		},
+		{
+			"id": "OTH-007",
+			"source": "/.well-known/dnt-policy.txt",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Crawler probe; 404 today (Vercel serves /.well-known from the filesystem only)."
+		},
+		{
+			"id": "OTH-008",
+			"source": "/.well-known/en",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Crawler probe; 404 today (Vercel serves /.well-known from the filesystem only)."
+		},
+		{
+			"id": "OTH-009",
+			"source": "/.well-known/gpc.json",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Crawler probe; 404 today (Vercel serves /.well-known from the filesystem only)."
+		},
+		{
+			"id": "OTH-010",
+			"source": "/.well-known/nodeinfo",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Crawler probe; 404 today (Vercel serves /.well-known from the filesystem only)."
+		},
+		{
+			"id": "OTH-011",
+			"source": "/.well-known/openid-configuration",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Crawler probe; 404 today (Vercel serves /.well-known from the filesystem only)."
+		},
+		{
+			"id": "OTH-012",
+			"source": "/.well-known/trust.txt",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Crawler probe; 404 today (Vercel serves /.well-known from the filesystem only)."
+		},
+		{
+			"id": "OTH-013",
+			"source": "/404/",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"crawl",
+				"live"
+			],
+			"decision_ref": null,
+			"notes": "Canonical of the old 404 page; never a real URL."
+		},
+		{
+			"id": "OTH-014",
+			"source": "/ads.txt",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Probe or dead reference; 404 today."
+		},
+		{
+			"id": "OTH-015",
+			"source": "/app-ads.txt",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Probe or dead reference; 404 today."
+		},
+		{
+			"id": "OTH-016",
+			"source": "/apple-touch-icon.png",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"live"
+			],
+			"decision_ref": null,
+			"notes": "Probe or dead reference; 404 today."
+		},
+		{
+			"id": "OTH-017",
+			"source": "/atom.xml",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "Probe or dead reference; 404 today."
+		},
+		{
+			"id": "OTH-018",
+			"source": "/blogthedata.com",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Probe or dead reference; 404 today."
+		},
+		{
+			"id": "OTH-019",
+			"source": "/blogthedata.com/post/how-to-implement-content-security-policy-django/",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Probe or dead reference; 404 today."
+		},
+		{
+			"id": "OTH-020",
+			"source": "/category/",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"live"
+			],
+			"decision_ref": null,
+			"notes": "404 today."
+		},
+		{
+			"id": "OTH-021",
+			"source": "/cdn-cgi/:path*{/}?",
+			"match": "pattern",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Cloudflare-era artifacts; 404 today.",
+			"samples": [
+				"/cdn-cgi/l/email-protection",
+				"/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+				"/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
+				"/cdn-cgi/styles/cf.errors.css"
+			]
+		},
+		{
+			"id": "OTH-022",
+			"source": "/doesnotexist/",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Probe or dead reference; 404 today."
+		},
+		{
+			"id": "OTH-023",
+			"source": "/feed.xml",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "Probe or dead reference; 404 today."
+		},
+		{
+			"id": "OTH-024",
+			"source": "/feed/",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "Probe or dead reference; 404 today."
+		},
+		{
+			"id": "OTH-025",
+			"source": "/feeds/all.atom.xml",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Probe or dead reference; 404 today."
+		},
+		{
+			"id": "OTH-026",
+			"source": "/index.xml",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "Probe or dead reference; 404 today."
+		},
+		{
+			"id": "OTH-027",
+			"source": "/portfolio/",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "404 today."
+		},
+		{
+			"id": "OTH-028",
+			"source": "/post/",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"live"
+			],
+			"decision_ref": null,
+			"notes": "404 today."
+		},
+		{
+			"id": "OTH-029",
+			"source": "/post/:slug/test{/}?",
+			"match": "pattern",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Wayback-captured junk (/post/<slug>/test); 404 today.",
+			"samples": [
+				"/post/break-youtube-addiction-turning-off-your-history/test",
+				"/post/cosine-similarity-better-than-tags/test",
+				"/post/django-htmx-real-time-comments/test",
+				"/post/improve-sleep-quality-red-screens-ios-macos/test",
+				"/post/my-favorite-youtube-channels-podcasts-newsletters/test"
+			]
+		},
+		{
+			"id": "OTH-030",
+			"source": "/post/how-to-implement-subresource-integrity-django/local.js",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"crawl",
+				"live"
+			],
+			"decision_ref": null,
+			"notes": "Probe or dead reference; 404 today."
+		},
+		{
+			"id": "OTH-031",
+			"source": "/release.json",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"build",
+				"live",
+				"served"
+			],
+			"decision_ref": "J27",
+			"notes": "SERVED 200 TODAY -> deliberately 404 after cutover (brief item 18; served-today ledger). Release-proof endpoint of the old smoke; no release is served from this host any more."
+		},
+		{
+			"id": "OTH-032",
+			"source": "/resume/",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "404 today."
+		},
+		{
+			"id": "OTH-033",
+			"source": "/sitemap-0.xml",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"live"
+			],
+			"decision_ref": "J10",
+			"notes": "Probe or dead reference; 404 today."
+		},
+		{
+			"id": "OTH-034",
+			"source": "/sitemap-index.xml",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"live"
+			],
+			"decision_ref": "J10",
+			"notes": "Probe or dead reference; 404 today."
+		},
+		{
+			"id": "OTH-035",
+			"source": "/src/scripts/carousel.js",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"crawl",
+				"live"
+			],
+			"decision_ref": null,
+			"notes": "Probe or dead reference; 404 today."
+		},
+		{
+			"id": "OTH-036",
+			"source": "/status/",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": "J10",
+			"notes": "404 today."
+		},
+		{
+			"id": "OTH-037",
+			"source": "/tag/",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"live"
+			],
+			"decision_ref": null,
+			"notes": "404 today. No tag or author URLs ever existed on the Astro site."
+		},
+		{
+			"id": "OTH-038",
+			"source": "/wp-login.php",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"live"
+			],
+			"decision_ref": null,
+			"notes": "403 today (Vercel firewall); 404 or 403 after cutover, never a redirect."
+		},
+		{
+			"id": "OTH-039",
+			"source": "/www.blogthedata.com",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"history",
+				"live",
+				"wayback"
+			],
+			"decision_ref": null,
+			"notes": "Probe or dead reference; 404 today."
+		},
+		{
+			"id": "OTH-040",
+			"source": "/zz-random-xyz/",
+			"match": "exact",
+			"class": "other",
+			"action": "stays-404",
+			"destination": null,
+			"query": "passthrough",
+			"evidence": [
+				"live"
+			],
+			"decision_ref": null,
+			"notes": "Probe or dead reference; 404 today."
+		}
+	]
+}

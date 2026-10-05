@@ -1,9 +1,17 @@
 @import "@fontsource/inter/latin.css";
 @import "@fontsource/poppins/latin.css";
-@import "tailwindcss";
+@import "tailwindcss" source(none);
 @import "shadcn-svelte/tailwind.css";
 @import "./theme.css";
 @import "./ui.css";
 @import "./base.css";
 @import "./components.css";
 @import "./utilities.css";
+
+/* Explicit sources: automatic detection would scan every non-gitignored file,
+   so docs and data would add utilities to this bundle.
+   scripts/unit/tailwind-sources.test.mjs checks the scanned file set. */
+@source "../components";
+@source "../layouts";
+@source "../pages";
+@source "../lib";

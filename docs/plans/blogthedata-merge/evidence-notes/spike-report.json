@@ -1,0 +1,299 @@
+[
+ {
+  "step": "baseline-src",
+  "baseline": {
+   "build": "pass, 141 pages (141 html, 265 files)",
+   "test:astro": "14/14",
+   "test:search": "3/3",
+   "test:browse": "2/2",
+   "test:recipes": "55/55",
+   "recipes:check": "pass",
+   "check:app": "0 errors",
+   "verify:cms/drafts/identities": "pass",
+   "verify:migration": "not runnable (needs private dumpdata arg)"
+  },
+  "after_transplant": null,
+  "counts": {},
+  "representative_errors": [],
+  "fix_class": "n/a",
+  "notes": "SRC gate also has stack-protection + infra tests (aws/migration-backups); not transplanted"
+ },
+ {
+  "step": "biome ci . --error-on-warnings",
+  "baseline": "pass (56 files)",
+  "after_transplant": "FAIL",
+  "counts": {
+   "errors": 1152,
+   "warnings": 106,
+   "files_with_diagnostics": 113,
+   "after_biome_check_write": {
+    "errors": 868,
+    "warnings": 109
+   },
+   "by_rule": {
+    "nursery/useLayeredStyles": 428,
+    "performance/useTopLevelRegex": 140,
+    "complexity/noImportantStyles": 99,
+    "nursery/useUnicodeRegex": 95,
+    "format": 72,
+    "nursery/useConsistentTestIt": 70,
+    "assist/organizeImports": 68,
+    "suspicious/noMisplacedAssertion": 49,
+    "performance/noAwaitInLoops": 31,
+    "style/useTemplate": 31,
+    "suspicious/noShadow": 22,
+    "nursery/noConditionalExpect": 17,
+    "nursery/useNamedCaptureGroup": 17,
+    "correctness/useImportExtensions": 16,
+    "nursery/useDomNodeTextContent": 16,
+    "a11y/noLabelWithoutControl": 12,
+    "security/noSecrets": 11,
+    "a11y/useAnchorContent": 8
+   },
+   "by_area": {
+    "src/components/recipes": 560,
+    "src/styles/blog": 223,
+    "scripts/recipes/pwa.test.mjs": 99,
+    "src/lib/blog": 66,
+    "scripts/astro-contract.test.mjs": 63
+   }
+  },
+  "representative_errors": [
+   "src/components/recipes/RecipeLibrary.svelte:51 noInvalidUseBeforeDeclaration x5",
+   "src/styles/blog/global.css useLayeredStyles x128",
+   "src/components/recipes/RecipeFlow.svelte useLayeredStyles x37",
+   "scripts/astro-contract.test.mjs:129 noConditionalExpect/noAwaitInLoops",
+   "src/components/blog/About.astro:8-11 useAnchorContent x8"
+  ],
+  "fix_class": "mixed: format/organizeImports/useUnicodeRegex/useImportExtensions mechanical (281 cleared by --write); useLayeredStyles, noImportantStyles, useTopLevelRegex, test-shape and a11y rules moderate/semantic",
+  "notes": "Biome also lints .svelte; --write reformats generated public/recipes/data/recipe-library.json (breaks recipes:check); 0 of 106 .md posts changed; only posts/.markdownlint.json is formatted"
+ },
+ {
+  "step": "check:yaml",
+  "baseline": "pass",
+  "after_transplant": "pass",
+  "counts": {},
+  "representative_errors": [],
+  "fix_class": "n/a",
+  "notes": ".pages.yml passes yamllint -s"
+ },
+ {
+  "step": "check:knip",
+  "baseline": "pass",
+  "after_transplant": "FAIL",
+  "counts": {
+   "unused_files": 15,
+   "unused_exports": 4,
+   "unused_deps": 0
+  },
+  "representative_errors": [
+   "src/lib/components/ui/dialog/index.ts (+14 shadcn files)",
+   "dailyNutrients src/components/recipes/nutrition.mjs:3",
+   "recipeDisclaimer src/components/recipes/recipe-export.mjs:6",
+   "feedPosts src/lib/blog/feeds.ts:4",
+   "legacyMedia src/lib/blog/html.ts:4"
+  ],
+  "fix_class": "mechanical (delete unused shadcn parts/barrels, un-export) ",
+  "notes": "scripts/**/*.mjs are knip entries in DST so ported scripts are never flagged unused"
+ },
+ {
+  "step": "check:md",
+  "baseline": "pass (3 files)",
+  "after_transplant": "pass (110 files)",
+  "counts": {
+   "without_posts_local_config": 423,
+   "by_rule": {
+    "MD009": 191,
+    "MD036": 155,
+    "MD010": 50,
+    "MD034": 8,
+    "MD026": 8,
+    "MD012": 3,
+    "MD051": 2,
+    "MD011": 2,
+    "MD001": 2,
+    "MD037": 1,
+    "MD024": 1
+   }
+  },
+  "representative_errors": [
+   "src/content/posts/web3-notes-personal-reference.md:94:71 MD009"
+  ],
+  "fix_class": "keep src/content/posts/.markdownlint.json (config move, not content edits)",
+  "notes": "posts/.markdownlint.json is tracked in SRC and disables 12 rules for posts; Biome format flags that JSON file"
+ },
+ {
+  "step": "smoke:scenario-contract",
+  "baseline": "pass",
+  "after_transplant": "pass",
+  "counts": {},
+  "representative_errors": [],
+  "fix_class": "n/a",
+  "notes": "SRC production-smoke-scenario.mjs (release.json, feeds, historical redirects, blog nav) NOT merged; same filename as DST's"
+ },
+ {
+  "step": "check:ts (astro check)",
+  "baseline": "pass 0 errors / 26 files",
+  "after_transplant": "FAIL 2 errors / 70 files",
+  "counts": {
+   "errors": 2,
+   "svelte_check_errors": 2,
+   "svelte_check_warnings": 1
+  },
+  "representative_errors": [
+   "src/lib/blog/html.ts:57:89 ts(4111) attrs.src",
+   "src/lib/blog/html.ts:58:88 ts(4111) attrs.title"
+  ],
+  "fix_class": "mechanical",
+  "notes": "DST tsconfig strict flags (noPropertyAccessFromIndexSignature etc.); svelte components clean; tsconfig baseUrl deprecation warning pre-exists in DST"
+ },
+ {
+  "step": "npm test",
+  "baseline": "pass 18",
+  "after_transplant": "pass 18",
+  "counts": {},
+  "representative_errors": [],
+  "fix_class": "wiring",
+  "notes": "glob is src/lib/*.test.ts only; ported suites (test:astro/search/browse/recipes, recipes:check) are not in DST test or gate and need adding to .git-hooks/pre-commit and CI"
+ },
+ {
+  "step": "npm run build (astro build + process-html + built-csp)",
+  "baseline": "pass, 7 pages",
+  "after_transplant": "pass, 146 pages, ~8.6s (SRC ~4.7s)",
+  "counts": {
+   "html_pages": 146,
+   "dist_mb": 16
+  },
+  "representative_errors": [
+   "first attempt: [recipe-pwa] ENOENT dist//recipes/data/index.html (pwa-build.mjs treats every dir under dist/recipes as a page)"
+  ],
+  "fix_class": "moderate (process-html.mjs: protect Svelte markers and stop whitespace collapse on island markup)",
+  "notes": "built-csp.test passes for all 146 pages: script hashes survive minification. process-html defeats Svelte hydration: node-identity probe shows SRC reuses 77/77 (/), 5019/5019 (/recipes/meals/), DST reuses 0/77 (/blog/), 0/5019, 0/16 on pre-existing /about/ nav island. Variants: no process-html=full reuse; jsdom-only=full; strip comments only=0; protect comments + collapseWhitespace=0; protect comments, no collapse=full (built-csp still passes)"
+ },
+ {
+  "step": "process-html heading ids",
+  "baseline": "n/a",
+  "after_transplant": "0 changed, 0 removed, 16 added in 4 sampled posts; duplicate-id pages SRC 3/141 -> DST 27/146",
+  "counts": {
+   "added": 16,
+   "changed": 0,
+   "removed": 0,
+   "dup_id_pages_src": 3,
+   "dup_id_pages_dst": 27
+  },
+  "representative_errors": [
+   "/recipes/index.html: cooking-flow x15, ingredients x15"
+  ],
+  "fix_class": "moderate",
+  "notes": "added ids on previously id-less h2 (Related posts + related-card titles); generated ids may contain &"
+ },
+ {
+  "step": "CSP",
+  "baseline": "DST meta policy default-src 'self' + hashes; header img-src 'self' data:",
+  "after_transplant": "meta widened site-wide (img-src https:, frame-src 4 hosts); header blocks CloudFront images",
+  "counts": {
+   "pages_with_meta_csp": 146,
+   "pages_with_cloudfront_images": 112,
+   "distinct_cloudfront_urls": 318,
+   "pages_youtube_iframes": 10,
+   "pages_nbviewer": 2,
+   "pages_diagrams": 1,
+   "pages_inline_style_attrs": 61,
+   "chromium_blocked_by_header_blog_index": 3,
+   "chromium_blocked_by_header_sample_post": 4,
+   "chromium_violations_meta_only": 0
+  },
+  "representative_errors": [
+   "Loading the image 'https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/hand.webp' violates ... img-src 'self' data:"
+  ],
+  "fix_class": "semantic (decide: loosen header vs per-page Astro.csp vs self-host images)",
+  "notes": "iframes not exercised in browser; SRC used split style-src-elem/attr, DST form kept"
+ },
+ {
+  "step": "middleware negotiation (agentResponse)",
+  "baseline": "n/a",
+  "after_transplant": "feeds 406, .md asset 404, text/markdown on blog 404",
+  "counts": {
+   "cases": 15
+  },
+  "representative_errors": [
+   "/blog/rss/ Accept: application/rss+xml -> 406",
+   "/blog/atom/ Accept: application/atom+xml -> 406",
+   "/recipes/data/recipe-library.md -> 404 markdown",
+   "/blog/<post>/ Accept: text/markdown -> 404 markdown"
+  ],
+  "fix_class": "moderate (path exclusions/matcher or agent-pages entries)",
+  "notes": "logs/middleware-negotiation.txt"
+ },
+ {
+  "step": "service worker / PWA",
+  "baseline": "root worker /recipe-service-worker.js scope '/' + legacy /post/<slug>/service-worker.js",
+  "after_transplant": "registration fails at /recipes/service-worker.js with scope '/'",
+  "counts": {},
+  "representative_errors": [
+   "The path of the provided scope ('/') is not under the max scope allowed ('/recipes/')"
+  ],
+  "fix_class": "semantic",
+  "notes": "root worker would span jsolly.com; localStorage key blogthedata-recipes-v2 is origin-bound"
+ },
+ {
+  "step": "ported test suites",
+  "baseline": "test:astro 14/14, search 3/3, browse 2/2, recipes 55/55",
+  "after_transplant": "astro 8/14, search 3/3, browse 0/2, recipes 42/55, recipes:check pass, verify:cms/drafts/identities pass",
+  "counts": {
+   "astro_fail": 6,
+   "browse_fail": 2,
+   "recipes_fail": 13
+  },
+  "representative_errors": [
+   "dist/blog/15-minute-dump-and-go-instant-pot-recipes/index.html ENOENT",
+   "dist/sitemap.xml ENOENT",
+   "dist/release.json ENOENT",
+   "/rss declares its feed MIME type (vercel.json headers not ported)",
+   "browse: .menu-toggle null (tests load '/')",
+   "pwa.test.mjs: git archive d6adba53... (SHA absent in DST); fixture expects root data/recipe-library.json"
+  ],
+  "fix_class": "astro-contract/browse mechanical-to-moderate; pwa legacy snapshot test semantic (history dependency)",
+  "notes": "all failures are path/route/environment, none logic"
+ },
+ {
+  "step": "routes, collisions, sitemap",
+  "baseline": "DST sitemap-index + sitemap-0, 7 pages",
+  "after_transplant": "145 sitemap URLs (115 /blog, 24 /recipes, 5 other); includes noindex /blog/search/",
+  "counts": {
+   "sitemap_urls": 145,
+   "src_sitemap_urls": 116,
+   "posts": 105,
+   "categories": 6,
+   "recipes_pages": 24
+  },
+  "representative_errors": [],
+  "fix_class": "moderate",
+  "notes": "collisions: privacy, 404/500, robots.txt (Disallow /search/ -> /blog/search/), sitemap.xml, release.json, production-smoke*, workflows, pre-commit, components.json, utils.ts, theme tokens; rss/atom emitted as extensionless files needing vercel.json Content-Type headers (preview served empty Content-Type); DST has 12+ blogthedata.com references to update"
+ },
+ {
+  "step": "mechanical rewrite side effects",
+  "baseline": "n/a",
+  "after_transplant": "redirects.json and migration-receipt.json (old-origin paths) were rewritten by the path regex; intentional-rewrites.json unchanged",
+  "counts": {
+   "publishedPaths": 106,
+   "redirect_entries": 2
+  },
+  "representative_errors": [
+   "src/content/redirects.json source /post/... -> /blog/..."
+  ],
+  "fix_class": "semantic: exclude legacy-path data from rewrites",
+  "notes": "explains part of test:astro 'historical redirects' failure"
+ },
+ {
+  "step": "SRC broken redirect + extra indexed URLs",
+  "baseline": "SRC vercel.json: /post/how-to-leverage-closed-loops/ -> /post/stop-asking-questions-to-save-time/ (no such article)",
+  "after_transplant": "n/a",
+  "counts": {},
+  "representative_errors": [
+   "no stop-asking* in src/content/posts or dist/post"
+  ],
+  "fix_class": "URL-map decision",
+  "notes": "also indexed: /.well-known/security.txt (blogthedata.com Contact/Encryption/Canonical), /pgp-key.txt, /logo.webp, /topographic-logo.svg, /favicon.ico, /social/*.svg"
+ }
+]

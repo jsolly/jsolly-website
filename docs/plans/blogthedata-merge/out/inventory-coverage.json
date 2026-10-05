@@ -1,0 +1,965 @@
+{
+	"source_sha": "bf1f7ff1cb92faacfdc3b98ba17fb2f93cac59b5",
+	"tracked": 361,
+	"resolved": 361,
+	"missing": [],
+	"unresolved": [],
+	"entries_matching_nothing": [],
+	"inventory_entries": {
+		"app": {
+			"entries": 54,
+			"adapt": 40,
+			"move": 3,
+			"drop": 11
+		},
+		"recipes": {
+			"entries": 51,
+			"adapt": 39,
+			"move": 7,
+			"drop": 5
+		},
+		"ops": {
+			"entries": 88,
+			"adapt": 24,
+			"move": 3,
+			"drop": 61
+		}
+	},
+	"files_by_resolved_disposition": {
+		"drop": 88,
+		"adapt": 143,
+		"move": 130
+	},
+	"multi_listed": [
+		{
+			"file": "public/media/recipes/avocado-lime-smoothie.svg",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/banana-flax-smoothie.svg",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/chicken-posole.svg",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/cucumber-spinach-lime-smoothie.svg",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/greek-turkey-patties-1440.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/greek-turkey-patties-480.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/greek-turkey-patties-960.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/harissa-chickpea-and-cauliflower-bowls-1440.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/harissa-chickpea-and-cauliflower-bowls-480.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/harissa-chickpea-and-cauliflower-bowls-960.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/keto-zuppa-toscana.svg",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/lemon-chicken-potatoes-and-green-beans-1440.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/lemon-chicken-potatoes-and-green-beans-480.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/lemon-chicken-potatoes-and-green-beans-960.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/lemon-salmon-and-asparagus-1440.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/lemon-salmon-and-asparagus-480.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/lemon-salmon-and-asparagus-960.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/pesto-cod-and-zucchini-1440.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/pesto-cod-and-zucchini-480.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/pesto-cod-and-zucchini-960.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/salsa-verde-shredded-chicken-1440.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/salsa-verde-shredded-chicken-480.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/salsa-verde-shredded-chicken-960.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/shawarma-chicken-bowls-1440.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/shawarma-chicken-bowls-480.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/shawarma-chicken-bowls-960.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/sheet-pan-chicken-fajitas-1440.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/sheet-pan-chicken-fajitas-480.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/sheet-pan-chicken-fajitas-960.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/sheet-pan-gnocchi-white-beans-and-broccoli-1440.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/sheet-pan-gnocchi-white-beans-and-broccoli-480.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/sheet-pan-gnocchi-white-beans-and-broccoli-960.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/smoky-chicken-thighs-and-broccoli-1440.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/smoky-chicken-thighs-and-broccoli-480.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/smoky-chicken-thighs-and-broccoli-960.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/spinach-feta-and-hemp-frittata-1440.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/spinach-feta-and-hemp-frittata-480.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/spinach-feta-and-hemp-frittata-960.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/strawberry-avocado-smoothie.svg",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/strawberry-banana-smoothie.svg",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/strawberry-hemp-smoothie.svg",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/tomato-lentil-and-chicken-bake-1440.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/tomato-lentil-and-chicken-bake-480.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "public/media/recipes/tomato-lentil-and-chicken-bake-960.webp",
+			"listed_in": [
+				"recipes:move",
+				"ops:move"
+			],
+			"rule": "same disposition in recipes + ops; recipes inventory owns the target"
+		},
+		{
+			"file": "scripts/astro-contract.test.mjs",
+			"listed_in": [
+				"recipes:adapt",
+				"ops:adapt"
+			],
+			"rule": "split: recipe test (lines 174-201) -> scripts/recipes/built-recipes.test.mjs; the rest -> blog contract test (both adapt)"
+		},
+		{
+			"file": "src/content/posts/15-minute-dump-and-go-instant-pot-recipes.md",
+			"listed_in": [
+				"app:move",
+				"app:drop",
+				"recipes:drop"
+			],
+			"rule": "specific entry beats glob: drop (app, recipes)"
+		},
+		{
+			"file": "src/content/posts/UI-enhancement-leads-to-major-architecture-changes.md",
+			"listed_in": [
+				"app:move",
+				"app:adapt"
+			],
+			"rule": "specific entry beats glob: adapt (app)"
+		},
+		{
+			"file": "src/content/posts/compress-minify-assets-69-percent-faster-page-load.md",
+			"listed_in": [
+				"app:move",
+				"app:adapt"
+			],
+			"rule": "specific entry beats glob: adapt (app)"
+		},
+		{
+			"file": "src/content/posts/gis-job-search-resources.md",
+			"listed_in": [
+				"app:move",
+				"app:adapt"
+			],
+			"rule": "specific entry beats glob: adapt (app)"
+		},
+		{
+			"file": "src/pages/post/[slug]/index.astro",
+			"listed_in": [
+				"app:adapt",
+				"recipes:drop"
+			],
+			"rule": "adapt (blog post page -> src/pages/blog/[slug]/index.astro); the recipe special-casing branch is deleted inside that adapt"
+		},
+		{
+			"file": "src/styles/no-script.css",
+			"listed_in": [
+				"app:adapt",
+				"recipes:adapt"
+			],
+			"rule": "split: blog rules -> src/styles/blog/no-script.css; 4 recipe rules -> src/styles/recipes/recipes-no-script.css (both adapt)"
+		},
+		{
+			"file": "src/styles/recipes-theme.css",
+			"listed_in": [
+				"app:move",
+				"recipes:adapt"
+			],
+			"rule": "adapt (recipes inventory owns it; inv-app's `move` defers to it) -> src/styles/recipes/recipes-theme.css"
+		},
+		{
+			"file": "vercel.json",
+			"listed_in": [
+				"recipes:adapt",
+				"ops:adapt"
+			],
+			"rule": "adapt, split: feed/SW/no-store header knowledge -> DST vercel.json; redirect knowledge -> legacy/blogthedata/url-map.json (inv-recipes + inv-ops agree)"
+		}
+	],
+	"brief_overrides_changing_disposition": [
+		{
+			"file": ".github/dependabot.yml",
+			"from": "adapt",
+			"to": "drop",
+			"why": "DST's own Dependabot config governs; a github-actions ecosystem is a separate decision (leftover)"
+		},
+		{
+			"file": ".github/workflows/production-smoke.yml",
+			"from": "adapt",
+			"to": "drop",
+			"why": "DST copy is the dotagents template; the project discriminator and SRC hardening arrive through the X1 template change and its sync, never a local edit"
+		},
+		{
+			"file": "public/social/githubLogo.svg",
+			"from": "drop",
+			"to": "move",
+			"why": "public/blog/social/<same> (brief 4: chrome assets move under /blog/ while BlogLayout uses them; inv-ops dropped 4 and re-homed reddit)"
+		},
+		{
+			"file": "public/social/linkedinLogo.svg",
+			"from": "drop",
+			"to": "move",
+			"why": "public/blog/social/<same> (brief 4: chrome assets move under /blog/ while BlogLayout uses them; inv-ops dropped 4 and re-homed reddit)"
+		},
+		{
+			"file": "public/social/redditLogo.svg",
+			"from": "adapt",
+			"to": "move",
+			"why": "public/blog/social/<same> (brief 4: chrome assets move under /blog/ while BlogLayout uses them; inv-ops dropped 4 and re-homed reddit)"
+		},
+		{
+			"file": "public/social/xLogo.svg",
+			"from": "drop",
+			"to": "move",
+			"why": "public/blog/social/<same> (brief 4: chrome assets move under /blog/ while BlogLayout uses them; inv-ops dropped 4 and re-homed reddit)"
+		},
+		{
+			"file": "public/social/youtubeLogo.svg",
+			"from": "drop",
+			"to": "move",
+			"why": "public/blog/social/<same> (brief 4: chrome assets move under /blog/ while BlogLayout uses them; inv-ops dropped 4 and re-homed reddit)"
+		},
+		{
+			"file": "src/lib/components/ui/checkbox/index.ts",
+			"from": "adapt",
+			"to": "drop",
+			"why": "barrel; biome noBarrelFile + DST AGENTS.md (import defining files directly)"
+		},
+		{
+			"file": "src/lib/components/ui/collapsible/index.ts",
+			"from": "adapt",
+			"to": "drop",
+			"why": "barrel; biome noBarrelFile + DST AGENTS.md (import defining files directly)"
+		},
+		{
+			"file": "src/lib/components/ui/dialog/dialog-close.svelte",
+			"from": "adapt",
+			"to": "drop",
+			"why": "generated part nothing imports (knip unused file in the spike)"
+		},
+		{
+			"file": "src/lib/components/ui/dialog/dialog-footer.svelte",
+			"from": "adapt",
+			"to": "drop",
+			"why": "generated part nothing imports (knip unused file in the spike)"
+		},
+		{
+			"file": "src/lib/components/ui/dialog/dialog-header.svelte",
+			"from": "adapt",
+			"to": "drop",
+			"why": "generated part nothing imports (knip unused file in the spike)"
+		},
+		{
+			"file": "src/lib/components/ui/dialog/dialog-trigger.svelte",
+			"from": "adapt",
+			"to": "drop",
+			"why": "generated part nothing imports (knip unused file in the spike)"
+		},
+		{
+			"file": "src/lib/components/ui/dialog/index.ts",
+			"from": "adapt",
+			"to": "drop",
+			"why": "barrel; biome noBarrelFile + DST AGENTS.md (import defining files directly)"
+		},
+		{
+			"file": "src/lib/components/ui/native-select/index.ts",
+			"from": "adapt",
+			"to": "drop",
+			"why": "barrel; biome noBarrelFile + DST AGENTS.md (import defining files directly)"
+		},
+		{
+			"file": "src/lib/components/ui/native-select/native-select-opt-group.svelte",
+			"from": "adapt",
+			"to": "drop",
+			"why": "generated part nothing imports (knip unused file in the spike)"
+		},
+		{
+			"file": "src/lib/components/ui/native-select/native-select-option.svelte",
+			"from": "adapt",
+			"to": "drop",
+			"why": "generated part nothing imports (knip unused file in the spike)"
+		},
+		{
+			"file": "src/lib/components/ui/popover/index.ts",
+			"from": "adapt",
+			"to": "drop",
+			"why": "barrel; biome noBarrelFile + DST AGENTS.md (import defining files directly)"
+		},
+		{
+			"file": "src/lib/components/ui/popover/popover-close.svelte",
+			"from": "adapt",
+			"to": "drop",
+			"why": "generated part nothing imports (knip unused file in the spike)"
+		},
+		{
+			"file": "src/lib/components/ui/popover/popover-description.svelte",
+			"from": "adapt",
+			"to": "drop",
+			"why": "generated part nothing imports (knip unused file in the spike)"
+		},
+		{
+			"file": "src/lib/components/ui/popover/popover-header.svelte",
+			"from": "adapt",
+			"to": "drop",
+			"why": "generated part nothing imports (knip unused file in the spike)"
+		},
+		{
+			"file": "src/lib/components/ui/popover/popover-title.svelte",
+			"from": "adapt",
+			"to": "drop",
+			"why": "generated part nothing imports (knip unused file in the spike)"
+		}
+	],
+	"post_reclassification": {
+		"absolute_url_posts": 34,
+		"related_change_posts": 3,
+		"heading_fix_posts": 2,
+		"overlap": 2,
+		"rewritten_posts": 37,
+		"moved_to_adapt": 34
+	},
+	"files": {
+		".codex/environments/environment.toml": "drop",
+		".cursor/CLOUD.md": "drop",
+		".cursor/aws-oidc-login.sh": "drop",
+		".cursor/environment.json": "drop",
+		".cursor/install-cloud-skills.sh": "drop",
+		".cursor/worktrees.json": "drop",
+		".fleet-precommit-smoke": "drop",
+		".git-hooks/pre-commit": "adapt",
+		".gitattributes": "drop",
+		".github/ISSUE_TEMPLATE/bug_report.md": "drop",
+		".github/ISSUE_TEMPLATE/documentation.md": "drop",
+		".github/ISSUE_TEMPLATE/feature_request.md": "drop",
+		".github/ISSUE_TEMPLATE/refactor_code.md": "drop",
+		".github/ISSUE_TEMPLATE/style_change_request.md": "drop",
+		".github/dependabot.yml": "drop",
+		".github/workflows/ci.yml": "adapt",
+		".github/workflows/production-smoke.yml": "drop",
+		".gitignore": "drop",
+		".gitleaks.toml": "drop",
+		".gitleaksignore": "drop",
+		".markdownlint-cli2.jsonc": "drop",
+		".mise.toml": "drop",
+		".npmrc": "drop",
+		".nvmrc": "drop",
+		".pages.yml": "adapt",
+		".worktreeinclude": "drop",
+		"AGENTS.md": "adapt",
+		"LICENSE": "drop",
+		"README.md": "adapt",
+		"astro.config.mjs": "adapt",
+		"aws/migration-backups/deploy.sh": "drop",
+		"aws/migration-backups/stack-policy.json": "drop",
+		"aws/migration-backups/template.json": "drop",
+		"components.json": "drop",
+		"docs/CODE_OF_CONDUCT.md": "drop",
+		"docs/CONTRIBUTING.md": "drop",
+		"docs/SECURITY.md": "drop",
+		"docs/astro-migration.md": "drop",
+		"docs/migration-backups.md": "drop",
+		"docs/publishing.md": "adapt",
+		"docs/pull_request_template.md": "drop",
+		"docs/recipes.md": "adapt",
+		"package-lock.json": "drop",
+		"package.json": "adapt",
+		"public/.well-known/security.txt": "adapt",
+		"public/data/recipe-library.json": "adapt",
+		"public/data/recipe-library.md": "adapt",
+		"public/favicon.ico": "drop",
+		"public/logo.webp": "drop",
+		"public/media/default.webp": "move",
+		"public/media/recipes/avocado-lime-smoothie.svg": "move",
+		"public/media/recipes/banana-flax-smoothie.svg": "move",
+		"public/media/recipes/chicken-posole.svg": "move",
+		"public/media/recipes/cucumber-spinach-lime-smoothie.svg": "move",
+		"public/media/recipes/greek-turkey-patties-1440.webp": "move",
+		"public/media/recipes/greek-turkey-patties-480.webp": "move",
+		"public/media/recipes/greek-turkey-patties-960.webp": "move",
+		"public/media/recipes/harissa-chickpea-and-cauliflower-bowls-1440.webp": "move",
+		"public/media/recipes/harissa-chickpea-and-cauliflower-bowls-480.webp": "move",
+		"public/media/recipes/harissa-chickpea-and-cauliflower-bowls-960.webp": "move",
+		"public/media/recipes/keto-zuppa-toscana.svg": "move",
+		"public/media/recipes/lemon-chicken-potatoes-and-green-beans-1440.webp": "move",
+		"public/media/recipes/lemon-chicken-potatoes-and-green-beans-480.webp": "move",
+		"public/media/recipes/lemon-chicken-potatoes-and-green-beans-960.webp": "move",
+		"public/media/recipes/lemon-salmon-and-asparagus-1440.webp": "move",
+		"public/media/recipes/lemon-salmon-and-asparagus-480.webp": "move",
+		"public/media/recipes/lemon-salmon-and-asparagus-960.webp": "move",
+		"public/media/recipes/pesto-cod-and-zucchini-1440.webp": "move",
+		"public/media/recipes/pesto-cod-and-zucchini-480.webp": "move",
+		"public/media/recipes/pesto-cod-and-zucchini-960.webp": "move",
+		"public/media/recipes/salsa-verde-shredded-chicken-1440.webp": "move",
+		"public/media/recipes/salsa-verde-shredded-chicken-480.webp": "move",
+		"public/media/recipes/salsa-verde-shredded-chicken-960.webp": "move",
+		"public/media/recipes/shawarma-chicken-bowls-1440.webp": "move",
+		"public/media/recipes/shawarma-chicken-bowls-480.webp": "move",
+		"public/media/recipes/shawarma-chicken-bowls-960.webp": "move",
+		"public/media/recipes/sheet-pan-chicken-fajitas-1440.webp": "move",
+		"public/media/recipes/sheet-pan-chicken-fajitas-480.webp": "move",
+		"public/media/recipes/sheet-pan-chicken-fajitas-960.webp": "move",
+		"public/media/recipes/sheet-pan-gnocchi-white-beans-and-broccoli-1440.webp": "move",
+		"public/media/recipes/sheet-pan-gnocchi-white-beans-and-broccoli-480.webp": "move",
+		"public/media/recipes/sheet-pan-gnocchi-white-beans-and-broccoli-960.webp": "move",
+		"public/media/recipes/smoky-chicken-thighs-and-broccoli-1440.webp": "move",
+		"public/media/recipes/smoky-chicken-thighs-and-broccoli-480.webp": "move",
+		"public/media/recipes/smoky-chicken-thighs-and-broccoli-960.webp": "move",
+		"public/media/recipes/spinach-feta-and-hemp-frittata-1440.webp": "move",
+		"public/media/recipes/spinach-feta-and-hemp-frittata-480.webp": "move",
+		"public/media/recipes/spinach-feta-and-hemp-frittata-960.webp": "move",
+		"public/media/recipes/strawberry-avocado-smoothie.svg": "move",
+		"public/media/recipes/strawberry-banana-smoothie.svg": "move",
+		"public/media/recipes/strawberry-hemp-smoothie.svg": "move",
+		"public/media/recipes/tomato-lentil-and-chicken-bake-1440.webp": "move",
+		"public/media/recipes/tomato-lentil-and-chicken-bake-480.webp": "move",
+		"public/media/recipes/tomato-lentil-and-chicken-bake-960.webp": "move",
+		"public/pgp-key.txt": "adapt",
+		"public/recipes-pwa/icon-180.png": "move",
+		"public/recipes-pwa/icon-192.png": "move",
+		"public/recipes-pwa/icon-512.png": "move",
+		"public/recipes-pwa/manifest.webmanifest": "adapt",
+		"public/social/githubLogo.svg": "move",
+		"public/social/linkedinLogo.svg": "move",
+		"public/social/redditLogo.svg": "move",
+		"public/social/xLogo.svg": "move",
+		"public/social/youtubeLogo.svg": "move",
+		"public/topographic-logo.svg": "adapt",
+		"scripts/article-signature.mjs": "drop",
+		"scripts/astro-contract.test.mjs": "adapt",
+		"scripts/browse.test.mjs": "adapt",
+		"scripts/check-actions.sh": "drop",
+		"scripts/check-infra-drift.mjs": "drop",
+		"scripts/check-infra-drift.test.mjs": "drop",
+		"scripts/check-yaml.mjs": "drop",
+		"scripts/ci-verified-tree.sh": "drop",
+		"scripts/constants.mjs": "drop",
+		"scripts/content-files.mjs": "adapt",
+		"scripts/deploy-infra.test.mjs": "drop",
+		"scripts/html-to-markdown.mjs": "drop",
+		"scripts/import-legacy.mjs": "drop",
+		"scripts/infra-inputs.json": "drop",
+		"scripts/lint-md.sh": "drop",
+		"scripts/migration-rewrites.mjs": "drop",
+		"scripts/migration-rewrites.test.mjs": "drop",
+		"scripts/plan-infra.mjs": "drop",
+		"scripts/plan-infra.test.mjs": "drop",
+		"scripts/production-smoke-scenario.mjs": "adapt",
+		"scripts/production-smoke-scenario.test.mjs": "adapt",
+		"scripts/production-smoke.mjs": "drop",
+		"scripts/protect-stacks.sh": "drop",
+		"scripts/recipes/article-generator.mjs": "drop",
+		"scripts/recipes/article-generator.test.mjs": "drop",
+		"scripts/recipes/pwa-build.mjs": "adapt",
+		"scripts/recipes/pwa.test.mjs": "adapt",
+		"scripts/recipes/sync-assistant-data.mjs": "adapt",
+		"scripts/recipes/sync-recipe-article.mjs": "drop",
+		"scripts/search.test.mjs": "adapt",
+		"scripts/source-signature.mjs": "drop",
+		"scripts/stack-protection.test.mjs": "drop",
+		"scripts/verify-cms.mjs": "adapt",
+		"scripts/verify-drafts.mjs": "adapt",
+		"scripts/verify-identities.mjs": "adapt",
+		"scripts/verify-media-backup.mjs": "drop",
+		"scripts/verify-migration.mjs": "drop",
+		"scripts/worktree-init.sh": "drop",
+		"src/components/About.astro": "adapt",
+		"src/components/Navigation.svelte": "adapt",
+		"src/components/PostCards.svelte": "adapt",
+		"src/components/Search.svelte": "adapt",
+		"src/components/recipes/ApplianceIcon.svelte": "move",
+		"src/components/recipes/FilterMultiSelect.svelte": "adapt",
+		"src/components/recipes/NutrientDisclosure.svelte": "adapt",
+		"src/components/recipes/NutritionHelp.svelte": "adapt",
+		"src/components/recipes/RecipeBody.svelte": "adapt",
+		"src/components/recipes/RecipeExperience.astro": "adapt",
+		"src/components/recipes/RecipeFlow.svelte": "adapt",
+		"src/components/recipes/RecipeLibrary.svelte": "adapt",
+		"src/components/recipes/RecipePage.svelte": "adapt",
+		"src/components/recipes/RecipePrint.svelte": "adapt",
+		"src/components/recipes/RecipePwa.astro": "adapt",
+		"src/components/recipes/ShareRecipe.svelte": "move",
+		"src/components/recipes/display-units.mjs": "adapt",
+		"src/components/recipes/display-units.test.mjs": "adapt",
+		"src/components/recipes/ingredient-icon.mjs": "adapt",
+		"src/components/recipes/nutrient-filters.mjs": "adapt",
+		"src/components/recipes/nutrient-filters.test.mjs": "adapt",
+		"src/components/recipes/nutrition-data.json": "move",
+		"src/components/recipes/nutrition.mjs": "adapt",
+		"src/components/recipes/nutrition.test.mjs": "adapt",
+		"src/components/recipes/recipe-export.mjs": "adapt",
+		"src/components/recipes/recipe-export.test.mjs": "adapt",
+		"src/components/recipes/recipe-logic.mjs": "adapt",
+		"src/components/recipes/recipe-logic.test.mjs": "adapt",
+		"src/components/recipes/recipe-print-session.mjs": "adapt",
+		"src/components/recipes/recipe-pwa-client.mjs": "adapt",
+		"src/components/recipes/recipe-url.mjs": "adapt",
+		"src/components/recipes/recipes.json": "adapt",
+		"src/components/recipes/trn-logic.mjs": "adapt",
+		"src/components/recipes/trn-logic.test.mjs": "adapt",
+		"src/content.config.ts": "adapt",
+		"src/content/categories/Geodev.json": "move",
+		"src/content/categories/dev-tools.json": "move",
+		"src/content/categories/productivity.json": "move",
+		"src/content/categories/resources.json": "move",
+		"src/content/categories/uncategorized.json": "move",
+		"src/content/categories/web-dev.json": "move",
+		"src/content/intentional-rewrites.json": "drop",
+		"src/content/migration-receipt.json": "adapt",
+		"src/content/posts/.markdownlint.json": "adapt",
+		"src/content/posts/12-questions-you-should-ask-at-your-next-interview.md": "move",
+		"src/content/posts/15-minute-dump-and-go-instant-pot-recipes.md": "drop",
+		"src/content/posts/Achieve-consistent-builds-with-Python-constraints.md": "adapt",
+		"src/content/posts/Adding-code-snippets-ckeditor.md": "move",
+		"src/content/posts/Adding-spell-check-django-ckeditor.md": "move",
+		"src/content/posts/Adding-views-likes-to-posts.md": "move",
+		"src/content/posts/Exploring-the-STAC-APIs-with-IPython-Notebooks.md": "move",
+		"src/content/posts/Find-Your-Dream-Job-With-LinkedIn-Boolean-Search.md": "move",
+		"src/content/posts/How-Ive-made-blogthedata-more-accessible.md": "adapt",
+		"src/content/posts/I-made-my-code-async-its-388-percent-faster.md": "adapt",
+		"src/content/posts/I-re-created-1979-Atari-game-asteroids-with-JS.md": "move",
+		"src/content/posts/I-replaced-for-loops-with-for-of-loops-cleaner.md": "move",
+		"src/content/posts/I-resolved-150-linting-issues-with-eslint.md": "move",
+		"src/content/posts/Migrating-from-apache-to-Nginx-Gunicorn.md": "move",
+		"src/content/posts/Planetary-Computer-STAC-Landsat-data.md": "move",
+		"src/content/posts/Prettier-code-formatter-breaks-Django-templates.md": "move",
+		"src/content/posts/TypeScript-revealed-210-issues-JavaScript-codebase.md": "move",
+		"src/content/posts/UI-enhancement-leads-to-major-architecture-changes.md": "adapt",
+		"src/content/posts/adding-global-search.md": "move",
+		"src/content/posts/adding-slugified-urls.md": "move",
+		"src/content/posts/admin-honeypot-page-to-catch-hackers.md": "adapt",
+		"src/content/posts/automate-python-testing-linting-pre-commit-hooks.md": "move",
+		"src/content/posts/break-youtube-addiction-turning-off-your-history.md": "move",
+		"src/content/posts/calculate-ndvi-ipfs-geoanalysis.md": "move",
+		"src/content/posts/clay-personal-crm-tool-managing-relationships.md": "move",
+		"src/content/posts/cloudflare-minify-optimizations-broke-sri.md": "adapt",
+		"src/content/posts/code-analysis-and-pip-dependency-check-in-GitHub.md": "move",
+		"src/content/posts/compress-minify-assets-69-percent-faster-page-load.md": "adapt",
+		"src/content/posts/conventional-commits.md": "adapt",
+		"src/content/posts/convert-images-to-webp-25-percent-smaller-payloads.md": "move",
+		"src/content/posts/cosine-similarity-better-than-tags.md": "move",
+		"src/content/posts/create-website-title-generator-python-htmx-django.md": "move",
+		"src/content/posts/deploy-to-remote-server-on-push-in-10-lines.md": "move",
+		"src/content/posts/django-automatic-redirects-in-two-lines-of-code.md": "move",
+		"src/content/posts/django-htmx-real-time-comments.md": "move",
+		"src/content/posts/domain-name-value.md": "move",
+		"src/content/posts/emotional-intelligence-book-executive-summary.md": "move",
+		"src/content/posts/exploring-new-ideas-with-gpt.md": "adapt",
+		"src/content/posts/finding-reliable-information.md": "move",
+		"src/content/posts/fixing-coding-pain-ergonomic-tips.md": "move",
+		"src/content/posts/free-cdn-for-17x-speed.md": "adapt",
+		"src/content/posts/geospatial-job-interview-tips.md": "adapt",
+		"src/content/posts/get-a-perfect-score-on-seo-tool-ahrefs.md": "adapt",
+		"src/content/posts/gis-job-search-resources.md": "adapt",
+		"src/content/posts/git-hooks-to-perform-collectstatic.md": "move",
+		"src/content/posts/google-lighthouse-audit.md": "move",
+		"src/content/posts/google-lighthouse-perfect-score.md": "adapt",
+		"src/content/posts/help-google-spider-with-sitemaps-and-robots-file.md": "adapt",
+		"src/content/posts/how-I-present-portfolio-projects-to-impress.md": "move",
+		"src/content/posts/how-many-manual-qa-do-you-need.md": "move",
+		"src/content/posts/how-to-add-a-404-page-to-your-django-app.md": "adapt",
+		"src/content/posts/how-to-add-leaflet-js-maps-inside-a-django-site.md": "move",
+		"src/content/posts/how-to-add-social-share-buttons-to-your-website.md": "adapt",
+		"src/content/posts/how-to-ask-less-questions.md": "move",
+		"src/content/posts/how-to-ask-questions-like-a-senior-engineer.md": "adapt",
+		"src/content/posts/how-to-create-subtle-shaking-navbar-links.md": "move",
+		"src/content/posts/how-to-debug-an-astro-app.md": "move",
+		"src/content/posts/how-to-get-100-percent-unit-test-coverage.md": "adapt",
+		"src/content/posts/how-to-get-a-perfect-mozilla-observatory-score.md": "adapt",
+		"src/content/posts/how-to-get-perfect-linting-compliance.md": "adapt",
+		"src/content/posts/how-to-implement-content-security-policy-django.md": "adapt",
+		"src/content/posts/how-to-implement-subresource-integrity-django.md": "adapt",
+		"src/content/posts/how-to-send-email-with-python-the-hard-way.md": "adapt",
+		"src/content/posts/how-to-setup-logging-in-your-django-app.md": "move",
+		"src/content/posts/how-to-test-and-debug-django-templates.md": "move",
+		"src/content/posts/how-to-use-ChatGPT-for-GeoDev-Interview-practice.md": "move",
+		"src/content/posts/implement-continuous-integration-github-actions.md": "adapt",
+		"src/content/posts/implement-infinite-scroll-in-django-with-htmx.md": "adapt",
+		"src/content/posts/import-libraries-vs-rolling-own.md": "move",
+		"src/content/posts/improve-sleep-quality-red-screens-ios-macos.md": "move",
+		"src/content/posts/inspiring-aphorisms-axioms.md": "move",
+		"src/content/posts/integration-tests-are-a-scam-i-wrote-them-anyway.md": "adapt",
+		"src/content/posts/mastering-gpt-directives-and-parameters.md": "adapt",
+		"src/content/posts/mastering-intuition-pumps-essential-terms-guide.md": "move",
+		"src/content/posts/migrating-bs4-to-bs5.md": "move",
+		"src/content/posts/migrating-portfolio-from-django-to-astro-js.md": "move",
+		"src/content/posts/migrating-to-ckeditor-5.md": "adapt",
+		"src/content/posts/migrating-to-django-4x.md": "adapt",
+		"src/content/posts/migrating-to-postgres-from-sqllite.md": "move",
+		"src/content/posts/my-favorite-youtube-channels-podcasts-newsletters.md": "move",
+		"src/content/posts/next-level-emoji-game-with-text-replacement.md": "move",
+		"src/content/posts/on-how-the-world-works.md": "move",
+		"src/content/posts/one-click-django-debug-runserver-livereload-chrome.md": "move",
+		"src/content/posts/optimizing-ahrefs-orphan-pages-duplicate-content.md": "adapt",
+		"src/content/posts/optimizing-gpt-for-nlp-tips-and-tricks.md": "adapt",
+		"src/content/posts/productivity-flow-chart.md": "move",
+		"src/content/posts/security-txt-allows-researches-to-contact-you.md": "adapt",
+		"src/content/posts/simplifying-ai-writing-template-complex-concepts.md": "move",
+		"src/content/posts/smartly-load-CSS-JS-page-load-time.md": "move",
+		"src/content/posts/social-media-share-links-open-graph.md": "move",
+		"src/content/posts/solly-agent-rules-markdown.md": "move",
+		"src/content/posts/solly-coverletter-outline-and-philosophy.md": "move",
+		"src/content/posts/sollys-favorite-web-resources-and-tools.md": "adapt",
+		"src/content/posts/streamlining-todoist-workflow.md": "move",
+		"src/content/posts/test-strategy-no-existing-tests.md": "move",
+		"src/content/posts/three-scenarios-i-dont-use-tailwind.md": "move",
+		"src/content/posts/timeless-phrases-sayings.md": "move",
+		"src/content/posts/todo-workflow-7619-tasks.md": "move",
+		"src/content/posts/two-weird-reasons-I-love-unit-tests.md": "adapt",
+		"src/content/posts/upgrading-to-the-latest-3x-django.md": "adapt",
+		"src/content/posts/use-brave-search-goggles-to-improve-web-searches.md": "adapt",
+		"src/content/posts/use-noopener-norferrer-to-improve-user-privacy.md": "move",
+		"src/content/posts/using-a-freelancer-to-fix-a-bug.md": "move",
+		"src/content/posts/web3-notes-personal-reference.md": "move",
+		"src/content/posts/why-I-stopped-using-pip-freeze.md": "move",
+		"src/content/posts/write-tests-2x-faster-with-github-copilot.md": "move",
+		"src/content/redirects.json": "adapt",
+		"src/layouts/Base.astro": "adapt",
+		"src/lib/cards.ts": "adapt",
+		"src/lib/components/ui/button/button.svelte": "drop",
+		"src/lib/components/ui/button/index.ts": "drop",
+		"src/lib/components/ui/checkbox/checkbox.svelte": "adapt",
+		"src/lib/components/ui/checkbox/index.ts": "drop",
+		"src/lib/components/ui/collapsible/collapsible-content.svelte": "adapt",
+		"src/lib/components/ui/collapsible/collapsible-trigger.svelte": "adapt",
+		"src/lib/components/ui/collapsible/collapsible.svelte": "adapt",
+		"src/lib/components/ui/collapsible/index.ts": "drop",
+		"src/lib/components/ui/dialog/dialog-close.svelte": "drop",
+		"src/lib/components/ui/dialog/dialog-content.svelte": "adapt",
+		"src/lib/components/ui/dialog/dialog-description.svelte": "adapt",
+		"src/lib/components/ui/dialog/dialog-footer.svelte": "drop",
+		"src/lib/components/ui/dialog/dialog-header.svelte": "drop",
+		"src/lib/components/ui/dialog/dialog-overlay.svelte": "adapt",
+		"src/lib/components/ui/dialog/dialog-portal.svelte": "adapt",
+		"src/lib/components/ui/dialog/dialog-title.svelte": "adapt",
+		"src/lib/components/ui/dialog/dialog-trigger.svelte": "drop",
+		"src/lib/components/ui/dialog/dialog.svelte": "adapt",
+		"src/lib/components/ui/dialog/index.ts": "drop",
+		"src/lib/components/ui/input/input.svelte": "adapt",
+		"src/lib/components/ui/native-select/index.ts": "drop",
+		"src/lib/components/ui/native-select/native-select-opt-group.svelte": "drop",
+		"src/lib/components/ui/native-select/native-select-option.svelte": "drop",
+		"src/lib/components/ui/native-select/native-select.svelte": "adapt",
+		"src/lib/components/ui/popover/index.ts": "drop",
+		"src/lib/components/ui/popover/popover-close.svelte": "drop",
+		"src/lib/components/ui/popover/popover-content.svelte": "adapt",
+		"src/lib/components/ui/popover/popover-description.svelte": "drop",
+		"src/lib/components/ui/popover/popover-header.svelte": "drop",
+		"src/lib/components/ui/popover/popover-portal.svelte": "adapt",
+		"src/lib/components/ui/popover/popover-title.svelte": "drop",
+		"src/lib/components/ui/popover/popover-trigger.svelte": "adapt",
+		"src/lib/components/ui/popover/popover.svelte": "adapt",
+		"src/lib/content.ts": "adapt",
+		"src/lib/feeds.ts": "adapt",
+		"src/lib/frontmatter.ts": "adapt",
+		"src/lib/html.ts": "adapt",
+		"src/lib/post-loader.ts": "adapt",
+		"src/lib/search.ts": "adapt",
+		"src/lib/utils.ts": "adapt",
+		"src/pages/404.astro": "drop",
+		"src/pages/all-posts/index.astro": "adapt",
+		"src/pages/atom/index.ts": "adapt",
+		"src/pages/category/[slug]/index.astro": "adapt",
+		"src/pages/index.astro": "adapt",
+		"src/pages/post/[slug]/index.astro": "adapt",
+		"src/pages/privacy/index.astro": "adapt",
+		"src/pages/recipes/[slug].astro": "adapt",
+		"src/pages/release.json.ts": "drop",
+		"src/pages/robots.txt.ts": "drop",
+		"src/pages/rss/index.ts": "adapt",
+		"src/pages/search-index.json.ts": "adapt",
+		"src/pages/search/index.astro": "adapt",
+		"src/pages/sitemap.xml.ts": "drop",
+		"src/pages/works-cited/index.astro": "adapt",
+		"src/styles/article-content.css": "adapt",
+		"src/styles/global.css": "adapt",
+		"src/styles/motion.css": "adapt",
+		"src/styles/no-script.css": "adapt",
+		"src/styles/recipes-theme.css": "adapt",
+		"src/styles/theme.css": "adapt",
+		"src/styles/ui.css": "adapt",
+		"svelte.config.js": "drop",
+		"tsconfig.json": "drop",
+		"vercel.json": "adapt"
+	}
+}
