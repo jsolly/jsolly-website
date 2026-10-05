@@ -1,10 +1,10 @@
 import assert from "node:assert/strict";
-import { access, readFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import it from "node:test";
 import { fileURLToPath } from "node:url";
 import { globby } from "globby";
-import { JSDOM } from "jsdom";
+import { exists, stylesheets } from "./pages.mjs";
 
 // The blog's Tailwind entry, src/styles/blog/ui.css, imports Tailwind with
 // source(none) and names its own @source paths (plan §1.13), and Tailwind
@@ -30,27 +30,6 @@ const PINNED = [
 
 // A rule only main.css emits (components.css), never the blog bundle.
 const PORTFOLIO_ONLY = ".secondary-btn";
-
-async function exists(path) {
-	try {
-		await access(path);
-		return true;
-	} catch {
-		return false;
-	}
-}
-
-// The stylesheets a built page loads with JavaScript on (not its <noscript>).
-function stylesheets(html) {
-	const dom = new JSDOM(html);
-	try {
-		return [...dom.window.document.querySelectorAll("link")]
-			.filter((link) => link.rel === "stylesheet" && !link.closest("noscript"))
-			.map((link) => link.getAttribute("href"));
-	} finally {
-		dom.window.close();
-	}
-}
 
 it("the blog stylesheets name only existing Tailwind sources, keep one layer order, and build the BlogLayout bundle apart from the portfolio's", async () => {
 	const sheets = await globby(

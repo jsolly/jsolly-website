@@ -1,5 +1,5 @@
 import { getCollection } from "astro:content";
-import { publishedContent } from "./schemas.js";
+import { categoryCounts, publishedContent } from "./schemas.js";
 
 async function blogContent() {
 	const [entries, categories] = await Promise.all([
@@ -12,9 +12,5 @@ async function blogContent() {
 // The categories menu: every category by name, with its published post count.
 export async function blogNavigation() {
 	const { posts, categories } = await blogContent();
-	return categories.map(({ data }) => ({
-		slug: data.slug,
-		name: data.name,
-		count: posts.filter((post) => post.data.category === data.slug).length,
-	}));
+	return categoryCounts(posts, categories);
 }

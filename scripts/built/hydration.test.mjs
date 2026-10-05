@@ -341,6 +341,66 @@ it("a phone visitor on a blog page opens and closes the hydrated menu", async ()
 	}
 });
 
+it("a desktop visitor on a blog page uses the header links with no menu toggle", async () => {
+	const context = await browser.newContext({
+		viewport: { width: 1280, height: 800 },
+	});
+	try {
+		const page = await context.newPage();
+		const errors = [];
+		page.on("pageerror", (error) => errors.push(error.message));
+		await page.goto(`${sites.shipped.origin}/blog/works-cited/`);
+		await page.waitForFunction(
+			() => document.querySelector(".menu-toggle")?.disabled === false,
+		);
+		assert.equal(
+			await page.locator("#mobile-navigation").evaluate((panel) => panel.inert),
+			false,
+			"the header links stay reachable on desktop",
+		);
+		assert.equal(
+			await page.locator(".menu-toggle").isVisible(),
+			false,
+			"desktop shows no menu toggle",
+		);
+		// The archive lands in B07; reaching its URL proves the click went through.
+		await Promise.all([
+			page.waitForURL("**/blog/all-posts/"),
+			page.locator("header").getByRole("link", { name: "All posts" }).click(),
+		]);
+		assert.deepEqual(errors, [], "no page errors");
+	} finally {
+		await context.close();
+	}
+});
+
+it("a phone visitor without JavaScript gets the expanded header menu from the noscript stylesheet", async () => {
+	const context = await browser.newContext({
+		viewport: { width: 390, height: 844 },
+		javaScriptEnabled: false,
+	});
+	try {
+		const page = await context.newPage();
+		await page.goto(`${sites.shipped.origin}/blog/works-cited/`);
+		const header = page.locator("header");
+		assert.equal(
+			await page.locator(".menu-toggle").isVisible(),
+			false,
+			"no-script.css hides the toggle that needs JavaScript",
+		);
+		const categories = header.getByText("Categories", { exact: true });
+		assert.equal(await categories.isVisible(), true, "Categories shows");
+		await categories.click();
+		await header.locator("details.category-menu[open]").waitFor();
+		await Promise.all([
+			page.waitForURL("**/blog/all-posts/"),
+			header.getByRole("link", { name: "All posts" }).click(),
+		]);
+	} finally {
+		await context.close();
+	}
+});
+
 it("A production build's HTML post-processing leaves every island's hydration markers intact on every page and drops every other comment", () => {
 	const markers = (pages) =>
 		Object.fromEntries(

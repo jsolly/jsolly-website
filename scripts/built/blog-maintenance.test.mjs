@@ -2,8 +2,8 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { after, before, it } from "node:test";
-import { globby } from "globby";
 import { JSDOM } from "jsdom";
+import { readBuiltPages, stylesheets } from "./pages.mjs";
 import { createTempCopy } from "./temp-copy.mjs";
 
 // `npm run build:maintenance` (MAINTENANCE_MODE=true) must take the whole site
@@ -39,29 +39,20 @@ before(async () => {
 		);
 	}
 	const dist = join(copy.dir, "dist");
-	const files = await globby("**/*.html", { cwd: dist });
-	pages = await Promise.all(
-		files.map(async (file) => {
-			const html = await readFile(join(dist, file), "utf8");
-			const dom = new JSDOM(html);
-			try {
-				const { document } = dom.window;
-				const main = document.querySelector("main");
-				return {
-					file,
-					html,
-					stylesheets: [...document.querySelectorAll("link")]
-						.filter(
-							(link) => link.rel === "stylesheet" && !link.closest("noscript"),
-						)
-						.map((link) => link.getAttribute("href")),
-					main: main?.textContent.replace(WHITESPACE, " ").trim() ?? null,
-				};
-			} finally {
-				dom.window.close();
-			}
-		}),
-	);
+	pages = (await readBuiltPages(dist)).map(({ file, html }) => {
+		const dom = new JSDOM(html);
+		try {
+			const main = dom.window.document.querySelector("main");
+			return {
+				file,
+				html,
+				stylesheets: stylesheets(html),
+				main: main?.textContent.replace(WHITESPACE, " ").trim() ?? null,
+			};
+		} finally {
+			dom.window.close();
+		}
+	});
 	const blog = pages.find(({ file }) => file === BLOG_PAGE);
 	blogCss = blog
 		? (

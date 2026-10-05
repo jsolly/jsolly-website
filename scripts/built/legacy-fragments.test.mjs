@@ -1,16 +1,10 @@
 import assert from "node:assert/strict";
-import {
-	access,
-	mkdir,
-	mkdtemp,
-	readFile,
-	rm,
-	writeFile,
-} from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import it from "node:test";
 import { JSDOM } from "jsdom";
+import { exists } from "./pages.mjs";
 
 // Plan §2.3 Fragments, §4.6: browsers re-apply a #fragment across a 301, so an
 // old blogthedata.com deep link survives only if the page its path redirects
@@ -20,6 +14,7 @@ import { JSDOM } from "jsdom";
 // not built yet is skipped and counted, so the check grows as routes land.
 const DIST = "dist";
 const SITE = "https://www.jsolly.com";
+const OFF_SITE = "https://www.blogthedata.com/e/";
 const FRAGMENTS = new URL(
 	"../../legacy/blogthedata/fragment-ids.json",
 	import.meta.url,
@@ -31,15 +26,6 @@ const URL_MAP = new URL(
 
 async function readJson(url) {
 	return JSON.parse(await readFile(url, "utf8"));
-}
-
-async function exists(path) {
-	try {
-		await access(path);
-		return true;
-	} catch {
-		return false;
-	}
 }
 
 // The jsolly.com path each old page 301s to, or why it has none: an old page
@@ -104,8 +90,9 @@ async function compareFragments(pages, rows, distRoot) {
 	};
 }
 
-// A two-page dist: one destination lost an id, one kept all of them, and a
-// third old page's destination is not built.
+// A two-page dist: one destination lost an id, one kept all of them, a third
+// old page's destination is not built, and two more old pages have two
+// redirect rows or one that leaves jsolly.com.
 async function fixtureComparison() {
 	const root = await mkdtemp(join(tmpdir(), "legacy-fragments-"));
 	try {
@@ -126,11 +113,20 @@ async function fixtureComparison() {
 			destination: `${SITE}${path}`,
 		});
 		return await compareFragments(
-			{ "/a/": ["kept", "lost"], "/b/": ["one", "two"], "/c/": ["any"] },
+			{
+				"/a/": ["kept", "lost"],
+				"/b/": ["one", "two"],
+				"/c/": ["any"],
+				"/d/": ["twice"],
+				"/e/": ["away"],
+			},
 			[
 				redirect("/a/", "/new-a/"),
 				redirect("/b/", "/new-b/"),
 				redirect("/c/", "/new-c/"),
+				redirect("/d/", "/new-d/"),
+				redirect("/d/", "/other-d/"),
+				{ ...redirect("/e/", "/e/"), destination: OFF_SITE },
 			],
 			root,
 		);
@@ -143,7 +139,10 @@ it("every old blogthedata.com fragment id still exists on the page its URL now r
 	assert.deepEqual(
 		await fixtureComparison(),
 		{
-			unmapped: [],
+			unmapped: [
+				{ old: "/d/", problem: "2 redirect-301 rows" },
+				{ old: "/e/", problem: `redirects off ${SITE} (${OFF_SITE})` },
+			],
 			missing: ["/a/#lost -> /new-a/#lost"],
 			landed: 2,
 			skipped: 1,

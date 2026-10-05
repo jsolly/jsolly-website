@@ -88,3 +88,16 @@ export function publishedContent<P extends PostEntry, C extends CategoryEntry>(
 		),
 	};
 }
+
+// The categories menu: each category in the given order, with how many of
+// the given (published) posts it holds.
+export function categoryCounts(
+	posts: Pick<PostEntry, "data">[],
+	categories: CategoryEntry[],
+) {
+	return categories.map(({ data }) => ({
+		slug: data.slug,
+		name: data.name,
+		count: posts.filter((post) => post.data.category === data.slug).length,
+	}));
+}

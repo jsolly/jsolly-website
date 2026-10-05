@@ -1,9 +1,8 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import fs from "node:fs/promises";
 import it from "node:test";
-import { globby } from "globby";
 import { JSDOM } from "jsdom";
+import { readBuiltPages } from "./built/pages.mjs";
 import { parseDirectives, readHeaderPolicy } from "./csp.mjs";
 
 const WHITESPACE = /\s+/u;
@@ -13,7 +12,8 @@ const SITE_ORIGIN = "https://www.jsolly.com";
 const SCRIPT_TYPES = ["module", "text/javascript", "application/javascript"];
 // BlogLayout's per-page directives (plan §1.13, J6): legacy post images and
 // the YouTube, diagrams.net and nbviewer embeds, on dist/blog/** only.
-const BLOG_PAGES = "dist/blog/";
+// Page paths relative to dist/.
+const BLOG_PAGES = "blog/";
 const BLOG_IMG_SRC = [
 	"'self'",
 	"data:",
@@ -25,16 +25,6 @@ const BLOG_FRAME_SRC = [
 	"https://viewer.diagrams.net",
 	"https://nbviewer.org",
 ];
-
-async function readBuiltPages() {
-	const files = await globby("dist/**/*.html");
-	return Promise.all(
-		files.map(async (file) => ({
-			file,
-			html: await fs.readFile(file, "utf8"),
-		})),
-	);
-}
 
 function findMetaPolicy(document) {
 	return document.head.querySelector(

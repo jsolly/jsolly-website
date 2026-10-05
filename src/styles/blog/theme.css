@@ -17,7 +17,8 @@
 		--button: #171717;
 		--button-text: #fff;
 		--hover: #f1f1f1;
-		--input-border: #a3a3a3;
+		/* At least 3:1 against --paper and --background (WCAG 1.4.11). */
+		--input-border: #8f8f8f;
 		--shadow-soft: 0 2px 15px -3px #00000012, 0 10px 20px -2px #0000000a;
 		/* Shared timings for interactive state changes. */
 		--motion-fast: 160ms;
