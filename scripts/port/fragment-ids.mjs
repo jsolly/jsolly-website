@@ -17,7 +17,6 @@
 // site search) and not <main id="main"> itself. Empty ids (a heading with no
 // text; B04 removes those headings) and bits-ui's generated `bits-*` ids are
 // not fragments anyone links to. Pages without any id are left out.
-import { spawnSync } from "node:child_process";
 import { mkdtempSync, readdirSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join, sep } from "node:path";
@@ -27,6 +26,7 @@ import {
 	git,
 	parseCli,
 	readSource,
+	run,
 	runCli,
 	sourceSha,
 	writeDstFile,
@@ -34,27 +34,22 @@ import {
 
 const OUTPUT = "legacy/blogthedata/fragment-ids.json";
 const GENERATED_ID = /^bits-/u;
-const MAX_BUFFER = 512 * 1024 * 1024;
-
-function run(command, args, options) {
-	const result = spawnSync(command, args, {
-		stdio: ["pipe", "inherit", "inherit"],
-		maxBuffer: MAX_BUFFER,
-		...options,
-	});
-	if (result.status !== 0) {
-		throw new Error(`${command} ${args.join(" ")} failed (${result.status})`);
-	}
-}
 
 function buildSource(src, sha, dir) {
 	const archive = git(src, ["archive", "--format=tar", sha], { binary: true });
 	run("tar", ["-x", "-C", dir], { input: archive });
-	run("npm", ["ci", "--no-audit", "--no-fund"], { cwd: dir });
+	run("npm", ["ci", "--no-audit", "--no-fund"], {
+		cwd: dir,
+		stdio: ["ignore", "inherit", "inherit"],
+	});
 	run(
 		process.execPath,
 		[join("node_modules", "astro", "bin", "astro.mjs"), "build"],
-		{ cwd: dir, env: { ...process.env, VERCEL_GIT_COMMIT_SHA: sha } },
+		{
+			cwd: dir,
+			env: { ...process.env, VERCEL_GIT_COMMIT_SHA: sha },
+			stdio: ["ignore", "inherit", "inherit"],
+		},
 	);
 	return join(dir, "dist");
 }
@@ -65,7 +60,7 @@ function oldPath(relative) {
 	return directory === "." ? "/" : `/${directory.split(sep).join("/")}/`;
 }
 
-export function pageFragmentIds(html) {
+function pageFragmentIds(html) {
 	const content = new JSDOM(html).window.document.querySelector("main");
 	if (!content) {
 		return [];
@@ -77,7 +72,7 @@ export function pageFragmentIds(html) {
 }
 
 function main(argv) {
-	const { src, dst } = parseCli(argv);
+	const { src, dst } = parseCli(argv, { locations: ["src", "dst"] });
 	const sha = sourceSha(readSource(dst));
 	const dir = mkdtempSync(join(tmpdir(), "fragment-ids-"));
 	try {
@@ -90,6 +85,11 @@ function main(argv) {
 			])
 			.filter(([, ids]) => ids.length > 0)
 			.sort(([a], [b]) => (a < b ? -1 : Number(a > b)));
+		if (pages.length === 0) {
+			throw new Error(
+				`the awesome-blog@${sha.slice(0, 10)} build has no page with a fragment id; is ${dist} a real build?`,
+			);
+		}
 		writeDstFile(
 			dst,
 			OUTPUT,

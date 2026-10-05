@@ -6,31 +6,42 @@
 //   checks it out or fetches it; C0 fetches explicitly before freeze-check.
 // - DST is this repository. `--dst <dir>` points the tools at another tree
 //   with the same layout, which the hermetic tests use.
-// - The SHAs come from DST's scripts/port/source.json, never from the command
-//   line: `cut_sha` is the B00 cut, `freeze_sha` the C0 freeze (null until then).
-//   Tools that read SRC content use `freeze_sha ?? cut_sha`.
+// - The SHAs come from DST's scripts/port/source.json or from SRC's local
+//   origin/main, never from the command line: `cut_sha` is the B00 cut,
+//   `freeze_sha` the C0 freeze (null until then). Tools that read SRC content
+//   use `freeze_sha ?? cut_sha`.
 import { spawnSync } from "node:child_process";
 import { mkdirSync, readFileSync, realpathSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
+import { JSOLLY_ORIGIN, readLegacyJson } from "../blogthedata-redirects.mjs";
 
 export const ROOT = fileURLToPath(new URL("../..", import.meta.url));
 export const SOURCE_JSON = "scripts/port/source.json";
+const LEGACY = "legacy/blogthedata";
+export const URL_MAP = `${LEGACY}/url-map.json`;
+export const URL_UNION = `${LEGACY}/url-union.json`;
+// The generated recipe post is dropped (J7); its URL re-homes at /recipes/.
+export const DROPPED_RECIPE_POST = "15-minute-dump-and-go-instant-pot-recipes";
 // The awesome-blog checkout on John's laptop; CI has none, and the tests pass --src.
 const DEFAULT_SRC = join(homedir(), "code", "awesome-blog");
 const BIOME = join(ROOT, "node_modules", ".bin", "biome");
 const FULL_SHA = /^[0-9a-f]{40}$/u;
 const MAX_BUFFER = 512 * 1024 * 1024;
+const LOCATIONS = {
+	src: { type: "string" },
+	dst: { type: "string" },
+};
 
-// Parses `--src`, `--dst` and the tool's own options; positionals pass through.
-export function parseCli(argv, options = {}) {
+// Parses the location options a tool reads (`locations`, from "src" and
+// "dst") and its own options; anything else is refused.
+export function parseCli(argv, { locations = [], options = {} } = {}) {
 	const { values, positionals } = parseArgs({
 		args: argv,
 		options: {
-			src: { type: "string" },
-			dst: { type: "string" },
+			...Object.fromEntries(locations.map((name) => [name, LOCATIONS[name]])),
 			...options,
 		},
 		allowPositionals: true,
@@ -38,8 +49,10 @@ export function parseCli(argv, options = {}) {
 	});
 	return {
 		...values,
-		src: resolve(values.src ?? DEFAULT_SRC),
-		dst: resolve(values.dst ?? ROOT),
+		...(locations.includes("src") && {
+			src: resolve(values.src ?? DEFAULT_SRC),
+		}),
+		...(locations.includes("dst") && { dst: resolve(values.dst ?? ROOT) }),
 		positionals,
 	};
 }
@@ -67,6 +80,22 @@ export function runCli(moduleUrl, main) {
 		);
 }
 
+// spawnSync that throws on a non-zero exit. Returns stdout (a string, or a
+// Buffer with `encoding: "buffer"`).
+export function run(command, args, options = {}) {
+	const result = spawnSync(command, args, {
+		encoding: "utf8",
+		maxBuffer: MAX_BUFFER,
+		...options,
+	});
+	if (result.status !== 0) {
+		throw new Error(
+			`${command} ${args.join(" ")} failed (${result.status ?? result.signal}): ${String(result.stderr ?? "").trim()}`,
+		);
+	}
+	return result.stdout;
+}
+
 // A hook or another tool may export GIT_DIR, GIT_INDEX_FILE and friends, which
 // override `git -C`. SRC reads drop every repository-location variable and keep
 // only configuration (GIT_CONFIG_*), so they always read the repo they name.
@@ -78,23 +107,19 @@ function gitEnv() {
 	);
 }
 
-// `git -C <repo> ...` with status. stdout is a Buffer when `binary` is set.
-export function gitStatus(repo, args, { binary = false } = {}) {
+// The exit status of `git -C <repo> ...`, for commands whose status is the answer.
+export function gitStatus(repo, args) {
 	return spawnSync("git", ["-C", repo, ...args], {
-		encoding: binary ? "buffer" : "utf8",
+		encoding: "utf8",
 		env: gitEnv(),
-		maxBuffer: MAX_BUFFER,
-	});
+	}).status;
 }
 
-export function git(repo, args, options) {
-	const result = gitStatus(repo, args, options);
-	if (result.status !== 0) {
-		throw new Error(
-			`git -C ${repo} ${args.join(" ")} failed: ${String(result.stderr).trim()}`,
-		);
-	}
-	return result.stdout;
+export function git(repo, args, { binary = false } = {}) {
+	return run("git", ["-C", repo, ...args], {
+		encoding: binary ? "buffer" : "utf8",
+		env: gitEnv(),
+	});
 }
 
 // Resolves a revision in SRC to its full commit SHA.
@@ -130,24 +155,30 @@ export function sourceSha(source) {
 	return source.freeze_sha ?? source.cut_sha;
 }
 
+// url-map.json or url-union.json of a DST tree.
+export function readLegacy(dst, name) {
+	return readLegacyJson(name, join(dst, LEGACY));
+}
+
+// Old path → root-relative jsolly path, for every exact redirect row.
+export function redirectPaths(dst) {
+	return new Map(
+		readLegacy(dst, "url-map.json")
+			.rows.filter(
+				(row) => row.action === "redirect-301" && row.match === "exact",
+			)
+			.map((row) => [row.source, row.destination.slice(JSOLLY_ORIGIN.length)]),
+	);
+}
+
 // Formats text exactly as `biome format` would format the file at `relative`
 // in this repository (cwd ROOT, so the repo's biome.jsonc applies even when
 // --dst points elsewhere).
 export function biomeFormat(relative, text) {
-	const result = spawnSync(BIOME, ["format", `--stdin-file-path=${relative}`], {
+	return run(BIOME, ["format", `--stdin-file-path=${relative}`], {
 		cwd: ROOT,
 		input: text,
-		encoding: "utf8",
-		maxBuffer: MAX_BUFFER,
 	});
-	if (result.status !== 0) {
-		throw new Error(`biome format ${relative} failed: ${result.stderr.trim()}`);
-	}
-	return result.stdout;
-}
-
-export function readDstJson(dst, relative) {
-	return JSON.parse(readFileSync(join(dst, relative), "utf8"));
 }
 
 export function writeDstFile(dst, relative, content) {

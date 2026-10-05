@@ -3,123 +3,48 @@
 //
 //   node scripts/port/url-map-sync.mjs
 //
-// - Published posts (`draft: false`; a missing `draft` defaults to true, as
-//   the collection schema does), categories, recipe ids and media files each
-//   need a redirect-301 row from their old path to its jsolly.com home.
+// - The URLs come from the content entries of path-map.mjs: published posts
+//   (`draft: false`; a missing `draft` defaults to true), categories, recipe
+//   ids and media files each need a redirect-301 row from their old path to
+//   its jsolly.com home.
 // - Each new row goes at the end of url-map.json with the next id of its
 //   prefix; ids are frozen, so nothing is renumbered.
 // - url-union.json gains the path and, for a page, its served `/index.html`
 //   form, so the cutover verifier probes both.
-// - Rows are never removed or edited. A path whose existing row does not
-//   redirect (stays-404, serve-200) fails the run, since content now exists
-//   there and the decision is John's.
+// - Rows are never removed or edited. A new path that an existing row already
+//   answers without redirecting (an exact stays-404 or serve-200 row, or any
+//   pattern row, compiled as Vercel compiles it) fails the run: content now
+//   exists there and the decision is John's.
 // - meta.freeze_sha takes source.json's freeze_sha once C0 sets it.
 //
 // Run `npm run redirects:write` afterwards to regenerate vercel.json.
 import { isDeepStrictEqual } from "node:util";
-import { JSOLLY_ORIGIN } from "../blogthedata-redirects.mjs";
+import { sourceToRegex } from "@vercel/routing-utils";
 import {
 	formatJson,
 	groupsOf,
 	parseCli,
-	readDstJson,
+	readLegacy,
 	readSource,
 	runCli,
 	sourceSha,
 	srcBlob,
 	srcFiles,
+	URL_MAP,
+	URL_UNION,
 	writeDstFile,
 } from "./lib.mjs";
+import { contentMappings } from "./path-map.mjs";
 
-const URL_MAP = "legacy/blogthedata/url-map.json";
-const URL_UNION = "legacy/blogthedata/url-union.json";
-const POST = /^src\/content\/posts\/(?<slug>[^/.][^/]*)\.md$/u;
-const CATEGORY = /^src\/content\/categories\/(?<slug>[^/]+)\.json$/u;
-const RECIPE_MEDIA = /^public\/media\/recipes\/(?<file>[^/]+)$/u;
-const BLOG_MEDIA = /^public\/media\/(?<file>(?!recipes\/).+)$/u;
-const RECIPES_JSON = "src/components/recipes/recipes.json";
-const FRONTMATTER = /^---\n(?<yaml>[\s\S]*?)\n---(?:\n|$)/u;
-const DRAFT = /^draft:[ \t]*(?<value>[^#\n]*?)[ \t]*(?:#.*)?$/mu;
-const YAML_FALSE = new Set(["false", "False", "FALSE"]);
-const YAML_TRUE = new Set(["true", "True", "TRUE"]);
 const ROW_ID = /^(?<prefix>[A-Z]+)-(?<number>\d+)$/u;
 
-// Whether a post at `sha` is published. Anything but a YAML boolean fails.
-function isPublished(path, text) {
-	const yaml = groupsOf(FRONTMATTER, text)?.yaml;
-	if (yaml === undefined) {
-		throw new Error(`${path} has no frontmatter`);
-	}
-	const value = groupsOf(DRAFT, yaml)?.value;
-	if (value === undefined || YAML_TRUE.has(value)) {
-		return false;
-	}
-	if (YAML_FALSE.has(value)) {
-		return true;
-	}
-	throw new Error(`${path}: cannot read draft: ${value}`);
-}
-
-// The content at `sha` as the rows it needs, in a stable order.
+// The legacy URLs the content at `sha` publishes, in path-map order.
 function neededRows(src, sha) {
-	const files = srcFiles(src, sha);
-	const needed = [];
-	const page = (prefix, rowClass, slashPath, destinationPath) => ({
-		prefix,
-		class: rowClass,
-		source: slashPath,
-		destination: `${JSOLLY_ORIGIN}${destinationPath}`,
-		paths: [slashPath, `${slashPath}index.html`],
-	});
-	for (const path of files) {
-		const post = groupsOf(POST, path)?.slug;
-		if (
-			post !== undefined &&
-			isPublished(path, srcBlob(src, sha, path).toString("utf8"))
-		) {
-			needed.push(page("PST", "post", `/post/${post}/`, `/blog/${post}/`));
-		}
-	}
-	for (const path of files) {
-		const category = groupsOf(CATEGORY, path)?.slug;
-		if (category !== undefined) {
-			needed.push(
-				page(
-					"CAT",
-					"category",
-					`/category/${category}/`,
-					`/blog/category/${category}/`,
-				),
-			);
-		}
-	}
-	if (files.includes(RECIPES_JSON)) {
-		const { recipes } = JSON.parse(
-			srcBlob(src, sha, RECIPES_JSON).toString("utf8"),
-		);
-		for (const id of recipes.map((recipe) => recipe.id).sort()) {
-			needed.push(
-				page("RCP", "recipe-page", `/recipes/${id}/`, `/recipes/${id}/`),
-			);
-		}
-	}
-	for (const path of files) {
-		const recipeFile = groupsOf(RECIPE_MEDIA, path)?.file;
-		const blogFile = groupsOf(BLOG_MEDIA, path)?.file;
-		const [source, destination] = recipeFile
-			? [`/media/recipes/${recipeFile}`, `/recipes/media/${recipeFile}`]
-			: [`/media/${blogFile}`, `/blog/media/${blogFile}`];
-		if (recipeFile !== undefined || blogFile !== undefined) {
-			needed.push({
-				prefix: "MED",
-				class: "asset-media",
-				source,
-				destination: `${JSOLLY_ORIGIN}${destination}`,
-				paths: [source],
-			});
-		}
-	}
-	return needed;
+	return contentMappings(srcFiles(src, sha)).flatMap(({ from, rest, entry }) =>
+		entry.legacy
+			? entry.legacy(rest, () => srcBlob(src, sha, from).toString("utf8"))
+			: [],
+	);
 }
 
 function nextIds(rows) {
@@ -148,20 +73,48 @@ function insertElement(elements, element) {
 	elements.splice(index === -1 ? elements.length : index, 0, element);
 }
 
-export function syncMap({ map, union, needed, sha, freezeSha }) {
+// The existing non-redirect row that already answers `path`, if any.
+function blockingRow(rows, patterns, path) {
+	return (
+		rows.find(
+			(row) =>
+				row.match === "exact" &&
+				row.source === path &&
+				row.action !== "redirect-301",
+		) ?? patterns.find(({ regex }) => regex.test(path))?.row
+	);
+}
+
+function syncMap({ map, union, needed, sha, freezeSha }) {
 	const rows = [...map.rows];
 	const elements = [...union.elements];
 	const bySource = new Map(rows.map((row) => [row.source, row]));
 	const known = new Set(elements.map((element) => element.path));
+	const patterns = rows
+		.filter((row) => row.match === "pattern")
+		.map((row) => ({
+			row,
+			regex: new RegExp(sourceToRegex(row.source).src, "u"),
+		}));
 	const nextId = nextIds(rows);
 	const added = { rows: [], paths: [] };
 	for (const item of needed) {
-		let row = bySource.get(item.source);
-		if (row && row.action !== "redirect-301") {
+		const existing = bySource.get(item.source);
+		const newPaths = item.paths.filter((path) => !known.has(path));
+		// A source that already redirects is settled; anything else is checked.
+		const checked =
+			existing?.action === "redirect-301"
+				? newPaths
+				: [item.source, ...newPaths];
+		const blocked = checked
+			.map((path) => ({ path, row: blockingRow(rows, patterns, path) }))
+			.find((candidate) => candidate.row !== undefined);
+		if (blocked) {
 			throw new Error(
-				`${row.id} ${row.source} is ${row.action}, but awesome-blog@${sha.slice(0, 10)} has content there; decide the row by hand`,
+				`${blocked.row.id} (${blocked.row.source}, ${blocked.row.action}) already answers ${blocked.path}, but awesome-blog@${sha.slice(0, 10)} has content there; decide the row by hand`,
 			);
 		}
+		let row = existing;
 		if (!row) {
 			row = {
 				id: nextId(item.prefix),
@@ -178,9 +131,7 @@ export function syncMap({ map, union, needed, sha, freezeSha }) {
 			bySource.set(row.source, row);
 			added.rows.push(row);
 		}
-		for (const path of item.paths.filter(
-			(candidate) => !known.has(candidate),
-		)) {
+		for (const path of newPaths) {
 			insertElement(elements, {
 				kind: "path",
 				path,
@@ -195,6 +146,15 @@ export function syncMap({ map, union, needed, sha, freezeSha }) {
 			added.paths.push(path);
 		}
 	}
+	// The never-remove guarantee, checked rather than assumed.
+	if (
+		!isDeepStrictEqual(rows.slice(0, map.rows.length), map.rows) ||
+		!union.elements.every((element) =>
+			elements.some((other) => isDeepStrictEqual(other, element)),
+		)
+	) {
+		throw new Error("url-map-sync would change or drop an existing entry");
+	}
 	const meta =
 		freezeSha === null ? map.meta : { ...map.meta, freeze_sha: freezeSha };
 	return {
@@ -205,27 +165,16 @@ export function syncMap({ map, union, needed, sha, freezeSha }) {
 }
 
 function main(argv) {
-	const { src, dst } = parseCli(argv);
+	const { src, dst } = parseCli(argv, { locations: ["src", "dst"] });
 	const source = readSource(dst);
 	const sha = sourceSha(source);
-	const map = readDstJson(dst, URL_MAP);
-	const union = readDstJson(dst, URL_UNION);
 	const synced = syncMap({
-		map,
-		union,
+		map: readLegacy(dst, "url-map.json"),
+		union: readLegacy(dst, "url-union.json"),
 		needed: neededRows(src, sha),
 		sha,
 		freezeSha: source.freeze_sha,
 	});
-	// The never-remove guarantee, checked rather than assumed.
-	if (
-		!isDeepStrictEqual(synced.map.rows.slice(0, map.rows.length), map.rows) ||
-		!union.elements.every((element) =>
-			synced.union.elements.some((other) => isDeepStrictEqual(other, element)),
-		)
-	) {
-		throw new Error("url-map-sync would change or drop an existing entry");
-	}
 	writeDstFile(dst, URL_MAP, formatJson(URL_MAP, synced.map));
 	writeDstFile(dst, URL_UNION, formatJson(URL_UNION, synced.union));
 	console.log(

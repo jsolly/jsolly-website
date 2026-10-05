@@ -30,10 +30,24 @@ const NO_OLD_HOST_HREF = /href="https?:\/\/(?:www\.)?blogthedata\.com/u;
 const TAB_INDENTED = /^\{\n\t"/u;
 const OLD_RECIPE_MEDIA = /\/media\/recipes\//u;
 const LISTS_THE_POST = /how-to-get-perfect-linting-compliance\.md/u;
-const NOTHING_CHANGED = /Changed 0 of 1 posts/u;
+const NOTHING_CHANGED = /Changed 0 of 2 posts/u;
 const THREE_CONTENT_FILES = /3 content file\(s\) changed/u;
 const NAMES_THE_CODE_FILE = /src\/lib\/html\.ts/u;
+const NAMES_THE_NESTED_POST = /src\/content\/posts\/drafts\/notes\.md/u;
+const HISTORY_REWRITTEN = /does not contain the cut/u;
 const WARNS_REMOVED = /removed public\/blog\/media\/default\.webp/u;
+const REPORTS_EXCLUDED =
+	/skipped src\/content\/posts\/15-minute-dump-and-go-instant-pot-recipes\.md/u;
+const NAMES_THE_ARCHIVE_POST =
+	/src\/content\/posts\/archive\/2019-roundup\.md/u;
+const NAMES_THE_EDITED_POST =
+	/src\/content\/blog\/posts\/Find-Your-Dream-Job-With-LinkedIn-Boolean-Search\.md/u;
+const NAMES_THE_ADMIN_LINK =
+	/no jsolly destination for https:\/\/blogthedata\.com\/admin\//u;
+const NAMES_PST_106 = /PST-106/u;
+const MARKDOWN_LINK_WITH_QUERY =
+	/\[django posts\]\(\/blog\/search\/\?searched=django\)/u;
+const NAMES_DJG_005 = /DJG-005/u;
 const FROZEN_FILES = [
 	"legacy/blogthedata/url-map.json",
 	"legacy/blogthedata/url-union.json",
@@ -95,6 +109,10 @@ function fixture(t) {
 		setOriginMain(sha) {
 			git("update-ref", "refs/remotes/origin/main", sha);
 		},
+		// A parentless copy of `sha`'s tree: origin/main after a force-push.
+		rewrittenCopy(sha) {
+			return git("commit-tree", `${sha}^{tree}`, "-m", "force-pushed rewrite");
+		},
 		writeDst(files) {
 			write(dst, files);
 		},
@@ -115,10 +133,15 @@ function fixture(t) {
 				);
 			}
 		},
+		// rewrite-content reads only DST; every other tool reads SRC too.
 		run(tool, ...args) {
+			const locations =
+				tool === "rewrite-content.mjs"
+					? ["--dst", dst]
+					: ["--src", src, "--dst", dst];
 			return spawnSync(
 				process.execPath,
-				[join(PORT_DIR, tool), ...args, "--src", src, "--dst", dst],
+				[join(PORT_DIR, tool), ...args, ...locations],
 				{ env, encoding: "utf8" },
 			);
 		},
@@ -149,8 +172,19 @@ const REWRITE_POST = post({
 		"",
 		"<h2>&nbsp;</h2>",
 		"",
+		"Search the archive: [django posts](http://www.blogthedata.com/search/?searched=django).",
+		"",
+		'<p>Next up: <a href="https://blogthedata.com/post/mapping-flood-risk-with-postgis/">flood maps</a>.</p>',
+		"",
 		"## Results",
 	].join("\n"),
+});
+
+// Published after the cut: no url-map row until C0's url-map-sync, which the
+// plan runs after rewrite-content.
+const LATER_POST = post({
+	slug: "mapping-flood-risk-with-postgis",
+	body: "<p>PostGIS makes flood zones queryable.</p>",
 });
 
 it("B04's rewrite, run again over the rewritten posts at C0, changes nothing", (t) => {
@@ -158,6 +192,7 @@ it("B04's rewrite, run again over the rewritten posts at C0, changes nothing", (
 	tree.copyRealMap();
 	tree.writeDst({
 		[`${POSTS}/how-to-get-perfect-linting-compliance.md`]: REWRITE_POST,
+		[`${POSTS}/mapping-flood-risk-with-postgis.md`]: LATER_POST,
 	});
 
 	const dryRun = tree.run("rewrite-content.mjs", "--dry-run");
@@ -192,6 +227,15 @@ it("B04's rewrite, run again over the rewritten posts at C0, changes nothing", (
 		rewritten.includes('href="/blog/all-posts/">blogthedata.com/all-posts</a>'),
 	);
 	assert.ok(rewritten.includes('href="/robots.txt"'));
+	assert.match(
+		rewritten,
+		MARKDOWN_LINK_WITH_QUERY,
+		"a Markdown http:// link keeps its query",
+	);
+	assert.ok(
+		rewritten.includes('href="/blog/mapping-flood-risk-with-postgis/"'),
+		"a post with no url-map row yet resolves through its DST file",
+	);
 	assert.ok(rewritten.includes("<p>Reset your password here.</p>"));
 	assert.doesNotMatch(rewritten, NO_OLD_HOST_HREF);
 	assert.ok(!rewritten.includes(DROPPED));
@@ -243,6 +287,7 @@ it("Rewriting posts never touches the migration receipts, the URL map or the rea
 	tree.writeDst({
 		...receipts,
 		[`${POSTS}/how-to-get-perfect-linting-compliance.md`]: REWRITE_POST,
+		[`${POSTS}/mapping-flood-risk-with-postgis.md`]: LATER_POST,
 	});
 	const urlMap = tree.readDst("legacy/blogthedata/url-map.json");
 	const hash = (path) =>
@@ -250,6 +295,24 @@ it("Rewriting posts never touches the migration receipts, the URL map or the rea
 			.update(readFileSync(join(ROOT, path)))
 			.digest("hex");
 	const realBefore = FROZEN_FILES.map(hash);
+	const honeypot = post({
+		slug: "admin-honeypot-page-to-catch-hackers",
+		body: '<p>Try <a href="https://blogthedata.com/admin/">the admin page</a>.</p>',
+	});
+	const honeypotPath = `${POSTS}/admin-honeypot-page-to-catch-hackers.md`;
+	tree.writeDst({ [honeypotPath]: honeypot });
+
+	const refused = tree.run("rewrite-content.mjs");
+
+	assert.equal(refused.status, 1);
+	assert.match(refused.stderr, NAMES_THE_ADMIN_LINK);
+	assert.equal(tree.readDst(honeypotPath), honeypot);
+	assert.equal(
+		tree.readDst(`${POSTS}/how-to-get-perfect-linting-compliance.md`),
+		REWRITE_POST,
+		"an unresolvable link anywhere writes nothing anywhere",
+	);
+	rmSync(join(tree.dst, honeypotPath));
 
 	const result = tree.run("rewrite-content.mjs");
 
@@ -303,8 +366,6 @@ it("At C0, url-map-sync adds rows for content published since the cut, never rem
 				draft: null,
 				body: "<p>PagesCMS saved this without a draft key.</p>",
 			}),
-			"src/content/categories/data-engineering.json":
-				'{\n  "slug": "data-engineering",\n  "name": "Data engineering"\n}',
 			"src/components/recipes/recipes.json": JSON.stringify({
 				version: 1,
 				recipes: [{ id: "chicken-posole" }, { id: "miso-glazed-salmon-bowls" }],
@@ -340,11 +401,6 @@ it("At C0, url-map-sync adds rows for content published since the cut, never rem
 				"redirect-301",
 			],
 			[
-				"/category/data-engineering/",
-				"https://www.jsolly.com/blog/category/data-engineering/",
-				"redirect-301",
-			],
-			[
 				"/recipes/miso-glazed-salmon-bowls/",
 				"https://www.jsolly.com/recipes/miso-glazed-salmon-bowls/",
 				"redirect-301",
@@ -356,6 +412,16 @@ it("At C0, url-map-sync adds rows for content published since the cut, never rem
 			],
 		],
 		"drafts and posts without a draft key get no row",
+	);
+	assert.deepEqual(
+		after.rows.slice(before.rows.length).map((row) => row.id),
+		["PST-112", "RCP-026", "MED-046"],
+		"each prefix continues at its highest id, zero-padded",
+	);
+	assert.equal(
+		new Set(after.rows.map((row) => row.id)).size,
+		after.rows.length,
+		"row ids stay unique",
 	);
 	assert.equal(after.meta.freeze_sha, freeze);
 	const newPost = after.rows.find(
@@ -384,6 +450,41 @@ it("At C0, url-map-sync adds rows for content published since the cut, never rem
 	const unionText = tree.readDst("legacy/blogthedata/url-union.json");
 	const again = tree.run("url-map-sync.mjs");
 	assert.equal(again.status, 0, again.stderr);
+	assert.equal(tree.readDst("legacy/blogthedata/url-map.json"), mapText);
+	assert.equal(tree.readDst("legacy/blogthedata/url-union.json"), unionText);
+
+	// A post republished where the map deliberately 404s (PST-106, J10).
+	const revived = tree.commit(
+		{
+			"src/content/posts/blogthedata-open-source-blog-portfolio.md": post({
+				slug: "blogthedata-open-source-blog-portfolio",
+				body: "<p>The blog is open source again.</p>",
+			}),
+		},
+		"republish a deleted post",
+	);
+	tree.source(cut, revived);
+	const exactRefusal = tree.run("url-map-sync.mjs");
+	assert.notEqual(exactRefusal.status, 0);
+	assert.match(exactRefusal.stderr, NAMES_PST_106);
+	assert.equal(tree.readDst("legacy/blogthedata/url-map.json"), mapText);
+	assert.equal(tree.readDst("legacy/blogthedata/url-union.json"), unionText);
+
+	// A new category lands inside the Django-era stays-404 pattern DJG-005.
+	tree.removeFromSrc(
+		"src/content/posts/blogthedata-open-source-blog-portfolio.md",
+	);
+	const category = tree.commit(
+		{
+			"src/content/categories/data-engineering.json":
+				'{\n  "slug": "data-engineering",\n  "name": "Data engineering"\n}',
+		},
+		"a new category",
+	);
+	tree.source(cut, category);
+	const patternRefusal = tree.run("url-map-sync.mjs");
+	assert.notEqual(patternRefusal.status, 0);
+	assert.match(patternRefusal.stderr, NAMES_DJG_005);
 	assert.equal(tree.readDst("legacy/blogthedata/url-map.json"), mapText);
 	assert.equal(tree.readDst("legacy/blogthedata/url-union.json"), unionText);
 });
@@ -419,6 +520,22 @@ it("freeze-check fails on a code change in awesome-blog after the cut and passes
 	assert.equal(contentOnly.status, 0, contentOnly.stderr);
 	assert.match(contentOnly.stdout, THREE_CONTENT_FILES);
 
+	// Under a content root, but no path-map entry carries it, so --resync could
+	// not import it either.
+	const nested = tree.commit(
+		{
+			"src/content/posts/drafts/notes.md": post({
+				slug: "notes",
+				body: "<p>A nested draft.</p>",
+			}),
+		},
+		"a post in a subdirectory",
+	);
+	tree.setOriginMain(nested);
+	const nestedChange = tree.run("freeze-check.mjs");
+	assert.notEqual(nestedChange.status, 0);
+	assert.match(nestedChange.stderr, NAMES_THE_NESTED_POST);
+
 	const code = tree.commit(
 		{
 			"src/lib/html.ts":
@@ -431,6 +548,11 @@ it("freeze-check fails on a code change in awesome-blog after the cut and passes
 	const codeChange = tree.run("freeze-check.mjs");
 	assert.notEqual(codeChange.status, 0);
 	assert.match(codeChange.stderr, NAMES_THE_CODE_FILE);
+
+	tree.setOriginMain(tree.rewrittenCopy(content));
+	const rewritten = tree.run("freeze-check.mjs");
+	assert.notEqual(rewritten.status, 0);
+	assert.match(rewritten.stderr, HISTORY_REWRITTEN);
 });
 
 it("B03's import applies the path map, copies the posts' .markdownlint.json and C0's resync brings later edits", (t) => {
@@ -453,6 +575,7 @@ it("B03's import applies the path map, copies the posts' .markdownlint.json and 
 		null,
 		2,
 	)}\n`;
+	const nutrition = '{\n  "foods": {"salmon": {"kcal": 208}}\n}\n';
 	const posts = {
 		"src/content/posts/Find-Your-Dream-Job-With-LinkedIn-Boolean-Search.md":
 			post({
@@ -470,8 +593,7 @@ it("B03's import applies the path map, copies the posts' .markdownlint.json and 
 			"src/content/posts/.markdownlint.json": lint,
 			"src/content/categories/Geodev.json": category,
 			"src/components/recipes/recipes.json": recipes,
-			"src/components/recipes/nutrition-data.json":
-				'{\n  "foods": {"salmon": {"kcal": 208}}\n}\n',
+			"src/components/recipes/nutrition-data.json": nutrition,
 			"public/media/default.webp": "RIFF-default-webp",
 			"public/media/recipes/chicken-posole-960.webp": "RIFF-posole-webp",
 		},
@@ -516,6 +638,11 @@ it("B03's import applies the path map, copies the posts' .markdownlint.json and 
 		JSON.parse(recipes.replaceAll("/media/recipes/", "/recipes/media/")),
 	);
 	assert.match(recipesCopy, TAB_INDENTED);
+	const nutritionCopy = tree.readDst(
+		"src/components/recipes/nutrition-data.json",
+	);
+	assert.match(nutritionCopy, TAB_INDENTED);
+	assert.deepEqual(JSON.parse(nutritionCopy), JSON.parse(nutrition));
 	assert.equal(
 		tree.readDst("public/blog/media/default.webp"),
 		"RIFF-default-webp",
@@ -526,13 +653,59 @@ it("B03's import applies the path map, copies the posts' .markdownlint.json and 
 	);
 	assert.ok(!existsSync(join(tree.dst, "public/blog/media/recipes")));
 
+	// A later step's hand edit survives a plain re-import; --overwrite resets it.
+	const handEdited = `${tree.readDst(dreamJob)}<p>Edited by hand in B04.</p>\n`;
+	tree.writeDst({ [dreamJob]: handEdited });
+	const guarded = tree.run("import-awesome-blog.mjs", "posts");
+	assert.equal(guarded.status, 1);
+	assert.match(guarded.stderr, NAMES_THE_EDITED_POST);
+	assert.equal(tree.readDst(dreamJob), handEdited);
+	const overwritten = tree.run(
+		"import-awesome-blog.mjs",
+		"posts",
+		"--overwrite",
+	);
+	assert.equal(overwritten.status, 0, overwritten.stderr);
+	assert.equal(
+		tree.readDst(dreamJob),
+		posts[
+			"src/content/posts/Find-Your-Dream-Job-With-LinkedIn-Boolean-Search.md"
+		],
+	);
+
 	const later = post({
 		slug: "Find-Your-Dream-Job-With-LinkedIn-Boolean-Search",
 		body: "<p>Boolean search finds the roles you want, now with NOT.</p>",
 	});
+	const laterCategory =
+		'{\n  "slug": "Geodev",\n  "name": "Geospatial development",\n  "legacyId": 4\n}\n';
+	const laterRecipes = `${JSON.stringify(
+		{
+			version: 1,
+			recipes: [
+				{
+					id: "chicken-posole",
+					image: "/media/recipes/chicken-posole-960.webp",
+					guide: `/post/${DROPPED}/#chicken-posole`,
+				},
+				{
+					id: "miso-glazed-salmon-bowls",
+					image: "/media/recipes/miso-glazed-salmon-bowls-960.webp",
+				},
+			],
+		},
+		null,
+		2,
+	)}\n`;
 	tree.removeFromSrc("public/media/default.webp");
 	const freeze = tree.commit(
 		{
+			"src/content/categories/Geodev.json": laterCategory,
+			"src/components/recipes/recipes.json": laterRecipes,
+			[`src/content/posts/${DROPPED}.md`]: post({
+				slug: DROPPED,
+				body: "<p>Regenerated.</p>",
+			}),
 			"src/content/posts/Find-Your-Dream-Job-With-LinkedIn-Boolean-Search.md":
 				later,
 			"src/content/posts/stac-catalogs-for-beginners.md": post({
@@ -562,9 +735,44 @@ it("B03's import applies the path map, copies the posts' .markdownlint.json and 
 		JSON.parse(tree.readDst("scripts/port/source.json")).freeze_sha,
 		freeze,
 	);
+	assert.match(resync.stdout, REPORTS_EXCLUDED);
+	assert.ok(!existsSync(join(tree.dst, POSTS, `${DROPPED}.md`)));
 	assert.equal(
 		tree.readDst("src/content/blog/categories/Geodev.json"),
-		categoryCopy,
+		JSON.stringify(JSON.parse(laterCategory), null, 2),
+		"the resynced category keeps PagesCMS's shape",
+	);
+	const resyncedRecipes = tree.readDst("src/components/recipes/recipes.json");
+	assert.doesNotMatch(resyncedRecipes, OLD_RECIPE_MEDIA);
+	assert.match(resyncedRecipes, TAB_INDENTED);
+	assert.deepEqual(
+		JSON.parse(resyncedRecipes),
+		JSON.parse(
+			laterRecipes
+				.replaceAll("/media/recipes/", "/recipes/media/")
+				.replaceAll(`/post/${DROPPED}/`, "/recipes/"),
+		),
+		"the old recipe post link keeps its #fragment on /recipes/",
+	);
+
+	// A content-root path no entry carries stops the resync before any write.
+	tree.setOriginMain(
+		tree.commit(
+			{
+				"src/content/posts/archive/2019-roundup.md": post({
+					slug: "2019-roundup",
+					body: "<p>The year in review.</p>",
+				}),
+			},
+			"an archived post in a subdirectory",
+		),
+	);
+	const unmapped = tree.run("import-awesome-blog.mjs", "--resync");
+	assert.equal(unmapped.status, 1);
+	assert.match(unmapped.stderr, NAMES_THE_ARCHIVE_POST);
+	assert.equal(
+		JSON.parse(tree.readDst("scripts/port/source.json")).freeze_sha,
+		freeze,
 	);
 });
 

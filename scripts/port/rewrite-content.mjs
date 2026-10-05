@@ -20,12 +20,17 @@
 // before anything is written.
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { JSOLLY_ORIGIN } from "../blogthedata-redirects.mjs";
-import { groupsOf, parseCli, readDstJson, runCli } from "./lib.mjs";
+import {
+	DROPPED_RECIPE_POST,
+	groupsOf,
+	parseCli,
+	redirectPaths,
+	runCli,
+} from "./lib.mjs";
 
 const POSTS_DIR = "src/content/blog/posts";
-const URL_MAP = "legacy/blogthedata/url-map.json";
-const DROPPED_RELATED = "15-minute-dump-and-go-instant-pot-recipes";
+const OLD_POST = /^\/post\/(?<slug>[^/]+)\/?$/u;
+const MARKDOWN_EXTENSION = /\.md$/u;
 const SAME_PATH = new Set(["/robots.txt", "/.well-known/security.txt"]);
 const POST_FILE = /^[^.].*\.md$/u;
 const FRONTMATTER = /^(?<block>---\n[\s\S]*?\n---(?:\n|$))/u;
@@ -132,8 +137,10 @@ function isEmptyHeading(content) {
 	return content.replace(TAG, "").replace(BLANK, "") === "";
 }
 
-// The root-relative jsolly URL for an old-host URL, or null when unknown.
-function jsollyUrl(url, redirects) {
+// The root-relative jsolly URL for an old-host URL, or null when unknown. A
+// post published after the cut has no url-map row until C0's url-map-sync,
+// which runs after this; its DST file is proof enough of /blog/<slug>/.
+function jsollyUrl(url, { redirects, posts }) {
 	const parsed = new URL(url);
 	const suffix = `${parsed.search}${parsed.hash}`;
 	if (SAME_PATH.has(parsed.pathname)) {
@@ -151,20 +158,24 @@ function jsollyUrl(url, redirects) {
 	const destination = candidates
 		.map((path) => redirects.get(path))
 		.find(Boolean);
-	return destination
-		? `${destination.slice(JSOLLY_ORIGIN.length)}${suffix}`
-		: null;
+	if (destination) {
+		return `${destination}${suffix}`;
+	}
+	const slug = groupsOf(OLD_POST, parsed.pathname)?.slug;
+	return posts.has(slug) ? `/blog/${slug}/${suffix}` : null;
 }
 
-// Drops DROPPED_RELATED from a block-style `related:` list.
+// Drops DROPPED_RECIPE_POST from a block-style `related:` list.
 function rewriteRelated(frontmatter, problems) {
 	const lines = frontmatter.split("\n");
 	const key = lines.findIndex((line) => RELATED_KEY.test(line));
 	if (key === -1) {
 		return { text: frontmatter, removed: 0 };
 	}
-	if (RELATED_KEY.exec(lines[key]).groups.inline?.includes(DROPPED_RELATED)) {
-		problems.push(`inline related list names ${DROPPED_RELATED}`);
+	if (
+		RELATED_KEY.exec(lines[key]).groups.inline?.includes(DROPPED_RECIPE_POST)
+	) {
+		problems.push(`inline related list names ${DROPPED_RECIPE_POST}`);
 		return { text: frontmatter, removed: 0 };
 	}
 	let end = key + 1;
@@ -174,7 +185,9 @@ function rewriteRelated(frontmatter, problems) {
 	const items = lines.slice(key + 1, end);
 	const kept = items.filter((line) => {
 		const value = groupsOf(LIST_ITEM, line)?.value;
-		return (groupsOf(QUOTES, value ?? "")?.inner ?? value) !== DROPPED_RELATED;
+		return (
+			(groupsOf(QUOTES, value ?? "")?.inner ?? value) !== DROPPED_RECIPE_POST
+		);
 	});
 	const removed = items.length - kept.length;
 	if (removed === 0) {
@@ -188,7 +201,7 @@ function rewriteRelated(frontmatter, problems) {
 }
 
 // One post's rewritten text, the count of each rewrite and any unresolved link.
-export function rewritePost(text, redirects) {
+function rewritePost(text, known) {
 	const counts = { links: 0, passwordReset: 0, related: 0, headings: 0 };
 	const problems = [];
 	const targets = new Set();
@@ -196,7 +209,7 @@ export function rewritePost(text, redirects) {
 	const related = rewriteRelated(frontmatter, problems);
 	counts.related = related.removed;
 	const replaceUrl = (match, before, url) => {
-		const rewritten = jsollyUrl(url, redirects);
+		const rewritten = jsollyUrl(url, known);
 		if (rewritten === null) {
 			problems.push(`no jsolly destination for ${url}`);
 			return match;
@@ -232,29 +245,23 @@ export function rewritePost(text, redirects) {
 	return { text: `${related.text}${body}`, counts, problems, targets };
 }
 
-function redirectDestinations(dst) {
-	return new Map(
-		readDstJson(dst, URL_MAP)
-			.rows.filter(
-				(row) => row.action === "redirect-301" && row.match === "exact",
-			)
-			.map((row) => [row.source, row.destination]),
-	);
-}
-
 function main(argv) {
 	const { dst, "dry-run": dryRun } = parseCli(argv, {
-		"dry-run": { type: "boolean" },
+		locations: ["dst"],
+		options: { "dry-run": { type: "boolean" } },
 	});
-	const redirects = redirectDestinations(dst);
 	const dir = join(dst, POSTS_DIR);
-	const results = readdirSync(dir)
+	const names = readdirSync(dir)
 		.filter((name) => POST_FILE.test(name))
-		.sort()
-		.map((name) => {
-			const before = readFileSync(join(dir, name), "utf8");
-			return { name, before, ...rewritePost(before, redirects) };
-		});
+		.sort();
+	const known = {
+		redirects: redirectPaths(dst),
+		posts: new Set(names.map((name) => name.replace(MARKDOWN_EXTENSION, ""))),
+	};
+	const results = names.map((name) => {
+		const before = readFileSync(join(dir, name), "utf8");
+		return { name, before, ...rewritePost(before, known) };
+	});
 	const problems = results.flatMap(({ name, problems: found }) =>
 		found.map((problem) => `${POSTS_DIR}/${name}: ${problem}`),
 	);
