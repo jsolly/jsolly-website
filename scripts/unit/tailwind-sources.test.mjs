@@ -14,6 +14,8 @@ const SOURCE_ROOTS = [
 	"src/pages/",
 	"src/lib/",
 ];
+// Directories under the source roots that must not feed main.css.
+const EXCLUDED = ["src/lib/blog/"];
 
 // The same source resolution @tailwindcss/vite performs for a stylesheet.
 async function scan() {
@@ -43,6 +45,14 @@ it("Tailwind builds the portfolio stylesheet only from the four portfolio source
 		outside,
 		[],
 		"files outside the portfolio source roots feed main.css",
+	);
+	const excluded = files.filter((file) =>
+		EXCLUDED.some((prefix) => file.startsWith(prefix)),
+	);
+	assert.deepEqual(
+		excluded,
+		[],
+		"excluded directories feed main.css; keep their @source not lines",
 	);
 	const unscannedRoots = SOURCE_ROOTS.filter(
 		(root) => !files.some((file) => file.startsWith(root)),

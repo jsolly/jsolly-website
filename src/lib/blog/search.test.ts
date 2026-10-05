@@ -1,8 +1,14 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { createArticleSearch } from "./search.js";
+import { z } from "zod";
+import {
+	createArticleSearch,
+	parseSearchIndex,
+	searchEntry,
+} from "./search.js";
 
-const search = createArticleSearch([
+// Round-trips through JSON, as the island receives the index.
+const index = JSON.stringify([
 	{
 		slug: "recipes",
 		title: "Instant Pot recipes",
@@ -22,6 +28,7 @@ const search = createArticleSearch([
 		text: "This article mentions instant pot recipes while discussing software.",
 	},
 ]);
+const search = createArticleSearch(parseSearchIndex(JSON.parse(index)));
 
 describe("createArticleSearch", () => {
 	it("A title match ranks above an incidental body mention", () => {
@@ -37,5 +44,11 @@ describe("createArticleSearch", () => {
 		assert.deepEqual(search("zzzznomatch"), []);
 		assert.deepEqual(search("   "), []);
 		assert.deepEqual(search("instant rules"), []);
+		// A malformed index fails to parse rather than searching partial data.
+		assert.throws(() => parseSearchIndex([{ slug: "rules", title: "Rules" }]));
+		assert.throws(() => parseSearchIndex({ entries: [] }));
+		assert.equal(searchEntry.safeParse({ slug: "rules" }).success, false);
+		// Parsing ran with zod's JIT off (the CSP has no 'unsafe-eval').
+		assert.equal(z.config().jitless, true);
 	});
 });

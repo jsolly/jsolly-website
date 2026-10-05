@@ -21,6 +21,14 @@ describe("articleHtml", () => {
 		assert.match(rendered, /<table>/u);
 		assert.match(rendered, /youtube\.com\/embed/u);
 		assert.doesNotMatch(rendered, /<script|onerror|javascript:|evil\.example/u);
+		const images = articleHtml(
+			'<img src="/blog/media/upload.webp"><img src=""><img src="http://example.com/x.jpg"><img src="/images/x.jpg">',
+		);
+		assert.match(images, /src="\/blog\/media\/upload\.webp"/u);
+		assert.match(images, /src="\/blog\/media\/default\.webp"/u);
+		assert.match(images, /src="http:\/\/example\.com\/x\.jpg"/u);
+		assert.match(images, /src="\/images\/x\.jpg"/u);
+		assert.doesNotMatch(images, /cloudfront\.net\/media\/blog\/media/u);
 		const authoredIds = articleHtml(
 			// biome-ignore lint/security/noSecrets: an HTML fixture, not credential material.
 			'<p id="terms">Intro paragraph</p><p id="kept">Independent anchor</p><h2 id="Intro">Introduction</h2><h2 id="terms">Intro</h2><h2 id="terms">Terms</h2>',

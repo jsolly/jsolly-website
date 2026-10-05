@@ -6,13 +6,19 @@ import { z } from "zod";
 // violation, so turn it off before any schema exists.
 z.config({ jitless: true });
 
-const searchEntry = z.object({
+export const searchEntry = z.object({
 	slug: z.string(),
 	title: z.string(),
 	description: z.string(),
 	text: z.string(),
 });
 type SearchEntry = z.infer<typeof searchEntry>;
+
+// The fetched /blog/search-index.json body; throws when it is not a list of
+// entries, so the island shows its error state instead of searching garbage.
+export function parseSearchIndex(json: unknown): SearchEntry[] {
+	return z.array(searchEntry).parse(json);
+}
 
 export function createArticleSearch(entries: SearchEntry[]) {
 	const documents = new Map(entries.map((entry) => [entry.slug, entry]));

@@ -3,10 +3,11 @@ import sanitizeHtml from "sanitize-html";
 
 // The retained blogthedata S3/CloudFront host for legacy post images (J6).
 const legacyMedia = "https://d1d7p8ufhgz4ld.cloudfront.net/media/";
-const DEFAULT_IMAGE = "/blog/media/default.webp";
+// The post image when frontmatter names none; the posts schema defaults to it.
+export const DEFAULT_IMAGE = "/blog/media/default.webp";
 
-const ABSOLUTE_HTTPS = /^https:\/\//u;
-const MEDIAFILES_PREFIX = /^\/?mediafiles\//u;
+const ABSOLUTE_HTTP = /^https?:\/\//iu;
+const MEDIAFILES_PREFIX = /^mediafiles\//u;
 const WHITESPACE_RUN = /\s+/gu;
 const NON_SLUG_CHARACTER = /[^a-zA-Z0-9_-]/gu;
 // An h1–h3 element with its attributes and inner HTML.
@@ -16,40 +17,29 @@ const OPENING_TAG = /<(?<tag>[a-z][a-z0-9]*)(?<attributes>[^>]*)>/gu;
 const ID_ATTRIBUTE = /\s+id="[^"]*"/gu;
 const CAPTURED_ID_ATTRIBUTE = /\s+id="(?<id>[^"]*)"/gu;
 
-// CSS values authored posts carry in inline style attributes.
+// CSS values the style table below accepts for more than one property.
 const LENGTH = /^\d+(?:\.\d+)?(?:%|px|em|rem)$/u;
 const ZERO_OR_LENGTH = /^(?:0|\d+(?:\.\d+)?(?:%|px|em|rem))$/u;
-const ZERO_OR_FIXED_LENGTH = /^(?:0|\d+(?:\.\d+)?(?:px|em|rem))$/u;
 const COLOR = /^(?:#[0-9a-f]{3,8}|(?:rgb|hsl)\([\d.,%\s]+\))$/iu;
-const HEX_COLOR = /^#[0-9a-f]{3,8}$/iu;
-const ASPECT_RATIO = /^\d+\s*\/\s*\d+$/u;
-const TEXT_ALIGN = /^(?:left|right|center|justify|start)$/u;
-const FLOAT = /^(?:left|right|none)$/u;
-const POSITION = /^(?:relative|absolute)$/u;
 const ZERO = /^0$/u;
-const PADDING = /^(?:\d+(?:\.\d+)?(?:px|em|rem)\s*){1,4}$/u;
-const BORDER = /^\d+px solid (?:black|#[0-9a-f]{3,8})$/iu;
-const SOLID = /^solid$/u;
-const COLLAPSE = /^collapse$/u;
-const AUTO = /^auto$/u;
-const FONT_FAMILY = /^[a-z\s,-]+$/iu;
-const FONT_SIZE = /^\d+(?:\.\d+)?(?:px|em|rem)$/u;
-const FONT_WEIGHT = /^[1-9]00$/u;
-const LINE_HEIGHT = /^\d+(?:\.\d+)?$/u;
-const DISC = /^disc$/u;
-const INLINE = /^inline(?:\s*!important)?$/u;
 const NORMAL = /^normal$/u;
-const NONE = /^none$/u;
 const ZERO_PX = /^0px$/u;
 const INITIAL = /^initial$/u;
 const TWO = /^2$/u;
 
+// A bare legacy-relative path (a Django upload such as `post_imgs/x.webp` or
+// `mediafiles/x.webp`) lives on the legacy CloudFront host. Absolute http(s),
+// protocol-relative and root-relative sources, including /blog/media/ CMS
+// uploads, stay as authored.
 function imageUrl(path: string) {
 	if (!path || path === "default.webp") return DEFAULT_IMAGE;
-	if (ABSOLUTE_HTTPS.test(path) || path.startsWith("/blog/media/")) return path;
+	if (ABSOLUTE_HTTP.test(path) || path.startsWith("/")) return path;
 	return `${legacyMedia}${path.replace(MEDIAFILES_PREFIX, "")}`;
 }
 
+// Decoded, unescaped text: safe in Astro/Svelte `{}` expressions and for
+// slugging, never in set:html or an inline <script>/JSON blob unless `<` is
+// escaped first.
 export function plainText(html: string) {
 	return decodeHTML(
 		sanitizeHtml(html, { allowedTags: [], allowedAttributes: {} }),
@@ -99,34 +89,34 @@ const ARTICLE_SANITIZE: sanitizeHtml.IOptions = {
 			width: [ZERO_OR_LENGTH],
 			height: [ZERO_OR_LENGTH],
 			"min-width": [LENGTH],
-			"aspect-ratio": [ASPECT_RATIO],
-			"text-align": [TEXT_ALIGN],
-			float: [FLOAT],
+			"aspect-ratio": [/^\d+\s*\/\s*\d+$/u],
+			"text-align": [/^(?:left|right|center|justify|start)$/u],
+			float: [/^(?:left|right|none)$/u],
 			"background-color": [COLOR],
 			color: [COLOR],
-			position: [POSITION],
+			position: [/^(?:relative|absolute)$/u],
 			top: [ZERO],
 			left: [ZERO],
 			"padding-bottom": [LENGTH],
-			padding: [PADDING],
-			"margin-left": [ZERO_OR_FIXED_LENGTH],
-			border: [BORDER],
-			"border-color": [HEX_COLOR],
-			"border-style": [SOLID],
-			"border-collapse": [COLLAPSE],
-			"overflow-x": [AUTO],
-			"font-family": [FONT_FAMILY],
-			"font-size": [FONT_SIZE],
-			"font-weight": [FONT_WEIGHT],
-			"line-height": [LINE_HEIGHT],
-			"list-style-type": [DISC],
-			display: [INLINE],
+			padding: [/^(?:\d+(?:\.\d+)?(?:px|em|rem)\s*){1,4}$/u],
+			"margin-left": [/^(?:0|\d+(?:\.\d+)?(?:px|em|rem))$/u],
+			border: [/^\d+px solid (?:black|#[0-9a-f]{3,8})$/iu],
+			"border-color": [/^#[0-9a-f]{3,8}$/iu],
+			"border-style": [/^solid$/u],
+			"border-collapse": [/^collapse$/u],
+			"overflow-x": [/^auto$/u],
+			"font-family": [/^[a-z\s,-]+$/iu],
+			"font-size": [/^\d+(?:\.\d+)?(?:px|em|rem)$/u],
+			"font-weight": [/^[1-9]00$/u],
+			"line-height": [/^\d+(?:\.\d+)?$/u],
+			"list-style-type": [/^disc$/u],
+			display: [/^inline(?:\s*!important)?$/u],
 			"font-style": [NORMAL],
 			"font-variant-caps": [NORMAL],
 			"font-variant-ligatures": [NORMAL],
 			"letter-spacing": [NORMAL],
 			"white-space": [NORMAL],
-			"text-transform": [NONE],
+			"text-transform": [/^none$/u],
 			"text-indent": [ZERO_PX],
 			"word-spacing": [ZERO_PX],
 			"text-decoration-color": [INITIAL],
