@@ -32,3 +32,59 @@ export const categorySchema = z.object({
 	name: z.string().min(1),
 	description: z.string(),
 });
+
+// The fields of a loaded entry that the collection-wide checks read.
+type PostEntry = {
+	body?: string;
+	rendered?: { html?: string };
+	data: Pick<
+		z.infer<typeof postSchema>,
+		"slug" | "category" | "draft" | "published"
+	>;
+};
+type CategoryEntry = {
+	data: Pick<z.infer<typeof categorySchema>, "slug" | "name">;
+};
+
+// Checks the loaded collections as a whole, then returns the published posts
+// newest first (each with its rendered html) and the categories by name. The
+// category field is a plain slug in the schema, so an unknown one is caught
+// here. Throws, naming the offender, on an empty article, a duplicate post or
+// category slug, or an unknown category.
+export function publishedContent<P extends PostEntry, C extends CategoryEntry>(
+	entries: P[],
+	categories: C[],
+) {
+	const known = new Set<string>();
+	for (const { data } of categories) {
+		if (known.has(data.slug)) {
+			throw new Error(`Duplicate category slug: ${data.slug}`);
+		}
+		known.add(data.slug);
+	}
+	const slugs = new Set<string>();
+	const posts = entries.map((post) => {
+		const html = post.rendered?.html;
+		if (!(post.body?.trim() && html)) {
+			throw new Error(`Empty article: ${post.data.slug}`);
+		}
+		if (slugs.has(post.data.slug)) {
+			throw new Error(`Duplicate post slug: ${post.data.slug}`);
+		}
+		if (!known.has(post.data.category)) {
+			throw new Error(
+				`Unknown category: ${post.data.category} (post ${post.data.slug})`,
+			);
+		}
+		slugs.add(post.data.slug);
+		return { ...post, html };
+	});
+	return {
+		posts: posts
+			.filter((post) => !post.data.draft)
+			.sort((a, b) => b.data.published.getTime() - a.data.published.getTime()),
+		categories: [...categories].sort((a, b) =>
+			a.data.name.localeCompare(b.data.name),
+		),
+	};
+}

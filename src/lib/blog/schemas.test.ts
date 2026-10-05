@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { categorySchema, postSchema } from "./schemas.js";
+import { categorySchema, postSchema, publishedContent } from "./schemas.js";
 
 // Frontmatter as PagesCMS saves it, plus the unmanaged legacy fields.
 const CMS_POST = {
@@ -68,5 +68,87 @@ describe("blog collection schemas", () => {
 
 	it("A post saved with an empty title fails validation", () => {
 		assert.deepEqual(failingPaths({ ...CMS_POST, title: "" }), ["title"]);
+	});
+});
+
+// A loaded post entry as getCollection returns it, reduced to what the
+// collection-wide checks read.
+function entry(slug: string, published: string, overrides = {}) {
+	return {
+		body: "Body",
+		rendered: { html: "<p>Body</p>" },
+		data: {
+			slug,
+			category: "Geodev",
+			draft: false,
+			published: new Date(published),
+		},
+		...overrides,
+	};
+}
+
+const CATEGORIES = [
+	{ data: { slug: "Web", name: "Web development" } },
+	{ data: { slug: "Geodev", name: "Geo development" } },
+];
+
+describe("published blog content", () => {
+	it("A reader sees published posts newest first, never drafts, and categories by name", () => {
+		const draft = entry("Draft", "2026-03-01T00:00:00Z");
+		draft.data.draft = true;
+		const { posts, categories } = publishedContent(
+			[
+				entry("Older", "2026-01-01T00:00:00Z"),
+				draft,
+				entry("Newer", "2026-02-01T00:00:00Z"),
+			],
+			CATEGORIES,
+		);
+		assert.deepEqual(
+			posts.map((post) => [post.data.slug, post.html]),
+			[
+				["Newer", "<p>Body</p>"],
+				["Older", "<p>Body</p>"],
+			],
+		);
+		assert.deepEqual(
+			categories.map((category) => category.data.slug),
+			["Geodev", "Web"],
+		);
+	});
+
+	it("The build stops on an empty article, a duplicate post or category slug, or an unknown category, naming the offender", () => {
+		const unknown = entry("Lost", "2026-01-01T00:00:00Z");
+		unknown.data.category = "Nowhere";
+		const cases = [
+			{
+				entries: [entry("Blank", "2026-01-01T00:00:00Z", { body: " " })],
+				categories: CATEGORIES,
+				message: "Empty article: Blank",
+			},
+			{
+				entries: [
+					entry("Twice", "2026-01-01T00:00:00Z"),
+					entry("Twice", "2026-02-01T00:00:00Z"),
+				],
+				categories: CATEGORIES,
+				message: "Duplicate post slug: Twice",
+			},
+			{
+				entries: [],
+				categories: [...CATEGORIES, CATEGORIES[0]],
+				message: "Duplicate category slug: Web",
+			},
+			{
+				entries: [unknown],
+				categories: CATEGORIES,
+				message: "Unknown category: Nowhere (post Lost)",
+			},
+		];
+		for (const { entries, categories, message } of cases) {
+			assert.throws(() => publishedContent(entries, categories), {
+				message,
+			});
+		}
 	});
 });

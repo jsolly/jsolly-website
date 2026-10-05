@@ -21,9 +21,8 @@
 // Widget ids inside <main> are not fragments either: form controls (the
 // post's print button, the search page's input) and live status regions (the
 // heading-copy and recipe-offline messages) exist for scripts and labels, and
-// nothing links to them. Nor is the id of a wrapper that holds all of <main>'s
-// content (privacy's section#privacy-policy): following it lands where the
-// page starts anyway. Headings such as the author card's h2#about-author stay.
+// nothing links to them. Nor are the WRAPPER_IDS below. Headings such as the
+// author card's h2#about-author stay. Every dropped id is logged.
 import { mkdtempSync, readdirSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join, sep } from "node:path";
@@ -42,6 +41,10 @@ import {
 const OUTPUT = "legacy/blogthedata/fragment-ids.json";
 const GENERATED_ID = /^bits-/u;
 const FORM_CONTROLS = new Set(["BUTTON", "INPUT", "SELECT", "TEXTAREA"]);
+// Ids of sections that wrap a whole page's content: following one lands where
+// the page starts anyway. privacy's section#privacy-policy is the only one;
+// its page merges into jsolly /privacy/ (J14).
+const WRAPPER_IDS = new Set(["privacy-policy"]);
 
 // Form controls and live status regions are script and label targets.
 function isWidget(element) {
@@ -76,18 +79,23 @@ function oldPath(relative) {
 	return directory === "." ? "/" : `/${directory.split(sep).join("/")}/`;
 }
 
+// The page's fragment ids, and the ids inside <main> dropped as widgets or
+// wrappers.
 function pageFragmentIds(html) {
 	const content = new JSDOM(html).window.document.querySelector("main");
 	if (!content) {
-		return [];
+		return { ids: [], dropped: [] };
 	}
-	const wrapper =
-		content.children.length === 1 ? content.firstElementChild : null;
-	const ids = [...content.querySelectorAll("[id]")]
-		.filter((element) => element !== wrapper && !isWidget(element))
-		.map((element) => element.id)
-		.filter((id) => id !== "" && !GENERATED_ID.test(id));
-	return [...new Set(ids)].sort();
+	const ids = new Set();
+	const dropped = new Set();
+	for (const element of content.querySelectorAll("[id]")) {
+		if (element.id === "" || GENERATED_ID.test(element.id)) {
+			continue;
+		}
+		const skip = WRAPPER_IDS.has(element.id) || isWidget(element);
+		(skip ? dropped : ids).add(element.id);
+	}
+	return { ids: [...ids].sort(), dropped: [...dropped] };
 }
 
 function main(argv) {
@@ -96,12 +104,21 @@ function main(argv) {
 	const dir = mkdtempSync(join(tmpdir(), "fragment-ids-"));
 	try {
 		const dist = buildSource(src, sha, dir);
-		const pages = readdirSync(dist, { recursive: true })
+		const scanned = readdirSync(dist, { recursive: true })
 			.filter((relative) => relative.split(sep).at(-1) === "index.html")
-			.map((relative) => [
-				oldPath(relative),
-				pageFragmentIds(readFileSync(join(dist, relative), "utf8")),
-			])
+			.map((relative) => ({
+				path: oldPath(relative),
+				...pageFragmentIds(readFileSync(join(dist, relative), "utf8")),
+			}));
+		const droppedCounts = new Map();
+		for (const id of scanned.flatMap(({ dropped }) => dropped)) {
+			droppedCounts.set(id, (droppedCounts.get(id) ?? 0) + 1);
+		}
+		for (const [id, count] of [...droppedCounts].sort()) {
+			console.log(`  dropped #${id} (widget or wrapper) on ${count} pages`);
+		}
+		const pages = scanned
+			.map(({ path, ids }) => [path, ids])
 			.filter(([, ids]) => ids.length > 0)
 			.sort(([a], [b]) => (a < b ? -1 : Number(a > b)));
 		if (pages.length === 0) {

@@ -11,8 +11,12 @@ import "../styles/blog/ui.css";
 import "../styles/blog/blog.css";
 import BlogNavigation from "../components/blog/BlogNavigation.svelte";
 import Maintenance from "../components/Maintenance.astro";
-import { DEFAULT_IMAGE, LEGACY_MEDIA } from "../lib/blog/constants.js";
-import { blogContent, site } from "../lib/blog/content.js";
+import {
+	DEFAULT_IMAGE,
+	EMBED_HOSTS,
+	LEGACY_MEDIA,
+} from "../lib/blog/constants.js";
+import { blogNavigation } from "../lib/blog/content.js";
 import noScriptStyles from "../styles/blog/no-script.css?url";
 
 interface Props {
@@ -48,18 +52,14 @@ if (section === "blog") {
 		`img-src 'self' data: ${new URL(LEGACY_MEDIA).origin}`,
 	);
 	Astro.csp.insertDirective(
-		"frame-src https://www.youtube.com https://www.youtube-nocookie.com https://viewer.diagrams.net https://nbviewer.org",
+		`frame-src ${EMBED_HOSTS.map((host) => `https://${host}`).join(" ")}`,
 	);
 }
 
 const isMaintenanceMode = process.env.MAINTENANCE_MODE === "true";
-const canonical = new URL(Astro.url.pathname, site).href;
-const { posts, categories } = await blogContent();
-const navigation = categories.map(({ data }) => ({
-	slug: data.slug,
-	name: data.name,
-	count: posts.filter((post) => post.data.category === data.slug).length,
-}));
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const socialImage = new URL(image, Astro.site).href;
+const navigation = await blogNavigation();
 ---
 
 <!doctype html>
@@ -75,7 +75,7 @@ const navigation = categories.map(({ data }) => ({
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonical} />
 		<meta property="og:type" content={article ? "article" : "website"} />
-		<meta property="og:image" content={new URL(image, site).href} />
+		<meta property="og:image" content={socialImage} />
 		<meta property="og:image:alt" content={imageAlt} />
 		<meta name="twitter:card" content="summary_large_image" />
 		{noindex && <meta name="robots" content="noindex, follow" />}

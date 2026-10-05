@@ -28,6 +28,9 @@ const PINNED = [
 	"--paper:",
 ];
 
+// A rule only main.css emits (components.css), never the blog bundle.
+const PORTFOLIO_ONLY = ".secondary-btn";
+
 async function exists(path) {
 	try {
 		await access(path);
@@ -99,16 +102,29 @@ it("the blog stylesheets name only existing Tailwind sources, keep one layer ord
 		),
 	);
 	assert.ok(blogSheets.length > 0, `${BLOG_PAGE} loads a stylesheet`);
+	assert.ok(portfolioSheets.length > 0, `${PORTFOLIO_PAGE} loads a stylesheet`);
 	assert.deepEqual(
 		blogSheets.filter((href) => portfolioSheets.includes(href)),
 		[],
 		"blog pages do not load the portfolio stylesheet",
 	);
-	const bundle = (
-		await Promise.all(
-			blogSheets.map((href) => readFile(join(ROOT, "dist", href), "utf8")),
-		)
-	).join("\n");
+	const [bundle, portfolioBundle] = await Promise.all(
+		[blogSheets, portfolioSheets].map(async (hrefs) =>
+			(
+				await Promise.all(
+					hrefs.map((href) => readFile(join(ROOT, "dist", href), "utf8")),
+				)
+			).join("\n"),
+		),
+	);
+	assert.ok(
+		portfolioBundle.includes(PORTFOLIO_ONLY),
+		`the portfolio bundle emits ${PORTFOLIO_ONLY}`,
+	);
+	assert.ok(
+		!bundle.includes(PORTFOLIO_ONLY),
+		`the BlogLayout bundle carries the portfolio's ${PORTFOLIO_ONLY}`,
+	);
 	assert.deepEqual(
 		PINNED.filter((selector) => !bundle.includes(selector)),
 		[],

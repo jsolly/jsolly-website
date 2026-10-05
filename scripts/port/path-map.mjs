@@ -265,7 +265,7 @@ export const AREAS = {
 			},
 			{
 				from: "src/pages/works-cited/index.astro",
-				to: "src/pages/blog/works-cited/index.astro",
+				to: "src/pages/blog/works-cited.astro",
 			},
 		],
 	},

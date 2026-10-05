@@ -1,5 +1,13 @@
 import assert from "node:assert/strict";
-import { access, readFile } from "node:fs/promises";
+import {
+	access,
+	mkdir,
+	mkdtemp,
+	readFile,
+	rm,
+	writeFile,
+} from "node:fs/promises";
+import { tmpdir } from "node:os";
 import { join } from "node:path";
 import it from "node:test";
 import { JSDOM } from "jsdom";
@@ -49,33 +57,23 @@ function destination(rows, old) {
 		: { old, problem: `redirects off ${SITE} (${target.href})` };
 }
 
-function builtFile(path) {
-	return join(DIST, path.endsWith("/") ? `${path}index.html` : path);
-}
-
-it("every old blogthedata.com fragment id still exists on the page its URL now redirects to", async (t) => {
-	assert.ok(
-		await exists(join(DIST, "index.html")),
-		"dist/ is required: run `npm run build` first",
-	);
-	const [{ pages }, { rows }] = await Promise.all([
-		readJson(FRAGMENTS),
-		readJson(URL_MAP),
-	]);
-	const oldPaths = Object.keys(pages);
-	assert.ok(oldPaths.length > 0, "fragment-ids.json lists old pages");
-	const mapped = oldPaths.map((old) => destination(rows, old));
-	assert.deepEqual(
-		mapped.filter((page) => page.problem),
-		[],
-		"each old page with fragment ids redirects to one jsolly.com page in url-map.json",
-	);
+// Compares the recorded fragment ids (`pages`, old path to ids) with the
+// built pages under `distRoot`, following the url-map.json `rows`. Returns the
+// old pages without a single jsolly.com redirect, the old deep links whose
+// target id is missing, and how many pages and ids were checked or skipped.
+async function compareFragments(pages, rows, distRoot) {
+	const mapped = Object.keys(pages).map((old) => destination(rows, old));
+	const unmapped = mapped.filter((page) => page.problem);
 	const built = await Promise.all(
-		mapped.map(async (page) => ({
-			...page,
-			file: builtFile(page.path),
-			landed: await exists(builtFile(page.path)),
-		})),
+		mapped
+			.filter((page) => !page.problem)
+			.map(async (page) => {
+				const file = join(
+					distRoot,
+					page.path.endsWith("/") ? `${page.path}index.html` : page.path,
+				);
+				return { ...page, file, landed: await exists(file) };
+			}),
 	);
 	const landed = built.filter((page) => page.landed);
 	const missing = (
@@ -97,9 +95,83 @@ it("every old blogthedata.com fragment id still exists on the page its URL now r
 			}),
 		)
 	).flat();
-	const ids = landed.reduce((sum, { old }) => sum + pages[old].length, 0);
-	t.diagnostic(
-		`checked ${ids} ids on ${landed.length} landed pages; skipped ${built.length - landed.length} of ${built.length} old pages whose destination is not built yet`,
+	return {
+		unmapped,
+		missing,
+		landed: landed.length,
+		skipped: built.length - landed.length,
+		ids: landed.reduce((sum, { old }) => sum + pages[old].length, 0),
+	};
+}
+
+// A two-page dist: one destination lost an id, one kept all of them, and a
+// third old page's destination is not built.
+async function fixtureComparison() {
+	const root = await mkdtemp(join(tmpdir(), "legacy-fragments-"));
+	try {
+		const page = (ids) =>
+			`<!doctype html><main>${ids.map((id) => `<h2 id="${id}">${id}</h2>`).join("")}</main>`;
+		await Promise.all(
+			[
+				["new-a", page(["kept"])],
+				["new-b", page(["one", "two"])],
+			].map(async ([dir, html]) => {
+				await mkdir(join(root, dir));
+				await writeFile(join(root, dir, "index.html"), html);
+			}),
+		);
+		const redirect = (source, path) => ({
+			source,
+			action: "redirect-301",
+			destination: `${SITE}${path}`,
+		});
+		return await compareFragments(
+			{ "/a/": ["kept", "lost"], "/b/": ["one", "two"], "/c/": ["any"] },
+			[
+				redirect("/a/", "/new-a/"),
+				redirect("/b/", "/new-b/"),
+				redirect("/c/", "/new-c/"),
+			],
+			root,
+		);
+	} finally {
+		await rm(root, { recursive: true, force: true });
+	}
+}
+
+it("every old blogthedata.com fragment id still exists on the page its URL now redirects to", async (t) => {
+	assert.deepEqual(
+		await fixtureComparison(),
+		{
+			unmapped: [],
+			missing: ["/a/#lost -> /new-a/#lost"],
+			landed: 2,
+			skipped: 1,
+			ids: 4,
+		},
+		"the comparison reports exactly the lost id on a fixture dist",
 	);
-	assert.deepEqual(missing, [], "old deep links that would lose their target");
+	assert.ok(
+		await exists(join(DIST, "index.html")),
+		"dist/ is required: run `npm run build` first",
+	);
+	const [{ pages }, { rows }] = await Promise.all([
+		readJson(FRAGMENTS),
+		readJson(URL_MAP),
+	]);
+	assert.ok(Object.keys(pages).length > 0, "fragment-ids.json lists old pages");
+	const result = await compareFragments(pages, rows, DIST);
+	assert.deepEqual(
+		result.unmapped,
+		[],
+		"each old page with fragment ids redirects to one jsolly.com page in url-map.json",
+	);
+	t.diagnostic(
+		`checked ${result.ids} ids on ${result.landed} landed pages; skipped ${result.skipped} of ${result.landed + result.skipped} old pages whose destination is not built yet`,
+	);
+	assert.deepEqual(
+		result.missing,
+		[],
+		"old deep links that would lose their target",
+	);
 });

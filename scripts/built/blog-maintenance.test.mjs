@@ -14,9 +14,21 @@ const WHITESPACE = /\s+/gu;
 const MAINTENANCE_HEADING = "Under Maintenance";
 // Text only the works-cited page body carries.
 const POST_TEXT = "I freaking love MDN";
+const BLOG_PAGE = "blog/works-cited/index.html";
+// Maintenance.astro's own utilities: the icon badge and icon sizes, the
+// centred column and the badge colour. Without them the notice is unstyled
+// and the icon fills the column.
+const NOTICE_SELECTORS = [
+	".size-20",
+	".size-10",
+	".min-h-maintenance",
+	".text-center",
+	".bg-primary-100",
+];
 
 let copy;
 let pages;
+let blogCss;
 
 before(async () => {
 	copy = await createTempCopy("maintenance");
@@ -33,10 +45,16 @@ before(async () => {
 			const html = await readFile(join(dist, file), "utf8");
 			const dom = new JSDOM(html);
 			try {
-				const main = dom.window.document.querySelector("main");
+				const { document } = dom.window;
+				const main = document.querySelector("main");
 				return {
 					file,
 					html,
+					stylesheets: [...document.querySelectorAll("link")]
+						.filter(
+							(link) => link.rel === "stylesheet" && !link.closest("noscript"),
+						)
+						.map((link) => link.getAttribute("href")),
 					main: main?.textContent.replace(WHITESPACE, " ").trim() ?? null,
 				};
 			} finally {
@@ -44,6 +62,16 @@ before(async () => {
 			}
 		}),
 	);
+	const blog = pages.find(({ file }) => file === BLOG_PAGE);
+	blogCss = blog
+		? (
+				await Promise.all(
+					blog.stylesheets.map((href) =>
+						readFile(join(copy.dir, "dist", href), "utf8"),
+					),
+				)
+			).join("\n")
+		: "";
 });
 
 after(async () => {
@@ -52,7 +80,7 @@ after(async () => {
 
 it("a maintenance build shows only the maintenance notice on every page, blog pages included", () => {
 	assert.ok(
-		pages.some(({ file }) => file === "blog/works-cited/index.html"),
+		pages.some(({ file }) => file === BLOG_PAGE),
 		"the maintenance build includes the blog pages",
 	);
 	const contents = new Set(pages.map(({ main }) => main));
@@ -72,5 +100,10 @@ it("a maintenance build shows only the maintenance notice on every page, blog pa
 			.map(({ file }) => file),
 		[],
 		"pages that still render post text",
+	);
+	assert.deepEqual(
+		NOTICE_SELECTORS.filter((selector) => !blogCss.includes(selector)),
+		[],
+		`${BLOG_PAGE}: the blog stylesheet lacks the maintenance notice's rules`,
 	);
 });

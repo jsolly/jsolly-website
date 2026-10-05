@@ -12,7 +12,7 @@ Local gate before push: `npm run gate`.
 
 ## Purpose
 
-Personal website at [jsolly.com](https://www.jsolly.com). Astro static site, seven pages (`index`, `about`, `contact`, `privacy`, `terms`, `404`, `500`), no CMS.
+Personal website at [jsolly.com](https://www.jsolly.com). Astro static site: the portfolio pages (`index`, `about`, `contact`, `privacy`, `terms`, `404`, `500`) plus the blog under `/blog/`, which is being ported from awesome-blog (`docs/plans/blogthedata-merge/`; B23 rewrites this section).
 
 ## Stack
 
@@ -27,6 +27,11 @@ hero/contact calls to action use server-rendered Button anchors. Preserve
 native link semantics, first-party assets, the portfolio palette and focus.
 `components.json` configures the pinned local CLI and existing Tailwind styles.
 Reuse `src/lib/components/ui`; import defining component files directly.
+The blog and recipe ports keep their awesome-blog native controls (the
+`<details>` categories menu and the toggle/inert mobile disclosure, which work
+without JavaScript through `no-script.css`) for parity with live
+blogthedata.com under the approved merge plan (J25), until the post-C4 visual
+unification follow-up; new blog and recipe controls use shadcn-svelte.
 Canon: `~/code/dotagents/rules/frontend-stack.md`.
 
 ## Dependencies / Assets
@@ -59,7 +64,7 @@ A built test that needs its own build uses a `scripts/built/temp-copy.mjs` copy 
 
 ## Architecture
 
-- `src/pages/` — content pages (`index`, `about`, `contact`, `privacy`, `terms`) plus `404` and `500`.
+- `src/pages/` — content pages (`index`, `about`, `contact`, `privacy`, `terms`) plus `404` and `500`, and the `blog/` routes, which render with `BlogLayout`.
 - `src/components/` — `Header`, `Footer`, `ContactMe`, `SocialLinks`, `Maintenance`, plus a `home/` subdir for index-page sections and a `blog/` subdir for the blog chrome (`BlogNavigation`).
 - `src/layouts/` — page layout wrappers: `Layout.astro` for the portfolio, `BlogLayout.astro` for the blog and recipes. BlogLayout is standalone (no Markdown alternate), honors `MAINTENANCE_MODE`, and with `section="blog"` adds the per-page `img-src` (CloudFront) and `frame-src` (YouTube, diagrams.net, nbviewer) CSP directives, failing the build when `Astro.csp` is unavailable.
 - `src/styles/blog/` — the blog stylesheets BlogLayout imports (`theme`, `ui`, `blog`, and `no-script` through `?url`), each opening with the same `@layer` order so the `blog` and `blog-no-script` layers stay last.
