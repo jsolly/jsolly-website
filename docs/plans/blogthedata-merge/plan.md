@@ -1315,7 +1315,7 @@ Content-only edits stay allowed until C0 (brief A5).
 
 **Remedy for a non-content diff** reported by `freeze-check`, before the C0 re-sync:
 
-- port it as an extra B-step: read each changed file with `git -C /Users/johnsolly/code/awesome-blog show origin/main:<path>`, adapt it by hand, test it and update the ledger. Do not run `import --resync` for this: it is C0-only, refuses any non-content change, and sets `freeze_sha`; or
+- port it as an extra B-step against one pinned awesome-blog SHA `<sha>` (its `origin/main` when the step starts). List the changes with `git -C /Users/johnsolly/code/awesome-blog diff --name-status <cut_sha>..<sha>`. Read each added or modified non-content file with `git -C /Users/johnsolly/code/awesome-blog show <sha>:<path>` and adapt it by hand; remove or move deleted and renamed files in the port. In the same commit, advance `cut_sha` in `scripts/port/source.json` to `<sha>` (and the execution record's cut SHA row by a docs PR to `main`), re-import each content area that changed in that range with `import-awesome-blog.mjs <area> --overwrite`, then re-run `rewrite-content.mjs` and `url-map-sync.mjs`. Test it and update the ledger. `freeze-check` and C0's `--resync` then measure from the new cut. Do not run `import --resync` for this: it is C0-only, refuses any non-content change, and sets `freeze_sha`; or
 - revert it in awesome-blog, with John's OK.
 
 **B01. Port tooling.** S. Depends on: B00. Every script lives in `scripts/port/`:
