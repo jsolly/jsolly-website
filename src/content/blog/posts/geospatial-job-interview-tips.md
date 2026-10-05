@@ -28,7 +28,7 @@ This post aims to help you prepare for your job interview and increase your chan
 
 ## General Tips
 
-Research the company: Before the interview, learn as much as possible about the company, its products, services, mission, and culture. This will help you tailor your responses to the company's specific needs and show that you are genuinely interested in working there. Know the president's CEO's name. Figure out if they have a standardized hiring process (all the large ones do). For example, when I interviewed at Amazon, all the questions were based on Amazon's leadership principles. For even more tips, check out <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/gis-job-search-resources/">my post on Job Searching and Interviewing</a>.
+Research the company: Before the interview, learn as much as possible about the company, its products, services, mission, and culture. This will help you tailor your responses to the company's specific needs and show that you are genuinely interested in working there. Know the president's CEO's name. Figure out if they have a standardized hiring process (all the large ones do). For example, when I interviewed at Amazon, all the questions were based on Amazon's leadership principles. For even more tips, check out <a target="_blank" rel="noopener noreferrer" href="/blog/gis-job-search-resources/">my post on Job Searching and Interviewing</a>.
 
 In person, dress up a little more than you usually would.
 
@@ -56,7 +56,7 @@ At home, do the following:
 
 <p class="ol1"><strong>Do you have any questions for me?</strong></p>
 
-<p class="ol1">See my post on <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/12-questions-you-should-ask-at-your-next-interview/">12 questions you should ask in a job interview</a>.</p>
+<p class="ol1">See my post on <a target="_blank" rel="noopener noreferrer" href="/blog/12-questions-you-should-ask-at-your-next-interview/">12 questions you should ask in a job interview</a>.</p>
 
 <p class="ol1"><strong>Why should we hire you? What are your qualifications?</strong></p>
 
@@ -94,7 +94,7 @@ Be prepared to be given a scenario where you are given hypothetical tasks and ha
 
 <strong>How do you prioritize your workload and get organized?</strong>
 
-You should definitely be tracking your tasks with a dedicated tool. Check out my post on <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/todo-workflow-7619-tasks/">how I use Todoist to accomplish all my goals</a>.
+You should definitely be tracking your tasks with a dedicated tool. Check out my post on <a target="_blank" rel="noopener noreferrer" href="/blog/todo-workflow-7619-tasks/">how I use Todoist to accomplish all my goals</a>.
 
 <p class="ol1"><strong>How do you handle ambiguity or uncertainty?</strong></p>
 
@@ -153,7 +153,7 @@ The Geospatial ecosystem has open-source and proprietary technologies that do mu
 
 On the other hand, examples of proprietary GIS software include ArcGIS, Hexagon, Autodesk, and Google Maps API.
 
-I think it's essential to learn both to give you as many options as possible. If you are only interested in working with specific technologies, check out <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/Find-Your-Dream-Job-With-LinkedIn-Boolean-Search/">my blog post about using LinkedIn's boolean search operators</a> to perform targeted searches.
+I think it's essential to learn both to give you as many options as possible. If you are only interested in working with specific technologies, check out <a target="_blank" rel="noopener noreferrer" href="/blog/Find-Your-Dream-Job-With-LinkedIn-Boolean-Search/">my blog post about using LinkedIn's boolean search operators</a> to perform targeted searches.
 
 <strong>Can you explain your experience working with geospatial databases such as PostGIS or MongoDB?</strong>
 
@@ -189,7 +189,7 @@ PyKrige - Python Kriging!..Interprolate raster from vector data.
 
 <strong>What is your experience with DevOps? What CI/CD tools have you used?</strong>
 
-I've noticed that many geospatial developer/engineer positions are looking for people with DevOps experience. Think Docker, Kubernetes, CircleCI, Puppet, Chef, etc. My <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/implement-continuous-integration-github-actions/">post on setting up GitHub Actions</a> is a great place to get started.  
+I've noticed that many geospatial developer/engineer positions are looking for people with DevOps experience. Think Docker, Kubernetes, CircleCI, Puppet, Chef, etc. My <a target="_blank" rel="noopener noreferrer" href="/blog/implement-continuous-integration-github-actions/">post on setting up GitHub Actions</a> is a great place to get started.  
   
 <strong>Can you discuss your experience with geospatial data standards and protocols?</strong>
 

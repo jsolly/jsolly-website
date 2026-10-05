@@ -23,7 +23,7 @@ related:
   - finding-reliable-information
 ---
 
-You've already <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=cEBkvm0-rg0">Googled your question like a Senior Engineer</a>. Perhaps you've even read my post on how to <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/finding-reliable-information/">search effectively using Duckduckgo</a> and tried alternate search engines like <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/use-brave-search-goggles-to-improve-web-searches/">Brave Goggles</a> and PHIND.
+You've already <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=cEBkvm0-rg0">Googled your question like a Senior Engineer</a>. Perhaps you've even read my post on how to <a target="_blank" rel="noopener noreferrer" href="/blog/finding-reliable-information/">search effectively using Duckduckgo</a> and tried alternate search engines like <a target="_blank" rel="noopener noreferrer" href="/blog/use-brave-search-goggles-to-improve-web-searches/">Brave Goggles</a> and PHIND.
 
 The following steps are an abridged version of what you will read on <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/help/how-to-ask">Stack Overflow's article on asking good questions</a>.
 

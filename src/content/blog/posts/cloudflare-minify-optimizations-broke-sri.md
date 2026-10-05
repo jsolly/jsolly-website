@@ -23,7 +23,7 @@ related:
   - how-to-get-a-perfect-mozilla-observatory-score
 ---
 
-After <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/how-to-implement-subresource-integrity-django/">implementing subresource integrity</a> and <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/free-cdn-for-17x-speed/"> switching over to CloudFlare</a>, I noticed resources like CSS and JavaScript were breaking on my site. I ran into the same issue as <a target="_blank" rel="noopener noreferrer" href="https://valer.dev/posts/subresource-integrity/">this guy</a>. CloudFlare presents these options and I didn't think twice about turning them on.
+After <a target="_blank" rel="noopener noreferrer" href="/blog/how-to-implement-subresource-integrity-django/">implementing subresource integrity</a> and <a target="_blank" rel="noopener noreferrer" href="/blog/free-cdn-for-17x-speed/"> switching over to CloudFlare</a>, I noticed resources like CSS and JavaScript were breaking on my site. I ran into the same issue as <a target="_blank" rel="noopener noreferrer" href="https://valer.dev/posts/subresource-integrity/">this guy</a>. CloudFlare presents these options and I didn't think twice about turning them on.
 
 <img class="image_resized" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/cloudflare_auto_minify.png" alt="CloudFlare interface showing three checkboxes for 'Auto Minify'...HTML, CSS, and JS" width="659" height="216">
 

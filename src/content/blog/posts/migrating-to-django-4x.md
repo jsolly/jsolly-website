@@ -31,13 +31,13 @@ related:
 
 <h3 style="margin-left:0px;"><strong>Startup Error</strong></h3>
 
-<p style="margin-left:0px;">I followed my <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/upgrading-to-the-latest-3x-django/">upgrade document</a> and ran into my first issue; The app wouldn’t start! There was an error in the console:</p>
+<p style="margin-left:0px;">I followed my <a target="_blank" rel="noopener noreferrer" href="/blog/upgrading-to-the-latest-3x-django/">upgrade document</a> and ran into my first issue; The app wouldn’t start! There was an error in the console:</p>
 
 <pre><code class="language-python"> RuntimeError: populate() isn’t reentrant</code></pre>
 
 <p style="margin-left:0px;">It’s an unhelpful Django error often due to a misconfigured dependency in settings.py. Someone mentioned in <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/27093746/django-stops-working-with-runtimeerror-populate-isnt-reentrant/55929118#55929118">this SO thread</a> that a one-line change in <code>django/apps/</code><a target="_blank" rel="noopener noreferrer" href="https://app.prowritingaid.com/registry.py"><code>registry.py</code></a> surfaces the error.</p>
 
-<p style="margin-left:0px;">Sure enough, the error was coming from a module <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/admin-honeypot-page-to-catch-hackers/">I incorporated in the past</a>.</p>
+<p style="margin-left:0px;">Sure enough, the error was coming from a module <a target="_blank" rel="noopener noreferrer" href="/blog/admin-honeypot-page-to-catch-hackers/">I incorporated in the past</a>.</p>
 
 <pre><code class="language-python"> Could not import ugettext_lazy</code></pre>
 

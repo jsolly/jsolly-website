@@ -19,7 +19,6 @@ excerpt: "<p>Boost Your Website's Speed: How Compression and Minification Can He
 legacyId: 68
 related:
   - gis-job-search-resources
-  - 15-minute-dump-and-go-instant-pot-recipes
   - Adding-views-likes-to-posts
 ---
 

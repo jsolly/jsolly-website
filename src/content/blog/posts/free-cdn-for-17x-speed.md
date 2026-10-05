@@ -27,7 +27,7 @@ Blogthedata.com is 1714% faster!!! Now people in Jakarta, Indonesia, can ping my
 
 This site lives on a Linode server based in Dallas, TX because I guessed most site traffic would come from the US. Dallas is a midpoint, nearly equidistant from NYC and Los Angeles, the two most populous US cities.
 
-Last December, I <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/Adding-views-likes-to-posts/">added likes and views to blog posts</a>. I track views by counting unique IP addresses that visit at least one post. The logic gets confused by VPNs, but it's a good approximation. It shocked me to discover 776 IPs have visited blogthedata.com, spread across <a target="_blank" rel="noopener noreferrer" href="https://ipinfo.io/tools/map/9c4e1830-8060-4ed3-ad9a-11c0780d9954">46 countries and 203 cities</a>!
+Last December, I <a target="_blank" rel="noopener noreferrer" href="/blog/Adding-views-likes-to-posts/">added likes and views to blog posts</a>. I track views by counting unique IP addresses that visit at least one post. The logic gets confused by VPNs, but it's a good approximation. It shocked me to discover 776 IPs have visited blogthedata.com, spread across <a target="_blank" rel="noopener noreferrer" href="https://ipinfo.io/tools/map/9c4e1830-8060-4ed3-ad9a-11c0780d9954">46 countries and 203 cities</a>!
 
 ![Map of over 700 unique IPs. The top three  countries are the US, Canada, and France](https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image-20220527235458-1.png)
 

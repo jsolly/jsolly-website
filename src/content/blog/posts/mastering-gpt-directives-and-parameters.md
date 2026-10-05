@@ -24,11 +24,11 @@ related:
 
 ## Intro
 
-I have discovered and tested certain directives and parameters for GPT through trial and error, along with others in the <a target="_blank" rel="noopener noreferrer" href="https://discord.com/invite/openai">OpenAI Discord community</a>. This information is not officially documented by OpenAI, but I hope it is helpful as a pseudo-documentation. Please note that this information is not endorsed by OpenAI, but rather is syntax that appears to be effective. <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/optimizing-gpt-for-nlp-tips-and-tricks/">Check out More GPT Tips and Tricks</a>.
+I have discovered and tested certain directives and parameters for GPT through trial and error, along with others in the <a target="_blank" rel="noopener noreferrer" href="https://discord.com/invite/openai">OpenAI Discord community</a>. This information is not officially documented by OpenAI, but I hope it is helpful as a pseudo-documentation. Please note that this information is not endorsed by OpenAI, but rather is syntax that appears to be effective. <a target="_blank" rel="noopener noreferrer" href="/blog/optimizing-gpt-for-nlp-tips-and-tricks/">Check out More GPT Tips and Tricks</a>.
 
 ## Directives
 
-Directives are action verbs that allow you to instruct GPT to do different things. <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/optimizing-gpt-for-nlp-tips-and-tricks/#directives">Learn more about bracket directive syntax</a>. 
+Directives are action verbs that allow you to instruct GPT to do different things. <a target="_blank" rel="noopener noreferrer" href="/blog/optimizing-gpt-for-nlp-tips-and-tricks/#directives">Learn more about bracket directive syntax</a>. 
 
 A directive is a term used to tell GPT you are instructing it to do something. Directives, are written in a specific format and can include action verbs such as "write," "do," or "type." Directives may also include additional conditions that must be followed, indicated by a colon (:). GPT processes directives in the order they are written and can follow logical operations such as AND, OR, and XAND (which represents "not AND"). The general format looks like this:
 

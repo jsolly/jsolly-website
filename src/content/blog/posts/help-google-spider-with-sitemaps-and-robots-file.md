@@ -23,7 +23,7 @@ related:
   - Adding-views-likes-to-posts
 ---
 
-Yesterday, I posted <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/how-to-get-a-perfect-mozilla-observatory-score/">how to get an A+ in Mozilla's Observator security audit tool</a>. The security auditing tools also revealed my site was missing a robots.txt file. With <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/blogthedata/pull/44/files">this PR</a>, a proper robots.txt file is added to blogthedata.com!
+Yesterday, I posted <a target="_blank" rel="noopener noreferrer" href="/blog/how-to-get-a-perfect-mozilla-observatory-score/">how to get an A+ in Mozilla's Observator security audit tool</a>. The security auditing tools also revealed my site was missing a robots.txt file. With <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/blogthedata/pull/44/files">this PR</a>, a proper robots.txt file is added to blogthedata.com!
 
 The robots.txt file tells website spiders (also known as crawlers) which pages they may visit. It further communicates which urls are relevant and how often they update. I initially thought spiders were bad, but it’s more accurate to say that some spiders are naughty and some are nice. I guess that's true in real life, too!
 
@@ -83,7 +83,7 @@ After adding my sitemap, I went into <a target="_blank" rel="noopener noreferrer
 
 <img class="image_resized" style="height:344px;width:800px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image-20220507054336-1.png" alt="Google sitemap page showing https://blogthedata.com/sitemap.xml having 33 routes detected">
 
-After adding site maps for all the relevant pages, you'll want to incorporate this into a robots.txt file. You can see <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/robots.txt">my robots file here</a>. I include the sitemap url so the spider knows where to go to learn more about blogthedata.com
+After adding site maps for all the relevant pages, you'll want to incorporate this into a robots.txt file. You can see <a target="_blank" rel="noopener noreferrer" href="/robots.txt">my robots file here</a>. I include the sitemap url so the spider knows where to go to learn more about blogthedata.com
 
 The second portion of the robots.txt file is including directives instructing spiders which pages are 'off limits.' I've included a single route, /admin. This is the page I used to administer my site and I would rather it not get indexed and show up in Google search!!
 

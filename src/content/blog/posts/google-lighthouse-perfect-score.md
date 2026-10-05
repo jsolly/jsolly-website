@@ -23,7 +23,7 @@ related:
   - social-media-share-links-open-graph
 ---
 
-Recently ran a <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/google-lighthouse-audit/">Google Lighthouse audit</a> receiving an overall score of 91%. After making changes, it's now a near-perfect score!
+Recently ran a <a target="_blank" rel="noopener noreferrer" href="/blog/google-lighthouse-audit/">Google Lighthouse audit</a> receiving an overall score of 91%. After making changes, it's now a near-perfect score!
 
 ## Before
 

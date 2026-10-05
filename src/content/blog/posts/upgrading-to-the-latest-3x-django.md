@@ -23,7 +23,7 @@ related:
   - Adding-views-likes-to-posts
 ---
 
-Django puts out a <a target="_blank" rel="noopener noreferrer" href="https://docs.djangoproject.com/en/4.0/howto/upgrade-version/">fantastic doc</a> on upgrading to the latest version. I am using Django 3.2.7 and the latest is  3.2.13. I follow a process instead of blindly upgrading to <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/migrating-bs4-to-bs5/">upgrade from Bootstrap 4 to 5</a>.
+Django puts out a <a target="_blank" rel="noopener noreferrer" href="https://docs.djangoproject.com/en/4.0/howto/upgrade-version/">fantastic doc</a> on upgrading to the latest version. I am using Django 3.2.7 and the latest is  3.2.13. I follow a process instead of blindly upgrading to <a target="_blank" rel="noopener noreferrer" href="/blog/migrating-bs4-to-bs5/">upgrade from Bootstrap 4 to 5</a>.
 
 ## Review Release Notes
 

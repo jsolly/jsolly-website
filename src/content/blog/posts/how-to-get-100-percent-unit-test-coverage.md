@@ -23,7 +23,7 @@ related:
   - how-to-test-and-debug-django-templates
 ---
 
-<a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/test-strategy-no-existing-tests/">I made a a commitment 12 days ago</a> to achieve 100% unit test coverage (starting at 0%). Promise, fulfilled!
+<a target="_blank" rel="noopener noreferrer" href="/blog/test-strategy-no-existing-tests/">I made a a commitment 12 days ago</a> to achieve 100% unit test coverage (starting at 0%). Promise, fulfilled!
 
 Curious about unit testing your app?
 

@@ -25,7 +25,7 @@ related:
 
 <blockquote><p>Constraints files are requirements files that only control which version of a requirement is installed, not whether it is installed or not.</p><p>- <a target="_blank" rel="noopener noreferrer" href="https://pip.pypa.io/en/stable/user_guide/#constraints-files">Pip documentation</a></p></blockquote>
 
-In a <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/why-I-stopped-using-pip-freeze/">previous post</a>, I talked about ditching pip freeze because it didn't work well with second-level dependencies (especially cross-platform). I found an even better workflow where I use a requirements.txt and a constraints.txt file together. Check out the code in <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/awesome-django-blog/commit/b4e10f7f2e8ac7ce69233d26e0ffa593af3ad6f7">this commit</a>.
+In a <a target="_blank" rel="noopener noreferrer" href="/blog/why-I-stopped-using-pip-freeze/">previous post</a>, I talked about ditching pip freeze because it didn't work well with second-level dependencies (especially cross-platform). I found an even better workflow where I use a requirements.txt and a constraints.txt file together. Check out the code in <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/awesome-django-blog/commit/b4e10f7f2e8ac7ce69233d26e0ffa593af3ad6f7">this commit</a>.
 
 <pre><code class="language-bash">requirements
 ├── constraints.txt

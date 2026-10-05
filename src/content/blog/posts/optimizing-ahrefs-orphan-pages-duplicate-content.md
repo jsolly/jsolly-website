@@ -36,9 +36,9 @@ The following sections detail how I overcame these issues to achieve a score of 
 
 An orphan page is a web page that is not linked to any other pages on a website. Orphan pages are often difficult for users to discover, as they cannot be accessed by clicking on a link from another page on the site. Orphan pages can also be problematic for search engines, as they may not be able to crawl and index these pages, leading to poor visibility in search results.
 
-I recently <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/implement-infinite-scroll-in-django-with-htmx/"> implemented infinite scroll</a> on my website using HTMX, which caused search crawlers problems. They could not detect the presence of certain blog posts because they were only accessible by scrolling. I had difficulty finding a solution to this issue until a friend suggested creating a static page for search engines to understand. This fixed the problem and enabled search crawlers to properly index my blog posts.
+I recently <a target="_blank" rel="noopener noreferrer" href="/blog/implement-infinite-scroll-in-django-with-htmx/"> implemented infinite scroll</a> on my website using HTMX, which caused search crawlers problems. They could not detect the presence of certain blog posts because they were only accessible by scrolling. I had difficulty finding a solution to this issue until a friend suggested creating a static page for search engines to understand. This fixed the problem and enabled search crawlers to properly index my blog posts.
 
-Instead of trying to get Googlebot to understand my infinite scrolling, I simply created a separate page, <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/all-posts/">blogthedata.com/all-posts,</a> that contains page-based pagination. After adding this new page, ahrefs recognized it and no longer flags my posts as orphans!
+Instead of trying to get Googlebot to understand my infinite scrolling, I simply created a separate page, <a target="_blank" rel="noopener noreferrer" href="/blog/all-posts/">blogthedata.com/all-posts,</a> that contains page-based pagination. After adding this new page, ahrefs recognized it and no longer flags my posts as orphans!
 
 ## Duplicate Content
 
@@ -95,8 +95,6 @@ A 4xx error usually indicates that a webpage is either missing or blocked. I eit
 <p style="text-align:center;"><strong>Ahref's Audit reveals links with 403s</strong></p>
 
 <figure class="image image-style-align-center"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_RfZugIM.png" alt="403 (Forbidden) errors with links to Cloudflare docs"></figure>
-
-<h2>&nbsp;</h2>
 
 ## Meta descriptions and titles
 
