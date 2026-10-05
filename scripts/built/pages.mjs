@@ -65,8 +65,9 @@ const CONTENT_TYPES = {
 
 // Serves `root` on a free local port the way a static host does: a path
 // ending in / answers with its index.html, anything missing with a plain 404.
-// Resolves to { origin, close }.
-export async function serveStatic(root) {
+// `headers` go on every response, as vercel.json's do. Resolves to
+// { origin, close }.
+export async function serveStatic(root, headers = {}) {
 	const server = createServer(async (request, response) => {
 		const { pathname } = new URL(request.url, "http://localhost");
 		// normalize() resolves "..", so the absolute path never leaves root.
@@ -78,12 +79,13 @@ export async function serveStatic(root) {
 		try {
 			const body = await readFile(file);
 			response.writeHead(200, {
+				...headers,
 				"Content-Type":
 					CONTENT_TYPES[extname(file)] ?? "application/octet-stream",
 			});
 			response.end(body);
 		} catch {
-			response.writeHead(404, { "Content-Type": "text/plain" });
+			response.writeHead(404, { ...headers, "Content-Type": "text/plain" });
 			response.end("not found");
 		}
 	});
@@ -110,21 +112,31 @@ export async function stubOffOrigin(context, origin) {
 	);
 }
 
-// The published posts (draft: false; the schema defaults draft to true) as
-// { slug, category }, read from the post frontmatter rather than the build,
-// so a test can hold the built pages to them.
-export async function publishedPosts() {
+// Every post as { slug, category, published, related }, read from the post
+// frontmatter rather than the build, so a test can hold the built pages to
+// it. Only draft: false publishes; the schema defaults draft to true.
+export async function allPosts() {
 	const files = await globby("*.md", { cwd: POSTS });
-	const posts = await Promise.all(
+	return Promise.all(
 		files.map(async (file) => {
 			const source = await readFile(new URL(file, POSTS), "utf8");
 			// The core schema, as the post loader reads it (post-loader.ts).
 			const { rawFrontmatter } = parseFrontmatter(source);
-			return parseDocument(rawFrontmatter, { schema: "core" }).toJS();
+			const {
+				slug,
+				category,
+				draft,
+				related = [],
+			} = parseDocument(rawFrontmatter, { schema: "core" }).toJS();
+			return { slug, category, published: draft === false, related };
 		}),
 	);
-	return posts
-		.filter((post) => post.draft === false)
+}
+
+// The published posts as { slug, category }.
+export async function publishedPosts() {
+	return (await allPosts())
+		.filter((post) => post.published)
 		.map(({ slug, category }) => ({ slug, category }));
 }
 

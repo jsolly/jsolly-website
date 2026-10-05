@@ -6,7 +6,7 @@ const WHITESPACE = /\s+/u;
 
 // "January 9, 2023": the calendar date in UTC, so the label never depends on
 // the build machine's time zone.
-function dateLabel(date: Date) {
+export function dateLabel(date: Date) {
 	return date.toLocaleDateString("en-US", {
 		year: "numeric",
 		month: "long",

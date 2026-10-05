@@ -296,7 +296,7 @@ export const AREAS = {
 		entries: [
 			{
 				from: "src/pages/post/[slug]/index.astro",
-				to: "src/pages/blog/[slug]/index.astro",
+				to: "src/pages/blog/[slug].astro",
 			},
 		],
 	},
