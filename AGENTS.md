@@ -142,3 +142,12 @@ Astro `security.csp` emits per-page hashes for the island bootstrap and owns
 `frame-ancestors` in its response header. Do not add a conflicting header
 `script-src` or `default-src`, or allow arbitrary inline scripts. Verify built
 pages with both policies; Astro dev/preview alone does not apply Vercel headers.
+
+The header's `img-src` also allows `https://d1d7p8ufhgz4ld.cloudfront.net`,
+the retained blogthedata S3/CloudFront host that serves legacy blog post images
+(a runtime dependency, decision J6 in `docs/plans/blogthedata-merge/plan.md`), and `form-action 'self'`, which does not
+fall back to `default-src`. Browsers enforce the intersection, so the Astro meta
+still limits images on every page to `'self'` until a page adds its own
+`img-src` directive.
+`scripts/unit/vercel-csp-header.test.mjs` pins the full header directive map,
+and the build-time `csp` suite checks every built `<img>` and `<source srcset>` URL against both policies.
