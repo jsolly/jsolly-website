@@ -41,7 +41,7 @@ npm run build               # astro build (writes the route manifest) + node pro
 npm run build:maintenance   # MAINTENANCE_MODE=true npm run build (renders Maintenance.astro)
 npm run preview             # Preview the production build locally
 npm run check:fix           # biome check --write
-npm run check:ts            # astro check (errors only)
+npm run check:ts            # astro check (errors only) + svelte-check (fails on warnings)
 npm run fix                 # check:fix + check:ts (combined)
 npm test                    # unit tests: src/**/*.test.ts and scripts/unit/*.test.mjs
 npm run test:built          # built-output tests: scripts/built/*.test.mjs against dist/ (run after build)
