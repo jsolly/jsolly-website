@@ -10,6 +10,8 @@
 		"includes": [
 			"**",
 			"!.agents",
+			// Archival planning records, the same reasoning as markdownlint's ignore.
+			"!docs/plans",
 			"!**/*.svg",
 			"**/*.ts",
 			"**/*.js",

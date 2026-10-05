@@ -59,6 +59,7 @@ Every suite runs through `scripts/run-tests.mjs`: `npm test` (`unit`), the built
 - `src/layouts/` — page layout wrappers.
 - `src/content/` — Astro content collections (if used).
 - `process-html.mjs` — post-build pass that adds slugified `id` attributes to `h2/h3/h4` (for anchor links) and runs `html-minifier`. Runs after every `astro build`.
+- `docs/plans/` — archival planning records (the blogthedata merge plan bundle lives in `docs/plans/blogthedata-merge/`). Biome and markdownlint ignore it, and Tailwind does not scan it.
 - `astro.config.ts` — site URL flips between `localhost:4321` (dev) and `https://www.jsolly.com` (prod) so the sitemap and absolute links resolve correctly per environment.
 
 ## Deploy
@@ -79,6 +80,7 @@ If a green merge creates no Vercel deployment, verify that the project's Git con
 
 - **Tabs** for indentation (Biome default, also matches `biome.jsonc`).
 - **Tailwind utilities** over custom CSS; theme tokens live in `src/styles/`.
+- **Tailwind sources are explicit.** `src/styles/main.css` imports Tailwind with `source(none)` and lists its `@source` / `@source not` paths, so docs, data and blog or recipe code never change the portfolio bundle; Tailwind class strings must live in `src/components`, `src/layouts`, `src/pages` or `src/lib`. `scripts/unit/tailwind-sources.test.mjs` asks Tailwind's own scanner which files feed `main.css` and fails on any file outside those four roots.
 - **Heading IDs are auto-generated** by `process-html.mjs` from heading text — don't hand-write `id="..."` on headings unless overriding the generated slug.
 
 ## Local UI verification

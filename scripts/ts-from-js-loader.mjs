@@ -13,8 +13,15 @@ export async function resolve(specifier, context, nextResolve) {
 	) {
 		const asTs = new URL(specifier, context.parentURL);
 		asTs.pathname = asTs.pathname.replace(JS_EXT_RE, ".ts");
-		const result = await nextResolve(asTs.href, context);
-		return result;
+		try {
+			return await nextResolve(asTs.href, context);
+		} catch (error) {
+			// Real `.js` files (dependencies such as lightningcss import their own
+			// `./index.js`) keep resolving as written.
+			if (error.code !== "ERR_MODULE_NOT_FOUND") {
+				throw error;
+			}
+		}
 	}
 	return nextResolve(specifier, context);
 }

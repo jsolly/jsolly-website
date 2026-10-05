@@ -1,0 +1,752 @@
+[
+ {
+  "path": "src/components/recipes/recipes.json",
+  "kind": "data (canonical)",
+  "purpose": "Single source of truth for 21 recipes (15 meals + 6 smoothies): ingredients, steps, flow trees, nutrition, family options, image metadata (123 /media/recipes/ refs, 0 absolute blogthedata URLs, 0 /post/ refs). Feeds UI, print, assistant data, and (legacy) the generated article.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/recipes.json",
+  "reason": "Move; rewrite image paths /media/recipes/ -> /recipes/media/ with a JSON-aware script (not sed on bytes); let Biome reformat (tabs). Verify by JSON.parse deepEqual against source after the path mapping, not by byte hash.",
+  "conflicts": [
+   "Biome format check fails on the 6976-line file as-is (jsolly gate runs biome ci . over **/*.json)",
+   "Content freeze: #699 (chicken-posole) and #700 (keto-zuppa-toscana) landed 2026-10-04; file may change again before cutover",
+   "id/key fields are load-bearing: recipe ids are URL slugs (/recipes/<id>/), anchors (#id) and share-link keys"
+  ],
+  "tests_covering": [
+   "recipe-logic.test.mjs",
+   "recipe-export.test.mjs",
+   "trn-logic.test.mjs",
+   "nutrient-filters.test.mjs",
+   "scripts/recipes/pwa.test.mjs",
+   "scripts/astro-contract.test.mjs (recipe test; not ported as-is)"
+  ]
+ },
+ {
+  "path": "src/components/recipes/nutrition-data.json",
+  "kind": "data",
+  "purpose": "USDA SR Legacy/FNDDS-derived per-100g macro+micro profiles, source URLs, DV constants; consumed by nutrition.mjs via JSON import attribute.",
+  "disposition": "move",
+  "target": "src/components/recipes/nutrition-data.json",
+  "reason": "Copy unchanged semantically; Biome-format it. No path-bearing content (0 blogthedata refs).",
+  "conflicts": [
+   "6115 lines: Biome format check fails as-is; consider whether to exclude from Biome formatting vs reformat once (recommend reformat once, then it is stable)",
+   "Imported with `with {type:\"json\"}`: Biome useJsonImportAttributes already satisfied; 2 useJsonImportAttributes diagnostics appeared in spike for other imports"
+  ],
+  "tests_covering": [
+   "nutrition.test.mjs",
+   "nutrient-filters.test.mjs",
+   "recipe-export.test.mjs"
+  ]
+ },
+ {
+  "path": "src/components/recipes/nutrition.mjs",
+  "kind": "logic",
+  "purpose": "Daily-value and nutrient math over nutrition-data.json.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/nutrition.mjs",
+  "reason": "Move + Biome autofix. Knip flagged export dailyNutrients as unused (knip is in jsolly gate): un-export or delete.",
+  "conflicts": [
+   "Knip unused export: dailyNutrients",
+   "Biome format needed"
+  ],
+  "tests_covering": [
+   "nutrition.test.mjs"
+  ]
+ },
+ {
+  "path": "src/components/recipes/recipe-logic.mjs",
+  "kind": "logic",
+  "purpose": "Scaling (2/4/6/8 servings), unit formatting, validateSettings, shuffle, capacity notes, purchase notes.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/recipe-logic.mjs",
+  "reason": "Move + Biome autofix (format/organizeImports).",
+  "conflicts": [
+   "Biome format needed"
+  ],
+  "tests_covering": [
+   "recipe-logic.test.mjs",
+   "display-units.test.mjs",
+   "trn-logic.test.mjs"
+  ]
+ },
+ {
+  "path": "src/components/recipes/recipe-logic.test.mjs",
+  "kind": "test",
+  "purpose": "13 node:test cases: scaling, family macros, safe endpoints, package counts, shuffle.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/recipe-logic.test.mjs",
+  "reason": "Move; Biome: 37 errors (useUnicodeRegex, useConsistentTestIt it/test, useTopLevelRegex, noImportedExports...). Run via a new npm script (jsolly npm test only globs src/lib/*.test.ts).",
+  "conflicts": [
+   "Biome ci with jsolly-website biome.jsonc (measured in scratch clone, 39 ported files total: 646 errors + 88 warnings; top rules useLayeredStyles 245, useUnicodeRegex 92, noImportantStyles 85, useTopLevelRegex 59, useConsistentTestIt 50, useTemplate 31, format 26 files, organizeImports 26)"
+  ],
+  "tests_covering": [
+   "self"
+  ]
+ },
+ {
+  "path": "src/components/recipes/display-units.mjs",
+  "kind": "logic",
+  "purpose": "cookText temperature/volume conversion helper.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/display-units.mjs",
+  "reason": "Move + Biome autofix (13 errors).",
+  "conflicts": [
+   "Biome 13 errors"
+  ],
+  "tests_covering": [
+   "display-units.test.mjs"
+  ]
+ },
+ {
+  "path": "src/components/recipes/display-units.test.mjs",
+  "kind": "test",
+  "purpose": "3 cases for gram threshold / whole-ounce display.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/display-units.test.mjs",
+  "reason": "Move + Biome fix (4 errors).",
+  "conflicts": [
+   "Biome 4 errors"
+  ],
+  "tests_covering": [
+   "self"
+  ]
+ },
+ {
+  "path": "src/components/recipes/ingredient-icon.mjs",
+  "kind": "logic",
+  "purpose": "Regex table mapping ingredient names to decorative emoji.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/ingredient-icon.mjs",
+  "reason": "Move; Biome: 29 errors (mostly regex flags/top-level regex). Mechanical.",
+  "conflicts": [
+   "Biome 29 errors (useUnicodeRegex etc.)"
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "src/components/recipes/nutrient-filters.mjs",
+  "kind": "logic",
+  "purpose": "Filter predicates (protein/carb/style/appliance/nutrient focus), starchTypes, appliance inventory defaults.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/nutrient-filters.mjs",
+  "reason": "Move + autofix (1 error).",
+  "conflicts": [],
+  "tests_covering": [
+   "nutrient-filters.test.mjs"
+  ]
+ },
+ {
+  "path": "src/components/recipes/nutrient-filters.test.mjs",
+  "kind": "test",
+  "purpose": "9 cases: filter intersections at all serving counts, OR-within/AND-across, Shared Main combos, smoothie ingredients.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/nutrient-filters.test.mjs",
+  "reason": "Move + Biome fix (11 errors).",
+  "conflicts": [
+   "Biome 11 errors"
+  ],
+  "tests_covering": [
+   "self"
+  ]
+ },
+ {
+  "path": "src/components/recipes/nutrition.test.mjs",
+  "kind": "test",
+  "purpose": "3 cases for nutrition model.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/nutrition.test.mjs",
+  "reason": "Move + Biome fix (6 errors).",
+  "conflicts": [
+   "Biome 6 errors"
+  ],
+  "tests_covering": [
+   "self"
+  ]
+ },
+ {
+  "path": "src/components/recipes/recipe-export.mjs",
+  "kind": "logic",
+  "purpose": "recipeDocument/recipeBundle/documentMarkdown: shared model for print AND the public assistant JSON/Markdown.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/recipe-export.mjs",
+  "reason": "Move + Biome fix (14 errors). Knip flagged export recipeDisclaimer unused. NOTE: despite name this is also the print model (RecipePrint.svelte imports recipeDocument), so it cannot be dropped with assistant data.",
+  "conflicts": [
+   "Knip unused export: recipeDisclaimer",
+   "Biome 14 errors"
+  ],
+  "tests_covering": [
+   "recipe-export.test.mjs"
+  ]
+ },
+ {
+  "path": "src/components/recipes/recipe-export.test.mjs",
+  "kind": "test",
+  "purpose": "3 cases: document shape, family option nutrition, bundle JSON-serializable.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/recipe-export.test.mjs",
+  "reason": "Move + Biome fix (28 errors).",
+  "conflicts": [
+   "Biome 28 errors"
+  ],
+  "tests_covering": [
+   "self"
+  ]
+ },
+ {
+  "path": "src/components/recipes/trn-logic.mjs",
+  "kind": "logic",
+  "purpose": "Tabular Recipe Notation: flowGrid (merged-cell grid), flowHtml, gridHtml; validates every ingredient is allocated.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/trn-logic.mjs",
+  "reason": "Move + Biome fix (9 errors). flowHtml/gridHtml used by recipe-export; flowHtml also used by the article generator being dropped (check Knip after drop).",
+  "conflicts": [
+   "Biome 9 errors",
+   "Knip: flowHtml may become unused once article-generator.mjs is dropped"
+  ],
+  "tests_covering": [
+   "trn-logic.test.mjs"
+  ]
+ },
+ {
+  "path": "src/components/recipes/trn-logic.test.mjs",
+  "kind": "test",
+  "purpose": "5 cases: allocation completeness, non-overlapping grid, symbolic salt, smoothie loading order.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/trn-logic.test.mjs",
+  "reason": "Move + Biome fix (30 errors).",
+  "conflicts": [
+   "Biome 30 errors"
+  ],
+  "tests_covering": [
+   "self"
+  ]
+ },
+ {
+  "path": "src/components/recipes/recipe-url.mjs",
+  "kind": "logic",
+  "purpose": "readRecipeURL / recipeHref. Share URL format: /recipes/<id>/?servings=<n>[&starch=<id>:<sideId>]; reads ?servings, ?starch, pathname /recipes/<id>/ OR hash #<id>. Always relative; callers add window.location.origin.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/recipe-url.mjs",
+  "reason": "Move unchanged in behavior: it is already origin-agnostic and already uses /recipes/ paths, so shared links keep their shape on jsolly.com. Must keep supporting #<id> (legacy article anchors from /post/15-minute-.../#<id>).",
+  "conflicts": [
+   "Redirect must preserve query and fragment: query pass-through VERIFIED for vercel.json redirects on live blogthedata.com (308 Location keeps ?servings=6&starch=a%3Ab); bulk redirects default preserveQueryParams=false; fragment preserved by browsers"
+  ],
+  "tests_covering": [
+   "scripts/recipes/pwa.test.mjs (share settings tests)"
+  ]
+ },
+ {
+  "path": "src/components/recipes/recipe-print-session.mjs",
+  "kind": "logic",
+  "purpose": "Sets/restores data-recipe-print on <html> around beforeprint/afterprint.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/recipe-print-session.mjs",
+  "reason": "Move + Biome fix (2 errors). Print CSS keyed on this attribute must be re-targeted to jsolly Layout selectors.",
+  "conflicts": [
+   "Biome 2 errors"
+  ],
+  "tests_covering": [
+   "scripts/recipes/pwa.test.mjs (print path indirectly)"
+  ]
+ },
+ {
+  "path": "src/components/recipes/recipe-pwa-client.mjs",
+  "kind": "client script",
+  "purpose": "Registers service worker: navigator.serviceWorker.register(\"/recipe-service-worker.js\",{scope:\"/\",updateViaCache:\"none\"}); status messaging; toggles html.recipe-offline on online/offline. Skipped in DEV. No localStorage.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/recipe-pwa-client.mjs",
+  "reason": "Change to register(\"/recipes/service-worker.js\",{scope:\"/recipes/\",updateViaCache:\"none\"}); update copy (\"other blog pages\" -> \"other pages on jsolly.com\"); drop html.recipe-offline .related-posts rule. Bundled by Astro as an external /_astro module, so no inline-script CSP hash.",
+  "conflicts": [
+   "Biome 1 error",
+   "Scope changes from / to /recipes/ (deliberately narrower on a site that has no other SW)"
+  ],
+  "tests_covering": [
+   "scripts/recipes/pwa.test.mjs"
+  ]
+ },
+ {
+  "path": "src/components/recipes/RecipePwa.astro",
+  "kind": "component",
+  "purpose": "Hidden aside with offline status text (id=recipe-offline-status) + imports recipe-pwa-client.mjs + scoped style incl. :global(html.recipe-offline .related-posts img).",
+  "disposition": "adapt",
+  "target": "src/components/recipes/RecipePwa.astro",
+  "reason": "Move; delete the .related-posts global rule; reword copy. The status element is the contract the PWA tests wait on.",
+  "conflicts": [
+   "Biome 4 errors",
+   "Style uses var(--border) which jsolly theme does not define (fallback #999 used)"
+  ],
+  "tests_covering": [
+   "scripts/recipes/pwa.test.mjs"
+  ]
+ },
+ {
+  "path": "src/components/recipes/RecipeExperience.astro",
+  "kind": "component",
+  "purpose": "Wraps <RecipeLibrary client:load recipes={data.recipes} initialCollection>. Astro serializes the whole recipes.json into the island props attribute (dist/recipes/meals/index.html is 604 KB; every recipe grid page repeats it).",
+  "disposition": "adapt",
+  "target": "src/components/recipes/RecipeExperience.astro",
+  "reason": "Move. Page weight (~600 KB HTML x 3 collection pages, plus 23 pages precached) is an existing trait; flag as optional follow-up (pass slim card data to the island) but not a blocker.",
+  "conflicts": [
+   "Biome 2 errors",
+   "process-html.mjs (JSDOM reserialize + html-minifier removeComments) will now process 600 KB HTML pages and STRIP Svelte 5 hydration anchors (<!--[ / <!--]-->; verified with jsolly html-minifier-terser; awesome-blog meals page has 1,443 pairs); needs ignoreCustomComments or /recipes exemption; hydration impact UNVERIFIED in browser; build time UNVERIFIED"
+  ],
+  "tests_covering": [
+   "scripts/recipes/pwa.test.mjs"
+  ]
+ },
+ {
+  "path": "src/components/recipes/RecipeLibrary.svelte",
+  "kind": "component",
+  "purpose": "Main interactive library: collection tabs (links to /recipes/meals/ and /recipes/smoothies/), filters (protein/carb/style/ingredients/nutrition/appliances), shuffle, card grid, hash-driven full-viewport Dialog, print-all. Persists settings to localStorage key \"blogthedata-recipes-v2\". Uses history.pushState for #id and #meal-results.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/RecipeLibrary.svelte",
+  "reason": "Move; retarget $lib/components/ui/* imports; rename storage key (origin changes anyway, old state is not transferable); Biome: 135 errors + 26 warnings (largest single file). Scoped biome.jsonc override for ported recipe tree recommended for useLayeredStyles/noImportantStyles rather than rewriting layout CSS.",
+  "conflicts": [
+   "localStorage key blogthedata-recipes-v2: origin-scoped, lost on move (blogthedata.com -> jsolly.com). State = servings, familyChoice, appliancesOnHand, protein/carb/starch/ingredient filters, collection, nutrition toggles. No migration planned (preferences only).",
+   "Biome ci with jsolly-website biome.jsonc (measured in scratch clone, 39 ported files total: 646 errors + 88 warnings; top rules useLayeredStyles 245, useUnicodeRegex 92, noImportantStyles 85, useTopLevelRegex 59, useConsistentTestIt 50, useTemplate 31, format 26 files, organizeImports 26)",
+   "Imports bits-ui-backed shadcn components absent from jsolly (dialog, popover, checkbox, collapsible, native-select)",
+   "Hard-coded \"Easy Meals & Smoothies recipe library\" aria-label and hash handling #meal-results"
+  ],
+  "tests_covering": [
+   "scripts/recipes/pwa.test.mjs",
+   "nutrient-filters.test.mjs"
+  ]
+ },
+ {
+  "path": "src/components/recipes/RecipePage.svelte",
+  "kind": "component",
+  "purpose": "Single-recipe page (/recipes/<id>/): server-rendered RecipeBody, hydrates to add servings select, Print recipe, ShareRecipe; back link to /recipes/<collection>/.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/RecipePage.svelte",
+  "reason": "Move; Biome 17 errors; keep back-link targets.",
+  "conflicts": [
+   "Biome 17 errors"
+  ],
+  "tests_covering": [
+   "scripts/recipes/pwa.test.mjs"
+  ]
+ },
+ {
+  "path": "src/components/recipes/RecipeBody.svelte",
+  "kind": "component",
+  "purpose": "Shared recipe detail body (appliance icons, photo, family-side selector, TRN flow, nutrition) used by library dialog and page.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/RecipeBody.svelte",
+  "reason": "Move; Biome 22 errors.",
+  "conflicts": [
+   "Biome 22 errors",
+   "Uses Collapsible (NutrientDisclosure)"
+  ],
+  "tests_covering": [
+   "scripts/recipes/pwa.test.mjs"
+  ]
+ },
+ {
+  "path": "src/components/recipes/RecipeFlow.svelte",
+  "kind": "component",
+  "purpose": "Renders TRN cooking table with per-allocation checkboxes, reset button, TRN explanation dialog.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/RecipeFlow.svelte",
+  "reason": "Move; Biome 41 errors + 18 warnings.",
+  "conflicts": [
+   "Biome 41 errors + 18 warnings"
+  ],
+  "tests_covering": [
+   "trn-logic.test.mjs",
+   "scripts/recipes/pwa.test.mjs"
+  ]
+ },
+ {
+  "path": "src/components/recipes/RecipePrint.svelte",
+  "kind": "component",
+  "purpose": "Hidden print-output document for one/all recipes (uses recipeDocument).",
+  "disposition": "adapt",
+  "target": "src/components/recipes/RecipePrint.svelte",
+  "reason": "Move; Biome 21 errors + 30 warnings. Print-only CSS depends on site-chrome selectors (see recipes-theme.css).",
+  "conflicts": [
+   "Biome 21 errors + 30 warnings"
+  ],
+  "tests_covering": [
+   "recipe-export.test.mjs"
+  ]
+ },
+ {
+  "path": "src/components/recipes/ShareRecipe.svelte",
+  "kind": "component",
+  "purpose": "Share button: navigator.share({title,url}) -> clipboard fallback -> visible link. URL = new URL(recipeHref(recipe,settings), window.location.origin).",
+  "disposition": "move",
+  "target": "src/components/recipes/ShareRecipe.svelte",
+  "reason": "Origin-agnostic (uses window.location.origin); only retarget Button import. Biome 5 errors.",
+  "conflicts": [
+   "Biome 5 errors"
+  ],
+  "tests_covering": [
+   "scripts/recipes/pwa.test.mjs"
+  ]
+ },
+ {
+  "path": "src/components/recipes/FilterMultiSelect.svelte",
+  "kind": "component",
+  "purpose": "Popover + Checkbox multi-select for Proteins/Carbs/Ingredients.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/FilterMultiSelect.svelte",
+  "reason": "Move; needs popover + checkbox shadcn components; Biome 10 errors + 1 warning.",
+  "conflicts": [
+   "Biome 10 errors"
+  ],
+  "tests_covering": [
+   "scripts/recipes/pwa.test.mjs"
+  ]
+ },
+ {
+  "path": "src/components/recipes/NutrientDisclosure.svelte",
+  "kind": "component",
+  "purpose": "Collapsible Daily Values disclosure.",
+  "disposition": "adapt",
+  "target": "src/components/recipes/NutrientDisclosure.svelte",
+  "reason": "Move; needs collapsible; Biome 15 errors + 2 warnings.",
+  "conflicts": [
+   "Biome 15 errors"
+  ],
+  "tests_covering": [
+   "scripts/recipes/pwa.test.mjs"
+  ]
+ },
+ {
+  "path": "src/components/recipes/NutritionHelp.svelte",
+  "kind": "component",
+  "purpose": "Native info popover for nutrition-focus criteria (uses onDestroy, document listeners).",
+  "disposition": "adapt",
+  "target": "src/components/recipes/NutritionHelp.svelte",
+  "reason": "Move; Biome 4 errors.",
+  "conflicts": [
+   "Biome 4 errors"
+  ],
+  "tests_covering": [
+   "scripts/recipes/pwa.test.mjs"
+  ]
+ },
+ {
+  "path": "src/components/recipes/ApplianceIcon.svelte",
+  "kind": "component",
+  "purpose": "Inline SVG appliance icons (decorative or role=img).",
+  "disposition": "move",
+  "target": "src/components/recipes/ApplianceIcon.svelte",
+  "reason": "Move; Biome 1 error. Inline SVG, no external assets.",
+  "conflicts": [
+   "Biome 1 error"
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "src/pages/recipes/[slug].astro",
+  "kind": "page",
+  "purpose": "getStaticPaths for /recipes/meals/, /recipes/smoothies/ and /recipes/<id>/ (21). Wraps in awesome-blog Base layout with breadcrumb to the old post URL.",
+  "disposition": "adapt",
+  "target": "src/pages/recipes/[slug].astro",
+  "reason": "Rewrite layout to jsolly Layout.astro; breadcrumb target /post/15-minute-.../ becomes /recipes/. Needs Layout head slot (manifest/theme-color/apple-touch-icon/noscript link) which jsolly Layout lacks. ADD new src/pages/recipes/index.astro for the landing (RecipeExperience, meal collection) replacing the post route src/pages/post/[slug]/index.astro special case (interactiveMealPost).",
+  "conflicts": [
+   "jsolly Layout.astro has no <slot name=\"head\">, fixed <link rel=manifest href=/favicons/site.webmanifest> (two manifests cannot coexist), advertises <link rel=alternate text/markdown href=/recipes/<slug>.md> which middleware answers 404 (PAGES has only 5 entries)",
+   "Layout container is max-w-4xl; TRN tables want wide layout (awesome-blog widened via article-content.css .page-layout[data-page=...] rules)",
+   "Biome 3 errors"
+  ],
+  "tests_covering": [
+   "scripts/astro-contract.test.mjs recipe test (to be re-homed)",
+   "scripts/recipes/pwa.test.mjs"
+  ]
+ },
+ {
+  "path": "scripts/recipes/pwa-build.mjs",
+  "kind": "build integration",
+  "purpose": "Astro astro:build:done integration. Crawls dist (post route + every dir under dist/recipes/ without \".\" in name) with cheerio, builds ASSETS list (135 URLs: 53 /_astro, 44 media, 23 recipe pages, data files, icons, manifest, social SVGs, favicon, topographic-logo), sha256 over urls+bytes -> cache name recipe-pages-pwa-<20hex>; writes dist/recipe-service-worker.js (root scope) AND dist/post/15-minute-.../service-worker.js (same worker with cache prefix recipe-pwa-, legacy URL). SW: install=cache.addAll, activate=delete old same-prefix caches + clients.claim, fetch=cache-first only for ASSETS allowlist (navigations only for trailing-slash keys). No skipWaiting: updates wait until all clients close.",
+  "disposition": "adapt",
+  "target": "scripts/recipes/pwa-build.mjs",
+  "reason": "Keep ONE worker at dist/recipes/service-worker.js (scope /recipes/, ROUTE=/recipes/); delete the legacy second worker + prefix swap (no installed base on jsolly.com). MUST stop enumerating pages via readdir(dist/recipes) filtered by \"no dot in name\": new dirs dist/recipes/media, /pwa, /data have no dot and would be read as recipe pages (readFile .../index.html ENOENT -> build crash). Derive pages from recipes.json ids + [meals, smoothies, landing]. Replace cheerio (not a jsolly dependency; Knip: unlisted) with jsdom already present. Run it AFTER process-html.mjs (build script chain) so the cache hash covers the shipped, minified bytes; today it hashes pre-minify HTML.",
+  "conflicts": [
+   "Knip: cheerio unlisted dependency",
+   "Biome 10 errors (noAwaitInLoops, useTopLevelRegex, noShadow...)",
+   "Runs inside astro build, before jsolly process-html.mjs (JSDOM re-serialize + minify): hash computed on different bytes than deployed",
+   "jsolly middleware adds Vary: Accept to /recipes/** HTML; worker should use cache.match(key,{ignoreVary:true}) and pwa.test server must emit Vary: Accept to match production (offline hit could silently fall through)",
+   "Hard-coded /favicon.ico and /social/*.svg, /topographic-logo.svg come from awesome-blog chrome; jsolly chrome assets differ (crawler picks up src/href automatically except icons)"
+  ],
+  "tests_covering": [
+   "scripts/recipes/pwa.test.mjs"
+  ]
+ },
+ {
+  "path": "scripts/recipes/pwa.test.mjs",
+  "kind": "test (browser)",
+  "purpose": "13 Playwright/Chromium tests against a local http server serving copies of dist (A/B snapshots) plus a git-archived previous release (SHA d6adba53...) for legacy-worker migration: installs offline (desktop/mobile), filters persistence, snapshot update waits for tabs, failed update keeps old snapshot, failed first download, details without JS + share (390/1280), collection pages without JS, legacy+root worker independence, legacy->standalone migration.",
+  "disposition": "adapt",
+  "target": "scripts/recipes/pwa.test.mjs",
+  "reason": "Port the 11 tests that exercise current behavior (retarget recipeRoute to /recipes/, selectors, storage key). DROP the 2 legacy-worker tests and the before() hook that does `git archive d6adba53` + builds the previous release (that SHA does not exist in jsolly-website history; they test an installed base that will not exist on jsolly.com). ADD new tests: tombstone worker upgrade path (see notes). Needs dist/ (run after build) and chromium (jsolly CI already runs playwright install chromium; jsolly gate order puts npm test BEFORE build, so this needs a post-build step). Biome: 97 errors + 1 warning.",
+  "conflicts": [
+   "Requires prior `npm run build`; jsolly pre-commit runs unit tests before build",
+   "Needs Playwright chromium locally (jsolly already has playwright 1.63.0, same as awesome-blog)",
+   "Biome 97 errors",
+   "Depends on legacySha d6adba53 via git archive: will fail outright in jsolly-website",
+   "Test server sends no Vary header; production (jsolly middleware) sends Vary: Accept on recipe HTML"
+  ],
+  "tests_covering": [
+   "self"
+  ]
+ },
+ {
+  "path": "scripts/recipes/sync-assistant-data.mjs",
+  "kind": "generator script",
+  "purpose": "Writes public/data/recipe-library.json (recipeBundle, 4 servings, US units, no family starch, schemaVersion 1) and recipe-library.md; --check compares bytes.",
+  "disposition": "adapt",
+  "target": "scripts/recipes/sync-assistant-data.mjs",
+  "reason": "Retarget output to public/recipes/data/. Output must be Biome-stable or excluded: JSON.stringify(...,null,2) (2-space) fails biome format (tabs) -> either emit tab-indented JSON or add files.includes negation for public/recipes/data/** in biome.jsonc; also exclude recipe-library.md from markdownlint (jsolly lint-md runs **/*.md, ~159 KB generated).",
+  "conflicts": [
+   "Biome format fails on generated JSON (verified: public/data/recipe-library.json listed under files needing format)",
+   "markdownlint-cli2 would lint generated recipe-library.md (not in .markdownlint-cli2.jsonc ignores)",
+   "Biome 5 errors"
+  ],
+  "tests_covering": [
+   "astro-contract recipe test (checks dist/data/recipe-library.json ids)",
+   "recipes:check"
+  ]
+ },
+ {
+  "path": "scripts/recipes/sync-recipe-article.mjs",
+  "kind": "generator script",
+  "purpose": "Regenerates keyed <!-- recipe-generated:* --> regions of src/content/posts/15-minute-dump-and-go-instant-pot-recipes.md and the post excerpt from recipes.json; --check mode in gate.",
+  "disposition": "drop",
+  "target": "null",
+  "reason": "The article body is not rendered anywhere live (post route renders <RecipeExperience/> instead of post.html; built dist HTML has 0 matches for article prose). In the target the post becomes /recipes/ (special-case redirect), so there is no markdown article to keep in sync. Drop the script, the post, and the recipes:check article half.",
+  "conflicts": [
+   "package.json recipes:sync/recipes:check chain must be rewritten to assistant-data only"
+  ],
+  "tests_covering": [
+   "recipes:check (article half)"
+  ]
+ },
+ {
+  "path": "scripts/recipes/article-generator.mjs",
+  "kind": "generator lib",
+  "purpose": "Markdown/HTML generator: per-recipe sections, three comparison tables, excerpt rewrite, region replace.",
+  "disposition": "drop",
+  "target": "null",
+  "reason": "Only consumer is sync-recipe-article.mjs. See sync-recipe-article.mjs reason.",
+  "conflicts": [
+   "Biome 23 errors if kept"
+  ],
+  "tests_covering": [
+   "article-generator.test.mjs"
+  ]
+ },
+ {
+  "path": "scripts/recipes/article-generator.test.mjs",
+  "kind": "test",
+  "purpose": "5 tests for generateRecipeArticle region handling.",
+  "disposition": "drop",
+  "target": "null",
+  "reason": "Tests a dropped module. (Drops 5 of the 55 tests; the other generator-adjacent test scripts/migration-rewrites.test.mjs (1 test) is dropped with the migration verifiers, see notes).",
+  "conflicts": [],
+  "tests_covering": [
+   "self"
+  ]
+ },
+ {
+  "path": "public/data/recipe-library.json",
+  "kind": "generated public data",
+  "purpose": "Assistant-readable library: schemaVersion 1, baseServings 4, 21 recipes with readable quantities, dependency cells, steps, sources, restrictions, estimates, image metadata. 389,731 bytes. Live at https://www.blogthedata.com/data/recipe-library.json (200, application/json, verified). Contains 84 relative /media/recipes/... image paths and no absolute blogthedata URLs. Not linked from any page, docs, robots or llms.txt in awesome-blog.",
+  "disposition": "adapt",
+  "target": "public/recipes/data/recipe-library.json",
+  "reason": "Regenerate (do not copy) via recipes:sync so image paths become /recipes/media/. Old URL needs a per-path 301 to the new one (external assistants may fetch the old public URL: UNVERIFIABLE locally; no local repo, dotagents skill or memory references it, verified by git grep across ~/code). Keep file name stable.",
+  "conflicts": [
+   "Biome format (2-space JSON)",
+   "Consumers pinned to the old URL get 301 -> new; JSON now embeds new image paths"
+  ],
+  "tests_covering": [
+   "astro-contract recipe test",
+   "recipes:check"
+  ]
+ },
+ {
+  "path": "public/data/recipe-library.md",
+  "kind": "generated public data",
+  "purpose": "Markdown rendering of the same bundle (159,124 bytes). Live as text/markdown at /data/recipe-library.md (verified).",
+  "disposition": "adapt",
+  "target": "public/recipes/data/recipe-library.md",
+  "reason": "CRITICAL conflict: jsolly-website middleware.ts routes EVERY path ending .md through agentResponse -> markdownForPath(PAGES has only /, /about, /contact, /privacy, /terms) -> returns a 404 Markdown body. A static recipe-library.md would be answered 404 in production. Fix: exempt the /recipes/data/ prefix in agent-response.ts and shouldNegotiate (+ unit tests in src/lib/*.test.ts), or rename the file to a non-.md extension. Recommend exempting the prefix and keeping the name.",
+  "conflicts": [
+   "middleware.ts + src/lib/agent-response.ts (.md branch runs before shouldNegotiate)",
+   "markdownlint-cli2 lints **/*.md unless ignored",
+   "Layout advertises <link rel=alternate type=text/markdown> siblings which will 404 for /recipes pages"
+  ],
+  "tests_covering": [
+   "astro-contract recipe test (access dist/data/recipe-library.md)"
+  ]
+ },
+ {
+  "path": "public/recipes-pwa/manifest.webmanifest",
+  "kind": "PWA manifest",
+  "purpose": "id and start_url /post/15-minute-dump-and-go-instant-pot-recipes/, scope \"/\" (widened from the post-route scope in #694), display standalone, icons 192/512 at /recipes-pwa/. Linked from the post route head only.",
+  "disposition": "adapt",
+  "target": "public/recipes/pwa/manifest.webmanifest",
+  "reason": "Rewrite: id \"/recipes/\", start_url \"/recipes/\", scope \"/recipes/\", icon paths /recipes/pwa/icon-*.png. Linked only from /recipes/** pages via Layout head slot. Origin change means installed copies from blogthedata.com are a different app: users must re-install from jsolly.com.",
+  "conflicts": [
+   "jsolly Layout already links /favicons/site.webmanifest unconditionally",
+   "Old URL /recipes-pwa/manifest.webmanifest: redirect per-path or let 404 (low value)"
+  ],
+  "tests_covering": [
+   "scripts/recipes/pwa.test.mjs"
+  ]
+ },
+ {
+  "path": "public/recipes-pwa/icon-180.png",
+  "kind": "asset",
+  "purpose": "apple-touch-icon (180x180).",
+  "disposition": "move",
+  "target": "public/recipes/pwa/icon-180.png",
+  "reason": "Move binary unchanged; update <link rel=apple-touch-icon> via head slot.",
+  "conflicts": [],
+  "tests_covering": [
+   "scripts/recipes/pwa.test.mjs"
+  ]
+ },
+ {
+  "path": "public/recipes-pwa/icon-192.png",
+  "kind": "asset",
+  "purpose": "Manifest icon 192x192.",
+  "disposition": "move",
+  "target": "public/recipes/pwa/icon-192.png",
+  "reason": "Move binary unchanged.",
+  "conflicts": [],
+  "tests_covering": [
+   "scripts/recipes/pwa.test.mjs"
+  ]
+ },
+ {
+  "path": "public/recipes-pwa/icon-512.png",
+  "kind": "asset",
+  "purpose": "Manifest icon 512x512; test server injects 503 on this path to simulate a failed precache.",
+  "disposition": "move",
+  "target": "public/recipes/pwa/icon-512.png",
+  "reason": "Move binary unchanged; keep the 503-injection test target path in sync.",
+  "conflicts": [],
+  "tests_covering": [
+   "scripts/recipes/pwa.test.mjs"
+  ]
+ },
+ {
+  "path": "docs/recipes.md",
+  "kind": "docs",
+  "purpose": "Maintenance contract: data model rules, PWA behavior, recipe:sync/check/test commands, browsing/filter spec, per-recipe notes. Contains absolute paths /Users/johnsolly/code/awesome-blog and an external provenance folder /Users/johnsolly/Documents/Codex/2026-10-02/overhaul-https-www-blogthedata-com-post/outputs/evidence/ (11 files, 172 KB: review notes, USDA selections, nutrition-calculations.json, recompute-nutrition.py).",
+  "disposition": "adapt",
+  "target": "docs/recipes.md",
+  "reason": "Move and rewrite: new repo path, /recipes URLs, SW scope /recipes/, remove the article-sync and \"migration rewrite receipt\" sections, remove \"article retains /post/...\" paragraph. COPY the 172 KB evidence folder into the repo (e.g. docs/recipes-evidence/) or the provenance claim points at a local Documents folder outside any repo/backup guarantee. Markdownlint (MD rules enabled, MD013 off) applies to it.",
+  "conflicts": [
+   "Dangling provenance: evidence lives only in ~/Documents/Codex/... (outside git)",
+   "markdownlint-cli2 default rules apply"
+  ],
+  "tests_covering": []
+ },
+ {
+  "path": "src/content/posts/15-minute-dump-and-go-instant-pot-recipes.md",
+  "kind": "content (generated + editorial)",
+  "purpose": "157,691-byte article: frontmatter (slug 15-minute-dump-and-go-instant-pot-recipes, legacyId 116, published 2023-01-10, updated 2026-10-02, related: gis-job-search-resources, UI-enhancement-leads-to-major-architecture-changes, improve-sleep-quality-red-screens-ios-macos) + 21 generated recipe regions + 3 generated tables + editorial prose (lines 26-95 intro/read-this-once/safety/nutrition methodology, 456-476 family-add-on guidance, 1035-1053 boosters/rotation/leftovers). The route src/pages/post/[slug]/index.astro renders <RecipeExperience/> for this slug and never renders the markdown body; its text only reaches search-index.json (1 match). Live URL /post/15-minute-dump-and-go-instant-pot-recipes/ is the recipe landing page.",
+  "disposition": "drop",
+  "target": "null (URL redirects to /recipes/)",
+  "reason": "Special-case per request: /post/15-minute-dump-and-go-instant-pot-recipes/ -> https://www.jsolly.com/recipes/ (301). Do not migrate into /blog. DECISION FOR JOHN: the editorial prose (food-safety temperatures, capacity/preheat guidance, nutrition methodology, leftovers) is currently NOT shown on the live site, so dropping loses no live content, but it is the only home of that prose; options: (a) archive via awesome-blog git history only [recommended default], (b) port prose to a /recipes/guide/ page.",
+  "conflicts": [
+   "3 other posts list this slug in `related` (UI-enhancement-leads-to-major-architecture-changes, compress-minify-assets-69-percent-faster-page-load, gis-job-search-resources): dangling references after the move; the blog port must strip them (cards code silently skips, astro-contract related test compares)",
+   "src/content/intentional-rewrites.json, migration-receipt.json, scripts/migration-rewrites.mjs/.test.mjs, verify-migration.mjs pin this post (migration verifiers: drop with this post)",
+   "Hero image /media/default.webp, legacyImage post_metaimgs/butterChicken.webp irrelevant after drop",
+   "Appears in sitemap.xml, category/resources listing, all-posts, search-index.json, feeds on blogthedata.com: URL-map agent must map or drop each"
+  ],
+  "tests_covering": [
+   "recipes:check (article half)",
+   "scripts/astro-contract.test.mjs recipe route test",
+   "scripts/migration-rewrites.test.mjs (1 test)",
+   "scripts/verify-migration.mjs"
+  ]
+ },
+ {
+  "path": "public/media/recipes/* (44 files: 36 .webp = 12 recipes x {480,960,1440}, 8 .svg smoothie/soup illustrations)",
+  "kind": "assets (outside assigned globs; recipe-owned)",
+  "purpose": "Recipe illustrations referenced by 123 paths in recipes.json; precached by the SW (readdir of dist/media/recipes).",
+  "disposition": "move",
+  "target": "public/recipes/media/*",
+  "reason": "Move with recipes.json path rewrite; 4.9 MB; names unchanged. pan-fried-greek-turkey-patties reuses greek-turkey-patties images. Old URLs /media/recipes/<file> need a pattern 301 to /recipes/media/<file> (path-preserving, not blanket).",
+  "conflicts": [
+   "Not in my assigned globs: URL-map/assets agent must not double-count"
+  ],
+  "tests_covering": [
+   "astro-contract recipe test (srcset access)",
+   "scripts/recipes/pwa.test.mjs"
+  ]
+ },
+ {
+  "path": "src/styles/recipes-theme.css",
+  "kind": "css (outside assigned globs; recipe-owned)",
+  "purpose": "--recipe-* tokens (light + prefers-color-scheme dark + print override), plus a @media print block hiding blog chrome (.site-header .sidebar .site-footer .breadcrumbs .post-meta .article-actions .related-posts .about-card .heading-link ...) when html[data-recipe-print] or :has(.recipe-page).",
+  "disposition": "adapt",
+  "target": "src/styles/recipes-theme.css",
+  "reason": "Move; retarget print selectors to jsolly Header/Footer/main/home-nav classes (those blog selectors do not exist in jsolly); decide dark mode (jsolly has no dark theme: dark recipe panels inside a light page chrome) - recommend dropping the dark block initially. Biome: 6 errors + 7 warnings (useLayeredStyles, noImportantStyles).",
+  "conflicts": [
+   "Dark theme mismatch with jsolly light-only chrome",
+   "Print selectors tied to awesome-blog layout",
+   "Knip flagged file unused until imported"
+  ],
+  "tests_covering": [
+   "visual/print verification only (no automated test)"
+  ]
+ },
+ {
+  "path": "src/styles/no-script.css (recipe lines only)",
+  "kind": "css (outside assigned globs; shared with blog nav)",
+  "purpose": "Lines 11-14 hide interactive library controls/action status/print output under .recipe-experience in the no-JS fallback; loaded via <noscript><link> (CSP-safe).",
+  "disposition": "adapt",
+  "target": "src/styles/recipes-no-script.css (new, 4 rules) + <noscript><link> via Layout head slot",
+  "reason": "Port only the .recipe-experience rules; the navigation-panel rules belong to the blog nav.",
+  "conflicts": [
+   "Layout needs the noscript link slot"
+  ],
+  "tests_covering": [
+   "scripts/recipes/pwa.test.mjs (no-JS tests)"
+  ]
+ },
+ {
+  "path": "src/pages/post/[slug]/index.astro (recipe special-casing only)",
+  "kind": "page (outside assigned globs)",
+  "purpose": "interactiveMealPost branch: injects manifest/theme-color/apple-touch-icon head tags, <RecipePwa/>, <RecipeExperience/> instead of post body, hides hero and Print button.",
+  "disposition": "drop",
+  "target": "null",
+  "reason": "Branch disappears: landing is src/pages/recipes/index.astro. The generic blog post page is ported by another agent without the branch.",
+  "conflicts": [],
+  "tests_covering": [
+   "scripts/astro-contract.test.mjs"
+  ]
+ },
+ {
+  "path": "scripts/astro-contract.test.mjs (recipe test, lines 174-201)",
+  "kind": "test (outside assigned globs)",
+  "purpose": "\"recipe route shares complete recipe bodies without JavaScript and retains first-party assets\": checks /post route, meals/smoothies grids card counts, each recipe page has .recipe-detail, .trn-table, nutrient disclosure, photo src + srcset files exist, dist/data/recipe-library.json ids match, .md exists.",
+  "disposition": "adapt",
+  "target": "scripts/recipes/built-recipes.test.mjs (new, extracted)",
+  "reason": "Extract and re-point to dist/recipes/, dist/recipes/data/*; run after build like built-csp.test.mjs. The remaining tests in that file are blog tests (other inventory).",
+  "conflicts": [
+   "Needs cheerio (use jsdom)"
+  ],
+  "tests_covering": [
+   "self"
+  ]
+ },
+ {
+  "path": "vercel.json (SW header rule)",
+  "kind": "config (outside assigned globs)",
+  "purpose": "Cache-Control: no-cache on /post/15-minute-.../service-worker.js; _root worker /recipe-service-worker.js gets default must-revalidate (verified live).",
+  "disposition": "adapt",
+  "target": "vercel.json (jsolly-website) + final blogthedata.com vercel.json",
+  "reason": "jsolly-website: add header rule for /recipes/service-worker.js (no-cache). blogthedata.com final deployment: serve the two TOMBSTONE workers as 200 and keep them OUT of redirect rules (see notes).",
+  "conflicts": [
+   "jsolly vercel.json trailingSlash:true: file-extension paths are served 200 in production (proved by awesome-blog identical setting)",
+   "Vercel permanent:true emits 308; use statusCode:301 for literal 301s (docs)"
+  ],
+  "tests_covering": [
+   "production redirect/SW verification"
+  ]
+ }
+]
