@@ -211,7 +211,13 @@ after(async () => {
 	await copy?.remove();
 });
 
-for (const path of ["/", "/about/", "/blog/", "/blog/works-cited/"]) {
+for (const path of [
+	"/",
+	"/about/",
+	"/blog/",
+	"/blog/works-cited/",
+	"/blog/search/",
+]) {
 	it(`a visitor opening ${path} gets its islands hydrated in place`, async (t) => {
 		const [shipped, baseline] = await Promise.all([
 			nodeReuse(sites.shipped, path),

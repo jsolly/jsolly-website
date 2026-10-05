@@ -49,7 +49,7 @@
 		{/each}
 		</div>
 	</details>
-	<search class="search-form">
+	<search class="search-form" aria-label="Site search">
 		<form action="/blog/search/" method="get" class="contents">
 			<label class="visually-hidden" for="site-search">Search</label>
 			<Input id="site-search" type="search" name="searched" placeholder="Search posts..." /><Button type="submit">Search</Button>

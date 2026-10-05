@@ -49,6 +49,8 @@ const PAGES = [
 	{ name: "category", old: "/category/Geodev/" },
 	{ name: "all-posts", old: "/all-posts/" },
 	{ name: "search", old: "/search/" },
+	// `query` goes on both URLs; the url-map.json rows match the bare path.
+	{ name: "search-django", old: "/search/", query: "?searched=django" },
 	{ name: "works-cited", old: "/works-cited/" },
 	{ name: "recipes-meals", old: "/recipes/meals/", masks: [".recipe-grid"] },
 	{ name: "recipe-detail", old: "/recipes/chicken-posole/" },
@@ -278,17 +280,18 @@ async function comparePage(
 	const label = `${page.name}-${viewport.width}x${viewport.height}`;
 	const selectors = [...CHROME_MASKS, ...(page.masks ?? [])];
 	const newPath = localPath(redirects, page.old);
+	const query = page.query ?? "";
 	const [live, local] = await Promise.all([
 		shoot(
 			browser,
-			`${origins.live}${page.old}`,
+			`${origins.live}${page.old}${query}`,
 			viewport,
 			selectors,
 			join(outDir, `${label}-live.png`),
 		),
 		shoot(
 			browser,
-			`${origins.local}${newPath}`,
+			`${origins.local}${newPath}${query}`,
 			viewport,
 			selectors,
 			join(outDir, `${label}-local.png`),
@@ -328,8 +331,8 @@ async function comparePage(
 	];
 	return {
 		label,
-		old: page.old,
-		local: newPath,
+		old: `${page.old}${query}`,
+		local: `${newPath}${query}`,
 		percent: Number(result.percent.toFixed(3)),
 		problems,
 		pass: problems.length === 0 && result.percent <= THRESHOLD_PERCENT,

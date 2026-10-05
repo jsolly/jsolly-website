@@ -72,6 +72,7 @@ const CONTENT_TYPES = {
 	".html": "text/html; charset=utf-8",
 	".ico": "image/x-icon",
 	".js": "text/javascript",
+	".json": "application/json",
 	".png": "image/png",
 	".svg": "image/svg+xml",
 	".webp": "image/webp",
