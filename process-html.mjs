@@ -20,31 +20,43 @@ const MINIFY_OPTIONS = {
 	conservativeCollapse: true,
 };
 
-// Get all HTML files from the output directory
-const path = "./dist";
-const files = await globby(`${path}/**/*.html`);
+// Blog and recipe pages get their heading ids from the article renderer
+// (src/lib/blog/html.ts), and old links and feeds point at those ids, so
+// the id pass leaves these pages alone.
+// scripts/built/process-html-ids.test.mjs pins it.
+const ID_PASS_SKIPPED = ["blog/", "recipes/"];
+
+// Add IDs to id-less h2, h3 and h4 tags.
+function addHeadingIds(html) {
+	const dom = new JSDOM(html);
+	const headings = dom.window.document.querySelectorAll("h2, h3, h4");
+	for (const heading of headings) {
+		// Respect hand-written ids (e.g. aria-labelledby targets); only generate when missing.
+		if (heading.id) continue;
+		const text = heading.textContent;
+		if (!text) continue;
+		const id = text
+			.trim()
+			.replace(HEADING_SLUG_SPACES, "-")
+			.replace(HEADING_SLUG_TRAILING_DASH, "")
+			.toLowerCase();
+		heading.setAttribute("id", id);
+	}
+	return dom.serialize();
+}
+
+// The output directory: dist/, or a fixture tree in tests.
+const root = process.argv[2] ?? "./dist";
+const files = await globby("**/*.html", { cwd: root });
 
 await Promise.all(
-	files.map(async (file) => {
+	files.map(async (relative) => {
+		const file = `${root}/${relative}`;
 		console.info("Processing file:", file);
 		let html = await fs.readFile(file, "utf-8");
-
-		// Add IDs to h2, h3, and h4 tags
-		const dom = new JSDOM(html);
-		const headings = dom.window.document.querySelectorAll("h2, h3, h4");
-		for (const heading of headings) {
-			// Respect hand-written ids (e.g. aria-labelledby targets); only generate when missing.
-			if (heading.id) continue;
-			const text = heading.textContent;
-			if (!text) continue;
-			const id = text
-				.trim()
-				.replace(HEADING_SLUG_SPACES, "-")
-				.replace(HEADING_SLUG_TRAILING_DASH, "")
-				.toLowerCase();
-			heading.setAttribute("id", id);
+		if (!ID_PASS_SKIPPED.some((dir) => relative.startsWith(dir))) {
+			html = addHeadingIds(html);
 		}
-		html = dom.serialize();
 
 		// Minify the HTML
 		html = await minify(html, MINIFY_OPTIONS);
