@@ -43,3 +43,11 @@ export interface Card {
 	categoryName: string;
 	minutes: number;
 }
+
+// A published post as the feeds read it.
+export interface FeedPost {
+	data: Pick<
+		z.infer<typeof postSchema>,
+		"slug" | "title" | "description" | "feedAuthor" | "published" | "updated"
+	>;
+}

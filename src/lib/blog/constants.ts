@@ -22,3 +22,10 @@ export const POSTS_PER_BATCH = 3;
 // Batches a paged list loads on scroll before Load more takes over; pressing
 // it grants this many again.
 export const AUTOMATIC_BATCHES = 3;
+
+// The old blog host. Posts that predate the merge keep their feed ids on it,
+// and the Atom feed keeps its id (J8).
+export const LEGACY_SITE = "https://www.blogthedata.com";
+
+// Posts the feeds list, most recently updated first.
+export const FEED_SIZE = 5;

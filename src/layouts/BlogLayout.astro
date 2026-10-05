@@ -71,6 +71,18 @@ const navigation = await blogNavigation();
 		<meta name="description" content={description} />
 		<link rel="canonical" href={canonical} />
 		<link rel="icon" href="/favicon.ico" />
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			title="Blogthedata RSS"
+			href="/blog/rss.xml"
+		/>
+		<link
+			rel="alternate"
+			type="application/atom+xml"
+			title="Blogthedata Atom"
+			href="/blog/atom.xml"
+		/>
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonical} />
