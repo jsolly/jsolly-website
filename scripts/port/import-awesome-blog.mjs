@@ -106,7 +106,7 @@ function resync({ src, dst }) {
 	const target = srcCommit(src, "origin/main");
 	const plan = resyncPlan(src, source.cut_sha, target);
 	if (plan.outside.length > 0) {
-		throw new Error(`nothing written. ${freezeRemedy(src, plan.outside)}`);
+		throw new Error(`nothing written. ${freezeRemedy(plan.outside)}`);
 	}
 	if (plan.unmapped.length > 0) {
 		throw new Error(

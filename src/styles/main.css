@@ -15,3 +15,6 @@
 @source "../layouts";
 @source "../pages";
 @source "../lib";
+/* Blog lib code is not portfolio UI (plan §1.13), and its sanitizer style
+   lists hold class-like words such as `relative` and `inline`. */
+@source not "../lib/blog";
