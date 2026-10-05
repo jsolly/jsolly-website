@@ -1,0 +1,169 @@
+// Shared plumbing for the temporary blogthedata port tools (merge plan §5 B01).
+// Everything in scripts/port/ is deleted at cutover step C0.
+//
+// - SRC is the awesome-blog repository, read only through `git -C <src>`
+//   (ls-tree, show, archive, diff, rev-parse). Nothing here writes to it,
+//   checks it out or fetches it; C0 fetches explicitly before freeze-check.
+// - DST is this repository. `--dst <dir>` points the tools at another tree
+//   with the same layout, which the hermetic tests use.
+// - The SHAs come from DST's scripts/port/source.json, never from the command
+//   line: `cut_sha` is the B00 cut, `freeze_sha` the C0 freeze (null until then).
+//   Tools that read SRC content use `freeze_sha ?? cut_sha`.
+import { spawnSync } from "node:child_process";
+import { mkdirSync, readFileSync, realpathSync, writeFileSync } from "node:fs";
+import { homedir } from "node:os";
+import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import { parseArgs } from "node:util";
+
+export const ROOT = fileURLToPath(new URL("../..", import.meta.url));
+export const SOURCE_JSON = "scripts/port/source.json";
+// The awesome-blog checkout on John's laptop; CI has none, and the tests pass --src.
+const DEFAULT_SRC = join(homedir(), "code", "awesome-blog");
+const BIOME = join(ROOT, "node_modules", ".bin", "biome");
+const FULL_SHA = /^[0-9a-f]{40}$/u;
+const MAX_BUFFER = 512 * 1024 * 1024;
+
+// Parses `--src`, `--dst` and the tool's own options; positionals pass through.
+export function parseCli(argv, options = {}) {
+	const { values, positionals } = parseArgs({
+		args: argv,
+		options: {
+			src: { type: "string" },
+			dst: { type: "string" },
+			...options,
+		},
+		allowPositionals: true,
+		strict: true,
+	});
+	return {
+		...values,
+		src: resolve(values.src ?? DEFAULT_SRC),
+		dst: resolve(values.dst ?? ROOT),
+		positionals,
+	};
+}
+
+// Runs `main(argv)` (sync or async, returning an exit code) when the module is
+// the entry point. A thrown error prints its message and exits 1, so every
+// refusal is loud and stops a C0 sequence.
+export function runCli(moduleUrl, main) {
+	if (
+		!process.argv[1] ||
+		realpathSync(process.argv[1]) !== fileURLToPath(moduleUrl)
+	) {
+		return;
+	}
+	Promise.resolve()
+		.then(() => main(process.argv.slice(2)))
+		.then(
+			(code) => {
+				process.exitCode = code;
+			},
+			(error) => {
+				console.error(`✗ ${error.message}`);
+				process.exitCode = 1;
+			},
+		);
+}
+
+// A hook or another tool may export GIT_DIR, GIT_INDEX_FILE and friends, which
+// override `git -C`. SRC reads drop every repository-location variable and keep
+// only configuration (GIT_CONFIG_*), so they always read the repo they name.
+function gitEnv() {
+	return Object.fromEntries(
+		Object.entries(process.env).filter(
+			([key]) => !key.startsWith("GIT_") || key.startsWith("GIT_CONFIG"),
+		),
+	);
+}
+
+// `git -C <repo> ...` with status. stdout is a Buffer when `binary` is set.
+export function gitStatus(repo, args, { binary = false } = {}) {
+	return spawnSync("git", ["-C", repo, ...args], {
+		encoding: binary ? "buffer" : "utf8",
+		env: gitEnv(),
+		maxBuffer: MAX_BUFFER,
+	});
+}
+
+export function git(repo, args, options) {
+	const result = gitStatus(repo, args, options);
+	if (result.status !== 0) {
+		throw new Error(
+			`git -C ${repo} ${args.join(" ")} failed: ${String(result.stderr).trim()}`,
+		);
+	}
+	return result.stdout;
+}
+
+// Resolves a revision in SRC to its full commit SHA.
+export function srcCommit(src, revision) {
+	return git(src, ["rev-parse", "--verify", `${revision}^{commit}`]).trim();
+}
+
+// Every tracked path in SRC at `sha`, sorted as git lists them.
+export function srcFiles(src, sha) {
+	return git(src, ["ls-tree", "-r", "-z", "--name-only", sha])
+		.split("\0")
+		.filter(Boolean);
+}
+
+// One SRC file at `sha`, as a Buffer.
+export function srcBlob(src, sha, path) {
+	return git(src, ["show", `${sha}:${path}`], { binary: true });
+}
+
+export function readSource(dst) {
+	const source = JSON.parse(readFileSync(join(dst, SOURCE_JSON), "utf8"));
+	if (!FULL_SHA.test(source.cut_sha)) {
+		throw new Error(`${SOURCE_JSON} cut_sha must be a full commit SHA`);
+	}
+	if (source.freeze_sha !== null && !FULL_SHA.test(source.freeze_sha)) {
+		throw new Error(`${SOURCE_JSON} freeze_sha must be null or a full SHA`);
+	}
+	return source;
+}
+
+// The SRC commit whose content the port carries: the freeze once C0 set it.
+export function sourceSha(source) {
+	return source.freeze_sha ?? source.cut_sha;
+}
+
+// Formats text exactly as `biome format` would format the file at `relative`
+// in this repository (cwd ROOT, so the repo's biome.jsonc applies even when
+// --dst points elsewhere).
+export function biomeFormat(relative, text) {
+	const result = spawnSync(BIOME, ["format", `--stdin-file-path=${relative}`], {
+		cwd: ROOT,
+		input: text,
+		encoding: "utf8",
+		maxBuffer: MAX_BUFFER,
+	});
+	if (result.status !== 0) {
+		throw new Error(`biome format ${relative} failed: ${result.stderr.trim()}`);
+	}
+	return result.stdout;
+}
+
+export function readDstJson(dst, relative) {
+	return JSON.parse(readFileSync(join(dst, relative), "utf8"));
+}
+
+export function writeDstFile(dst, relative, content) {
+	const target = join(dst, relative);
+	mkdirSync(dirname(target), { recursive: true });
+	writeFileSync(target, content);
+}
+
+// The Biome-formatted text of a JSON value, as the gate expects it on disk.
+export function formatJson(relative, value) {
+	return biomeFormat(relative, JSON.stringify(value, null, "\t"));
+}
+
+// A non-global regex's named groups for `text`, or null when it does not match.
+// (Biome's inference takes `exec()` to be non-null in plain JS, so the null
+// branch is spelled with `test()`.)
+export function groupsOf(regex, text) {
+	return regex.test(text) ? regex.exec(text).groups : null;
+}
