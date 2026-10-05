@@ -41,7 +41,7 @@ npm run build               # astro build (writes the route manifest) + node pro
 npm run build:maintenance   # MAINTENANCE_MODE=true npm run build (renders Maintenance.astro)
 npm run preview             # Preview the production build locally
 npm run check:fix           # biome check --write
-npm run check:ts            # astro check (errors only)
+npm run check:ts            # astro check + svelte-check (errors only)
 npm run fix                 # check:fix + check:ts (combined)
 npm test                    # unit tests: src/**/*.test.ts and scripts/unit/*.test.mjs
 npm run test:built          # built-output tests: scripts/built/*.test.mjs against dist/ (run after build)
@@ -82,7 +82,7 @@ If a green merge creates no Vercel deployment, verify that the project's Git con
 
 ## CI (local pre-commit gate)
 
-- `.git-hooks/pre-commit` runs through the installed dotagents hook dispatcher and validates Bash, Biome, YAML, Actions, Markdown, browser contract, Knip, the legacy redirect config (`redirects:check`), Astro types, unit tests, build and built-output tests. GitHub Actions repeats the gate on the PR; the hook does **not** deploy.
+- `.git-hooks/pre-commit` runs through the installed dotagents hook dispatcher and validates Bash, Biome, YAML, Actions, Markdown, browser contract, Knip, the legacy redirect config (`redirects:check`), Astro and Svelte types (`check:ts`), unit tests, build and built-output tests. GitHub Actions repeats the gate on the PR; the hook does **not** deploy.
 
 ## Conventions
 
