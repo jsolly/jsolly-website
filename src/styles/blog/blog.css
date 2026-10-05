@@ -846,13 +846,6 @@
 	.text-button:is(:hover, :focus-visible) {
 		text-decoration-color: currentColor;
 	}
-	@media (prefers-reduced-motion: reduce) {
-		a,
-		.text-button {
-			/* biome-ignore lint/complexity/noImportantStyles: reduced motion must override the higher-specificity link and load-more transitions */
-			transition: none !important;
-		}
-	}
 	@media print {
 		a:not(.card-image, .brand, .heading-link, .action-button, .social-link),
 		.text-button {
