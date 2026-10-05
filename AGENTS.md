@@ -44,9 +44,12 @@ npm run check:fix           # biome check --write
 npm run check:ts            # tsc --noEmit
 npm run fix                 # check:fix + check:ts (combined)
 npm test                    # unit tests: src/**/*.test.ts and scripts/unit/*.test.mjs
+npm run test:built          # built-output tests: scripts/built/*.test.mjs against dist/ (run after build)
 ```
 
-Every suite runs through `scripts/run-tests.mjs`: `npm test` (`unit`), the built-CSP check at the end of `npm run build` (`csp`) and `npm run smoke:scenario-contract` (`smoke`). It fails a suite when its passing-test count differs from `scripts/test-counts.json`. Update the count in the commit that adds tests; lower it only in a commit that names each dropped test.
+Every suite runs through `scripts/run-tests.mjs`: `npm test` (`unit`), `npm run test:built` (`built`), the built-CSP check at the end of `npm run build` (`csp`) and `npm run smoke:scenario-contract` (`smoke`). It fails a suite when its passing-test count differs from `scripts/test-counts.json`. Update the count in the commit that adds tests; lower it only in a commit that names each dropped test.
+
+A built test that needs its own build uses a `scripts/built/temp-copy.mjs` copy of the working tree, never the real tree; that file's header describes the isolation.
 
 ## Worktrees
 
@@ -58,7 +61,7 @@ Every suite runs through `scripts/run-tests.mjs`: `npm test` (`unit`), the built
 - `src/components/` — `Header`, `Footer`, `ContactMe`, `SocialLinks`, `Maintenance`, plus a `home/` subdir for index-page sections.
 - `src/layouts/` — page layout wrappers.
 - `src/content/` — Astro content collections (if used).
-- `process-html.mjs` — post-build pass that adds slugified `id` attributes to `h2/h3/h4` (for anchor links) and runs `html-minifier`. Runs after every `astro build`.
+- `process-html.mjs` — post-build pass that adds slugified `id` attributes to `h2/h3/h4` (for anchor links) and runs `html-minifier`. Runs after every `astro build`. The minifier keeps the Svelte and Astro hydration comments and collapses whitespace conservatively, so islands hydrate in place instead of re-rendering; `scripts/built/hydration.test.mjs` pins that contract.
 - `docs/plans/` — archival planning records (the blogthedata merge plan bundle lives in `docs/plans/blogthedata-merge/`). Biome and markdownlint ignore it, and Tailwind does not scan it.
 - `astro.config.ts` — site URL flips between `localhost:4321` (dev) and `https://www.jsolly.com` (prod) so the sitemap and absolute links resolve correctly per environment.
 
@@ -74,7 +77,7 @@ If a green merge creates no Vercel deployment, verify that the project's Git con
 
 ## CI (local pre-commit gate)
 
-- `.git-hooks/pre-commit` runs through the installed dotagents hook dispatcher and validates Bash, Biome, YAML, Actions, Markdown, browser contract, Knip, Astro types, unit tests and build. GitHub Actions repeats the gate on the PR; the hook does **not** deploy.
+- `.git-hooks/pre-commit` runs through the installed dotagents hook dispatcher and validates Bash, Biome, YAML, Actions, Markdown, browser contract, Knip, Astro types, unit tests, build and built-output tests. GitHub Actions repeats the gate on the PR; the hook does **not** deploy.
 
 ## Conventions
 

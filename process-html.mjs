@@ -6,6 +6,20 @@ import { JSDOM } from "jsdom";
 const HEADING_SLUG_SPACES = /[\s.,?:]+/gu;
 const HEADING_SLUG_TRAILING_DASH = /-+$/u;
 
+// Islands hydrate only when the server-rendered DOM survives minification:
+// Svelte's block markers (`[`, `]`), empty anchors and `$props.id()` markers
+// (`$`) must stay, as must Astro's `astro:end`, which lets islands start
+// before DOMContentLoaded. Conservative collapse keeps one space where
+// whitespace was, so text nodes still line up with the client render.
+// scripts/built/hydration.test.mjs pins it.
+const MINIFY_OPTIONS = {
+	removeComments: true,
+	ignoreCustomComments: [/^\[/u, /^\]/u, /^$/u, /^\$/u, /^astro:end$/u],
+	preserveLineBreaks: true,
+	collapseWhitespace: true,
+	conservativeCollapse: true,
+};
+
 // Get all HTML files from the output directory
 const path = "./dist";
 const files = await globby(`${path}/**/*.html`);
@@ -33,11 +47,7 @@ await Promise.all(
 		html = dom.serialize();
 
 		// Minify the HTML
-		html = await minify(html, {
-			removeComments: true,
-			preserveLineBreaks: true,
-			collapseWhitespace: true,
-		});
+		html = await minify(html, MINIFY_OPTIONS);
 		await fs.writeFile(file, html);
 	}),
 );

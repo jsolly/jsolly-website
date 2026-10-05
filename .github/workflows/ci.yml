@@ -159,6 +159,8 @@ jobs:
         if: steps.verified-tree.outputs.run_full != 'false'
       - run: npm run build
         if: steps.verified-tree.outputs.run_full != 'false'
+      - run: npm run test:built
+        if: steps.verified-tree.outputs.run_full != 'false'
       - name: Record validated PR tree
         if: >-
           success() && github.event_name == 'pull_request' &&
