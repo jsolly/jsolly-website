@@ -19,7 +19,8 @@ import { createTempCopy } from "./temp-copy.mjs";
 // Once released and hydrated, with the network idle, the page counts how many
 // are still connected. An island that re-renders instead of hydrating discards
 // all of them. The shipped dist/ must reuse exactly what the unprocessed build
-// reuses on every page below, and the pages marked `full` every node.
+// reuses on every page below, and discard exactly the page's `discarded`
+// nodes (none, except where an island replaces its own server render).
 const SHIPPED = "dist";
 // The comments islands hydrate from, listed independently of process-html.mjs
 // so that dropping one of its ignoreCustomComments patterns fails here: Svelte
@@ -211,18 +212,18 @@ after(async () => {
 	await copy?.remove();
 });
 
-// Plan §4.5. The search island replaces part of its own server render on
-// mount (the loading message gives way to the query's state), so that page is
-// held to parity only.
+// Plan §4.5. On mount the search island swaps its one server-rendered
+// "Loading search..." paragraph for the query's state; every other node on
+// that page, the header navigation included, must survive.
 const PAGES = [
-	{ path: "/", full: true },
-	{ path: "/about/", full: true },
-	{ path: "/blog/", full: true },
-	{ path: "/blog/works-cited/", full: true },
-	{ path: "/blog/search/", full: false },
+	{ path: "/", discarded: 0 },
+	{ path: "/about/", discarded: 0 },
+	{ path: "/blog/", discarded: 0 },
+	{ path: "/blog/works-cited/", discarded: 0 },
+	{ path: "/blog/search/", discarded: 1 },
 ];
 
-for (const { path, full } of PAGES) {
+for (const { path, discarded } of PAGES) {
 	it(`a visitor opening ${path} gets its islands hydrated in place`, async (t) => {
 		const [shipped, baseline] = await Promise.all([
 			nodeReuse(sites.shipped, path),
@@ -249,9 +250,10 @@ for (const { path, full } of PAGES) {
 			{ reused: baseline.reused, total: baseline.total },
 			`${path}: process-html changes island node reuse`,
 		);
-		assert.ok(
-			!full || shipped.reused === shipped.total,
-			`${path}: every server-rendered island node survives hydration`,
+		assert.equal(
+			shipped.total - shipped.reused,
+			discarded,
+			`${path}: server-rendered island nodes discarded by hydration`,
 		);
 	});
 }

@@ -21,7 +21,6 @@ const PORTFOLIO_PAGE = "dist/about/index.html";
 // One selector per source the bundle depends on: an input.svelte utility
 // (ui.css's ../../lib/components/ui source), the search wrapper's utility
 // (its BlogNavigation.svelte source), a blog.css rule and a theme.css token.
-// The Search.svelte source has no utilities of its own to pin.
 const PINNED = [
 	".placeholder\\:text-muted-foreground",
 	".contents{",
