@@ -4,80 +4,131 @@ import fs from "node:fs/promises";
 import it from "node:test";
 import { globby } from "globby";
 import { JSDOM } from "jsdom";
+import { parseDirectives, readHeaderPolicy } from "./csp.mjs";
 
-const FRAME_DENIED = /frame-ancestors 'none'/u;
-const DEFAULT_SELF = /default-src 'self'/u;
 const WHITESPACE = /\s+/u;
-const SCRIPT_DIRECTIVE = /(?:^|;)\s*script-src\s+(?<sources>[^;]+)/u;
-const HEADER_SCRIPT_FALLBACK =
-	/(?:^|;)\s*(?:script-src(?:-elem)?|default-src)\s/u;
+const SCHEME_SOURCE = /^[a-z][a-z\d+.-]*:$/iu;
+// The origin 'self' resolves to in production, and the base for relative URLs.
+const SITE_ORIGIN = "https://www.jsolly.com";
+const SCRIPT_TYPES = ["module", "text/javascript", "application/javascript"];
 
-it("final built pages authorize Astro bootstrap through hashes and retain CSP", async () => {
-	const vercel = JSON.parse(await fs.readFile("vercel.json", "utf8"));
-	const header = vercel.headers
-		.flatMap((entry) => entry.headers)
-		.find((entry) => entry.key === "Content-Security-Policy");
-	assert.ok(header, "response policy remains present");
-	assert.doesNotMatch(
-		header.value,
-		HEADER_SCRIPT_FALLBACK,
-		"Astro owns the per-page script policy; a second header fallback would block its hashes",
-	);
-	assert.match(
-		header.value,
-		FRAME_DENIED,
-		"framing restriction stays in the response header",
-	);
-	const pages = await globby("dist/**/*.html");
-	assert.ok(pages.length > 0, "built HTML is required");
-	const contents = await Promise.all(
-		pages.map(async (file) => ({
+async function readBuiltPages() {
+	const files = await globby("dist/**/*.html");
+	return Promise.all(
+		files.map(async (file) => ({
 			file,
 			html: await fs.readFile(file, "utf8"),
 		})),
 	);
-	for (const { file, html } of contents) {
+}
+
+function findMetaPolicy(document) {
+	return document.head.querySelector(
+		'meta[http-equiv="content-security-policy"]',
+	);
+}
+
+// Fetch directives fall back to default-src; no list at all means unrestricted.
+function imageSources(directives) {
+	return directives.get("img-src") ?? directives.get("default-src");
+}
+
+// Supports 'self', *, scheme sources and bare scheme+host sources; any other
+// source form never matches, so an unsupported policy fails closed.
+function allowsUrl(sources, url) {
+	if (!sources) return true;
+	return sources.some((source) => {
+		if (source === "'self'") return url.origin === SITE_ORIGIN;
+		if (source === "*") return ["http:", "https:"].includes(url.protocol);
+		if (SCHEME_SOURCE.test(source)) {
+			return url.protocol === source.toLowerCase();
+		}
+		if (!URL.canParse(source)) return false;
+		const host = new URL(source);
+		return host.pathname === "/" && host.origin === url.origin;
+	});
+}
+
+function imageUrls(document) {
+	const urls = [];
+	for (const element of document.querySelectorAll(
+		"img[src], img[srcset], source[srcset]",
+	)) {
+		const src = element.getAttribute("src");
+		if (src) urls.push(src);
+		for (const candidate of (element.getAttribute("srcset") ?? "").split(",")) {
+			const [candidateUrl] = candidate.trim().split(WHITESPACE);
+			if (candidateUrl) urls.push(candidateUrl);
+		}
+	}
+	return urls.map((value) => new URL(value, `${SITE_ORIGIN}/`));
+}
+
+it("final built pages authorize Astro bootstrap through hashes and retain CSP", async () => {
+	const pages = await readBuiltPages();
+	assert.ok(pages.length > 0, "built HTML is required");
+	for (const { file, html } of pages) {
 		const dom = new JSDOM(html);
 		try {
-			const meta = dom.window.document.head.querySelector(
-				'meta[http-equiv="content-security-policy"]',
-			);
+			const meta = findMetaPolicy(dom.window.document);
 			assert.ok(meta, `${file}: policy is in the head`);
-			const policy = meta.getAttribute("content");
-			assert.match(
-				policy,
-				DEFAULT_SELF,
+			const directives = parseDirectives(meta.getAttribute("content"));
+			assert.ok(
+				directives.get("default-src")?.includes("'self'"),
 				`${file}: default resource restriction`,
 			);
-			const directive = policy.match(SCRIPT_DIRECTIVE)?.groups?.sources;
-			assert.ok(directive, `${file}: script policy exists`);
+			const scriptSources = directives.get("script-src");
+			assert.ok(scriptSources?.length, `${file}: script policy exists`);
 			assert.ok(
-				!directive.includes("'unsafe-inline'") &&
-					!directive.includes("'unsafe-eval'"),
+				!scriptSources.includes("'unsafe-inline'") &&
+					!scriptSources.includes("'unsafe-eval'"),
 				`${file}: arbitrary code stays blocked`,
 			);
 			for (const script of dom.window.document.querySelectorAll(
 				"script:not([src])",
 			)) {
-				if (
-					script.type &&
-					!["module", "text/javascript", "application/javascript"].includes(
-						script.type,
-					)
-				)
-					continue;
+				if (script.type && !SCRIPT_TYPES.includes(script.type)) continue;
 				if (!script.textContent) continue;
 				const hash = createHash("sha256")
 					.update(script.textContent)
 					.digest("base64");
 				assert.ok(
-					directive.split(WHITESPACE).includes(`'sha256-${hash}'`),
+					scriptSources.includes(`'sha256-${hash}'`),
 					`${file}: final script bytes are authorized after HTML processing`,
 				);
 				assert.ok(
 					meta.compareDocumentPosition(script) &
 						dom.window.Node.DOCUMENT_POSITION_FOLLOWING,
 					`${file}: policy precedes scripts`,
+				);
+			}
+		} finally {
+			dom.window.close();
+		}
+	}
+});
+
+it("every built page image loads under both the header and the page meta policy", async () => {
+	const headerImages = imageSources(parseDirectives(await readHeaderPolicy()));
+	const pages = await readBuiltPages();
+	assert.ok(pages.length > 0, "built HTML is required");
+	for (const { file, html } of pages) {
+		const dom = new JSDOM(html);
+		try {
+			const meta = findMetaPolicy(dom.window.document);
+			assert.ok(meta, `${file}: policy is in the head`);
+			const metaImages = imageSources(
+				parseDirectives(meta.getAttribute("content")),
+			);
+			for (const url of imageUrls(dom.window.document)) {
+				const shown = url.href.slice(0, 80);
+				assert.ok(
+					allowsUrl(headerImages, url),
+					`${file}: ${shown} needs a vercel.json header img-src source`,
+				);
+				assert.ok(
+					allowsUrl(metaImages, url),
+					`${file}: ${shown} needs a per-page img-src; the Astro meta falls back to default-src 'self'`,
 				);
 			}
 		} finally {
