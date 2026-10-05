@@ -8,14 +8,14 @@
 	"scripts": {
 		"worktree:init": "npm ci",
 		"dev": "astro dev",
-		"build": "astro build && node process-html.mjs && node --test scripts/built-csp.test.mjs",
-		"build:maintenance": "MAINTENANCE_MODE=true astro build && node process-html.mjs && node --test scripts/built-csp.test.mjs",
+		"build": "astro build && node process-html.mjs && node scripts/run-tests.mjs csp",
+		"build:maintenance": "MAINTENANCE_MODE=true astro build && node process-html.mjs && node scripts/run-tests.mjs csp",
 		"preview": "astro preview",
 		"lint": "biome lint --no-errors-on-unmatched",
 		"format": "biome format --no-errors-on-unmatched --write",
 		"check:ts": "astro check --minimumSeverity error --minimumFailingSeverity error",
 		"check:knip": "knip --no-progress",
-		"test": "node --import ./scripts/register-ts-from-js.mjs --experimental-strip-types --test src/lib/*.test.ts",
+		"test": "node scripts/run-tests.mjs unit",
 		"check:md": "bash scripts/lint-md.sh",
 		"check:yaml": "uvx yamllint@1.38.0 -s .",
 		"check:fix": "biome check --write --no-errors-on-unmatched --error-on-warnings",
@@ -25,7 +25,7 @@
 		"check:actions": "bash scripts/check-actions.sh && bash scripts/vercel-preview-comment-contract.sh && bash scripts/vercel-preview-workflow-contract.sh",
 		"gate": "FLEET_DOC_FAST=0 bash .git-hooks/pre-commit",
 		"smoke:production": "node scripts/production-smoke.mjs",
-		"smoke:scenario-contract": "node --test scripts/production-smoke-scenario.test.mjs"
+		"smoke:scenario-contract": "node scripts/run-tests.mjs smoke"
 	},
 	"devDependencies": {
 		"@astrojs/check": "0.9.10",
