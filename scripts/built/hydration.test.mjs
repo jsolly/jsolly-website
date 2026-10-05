@@ -1,11 +1,11 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import fs from "node:fs/promises";
-import { createServer } from "node:http";
-import { dirname, extname, join, normalize } from "node:path";
+import { dirname, join } from "node:path";
 import { after, before, it } from "node:test";
 import { globby } from "globby";
 import { chromium } from "playwright";
+import { serveStatic, stubOffOrigin } from "./pages.mjs";
 import { createTempCopy } from "./temp-copy.mjs";
 
 // What process-html.mjs must leave alone for the portfolio's islands to
@@ -19,18 +19,8 @@ import { createTempCopy } from "./temp-copy.mjs";
 // Once released and hydrated, with the network idle, the page counts how many
 // are still connected. An island that re-renders instead of hydrating discards
 // all of them. The shipped dist/ must reuse exactly what the unprocessed build
-// reuses, and the portfolio's islands must reuse every node.
+// reuses, and every island on the pages below must reuse every node.
 const SHIPPED = "dist";
-const CONTENT_TYPES = {
-	".css": "text/css",
-	".html": "text/html; charset=utf-8",
-	".ico": "image/x-icon",
-	".js": "text/javascript",
-	".png": "image/png",
-	".svg": "image/svg+xml",
-	".webp": "image/webp",
-	".woff2": "font/woff2",
-};
 // The comments islands hydrate from, listed independently of process-html.mjs
 // so that dropping one of its ignoreCustomComments patterns fails here: Svelte
 // block open (`[`, `[!`, `[-1`) and close (`]`), empty anchors, `$props.id()`
@@ -134,36 +124,10 @@ async function assertShippedIsProcessed(processedDist) {
 	}
 }
 
-function serveStatic(root) {
-	return createServer(async (request, response) => {
-		const { pathname } = new URL(request.url, "http://localhost");
-		// normalize() resolves "..", so the absolute path never leaves root.
-		const relative = normalize(decodeURIComponent(pathname));
-		const file = join(
-			root,
-			relative.endsWith("/") ? `${relative}index.html` : relative,
-		);
-		try {
-			const body = await fs.readFile(file);
-			response.writeHead(200, {
-				"Content-Type":
-					CONTENT_TYPES[extname(file)] ?? "application/octet-stream",
-			});
-			response.end(body);
-		} catch {
-			response.writeHead(404, { "Content-Type": "text/plain" });
-			response.end("not found");
-		}
-	});
-}
-
 async function listen(name, root) {
-	const server = serveStatic(root);
-	servers.push(server);
-	await new Promise((resolveListen) =>
-		server.listen(0, "127.0.0.1", resolveListen),
-	);
-	sites[name] = { root, origin: `http://127.0.0.1:${server.address().port}` };
+	const site = await serveStatic(root);
+	servers.push(site);
+	sites[name] = { root, origin: site.origin };
 }
 
 // The pathnames of the island component and renderer modules on a page.
@@ -183,6 +147,8 @@ async function nodeReuse({ root, origin }, path) {
 	});
 	const context = await browser.newContext();
 	try {
+		// Blog post card images live on CloudFront; networkidle must not wait on it.
+		await stubOffOrigin(context, origin);
 		await context.route(
 			(url) => held.has(url.pathname),
 			async (route) => {
@@ -241,17 +207,12 @@ before(async () => {
 
 after(async () => {
 	await browser?.close();
-	await Promise.all(
-		servers.map(
-			(server) =>
-				new Promise((resolveClose) => server.close(() => resolveClose())),
-		),
-	);
+	await Promise.all(servers.map((site) => site.close()));
 	await copy?.remove();
 });
 
-for (const path of ["/", "/about/", "/blog/works-cited/"]) {
-	it(`a visitor opening ${path} gets the navigation island hydrated in place`, async (t) => {
+for (const path of ["/", "/about/", "/blog/", "/blog/works-cited/"]) {
+	it(`a visitor opening ${path} gets its islands hydrated in place`, async (t) => {
 		const [shipped, baseline] = await Promise.all([
 			nodeReuse(sites.shipped, path),
 			nodeReuse(sites.baseline, path),
@@ -363,7 +324,7 @@ it("a desktop visitor on a blog page uses the header links with no menu toggle",
 			false,
 			"desktop shows no menu toggle",
 		);
-		// The archive lands in B07; reaching its URL proves the click went through.
+		// Reaching the archive URL proves the click went through.
 		await Promise.all([
 			page.waitForURL("**/blog/all-posts/"),
 			page.locator("header").getByRole("link", { name: "All posts" }).click(),

@@ -47,7 +47,8 @@ type CategoryEntry = {
 };
 
 // Checks the loaded collections as a whole, then returns the published posts
-// newest first (each with its rendered html) and the categories by name. The
+// newest first (each with its rendered html and its category's name) and the
+// categories by name. The
 // category field is a plain slug in the schema, so an unknown one is caught
 // here. Throws, naming the offender, on an empty article, a duplicate post or
 // category slug, or an unknown category.
@@ -55,12 +56,12 @@ export function publishedContent<P extends PostEntry, C extends CategoryEntry>(
 	entries: P[],
 	categories: C[],
 ) {
-	const known = new Set<string>();
+	const names = new Map<string, string>();
 	for (const { data } of categories) {
-		if (known.has(data.slug)) {
+		if (names.has(data.slug)) {
 			throw new Error(`Duplicate category slug: ${data.slug}`);
 		}
-		known.add(data.slug);
+		names.set(data.slug, data.name);
 	}
 	const slugs = new Set<string>();
 	const posts = entries.map((post) => {
@@ -71,13 +72,14 @@ export function publishedContent<P extends PostEntry, C extends CategoryEntry>(
 		if (slugs.has(post.data.slug)) {
 			throw new Error(`Duplicate post slug: ${post.data.slug}`);
 		}
-		if (!known.has(post.data.category)) {
+		const categoryName = names.get(post.data.category);
+		if (categoryName === undefined) {
 			throw new Error(
 				`Unknown category: ${post.data.category} (post ${post.data.slug})`,
 			);
 		}
 		slugs.add(post.data.slug);
-		return { ...post, html };
+		return { ...post, html, categoryName };
 	});
 	return {
 		posts: posts

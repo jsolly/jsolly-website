@@ -283,11 +283,11 @@ export const AREAS = {
 			{ from: "src/pages/index.astro", to: "src/pages/blog/index.astro" },
 			{
 				from: "src/pages/all-posts/index.astro",
-				to: "src/pages/blog/all-posts/index.astro",
+				to: "src/pages/blog/all-posts.astro",
 			},
 			{
 				from: "src/pages/category/[slug]/index.astro",
-				to: "src/pages/blog/category/[slug]/index.astro",
+				to: "src/pages/blog/category/[slug].astro",
 			},
 		],
 	},

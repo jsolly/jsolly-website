@@ -12,3 +12,13 @@ export const EMBED_HOSTS = [
 	"viewer.diagrams.net",
 	"nbviewer.org",
 ];
+
+// The reading speed post cards estimate "min read" from.
+export const WORDS_PER_MINUTE = 238;
+
+// Post cards a paged list (the blog home, a category) shows per batch.
+export const POSTS_PER_BATCH = 3;
+
+// Batches a paged list loads on scroll before Load more takes over; pressing
+// it grants this many again.
+export const AUTOMATIC_BATCHES = 3;

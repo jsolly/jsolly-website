@@ -4,6 +4,11 @@
 /* A first-party stylesheet keeps fallback styles compatible with the CSP. */
 /* Its own last layer lets the no-JavaScript fallback beat blog.css by layer order. */
 @layer blog-no-script {
+	/* Load more needs JavaScript (a ?page= reload renders the same first cards);
+	   the <noscript> link to /blog/all-posts/ is the way on. */
+	.load-more {
+		display: none;
+	}
 	@media (max-width: 900px) {
 		.navigation-panel.collapsed {
 			grid-template-rows: 1fr;

@@ -112,14 +112,18 @@ const POSTS = [
 ];
 
 describe("published blog content", () => {
-	it("A reader sees published posts newest first, never drafts, and categories by name", () => {
+	it("A reader sees published posts newest first with their category names, never drafts, and categories by name", () => {
 		const { posts, categories } = publishedContent(POSTS, CATEGORIES);
 		assert.deepEqual(
-			posts.map((post) => [post.data.slug, post.html]),
+			posts.map((post) => [post.data.slug, post.html, post.categoryName]),
 			[
-				["content-security-policy", "<p>Notes from the field.</p>"],
-				["mapbox-vector-tiles", "<p>Notes from the field.</p>"],
-				["intro-to-stac-apis", "<p>Notes from the field.</p>"],
+				[
+					"content-security-policy",
+					"<p>Notes from the field.</p>",
+					"Web Development",
+				],
+				["mapbox-vector-tiles", "<p>Notes from the field.</p>", "Geodev"],
+				["intro-to-stac-apis", "<p>Notes from the field.</p>", "Geodev"],
 			],
 		);
 		assert.deepEqual(

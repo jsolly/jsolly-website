@@ -1,7 +1,7 @@
 import { getCollection } from "astro:content";
 import { categoryCounts, publishedContent } from "./schemas.js";
 
-async function blogContent() {
+export async function blogContent() {
 	const [entries, categories] = await Promise.all([
 		getCollection("posts"),
 		getCollection("categories"),

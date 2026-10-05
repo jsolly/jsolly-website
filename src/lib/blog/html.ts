@@ -30,7 +30,7 @@ const TWO = /^2$/u;
 // `mediafiles/x.webp`) lives on the legacy CloudFront host. Absolute http(s),
 // protocol-relative and root-relative sources, including /blog/media/ CMS
 // uploads, stay as authored.
-function imageUrl(path: string) {
+export function imageUrl(path: string) {
 	if (!path || path === "default.webp") return DEFAULT_IMAGE;
 	if (ABSOLUTE_HTTP.test(path) || path.startsWith("/")) return path;
 	return `${LEGACY_MEDIA}${path.replace(MEDIAFILES_PREFIX, "")}`;
