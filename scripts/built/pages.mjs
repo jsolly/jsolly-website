@@ -1,10 +1,18 @@
-// Shared readers and a static server for tests over a built dist/ (the real
-// one or a temp copy's).
+// Shared readers, a static server and browser helpers for tests over a built
+// dist/ (the real one or a temp copy's).
 import { access, readFile } from "node:fs/promises";
 import { createServer } from "node:http";
 import { extname, join, normalize } from "node:path";
+import { parseFrontmatter } from "astro/markdown";
 import { globby } from "globby";
 import { JSDOM } from "jsdom";
+import { parseDocument } from "yaml";
+
+const POSTS = new URL("../../src/content/blog/posts/", import.meta.url);
+// Blog post cards load their images from the legacy CloudFront host; browser
+// tests answer every off-origin request with this stand-in.
+const OFF_ORIGIN_IMAGE =
+	'<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" />';
 
 export async function exists(path) {
 	try {
@@ -86,4 +94,32 @@ export async function serveStatic(root) {
 				server.close(() => resolveClose());
 			}),
 	};
+}
+
+// Fulfills every request a Playwright `context` makes outside `origin` with a
+// stand-in image, so a test never waits on (or fails with) a remote host.
+export async function stubOffOrigin(context, origin) {
+	await context.route(
+		(url) => url.origin !== origin,
+		(route) =>
+			route.fulfill({ contentType: "image/svg+xml", body: OFF_ORIGIN_IMAGE }),
+	);
+}
+
+// The published posts (draft: false; the schema defaults draft to true) as
+// { slug, category }, read from the post frontmatter rather than the build,
+// so a test can hold the built pages to them.
+export async function publishedPosts() {
+	const files = await globby("*.md", { cwd: POSTS });
+	const posts = await Promise.all(
+		files.map(async (file) => {
+			const source = await readFile(new URL(file, POSTS), "utf8");
+			// The core schema, as the post loader reads it (post-loader.ts).
+			const { rawFrontmatter } = parseFrontmatter(source);
+			return parseDocument(rawFrontmatter, { schema: "core" }).toJS();
+		}),
+	);
+	return posts
+		.filter((post) => post.draft === false)
+		.map(({ slug, category }) => ({ slug, category }));
 }

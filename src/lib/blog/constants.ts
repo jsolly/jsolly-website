@@ -12,3 +12,6 @@ export const EMBED_HOSTS = [
 	"viewer.diagrams.net",
 	"nbviewer.org",
 ];
+
+// The reading speed post cards estimate "min read" from.
+export const WORDS_PER_MINUTE = 238;

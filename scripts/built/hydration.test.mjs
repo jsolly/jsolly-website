@@ -5,7 +5,7 @@ import { dirname, join } from "node:path";
 import { after, before, it } from "node:test";
 import { globby } from "globby";
 import { chromium } from "playwright";
-import { serveStatic } from "./pages.mjs";
+import { serveStatic, stubOffOrigin } from "./pages.mjs";
 import { createTempCopy } from "./temp-copy.mjs";
 
 // What process-html.mjs must leave alone for the portfolio's islands to
@@ -28,10 +28,6 @@ const SHIPPED = "dist";
 const HYDRATION_COMMENT = /^(?:\[.*|\].*|\$.*|astro:end|)$/su;
 const COMMENT = /<!--(?<data>[\s\S]*?)-->/gu;
 const ISLAND_MODULE = /\s(?:component|renderer)-url="(?<url>[^"]+)"/gu;
-// Blog post cards load their images from the legacy CloudFront host; every
-// off-origin request gets this stand-in, so networkidle never waits on it.
-const OFF_ORIGIN_IMAGE =
-	'<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" />';
 // Astro hashes an island's uid from the component's absolute path, so the
 // temp copy's uids differ from the real tree's; the dist/ comparison masks them.
 const ISLAND_UID = /(?<=<astro-island\b[^>]*\s)uid="[^"]*"/gu;
@@ -151,14 +147,8 @@ async function nodeReuse({ root, origin }, path) {
 	});
 	const context = await browser.newContext();
 	try {
-		await context.route(
-			(url) => url.origin !== origin,
-			(route) =>
-				route.fulfill({
-					contentType: "image/svg+xml",
-					body: OFF_ORIGIN_IMAGE,
-				}),
-		);
+		// Blog post card images live on CloudFront; networkidle must not wait on it.
+		await stubOffOrigin(context, origin);
 		await context.route(
 			(url) => held.has(url.pathname),
 			async (route) => {
