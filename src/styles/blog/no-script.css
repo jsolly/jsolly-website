@@ -1,20 +1,20 @@
-/* Every blog sheet declares the full order, so blog stays the last layer whichever loads first. */
-@layer theme, base, components, utilities, blog;
+/* Every blog sheet declares the full order, Tailwind's own `properties` layer
+   first, so blog and blog-no-script stay last whichever sheet loads first. */
+@layer properties, theme, base, components, utilities, blog, blog-no-script;
 /* A first-party stylesheet keeps fallback styles compatible with the CSP. */
-@layer blog {
+/* Its own last layer lets the no-JavaScript fallback beat blog.css by layer order. */
+@layer blog-no-script {
 	@media (max-width: 900px) {
-		/* biome-ignore-start lint/complexity/noImportantStyles: the no-JavaScript fallback must beat blog.css's same-specificity collapsed-panel and menu-toggle rules in whichever order the two sheets load */
 		.navigation-panel.collapsed {
-			grid-template-rows: 1fr !important;
-			opacity: 1 !important;
-			visibility: visible !important;
+			grid-template-rows: 1fr;
+			opacity: 1;
+			visibility: visible;
 		}
 		.navigation-panel.collapsed nav {
-			padding-top: 1rem !important;
+			padding-top: 1rem;
 		}
 		.menu-toggle {
-			display: none !important;
+			display: none;
 		}
-		/* biome-ignore-end lint/complexity/noImportantStyles: end of the no-JavaScript fallback */
 	}
 }

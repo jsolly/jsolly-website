@@ -1,6 +1,7 @@
 /* Utilities only: preserve authored article and existing site styles. */
-/* Every blog sheet declares the full order, so blog stays the last layer whichever loads first. */
-@layer theme, base, components, utilities, blog;
+/* Every blog sheet declares the full order, Tailwind's own `properties` layer
+   first, so blog and blog-no-script stay last whichever sheet loads first. */
+@layer properties, theme, base, components, utilities, blog, blog-no-script;
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities) source(none);
 @import "shadcn-svelte/tailwind.css";

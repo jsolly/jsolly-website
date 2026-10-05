@@ -1,15 +1,13 @@
-/* Every blog sheet declares the full order, so blog stays the last layer whichever loads first. */
-@layer theme, base, components, utilities, blog;
+/* Every blog sheet declares the full order, Tailwind's own `properties` layer
+   first, so blog and blog-no-script stay last whichever sheet loads first. */
+@layer properties, theme, base, components, utilities, blog, blog-no-script;
 /* Blog site styles, ported from awesome-blog global.css, article-content.css and
-   motion.css, in that order. A few rules moved so that rules ending in the same
-   element run from lower to higher specificity; none moved past a rule of equal
-   specificity setting the same property, so the cascade is unchanged. */
+   motion.css, in that order, plus theme.css's dark social-icon and print code
+   rules. A few rules moved so that rules ending in the same element run from
+   lower to higher specificity; none moved past a rule of equal specificity
+   setting the same property, so the cascade is unchanged. */
 @layer blog {
-	/* Shared timings for interactive state changes. */
 	:root {
-		--motion-fast: 160ms;
-		--motion-panel: 240ms;
-		--motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 		font-family: var(--font-body);
 		color: var(--text);
 		background: var(--background);
@@ -503,6 +501,11 @@
 			color: black;
 			background: #eee;
 		}
+		/* After the screen and dark-mode code rules, so it wins by order. */
+		.article-body :not(pre) > code {
+			background: #eee;
+			color: #000;
+		}
 		.article-hero {
 			max-height: 260px;
 		}
@@ -566,8 +569,7 @@
 		height: 40px;
 		color: var(--heading);
 		border-radius: 8px;
-		/* biome-ignore lint/complexity/noImportantStyles: icon links must beat the later same-specificity link underline rule and its higher-specificity hover state */
-		text-decoration: none !important;
+		text-decoration: none;
 		opacity: 0.8;
 		transition:
 			opacity 300ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -673,6 +675,7 @@
 		height: 22px;
 	}
 	@media (prefers-color-scheme: dark) {
+		.social-links img,
 		.share-actions img {
 			filter: invert(1);
 		}
