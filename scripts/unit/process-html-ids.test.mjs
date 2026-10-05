@@ -20,8 +20,8 @@ const PAGES = {
 	"about/index.html": `<!doctype html><html><head><title>About</title></head><body>
 <main><h2>Work History</h2><h3 id="hand-written">Kept</h3><h4>What I do now?</h4><h2>?</h2></main></body></html>`,
 	"blog/conventional-commits/index.html": `<!doctype html><html><head><title>Post</title></head><body>
-<main><article><h1 id="conventional-commits">Conventional Commits<a class="heading-link" href="#conventional-commits" aria-label="Link to this heading">#</a></h1>
-<h2 id="why-use-them">Why use them?<a class="heading-link" href="#why-use-them" aria-label="Link to this heading">#</a></h2>
+<main><article><h1 id="conventional-commits">Conventional Commits<a class="heading-link" href="#conventional-commits" aria-label="Link to &quot;Conventional Commits&quot;">#</a></h1>
+<h2 id="why-use-them">Why use them?<a class="heading-link" href="#why-use-them" aria-label="Link to &quot;Why use them?&quot;">#</a></h2>
 <h2 id=""><img src="/blog/media/x.webp" alt=""><a class="heading-link" href="#" aria-label="Link to this heading">#</a></h2>
 <!-- an authoring note -->
 <h4>Footnotes</h4></article></main></body></html>`,

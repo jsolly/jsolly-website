@@ -5,7 +5,7 @@
 //
 // Serves dist/ in-process (or uses --local <origin>), opens each page on
 // both sides at 1280×800 and 390×844 in Chromium, and compares full-page
-// screenshots pixel by pixel with sharp. The local path is the url-map.json
+// screenshots pixel by pixel with sharp, once every image has loaded. The local path is the url-map.json
 // destination of the old path, so there is no second mapping to drift.
 // The site header and footer (their link targets differ by design) and
 // per-page regions such as the shuffled recipe cards are masked on both sides
@@ -43,7 +43,8 @@ const PAGES = [
 	},
 	{
 		name: "youtube-post",
-		old: "/post/I-re-created-1979-Atari-game-asteroids-with-JS/",
+		// A post with an embedded YouTube iframe.
+		old: "/post/how-to-debug-an-astro-app/",
 	},
 	{ name: "category", old: "/category/Geodev/" },
 	{ name: "all-posts", old: "/all-posts/" },
@@ -135,6 +136,29 @@ async function inSequence(items, run) {
 	return results;
 }
 
+// Lazy images and iframes below the fold would otherwise still be blank (or
+// load mid-shot) when the full-page screenshot is taken. They switch to eager
+// in place, rather than by scrolling, which would also fire the post cards'
+// automatic batches; the shot waits until every <img> has loaded (or failed)
+// and decoded, and the network is idle again.
+async function loadEveryImage(page) {
+	await page.evaluate(async () => {
+		for (const element of document.querySelectorAll("img, iframe")) {
+			element.loading = "eager";
+		}
+		await Promise.allSettled(
+			Array.from(document.images, (image) => image.decode()),
+		);
+	});
+	await page.waitForLoadState("networkidle");
+	const incomplete = await page.evaluate(
+		() => Array.from(document.images).filter((image) => !image.complete).length,
+	);
+	if (incomplete > 0) {
+		throw new Error(`${page.url()}: ${incomplete} images never completed`);
+	}
+}
+
 async function shoot(browser, url, viewport, selectors, file) {
 	const context = await browser.newContext({
 		viewport,
@@ -145,6 +169,7 @@ async function shoot(browser, url, viewport, selectors, file) {
 		const page = await context.newPage();
 		const response = await page.goto(url, { waitUntil: "networkidle" });
 		await page.evaluate(() => document.fonts.ready);
+		await loadEveryImage(page);
 		const perSelector = await Promise.all(
 			selectors.map((selector) =>
 				page.$$eval(selector, (elements) =>

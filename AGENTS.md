@@ -31,7 +31,8 @@ The blog and recipe ports keep their awesome-blog native controls (the
 `<details>` categories menu and the toggle/inert mobile disclosure, which work
 without JavaScript through `no-script.css`, and the post cards' "Load more
 posts" link, which `no-script.css` hides so the noscript archive link is the
-way on) for parity with live blogthedata.com under the approved merge plan
+way on, and the post page's "Print this post" button, share links, "Back to
+home" link and heading-link copy script) for parity with live blogthedata.com under the approved merge plan
 (J25), until the post-C4 visual unification follow-up; new blog and recipe
 controls use shadcn-svelte.
 Canon: `~/code/dotagents/rules/frontend-stack.md`.
@@ -66,12 +67,12 @@ A built test that needs its own build uses a `scripts/built/temp-copy.mjs` copy 
 
 ## Architecture
 
-- `src/pages/` — content pages (`index`, `about`, `contact`, `privacy`, `terms`) plus `404` and `500`, and the `blog/` routes, which render with `BlogLayout`: `/blog/`, `/blog/all-posts/`, `/blog/category/<slug>/` (slug case kept, e.g. `Geodev`; the `category/` folder is Astro's routing layout) and `/blog/works-cited/`.
+- `src/pages/` — content pages (`index`, `about`, `contact`, `privacy`, `terms`) plus `404` and `500`, and the `blog/` routes, which render with `BlogLayout`: `/blog/`, `/blog/all-posts/`, `/blog/category/<slug>/` (slug case kept, e.g. `Geodev`; the `category/` folder is Astro's routing layout), `/blog/works-cited/` and one page per published post, `/blog/<slug>/` (`blog/[slug].astro`, slug case kept: breadcrumbs, related cards, share links and BlogPosting JSON-LD on jsolly.com URLs).
 - `src/components/` — `Header`, `Footer`, `ContactMe`, `SocialLinks`, `Maintenance`, plus a `home/` subdir for index-page sections and a `blog/` subdir for the blog chrome (`BlogNavigation`) and browse components (`PostCards`, the post card list with its load-more island, and `AuthorCard`, whose `h2#about-author` is a legacy fragment id).
 - `src/layouts/` — page layout wrappers: `Layout.astro` for the portfolio, `BlogLayout.astro` for the blog and recipes. BlogLayout is standalone (no Markdown alternate), honors `MAINTENANCE_MODE`, and with `section="blog"` adds the per-page `img-src` (CloudFront) and `frame-src` (YouTube, diagrams.net, nbviewer) CSP directives, failing the build when `Astro.csp` is unavailable.
 - `src/styles/blog/` — the blog stylesheets BlogLayout imports (`theme`, `ui`, `blog`, and `no-script` through `?url`), each opening with the same `@layer` order so the `blog` and `blog-no-script` layers stay last.
 - `src/content/` — Astro content collections, defined in `src/content.config.ts`.
-- `src/lib/blog/` — blog lib: `post-loader.ts` (PagesCMS frontmatter loader), `schemas.ts` (post and category schemas, plus `publishedContent` and `categoryCounts`, the pure checks, draft filter, orderings and category names over the loaded collections), `content.ts` (only the `getCollection` wiring: `blogContent` and `blogNavigation`), `cards.ts` (`cards`, the pure post card data `PostCards` renders: UTC date labels, the same-day updated rule, reading time), `types.ts` (`Card`, `CardPost`), `html.ts` (article sanitizer and heading ids), `search.ts` (search index parse and MiniSearch) and `constants.ts`.
+- `src/lib/blog/` — blog lib: `post-loader.ts` (PagesCMS frontmatter loader), `schemas.ts` (post and category schemas, plus `publishedContent` and `categoryCounts`, the pure checks, draft filter, orderings and category names over the loaded collections), `content.ts` (only the `getCollection` wiring: `blogContent` and `blogNavigation`), `cards.ts` (`cards`, the pure post card data `PostCards` renders: UTC date labels, the same-day updated rule, reading time; plus `dateLabel`), `urls.ts` (the blog URL builders `postHref` and `categoryHref`, slug case kept; dependency-free so client islands can import them without the sanitizer), `types.ts` (`Card`, `CardPost`), `html.ts` (article sanitizer and heading ids), `search.ts` (search index parse and MiniSearch) and `constants.ts`.
 - `process-html.mjs` — post-build pass that adds slugified `id` attributes to id-less `h2/h3/h4` (for anchor links), except under `dist/blog/` and `dist/recipes/`, and runs `html-minifier`. Runs after every `astro build`. The minifier keeps the Svelte and Astro hydration comments and collapses whitespace conservatively, so islands hydrate in place instead of re-rendering; `scripts/built/hydration.test.mjs` pins that contract.
 - `middleware.ts` — Vercel routing middleware (every path; no matcher). The same URL serves HTML or Markdown by `Accept` (`src/lib/accept-negotiate.ts`, `src/lib/agent-response.ts`, pages in `src/content/agent-pages.ts`): the five portfolio pages have Markdown variants and `.md` siblings, and any other path asked for as Markdown gets the Markdown 404 that `public/llms.txt` promises. Any path ending in a file extension other than `.md` is static and never negotiated or answered 406, and files under `/recipes/data/` are served as they are, `.md` included (an extensionless miss there keeps the Markdown 404). Real routes under `/blog/` and `/recipes/` serve HTML only (J11 in the merge plan), with no `Vary: Accept`; the percent-decoded path is looked up in the route manifest, and unknown paths there keep the Markdown 404.
 - Route manifest — the `routeManifest` integration in `astro.config.ts` writes the gitignored `src/generated/route-manifest.js` from Astro's own `astro:build:done` page list (`export const routes = [...]`, one `/path/` per built page, `/` for the index, error pages excluded). `middleware.ts` imports it to tell real routes from unknown paths, and Vercel bundles the middleware after `npm run build`, so it ships that build's list. The tracked `route-manifest.d.ts` types the import, so `check:ts` and knip pass before any build. The lib functions take the route set as a parameter, so unit tests inject their own and never need the generated file.
@@ -163,3 +164,8 @@ still limits images on every page to `'self'` until a page adds its own
 `img-src` directive.
 `scripts/unit/vercel-csp-header.test.mjs` pins the full header directive map,
 and the build-time `csp` suite checks every built `<img>` and `<source srcset>` URL against both policies.
+`scripts/built/csp-browser.test.mjs` loads `/blog/`, posts with YouTube,
+nbviewer and diagrams.net embeds, and `/about/` in Chromium with the header
+served on every response, and fails on any `securitypolicyviolation`.
+Astro lists every inline script hash of the build in each page's meta policy,
+so an inline `<script>` on a blog page also adds its hash to the portfolio pages.

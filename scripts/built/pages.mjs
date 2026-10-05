@@ -13,10 +13,12 @@ const CATEGORIES = new URL(
 	"../../src/content/blog/categories/",
 	import.meta.url,
 );
-// Blog post cards load their images from the legacy CloudFront host; browser
-// tests answer every off-origin request with this stand-in.
+// Blog posts load their images from the legacy CloudFront host and embed
+// third-party frames; browser tests answer every off-origin request with
+// these stand-ins.
 const OFF_ORIGIN_IMAGE =
 	'<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" />';
+const OFF_ORIGIN_DOCUMENT = "<!doctype html><title>stand-in</title>";
 
 export async function exists(path) {
 	try {
@@ -40,16 +42,29 @@ export async function readBuiltPages(root = "dist") {
 	);
 }
 
-// The stylesheets a built page loads with JavaScript on (not its <noscript>).
-export function stylesheets(html) {
+// Parses `html` and returns `read(document)`, closing the DOM afterwards.
+function readHtml(html, read) {
 	const dom = new JSDOM(html);
 	try {
-		return [...dom.window.document.querySelectorAll("link")]
-			.filter((link) => link.rel === "stylesheet" && !link.closest("noscript"))
-			.map((link) => link.getAttribute("href"));
+		return read(dom.window.document);
 	} finally {
 		dom.window.close();
 	}
+}
+
+// Reads the built page at `path` (a directory such as "blog/all-posts" or
+// "/blog/<slug>/", served as its index.html) under `root` with `read`.
+export async function readBuilt(path, read, root = "dist") {
+	return readHtml(await readFile(join(root, path, "index.html"), "utf8"), read);
+}
+
+// The stylesheets a built page loads with JavaScript on (not its <noscript>).
+export function stylesheets(html) {
+	return readHtml(html, (document) =>
+		[...document.querySelectorAll("link")]
+			.filter((link) => link.rel === "stylesheet" && !link.closest("noscript"))
+			.map((link) => link.getAttribute("href")),
+	);
 }
 
 const CONTENT_TYPES = {
@@ -65,8 +80,9 @@ const CONTENT_TYPES = {
 
 // Serves `root` on a free local port the way a static host does: a path
 // ending in / answers with its index.html, anything missing with a plain 404.
-// Resolves to { origin, close }.
-export async function serveStatic(root) {
+// `headers` go on every response, as vercel.json's do. Resolves to
+// { origin, close }.
+export async function serveStatic(root, headers = {}) {
 	const server = createServer(async (request, response) => {
 		const { pathname } = new URL(request.url, "http://localhost");
 		// normalize() resolves "..", so the absolute path never leaves root.
@@ -78,12 +94,13 @@ export async function serveStatic(root) {
 		try {
 			const body = await readFile(file);
 			response.writeHead(200, {
+				...headers,
 				"Content-Type":
 					CONTENT_TYPES[extname(file)] ?? "application/octet-stream",
 			});
 			response.end(body);
 		} catch {
-			response.writeHead(404, { "Content-Type": "text/plain" });
+			response.writeHead(404, { ...headers, "Content-Type": "text/plain" });
 			response.end("not found");
 		}
 	});
@@ -101,31 +118,50 @@ export async function serveStatic(root) {
 }
 
 // Fulfills every request a Playwright `context` makes outside `origin` with a
-// stand-in image, so a test never waits on (or fails with) a remote host.
+// stand-in (an empty HTML document for frames, an image otherwise), so a test
+// never waits on (or fails with) a remote host. Resolves to the Set of hosts
+// requested so far, which grows as the context makes requests.
 export async function stubOffOrigin(context, origin) {
+	const hosts = new Set();
 	await context.route(
 		(url) => url.origin !== origin,
-		(route) =>
-			route.fulfill({ contentType: "image/svg+xml", body: OFF_ORIGIN_IMAGE }),
+		(route) => {
+			const request = route.request();
+			hosts.add(new URL(request.url()).host);
+			return route.fulfill(
+				request.resourceType() === "document"
+					? { contentType: "text/html", body: OFF_ORIGIN_DOCUMENT }
+					: { contentType: "image/svg+xml", body: OFF_ORIGIN_IMAGE },
+			);
+		},
 	);
+	return hosts;
 }
 
-// The published posts (draft: false; the schema defaults draft to true) as
-// { slug, category }, read from the post frontmatter rather than the build,
-// so a test can hold the built pages to them.
-export async function publishedPosts() {
+// Every post as { slug, category, published, related }, read from the post
+// frontmatter rather than the build, so a test can hold the built pages to
+// it. Only draft: false publishes; the schema defaults draft to true.
+export async function allPosts() {
 	const files = await globby("*.md", { cwd: POSTS });
-	const posts = await Promise.all(
+	return Promise.all(
 		files.map(async (file) => {
 			const source = await readFile(new URL(file, POSTS), "utf8");
 			// The core schema, as the post loader reads it (post-loader.ts).
 			const { rawFrontmatter } = parseFrontmatter(source);
-			return parseDocument(rawFrontmatter, { schema: "core" }).toJS();
+			const {
+				slug,
+				category,
+				draft,
+				related = [],
+			} = parseDocument(rawFrontmatter, { schema: "core" }).toJS();
+			return { slug, category, published: draft === false, related };
 		}),
 	);
-	return posts
-		.filter((post) => post.draft === false)
-		.map(({ slug, category }) => ({ slug, category }));
+}
+
+// The published posts, as allPosts() entries.
+export async function publishedPosts() {
+	return (await allPosts()).filter((post) => post.published);
 }
 
 // Every category slug, read from the category files.

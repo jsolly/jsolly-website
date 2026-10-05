@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from "svelte";
+	import { categoryHref } from "../../lib/blog/urls.js";
 	import Button from "../../lib/components/ui/button.svelte";
 	import Input from "../../lib/components/ui/input.svelte";
 
@@ -44,7 +45,7 @@
 		<div class="category-options">
 			<a href="/blog/" aria-current={pathname === "/blog/" ? "page" : undefined}>Blog home</a>
 		{#each categories as category (category.slug)}
-			<a href={`/blog/category/${category.slug}/`} aria-current={pathname === `/blog/category/${category.slug}/` ? "page" : undefined}>{category.name} <span>{category.count}<span class="visually-hidden"> posts</span></span></a>
+			<a href={categoryHref(category.slug)} aria-current={pathname === categoryHref(category.slug) ? "page" : undefined}>{category.name} <span>{category.count}<span class="visually-hidden"> posts</span></span></a>
 		{/each}
 		</div>
 	</details>

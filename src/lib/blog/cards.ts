@@ -1,12 +1,13 @@
 import { WORDS_PER_MINUTE } from "./constants.js";
 import { articleHtml, imageUrl, plainText } from "./html.js";
 import type { Card, CardPost } from "./types.js";
+import { categoryHref, postHref } from "./urls.js";
 
 const WHITESPACE = /\s+/u;
 
 // "January 9, 2023": the calendar date in UTC, so the label never depends on
 // the build machine's time zone.
-function dateLabel(date: Date) {
+export function dateLabel(date: Date) {
 	return date.toLocaleDateString("en-US", {
 		year: "numeric",
 		month: "long",
@@ -23,7 +24,7 @@ function sameUtcDay(a: Date, b: Date) {
 export function cards(posts: CardPost[]): Card[] {
 	return posts.map(({ data, html, categoryName }) => ({
 		slug: data.slug,
-		href: `/blog/${data.slug}/`,
+		href: postHref(data.slug),
 		title: data.title,
 		description: data.description,
 		excerpt: articleHtml(data.excerpt),
@@ -37,7 +38,7 @@ export function cards(posts: CardPost[]): Card[] {
 		updatedLabel: sameUtcDay(data.published, data.updated)
 			? null
 			: dateLabel(data.updated),
-		categoryHref: `/blog/category/${data.category}/`,
+		categoryHref: categoryHref(data.category),
 		categoryName,
 		minutes: Math.max(
 			1,
