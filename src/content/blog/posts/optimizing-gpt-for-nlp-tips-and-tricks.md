@@ -43,13 +43,13 @@ First, here's a list of resources I've used to improve my prompt engineering ski
 
 <a target="_blank" rel="noopener noreferrer" href="https://learnprompting.org/docs/intro">LearnPrompting.org</a>
 
-<a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/mastering-gpt-directives-and-parameters/">GPT Directive and Parameter Guide (blogthedata.com)</a>
+<a target="_blank" rel="noopener noreferrer" href="/blog/mastering-gpt-directives-and-parameters/">GPT Directive and Parameter Guide (blogthedata.com)</a>
 
 ## Useful Words and Phrases
 
 <strong>Write a concise answer</strong> - Ensures GPT's reply is as short and to the point as possible.
 
-<strong>Do not provide explanations</strong> - GPT will often offer explanations in its reply. If you want a more natural conversation like an <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/how-to-use-ChatGPT-for-GeoDev-Interview-practice/">AI job interview</a>, Including this phrase will ensure you only get dialog back.
+<strong>Do not provide explanations</strong> - GPT will often offer explanations in its reply. If you want a more natural conversation like an <a target="_blank" rel="noopener noreferrer" href="/blog/how-to-use-ChatGPT-for-GeoDev-Interview-practice/">AI job interview</a>, Including this phrase will ensure you only get dialog back.
 
 <figure class="image image-style-align-center"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_Iu6jxbT.png" alt="GPT output of the above prompt"></figure>
 

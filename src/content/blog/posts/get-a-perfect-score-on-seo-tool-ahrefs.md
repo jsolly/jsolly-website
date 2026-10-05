@@ -64,7 +64,7 @@ Had a lot of the same headings, meta tags, and text as:
 
 https://blogthedata.com/productivity?page2
 
-I found a few solutions, but I didn't like them. I thought this would be an excellent opportunity to <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/implement-infinite-scroll-in-django-with-htmx/">implement infinite scrolling with htmx</a> so I could do away with pagination. You can reach more about that implementation in the linked post above, but the result was that my duplicate pages went down to ZERO!
+I found a few solutions, but I didn't like them. I thought this would be an excellent opportunity to <a target="_blank" rel="noopener noreferrer" href="/blog/implement-infinite-scroll-in-django-with-htmx/">implement infinite scrolling with htmx</a> so I could do away with pagination. You can reach more about that implementation in the linked post above, but the result was that my duplicate pages went down to ZERO!
 
 ## Conclusion
 

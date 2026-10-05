@@ -23,7 +23,7 @@ related:
   - integration-tests-are-a-scam-i-wrote-them-anyway
 ---
 
-The benefits of using unit tests in your code cannot be overstated. Not only do they serve as a powerful refactoring tool, but they also act as a design tool to improve the quality of your code. If your application currently lacks unit tests, now is the time to start the journey toward <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/how-to-get-100-percent-unit-test-coverage/">100% unit test coverage</a>.
+The benefits of using unit tests in your code cannot be overstated. Not only do they serve as a powerful refactoring tool, but they also act as a design tool to improve the quality of your code. If your application currently lacks unit tests, now is the time to start the journey toward <a target="_blank" rel="noopener noreferrer" href="/blog/how-to-get-100-percent-unit-test-coverage/">100% unit test coverage</a>.
 
 ## Unit tests as a refactoring tool
 
@@ -31,11 +31,11 @@ Without unit tests, refactoring can be a tedious process. It typically involves 
 
 ## Unit tests as a design tool
 
-To convince you further<strong>, </strong> learn about why <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/integration-tests-are-a-scam-i-wrote-them-anyway/">integration tests are a scam</a> and why you should write unit tests instead. Another favorite reason I love unit tests is that they are a fabulous design tool.
+To convince you further<strong>, </strong> learn about why <a target="_blank" rel="noopener noreferrer" href="/blog/integration-tests-are-a-scam-i-wrote-them-anyway/">integration tests are a scam</a> and why you should write unit tests instead. Another favorite reason I love unit tests is that they are a fabulous design tool.
 
 <blockquote><p>It's difficult to write simple tests for complicated code.</p><p>- John Solly</p></blockquote>
 
-In addition to their usefulness as a refactoring tool, unit tests also serve as an excellent design tool. Writing simple tests for complicated code can be difficult, so the implementation probably has room for improvement. I <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/test-strategy-no-existing-tests/">followed the TDD approach for my blog "blogthedata.com"</a> and found missing coverage across several files. 
+In addition to their usefulness as a refactoring tool, unit tests also serve as an excellent design tool. Writing simple tests for complicated code can be difficult, so the implementation probably has room for improvement. I <a target="_blank" rel="noopener noreferrer" href="/blog/test-strategy-no-existing-tests/">followed the TDD approach for my blog "blogthedata.com"</a> and found missing coverage across several files. 
 
 <pre><code class="language-python">Name                                    Stmts   Miss  Cover   Missing
 ---------------------------------------------------------------------

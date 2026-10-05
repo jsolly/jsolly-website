@@ -32,7 +32,7 @@ Since this blogpost was written, I created a new and improved way to do infinite
 
 ## Legacy Implementation
 
-Htmx superpowers your html, allowing it to do things you would typically have to do in JavaScript. After discovering <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/get-a-perfect-score-on-seo-tool-ahrefs/">issues with duplicate pages</a> due to my pagination implementation, I removed all the duplication with infinite scroll!
+Htmx superpowers your html, allowing it to do things you would typically have to do in JavaScript. After discovering <a target="_blank" rel="noopener noreferrer" href="/blog/get-a-perfect-score-on-seo-tool-ahrefs/">issues with duplicate pages</a> due to my pagination implementation, I removed all the duplication with infinite scroll!
 
 Luckily, I came across an <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=RacU_1NgVIg">excellent youtube video</a> by bugBytes who walks you through how to pull off infinite scroll with htmx.
 
@@ -61,6 +61,6 @@ This way, the template is always fetching the correct url!
 
 ## Conclusion
 
-After running into <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/get-a-perfect-score-on-seo-tool-ahrefs/">issues with duplicate content</a> with my previous pagination implementation, I decided to use htmx to implement infinite scrolling. This resolved the duplication issue and introduced new functionality. I call that a win!
+After running into <a target="_blank" rel="noopener noreferrer" href="/blog/get-a-perfect-score-on-seo-tool-ahrefs/">issues with duplicate content</a> with my previous pagination implementation, I decided to use htmx to implement infinite scrolling. This resolved the duplication issue and introduced new functionality. I call that a win!
 
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/awesome-django-blog/pull/142/files">See the PR where I implemented infinite scroll.</a>

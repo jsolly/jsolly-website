@@ -25,7 +25,7 @@ related:
 
 <blockquote><p>Subresource integrity is a recent W3C standard that protects against attackers modifying the contents of JavaScript libraries hosted on content delivery networks (CDNs) in order to create vulnerabilities in all websites that make use of that hosted library.</p><p><a target="_blank" rel="noopener noreferrer" href="https://infosec.mozilla.org/guidelines/web_security#subresource-integrity">Mozilla Infosec</a></p></blockquote>
 
-Earlier this month, I ran a <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/how-to-get-a-perfect-mozilla-observatory-score/">Mozilla Observatory Audit and got an F</a>. I implemented SRI in <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/awesome-django-blog/pull/67/files">this PR</a>, which <a target="_blank" rel="noopener noreferrer" href="https://observatory.mozilla.org/analyze/blogthedata.com">upgraded my score to a &nbsp;B</a> !
+Earlier this month, I ran a <a target="_blank" rel="noopener noreferrer" href="/blog/how-to-get-a-perfect-mozilla-observatory-score/">Mozilla Observatory Audit and got an F</a>. I implemented SRI in <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/awesome-django-blog/pull/67/files">this PR</a>, which <a target="_blank" rel="noopener noreferrer" href="https://observatory.mozilla.org/analyze/blogthedata.com">upgraded my score to a &nbsp;B</a> !
 
 <img class="image_resized" style="width:586px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image-20220527235214-1.png" alt="Mozilla Observatory security scores. F on May 3rd. B on May 21st.">
 

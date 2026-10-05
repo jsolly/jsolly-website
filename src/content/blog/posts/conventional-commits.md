@@ -66,7 +66,7 @@ You start the commit process by clicking that new circle. The rest of the steps 
 
 ## This is what the commits look like in Git
 
-## <img class="image_resized" style="height:230px;width:801px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/commit_view_github.png" alt="A list of commits in GitHub">
+<img class="image_resized" style="height:230px;width:801px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/commit_view_github.png" alt="A list of commits in GitHub">
 
 ## If you click on one of the commits, you see the whole thing
 

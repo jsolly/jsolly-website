@@ -23,7 +23,7 @@ related:
   - finding-reliable-information
 ---
 
-After jumping through lots of hoops, I finally have password reset emails working for blogthedata.com! If you have an account, try resetting your email <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/password-reset/">here</a>. If you don't have an account and want one (so you can add comments to posts)...reach out to me via <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jsolly/">LinkedIn</a>.
+After jumping through lots of hoops, I finally have password reset emails working for blogthedata.com! If you have an account, try resetting your email here. If you don't have an account and want one (so you can add comments to posts)...reach out to me via <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jsolly/">LinkedIn</a>.
 
 Back in the early days of the blog, I used my personal Gmail account to send password reset emails to users who wanted to reset their passwords. You can learn more about this implementation in Corey Schafer's video on <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=-tyBEsHSv7w">Django Email and Password Reset</a>. The only issue with the video is that insecure app authentication is no longer supported by google...keep reading for more details!
 
@@ -105,6 +105,6 @@ www.blogthedata.com.</code></pre>
 
 The <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/awesome-django-blog/commit/bd104fd94b8012f5afca2fb4d8d235a449b350ba">final code change</a> was simply adjusting the EMAIL\_HOST variable to point to SendGrid instead of Gmail.
 
-I just tried resetting my password at my <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/password-reset/">password reset route</a> and it works! Users can now reset their passwords. Woot!
+I just tried resetting my password at my password reset route and it works! Users can now reset their passwords. Woot!
 
 From a code perspective, Django makes password reset emails pretty easy out of the box.

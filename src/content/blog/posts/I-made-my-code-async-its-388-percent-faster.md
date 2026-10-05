@@ -65,7 +65,7 @@ I ran both versions five times with these results:
 
 That's 1.32/0.34 \* 100 = <strong>388% faster</strong>!
 
-You won't notice because site pages are cached on <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/free-cdn-for-17x-speed/">Cloudflare's edge network</a>, but it was fun to find a good use case for async and see the benefits for myself! The magic happens on <strong>lines 10 - 12,</strong> where requests are added to a task list. The code waits on <strong>line 12</strong>, but it's collecting responses as they come back instead of one at a time.
+You won't notice because site pages are cached on <a target="_blank" rel="noopener noreferrer" href="/blog/free-cdn-for-17x-speed/">Cloudflare's edge network</a>, but it was fun to find a good use case for async and see the benefits for myself! The magic happens on <strong>lines 10 - 12,</strong> where requests are added to a task list. The code waits on <strong>line 12</strong>, but it's collecting responses as they come back instead of one at a time.
 
 ## Conclusion
 

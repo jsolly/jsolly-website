@@ -34,7 +34,7 @@ Welcome to my guide to discovering the best tools, resources, and tutorials for 
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/sw-yx/spark-joy">sw-yx/spark-joy</a> (Github Repo)- Super large list of Web tools and resources      
 codehouse.vercel.app - Cheatsheets for every programming language and technology<a target="_blank" rel="noopener noreferrer" href="https://github.com/petedannemann/GIS-Programming-Roadmap/blob/master/README.md">petedannemann/GIS-Programming-Roadmap</a> - A learning roadmap for aspiring GIS developers.      
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/sacridini/Awesome-Geospatial">Awesome-Geospatial</a> (Github Repo)- HUGE list of geospatial tools and resources      
-<a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/my-favorite-youtube-channels-podcasts-newsletters/">My favorite Youtube channels, podcasts, and newsletters</a> (Web dev and GIS focused)
+<a target="_blank" rel="noopener noreferrer" href="/blog/my-favorite-youtube-channels-podcasts-newsletters/">My favorite Youtube channels, podcasts, and newsletters</a> (Web dev and GIS focused)
 
 ## Neat Little tools
 
@@ -108,7 +108,7 @@ See more tools on the official <a target="_blank" rel="noopener noreferrer" href
 ## Random
 
 <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=cEBkvm0-rg0">How to Google like a Senior Engineer</a> (Youtube Video)      
-<a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/gis-job-search-resources/">My post on GIS job search resources</a>.      
+<a target="_blank" rel="noopener noreferrer" href="/blog/gis-job-search-resources/">My post on GIS job search resources</a>.      
 <a target="_blank" rel="noopener noreferrer" href="https://www.morling.dev/blog/the-code-review-pyramid/">The Code Review Pyramid</a>      
 <a target="_blank" rel="noopener noreferrer" href="https://www.pullrequest.com/blog/writing-a-great-pull-request-description/">How to write a great PR</a>      
 <a target="_blank" rel="noopener noreferrer" href="https://www.mathway.com/Algebra">Mathway problem solver</a> - Useful for seeing each step to solve a math problem.      

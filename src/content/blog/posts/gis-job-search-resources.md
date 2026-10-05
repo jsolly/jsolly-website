@@ -18,7 +18,6 @@ legacyAuthorId: 2
 excerpt: <p>Find your dream job with this guide on job searching, researching companies, interviewing, and resumes/cover letters.</p>
 legacyId: 20
 related:
-  - 15-minute-dump-and-go-instant-pot-recipes
   - compress-minify-assets-69-percent-faster-page-load
   - Adding-views-likes-to-posts
 ---
@@ -83,7 +82,7 @@ MS Word Tip - If you’re using Microsoft Word to create your resume, try hittin
 
 <a target="_blank" rel="noopener noreferrer" href="https://www.thebalancemoney.com/job-interview-questions-and-answers-2061204">TheBalanceCareers Interview Qs </a> A very comprehensive guide for interviewing from the applicant's perspective.
 
-<a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/how-to-use-ChatGPT-for-GeoDev-Interview-practice/">How to practice for an interview with Chat GPT</a>
+<a target="_blank" rel="noopener noreferrer" href="/blog/how-to-use-ChatGPT-for-GeoDev-Interview-practice/">How to practice for an interview with Chat GPT</a>
 
 ## LinkedIn 
 

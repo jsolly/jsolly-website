@@ -24,7 +24,7 @@ related:
 
 According to J. B. Rainsberger, <a target="_blank" rel="noopener noreferrer" href="https://vimeo.com/80533536">integration tests are a scam</a> because of combinatorial complexity and a tendency to create MORE bugs. Complicated tests involving multiple units beget poor design, whereas tiny, isolated tests, are resilient and put pressure on our designs to make them better.
 
-<a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/how-to-get-100-percent-unit-test-coverage/">Four days ago</a>, I achieved 100% unit test coverage. Today, I finished <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/awesome-django-blog/pull/38/files">adding over 300 lines of code</a> of functional UI tests for blogthedata.com. After watching Rainsberger's talk, maybe I should drop them?
+<a target="_blank" rel="noopener noreferrer" href="/blog/how-to-get-100-percent-unit-test-coverage/">Four days ago</a>, I achieved 100% unit test coverage. Today, I finished <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/awesome-django-blog/pull/38/files">adding over 300 lines of code</a> of functional UI tests for blogthedata.com. After watching Rainsberger's talk, maybe I should drop them?
 
 <blockquote><p>Integration tests is any test where the success or failure depends on many bits of interesting behavior at once…where when it fails, I cannot point to where the problem is.</p><p>J.B Rainsberger</p></blockquote>
 

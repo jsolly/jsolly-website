@@ -18,7 +18,6 @@ legacyAuthorId: 2
 excerpt: <p>Sometimes minor features need large technical lifts. How a small UI change pushed me to learn Django’s Context Processors and DB Migrations.</p>
 legacyId: 58
 related:
-  - 15-minute-dump-and-go-instant-pot-recipes
   - cosine-similarity-better-than-tags
   - Adding-views-likes-to-posts
 ---

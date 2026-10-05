@@ -23,7 +23,7 @@ related:
   - finding-reliable-information
 ---
 
-Blogthedata.com is coming together! We now have <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/google-lighthouse-perfect-score/">perfect* Google Lighthouse score</a>, open issues\[1, 2\] to achieve a <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/how-to-get-a-perfect-mozilla-observatory-score/">perfect* Mozilla Observatory</a> score, and <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/how-to-get-100-percent-unit-test-coverage/">100% unit test coverage</a>.
+Blogthedata.com is coming together! We now have <a target="_blank" rel="noopener noreferrer" href="/blog/google-lighthouse-perfect-score/">perfect* Google Lighthouse score</a>, open issues\[1, 2\] to achieve a <a target="_blank" rel="noopener noreferrer" href="/blog/how-to-get-a-perfect-mozilla-observatory-score/">perfect* Mozilla Observatory</a> score, and <a target="_blank" rel="noopener noreferrer" href="/blog/how-to-get-100-percent-unit-test-coverage/">100% unit test coverage</a>.
 
 Now, what about the code style? That's where linting comes in. There are <a target="_blank" rel="noopener noreferrer" href="https://www.slant.co/topics/2692/~best-python-code-linters">several linters</a> for Python, I use Pylint.
 

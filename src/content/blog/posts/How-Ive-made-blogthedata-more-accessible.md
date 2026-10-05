@@ -23,7 +23,7 @@ related:
   - smartly-load-CSS-JS-page-load-time
 ---
 
-The journey began when I ran my <a target="_blank" rel="noopener noreferrer" href="https://www.blogthedata.com/post/google-lighthouse-audit/">first Google Lighthouse test</a> and scored 86% for A11Y (Accessibility). From there, I added alt text to all my images and increased the contrast in several areas. This <a target="_blank" rel="noopener noreferrer" href="https://www.blogthedata.com/post/google-lighthouse-perfect-score/">brought my score to 100</a>, but I would hardly call my site accessible at that point.
+The journey began when I ran my <a target="_blank" rel="noopener noreferrer" href="/blog/google-lighthouse-audit/">first Google Lighthouse test</a> and scored 86% for A11Y (Accessibility). From there, I added alt text to all my images and increased the contrast in several areas. This <a target="_blank" rel="noopener noreferrer" href="/blog/google-lighthouse-perfect-score/">brought my score to 100</a>, but I would hardly call my site accessible at that point.
 
 I recently read through <a target="_blank" rel="noopener noreferrer" href="https://www.w3.org/TR/WCAG21/">WCAG 2.1.</a> Okay, I didn't read it cover-to-cover but combined with a few Youtube videos and <a target="_blank" rel="noopener noreferrer" href="https://www.w3.org/WAI/ER/tools/">several additional automated tools recommended by W3</a>, I found more ways to increase accessibility.
 

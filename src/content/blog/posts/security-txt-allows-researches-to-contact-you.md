@@ -23,11 +23,11 @@ related:
   - finding-reliable-information
 ---
 
-Two days ago, I talked about <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/help-google-spider-with-sitemaps-and-robots-file/">adding a robots.txt file to your site</a> to inform web crawlers like Googlebot for better Google search indexing of your website. Today, <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/blogthedata/pull/53/files">with this PR</a>, I have added a security.txt file to blogthedata.com, giving security researchers a way to contact me about new web services vulnerabilities potentially affecting my site.
+Two days ago, I talked about <a target="_blank" rel="noopener noreferrer" href="/blog/help-google-spider-with-sitemaps-and-robots-file/">adding a robots.txt file to your site</a> to inform web crawlers like Googlebot for better Google search indexing of your website. Today, <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/blogthedata/pull/53/files">with this PR</a>, I have added a security.txt file to blogthedata.com, giving security researchers a way to contact me about new web services vulnerabilities potentially affecting my site.
 
 It’s easy to set this up yourself! You're adding two routes to your app containing information about how to contact you.
 
-<a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/pgp-key.txt">https://blogthedata.com/pgp-key.txt</a>
+<a target="_blank" rel="noopener noreferrer" href="/pgp-key.txt">https://blogthedata.com/pgp-key.txt</a>
 
 <a target="_blank" rel="nofollow">https://blogthedata.com/.well-known/security.txt</a>
 

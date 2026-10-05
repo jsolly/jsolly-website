@@ -23,7 +23,7 @@ related:
   - finding-reliable-information
 ---
 
-A few months ago, I wrote a post about <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/finding-reliable-information/">how to use search parameters to optimize web searches with DuckDuckGo</a>. I've found a way to incorporate a lot of those ideas automatically in searches using Brave Search Googles.
+A few months ago, I wrote a post about <a target="_blank" rel="noopener noreferrer" href="/blog/finding-reliable-information/">how to use search parameters to optimize web searches with DuckDuckGo</a>. I've found a way to incorporate a lot of those ideas automatically in searches using Brave Search Googles.
 
 <blockquote><p>Goggles enable any individual—or community of people—to alter the ranking of Brave Search by using a set of instructions (rules and filters). Anyone can create, apply, or extend a Goggle. Essentially Goggles act as a custom re-ranking on top of the Brave search index.</p><p>- <a target="_blank" rel="noopener noreferrer" href="https://search.brave.com/help/goggles">Brave</a></p></blockquote>
 

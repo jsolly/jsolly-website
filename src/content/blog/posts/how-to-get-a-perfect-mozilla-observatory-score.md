@@ -23,7 +23,7 @@ related:
   - how-to-implement-content-security-policy-django
 ---
 
-A few weeks ago, I made a post about getting a <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/google-lighthouse-perfect-score/">perfect* score on Google Lighthouse</a>, a tool for assessing website performance, SEO and best practices. I've now set my sights on a security audit tool called <a target="_blank" rel="noopener noreferrer" href="https://observatory.mozilla.org">Mozilla Observatory</a>.
+A few weeks ago, I made a post about getting a <a target="_blank" rel="noopener noreferrer" href="/blog/google-lighthouse-perfect-score/">perfect* score on Google Lighthouse</a>, a tool for assessing website performance, SEO and best practices. I've now set my sights on a security audit tool called <a target="_blank" rel="noopener noreferrer" href="https://observatory.mozilla.org">Mozilla Observatory</a>.
 
 I started out with an 'F' failing rating, but after implementing everything below, I have a D-. The end goal is to have a more secure site and bragging rights with an A+ score!
 
@@ -218,7 +218,7 @@ I emailed ImmuniWeb to tell them about these depreciated properties. I hope they
 
 <img class="image_resized" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/immuniweb_message.png" alt="Screenshot of Immuniweb email. They said &quot;Dear John Solly, Thank you for your message! We've transfered this information to the Development Team.&quot;" width="458" height="228">
 
-Although some tools are outdated, they gave me useful info. For example, ImmuiWeb found was I am using an older version of jQuery. This threw me because my <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/migrating-bs4-to-bs5/">migration from bootstrap 4 to bootstrap 5</a> should have removed jQuery. Turns out that it's my embedded Mailchimp form that is still relying on jQuery. The <a target="_blank" rel="noopener noreferrer" href="https://mailchimp.com/help/troubleshooting-the-embedded-signup-form/">Mailchimp docs</a> state:
+Although some tools are outdated, they gave me useful info. For example, ImmuiWeb found was I am using an older version of jQuery. This threw me because my <a target="_blank" rel="noopener noreferrer" href="/blog/migrating-bs4-to-bs5/">migration from bootstrap 4 to bootstrap 5</a> should have removed jQuery. Turns out that it's my embedded Mailchimp form that is still relying on jQuery. The <a target="_blank" rel="noopener noreferrer" href="https://mailchimp.com/help/troubleshooting-the-embedded-signup-form/">Mailchimp docs</a> state:
 
 <blockquote><p>The embed form code uses&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/JQuery">jQuery</a>&nbsp;to validate the form and display responses such as the success message that appears when someone clicks the Subscribe button to sign up for your emails.</p></blockquote>
 
