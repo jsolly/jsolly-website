@@ -45,6 +45,7 @@ fi
 run_step "biome ci"  npx --no-install biome ci . --error-on-warnings
 run_step "yaml lint" npm run check:yaml
 run_step "knip" npm run check:knip
+run_step "legacy redirects" npm run redirects:check   # legacy/blogthedata/vercel.json matches url-map.json
 run_step "actionlint"             npm run check:actions
 run_step "markdown lint" npm run check:md
 run_step "smoke scenario" npm run smoke:scenario-contract

@@ -3,7 +3,7 @@
 		"source_repo": "jsolly/awesome-blog",
 		"source_ref": "bf1f7ff1cb92faacfdc3b98ba17fb2f93cac59b5",
 		"source_sha": "bf1f7ff1cb92faacfdc3b98ba17fb2f93cac59b5",
-		"generated_by": "build-url-map.mjs (blogthedata merge plan bundle, out/); deterministic, node built-ins only",
+		"freeze_sha": null,
 		"hosts": [
 			"blogthedata.com",
 			"www.blogthedata.com",
@@ -13,180 +13,7 @@
 		"slash_policy": "Exact redirect rows whose source ends in '/' cover the slashless, slash, /index.html and /index.html/ forms (emitted as `<source-without-slash>{/index.html}?{/}?`); file rows match exactly.",
 		"case_policy": "Sources and destinations preserve slug case; matching is case-sensitive (routing-utils sourceToRegex sensitive:true).",
 		"status": "redirect-301 rows emit statusCode 301; http:// adds Vercel's HTTPS 308 first hop.",
-		"counts": {
-			"rows": 305,
-			"by_action": {
-				"redirect-301": 212,
-				"stays-404": 88,
-				"serve-200": 5
-			},
-			"by_match": {
-				"exact": 287,
-				"pattern": 18
-			},
-			"by_class": {
-				"index": 2,
-				"post": 111,
-				"category": 7,
-				"archive": 1,
-				"search": 2,
-				"feed": 2,
-				"sitemap": 1,
-				"robots": 1,
-				"security": 2,
-				"recipe-page": 25,
-				"recipe-data": 2,
-				"recipe-pwa": 4,
-				"service-worker": 2,
-				"asset-chrome": 8,
-				"asset-media": 45,
-				"asset-hashed": 1,
-				"legacy-alias": 7,
-				"legacy-django": 36,
-				"legacy-media": 5,
-				"legacy-static": 1,
-				"other": 40
-			},
-			"by_class_action": {
-				"index": {
-					"redirect-301": 2,
-					"serve-200": 0,
-					"stays-404": 0
-				},
-				"post": {
-					"redirect-301": 105,
-					"serve-200": 0,
-					"stays-404": 6
-				},
-				"category": {
-					"redirect-301": 6,
-					"serve-200": 0,
-					"stays-404": 1
-				},
-				"archive": {
-					"redirect-301": 1,
-					"serve-200": 0,
-					"stays-404": 0
-				},
-				"search": {
-					"redirect-301": 1,
-					"serve-200": 0,
-					"stays-404": 1
-				},
-				"feed": {
-					"redirect-301": 2,
-					"serve-200": 0,
-					"stays-404": 0
-				},
-				"sitemap": {
-					"redirect-301": 1,
-					"serve-200": 0,
-					"stays-404": 0
-				},
-				"robots": {
-					"redirect-301": 0,
-					"serve-200": 1,
-					"stays-404": 0
-				},
-				"security": {
-					"redirect-301": 1,
-					"serve-200": 1,
-					"stays-404": 0
-				},
-				"recipe-page": {
-					"redirect-301": 25,
-					"serve-200": 0,
-					"stays-404": 0
-				},
-				"recipe-data": {
-					"redirect-301": 2,
-					"serve-200": 0,
-					"stays-404": 0
-				},
-				"recipe-pwa": {
-					"redirect-301": 4,
-					"serve-200": 0,
-					"stays-404": 0
-				},
-				"service-worker": {
-					"redirect-301": 0,
-					"serve-200": 2,
-					"stays-404": 0
-				},
-				"asset-chrome": {
-					"redirect-301": 8,
-					"serve-200": 0,
-					"stays-404": 0
-				},
-				"asset-media": {
-					"redirect-301": 45,
-					"serve-200": 0,
-					"stays-404": 0
-				},
-				"asset-hashed": {
-					"redirect-301": 0,
-					"serve-200": 0,
-					"stays-404": 1
-				},
-				"legacy-alias": {
-					"redirect-301": 6,
-					"serve-200": 0,
-					"stays-404": 1
-				},
-				"legacy-django": {
-					"redirect-301": 0,
-					"serve-200": 0,
-					"stays-404": 36
-				},
-				"legacy-media": {
-					"redirect-301": 0,
-					"serve-200": 0,
-					"stays-404": 5
-				},
-				"legacy-static": {
-					"redirect-301": 0,
-					"serve-200": 0,
-					"stays-404": 1
-				},
-				"other": {
-					"redirect-301": 3,
-					"serve-200": 1,
-					"stays-404": 36
-				}
-			},
-			"vercel_redirect_entries": 212,
-			"served_today_paths": 407,
-			"served_today_to_404_ledger": {
-				"total": 57,
-				"astro_hashed": 55,
-				"astro_in_freeze_dist": 55,
-				"astro_live_200": 53,
-				"other": [
-					"/release.json",
-					"/search-index.json"
-				]
-			},
-			"destination_paths": 202,
-			"inputs": {
-				"build_rows": 265,
-				"served_files": 265,
-				"live_rows": 803,
-				"history_rows": 655,
-				"sitemap_locs": 116,
-				"config_entries": 5
-			},
-			"union": {
-				"U": 901,
-				"paths": 885,
-				"templates": 15,
-				"host_rules": 1,
-				"matched_exact": 443,
-				"matched_pattern": 442,
-				"matched_template": 15,
-				"unmatched": 0,
-				"ambiguous": 0
-			}
-		}
+		"header_policy": "Every path gets the security headers. Rows of class \"service-worker\" also get Content-Type application/javascript and Cache-Control no-cache, so browsers always fetch the kill-switch on an update check; the class, not the path, selects these headers."
 	},
 	"rows": [
 		{
@@ -196,15 +23,7 @@
 			"class": "index",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"history",
-				"live",
-				"sitemap",
-				"wayback"
-			],
+			"evidence": ["build", "crawl", "history", "live", "sitemap", "wayback"],
 			"decision_ref": null,
 			"notes": "Blog home. Required by Search Console Change of Address (old homepage must 301)."
 		},
@@ -215,11 +34,7 @@
 			"class": "index",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/",
-			"query": "passthrough",
-			"evidence": [
-				"live",
-				"served"
-			],
+			"evidence": ["live", "served"],
 			"decision_ref": null,
 			"notes": "Vercel serves dist/index.html directly today (200). Not linked anywhere."
 		},
@@ -230,7 +45,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/12-questions-you-should-ask-at-your-next-interview/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -251,7 +65,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/Achieve-consistent-builds-with-Python-constraints/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -271,7 +84,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/Adding-code-snippets-ckeditor/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -291,7 +103,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/Adding-spell-check-django-ckeditor/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -311,7 +122,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/Adding-views-likes-to-posts/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -332,7 +142,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/Exploring-the-STAC-APIs-with-IPython-Notebooks/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -352,7 +161,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/Find-Your-Dream-Job-With-LinkedIn-Boolean-Search/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -373,7 +181,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/How-Ive-made-blogthedata-more-accessible/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -393,7 +200,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/I-made-my-code-async-its-388-percent-faster/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -413,7 +219,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/I-re-created-1979-Atari-game-asteroids-with-JS/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -433,7 +238,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/I-replaced-for-loops-with-for-of-loops-cleaner/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -453,7 +257,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/I-resolved-150-linting-issues-with-eslint/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -473,7 +276,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/Migrating-from-apache-to-Nginx-Gunicorn/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -493,7 +295,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/Planetary-Computer-STAC-Landsat-data/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -513,7 +314,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/Prettier-code-formatter-breaks-Django-templates/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -533,7 +333,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/TypeScript-revealed-210-issues-JavaScript-codebase/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -553,7 +352,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/UI-enhancement-leads-to-major-architecture-changes/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -573,7 +371,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/adding-global-search/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -593,7 +390,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/adding-slugified-urls/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -613,7 +409,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/admin-honeypot-page-to-catch-hackers/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -634,7 +429,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/automate-python-testing-linting-pre-commit-hooks/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -654,7 +448,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/break-youtube-addiction-turning-off-your-history/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -674,7 +467,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/calculate-ndvi-ipfs-geoanalysis/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -694,7 +486,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/clay-personal-crm-tool-managing-relationships/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -714,7 +505,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/cloudflare-minify-optimizations-broke-sri/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -734,7 +524,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/code-analysis-and-pip-dependency-check-in-GitHub/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -754,7 +543,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/compress-minify-assets-69-percent-faster-page-load/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -774,7 +562,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/conventional-commits/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -794,7 +581,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/convert-images-to-webp-25-percent-smaller-payloads/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -814,7 +600,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/cosine-similarity-better-than-tags/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -834,7 +619,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/create-website-title-generator-python-htmx-django/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -854,7 +638,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/deploy-to-remote-server-on-push-in-10-lines/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -874,7 +657,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/django-automatic-redirects-in-two-lines-of-code/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -894,7 +676,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/django-htmx-real-time-comments/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -914,7 +695,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/domain-name-value/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -934,7 +714,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/emotional-intelligence-book-executive-summary/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -954,7 +733,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/exploring-new-ideas-with-gpt/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -974,7 +752,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/finding-reliable-information/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -995,7 +772,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/fixing-coding-pain-ergonomic-tips/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1015,7 +791,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/free-cdn-for-17x-speed/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1036,7 +811,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/geospatial-job-interview-tips/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1056,7 +830,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/get-a-perfect-score-on-seo-tool-ahrefs/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1077,7 +850,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/gis-job-search-resources/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1098,7 +870,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/git-hooks-to-perform-collectstatic/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1118,7 +889,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/google-lighthouse-audit/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1139,7 +909,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/google-lighthouse-perfect-score/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1160,7 +929,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/help-google-spider-with-sitemaps-and-robots-file/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1181,7 +949,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/how-I-present-portfolio-projects-to-impress/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1201,7 +968,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/how-many-manual-qa-do-you-need/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1221,7 +987,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/how-to-add-a-404-page-to-your-django-app/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1241,7 +1006,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/how-to-add-leaflet-js-maps-inside-a-django-site/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1261,7 +1025,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/how-to-add-social-share-buttons-to-your-website/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1282,7 +1045,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/how-to-ask-less-questions/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1302,7 +1064,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/how-to-ask-questions-like-a-senior-engineer/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1322,7 +1083,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/how-to-create-subtle-shaking-navbar-links/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1342,7 +1102,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/how-to-debug-an-astro-app/",
-			"query": "passthrough",
 			"evidence": [
 				"atom",
 				"build",
@@ -1364,7 +1123,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/how-to-get-100-percent-unit-test-coverage/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1385,7 +1143,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/how-to-get-a-perfect-mozilla-observatory-score/",
-			"query": "passthrough",
 			"evidence": [
 				"atom",
 				"build",
@@ -1408,7 +1165,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/how-to-get-perfect-linting-compliance/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1429,7 +1185,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/how-to-implement-content-security-policy-django/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1450,7 +1205,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/how-to-implement-subresource-integrity-django/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1471,7 +1225,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/how-to-send-email-with-python-the-hard-way/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1491,7 +1244,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/how-to-setup-logging-in-your-django-app/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1511,7 +1263,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/how-to-test-and-debug-django-templates/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1531,7 +1282,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/how-to-use-ChatGPT-for-GeoDev-Interview-practice/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1552,7 +1302,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/implement-continuous-integration-github-actions/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1573,7 +1322,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/implement-infinite-scroll-in-django-with-htmx/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1594,7 +1342,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/import-libraries-vs-rolling-own/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1614,7 +1361,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/improve-sleep-quality-red-screens-ios-macos/",
-			"query": "passthrough",
 			"evidence": [
 				"atom",
 				"build",
@@ -1636,7 +1382,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/inspiring-aphorisms-axioms/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1656,7 +1401,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/integration-tests-are-a-scam-i-wrote-them-anyway/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1677,7 +1421,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/mastering-gpt-directives-and-parameters/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1698,7 +1441,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/mastering-intuition-pumps-essential-terms-guide/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1718,7 +1460,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/migrating-bs4-to-bs5/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1739,7 +1480,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/migrating-portfolio-from-django-to-astro-js/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1759,7 +1499,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/migrating-to-ckeditor-5/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1780,7 +1519,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/migrating-to-django-4x/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1800,7 +1538,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/migrating-to-postgres-from-sqllite/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1820,7 +1557,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/my-favorite-youtube-channels-podcasts-newsletters/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1841,7 +1577,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/next-level-emoji-game-with-text-replacement/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1861,7 +1596,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/on-how-the-world-works/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1881,7 +1615,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/one-click-django-debug-runserver-livereload-chrome/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1901,7 +1634,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/optimizing-ahrefs-orphan-pages-duplicate-content/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1921,7 +1653,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/optimizing-gpt-for-nlp-tips-and-tricks/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -1942,7 +1673,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/productivity-flow-chart/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1962,7 +1692,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/security-txt-allows-researches-to-contact-you/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -1982,7 +1711,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/simplifying-ai-writing-template-complex-concepts/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -2002,7 +1730,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/smartly-load-CSS-JS-page-load-time/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -2022,7 +1749,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/social-media-share-links-open-graph/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -2043,7 +1769,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/solly-agent-rules-markdown/",
-			"query": "passthrough",
 			"evidence": [
 				"atom",
 				"build",
@@ -2065,7 +1790,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/solly-coverletter-outline-and-philosophy/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -2085,7 +1809,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/sollys-favorite-web-resources-and-tools/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -2105,7 +1828,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/streamlining-todoist-workflow/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -2125,7 +1847,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/test-strategy-no-existing-tests/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -2146,7 +1867,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/three-scenarios-i-dont-use-tailwind/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -2166,7 +1886,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/timeless-phrases-sayings/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -2186,7 +1905,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/todo-workflow-7619-tasks/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -2207,7 +1925,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/two-weird-reasons-I-love-unit-tests/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -2227,7 +1944,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/upgrading-to-the-latest-3x-django/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -2248,7 +1964,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/use-brave-search-goggles-to-improve-web-searches/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -2269,7 +1984,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/use-noopener-norferrer-to-improve-user-privacy/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -2289,7 +2003,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/using-a-freelancer-to-fix-a-bug/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -2309,7 +2022,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/web3-notes-personal-reference/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -2329,7 +2041,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/why-I-stopped-using-pip-freeze/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -2350,7 +2061,6 @@
 			"class": "post",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/write-tests-2x-faster-with-github-copilot/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -2370,12 +2080,7 @@
 			"class": "post",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": "J10",
 			"notes": "Deleted before the Astro migration; 404 today. History agent proposed a topical target (opt-in)."
 		},
@@ -2386,12 +2091,7 @@
 			"class": "post",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": "J10",
 			"notes": "Deleted before the Astro migration; 404 today. History agent proposed a topical target (opt-in)."
 		},
@@ -2402,11 +2102,7 @@
 			"class": "post",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"config",
-				"live"
-			],
+			"evidence": ["config", "live"],
 			"decision_ref": null,
 			"notes": "Lowercase probe of a mixed-case slug: 404 today, stays 404 (case-sensitive sources; negative probe for the verifier)."
 		},
@@ -2417,12 +2113,7 @@
 			"class": "post",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": "J10",
 			"notes": "Deleted before the Astro migration; 404 today. History agent proposed a topical target (opt-in)."
 		},
@@ -2433,12 +2124,7 @@
 			"class": "post",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": "J10",
 			"notes": "Deleted before the Astro migration; 404 today. History agent proposed a topical target (opt-in)."
 		},
@@ -2449,12 +2135,7 @@
 			"class": "post",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": "J10",
 			"notes": "Deleted before the Astro migration; 404 today. History agent proposed a topical target (opt-in)."
 		},
@@ -2465,7 +2146,6 @@
 			"class": "category",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/category/Geodev/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -2485,7 +2165,6 @@
 			"class": "category",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/category/dev-tools/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -2505,7 +2184,6 @@
 			"class": "category",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/category/productivity/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -2525,7 +2203,6 @@
 			"class": "category",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/category/resources/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -2545,7 +2222,6 @@
 			"class": "category",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/category/uncategorized/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -2565,7 +2241,6 @@
 			"class": "category",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/category/web-dev/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -2585,12 +2260,7 @@
 			"class": "category",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": "J10",
 			"notes": "Indexed historically; 404 today."
 		},
@@ -2601,7 +2271,6 @@
 			"class": "archive",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/all-posts/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -2622,15 +2291,7 @@
 			"class": "search",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/search/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"history",
-				"live",
-				"served",
-				"wayback"
-			],
+			"evidence": ["build", "crawl", "history", "live", "served", "wayback"],
 			"decision_ref": null,
 			"notes": "Query passthrough keeps ?searched=<term> (param is `searched`, not `q`)."
 		},
@@ -2641,12 +2302,7 @@
 			"class": "search",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "live", "served"],
 			"decision_ref": "J27",
 			"notes": "SERVED 200 TODAY -> deliberately 404 after cutover (brief item 18; served-today ledger). Runtime fetch of the old search page only; a cross-origin redirect would fail CORS anyway."
 		},
@@ -2657,7 +2313,6 @@
 			"class": "feed",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/atom.xml",
-			"query": "passthrough",
 			"evidence": [
 				"atom",
 				"build",
@@ -2677,7 +2332,6 @@
 			"class": "feed",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/rss.xml",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -2697,14 +2351,7 @@
 			"class": "sitemap",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/sitemap-index.xml",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"history",
-				"live",
-				"served",
-				"wayback"
-			],
+			"evidence": ["build", "history", "live", "served", "wayback"],
 			"decision_ref": null,
 			"notes": ""
 		},
@@ -2715,7 +2362,6 @@
 			"class": "robots",
 			"action": "serve-200",
 			"destination": "legacy/blogthedata/public/robots.txt",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -2735,7 +2381,6 @@
 			"class": "security",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/pgp-key.txt",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"config",
@@ -2755,14 +2400,7 @@
 			"class": "security",
 			"action": "serve-200",
 			"destination": "legacy/blogthedata/public/.well-known/security.txt",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"history",
-				"live",
-				"served",
-				"wayback"
-			],
+			"evidence": ["build", "history", "live", "served", "wayback"],
 			"decision_ref": "J15",
 			"notes": "Vercel cannot redirect /.well-known; served file points Contact/Encryption at jsolly.com."
 		},
@@ -2773,7 +2411,6 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/",
-			"query": "passthrough",
 			"evidence": [
 				"atom",
 				"build",
@@ -2795,11 +2432,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/",
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live"
-			],
+			"evidence": ["history", "live"],
 			"decision_ref": "J10",
 			"notes": "404 on the old host today (and /recipes 308s to it); recommended opt-in to the new recipes home (review finding MU-6)."
 		},
@@ -2810,13 +2443,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/avocado-lime-smoothie/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -2827,13 +2454,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/banana-flax-smoothie/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -2844,13 +2465,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/chicken-posole/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -2861,13 +2476,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/cucumber-spinach-lime-smoothie/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -2878,13 +2487,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/greek-turkey-patties/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -2895,13 +2498,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/harissa-chickpea-and-cauliflower-bowls/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -2912,13 +2509,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/keto-zuppa-toscana/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -2929,13 +2520,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/lemon-chicken-potatoes-and-green-beans/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -2946,14 +2531,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/lemon-salmon-and-asparagus/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"history",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "history", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -2964,14 +2542,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/meals/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"history",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "history", "live", "served"],
 			"decision_ref": null,
 			"notes": "Collection page."
 		},
@@ -2982,13 +2553,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/pan-fried-greek-turkey-patties/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -2999,13 +2564,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/pesto-cod-and-zucchini/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -3016,13 +2575,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/salsa-verde-shredded-chicken/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -3033,13 +2586,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/shawarma-chicken-bowls/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -3050,13 +2597,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/sheet-pan-chicken-fajitas/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -3067,13 +2608,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/sheet-pan-gnocchi-white-beans-and-broccoli/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -3084,13 +2619,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/smoky-chicken-thighs-and-broccoli/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -3101,14 +2630,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/smoothies/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"history",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "history", "live", "served"],
 			"decision_ref": null,
 			"notes": "Collection page."
 		},
@@ -3119,13 +2641,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/spinach-feta-and-hemp-frittata/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -3136,13 +2652,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/strawberry-avocado-smoothie/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -3153,13 +2663,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/strawberry-banana-smoothie/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -3170,13 +2674,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/strawberry-hemp-smoothie/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -3187,13 +2685,7 @@
 			"class": "recipe-page",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/tomato-lentil-and-chicken-bake/",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Share links keep ?servings=&starch=."
 		},
@@ -3204,13 +2696,7 @@
 			"class": "recipe-data",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/data/recipe-library.json",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"history",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "history", "live", "served"],
 			"decision_ref": null,
 			"notes": "Assistant data; regenerated at the new path (external consumers unverifiable)."
 		},
@@ -3221,13 +2707,7 @@
 			"class": "recipe-data",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/data/recipe-library.md",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"history",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "history", "live", "served"],
 			"decision_ref": null,
 			"notes": ""
 		},
@@ -3238,13 +2718,7 @@
 			"class": "recipe-pwa",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/pwa/icon-180.png",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Manifest or icon; one exact row per tracked file. Installed apps are origin-bound and cannot migrate."
 		},
@@ -3255,13 +2729,7 @@
 			"class": "recipe-pwa",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/pwa/icon-192.png",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Manifest or icon; one exact row per tracked file. Installed apps are origin-bound and cannot migrate."
 		},
@@ -3272,13 +2740,7 @@
 			"class": "recipe-pwa",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/pwa/icon-512.png",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Manifest or icon; one exact row per tracked file. Installed apps are origin-bound and cannot migrate."
 		},
@@ -3289,14 +2751,7 @@
 			"class": "recipe-pwa",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/pwa/manifest.webmanifest",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"history",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "history", "live", "served"],
 			"decision_ref": null,
 			"notes": "Manifest or icon; one exact row per tracked file. Installed apps are origin-bound and cannot migrate."
 		},
@@ -3307,13 +2762,7 @@
 			"class": "service-worker",
 			"action": "serve-200",
 			"destination": "legacy/blogthedata/public/post/15-minute-dump-and-go-instant-pot-recipes/service-worker.js",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"history",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "history", "live", "served"],
 			"decision_ref": null,
 			"notes": "Legacy-scope kill-switch SW; identical bytes to the root one."
 		},
@@ -3324,13 +2773,7 @@
 			"class": "service-worker",
 			"action": "serve-200",
 			"destination": "legacy/blogthedata/public/recipe-service-worker.js",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"history",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "history", "live", "served"],
 			"decision_ref": null,
 			"notes": "Kill-switch SW (scope /). 200, application/javascript, no-cache. Never redirected: SW script fetches use redirect mode 'error'."
 		},
@@ -3341,15 +2784,7 @@
 			"class": "asset-chrome",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/favicon.ico",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"history",
-				"live",
-				"served",
-				"wayback"
-			],
+			"evidence": ["build", "crawl", "history", "live", "served", "wayback"],
 			"decision_ref": null,
 			"notes": "DST favicon wins."
 		},
@@ -3360,14 +2795,7 @@
 			"class": "asset-chrome",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/topographic-logo.svg",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"history",
-				"live",
-				"served",
-				"wayback"
-			],
+			"evidence": ["build", "history", "live", "served", "wayback"],
 			"decision_ref": null,
 			"notes": "Legacy logo.webp is unreferenced in SRC src/ and shares the topographic artwork (SRC docs/recipes.md:116); not ported, redirected for hot-links."
 		},
@@ -3378,13 +2806,7 @@
 			"class": "asset-chrome",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/social/githubLogo.svg",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Used by the author card and post share buttons (SRC About.astro:8-11, post page:36)."
 		},
@@ -3395,13 +2817,7 @@
 			"class": "asset-chrome",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/social/linkedinLogo.svg",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Used by the author card and post share buttons (SRC About.astro:8-11, post page:36)."
 		},
@@ -3412,13 +2828,7 @@
 			"class": "asset-chrome",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/social/redditLogo.svg",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Used by the author card and post share buttons (SRC About.astro:8-11, post page:36)."
 		},
@@ -3429,13 +2839,7 @@
 			"class": "asset-chrome",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/social/xLogo.svg",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Used by the author card and post share buttons (SRC About.astro:8-11, post page:36)."
 		},
@@ -3446,13 +2850,7 @@
 			"class": "asset-chrome",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/social/youtubeLogo.svg",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Used by the author card and post share buttons (SRC About.astro:8-11, post page:36)."
 		},
@@ -3463,13 +2861,7 @@
 			"class": "asset-chrome",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/topographic-logo.svg",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "BlogLayout header brand (SRC Base.astro:41)."
 		},
@@ -3480,15 +2872,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/media/default.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"history",
-				"live",
-				"served",
-				"wayback"
-			],
+			"evidence": ["build", "crawl", "history", "live", "served", "wayback"],
 			"decision_ref": null,
 			"notes": ""
 		},
@@ -3499,13 +2883,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/avocado-lime-smoothie.svg",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3516,13 +2894,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/banana-flax-smoothie.svg",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3533,13 +2905,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/chicken-posole.svg",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3550,13 +2916,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/cucumber-spinach-lime-smoothie.svg",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3567,13 +2927,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/greek-turkey-patties-1440.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3584,13 +2938,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/greek-turkey-patties-480.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3601,14 +2949,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/greek-turkey-patties-960.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"history",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "history", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3619,13 +2960,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/harissa-chickpea-and-cauliflower-bowls-1440.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3636,13 +2971,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/harissa-chickpea-and-cauliflower-bowls-480.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3653,13 +2982,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/harissa-chickpea-and-cauliflower-bowls-960.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3670,13 +2993,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/keto-zuppa-toscana.svg",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3687,13 +3004,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/lemon-chicken-potatoes-and-green-beans-1440.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3704,13 +3015,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/lemon-chicken-potatoes-and-green-beans-480.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3721,13 +3026,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/lemon-chicken-potatoes-and-green-beans-960.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3738,13 +3037,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/lemon-salmon-and-asparagus-1440.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3755,13 +3048,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/lemon-salmon-and-asparagus-480.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3772,13 +3059,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/lemon-salmon-and-asparagus-960.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3789,13 +3070,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/pesto-cod-and-zucchini-1440.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3806,13 +3081,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/pesto-cod-and-zucchini-480.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3823,13 +3092,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/pesto-cod-and-zucchini-960.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3840,13 +3103,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/salsa-verde-shredded-chicken-1440.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3857,13 +3114,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/salsa-verde-shredded-chicken-480.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3874,13 +3125,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/salsa-verde-shredded-chicken-960.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3891,13 +3136,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/shawarma-chicken-bowls-1440.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3908,13 +3147,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/shawarma-chicken-bowls-480.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3925,13 +3158,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/shawarma-chicken-bowls-960.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3942,13 +3169,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/sheet-pan-chicken-fajitas-1440.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3959,13 +3180,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/sheet-pan-chicken-fajitas-480.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3976,13 +3191,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/sheet-pan-chicken-fajitas-960.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -3993,13 +3202,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/sheet-pan-gnocchi-white-beans-and-broccoli-1440.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -4010,13 +3213,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/sheet-pan-gnocchi-white-beans-and-broccoli-480.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -4027,13 +3224,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/sheet-pan-gnocchi-white-beans-and-broccoli-960.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -4044,13 +3235,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/smoky-chicken-thighs-and-broccoli-1440.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -4061,13 +3246,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/smoky-chicken-thighs-and-broccoli-480.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -4078,13 +3257,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/smoky-chicken-thighs-and-broccoli-960.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -4095,13 +3268,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/spinach-feta-and-hemp-frittata-1440.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -4112,13 +3279,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/spinach-feta-and-hemp-frittata-480.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -4129,13 +3290,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/spinach-feta-and-hemp-frittata-960.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -4146,13 +3301,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/strawberry-avocado-smoothie.svg",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -4163,13 +3312,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/strawberry-banana-smoothie.svg",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -4180,13 +3323,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/strawberry-hemp-smoothie.svg",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -4197,13 +3334,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/tomato-lentil-and-chicken-bake-1440.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -4214,13 +3345,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/tomato-lentil-and-chicken-bake-480.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -4231,13 +3356,7 @@
 			"class": "asset-media",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/recipes/media/tomato-lentil-and-chicken-bake-960.webp",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "crawl", "live", "served"],
 			"decision_ref": null,
 			"notes": "Recipe image; one exact row per tracked file (unknown names stay 404)."
 		},
@@ -4248,15 +3367,7 @@
 			"class": "asset-hashed",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"crawl",
-				"history",
-				"live",
-				"served",
-				"wayback"
-			],
+			"evidence": ["build", "crawl", "history", "live", "served", "wayback"],
 			"decision_ref": "J27",
 			"notes": "SERVED 200 TODAY -> deliberately 404 after cutover (brief item 18; served-today ledger). Content-hashed build artifacts; the new site emits new hashes and nothing external should depend on one.",
 			"samples": [
@@ -4326,12 +3437,7 @@
 			"class": "legacy-alias",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/category/dev-tools/",
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": null,
 			"notes": "Legacy Django-era category slug (404 today); brief opts it in."
 		},
@@ -4342,13 +3448,7 @@
 			"class": "legacy-alias",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/category/Geodev/",
-			"query": "passthrough",
-			"evidence": [
-				"config",
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["config", "history", "live", "wayback"],
 			"decision_ref": null,
 			"notes": "Legacy Django-era category slug (404 today); brief opts it in."
 		},
@@ -4359,11 +3459,7 @@
 			"class": "legacy-alias",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/category/web-dev/",
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"wayback"
-			],
+			"evidence": ["history", "wayback"],
 			"decision_ref": null,
 			"notes": "Legacy Django-era category slug (404 today); brief opts it in."
 		},
@@ -4374,12 +3470,7 @@
 			"class": "legacy-alias",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/category/web-dev/",
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": null,
 			"notes": "Legacy Django-era category slug (404 today); brief opts it in."
 		},
@@ -4390,12 +3481,7 @@
 			"class": "legacy-alias",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/how-to-ask-less-questions/",
-			"query": "passthrough",
-			"evidence": [
-				"config",
-				"history",
-				"live"
-			],
+			"evidence": ["config", "history", "live"],
 			"decision_ref": "J5",
 			"notes": "SRC target /post/stop-asking-questions-to-save-time/ never existed (404 today, no Wayback capture). Retargeted to the nearest live post; fallback /blog/."
 		},
@@ -4406,12 +3492,7 @@
 			"class": "legacy-alias",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/my-favorite-youtube-channels-podcasts-newsletters/",
-			"query": "passthrough",
-			"evidence": [
-				"config",
-				"history",
-				"live"
-			],
+			"evidence": ["config", "history", "live"],
 			"decision_ref": null,
 			"notes": "SRC vercel.json rename, flattened to the final URL (no chain)."
 		},
@@ -4422,11 +3503,7 @@
 			"class": "legacy-alias",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"config",
-				"live"
-			],
+			"evidence": ["config", "live"],
 			"decision_ref": null,
 			"notes": "Dead target of the old closed-loops redirect; 404 today."
 		},
@@ -4437,11 +3514,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4452,19 +3525,10 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": "J10",
 			"notes": "Django admin; 404 today.",
-			"samples": [
-				"/admin",
-				"/admin/",
-				"/admin/login/"
-			]
+			"samples": ["/admin", "/admin/", "/admin/login/"]
 		},
 		{
 			"id": "DJG-003",
@@ -4473,11 +3537,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4488,11 +3548,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4503,16 +3559,10 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Django CategoryView template; every slug with evidence has its own row (excluded by the lookahead), any other slug 404s.",
-			"samples": [
-				"/category/x-sample/"
-			]
+			"samples": ["/category/x-sample/"]
 		},
 		{
 			"id": "DJG-006",
@@ -4521,11 +3571,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4536,11 +3582,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4551,11 +3593,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4566,17 +3604,10 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Django comment CRUD; 404 today.",
-			"samples": [
-				"/comment/0/delete",
-				"/comment/0/update"
-			]
+			"samples": ["/comment/0/delete", "/comment/0/update"]
 		},
 		{
 			"id": "DJG-010",
@@ -4585,11 +3616,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4600,11 +3627,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4615,11 +3638,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4630,11 +3649,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4645,17 +3660,10 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Django AI endpoint; 404 today.",
-			"samples": [
-				"/generate-with-gpt/",
-				"/generate-with-gpt/0/"
-			]
+			"samples": ["/generate-with-gpt/", "/generate-with-gpt/0/"]
 		},
 		{
 			"id": "DJG-015",
@@ -4664,11 +3672,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4679,12 +3683,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": null,
 			"notes": "2022 portfolio demo page; 404 today."
 		},
@@ -4695,17 +3694,10 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Django likes; 404 today.",
-			"samples": [
-				"/like/0",
-				"/like/x-sample-slug"
-			]
+			"samples": ["/like/0", "/like/x-sample-slug"]
 		},
 		{
 			"id": "DJG-018",
@@ -4714,12 +3706,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4730,11 +3717,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4745,12 +3728,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": null,
 			"notes": "2022 portfolio demo page; 404 today."
 		},
@@ -4761,12 +3739,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": null,
 			"notes": "2022 portfolio demo page; 404 today."
 		},
@@ -4777,12 +3750,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": null,
 			"notes": "2022 portfolio demo page; 404 today."
 		},
@@ -4793,11 +3761,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4808,16 +3772,10 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Django password reset confirm; 404 today.",
-			"samples": [
-				"/password-reset-confirm/MQ/x-token/"
-			]
+			"samples": ["/password-reset-confirm/MQ/x-token/"]
 		},
 		{
 			"id": "DJG-025",
@@ -4826,7 +3784,6 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
 			"evidence": [
 				"config",
 				"crawl",
@@ -4850,11 +3807,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Django post comment/delete/update routes (int pk and slug forms).",
 			"samples": [
@@ -4873,16 +3826,10 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Pre-slug numeric post URLs (2020-08 to 2022-02); no evidence of inbound links.",
-			"samples": [
-				"/post/0/"
-			]
+			"samples": ["/post/0/"]
 		},
 		{
 			"id": "DJG-028",
@@ -4891,11 +3838,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4906,11 +3849,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4921,12 +3860,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4937,11 +3871,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4952,12 +3882,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": null,
 			"notes": "2022 portfolio demo page; 404 today."
 		},
@@ -4968,11 +3893,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4983,11 +3904,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -4998,11 +3915,7 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Retired Django route; 404 today."
 		},
@@ -5013,16 +3926,10 @@
 			"class": "legacy-django",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history"
-			],
+			"evidence": ["django-routes", "history"],
 			"decision_ref": "J10",
 			"notes": "Django user profiles; 404 today.",
-			"samples": [
-				"/user/x-sample"
-			]
+			"samples": ["/user/x-sample"]
 		},
 		{
 			"id": "LMD-001",
@@ -5031,12 +3938,7 @@
 			"class": "legacy-media",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": "J10",
 			"notes": "Django default image; 404 today."
 		},
@@ -5047,12 +3949,7 @@
 			"class": "legacy-media",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": "J10",
 			"notes": "CKEditor uploads; 37 have a same-size CloudFront twin (opt-in rows possible). 404 today.",
 			"samples": [
@@ -5109,12 +4006,7 @@
 			"class": "legacy-media",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": "J10",
 			"notes": "Django meta images; every file is still 200 on CloudFront (opt-in pattern redirect possible). 404 today.",
 			"samples": [
@@ -5251,17 +4143,10 @@
 			"class": "legacy-media",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": "J10",
 			"notes": "Django profile pictures. 404 today.",
-			"samples": [
-				"/media/profile_pics/jsolly.jpeg"
-			]
+			"samples": ["/media/profile_pics/jsolly.jpeg"]
 		},
 		{
 			"id": "LMD-005",
@@ -5270,12 +4155,7 @@
 			"class": "legacy-media",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": "J10",
 			"notes": "CKEditor 4 uploads; see above. 404 today.",
 			"samples": [
@@ -5301,12 +4181,7 @@
 			"class": "legacy-static",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": "J10",
 			"notes": "Django collectstatic output; 404 today.",
 			"samples": [
@@ -5506,12 +4381,7 @@
 			"class": "other",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/",
-			"query": "passthrough",
-			"evidence": [
-				"django-routes",
-				"history",
-				"live"
-			],
+			"evidence": ["django-routes", "history", "live"],
 			"decision_ref": "J10",
 			"notes": "404 on the old host today; recommended opt-in to the new blog home (review finding MU-6)."
 		},
@@ -5522,7 +4392,6 @@
 			"class": "other",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/privacy/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -5542,7 +4411,6 @@
 			"class": "other",
 			"action": "redirect-301",
 			"destination": "https://www.jsolly.com/blog/works-cited/",
-			"query": "passthrough",
 			"evidence": [
 				"build",
 				"crawl",
@@ -5562,12 +4430,7 @@
 			"class": "other",
 			"action": "serve-200",
 			"destination": "legacy/blogthedata/public/404.html",
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "live", "served"],
 			"decision_ref": null,
 			"notes": "The redirect host's own static 404 page. Vercel serves output files directly, so /404.html is 200 (as today); noindex."
 		},
@@ -5578,11 +4441,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"wayback"
-			],
+			"evidence": ["history", "wayback"],
 			"decision_ref": null,
 			"notes": "Crawler probe; 404 today (Vercel serves /.well-known from the filesystem only)."
 		},
@@ -5593,11 +4452,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"wayback"
-			],
+			"evidence": ["history", "wayback"],
 			"decision_ref": null,
 			"notes": "Crawler probe; 404 today (Vercel serves /.well-known from the filesystem only)."
 		},
@@ -5608,11 +4463,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"wayback"
-			],
+			"evidence": ["history", "wayback"],
 			"decision_ref": null,
 			"notes": "Crawler probe; 404 today (Vercel serves /.well-known from the filesystem only)."
 		},
@@ -5623,11 +4474,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"wayback"
-			],
+			"evidence": ["history", "wayback"],
 			"decision_ref": null,
 			"notes": "Crawler probe; 404 today (Vercel serves /.well-known from the filesystem only)."
 		},
@@ -5638,11 +4485,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"wayback"
-			],
+			"evidence": ["history", "wayback"],
 			"decision_ref": null,
 			"notes": "Crawler probe; 404 today (Vercel serves /.well-known from the filesystem only)."
 		},
@@ -5653,11 +4496,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"wayback"
-			],
+			"evidence": ["history", "wayback"],
 			"decision_ref": null,
 			"notes": "Crawler probe; 404 today (Vercel serves /.well-known from the filesystem only)."
 		},
@@ -5668,11 +4507,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"wayback"
-			],
+			"evidence": ["history", "wayback"],
 			"decision_ref": null,
 			"notes": "Crawler probe; 404 today (Vercel serves /.well-known from the filesystem only)."
 		},
@@ -5683,11 +4518,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"wayback"
-			],
+			"evidence": ["history", "wayback"],
 			"decision_ref": null,
 			"notes": "Crawler probe; 404 today (Vercel serves /.well-known from the filesystem only)."
 		},
@@ -5698,11 +4529,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"crawl",
-				"live"
-			],
+			"evidence": ["crawl", "live"],
 			"decision_ref": null,
 			"notes": "Canonical of the old 404 page; never a real URL."
 		},
@@ -5713,11 +4540,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"wayback"
-			],
+			"evidence": ["history", "wayback"],
 			"decision_ref": null,
 			"notes": "Probe or dead reference; 404 today."
 		},
@@ -5728,11 +4551,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"wayback"
-			],
+			"evidence": ["history", "wayback"],
 			"decision_ref": null,
 			"notes": "Probe or dead reference; 404 today."
 		},
@@ -5743,10 +4562,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"live"
-			],
+			"evidence": ["live"],
 			"decision_ref": null,
 			"notes": "Probe or dead reference; 404 today."
 		},
@@ -5757,11 +4573,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"wayback"
-			],
+			"evidence": ["history", "wayback"],
 			"decision_ref": "J10",
 			"notes": "Probe or dead reference; 404 today."
 		},
@@ -5772,11 +4584,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"wayback"
-			],
+			"evidence": ["history", "wayback"],
 			"decision_ref": null,
 			"notes": "Probe or dead reference; 404 today."
 		},
@@ -5787,11 +4595,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"wayback"
-			],
+			"evidence": ["history", "wayback"],
 			"decision_ref": null,
 			"notes": "Probe or dead reference; 404 today."
 		},
@@ -5802,10 +4606,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"live"
-			],
+			"evidence": ["live"],
 			"decision_ref": null,
 			"notes": "404 today."
 		},
@@ -5816,12 +4617,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": null,
 			"notes": "Cloudflare-era artifacts; 404 today.",
 			"samples": [
@@ -5838,12 +4634,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": null,
 			"notes": "Probe or dead reference; 404 today."
 		},
@@ -5854,11 +4645,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"wayback"
-			],
+			"evidence": ["history", "wayback"],
 			"decision_ref": "J10",
 			"notes": "Probe or dead reference; 404 today."
 		},
@@ -5869,12 +4656,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": "J10",
 			"notes": "Probe or dead reference; 404 today."
 		},
@@ -5885,11 +4667,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"wayback"
-			],
+			"evidence": ["history", "wayback"],
 			"decision_ref": null,
 			"notes": "Probe or dead reference; 404 today."
 		},
@@ -5900,11 +4678,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"wayback"
-			],
+			"evidence": ["history", "wayback"],
 			"decision_ref": "J10",
 			"notes": "Probe or dead reference; 404 today."
 		},
@@ -5915,12 +4689,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": "J10",
 			"notes": "404 today."
 		},
@@ -5931,10 +4700,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"live"
-			],
+			"evidence": ["live"],
 			"decision_ref": null,
 			"notes": "404 today."
 		},
@@ -5945,11 +4711,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"wayback"
-			],
+			"evidence": ["history", "wayback"],
 			"decision_ref": null,
 			"notes": "Wayback-captured junk (/post/<slug>/test); 404 today.",
 			"samples": [
@@ -5967,11 +4729,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"crawl",
-				"live"
-			],
+			"evidence": ["crawl", "live"],
 			"decision_ref": null,
 			"notes": "Probe or dead reference; 404 today."
 		},
@@ -5982,12 +4740,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"build",
-				"live",
-				"served"
-			],
+			"evidence": ["build", "live", "served"],
 			"decision_ref": "J27",
 			"notes": "SERVED 200 TODAY -> deliberately 404 after cutover (brief item 18; served-today ledger). Release-proof endpoint of the old smoke; no release is served from this host any more."
 		},
@@ -5998,12 +4751,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": "J10",
 			"notes": "404 today."
 		},
@@ -6014,10 +4762,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"live"
-			],
+			"evidence": ["live"],
 			"decision_ref": "J10",
 			"notes": "Probe or dead reference; 404 today."
 		},
@@ -6028,10 +4773,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"live"
-			],
+			"evidence": ["live"],
 			"decision_ref": "J10",
 			"notes": "Probe or dead reference; 404 today."
 		},
@@ -6042,11 +4784,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"crawl",
-				"live"
-			],
+			"evidence": ["crawl", "live"],
 			"decision_ref": null,
 			"notes": "Probe or dead reference; 404 today."
 		},
@@ -6057,12 +4795,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": "J10",
 			"notes": "404 today."
 		},
@@ -6073,10 +4806,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"live"
-			],
+			"evidence": ["live"],
 			"decision_ref": null,
 			"notes": "404 today. No tag or author URLs ever existed on the Astro site."
 		},
@@ -6087,10 +4817,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"live"
-			],
+			"evidence": ["live"],
 			"decision_ref": null,
 			"notes": "403 today (Vercel firewall); 404 or 403 after cutover, never a redirect."
 		},
@@ -6101,12 +4828,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"history",
-				"live",
-				"wayback"
-			],
+			"evidence": ["history", "live", "wayback"],
 			"decision_ref": null,
 			"notes": "Probe or dead reference; 404 today."
 		},
@@ -6117,10 +4839,7 @@
 			"class": "other",
 			"action": "stays-404",
 			"destination": null,
-			"query": "passthrough",
-			"evidence": [
-				"live"
-			],
+			"evidence": ["live"],
 			"decision_ref": null,
 			"notes": "Probe or dead reference; 404 today."
 		}
