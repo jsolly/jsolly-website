@@ -17,6 +17,13 @@
 // site search) and not <main id="main"> itself. Empty ids (a heading with no
 // text; B04 removes those headings) and bits-ui's generated `bits-*` ids are
 // not fragments anyone links to. Pages without any id are left out.
+//
+// Widget ids inside <main> are not fragments either: form controls (the
+// post's print button, the search page's input) and live status regions (the
+// heading-copy and recipe-offline messages) exist for scripts and labels, and
+// nothing links to them. Nor is the id of a wrapper that holds all of <main>'s
+// content (privacy's section#privacy-policy): following it lands where the
+// page starts anyway. Headings such as the author card's h2#about-author stay.
 import { mkdtempSync, readdirSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join, sep } from "node:path";
@@ -34,6 +41,15 @@ import {
 
 const OUTPUT = "legacy/blogthedata/fragment-ids.json";
 const GENERATED_ID = /^bits-/u;
+const FORM_CONTROLS = new Set(["BUTTON", "INPUT", "SELECT", "TEXTAREA"]);
+
+// Form controls and live status regions are script and label targets.
+function isWidget(element) {
+	return (
+		FORM_CONTROLS.has(element.tagName) ||
+		element.getAttribute("role") === "status"
+	);
+}
 
 function buildSource(src, sha, dir) {
 	const archive = git(src, ["archive", "--format=tar", sha], { binary: true });
@@ -65,7 +81,10 @@ function pageFragmentIds(html) {
 	if (!content) {
 		return [];
 	}
+	const wrapper =
+		content.children.length === 1 ? content.firstElementChild : null;
 	const ids = [...content.querySelectorAll("[id]")]
+		.filter((element) => element !== wrapper && !isWidget(element))
 		.map((element) => element.id)
 		.filter((id) => id !== "" && !GENERATED_ID.test(id));
 	return [...new Set(ids)].sort();

@@ -1,13 +1,7 @@
 {
 	"$schema": "https://unpkg.com/knip@6/schema.json",
 	"entry": ["middleware.ts", "src/**/*.test.ts", "scripts/**/*.mjs"],
-	"ignore": [
-		"legacy/blogthedata/public/**",
-		"src/styles/blog/blog.css",
-		"src/styles/blog/no-script.css",
-		"src/styles/blog/theme.css",
-		"src/styles/blog/ui.css"
-	],
+	"ignore": ["legacy/blogthedata/public/**"],
 	"ignoreBinaries": ["uvx"],
 	"ignoreDependencies": ["markdownlint-cli2"],
 	"treatConfigHintsAsErrors": true

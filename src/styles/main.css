@@ -15,6 +15,14 @@
 @source "../layouts";
 @source "../pages";
 @source "../lib";
-/* Blog lib code is not portfolio UI (plan §1.13), and its sanitizer style
-   lists hold class-like words such as `relative` and `inline`. */
+/* Blog code is not portfolio UI (plan §1.13): the blog has its own Tailwind
+   entry, styles/blog/ui.css. Blog lib's sanitizer style lists also hold
+   class-like words such as `relative` and `inline`. */
 @source not "../lib/blog";
+@source not "../components/blog";
+@source not "../pages/blog";
+@source not "../layouts/BlogLayout.astro";
+/* Generated shadcn-svelte parts feed the blog bundle; the portfolio uses only
+   the button. */
+@source not "../lib/components/ui";
+@source "../lib/components/ui/button.svelte";

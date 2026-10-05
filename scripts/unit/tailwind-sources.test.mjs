@@ -14,8 +14,17 @@ const SOURCE_ROOTS = [
 	"src/pages/",
 	"src/lib/",
 ];
-// Directories under the source roots that must not feed main.css.
-const EXCLUDED = ["src/lib/blog/"];
+// Paths under the source roots that must not feed main.css: the blog has its
+// own Tailwind entry (src/styles/blog/ui.css), and of the shared shadcn-svelte
+// parts the portfolio uses only the button.
+const EXCLUDED = [
+	"src/lib/blog/",
+	"src/components/blog/",
+	"src/pages/blog/",
+	"src/layouts/BlogLayout.astro",
+	"src/lib/components/ui/",
+];
+const REINCLUDED = ["src/lib/components/ui/button.svelte"];
 
 // The same source resolution @tailwindcss/vite performs for a stylesheet.
 async function scan() {
@@ -46,13 +55,20 @@ it("Tailwind builds the portfolio stylesheet only from the four portfolio source
 		[],
 		"files outside the portfolio source roots feed main.css",
 	);
-	const excluded = files.filter((file) =>
-		EXCLUDED.some((prefix) => file.startsWith(prefix)),
+	const excluded = files.filter(
+		(file) =>
+			EXCLUDED.some((prefix) => file.startsWith(prefix)) &&
+			!REINCLUDED.includes(file),
 	);
 	assert.deepEqual(
 		excluded,
 		[],
-		"excluded directories feed main.css; keep their @source not lines",
+		"excluded paths feed main.css; keep their @source not lines",
+	);
+	assert.deepEqual(
+		REINCLUDED.filter((file) => !files.includes(file)),
+		[],
+		"the shared ui components the portfolio uses still feed main.css",
 	);
 	const unscannedRoots = SOURCE_ROOTS.filter(
 		(root) => !files.some((file) => file.startsWith(root)),
