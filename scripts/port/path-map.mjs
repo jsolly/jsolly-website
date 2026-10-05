@@ -305,7 +305,7 @@ export const AREAS = {
 		entries: [
 			{
 				from: "src/pages/search/index.astro",
-				to: "src/pages/blog/search/index.astro",
+				to: "src/pages/blog/search.astro",
 			},
 			{
 				from: "src/pages/search-index.json.ts",

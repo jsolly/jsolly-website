@@ -19,7 +19,7 @@ import { createTempCopy } from "./temp-copy.mjs";
 // Once released and hydrated, with the network idle, the page counts how many
 // are still connected. An island that re-renders instead of hydrating discards
 // all of them. The shipped dist/ must reuse exactly what the unprocessed build
-// reuses, and every island on the pages below must reuse every node.
+// reuses on every page below, and the pages marked `full` every node.
 const SHIPPED = "dist";
 // The comments islands hydrate from, listed independently of process-html.mjs
 // so that dropping one of its ignoreCustomComments patterns fails here: Svelte
@@ -211,7 +211,18 @@ after(async () => {
 	await copy?.remove();
 });
 
-for (const path of ["/", "/about/", "/blog/", "/blog/works-cited/"]) {
+// Plan §4.5. The search island replaces part of its own server render on
+// mount (the loading message gives way to the query's state), so that page is
+// held to parity only.
+const PAGES = [
+	{ path: "/", full: true },
+	{ path: "/about/", full: true },
+	{ path: "/blog/", full: true },
+	{ path: "/blog/works-cited/", full: true },
+	{ path: "/blog/search/", full: false },
+];
+
+for (const { path, full } of PAGES) {
 	it(`a visitor opening ${path} gets its islands hydrated in place`, async (t) => {
 		const [shipped, baseline] = await Promise.all([
 			nodeReuse(sites.shipped, path),
@@ -238,9 +249,8 @@ for (const path of ["/", "/about/", "/blog/", "/blog/works-cited/"]) {
 			{ reused: baseline.reused, total: baseline.total },
 			`${path}: process-html changes island node reuse`,
 		);
-		assert.equal(
-			shipped.reused,
-			shipped.total,
+		assert.ok(
+			!full || shipped.reused === shipped.total,
 			`${path}: every server-rendered island node survives hydration`,
 		);
 	});

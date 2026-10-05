@@ -7,6 +7,8 @@
 @import "shadcn-svelte/tailwind.css";
 @source "../../lib/components/ui";
 @source "../../components/blog/BlogNavigation.svelte";
+/* Search.svelte has no utilities of its own yet (only the ui components'). */
+@source "../../components/blog/Search.svelte";
 /* MAINTENANCE_MODE renders the portfolio's notice inside BlogLayout too. */
 @source "../../components/Maintenance.astro";
 

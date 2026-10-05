@@ -67,8 +67,8 @@ A built test that needs its own build uses a `scripts/built/temp-copy.mjs` copy 
 
 ## Architecture
 
-- `src/pages/` — content pages (`index`, `about`, `contact`, `privacy`, `terms`) plus `404` and `500`, and the `blog/` routes, which render with `BlogLayout`: `/blog/`, `/blog/all-posts/`, `/blog/category/<slug>/` (slug case kept, e.g. `Geodev`; the `category/` folder is Astro's routing layout), `/blog/works-cited/` and one page per published post, `/blog/<slug>/` (`blog/[slug].astro`, slug case kept: breadcrumbs, related cards, share links and BlogPosting JSON-LD on jsolly.com URLs).
-- `src/components/` — `Header`, `Footer`, `ContactMe`, `SocialLinks`, `Maintenance`, plus a `home/` subdir for index-page sections and a `blog/` subdir for the blog chrome (`BlogNavigation`) and browse components (`PostCards`, the post card list with its load-more island, and `AuthorCard`, whose `h2#about-author` is a legacy fragment id).
+- `src/pages/` — content pages (`index`, `about`, `contact`, `privacy`, `terms`) plus `404` and `500`, and the `blog/` routes, which render with `BlogLayout`: `/blog/`, `/blog/all-posts/`, `/blog/category/<slug>/` (slug case kept, e.g. `Geodev`; the `category/` folder is Astro's routing layout), `/blog/works-cited/`, `/blog/search/` (noindex; the `Search` island reads `?searched=` and fetches the `/blog/search-index.json` endpoint, one entry per published post) and one page per published post, `/blog/<slug>/` (`blog/[slug].astro`, slug case kept: breadcrumbs, related cards, share links and BlogPosting JSON-LD on jsolly.com URLs).
+- `src/components/` — `Header`, `Footer`, `ContactMe`, `SocialLinks`, `Maintenance`, plus a `home/` subdir for index-page sections and a `blog/` subdir for the blog chrome (`BlogNavigation`) and browse components (`PostCards`, the post card list with its load-more island, and `AuthorCard`, whose `h2#about-author` is a legacy fragment id), and `Search`, the search page island.
 - `src/layouts/` — page layout wrappers: `Layout.astro` for the portfolio, `BlogLayout.astro` for the blog and recipes. BlogLayout is standalone (no Markdown alternate), honors `MAINTENANCE_MODE`, and with `section="blog"` adds the per-page `img-src` (CloudFront) and `frame-src` (YouTube, diagrams.net, nbviewer) CSP directives, failing the build when `Astro.csp` is unavailable.
 - `src/styles/blog/` — the blog stylesheets BlogLayout imports (`theme`, `ui`, `blog`, and `no-script` through `?url`), each opening with the same `@layer` order so the `blog` and `blog-no-script` layers stay last.
 - `src/content/` — Astro content collections, defined in `src/content.config.ts`.
@@ -165,7 +165,9 @@ still limits images on every page to `'self'` until a page adds its own
 `scripts/unit/vercel-csp-header.test.mjs` pins the full header directive map,
 and the build-time `csp` suite checks every built `<img>` and `<source srcset>` URL against both policies.
 `scripts/built/csp-browser.test.mjs` loads `/blog/`, posts with YouTube,
-nbviewer and diagrams.net embeds, and `/about/` in Chromium with the header
-served on every response, and fails on any `securitypolicyviolation`.
+nbviewer and diagrams.net embeds, a `/blog/search/?searched=django` search
+(the island parses its index with zod, whose JIT `search.ts` turns off) and
+`/about/` in Chromium with the header served on every response, and fails on
+any `securitypolicyviolation`.
 Astro lists every inline script hash of the build in each page's meta policy,
 so an inline `<script>` on a blog page also adds its hash to the portfolio pages.

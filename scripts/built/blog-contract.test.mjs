@@ -16,8 +16,7 @@ import {
 // "related cards render…". The expected URLs come from
 // legacy/blogthedata/url-map.json (its post and category redirect rows
 // replace awesome-blog's migration receipt), and the published posts from the
-// post frontmatter, never from the build under test. The search-index half of
-// the first test arrives with the index (B09).
+// post frontmatter, never from the build under test.
 const DIST = "dist";
 const SITE = "https://www.jsolly.com";
 const URL_MAP = new URL(
@@ -49,17 +48,20 @@ async function redirects(kind) {
 		});
 }
 
-function readable(document) {
+// A post page's article: whether it has text, and whether it embeds a frame
+// or an image (an article may be only that).
+function article(document) {
 	const body = document.querySelector(".article-body");
-	return Boolean(
-		body?.textContent.trim() || body?.querySelector("iframe, img"),
-	);
+	return {
+		text: Boolean(body?.textContent.trim()),
+		media: Boolean(body?.querySelector("iframe, img")),
+	};
 }
 
 // The snapshot holds no drafts, so this test cannot catch a draft leaking;
 // that scenario, a real draft in a temp copy, and its wording arrive with
 // B14's content-contract test.
-it("every legacy post and category URL leads to a built page, and every published post is built, archived, in the sitemap and in the route manifest", async () => {
+it("every legacy post and category URL leads to a built page, and every published post is built, archived, searchable, in the sitemap and in the route manifest", async () => {
 	const posts = await allPosts();
 	const published = posts.filter((post) => post.published);
 	assert.ok(published.length > 0, "the snapshot publishes posts");
@@ -101,9 +103,14 @@ it("every legacy post and category URL leads to a built page, and every publishe
 			),
 		),
 	);
+	const index = JSON.parse(
+		await readFile(join(DIST, "blog/search-index.json"), "utf8"),
+	);
+	const indexed = new Map(index.map((entry) => [entry.slug, entry]));
+	assert.equal(indexed.size, index.length, "one search entry per slug");
 	const { routes } = await import(MANIFEST.href);
 	const manifest = new Set(routes);
-	// Each post is in all four exactly when published.
+	// Each post is in all five exactly when published.
 	const presence = await Promise.all(
 		posts.map(async (post) => {
 			const path = postHref(post.slug);
@@ -112,6 +119,7 @@ it("every legacy post and category URL leads to a built page, and every publishe
 				built: await exists(join(DIST, path, "index.html")),
 				sitemap: sitemap.has(path),
 				archive: archive.has(path),
+				search: indexed.has(post.slug),
 				manifest: manifest.has(path),
 			};
 		}),
@@ -123,17 +131,25 @@ it("every legacy post and category URL leads to a built page, and every publishe
 			built: post.published,
 			sitemap: post.published,
 			archive: post.published,
+			search: post.published,
 			manifest: post.published,
 		})),
 	);
+	assert.equal(index.length, published.length, "search entries");
+	// Readable on its page, and findable by its text unless it is only media.
 	const unreadable = await Promise.all(
-		published.map(async (post) =>
-			(await readBuilt(postHref(post.slug), readable))
+		published.map(async (post) => {
+			const { text, media } = await readBuilt(postHref(post.slug), article);
+			return (text || media) && (indexed.get(post.slug).text || media)
 				? []
-				: [postHref(post.slug)],
-		),
+				: [postHref(post.slug)];
+		}),
 	);
-	assert.deepEqual(unreadable.flat(), [], "posts without readable content");
+	assert.deepEqual(
+		unreadable.flat(),
+		[],
+		"posts without readable content on their page or in the search index",
+	);
 });
 
 it("related cards render the selected published associations", async () => {

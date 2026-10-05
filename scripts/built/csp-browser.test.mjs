@@ -32,6 +32,13 @@ const PAGES = [
 		path: "/blog/productivity-flow-chart/",
 		hosts: ["viewer.diagrams.net", CLOUDFRONT],
 	},
+	// The search island fetches its index and parses it with zod (jitless, so
+	// no eval) before any result card renders.
+	{
+		path: "/blog/search/?searched=django",
+		hosts: [CLOUDFRONT],
+		prepare: loadSearchResults,
+	},
 	{ path: "/about/", hosts: [] },
 ];
 // How long one page may take to hydrate, settle its images or request a host.
@@ -52,6 +59,17 @@ after(async () => {
 	await browser?.close();
 	await site?.close();
 });
+
+// Waits for the search results, which render after the page has loaded, and
+// switches their lazy card images to eager too.
+async function loadSearchResults(page) {
+	await page.locator(".post-card").first().waitFor();
+	await page.evaluate(() => {
+		for (const image of document.querySelectorAll(".post-card img")) {
+			image.loading = "eager";
+		}
+	});
+}
 
 // Resolves once `hosts` (a growing Set) holds every `expected` host, or after
 // WAIT_MS; the caller's assertions then name whatever is missing.
@@ -125,14 +143,14 @@ async function visit(path, expected, prepare) {
 	}
 }
 
-it("blog posts with embeds, the blog home and /about/ load under the vercel.json header and their meta policy without a violation", {
+it("blog posts with embeds, the blog home, a blog search and /about/ load under the vercel.json header and their meta policy without a violation", {
 	timeout: 120_000,
 }, async () => {
 	// One page at a time keeps each page's requests its own.
 	const results = await PAGES.reduce(
-		async (previous, page) => [
+		async (previous, { path, hosts, prepare }) => [
 			...(await previous),
-			{ ...page, ...(await visit(page.path, page.hosts)) },
+			{ path, hosts, ...(await visit(path, hosts, prepare)) },
 		],
 		Promise.resolve([]),
 	);
