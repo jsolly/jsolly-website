@@ -90,7 +90,7 @@ If a green merge creates no Vercel deployment, verify that the project's Git con
 - **Tabs** for indentation (Biome default, also matches `biome.jsonc`).
 - **Tailwind utilities** over custom CSS; theme tokens live in `src/styles/`.
 - **Tailwind sources are explicit.** `src/styles/main.css` imports Tailwind with `source(none)` and lists its `@source` / `@source not` paths, so docs, data and blog or recipe code never change the portfolio bundle; Tailwind class strings must live in `src/components`, `src/layouts`, `src/pages` or `src/lib`, and `src/lib/blog` is excluded from the portfolio sources. `scripts/unit/tailwind-sources.test.mjs` asks Tailwind's own scanner which files feed `main.css` and fails on any file outside those four roots.
-- **Heading IDs are auto-generated** by `process-html.mjs` from heading text — don't hand-write `id="..."` on headings unless overriding the generated slug. Blog and recipe pages are excluded from that pass: `src/lib/blog/html.ts` owns their article heading ids, and `scripts/built/process-html-ids.test.mjs` pins the exclusion.
+- **Heading IDs are auto-generated** by `process-html.mjs` from heading text — don't hand-write `id="..."` on headings unless overriding the generated slug. Blog and recipe pages are excluded from that pass: `src/lib/blog/html.ts` owns their article heading ids, and `scripts/unit/process-html-ids.test.mjs` pins the exclusion.
 
 ## Local UI verification
 

@@ -23,7 +23,7 @@ const MINIFY_OPTIONS = {
 // Blog and recipe pages get their heading ids from the article renderer
 // (src/lib/blog/html.ts), and old links and feeds point at those ids, so
 // the id pass leaves these pages alone.
-// scripts/built/process-html-ids.test.mjs pins it.
+// scripts/unit/process-html-ids.test.mjs pins it.
 const ID_PASS_SKIPPED = ["blog/", "recipes/"];
 
 // Add IDs to id-less h2, h3 and h4 tags.
@@ -33,14 +33,13 @@ function addHeadingIds(html) {
 	for (const heading of headings) {
 		// Respect hand-written ids (e.g. aria-labelledby targets); only generate when missing.
 		if (heading.id) continue;
-		const text = heading.textContent;
-		if (!text) continue;
-		const id = text
+		const id = heading.textContent
 			.trim()
 			.replace(HEADING_SLUG_SPACES, "-")
 			.replace(HEADING_SLUG_TRAILING_DASH, "")
 			.toLowerCase();
-		heading.setAttribute("id", id);
+		// A punctuation-only heading has no slug; an empty id would be invalid.
+		if (id) heading.setAttribute("id", id);
 	}
 	return dom.serialize();
 }
