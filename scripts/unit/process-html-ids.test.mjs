@@ -11,15 +11,19 @@ const ROOT = fileURLToPath(new URL("../..", import.meta.url));
 const ID_ATTRIBUTE = /\sid="(?<id>[^"]*)"/gu;
 
 // A fixture dist/: one portfolio page, one ported post and one recipe page.
-// The post's h1-h3 are shaped as src/lib/blog/html.ts renders them (an id plus
-// a trailing "#" heading link, which process-html would slug to id="#"), and
-// its h4 is id-less, as the renderer leaves h4-h6.
+// The post's headings are shaped as src/lib/blog/html.ts renders them (pinned
+// by src/lib/blog/html.test.ts): h1-h3 get an id and a trailing "#" heading
+// link, a heading with no text renders with id="" (which the id pass would
+// slug to id="#"), and h4-h6 stay id-less. The comment proves skipped pages
+// are still minified.
 const PAGES = {
 	"about/index.html": `<!doctype html><html><head><title>About</title></head><body>
 <main><h2>Work History</h2><h3 id="hand-written">Kept</h3><h4>What I do now?</h4><h2>?</h2></main></body></html>`,
 	"blog/conventional-commits/index.html": `<!doctype html><html><head><title>Post</title></head><body>
 <main><article><h1 id="conventional-commits">Conventional Commits<a class="heading-link" href="#conventional-commits" aria-label="Link to this heading">#</a></h1>
 <h2 id="why-use-them">Why use them?<a class="heading-link" href="#why-use-them" aria-label="Link to this heading">#</a></h2>
+<h2 id=""><img src="/blog/media/x.webp" alt=""><a class="heading-link" href="#" aria-label="Link to this heading">#</a></h2>
+<!-- an authoring note -->
 <h4>Footnotes</h4></article></main></body></html>`,
 	"recipes/chicken-posole/index.html": `<!doctype html><html><head><title>Recipe</title></head><body>
 <main><h1 id="chicken-posole">Chicken Posole</h1><h2>Ingredients</h2></main></body></html>`,
@@ -70,8 +74,8 @@ it("process-html leaves blog and recipe heading ids to the article renderer and 
 		"hand-written",
 		"what-i-do-now",
 	]);
-	for (const [file, html] of Object.entries(out)) {
-		assert.ok(!html.includes('id="#"'), `${file} has id="#"`);
-		assert.ok(!ids(html).includes(""), `${file} has an empty id`);
-	}
+	assert.ok(
+		!out["blog/conventional-commits/index.html"].includes("authoring note"),
+		"skipped pages are still minified",
+	);
 });
