@@ -209,10 +209,10 @@ export function splitFrontmatter(text) {
 
 // What to do about a non-content change in awesome-blog after the cut (plan
 // B00 remedy), shared by freeze-check and --resync.
-export function freezeRemedy(src, paths) {
+export function freezeRemedy(paths) {
 	return [
 		`${paths.length} non-content change(s) in awesome-blog since the cut:`,
 		...paths.map((path) => `  ${path}`),
-		`Port each change as an extra B-step by reading it with \`git -C ${src} show origin/main:<path>\` and adapting it by hand (or revert it in awesome-blog with John's OK). Do NOT run --resync before C0: it sets freeze_sha.`,
+		"Port it as an extra B-step, designed and reviewed when it arises (plan B00 remedy): pin one awesome-blog SHA, port only the diffed paths including deletions and renames, keep the port's hand edits, and advance cut_sha in scripts/port/source.json (or revert it in awesome-blog with John's OK); do NOT run --resync before C0 (it sets freeze_sha).",
 	].join("\n");
 }

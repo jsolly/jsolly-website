@@ -1,4 +1,5 @@
 import { mkdir, writeFile } from "node:fs/promises";
+import { satteri } from "@astrojs/markdown-satteri";
 import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
@@ -51,6 +52,8 @@ export default defineConfig({
 		process.env.NODE_ENV === "development"
 			? "http://localhost:4321"
 			: "https://www.jsolly.com",
+	trailingSlash: "always",
+	prerenderConflictBehavior: "error",
 
 	integrations: [
 		svelte(),
@@ -62,6 +65,15 @@ export default defineConfig({
 		}),
 		routeManifest(),
 	],
+
+	// Prism highlights with classes; Shiki would emit inline style attributes
+	// (plan §1.13, CSP).
+	markdown: {
+		processor: satteri({
+			features: { smartPunctuation: false, gfm: false },
+		}),
+		syntaxHighlight: "prism",
+	},
 
 	// Astro hashes its generated island bootstrap in each built page.
 	security: {

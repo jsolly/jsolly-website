@@ -37,7 +37,7 @@ function main(argv) {
 		.map(({ path }) => path);
 	const range = `${cut.slice(0, 10)}..${head.slice(0, 10)}`;
 	if (frozen.length > 0) {
-		console.error(`✗ freeze-check ${range}: ${freezeRemedy(src, frozen)}`);
+		console.error(`✗ freeze-check ${range}: ${freezeRemedy(frozen)}`);
 		return 1;
 	}
 	console.log(
