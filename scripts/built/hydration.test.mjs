@@ -19,8 +19,7 @@ import { createTempCopy } from "./temp-copy.mjs";
 // Once released and hydrated, with the network idle, the page counts how many
 // are still connected. An island that re-renders instead of hydrating discards
 // all of them. The shipped dist/ must reuse exactly what the unprocessed build
-// reuses on every page below, and discard exactly the page's `discarded`
-// nodes (none, except where an island replaces its own server render).
+// reuses, and every island on the pages below must reuse every node.
 const SHIPPED = "dist";
 // The comments islands hydrate from, listed independently of process-html.mjs
 // so that dropping one of its ignoreCustomComments patterns fails here: Svelte
@@ -212,18 +211,13 @@ after(async () => {
 	await copy?.remove();
 });
 
-// Plan §4.5. On mount the search island swaps its one server-rendered
-// "Loading search..." paragraph for the query's state; every other node on
-// that page, the header navigation included, must survive.
-const PAGES = [
-	{ path: "/", discarded: 0 },
-	{ path: "/about/", discarded: 0 },
-	{ path: "/blog/", discarded: 0 },
-	{ path: "/blog/works-cited/", discarded: 0 },
-	{ path: "/blog/search/", discarded: 1 },
-];
-
-for (const { path, discarded } of PAGES) {
+for (const path of [
+	"/",
+	"/about/",
+	"/blog/",
+	"/blog/works-cited/",
+	"/blog/search/",
+]) {
 	it(`a visitor opening ${path} gets its islands hydrated in place`, async (t) => {
 		const [shipped, baseline] = await Promise.all([
 			nodeReuse(sites.shipped, path),
@@ -251,9 +245,9 @@ for (const { path, discarded } of PAGES) {
 			`${path}: process-html changes island node reuse`,
 		);
 		assert.equal(
-			shipped.total - shipped.reused,
-			discarded,
-			`${path}: server-rendered island nodes discarded by hydration`,
+			shipped.reused,
+			shipped.total,
+			`${path}: every server-rendered island node survives hydration`,
 		);
 	});
 }

@@ -9,11 +9,6 @@
 	.load-more {
 		display: none;
 	}
-	/* The search island never starts, so its loading line would stay forever;
-	   the <noscript> archive link replaces it. */
-	.search-loading {
-		display: none;
-	}
 	@media (max-width: 900px) {
 		.navigation-panel.collapsed {
 			grid-template-rows: 1fr;
