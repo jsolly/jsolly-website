@@ -2,7 +2,7 @@
 
 **What this is.** The implementation plan for moving the blog and the recipes from `jsolly/awesome-blog` (blogthedata.com) into `jsolly/jsolly-website` (jsolly.com). It covers the inventory, the URL map, where the redirects live, verification, the ordered steps and the cutover. It was revised on 2026-10-04 after two adversarial review rounds; every finding and its outcome is in `out/review-disposition.md`.
 
-**Status: APPROVED 2026-10-04 — Phase A in progress.** John approved the plan with every recommended answer J1–J28 (Answer column). Implementation runs with Opus 5.5 at High effort, one agent per step in its own worktree. Phase A commits are built locally first: Mac agents have no GitHub write path by John's 2026-10-04 choice (Todoist 6hgwXGcPCxmxJ45x), so the pushes wait on that handoff. The plan-approval Todoist tasks exist: X1 6hgwXGgwGFQ8pgrx, J16 6hgwXGj5x4vmXRjQ, J9 6hgwXGfJ9xrqgGH8. Nothing is deployed.
+**Status: APPROVED 2026-10-04 — Phase A done, Phase B in progress.** John approved the plan with every recommended answer J1–J28 (Answer column). Implementation runs with Opus 5.5 at High effort, one agent per step in its own worktree. Phase A landed on `main` as jsolly/jsolly-website#58–#63. John confirmed the awesome-blog code freeze on 2026-10-05; its freeze notice is jsolly/awesome-blog#701, and the freeze Todoist task is 6hh3pQ7FH5Qq5388. Phase B lands on `port/awesome-blog`, which nothing deploys. The plan-approval Todoist tasks exist: X1 6hgwXGgwGFQ8pgrx, J16 6hgwXGj5x4vmXRjQ, J9 6hgwXGfJ9xrqgGH8.
 
 - **Source:** `jsolly/awesome-blog` `origin/main` at `bf1f7ff1cb92faacfdc3b98ba17fb2f93cac59b5`. That SHA is live in production: `/release.json` reports it.
 - **Destination:** `jsolly/jsolly-website` `origin/main` at `5694e7680a3ec2f67b035181dc1e6ab9a9ed034b`.
@@ -127,8 +127,8 @@ J24 gates nothing; it is out of scope.
 
 | Item | Value | Recorded at |
 | --- | --- | --- |
-| awesome-blog cut SHA | pending | B00 step 3 (also `scripts/port/source.json`, B01) |
-| Final port → main PR number | pending | B01 |
+| awesome-blog cut SHA | `86bbaf29bfaa60b35ce0cc943dcd4cb46c061adc` (2026-10-05; differs from bf1f7ff1 only by the AGENTS.md freeze notice) | B00 step 3 (also `scripts/port/source.json`, B01) |
+| Final port → main PR number | jsolly/jsolly-website#65 (draft) | B01 |
 | awesome-blog freeze SHA | pending | C0 step 4 (also `legacy/blogthedata/url-map.json` `meta.freeze_sha`) |
 | C1 squash SHA, Production smoke run URL | pending | C1 |
 | `blogthedata` rollback deployment ID | pending | C2 step 1 |
@@ -1315,13 +1315,13 @@ Content-only edits stay allowed until C0 (brief A5).
 
 **Remedy for a non-content diff** reported by `freeze-check`, before the C0 re-sync:
 
-- port it as an extra B-step (`import --resync` for those files, then adapt, test and update the ledger); or
+- port it as an extra B-step, designed and reviewed when it arises. That step must: pin one awesome-blog SHA and read every changed file from it, never from a moving `origin/main`; port only the paths in `git diff --name-status` from `cut_sha` to that SHA, including deletions and renames; keep the port's own hand edits (for example B04's two heading fixes), which an area `--overwrite` import would replace; and advance `cut_sha` in `scripts/port/source.json` (and the execution record) to the pinned SHA, so `freeze-check` and C0's `--resync` measure from it. Do not run `import --resync` for this: it is C0-only, refuses any non-content change, and sets `freeze_sha`; or
 - revert it in awesome-blog, with John's OK.
 
 **B01. Port tooling.** S. Depends on: B00. Every script lives in `scripts/port/`:
 
 - `source.json`: `{ "cut_sha": "<the B00 cut SHA>", "freeze_sha": null }`, written with the real value. Every port script reads its SHAs from here, so no command takes a SHA argument.
-- `import-awesome-blog.mjs`: reads SRC only through `git -C … archive` or `show <sha>`. It applies the §1 path map, keeps categories in PagesCMS shape, Biome-formats `recipes.json`, `nutrition-data.json` and `.markdownlint.json`, and has a `--resync <sha>` mode.
+- `import-awesome-blog.mjs`: reads SRC only through `git -C … archive` or `show <sha>`. It applies the §1 path map, keeps categories in PagesCMS shape, Biome-formats `recipes.json`, `nutrition-data.json` and `.markdownlint.json`, imports one area at a time (`<area>...`, at `freeze_sha ?? cut_sha`, refusing to replace a target that already differs from SRC unless `--overwrite` is passed), and has a `--resync` mode for C0. `--resync` takes no SHA: it reads awesome-blog's `origin/main`, refuses any non-content change before writing, and records that SHA as `freeze_sha`.
 - `rewrite-content.mjs`: the deterministic, idempotent rewrites used in B04. It never touches `<code>` or `<pre>` content, or the receipts.
 - `url-map-sync.mjs`: adds rows (and `url-union.json` paths) for posts, categories, recipes and media that exist at a given SHA but are missing from the map. For each new page it also adds the served `/<page>/index.html` form to `url-union.json`, so the verifier probes it; the row already covers it. It never removes rows, and it skips drafts.
 - `freeze-check.mjs`: fails on any non-content diff between `cut_sha` and awesome-blog `origin/main`.
