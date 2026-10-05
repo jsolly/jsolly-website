@@ -53,6 +53,7 @@ const PAGES = [
 	{ name: "recipe-detail", old: "/recipes/chicken-posole/" },
 ];
 const MASK_COLOR = "#ff00ff";
+const MIN_COMPARED_SHARE = 0.2;
 
 function localPath(redirects, old) {
 	const path = redirects.get(old);
@@ -239,6 +240,7 @@ function comparePixels(live, local, boxes) {
 		width,
 		height,
 		diff,
+		compared,
 		percent: compared === 0 ? 0 : (100 * differing) / compared,
 	};
 }
@@ -294,6 +296,10 @@ async function comparePage(
 		...local.unmatched.map(
 			(selector) => `mask ${selector} matched nothing locally`,
 		),
+		// Masks that swallow most of the page would let anything pass.
+		...(result.compared < MIN_COMPARED_SHARE * result.width * result.height
+			? ["nothing left to compare outside masks"]
+			: []),
 	];
 	return {
 		label,

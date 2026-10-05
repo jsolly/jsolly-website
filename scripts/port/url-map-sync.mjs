@@ -169,8 +169,8 @@ function main(argv) {
 	const source = readSource(dst);
 	const sha = sourceSha(source);
 	const synced = syncMap({
-		map: readLegacy(dst, "url-map.json"),
-		union: readLegacy(dst, "url-union.json"),
+		map: readLegacy(dst, URL_MAP),
+		union: readLegacy(dst, URL_UNION),
 		needed: neededRows(src, sha),
 		sha,
 		freezeSha: source.freeze_sha,

@@ -8,7 +8,12 @@
 //   a Markdown link target) become root-relative jsolly paths, keeping the query
 //   and #fragment. The destination is the url-map.json redirect row for that
 //   path, so renamed posts and the recipe post land where the legacy host
-//   sends them. robots.txt and security.txt keep their path; jsolly serves both.
+//   sends them; content published after the cut, which has no row until C0's
+//   url-map-sync, resolves through the content DST already holds (path-map).
+//   robots.txt and security.txt keep their path; jsolly serves both.
+// - Root-relative media paths (the frontmatter `image`, src/href attributes,
+//   Markdown targets) move with the files: /media/recipes/<f> to
+//   /recipes/media/<f>, any other /media/<f> to /blog/media/<f>.
 // - The /password-reset/ anchors become their plain link text.
 // - The dropped recipe post (J7) leaves every post's `related` list.
 // - Headings with no text (`## <img …>`, `<h2>&nbsp;</h2>`) stop being
@@ -16,7 +21,8 @@
 //
 // Nothing inside fenced code blocks, `inline code`, <code> or <pre> changes,
 // and only the posts' *.md files are read: the receipts and url-map.json are
-// never written. An old-host link with no known destination fails the run
+// never written. An old-host link with no known destination, or any old-host
+// href, src or Markdown target still left in prose afterwards, fails the run
 // before anything is written.
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -26,14 +32,13 @@ import {
 	parseCli,
 	redirectPaths,
 	runCli,
+	splitFrontmatter,
 } from "./lib.mjs";
+import { dstLegacyPaths } from "./path-map.mjs";
 
 const POSTS_DIR = "src/content/blog/posts";
-const OLD_POST = /^\/post\/(?<slug>[^/]+)\/?$/u;
-const MARKDOWN_EXTENSION = /\.md$/u;
 const SAME_PATH = new Set(["/robots.txt", "/.well-known/security.txt"]);
 const POST_FILE = /^[^.].*\.md$/u;
-const FRONTMATTER = /^(?<block>---\n[\s\S]*?\n---(?:\n|$))/u;
 const OLD_HOST_URL = /https?:\/\/(?:www\.)?blogthedata\.com(?:[/?#][^"'\s)]*)?/u
 	.source;
 const PASSWORD_RESET_ANCHOR =
@@ -46,7 +51,15 @@ const MARKDOWN_TARGET = new RegExp(
 	`(?<before>\\]\\()(?<url>${OLD_HOST_URL})(?=[)\\s])`,
 	"giu",
 );
+const OLD_HOST_LEFT =
+	/(?:\b(?:href|src)[ \t]*=[ \t]*["']?[ \t]*|\]\([ \t]*<?)https?:\/\/(?:www\.)?blogthedata\.com[^\s"'>]*/giu;
+const MEDIA_ATTRIBUTE =
+	/(?<before>\b(?:src|href)=(?<quote>["']))\/media\/(?<rest>[^"']+)(?=\k<quote>)/giu;
+const MEDIA_MARKDOWN = /(?<before>\]\()\/media\/(?<rest>[^)\s]+)/gu;
+const MEDIA_IMAGE = /^(?<before>image:[ \t]*["']?)\/media\/(?<rest>[^"'\s]+)/mu;
+const RECIPE_MEDIA = "recipes/";
 const LAST_SEGMENT_HAS_DOT = /\.[^/]*$/u;
+const BLANK_LINE = /\n[ \t]*\n/u;
 const FENCE_OPEN = /^ {0,3}(?<fence>`{3,}|~{3,})/u;
 const HTML_CODE = /<(?<tag>pre|code)\b[^>]*>[\s\S]*?<\/\k<tag>\s*>/giu;
 const BACKTICKS = /`+/gu;
@@ -60,12 +73,14 @@ const TAG = /<[^>]*>/gu;
 const IMG_TAG = /<img\b/iu;
 const BLANK = /&nbsp;|&#160;|&#xa0;|\s/giu;
 const RELATED_KEY = /^related:[ \t]*(?<inline>\S.*)?$/u;
-const LIST_ITEM = /^[ \t]+-[ \t]+(?<value>.*?)[ \t]*$/u;
-const INDENTED = /^[ \t]/u;
+const LIST_ITEM = /^[ \t]*-[ \t]+(?<value>.*?)[ \t]*$/u;
+// A block list continues on indented lines and on column-0 `- item` lines.
+const LIST_CONTINUES = /^(?:[ \t]|-[ \t])/u;
 const QUOTES = /^(?<quote>["'])(?<inner>.*)\k<quote>$/u;
 
 // [start, end) ranges of code in a Markdown body: fenced blocks, <pre> and
-// <code> elements, then inline code spans outside both.
+// <code> elements, then inline code spans outside both. A code span never
+// crosses a blank line, so a stray backtick cannot hide a paragraph.
 function codeRanges(body) {
 	const ranges = [];
 	let fence = null;
@@ -98,8 +113,14 @@ function codeRanges(body) {
 		(run) => !(inRange(run.index) || body[run.index - 1] === "\\"),
 	);
 	for (let open = 0; open < runs.length; open += 1) {
+		const paragraphEnd = body.slice(runs[open].index).search(BLANK_LINE);
+		const limit =
+			paragraphEnd === -1 ? body.length : runs[open].index + paragraphEnd;
 		const close = runs.findIndex(
-			(run, index) => index > open && run[0].length === runs[open][0].length,
+			(run, index) =>
+				index > open &&
+				run.index < limit &&
+				run[0].length === runs[open][0].length,
 		);
 		if (close !== -1) {
 			ranges.push([
@@ -137,10 +158,16 @@ function isEmptyHeading(content) {
 	return content.replace(TAG, "").replace(BLANK, "") === "";
 }
 
-// The root-relative jsolly URL for an old-host URL, or null when unknown. A
-// post published after the cut has no url-map row until C0's url-map-sync,
-// which runs after this; its DST file is proof enough of /blog/<slug>/.
-function jsollyUrl(url, { redirects, posts }) {
+function mediaPath(rest) {
+	return rest.startsWith(RECIPE_MEDIA)
+		? `/recipes/media/${rest.slice(RECIPE_MEDIA.length)}`
+		: `/blog/media/${rest}`;
+}
+
+// The root-relative jsolly URL for an old-host URL, or null when unknown.
+// Content published after the cut has no url-map row until C0's url-map-sync,
+// which runs after this; the content DST holds is proof of its new path.
+function jsollyUrl(url, { redirects, legacy }) {
 	const parsed = new URL(url);
 	const suffix = `${parsed.search}${parsed.hash}`;
 	if (SAME_PATH.has(parsed.pathname)) {
@@ -156,13 +183,9 @@ function jsollyUrl(url, { redirects, posts }) {
 		candidates.push(`${parsed.pathname}/`);
 	}
 	const destination = candidates
-		.map((path) => redirects.get(path))
+		.map((path) => redirects.get(path) ?? legacy.get(path))
 		.find(Boolean);
-	if (destination) {
-		return `${destination}${suffix}`;
-	}
-	const slug = groupsOf(OLD_POST, parsed.pathname)?.slug;
-	return posts.has(slug) ? `/blog/${slug}/${suffix}` : null;
+	return destination ? `${destination}${suffix}` : null;
 }
 
 // Drops DROPPED_RECIPE_POST from a block-style `related:` list.
@@ -179,7 +202,7 @@ function rewriteRelated(frontmatter, problems) {
 		return { text: frontmatter, removed: 0 };
 	}
 	let end = key + 1;
-	while (end < lines.length && INDENTED.test(lines[end])) {
+	while (end < lines.length && LIST_CONTINUES.test(lines[end])) {
 		end += 1;
 	}
 	const items = lines.slice(key + 1, end);
@@ -200,14 +223,28 @@ function rewriteRelated(frontmatter, problems) {
 	};
 }
 
+const NO_REWRITES = {
+	links: 0,
+	passwordReset: 0,
+	related: 0,
+	headings: 0,
+	media: 0,
+};
+
 // One post's rewritten text, the count of each rewrite and any unresolved link.
 function rewritePost(text, known) {
-	const counts = { links: 0, passwordReset: 0, related: 0, headings: 0 };
+	const counts = { ...NO_REWRITES };
 	const problems = [];
 	const targets = new Set();
-	const frontmatter = groupsOf(FRONTMATTER, text)?.block ?? "";
-	const related = rewriteRelated(frontmatter, problems);
+	const { block, body: original } = splitFrontmatter(text);
+	const related = rewriteRelated(block, problems);
 	counts.related = related.removed;
+	const moveMedia = (_match, ...args) => {
+		const { before, rest } = args.at(-1);
+		counts.media += 1;
+		return `${before}${mediaPath(rest)}`;
+	};
+	const frontmatter = related.text.replace(MEDIA_IMAGE, moveMedia);
 	const replaceUrl = (match, before, url) => {
 		const rewritten = jsollyUrl(url, known);
 		if (rewritten === null) {
@@ -227,7 +264,7 @@ function rewritePost(text, known) {
 		counts.headings += 1;
 		return IMG_TAG.test(content) ? `${content.trim()}${tail}` : "";
 	};
-	const body = outsideCode(text.slice(frontmatter.length), (prose) =>
+	const body = outsideCode(original, (prose) =>
 		prose
 			.replace(PASSWORD_RESET_ANCHOR, (...args) => {
 				counts.passwordReset += 1;
@@ -239,10 +276,20 @@ function rewritePost(text, known) {
 			.replace(MARKDOWN_TARGET, (match, ...args) =>
 				replaceUrl(match, args.at(-1).before, args.at(-1).url),
 			)
+			.replace(MEDIA_ATTRIBUTE, moveMedia)
+			.replace(MEDIA_MARKDOWN, moveMedia)
 			.replace(ATX_HEADING_LINE, unheading)
 			.replace(HTML_HEADING_LINE, unheading),
 	);
-	return { text: `${related.text}${body}`, counts, problems, targets };
+	// The post-condition: no old-host link survives in prose, whatever its form
+	// (unquoted, src, a URL with a parenthesis the rewrite stopped at).
+	outsideCode(body, (prose) => {
+		for (const [left] of prose.matchAll(OLD_HOST_LEFT)) {
+			problems.push(`old-host link left after rewriting: ${left}`);
+		}
+		return prose;
+	});
+	return { text: `${frontmatter}${body}`, counts, problems, targets };
 }
 
 function main(argv) {
@@ -254,10 +301,7 @@ function main(argv) {
 	const names = readdirSync(dir)
 		.filter((name) => POST_FILE.test(name))
 		.sort();
-	const known = {
-		redirects: redirectPaths(dst),
-		posts: new Set(names.map((name) => name.replace(MARKDOWN_EXTENSION, ""))),
-	};
+	const known = { redirects: redirectPaths(dst), legacy: dstLegacyPaths(dst) };
 	const results = names.map((name) => {
 		const before = readFileSync(join(dir, name), "utf8");
 		return { name, before, ...rewritePost(before, known) };
@@ -271,7 +315,7 @@ function main(argv) {
 		);
 	}
 	const changed = results.filter(({ before, text }) => before !== text);
-	const totals = { links: 0, passwordReset: 0, related: 0, headings: 0 };
+	const totals = { ...NO_REWRITES };
 	const targets = new Set();
 	for (const result of changed) {
 		for (const key of Object.keys(totals)) {
@@ -285,7 +329,7 @@ function main(argv) {
 		}
 	}
 	console.log(
-		`${dryRun ? "Would change" : "✓ Changed"} ${changed.length} of ${results.length} posts: ${totals.links} old-host links to ${targets.size} targets, ${totals.passwordReset} password-reset anchors, ${totals.related} related entries, ${totals.headings} empty headings.`,
+		`${dryRun ? "Would change" : "✓ Changed"} ${changed.length} of ${results.length} posts: ${totals.links} old-host links to ${targets.size} targets, ${totals.passwordReset} password-reset anchors, ${totals.related} related entries, ${totals.headings} empty headings, ${totals.media} media paths.`,
 	);
 	for (const { name, counts } of changed) {
 		const kinds = Object.entries(counts)

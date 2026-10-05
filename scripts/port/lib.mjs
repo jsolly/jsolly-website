@@ -13,16 +13,15 @@
 import { spawnSync } from "node:child_process";
 import { mkdirSync, readFileSync, realpathSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
-import { dirname, join, resolve } from "node:path";
+import { basename, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
 import { JSOLLY_ORIGIN, readLegacyJson } from "../blogthedata-redirects.mjs";
 
 export const ROOT = fileURLToPath(new URL("../..", import.meta.url));
 export const SOURCE_JSON = "scripts/port/source.json";
-const LEGACY = "legacy/blogthedata";
-export const URL_MAP = `${LEGACY}/url-map.json`;
-export const URL_UNION = `${LEGACY}/url-union.json`;
+export const URL_MAP = "legacy/blogthedata/url-map.json";
+export const URL_UNION = "legacy/blogthedata/url-union.json";
 // The generated recipe post is dropped (J7); its URL re-homes at /recipes/.
 export const DROPPED_RECIPE_POST = "15-minute-dump-and-go-instant-pot-recipes";
 // The awesome-blog checkout on John's laptop; CI has none, and the tests pass --src.
@@ -30,6 +29,7 @@ const DEFAULT_SRC = join(homedir(), "code", "awesome-blog");
 const BIOME = join(ROOT, "node_modules", ".bin", "biome");
 const FULL_SHA = /^[0-9a-f]{40}$/u;
 const MAX_BUFFER = 512 * 1024 * 1024;
+const FRONTMATTER = /^---\n(?<yaml>[\s\S]*?)\n---(?:\n|$)/u;
 const LOCATIONS = {
 	src: { type: "string" },
 	dst: { type: "string" },
@@ -155,15 +155,15 @@ export function sourceSha(source) {
 	return source.freeze_sha ?? source.cut_sha;
 }
 
-// url-map.json or url-union.json of a DST tree.
-export function readLegacy(dst, name) {
-	return readLegacyJson(name, join(dst, LEGACY));
+// URL_MAP or URL_UNION of a DST tree.
+export function readLegacy(dst, relative) {
+	return readLegacyJson(basename(relative), join(dst, dirname(relative)));
 }
 
 // Old path → root-relative jsolly path, for every exact redirect row.
 export function redirectPaths(dst) {
 	return new Map(
-		readLegacy(dst, "url-map.json")
+		readLegacy(dst, URL_MAP)
 			.rows.filter(
 				(row) => row.action === "redirect-301" && row.match === "exact",
 			)
@@ -197,4 +197,22 @@ export function formatJson(relative, value) {
 // branch is spelled with `test()`.)
 export function groupsOf(regex, text) {
 	return regex.test(text) ? regex.exec(text).groups : null;
+}
+
+// A Markdown file's YAML frontmatter block (with its --- lines, "" when it
+// has none), the YAML inside it (undefined when none) and the body after it.
+export function splitFrontmatter(text) {
+	const match = FRONTMATTER.test(text) ? FRONTMATTER.exec(text) : null;
+	const block = match?.[0] ?? "";
+	return { block, yaml: match?.groups.yaml, body: text.slice(block.length) };
+}
+
+// What to do about a non-content change in awesome-blog after the cut (plan
+// B00 remedy), shared by freeze-check and --resync.
+export function freezeRemedy(src, paths) {
+	return [
+		`${paths.length} non-content change(s) in awesome-blog since the cut:`,
+		...paths.map((path) => `  ${path}`),
+		`Port each change as an extra B-step by reading it with \`git -C ${src} show origin/main:<path>\` and adapting it by hand (or revert it in awesome-blog with John's OK). Do NOT run --resync before C0: it sets freeze_sha.`,
+	].join("\n");
 }

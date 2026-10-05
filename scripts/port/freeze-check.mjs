@@ -7,22 +7,19 @@
 // Compares cut_sha (scripts/port/source.json) with SRC's local origin/main.
 // The freeze notice in awesome-blog's AGENTS.md at the cut allows only content
 // edits (src/content/posts/**, src/content/categories/**, the two recipe JSON
-// files, public/media/**) until C0. A changed path counts as content only when
-// a content entry of path-map.mjs carries it (or drops it on purpose, as the
-// J7 recipe post), so freeze-check passes exactly what --resync can import.
-// Any other path, or an origin/main that no longer contains the cut, needs the
-// B00 remedy: port it as an extra B-step, or revert it in awesome-blog with
-// John's OK.
+// files, public/media/**) until C0. Each changed path is judged by path-map's
+// classifyContentPath, the same judgment --resync applies: mapped content and
+// content the port drops on purpose pass; anything else, or an origin/main
+// that no longer contains the cut, fails with the B00 remedy.
 import {
-	git,
+	freezeRemedy,
 	gitStatus,
 	parseCli,
 	readSource,
 	runCli,
 	srcCommit,
-	srcFiles,
 } from "./lib.mjs";
-import { contentClassifier } from "./path-map.mjs";
+import { contentChanges } from "./path-map.mjs";
 
 function main(argv) {
 	const { src, dst } = parseCli(argv, { locations: ["src", "dst"] });
@@ -34,35 +31,17 @@ function main(argv) {
 		);
 		return 1;
 	}
-	const changes = git(src, [
-		"diff",
-		"--no-renames",
-		"--name-status",
-		"-z",
-		cut,
-		head,
-	]).split("\0");
-	const before = contentClassifier(srcFiles(src, cut));
-	const after = contentClassifier(srcFiles(src, head));
-	const content = [];
-	const outside = [];
-	for (let index = 0; index + 1 < changes.length; index += 2) {
-		const [status, path] = [changes[index], changes[index + 1]];
-		const { kind } = (status === "D" ? before : after)(path);
-		(kind === "mapped" || kind === "excluded" ? content : outside).push(path);
-	}
+	const changes = contentChanges(src, cut, head);
+	const frozen = changes
+		.filter(({ kind }) => kind === "outside" || kind === "unmapped")
+		.map(({ path }) => path);
 	const range = `${cut.slice(0, 10)}..${head.slice(0, 10)}`;
-	if (outside.length > 0) {
-		console.error(
-			`✗ freeze-check ${range}: ${outside.length} non-content change(s) since the cut (B00 remedy needed):`,
-		);
-		for (const path of outside) {
-			console.error(`  ${path}`);
-		}
+	if (frozen.length > 0) {
+		console.error(`✗ freeze-check ${range}: ${freezeRemedy(src, frozen)}`);
 		return 1;
 	}
 	console.log(
-		`✓ freeze-check ${range}: ${content.length} content file(s) changed, no code changes since the cut.`,
+		`✓ freeze-check ${range}: ${changes.length} content file(s) changed, no code changes since the cut.`,
 	);
 	return 0;
 }

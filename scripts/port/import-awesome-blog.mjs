@@ -11,15 +11,17 @@
 //
 // --resync (C0) re-imports every content file that changed between cut_sha and
 // SRC's local origin/main (C0 fetches first), applies SRC deletions, and
-// records that commit as freeze_sha. A changed path under a content root that
-// no entry maps fails the run before anything is written; the J7 recipe post
-// is reported and skipped. Run rewrite-content.mjs afterwards: the re-imported
+// records that commit as freeze_sha. It enforces the freeze itself: a
+// non-content change, or a changed path under a content root that no entry
+// maps, fails the run before anything is written. The J7 recipe post and the
+// derived recipe library are reported and skipped. C0 only: it is the step
+// that sets freeze_sha. Run rewrite-content.mjs afterwards: the re-imported
 // posts are raw SRC again.
 import { existsSync, readFileSync, rmSync } from "node:fs";
 import { join } from "node:path";
 import {
 	formatJson,
-	git,
+	freezeRemedy,
 	parseCli,
 	readSource,
 	runCli,
@@ -30,7 +32,7 @@ import {
 	srcFiles,
 	writeDstFile,
 } from "./lib.mjs";
-import { AREAS, areaMappings, contentClassifier } from "./path-map.mjs";
+import { AREAS, areaMappings, contentChanges } from "./path-map.mjs";
 
 // The DST bytes for one SRC file.
 function transform(entry, to, blob) {
@@ -69,34 +71,30 @@ function importAreas({ src, dst, names, overwrite }) {
 	return 0;
 }
 
-// The resync's plan: what to write, what to remove, what is skipped and what
-// cannot be mapped, all decided before anything is written.
+// The resync's plan, decided before anything is written: what to write and
+// remove, what is skipped on purpose, and what the freeze forbids.
 function resyncPlan(src, cut, target) {
-	const changes = git(src, [
-		"diff",
-		"--no-renames",
-		"--name-status",
-		"-z",
-		cut,
-		target,
-	]).split("\0");
-	const before = contentClassifier(srcFiles(src, cut));
-	const after = contentClassifier(srcFiles(src, target));
-	const plan = { writes: [], removals: [], excluded: [], unmapped: [] };
-	for (let index = 0; index + 1 < changes.length; index += 2) {
-		const [status, path] = [changes[index], changes[index + 1]];
-		const found = (status === "D" ? before : after)(path);
-		if (found.kind === "excluded") {
-			plan.excluded.push(path);
-		} else if (found.kind === "unmapped") {
-			plan.unmapped.push(path);
-		} else if (found.kind === "mapped" && status === "D") {
-			plan.removals.push(found.mapping.to);
-		} else if (found.kind === "mapped") {
-			const { entry, to } = found.mapping;
+	const plan = {
+		writes: [],
+		removals: [],
+		skipped: [],
+		unmapped: [],
+		outside: [],
+	};
+	for (const change of contentChanges(src, cut, target)) {
+		if (change.kind === "outside") {
+			plan.outside.push(change.path);
+		} else if (change.kind === "unmapped") {
+			plan.unmapped.push(change.path);
+		} else if (change.kind === "excluded") {
+			plan.skipped.push(`${change.path} (${change.reason})`);
+		} else if (change.status === "D") {
+			plan.removals.push(change.mapping.to);
+		} else {
+			const { entry, to } = change.mapping;
 			plan.writes.push({
 				to,
-				content: transform(entry, to, srcBlob(src, target, path)),
+				content: transform(entry, to, srcBlob(src, target, change.path)),
 			});
 		}
 	}
@@ -107,6 +105,9 @@ function resync({ src, dst }) {
 	const source = readSource(dst);
 	const target = srcCommit(src, "origin/main");
 	const plan = resyncPlan(src, source.cut_sha, target);
+	if (plan.outside.length > 0) {
+		throw new Error(`nothing written. ${freezeRemedy(src, plan.outside)}`);
+	}
 	if (plan.unmapped.length > 0) {
 		throw new Error(
 			`these changed SRC paths sit under a content root but no path-map entry carries them; nothing written:\n${plan.unmapped.map((path) => `  ${path}`).join("\n")}`,
@@ -129,8 +130,8 @@ function resync({ src, dst }) {
 	for (const { to } of plan.writes) {
 		console.log(`  imported ${to}`);
 	}
-	for (const path of plan.excluded) {
-		console.log(`  skipped ${path} (dropped from the port, J7)`);
+	for (const skipped of plan.skipped) {
+		console.log(`  skipped ${skipped}`);
 	}
 	for (const to of plan.removals) {
 		console.warn(

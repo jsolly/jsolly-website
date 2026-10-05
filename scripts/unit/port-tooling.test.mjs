@@ -31,7 +31,11 @@ const TAB_INDENTED = /^\{\n\t"/u;
 const OLD_RECIPE_MEDIA = /\/media\/recipes\//u;
 const LISTS_THE_POST = /how-to-get-perfect-linting-compliance\.md/u;
 const NOTHING_CHANGED = /Changed 0 of 2 posts/u;
-const THREE_CONTENT_FILES = /3 content file\(s\) changed/u;
+const FIVE_CONTENT_FILES = /5 content file\(s\) changed/u;
+const NAMES_THE_REMEDY = /Do NOT run --resync before C0/u;
+const REPORTS_DERIVED = /skipped public\/data\/recipe-library\.json/u;
+const LEFT_UNQUOTED =
+	/old-host link left after rewriting: href=https:\/\/www\.blogthedata\.com/u;
 const NAMES_THE_CODE_FILE = /src\/lib\/html\.ts/u;
 const NAMES_THE_NESTED_POST = /src\/content\/posts\/drafts\/notes\.md/u;
 const HISTORY_REWRITTEN = /does not contain the cut/u;
@@ -148,18 +152,38 @@ function fixture(t) {
 	};
 }
 
-function post({ slug, draft = "false", related = [], body }) {
+function post({
+	slug,
+	draft = "false",
+	image = null,
+	related = [],
+	relatedIndent = "  ",
+	body,
+}) {
 	const draftLine = draft === null ? "" : `draft: ${draft}\n`;
+	const imageLine = image === null ? "" : `image: ${image}\n`;
 	const relatedBlock =
 		related.length === 0
 			? ""
-			: `related:\n${related.map((item) => `  - ${item}`).join("\n")}\n`;
-	return `---\nslug: ${slug}\ntitle: "${slug.replaceAll("-", " ")}"\ncategory: web-dev\n${draftLine}published: "2023-03-14T09:26:53Z"\nauthor: John Solly\n${relatedBlock}---\n${body}\n`;
+			: `related:\n${related.map((item) => `${relatedIndent}- ${item}`).join("\n")}\n`;
+	return `---\nslug: ${slug}\ntitle: "${slug.replaceAll("-", " ")}"\ncategory: web-dev\n${draftLine}${imageLine}published: "2023-03-14T09:26:53Z"\nauthor: John Solly\n${relatedBlock}---\n${body}\n`;
+}
+
+// The largest id with `prefix` in `rows`, plus one, zero-padded as the map is.
+function nextRowId(rows, prefix) {
+	const highest = Math.max(
+		...rows
+			.map((row) => row.id)
+			.filter((id) => id.startsWith(`${prefix}-`))
+			.map((id) => Number(id.slice(prefix.length + 1))),
+	);
+	return `${prefix}-${String(highest + 1).padStart(3, "0")}`;
 }
 
 // A post carrying one of each B04 rewrite, written as the SRC posts are.
 const REWRITE_POST = post({
 	slug: "how-to-get-perfect-linting-compliance",
+	image: "/media/default.webp",
 	related: [DROPPED, "how-to-get-100-percent-unit-test-coverage"],
 	body: [
 		'<p>After my <a target="_blank" rel="noopener noreferrer" href="https://blogthedata.com/post/google-lighthouse-perfect-score/">perfect Lighthouse score</a> I read the <a target="_blank" rel="noopener noreferrer" href="https://www.blogthedata.com/post/optimizing-gpt-for-nlp-tips-and-tricks/#directives">directive section</a> again.</p>',
@@ -174,25 +198,37 @@ const REWRITE_POST = post({
 		"",
 		"Search the archive: [django posts](http://www.blogthedata.com/search/?searched=django).",
 		"",
-		'<p>Next up: <a href="https://blogthedata.com/post/mapping-flood-risk-with-postgis/">flood maps</a>.</p>',
+		'<p>Next up: <a href="https://blogthedata.com/post/mapping-flood-risk-with-postgis/">flood maps</a> in <a href="https://blogthedata.com/category/data-engineering/">data engineering</a>.</p>',
+		"",
+		'<img src="/media/recipes/chicken-posole-960.webp" alt="Chicken posole in a white bowl">',
+		"",
+		"![Topographic header](/media/topographic-header.webp)",
 		"",
 		"## Results",
 	].join("\n"),
 });
 
 // Published after the cut: no url-map row until C0's url-map-sync, which the
-// plan runs after rewrite-content.
+// plan runs after rewrite-content. PagesCMS may write its related list at
+// column 0.
 const LATER_POST = post({
 	slug: "mapping-flood-risk-with-postgis",
+	related: [DROPPED, "how-to-ask-less-questions"],
+	relatedIndent: "",
 	body: "<p>PostGIS makes flood zones queryable.</p>",
 });
+const LATER_CONTENT = {
+	[`${POSTS}/mapping-flood-risk-with-postgis.md`]: LATER_POST,
+	"src/content/blog/categories/data-engineering.json":
+		'{\n  "slug": "data-engineering",\n  "name": "Data engineering"\n}',
+};
 
 it("B04's rewrite, run again over the rewritten posts at C0, changes nothing", (t) => {
 	const tree = fixture(t);
 	tree.copyRealMap();
 	tree.writeDst({
 		[`${POSTS}/how-to-get-perfect-linting-compliance.md`]: REWRITE_POST,
-		[`${POSTS}/mapping-flood-risk-with-postgis.md`]: LATER_POST,
+		...LATER_CONTENT,
 	});
 
 	const dryRun = tree.run("rewrite-content.mjs", "--dry-run");
@@ -236,6 +272,16 @@ it("B04's rewrite, run again over the rewritten posts at C0, changes nothing", (
 		rewritten.includes('href="/blog/mapping-flood-risk-with-postgis/"'),
 		"a post with no url-map row yet resolves through its DST file",
 	);
+	assert.ok(
+		rewritten.includes('href="/blog/category/data-engineering/"'),
+		"so does a category",
+	);
+	assert.ok(rewritten.includes("\nimage: /blog/media/default.webp\n"));
+	assert.ok(rewritten.includes('src="/recipes/media/chicken-posole-960.webp"'));
+	assert.ok(rewritten.includes("](/blog/media/topographic-header.webp)"));
+	const later = tree.readDst(`${POSTS}/mapping-flood-risk-with-postgis.md`);
+	assert.ok(!later.includes(DROPPED), "a column-0 related list is cleaned");
+	assert.ok(later.includes("\n- how-to-ask-less-questions\n"));
 	assert.ok(rewritten.includes("<p>Reset your password here.</p>"));
 	assert.doesNotMatch(rewritten, NO_OLD_HOST_HREF);
 	assert.ok(!rewritten.includes(DROPPED));
@@ -287,7 +333,7 @@ it("Rewriting posts never touches the migration receipts, the URL map or the rea
 	tree.writeDst({
 		...receipts,
 		[`${POSTS}/how-to-get-perfect-linting-compliance.md`]: REWRITE_POST,
-		[`${POSTS}/mapping-flood-risk-with-postgis.md`]: LATER_POST,
+		...LATER_CONTENT,
 	});
 	const urlMap = tree.readDst("legacy/blogthedata/url-map.json");
 	const hash = (path) =>
@@ -297,7 +343,7 @@ it("Rewriting posts never touches the migration receipts, the URL map or the rea
 	const realBefore = FROZEN_FILES.map(hash);
 	const honeypot = post({
 		slug: "admin-honeypot-page-to-catch-hackers",
-		body: '<p>Try <a href="https://blogthedata.com/admin/">the admin page</a>.</p>',
+		body: '<p>Try <a href="https://blogthedata.com/admin/">the admin page</a>, or my <a href=https://www.blogthedata.com/post/google-lighthouse-audit/>first audit</a>.</p>',
 	});
 	const honeypotPath = `${POSTS}/admin-honeypot-page-to-catch-hackers.md`;
 	tree.writeDst({ [honeypotPath]: honeypot });
@@ -306,6 +352,7 @@ it("Rewriting posts never touches the migration receipts, the URL map or the rea
 
 	assert.equal(refused.status, 1);
 	assert.match(refused.stderr, NAMES_THE_ADMIN_LINK);
+	assert.match(refused.stderr, LEFT_UNQUOTED, "the post-condition catches it");
 	assert.equal(tree.readDst(honeypotPath), honeypot);
 	assert.equal(
 		tree.readDst(`${POSTS}/how-to-get-perfect-linting-compliance.md`),
@@ -415,7 +462,7 @@ it("At C0, url-map-sync adds rows for content published since the cut, never rem
 	);
 	assert.deepEqual(
 		after.rows.slice(before.rows.length).map((row) => row.id),
-		["PST-112", "RCP-026", "MED-046"],
+		["PST", "RCP", "MED"].map((prefix) => nextRowId(before.rows, prefix)),
 		"each prefix continues at its highest id, zero-padded",
 	);
 	assert.equal(
@@ -499,10 +546,12 @@ it("freeze-check fails on a code change in awesome-blog after the cut and passes
 				slug: "conventional-commits",
 				body: "<p>Commit messages with a type.</p>",
 			}),
+			"public/media/old-banner.webp": "RIFF-banner-webp",
 		},
 		"the cut",
 	);
 	tree.source(cut);
+	tree.removeFromSrc("public/media/old-banner.webp");
 	const content = tree.commit(
 		{
 			"src/content/posts/conventional-commits.md": post({
@@ -511,14 +560,15 @@ it("freeze-check fails on a code change in awesome-blog after the cut and passes
 			}),
 			"src/components/recipes/recipes.json": '{"version":1,"recipes":[]}',
 			"public/media/recipes/chicken-posole-960.webp": "RIFF-posole-webp",
+			"public/data/recipe-library.json": '{"recipes":[]}',
 		},
-		"a PagesCMS edit and a new recipe photo",
+		"a PagesCMS edit, a new recipe photo, a deleted banner, the regenerated library",
 	);
 	tree.setOriginMain(content);
 
 	const contentOnly = tree.run("freeze-check.mjs");
 	assert.equal(contentOnly.status, 0, contentOnly.stderr);
-	assert.match(contentOnly.stdout, THREE_CONTENT_FILES);
+	assert.match(contentOnly.stdout, FIVE_CONTENT_FILES);
 
 	// Under a content root, but no path-map entry carries it, so --resync could
 	// not import it either.
@@ -548,6 +598,7 @@ it("freeze-check fails on a code change in awesome-blog after the cut and passes
 	const codeChange = tree.run("freeze-check.mjs");
 	assert.notEqual(codeChange.status, 0);
 	assert.match(codeChange.stderr, NAMES_THE_CODE_FILE);
+	assert.match(codeChange.stderr, NAMES_THE_REMEDY);
 
 	tree.setOriginMain(tree.rewrittenCopy(content));
 	const rewritten = tree.run("freeze-check.mjs");
@@ -586,7 +637,12 @@ it("B03's import applies the path map, copies the posts' .markdownlint.json and 
 			slug: DROPPED,
 			body: "<p>Generated.</p>",
 		}),
+		"src/content/posts/geospatial-job-interview-tips.md": post({
+			slug: "geospatial-job-interview-tips",
+			body: "<p>Research the company first.</p>",
+		}),
 	};
+	const interview = `${POSTS}/geospatial-job-interview-tips.md`;
 	const cut = tree.commit(
 		{
 			...posts,
@@ -654,18 +710,22 @@ it("B03's import applies the path map, copies the posts' .markdownlint.json and 
 	assert.ok(!existsSync(join(tree.dst, "public/blog/media/recipes")));
 
 	// A later step's hand edit survives a plain re-import; --overwrite resets it.
+	// The refusal is atomic: a missing post it could write is not written either.
 	const handEdited = `${tree.readDst(dreamJob)}<p>Edited by hand in B04.</p>\n`;
 	tree.writeDst({ [dreamJob]: handEdited });
+	rmSync(join(tree.dst, interview));
 	const guarded = tree.run("import-awesome-blog.mjs", "posts");
 	assert.equal(guarded.status, 1);
 	assert.match(guarded.stderr, NAMES_THE_EDITED_POST);
 	assert.equal(tree.readDst(dreamJob), handEdited);
+	assert.ok(!existsSync(join(tree.dst, interview)));
 	const overwritten = tree.run(
 		"import-awesome-blog.mjs",
 		"posts",
 		"--overwrite",
 	);
 	assert.equal(overwritten.status, 0, overwritten.stderr);
+	assert.ok(existsSync(join(tree.dst, interview)));
 	assert.equal(
 		tree.readDst(dreamJob),
 		posts[
@@ -712,7 +772,7 @@ it("B03's import applies the path map, copies the posts' .markdownlint.json and 
 				slug: "stac-catalogs-for-beginners",
 				body: "<p>STAC indexes imagery.</p>",
 			}),
-			"src/lib/html.ts": "export const ignoredByResync = true;\n",
+			"public/data/recipe-library.json": '{"recipes":["chicken-posole"]}',
 		},
 		"edits during the freeze",
 	);
@@ -727,10 +787,8 @@ it("B03's import applies the path map, copies the posts' .markdownlint.json and 
 	);
 	assert.ok(!existsSync(join(tree.dst, "public/blog/media/default.webp")));
 	assert.match(resync.stderr, WARNS_REMOVED);
-	assert.ok(
-		!existsSync(join(tree.dst, "src/lib/html.ts")),
-		"resync brings content only",
-	);
+	assert.match(resync.stdout, REPORTS_DERIVED);
+	assert.ok(!existsSync(join(tree.dst, "public/data/recipe-library.json")));
 	assert.equal(
 		JSON.parse(tree.readDst("scripts/port/source.json")).freeze_sha,
 		freeze,
@@ -755,7 +813,13 @@ it("B03's import applies the path map, copies the posts' .markdownlint.json and 
 		"the old recipe post link keeps its #fragment on /recipes/",
 	);
 
-	// A content-root path no entry carries stops the resync before any write.
+	// A content-root path no entry carries stops the resync before any write,
+	// including the mapped edit that came in the same commit.
+	const pending = post({
+		slug: "Find-Your-Dream-Job-With-LinkedIn-Boolean-Search",
+		body: "<p>An edit that must wait for the refusal to be resolved.</p>",
+	});
+	const sourceJson = tree.readDst("scripts/port/source.json");
 	tree.setOriginMain(
 		tree.commit(
 			{
@@ -763,17 +827,37 @@ it("B03's import applies the path map, copies the posts' .markdownlint.json and 
 					slug: "2019-roundup",
 					body: "<p>The year in review.</p>",
 				}),
+				"src/content/posts/Find-Your-Dream-Job-With-LinkedIn-Boolean-Search.md":
+					pending,
 			},
-			"an archived post in a subdirectory",
+			"an archived post in a subdirectory and an edit",
 		),
 	);
 	const unmapped = tree.run("import-awesome-blog.mjs", "--resync");
 	assert.equal(unmapped.status, 1);
 	assert.match(unmapped.stderr, NAMES_THE_ARCHIVE_POST);
+	assert.equal(tree.readDst("scripts/port/source.json"), sourceJson);
 	assert.equal(
-		JSON.parse(tree.readDst("scripts/port/source.json")).freeze_sha,
-		freeze,
+		tree.readDst(dreamJob),
+		later,
+		"the pending edit is not written",
 	);
+
+	// --resync enforces the freeze itself: a code change refuses everything.
+	tree.removeFromSrc("src/content/posts/archive/2019-roundup.md");
+	tree.setOriginMain(
+		tree.commit(
+			{ "src/lib/html.ts": "export const changedDuringTheFreeze = true;\n" },
+			"a code change during the freeze",
+		),
+	);
+	const frozen = tree.run("import-awesome-blog.mjs", "--resync");
+	assert.equal(frozen.status, 1);
+	assert.match(frozen.stderr, NAMES_THE_CODE_FILE);
+	assert.match(frozen.stderr, NAMES_THE_REMEDY);
+	assert.equal(tree.readDst("scripts/port/source.json"), sourceJson);
+	assert.equal(tree.readDst(dreamJob), later);
+	assert.ok(!existsSync(join(tree.dst, "src/lib/html.ts")));
 });
 
 it("Code samples in posts stay byte-identical while the prose around them is rewritten", (t) => {
@@ -794,6 +878,10 @@ it("Code samples in posts stay byte-identical while the prose around them is rew
 			'<p>I <a href="https://blogthedata.com/post/implement-infinite-scroll-in-django-with-htmx/">implemented infinite scroll</a> and every page declared</p>',
 			...samples.map((sample) => `${sample}\n`),
 			'<p>See <a href="https://blogthedata.com/post/free-cdn-for-17x-speed/">the CDN post</a>.</p>',
+			"",
+			"A stray ` backtick in one paragraph.",
+			"",
+			'<p>Then <a href="https://blogthedata.com/post/google-lighthouse-audit/">the audit</a> and another ` backtick.</p>',
 		].join("\n"),
 	});
 	tree.writeDst({
@@ -818,5 +906,11 @@ it("Code samples in posts stay byte-identical while the prose around them is rew
 		rewritten.includes(
 			'<p>See <a href="/blog/free-cdn-for-17x-speed/">the CDN post</a>.</p>',
 		),
+	);
+	assert.ok(
+		rewritten.includes(
+			'<a href="/blog/google-lighthouse-audit/">the audit</a>',
+		),
+		"backticks in two paragraphs are no code span",
 	);
 });
