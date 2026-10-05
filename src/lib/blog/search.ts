@@ -14,10 +14,26 @@ export const searchEntry = z.object({
 });
 type SearchEntry = z.infer<typeof searchEntry>;
 
+// One entry per post: a repeated slug would make two results share an id.
+const searchIndex = z.array(searchEntry).superRefine((entries, context) => {
+	const seen = new Set<string>();
+	for (const [position, { slug }] of entries.entries()) {
+		if (seen.has(slug)) {
+			context.addIssue({
+				code: "custom",
+				message: `Duplicate search index slug: ${slug}`,
+				path: [position, "slug"],
+			});
+		}
+		seen.add(slug);
+	}
+});
+
 // The fetched /blog/search-index.json body; throws when it is not a list of
-// entries, so the island shows its error state instead of searching garbage.
+// entries with unique slugs, so the island shows its error state instead of
+// searching garbage.
 export function parseSearchIndex(json: unknown): SearchEntry[] {
-	return z.array(searchEntry).parse(json);
+	return searchIndex.parse(json);
 }
 
 export function createArticleSearch(entries: SearchEntry[]) {
@@ -39,9 +55,10 @@ export function createArticleSearch(entries: SearchEntry[]) {
 	index.addAll(entries);
 	return (query: string): SearchEntry[] => {
 		if (!query.trim()) return [];
-		return index.search(query).flatMap((result) => {
+		return index.search(query).map((result) => {
 			const entry = documents.get(result.id);
-			return entry ? [entry] : [];
+			if (!entry) throw new Error(`Search hit ${result.id} has no entry`);
+			return entry;
 		});
 	};
 }

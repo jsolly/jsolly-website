@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { DEFAULT_IMAGE } from "./html.js";
+import { DEFAULT_IMAGE } from "./constants.js";
 
 const SLUG = /^[A-Za-z0-9_-]+$/u;
 

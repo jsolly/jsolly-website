@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { z } from "zod";
+import { ZodError, z } from "zod";
 import {
 	createArticleSearch,
 	parseSearchIndex,
@@ -44,11 +44,28 @@ describe("createArticleSearch", () => {
 		assert.deepEqual(search("zzzznomatch"), []);
 		assert.deepEqual(search("   "), []);
 		assert.deepEqual(search("instant rules"), []);
-		// A malformed index fails to parse rather than searching partial data.
-		assert.throws(() => parseSearchIndex([{ slug: "rules", title: "Rules" }]));
-		assert.throws(() => parseSearchIndex({ entries: [] }));
+	});
+
+	it("A malformed search index fails loudly instead of searching partial data", () => {
+		assert.throws(
+			() => parseSearchIndex([{ slug: "rules", title: "Rules" }]),
+			ZodError,
+		);
+		assert.throws(() => parseSearchIndex({ entries: [] }), ZodError);
 		assert.equal(searchEntry.safeParse({ slug: "rules" }).success, false);
-		// Parsing ran with zod's JIT off (the CSP has no 'unsafe-eval').
+	});
+
+	it("A search index listing one slug twice fails to parse", () => {
+		const entries = JSON.parse(index);
+		assert.throws(
+			() => parseSearchIndex([...entries, { ...entries[1], title: "Copy" }]),
+			/Duplicate search index slug: rules/u,
+		);
+	});
+
+	it("Search parsing runs without eval under the page CSP", () => {
+		// The CSP has no 'unsafe-eval', so zod's JIT stays off for every parse.
 		assert.equal(z.config().jitless, true);
+		assert.equal(parseSearchIndex(JSON.parse(index)).length, 3);
 	});
 });

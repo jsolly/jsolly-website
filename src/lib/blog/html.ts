@@ -1,10 +1,6 @@
 import { decodeHTML } from "entities";
 import sanitizeHtml from "sanitize-html";
-
-// The retained blogthedata S3/CloudFront host for legacy post images (J6).
-const legacyMedia = "https://d1d7p8ufhgz4ld.cloudfront.net/media/";
-// The post image when frontmatter names none; the posts schema defaults to it.
-export const DEFAULT_IMAGE = "/blog/media/default.webp";
+import { DEFAULT_IMAGE, LEGACY_MEDIA } from "./constants.js";
 
 const ABSOLUTE_HTTP = /^https?:\/\//iu;
 const MEDIAFILES_PREFIX = /^mediafiles\//u;
@@ -14,8 +10,11 @@ const NON_SLUG_CHARACTER = /[^a-zA-Z0-9_-]/gu;
 const HEADING = /<(?<tag>h[1-3])(?<attrs>[^>]*)>(?<text>[\s\S]*?)<\/\k<tag>>/gu;
 const HEADING_TAG = /^h[1-3]$/u;
 const OPENING_TAG = /<(?<tag>[a-z][a-z0-9]*)(?<attributes>[^>]*)>/gu;
-const ID_ATTRIBUTE = /\s+id="[^"]*"/gu;
+// An <a> opening tag whose href is a same-page fragment.
+const FRAGMENT_LINK = /(?<before><a\b[^>]*?\shref=")#(?<fragment>[^"]*)"/gu;
 const CAPTURED_ID_ATTRIBUTE = /\s+id="(?<id>[^"]*)"/gu;
+// An id attribute inside a tag, not id="…" text inside escaped code samples.
+const TAG_ID = /<[a-z][a-z0-9]*\b[^>]*?\sid="(?<id>[^"]*)"/gu;
 
 // CSS values the style table below accepts for more than one property.
 const LENGTH = /^\d+(?:\.\d+)?(?:%|px|em|rem)$/u;
@@ -34,7 +33,7 @@ const TWO = /^2$/u;
 function imageUrl(path: string) {
 	if (!path || path === "default.webp") return DEFAULT_IMAGE;
 	if (ABSOLUTE_HTTP.test(path) || path.startsWith("/")) return path;
-	return `${legacyMedia}${path.replace(MEDIAFILES_PREFIX, "")}`;
+	return `${LEGACY_MEDIA}${path.replace(MEDIAFILES_PREFIX, "")}`;
 }
 
 // Decoded, unescaped text: safe in Astro/Svelte `{}` expressions and for
@@ -160,16 +159,26 @@ const ARTICLE_SANITIZE: sanitizeHtml.IOptions = {
 
 export function articleHtml(body: string) {
 	const headingIds = new Set<string>();
+	// Authored h1–h3 ids the heading pass replaced, mapped to their new ids.
+	const renamedIds = new Map<string, string>();
 	const rendered = sanitizeHtml(body, ARTICLE_SANITIZE).replace(
 		HEADING,
 		(_match: string, tag: string, attrs: string, text: string) => {
 			const id = headingId(plainText(text));
 			headingIds.add(id);
-			const attributes = attrs.replace(ID_ATTRIBUTE, "");
+			const attributes = attrs.replace(
+				CAPTURED_ID_ATTRIBUTE,
+				(_attribute: string, authored: string) => {
+					if (authored !== id && !renamedIds.has(authored)) {
+						renamedIds.set(authored, id);
+					}
+					return "";
+				},
+			);
 			return `<${tag}${attributes} id="${id}">${text}<a class="heading-link" href="#${id}" aria-label="Link to this heading">#</a></${tag}>`;
 		},
 	);
-	return rendered.replace(
+	const html = rendered.replace(
 		OPENING_TAG,
 		(match: string, tag: string, attributes: string) => {
 			if (HEADING_TAG.test(tag)) return match;
@@ -178,6 +187,19 @@ export function articleHtml(body: string) {
 				(attribute: string, id: string) =>
 					headingIds.has(id) ? "" : attribute,
 			)}>`;
+		},
+	);
+	if (renamedIds.size === 0) return html;
+	// Same-page links (a table of contents) that named a replaced heading id
+	// follow it to the new id; a fragment that still resolves is left alone.
+	const ids = new Set(Array.from(html.matchAll(TAG_ID), (match) => match[1]));
+	return html.replace(
+		FRAGMENT_LINK,
+		(match: string, before: string, fragment: string) => {
+			const renamed = renamedIds.get(fragment);
+			return renamed === undefined || ids.has(fragment)
+				? match
+				: `${before}#${renamed}"`;
 		},
 	);
 }

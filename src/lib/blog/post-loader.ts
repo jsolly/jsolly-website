@@ -5,11 +5,10 @@ import { parseDocument } from "yaml";
 
 // PagesCMS writes YAML 1.2 strings, including unquoted ISO timestamps. The
 // core schema keeps them strings, so the collection schema sees the exact
-// source text and rejects a timestamp without an offset.
-export function parsePost(
-	source: string,
-): Record<string, unknown> & { body: string } {
-	const { rawFrontmatter, content } = parseFrontmatter(source);
+// source text and rejects a timestamp without an offset. Returns the
+// frontmatter mapping; the glob loader keeps the body.
+export function parsePost(source: string): Record<string, unknown> {
+	const { rawFrontmatter } = parseFrontmatter(source);
 	const document = parseDocument(rawFrontmatter, { schema: "core" });
 	const [error] = document.errors;
 	if (error) throw error;
@@ -17,7 +16,7 @@ export function parsePost(
 	if (!metadata || typeof metadata !== "object" || Array.isArray(metadata)) {
 		throw new Error("Post frontmatter must be a YAML mapping");
 	}
-	return { ...metadata, body: content.trim() };
+	return { ...metadata };
 }
 
 export function postLoader(): Loader {
@@ -35,9 +34,7 @@ export function postLoader(): Loader {
 					if (!entry.filePath) {
 						throw new Error("Post loader requires a source file path");
 					}
-					const { body: _body, ...data } = parsePost(
-						await readFile(entry.filePath, "utf8"),
-					);
+					const data = parsePost(await readFile(entry.filePath, "utf8"));
 					// Astro's generic denotes schema output; assert it only after framework validation.
 					// biome-ignore lint/nursery/noUnsafeTypeAssertion: context.parseData validates against the collection schema, which TData stands for.
 					return context.parseData({ ...entry, data }) as Promise<
