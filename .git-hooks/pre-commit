@@ -51,5 +51,6 @@ run_step "smoke scenario" npm run smoke:scenario-contract
 run_step "astro check (types)" npm run check:ts
 run_step "unit tests" npm test
 run_step "build"     npm run build
+run_step "built tests" npm run test:built
 
 echo "✓ pre-commit gate passed — commit will land; Vercel deploys via GitHub integration after merge to main."

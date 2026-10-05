@@ -1,5 +1,5 @@
-// Count-checked node:test runner. Every test suite (`npm test`, the CSP check
-// inside `build` and the smoke-scenario contract) runs through this wrapper, which fails when the number of passing tests
+// Count-checked node:test runner. Every test suite (`npm test`, `npm run
+// test:built`, the CSP check inside `build` and the smoke-scenario contract) runs through this wrapper, which fails when the number of passing tests
 // differs from the count recorded in scripts/test-counts.json. A test that
 // silently stops running (a narrowed glob, a deleted file, a stray skip) then
 // fails the gate instead of leaving it green, and a commit that adds tests must
@@ -25,6 +25,12 @@ const SUITES = {
 			"--test",
 		],
 		patterns: ["src/**/*.test.ts", "scripts/unit/*.test.mjs"],
+	},
+	// Post-build tests against dist/ that run outside `build` (browser tests need
+	// Playwright, which the Vercel build does not have); see `csp` below.
+	built: {
+		flags: ["--test", "--test-concurrency=1"],
+		patterns: ["scripts/built/*.test.mjs"],
 	},
 	// Runs inside `build` (and so on Vercel), right after process-html.
 	csp: {

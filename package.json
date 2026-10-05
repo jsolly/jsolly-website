@@ -16,6 +16,7 @@
 		"check:ts": "astro check --minimumSeverity error --minimumFailingSeverity error",
 		"check:knip": "knip --no-progress",
 		"test": "node scripts/run-tests.mjs unit",
+		"test:built": "node scripts/run-tests.mjs built",
 		"check:md": "bash scripts/lint-md.sh",
 		"check:yaml": "uvx yamllint@1.38.0 -s .",
 		"check:fix": "biome check --write --no-errors-on-unmatched --error-on-warnings",
