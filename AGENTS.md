@@ -43,7 +43,10 @@ npm run preview             # Preview the production build locally
 npm run check:fix           # biome check --write
 npm run check:ts            # tsc --noEmit
 npm run fix                 # check:fix + check:ts (combined)
+npm test                    # unit tests: src/**/*.test.ts and scripts/unit/*.test.mjs
 ```
+
+Every suite runs through `scripts/run-tests.mjs`: `npm test` (`unit`), the built-CSP check at the end of `npm run build` (`csp`) and `npm run smoke:scenario-contract` (`smoke`). It fails a suite when its passing-test count differs from `scripts/test-counts.json`. Update the count in the commit that adds tests; lower it only in a commit that names each dropped test.
 
 ## Worktrees
 
