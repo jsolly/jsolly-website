@@ -3,7 +3,12 @@ import type { InferGetStaticPropsType } from "astro";
 import AuthorCard from "../../components/blog/AuthorCard.astro";
 import PostCards from "../../components/blog/PostCards.svelte";
 import BlogLayout from "../../layouts/BlogLayout.astro";
-import { cards, dateLabel } from "../../lib/blog/cards.js";
+import {
+	cards,
+	categoryHref,
+	dateLabel,
+	postHref,
+} from "../../lib/blog/cards.js";
 import { blogContent } from "../../lib/blog/content.js";
 import { articleHtml, headingId, imageUrl } from "../../lib/blog/html.js";
 
@@ -32,8 +37,8 @@ const LESS_THAN = /</gu;
 const { post, related } = Astro.props;
 const { data, html, categoryName } = post;
 const image = imageUrl(data.image);
-const url = new URL(`/blog/${data.slug}/`, Astro.site).href;
-const categoryHref = `/blog/category/${data.category}/`;
+const url = new URL(postHref(data.slug), Astro.site).href;
+const categoryPage = categoryHref(data.category);
 const titleId = headingId(data.title);
 const structured = JSON.stringify({
 	"@context": "https://schema.org",
@@ -54,28 +59,53 @@ const structured = JSON.stringify({
 		<!-- biome-ignore lint/nursery/noAstroSetHtmlDirective: first-party JSON-LD must stay raw JSON; every "<" is escaped above -->
 		<script type="application/ld+json" set:html={structured} />
 	</Fragment>
-	<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/blog/">Home</a><span aria-hidden="true">/</span><a href={categoryHref}>{categoryName}</a></nav>
+	<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/blog/">Home</a><span aria-hidden="true">/</span><a href={categoryPage}>{categoryName}</a></nav>
 	<article>
 		<h1 id={titleId}>{data.title}<a class="heading-link" href={`#${titleId}`} aria-label="Link to this heading">#</a></h1>
 		<figure><img class="article-hero" src={image} alt={data.imageAlt} width={data.imageWidth ?? undefined} height={data.imageHeight ?? undefined} fetchpriority="high" />{data.imageAttribution && <figcaption>{data.imageAttribution}</figcaption>}</figure>
 		<!-- biome-ignore lint/nursery/noAstroSetHtmlDirective: articleHtml returns sanitize-html output (src/lib/blog/html.ts) -->
 		<div class="article-body post-text" set:html={articleHtml(html)} />
 		<footer class="post-details">
-			<p class="post-meta"><time datetime={data.published.toISOString()}>{dateLabel(data.published)}</time> in <a href={categoryHref}>{categoryName}</a></p>
+			<p class="post-meta"><time datetime={data.published.toISOString()}>{dateLabel(data.published)}</time> in <a href={categoryPage}>{categoryName}</a></p>
 			<p class="post-meta">Updated <time datetime={data.updated.toISOString()}>{dateLabel(data.updated)}</time></p>
 			<div class="article-actions share-actions"><span class="action-label">Share</span><button id="print-article" type="button">Print this post</button><a class="action-button" href={`https://twitter.com/intent/tweet/?text=${encodeURIComponent(data.title)}&url=${encodeURIComponent(url)}`} rel="noopener noreferrer" target="_blank"><img src="/blog/social/xLogo.svg" alt="Share on X" width="22" height="22" /></a><a class="action-button" href={`https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(data.title)}`} rel="noopener noreferrer" target="_blank"><img src="/blog/social/redditLogo.svg" alt="Share on Reddit" width="22" height="22" /></a><a class="action-button" href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`} rel="noopener noreferrer" target="_blank"><img src="/blog/social/linkedinLogo.svg" alt="Share on LinkedIn" width="22" height="22" /></a></div>
 		</footer>
 	</article>
 	<div class="article-actions"><a class="action-button" href="/blog/">Back to home</a><span id="heading-copy-status" role="status" /></div>
-	{related.length > 0 && <section class="related-posts"><h2>Related posts</h2><PostCards posts={related} /></section>}
+	{related.length > 0 && <section class="related-posts"><h2>Related posts</h2><PostCards posts={related} headingTag="h3" /></section>}
 	<AuthorCard />
 </BlogLayout>
 <script>
+	const COPIED = "Heading link copied.";
+	// How long the copy message stays before the status region empties.
+	const ANNOUNCE_MS = 3000;
+	let clearTimer: number | undefined;
+
+	// Empties the status region, then fills it on the next frame, so a screen
+	// reader announces every copy (not only the first); it empties again later.
+	function announceCopy(status: Element) {
+		window.clearTimeout(clearTimer);
+		status.textContent = "";
+		requestAnimationFrame(() => {
+			status.textContent = COPIED;
+			clearTimer = window.setTimeout(() => {
+				status.textContent = "";
+			}, ANNOUNCE_MS);
+		});
+	}
+
+	// Copies the heading's address on the post's canonical (jsolly.com) URL,
+	// whichever host serves the page.
 	async function copyHeadingLink(link: HTMLAnchorElement) {
+		const canonical =
+			document.querySelector<HTMLLinkElement>("link[rel=canonical]")?.href ??
+			window.location.href;
 		try {
-			await navigator.clipboard.writeText(link.href);
+			await navigator.clipboard.writeText(
+				new URL(link.getAttribute("href") ?? "", canonical).href,
+			);
 			const status = document.querySelector("#heading-copy-status");
-			if (status) status.textContent = "Heading link copied.";
+			if (status) announceCopy(status);
 		} catch {
 			// Following the fragment still works without clipboard permission.
 		}

@@ -19,11 +19,20 @@ function sameUtcDay(a: Date, b: Date) {
 	return a.toISOString().slice(0, 10) === b.toISOString().slice(0, 10);
 }
 
+// A post's page and a category's page; slugs keep their case.
+export function postHref(slug: string) {
+	return `/blog/${slug}/`;
+}
+
+export function categoryHref(category: string) {
+	return `/blog/category/${category}/`;
+}
+
 // The post cards PostCards.svelte renders, in the given post order.
 export function cards(posts: CardPost[]): Card[] {
 	return posts.map(({ data, html, categoryName }) => ({
 		slug: data.slug,
-		href: `/blog/${data.slug}/`,
+		href: postHref(data.slug),
 		title: data.title,
 		description: data.description,
 		excerpt: articleHtml(data.excerpt),
@@ -37,7 +46,7 @@ export function cards(posts: CardPost[]): Card[] {
 		updatedLabel: sameUtcDay(data.published, data.updated)
 			? null
 			: dateLabel(data.updated),
-		categoryHref: `/blog/category/${data.category}/`,
+		categoryHref: categoryHref(data.category),
 		categoryName,
 		minutes: Math.max(
 			1,

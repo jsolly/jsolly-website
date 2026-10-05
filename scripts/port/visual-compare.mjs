@@ -43,7 +43,8 @@ const PAGES = [
 	},
 	{
 		name: "youtube-post",
-		old: "/post/I-re-created-1979-Atari-game-asteroids-with-JS/",
+		// A post with an embedded YouTube iframe.
+		old: "/post/how-to-debug-an-astro-app/",
 	},
 	{ name: "category", old: "/category/Geodev/" },
 	{ name: "all-posts", old: "/all-posts/" },

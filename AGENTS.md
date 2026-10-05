@@ -31,7 +31,8 @@ The blog and recipe ports keep their awesome-blog native controls (the
 `<details>` categories menu and the toggle/inert mobile disclosure, which work
 without JavaScript through `no-script.css`, and the post cards' "Load more
 posts" link, which `no-script.css` hides so the noscript archive link is the
-way on) for parity with live blogthedata.com under the approved merge plan
+way on, and the post page's "Print this post" button, share links, "Back to
+home" link and heading-link copy script) for parity with live blogthedata.com under the approved merge plan
 (J25), until the post-C4 visual unification follow-up; new blog and recipe
 controls use shadcn-svelte.
 Canon: `~/code/dotagents/rules/frontend-stack.md`.

@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { after, before, it } from "node:test";
 import { chromium } from "playwright";
 import { readHeaderPolicy } from "../csp.mjs";
-import { serveStatic } from "./pages.mjs";
+import { serveStatic, stubOffOrigin } from "./pages.mjs";
 
 // Plan §4.4(c): the built pages under both policies a browser enforces in
 // production, the vercel.json response header (served on every response, as
@@ -12,8 +12,12 @@ import { serveStatic } from "./pages.mjs";
 // each page must also have requested the hosts its content uses, which proves
 // the lazy embeds and images (switched to eager) were loaded, not skipped. Every
 // island must hydrate, so the page's own scripts ran under both policies.
+// Positive control: each response carries the header policy and each page a
+// meta policy, and an image from an unlisted host injected on /about/ must
+// raise exactly one img-src violation under each of the two policies.
 const DIST = "dist";
 const CLOUDFRONT = "d1d7p8ufhgz4ld.cloudfront.net";
+const UNLISTED_IMAGE = "https://example.invalid/x.png";
 const PAGES = [
 	{ path: "/blog/", hosts: [CLOUDFRONT] },
 	{
@@ -32,24 +36,15 @@ const PAGES = [
 ];
 // How long one page may take to hydrate, settle its images or request a host.
 const WAIT_MS = 15_000;
-const STAND_INS = {
-	document: {
-		contentType: "text/html",
-		body: "<!doctype html><title>stand-in</title>",
-	},
-	image: {
-		contentType: "image/svg+xml",
-		body: '<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" />',
-	},
-};
+const POLL_MS = 50;
 
 let site;
 let browser;
+let headerPolicy;
 
 before(async () => {
-	site = await serveStatic(DIST, {
-		"Content-Security-Policy": await readHeaderPolicy(),
-	});
+	headerPolicy = await readHeaderPolicy();
+	site = await serveStatic(DIST, { "Content-Security-Policy": headerPolicy });
 	browser = await chromium.launch();
 });
 
@@ -58,68 +53,82 @@ after(async () => {
 	await site?.close();
 });
 
+// Resolves once `hosts` (a growing Set) holds every `expected` host, or after
+// WAIT_MS; the caller's assertions then name whatever is missing.
+function hostsRequested(hosts, expected) {
+	return new Promise((resolve) => {
+		const started = Date.now();
+		const timer = setInterval(() => {
+			if (
+				expected.every((host) => hosts.has(host)) ||
+				Date.now() - started > WAIT_MS
+			) {
+				clearInterval(timer);
+				resolve();
+			}
+		}, POLL_MS);
+	});
+}
+
 // Opens `path` and switches every lazy image and iframe to eager so each
 // loads, then waits until every island has hydrated, every image has settled
-// and each of `expected` hosts has been requested (or WAIT_MS passes). Returns
-// the violations, the off-origin hosts it requested and the page errors.
-async function visit(path, expected) {
+// and each `expected` host has been requested. With `inject`, appends an image
+// from an unlisted host first and waits for its violations. Returns the
+// response's CSP header, the page's meta policies, the violations, the
+// off-origin hosts it requested and the page errors.
+async function visit(path, expected, inject) {
 	const context = await browser.newContext({
 		viewport: { width: 1280, height: 800 },
 	});
-	const hosts = new Set();
-	const { promise: allRequested, resolve } = Promise.withResolvers();
-	const check = () => {
-		if (expected.every((host) => hosts.has(host))) resolve();
-	};
-	check();
-	await context.route(
-		(url) => url.origin !== site.origin,
-		(route) => {
-			const request = route.request();
-			hosts.add(new URL(request.url()).host);
-			check();
-			const kind = request.resourceType() === "image" ? "image" : "document";
-			return route.fulfill(STAND_INS[kind]);
-		},
-	);
+	const hosts = await stubOffOrigin(context, site.origin);
 	await context.addInitScript(() => {
 		window.__violations = [];
 		document.addEventListener("securitypolicyviolation", (event) => {
-			window.__violations.push(
-				`${event.effectiveDirective} blocked ${event.blockedURI || "inline"} (${event.sourceFile}:${event.lineNumber})`,
-			);
+			window.__violations.push({
+				directive: event.effectiveDirective,
+				blocked: event.blockedURI,
+				policy: event.originalPolicy,
+			});
 		});
 	});
 	const page = await context.newPage();
 	page.setDefaultTimeout(WAIT_MS);
 	const errors = [];
 	page.on("pageerror", (error) => errors.push(String(error)));
-	let timer;
 	try {
-		await page.goto(`${site.origin}${path}`, { waitUntil: "load" });
-		await page.evaluate(() => {
+		const response = await page.goto(`${site.origin}${path}`, {
+			waitUntil: "load",
+		});
+		await page.evaluate((unlisted) => {
 			for (const element of document.querySelectorAll("img, iframe")) {
 				element.loading = "eager";
 			}
-		});
+			if (unlisted) {
+				const image = document.createElement("img");
+				image.src = unlisted;
+				image.alt = "";
+				document.body.append(image);
+			}
+		}, inject && UNLISTED_IMAGE);
 		await page.waitForFunction(
 			() =>
 				!document.querySelector("astro-island[ssr]") &&
 				Array.from(document.images).every((image) => image.complete),
 		);
-		await Promise.race([
-			allRequested,
-			new Promise((resolveTimer) => {
-				timer = setTimeout(resolveTimer, WAIT_MS);
-			}),
-		]);
+		if (inject) {
+			await page.waitForFunction(() => window.__violations.length >= 2);
+		}
+		await hostsRequested(hosts, expected);
 		return {
+			header: response?.headers()["content-security-policy"],
+			metaPolicies: await page
+				.locator('meta[http-equiv="content-security-policy"]')
+				.evaluateAll((metas) => metas.map((meta) => meta.content)),
 			violations: await page.evaluate(() => window.__violations),
 			requested: [...hosts].sort((a, b) => a.localeCompare(b, "en")),
 			errors,
 		};
 	} finally {
-		clearTimeout(timer);
 		await context.close();
 	}
 }
@@ -136,6 +145,8 @@ it("blog posts with embeds, the blog home and /about/ load under the vercel.json
 		Promise.resolve([]),
 	);
 	for (const { path, hosts, ...result } of results) {
+		assert.equal(result.header, headerPolicy, `${path}: header policy sent`);
+		assert.equal(result.metaPolicies.length, 1, `${path}: one meta policy`);
 		assert.deepEqual(result.violations, [], `${path}: CSP violations`);
 		assert.deepEqual(result.errors, [], `${path}: page errors`);
 		for (const host of hosts) {
@@ -145,4 +156,29 @@ it("blog posts with embeds, the blog home and /about/ load under the vercel.json
 			);
 		}
 	}
+	// Each enforced policy that blocks a request reports it once, so the
+	// unlisted image raises one img-src violation from the header and one
+	// from the meta policy.
+	const control = await visit("/about/", [], true);
+	const policyName = (policy) =>
+		({ [headerPolicy]: "header", [control.metaPolicies[0]]: "meta" })[policy] ??
+		policy;
+	assert.deepEqual(
+		control.violations
+			.map(({ policy, ...violation }) => ({
+				...violation,
+				policy: policyName(policy),
+			}))
+			.sort((a, b) => a.policy.localeCompare(b.policy, "en")),
+		["header", "meta"].map((policy) => ({
+			directive: "img-src",
+			blocked: UNLISTED_IMAGE,
+			policy,
+		})),
+		"an image from an unlisted host raises exactly one img-src violation per policy",
+	);
+	assert.ok(
+		!control.requested.includes(new URL(UNLISTED_IMAGE).host),
+		"the blocked image never left the page",
+	);
 });

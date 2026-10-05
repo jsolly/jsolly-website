@@ -4,7 +4,13 @@
 	import type { Card } from "../../lib/blog/types.js";
 
 	// Without a pageSize every card renders and there is no load-more.
-	let { posts, pageSize = Number.POSITIVE_INFINITY }: { posts: Card[]; pageSize?: number } = $props();
+	// headingTag sets each card title's level under its section's heading
+	// (a post page's "Related posts" h2 holds h3 cards).
+	let {
+		posts,
+		pageSize = Number.POSITIVE_INFINITY,
+		headingTag = "h2",
+	}: { posts: Card[]; pageSize?: number; headingTag?: "h2" | "h3" } = $props();
 	// How far below the viewport the load-more area starts loading, as the
 	// observer's rootMargin.
 	const REACH_PX = 200;
@@ -72,7 +78,7 @@
 				<img src={post.image} alt={post.imageAlt} width={post.imageWidth ?? undefined} height={post.imageHeight ?? undefined} loading="lazy" decoding="async" />
 			</a>
 			<div class="card-copy">
-				<h2><a class="post-card-link" href={post.href}>{post.title}</a></h2>
+				<svelte:element this={headingTag}><a class="post-card-link" href={post.href}>{post.title}</a></svelte:element>
 				<p class="post-meta"><time datetime={post.published}>{post.dateLabel}</time> in <a href={post.categoryHref}>{post.categoryName}</a></p>
 				{#if post.updatedLabel}<p class="post-meta">Updated <time datetime={post.updated}>{post.updatedLabel}</time></p>{/if}
 				<p class="post-meta">{post.minutes} min read</p>

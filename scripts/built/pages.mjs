@@ -13,10 +13,12 @@ const CATEGORIES = new URL(
 	"../../src/content/blog/categories/",
 	import.meta.url,
 );
-// Blog post cards load their images from the legacy CloudFront host; browser
-// tests answer every off-origin request with this stand-in.
+// Blog posts load their images from the legacy CloudFront host and embed
+// third-party frames; browser tests answer every off-origin request with
+// these stand-ins.
 const OFF_ORIGIN_IMAGE =
 	'<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" />';
+const OFF_ORIGIN_DOCUMENT = "<!doctype html><title>stand-in</title>";
 
 export async function exists(path) {
 	try {
@@ -40,16 +42,29 @@ export async function readBuiltPages(root = "dist") {
 	);
 }
 
-// The stylesheets a built page loads with JavaScript on (not its <noscript>).
-export function stylesheets(html) {
+// Parses `html` and returns `read(document)`, closing the DOM afterwards.
+function readHtml(html, read) {
 	const dom = new JSDOM(html);
 	try {
-		return [...dom.window.document.querySelectorAll("link")]
-			.filter((link) => link.rel === "stylesheet" && !link.closest("noscript"))
-			.map((link) => link.getAttribute("href"));
+		return read(dom.window.document);
 	} finally {
 		dom.window.close();
 	}
+}
+
+// Reads the built page at `path` (a directory such as "blog/all-posts" or
+// "/blog/<slug>/", served as its index.html) under `root` with `read`.
+export async function readBuilt(path, read, root = "dist") {
+	return readHtml(await readFile(join(root, path, "index.html"), "utf8"), read);
+}
+
+// The stylesheets a built page loads with JavaScript on (not its <noscript>).
+export function stylesheets(html) {
+	return readHtml(html, (document) =>
+		[...document.querySelectorAll("link")]
+			.filter((link) => link.rel === "stylesheet" && !link.closest("noscript"))
+			.map((link) => link.getAttribute("href")),
+	);
 }
 
 const CONTENT_TYPES = {
@@ -103,13 +118,24 @@ export async function serveStatic(root, headers = {}) {
 }
 
 // Fulfills every request a Playwright `context` makes outside `origin` with a
-// stand-in image, so a test never waits on (or fails with) a remote host.
+// stand-in (an empty HTML document for frames, an image otherwise), so a test
+// never waits on (or fails with) a remote host. Resolves to the Set of hosts
+// requested so far, which grows as the context makes requests.
 export async function stubOffOrigin(context, origin) {
+	const hosts = new Set();
 	await context.route(
 		(url) => url.origin !== origin,
-		(route) =>
-			route.fulfill({ contentType: "image/svg+xml", body: OFF_ORIGIN_IMAGE }),
+		(route) => {
+			const request = route.request();
+			hosts.add(new URL(request.url()).host);
+			return route.fulfill(
+				request.resourceType() === "document"
+					? { contentType: "text/html", body: OFF_ORIGIN_DOCUMENT }
+					: { contentType: "image/svg+xml", body: OFF_ORIGIN_IMAGE },
+			);
+		},
 	);
+	return hosts;
 }
 
 // Every post as { slug, category, published, related }, read from the post
@@ -133,11 +159,9 @@ export async function allPosts() {
 	);
 }
 
-// The published posts as { slug, category }.
+// The published posts, as allPosts() entries.
 export async function publishedPosts() {
-	return (await allPosts())
-		.filter((post) => post.published)
-		.map(({ slug, category }) => ({ slug, category }));
+	return (await allPosts()).filter((post) => post.published);
 }
 
 // Every category slug, read from the category files.

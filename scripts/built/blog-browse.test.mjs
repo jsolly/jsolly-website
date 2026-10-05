@@ -1,13 +1,13 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { after, before, it } from "node:test";
-import { JSDOM } from "jsdom";
 import { chromium } from "playwright";
+import { categoryHref, postHref } from "../../src/lib/blog/cards.js";
 import {
 	categorySlugs,
 	exists,
 	publishedPosts,
+	readBuilt,
 	serveStatic,
 	stubOffOrigin,
 } from "./pages.mjs";
@@ -104,16 +104,6 @@ function cardHrefs(page) {
 
 function loadMore(page) {
 	return page.getByRole("link", { name: "Load more posts", exact: true });
-}
-
-// Reads a built page with `read(document)`, closing the DOM afterwards.
-async function readBuilt(path, read) {
-	const dom = new JSDOM(await readFile(join(DIST, path, "index.html"), "utf8"));
-	try {
-		return read(dom.window.document);
-	} finally {
-		dom.window.close();
-	}
 }
 
 function categoryLinks(document) {
@@ -299,7 +289,7 @@ it("Without JavaScript the blog home offers the full archive instead of Load mor
 		const hrefs = await cardHrefs(page);
 		assert.deepEqual(
 			[...hrefs].sort(),
-			published.map(({ slug }) => `/blog/${slug}/`).sort(),
+			published.map(({ slug }) => postHref(slug)).sort(),
 			"the archive lists exactly the published posts",
 		);
 	} finally {
@@ -372,9 +362,7 @@ it("Category pages list only their own published posts, an empty category says s
 	assert.deepEqual(
 		links,
 		[
-			...new Set(
-				published.map(({ category }) => `/blog/category/${category}/`),
-			),
+			...new Set(published.map(({ category }) => categoryHref(category))),
 		].sort(),
 		"the links keep each category slug's case",
 	);

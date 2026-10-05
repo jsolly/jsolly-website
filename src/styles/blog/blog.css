@@ -211,8 +211,10 @@
 	.card-copy {
 		padding: 1.2rem 1.4rem;
 	}
-	.post-card h2 {
+	/* Card titles are h2 in a list and h3 under a post's "Related posts". */
+	.post-card :is(h2, h3) {
 		margin: 0.1rem 0 0.6rem;
+		font-size: 1.35rem;
 	}
 	.post-card-link {
 		text-decoration: none;
@@ -654,7 +656,7 @@
 		color: var(--text);
 		text-decoration: none;
 	}
-	.post-card h2 a {
+	.post-card :is(h2, h3) a {
 		color: var(--heading);
 	}
 
