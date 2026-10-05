@@ -13,7 +13,7 @@
 		"preview": "astro preview",
 		"lint": "biome lint --no-errors-on-unmatched",
 		"format": "biome format --no-errors-on-unmatched --write",
-		"check:ts": "astro check --minimumSeverity error --minimumFailingSeverity error && svelte-check --tsconfig ./tsconfig.json --fail-on-warnings",
+		"check:ts": "astro check --minimumSeverity error --minimumFailingSeverity error && svelte-check --tsconfig ./tsconfig.json --threshold error",
 		"check:knip": "knip --no-progress",
 		"test": "node scripts/run-tests.mjs unit",
 		"test:built": "node scripts/run-tests.mjs built",
@@ -49,7 +49,7 @@
 		"markdownlint-cli2": "^0.23.2",
 		"playwright": "1.63.0",
 		"sharp": "^0.35.3",
-		"svelte-check": "^4.7.6",
+		"svelte-check": "4.7.6",
 		"tailwindcss": "^4.3.3",
 		"typescript": "^6.0.3",
 		"vercel": "^59.17.0"
