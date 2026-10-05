@@ -1,9 +1,8 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import fs from "node:fs/promises";
 import it from "node:test";
-import { globby } from "globby";
 import { JSDOM } from "jsdom";
+import { readBuiltPages } from "./built/pages.mjs";
 import { parseDirectives, readHeaderPolicy } from "./csp.mjs";
 
 const WHITESPACE = /\s+/u;
@@ -11,16 +10,21 @@ const SCHEME_SOURCE = /^[a-z][a-z\d+.-]*:$/iu;
 // The origin 'self' resolves to in production, and the base for relative URLs.
 const SITE_ORIGIN = "https://www.jsolly.com";
 const SCRIPT_TYPES = ["module", "text/javascript", "application/javascript"];
-
-async function readBuiltPages() {
-	const files = await globby("dist/**/*.html");
-	return Promise.all(
-		files.map(async (file) => ({
-			file,
-			html: await fs.readFile(file, "utf8"),
-		})),
-	);
-}
+// BlogLayout's per-page directives (plan §1.13, J6): legacy post images and
+// the YouTube, diagrams.net and nbviewer embeds, on dist/blog/** only.
+// Page paths relative to dist/.
+const BLOG_PAGES = "blog/";
+const BLOG_IMG_SRC = [
+	"'self'",
+	"data:",
+	"https://d1d7p8ufhgz4ld.cloudfront.net",
+];
+const BLOG_FRAME_SRC = [
+	"https://www.youtube.com",
+	"https://www.youtube-nocookie.com",
+	"https://viewer.diagrams.net",
+	"https://nbviewer.org",
+];
 
 function findMetaPolicy(document) {
 	return document.head.querySelector(
@@ -131,6 +135,32 @@ it("every built page image loads under both the header and the page meta policy"
 					`${file}: ${shown} needs a per-page img-src; the Astro meta falls back to default-src 'self'`,
 				);
 			}
+		} finally {
+			dom.window.close();
+		}
+	}
+});
+
+it("blog pages, and only blog pages, allow CloudFront post images and the four embed hosts in their meta policy", async () => {
+	const pages = await readBuiltPages();
+	const blogPages = pages.filter(({ file }) => file.startsWith(BLOG_PAGES));
+	assert.ok(blogPages.length > 0, "built blog pages are required");
+	for (const { file, html } of pages) {
+		const dom = new JSDOM(html);
+		try {
+			const meta = findMetaPolicy(dom.window.document);
+			assert.ok(meta, `${file}: policy is in the head`);
+			const directives = parseDirectives(meta.getAttribute("content"));
+			assert.deepEqual(
+				{
+					"img-src": directives.get("img-src") ?? null,
+					"frame-src": directives.get("frame-src") ?? null,
+				},
+				file.startsWith(BLOG_PAGES)
+					? { "img-src": BLOG_IMG_SRC, "frame-src": BLOG_FRAME_SRC }
+					: { "img-src": null, "frame-src": null },
+				`${file}: the meta widens img-src and frame-src on blog pages only`,
+			);
 		} finally {
 			dom.window.close();
 		}

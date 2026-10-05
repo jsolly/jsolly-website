@@ -1,6 +1,6 @@
 import { decodeHTML } from "entities";
 import sanitizeHtml from "sanitize-html";
-import { DEFAULT_IMAGE, LEGACY_MEDIA } from "./constants.js";
+import { DEFAULT_IMAGE, EMBED_HOSTS, LEGACY_MEDIA } from "./constants.js";
 
 const ABSOLUTE_HTTP = /^https?:\/\//iu;
 const MEDIAFILES_PREFIX = /^mediafiles\//u;
@@ -77,12 +77,7 @@ const ARTICLE_SANITIZE: sanitizeHtml.IOptions = {
 		source: ["src", "type"],
 	},
 	allowedSchemes: ["https", "http", "mailto"],
-	allowedIframeHostnames: [
-		"www.youtube.com",
-		"www.youtube-nocookie.com",
-		"viewer.diagrams.net",
-		"nbviewer.org",
-	],
+	allowedIframeHostnames: EMBED_HOSTS,
 	allowedStyles: {
 		"*": {
 			width: [ZERO_OR_LENGTH],

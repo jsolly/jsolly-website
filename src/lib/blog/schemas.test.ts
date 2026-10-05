@@ -1,6 +1,11 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { categorySchema, postSchema } from "./schemas.js";
+import {
+	categoryCounts,
+	categorySchema,
+	postSchema,
+	publishedContent,
+} from "./schemas.js";
 
 // Frontmatter as PagesCMS saves it, plus the unmanaged legacy fields.
 const CMS_POST = {
@@ -68,5 +73,119 @@ describe("blog collection schemas", () => {
 
 	it("A post saved with an empty title fails validation", () => {
 		assert.deepEqual(failingPaths({ ...CMS_POST, title: "" }), ["title"]);
+	});
+});
+
+// A loaded post entry as getCollection returns it, reduced to what the
+// collection-wide checks read.
+function entry(
+	slug: string,
+	category: string,
+	published: string,
+	overrides: { draft?: boolean; body?: string; html?: string } = {},
+) {
+	return {
+		body: overrides.body ?? "Notes from the field.",
+		rendered: { html: overrides.html ?? "<p>Notes from the field.</p>" },
+		data: {
+			slug,
+			category,
+			draft: overrides.draft ?? false,
+			published: new Date(published),
+		},
+	};
+}
+
+const CATEGORIES = [
+	{ data: { slug: "Web-Development", name: "Web Development" } },
+	{ data: { slug: "Geodev", name: "Geodev" } },
+	{ data: { slug: "Productivity", name: "Productivity" } },
+];
+
+const POSTS = [
+	entry("intro-to-stac-apis", "Geodev", "2023-01-15T12:00:00Z"),
+	entry("mapbox-vector-tiles", "Geodev", "2024-06-01T12:00:00Z"),
+	entry("content-security-policy", "Web-Development", "2025-03-10T12:00:00Z"),
+	entry("weekly-review-template", "Productivity", "2026-09-01T12:00:00Z", {
+		draft: true,
+	}),
+];
+
+describe("published blog content", () => {
+	it("A reader sees published posts newest first, never drafts, and categories by name", () => {
+		const { posts, categories } = publishedContent(POSTS, CATEGORIES);
+		assert.deepEqual(
+			posts.map((post) => [post.data.slug, post.html]),
+			[
+				["content-security-policy", "<p>Notes from the field.</p>"],
+				["mapbox-vector-tiles", "<p>Notes from the field.</p>"],
+				["intro-to-stac-apis", "<p>Notes from the field.</p>"],
+			],
+		);
+		assert.deepEqual(
+			categories.map((category) => category.data.slug),
+			["Geodev", "Productivity", "Web-Development"],
+		);
+	});
+
+	it("The categories menu counts each category's published posts, in name order", () => {
+		const { posts, categories } = publishedContent(POSTS, CATEGORIES);
+		const menu = categoryCounts(posts, categories);
+		assert.deepEqual(menu, [
+			{ slug: "Geodev", name: "Geodev", count: 2 },
+			{ slug: "Productivity", name: "Productivity", count: 0 },
+			{ slug: "Web-Development", name: "Web Development", count: 1 },
+		]);
+		assert.equal(
+			menu.reduce((sum, { count }) => sum + count, 0),
+			POSTS.filter((post) => !post.data.draft).length,
+			"the counts cover every published post and no draft",
+		);
+	});
+
+	it("The build stops on an empty article, a duplicate post or category slug, or an unknown category, naming the offender", () => {
+		const cases = [
+			{
+				entries: [
+					entry("untitled-draft", "Geodev", "2026-01-01T00:00:00Z", {
+						body: "  ",
+					}),
+				],
+				categories: CATEGORIES,
+				message: "Empty article: untitled-draft",
+			},
+			{
+				entries: [
+					entry("unrendered-post", "Geodev", "2026-01-01T00:00:00Z", {
+						html: "",
+					}),
+				],
+				categories: CATEGORIES,
+				message: "Empty article: unrendered-post",
+			},
+			{
+				entries: [
+					entry("mapbox-vector-tiles", "Geodev", "2024-06-01T12:00:00Z"),
+					entry("mapbox-vector-tiles", "Geodev", "2025-06-01T12:00:00Z"),
+				],
+				categories: CATEGORIES,
+				message: "Duplicate post slug: mapbox-vector-tiles",
+			},
+			{
+				entries: [],
+				categories: [...CATEGORIES, CATEGORIES[1]],
+				message: "Duplicate category slug: Geodev",
+			},
+			{
+				entries: [entry("bread-starter", "Baking", "2026-01-01T00:00:00Z")],
+				categories: CATEGORIES,
+				message: "Unknown category: Baking (post bread-starter)",
+			},
+		];
+		for (const { entries, categories, message } of cases) {
+			assert.throws(() => publishedContent(entries, categories), {
+				message,
+			});
+		}
 	});
 });

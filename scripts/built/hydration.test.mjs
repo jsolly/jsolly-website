@@ -250,7 +250,7 @@ after(async () => {
 	await copy?.remove();
 });
 
-for (const path of ["/", "/about/"]) {
+for (const path of ["/", "/about/", "/blog/works-cited/"]) {
 	it(`a visitor opening ${path} gets the navigation island hydrated in place`, async (t) => {
 		const [shipped, baseline] = await Promise.all([
 			nodeReuse(sites.shipped, path),
@@ -284,6 +284,122 @@ for (const path of ["/", "/about/"]) {
 		);
 	});
 }
+
+it("a phone visitor on a blog page opens and closes the hydrated menu", async () => {
+	const context = await browser.newContext({
+		viewport: { width: 390, height: 844 },
+	});
+	try {
+		const page = await context.newPage();
+		const errors = [];
+		page.on("pageerror", (error) => errors.push(error.message));
+		await page.goto(`${sites.shipped.origin}/blog/works-cited/`);
+		const toggle = page.getByRole("button", { name: "Menu" });
+		const panel = page.locator("#mobile-navigation");
+		const allPosts = page.getByRole("link", { name: "All posts" }).first();
+		await page.waitForFunction(
+			() => !document.querySelector("astro-island[ssr]"),
+		);
+		// onMount enables the toggle in the same update that makes the
+		// collapsed panel inert on a phone.
+		await page.waitForFunction(
+			() => document.querySelector(".menu-toggle")?.disabled === false,
+		);
+		// Svelte applies a click's state change on its next update, so each
+		// check waits for aria-expanded to settle before reading both values.
+		const settled = async (expanded) => {
+			await page.waitForFunction(
+				(value) =>
+					document
+						.querySelector(".menu-toggle")
+						?.getAttribute("aria-expanded") === value,
+				expanded,
+			);
+			return {
+				expanded: await toggle.getAttribute("aria-expanded"),
+				inert: await panel.evaluate((element) => element.inert),
+			};
+		};
+		assert.deepEqual(await settled("false"), {
+			expanded: "false",
+			inert: true,
+		});
+		await toggle.click();
+		assert.deepEqual(await settled("true"), {
+			expanded: "true",
+			inert: false,
+		});
+		await allPosts.waitFor({ state: "visible" });
+		await toggle.click();
+		assert.deepEqual(await settled("false"), {
+			expanded: "false",
+			inert: true,
+		});
+		assert.deepEqual(errors, [], "no page errors");
+	} finally {
+		await context.close();
+	}
+});
+
+it("a desktop visitor on a blog page uses the header links with no menu toggle", async () => {
+	const context = await browser.newContext({
+		viewport: { width: 1280, height: 800 },
+	});
+	try {
+		const page = await context.newPage();
+		const errors = [];
+		page.on("pageerror", (error) => errors.push(error.message));
+		await page.goto(`${sites.shipped.origin}/blog/works-cited/`);
+		await page.waitForFunction(
+			() => document.querySelector(".menu-toggle")?.disabled === false,
+		);
+		assert.equal(
+			await page.locator("#mobile-navigation").evaluate((panel) => panel.inert),
+			false,
+			"the header links stay reachable on desktop",
+		);
+		assert.equal(
+			await page.locator(".menu-toggle").isVisible(),
+			false,
+			"desktop shows no menu toggle",
+		);
+		// The archive lands in B07; reaching its URL proves the click went through.
+		await Promise.all([
+			page.waitForURL("**/blog/all-posts/"),
+			page.locator("header").getByRole("link", { name: "All posts" }).click(),
+		]);
+		assert.deepEqual(errors, [], "no page errors");
+	} finally {
+		await context.close();
+	}
+});
+
+it("a phone visitor without JavaScript gets the expanded header menu from the noscript stylesheet", async () => {
+	const context = await browser.newContext({
+		viewport: { width: 390, height: 844 },
+		javaScriptEnabled: false,
+	});
+	try {
+		const page = await context.newPage();
+		await page.goto(`${sites.shipped.origin}/blog/works-cited/`);
+		const header = page.locator("header");
+		assert.equal(
+			await page.locator(".menu-toggle").isVisible(),
+			false,
+			"no-script.css hides the toggle that needs JavaScript",
+		);
+		const categories = header.getByText("Categories", { exact: true });
+		assert.equal(await categories.isVisible(), true, "Categories shows");
+		await categories.click();
+		await header.locator("details.category-menu[open]").waitFor();
+		await Promise.all([
+			page.waitForURL("**/blog/all-posts/"),
+			header.getByRole("link", { name: "All posts" }).click(),
+		]);
+	} finally {
+		await context.close();
+	}
+});
 
 it("A production build's HTML post-processing leaves every island's hydration markers intact on every page and drops every other comment", () => {
 	const markers = (pages) =>

@@ -1,6 +1,7 @@
 // A throwaway copy of the working tree for built tests that need their own
-// build (today: the unprocessed baseline in hydration.test.mjs). The real tree,
-// its dist/ and its Astro data store are never touched.
+// build (today: the unprocessed baseline in hydration.test.mjs and the
+// maintenance build in blog-maintenance.test.mjs). The real tree, its dist/
+// and its Astro data store are never touched.
 //
 // - Files: the `git ls-files -co --exclude-standard` set, so gitignored output
 //   (dist/, .astro/, node_modules/) never comes across.
@@ -89,6 +90,14 @@ export async function createTempCopy(label) {
 		// `astro build` in the copy, without process-html. Returns the spawn result.
 		astroBuild() {
 			return spawnSync(process.execPath, [ASTRO_BIN, "build"], {
+				cwd: dir,
+				encoding: "utf8",
+				maxBuffer: 64 * 1024 * 1024,
+			});
+		},
+		// `npm run <script>` in the copy. Returns the spawn result.
+		npmRun(script) {
+			return spawnSync("npm", ["run", script], {
 				cwd: dir,
 				encoding: "utf8",
 				maxBuffer: 64 * 1024 * 1024,

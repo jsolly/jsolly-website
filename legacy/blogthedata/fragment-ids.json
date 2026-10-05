@@ -1,0 +1,810 @@
+{
+	"source_sha": "86bbaf29bfaa60b35ce0cc943dcd4cb46c061adc",
+	"pages": {
+		"/": ["about-author"],
+		"/post/12-questions-you-should-ask-at-your-next-interview/": [
+			"12-interview-questions-to-ask-insights-into-the-company-and-role",
+			"about-author"
+		],
+		"/post/15-minute-dump-and-go-instant-pot-recipes/": [
+			"about-author",
+			"easy-meals--smoothies",
+			"meal-results"
+		],
+		"/post/Achieve-consistent-builds-with-Python-constraints/": [
+			"about-author",
+			"streamlining-dependency-management-using-constraints-files-in-django"
+		],
+		"/post/Adding-code-snippets-ckeditor/": [
+			"about-author",
+			"adding-code-snippets-to-ckeditor-a-step-by-step-guide"
+		],
+		"/post/Adding-spell-check-django-ckeditor/": [
+			"about-author",
+			"after",
+			"before",
+			"enhance-your-blog-enable-spell-checking-with-scayt-in-django-ckeditor",
+			"intro",
+			"note"
+		],
+		"/post/Adding-views-likes-to-posts/": [
+			"about-author",
+			"implementing-anonymous-likes-and-views-in-django---a-guide"
+		],
+		"/post/Exploring-the-STAC-APIs-with-IPython-Notebooks/": [
+			"about-author",
+			"introduction-to-the-stac-specification-for-geospatial-data"
+		],
+		"/post/Find-Your-Dream-Job-With-LinkedIn-Boolean-Search/": [
+			"about-author",
+			"conclusion",
+			"find-relevant-keywords",
+			"finding-gis-jobs-with-linkedin-boolean-search-a-guide",
+			"show-me-as-many-gis-jobs-as-possible",
+			"show-me-gis-jobs-that-dont-mention-gis",
+			"show-me-open-source-gis-positions",
+			"show-me-open-source-gis-positions-in-austin-tx",
+			"the-query-i-use-to-find-gis-jobs"
+		],
+		"/post/How-Ive-made-blogthedata-more-accessible/": [
+			"about-author",
+			"improving-web-accessibility-with-figma-wireframes"
+		],
+		"/post/I-made-my-code-async-its-388-percent-faster/": [
+			"about-author",
+			"asynchronous",
+			"conclusion",
+			"speed-up-rest-calls-with-asyncio--get-388-faster-results",
+			"synchronous"
+		],
+		"/post/I-re-created-1979-Atari-game-asteroids-with-JS/": [
+			"about-author",
+			"geoasteroids-refactoring-a-js-asteroids-clone-into-a-gis-game"
+		],
+		"/post/I-replaced-for-loops-with-for-of-loops-cleaner/": [
+			"about-author",
+			"cleaner-code-using-forof-loops-in-javascript"
+		],
+		"/post/I-resolved-150-linting-issues-with-eslint/": [
+			"about-author",
+			"using-eslint-and-husky-to-improve-code-quality-in-a-game-project"
+		],
+		"/post/Migrating-from-apache-to-Nginx-Gunicorn/": [
+			"about-author",
+			"switching-to-nginx-and-gunicorn-updating-my-blogs-web-server"
+		],
+		"/post/Planetary-Computer-STAC-Landsat-data/": [
+			"about-author",
+			"exploring-geospatial-data-with-the-pystac_client-library-and-stac"
+		],
+		"/post/Prettier-code-formatter-breaks-Django-templates/": [
+			"about-author",
+			"why-you-shouldnt-use-prettier-on-django-template-files"
+		],
+		"/post/TypeScript-revealed-210-issues-JavaScript-codebase/": [
+			"about-author",
+			"adding-typescript-to-a-javascript-project--a-step-by-step-guide"
+		],
+		"/post/UI-enhancement-leads-to-major-architecture-changes/": [
+			"about-author",
+			"django-context-processors-and-multi-stage-migrations-lessons-learned"
+		],
+		"/post/adding-global-search/": [
+			"about-author",
+			"searching-for-answers---implementing-search-functionality-to-the-site"
+		],
+		"/post/adding-slugified-urls/": [
+			"about-author",
+			"adding-slugified-urls-a-step-by-step-guide-to-updating-your-urls"
+		],
+		"/post/admin-honeypot-page-to-catch-hackers/": [
+			"about-author",
+			"securing-your-django-admin-page-with-django-admin-honeypot"
+		],
+		"/post/automate-python-testing-linting-pre-commit-hooks/": [
+			"about-author",
+			"automate-python-testing-and-linting-with-pre-commit-hooks"
+		],
+		"/post/break-youtube-addiction-turning-off-your-history/": [
+			"about-author",
+			"how-to-break-the-youtube-addiction-turning-off-your-history",
+			"how-to-turn-off-youtube-history",
+			"what-are-the-pros-and-cons-of-removing-youtube-history",
+			"what-youtube-is-like-post-history-scrubbing"
+		],
+		"/post/calculate-ndvi-ipfs-geoanalysis/": [
+			"about-author",
+			"calculating-ndvi-with-ipfs-for-geospatial-analysis"
+		],
+		"/post/clay-personal-crm-tool-managing-relationships/": [
+			"about-author",
+			"clay-reminders",
+			"clay-search",
+			"conclusion",
+			"manage-relationships-and-stay-connected-how-personal-crms-can-help",
+			"my-clay-setup",
+			"stay-up-to-date-with-your-network"
+		],
+		"/post/cloudflare-minify-optimizations-broke-sri/": [
+			"about-author",
+			"solve-cloudflares-auto-minify-and-subresource-integrity-conflict"
+		],
+		"/post/code-analysis-and-pip-dependency-check-in-GitHub/": [
+			"about-author",
+			"automate-security-in-your-ci-workflow-with-codeql-and-dependabot",
+			"conclusion",
+			"dependabot"
+		],
+		"/post/compress-minify-assets-69-percent-faster-page-load/": [
+			"about-author",
+			"after-making-changes-with-whitenoise--gzipmiddleware",
+			"before-optimization",
+			"boost-page-speed-minification-and-compression-for-static-assets",
+			"conclusion"
+		],
+		"/post/conventional-commits/": [
+			"about-author",
+			"git-good-making-the-move-to-conventional-commits",
+			"if-you-click-on-one-of-the-commits-you-see-the-whole-thing",
+			"implementing-in-vscode",
+			"this-is-what-the-commits-look-like-in-git"
+		],
+		"/post/convert-images-to-webp-25-percent-smaller-payloads/": [
+			"about-author",
+			"speed-up-your-website-with-webp-image-conversion-a-step-by-step-guide"
+		],
+		"/post/cosine-similarity-better-than-tags/": [
+			"about-author",
+			"conclusion",
+			"cosine-similarity--tags",
+			"moving-beyond-tags",
+			"step-1---create-a-django-class-for-keeping-track-of-the-post-similarities",
+			"why-cosine-similarity-beats-tags-for-blog-organization",
+			"why-tags-suck"
+		],
+		"/post/create-website-title-generator-python-htmx-django/": [
+			"about-author",
+			"create-a-website-title-generator-with-gpt3-python-htmx-and-django",
+			"part-1",
+			"part-2"
+		],
+		"/post/deploy-to-remote-server-on-push-in-10-lines/": [
+			"about-author",
+			"caveats",
+			"simplifying-automatic-deployments-using-git-pull-with-ci-workflow"
+		],
+		"/post/django-automatic-redirects-in-two-lines-of-code/": [
+			"about-author",
+			"fixing-broken-links-with-djangos-redirects-app"
+		],
+		"/post/django-htmx-real-time-comments/": [
+			"about-author",
+			"video-effortless-real-time-comments-in-django-using-htmx"
+		],
+		"/post/domain-name-value/": [
+			"about-author",
+			"getting-an-appraisal-on-your-domain-name-godaddy-vs-estibot"
+		],
+		"/post/emotional-intelligence-book-executive-summary/": [
+			"about-author",
+			"increasing-your-eq-the-66-strategies-of-emotional-intelligence-20",
+			"references",
+			"relationship-management",
+			"relationship-management-strategies-1-17",
+			"self-awareness",
+			"self-awareness-strategies-1-15",
+			"self-management",
+			"self-management-strategies-1-17",
+			"social-awareness",
+			"social-awareness-strategies-1-17",
+			"the-4-skills",
+			"what-is-my-eq"
+		],
+		"/post/exploring-new-ideas-with-gpt/": [
+			"about-author",
+			"conclusion",
+			"explore-spatial-analysis",
+			"exploring-new-ideas-with-gpt-and-bracket-directives",
+			"metaphors-to-understand-new-topics"
+		],
+		"/post/finding-reliable-information/": [
+			"about-author",
+			"great-how-can-i-find-high-quality-research",
+			"navigate-the-digital-ocean-tips--tricks-to-find-quality-information",
+			"what-if-an-experts-opinion-can-only-answer-my-question",
+			"what-is-the-hierarchy-of-evidence-and-why-should-i-care"
+		],
+		"/post/fixing-coding-pain-ergonomic-tips/": [
+			"1-how-i-fixed-my-neck-pain-monitor-distance",
+			"2-how-i-fixed-my-wrist-pain-switching-mice",
+			"3-how-i-fixed-my-middle-finger-pain-dual-mouse-setup",
+			"about-author",
+			"conclusion",
+			"how-i-fixed-my-neck-wrist-and-finger-pain-as-a-software-engineer",
+			"key-takeaways",
+			"the-quick-wins-my-top-ergonomic-tips"
+		],
+		"/post/free-cdn-for-17x-speed/": [
+			"about-author",
+			"cloudflares-edge-network",
+			"conclusion",
+			"unlock-1714-faster-site-speeds-with-cloudflares-edge-network"
+		],
+		"/post/geospatial-job-interview-tips/": [
+			"about-author",
+			"ace-your-geospatial-professional-job-interview-tips-and-questions",
+			"backgroundculture-fit-questions",
+			"conclusion",
+			"emotional-intelligence-questions",
+			"general-tips",
+			"questions",
+			"technical-questions",
+			"timework-management"
+		],
+		"/post/get-a-perfect-score-on-seo-tool-ahrefs/": [
+			"about-author",
+			"alt-text-h1-tags-meta-descriptionstitles",
+			"conclusion",
+			"duplicate-pages-without-canonical",
+			"improving-website-health-with-ahrefs-a-step-by-step-guide",
+			"removing-the-remaining-duplicate-pages",
+			"top-issues"
+		],
+		"/post/gis-job-search-resources/": [
+			"about-author",
+			"cover-letters-and-resumes",
+			"find-your-dream-job-a-guide-to-job-searching-and-interviewing",
+			"finding-a-position",
+			"interviewing",
+			"job-fairs--conferences",
+			"linkedin",
+			"non-verbalsappearance",
+			"researching-a-company",
+			"what-did-i-miss"
+		],
+		"/post/git-hooks-to-perform-collectstatic/": [
+			"about-author",
+			"using-pre-commit-hooks-to-automate-collectstatic-in-django"
+		],
+		"/post/google-lighthouse-audit/": [
+			"about-author",
+			"blogthedatacom-desktop-score",
+			"blogthedatacom-mobile-score",
+			"optimizing-your-websites-performance-with-a-google-lighthouse-audit"
+		],
+		"/post/google-lighthouse-perfect-score/": [
+			"about-author",
+			"after",
+			"after-higher-contrast",
+			"before",
+			"getting-a-near-perfect-google-lighthouse-score-heres-how-i-did-it"
+		],
+		"/post/help-google-spider-with-sitemaps-and-robots-file/": [
+			"about-author",
+			"improve-seo-with-a-sitemapxml--robotstxt---a-guide"
+		],
+		"/post/how-I-present-portfolio-projects-to-impress/": [
+			"about-author",
+			"additional-resources",
+			"create-an-effective-dev-portfolio-for-hiring-managers--developers",
+			"intro",
+			"motivation-and-target-audience",
+			"project-thumbnail-and-preview",
+			"section-1---purpose-and-goal",
+			"section-2---spotlight",
+			"section-3---tech-stack-explanation",
+			"section-4---lessons-learned",
+			"section-5---current-status-optional",
+			"things-to-keep-in-mind",
+			"what-developers-are-looking-for",
+			"what-hiring-managers-are-looking-for"
+		],
+		"/post/how-many-manual-qa-do-you-need/": [
+			"about-author",
+			"conclusions",
+			"find-the-optimal-qa-to-developer-ratio-data-driven-hiring-decisions"
+		],
+		"/post/how-to-add-a-404-page-to-your-django-app/": [
+			"about-author",
+			"creating-a-custom-404-page-in-django-a-step-by-step-guide"
+		],
+		"/post/how-to-add-leaflet-js-maps-inside-a-django-site/": [
+			"about-author",
+			"creating-interactive-maps-with-leafletjs-a-step-by-step-guide"
+		],
+		"/post/how-to-add-social-share-buttons-to-your-website/": [
+			"about-author",
+			"add-social-share-buttons-to-your-blog-posts-with-opengraph-tags",
+			"conclusion",
+			"linkedin",
+			"reddit",
+			"twitter"
+		],
+		"/post/how-to-ask-less-questions/": [
+			"about-author",
+			"anticipate-replies-with-answers",
+			"final-thoughts",
+			"proactive-solutions-to-avoid-unnecessary-questions-and-meetings",
+			"replace-questions-with-assumptions",
+			"stop-scheduling-meetings-manually"
+		],
+		"/post/how-to-ask-questions-like-a-senior-engineer/": [
+			"about-author",
+			"bonus-enhancements-ive-made-in-open-source-repos-that-were-implemented",
+			"example-questions-ive-asked-in-open-source-repos",
+			"how-to-ask-questions-like-a-senior-engineer",
+			"steps-to-ask-a-good-programming-question"
+		],
+		"/post/how-to-create-subtle-shaking-navbar-links/": [
+			"about-author",
+			"add-a-subtle-shake-effect-to-your-website-with-css-animations"
+		],
+		"/post/how-to-debug-an-astro-app/": [
+			"about-author",
+			"how-to-debug-an-astro-application-in-vscode-video"
+		],
+		"/post/how-to-get-100-percent-unit-test-coverage/": [
+			"about-author",
+			"achieving-100-unit-test-coverage--a-step-by-step-guide"
+		],
+		"/post/how-to-get-a-perfect-mozilla-observatory-score/": [
+			"about-author",
+			"caa-record",
+			"certificate-and-dns-settings",
+			"content-security-policy-csp",
+			"csrf_cookie_httponly",
+			"dnssec",
+			"false-alarms-and-things-i-cant-change",
+			"hide-server-version-from-http-header",
+			"how-i-improved-my-security-score-with-mozilla-observatory-a-guide",
+			"http-security-headers",
+			"ocsp-stapling",
+			"outstanding-items-to-fix",
+			"securing-django-at-the-app-level",
+			"securing-the-web-server",
+			"subresource-integrity-sri"
+		],
+		"/post/how-to-get-perfect-linting-compliance/": [
+			"about-author",
+			"adhering-to-pep-8-style-guidelines-cleaning-up-blogthedatacom-code",
+			"rulers-in-vscode"
+		],
+		"/post/how-to-implement-content-security-policy-django/": [
+			"about-author",
+			"broken-styling-on-the-sitemap-page",
+			"conclusion",
+			"improve-security-with-a-content-security-policy--a-step-by-step-guide",
+			"kofi-donate-button-and-mailchimp-embed-form-had-inline-styles-and-scripts",
+			"my-approach-and-gotchas-encountered",
+			"social-share-embedded-scripts-and-styles"
+		],
+		"/post/how-to-implement-subresource-integrity-django/": [
+			"about-author",
+			"conclusion",
+			"improving-security-with-sri-from-f-to-b-on-mozilla-observatory"
+		],
+		"/post/how-to-send-email-with-python-the-hard-way/": [
+			"about-author",
+			"success-how-i-finally-got-password-reset-emails-working-for-my-blog"
+		],
+		"/post/how-to-setup-logging-in-your-django-app/": [
+			"about-author",
+			"setting-up-logging-in-a-django-app-a-step-by-step-guide"
+		],
+		"/post/how-to-test-and-debug-django-templates/": [
+			"about-author",
+			"code-coverage-for-templates",
+			"uncover-hidden-errors-in-django-templates-with-django-fastdev"
+		],
+		"/post/how-to-use-ChatGPT-for-GeoDev-Interview-practice/": [
+			"about-author",
+			"act-as-a-talent-coach-for-a-geospatial-developer",
+			"act-as-an-interviewer-for-a-geodev-position",
+			"conclusion",
+			"how-to-use-chatgpt-to-practice-for-a-geodev-interview"
+		],
+		"/post/implement-continuous-integration-github-actions/": [
+			"about-author",
+			"adding-ci-to-your-project-setting-up-github-actions-for-blogthedata",
+			"conclusion",
+			"intro",
+			"note"
+		],
+		"/post/implement-infinite-scroll-in-django-with-htmx/": [
+			"about-author",
+			"conclusion",
+			"eliminating-duplicate-pages-with-htmx-infinite-scrolling",
+			"legacy-implementation",
+			"note"
+		],
+		"/post/import-libraries-vs-rolling-own/": [
+			"about-author",
+			"importing-libraries-vs-rolling-your-own"
+		],
+		"/post/improve-sleep-quality-red-screens-ios-macos/": [
+			"about-author",
+			"conclusion",
+			"how-to-get-a-red-screen-on-your-iphone",
+			"leverage-night-shift-on-iphone-and-macos",
+			"maximizing-sleep-quality-how-to-use-red-screens-on-ios-and-macos",
+			"red-screen-on-macos"
+		],
+		"/post/inspiring-aphorisms-axioms/": [
+			"about-author",
+			"intro",
+			"words-of-wisdom-a-collection-of-aphorisms-and-axioms"
+		],
+		"/post/integration-tests-are-a-scam-i-wrote-them-anyway/": [
+			"about-author",
+			"breaking-up-with-integration-tests-switch-to-collab--contract-tests"
+		],
+		"/post/mastering-gpt-directives-and-parameters/": [
+			"about-author",
+			"analyze",
+			"cross-reference",
+			"directives",
+			"disable",
+			"intro",
+			"mastering-gpt-a-guide-to-directives-and-parameters",
+			"parameters",
+			"write"
+		],
+		"/post/mastering-intuition-pumps-essential-terms-guide/": [
+			"7-tools-for-critical-thinking",
+			"about-author",
+			"antifragility",
+			"ashdening",
+			"bad-balancing",
+			"clean-cocaine",
+			"cob-webs",
+			"cold-shower-effect",
+			"collaboration-principle",
+			"dark-spidy",
+			"define-and-describe-vs-praise-and-dis-praise",
+			"dinkers-",
+			"evaluating-advice",
+			"facts-story-ask",
+			"future-timerssowingreaping",
+			"gift-boxing",
+			"grice-s-maxiums",
+			"hitlers-favorite-color",
+			"huh-really-and-so",
+			"im-just-kidding-__",
+			"imposition-equation",
+			"in-the-",
+			"in-the-brain",
+			"in-the-heart",
+			"informing-intuition",
+			"intellectual-standards",
+			"intro",
+			"john-maxwell-effect",
+			"kissing-in-line-effect",
+			"making-a-short-term-decision",
+			"mastering-intuition-pumps-essential-terms--a-comprehensive-guide",
+			"naive-spidy",
+			"negative-face",
+			"orgasm-effect",
+			"politeness-theory",
+			"positive-face",
+			"principle-of-charity",
+			"pudding",
+			"role-reversal",
+			"self-actualization",
+			"sharpening-a-turd",
+			"side-carting-",
+			"signs-someone-is-gaslighting-you",
+			"skin-in-the-game",
+			"smart-goals",
+			"social-currency",
+			"stinkers",
+			"terms",
+			"thats-not-the-real-x",
+			"the-solly-index",
+			"things-not-to-do",
+			"things-that-help-with-eq",
+			"things-that-make-people-like-you",
+			"things-that-make-people-not-like-you",
+			"things-to-do",
+			"things-to-get-started",
+			"useful-images",
+			"vocab-reference",
+			"webbing",
+			"what-is-emotional-intelligence"
+		],
+		"/post/migrating-bs4-to-bs5/": [
+			"about-author",
+			"migrating-from-bootstrap-4-to-5-refactoring-for-a-smooth-transition"
+		],
+		"/post/migrating-portfolio-from-django-to-astro-js/": [
+			"about-author",
+			"conclusion",
+			"django-to-astro-migrating-a-django-portfolio-to-astrojs",
+			"django-to-astrojs-here-i-go",
+			"motivation",
+			"reference"
+		],
+		"/post/migrating-to-ckeditor-5/": [
+			"about-author",
+			"conclusion",
+			"demystifying-the-ckeditor-4-to-5-migration-process-lessons-learned",
+			"existing-plugins",
+			"form-field-widgets",
+			"image-uploads",
+			"inline-scripts-and-styles"
+		],
+		"/post/migrating-to-django-4x/": [
+			"about-author",
+			"conclusion",
+			"migration-error",
+			"startup-error",
+			"the-upgrade",
+			"upgrading-to-django-40-navigating-dependency-and-migration-errors"
+		],
+		"/post/migrating-to-postgres-from-sqllite/": [
+			"about-author",
+			"migrating-from-sqlite-to-postgres-with-django---documenting-gotchas"
+		],
+		"/post/my-favorite-youtube-channels-podcasts-newsletters/": [
+			"about-author",
+			"discord-servers",
+			"favorite-youtubers",
+			"general-tech",
+			"gis",
+			"newsletters",
+			"other",
+			"podcasts",
+			"python",
+			"spatial",
+			"up-to-date-tech-resources-tutorials-podcasts-newsletters",
+			"webdev"
+		],
+		"/post/next-level-emoji-game-with-text-replacement/": [
+			"about-author",
+			"adding-personality-to-your-messages-a-guide-to-using-ascii-emojis",
+			"conclusion",
+			"how-to-easily-add-an-ascii-emoji-to-your-messages-on-macos-and-ios",
+			"johns-emoji-list",
+			"text-replacement-for-custom-ascii-emojis",
+			"why-we-should-use-emojis"
+		],
+		"/post/on-how-the-world-works/": [
+			"about-author",
+			"challenging-the-status-quo-reimagining-a-world-that-runs-on-love"
+		],
+		"/post/one-click-django-debug-runserver-livereload-chrome/": [
+			"about-author",
+			"how-to-launch-runserver-livereload-and-chrome-together-in-django"
+		],
+		"/post/optimizing-ahrefs-orphan-pages-duplicate-content/": [
+			"about-author",
+			"ahrefs-website-optimization-fix-orphan-pages--duplicate-content",
+			"conclusion",
+			"duplicate-content",
+			"fixing-3xxx-redirects",
+			"fixing-4xx-and-5xx-bad-links",
+			"fixing-bad-links-3xx-4xx-5xx",
+			"intro",
+			"lets-go-even-further",
+			"meta-descriptions-and-titles",
+			"orphan-pages"
+		],
+		"/post/optimizing-gpt-for-nlp-tips-and-tricks/": [
+			"about-author",
+			"conclusion",
+			"custom-markup-and-operators",
+			"explore-a-topic-with-dynamic-inline-values-directives",
+			"gpt-as-a-prompt-generator-example-2",
+			"inline-dynamically-generated-values",
+			"introduce-a--operator",
+			"introduce-a--operator-to-create-a-prompt-generator",
+			"introduction",
+			"learning-resources",
+			"optimizing-gpt-for-natural-language-processing-tips-and-tricks",
+			"shorten-prompts-to-stay-under-length-limits",
+			"text-transformations",
+			"tips-for-summarizing-text",
+			"useful-words-and-phrases"
+		],
+		"/post/productivity-flow-chart/": [
+			"about-author",
+			"creating-unique-content-applying-the-eisenhower-matrix"
+		],
+		"/post/security-txt-allows-researches-to-contact-you/": [
+			"about-author",
+			"secure-website-with-securitytxt-fight-web-vulnerabilities"
+		],
+		"/post/simplifying-ai-writing-template-complex-concepts/": [
+			"a-short-story",
+			"about-author",
+			"aspects-of-writing",
+			"conclusion",
+			"professional-writing",
+			"simplifying-ai-writing-template-for-breaking-down-complex-concepts",
+			"using-the-template"
+		],
+		"/post/smartly-load-CSS-JS-page-load-time/": [
+			"about-author",
+			"optimize-render-blocking-resources-with-template-blocks-in-django"
+		],
+		"/post/social-media-share-links-open-graph/": [
+			"about-author",
+			"show-the-right-image-in-linkedin-posts-with-the-open-graph-protocol"
+		],
+		"/post/solly-agent-rules-markdown/": [
+			"about-author",
+			"conversation-preferences",
+			"delegation",
+			"dependency-maintenance",
+			"operational-boundaries",
+			"planning-and-implementation",
+			"review-shipping-and-release",
+			"shared-recall",
+			"sollys-agent-rules"
+		],
+		"/post/solly-coverletter-outline-and-philosophy/": [
+			"about-author",
+			"first-paragraph-i-get-it",
+			"first-sentence-wow",
+			"second-paragraph-i-have-the-capacity-to-do-it",
+			"third-paragraph-i-want-it",
+			"writing-a-standout-cover-letter-tips-and-tricks-for-job-applications"
+		],
+		"/post/sollys-favorite-web-resources-and-tools/": [
+			"about-author",
+			"accessibility",
+			"discover-a-comprehensive-list-of-tools-for-web-dev-gis-and-more",
+			"icons-and-svgs",
+			"improve-writing",
+			"intro",
+			"learn-sql",
+			"learn-web-development",
+			"neat-little-tools",
+			"random",
+			"social-media-tools",
+			"startup-stocks-and-equity",
+			"super-lists-of-resources",
+			"typingvim-learning"
+		],
+		"/post/streamlining-todoist-workflow/": [
+			"about-author",
+			"conclusion",
+			"my-workflow",
+			"streamlining-todoist-my-simple-yet-effective-workflow"
+		],
+		"/post/test-strategy-no-existing-tests/": [
+			"a-new-test-strategy-introducing-the-testing-pyramid-to-my-blog",
+			"about-author"
+		],
+		"/post/three-scenarios-i-dont-use-tailwind/": [
+			"about-author",
+			"hoverfocus-states",
+			"i-use-tailwindcss-except-in-these-three-scenarios",
+			"pseudo-elements-before-after",
+			"tailwindcss-is-awesome",
+			"transitionsanimations",
+			"when-i-use-tailwind"
+		],
+		"/post/timeless-phrases-sayings/": [
+			"a-collection-of-timeless-phrases-and-sayings",
+			"about-author",
+			"intro",
+			"terms-and-phrases"
+		],
+		"/post/todo-workflow-7619-tasks/": [
+			"about-author",
+			"intro",
+			"organize-your-life-how-i-use-todoist-to-achieve-goals",
+			"step-1---write-tasks-down-as-you-think-of-them",
+			"step-2---start-organizing-tasks-into-buckets",
+			"step-3---determine-cadence-and-task-priority"
+		],
+		"/post/two-weird-reasons-I-love-unit-tests/": [
+			"about-author",
+			"unit-tests-as-a-design-tool",
+			"unit-tests-as-a-design-tool-increase-coverage-and-improve-your-code",
+			"unit-tests-as-a-refactoring-tool"
+		],
+		"/post/upgrading-to-the-latest-3x-django/": [
+			"about-author",
+			"backup-dependencies",
+			"perform-the-upgrade-in-prod",
+			"perform-the-upgrade-in-the-dev-environment",
+			"resolve-depreciation-warnings-and-run-unit-tests",
+			"review-release-notes",
+			"upgrading-to-the-latest-django-3x"
+		],
+		"/post/use-brave-search-goggles-to-improve-web-searches/": [
+			"about-author",
+			"optimizing-web-searches-with-braves-search-goggles"
+		],
+		"/post/use-noopener-norferrer-to-improve-user-privacy/": [
+			"about-author",
+			"protect-user-privacy-with-the-noreferrer-and-noopener-link-attributes"
+		],
+		"/post/using-a-freelancer-to-fix-a-bug/": [
+			"about-author",
+			"hired-freelancer-on-fiverr-to-fix-a-tricky-bug---my-success-story"
+		],
+		"/post/web3-notes-personal-reference/": [
+			"about-author",
+			"anchors",
+			"chunking",
+			"cid",
+			"committed-capacity",
+			"crypto-spatial-coordinate-standard",
+			"estuary",
+			"filecoin",
+			"filecoin-plus-fil",
+			"foam-mapping",
+			"intro",
+			"kademlia-algorithm-distributed-hash-tables-dhts",
+			"kyc",
+			"on-chainoff-chain",
+			"pol-proof-of-location",
+			"por-proof-of-replication",
+			"porep",
+			"post-proof-of-spacetime",
+			"reproviding",
+			"spatial-index",
+			"staking",
+			"summary",
+			"table-of-contents",
+			"tableland",
+			"verifiers",
+			"web3-finance",
+			"web3-notes-a-personal-reference",
+			"web3-terms"
+		],
+		"/post/why-I-stopped-using-pip-freeze/": [
+			"about-author",
+			"optimizing-your-projects-dependencies-a-guide-to-using-pip-freeze"
+		],
+		"/post/write-tests-2x-faster-with-github-copilot/": [
+			"about-author",
+			"ai-pair-programmers-writing-tests-with-github-copilot",
+			"conclusion",
+			"test-moveship",
+			"why-use-ai-pair-programmers",
+			"writing-tests-for-geoasteroids"
+		],
+		"/recipes/avocado-lime-smoothie/": ["avocado-lime-smoothie"],
+		"/recipes/banana-flax-smoothie/": ["banana-flax-smoothie"],
+		"/recipes/chicken-posole/": ["chicken-posole"],
+		"/recipes/cucumber-spinach-lime-smoothie/": [
+			"cucumber-spinach-lime-smoothie"
+		],
+		"/recipes/greek-turkey-patties/": ["greek-turkey-patties"],
+		"/recipes/harissa-chickpea-and-cauliflower-bowls/": [
+			"harissa-chickpea-and-cauliflower-bowls"
+		],
+		"/recipes/keto-zuppa-toscana/": ["keto-zuppa-toscana"],
+		"/recipes/lemon-chicken-potatoes-and-green-beans/": [
+			"lemon-chicken-potatoes-and-green-beans"
+		],
+		"/recipes/lemon-salmon-and-asparagus/": ["lemon-salmon-and-asparagus"],
+		"/recipes/meals/": ["meal-results"],
+		"/recipes/pan-fried-greek-turkey-patties/": [
+			"pan-fried-greek-turkey-patties"
+		],
+		"/recipes/pesto-cod-and-zucchini/": ["pesto-cod-and-zucchini"],
+		"/recipes/salsa-verde-shredded-chicken/": ["salsa-verde-shredded-chicken"],
+		"/recipes/shawarma-chicken-bowls/": ["shawarma-chicken-bowls"],
+		"/recipes/sheet-pan-chicken-fajitas/": ["sheet-pan-chicken-fajitas"],
+		"/recipes/sheet-pan-gnocchi-white-beans-and-broccoli/": [
+			"sheet-pan-gnocchi-white-beans-and-broccoli"
+		],
+		"/recipes/smoky-chicken-thighs-and-broccoli/": [
+			"smoky-chicken-thighs-and-broccoli"
+		],
+		"/recipes/smoothies/": ["meal-results"],
+		"/recipes/spinach-feta-and-hemp-frittata/": [
+			"spinach-feta-and-hemp-frittata"
+		],
+		"/recipes/strawberry-avocado-smoothie/": ["strawberry-avocado-smoothie"],
+		"/recipes/strawberry-banana-smoothie/": ["strawberry-banana-smoothie"],
+		"/recipes/strawberry-hemp-smoothie/": ["strawberry-hemp-smoothie"],
+		"/recipes/tomato-lentil-and-chicken-bake/": [
+			"tomato-lentil-and-chicken-bake"
+		]
+	}
+}

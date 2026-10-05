@@ -5,6 +5,7 @@ import it from "node:test";
 import { fileURLToPath } from "node:url";
 import { compile } from "@tailwindcss/node";
 import { Scanner } from "@tailwindcss/oxide";
+import { globby } from "globby";
 
 const ROOT = fileURLToPath(new URL("../..", import.meta.url));
 const STYLESHEET = resolve(ROOT, "src/styles/main.css");
@@ -14,8 +15,46 @@ const SOURCE_ROOTS = [
 	"src/pages/",
 	"src/lib/",
 ];
-// Directories under the source roots that must not feed main.css.
-const EXCLUDED = ["src/lib/blog/"];
+// Blog paths under the source roots: the blog has its own Tailwind entry
+// (src/styles/blog/ui.css), so they must not feed main.css.
+const BLOG_PATHS = [
+	"src/lib/blog/",
+	"src/components/blog/",
+	"src/pages/blog/",
+	"src/layouts/BlogLayout.astro",
+];
+// The shared shadcn-svelte parts feed main.css only when portfolio code
+// imports them; main.css excludes the directory and re-includes those files.
+const UI_DIR = "src/lib/components/ui/";
+const UI_IMPORT =
+	/["'][^"']*lib\/components\/ui\/(?<file>[\w-]+\.svelte)["']/gu;
+
+// The ui files portfolio code (the source roots minus blog paths and the ui
+// directory itself) imports.
+async function portfolioUiImports() {
+	const files = (
+		await globby(
+			SOURCE_ROOTS.map((root) => `${root}**/*.{astro,svelte,ts,js,mjs}`),
+			{ cwd: ROOT },
+		)
+	).filter(
+		(file) =>
+			!(
+				file.startsWith(UI_DIR) ||
+				BLOG_PATHS.some((path) => file.startsWith(path))
+			),
+	);
+	const sources = await Promise.all(
+		files.map((file) => readFile(resolve(ROOT, file), "utf8")),
+	);
+	return new Set(
+		sources.flatMap((source) =>
+			[...source.matchAll(UI_IMPORT)].map(
+				(match) => `${UI_DIR}${match.groups.file}`,
+			),
+		),
+	);
+}
 
 // The same source resolution @tailwindcss/vite performs for a stylesheet.
 async function scan() {
@@ -46,13 +85,20 @@ it("Tailwind builds the portfolio stylesheet only from the four portfolio source
 		[],
 		"files outside the portfolio source roots feed main.css",
 	);
-	const excluded = files.filter((file) =>
-		EXCLUDED.some((prefix) => file.startsWith(prefix)),
+	const blogFiles = files.filter((file) =>
+		BLOG_PATHS.some((path) => file.startsWith(path)),
 	);
 	assert.deepEqual(
-		excluded,
+		blogFiles,
 		[],
-		"excluded directories feed main.css; keep their @source not lines",
+		"blog paths feed main.css; keep their @source not lines",
+	);
+	const used = await portfolioUiImports();
+	assert.ok(used.size > 0, "portfolio code imports shared ui components");
+	assert.deepEqual(
+		files.filter((file) => file.startsWith(UI_DIR)).sort(),
+		[...used].sort(),
+		"exactly the ui components portfolio code imports feed main.css; match main.css's ui @source lines to them",
 	);
 	const unscannedRoots = SOURCE_ROOTS.filter(
 		(root) => !files.some((file) => file.startsWith(root)),
