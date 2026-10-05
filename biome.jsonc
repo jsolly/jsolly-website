@@ -302,6 +302,12 @@
 	},
 	"overrides": [
 		{
+			// PagesCMS owns these files: it rewrites each one with
+			// JSON.stringify(x, null, 2) and no final newline. Linting stays on.
+			"includes": ["src/content/blog/categories/**"],
+			"formatter": { "enabled": false }
+		},
+		{
 			"includes": ["**/*.astro"],
 			"linter": {
 				"rules": {
