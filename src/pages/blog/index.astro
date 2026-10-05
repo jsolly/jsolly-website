@@ -1,0 +1,9 @@
+---
+import AuthorCard from "../../components/blog/AuthorCard.astro";
+import PostCards from "../../components/blog/PostCards.svelte";
+import BlogLayout from "../../layouts/BlogLayout.astro";
+import { blogContent, cards } from "../../lib/blog/content.js";
+
+const { posts, categories } = await blogContent();
+---
+<BlogLayout title="Solly's Blog" section="blog"><AuthorCard /><h1>Latest Posts!</h1><PostCards posts={cards(posts, categories)} pageSize={3} client:load /></BlogLayout>

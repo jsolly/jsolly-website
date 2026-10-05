@@ -1,0 +1,21 @@
+---
+import type { InferGetStaticPropsType } from "astro";
+import PostCards from "../../../components/blog/PostCards.svelte";
+import BlogLayout from "../../../layouts/BlogLayout.astro";
+import { blogContent, cards } from "../../../lib/blog/content.js";
+
+export async function getStaticPaths() {
+	const { categories } = await blogContent();
+	return categories.map((entry) => ({
+		params: { slug: entry.data.slug },
+		props: { category: entry },
+	}));
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { category } = Astro.props;
+const { posts, categories } = await blogContent();
+const matching = posts.filter((post) => post.data.category === category.data.slug);
+---
+<BlogLayout title={category.data.name} description={category.data.description} section="blog"><h1>{category.data.name}</h1><p>{category.data.description}</p>{matching.length ? <PostCards posts={cards(matching, categories)} pageSize={3} client:load /> : <p>No posts in this category yet.</p>}</BlogLayout>

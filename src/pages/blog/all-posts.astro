@@ -1,0 +1,8 @@
+---
+import PostCards from "../../components/blog/PostCards.svelte";
+import BlogLayout from "../../layouts/BlogLayout.astro";
+import { blogContent, cards } from "../../lib/blog/content.js";
+
+const { posts, categories } = await blogContent();
+---
+<BlogLayout title="All posts" section="blog"><h1>All Posts!</h1><p>{posts.length} articles on development, spatial computing and productivity.</p><PostCards posts={cards(posts, categories)} /></BlogLayout>
