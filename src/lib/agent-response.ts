@@ -5,26 +5,34 @@ import {
 } from "../content/agent-pages.js";
 import {
 	appendVaryAccept,
+	isStaticDataPath,
 	normalizePagePath,
 	preferredType,
 	shouldNegotiate,
 	TRAILING_SLASHES_RE,
 } from "./accept-negotiate.js";
 
-/** Markdown / 406 response, or null to fall through to HTML. */
-export function agentResponse(request: Request): Response | null {
+/**
+ * Markdown / 406 response, or null to fall through to HTML or the static file.
+ * `routes` is the build's route manifest (see middleware.ts); tests inject it.
+ */
+export function agentResponse(
+	request: Request,
+	routes: ReadonlySet<string>,
+): Response | null {
 	const url = new URL(request.url);
 	const maintenance = process.env.MAINTENANCE_MODE === "true";
 
 	const pathNoSlash = url.pathname.replace(TRAILING_SLASHES_RE, "") || "/";
 	if (pathNoSlash.toLowerCase().endsWith(".md")) {
+		if (isStaticDataPath(url.pathname)) return null;
 		if (maintenance) {
 			return markdownBody(request, maintenanceMarkdown(url.origin), 503);
 		}
 		return markdownResponse(request, url);
 	}
 
-	if (!shouldNegotiate(url.pathname, request.method)) {
+	if (!shouldNegotiate(url.pathname, request.method, routes)) {
 		return null;
 	}
 

@@ -9,7 +9,7 @@
 		"worktree:init": "npm ci",
 		"dev": "astro dev",
 		"build": "astro build && node process-html.mjs && node scripts/run-tests.mjs csp",
-		"build:maintenance": "MAINTENANCE_MODE=true astro build && node process-html.mjs && node scripts/run-tests.mjs csp",
+		"build:maintenance": "MAINTENANCE_MODE=true npm run build",
 		"preview": "astro preview",
 		"lint": "biome lint --no-errors-on-unmatched",
 		"format": "biome format --no-errors-on-unmatched --write",

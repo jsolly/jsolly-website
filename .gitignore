@@ -18,6 +18,9 @@ dist/
 # generated types
 .astro/
 
+# route manifest for the middleware, written by astro build (route-manifest.d.ts is tracked)
+src/generated/route-manifest.js
+
 # dependencies
 node_modules/
 
