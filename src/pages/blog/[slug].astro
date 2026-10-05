@@ -3,14 +3,15 @@ import type { InferGetStaticPropsType } from "astro";
 import AuthorCard from "../../components/blog/AuthorCard.astro";
 import PostCards from "../../components/blog/PostCards.svelte";
 import BlogLayout from "../../layouts/BlogLayout.astro";
-import {
-	cards,
-	categoryHref,
-	dateLabel,
-	postHref,
-} from "../../lib/blog/cards.js";
+import { cards, dateLabel } from "../../lib/blog/cards.js";
 import { blogContent } from "../../lib/blog/content.js";
-import { articleHtml, headingId, imageUrl } from "../../lib/blog/html.js";
+import {
+	articleHtml,
+	headingId,
+	headingLinkLabel,
+	imageUrl,
+} from "../../lib/blog/html.js";
+import { categoryHref, postHref } from "../../lib/blog/urls.js";
 
 // One page per published post at /blog/<slug>/ (slug case kept). A related
 // slug that names no published post is left out here; B14 makes it fail.
@@ -33,6 +34,29 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 // JSON in an inline <script> must not contain "</script"; post titles and
 // descriptions are authored text that may hold "<", so every "<" is escaped.
 const LESS_THAN = /</gu;
+
+// The share links, in order: each opens the target's share form for the
+// post's jsolly.com URL in a new tab.
+const SHARE_TARGETS = [
+	{
+		name: "X",
+		icon: "xLogo.svg",
+		href: (postUrl: string, postTitle: string) =>
+			`https://twitter.com/intent/tweet/?text=${encodeURIComponent(postTitle)}&url=${encodeURIComponent(postUrl)}`,
+	},
+	{
+		name: "Reddit",
+		icon: "redditLogo.svg",
+		href: (postUrl: string, postTitle: string) =>
+			`https://www.reddit.com/submit?url=${encodeURIComponent(postUrl)}&title=${encodeURIComponent(postTitle)}`,
+	},
+	{
+		name: "LinkedIn",
+		icon: "linkedinLogo.svg",
+		href: (postUrl: string) =>
+			`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(postUrl)}`,
+	},
+];
 
 const { post, related } = Astro.props;
 const { data, html, categoryName } = post;
@@ -61,14 +85,14 @@ const structured = JSON.stringify({
 	</Fragment>
 	<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/blog/">Home</a><span aria-hidden="true">/</span><a href={categoryPage}>{categoryName}</a></nav>
 	<article>
-		<h1 id={titleId}>{data.title}<a class="heading-link" href={`#${titleId}`} aria-label="Link to this heading">#</a></h1>
+		<h1 id={titleId}>{data.title}<a class="heading-link" href={`#${titleId}`} aria-label={headingLinkLabel(data.title)}>#</a></h1>
 		<figure><img class="article-hero" src={image} alt={data.imageAlt} width={data.imageWidth ?? undefined} height={data.imageHeight ?? undefined} fetchpriority="high" />{data.imageAttribution && <figcaption>{data.imageAttribution}</figcaption>}</figure>
 		<!-- biome-ignore lint/nursery/noAstroSetHtmlDirective: articleHtml returns sanitize-html output (src/lib/blog/html.ts) -->
 		<div class="article-body post-text" set:html={articleHtml(html)} />
 		<footer class="post-details">
 			<p class="post-meta"><time datetime={data.published.toISOString()}>{dateLabel(data.published)}</time> in <a href={categoryPage}>{categoryName}</a></p>
 			<p class="post-meta">Updated <time datetime={data.updated.toISOString()}>{dateLabel(data.updated)}</time></p>
-			<div class="article-actions share-actions"><span class="action-label">Share</span><button id="print-article" type="button">Print this post</button><a class="action-button" href={`https://twitter.com/intent/tweet/?text=${encodeURIComponent(data.title)}&url=${encodeURIComponent(url)}`} rel="noopener noreferrer" target="_blank"><img src="/blog/social/xLogo.svg" alt="Share on X" width="22" height="22" /></a><a class="action-button" href={`https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(data.title)}`} rel="noopener noreferrer" target="_blank"><img src="/blog/social/redditLogo.svg" alt="Share on Reddit" width="22" height="22" /></a><a class="action-button" href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`} rel="noopener noreferrer" target="_blank"><img src="/blog/social/linkedinLogo.svg" alt="Share on LinkedIn" width="22" height="22" /></a></div>
+			<div class="article-actions share-actions"><span class="action-label">Share</span><button id="print-article" type="button">Print this post</button>{SHARE_TARGETS.map(({ name, icon, href }) => <a class="action-button" href={href(url, data.title)} rel="noopener noreferrer" target="_blank"><img src={`/blog/social/${icon}`} alt={`Share on ${name} (opens in new tab)`} width="22" height="22" /></a>)}</div>
 		</footer>
 	</article>
 	<div class="article-actions"><a class="action-button" href="/blog/">Back to home</a><span id="heading-copy-status" role="status" /></div>

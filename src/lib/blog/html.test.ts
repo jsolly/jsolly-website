@@ -22,6 +22,16 @@ describe("articleHtml", () => {
 			articleHtml("<h2>A &amp; B: Example</h2>"),
 			/id="a--b-example"/u,
 		);
+		// The "#" link is named after its heading, escaped for the attribute;
+		// a heading without text keeps a generic name.
+		assert.match(
+			articleHtml('<h2>A &amp; "B"</h2>'),
+			/aria-label="Link to &quot;A &amp; &quot;B&quot;&quot;"/u,
+		);
+		assert.match(
+			articleHtml('<h2><img src="/blog/media/x.webp" alt=""></h2>'),
+			/aria-label="Link to this heading"/u,
+		);
 		const authoredIds = articleHtml(
 			// biome-ignore lint/security/noSecrets: an HTML fixture, not credential material.
 			'<p id="terms">Intro paragraph</p><p id="kept">Independent anchor</p><h2 id="Intro">Introduction</h2><h2 id="terms">Intro</h2><h2 id="terms">Terms</h2>',

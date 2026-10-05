@@ -1,4 +1,4 @@
-import { decodeHTML } from "entities";
+import { decodeHTML, escapeAttribute } from "entities";
 import sanitizeHtml from "sanitize-html";
 import { DEFAULT_IMAGE, EMBED_HOSTS, LEGACY_MEDIA } from "./constants.js";
 
@@ -159,7 +159,8 @@ export function articleHtml(body: string) {
 	const rendered = sanitizeHtml(body, ARTICLE_SANITIZE).replace(
 		HEADING,
 		(_match: string, tag: string, attrs: string, text: string) => {
-			const id = headingId(plainText(text));
+			const label = plainText(text);
+			const id = headingId(label);
 			headingIds.add(id);
 			const attributes = attrs.replace(
 				CAPTURED_ID_ATTRIBUTE,
@@ -170,7 +171,7 @@ export function articleHtml(body: string) {
 					return "";
 				},
 			);
-			return `<${tag}${attributes} id="${id}">${text}<a class="heading-link" href="#${id}" aria-label="Link to this heading">#</a></${tag}>`;
+			return `<${tag}${attributes} id="${id}">${text}<a class="heading-link" href="#${id}" aria-label="${escapeAttribute(headingLinkLabel(label))}">#</a></${tag}>`;
 		},
 	);
 	const html = rendered.replace(
@@ -197,6 +198,12 @@ export function articleHtml(body: string) {
 				: `${before}#${renamed}"`;
 		},
 	);
+}
+
+// The accessible name of a heading's "#" link: `Link to "<heading text>"`,
+// or a generic name for a heading without text (an image-only heading).
+export function headingLinkLabel(text: string) {
+	return text ? `Link to "${text}"` : "Link to this heading";
 }
 
 export function headingId(text: string) {

@@ -72,11 +72,11 @@ function hostsRequested(hosts, expected) {
 
 // Opens `path` and switches every lazy image and iframe to eager so each
 // loads, then waits until every island has hydrated, every image has settled
-// and each `expected` host has been requested. With `inject`, appends an image
-// from an unlisted host first and waits for its violations. Returns the
+// and each `expected` host has been requested; `prepare(page)`, when given,
+// runs after the switch and before those waits. Returns the
 // response's CSP header, the page's meta policies, the violations, the
 // off-origin hosts it requested and the page errors.
-async function visit(path, expected, inject) {
+async function visit(path, expected, prepare) {
 	const context = await browser.newContext({
 		viewport: { width: 1280, height: 800 },
 	});
@@ -99,25 +99,17 @@ async function visit(path, expected, inject) {
 		const response = await page.goto(`${site.origin}${path}`, {
 			waitUntil: "load",
 		});
-		await page.evaluate((unlisted) => {
+		await page.evaluate(() => {
 			for (const element of document.querySelectorAll("img, iframe")) {
 				element.loading = "eager";
 			}
-			if (unlisted) {
-				const image = document.createElement("img");
-				image.src = unlisted;
-				image.alt = "";
-				document.body.append(image);
-			}
-		}, inject && UNLISTED_IMAGE);
+		});
+		await prepare?.(page);
 		await page.waitForFunction(
 			() =>
 				!document.querySelector("astro-island[ssr]") &&
 				Array.from(document.images).every((image) => image.complete),
 		);
-		if (inject) {
-			await page.waitForFunction(() => window.__violations.length >= 2);
-		}
 		await hostsRequested(hosts, expected);
 		return {
 			header: response?.headers()["content-security-policy"],
@@ -159,7 +151,15 @@ it("blog posts with embeds, the blog home and /about/ load under the vercel.json
 	// Each enforced policy that blocks a request reports it once, so the
 	// unlisted image raises one img-src violation from the header and one
 	// from the meta policy.
-	const control = await visit("/about/", [], true);
+	const control = await visit("/about/", [], async (page) => {
+		await page.evaluate((src) => {
+			const image = document.createElement("img");
+			image.src = src;
+			image.alt = "";
+			document.body.append(image);
+		}, UNLISTED_IMAGE);
+		await page.waitForFunction(() => window.__violations.length >= 2);
+	});
 	const policyName = (policy) =>
 		({ [headerPolicy]: "header", [control.metaPolicies[0]]: "meta" })[policy] ??
 		policy;

@@ -1,6 +1,7 @@
 import { WORDS_PER_MINUTE } from "./constants.js";
 import { articleHtml, imageUrl, plainText } from "./html.js";
 import type { Card, CardPost } from "./types.js";
+import { categoryHref, postHref } from "./urls.js";
 
 const WHITESPACE = /\s+/u;
 
@@ -17,15 +18,6 @@ export function dateLabel(date: Date) {
 
 function sameUtcDay(a: Date, b: Date) {
 	return a.toISOString().slice(0, 10) === b.toISOString().slice(0, 10);
-}
-
-// A post's page and a category's page; slugs keep their case.
-export function postHref(slug: string) {
-	return `/blog/${slug}/`;
-}
-
-export function categoryHref(category: string) {
-	return `/blog/category/${category}/`;
 }
 
 // The post cards PostCards.svelte renders, in the given post order.

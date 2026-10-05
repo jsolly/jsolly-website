@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { after, before, it } from "node:test";
 import { chromium } from "playwright";
-import { postHref } from "../../src/lib/blog/cards.js";
+import { postHref } from "../../src/lib/blog/urls.js";
 import { serveStatic, stubOffOrigin } from "./pages.mjs";
 
 // The post page's own script over the built dist/, in Chromium: a heading

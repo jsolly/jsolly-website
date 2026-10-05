@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { join } from "node:path";
 import { after, before, it } from "node:test";
 import { chromium } from "playwright";
-import { categoryHref, postHref } from "../../src/lib/blog/cards.js";
+import { categoryHref, postHref } from "../../src/lib/blog/urls.js";
 import {
 	categorySlugs,
 	exists,
@@ -331,7 +331,7 @@ it("Category pages list only their own published posts, an empty category says s
 	assert.ok(emptyCategories.length > 0, "some category has no published post");
 	const empty = await Promise.all(
 		emptyCategories.map((slug) =>
-			readBuilt(`blog/category/${slug}`, (document) => ({
+			readBuilt(categoryHref(slug), (document) => ({
 				slug,
 				cards: document.querySelectorAll(".post-card").length,
 				notice: document

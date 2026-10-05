@@ -2,8 +2,14 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import it from "node:test";
-import { categoryHref, postHref } from "../../src/lib/blog/cards.js";
-import { allPosts, exists, publishedPosts, readBuilt } from "./pages.mjs";
+import { categoryHref, postHref } from "../../src/lib/blog/urls.js";
+import {
+	allPosts,
+	categorySlugs,
+	exists,
+	publishedPosts,
+	readBuilt,
+} from "./pages.mjs";
 
 // The post pages over the built dist/. The first two tests are ported from
 // awesome-blog's astro-contract tests "all published legacy URLs exist…" and
@@ -23,8 +29,13 @@ const MANIFEST = new URL(
 	import.meta.url,
 );
 const LOC = /<loc>(?<url>[^<]+)<\/loc>/gu;
-// The share targets on every post, each taking the post URL as ?url=.
-const SHARE_HOSTS = ["twitter.com", "www.reddit.com", "www.linkedin.com"];
+// The share targets on every post, in order, each taking the post URL as
+// ?url=.
+const SHARE_TARGETS = [
+	{ host: "twitter.com", pathname: "/intent/tweet/" },
+	{ host: "www.reddit.com", pathname: "/submit" },
+	{ host: "www.linkedin.com", pathname: "/sharing/share-offsite/" },
+];
 
 // The url-map.json redirect rows of `kind`, as { id, origin, path } of their
 // destinations.
@@ -45,11 +56,10 @@ function readable(document) {
 	);
 }
 
-// The snapshot holds no drafts, so here the draft side holds only as set
-// equality (each post is everywhere exactly when published); the draft-leak
-// scenario, a real draft in a temp copy, arrives with B14's content-contract
-// test.
-it("every published legacy post and category URL is built, and each post is in dist, the archive, the sitemap and the route manifest exactly when published", async () => {
+// The snapshot holds no drafts, so this test cannot catch a draft leaking;
+// that scenario, a real draft in a temp copy, and its wording arrive with
+// B14's content-contract test.
+it("every legacy post and category URL leads to a built page, and every published post is built, archived, in the sitemap and in the route manifest", async () => {
 	const posts = await allPosts();
 	const published = posts.filter((post) => post.published);
 	assert.ok(published.length > 0, "the snapshot publishes posts");
@@ -57,7 +67,11 @@ it("every published legacy post and category URL is built, and each post is in d
 		redirects("post"),
 		redirects("category"),
 	]);
-	assert.ok(categoryRows.length > 0, "url-map.json has category rows");
+	assert.deepEqual(
+		new Set(categoryRows.map((row) => row.path)),
+		new Set((await categorySlugs()).map(categoryHref)),
+		"url-map.json category rows redirect to exactly the categories, slug case kept",
+	);
 	assert.deepEqual(
 		[...postRows, ...categoryRows].filter((row) => row.origin !== SITE),
 		[],
@@ -89,7 +103,7 @@ it("every published legacy post and category URL is built, and each post is in d
 	);
 	const { routes } = await import(MANIFEST.href);
 	const manifest = new Set(routes);
-	// Each post appears everywhere when published and nowhere as a draft.
+	// Each post is in all four exactly when published.
 	const presence = await Promise.all(
 		posts.map(async (post) => {
 			const path = postHref(post.slug);
@@ -137,9 +151,9 @@ it("related cards render the selected published associations", async () => {
 		published.map(async (post) => ({
 			slug: post.slug,
 			related: await readBuilt(postHref(post.slug), (document) =>
-				[...document.querySelectorAll(".related-posts a.post-card-link")].map(
-					(link) => link.getAttribute("href"),
-				),
+				[
+					...document.querySelectorAll(".related-posts h3 > a.post-card-link"),
+				].map((link) => link.getAttribute("href")),
 			),
 		})),
 	);
@@ -160,6 +174,7 @@ it("every post page names its jsolly.com URL in its JSON-LD and share links and 
 						const target = new URL(link.getAttribute("href"));
 						return {
 							host: target.host,
+							pathname: target.pathname,
 							url: target.searchParams.get("url"),
 						};
 					},
@@ -184,7 +199,7 @@ it("every post page names its jsolly.com URL in its JSON-LD and share links and 
 				slug: post.slug,
 				types: ["BlogPosting"],
 				mainEntityOfPage: [url],
-				share: SHARE_HOSTS.map((host) => ({ host, url })),
+				share: SHARE_TARGETS.map((target) => ({ ...target, url })),
 				breadcrumb: ["/blog/", categoryHref(post.category)],
 			};
 		}),
