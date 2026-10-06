@@ -74,7 +74,7 @@
 		<p>{recipe.summary}</p>
 		{#if interactive}
 			<label class="servings" for={servingsId}
-				>Servings<NativeSelect id={servingsId} aria-label="Servings" value={settings.servings} onchange={(event) => setServings(event.currentTarget.value)}>
+				>Servings<NativeSelect id={servingsId} value={settings.servings} onchange={(event) => setServings(event.currentTarget.value)}>
 					{#each SERVING_CHOICES as choice (choice)}<option value={choice}>{choice}</option>{/each}
 				</NativeSelect></label
 			>

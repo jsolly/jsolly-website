@@ -11,8 +11,11 @@
 	// The recipe's Tabular Recipe Notation table. Interactive, each ingredient
 	// row has a check to tick as it goes in; the printed copy has plain boxes.
 	let { recipe, settings, interactive = true, headingLevel = 3 } = $props();
-	const checkId = $props.id();
+	const uid = $props.id();
+	const headingId = `${uid}-heading`;
+	const helpId = `${uid}-help`;
 	let methodOpen = $state(false);
+	let methodContent = $state(null);
 	const grid = $derived(flowGrid(recipe, settings));
 	let checks = $state([]);
 
@@ -21,16 +24,23 @@
 			? checks.filter((checked) => checked !== row)
 			: [...checks, row];
 	}
+
+	// Opening the method dialog puts focus on the dialog itself, so a screen
+	// reader starts at its title rather than on the close button at the end.
+	function focusMethodDialog(event) {
+		event.preventDefault();
+		methodContent?.focus();
+	}
 </script>
 
-<section class="trn-view" aria-label="Tabular recipe notation">
-	<div class="flow-toolbar"><svelte:element this={`h${headingLevel}`}>{recipe.type === "smoothie" ? "Preparation flow" : "Cooking flow"}</svelte:element></div>
-	<p class="trn-help">Read left to right. Each merged cell acts on the ingredient rows feeding into it. Parallel branches stay separate until plating.</p>
+<section class="trn-view">
+	<div class="flow-toolbar"><svelte:element this={`h${headingLevel}`} id={headingId} class="flow-heading">{recipe.type === "smoothie" ? "Preparation flow" : "Cooking flow"}</svelte:element></div>
+	<p class="trn-help" id={helpId}>Read left to right. Each merged cell acts on the ingredient rows feeding into it. Parallel branches stay separate until plating.</p>
 	<div class="trn-frame">
 		<!-- Keyboard focus lets a keyboard user scroll the wide table sideways. -->
 		<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 		<!-- biome-ignore lint/a11y/noNoninteractiveTabindex: a horizontally scrolling region must be reachable by keyboard to scroll it -->
-		<section class="trn-scroll" tabindex="0" aria-label={`${recipe.title} cooking flow, scroll horizontally`}>
+		<section class="trn-scroll" tabindex="0" aria-labelledby={headingId} aria-describedby={helpId}>
 			<table class="trn-table">
 				<tbody>
 					{#each grid.prep as text, i (i)}<tr><td colspan={grid.columns} class="trn-prep">{text}</td></tr>{/each}
@@ -40,8 +50,8 @@
 							{#each row.cells as cell (cell.col)}
 								{#if cell.kind === "ingredient"}
 									<th scope="row" colspan={cell.colspan} class="trn-ingredient" class:checked={checks.includes(i)}>
-										<label for={`${checkId}-${i}`}
-											>{#if interactive}<Checkbox id={`${checkId}-${i}`} aria-label={`Added ${cell.name}, ${cell.text}`} checked={checks.includes(i)} onCheckedChange={() => toggle(i)} />{:else}<input id={`${checkId}-${i}`} type="checkbox" aria-label={`Added ${cell.name}, ${cell.text}`} />{/if}<span
+										<label for={`${uid}-${i}`}
+											>{#if interactive}<Checkbox id={`${uid}-${i}`} aria-label={`${cell.text} ${cell.name}, added`} checked={checks.includes(i)} onCheckedChange={() => toggle(i)} />{:else}<input id={`${uid}-${i}`} type="checkbox" aria-label={`${cell.text} ${cell.name}, added`} />{/if}<span
 												><strong>{cell.text}</strong> {cell.name}{#if ingredientIcon(cell.name)}
 													<span class="ingredient-icon" aria-hidden="true">{ingredientIcon(cell.name)}</span>{/if}<small>{cell.state}</small></span
 											></label
@@ -60,9 +70,9 @@
 	{#if interactive}
 		<Button variant="ghost" class="learn-method" type="button" onclick={() => (methodOpen = true)}>Learn more about Tabular Recipe Notation</Button>
 		<DialogRoot bind:open={methodOpen}>
-			<DialogContent class="method-dialog" showCloseButton={false}>
-				<DialogTitle id="trn-method-title">Tabular Recipe Notation</DialogTitle>
-				<DialogDescription class="sr-only">How to read a cooking dependency table.</DialogDescription>
+			<DialogContent bind:ref={methodContent} class="method-dialog" tabindex={-1} showCloseButton={false} onOpenAutoFocus={focusMethodDialog}>
+				<DialogTitle>Tabular Recipe Notation</DialogTitle>
+				<DialogDescription class="visually-hidden">How to read a cooking dependency table.</DialogDescription>
 				<p>This format connects ingredients to cooking steps in a table. Read from left to right: each ingredient row feeds into the operation beside it. A merged operation cell uses all the ingredient rows alongside it.</p>
 				<p>Follow each branch across the table. Separate branches let you prepare parts of the meal independently; they join when those parts are combined or plated. Preparation notes at the top apply before you start.</p>
 				<p>The table shows which ingredients each step uses. Preparation notes at the top list the equipment and steps to complete first. Tick each ingredient row as you add that portion; split ingredients have separate checks.</p>
@@ -127,11 +137,25 @@
 			gap: 8px;
 			font-weight: 400;
 		}
+		/* The blog's button rule would make the bits-ui checkbox (a <button>) a
+		   filled pill; this draws it as a checkbox, filled only when checked. Its
+		   border uses the muted ink: --recipe-input-border is about 2:1 on the
+		   light table, under WCAG 1.4.11's 3:1 for a control's boundary. */
 		.trn-ingredient :global([data-slot="checkbox"]) {
 			width: 19px;
 			height: 19px;
 			flex-shrink: 0;
+			padding: 0;
+			border: 1px solid var(--recipe-muted);
+			border-radius: 4px;
+			background: transparent;
+			color: var(--recipe-ink);
 			accent-color: var(--recipe-accent);
+		}
+		.trn-ingredient :global([data-slot="checkbox"][data-state="checked"]) {
+			border-color: var(--recipe-accent);
+			background: var(--recipe-accent);
+			color: var(--recipe-accent-text);
 		}
 		.trn-ingredient.checked span {
 			opacity: 0.6;
@@ -145,7 +169,7 @@
 			flex-wrap: wrap;
 			margin-bottom: 10px;
 		}
-		.flow-toolbar h3 {
+		.flow-heading {
 			margin: 0;
 		}
 		:global(.reset-checks) {
@@ -251,7 +275,7 @@
 			.trn-help {
 				display: none;
 			}
-			.trn-view h3 {
+			.flow-heading {
 				font: 700 12pt/1.2 Georgia, serif;
 				margin: 6pt 0;
 			}

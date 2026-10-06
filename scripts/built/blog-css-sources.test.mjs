@@ -20,11 +20,14 @@ const BLOG_PAGE = "dist/blog/works-cited/index.html";
 const PORTFOLIO_PAGE = "dist/about/index.html";
 // One selector per source the bundle depends on: an input.svelte utility
 // (ui.css's ../../lib/components/ui source), the search wrapper's utility
-// (its BlogNavigation.svelte source), a blog.css rule and a theme.css token.
+// (its BlogNavigation.svelte source), two blog.css rules (one of them the
+// visually-hidden class the recipe dialog's description uses, so recipe
+// components need no Tailwind source of their own) and a theme.css token.
 const PINNED = [
 	".placeholder\\:text-muted-foreground",
 	".contents{",
 	".site-header{",
+	".visually-hidden{",
 	"--paper:",
 ];
 

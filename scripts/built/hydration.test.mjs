@@ -33,11 +33,15 @@ const ISLAND_MODULE = /\s(?:component|renderer)-url="(?<url>[^"]+)"/gu;
 // temp copy's uids differ from the real tree's; the dist/ comparison masks them.
 const ISLAND_UID = /(?<=<astro-island\b[^>]*\s)uid="[^"]*"/gu;
 const KINDS = ["[", "]", "", "$", "astro:end"];
-// A synthetic page carries every kind in one place, the `<!>` select anchor
-// and an ordinary comment that processing must drop. It sits under recipes/,
-// whose pages skip process-html's jsdom id pass, so the minifier itself meets
+// Two synthetic pages carry every kind in one place, the `<!>` anchors that
+// end a <select> and an <option>, and an ordinary comment that processing
+// must drop. The top-level page goes through process-html's jsdom id pass;
+// the recipes/ one skips it, as recipe pages do, so the minifier itself meets
 // the `<!>` it cannot parse unless process-html rewrites it.
-const SYNTHETIC_PAGE = "recipes/__hydration-markers__/index.html";
+const SYNTHETIC_PAGES = [
+	"__hydration-markers__/index.html",
+	"recipes/__hydration-markers__/index.html",
+];
 const SYNTHETIC_HTML = `<!doctype html>
 <html lang="en">
 	<head><title>markers</title><!-- dropped --></head>
@@ -46,7 +50,7 @@ const SYNTHETIC_HTML = `<!doctype html>
 			<!--[--><p>
 				one   <!--$s1-->
 			</p><!----><!--[!--><!--]--><!--[-1--><span>two</span><!--]--><!--]-->
-			<select><!--[--><option>three</option><!--]--><!----><!></select>
+			<select><!--[--><option>three</option><option><!--[--><span>four</span><!--]--><!></option><!--]--><!----><!></select>
 		</astro-island>
 		<!--astro:end-->
 	</body>
@@ -96,7 +100,7 @@ async function assertShippedIsProcessed(processedDist) {
 		),
 	);
 	const expectedFiles = processedFiles.filter(
-		(file) => file !== SYNTHETIC_PAGE,
+		(file) => !SYNTHETIC_PAGES.includes(file),
 	);
 	const differing =
 		shippedFiles.join("\n") === expectedFiles.join("\n")
@@ -182,9 +186,13 @@ before(async () => {
 	copy = await createTempCopy("hydration");
 	requireSuccess(copy.astroBuild());
 	const dist = join(copy.dir, "dist");
-	const synthetic = join(dist, SYNTHETIC_PAGE);
-	await fs.mkdir(dirname(synthetic), { recursive: true });
-	await fs.writeFile(synthetic, SYNTHETIC_HTML);
+	await Promise.all(
+		SYNTHETIC_PAGES.map(async (page) => {
+			const synthetic = join(dist, page);
+			await fs.mkdir(dirname(synthetic), { recursive: true });
+			await fs.writeFile(synthetic, SYNTHETIC_HTML);
+		}),
+	);
 	const baseline = join(copy.dir, "baseline");
 	await fs.cp(dist, baseline, { recursive: true });
 	unprocessed = await pageComments(baseline);
@@ -201,50 +209,78 @@ after(async () => {
 	await copy?.remove();
 });
 
+// Every island on these pages must reuse every server-rendered node.
+const FULL_REUSE_PAGES = [
+	"/",
+	"/about/",
+	"/blog/",
+	"/blog/works-cited/",
+	"/blog/search/",
+];
 // A recipe page legitimately replaces part of its server render on mount (it
 // turns interactive: shadcn-svelte controls replace the native fallbacks), so
 // it is held to parity with the unprocessed build only (plan §4.5). Greek
 // turkey patties has a family side, so its island includes the side select.
-for (const { path, fullReuse } of [
-	{ path: "/", fullReuse: true },
-	{ path: "/about/", fullReuse: true },
-	{ path: "/blog/", fullReuse: true },
-	{ path: "/blog/works-cited/", fullReuse: true },
-	{ path: "/blog/search/", fullReuse: true },
-	{ path: "/recipes/greek-turkey-patties/", fullReuse: false },
-]) {
+const PARITY_PAGES = ["/recipes/greek-turkey-patties/"];
+
+const sameSet = (a, b) => a.size === b.size && [...a].every((x) => b.has(x));
+
+// Opens path on the shipped and the unprocessed build. The report is what
+// both kinds of page must show: island modules held until the snapshot, no
+// page errors, server-rendered nodes, and the unprocessed build's reuse.
+async function compareReuse(path, t) {
+	const [shipped, baseline] = await Promise.all([
+		nodeReuse(sites.shipped, path),
+		nodeReuse(sites.baseline, path),
+	]);
+	t.diagnostic(
+		`${path}: shipped reuses ${shipped.reused}/${shipped.total}, unprocessed build ${baseline.reused}/${baseline.total}`,
+	);
+	const builds = [shipped, baseline];
+	return {
+		shipped,
+		report: {
+			loadsIslandModules: builds.every((site) => site.held.size > 0),
+			heldUntilSnapshot: builds.every((site) =>
+				sameSet(site.intercepted, site.held),
+			),
+			errors: shipped.errors,
+			hasServerNodes: shipped.total > 0,
+			reuse: { reused: shipped.reused, total: shipped.total },
+		},
+		expected: {
+			loadsIslandModules: true,
+			heldUntilSnapshot: true,
+			errors: [],
+			hasServerNodes: true,
+			reuse: { reused: baseline.reused, total: baseline.total },
+		},
+	};
+}
+
+for (const path of FULL_REUSE_PAGES) {
 	it(`a visitor opening ${path} gets its islands hydrated in place`, async (t) => {
-		const [shipped, baseline] = await Promise.all([
-			nodeReuse(sites.shipped, path),
-			nodeReuse(sites.baseline, path),
-		]);
-		t.diagnostic(
-			`${path}: shipped reuses ${shipped.reused}/${shipped.total}, unprocessed build ${baseline.reused}/${baseline.total}`,
-		);
-		for (const site of [shipped, baseline]) {
-			assert.ok(site.held.size > 0, `${path}: the page loads island modules`);
-			assert.deepEqual(
-				site.intercepted,
-				site.held,
-				`${path}: every island module was held until the snapshot`,
-			);
-		}
-		assert.deepEqual(shipped.errors, [], `${path}: no page errors`);
-		assert.ok(
-			shipped.total > 0,
-			`${path}: the island has server-rendered nodes`,
-		);
+		const { shipped, report, expected } = await compareReuse(path, t);
 		assert.deepEqual(
-			{ reused: shipped.reused, total: shipped.total },
-			{ reused: baseline.reused, total: baseline.total },
-			`${path}: process-html changes island node reuse`,
+			report,
+			expected,
+			`${path}: island hydration differs from the unprocessed build`,
 		);
-		// Full-reuse pages must keep every node; a recipe page keeps what the
-		// unprocessed build keeps (the parity check above).
 		assert.equal(
 			shipped.reused,
-			fullReuse ? shipped.total : baseline.reused,
+			shipped.total,
 			`${path}: every server-rendered island node survives hydration`,
+		);
+	});
+}
+
+for (const path of PARITY_PAGES) {
+	it(`a visitor opening ${path} gets its islands hydrated as the unprocessed build hydrates them`, async (t) => {
+		const { report, expected } = await compareReuse(path, t);
+		assert.deepEqual(
+			report,
+			expected,
+			`${path}: island hydration differs from the unprocessed build`,
 		);
 	});
 }
@@ -370,18 +406,21 @@ it("A production build's HTML post-processing leaves every island's hydration ma
 		Object.fromEntries(
 			Object.entries(pages).map(([file, { hydration }]) => [file, hydration]),
 		);
-	const syntheticKinds = new Set(
-		unprocessed[SYNTHETIC_PAGE].hydration.map(kindOf),
-	);
 	assert.deepEqual(
-		KINDS.filter((kind) => !syntheticKinds.has(kind)),
-		[],
-		"the synthetic page carries every hydration comment kind",
-	);
-	assert.deepEqual(
-		unprocessed[SYNTHETIC_PAGE].ordinary,
-		[" dropped "],
-		"the synthetic page carries an ordinary comment",
+		SYNTHETIC_PAGES.map((page) => {
+			const kinds = new Set(unprocessed[page].hydration.map(kindOf));
+			return {
+				page,
+				missingKinds: KINDS.filter((kind) => !kinds.has(kind)),
+				ordinary: unprocessed[page].ordinary,
+			};
+		}),
+		SYNTHETIC_PAGES.map((page) => ({
+			page,
+			missingKinds: [],
+			ordinary: [" dropped "],
+		})),
+		"each synthetic page carries every hydration comment kind and an ordinary comment",
 	);
 	assert.ok(
 		unprocessed["about/index.html"].hydration.includes("astro:end"),

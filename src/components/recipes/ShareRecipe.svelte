@@ -47,8 +47,10 @@
 			padding-top: 16px;
 			border-top: 1px solid var(--recipe-line);
 		}
+		/* The status line stays in the accessibility tree so announcements
+		   fire; empty, it takes no space. */
 		p:empty {
-			display: none;
+			margin: 0;
 		}
 		a {
 			overflow-wrap: anywhere;

@@ -187,7 +187,6 @@
 				border-left: 1pt solid #777;
 				padding-left: 8pt;
 			}
-			.print-meal,
 			.new-page {
 				break-before: page;
 			}

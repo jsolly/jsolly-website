@@ -70,7 +70,7 @@
 	{#if side}
 		<div class="family-box">
 			<label for={sideId}
-				>Family side<NativeSelect id={sideId} aria-label="Family starch" value={selectedSide} disabled={!interactive} onchange={(event) => onSideChange?.(event.currentTarget.value)}>
+				>Family side<NativeSelect id={sideId} value={selectedSide} disabled={!interactive} onchange={(event) => onSideChange?.(event.currentTarget.value)}>
 					{#each recipe.familyOptions as option (option.id)}<option value={option.id}>{option.label}</option>{/each}
 				</NativeSelect></label
 			>
@@ -178,6 +178,11 @@
 			.family-box {
 				padding: 15px;
 			}
+		}
+		/* The blog focus orange is under 3:1 on the family box; the recipe focus
+		   colour is not. */
+		.family-box :global(select:focus-visible) {
+			outline-color: var(--recipe-focus);
 		}
 		.family-box :global([data-slot="native-select-wrapper"]) {
 			width: 100%;
