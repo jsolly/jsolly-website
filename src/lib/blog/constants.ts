@@ -4,6 +4,10 @@
 export const POSTS_DIR = "src/content/blog/posts";
 export const POST_FILES = "*.md";
 
+// Where the category files live, relative to the project root; the categories
+// collection and .pages.yml both point here.
+export const CATEGORIES_DIR = "src/content/blog/categories";
+
 // The post image when frontmatter names none; the posts schema defaults to it.
 export const DEFAULT_IMAGE = "/blog/media/default.webp";
 
