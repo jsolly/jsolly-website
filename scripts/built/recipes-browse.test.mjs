@@ -12,15 +12,14 @@ import { serveStatic } from "./pages.mjs";
 // help popover. Each runs at a phone and a desktop width.
 const DIST = "dist";
 const LANDING = "/recipes/";
+// Literal on purpose: the key is J13's decision, not whatever constants.mjs says.
 const STORAGE_KEY = "recipes-settings-v1";
 const RECIPES = new URL(
 	"../../src/components/recipes/recipes.json",
 	import.meta.url,
 );
 const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
-const mealCount = recipes.filter(
-	(recipe) => (recipe.type || "meal") === "meal",
-).length;
+const mealCount = recipes.filter((recipe) => recipe.type === "meal").length;
 const smoothieCount = recipes.filter(
 	(recipe) => recipe.type === "smoothie",
 ).length;
@@ -44,6 +43,8 @@ const SMOOTHIE_YIELD = /up to two servings/u;
 const GLASS_NUTRITION = /Nutrition per 8 oz glass/u;
 const EIGHT_SERVINGS_WATER = /27 oz Cold water/u;
 const EIGHT_SERVINGS = /8\s+servings/u;
+// Longer than the help popover's 120ms close delay.
+const HELP_CLOSE_WAIT_MS = 400;
 const LEARN_MORE = "Learn more about Tabular Recipe Notation";
 // biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
 const NATIVE_CHECKBOX = ".trn-ingredient input[type=checkbox]";
@@ -309,6 +310,11 @@ function filtersCheck(width) {
 			assert.equal(await checkbox("Blender").count(), 0);
 			assert.equal(await checkbox("Pans").isDisabled(), true);
 			assert.equal(await cards(), 0);
+			// With no recipe left, a checked protein can still be unchecked.
+			await page.getByRole("button", { name: PROTEINS }).click();
+			assert.equal(await checkbox("Fish").isDisabled(), false);
+			assert.equal(await checkbox("Vegetarian").isDisabled(), true);
+			await page.keyboard.press("Escape");
 			const saved = await stored(page);
 			assert.deepEqual(saved.proteinChoice, ["fish", "turkey"]);
 			assert.deepEqual(saved.starchChoice, ["bread"]);
@@ -436,6 +442,69 @@ function filtersCheck(width) {
 	});
 }
 
+// The nutrition help with a mouse and from the keyboard. Hovering opens it
+// and leaving closes it; a click while it is hover-opened keeps it open after
+// the pointer leaves. Enter opens it with focus left on the trigger, Tab moves
+// on (focus is not trapped), Escape closes it and returns focus to the
+// trigger, and Enter reopens it. Resolves to where focus was at each step.
+async function pointerAndKeyboardHelp({ page, help, popover, heading }) {
+	const focused = () =>
+		page.evaluate(() => ({
+			onHelp: document.activeElement?.classList.contains("nutrition-info"),
+			inPopover: Boolean(document.activeElement?.closest(".nutrition-help")),
+			label: document.activeElement?.closest("label")?.textContent.trim(),
+		}));
+	await help.hover();
+	await popover.waitFor();
+	await heading.hover();
+	await popover.waitFor({ state: "detached" });
+	await help.hover();
+	await popover.waitFor();
+	await help.click();
+	await heading.hover();
+	await page.waitForTimeout(HELP_CLOSE_WAIT_MS);
+	const clickedStaysOpen = await popover.isVisible();
+	await page.keyboard.press("Escape");
+	await popover.waitFor({ state: "detached" });
+	await help.focus();
+	await page.keyboard.press("Enter");
+	await popover.waitFor();
+	const opened = await focused();
+	await page.keyboard.press("Tab");
+	const tabbed = await focused();
+	await page.keyboard.press("Escape");
+	await popover.waitFor({ state: "detached" });
+	const closed = await focused();
+	await page.keyboard.press("Enter");
+	await popover.waitFor();
+	await page.keyboard.press("Escape");
+	await popover.waitFor({ state: "detached" });
+	return {
+		clickedStaysOpen,
+		opened,
+		tabbed,
+		closed,
+		reclosed: await focused(),
+	};
+}
+
+// The nutrition help by touch: a tap opens it, a tap elsewhere closes it.
+async function touchHelp({ help, popover, heading }) {
+	await help.tap();
+	await popover.waitFor();
+	await heading.tap();
+	await popover.waitFor({ state: "detached" });
+	return null;
+}
+const ON_HELP = { onHelp: true, inPopover: false, label: undefined };
+const DESKTOP_HELP = {
+	clickedStaysOpen: true,
+	opened: ON_HELP,
+	tabbed: { onHelp: false, inPopover: false, label: "Immune support" },
+	closed: ON_HELP,
+	reclosed: ON_HELP,
+};
+
 function collectionsCheck(width) {
 	it(`Collection pages navigate without JS and nutrition help respects input at ${width}px`, {
 		timeout: 60_000,
@@ -476,11 +545,17 @@ function collectionsCheck(width) {
 					.isVisible(),
 				true,
 			);
-			await page.getByRole("link", { name: "Smoothies", exact: true }).click();
+			await Promise.all([
+				page.waitForURL("**/recipes/smoothies/"),
+				page.getByRole("link", { name: "Smoothies", exact: true }).click(),
+			]);
 			assert.equal(await page.locator(".recipe-card").count(), smoothieCount);
-			await page
-				.getByRole("link", { name: "Avocado-lime smoothie", exact: true })
-				.click();
+			await Promise.all([
+				page.waitForURL("**/recipes/avocado-lime-smoothie/**"),
+				page
+					.getByRole("link", { name: "Avocado-lime smoothie", exact: true })
+					.click(),
+			]);
 			assert.equal(await page.locator(".recipe-detail").count(), 1);
 			const firstCheck = page.locator(NATIVE_CHECKBOX).first();
 			await firstCheck.check();
@@ -491,9 +566,12 @@ function collectionsCheck(width) {
 				await page.locator(".recipe-body .daily-values").isVisible(),
 				true,
 			);
-			await page
-				.getByRole("link", { name: "← Back to smoothies", exact: true })
-				.click();
+			await Promise.all([
+				page.waitForURL("**/recipes/smoothies/"),
+				page
+					.getByRole("link", { name: "← Back to smoothies", exact: true })
+					.click(),
+			]);
 			assert.equal(await page.locator(".recipe-card").count(), smoothieCount);
 
 			const enhanced = await live.newPage();
@@ -508,22 +586,17 @@ function collectionsCheck(width) {
 				name: "Meals",
 				exact: true,
 			});
-			if (width === 1280) {
-				await help.hover();
-				await popover.waitFor();
-				await heading.hover();
-				await popover.waitFor({ state: "detached" });
-				await help.focus();
-				await enhanced.keyboard.press("Enter");
-				await popover.waitFor();
-				await enhanced.keyboard.press("Escape");
-				await popover.waitFor({ state: "detached" });
-			} else {
-				await help.tap();
-				await popover.waitFor();
-				await heading.tap();
-				await popover.waitFor({ state: "detached" });
-			}
+			const desktop = width === 1280;
+			assert.deepEqual(
+				await (desktop ? pointerAndKeyboardHelp : touchHelp)({
+					page: enhanced,
+					help,
+					popover,
+					heading,
+				}),
+				desktop ? DESKTOP_HELP : null,
+				"the nutrition help by pointer and keyboard, or by touch",
+			);
 			await enhanced
 				.getByRole("combobox", { name: SERVINGS })
 				.selectOption("8");

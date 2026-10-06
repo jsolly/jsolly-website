@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { afterEach, beforeEach, it } from "node:test";
 import { JSDOM } from "jsdom";
+import { PRINT_FAILED } from "./constants.mjs";
 import { createRecipePrintSession } from "./recipe-print-session.mjs";
 
 // The session reads the page's document and window as globals, as it does in
@@ -57,5 +58,40 @@ it("a page with no earlier print mode has none again once printing ends, even wh
 	assert.deepEqual(
 		{ during, after: mode() },
 		{ during: "recipe", after: null },
+	);
+});
+
+it("Print opens the browser's print dialog in print mode once the island settles, and when the browser cannot print it restores the page and reports why", async () => {
+	const steps = [];
+	const session = createRecipePrintSession(
+		() => "all",
+		() => steps.push("prepared"),
+		() => steps.push("restored"),
+	);
+	window.print = () => steps.push(`printed in ${mode()} mode`);
+	const printed = await session.print(() => {
+		steps.push("settled");
+		return Promise.resolve();
+	});
+	session.restore();
+	window.print = () => {
+		throw new Error("printing blocked");
+	};
+	const failed = await session.print();
+	assert.deepEqual(
+		{ printed, failed, after: mode(), steps },
+		{
+			printed: null,
+			failed: PRINT_FAILED,
+			after: null,
+			steps: [
+				"prepared",
+				"settled",
+				"printed in all mode",
+				"restored",
+				"prepared",
+				"restored",
+			],
+		},
 	);
 });

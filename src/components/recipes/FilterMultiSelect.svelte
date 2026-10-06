@@ -6,8 +6,8 @@
 	import PopoverTrigger from "../../lib/components/ui/popover-trigger.svelte";
 
 	// One of the library's multi-choice filters: a trigger summarising the
-	// choices and a popover of checks. A choice that would leave no recipe
-	// (canSelect says no) is disabled.
+	// choices and a popover of checks. An unchecked choice that would leave no
+	// recipe (canSelect says no) is disabled; a checked one can always go.
 	let {
 		label,
 		options,
@@ -36,13 +36,13 @@
 		<PopoverTrigger class="multi-trigger" aria-label={`${label}: ${summary}`} {disabled}>
 			<span>{summary}</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m4 6 4 4 4-4" /></svg>
 		</PopoverTrigger>
-		<PopoverContent class="multi-options" portalProps={{ disabled: true }} sideOffset={6} aria-label={`${label} choices`}>
+		<PopoverContent class="multi-options" portalProps={{ disabled: true }} sideOffset={6} role="dialog" aria-label={`${label} choices`}>
 			{#each Object.entries(options) as [value, text] (value)}
 				<label for={`${uid}-${value}`}
 					><Checkbox
 						id={`${uid}-${value}`}
 						checked={selected.includes(value)}
-						disabled={!canSelect(toggled(value))}
+						disabled={!selected.includes(value) && !canSelect(toggled(value))}
 						onCheckedChange={() => {
 							selected = toggled(value);
 						}}

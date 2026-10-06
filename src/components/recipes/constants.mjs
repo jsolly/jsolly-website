@@ -80,3 +80,35 @@ export const defaultAppliances = {
 	"Two air fryers": 2,
 	Blender: 1,
 };
+// The appliances a reader counts rather than ticks, with the most they can
+// have on hand; every other appliance is on hand (1) or not (0).
+export const applianceLimits = { "Instant Pot": 2, "Two air fryers": 2 };
+// How many of an appliance a recipe that needs it uses (otherwise one).
+export const applianceNeeds = { "Two air fryers": 2 };
+// An appliance usable only with another on hand: pans go in the oven.
+export const applianceDependencies = { Pans: "Oven" };
+
+/** localStorage key for the library's saved settings (merge-plan J13). */
+export const STORAGE_KEY = "recipes-settings-v1";
+export const PRINT_FAILED =
+	"Printing could not open. Use your browser’s Print command.";
+/** The library's protein filter choices. */
+export const proteins = {
+	chicken: "Chicken",
+	fish: "Fish",
+	turkey: "Turkey",
+	vegetarian: "Vegetarian",
+	"plant-forward": "Plant-forward",
+};
+/** The library's meal styles (recipe groups). */
+export const carbStyles = {
+	keto: "Keto",
+	nonketo: "Not Keto",
+	shared: "Shared Main",
+};
+export const mealStyleDescriptions = {
+	all: "Keto meals, higher-carb meals, and shared mains with different sides.",
+	keto: "Low-carb meals without a starchy side.",
+	nonketo: "Meals with over 50g net carbs per four servings.",
+	shared: "One main dish with different sides for keto and non-keto diners.",
+};

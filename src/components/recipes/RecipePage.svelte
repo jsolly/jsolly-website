@@ -27,14 +27,8 @@
 	);
 	const printSession = createRecipePrintSession(() => "recipe");
 
-	function print() {
-		printSession.prepare();
-		try {
-			window.print();
-		} catch {
-			printSession.restore();
-			message = "Printing could not open. Use your browser’s Print command.";
-		}
+	async function print() {
+		message = (await printSession.print()) ?? message;
 	}
 
 	function setServings(value) {

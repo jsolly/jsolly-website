@@ -1,5 +1,8 @@
 import {
 	applianceChoices,
+	applianceDependencies,
+	applianceLimits,
+	applianceNeeds,
 	defaultAppliances,
 	recipeStarches,
 } from "./constants.mjs";
@@ -58,15 +61,6 @@ function selectedMatches(selection, value) {
 		? !selection.length || selection.includes(value)
 		: selection === "all" || selection === value;
 }
-export function normalizeMealStyles(value) {
-	const selected = normalizeSelection(value, {
-		keto: true,
-		nonketo: true,
-		shared: true,
-	});
-	const exclusive = selected.filter((item) => item !== "shared").at(-1);
-	return selected.filter((item) => item === "shared" || item === exclusive);
-}
 // Saved appliance counts, clamped per appliance; a missing or invalid count
 // restores its default.
 export function availableAppliances(value) {
@@ -77,7 +71,7 @@ export function availableAppliances(value) {
 				Math.max(
 					0,
 					Math.min(
-						["Instant Pot", "Two air fryers"].includes(key) ? 2 : 1,
+						applianceLimits[key] ?? 1,
 						Number.isInteger(value[key]) ? value[key] : defaultAppliances[key],
 					),
 				),
@@ -88,8 +82,9 @@ export function availableAppliances(value) {
 export function hasAppliances(recipe, inventory) {
 	return recipe.appliancesNeeded.every(
 		(key) =>
-			(inventory[key] || 0) >= (key === "Two air fryers" ? 2 : 1) &&
-			(key !== "Pans" || inventory.Oven > 0),
+			(inventory[key] || 0) >= (applianceNeeds[key] ?? 1) &&
+			(!applianceDependencies[key] ||
+				inventory[applianceDependencies[key]] > 0),
 	);
 }
 export function matchesRecipe(

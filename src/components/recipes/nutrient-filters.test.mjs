@@ -9,7 +9,6 @@ import {
 	availableAppliances,
 	hasAppliances,
 	matchesRecipe,
-	normalizeMealStyles,
 	normalizeSelection,
 	nutrientFilters,
 	smoothieIngredientChoices,
@@ -112,16 +111,7 @@ it("multi-select uses OR within each filter and AND across filters; saved select
 	assert.deepEqual(normalizeSelection("rice", starchTypes), []);
 });
 
-it("Shared Main combines with either exclusive meal style when saved styles normalize", () => {
-	assert.deepEqual(normalizeMealStyles(["keto", "shared"]), ["keto", "shared"]);
-	assert.deepEqual(normalizeMealStyles(["keto", "shared", "nonketo"]), [
-		"shared",
-		"nonketo",
-	]);
-	assert.deepEqual(
-		normalizeMealStyles(["keto", "nonketo", "shared", "bogus"]),
-		["nonketo", "shared"],
-	);
+it("Shared Main combines with either exclusive meal style", () => {
 	assert.equal(
 		data.recipes.filter((r) =>
 			matchesRecipe(r, 4, { carb: ["keto", "shared"] }),

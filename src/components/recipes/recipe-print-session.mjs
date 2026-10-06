@@ -1,3 +1,5 @@
+import { PRINT_FAILED } from "./constants.mjs";
+
 // Preserve the document's prior print mode, including browser-menu printing.
 // mode() names the print mode; prepared and restored are optional callbacks.
 export function createRecipePrintSession(mode, prepared, restored) {
@@ -29,5 +31,20 @@ export function createRecipePrintSession(mode, prepared, restored) {
 			restore();
 		};
 	}
-	return { prepare, restore, listen };
+	// A Print button: prepares the page, waits for `settle` (an island's
+	// tick(), so the print copy renders) and opens the browser's print dialog.
+	// Resolves to null, or to PRINT_FAILED once the page is restored when the
+	// browser cannot print.
+	async function print(settle = () => Promise.resolve()) {
+		prepare();
+		await settle();
+		try {
+			window.print();
+			return null;
+		} catch {
+			restore();
+			return PRINT_FAILED;
+		}
+	}
+	return { prepare, restore, listen, print };
 }

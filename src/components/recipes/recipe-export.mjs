@@ -61,7 +61,7 @@ export function recipeDocument(recipe, settings = {}) {
 	return {
 		dailyNutrition: dailyNutrition(recipe, servings, ingredientAmount),
 		recipeId: recipe.id,
-		type: recipe.type || "meal",
+		type: recipe.type,
 		title: recipe.title,
 		group: recipe.group,
 		servings,

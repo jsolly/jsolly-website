@@ -1,48 +1,22 @@
 <script>
-	import { onDestroy } from "svelte";
 	import PopoverRoot from "../../lib/components/ui/popover.svelte";
 	import PopoverContent from "../../lib/components/ui/popover-content.svelte";
 	import PopoverTrigger from "../../lib/components/ui/popover-trigger.svelte";
 
-	// The nutrition filters' thresholds. A mouse on a hover-capable device
-	// opens it by hovering (with a short grace period to reach the popover);
-	// a tap, click or Enter toggles it.
+	// The nutrition filters' thresholds. A mouse opens it by hovering (bits-ui
+	// leaves touch to the tap); a click, tap or Enter toggles it. It holds no
+	// controls, so focus stays on the trigger, Tab moves on, and closing it
+	// from the keyboard returns focus to the trigger.
+	const OPEN_DELAY_MS = 100;
 	const CLOSE_DELAY_MS = 120;
-	let open = $state(false);
-	let timer;
-
-	function enter(event) {
-		if (
-			event.pointerType === "mouse" &&
-			matchMedia("(hover: hover) and (pointer: fine)").matches
-		) {
-			clearTimeout(timer);
-			open = true;
-		}
-	}
-
-	function leave(event) {
-		if (event.pointerType === "mouse") {
-			clearTimeout(timer);
-			timer = setTimeout(() => {
-				open = false;
-			}, CLOSE_DELAY_MS);
-		}
-	}
-
-	onDestroy(() => clearTimeout(timer));
+	const uid = $props.id();
+	const titleId = `${uid}-title`;
 </script>
 
-<PopoverRoot bind:open
-	><PopoverTrigger class="nutrition-info" aria-label="About nutrition filters" onpointerenter={enter} onpointerleave={leave}>ⓘ</PopoverTrigger
-	><PopoverContent
-		class="nutrition-help"
-		sideOffset={4}
-		onpointerenter={enter}
-		onpointerleave={leave}
-		onOpenAutoFocus={(event) => event.preventDefault()}
-		onCloseAutoFocus={(event) => event.preventDefault()}
-		><strong>Nutrition filters</strong>
+<PopoverRoot
+	><PopoverTrigger class="nutrition-info" aria-label="About nutrition filters" openOnHover openDelay={OPEN_DELAY_MS} closeDelay={CLOSE_DELAY_MS}>ⓘ</PopoverTrigger
+	><PopoverContent class="nutrition-help" role="dialog" aria-labelledby={titleId} sideOffset={4} trapFocus={false} onOpenAutoFocus={(event) => event.preventDefault()}
+		><strong id={titleId}>Nutrition filters</strong>
 		<p><strong>Iron-rich:</strong> at least 20% Daily Value of iron per serving.</p>
 		<p><strong>Immune support:</strong> at least 20% Daily Value in two or more of vitamins A, C, D, zinc and selenium per serving.</p>
 		<p>

@@ -1,60 +1,25 @@
 ---
 import type { InferGetStaticPropsType } from "astro";
-import RecipeExperience from "../../components/recipes/RecipeExperience.astro";
 import RecipePage from "../../components/recipes/RecipePage.svelte";
 import data from "../../components/recipes/recipes.json" with { type: "json" };
 import BlogLayout from "../../layouts/BlogLayout.astro";
 import "../../styles/recipes/recipes-theme.css";
 
-// The meals and smoothies pages (/recipes/meals/, /recipes/smoothies/: the
-// library opened on that collection) and one page per recipe at /recipes/<id>/,
-// the same paths as on blogthedata.com. A recipe page's section id is the
-// recipe id, so old /recipes/<id>/#<id> links still land.
-// getStaticPaths runs apart from the rest of the frontmatter, so its
-// constants live inside it.
+// One page per recipe at /recipes/<id>/, the same path as on blogthedata.com.
+// Its section id is the recipe id, so old /recipes/<id>/#<id> links still land.
 export function getStaticPaths() {
-	const collections = [
-		{ slug: "meals", collection: "meal", title: "Meals" },
-		{ slug: "smoothies", collection: "smoothie", title: "Smoothies" },
-	] as const;
-	const collectionDescription = "Find your next meal or smoothie.";
-	return [
-		...collections.map((entry) => ({
-			params: { slug: entry.slug },
-			props: {
-				title: entry.title,
-				description: collectionDescription,
-				collection: entry.collection,
-				recipe: undefined,
-			},
-		})),
-		...data.recipes.map((entry) => ({
-			params: { slug: entry.id },
-			props: {
-				title: entry.title,
-				description: entry.summary,
-				collection: undefined,
-				recipe: entry,
-			},
-		})),
-	];
+	return data.recipes.map((entry) => ({
+		params: { slug: entry.id },
+		props: { recipe: entry },
+	}));
 }
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { title, description, collection, recipe } = Astro.props;
+const { recipe } = Astro.props;
 ---
 
-<BlogLayout section="recipes" {title} {description} article>
+<BlogLayout section="recipes" title={recipe.title} description={recipe.summary} article>
 	<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/blog/">Home</a><span aria-hidden="true">/</span><a href="/recipes/">Easy Meals &amp; Smoothies</a></nav>
-	{
-		recipe ? (
-			<RecipePage {recipe} client:load />
-		) : (
-			<>
-				<h1>{title}</h1>
-				<RecipeExperience {collection} />
-			</>
-		)
-	}
+	<RecipePage {recipe} client:load />
 </BlogLayout>

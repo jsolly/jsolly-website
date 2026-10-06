@@ -15,4 +15,4 @@ const { collection = "meal" } = Astro.props;
 ---
 
 <noscript><link rel="stylesheet" href={noScriptStyles} /></noscript>
-<div class="recipe-experience"><RecipeLibrary recipes={data.recipes} initialCollection={collection} client:load /></div>
+<div class="recipe-experience"><RecipeLibrary recipes={data.recipes} initialCollection={collection} pathname={Astro.url.pathname} client:load /></div>

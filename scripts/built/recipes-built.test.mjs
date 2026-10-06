@@ -33,9 +33,7 @@ it("recipe route shares complete recipe bodies without JavaScript and retains fi
 	);
 	const collections = await Promise.all(
 		Object.entries(COLLECTIONS).map(async ([collection, type]) => {
-			const expected = recipes.filter(
-				(recipe) => (recipe.type || "meal") === type,
-			);
+			const expected = recipes.filter((recipe) => recipe.type === type);
 			const counts = await readBuilt(`recipes/${collection}`, (document) => ({
 				cards: document.querySelectorAll(".recipe-card").length,
 				linked: expected.filter(

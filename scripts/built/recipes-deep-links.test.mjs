@@ -52,9 +52,16 @@ it("each old /recipes/#<recipe-id> link opens that recipe in the library dialog 
 				id: recipe.id,
 				title: await section.getByRole("heading", { level: 2 }).textContent(),
 				dialogOpen: await page.getByRole("dialog").isVisible(),
+				// The dialog covers the viewport rather than its centred default.
+				fillsViewport: await page
+					.locator(".recipe-takeover")
+					.evaluate((dialog) => {
+						const { top, left, height } = dialog.getBoundingClientRect();
+						return top === 0 && left === 0 && height === window.innerHeight;
+					}),
 				collection: await page
 					.getByRole("link", {
-						name: COLLECTION_LINKS[recipe.type || "meal"],
+						name: COLLECTION_LINKS[recipe.type],
 						exact: true,
 						includeHidden: true,
 					})
@@ -67,7 +74,9 @@ it("each old /recipes/#<recipe-id> link opens that recipe in the library dialog 
 				id: recipe.id,
 				title: recipe.title,
 				dialogOpen: true,
-				collection: "page",
+				fillsViewport: true,
+				// The landing shows either collection, so neither link is the page.
+				collection: "true",
 			})),
 		);
 
