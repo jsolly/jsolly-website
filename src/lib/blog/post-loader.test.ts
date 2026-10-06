@@ -108,7 +108,7 @@ describe("postLoader", () => {
 });
 
 describe("postLastmods", () => {
-	it("A post saved with an offset-less or date-only updated time stops the sitemap's lastmod read, naming its file and the field", async () => {
+	it("A post saved with an offset-less or date-only updated time, or with frontmatter that is not YAML, stops the sitemap's lastmod read, naming its file (and the field)", async () => {
 		const root = await mkdtemp(join(tmpdir(), "post-lastmods-"));
 		try {
 			const posts = join(root, "src/content/blog/posts");
@@ -126,6 +126,14 @@ describe("postLastmods", () => {
 			await assert.rejects(postLastmods(root), invalid);
 			await writeFile(file, cmsPost(TIMESTAMP, "2026-10-02"));
 			await assert.rejects(postLastmods(root), invalid);
+			// A colon and space inside an unquoted title is a YAML error.
+			await writeFile(
+				file,
+				cmsPost(TIMESTAMP).replace("title: A post", "title: CSP: a guide"),
+			);
+			await assert.rejects(postLastmods(root), (error: Error) =>
+				error.message.startsWith(`Invalid post ${file}: `),
+			);
 		} finally {
 			await rm(root, { recursive: true, force: true });
 		}

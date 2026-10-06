@@ -4,6 +4,11 @@ import { copyFile, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { after, before, it } from "node:test";
 import { stringify } from "yaml";
+import {
+	CATEGORIES_DIR,
+	DEFAULT_IMAGE,
+	POSTS_DIR,
+} from "../../src/lib/blog/constants.js";
 import { exists, readBuilt, routeManifest } from "./pages.mjs";
 import { createTempCopy, requireSuccess } from "./temp-copy.mjs";
 
@@ -19,9 +24,6 @@ import { createTempCopy, requireSuccess } from "./temp-copy.mjs";
 // Each failure scenario then adds its files, runs `astro build`, which stops
 // at its first error, and removes them again.
 const SITE = "https://www.jsolly.com";
-const POSTS = "src/content/blog/posts";
-const CATEGORIES = "src/content/blog/categories";
-const MEDIA = "public/blog/media";
 
 // awesome-blog scripts/content-files.mjs serializePost, inlined (MST-12).
 function serializePost(post) {
@@ -61,7 +63,8 @@ const UPLOAD = "/blog/media/cms-upload.webp";
 
 // A draft whose slug, text and update time appear nowhere else. Its update
 // time is later than every real post's, so a leak into a feed or a sitemap
-// lastmod would show it. Written the way awesome-blog verify:drafts wrote it.
+// lastmod would show it. It uses SRC's serializePost on purpose, as
+// verify:drafts did (plan §1.7).
 const DRAFT_SLUG = `draft-contract-${randomUUID()}`;
 const DRAFT_SECRET = "draft-contract-private-sentinel-20261002";
 const DRAFT_UPDATED = "2030-01-02T03:04:05";
@@ -103,7 +106,7 @@ function readCopy(path, read) {
 
 // Writes `source` as the copy's post `slug`, failing if it exists.
 function writePost(slug, source) {
-	return writeFile(join(copy.dir, POSTS, `${slug}.md`), source, {
+	return writeFile(join(copy.dir, POSTS_DIR, `${slug}.md`), source, {
 		flag: "wx",
 	});
 }
@@ -203,7 +206,7 @@ before(async () => {
 		writePost(IMAGE_POST.slug, cmsSource(IMAGE_POST)),
 		writePost(DRAFT_SLUG, DRAFT),
 		copyFile(
-			join(copy.dir, MEDIA, "default.webp"),
+			join(copy.dir, "public", DEFAULT_IMAGE),
 			join(copy.dir, "public", UPLOAD),
 		),
 	]);
@@ -246,7 +249,7 @@ async function timestampBuild(field, invalid) {
 		field,
 		invalid,
 		slug,
-		...(await failingBuild({ [join(POSTS, `${slug}.md`)]: source })),
+		...(await failingBuild({ [join(POSTS_DIR, `${slug}.md`)]: source })),
 	};
 }
 
@@ -308,7 +311,8 @@ it("a post saved with a date-only or offset-less published or updated time fails
 
 it("an identical copy of a post under another file name fails the build with Duplicate post slug", async () => {
 	const { status, output } = await failingBuild({
-		[join(POSTS, `identity-contract-${randomUUID()}.md`)]: cmsSource(CMS_POST),
+		[join(POSTS_DIR, `identity-contract-${randomUUID()}.md`)]:
+			cmsSource(CMS_POST),
 	});
 	assert.notEqual(status, 0, "a duplicate post builds");
 	assert.ok(
@@ -319,8 +323,11 @@ it("an identical copy of a post under another file name fails the build with Dup
 
 it("an identical copy of a category under another file name fails the build with Duplicate category slug", async () => {
 	const { status, output } = await failingBuild({
-		[join(CATEGORIES, `identity-contract-${randomUUID()}.json`)]:
-			await readFile(join(copy.dir, CATEGORIES, "uncategorized.json"), "utf8"),
+		[join(CATEGORIES_DIR, `identity-contract-${randomUUID()}.json`)]:
+			await readFile(
+				join(copy.dir, CATEGORIES_DIR, "uncategorized.json"),
+				"utf8",
+			),
 	});
 	assert.notEqual(status, 0, "a duplicate category builds");
 	assert.ok(
@@ -332,7 +339,7 @@ it("an identical copy of a category under another file name fails the build with
 it("a post relating a slug that names no post fails the build, naming both", async () => {
 	const missing = "15-minute-dump-and-go-instant-pot-recipes";
 	const { status, output } = await failingBuild({
-		[join(POSTS, "related-contract.md")]: cmsSource({
+		[join(POSTS_DIR, "related-contract.md")]: cmsSource({
 			...CMS_POST,
 			slug: "related-contract",
 			title: "Related to a removed post",

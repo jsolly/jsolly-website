@@ -3,7 +3,6 @@ import { join } from "node:path";
 import { glob, type Loader } from "astro/loaders";
 import { parseFrontmatter } from "astro/markdown";
 import { parseDocument } from "yaml";
-import { z } from "zod";
 import { POST_FILES, POSTS_DIR } from "./constants.js";
 import { postSchema } from "./schemas.js";
 import { postHref } from "./urls.js";
@@ -57,19 +56,21 @@ export function postLoader(): Loader {
 // config load, before the content layer would name the file, so a bad file
 // fails here as "Invalid post <file>: <field>: <problem>".
 async function postLastmod(file: string) {
+	let data: Record<string, unknown>;
 	try {
-		return lastmodSchema.parse(parsePost(await readFile(file, "utf8")));
+		data = parsePost(await readFile(file, "utf8"));
 	} catch (error) {
-		const problem =
-			error instanceof z.ZodError
-				? error.issues
-						.map((issue) => `${issue.path.join(".")}: ${issue.message}`)
-						.join("; ")
-				: error instanceof Error
-					? error.message
-					: String(error);
-		throw new Error(`Invalid post ${file}: ${problem}`, { cause: error });
+		if (!(error instanceof Error)) throw error;
+		throw new Error(`Invalid post ${file}: ${error.message}`, { cause: error });
 	}
+	const result = lastmodSchema.safeParse(data);
+	if (!result.success) {
+		const problems = result.error.issues.map(
+			(issue) => `${issue.path.join(".")}: ${issue.message}`,
+		);
+		throw new Error(`Invalid post ${file}: ${problems.join("; ")}`);
+	}
+	return result.data;
 }
 
 // Each post's page path mapped to its `updated` time as an ISO string, read
