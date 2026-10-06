@@ -2,14 +2,16 @@
 // (src/pages/blog/{rss,atom}.xml.ts) pass the posts, the Astro site and the
 // legacy ids from legacy/blogthedata/url-map.json.
 import { escapeUTF8 as xml } from "entities";
-import { FEED_SIZE, FEEDS, LEGACY_SITE } from "./constants.js";
+import {
+	ATOM_FEED_ID,
+	FEED_DESCRIPTION,
+	FEED_SIZE,
+	FEED_TITLE,
+	FEEDS,
+	LEGACY_SITE,
+} from "./constants.js";
 import type { FeedPost, LegacyRow } from "./types.js";
 import { postHref } from "./urls.js";
-
-const TITLE = "blogthedata | Blog";
-const DESCRIPTION = "Latest blog posts from blogthedata";
-// The Atom feed's id on the old host, unchanged so readers keep the feed (J8).
-const ATOM_ID = new URL("/atom/", LEGACY_SITE).href;
 
 // The old feed ids of the posts that predate the merge, keyed by each post's
 // path on this site (postHref). A post predates the merge when the legacy
@@ -79,7 +81,7 @@ export function rssFeed(
 		},
 	);
 	const feedUrl = new URL(FEEDS.rss.path, site).href;
-	return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>${xml(TITLE)}</title><link>${feedUrl}</link><description>${DESCRIPTION}</description>${items.join("")}</channel></rss>`;
+	return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>${xml(FEED_TITLE)}</title><link>${feedUrl}</link><description>${xml(FEED_DESCRIPTION)}</description>${items.join("")}</channel></rss>`;
 }
 
 export function atomFeed(
@@ -94,5 +96,5 @@ export function atomFeed(
 	);
 	const feedUrl = new URL(FEEDS.atom.path, site).href;
 	const updated = (items[0]?.data.updated ?? new Date(0)).toISOString();
-	return `<?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>${xml(TITLE)}</title><subtitle>${DESCRIPTION}</subtitle><id>${ATOM_ID}</id><link href="${feedUrl}" rel="self"/><updated>${updated}</updated>${entries.join("")}</feed>`;
+	return `<?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>${xml(FEED_TITLE)}</title><subtitle>${xml(FEED_DESCRIPTION)}</subtitle><id>${ATOM_FEED_ID}</id><link href="${feedUrl}" rel="self"/><updated>${updated}</updated>${entries.join("")}</feed>`;
 }

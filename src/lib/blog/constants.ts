@@ -30,6 +30,13 @@ export const LEGACY_SITE = "https://www.blogthedata.com";
 // Posts the feeds list, most recently updated first.
 export const FEED_SIZE = 5;
 
+// Both feeds' title and description, kept from the old blog (J25 parity).
+export const FEED_TITLE = "blogthedata | Blog";
+export const FEED_DESCRIPTION = "Latest blog posts from blogthedata";
+
+// The Atom feed's id on the old host, unchanged so readers keep the feed (J8).
+export const ATOM_FEED_ID = `${LEGACY_SITE}/atom/`;
+
 // The blog's two feeds: where each is served, its media type (vercel.json
 // sends it as `<type>; charset=utf-8`) and the title BlogLayout's alternate
 // link gives it.

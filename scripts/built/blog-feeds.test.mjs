@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import it from "node:test";
 import { JSDOM } from "jsdom";
-import { allPosts, publishedPosts, readBuilt } from "./pages.mjs";
+import { publishedPosts, readBuilt } from "./pages.mjs";
 
 // The RSS and Atom feeds over the built dist/. The first test is ported from
 // awesome-blog's astro-contract test "feeds follow current published metadata
@@ -20,7 +20,7 @@ const URL_MAP = new URL(
 	import.meta.url,
 );
 const FEED_SIZE = 5;
-// The recipe post moved to /recipes/ (J7); it is no blog post, so no feed item.
+// The recipe post, which moved to /recipes/ (J7).
 const RECIPE_POST = "15-minute-dump-and-go-instant-pot-recipes";
 const FEEDS = [
 	{ kind: "rss", type: "application/rss+xml" },
@@ -129,22 +129,34 @@ it("feeds follow current published metadata and retain canonical identities", as
 		posts[0].updatedAt.toISOString(),
 	);
 
-	// Every blog page advertises both feeds, which the build emits.
-	const alternates = await readBuilt("blog", (document) =>
-		[...document.querySelectorAll('head link[rel="alternate"]')].map(
-			(link) => ({
-				type: link.getAttribute("type"),
-				href: link.getAttribute("href"),
-			}),
+	// The blog home, a post page and a category page each advertise both
+	// feeds, which the build emits.
+	const pages = ["blog", `blog/${posts[0].slug}`, "blog/category/Geodev"];
+	const alternates = await Promise.all(
+		pages.map((page) =>
+			readBuilt(page, (document) =>
+				[...document.querySelectorAll('head link[rel="alternate"]')].map(
+					(link) => ({
+						type: link.getAttribute("type"),
+						href: link.getAttribute("href"),
+					}),
+				),
+			),
 		),
 	);
 	assert.deepEqual(
 		alternates,
-		FEEDS.map(({ kind, type }) => ({ type, href: `/blog/${kind}.xml` })),
+		pages.map(() =>
+			FEEDS.map(({ kind, type }) => ({ type, href: `/blog/${kind}.xml` })),
+		),
 	);
 });
 
-it("pre-merge posts keep their blogthedata feed ids exactly, new posts get jsolly ids, and the recipe post is no blog post", async () => {
+// The snapshot's top five are all ported posts, so only the legacy branch of
+// expectedIds runs here; src/lib/blog/feeds.test.ts covers the new-post branch
+// (jsolly link as id, isPermaLink="true") until a jsolly-written post reaches
+// the top five.
+it("pre-merge posts keep their blogthedata feed ids exactly, and no feed item points at the recipe post", async () => {
 	const posts = await feedPosts();
 	const ids = await expectedIds(posts);
 	assert.ok(
@@ -185,8 +197,22 @@ it("pre-merge posts keep their blogthedata feed ids exactly, new posts get jsoll
 		ids.map(({ link, id }) => ({ link, id })),
 	);
 
-	assert.ok(
-		!(await allPosts()).some((post) => post.slug === RECIPE_POST),
-		"the recipe post is not in the posts collection, so no feed lists it",
-	);
+	// The recipe post moved to /recipes/ (J7).
+	const pointers = [
+		...[...rss.querySelectorAll("item")].flatMap((item) => [
+			item.querySelector("link")?.textContent,
+			item.querySelector("guid")?.textContent,
+		]),
+		...[...atom.querySelectorAll("entry")].flatMap((entry) => [
+			entry.querySelector("link")?.getAttribute("href"),
+			entry.querySelector("id")?.textContent,
+		]),
+	];
+	assert.equal(pointers.length, 4 * posts.length);
+	for (const pointer of pointers) {
+		assert.ok(
+			!(pointer.includes(RECIPE_POST) || pointer.includes("/recipes/")),
+			`${pointer} points at the recipe post`,
+		);
+	}
 });
