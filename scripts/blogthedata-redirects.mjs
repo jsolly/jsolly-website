@@ -51,6 +51,12 @@ export function isPageRow(row) {
 	return row.source.endsWith("/") && row.source !== "/";
 }
 
+// Whether a row's source has an uppercase letter; its lowercase is then a
+// different URL, since matching is case-sensitive.
+export function isMixedCase(row) {
+	return UPPERCASE.test(row.source);
+}
+
 // The paths one exact redirect row answers: a page row also answers its
 // slashless, /index.html and /index.html/ forms.
 export function redirectForms(row) {
@@ -62,16 +68,13 @@ export function redirectForms(row) {
 }
 
 // The known paths one row answers, as probes: every form of a redirect row;
-// a pattern row's samples (it must carry some); an exact page row's slash and
-// slashless forms; any other row's exact source.
+// a pattern row's samples (assertValidMap requires some); an exact page row's
+// slash and slashless forms; any other row's exact source.
 export function probePaths(row) {
 	if (row.action === "redirect-301") {
 		return redirectForms(row);
 	}
 	if (row.match === "pattern") {
-		if (!(row.samples?.length > 0)) {
-			throw new Error(`url-map pattern row ${row.id} has no samples`);
-		}
 		return row.samples;
 	}
 	return isPageRow(row) ? [row.source, row.source.slice(0, -1)] : [row.source];
@@ -82,21 +85,9 @@ export function probePaths(row) {
 export function lowercaseNegatives(rows) {
 	const sources = new Set(rows.map((row) => row.source));
 	return rows
-		.filter(
-			(row) => row.action === "redirect-301" && UPPERCASE.test(row.source),
-		)
+		.filter((row) => row.action === "redirect-301" && isMixedCase(row))
 		.map((row) => row.source.toLowerCase())
 		.filter((source) => !sources.has(source));
-}
-
-// The index.html forms the old host serves today, from url-union.json.
-export function servedIndexForms(union) {
-	return union.elements.filter(
-		(element) =>
-			element.kind === "path" &&
-			element.served_today &&
-			element.path.endsWith("index.html"),
-	);
 }
 
 function redirectSource(row) {
@@ -126,6 +117,10 @@ function assertValidMap(rows) {
 			);
 		}
 		if (row.action !== "redirect-301") {
+			// The samples are a pattern row's only probes.
+			if (row.match === "pattern" && !(row.samples?.length > 0)) {
+				throw new Error(`url-map pattern row ${row.id} has no samples`);
+			}
 			continue;
 		}
 		// A pattern redirect could send an unknown filename to a jsolly.com 404.

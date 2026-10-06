@@ -106,6 +106,16 @@ const BROKEN_MAP_EDITS = [
 		error: /carries a host condition/u,
 	},
 	{
+		name: "pattern row without samples",
+		edit: (row) => {
+			row.action = "stays-404";
+			row.match = "pattern";
+			row.source = "/post/:slug/";
+			row.destination = null;
+		},
+		error: /pattern row PST-\d+ has no samples/u,
+	},
+	{
 		name: "pattern redirect",
 		edit: (row) => {
 			row.match = "pattern";
@@ -301,7 +311,7 @@ it("The old host serves exactly its tracked public files, with no-cache headers 
 });
 
 it("Retired, unknown and near-miss old URLs get a 404, never a redirect", () => {
-	// probePaths throws on a pattern row without samples.
+	// vercelConfig (the redirects:check) refuses a pattern row without samples.
 	const paths = rowsByAction("stays-404").flatMap(probePaths);
 	assert.deepEqual(unredirected([...paths, ...NEAR_MISSES]), []);
 	// Every known path whose row is not a redirect, routed directly.
