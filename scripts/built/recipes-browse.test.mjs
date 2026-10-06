@@ -506,9 +506,12 @@ function filtersCheck(width) {
 
 // The nutrition help with a mouse and from the keyboard. Hovering opens it
 // and leaving closes it; a click while it is hover-opened keeps it open after
-// the pointer leaves. Enter opens it with focus left on the trigger, Tab moves
-// on (focus is not trapped), Escape closes it and returns focus to the
-// trigger, and Enter reopens it. Resolves to where focus was at each step.
+// the pointer leaves. Enter opens it with focus left on the trigger and Tab
+// moves on (focus is not trapped). Escape closes it and moves focus only out
+// of the help itself, back to the trigger: focus on the trigger or past it
+// stays put. Focus that moves on the moment it opens (a quick Tab, faster
+// than Playwright can send one) must stay moved, so the page moves it when
+// the help appears. Resolves to where focus was after each step.
 async function pointerAndKeyboardHelp({ page, help, popover, heading }) {
 	const focused = () =>
 		page.evaluate(() => ({
@@ -516,6 +519,16 @@ async function pointerAndKeyboardHelp({ page, help, popover, heading }) {
 			inPopover: Boolean(document.activeElement?.closest(".nutrition-help")),
 			label: document.activeElement?.closest("label")?.textContent.trim(),
 		}));
+	const openFromKeyboard = async () => {
+		await help.focus();
+		await page.keyboard.press("Enter");
+		await popover.waitFor();
+	};
+	const close = async () => {
+		await page.keyboard.press("Escape");
+		await popover.waitFor({ state: "detached" });
+		return focused();
+	};
 	await help.hover();
 	await popover.waitFor();
 	await heading.hover();
@@ -528,25 +541,41 @@ async function pointerAndKeyboardHelp({ page, help, popover, heading }) {
 	const clickedStaysOpen = await popover.isVisible();
 	await page.keyboard.press("Escape");
 	await popover.waitFor({ state: "detached" });
-	await help.focus();
-	await page.keyboard.press("Enter");
-	await popover.waitFor();
+	await page.evaluate(() => {
+		// The control after the help, focused as soon as the help appears.
+		const next = [...document.querySelectorAll("label")]
+			.find((label) => label.textContent.trim() === "Immune support")
+			.querySelector("button, input");
+		const observer = new MutationObserver(() => {
+			if (!document.querySelector(".nutrition-help")) return;
+			observer.disconnect();
+			next.focus();
+		});
+		observer.observe(document.body, { childList: true, subtree: true });
+	});
+	await openFromKeyboard();
+	const movedOnOpen = await focused();
+	const movedOnOpenClosed = await close();
+	await openFromKeyboard();
 	const opened = await focused();
 	await page.keyboard.press("Tab");
 	const tabbed = await focused();
-	await page.keyboard.press("Escape");
-	await popover.waitFor({ state: "detached" });
-	const closed = await focused();
-	await page.keyboard.press("Enter");
-	await popover.waitFor();
-	await page.keyboard.press("Escape");
-	await popover.waitFor({ state: "detached" });
+	const tabbedClosed = await close();
+	await openFromKeyboard();
+	const onTriggerClosed = await close();
+	await openFromKeyboard();
+	await popover.locator("p").first().click();
+	const clickedInside = await focused();
 	return {
 		clickedStaysOpen,
+		movedOnOpen,
+		movedOnOpenClosed,
 		opened,
 		tabbed,
-		closed,
-		reclosed: await focused(),
+		tabbedClosed,
+		onTriggerClosed,
+		clickedInside,
+		clickedInsideClosed: await close(),
 	};
 }
 
@@ -559,12 +588,17 @@ async function touchHelp({ help, popover, heading }) {
 	return null;
 }
 const ON_HELP = { onHelp: true, inPopover: false, label: undefined };
+const IMMUNE = { onHelp: false, inPopover: false, label: "Immune support" };
 const DESKTOP_HELP = {
 	clickedStaysOpen: true,
+	movedOnOpen: IMMUNE,
+	movedOnOpenClosed: IMMUNE,
 	opened: ON_HELP,
-	tabbed: { onHelp: false, inPopover: false, label: "Immune support" },
-	closed: ON_HELP,
-	reclosed: ON_HELP,
+	tabbed: IMMUNE,
+	tabbedClosed: IMMUNE,
+	onTriggerClosed: ON_HELP,
+	clickedInside: { onHelp: false, inPopover: true, label: undefined },
+	clickedInsideClosed: ON_HELP,
 };
 
 function collectionsCheck(width) {

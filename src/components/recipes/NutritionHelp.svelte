@@ -7,17 +7,22 @@
 	// The nutrition filters' thresholds. A mouse opens it by hovering (bits-ui
 	// leaves touch to the tap); a click, tap or Enter toggles it. It renders
 	// right after the trigger, which it describes; it holds no controls, so
-	// focus stays on the trigger, Tab moves on, and closing it from the
-	// keyboard returns focus to the trigger.
+	// focus stays on the trigger and Tab moves on. Closing it moves focus only
+	// out of the help itself (a click can focus it), back to the trigger;
+	// focus anywhere else stays where it is. bits-ui (2.19.5) also remounts the
+	// content's focus scope once, a few milliseconds after it opens, and runs
+	// the close auto-focus then; restoring focus there would pull a quick Tab
+	// back to the trigger.
 	const OPEN_DELAY_MS = 100;
 	const CLOSE_DELAY_MS = 120;
 	const uid = $props.id();
 	const contentId = `${uid}-content`;
+	let content = $state(null);
 </script>
 
 <PopoverRoot
 	><PopoverTrigger class="nutrition-info" aria-label="About nutrition filters" aria-describedby={contentId} openOnHover openDelay={OPEN_DELAY_MS} closeDelay={CLOSE_DELAY_MS}>ⓘ</PopoverTrigger
-	><PopoverContent id={contentId} class="nutrition-help" portalProps={{ disabled: true }} sideOffset={4} trapFocus={false} onOpenAutoFocus={(event) => event.preventDefault()}
+	><PopoverContent bind:ref={content} id={contentId} class="nutrition-help" portalProps={{ disabled: true }} sideOffset={4} trapFocus={false} onOpenAutoFocus={(event) => event.preventDefault()} onCloseAutoFocus={(event) => { if (!content?.contains(document.activeElement)) event.preventDefault(); }}
 		><strong>Nutrition filters</strong>
 		<p><strong>Iron-rich:</strong> {nutritionThresholds.ironRich}</p>
 		<p><strong>Immune support:</strong> {nutritionThresholds.immuneSupport}</p>
