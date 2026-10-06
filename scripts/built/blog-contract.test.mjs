@@ -9,6 +9,7 @@ import {
 	exists,
 	publishedPosts,
 	readBuilt,
+	routeManifest,
 } from "./pages.mjs";
 
 // The post pages over the built dist/. The first two tests are ported from
@@ -21,10 +22,6 @@ const DIST = "dist";
 const SITE = "https://www.jsolly.com";
 const URL_MAP = new URL(
 	"../../legacy/blogthedata/url-map.json",
-	import.meta.url,
-);
-const MANIFEST = new URL(
-	"../../src/generated/route-manifest.js",
 	import.meta.url,
 );
 const LOC = /<loc>(?<url>[^<]+)<\/loc>/gu;
@@ -58,10 +55,11 @@ function article(document) {
 	};
 }
 
-// The snapshot holds no drafts, so this test cannot catch a draft leaking;
-// that scenario, a real draft in a temp copy, and its wording arrive with
-// B14's content-contract test.
-it("every legacy post and category URL leads to a built page, and every published post is built, archived, searchable, in the sitemap and in the route manifest", async () => {
+// The snapshot holds no drafts, so the draft half of "exactly when published"
+// is held by blog-content-contracts.test.mjs, which builds a real draft in a
+// temp copy and finds it in no built file (page, archive, search index,
+// sitemap, feeds) and not in the route manifest.
+it("every legacy post and category URL leads to a built page, and each post is built, archived, searchable, in the sitemap and in the route manifest exactly when published", async () => {
 	const posts = await allPosts();
 	const published = posts.filter((post) => post.published);
 	assert.ok(published.length > 0, "the snapshot publishes posts");
@@ -108,8 +106,7 @@ it("every legacy post and category URL leads to a built page, and every publishe
 	);
 	const indexed = new Map(index.map((entry) => [entry.slug, entry]));
 	assert.equal(indexed.size, index.length, "one search entry per slug");
-	const { routes } = await import(MANIFEST.href);
-	const manifest = new Set(routes);
+	const manifest = new Set(await routeManifest());
 	// Each post is in all five exactly when published.
 	const presence = await Promise.all(
 		posts.map(async (post) => {

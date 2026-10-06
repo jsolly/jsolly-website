@@ -14,7 +14,8 @@ import {
 import { categoryHref, postHref } from "../../lib/blog/urls.js";
 
 // One page per published post at /blog/<slug>/ (slug case kept). A related
-// slug that names no published post is left out here; B14 makes it fail.
+// slug naming a draft is left out of the cards; one naming no post at all has
+// already failed the build in publishedContent.
 export async function getStaticPaths() {
 	const { posts } = await blogContent();
 	const bySlug = new Map(posts.map((entry) => [entry.data.slug, entry]));

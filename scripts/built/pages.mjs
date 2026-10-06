@@ -3,11 +3,13 @@
 import { access, readFile } from "node:fs/promises";
 import { createServer } from "node:http";
 import { extname, join, normalize } from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { parseFrontmatter } from "astro/markdown";
 import { globby } from "globby";
 import { JSDOM } from "jsdom";
 import { parseDocument } from "yaml";
 
+const ROOT = fileURLToPath(new URL("../..", import.meta.url));
 const POSTS = new URL("../../src/content/blog/posts/", import.meta.url);
 const CATEGORIES = new URL(
 	"../../src/content/blog/categories/",
@@ -27,6 +29,15 @@ export async function exists(path) {
 	} catch {
 		return false;
 	}
+}
+
+// The routes in the route manifest the last build of the project at `root`
+// (this checkout, or a temp copy's directory) wrote: the list middleware.ts
+// ships.
+export async function routeManifest(root = ROOT) {
+	const manifest = pathToFileURL(join(root, "src/generated/route-manifest.js"));
+	const { routes } = await import(manifest.href);
+	return routes;
 }
 
 // Every built HTML page under `root`, as { file (relative to root), html }.

@@ -52,18 +52,38 @@ export function postLoader(): Loader {
 	};
 }
 
+// A post file's slug and `updated` time. astro.config.ts reads these at
+// config load, before the content layer would name the file, so a bad file
+// fails here as "Invalid post <file>: <field>: <problem>".
+async function postLastmod(file: string) {
+	let data: Record<string, unknown>;
+	try {
+		data = parsePost(await readFile(file, "utf8"));
+	} catch (error) {
+		if (!(error instanceof Error)) throw error;
+		throw new Error(`Invalid post ${file}: ${error.message}`, { cause: error });
+	}
+	const result = lastmodSchema.safeParse(data);
+	if (!result.success) {
+		const problems = result.error.issues.map(
+			(issue) => `${issue.path.join(".")}: ${issue.message}`,
+		);
+		throw new Error(`Invalid post ${file}: ${problems.join("; ")}`);
+	}
+	return result.data;
+}
+
 // Each post's page path mapped to its `updated` time as an ISO string, read
 // from the post files under `root` the way the collection loader reads them:
 // the sitemap's lastmod. Throws when there is no post, so a wrong root cannot
-// quietly drop every lastmod.
+// quietly drop every lastmod, and on a post without a valid slug and updated
+// time, naming its file.
 export async function postLastmods(root: string): Promise<Map<string, string>> {
 	const dir = join(root, POSTS_DIR);
 	const files = await Array.fromAsync(globFiles(POST_FILES, { cwd: dir }));
 	if (files.length === 0) throw new Error(`No posts in ${dir}`);
 	const posts = await Promise.all(
-		files.map(async (name) =>
-			lastmodSchema.parse(parsePost(await readFile(join(dir, name), "utf8"))),
-		),
+		files.map((name) => postLastmod(join(dir, name))),
 	);
 	return new Map(
 		posts.map(({ slug, updated }) => [postHref(slug), updated.toISOString()]),
