@@ -13,7 +13,7 @@ import { join } from "node:path";
 import { after, before, it } from "node:test";
 import { chromium } from "playwright";
 import { buildRecipePwa } from "../recipes/pwa-build.mjs";
-import { readBuilt, serveStatic } from "./pages.mjs";
+import { collectErrors, readBuilt, serveStatic } from "./pages.mjs";
 
 // The recipe app offline, ported from awesome-blog's PWA suite
 // (scripts/recipes/pwa.test.mjs): it installs and the cooking tools work
@@ -62,6 +62,9 @@ const SHARED_RECIPE =
 	"/recipes/shawarma-chicken-bowls/?servings=8&starch=shawarma-chicken-bowls:pita_one";
 const LEARN_MORE = "Learn more about Tabular Recipe Notation";
 const SMOOTHIES = recipes.filter(({ type }) => type === "smoothie").length;
+// RecipePwa's status line before any worker reports.
+const INSTRUCTIONS =
+	"Save recipes to your home screen. On iPhone or iPad, open in Safari and choose Share → Add to Home Screen. Other browsers offer Install or Add to Home Screen in their menu.";
 const SAVED = "Recipes saved for offline use.";
 const OFFLINE = "You are offline.";
 const VIEWPORTS = [
@@ -237,13 +240,7 @@ function installCheck(name, viewport) {
 
 		const context = await browser.newContext({ viewport });
 		const page = await context.newPage();
-		const errors = [];
-		page.on("pageerror", (error) => errors.push(String(error)));
-		page.on("console", (message) => {
-			if (["warning", "error"].includes(message.type())) {
-				errors.push(message.text());
-			}
-		});
+		const errors = collectErrors(page, ["warning", "error"]);
 		try {
 			await page.goto(`${site.origin}${LANDING}`);
 			await statusText(page, SAVED);
@@ -444,6 +441,34 @@ it("A maintenance deploy or a failed replacement keeps the previous offline snap
 		assert.equal(await dataLabel(page), "A");
 		await page.getByRole("combobox", { name: SERVINGS }).selectOption("2");
 		assert.equal(await noUpdateWaiting(page), true);
+	} finally {
+		await context.close();
+	}
+});
+
+// The production smoke runner blocks service workers (Playwright's
+// serviceWorkers: "block", whose register() resolves with no registration)
+// and fails on any console error, so the library must hydrate there cleanly,
+// with the install instructions, not a failed download, in its status line.
+it("Recipe library hydrates without errors when the browser blocks service workers", {
+	timeout: 90_000,
+}, async () => {
+	await serve("A");
+	const context = await browser.newContext({ serviceWorkers: "block" });
+	try {
+		const page = await context.newPage();
+		const errors = collectErrors(page);
+		await page.goto(`${site.origin}${LANDING}`);
+		await page.locator(".meal-library[data-hydrated=true]").waitFor();
+		assert.ok(
+			(await page.locator(".meal-library .recipe-card:visible").count()) > 0,
+			"the library shows recipe cards",
+		);
+		assert.equal(
+			await page.locator("#recipe-offline-status").textContent(),
+			INSTRUCTIONS,
+		);
+		assert.deepEqual(errors, [], "no console or page errors");
 	} finally {
 		await context.close();
 	}

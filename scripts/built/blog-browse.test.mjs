@@ -5,6 +5,7 @@ import { chromium } from "playwright";
 import { categoryHref, postHref } from "../../src/lib/blog/urls.js";
 import {
 	categorySlugs,
+	collectErrors,
 	exists,
 	publishedPosts,
 	readBuilt,
@@ -63,8 +64,7 @@ async function openPage({
 	}
 	await stubOffOrigin(context, site.origin);
 	const page = await context.newPage();
-	const errors = [];
-	page.on("pageerror", (error) => errors.push(String(error)));
+	const errors = collectErrors(page, []);
 	page.setDefaultTimeout(5000);
 	return { context, page, errors };
 }

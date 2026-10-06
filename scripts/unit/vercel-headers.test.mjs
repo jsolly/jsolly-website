@@ -1,22 +1,14 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
 import it from "node:test";
 import { PWA_WORKER_PATH } from "../../src/components/recipes/constants.mjs";
 import { FEEDS } from "../../src/lib/blog/constants.js";
-import { compileRoutes, routePath } from "../blogthedata-redirects.mjs";
+import { rootVercelRoutes, routePath } from "../blogthedata-redirects.mjs";
 
 // Headers a static build cannot set, which only vercel.json gives: the feeds'
 // XML types (plan §4.7) and the recipe service worker's no-cache. The root
 // config compiles with Vercel's own routing-utils, as the legacy redirect
-// project's does. routePath ignores `has`, so the apex-host redirect (it only
-// answers jsolly.com) stays out.
-const config = JSON.parse(
-	readFileSync(new URL("../../vercel.json", import.meta.url), "utf8"),
-);
-const routes = compileRoutes({
-	...config,
-	redirects: config.redirects.filter((redirect) => !redirect.has),
-});
+// project's does.
+const routes = rootVercelRoutes();
 
 it("Vercel serves each blog feed with its feed media type, unredirected and with the security headers", () => {
 	for (const { path, type } of Object.values(FEEDS)) {

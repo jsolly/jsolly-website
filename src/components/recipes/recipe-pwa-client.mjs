@@ -73,6 +73,9 @@ async function register() {
 		scope: RECIPES_PATH,
 		updateViaCache: "none",
 	});
+	// A shimmed or blocked register() can resolve with no registration: there
+	// is no worker to follow, and the instructions stay.
+	if (!registration) return;
 	state.active = hasActive(registration);
 	state.waiting = Boolean(registration.waiting);
 	observeInstaller(registration);

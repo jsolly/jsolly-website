@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { after, before, it } from "node:test";
 import { chromium } from "playwright";
-import { serveStatic } from "./pages.mjs";
+import { collectErrors, serveStatic } from "./pages.mjs";
 
 // Plan §1.6: blogthedata.com's Easy Meals & Smoothies post now 301s to
 // /recipes/, and browsers carry the #fragment across the redirect. The post
@@ -38,8 +38,7 @@ it("each old /recipes/#<recipe-id> link opens that recipe in the library dialog 
 		viewport: { width: 1280, height: 800 },
 	});
 	const page = await context.newPage();
-	const errors = [];
-	page.on("pageerror", (error) => errors.push(error.message));
+	const errors = collectErrors(page, []);
 	try {
 		const opened = [];
 		for (const recipe of recipes) {
