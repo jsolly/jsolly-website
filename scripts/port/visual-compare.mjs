@@ -52,6 +52,12 @@ const PAGES = [
 	// `query` goes on both URLs; the url-map.json rows match the bare path.
 	{ name: "search-django", old: "/search/", query: "?searched=django" },
 	{ name: "works-cited", old: "/works-cited/" },
+	// The old Easy Meals & Smoothies post, now the /recipes/ landing page.
+	{
+		name: "recipes",
+		old: "/post/15-minute-dump-and-go-instant-pot-recipes/",
+		masks: [".recipe-grid"],
+	},
 	{ name: "recipes-meals", old: "/recipes/meals/", masks: [".recipe-grid"] },
 	{ name: "recipe-detail", old: "/recipes/chicken-posole/" },
 ];

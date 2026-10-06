@@ -1,0 +1,18 @@
+/* Every recipe sheet declares the full order, Tailwind's own `properties`
+   layer first, so blog and blog-no-script stay last whichever sheet loads
+   first. */
+@layer properties, theme, base, components, utilities, blog, blog-no-script;
+/* The recipe library without JavaScript: only the collection links and the
+   server-rendered cards, whose links open each recipe's own page. Its own last
+   layer beats the library's blog-layer rules. Ported from awesome-blog
+   no-script.css. */
+@layer blog-no-script {
+	.recipe-experience .library-controls > :not(.collection-options),
+	.recipe-experience .action-status,
+	.recipe-experience .print-output {
+		display: none;
+	}
+	.recipe-experience .library-controls {
+		display: block;
+	}
+}
