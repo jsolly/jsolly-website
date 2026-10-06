@@ -2402,7 +2402,7 @@
 			"destination": "legacy/blogthedata/public/.well-known/security.txt",
 			"evidence": ["build", "history", "live", "served", "wayback"],
 			"decision_ref": "J15",
-			"notes": "Vercel cannot redirect /.well-known; served file points Contact/Encryption at jsolly.com."
+			"notes": "Vercel cannot redirect /.well-known; served file points Contact at jsolly.com."
 		},
 		{
 			"id": "RCP-001",

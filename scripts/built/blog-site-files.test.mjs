@@ -5,7 +5,12 @@ import it from "node:test";
 import { globby } from "globby";
 import { JSDOM } from "jsdom";
 import { postHref } from "../../src/lib/blog/urls.js";
-import { securityTxtProblems } from "../security-txt.mjs";
+import {
+	fieldLines,
+	fieldValues,
+	headCommitDate,
+	securityTxtProblems,
+} from "../site-files.mjs";
 import { exists, publishedPosts, readBuilt } from "./pages.mjs";
 
 // The site files over the built dist/ (plan B11): the sitemap, robots.txt and
@@ -17,7 +22,10 @@ const DIST = "dist";
 const SITE = "https://www.jsolly.com";
 // The one custom (non-page) sitemap entry, from astro.config.ts customPages.
 const RESUME = `${SITE}/John-Solly-Resume.pdf`;
-const ROBOTS_LINE = /^(?<name>[A-Za-z-]+):\s*(?<value>\S.*)$/u;
+const LEGACY_SECURITY_TXT = new URL(
+	"../../legacy/blogthedata/public/.well-known/security.txt",
+	import.meta.url,
+);
 
 // The built XML file at `path` under dist/ as a document.
 async function readXml(path) {
@@ -59,43 +67,35 @@ async function builtPages() {
 	};
 }
 
-// robots.txt as { directives: [lowercase name, value] pairs, unparsed: the
-// lines that are neither blank, a comment nor a directive }.
-function readRobots(text) {
-	const robots = { directives: [], unparsed: [] };
-	for (const line of text.split("\n")) {
-		if (line === "" || line.startsWith("#")) continue;
-		if (!ROBOTS_LINE.test(line)) {
-			robots.unparsed.push(line);
-			continue;
-		}
-		const { name, value } = ROBOTS_LINE.exec(line).groups;
-		robots.directives.push([name.toLowerCase(), value]);
-	}
-	return robots;
+// The sitemap as { chunks: the sitemaps its index names, entries: each URL
+// mapped to its lastmod (null when absent), listed: how many <url> entries
+// it has }.
+async function readSitemap() {
+	const index = await readXml("sitemap-index.xml");
+	const urls = [...(await readXml("sitemap-0.xml")).querySelectorAll("url")];
+	return {
+		chunks: [...index.querySelectorAll("sitemap > loc")].map(
+			(loc) => loc.textContent,
+		),
+		entries: new Map(
+			urls.map((url) => [
+				url.querySelector("loc").textContent,
+				url.querySelector("lastmod")?.textContent ?? null,
+			]),
+		),
+		listed: urls.length,
+	};
 }
 
-it("the sitemap lists every indexable page with post lastmods, robots.txt keeps crawlers off only the blog search, and security.txt is valid", async () => {
+it("crawlers find every indexable page in the sitemap, each post with its updated time as lastmod", async () => {
 	const pages = await builtPages();
-	assert.ok(
-		pages.noindex.includes(`${SITE}/blog/search/`),
-		"the blog search page is noindex",
-	);
-
-	const index = await readXml("sitemap-index.xml");
+	const { chunks, entries, listed } = await readSitemap();
 	assert.deepEqual(
-		[...index.querySelectorAll("sitemap > loc")].map((loc) => loc.textContent),
+		chunks,
 		[`${SITE}/sitemap-0.xml`],
 		"the sitemap index names the one sitemap",
 	);
-	const urls = [...(await readXml("sitemap-0.xml")).querySelectorAll("url")];
-	const entries = new Map(
-		urls.map((url) => [
-			url.querySelector("loc").textContent,
-			url.querySelector("lastmod")?.textContent ?? null,
-		]),
-	);
-	assert.equal(entries.size, urls.length, "each URL is listed once");
+	assert.equal(entries.size, listed, "each URL is listed once");
 	assert.deepEqual(
 		[...entries.keys()].sort(),
 		[...pages.indexable, RESUME].sort(),
@@ -115,43 +115,64 @@ it("the sitemap lists every indexable page with post lastmods, robots.txt keeps 
 		[],
 		"each post's lastmod is its updated time, and no other URL has one",
 	);
+});
 
-	const robots = readRobots(await readFile(join(DIST, "robots.txt"), "utf8"));
-	assert.deepEqual(robots.unparsed, [], "every robots.txt line is a directive");
-	const directives = (name) =>
-		robots.directives
-			.filter(([directive]) => directive === name)
-			.map(([, value]) => value);
-	assert.deepEqual(directives("user-agent"), ["*"]);
-	assert.deepEqual(directives("allow"), ["/"]);
-	assert.deepEqual(directives("disallow"), ["/blog/search/"]);
-	assert.deepEqual(directives("sitemap"), [`${SITE}/sitemap-index.xml`]);
+it("crawlers are kept off only the noindex blog search, which the sitemap leaves out", async () => {
+	const { fields, unparsed } = fieldLines(
+		await readFile(join(DIST, "robots.txt"), "utf8"),
+	);
+	assert.deepEqual(unparsed, [], "every robots.txt line is a directive");
+	assert.deepEqual(fieldValues(fields, "user-agent"), ["*"]);
+	assert.deepEqual(fieldValues(fields, "allow"), ["/"]);
+	assert.deepEqual(fieldValues(fields, "disallow"), ["/blog/search/"]);
+	assert.deepEqual(fieldValues(fields, "sitemap"), [
+		`${SITE}/sitemap-index.xml`,
+	]);
+	assert.ok(
+		(await builtPages()).noindex.includes(`${SITE}/blog/search/`),
+		"the blog search page is noindex",
+	);
 	assert.deepEqual(
-		[...entries.keys()].filter((loc) =>
-			directives("disallow").some((path) =>
-				new URL(loc).pathname.startsWith(path),
-			),
+		[...(await readSitemap()).entries.keys()].filter((loc) =>
+			new URL(loc).pathname.startsWith("/blog/search/"),
 		),
 		[],
 		"no sitemap URL is disallowed",
 	);
+});
 
+it("security researchers find a valid security.txt that expires with the old host's and names no expired key", async () => {
 	const canonical = `${SITE}/.well-known/security.txt`;
-	const encryption = `${SITE}/pgp-key.txt`;
+	const text = await readFile(
+		join(DIST, ".well-known", "security.txt"),
+		"utf8",
+	);
 	assert.deepEqual(
 		securityTxtProblems(
-			await readFile(join(DIST, ".well-known", "security.txt"), "utf8"),
+			text,
 			{
 				contact: `${SITE}/contact/`,
-				encryption,
 				"preferred-languages": "en",
 				canonical,
 			},
+			{ committed: headCommitDate() },
 		),
 		[],
 	);
+	// public/pgp-key.txt (kept as the legacy /pgp-key.txt redirect's
+	// destination) expired on 2023-05-08, so neither host offers Encryption,
+	// and one yearly bump moves both Expires together.
+	const legacy = fieldLines(await readFile(LEGACY_SECURITY_TXT, "utf8")).fields;
+	const { fields } = fieldLines(text);
+	assert.deepEqual(fieldValues(fields, "encryption"), []);
+	assert.deepEqual(fieldValues(legacy, "encryption"), []);
+	assert.deepEqual(
+		fieldValues(fields, "expires"),
+		fieldValues(legacy, "expires"),
+		"both hosts' security.txt expire together",
+	);
 	const missing = await Promise.all(
-		[canonical, encryption, `${SITE}/contact/`].map(async (url) => {
+		[canonical, `${SITE}/contact/`].map(async (url) => {
 			const { pathname } = new URL(url);
 			const file = pathname.endsWith("/")
 				? join(DIST, pathname, "index.html")

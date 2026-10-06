@@ -24,7 +24,7 @@ import {
 	vercelConfig,
 	vercelJsonDrift,
 } from "../blogthedata-redirects.mjs";
-import { securityTxtProblems } from "../security-txt.mjs";
+import { headCommitDate, securityTxtProblems } from "../site-files.mjs";
 
 // The URL map is the legacy host's whole behaviour: these tests route every
 // known path through Vercel's own compiler and router library.
@@ -437,14 +437,16 @@ it("Crawlers on the old host get a robots.txt that allows following the 301s", (
 });
 
 it("Security researchers on the old host get a valid, unexpired security.txt", () => {
+	// No Encryption field: public/pgp-key.txt expired on 2023-05-08.
 	assert.deepEqual(
 		securityTxtProblems(
 			readFileSync(join(PUBLIC_DIR, ".well-known", "security.txt"), "utf8"),
 			{
 				contact: `${JSOLLY_ORIGIN}/contact/`,
-				encryption: `${JSOLLY_ORIGIN}/pgp-key.txt`,
+				"preferred-languages": "en",
 				canonical: "https://www.blogthedata.com/.well-known/security.txt",
 			},
+			{ committed: headCommitDate() },
 		),
 		[],
 	);
