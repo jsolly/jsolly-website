@@ -6,7 +6,7 @@ import {
 	carbStyles,
 	mealStyleDescriptions,
 } from "../../src/components/recipes/constants.mjs";
-import { serveStatic } from "./pages.mjs";
+import { collectErrors, serveStatic } from "./pages.mjs";
 
 // Browsing the built recipe library in Chromium, ported from awesome-blog's
 // PWA suite (scripts/recipes/pwa.test.mjs) without its service worker: every
@@ -121,12 +121,7 @@ function detailsCheck(width) {
 		});
 		const staticPage = await plain.newPage();
 		const page = await context.newPage();
-		const errors = [];
-		page.on("pageerror", (error) => errors.push(String(error)));
-		page.on("console", (message) => {
-			if (["error", "warning"].includes(message.type()))
-				errors.push(message.text());
-		});
+		const errors = collectErrors(page, ["error", "warning"]);
 		try {
 			await staticPage.goto(`${site.origin}${LANDING}`);
 			assert.equal(await staticPage.locator(".recipe-card").count(), mealCount);
@@ -294,8 +289,7 @@ function filtersCheck(width) {
 			viewport: { width, height: 984 },
 		});
 		const page = await context.newPage();
-		const errors = [];
-		page.on("pageerror", (error) => errors.push(String(error)));
+		const errors = collectErrors(page, []);
 		const checkbox = (name) =>
 			page.getByRole("checkbox", { name, exact: true });
 		const cards = () => page.locator(".recipe-card").count();

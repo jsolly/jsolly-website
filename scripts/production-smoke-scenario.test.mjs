@@ -13,6 +13,10 @@ const NO_CARDS = /the recipe library shows recipe cards/u;
 const POST_NOT_HTML = /a post serves HTML when Markdown is asked for/u;
 const POST_VARIES = /a post does not vary on Accept/u;
 const ABOUT_DOES_NOT_VARY = /negotiated Markdown varies on Accept/u;
+const POST_MISSING = /a post asked for as Markdown answers/u;
+const ABOUT_NOT_MARKDOWN = /\/about\/ answers Markdown/u;
+const WRONG_TITLE = /article title matches the selected post/u;
+const OFF_BLOG = /the blog links to a public article/u;
 // Long enough for a loaded CI machine; a test that expects a wait to time
 // out passes a shorter one.
 const STUB_TIMEOUT_MS = 5000;
@@ -38,8 +42,12 @@ const BLOG_MENU =
 const BLOG_HOME_HTML = "<main><h1>Solly's Blog</h1></main>";
 const postCard = (href, title) =>
 	`<article class="post-card"><h2><a class="post-card-link" href="${href}">${title}</a></h2><p class="post-meta">5 min read</p></article>`;
-const POST_LIST = `<div class="post-list">${postCard(POST, TITLE_HTML)}${postCard("/blog/astro-islands-in-practice/", "Astro Islands in Practice")}</div>`;
-const POST_PAGE = `${BLOG_MENU}<main><article><h1 id="svelte-5-search">${TITLE_HTML}<a class="heading-link" href="#svelte-5-search" aria-label="Link to this heading">#</a></h1><div class="article-body post-text"><p>The blog's search runs in the browser over a prebuilt index, so a query never leaves the page.</p><p>Here is what kept it fast as the archive grew, and what did not.</p></div></article></main>`;
+const postList = (first) =>
+	`<div class="post-list">${first}${postCard("/blog/astro-islands-in-practice/", "Astro Islands in Practice")}</div>`;
+const POST_LIST = postList(postCard(POST, TITLE_HTML));
+const postPage = (title) =>
+	`${BLOG_MENU}<main><article><h1 id="svelte-5-search">${title}<a class="heading-link" href="#svelte-5-search" aria-label="Link to this heading">#</a></h1><div class="article-body post-text"><p>The blog's search runs in the browser over a prebuilt index, so a query never leaves the page.</p><p>Here is what kept it fast as the archive grew, and what did not.</p></div></article></main>`;
+const POST_PAGE = postPage(TITLE_HTML);
 const recipeCard = (name) =>
 	`<article class="recipe-card"><h3>${name}</h3></article>`;
 // The recipe landing, its library holding `content` after its controls.
@@ -105,7 +113,7 @@ function stubRequest(answers, requested) {
 			const answer = answers[new URL(url).pathname];
 			if (!answer) throw new Error(`Unexpected request: ${url}`);
 			return {
-				status: () => 200,
+				status: () => answer.status ?? 200,
 				headers: () => ({ "content-type": answer.type, vary: answer.vary }),
 				text: () => Promise.resolve(answer.body),
 			};
@@ -295,5 +303,56 @@ it("Markdown on /about/ that varies only on Accept-Encoding fails", async () => 
 			},
 		}),
 		ABOUT_DOES_NOT_VARY,
+	);
+});
+
+it("a post that is missing when Markdown is asked for fails", async () => {
+	await assert.rejects(
+		runAgainstStubs({
+			markdown: {
+				[POST]: {
+					status: 404,
+					type: "text/markdown; charset=utf-8",
+					vary: "Accept",
+					body: "# Not found\n\nThis path does not exist on jsolly.com.\n",
+				},
+			},
+		}),
+		POST_MISSING,
+	);
+});
+
+it("/about/ that answers HTML when Markdown is asked for fails", async () => {
+	await assert.rejects(
+		runAgainstStubs({
+			markdown: {
+				"/about/": {
+					type: "text/html; charset=utf-8",
+					vary: "Accept",
+					body: SITE["/about/"],
+				},
+			},
+		}),
+		ABOUT_NOT_MARKDOWN,
+	);
+});
+
+it("a post page headed with another post's title fails the title match", async () => {
+	await assert.rejects(
+		runAgainstStubs({
+			pages: { [POST]: postPage("Astro Islands in Practice") },
+		}),
+		WRONG_TITLE,
+	);
+});
+
+it("a first blog card that links off /blog/ fails the public-article check", async () => {
+	await assert.rejects(
+		runAgainstStubs({
+			pages: {
+				"/blog/": `${BLOG_MENU}<main><h1>Latest Posts!</h1>${postList(postCard("/recipes/lemon-salmon-and-asparagus/", "Lemon Salmon and Asparagus"))}</main>`,
+			},
+		}),
+		OFF_BLOG,
 	);
 });

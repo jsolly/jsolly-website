@@ -167,6 +167,17 @@ export function compileRoutes(config) {
 	}));
 }
 
+// The jsolly.com project's own vercel.json (the repo root's), compiled.
+// routePath ignores `has`, so the apex-host redirect (it only answers
+// jsolly.com) stays out.
+export function rootVercelRoutes() {
+	const config = JSON.parse(readFileSync(join(ROOT, "vercel.json"), "utf8"));
+	return compileRoutes({
+		...config,
+		redirects: config.redirects.filter((redirect) => !redirect.has),
+	});
+}
+
 // Walks the compiled routes in order, as Vercel does before its filesystem
 // phase: header routes continue and accumulate headers, the first redirect
 // answers. `redirectHits` counts every redirect route the path matches.

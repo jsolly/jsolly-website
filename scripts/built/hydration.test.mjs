@@ -5,7 +5,7 @@ import { after, before, it } from "node:test";
 import { globby } from "globby";
 import { chromium } from "playwright";
 import { JOB_TITLE } from "../../src/content/constants.js";
-import { serveStatic, stubOffOrigin } from "./pages.mjs";
+import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
 import { createTempCopy, requireSuccess } from "./temp-copy.mjs";
 
 // What process-html.mjs must leave alone for the portfolio's islands to
@@ -162,8 +162,7 @@ async function nodeReuse({ root, origin }, path, stable = ":not(*)") {
 			},
 		);
 		const page = await context.newPage();
-		const errors = [];
-		page.on("pageerror", (error) => errors.push(error.message));
+		const errors = collectErrors(page, []);
 		await page.goto(`${origin}${path}`, { waitUntil: "domcontentloaded" });
 		const { total, stableTotal } = await page.evaluate((selector) => {
 			window.__ssrIslandNodes = [
@@ -327,8 +326,7 @@ it("a phone visitor on a blog page opens and closes the hydrated menu", async ()
 	});
 	try {
 		const page = await context.newPage();
-		const errors = [];
-		page.on("pageerror", (error) => errors.push(error.message));
+		const errors = collectErrors(page, []);
 		await page.goto(`${sites.shipped.origin}/blog/works-cited/`);
 		const toggle = page.getByRole("button", { name: "Menu" });
 		const panel = page.locator("#mobile-navigation");
@@ -383,8 +381,7 @@ it("a desktop visitor on a blog page uses the header links with no menu toggle",
 	});
 	try {
 		const page = await context.newPage();
-		const errors = [];
-		page.on("pageerror", (error) => errors.push(error.message));
+		const errors = collectErrors(page, []);
 		await page.goto(`${sites.shipped.origin}/blog/works-cited/`);
 		await page.waitForFunction(
 			() => document.querySelector(".menu-toggle")?.disabled === false,
@@ -471,8 +468,7 @@ it("A visitor on / reaches the on-site blog and recipes in the same tab and gets
 	});
 	try {
 		const page = await context.newPage();
-		const errors = [];
-		page.on("pageerror", (error) => errors.push(error.message));
+		const errors = collectErrors(page, []);
 		await page.goto(`${sites.shipped.origin}/`);
 		await page.waitForFunction(
 			() => !document.querySelector("astro-island[ssr]"),

@@ -1,12 +1,12 @@
 import assert from "node:assert/strict";
-import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { mkdtemp, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { after, before, it } from "node:test";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
 import middleware from "../../middleware.js";
-import { compileRoutes, routePath } from "../blogthedata-redirects.mjs";
+import { rootVercelRoutes, routePath } from "../blogthedata-redirects.mjs";
 import { runSmoke } from "../production-smoke.mjs";
 import { productionUrl, smoke } from "../production-smoke-scenario.mjs";
 import { serveStatic, stubOffOrigin } from "./pages.mjs";
@@ -22,15 +22,11 @@ import { serveStatic, stubOffOrigin } from "./pages.mjs";
 // scenario's logic; this checks it against the markup the site ships.
 const POST_PATH = /^\/blog\/[^/]+\/$/u;
 const DIST = fileURLToPath(new URL("../../dist/", import.meta.url));
-const config = JSON.parse(
-	await readFile(new URL("../../vercel.json", import.meta.url), "utf8"),
-);
-// The apex-host redirect only answers jsolly.com, so it stays out.
-const routes = compileRoutes({
-	...config,
-	redirects: config.redirects.filter((redirect) => !redirect.has),
-});
+const routes = rootVercelRoutes();
 
+// Every method asked of the stand-in for Vercel: the browser's requests, the
+// runner's checks and the scenario's context.request.
+const methods = new Set();
 let site;
 let browser;
 
@@ -53,6 +49,7 @@ const lowerCaseKeys = (headers) =>
 // response when it negotiates one, otherwise the dist/ file with vercel.json's
 // headers and the middleware's (its Vary). Resolves to a Response.
 async function vercel(url, { method = "GET", accept = "*/*" } = {}) {
+	methods.add(method);
 	const { pathname, search } = new URL(url);
 	const { redirect, headers: configured } = routePath(routes, pathname);
 	if (redirect)
@@ -88,7 +85,10 @@ async function fetcher(url) {
 // The scenario's context.request, for the Markdown negotiation checks.
 const request = {
 	async get(url, { headers }) {
-		const response = await vercel(url, { accept: headers.accept });
+		const response = await vercel(url, {
+			method: "GET",
+			accept: headers.accept,
+		});
 		const body = await response.text();
 		return {
 			status: () => response.status,
@@ -159,6 +159,7 @@ it("The production smoke passes on the built site under the runner's failure rul
 		});
 		assert.deepEqual(receipt.errors, []);
 		assert.equal(receipt.success, true);
+		assert.deepEqual([...methods], ["GET"], "the smoke only reads");
 		assert.deepEqual(browserStub.opened, [{ serviceWorkers: "block" }]);
 		// The runner's own checks (readiness, then the scenario's verifyHttp).
 		const checked = receipt.observations.filter(({ source }) => !source);

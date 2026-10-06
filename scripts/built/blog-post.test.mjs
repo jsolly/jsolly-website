@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { after, before, it } from "node:test";
 import { chromium } from "playwright";
 import { postHref } from "../../src/lib/blog/urls.js";
-import { serveStatic, stubOffOrigin } from "./pages.mjs";
+import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
 
 // The post page's own script over the built dist/, in Chromium: a heading
 // link copies the heading's jsolly.com address (the canonical URL plus its
@@ -44,8 +44,7 @@ it("a post's heading link copies its jsolly.com address and announces every copy
 		});
 		const page = await context.newPage();
 		page.setDefaultTimeout(5000);
-		const errors = [];
-		page.on("pageerror", (error) => errors.push(String(error)));
+		const errors = collectErrors(page, []);
 		await page.goto(`${site.origin}${postHref(SLUG)}`, {
 			waitUntil: "load",
 		});

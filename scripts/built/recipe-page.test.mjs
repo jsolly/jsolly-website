@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { after, before, it } from "node:test";
 import { chromium } from "playwright";
 import { PRINT_FAILED } from "../../src/components/recipes/constants.mjs";
-import { serveStatic } from "./pages.mjs";
+import { collectErrors, serveStatic } from "./pages.mjs";
 
 // A built recipe page (/recipes/<id>/) in Chromium, with and without
 // JavaScript. The server render is the no-JavaScript page: native checkboxes,
@@ -71,8 +71,7 @@ async function openHydrated(path, { initScript } = {}) {
 	});
 	if (initScript) await context.addInitScript(initScript);
 	const page = await context.newPage();
-	const errors = [];
-	page.on("pageerror", (error) => errors.push(error.message));
+	const errors = collectErrors(page, []);
 	await page.goto(`${site.origin}${path}`);
 	await page.waitForFunction(
 		() => !document.querySelector("astro-island[ssr]"),

@@ -240,13 +240,7 @@ function installCheck(name, viewport) {
 
 		const context = await browser.newContext({ viewport });
 		const page = await context.newPage();
-		const errors = [];
-		page.on("pageerror", (error) => errors.push(String(error)));
-		page.on("console", (message) => {
-			if (["warning", "error"].includes(message.type())) {
-				errors.push(message.text());
-			}
-		});
+		const errors = collectErrors(page, ["warning", "error"]);
 		try {
 			await page.goto(`${site.origin}${LANDING}`);
 			await statusText(page, SAVED);

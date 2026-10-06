@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { after, before, it } from "node:test";
 import { chromium } from "playwright";
 import { readHeaderPolicy } from "../csp.mjs";
-import { serveStatic, stubOffOrigin } from "./pages.mjs";
+import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
 
 // Plan §4.4(c): the built pages under both policies a browser enforces in
 // production, the vercel.json response header (served on every response, as
@@ -152,8 +152,7 @@ async function visit(path, expected, prepare) {
 	});
 	const page = await context.newPage();
 	page.setDefaultTimeout(WAIT_MS);
-	const errors = [];
-	page.on("pageerror", (error) => errors.push(String(error)));
+	const errors = collectErrors(page, []);
 	try {
 		const response = await page.goto(`${site.origin}${path}`, {
 			waitUntil: "load",

@@ -9,7 +9,7 @@ import {
 	STORAGE_KEY,
 } from "../../src/components/recipes/constants.mjs";
 import { matchesRecipe } from "../../src/components/recipes/nutrient-filters.mjs";
-import { serveStatic } from "./pages.mjs";
+import { collectErrors, serveStatic } from "./pages.mjs";
 
 // The hydrated recipe library in Chromium: printing from the recipe dialog
 // and the collection, the dialog's place in the browser history, and the
@@ -50,8 +50,7 @@ async function openPage({ initScript, arg } = {}) {
 	});
 	if (initScript) await context.addInitScript(initScript, arg);
 	const page = await context.newPage();
-	const errors = [];
-	page.on("pageerror", (error) => errors.push(error.message));
+	const errors = collectErrors(page, []);
 	return { page, errors, close: () => context.close() };
 }
 

@@ -44,6 +44,8 @@ async function openSearch(context, search = "") {
 	await stubOffOrigin(context, site.origin);
 	const page = await context.newPage();
 	page.setDefaultTimeout(5000);
+	// Page and console errors stay apart (not collectErrors): the failed-index
+	// test expects a logged console error while page errors stay empty.
 	const errors = [];
 	const consoleErrors = [];
 	page.on("pageerror", (error) => errors.push(String(error)));
