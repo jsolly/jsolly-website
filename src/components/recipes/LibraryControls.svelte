@@ -7,6 +7,7 @@
 		applianceChoices,
 		applianceDependencies,
 		applianceLimits,
+		COLLECTION_PATHS,
 		carbStyles,
 		defaultAppliances,
 		mealStyleDescriptions,
@@ -38,8 +39,12 @@
 		appliancesOnHand = $bindable(),
 	} = $props();
 	const COLLECTION_LINKS = [
-		{ collection: "meal", href: "/recipes/meals/", label: "Meals" },
-		{ collection: "smoothie", href: "/recipes/smoothies/", label: "Smoothies" },
+		{ collection: "meal", href: COLLECTION_PATHS.meal, label: "Meals" },
+		{
+			collection: "smoothie",
+			href: COLLECTION_PATHS.smoothie,
+			label: "Smoothies",
+		},
 	];
 	const uid = $props.id();
 	const servingsId = `${uid}-servings`;
