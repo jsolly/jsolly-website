@@ -22,6 +22,7 @@
 @source not "../components/blog";
 @source not "../pages/blog";
 @source not "../layouts/BlogLayout.astro";
+@source not "../layouts/RecipeLayout.astro";
 /* Recipe code is not portfolio UI either; its data and modules hold
    class-like strings (TRN table classes, recipe prose). */
 @source not "../components/recipes";

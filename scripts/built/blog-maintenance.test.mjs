@@ -20,6 +20,8 @@ const BLOG_PAGE = "blog/works-cited/index.html";
 const RECIPE_WORKER = "recipes/service-worker.js";
 // biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
 const MANIFEST_LINK = 'link[rel="manifest"]';
+// JSON-LD: a post page's head slot carries its BlogPosting.
+const STRUCTURED_DATA = 'script[type="application/ld+json"]';
 // Maintenance.astro's own utilities: the icon badge and icon sizes, the
 // centred column and the badge colour. Without them the notice is unstyled
 // and the icon fills the column.
@@ -53,6 +55,11 @@ before(async () => {
 				manifest: dom.window.document
 					.querySelector(MANIFEST_LINK)
 					?.getAttribute("href"),
+				blogPostings: [
+					...dom.window.document.querySelectorAll(STRUCTURED_DATA),
+				].filter(
+					(script) => JSON.parse(script.textContent)["@type"] === "BlogPosting",
+				).length,
 			};
 		} finally {
 			dom.window.close();
@@ -109,5 +116,12 @@ it("a maintenance build shows only the maintenance notice on every page, blog pa
 			.map(({ file }) => file),
 		[],
 		"pages that link the recipe app's manifest",
+	);
+	assert.deepEqual(
+		pages
+			.filter(({ blogPostings }) => blogPostings > 0)
+			.map(({ file }) => file),
+		[],
+		"pages that still carry a post's BlogPosting JSON-LD",
 	);
 });

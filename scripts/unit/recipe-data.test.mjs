@@ -1,10 +1,16 @@
 import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
-import { mkdtemp, rm, writeFile } from "node:fs/promises";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import it from "node:test";
 import { fileURLToPath } from "node:url";
+import {
+	PWA_FILES_PATH,
+	PWA_NAME,
+	PWA_THEME_COLOR,
+	RECIPES_PATH,
+} from "../../src/components/recipes/constants.mjs";
 import data from "../../src/components/recipes/recipes.json" with {
 	type: "json",
 };
@@ -103,4 +109,30 @@ it("every recipe is a meal or a smoothie: 15 meals and 6 smoothies", () => {
 		),
 		{ meal: 15, smoothie: 6 },
 	);
+});
+
+// RecipeLayout's head tags take the app's name and theme colour from
+// constants.mjs; the static manifest must say the same, scoped to /recipes/,
+// with icons that exist under PWA_FILES_PATH.
+it("the recipe app manifest agrees with the constants RecipeLayout uses", async () => {
+	const manifest = JSON.parse(
+		await readFile(
+			join(PUBLIC, PWA_FILES_PATH, "manifest.webmanifest"),
+			"utf8",
+		),
+	);
+	assert.equal(manifest.name, PWA_NAME);
+	assert.equal(manifest.short_name, PWA_NAME);
+	assert.equal(manifest.theme_color, PWA_THEME_COLOR);
+	assert.equal(manifest.id, RECIPES_PATH);
+	assert.equal(manifest.start_url, RECIPES_PATH);
+	assert.equal(manifest.scope, RECIPES_PATH);
+	assert.ok(manifest.icons.length > 0, "the manifest lists icons");
+	for (const { src } of manifest.icons) {
+		assert.ok(
+			src.startsWith(PWA_FILES_PATH),
+			`${src} is under ${PWA_FILES_PATH}`,
+		);
+		assert.ok(existsSync(join(PUBLIC, src)), `public${src} exists`);
+	}
 });

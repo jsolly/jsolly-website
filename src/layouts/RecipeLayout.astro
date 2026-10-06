@@ -1,18 +1,20 @@
 ---
 // The layout of every recipe page: BlogLayout's recipes section, the recipe
-// stylesheet and the offline recipe app. The app's head tags repeat its name
-// and theme colour from public/recipes/pwa/manifest.webmanifest. A
-// maintenance build links no app (BlogLayout already swaps the page body,
-// RecipePwa included, for the notice), so scripts/recipes/pwa-build.mjs,
-// which writes the worker only for a landing page that links the manifest,
-// ships none.
+// stylesheet and the offline recipe app (its head tags and RecipePwa). A
+// maintenance build shows none of it: BlogLayout drops the head slot and
+// swaps the page body for the notice, and scripts/recipes/pwa-build.mjs
+// writes no worker.
 //
 // BlogLayout is imported first: Astro orders a page's stylesheets by import
 // position, and the blog sheets come before the recipe sheets, as when the
 // pages imported BlogLayout directly.
 import BlogLayout from "./BlogLayout.astro";
 import "../styles/recipes/recipes-theme.css";
-import { PWA_FILES_PATH } from "../components/recipes/constants.mjs";
+import {
+	PWA_FILES_PATH,
+	PWA_NAME,
+	PWA_THEME_COLOR,
+} from "../components/recipes/constants.mjs";
 import RecipePwa from "../components/recipes/RecipePwa.astro";
 
 interface Props {
@@ -22,21 +24,14 @@ interface Props {
 }
 
 const { title, description, article = false } = Astro.props;
-const isMaintenanceMode = process.env.MAINTENANCE_MODE === "true";
 ---
 
 <BlogLayout section="recipes" {title} {description} {article}>
 	<Fragment slot="head">
-		{
-			!isMaintenanceMode && (
-				<>
-					<link rel="manifest" href={`${PWA_FILES_PATH}manifest.webmanifest`} />
-					<meta name="theme-color" content="#183e2b" />
-					<link rel="apple-touch-icon" href={`${PWA_FILES_PATH}icon-180.png`} />
-					<meta name="apple-mobile-web-app-title" content="Easy Meals" />
-				</>
-			)
-		}
+		<link rel="manifest" href={`${PWA_FILES_PATH}manifest.webmanifest`} />
+		<meta name="theme-color" content={PWA_THEME_COLOR} />
+		<link rel="apple-touch-icon" href={`${PWA_FILES_PATH}icon-180.png`} />
+		<meta name="apple-mobile-web-app-title" content={PWA_NAME} />
 	</Fragment>
 	<RecipePwa />
 	<slot />

@@ -86,7 +86,7 @@ const navigation = await blogNavigation();
 		<meta name="twitter:card" content="summary_large_image" />
 		{noindex && <meta name="robots" content="noindex, follow" />}
 		<noscript><link rel="stylesheet" href={noScriptStyles} /></noscript>
-		<slot name="head" />
+		{!isMaintenanceMode && <slot name="head" />}
 	</head>
 	<body id="top">
 		<a class="skip-link" href="#main">Skip to content</a>

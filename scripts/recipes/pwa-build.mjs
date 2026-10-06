@@ -11,11 +11,11 @@
 // cache name, and the new worker waits until every recipe tab closes, so new
 // HTML never mixes with an older bundle mid-recipe.
 //
-// It writes a worker only when the built landing page links the recipe app's
-// manifest, so RecipeLayout's decision governs: a maintenance build links no
-// app and ships no worker. Installed workers then get a 404 on their update
-// check, which leaves them and their caches as they were, instead of
-// precaching the maintenance page.
+// A maintenance build (MAINTENANCE_MODE=true) writes no worker: installed
+// workers then get a 404 on their update check, which leaves them and their
+// caches as they were, instead of precaching the maintenance page. Any other
+// build whose landing page links no recipe app manifest fails, since its
+// worker would precache pages that cannot install the app.
 //
 //   node scripts/recipes/pwa-build.mjs [dist]
 import { createHash } from "node:crypto";
@@ -127,8 +127,7 @@ async function collect(root, references, files) {
 /**
  * Writes `root`/recipes/service-worker.js for the build in `root` (dist/ or a
  * copy of it) and returns { cache, urls }: its cache name and the sorted paths
- * it precaches. Returns null, writing nothing, when the landing page links no
- * recipe app.
+ * it precaches. Throws when the landing page links no recipe app manifest.
  */
 export async function buildRecipePwa(root) {
 	// Every file under /recipes/, a page (…/index.html) as its /…/ path.
@@ -143,7 +142,11 @@ export async function buildRecipePwa(root) {
 				...pageReferences(await readFile(fileOf(root, page), "utf8"), page),
 			})),
 	);
-	if (!pages.find(({ page }) => page === RECIPES_PATH)?.linksApp) return null;
+	if (!pages.find(({ page }) => page === RECIPES_PATH)?.linksApp) {
+		throw new Error(
+			`pwa-build: ${RECIPES_PATH} links no ${MANIFEST}; RecipeLayout should add it.`,
+		);
+	}
 	const files = new Map();
 	await collect(
 		root,
@@ -174,10 +177,12 @@ if (
 	realpathSync(process.argv[1]) === fileURLToPath(import.meta.url)
 ) {
 	const root = process.argv[2] ?? "./dist";
-	const built = await buildRecipePwa(root);
-	console.info(
-		built
-			? `Wrote ${join(root, PWA_WORKER_PATH)}: ${built.cache}, ${built.urls.length} files.`
-			: `No recipe service worker: ${RECIPES_PATH} links no recipe app (a maintenance build).`,
-	);
+	if (process.env.MAINTENANCE_MODE === "true") {
+		console.info("Maintenance build: no recipe service worker written.");
+	} else {
+		const { cache, urls } = await buildRecipePwa(root);
+		console.info(
+			`Wrote ${join(root, PWA_WORKER_PATH)}: ${cache}, ${urls.length} files.`,
+		);
+	}
 }

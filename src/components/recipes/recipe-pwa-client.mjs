@@ -55,7 +55,7 @@ function observeInstaller(registration) {
 		if (worker.state === "installed") installed = true;
 		if (worker.state === "redundant" && !installed) {
 			state.failed = true;
-			console.error(
+			console.warn(
 				hasActive(registration)
 					? "Recipe update download failed:"
 					: "Recipe offline download failed:",

@@ -90,15 +90,17 @@ export const applianceDependencies = { Pans: "Oven" };
 
 /** The recipe library's landing page; the recipe app's id, start URL and scope. */
 export const RECIPES_PATH = "/recipes/";
-/** Each collection's own page. */
-export const COLLECTION_PATHS = {
-	meal: "/recipes/meals/",
-	smoothie: "/recipes/smoothies/",
-};
 /** The recipe app's service worker, which scripts/recipes/pwa-build.mjs writes. */
 export const PWA_WORKER_PATH = "/recipes/service-worker.js";
 /** The recipe app's manifest and icons. */
 export const PWA_FILES_PATH = "/recipes/pwa/";
+/**
+ * The recipe app's name on a home screen and its theme colour, in the
+ * RecipeLayout head tags; public/recipes/pwa/manifest.webmanifest repeats
+ * them (scripts/unit/recipe-data.test.mjs checks they agree).
+ */
+export const PWA_NAME = "Easy Meals";
+export const PWA_THEME_COLOR = "#183e2b";
 
 /** localStorage key for the library's saved settings (merge-plan J13). */
 export const STORAGE_KEY = "recipes-settings-v1";

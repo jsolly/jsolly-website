@@ -58,6 +58,10 @@ const RECIPE_PAGES = [
 	...recipes.map(({ id }) => `/recipes/${id}/`),
 ];
 const SERVINGS = /^Servings/u;
+const SHARED_RECIPE =
+	"/recipes/shawarma-chicken-bowls/?servings=8&starch=shawarma-chicken-bowls:pita_one";
+const LEARN_MORE = "Learn more about Tabular Recipe Notation";
+const SMOOTHIES = recipes.filter(({ type }) => type === "smoothie").length;
 const SAVED = "Recipes saved for offline use.";
 const OFFLINE = "You are offline.";
 const VIEWPORTS = [
@@ -294,6 +298,20 @@ function installCheck(name, viewport) {
 			const servings = page.getByRole("combobox", { name: SERVINGS });
 			await servings.waitFor();
 			assert.equal(await servings.inputValue(), "2");
+			// A shared recipe link opens offline with its settings, and its
+			// notation dialog still opens.
+			await page.goto(`${site.origin}${SHARED_RECIPE}`);
+			await page.locator(".recipe-detail .reset-checks-row").waitFor();
+			assert.equal(
+				await page.getByRole("combobox", { name: SERVINGS }).inputValue(),
+				"8",
+			);
+			await page.getByRole("button", { name: LEARN_MORE, exact: true }).click();
+			await page.locator(".method-dialog").waitFor();
+			// So does a collection page.
+			await page.goto(`${site.origin}/recipes/smoothies/`);
+			await page.locator("[data-hydrated=true]").waitFor();
+			assert.equal(await page.locator(".recipe-card").count(), SMOOTHIES);
 			assert.deepEqual(errors, []);
 			// The worker answers for its snapshot only: a blog page is not in it.
 			// (The failed request logs a console error, so this comes last.)
