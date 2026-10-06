@@ -58,6 +58,19 @@ export async function readBuilt(path, read, root = "dist") {
 	return readHtml(await readFile(join(root, path, "index.html"), "utf8"), read);
 }
 
+// The robots meta content of the built page at `path` (as readBuilt takes
+// it), or null when the page has none.
+export function robotsMeta(path, root = "dist") {
+	return readBuilt(
+		path,
+		(document) =>
+			[...document.querySelectorAll("meta")].find(
+				(meta) => meta.name === "robots",
+			)?.content ?? null,
+		root,
+	);
+}
+
 // The stylesheets a built page loads with JavaScript on (not its <noscript>).
 export function stylesheets(html) {
 	return readHtml(html, (document) =>

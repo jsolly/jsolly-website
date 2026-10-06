@@ -24,6 +24,12 @@ import {
 	vercelConfig,
 	vercelJsonDrift,
 } from "../blogthedata-redirects.mjs";
+import {
+	fieldLines,
+	fieldValues,
+	headCommitDate,
+	securityTxtProblems,
+} from "../site-files.mjs";
 
 // The URL map is the legacy host's whole behaviour: these tests route every
 // known path through Vercel's own compiler and router library.
@@ -31,11 +37,7 @@ const ROOT = fileURLToPath(new URL("../..", import.meta.url));
 const PUBLIC_DIR = join(LEGACY_DIR, "public");
 const PUBLIC_TRACKED = "legacy/blogthedata/public";
 const VERCEL_REDIRECT_LIMIT = 2048;
-const DAY_MS = 86_400_000;
 const UPPERCASE = /[A-Z]/u;
-const SECURITY_FIELD = /^(?<name>[A-Za-z-]+): (?<value>\S.*)$/u;
-const RFC3339 =
-	/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/u;
 const FETCH_LISTENER = /addEventListener\(\s*["']fetch["']|\bonfetch\b/u;
 const UNREGISTER = /\.registration\.unregister\(\)/u;
 const CLAIM = /\.clients\.claim\(\)/u;
@@ -434,47 +436,29 @@ it("A broken url-map edit fails generation instead of shipping a bad redirect", 
 });
 
 it("Crawlers on the old host get a robots.txt that allows following the 301s", () => {
-	const robots = readFileSync(join(PUBLIC_DIR, "robots.txt"), "utf8");
-	assert.ok(robots.split("\n").includes("User-agent: *"));
-	assert.ok(!robots.toLowerCase().includes("disallow"));
+	const { fields, unparsed } = fieldLines(
+		readFileSync(join(PUBLIC_DIR, "robots.txt"), "utf8"),
+	);
+	assert.deepEqual(unparsed, [], "every robots.txt line is a directive");
+	assert.deepEqual(fieldValues(fields, "user-agent"), ["*"]);
+	assert.deepEqual(fieldValues(fields, "allow"), ["/"]);
+	assert.deepEqual(fieldValues(fields, "disallow"), []);
 });
 
 it("Security researchers on the old host get a valid, unexpired security.txt", () => {
-	const fields = readFileSync(
-		join(PUBLIC_DIR, ".well-known", "security.txt"),
-		"utf8",
-	)
-		.split("\n")
-		.filter((line) => line !== "" && !line.startsWith("#"))
-		.map((line) => {
-			const match = SECURITY_FIELD.exec(line);
-			assert.ok(match, `security.txt line "${line}" is a field`);
-			return [match.groups.name.toLowerCase(), match.groups.value];
-		});
-	const values = (name) =>
-		fields.filter(([field]) => field === name).map(([, value]) => value);
-	assert.deepEqual(values("contact"), [`${JSOLLY_ORIGIN}/contact/`]);
-	assert.deepEqual(values("canonical"), [
-		"https://www.blogthedata.com/.well-known/security.txt",
-	]);
-	const [expires, ...extra] = values("expires");
-	assert.deepEqual(extra, [], "Expires appears once");
-	assert.match(expires, RFC3339);
-	// Hermetic: measured from HEAD's commit date, not from today. In the
-	// pre-commit hook HEAD is the parent of the commit being made.
-	const committed = spawnSync("git", ["log", "-1", "--format=%cI"], {
-		cwd: ROOT,
-		encoding: "utf8",
-	});
-	assert.equal(committed.status, 0, committed.stderr);
-	const lifetime = Date.parse(expires) - Date.parse(committed.stdout.trim());
-	assert.ok(
-		lifetime > 0,
-		`Expires ${expires} is not after HEAD's commit date ${committed.stdout.trim()}`,
-	);
-	assert.ok(
-		lifetime < 365 * DAY_MS,
-		`Expires ${expires} is 365 days or more after HEAD's commit date`,
+	// Any field beyond these and Expires fails, Encryption included:
+	// public/pgp-key.txt expired on 2023-05-08.
+	assert.deepEqual(
+		securityTxtProblems(
+			readFileSync(join(PUBLIC_DIR, ".well-known", "security.txt"), "utf8"),
+			{
+				contact: `${JSOLLY_ORIGIN}/contact/`,
+				"preferred-languages": "en",
+				canonical: "https://www.blogthedata.com/.well-known/security.txt",
+			},
+			{ committed: headCommitDate() },
+		),
+		[],
 	);
 });
 

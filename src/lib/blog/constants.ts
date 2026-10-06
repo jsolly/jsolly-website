@@ -1,3 +1,9 @@
+// Where the post files live, relative to the project root, and the glob that
+// picks them out; the collection loader and the sitemap's postLastmods read
+// the same files.
+export const POSTS_DIR = "src/content/blog/posts";
+export const POST_FILES = "*.md";
+
 // The post image when frontmatter names none; the posts schema defaults to it.
 export const DEFAULT_IMAGE = "/blog/media/default.webp";
 

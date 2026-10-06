@@ -346,11 +346,15 @@ describe("route-aware exemptions", () => {
 		}
 	});
 
-	it("leaves .xml feeds untouched", () => {
+	it("leaves .xml feeds and sitemaps and the site's .txt files untouched", () => {
 		for (const path of [
 			"/blog/rss.xml",
 			"/blog/atom.xml",
 			"/sitemap-index.xml",
+			"/sitemap-0.xml",
+			"/robots.txt",
+			"/.well-known/security.txt",
+			"/pgp-key.txt",
 		]) {
 			for (const accept of [
 				"application/rss+xml",
