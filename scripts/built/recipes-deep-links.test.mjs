@@ -66,6 +66,15 @@ it("each old /recipes/#<recipe-id> link opens that recipe in the library dialog 
 						includeHidden: true,
 					})
 					.getAttribute("aria-current"),
+				otherCollection: await page
+					.getByRole("link", {
+						name: COLLECTION_LINKS[
+							recipe.type === "meal" ? "smoothie" : "meal"
+						],
+						exact: true,
+						includeHidden: true,
+					})
+					.getAttribute("aria-current"),
 			});
 		}
 		assert.deepEqual(
@@ -77,6 +86,7 @@ it("each old /recipes/#<recipe-id> link opens that recipe in the library dialog 
 				fillsViewport: true,
 				// The landing shows either collection, so neither link is the page.
 				collection: "true",
+				otherCollection: null,
 			})),
 		);
 

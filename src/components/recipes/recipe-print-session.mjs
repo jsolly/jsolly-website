@@ -33,14 +33,14 @@ export function createRecipePrintSession(mode, prepared, restored) {
 	}
 	// A Print button: prepares the page, waits for `settle` (an island's
 	// tick(), so the print copy renders) and opens the browser's print dialog.
-	// Resolves to null, or to PRINT_FAILED once the page is restored when the
-	// browser cannot print.
+	// Resolves to the status message to show: "" once printing opened, or
+	// PRINT_FAILED once the page is restored when the browser cannot print.
 	async function print(settle = () => Promise.resolve()) {
 		prepare();
 		await settle();
 		try {
 			window.print();
-			return null;
+			return "";
 		} catch {
 			restore();
 			return PRINT_FAILED;

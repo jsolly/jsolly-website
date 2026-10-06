@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { after, before, it } from "node:test";
 import { chromium } from "playwright";
 import {
+	DEFAULT_FILTERS,
 	defaultAppliances,
 	PRINT_FAILED,
 	STORAGE_KEY,
@@ -25,6 +26,7 @@ const meals = recipes.filter((recipe) => recipe.type === "meal");
 const FAMILY_SIDE = /^Family side/u;
 const SERVINGS = /^Servings/u;
 const PITA = "pita_one";
+const SHAWARMA = "shawarma-chicken-bowls";
 
 let site;
 let browser;
@@ -102,6 +104,25 @@ it("the library prints the open recipe from its dialog or the whole collection, 
 		};
 		await page.emulateMedia({ media: "screen" });
 		await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
+		const library = page.locator(".meal-library");
+		const printMode = () =>
+			page.evaluate(() =>
+				document.documentElement.getAttribute("data-recipe-print"),
+			);
+		const afterPrint = {
+			prepared: await library.getAttribute("data-print-prepared"),
+			mode: await printMode(),
+		};
+		// The browser's own Print command with the dialog closed prints the
+		// whole collection.
+		await page.keyboard.press("Escape");
+		await takeover.waitFor({ state: "detached" });
+		await page.evaluate(() => window.dispatchEvent(new Event("beforeprint")));
+		const menuPrint = {
+			titles: await printedTitles(page),
+			mode: await printMode(),
+		};
+		await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
 
 		await goHydrated(page, "/recipes/smoothies/");
 		await page.getByRole("button", { name: "Print all smoothies" }).click();
@@ -119,6 +140,8 @@ it("the library prints the open recipe from its dialog or the whole collection, 
 		assert.deepEqual(
 			{
 				recipePrint,
+				afterPrint,
+				menuPrint,
 				collectionPrint,
 				failure: {
 					status: await status.textContent(),
@@ -134,6 +157,8 @@ it("the library prints the open recipe from its dialog or the whole collection, 
 					copyShown: true,
 					takeoverHidden: true,
 				},
+				afterPrint: { prepared: "false", mode: null },
+				menuPrint: { titles: meals.map((recipe) => recipe.title), mode: "all" },
 				collectionPrint: {
 					titles: smoothies.map((recipe) => recipe.title),
 					copyShown: true,
@@ -238,9 +263,11 @@ it("saved filters that no smoothie meets are cleared on the smoothies page, so i
 			STORAGE_KEY,
 			{
 				servings: 4,
-				immuneSupport: unmet.immune,
-				omega3: unmet.omega,
-				ingredientChoice: ["hemp"],
+				filters: {
+					immuneSupport: unmet.immune,
+					omega3: unmet.omega,
+					ingredientChoice: ["hemp"],
+				},
 			},
 		],
 	});
@@ -253,18 +280,10 @@ it("saved filters that no smoothie meets are cleared on the smoothies page, so i
 		assert.deepEqual(
 			{
 				cards: await page.locator(".recipe-card").count(),
-				immuneSupport: saved.immuneSupport,
-				omega3: saved.omega3,
-				ingredientChoice: saved.ingredientChoice,
+				filters: saved.filters,
 				errors,
 			},
-			{
-				cards: smoothies.length,
-				immuneSupport: false,
-				omega3: false,
-				ingredientChoice: [],
-				errors: [],
-			},
+			{ cards: smoothies.length, filters: DEFAULT_FILTERS, errors: [] },
 		);
 	} finally {
 		await close();
@@ -302,12 +321,14 @@ it("unreadable or wrongly shaped saved settings leave the library on its default
 		"{not json",
 		JSON.stringify({
 			servings: "lots",
-			proteinChoice: "fish",
-			carbChoice: ["keto"],
-			starchChoice: { rice: true },
+			filters: {
+				proteinChoice: "fish",
+				mealStyle: ["keto"],
+				starchChoice: { rice: true },
+				ironRich: "yes",
+			},
 			appliancesOnHand: null,
 			familyChoice: "pita",
-			ironRich: "yes",
 		}),
 	]) {
 		// biome-ignore lint/performance/noAwaitInLoops: one fresh browser context per saved value, in turn
@@ -328,7 +349,7 @@ it("unreadable or wrongly shaped saved settings leave the library on its default
 					.getByRole("combobox", { name: SERVINGS })
 					.inputValue(),
 				resaved: await page.evaluate(
-					(key) => JSON.parse(localStorage.getItem(key)).servings,
+					(key) => JSON.parse(localStorage.getItem(key)),
 					STORAGE_KEY,
 				),
 				errors,
@@ -340,8 +361,102 @@ it("unreadable or wrongly shaped saved settings leave the library on its default
 	const defaults = {
 		cards: meals.length,
 		servings: "4",
-		resaved: 4,
+		resaved: {
+			servings: 4,
+			filters: DEFAULT_FILTERS,
+			appliancesOnHand: defaultAppliances,
+			familyChoice: {},
+		},
 		errors: [],
 	};
 	assert.deepEqual(results, [defaults, defaults]);
+});
+
+it("a saved family side its recipe no longer offers falls back to the recipe's first side everywhere", {
+	timeout: 60_000,
+}, async () => {
+	const shawarma = recipes.find((recipe) => recipe.id === SHAWARMA);
+	const [first] = shawarma.familyOptions;
+	const { page, errors, close } = await openPage({
+		initScript: ([key, saved]) => {
+			if (!sessionStorage.getItem("seeded")) {
+				localStorage.setItem(key, JSON.stringify(saved));
+				sessionStorage.setItem("seeded", "1");
+			}
+		},
+		arg: [STORAGE_KEY, { familyChoice: { [SHAWARMA]: "naan" } }],
+	});
+	try {
+		await goHydrated(page, `/recipes/#${SHAWARMA}`);
+		const takeover = page.locator(".recipe-takeover");
+		await takeover.waitFor();
+		const cardHref = await page
+			.locator(`a.title-button[data-recipe-id="${SHAWARMA}"]`)
+			.getAttribute("href");
+		assert.deepEqual(
+			{
+				side: await takeover
+					.getByRole("combobox", { name: FAMILY_SIDE })
+					.inputValue(),
+				sideShown: (
+					await takeover.locator(".family-box p").first().textContent()
+				).includes(first.label),
+				cardStarch: new URL(cardHref, site.origin).searchParams.get("starch"),
+				errors,
+			},
+			{ side: first.id, sideShown: true, cardStarch: null, errors: [] },
+		);
+	} finally {
+		await close();
+	}
+});
+
+it("Share recipe in the library dialog shares its servings and family side, and the card links carry them after it closes", {
+	timeout: 60_000,
+}, async () => {
+	const { page, errors, close } = await openPage({
+		initScript: () => {
+			Object.defineProperty(navigator, "share", {
+				configurable: true,
+				value: (data) => {
+					window.sharedRecipe = data;
+					return Promise.resolve();
+				},
+			});
+		},
+	});
+	try {
+		await goHydrated(page, `/recipes/?servings=8#${SHAWARMA}`);
+		const takeover = page.locator(".recipe-takeover");
+		await takeover.waitFor();
+		await takeover
+			.getByRole("combobox", { name: FAMILY_SIDE })
+			.selectOption(PITA);
+		await takeover.getByRole("button", { name: "Share recipe" }).click();
+		const shared = new URL(await page.evaluate(() => window.sharedRecipe.url));
+		await page.keyboard.press("Escape");
+		await takeover.waitFor({ state: "detached" });
+		const card = new URL(
+			await page
+				.locator(`a.title-button[data-recipe-id="${SHAWARMA}"]`)
+				.getAttribute("href"),
+			site.origin,
+		);
+		const query = (url) => ({
+			path: url.pathname,
+			servings: url.searchParams.get("servings"),
+			starch: url.searchParams.get("starch"),
+		});
+		const expected = {
+			path: `/recipes/${SHAWARMA}/`,
+			servings: "8",
+			starch: `${SHAWARMA}:${PITA}`,
+		};
+		assert.deepEqual(
+			{ shared: query(shared), card: query(card), errors },
+			{ shared: expected, card: expected, errors: [] },
+		);
+	} finally {
+		await close();
+	}
 });

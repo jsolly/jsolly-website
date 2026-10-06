@@ -2,18 +2,15 @@
 	import { onMount, tick, untrack } from "svelte";
 	import {
 		BASE_SERVINGS,
-		carbStyles,
+		DEFAULT_FILTERS,
 		defaultAppliances,
-		proteins,
 		STORAGE_KEY,
-		starchTypes,
 	} from "./constants.mjs";
 	import LibraryControls from "./LibraryControls.svelte";
 	import {
-		availableAppliances,
 		matchesRecipe,
-		normalizeSelection,
 		nutrientFilters,
+		parseSavedSettings,
 		smoothieIngredientChoices,
 	} from "./nutrient-filters.mjs";
 	import RecipeCard from "./RecipeCard.svelte";
@@ -31,16 +28,15 @@
 	// `pathname` is the page's path, for the collection links' aria-current.
 	let { recipes, initialCollection = "meal", pathname } = $props();
 	const NO_RESULTS = "No recipes match these appliances and filters.";
-	const starchOptions = Object.fromEntries(
-		Object.entries(starchTypes).filter(
-			([key]) => !["all", "none"].includes(key),
-		),
-	);
-	const units = "us";
 
+	// The saved settings: servings, the filters, the appliances on hand and
+	// each recipe's family side.
 	let servings = $state(BASE_SERVINGS);
-	const familyDiners = $derived(servings);
+	let filters = $state({ ...DEFAULT_FILTERS });
+	let appliancesOnHand = $state({ ...defaultAppliances });
 	let familyChoice = $state({});
+
+	let collection = $state(untrack(() => initialCollection));
 	let recipeId = $state("");
 	let hydrated = $state(false);
 	let printMode = $state("auto");
@@ -51,18 +47,9 @@
 	let recipeDialog = $state(null);
 	let lastOpenedId = "";
 	let listHeading = $state(null);
-	let results = $state([]);
-	let immuneSupport = $state(false);
-	let ironRich = $state(false);
-	let omega3 = $state(false);
-	let proteinChoice = $state([]);
-	// One meal style ("all" or a carbStyles key).
-	let carbChoice = $state("all");
-	let smoothieKetoOnly = $state(false);
-	let starchChoice = $state([]);
-	let ingredientChoice = $state([]);
-	let appliancesOnHand = $state({ ...defaultAppliances });
-	let collection = $state(untrack(() => initialCollection));
+	// recipes.json order until mount shuffles it, so the server render and
+	// the first client render agree.
+	let results = $state(untrack(() => recipes));
 
 	const smoothieIngredients = $derived(smoothieIngredientChoices(recipes));
 	const collectionRecipes = $derived(
@@ -72,20 +59,20 @@
 		collectionRecipes.some((recipe) => nutrientFilters(recipe, servings).iron),
 	);
 	const filterSettings = $derived({
-		protein: collection === "meal" ? proteinChoice : [],
+		protein: collection === "meal" ? filters.proteinChoice : [],
 		carb:
 			collection === "smoothie"
-				? smoothieKetoOnly
+				? filters.smoothieKetoOnly
 					? ["keto"]
 					: []
-				: carbChoice === "all"
+				: filters.mealStyle === "all"
 					? []
-					: [carbChoice],
-		starch: collection === "meal" ? starchChoice : [],
-		ingredients: collection === "smoothie" ? ingredientChoice : [],
-		immune: immuneSupport,
-		iron: ironRich && collectionHasIron,
-		omega: omega3,
+					: [filters.mealStyle],
+		starch: collection === "meal" ? filters.starchChoice : [],
+		ingredients: collection === "smoothie" ? filters.ingredientChoice : [],
+		immune: filters.immuneSupport,
+		iron: filters.ironRich && collectionHasIron,
+		omega: filters.omega3,
 		appliances: appliancesOnHand,
 	});
 	const eligibleRecipes = $derived(
@@ -94,12 +81,16 @@
 		),
 	);
 	const visibleRecipes = $derived(
-		(hydrated ? results : recipes).filter((recipe) =>
-			eligibleRecipes.includes(recipe),
-		),
+		results.filter((recipe) => eligibleRecipes.includes(recipe)),
 	);
 	const current = $derived(recipes.find((recipe) => recipe.id === recipeId));
-	const printSettings = $derived({ servings, units, familyDiners, familyChoice });
+	// What the cards, the dialog and the print copy show each recipe with.
+	const recipeSettings = $derived({
+		servings,
+		units: "us",
+		familyDiners: servings,
+		familyChoice,
+	});
 	const effectivePrintMode = $derived(
 		printMode === "auto" ? (current ? "recipe" : "all") : printMode,
 	);
@@ -125,24 +116,11 @@
 					appliances: defaultAppliances,
 				}),
 		);
-		if (!matches) {
-			proteinChoice = [];
-			starchChoice = [];
-			ingredientChoice = [];
-			carbChoice = "all";
-			smoothieKetoOnly = false;
-			immuneSupport = false;
-			ironRich = false;
-			omega3 = false;
-		}
+		if (!matches) filters = { ...DEFAULT_FILTERS };
 	}
 
 	function setServings(value) {
-		servings = validateSettings({
-			servings: Number(value),
-			familyDiners,
-			units,
-		}).servings;
+		servings = validateSettings({ servings: Number(value) }).servings;
 	}
 
 	function setChoice(id, value) {
@@ -183,32 +161,19 @@
 		recipeId = parsed.recipeId;
 	}
 
-	// Saved settings are preferences only; a missing or unreadable entry leaves
-	// the defaults.
+	// Saved settings are preferences only; a missing, unreadable or stale
+	// entry restores the defaults, key by key.
 	function restoreSettings() {
-		const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
-		if (!saved || typeof saved !== "object") return;
-		servings = validateSettings(saved).servings;
-		proteinChoice = normalizeSelection(saved.proteinChoice, proteins);
-		carbChoice =
-			typeof saved.carbChoice === "string" &&
-			Object.hasOwn(carbStyles, saved.carbChoice)
-				? saved.carbChoice
-				: "all";
-		smoothieKetoOnly = saved.smoothieKetoOnly === true;
-		appliancesOnHand = availableAppliances(saved.appliancesOnHand);
-		starchChoice = normalizeSelection(saved.starchChoice, starchOptions);
-		ingredientChoice = normalizeSelection(
-			saved.ingredientChoice,
-			smoothieIngredients,
-		);
-		immuneSupport = saved.immuneSupport === true;
-		ironRich = saved.ironRich === true;
-		omega3 = saved.omega3 === true;
-		familyChoice =
-			saved.familyChoice && typeof saved.familyChoice === "object"
-				? saved.familyChoice
-				: {};
+		let saved = null;
+		try {
+			saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+		} catch {
+			// Reading remains usable without storage or with a corrupt entry.
+		}
+		({ servings, filters, appliancesOnHand, familyChoice } = parseSavedSettings(
+			saved,
+			{ recipes, ingredients: smoothieIngredients },
+		));
 	}
 
 	const printSession = createRecipePrintSession(
@@ -225,15 +190,11 @@
 	async function print(target) {
 		printMode = target;
 		await tick();
-		message = (await printSession.print(tick)) ?? message;
+		message = await printSession.print(tick);
 	}
 
 	onMount(() => {
-		try {
-			restoreSettings();
-		} catch {
-			// Reading remains usable without storage.
-		}
+		restoreSettings();
 		readURL();
 		setCollection(collection);
 		results = shuffleRecipes(recipes);
@@ -252,25 +213,13 @@
 		};
 	});
 
-	// Saves exactly what restoreSettings reads.
+	// Saves the shape parseSavedSettings reads.
 	$effect(() => {
 		if (!hydrated) return;
 		try {
 			localStorage.setItem(
 				STORAGE_KEY,
-				JSON.stringify({
-					servings,
-					familyChoice,
-					immuneSupport,
-					ironRich,
-					omega3,
-					proteinChoice,
-					carbChoice,
-					smoothieKetoOnly,
-					starchChoice,
-					ingredientChoice,
-					appliancesOnHand,
-				}),
+				JSON.stringify({ servings, filters, appliancesOnHand, familyChoice }),
 			);
 		} catch {
 			// No persistence required to cook.
@@ -290,14 +239,7 @@
 		{smoothieIngredients}
 		{hasMatches}
 		onPrintAll={() => print("all")}
-		bind:proteinChoice
-		bind:starchChoice
-		bind:ingredientChoice
-		bind:carbChoice
-		bind:smoothieKetoOnly
-		bind:immuneSupport
-		bind:ironRich
-		bind:omega3
+		bind:filters
 		bind:appliancesOnHand
 	/>
 
@@ -305,18 +247,18 @@
 		<h2 bind:this={listHeading} tabindex="-1">{collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2>
 		<div class="recipe-grid">
 			{#each visibleRecipes as recipe (recipe.id)}
-				<RecipeCard {recipe} {servings} href={recipeHref(recipe, printSettings)} />
+				<RecipeCard {recipe} {servings} href={recipeHref(recipe, recipeSettings)} />
 			{/each}
 		</div>
 		<p class="no-results" role="status">{hydrated && !visibleRecipes.length ? NO_RESULTS : ""}</p>
 	</div>
 
 	{#if current}
-		<RecipeTakeover recipe={current} settings={printSettings} onBack={() => backToResults()} onPrint={() => print("recipe")} onSideChange={(value) => setChoice(current.id, value)} bind:heading={detailHeading} bind:dialog={recipeDialog} />
+		<RecipeTakeover recipe={current} settings={recipeSettings} onBack={() => backToResults()} onPrint={() => print("recipe")} onSideChange={(value) => setChoice(current.id, value)} bind:heading={detailHeading} bind:dialog={recipeDialog} />
 	{/if}
 
 	<p class="action-status" role="status" aria-live="polite">{message}</p>
-	<div class="print-output"><RecipePrint recipes={printRecipes} settings={printSettings} /></div>
+	<div class="print-output"><RecipePrint recipes={printRecipes} settings={recipeSettings} /></div>
 </section>
 
 <style>

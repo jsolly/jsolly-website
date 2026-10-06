@@ -28,7 +28,7 @@
 	const printSession = createRecipePrintSession(() => "recipe");
 
 	async function print() {
-		message = (await printSession.print()) ?? message;
+		message = await printSession.print();
 	}
 
 	function setServings(value) {

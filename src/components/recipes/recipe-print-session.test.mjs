@@ -81,7 +81,7 @@ it("Print opens the browser's print dialog in print mode once the island settles
 	assert.deepEqual(
 		{ printed, failed, after: mode(), steps },
 		{
-			printed: null,
+			printed: "",
 			failed: PRINT_FAILED,
 			after: null,
 			steps: [

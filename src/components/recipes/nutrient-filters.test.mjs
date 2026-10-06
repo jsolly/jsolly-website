@@ -1,8 +1,10 @@
 import assert from "node:assert/strict";
 import it from "node:test";
 import {
+	DEFAULT_FILTERS,
 	defaultAppliances,
 	recipeStarches,
+	starchOptions,
 	starchTypes,
 } from "./constants.mjs";
 import {
@@ -11,6 +13,7 @@ import {
 	matchesRecipe,
 	normalizeSelection,
 	nutrientFilters,
+	parseSavedSettings,
 	smoothieIngredientChoices,
 } from "./nutrient-filters.mjs";
 import { recordedOmega3 } from "./nutrition.mjs";
@@ -50,18 +53,18 @@ it("nutrition filters have usable intersections at all supported serving counts"
 
 it("protein and carb categories combine with nutrient criteria", () => {
 	const fish = data.recipes.filter((r) =>
-		matchesRecipe(r, 4, { protein: "fish" }),
+		matchesRecipe(r, 4, { protein: ["fish"] }),
 	);
 	assert.equal(fish.length, 2);
 	assert(fish.every((r) => r.proteinType === "fish"));
 	assert.equal(
 		data.recipes.filter((r) =>
-			matchesRecipe(r, 4, { protein: "fish", iron: true }),
+			matchesRecipe(r, 4, { protein: ["fish"], iron: true }),
 		).length,
 		0,
 	);
 	const shared = data.recipes.filter((r) =>
-		matchesRecipe(r, 4, { protein: "chicken", carb: "shared" }),
+		matchesRecipe(r, 4, { protein: ["chicken"], carb: ["shared"] }),
 	);
 	assert.equal(shared.length, 3);
 	assert(
@@ -76,7 +79,7 @@ it("starch categories cover every recipe and include main ingredients and family
 	);
 	const ids = (starch) =>
 		data.recipes
-			.filter((r) => matchesRecipe(r, 4, { starch }))
+			.filter((r) => matchesRecipe(r, 4, { starch: [starch] }))
 			.map((r) => r.id);
 	assert.deepEqual(ids("rice").sort(), [
 		"salsa-verde-shredded-chicken",
@@ -105,19 +108,39 @@ it("multi-select uses OR within each filter and AND across filters; saved select
 		data.recipes.length,
 	);
 	assert.deepEqual(
-		normalizeSelection(["rice", "rice", "invalid", "all"], starchTypes),
+		normalizeSelection(["rice", "rice", "invalid", "all"], starchOptions),
 		["rice"],
 	);
-	assert.deepEqual(normalizeSelection("rice", starchTypes), []);
+	assert.deepEqual(normalizeSelection("rice", starchOptions), []);
 });
 
-it("Shared Main combines with either exclusive meal style", () => {
-	assert.equal(
-		data.recipes.filter((r) =>
-			matchesRecipe(r, 4, { carb: ["keto", "shared"] }),
-		).length,
-		14,
-	);
+it("each meal style the library offers selects that group's meals", () => {
+	const meals = data.recipes.filter((r) => r.type === "meal");
+	const ids = (style) =>
+		meals
+			.filter((r) => matchesRecipe(r, 4, { carb: [style] }))
+			.map((r) => r.id);
+	assert.deepEqual(ids("shared"), [
+		"shawarma-chicken-bowls",
+		"sheet-pan-chicken-fajitas",
+		"salsa-verde-shredded-chicken",
+		"greek-turkey-patties",
+		"pan-fried-greek-turkey-patties",
+	]);
+	assert.deepEqual(ids("nonketo"), [
+		"tomato-lentil-and-chicken-bake",
+		"harissa-chickpea-and-cauliflower-bowls",
+		"lemon-chicken-potatoes-and-green-beans",
+		"sheet-pan-gnocchi-white-beans-and-broccoli",
+		"chicken-posole",
+	]);
+	assert.deepEqual(ids("keto"), [
+		"lemon-salmon-and-asparagus",
+		"smoky-chicken-thighs-and-broccoli",
+		"pesto-cod-and-zucchini",
+		"spinach-feta-and-hemp-frittata",
+		"keto-zuppa-toscana",
+	]);
 });
 
 it("appliance inventory honors counts and oven/pan dependency, and validates saved counts", () => {
@@ -205,5 +228,78 @@ it("omega filter includes the 0.5 g boundary and excludes lower or unobserved qu
 	assert.equal(
 		nutrientFilters({ ...boundary, id: "unobserved-omega-fixture" }, 4).omega,
 		false,
+	);
+});
+
+const ingredients = smoothieIngredientChoices(data.recipes);
+const context = { recipes: data.recipes, ingredients };
+
+it("saved library settings restore as saved when every value is still offered", () => {
+	const saved = {
+		servings: 8,
+		filters: {
+			proteinChoice: ["fish", "turkey"],
+			starchChoice: ["bread"],
+			ingredientChoice: ["hemp"],
+			mealStyle: "shared",
+			smoothieKetoOnly: true,
+			immuneSupport: true,
+			ironRich: true,
+			omega3: true,
+		},
+		appliancesOnHand: { ...defaultAppliances, Oven: 0, "Two air fryers": 1 },
+		familyChoice: { "shawarma-chicken-bowls": "pita_one" },
+	};
+	assert.deepEqual(
+		parseSavedSettings(JSON.parse(JSON.stringify(saved)), context),
+		saved,
+	);
+});
+
+it("malformed or stale saved library settings restore each key's default", () => {
+	const defaults = {
+		servings: 4,
+		filters: DEFAULT_FILTERS,
+		appliancesOnHand: defaultAppliances,
+		familyChoice: {},
+	};
+	for (const saved of [null, "settings", [], 7])
+		assert.deepEqual(parseSavedSettings(saved, context), defaults);
+	assert.deepEqual(
+		parseSavedSettings(
+			{
+				servings: "lots",
+				filters: {
+					proteinChoice: "fish",
+					starchChoice: { rice: true },
+					ingredientChoice: ["hemp", "gravel"],
+					mealStyle: ["keto"],
+					smoothieKetoOnly: "yes",
+					ironRich: 1,
+				},
+				appliancesOnHand: null,
+				familyChoice: "pita",
+			},
+			context,
+		),
+		{
+			...defaults,
+			filters: { ...DEFAULT_FILTERS, ingredientChoice: ["hemp"] },
+		},
+	);
+	assert.deepEqual(
+		parseSavedSettings(
+			{
+				filters: "keto",
+				familyChoice: {
+					"shawarma-chicken-bowls": "naan",
+					"greek-turkey-patties": "bun_one",
+					"no-such-recipe": "bun_one",
+				},
+			},
+			context,
+		).familyChoice,
+		{ "greek-turkey-patties": "bun_one" },
+		"only sides their recipe still offers survive",
 	);
 });

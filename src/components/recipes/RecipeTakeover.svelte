@@ -4,7 +4,7 @@
 	import DialogContent from "../../lib/components/ui/dialog-content.svelte";
 	import DialogDescription from "../../lib/components/ui/dialog-description.svelte";
 	import DialogTitle from "../../lib/components/ui/dialog-title.svelte";
-	import { groupBadges } from "./constants.mjs";
+	import RecipeBadge from "./RecipeBadge.svelte";
 	import RecipeBody from "./RecipeBody.svelte";
 	import ShareRecipe from "./ShareRecipe.svelte";
 
@@ -38,7 +38,7 @@
 		onCloseAutoFocus={(event) => event.preventDefault()}
 		><section class="recipe-detail" id={recipe.id} aria-labelledby="recipe-detail-title">
 			<div class="detail-toolbar"><Button variant="ghost" type="button" class="text-button" onclick={() => onBack()}>← Back to recipes</Button><Button variant="outline" type="button" class="print-recipe" onclick={onPrint}>Print recipe</Button></div>
-			<span class="badge" class:shared={recipe.group === "shared"} class:nonketo={recipe.group === "nonketo"}>{groupBadges[recipe.group]}</span>
+			<RecipeBadge group={recipe.group} class="detail-badge" />
 			<DialogTitle id="recipe-detail-title" tabindex={-1} bind:ref={heading}>{recipe.title}</DialogTitle>
 			<DialogDescription class="detail-summary">{recipe.summary}</DialogDescription>
 			<RecipeBody {recipe} {settings} {onSideChange} />
@@ -108,22 +108,9 @@
 			padding: 8px 12px;
 			font-size: 0.8rem;
 		}
-		.badge {
-			font-size: 0.69rem;
-			text-transform: uppercase;
-			letter-spacing: 0.055em;
-			font-weight: 750;
-			border-radius: 6px;
-			padding: 4px 7px;
-			background: var(--recipe-badge);
+		.recipe-detail :global(.detail-badge) {
 			display: inline-block;
 			margin-bottom: 12px;
-		}
-		.badge.shared {
-			background: var(--recipe-badge-shared);
-		}
-		.badge.nonketo {
-			background: var(--recipe-badge-nonketo);
 		}
 		.recipe-detail :global(h2) {
 			font: 600 clamp(2rem, 4vw, 3rem) / 1.13 var(--font-heading);

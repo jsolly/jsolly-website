@@ -112,3 +112,30 @@ export const mealStyleDescriptions = {
 	nonketo: "Meals with over 50g net carbs per four servings.",
 	shared: "One main dish with different sides for keto and non-keto diners.",
 };
+/** The family starches a library filter offers ("all" and "none" are not choices). */
+export const starchOptions = Object.fromEntries(
+	Object.entries(starchTypes).filter(([key]) => !["all", "none"].includes(key)),
+);
+/**
+ * The library's filters before a reader picks any: proteins, starches and
+ * smoothie ingredients (arrays of ids), one meal style ("all" or a
+ * carbStyles key), and the keto-smoothie and nutrition checks.
+ */
+export const DEFAULT_FILTERS = {
+	proteinChoice: [],
+	starchChoice: [],
+	ingredientChoice: [],
+	mealStyle: "all",
+	smoothieKetoOnly: false,
+	immuneSupport: false,
+	ironRich: false,
+	omega3: false,
+};
+/** Each nutrition filter's threshold, as the nutrition help states it. */
+export const nutritionThresholds = {
+	ironRich: "at least 20% Daily Value of iron per serving.",
+	immuneSupport:
+		"at least 20% Daily Value in two or more of vitamins A, C, D, zinc and selenium per serving.",
+	omega3:
+		"at least 0.5 g of recorded ALA, EPA, and DHA per meal serving or 8 oz smoothie glass. Missing nutrient observations are excluded. This is a recipe filter threshold, not a Daily Value.",
+};

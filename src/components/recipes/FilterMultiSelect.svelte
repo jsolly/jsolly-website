@@ -4,6 +4,7 @@
 	import PopoverRoot from "../../lib/components/ui/popover.svelte";
 	import PopoverContent from "../../lib/components/ui/popover-content.svelte";
 	import PopoverTrigger from "../../lib/components/ui/popover-trigger.svelte";
+	import { choiceUnavailable } from "./nutrient-filters.mjs";
 
 	// One of the library's multi-choice filters: a trigger summarising the
 	// choices and a popover of checks. An unchecked choice that would leave no
@@ -42,7 +43,7 @@
 					><Checkbox
 						id={`${uid}-${value}`}
 						checked={selected.includes(value)}
-						disabled={!selected.includes(value) && !canSelect(toggled(value))}
+						disabled={choiceUnavailable(selected.includes(value), () => canSelect(toggled(value)))}
 						onCheckedChange={() => {
 							selected = toggled(value);
 						}}

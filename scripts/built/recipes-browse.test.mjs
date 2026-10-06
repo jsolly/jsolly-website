@@ -2,6 +2,10 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { after, before, it } from "node:test";
 import { chromium } from "playwright";
+import {
+	carbStyles,
+	mealStyleDescriptions,
+} from "../../src/components/recipes/constants.mjs";
 import { serveStatic } from "./pages.mjs";
 
 // Browsing the built recipe library in Chromium, ported from awesome-blog's
@@ -19,7 +23,14 @@ const RECIPES = new URL(
 	import.meta.url,
 );
 const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
-const mealCount = recipes.filter((recipe) => recipe.type === "meal").length;
+const meals = recipes.filter((recipe) => recipe.type === "meal");
+const mealCount = meals.length;
+const MEAL_STYLES = ["keto", "nonketo", "shared", "all"];
+// The meals that need both air fryers.
+const AIR_FRYER_MEALS = recipes
+	.filter((recipe) => recipe.appliancesNeeded.includes("Two air fryers"))
+	.map((recipe) => recipe.id)
+	.sort();
 const smoothieCount = recipes.filter(
 	(recipe) => recipe.type === "smoothie",
 ).length;
@@ -288,13 +299,70 @@ function filtersCheck(width) {
 		const checkbox = (name) =>
 			page.getByRole("checkbox", { name, exact: true });
 		const cards = () => page.locator(".recipe-card").count();
+		const mealStyle = page.getByRole("combobox", { name: "Meal style" });
+		const shownIds = () =>
+			page
+				.locator(".recipe-card a.title-button")
+				.evaluateAll((links) =>
+					links.map((link) => link.dataset.recipeId).sort(),
+				);
 		try {
 			await page.goto(`${site.origin}${LANDING}`);
 			await hydrated(page);
+			// Each meal style shows its group's meals and says what it means.
+			const styles = [];
+			for (const style of MEAL_STYLES) {
+				// biome-ignore lint/performance/noAwaitInLoops: one select change at a time
+				await mealStyle.selectOption(style);
+				styles.push({
+					style,
+					cards: await cards(),
+					description: await page.locator(".style-filter small").textContent(),
+				});
+			}
+			assert.deepEqual(
+				styles,
+				MEAL_STYLES.map((style) => ({
+					style,
+					cards:
+						style === "all"
+							? mealCount
+							: meals.filter((recipe) => recipe.group === style).length,
+					description: mealStyleDescriptions[style],
+				})),
+			);
+			assert.deepEqual(
+				await mealStyle
+					.locator("option")
+					.evaluateAll((options) => options.map((option) => option.value)),
+				["all", ...Object.keys(carbStyles)],
+			);
+			// Re-ticking Air fryers brings back its two and their meals.
+			await checkbox("Air fryers").uncheck();
+			const withoutFryers = await shownIds();
+			await checkbox("Air fryers").check();
+			const withFryers = await shownIds();
+			assert.deepEqual(
+				{
+					hidden: AIR_FRYER_MEALS.filter((id) => withoutFryers.includes(id)),
+					back: AIR_FRYER_MEALS.filter((id) => withFryers.includes(id)),
+					count: await page
+						.getByRole("combobox", { name: "Air fryers count", exact: true })
+						.inputValue(),
+				},
+				{ hidden: [], back: AIR_FRYER_MEALS, count: "2" },
+			);
 			await page.getByRole("button", { name: PROTEINS }).click();
 			await checkbox("Fish").check();
 			await checkbox("Turkey").check();
 			await page.keyboard.press("Escape");
+			// No fish or turkey meal is Not Keto, so that style is unavailable.
+			assert.deepEqual(
+				await mealStyle
+					.locator("option:disabled")
+					.evaluateAll((options) => options.map((option) => option.value)),
+				["nonketo"],
+			);
 			await page.getByRole("button", { name: CARBS }).click();
 			assert.equal(await checkbox("No starch").count(), 0);
 			await checkbox("Bread").check();
@@ -316,13 +384,12 @@ function filtersCheck(width) {
 			assert.equal(await checkbox("Vegetarian").isDisabled(), true);
 			await page.keyboard.press("Escape");
 			const saved = await stored(page);
-			assert.deepEqual(saved.proteinChoice, ["fish", "turkey"]);
-			assert.deepEqual(saved.starchChoice, ["bread"]);
+			assert.deepEqual(saved.filters.proteinChoice, ["fish", "turkey"]);
+			assert.deepEqual(saved.filters.starchChoice, ["bread"]);
 			await page.reload();
 			await hydrated(page);
 			const reloaded = await stored(page);
-			assert.deepEqual(reloaded.proteinChoice, saved.proteinChoice);
-			assert.deepEqual(reloaded.starchChoice, saved.starchChoice);
+			assert.deepEqual(reloaded.filters, saved.filters);
 			assert.deepEqual(reloaded.appliancesOnHand, saved.appliancesOnHand);
 			assert.equal(await checkbox("Pans").isDisabled(), true);
 			assert.equal(await cards(), 0);
@@ -340,9 +407,10 @@ function filtersCheck(width) {
 				0,
 			);
 			assert.equal(await page.getByRole("button", { name: CARBS }).count(), 0);
+			// Smoothies have no meal styles: the select is not offered.
 			assert.equal(
 				await page
-					.getByRole("button", { name: "Shared Main", exact: true })
+					.getByRole("combobox", { name: "Meal style", includeHidden: true })
 					.count(),
 				0,
 			);
@@ -353,7 +421,7 @@ function filtersCheck(width) {
 			assert.equal(await cards(), 1);
 			await page.reload();
 			await hydrated(page);
-			assert.deepEqual((await stored(page)).ingredientChoice, ["hemp"]);
+			assert.deepEqual((await stored(page)).filters.ingredientChoice, ["hemp"]);
 			assert.equal(await cards(), 1);
 			await page.getByRole("button", { name: INGREDIENTS }).click();
 			await page
@@ -370,7 +438,7 @@ function filtersCheck(width) {
 					.getAttribute("aria-current"),
 				"page",
 			);
-			assert.equal((await stored(page)).smoothieKetoOnly, true);
+			assert.equal((await stored(page)).filters.smoothieKetoOnly, true);
 			assert.equal(await cards(), 4);
 			await page.waitForFunction(() =>
 				[...document.querySelectorAll(".recipe-card img")].every(
@@ -402,7 +470,7 @@ function filtersCheck(width) {
 				(key) =>
 					localStorage.setItem(
 						key,
-						JSON.stringify({ collection: "meal", ironRich: true, servings: 8 }),
+						JSON.stringify({ filters: { ironRich: true }, servings: 8 }),
 					),
 				STORAGE_KEY,
 			);
@@ -433,7 +501,7 @@ function filtersCheck(width) {
 			await page.keyboard.press("Escape");
 			await takeover.waitFor({ state: "detached" });
 			assert.equal(await cards(), smoothieCount);
-			assert.equal((await stored(page)).ironRich, true);
+			assert.equal((await stored(page)).filters.ironRich, true);
 			assert.equal(await checkbox("Iron-rich").count(), 0);
 			assert.deepEqual(errors, []);
 		} finally {

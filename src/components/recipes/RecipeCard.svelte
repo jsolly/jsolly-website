@@ -1,6 +1,7 @@
 <script>
 	import ApplianceIcon from "./ApplianceIcon.svelte";
-	import { BASE_SERVINGS, groupBadges } from "./constants.mjs";
+	import { BASE_SERVINGS } from "./constants.mjs";
+	import RecipeBadge from "./RecipeBadge.svelte";
 	import {
 		servingNutrition,
 		smoothiePortionNutrition,
@@ -13,7 +14,7 @@
 </script>
 
 <article class="recipe-card">
-	<div class="card-top"><span class="badge" class:shared={recipe.group === "shared"} class:nonketo={recipe.group === "nonketo"}>{groupBadges[recipe.group]}</span></div>
+	<div class="card-top"><RecipeBadge group={recipe.group} /></div>
 	{#if recipe.image}<figure class="card-photo"><img src={recipe.image.cardSrc} srcset={recipe.image.cardSrcset} sizes="(max-width:600px) 340px, (max-width:1000px) 420px, 360px" width={recipe.image.width} height={recipe.image.height} alt={recipe.image.alt} loading="lazy" decoding="async" /></figure>{/if}
 	<h3><a class="title-button" data-recipe-id={recipe.id} {href}>{recipe.title}</a></h3>
 	<dl class="card-numbers">
@@ -54,21 +55,6 @@
 			justify-content: space-between;
 			gap: 10px;
 			align-items: center;
-		}
-		.badge {
-			font-size: 0.69rem;
-			text-transform: uppercase;
-			letter-spacing: 0.055em;
-			font-weight: 750;
-			border-radius: 6px;
-			padding: 4px 7px;
-			background: var(--recipe-badge);
-		}
-		.badge.shared {
-			background: var(--recipe-badge-shared);
-		}
-		.badge.nonketo {
-			background: var(--recipe-badge-nonketo);
 		}
 		.card-photo {
 			margin: 14px 0 0;

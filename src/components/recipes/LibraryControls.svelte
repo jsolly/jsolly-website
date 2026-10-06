@@ -8,17 +8,21 @@
 		applianceDependencies,
 		applianceLimits,
 		carbStyles,
+		defaultAppliances,
 		mealStyleDescriptions,
+		nutritionThresholds,
 		proteins,
 		SERVING_CHOICES,
-		starchTypes,
+		starchOptions,
 	} from "./constants.mjs";
 	import FilterMultiSelect from "./FilterMultiSelect.svelte";
 	import NutritionHelp from "./NutritionHelp.svelte";
+	import { choiceUnavailable } from "./nutrient-filters.mjs";
 
 	// The recipe library's controls: the collection links, servings, the
 	// filters, the appliances on hand, the nutrition filters and Print all.
-	// Every control is disabled until the library hydrates.
+	// Every control is disabled until the library hydrates. `filters` is the
+	// library's DEFAULT_FILTERS-shaped filter state.
 	let {
 		collection,
 		pathname,
@@ -30,28 +34,17 @@
 		smoothieIngredients,
 		hasMatches,
 		onPrintAll,
-		proteinChoice = $bindable(),
-		starchChoice = $bindable(),
-		ingredientChoice = $bindable(),
-		carbChoice = $bindable(),
-		smoothieKetoOnly = $bindable(),
-		immuneSupport = $bindable(),
-		ironRich = $bindable(),
-		omega3 = $bindable(),
+		filters = $bindable(),
 		appliancesOnHand = $bindable(),
 	} = $props();
 	const COLLECTION_LINKS = [
 		{ collection: "meal", href: "/recipes/meals/", label: "Meals" },
 		{ collection: "smoothie", href: "/recipes/smoothies/", label: "Smoothies" },
 	];
-	const starchOptions = Object.fromEntries(
-		Object.entries(starchTypes).filter(
-			([key]) => !["all", "none"].includes(key),
-		),
-	);
 	const uid = $props.id();
 	const servingsId = `${uid}-servings`;
 	const mealStyleId = `${uid}-meal-style`;
+	const mealStyleHelpId = `${uid}-meal-style-help`;
 	const controlId = (name) => `${uid}-${name}`;
 	// Each counted appliance offers 0 up to its limit.
 	const countChoices = (value) =>
@@ -63,6 +56,37 @@
 				recipe.appliancesNeeded.includes(value),
 			),
 		),
+	);
+	// The nutrition checks the collection offers: each filter's key, label,
+	// the filter that picking it applies and its tooltip.
+	const nutritionChecks = $derived(
+		[
+			collection === "smoothie" && {
+				key: "smoothieKetoOnly",
+				label: "Keto Friendly",
+				applies: { carb: ["keto"] },
+			},
+			{
+				key: "immuneSupport",
+				label: "Immune support",
+				applies: { immune: true },
+				title:
+					"At least 20% Daily Value in two or more of vitamins A, C, D, zinc and selenium per serving",
+			},
+			collectionHasIron && {
+				key: "ironRich",
+				label: "Iron-rich",
+				applies: { iron: true },
+				title: "At least 20% Daily Value of iron per serving",
+			},
+			{
+				key: "omega3",
+				label: "High in Omega-3s",
+				applies: { omega: true },
+				title:
+					"At least 0.5 g recorded ALA, EPA, and DHA per meal serving or 8 oz smoothie glass",
+			},
+		].filter(Boolean),
 	);
 
 	// The collection shown is "page" on its own page; on the landing, which
@@ -78,6 +102,10 @@
 		const needs = applianceDependencies[value];
 		return Boolean(needs) && !appliancesOnHand[needs];
 	}
+
+	function setAppliance(value, count) {
+		appliancesOnHand = { ...appliancesOnHand, [value]: count };
+	}
 </script>
 
 <div class="library-controls">
@@ -85,37 +113,36 @@
 		>{#each COLLECTION_LINKS as link (link.href)}<a href={link.href} aria-current={current(link)}>{link.label}</a>{/each}</nav
 	>
 	<div class="library-intro">
-		<label class="servings-setting" for={servingsId}
-			>Servings<NativeSelect id={servingsId} value={servings} onchange={(event) => onServingsChange(event.currentTarget.value)} disabled={!hydrated}
+		<div class="servings-setting">
+			<label for={servingsId}>Servings</label><NativeSelect id={servingsId} value={servings} onchange={(event) => onServingsChange(event.currentTarget.value)} disabled={!hydrated}
 				>{#each SERVING_CHOICES as choice (choice)}<option value={choice}>{choice}</option>{/each}</NativeSelect
-			></label
-		>
+			>
+		</div>
 	</div>
 
 	<div class="recipe-filter-selects" class:smoothie-filters={collection === "smoothie"}>
 		<div class="filter-fields">
 			{#if collection === "meal"}
-				<FilterMultiSelect label="Proteins" options={proteins} bind:selected={proteinChoice} emptyLabel="All proteins" disabled={!hydrated} canSelect={(values) => hasMatches({ protein: values })} />
-				<FilterMultiSelect label="Carbs" options={starchOptions} bind:selected={starchChoice} emptyLabel="All starches" disabled={!hydrated} canSelect={(values) => hasMatches({ starch: values })} />
+				<FilterMultiSelect label="Proteins" options={proteins} bind:selected={filters.proteinChoice} emptyLabel="All proteins" disabled={!hydrated} canSelect={(values) => hasMatches({ protein: values })} />
+				<FilterMultiSelect label="Carbs" options={starchOptions} bind:selected={filters.starchChoice} emptyLabel="All starches" disabled={!hydrated} canSelect={(values) => hasMatches({ starch: values })} />
 			{:else}
 				<div class="smoothie-ingredients">
-					<FilterMultiSelect label="Ingredients" options={smoothieIngredients} bind:selected={ingredientChoice} emptyLabel="All ingredients" disabled={!hydrated} canSelect={(values) => hasMatches({ ingredients: values })} />
+					<FilterMultiSelect label="Ingredients" options={smoothieIngredients} bind:selected={filters.ingredientChoice} emptyLabel="All ingredients" disabled={!hydrated} canSelect={(values) => hasMatches({ ingredients: values })} />
 				</div>
 			{/if}
 		</div>
 		{#if collection === "meal"}
 			<div class="style-filter">
-				<label for={mealStyleId}
-					>Meal style<NativeSelect
-						id={mealStyleId}
-						value={carbChoice}
-						disabled={!hydrated}
-						onchange={(event) => {
-							carbChoice = event.currentTarget.value;
-						}}
-						><option value="all">All meals</option>{#each Object.entries(carbStyles) as [value, label] (value)}<option {value} disabled={!hasMatches({ carb: [value] })}>{label}</option>{/each}</NativeSelect
-					></label
-				><small aria-live="polite">{mealStyleDescriptions[carbChoice]}</small>
+				<label for={mealStyleId}>Meal style</label><NativeSelect
+					id={mealStyleId}
+					aria-describedby={mealStyleHelpId}
+					value={filters.mealStyle}
+					disabled={!hydrated}
+					onchange={(event) => {
+						filters.mealStyle = event.currentTarget.value;
+					}}
+					><option value="all">All meals</option>{#each Object.entries(carbStyles) as [value, label] (value)}<option {value} disabled={choiceUnavailable(filters.mealStyle === value, () => hasMatches({ carb: [value] }))}>{label}</option>{/each}</NativeSelect
+				><small id={mealStyleHelpId}>{mealStyleDescriptions[filters.mealStyle]}</small>
 			</div>
 		{/if}
 	</div>
@@ -127,23 +154,18 @@
 		<section class="inventory-options" class:simple-inventory={collection === "smoothie"} tabindex={collection === "meal" ? 0 : undefined} aria-label={collection === "meal" ? "Appliances on hand, scroll for more" : undefined}>
 			{#each shownAppliances as [value, label], index (value)}
 				{#if Object.hasOwn(applianceLimits, value)}
+					<!-- Re-ticking a counted appliance brings back its usual count. -->
 					<div class="inventory-count">
 						<label for={controlId(`appliance-${index}`)}
-							><Checkbox
-								id={controlId(`appliance-${index}`)}
-								checked={appliancesOnHand[value] > 0}
-								onCheckedChange={(checked) => {
-									appliancesOnHand = { ...appliancesOnHand, [value]: checked ? 1 : 0 };
-								}}
-								disabled={!hydrated}
-							/><ApplianceIcon name={value} decorative />{label}</label
+							><Checkbox id={controlId(`appliance-${index}`)} checked={appliancesOnHand[value] > 0} onCheckedChange={(checked) => setAppliance(value, checked ? defaultAppliances[value] : 0)} disabled={!hydrated} /><ApplianceIcon
+								name={value}
+								decorative
+							/>{label}</label
 						><label class="visually-hidden" for={controlId(`count-${index}`)}>{label} count</label><NativeSelect
 							id={controlId(`count-${index}`)}
 							disabled={!hydrated}
 							value={appliancesOnHand[value]}
-							onchange={(event) => {
-								appliancesOnHand = { ...appliancesOnHand, [value]: Number(event.currentTarget.value) };
-							}}>{#each countChoices(value) as count (count)}<option value={count}>{count}</option>{/each}</NativeSelect
+							onchange={(event) => setAppliance(value, Number(event.currentTarget.value))}>{#each countChoices(value) as count (count)}<option value={count}>{count}</option>{/each}</NativeSelect
 						>
 					</div>
 				{:else}
@@ -151,9 +173,7 @@
 						><Checkbox
 							id={controlId(`appliance-${index}`)}
 							checked={appliancesOnHand[value] > 0}
-							onCheckedChange={() => {
-								appliancesOnHand = { ...appliancesOnHand, [value]: appliancesOnHand[value] ? 0 : 1 };
-							}}
+							onCheckedChange={(checked) => setAppliance(value, checked ? 1 : 0)}
 							disabled={!hydrated || unavailable(value)}
 						/><ApplianceIcon name={value} decorative />{label}</label
 					>
@@ -165,15 +185,19 @@
 	<fieldset class="nutrient-filters">
 		<legend>Nutrition</legend><NutritionHelp />
 		<div class="nutrient-options">
-			{#if collection === "smoothie"}<label for={controlId("keto")}><Checkbox id={controlId("keto")} bind:checked={smoothieKetoOnly} disabled={!hydrated || (!smoothieKetoOnly && !hasMatches({ carb: ["keto"] }))} /> Keto Friendly</label>{/if}<label
-				for={controlId("immune")}
-				title="At least 20% Daily Value in two or more of vitamins A, C, D, zinc and selenium per serving"
-				><Checkbox id={controlId("immune")} bind:checked={immuneSupport} disabled={!hydrated || (!immuneSupport && !hasMatches({ immune: true }))} /> Immune support</label
-			>{#if collectionHasIron}<label for={controlId("iron")} title="At least 20% Daily Value of iron per serving"><Checkbox id={controlId("iron")} bind:checked={ironRich} disabled={!hydrated || (!ironRich && !hasMatches({ iron: true }))} /> Iron-rich</label>{/if}<label
-				for={controlId("omega")}
-				title="At least 0.5 g recorded ALA, EPA, and DHA per meal serving or 8 oz smoothie glass"
-				><Checkbox id={controlId("omega")} bind:checked={omega3} disabled={!hydrated || (!omega3 && !hasMatches({ omega: true }))} /> High in Omega-3s</label
-			>
+			{#each nutritionChecks as check (check.key)}<label for={controlId(check.key)} title={check.title}
+					><Checkbox
+						id={controlId(check.key)}
+						aria-describedby={nutritionThresholds[check.key] ? controlId(`${check.key}-threshold`) : undefined}
+						bind:checked={filters[check.key]}
+						disabled={!hydrated || choiceUnavailable(filters[check.key], () => hasMatches(check.applies))}
+					/>
+					{check.label}</label
+				>{/each}
+		</div>
+		<!-- The thresholds the nutrition help states, as each check's description. -->
+		<div hidden>
+			{#each Object.entries(nutritionThresholds) as [key, threshold] (key)}<p id={controlId(`${key}-threshold`)}>{threshold}</p>{/each}
 		</div>
 	</fieldset>
 	<Button variant="outline" type="button" class="print-all" disabled={!hydrated} onclick={onPrintAll}>{collection === "smoothie" ? "Print all smoothies" : "Print all meals"}</Button>
@@ -227,6 +251,13 @@
 			align-items: center;
 			gap: 24px;
 			grid-column: 1 / -1;
+		}
+		/* Each select sits beside its label, so it takes the label's text size
+		   and weight from its row. */
+		.servings-setting,
+		.style-filter {
+			font-size: 0.86rem;
+			font-weight: 600;
 		}
 		.servings-setting {
 			display: flex;
@@ -396,7 +427,6 @@
 			}
 			.filter-fields {
 				grid-template-columns: 1fr;
-				height: 164px;
 				min-height: 164px;
 				align-content: start;
 			}
