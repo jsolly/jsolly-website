@@ -1,10 +1,26 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import it from "node:test";
-import { securityTxtProblems } from "../site-files.mjs";
+import {
+	fieldLines,
+	fieldValues,
+	headCommitDate,
+	securityTxtProblems,
+} from "../site-files.mjs";
 
 // The security.txt check behind both hosts' tests, fed realistic broken
-// files. Each case starts from the shape jsolly.com ships and breaks one thing.
+// files (each case starts from the shape jsolly.com ships and breaks one
+// thing), and jsolly.com's shipped file.
+const SECURITY_TXT = new URL(
+	"../../public/.well-known/security.txt",
+	import.meta.url,
+);
+const LEGACY_SECURITY_TXT = new URL(
+	"../../legacy/blogthedata/public/.well-known/security.txt",
+	import.meta.url,
+);
 const COMMITTED = "2026-10-05T20:31:00-04:00";
+const BAD_COMMIT_DATE = /committed "" is not a time/u;
 const EXPECTED = {
 	contact: "https://www.jsolly.com/contact/",
 	"preferred-languages": "en",
@@ -30,7 +46,7 @@ function file({
 		.join("\n");
 }
 
-it("a security.txt that is expired, too long-lived, unparseable or pointing elsewhere is rejected with the reason", () => {
+it("a security.txt that is expired, too long-lived, impossible, unparseable, carrying an extra field or pointing elsewhere is rejected with the reason", () => {
 	assert.deepEqual(
 		securityTxtProblems(file(), EXPECTED, { committed: COMMITTED }),
 		[],
@@ -48,6 +64,21 @@ it("a security.txt that is expired, too long-lived, unparseable or pointing else
 			text: file({ expires: "Expires: 2027-10-06T00:31:00Z" }),
 			problem:
 				"Expires 2027-10-06T00:31:00Z is 365 days or more after 2026-10-05T20:31:00-04:00",
+		},
+		{
+			name: "month 13",
+			text: file({ expires: "Expires: 2027-13-01T00:00:00Z" }),
+			problem: "Expires 2027-13-01T00:00:00Z is not a valid time",
+		},
+		{
+			name: "hour 25",
+			text: file({ expires: "Expires: 2027-09-01T25:00:00Z" }),
+			problem: "Expires 2027-09-01T25:00:00Z is not a valid time",
+		},
+		{
+			name: "February 30, which Date.parse rolls into March",
+			text: file({ expires: "Expires: 2027-02-30T00:00:00Z" }),
+			problem: "Expires 2027-02-30T00:00:00Z is not a valid time",
 		},
 		{
 			name: "a date without a time or offset",
@@ -81,6 +112,12 @@ it("a security.txt that is expired, too long-lived, unparseable or pointing else
 				'canonical is ["https://www.blogthedata.com/.well-known/security.txt"], not ["https://www.jsolly.com/.well-known/security.txt"]',
 		},
 		{
+			name: "the expired PGP key offered as Encryption",
+			text: file({ extra: ["Encryption: https://www.jsolly.com/pgp-key.txt"] }),
+			problem:
+				"unexpected field encryption: https://www.jsolly.com/pgp-key.txt",
+		},
+		{
 			name: "a line that is not a field",
 			text: file({ extra: ["Contact https://www.jsolly.com/contact/"] }),
 			problem: 'line "Contact https://www.jsolly.com/contact/" is not a field',
@@ -93,4 +130,25 @@ it("a security.txt that is expired, too long-lived, unparseable or pointing else
 			name,
 		);
 	}
+	assert.throws(
+		() => securityTxtProblems(file(), EXPECTED, { committed: "" }),
+		BAD_COMMIT_DATE,
+		"an unreadable commit date fails loudly instead of passing",
+	);
+});
+
+it("security researchers on jsolly.com get a valid, unexpired security.txt that expires with the old host's", () => {
+	const text = readFileSync(SECURITY_TXT, "utf8");
+	assert.deepEqual(
+		securityTxtProblems(text, EXPECTED, { committed: headCommitDate() }),
+		[],
+	);
+	// One yearly bump moves both hosts' Expires together.
+	assert.deepEqual(
+		fieldValues(fieldLines(text).fields, "expires"),
+		fieldValues(
+			fieldLines(readFileSync(LEGACY_SECURITY_TXT, "utf8")).fields,
+			"expires",
+		),
+	);
 });

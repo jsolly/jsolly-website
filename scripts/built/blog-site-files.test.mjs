@@ -5,27 +5,18 @@ import it from "node:test";
 import { globby } from "globby";
 import { JSDOM } from "jsdom";
 import { postHref } from "../../src/lib/blog/urls.js";
-import {
-	fieldLines,
-	fieldValues,
-	headCommitDate,
-	securityTxtProblems,
-} from "../site-files.mjs";
-import { exists, publishedPosts, readBuilt } from "./pages.mjs";
+import { fieldLines, fieldValues } from "../site-files.mjs";
+import { exists, publishedPosts, robotsMeta } from "./pages.mjs";
 
 // The site files over the built dist/ (plan B11): the sitemap, robots.txt and
-// security.txt. Expectations come from the built pages' own robots meta, the
-// post frontmatter and RFC 9116, never from the astro.config.ts sitemap
-// options under test, so a /recipes/ page (J12) is expected the moment it is
-// built.
+// what security.txt points at. Expectations come from the built pages' own
+// robots meta and the post frontmatter, never from the astro.config.ts
+// sitemap options under test, so a /recipes/ page (J12) is expected the
+// moment it is built.
 const DIST = "dist";
 const SITE = "https://www.jsolly.com";
 // The one custom (non-page) sitemap entry, from astro.config.ts customPages.
 const RESUME = `${SITE}/John-Solly-Resume.pdf`;
-const LEGACY_SECURITY_TXT = new URL(
-	"../../legacy/blogthedata/public/.well-known/security.txt",
-	import.meta.url,
-);
 
 // The built XML file at `path` under dist/ as a document.
 async function readXml(path) {
@@ -46,13 +37,7 @@ async function builtPages() {
 	const pages = await Promise.all(
 		files.map(async (file) => {
 			const dir = dirname(file);
-			const robots = await readBuilt(
-				dir,
-				(document) =>
-					[...document.querySelectorAll("meta")].find(
-						(meta) => meta.name === "robots",
-					)?.content ?? "",
-			);
+			const robots = (await robotsMeta(dir)) ?? "";
 			return {
 				url: `${SITE}${dir === "." ? "/" : `/${dir}/`}`,
 				noindex: robots
@@ -141,38 +126,16 @@ it("crawlers are kept off only the noindex blog search, which the sitemap leaves
 	);
 });
 
-it("security researchers find a valid security.txt that expires with the old host's and names no expired key", async () => {
-	const canonical = `${SITE}/.well-known/security.txt`;
-	const text = await readFile(
-		join(DIST, ".well-known", "security.txt"),
-		"utf8",
-	);
-	assert.deepEqual(
-		securityTxtProblems(
-			text,
-			{
-				contact: `${SITE}/contact/`,
-				"preferred-languages": "en",
-				canonical,
-			},
-			{ committed: headCommitDate() },
-		),
-		[],
-	);
-	// public/pgp-key.txt (kept as the legacy /pgp-key.txt redirect's
-	// destination) expired on 2023-05-08, so neither host offers Encryption,
-	// and one yearly bump moves both Expires together.
-	const legacy = fieldLines(await readFile(LEGACY_SECURITY_TXT, "utf8")).fields;
-	const { fields } = fieldLines(text);
-	assert.deepEqual(fieldValues(fields, "encryption"), []);
-	assert.deepEqual(fieldValues(legacy, "encryption"), []);
-	assert.deepEqual(
-		fieldValues(fields, "expires"),
-		fieldValues(legacy, "expires"),
-		"both hosts' security.txt expire together",
-	);
+// The file checks (valid fields, Expires, both hosts expiring together) are
+// in scripts/unit/site-files.test.mjs; this checks what security.txt and the
+// legacy /pgp-key.txt redirect (SEC-001) point at is in the build.
+it("security researchers reach the security.txt URLs, the contact page and the kept /pgp-key.txt", async () => {
 	const missing = await Promise.all(
-		[canonical, `${SITE}/contact/`].map(async (url) => {
+		[
+			`${SITE}/.well-known/security.txt`,
+			`${SITE}/contact/`,
+			`${SITE}/pgp-key.txt`,
+		].map(async (url) => {
 			const { pathname } = new URL(url);
 			const file = pathname.endsWith("/")
 				? join(DIST, pathname, "index.html")
@@ -180,5 +143,5 @@ it("security researchers find a valid security.txt that expires with the old hos
 			return (await exists(file)) ? [] : [url];
 		}),
 	);
-	assert.deepEqual(missing.flat(), [], "security.txt's URLs are built");
+	assert.deepEqual(missing.flat(), [], "each URL is built");
 });

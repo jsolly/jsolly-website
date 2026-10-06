@@ -24,7 +24,12 @@ import {
 	vercelConfig,
 	vercelJsonDrift,
 } from "../blogthedata-redirects.mjs";
-import { headCommitDate, securityTxtProblems } from "../site-files.mjs";
+import {
+	fieldLines,
+	fieldValues,
+	headCommitDate,
+	securityTxtProblems,
+} from "../site-files.mjs";
 
 // The URL map is the legacy host's whole behaviour: these tests route every
 // known path through Vercel's own compiler and router library.
@@ -431,13 +436,18 @@ it("A broken url-map edit fails generation instead of shipping a bad redirect", 
 });
 
 it("Crawlers on the old host get a robots.txt that allows following the 301s", () => {
-	const robots = readFileSync(join(PUBLIC_DIR, "robots.txt"), "utf8");
-	assert.ok(robots.split("\n").includes("User-agent: *"));
-	assert.ok(!robots.toLowerCase().includes("disallow"));
+	const { fields, unparsed } = fieldLines(
+		readFileSync(join(PUBLIC_DIR, "robots.txt"), "utf8"),
+	);
+	assert.deepEqual(unparsed, [], "every robots.txt line is a directive");
+	assert.deepEqual(fieldValues(fields, "user-agent"), ["*"]);
+	assert.deepEqual(fieldValues(fields, "allow"), ["/"]);
+	assert.deepEqual(fieldValues(fields, "disallow"), []);
 });
 
 it("Security researchers on the old host get a valid, unexpired security.txt", () => {
-	// No Encryption field: public/pgp-key.txt expired on 2023-05-08.
+	// Any field beyond these and Expires fails, Encryption included:
+	// public/pgp-key.txt expired on 2023-05-08.
 	assert.deepEqual(
 		securityTxtProblems(
 			readFileSync(join(PUBLIC_DIR, ".well-known", "security.txt"), "utf8"),

@@ -4,7 +4,7 @@ import { chromium } from "playwright";
 import { postHref } from "../../src/lib/blog/urls.js";
 import {
 	publishedPosts,
-	readBuilt,
+	robotsMeta,
 	serveStatic,
 	stubOffOrigin,
 } from "./pages.mjs";
@@ -173,16 +173,7 @@ it("a reader whose query matches nothing is told so with no cards", async () => 
 });
 
 it("the bare search page is noindex and gives the search hint, and without JavaScript the archive link and no loading line", async () => {
-	assert.equal(
-		await readBuilt(
-			"blog/search",
-			(document) =>
-				[...document.querySelectorAll("meta")].find(
-					(meta) => meta.name === "robots",
-				)?.content,
-		),
-		"noindex, follow",
-	);
+	assert.equal(await robotsMeta("blog/search"), "noindex, follow");
 	const context = await browser.newContext();
 	try {
 		const { page, errors } = await openSearch(context);
