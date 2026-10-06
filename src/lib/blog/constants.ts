@@ -29,3 +29,19 @@ export const LEGACY_SITE = "https://www.blogthedata.com";
 
 // Posts the feeds list, most recently updated first.
 export const FEED_SIZE = 5;
+
+// The blog's two feeds: where each is served, its media type (vercel.json
+// sends it as `<type>; charset=utf-8`) and the title BlogLayout's alternate
+// link gives it.
+export const FEEDS = {
+	rss: {
+		path: "/blog/rss.xml",
+		type: "application/rss+xml",
+		title: "Blogthedata RSS",
+	},
+	atom: {
+		path: "/blog/atom.xml",
+		type: "application/atom+xml",
+		title: "Blogthedata Atom",
+	},
+} as const;

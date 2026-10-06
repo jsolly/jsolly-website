@@ -14,6 +14,7 @@ import Maintenance from "../components/Maintenance.astro";
 import {
 	DEFAULT_IMAGE,
 	EMBED_HOSTS,
+	FEEDS,
 	LEGACY_MEDIA,
 } from "../lib/blog/constants.js";
 import { blogNavigation } from "../lib/blog/content.js";
@@ -71,18 +72,11 @@ const navigation = await blogNavigation();
 		<meta name="description" content={description} />
 		<link rel="canonical" href={canonical} />
 		<link rel="icon" href="/favicon.ico" />
-		<link
-			rel="alternate"
-			type="application/rss+xml"
-			title="Blogthedata RSS"
-			href="/blog/rss.xml"
-		/>
-		<link
-			rel="alternate"
-			type="application/atom+xml"
-			title="Blogthedata Atom"
-			href="/blog/atom.xml"
-		/>
+		{
+			Object.values(FEEDS).map(({ path, type, title: feedTitle }) => (
+				<link rel="alternate" type={type} title={feedTitle} href={path} />
+			))
+		}
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonical} />
@@ -120,9 +114,9 @@ const navigation = await blogNavigation();
 			<nav aria-label="Footer"
 				><a href="/blog/">Home</a><a href="/blog/all-posts/">All posts</a><a
 					href="/privacy/">Privacy</a
-				><a href="/blog/works-cited/">Works cited</a><a href="/blog/rss.xml"
+				><a href="/blog/works-cited/">Works cited</a><a href={FEEDS.rss.path}
 					>RSS</a
-				><a href="/blog/atom.xml">Atom</a><a href="#top">Back to top</a></nav
+				><a href={FEEDS.atom.path}>Atom</a><a href="#top">Back to top</a></nav
 			>
 			<p>Designed &amp; built by John Solly</p>
 		</footer>

@@ -51,3 +51,12 @@ export interface FeedPost {
 		"slug" | "title" | "description" | "feedAuthor" | "published" | "updated"
 	>;
 }
+
+// The url-map.json row fields the feeds read to find pre-merge posts.
+export interface LegacyRow {
+	id: string;
+	class: string;
+	action: string;
+	source: string;
+	destination: string | null;
+}

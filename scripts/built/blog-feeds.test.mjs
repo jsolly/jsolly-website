@@ -3,14 +3,15 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import it from "node:test";
 import { JSDOM } from "jsdom";
-import { publishedPosts, readBuilt } from "./pages.mjs";
+import { allPosts, publishedPosts, readBuilt } from "./pages.mjs";
 
 // The RSS and Atom feeds over the built dist/. The first test is ported from
 // awesome-blog's astro-contract test "feeds follow current published metadata
 // and retain canonical identities", re-pathed to /blog/{rss,atom}.xml with
-// links on jsolly.com; the second is plan §4.7 (decision J8). Expectations
-// come from the post frontmatter, url-map.json and vercel.json, never from the
-// feed code under test.
+// links on jsolly.com; the second is plan §4.7 (decision J8), whose
+// Content-Type half is scripts/unit/vercel-feed-headers.test.mjs. Expectations
+// come from the post frontmatter and url-map.json, never from the feed code
+// under test.
 const DIST = "dist";
 const SITE = "https://www.jsolly.com";
 const LEGACY = "https://www.blogthedata.com";
@@ -18,16 +19,15 @@ const URL_MAP = new URL(
 	"../../legacy/blogthedata/url-map.json",
 	import.meta.url,
 );
-const VERCEL = new URL("../../vercel.json", import.meta.url);
 const FEED_SIZE = 5;
-// The recipe post moved to /recipes/ (J7); it is no blog post and no feed item.
+// The recipe post moved to /recipes/ (J7); it is no blog post, so no feed item.
 const RECIPE_POST = "15-minute-dump-and-go-instant-pot-recipes";
 const FEEDS = [
 	{ kind: "rss", type: "application/rss+xml" },
 	{ kind: "atom", type: "application/atom+xml" },
 ];
 
-// The built feed of `kind` as { raw, document }, parsed as XML (as HTML,
+// The built feed of `kind` as a document, parsed as XML (as HTML,
 // <link> would be a void element and lose its text).
 async function readFeed(kind) {
 	const raw = await readFile(join(DIST, "blog", `${kind}.xml`), "utf8");
@@ -36,7 +36,7 @@ async function readFeed(kind) {
 	if (document.querySelector("parsererror")) {
 		throw new Error(`dist/blog/${kind}.xml is not well-formed XML`);
 	}
-	return { raw, document };
+	return document;
 }
 
 // The direct child of the feed root named `tag`.
@@ -44,6 +44,26 @@ function rootChild(document, tag) {
 	return [...document.documentElement.children].find(
 		(child) => child.tagName === tag,
 	);
+}
+
+// Each feed post's expected ids. A post with a url-map.json post redirect row
+// predates the merge and keeps that row's blogthedata.com URL (J8); any other
+// post was written on jsolly.com and its link is its id.
+async function expectedIds(posts) {
+	const { rows } = JSON.parse(await readFile(URL_MAP, "utf8"));
+	const legacy = new Map(
+		rows
+			.filter((row) => row.class === "post" && row.action === "redirect-301")
+			.map((row) => [
+				new URL(row.destination).pathname,
+				`${LEGACY}${row.source}`,
+			]),
+	);
+	return posts.map((post) => {
+		const link = `${SITE}/blog/${post.slug}/`;
+		const legacyId = legacy.get(`/blog/${post.slug}/`);
+		return { link, id: legacyId ?? link, legacy: legacyId !== undefined };
+	});
 }
 
 // The published posts the feeds list: most recently updated first, then
@@ -61,8 +81,9 @@ async function feedPosts() {
 it("feeds follow current published metadata and retain canonical identities", async () => {
 	const posts = await feedPosts();
 	assert.equal(posts.length, FEED_SIZE);
-	const rss = (await readFeed("rss")).document;
-	const atom = (await readFeed("atom")).document;
+	const ids = await expectedIds(posts);
+	const rss = await readFeed("rss");
+	const atom = await readFeed("atom");
 
 	assert.deepEqual(
 		[...rss.querySelectorAll("item")].map((item) => ({
@@ -71,10 +92,10 @@ it("feeds follow current published metadata and retain canonical identities", as
 			guid: item.querySelector("guid")?.textContent,
 			description: item.querySelector("description")?.textContent,
 		})),
-		posts.map((post) => ({
+		posts.map((post, index) => ({
 			title: post.title,
-			link: `${SITE}/blog/${post.slug}/`,
-			guid: `${LEGACY}/post/${post.slug}/`,
+			link: ids[index].link,
+			guid: ids[index].id,
 			description: post.description,
 		})),
 	);
@@ -91,10 +112,10 @@ it("feeds follow current published metadata and retain canonical identities", as
 			updated: entry.querySelector("updated")?.textContent,
 			author: entry.querySelector("author name")?.textContent,
 		})),
-		posts.map((post) => ({
+		posts.map((post, index) => ({
 			title: post.title,
-			link: `${SITE}/blog/${post.slug}/`,
-			id: `${LEGACY}/post/${post.slug}/`,
+			link: ids[index].link,
+			id: ids[index].id,
 			updated: post.publishedAt.toISOString(),
 			author: post.feedAuthor,
 		})),
@@ -123,25 +144,17 @@ it("feeds follow current published metadata and retain canonical identities", as
 	);
 });
 
-it("pre-merge posts keep their blogthedata feed ids, the recipe post is absent, and Vercel sends the feed types", async () => {
-	const { rows } = JSON.parse(await readFile(URL_MAP, "utf8"));
-	// Pre-merge posts: those with a url-map.json post row (feeds.ts's rule).
-	const legacy = new Set(
-		rows
-			.filter((row) => row.class === "post" && row.action === "redirect-301")
-			.map((row) => row.source),
-	);
+it("pre-merge posts keep their blogthedata feed ids exactly, new posts get jsolly ids, and the recipe post is no blog post", async () => {
 	const posts = await feedPosts();
-	for (const post of posts) {
-		assert.ok(
-			legacy.has(`/post/${post.slug}/`),
-			`${post.slug} predates the merge, so this test reaches the legacy-id rule`,
-		);
-	}
+	const ids = await expectedIds(posts);
+	assert.ok(
+		ids.some((id) => id.legacy),
+		"at least one feed item predates the merge, so the legacy-id rule is reached",
+	);
 
 	const rss = await readFeed("rss");
 	assert.deepEqual(
-		[...rss.document.querySelectorAll("item")].map((item) => {
+		[...rss.querySelectorAll("item")].map((item) => {
 			const guid = item.querySelector("guid");
 			return {
 				link: item.querySelector("link")?.textContent,
@@ -150,45 +163,30 @@ it("pre-merge posts keep their blogthedata feed ids, the recipe post is absent, 
 				isPermaLink: guid?.getAttribute("isPermaLink"),
 			};
 		}),
-		posts.map((post) => ({
-			link: `https://www.jsolly.com/blog/${post.slug}/`,
-			guid: `https://www.blogthedata.com/post/${post.slug}/`,
+		ids.map(({ link, id, legacy }) => ({
+			link,
+			guid: id,
 			attributes: ["isPermaLink"],
-			isPermaLink: "false",
+			isPermaLink: legacy ? "false" : "true",
 		})),
 	);
 
 	const atom = await readFeed("atom");
 	assert.equal(
-		rootChild(atom.document, "id")?.textContent,
+		rootChild(atom, "id")?.textContent,
 		"https://www.blogthedata.com/atom/",
 		"the Atom feed id is unchanged",
 	);
 	assert.deepEqual(
-		[...atom.document.querySelectorAll("entry")].map((entry) => ({
+		[...atom.querySelectorAll("entry")].map((entry) => ({
 			link: entry.querySelector("link")?.getAttribute("href"),
 			id: entry.querySelector("id")?.textContent,
 		})),
-		posts.map((post) => ({
-			link: `https://www.jsolly.com/blog/${post.slug}/`,
-			id: `https://www.blogthedata.com/post/${post.slug}/`,
-		})),
+		ids.map(({ link, id }) => ({ link, id })),
 	);
 
-	for (const { raw } of [rss, atom]) {
-		assert.ok(!raw.includes(RECIPE_POST), "the recipe post is no feed item");
-	}
-
-	const { headers } = JSON.parse(await readFile(VERCEL, "utf8"));
-	for (const { kind, type } of FEEDS) {
-		assert.deepEqual(
-			headers.filter((rule) => rule.source === `/blog/${kind}.xml`),
-			[
-				{
-					source: `/blog/${kind}.xml`,
-					headers: [{ key: "Content-Type", value: `${type}; charset=utf-8` }],
-				},
-			],
-		);
-	}
+	assert.ok(
+		!(await allPosts()).some((post) => post.slug === RECIPE_POST),
+		"the recipe post is not in the posts collection, so no feed lists it",
+	);
 });
