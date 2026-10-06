@@ -449,6 +449,35 @@ it("A maintenance deploy or a failed replacement keeps the previous offline snap
 	}
 });
 
+// The production smoke runner blocks service workers (Playwright's
+// serviceWorkers: "block", whose register() resolves with no registration)
+// and fails on any console error, so the library must hydrate there cleanly.
+it("Recipe library hydrates without errors when the browser blocks service workers", {
+	timeout: 90_000,
+}, async () => {
+	await serve("A");
+	const context = await browser.newContext({ serviceWorkers: "block" });
+	try {
+		const page = await context.newPage();
+		const errors = [];
+		page.on("console", (message) => {
+			if (message.type() === "error") errors.push(message.text());
+		});
+		page.on("pageerror", (error) => errors.push(String(error)));
+		await page.goto(`${site.origin}${LANDING}`);
+		await page.locator(".meal-library[data-hydrated=true]").waitFor();
+		assert.ok(
+			(await page.locator(".meal-library .recipe-card:visible").count()) > 0,
+			"the library shows recipe cards",
+		);
+		await statusText(page, "Save recipes to your home screen.");
+		assert.equal(await controlled(page), false);
+		assert.deepEqual(errors, [], "no console or page errors");
+	} finally {
+		await context.close();
+	}
+});
+
 it("Failed first download does not claim offline readiness", {
 	timeout: 90_000,
 }, async () => {

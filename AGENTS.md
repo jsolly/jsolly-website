@@ -6,7 +6,7 @@ Ship profile: `vercel-static`
 
 Production URL: <https://www.jsolly.com>
 
-Production verification follows Vercel READY and the public navigation and Markdown behavior smoke.
+Production verification follows Vercel READY and the public navigation, blog, recipe and Markdown behavior smoke.
 
 Local gate before push: `npm run gate`.
 
@@ -127,6 +127,15 @@ for the intended production release and verifies the public browser flow with
 `npm run smoke:production`. The URL is pinned in
 `scripts/production-smoke-scenario.mjs`; the workflow uses no deployment secrets.
 Vercel Git deployment and the existing PR CI checks remain unchanged.
+
+The scenario is read-only (GET only) and runs at a phone width: the portfolio's
+mobile menu to About, Contact, Blog and Recipes; Markdown negotiation on
+`/about/`; the first post on `/blog/`, found again through the blog's GET
+search (which loads `/blog/search-index.json`); the two feeds' XML
+Content-Types; HTML (no `Vary: Accept`) for a post asked for as Markdown; and
+the `/recipes/` library hydrating while the runner blocks service workers. The
+runner, `scripts/production-smoke.mjs`, is a fleet template copy: edit only the
+scenario and its contract tests (the `smoke` suite), which stub every request.
 
 `/ship` must wait for the exact release's Production smoke run to succeed and
 record its URL. Missing, failed, cancelled, skipped or timed-out runs are not

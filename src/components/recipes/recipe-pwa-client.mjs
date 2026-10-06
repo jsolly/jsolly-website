@@ -73,6 +73,10 @@ async function register() {
 		scope: RECIPES_PATH,
 		updateViaCache: "none",
 	});
+	// A browser that blocks service workers, as the production smoke runner's
+	// Playwright context does (serviceWorkers: "block"), resolves with no
+	// registration: there is no worker to follow and the instructions stay.
+	if (!registration) return;
 	state.active = hasActive(registration);
 	state.waiting = Boolean(registration.waiting);
 	observeInstaller(registration);
