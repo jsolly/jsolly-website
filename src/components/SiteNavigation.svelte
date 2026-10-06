@@ -9,8 +9,9 @@
  const links = [
   { href: '/about/', text: 'About', label: 'About John Solly' },
   { href: '/contact/', text: 'Contact', label: 'Contact John Solly' },
-  { href: 'https://www.blogthedata.com/', text: 'Blog', label: "Visit John Solly's blog (opens in new tab)" },
-  { href: '/John-Solly-Resume.pdf', text: 'Resume', label: "Download John Solly's resume (opens in new tab)" },
+  { href: '/blog/', text: 'Blog', label: "Read John Solly's blog" },
+  { href: '/recipes/', text: 'Recipes', label: "Browse John Solly's recipes" },
+  { href: '/John-Solly-Resume.pdf', text: 'Resume', label: "Download John Solly's resume (opens in new tab)", newTab: true },
  ];
  function closeOnEscape(event: KeyboardEvent) {
   if (event.key === 'Escape' && open) { open = false; toggle?.focus(); }
@@ -22,7 +23,7 @@
  <a href="/" class="text-2xl font-bold font-heading text-primary-700 hover:text-primary-600 transition-colors" aria-label="Home">Home</a>
  <nav class="hidden md:flex items-center space-x-8" aria-label="Primary navigation">
   {#each links as link (link.href)}
-   <a href={link.href} target={link.text === 'Blog' || link.text === 'Resume' ? '_blank' : undefined} rel={link.text === 'Blog' || link.text === 'Resume' ? 'noopener noreferrer' : undefined} class="text-lg font-medium text-text-secondary hover:text-primary-600 transition-colors" aria-label={link.label}>{link.text}</a>
+   <a href={link.href} target={link.newTab ? '_blank' : undefined} rel={link.newTab ? 'noopener noreferrer' : undefined} class="text-lg font-medium text-text-secondary hover:text-primary-600 transition-colors" aria-label={link.label}>{link.text}</a>
   {/each}
  </nav>
  <Button bind:ref={toggle} variant="ghost" size="icon" id="mobile-menu-button" class="md:hidden size-11 rounded-md text-text-primary cursor-pointer" aria-label="Toggle mobile menu" aria-expanded={open} aria-controls="mobile-menu" disabled={!hydrated} onclick={() => { open = !open; }}>
@@ -32,7 +33,7 @@
 <nav id="mobile-menu" class={['md:hidden', !open && 'hidden']} aria-label="Mobile navigation">
  <div class="flex flex-col space-y-4 px-2 pt-2 pb-3">
   {#each links as link (link.href)}
-   <a href={link.href} target={link.text === 'Blog' || link.text === 'Resume' ? '_blank' : undefined} rel={link.text === 'Blog' || link.text === 'Resume' ? 'noopener noreferrer' : undefined} class="block px-3 py-2 rounded-md text-base font-medium text-text-secondary hover:text-primary-600 hover:bg-neutral-100" aria-label={link.label}>{link.text}</a>
+   <a href={link.href} target={link.newTab ? '_blank' : undefined} rel={link.newTab ? 'noopener noreferrer' : undefined} class="block px-3 py-2 rounded-md text-base font-medium text-text-secondary hover:text-primary-600 hover:bg-neutral-100" aria-label={link.label}>{link.text}</a>
   {/each}
  </div>
 </nav>

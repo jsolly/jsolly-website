@@ -44,13 +44,13 @@ Request any of those URLs with \`Accept: text/markdown\` to get a Markdown body.
 function homeMarkdown(origin: string): string {
 	return `# Hi, I'm John Solly
 
-Health-IT Division CTO at Leidos, leading digital modernization for federal health and benefits agencies. This is my personal website.
+CTO of Enterprise Health at Leidos Digital, leading digital modernization for federal health and benefits agencies. This is my personal website.
 
 ## About this site
 
-[jsolly.com](${origin}/) is a small static site: who I am, how to reach me, and pointers to the work I publish elsewhere. It is not a product, docs portal, or corporate site for Leidos.
+[jsolly.com](${origin}/) is a small static site: who I am, how to reach me, my blog and recipes, and pointers to the work I publish elsewhere. It is not a product, docs portal, or corporate site for Leidos.
 
-I spent most of my career building spatial systems — at Esri, startups, and federal agencies. I now lead technology strategy for Leidos' Health IT division, supporting agencies such as SSA, VA, and HHS. My primary focus is the convergence of spatial computing and AI: helping machines interpret the physical world and applying that to missions that matter.
+I spent most of my career building spatial systems — at Esri, startups, and federal agencies. I now lead technology strategy for Enterprise Health at Leidos Digital, supporting agencies such as SSA, VA, and HHS. My primary focus is the convergence of spatial computing and AI: helping machines interpret the physical world and applying that to missions that matter.
 
 ### Pages
 
@@ -59,11 +59,12 @@ I spent most of my career building spatial systems — at Esri, startups, and fe
 - [Privacy](${origin}/privacy/) — data practices for this static site
 - [Terms](${origin}/terms/) — a short, permissive note about using this site
 - [Resume (PDF)](${origin}/John-Solly-Resume.pdf)
-- [Blog](https://www.blogthedata.com/) — writing lives on Blogthedata, not here
+- [Blog](${origin}/blog/) — articles about geospatial development, web development, AI and productivity
+- [Recipes](${origin}/recipes/) — easy meals and smoothies, with serving scaling and appliance filters
 
 ### For agents
 
-Start at [${origin}/llms.txt](${origin}/llms.txt) for when-to-use guidance and links. Send \`Accept: text/markdown\` on any page URL (or fetch the \`.md\` sibling) to skip the HTML chrome.
+Start at [${origin}/llms.txt](${origin}/llms.txt) for when-to-use guidance and links. Send \`Accept: text/markdown\` on the home, about, contact, privacy or terms page URL (or fetch its \`.md\` sibling) to skip the HTML chrome; blog and recipe pages are HTML only.
 
 ## Testimonials
 
@@ -78,11 +79,11 @@ Start at [${origin}/llms.txt](${origin}/llms.txt) for when-to-use guidance and l
 function aboutMarkdown(origin: string): string {
 	return `# John Solly
 
-Health-IT Division CTO and software engineer.
+CTO, Enterprise Health & Software Engineer
 
 A hands-on AI practitioner who transitioned to a CTO role to broaden my impact.
 
-Most of my career has been dedicated to developing spatial systems at Esri, startups, and federal agencies. Currently, I lead technology strategy for Leidos' Health IT division, supporting agencies such as SSA, VA, and HHS.
+Most of my career has been dedicated to developing spatial systems at Esri, startups, and federal agencies. Currently, I lead technology strategy for Enterprise Health at Leidos Digital, supporting agencies such as SSA, VA, and HHS.
 
 My primary focus is the convergence of spatial computing and AI, enabling machines to interpret the physical world and applying these capabilities to meaningful missions.
 
@@ -91,7 +92,8 @@ Please [reach out](${origin}/contact/) if you are interested in spatial systems 
 - [Home](${origin}/)
 - [Contact](${origin}/contact/)
 - [Resume (PDF)](${origin}/John-Solly-Resume.pdf)
-- [Blog](https://www.blogthedata.com/)
+- [Blog](${origin}/blog/)
+- [Recipes](${origin}/recipes/)
 `;
 }
 
@@ -108,7 +110,6 @@ This site does not publish a public inbox address. Use Say Hello on the HTML con
 - [LinkedIn](https://www.linkedin.com/in/jsolly/)
 - [X](https://x.com/_jsolly)
 - [YouTube](https://www.youtube.com/channel/UCxsK9UorVj2F17DMSXLuSQw)
-- [Blogthedata](https://www.blogthedata.com/)
 
 ## Other pages
 

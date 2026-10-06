@@ -209,7 +209,7 @@ describe("agentResponse", () => {
 			assert.equal(res.status, 503);
 			const body = await res.text();
 			assert.match(body, /^# Maintenance/mu);
-			assert.doesNotMatch(body, /Health-IT Division CTO/u);
+			assert.doesNotMatch(body, /Enterprise Health/u);
 		} finally {
 			if (previous === undefined) {
 				delete process.env.MAINTENANCE_MODE;

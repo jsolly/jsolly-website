@@ -1,5 +1,4 @@
 import type { ImageMetadata } from "astro";
-import blogthedataLogo from "../images/social/blogthedataLogo.svg";
 import githubLogo from "../images/social/githubLogo.svg";
 import linkedinLogo from "../images/social/linkedinLogo.svg";
 import xLogo from "../images/social/xLogo.svg";
@@ -41,13 +40,6 @@ export const socialLinks: readonly SocialLink[] = [
 		icon: youtubeLogo,
 		alt: "YouTube",
 		ariaLabel: "Visit John Solly's YouTube channel (opens in new tab)",
-		rel: "me noopener noreferrer",
-	},
-	{
-		href: "https://www.blogthedata.com/",
-		icon: blogthedataLogo,
-		alt: "Blogthedata Blog",
-		ariaLabel: "Visit John Solly's Blogthedata blog (opens in new tab)",
 		rel: "me noopener noreferrer",
 	},
 ];
