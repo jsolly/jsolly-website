@@ -4,12 +4,12 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, it } from "node:test";
 import { pathToFileURL } from "node:url";
-import { parsePost, postLoader } from "./post-loader.js";
+import { parsePost, postLastmods, postLoader } from "./post-loader.js";
 import { postSchema } from "./schemas.js";
 
 const TIMESTAMP = "2026-10-02T14:00:23.123456-04:00";
 
-function cmsPost(published: string) {
+function cmsPost(published: string, updated = published) {
 	return [
 		"---",
 		"slug: Some-Post",
@@ -17,7 +17,7 @@ function cmsPost(published: string) {
 		"category: Geodev",
 		"description: Description",
 		`published: ${published}`,
-		`updated: ${published}`,
+		`updated: ${updated}`,
 		"draft: false",
 		"legacyId: 42",
 		"---",
@@ -101,6 +101,31 @@ describe("postLoader", () => {
 			assert.ok(data);
 			assert.equal(Object.hasOwn(data, "legacyId"), false);
 			assert.deepEqual(data.published, new Date("2026-10-02T18:00:23.123Z"));
+		} finally {
+			await rm(root, { recursive: true, force: true });
+		}
+	});
+});
+
+describe("postLastmods", () => {
+	it("A post saved with an offset-less or date-only updated time stops the sitemap's lastmod read, naming its file and the field", async () => {
+		const root = await mkdtemp(join(tmpdir(), "post-lastmods-"));
+		try {
+			const posts = join(root, "src/content/blog/posts");
+			await mkdir(posts, { recursive: true });
+			await writeFile(join(posts, "Some-Post.md"), cmsPost(TIMESTAMP));
+			assert.deepEqual(
+				await postLastmods(root),
+				new Map([["/blog/Some-Post/", "2026-10-02T18:00:23.123Z"]]),
+			);
+			const file = join(posts, "Other-Post.md");
+			const invalid = {
+				message: `Invalid post ${file}: updated: Invalid ISO datetime`,
+			};
+			await writeFile(file, cmsPost(TIMESTAMP, "2026-10-02T14:00:23"));
+			await assert.rejects(postLastmods(root), invalid);
+			await writeFile(file, cmsPost(TIMESTAMP, "2026-10-02"));
+			await assert.rejects(postLastmods(root), invalid);
 		} finally {
 			await rm(root, { recursive: true, force: true });
 		}

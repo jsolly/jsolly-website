@@ -9,6 +9,7 @@ import {
 	exists,
 	publishedPosts,
 	readBuilt,
+	routeManifest,
 } from "./pages.mjs";
 
 // The post pages over the built dist/. The first two tests are ported from
@@ -21,10 +22,6 @@ const DIST = "dist";
 const SITE = "https://www.jsolly.com";
 const URL_MAP = new URL(
 	"../../legacy/blogthedata/url-map.json",
-	import.meta.url,
-);
-const MANIFEST = new URL(
-	"../../src/generated/route-manifest.js",
 	import.meta.url,
 );
 const LOC = /<loc>(?<url>[^<]+)<\/loc>/gu;
@@ -109,8 +106,7 @@ it("every legacy post and category URL leads to a built page, and each post is b
 	);
 	const indexed = new Map(index.map((entry) => [entry.slug, entry]));
 	assert.equal(indexed.size, index.length, "one search entry per slug");
-	const { routes } = await import(MANIFEST.href);
-	const manifest = new Set(routes);
+	const manifest = new Set(await routeManifest());
 	// Each post is in all five exactly when published.
 	const presence = await Promise.all(
 		posts.map(async (post) => {

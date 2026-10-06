@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { after, before, it } from "node:test";
 import { JSDOM } from "jsdom";
 import { readBuiltPages, stylesheets } from "./pages.mjs";
-import { createTempCopy } from "./temp-copy.mjs";
+import { createTempCopy, requireSuccess } from "./temp-copy.mjs";
 
 // `npm run build:maintenance` (MAINTENANCE_MODE=true) must take the whole site
 // offline, blog pages included: BlogLayout honors the flag the way the
@@ -32,12 +32,7 @@ let blogCss;
 
 before(async () => {
 	copy = await createTempCopy("maintenance");
-	const result = copy.npmRun("build:maintenance");
-	if (result.status !== 0) {
-		throw new Error(
-			`npm run build:maintenance in ${copy.dir} failed:\n${result.stdout}${result.stderr}`,
-		);
-	}
+	requireSuccess(copy.npmRun("build:maintenance"));
 	const dist = join(copy.dir, "dist");
 	pages = (await readBuiltPages(dist)).map(({ file, html }) => {
 		const dom = new JSDOM(html);

@@ -200,7 +200,7 @@ describe("published blog content", () => {
 		}
 	});
 
-	it("A related slug that names no post stops the build, naming it and its post; one that names a draft does not", () => {
+	it("A related slug that names no post stops the build, naming it and its post, even when a draft holds it; one that names a draft does not", () => {
 		const relating = (related: string[]) => [
 			...POSTS,
 			entry("stac-browser-tips", "Geodev", "2026-02-01T12:00:00Z", {
@@ -216,6 +216,25 @@ describe("published blog content", () => {
 			{
 				message:
 					"Unknown related post: 15-minute-instant-pot-recipes (post stac-browser-tips)",
+			},
+		);
+		// The rule covers every loaded post, so a draft cannot be published later
+		// with a broken related list.
+		assert.throws(
+			() =>
+				publishedContent(
+					[
+						...POSTS,
+						entry("stac-browser-draft", "Geodev", "2026-02-01T12:00:00Z", {
+							draft: true,
+							related: ["15-minute-instant-pot-recipes"],
+						}),
+					],
+					CATEGORIES,
+				),
+			{
+				message:
+					"Unknown related post: 15-minute-instant-pot-recipes (post stac-browser-draft)",
 			},
 		);
 		const { posts } = publishedContent(

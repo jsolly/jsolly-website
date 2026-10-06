@@ -1,12 +1,11 @@
 import assert from "node:assert/strict";
-import { spawnSync } from "node:child_process";
 import fs from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { after, before, it } from "node:test";
 import { globby } from "globby";
 import { chromium } from "playwright";
 import { serveStatic, stubOffOrigin } from "./pages.mjs";
-import { createTempCopy } from "./temp-copy.mjs";
+import { createTempCopy, requireSuccess } from "./temp-copy.mjs";
 
 // What process-html.mjs must leave alone for the portfolio's islands to
 // hydrate in place. One `astro build` in a temp copy of the working tree gives
@@ -55,14 +54,6 @@ let unprocessed;
 let processed;
 const servers = [];
 const sites = {};
-
-function succeeded(result, command) {
-	if (result.status !== 0) {
-		throw new Error(
-			`${command} in ${copy.dir} failed:\n${result.stdout}${result.stderr}`,
-		);
-	}
-}
 
 function kindOf(data) {
 	return KINDS.find((kind) => kind !== "" && data.startsWith(kind)) ?? data;
@@ -184,7 +175,7 @@ async function nodeReuse({ root, origin }, path) {
 
 before(async () => {
 	copy = await createTempCopy("hydration");
-	succeeded(copy.astroBuild(), "astro build");
+	requireSuccess(copy.astroBuild());
 	const dist = join(copy.dir, "dist");
 	const synthetic = join(dist, SYNTHETIC_PAGE);
 	await fs.mkdir(dirname(synthetic), { recursive: true });
@@ -192,13 +183,7 @@ before(async () => {
 	const baseline = join(copy.dir, "baseline");
 	await fs.cp(dist, baseline, { recursive: true });
 	unprocessed = await pageComments(baseline);
-	succeeded(
-		spawnSync(process.execPath, ["process-html.mjs"], {
-			cwd: copy.dir,
-			encoding: "utf8",
-		}),
-		"node process-html.mjs",
-	);
+	requireSuccess(copy.node("process-html.mjs"));
 	processed = await pageComments(dist);
 	await assertShippedIsProcessed(dist);
 	await Promise.all([listen("shipped", SHIPPED), listen("baseline", baseline)]);
