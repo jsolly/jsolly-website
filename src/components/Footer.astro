@@ -1,5 +1,5 @@
 ---
-import { newTabAttributes, siteLinks } from "../content/siteLinks.js";
+import { siteLinks } from "../content/constants.js";
 import SocialLinks from "./SocialLinks.astro";
 ---
 
@@ -12,7 +12,8 @@ import SocialLinks from "./SocialLinks.astro";
 					siteLinks.map((link) => (
 						<a
 							href={link.href}
-							{...newTabAttributes(link)}
+							target={link.target}
+							rel={link.rel}
 							class="font-medium text-lg text-text-secondary transition-colors hover:text-primary-600"
 							aria-label={link.label}
 						>

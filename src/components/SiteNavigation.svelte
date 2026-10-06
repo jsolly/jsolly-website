@@ -1,6 +1,6 @@
 <script lang="ts">
  import { onMount } from 'svelte';
- import { newTabAttributes, siteLinks } from '../content/siteLinks.js';
+ import { siteLinks } from '../content/constants.js';
  import Button from '../lib/components/ui/button.svelte';
 
  let open = $state(false);
@@ -17,7 +17,7 @@
  <a href="/" class="text-2xl font-bold font-heading text-primary-700 hover:text-primary-600 transition-colors" aria-label="Home">Home</a>
  <nav class="hidden md:flex items-center space-x-8" aria-label="Primary navigation">
   {#each siteLinks as link (link.href)}
-   <a href={link.href} {...newTabAttributes(link)} class="text-lg font-medium text-text-secondary hover:text-primary-600 transition-colors" aria-label={link.label}>{link.text}</a>
+   <a href={link.href} target={link.target} rel={link.rel} class="text-lg font-medium text-text-secondary hover:text-primary-600 transition-colors" aria-label={link.label}>{link.text}</a>
   {/each}
  </nav>
  <Button bind:ref={toggle} variant="ghost" size="icon" id="mobile-menu-button" class="md:hidden size-11 rounded-md text-text-primary cursor-pointer" aria-label="Toggle mobile menu" aria-expanded={open} aria-controls="mobile-menu" disabled={!hydrated} onclick={() => { open = !open; }}>
@@ -27,7 +27,7 @@
 <nav id="mobile-menu" class={['md:hidden', !open && 'hidden']} aria-label="Mobile navigation">
  <div class="flex flex-col space-y-4 px-2 pt-2 pb-3">
   {#each siteLinks as link (link.href)}
-   <a href={link.href} {...newTabAttributes(link)} class="block px-3 py-2 rounded-md text-base font-medium text-text-secondary hover:text-primary-600 hover:bg-neutral-100" aria-label={link.label}>{link.text}</a>
+   <a href={link.href} target={link.target} rel={link.rel} class="block px-3 py-2 rounded-md text-base font-medium text-text-secondary hover:text-primary-600 hover:bg-neutral-100" aria-label={link.label}>{link.text}</a>
   {/each}
  </div>
 </nav>

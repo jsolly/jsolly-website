@@ -1,12 +1,10 @@
 import {
 	BLOG_DESCRIPTION,
-	HTML_ONLY_PAGES,
-	MARKDOWN_PAGES,
 	RECIPES_DESCRIPTION,
 	ROLE,
 	ROLE_STRATEGY,
 	SHORT_ROLE,
-} from "./identity.js";
+} from "./constants.js";
 
 const PAGES: Record<string, (origin: string) => string> = {
 	"/": homeMarkdown,
@@ -15,6 +13,16 @@ const PAGES: Record<string, (origin: string) => string> = {
 	"/privacy": privacyMarkdown,
 	"/terms": termsMarkdown,
 };
+
+// Markdown negotiation (PA3, J11): only these pages have a Markdown variant
+// and a .md sibling; real /blog/ and /recipes/ routes return HTML.
+export const MARKDOWN_PATHS = Object.keys(PAGES);
+const pageNames = MARKDOWN_PATHS.map((path) =>
+	path === "/" ? "home" : path.slice(1),
+);
+// "home, about, contact, privacy or terms"
+export const MARKDOWN_PAGES = `${pageNames.slice(0, -1).join(", ")} or ${pageNames.at(-1)}`;
+export const HTML_ONLY_PAGES = "blog and recipe pages are HTML only";
 
 export function markdownForPath(
 	pathname: string,

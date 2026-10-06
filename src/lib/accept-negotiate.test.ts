@@ -159,7 +159,7 @@ describe("agentResponse", () => {
 		assert.doesNotMatch(body, OLD_BLOG_HOST);
 	});
 
-	it("serves contact page markdown without the old blog host", async () => {
+	it("An agent requesting /contact/ as Markdown gets the contact page with no link to the old blog host", async () => {
 		const res = agentResponse(
 			new Request(`${origin}/contact/`, {
 				headers: { accept: "text/markdown" },

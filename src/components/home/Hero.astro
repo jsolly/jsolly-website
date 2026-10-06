@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { EMPLOYER, ROLE, UNIT } from "../../content/identity.js";
+import { EMPLOYER, ROLE, ROLE_PREFIX } from "../../content/constants.js";
 import jsollyLarge from "../../images/jsollyLarge.webp";
 import Button from "../../lib/components/ui/button.svelte";
 ---
@@ -16,7 +16,7 @@ import Button from "../../lib/components/ui/button.svelte";
         
         <!-- Enhanced bio with better typography -->
         <p class="text-xl md:text-2xl text-text-secondary leading-relaxed max-w-lg">
-            CTO of {UNIT} at <span class="font-semibold text-accent-primary">{EMPLOYER}</span>, leading digital modernization for federal health and benefits agencies.
+            {ROLE_PREFIX} <span class="font-semibold text-accent-primary">{EMPLOYER}</span>, leading digital modernization for federal health and benefits agencies.
         </p>
         
         <!-- Enhanced CTA buttons with better styling -->

@@ -4,6 +4,7 @@ import { dirname, join } from "node:path";
 import { after, before, it } from "node:test";
 import { globby } from "globby";
 import { chromium } from "playwright";
+import { JOB_TITLE } from "../../src/content/constants.js";
 import { serveStatic, stubOffOrigin } from "./pages.mjs";
 import { createTempCopy, requireSuccess } from "./temp-copy.mjs";
 
@@ -507,6 +508,41 @@ it("A visitor on / reaches the on-site blog and recipes in the same tab and gets
 	} finally {
 		await context.close();
 	}
+});
+
+const JSON_LD =
+	/<script type="application\/ld\+json">(?<json>[\s\S]*?)<\/script>/u;
+const OLD_BIO = /Health-IT/u;
+
+it("A search engine reading the home, about and contact pages gets John's Enterprise Health title and no link to the old blog", async () => {
+	const pages = await Promise.all(
+		["index.html", "about/index.html", "contact/index.html"].map(
+			async (file) => {
+				const html = await fs.readFile(join(SHIPPED, file), "utf8");
+				const graph = JSON.parse(html.match(JSON_LD).groups.json)["@graph"];
+				const person = graph.find((node) => node["@type"] === "Person");
+				return {
+					file,
+					jobTitle: person.jobTitle,
+					oldBlogSameAs: graph
+						.flatMap((node) => node.sameAs ?? [])
+						.filter((url) => OLD_BLOG_HOST.test(url)),
+					oldBio: OLD_BIO.test(html),
+					oldBlogHost: OLD_BLOG_HOST.test(html),
+				};
+			},
+		),
+	);
+	assert.deepEqual(
+		pages,
+		pages.map(({ file }) => ({
+			file,
+			jobTitle: JOB_TITLE,
+			oldBlogSameAs: [],
+			oldBio: false,
+			oldBlogHost: false,
+		})),
+	);
 });
 
 it("A production build's HTML post-processing leaves every island's hydration markers intact on every page and drops every other comment", () => {
