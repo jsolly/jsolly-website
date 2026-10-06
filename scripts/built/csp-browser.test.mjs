@@ -40,7 +40,9 @@ const PAGES = [
 		prepare: loadSearchResults,
 	},
 	{ path: "/about/", hosts: [] },
-	// The recipe island's bits-ui dialog sets inline styles once it opens.
+	// A recipe page for its island scripts and same-origin recipe images, with
+	// the notation dialog opened so its bits-ui code runs too (the inline
+	// styles it sets fall under style-src 'unsafe-inline').
 	{
 		path: "/recipes/greek-turkey-patties/",
 		hosts: [],

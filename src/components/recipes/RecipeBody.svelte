@@ -142,6 +142,8 @@
 			font-size: 0.9rem;
 		}
 		.family-box :global(select) {
+			/* Muted ink keeps the control's boundary at 3:1 or more. */
+			border-color: var(--recipe-muted);
 			max-width: 360px;
 			margin-top: 6px;
 			appearance: none;

@@ -108,7 +108,7 @@ If a green merge creates no Vercel deployment, verify that the project's Git con
 - **Tabs** for indentation (Biome default, also matches `biome.jsonc`).
 - **Tailwind utilities** over custom CSS; theme tokens live in `src/styles/`.
 - **Tailwind sources are explicit.** `src/styles/main.css` imports Tailwind with `source(none)` and lists its `@source` / `@source not` paths, so docs, data and blog or recipe code never change the portfolio bundle; Tailwind class strings must live in `src/components`, `src/layouts`, `src/pages` or `src/lib`. The blog paths (`lib/blog`, `components/blog`, `pages/blog`, `layouts/BlogLayout.astro`), the recipe paths (`components/recipes`, `pages/recipes`) and the shadcn-svelte parts in `lib/components/ui` are excluded from the portfolio sources, with `ui/button.svelte` re-included because the portfolio uses it. `scripts/unit/tailwind-sources.test.mjs` asks Tailwind's own scanner which files feed `main.css` and fails on any file outside those four roots or under an excluded path. The blog and recipes have their own Tailwind entry, `src/styles/blog/ui.css`, with its own `source(none)` and `@source` list (the ui parts and the blog navigation and search; recipe components use no Tailwind utilities of their own, so they need no source); each page loads one entry stylesheet, portfolio or blog, never both. `scripts/built/blog-css-sources.test.mjs` fails when a blog `@source` path is missing (Tailwind ignores it silently), when a blog or recipes stylesheet does not open with the shared `@layer` statement, or when the built BlogLayout bundle loses a pinned selector or loads the portfolio stylesheet.
-- **Heading IDs are auto-generated** by `process-html.mjs` from heading text — don't hand-write `id="..."` on headings unless overriding the generated slug. Blog and recipe pages are excluded from that pass: `src/lib/blog/html.ts` owns their article heading ids, and `scripts/unit/process-html-ids.test.mjs` pins the exclusion.
+- **Heading IDs are auto-generated** by `process-html.mjs` from heading text — don't hand-write `id="..."` on headings unless overriding the generated slug. Blog and recipe pages are excluded from that pass, and `scripts/unit/process-html-ids.test.mjs` pins the exclusion: `src/lib/blog/html.ts` owns the blog article heading ids, and the recipe pages' headings are rendered by their Svelte components with no slug ids (the only recipe ids old links need are the recipe ids on each page's section).
 
 ## Local UI verification
 
@@ -175,8 +175,10 @@ still limits images on every page to `'self'` until a page adds its own
 and the build-time `csp` suite checks every built `<img>` and `<source srcset>` URL against both policies.
 `scripts/built/csp-browser.test.mjs` loads `/blog/`, posts with YouTube,
 nbviewer and diagrams.net embeds, a `/blog/search/?searched=django` search
-(the island parses its index with zod, whose JIT `search.ts` turns off) and
-`/about/` in Chromium with the header served on every response, and fails on
+(the island parses its index with zod, whose JIT `search.ts` turns off),
+`/about/` and a recipe page, `/recipes/greek-turkey-patties/`, with its
+notation dialog opened (its island scripts and same-origin images, plus the
+bits-ui dialog's inline styles under `style-src 'unsafe-inline'`) in Chromium with the header served on every response, and fails on
 any `securitypolicyviolation`.
 Astro lists every inline script hash of the build in each page's meta policy,
 so an inline `<script>` on a blog page also adds its hash to the portfolio pages.

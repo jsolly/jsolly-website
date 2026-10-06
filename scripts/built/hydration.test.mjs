@@ -138,7 +138,9 @@ async function islandModules(root, path) {
 	);
 }
 
-async function nodeReuse({ root, origin }, path) {
+// `stable`, when given, selects island elements that must survive hydration
+// even on a page that replaces part of its server render.
+async function nodeReuse({ root, origin }, path, stable = ":not(*)") {
 	const held = await islandModules(root, path);
 	const intercepted = new Set();
 	let release;
@@ -161,21 +163,36 @@ async function nodeReuse({ root, origin }, path) {
 		const errors = [];
 		page.on("pageerror", (error) => errors.push(error.message));
 		await page.goto(`${origin}${path}`, { waitUntil: "domcontentloaded" });
-		const total = await page.evaluate(() => {
+		const { total, stableTotal } = await page.evaluate((selector) => {
 			window.__ssrIslandNodes = [
 				...document.querySelectorAll("astro-island[ssr] *"),
 			];
-			return window.__ssrIslandNodes.length;
-		});
+			window.__stableNodes = [
+				...document.querySelectorAll(`astro-island[ssr] :is(${selector})`),
+			];
+			return {
+				total: window.__ssrIslandNodes.length,
+				stableTotal: window.__stableNodes.length,
+			};
+		}, stable);
 		release();
 		await page.waitForFunction(
 			() => !document.querySelector("astro-island[ssr]"),
 		);
 		await page.waitForLoadState("networkidle");
-		const reused = await page.evaluate(
-			() => window.__ssrIslandNodes.filter((node) => node.isConnected).length,
-		);
-		return { total, reused, errors, held, intercepted };
+		const { reused, stableReused } = await page.evaluate(() => ({
+			reused: window.__ssrIslandNodes.filter((node) => node.isConnected).length,
+			stableReused: window.__stableNodes.filter((node) => node.isConnected)
+				.length,
+		}));
+		return {
+			total,
+			reused,
+			stable: { reused: stableReused, total: stableTotal },
+			errors,
+			held,
+			intercepted,
+		};
 	} finally {
 		release();
 		await context.close();
@@ -221,17 +238,21 @@ const FULL_REUSE_PAGES = [
 // turns interactive: shadcn-svelte controls replace the native fallbacks), so
 // it is held to parity with the unprocessed build only (plan §4.5). Greek
 // turkey patties has a family side, so its island includes the side select.
-const PARITY_PAGES = ["/recipes/greek-turkey-patties/"];
+// Its title and flow table are not replaced, so they must survive hydration
+// whatever the parity count says.
+const PARITY_PAGES = [
+	{ path: "/recipes/greek-turkey-patties/", stable: "h1, .trn-view table" },
+];
 
 const sameSet = (a, b) => a.size === b.size && [...a].every((x) => b.has(x));
 
 // Opens path on the shipped and the unprocessed build. The report is what
 // both kinds of page must show: island modules held until the snapshot, no
 // page errors, server-rendered nodes, and the unprocessed build's reuse.
-async function compareReuse(path, t) {
+async function compareReuse(path, t, stable) {
 	const [shipped, baseline] = await Promise.all([
-		nodeReuse(sites.shipped, path),
-		nodeReuse(sites.baseline, path),
+		nodeReuse(sites.shipped, path, stable),
+		nodeReuse(sites.baseline, path, stable),
 	]);
 	t.diagnostic(
 		`${path}: shipped reuses ${shipped.reused}/${shipped.total}, unprocessed build ${baseline.reused}/${baseline.total}`,
@@ -274,13 +295,22 @@ for (const path of FULL_REUSE_PAGES) {
 	});
 }
 
-for (const path of PARITY_PAGES) {
-	it(`a visitor opening ${path} gets its islands hydrated as the unprocessed build hydrates them`, async (t) => {
-		const { report, expected } = await compareReuse(path, t);
+for (const { path, stable } of PARITY_PAGES) {
+	it(`a visitor opening ${path} gets its islands hydrated as the unprocessed build hydrates them, keeping its title and flow table`, async (t) => {
+		const { shipped, report, expected } = await compareReuse(path, t, stable);
 		assert.deepEqual(
 			report,
 			expected,
 			`${path}: island hydration differs from the unprocessed build`,
+		);
+		assert.ok(
+			shipped.stable.total > 0,
+			`${path}: stable nodes are server-rendered`,
+		);
+		assert.equal(
+			shipped.stable.reused,
+			shipped.stable.total,
+			`${path}: its stable nodes (${stable}) survive hydration`,
 		);
 	});
 }

@@ -1,4 +1,5 @@
 <script>
+	import { printGroupLabels } from "./constants.mjs";
 	import { dailyNutrition, nutrientAmount } from "./nutrition.mjs";
 	import RecipeFlow from "./RecipeFlow.svelte";
 	import { recipeDocument } from "./recipe-export.mjs";
@@ -9,11 +10,6 @@
 	const documents = $derived(
 		recipes.map((recipe) => recipeDocument(recipe, settings)),
 	);
-	const groups = {
-		keto: "Keto",
-		shared: "Keto main + family starch",
-		nonketo: "Not Keto",
-	};
 
 	function macros(nutrition) {
 		return `${Math.round(nutrition.kcal)} kcal · ${Math.round(nutrition.protein_g)} g protein · ${Math.round(nutrition.carbs_g)} g total carbohydrate · ${Math.round(nutrition.fiber_g)} g fiber · ${Math.round(nutrition.net_carbs_g)} g net carbohydrate`;
@@ -38,7 +34,7 @@
 	{#each documents as document, i (document.recipeId)}
 		<article class="print-meal" class:new-page={i > 0} aria-label={document.title}>
 			<h1 class="print-title">{document.title}</h1>
-			<p class="meal-facts">{groups[document.group] || document.group} · {document.servings} servings · {document.units === "metric" ? "Metric" : "US"} measures · {document.activeMinutes} min active per original four-serving batch</p>
+			<p class="meal-facts">{printGroupLabels[document.group] || document.group} · {document.servings} servings · {document.units === "metric" ? "Metric" : "US"} measures · {document.activeMinutes} min active per original four-serving batch</p>
 			<p>{document.summary}</p>
 			<p>{document.attentionSummary}</p>
 			<p class="important">{document.capacity}</p>

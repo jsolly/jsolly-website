@@ -2,7 +2,7 @@
 	import { onMount } from "svelte";
 	import Button from "../../lib/components/ui/button.svelte";
 	import NativeSelect from "../../lib/components/ui/native-select.svelte";
-	import { BASE_SERVINGS, SERVING_CHOICES } from "./constants.mjs";
+	import { BASE_SERVINGS, groupBadges, SERVING_CHOICES } from "./constants.mjs";
 	import RecipeBody from "./RecipeBody.svelte";
 	import RecipePrint from "./RecipePrint.svelte";
 	import { validateSettings } from "./recipe-logic.mjs";
@@ -25,7 +25,6 @@
 	const collection = $derived(
 		recipe.type === "smoothie" ? "smoothies" : "meals",
 	);
-	const groups = { keto: "Keto", shared: "Shared main", nonketo: "Not Keto" };
 	const printSession = createRecipePrintSession(() => "recipe");
 
 	function print() {
@@ -69,7 +68,7 @@
 			<a href={`/recipes/${collection}/`}>← Back to {collection}</a>
 			{#if interactive}<Button variant="outline" onclick={print}>Print recipe</Button>{/if}
 		</div>
-		<span class="badge">{groups[recipe.group]}</span>
+		<span class="badge">{groupBadges[recipe.group]}</span>
 		<h1>{recipe.title}</h1>
 		<p>{recipe.summary}</p>
 		{#if interactive}
@@ -125,7 +124,8 @@
 			background: var(--recipe-paper);
 			color: var(--recipe-ink);
 			padding: 8px;
-			border: 1px solid var(--recipe-line);
+			/* Muted ink keeps the control's boundary at 3:1 or more. */
+			border: 1px solid var(--recipe-muted);
 			border-radius: 8px;
 		}
 		.toolbar {

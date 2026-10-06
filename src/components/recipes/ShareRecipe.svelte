@@ -33,8 +33,7 @@
 
 <div class="recipe-share">
 	<Button variant="outline" onclick={share}>Share recipe</Button>
-	<p role="status">{message}</p>
-	{#if fallbackUrl}<a href={fallbackUrl}>{fallbackUrl}</a>{/if}
+	<p role="status">{message}{#if fallbackUrl} <a href={fallbackUrl}>{fallbackUrl}</a>{/if}</p>
 </div>
 
 <style>

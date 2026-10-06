@@ -51,7 +51,7 @@
 								{#if cell.kind === "ingredient"}
 									<th scope="row" colspan={cell.colspan} class="trn-ingredient" class:checked={checks.includes(i)}>
 										<label for={`${uid}-${i}`}
-											>{#if interactive}<Checkbox id={`${uid}-${i}`} aria-label={`${cell.text} ${cell.name}, added`} checked={checks.includes(i)} onCheckedChange={() => toggle(i)} />{:else}<input id={`${uid}-${i}`} type="checkbox" aria-label={`${cell.text} ${cell.name}, added`} />{/if}<span
+											>{#if interactive}<Checkbox id={`${uid}-${i}`} checked={checks.includes(i)} onCheckedChange={() => toggle(i)} />{:else}<input id={`${uid}-${i}`} type="checkbox" />{/if}<span
 												><strong>{cell.text}</strong> {cell.name}{#if ingredientIcon(cell.name)}
 													<span class="ingredient-icon" aria-hidden="true">{ingredientIcon(cell.name)}</span>{/if}<small>{cell.state}</small></span
 											></label
@@ -93,7 +93,7 @@
 		:global(.learn-method) {
 			border: 0;
 			background: none;
-			color: var(--recipe-accent, #355b40);
+			color: var(--recipe-accent);
 			text-decoration: underline;
 			padding: 8px 0;
 			margin-bottom: 12px;
@@ -157,8 +157,9 @@
 			background: var(--recipe-accent);
 			color: var(--recipe-accent-text);
 		}
+		/* A ticked row is muted ink (at least 4.5:1), not faded. */
 		.trn-ingredient.checked span {
-			opacity: 0.6;
+			color: var(--recipe-muted);
 			text-decoration: line-through;
 		}
 		.flow-toolbar {
@@ -176,9 +177,9 @@
 		}
 		:global(.reset-checks) {
 			font-size: 0.8rem;
-			border: 1px solid var(--recipe-line, #d4dacb);
+			border: 1px solid var(--recipe-line);
 			background: transparent;
-			color: var(--recipe-ink, #25392b);
+			color: var(--recipe-ink);
 			border-radius: 8px;
 			padding: 8px 12px;
 			min-height: 44px;
@@ -195,7 +196,7 @@
 		}
 		.trn-frame {
 			max-width: 100%;
-			border: 1px solid var(--recipe-line, #d4dacb);
+			border: 1px solid var(--recipe-line);
 			border-radius: 6px;
 			overflow: hidden;
 			background: var(--recipe-flow-paper);
@@ -205,7 +206,7 @@
 			max-width: 100%;
 		}
 		.trn-frame:has(.trn-scroll:focus-visible) {
-			outline: 3px solid var(--recipe-accent, #365b3d);
+			outline: 3px solid var(--recipe-accent);
 			outline-offset: 3px;
 		}
 		.trn-view :global(.trn-scroll:focus-visible) {
@@ -213,7 +214,7 @@
 		}
 		.trn-view :global(.trn-table) {
 			border-collapse: collapse;
-			border: 1px solid var(--recipe-line, #d4dacb);
+			border: 1px solid var(--recipe-line);
 			border-spacing: 0;
 			width: 100%;
 			min-width: 760px;
@@ -224,16 +225,9 @@
 			background: var(--recipe-flow-paper);
 			color: var(--recipe-flow-ink);
 		}
-		.trn-view :global(caption) {
-			text-align: left;
-			padding: 10px;
-			font-size: 13px;
-			background: var(--recipe-flow-caption);
-			color: var(--recipe-flow-ink);
-		}
 		.trn-view :global(th),
 		.trn-view :global(td) {
-			border: 1px solid var(--recipe-line, #d4dacb);
+			border: 1px solid var(--recipe-line);
 			padding: 8px;
 			vertical-align: middle;
 			white-space: normal;
@@ -264,7 +258,6 @@
 		}
 		@media print {
 			.reset-checks-row,
-			.flow-toolbar :global(button),
 			:global(.learn-method),
 			:global(.method-dialog),
 			.trn-ingredient :global([data-slot="checkbox"]) {
@@ -309,10 +302,6 @@
 			}
 			.trn-view :global(.trn-ingredient small) {
 				font-size: 7pt;
-			}
-			.trn-view :global(caption) {
-				font-size: 8pt;
-				padding: 4pt;
 			}
 		}
 	}
