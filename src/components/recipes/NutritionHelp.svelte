@@ -9,20 +9,29 @@
 	// right after the trigger, which it describes; it holds no controls, so
 	// focus stays on the trigger and Tab moves on. Closing it moves focus only
 	// out of the help itself (a click can focus it), back to the trigger;
-	// focus anywhere else stays where it is. bits-ui (2.19.5) also remounts the
-	// content's focus scope once, a few milliseconds after it opens, and runs
-	// the close auto-focus then; restoring focus there would pull a quick Tab
-	// back to the trigger.
+	// focus anywhere else stays where it is.
 	const OPEN_DELAY_MS = 100;
 	const CLOSE_DELAY_MS = 120;
 	const uid = $props.id();
 	const contentId = `${uid}-content`;
+	let trigger = $state(null);
 	let content = $state(null);
+
+	// bits-ui's own restore goes to whatever had focus when the content's focus
+	// scope last mounted: the trigger only for a keyboard open (an earlier
+	// control or the body after a hover open). bits-ui (2.19.5) also remounts
+	// that scope once, a few milliseconds after it opens, and runs this then;
+	// moving focus there would pull a quick Tab back to the trigger. So the
+	// restore is always this one.
+	function restoreFocus(event) {
+		event.preventDefault();
+		if (content?.contains(document.activeElement)) trigger?.focus();
+	}
 </script>
 
 <PopoverRoot
-	><PopoverTrigger class="nutrition-info" aria-label="About nutrition filters" aria-describedby={contentId} openOnHover openDelay={OPEN_DELAY_MS} closeDelay={CLOSE_DELAY_MS}>ⓘ</PopoverTrigger
-	><PopoverContent bind:ref={content} id={contentId} class="nutrition-help" portalProps={{ disabled: true }} sideOffset={4} trapFocus={false} onOpenAutoFocus={(event) => event.preventDefault()} onCloseAutoFocus={(event) => { if (!content?.contains(document.activeElement)) event.preventDefault(); }}
+	><PopoverTrigger bind:ref={trigger} class="nutrition-info" aria-label="About nutrition filters" aria-describedby={contentId} openOnHover openDelay={OPEN_DELAY_MS} closeDelay={CLOSE_DELAY_MS}>ⓘ</PopoverTrigger
+	><PopoverContent bind:ref={content} id={contentId} class="nutrition-help" portalProps={{ disabled: true }} sideOffset={4} trapFocus={false} onOpenAutoFocus={(event) => event.preventDefault()} onCloseAutoFocus={restoreFocus}
 		><strong>Nutrition filters</strong>
 		<p><strong>Iron-rich:</strong> {nutritionThresholds.ironRich}</p>
 		<p><strong>Immune support:</strong> {nutritionThresholds.immuneSupport}</p>

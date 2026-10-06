@@ -508,10 +508,11 @@ function filtersCheck(width) {
 // and leaving closes it; a click while it is hover-opened keeps it open after
 // the pointer leaves. Enter opens it with focus left on the trigger and Tab
 // moves on (focus is not trapped). Escape closes it and moves focus only out
-// of the help itself, back to the trigger: focus on the trigger or past it
-// stays put. Focus that moves on the moment it opens (a quick Tab, faster
-// than Playwright can send one) must stay moved, so the page moves it when
-// the help appears. Resolves to where focus was after each step.
+// of the help itself, back to the trigger, however the help was opened;
+// focus on the trigger or past it stays put. Focus that moves on the moment
+// it opens (a quick Tab, faster than Playwright can send one) must stay
+// moved, so the page moves it when the help appears. Resolves to where focus
+// was after each step.
 async function pointerAndKeyboardHelp({ page, help, popover, heading }) {
 	const focused = () =>
 		page.evaluate(() => ({
@@ -566,6 +567,12 @@ async function pointerAndKeyboardHelp({ page, help, popover, heading }) {
 	await openFromKeyboard();
 	await popover.locator("p").first().click();
 	const clickedInside = await focused();
+	const clickedInsideClosed = await close();
+	// Opened by hover while another control has focus, then clicked into.
+	await page.getByRole("checkbox", { name: "Iron-rich", exact: true }).focus();
+	await help.hover();
+	await popover.waitFor();
+	await popover.locator("p").first().click();
 	return {
 		clickedStaysOpen,
 		movedOnOpen,
@@ -575,7 +582,8 @@ async function pointerAndKeyboardHelp({ page, help, popover, heading }) {
 		tabbedClosed,
 		onTriggerClosed,
 		clickedInside,
-		clickedInsideClosed: await close(),
+		clickedInsideClosed,
+		hoveredInsideClosed: await close(),
 	};
 }
 
@@ -599,6 +607,7 @@ const DESKTOP_HELP = {
 	onTriggerClosed: ON_HELP,
 	clickedInside: { onHelp: false, inPopover: true, label: undefined },
 	clickedInsideClosed: ON_HELP,
+	hoveredInsideClosed: ON_HELP,
 };
 
 function collectionsCheck(width) {
