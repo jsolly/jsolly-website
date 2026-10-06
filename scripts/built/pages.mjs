@@ -139,9 +139,11 @@ export async function stubOffOrigin(context, origin) {
 	return hosts;
 }
 
-// Every post as { slug, category, published, related }, read from the post
-// frontmatter rather than the build, so a test can hold the built pages to
-// it. Only draft: false publishes; the schema defaults draft to true.
+// Every post as { slug, category, published, related, title, description,
+// feedAuthor, publishedAt, updatedAt }, read from the post frontmatter rather
+// than the build, so a test can hold the built pages to it. Only draft: false
+// publishes (`published`); the schema defaults draft to true. publishedAt and
+// updatedAt are the frontmatter timestamps as Dates.
 export async function allPosts() {
 	const files = await globby("*.md", { cwd: POSTS });
 	return Promise.all(
@@ -154,8 +156,23 @@ export async function allPosts() {
 				category,
 				draft,
 				related = [],
+				title,
+				description,
+				feedAuthor = "John_Solly",
+				published,
+				updated,
 			} = parseDocument(rawFrontmatter, { schema: "core" }).toJS();
-			return { slug, category, published: draft === false, related };
+			return {
+				slug,
+				category,
+				published: draft === false,
+				related,
+				title,
+				description,
+				feedAuthor,
+				publishedAt: new Date(published),
+				updatedAt: new Date(updated),
+			};
 		}),
 	);
 }

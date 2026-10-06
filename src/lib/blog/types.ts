@@ -43,3 +43,20 @@ export interface Card {
 	categoryName: string;
 	minutes: number;
 }
+
+// A published post as the feeds read it.
+export interface FeedPost {
+	data: Pick<
+		z.infer<typeof postSchema>,
+		"slug" | "title" | "description" | "feedAuthor" | "published" | "updated"
+	>;
+}
+
+// The url-map.json row fields the feeds read to find pre-merge posts.
+export interface LegacyRow {
+	id: string;
+	class: string;
+	action: string;
+	source: string;
+	destination: string | null;
+}
