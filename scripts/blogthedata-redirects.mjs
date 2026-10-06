@@ -50,6 +50,16 @@ export function isPageRow(row) {
 	return row.source.endsWith("/") && row.source !== "/";
 }
 
+// The paths one exact redirect row answers: a page row also answers its
+// slashless, /index.html and /index.html/ forms.
+export function redirectForms(row) {
+	if (!isPageRow(row)) {
+		return [row.source];
+	}
+	const base = row.source.slice(0, -1);
+	return [row.source, base, `${base}/index.html`, `${base}/index.html/`];
+}
+
 function redirectSource(row) {
 	return isPageRow(row)
 		? `${row.source.slice(0, -1)}{/index.html}?{/}?`

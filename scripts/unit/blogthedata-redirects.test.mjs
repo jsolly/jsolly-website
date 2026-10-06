@@ -19,6 +19,7 @@ import {
 	JSOLLY_ORIGIN,
 	LEGACY_DIR,
 	readLegacyJson,
+	redirectForms,
 	routePath,
 	SERVICE_WORKER_HEADERS,
 	vercelConfig,
@@ -130,16 +131,6 @@ const patternRegex = new Map(
 		.filter((row) => row.match === "pattern")
 		.map((row) => [row.id, new RegExp(sourceToRegex(row.source).src, "u")]),
 );
-
-// The forms one exact redirect row answers: a page also answers its
-// slashless, /index.html and /index.html/ forms.
-function redirectForms(row) {
-	if (!isPageRow(row)) {
-		return [row.source];
-	}
-	const base = row.source.slice(0, -1);
-	return [row.source, base, `${base}/index.html`, `${base}/index.html/`];
-}
 
 // Mirrors the map's matching rule: exact page rows cover the slashless form,
 // and redirect pages also cover /index.html and /index.html/.
