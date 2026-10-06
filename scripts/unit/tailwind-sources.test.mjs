@@ -15,13 +15,15 @@ const SOURCE_ROOTS = [
 	"src/pages/",
 	"src/lib/",
 ];
-// Blog paths under the source roots: the blog has its own Tailwind entry
-// (src/styles/blog/ui.css), so they must not feed main.css.
-const BLOG_PATHS = [
+// Blog and recipe paths under the source roots must not feed main.css: the
+// blog has its own Tailwind entry (src/styles/blog/ui.css), and recipe data and
+// modules hold class-like strings that are not portfolio UI.
+const EXCLUDED = [
 	"src/lib/blog/",
 	"src/components/blog/",
 	"src/pages/blog/",
 	"src/layouts/BlogLayout.astro",
+	"src/components/recipes/",
 ];
 // The shared shadcn-svelte parts feed main.css only when portfolio code
 // imports them; main.css excludes the directory and re-includes those files.
@@ -29,8 +31,8 @@ const UI_DIR = "src/lib/components/ui/";
 const UI_IMPORT =
 	/["'][^"']*lib\/components\/ui\/(?<file>[\w-]+\.svelte)["']/gu;
 
-// The ui files portfolio code (the source roots minus blog paths and the ui
-// directory itself) imports.
+// The ui files portfolio code (the source roots minus the excluded paths and
+// the ui directory itself) imports.
 async function portfolioUiImports() {
 	const files = (
 		await globby(
@@ -41,7 +43,7 @@ async function portfolioUiImports() {
 		(file) =>
 			!(
 				file.startsWith(UI_DIR) ||
-				BLOG_PATHS.some((path) => file.startsWith(path))
+				EXCLUDED.some((path) => file.startsWith(path))
 			),
 	);
 	const sources = await Promise.all(
@@ -85,13 +87,13 @@ it("Tailwind builds the portfolio stylesheet only from the four portfolio source
 		[],
 		"files outside the portfolio source roots feed main.css",
 	);
-	const blogFiles = files.filter((file) =>
-		BLOG_PATHS.some((path) => file.startsWith(path)),
+	const excludedFiles = files.filter((file) =>
+		EXCLUDED.some((path) => file.startsWith(path)),
 	);
 	assert.deepEqual(
-		blogFiles,
+		excludedFiles,
 		[],
-		"blog paths feed main.css; keep their @source not lines",
+		"blog or recipe paths feed main.css; keep their @source not lines",
 	);
 	const used = await portfolioUiImports();
 	assert.ok(used.size > 0, "portfolio code imports shared ui components");
