@@ -1,82 +1,127 @@
 import assert from "node:assert/strict";
 import it from "node:test";
 import { chromium } from "playwright";
-import {
-	productionUrl,
-	smoke,
-	verifyFeeds,
-} from "./production-smoke-scenario.mjs";
+import { productionUrl, smoke } from "./production-smoke-scenario.mjs";
 
-const EXPECTED_FAILURE = /Timeout/u;
+const MENU_NEVER_OPENS = /Timeout[\s\S]*Mobile navigation/u;
 const MISSING_BODY = /article body is not empty/u;
 const MISSING_RESULT = /search lists the article just read/u;
-const NOT_XML = /XML feed type/u;
-// Long enough for a loaded CI machine; the failures below are assertions,
-// not timeouts, so it never slows a test down.
+const NOT_XML = /blog\/rss\.xml has its XML feed type/u;
+const NOT_A_FEED = /blog\/rss\.xml serves a feed document/u;
+const NEVER_HYDRATES = /Timeout[\s\S]*data-hydrated=true/u;
+const NO_CARDS = /the recipe library shows recipe cards/u;
+const POST_NOT_HTML = /a post serves HTML when Markdown is asked for/u;
+const POST_VARIES = /a post does not vary on Accept/u;
+const ABOUT_DOES_NOT_VARY = /negotiated Markdown varies on Accept/u;
+// Long enough for a loaded CI machine; a test that expects a wait to time
+// out passes a shorter one.
 const STUB_TIMEOUT_MS = 5000;
+const SHORT_TIMEOUT_MS = 1000;
+
+// One real-shaped post: its title holds an apostrophe, a colon and an
+// ampersand, as published titles do.
+const TITLE = "Svelte 5 Search: What's Fast & What Isn't";
+const TITLE_HTML = "Svelte 5 Search: What's Fast &amp; What Isn't";
+const POST = "/blog/svelte-5-search-whats-fast-and-what-isnt/";
+const SEARCH_URL = `${productionUrl}/blog/search/?searched=Svelte+5+Search%3A+What%27s+Fast+%26+What+Isn%27t`;
 
 // A stand-in for every page the scenario visits, each with only the markup
 // it reads. The menus open with inline scripts, as the hydrated islands do.
-const PORTFOLIO_MENU =
-	// biome-ignore lint/security/noSecrets: stub HTML markup, not credential material.
-	'<button aria-label="Toggle mobile menu" aria-expanded="false" onclick="const menu=document.getElementById(\'mobile-menu\');menu.hidden=!menu.hidden;this.setAttribute(\'aria-expanded\',String(!menu.hidden))">Menu</button><nav id="mobile-menu" aria-label="Mobile navigation" hidden><a href="/about/" aria-label="About John Solly">About</a><a href="/contact/" aria-label="Contact John Solly">Contact</a><a href="/blog/" aria-label="Blog by John Solly">Blog</a><a href="/recipes/" aria-label="Recipes by John Solly">Recipes</a></nav>';
+const PORTFOLIO_LINKS =
+	'<a href="/about/" aria-label="About John Solly">About</a><a href="/contact/" aria-label="Contact John Solly">Contact</a><a href="/blog/" aria-label="Blog by John Solly">Blog</a><a href="/recipes/" aria-label="Recipes by John Solly">Recipes</a>';
+const PORTFOLIO_MENU = `<header><button aria-label="Toggle mobile menu" aria-expanded="false" onclick="const menu = document.getElementById('mobile-menu'); menu.hidden = !menu.hidden; this.setAttribute('aria-expanded', String(!menu.hidden))">Menu</button><nav id="mobile-menu" aria-label="Mobile navigation" hidden>${PORTFOLIO_LINKS}</nav></header>`;
 const BLOG_MENU =
-	'<button aria-label="Menu" onclick="const panel=document.getElementById(\'blog-menu\');panel.hidden=!panel.hidden">Menu</button><nav id="blog-menu" aria-label="Main navigation" hidden><form action="/blog/search/" method="get"><label for="site-search">Search</label><input id="site-search" type="search" name="searched"></form></nav>';
-const POST_CARD =
-	'<div class="post-list"><a class="post-card-link" href="/blog/example/">Example post</a></div>';
+	// biome-ignore lint/security/noSecrets: stub HTML markup, not credential material.
+	'<header><button aria-label="Menu" onclick="const panel = document.getElementById(\'blog-menu\'); panel.hidden = !panel.hidden">Menu</button><nav id="blog-menu" aria-label="Main navigation" hidden><a href="/blog/all-posts/">All posts</a><form action="/blog/search/" method="get"><label for="site-search">Search</label><input id="site-search" type="search" name="searched"><button type="submit">Search</button></form></nav></header>';
+// A feed URL answered with a page instead of the feed.
+// biome-ignore lint/security/noSecrets: stub HTML markup, not credential material.
+const BLOG_HOME_HTML = "<main><h1>Solly's Blog</h1></main>";
+const postCard = (href, title) =>
+	`<article class="post-card"><h2><a class="post-card-link" href="${href}">${title}</a></h2><p class="post-meta">5 min read</p></article>`;
+const POST_LIST = `<div class="post-list">${postCard(POST, TITLE_HTML)}${postCard("/blog/astro-islands-in-practice/", "Astro Islands in Practice")}</div>`;
+const POST_PAGE = `${BLOG_MENU}<main><article><h1 id="svelte-5-search">${TITLE_HTML}<a class="heading-link" href="#svelte-5-search" aria-label="Link to this heading">#</a></h1><div class="article-body post-text"><p>The blog's search runs in the browser over a prebuilt index, so a query never leaves the page.</p><p>Here is what kept it fast as the archive grew, and what did not.</p></div></article></main>`;
+const recipeCard = (name) =>
+	`<article class="recipe-card"><h3>${name}</h3></article>`;
+// The recipe landing, its library holding `content` after its controls.
+const recipeLibrary = (content) =>
+	`<main><h1>Easy Meals &amp; Smoothies</h1><section class="meal-library" data-hydrated="true" aria-label="Easy Meals &amp; Smoothies recipe library"><label for="servings">Servings</label><select id="servings"><option>4</option></select>${content}</section></main>`;
 const SITE = {
-	"/": `<h1>Hi, I'm John Solly.</h1>${PORTFOLIO_MENU}`,
-	"/about/": `<h1>John Solly</h1>${PORTFOLIO_MENU}`,
-	"/contact/": `<h1>Contact</h1>${PORTFOLIO_MENU}`,
-	"/blog/": `${BLOG_MENU}<h1>Latest Posts!</h1>${POST_CARD}`,
-	"/blog/example/": `${BLOG_MENU}<article><h1>Example post<a href="#example-post">#</a></h1><div class="post-text">Public article content</div></article>`,
-	"/blog/search/": `${BLOG_MENU}<h1>You searched for 'Example post'</h1><div role="status">1 result</div>${POST_CARD}`,
-	"/recipes/":
-		'<section class="meal-library" data-hydrated="true"><article class="recipe-card">Lemon salmon</article></section>',
+	"/": `${PORTFOLIO_MENU}<main><h1>Hi, I'm John Solly.</h1></main>`,
+	"/about/": `${PORTFOLIO_MENU}<main><h1>John Solly</h1></main>`,
+	"/contact/": `${PORTFOLIO_MENU}<main><h1>Contact John</h1></main>`,
+	"/blog/": `${BLOG_MENU}<main><h1>Latest Posts!</h1>${POST_LIST}</main>`,
+	[POST]: POST_PAGE,
+	"/blog/search/": `${BLOG_MENU}<main><h1>You searched for '${TITLE_HTML}'</h1><div role="status"><p>1 result</p></div><div class="post-list">${postCard(POST, TITLE_HTML)}</div></main>`,
+	"/blog/rss.xml": {
+		type: "application/rss+xml; charset=utf-8",
+		body: `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Solly's Blog</title><item><title>${TITLE_HTML}</title></item></channel></rss>`,
+	},
+	"/blog/atom.xml": {
+		type: "application/atom+xml; charset=utf-8",
+		body: `<?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Solly's Blog</title><entry><title>${TITLE_HTML}</title></entry></feed>`,
+	},
+	"/recipes/": recipeLibrary(
+		`${recipeCard("Lemon Salmon and Asparagus")}${recipeCard("Shawarma Chicken Bowls")}`,
+	),
 };
-const FEED_DOCUMENTS = {
-	"/blog/rss.xml": ["application/rss+xml; charset=utf-8", "<rss></rss>"],
-	"/blog/atom.xml": ["application/atom+xml; charset=utf-8", "<feed></feed>"],
+// What the middleware answers when Markdown is asked for: /about/ has a
+// Markdown variant, a post is HTML only (and, as Vercel does, varies on
+// Accept-Encoding).
+const MARKDOWN = {
+	"/about/": {
+		type: "text/markdown; charset=utf-8",
+		vary: "Accept",
+		body: "# John Solly\n\nCTO of Enterprise Health at Leidos Digital.\n",
+	},
+	[POST]: {
+		type: "text/html; charset=utf-8",
+		vary: "Accept-Encoding",
+		body: POST_PAGE,
+	},
 };
 
+const asDocument = (page) =>
+	typeof page === "string" ? { type: "text/html", body: page } : page;
+
 // The runner's verifyHttp for the stub site: records each URL and answers
-// without the network, the feeds with their XML.
-function stubVerifyHttp(checked) {
+// without the network.
+function stubVerifyHttp(pages, checked) {
 	return (url) => {
 		checked.push(url);
-		const [type, body] = FEED_DOCUMENTS[new URL(url).pathname] ?? [
-			"text/html",
-			"<h1>Page</h1>",
-		];
+		const page = pages[new URL(url).pathname];
+		if (!page) throw new Error(`HTTP 404: ${url}`);
+		const { type, body } = asDocument(page);
 		const response = new Response(body, { headers: { "content-type": type } });
 		Object.defineProperty(response, "url", { value: url });
 		return response;
 	};
 }
 
-// context.request for the stub site, which never reaches the network:
-// Markdown negotiation on /about/, HTML only on the post.
-function stubRequest(requested) {
+// context.request for the stub site, which never reaches the network.
+function stubRequest(answers, requested) {
 	return {
 		get: (url, { headers }) => {
 			requested.push({ url, accept: headers.accept });
-			const markdown = new URL(url).pathname === "/about/";
+			const answer = answers[new URL(url).pathname];
+			if (!answer) throw new Error(`Unexpected request: ${url}`);
 			return {
 				status: () => 200,
-				headers: () =>
-					markdown
-						? { "content-type": "text/markdown; charset=utf-8", vary: "Accept" }
-						: { "content-type": "text/html; charset=utf-8" },
-				text: async () => (markdown ? "# John Solly\n" : "<h1>Page</h1>"),
+				headers: () => ({ "content-type": answer.type, vary: answer.vary }),
+				text: () => Promise.resolve(answer.body),
 			};
 		},
 	};
 }
 
-// Runs the scenario against the stub site, with `overrides` replacing pages.
-// Every browser request must be a GET. Resolves to what it checked.
-async function runAgainstStubs(overrides = {}) {
-	const pages = { ...SITE, ...overrides };
+// Runs the scenario against the stub site, with `pages` and `markdown`
+// replacing its pages and Markdown answers and `timeout` as the page's
+// default. Records every browser request's method. Resolves to what it checked.
+async function runAgainstStubs({
+	pages = {},
+	markdown = {},
+	timeout = STUB_TIMEOUT_MS,
+} = {}) {
+	const site = { ...SITE, ...pages };
 	const browser = await chromium.launch();
 	try {
 		const context = await browser.newContext();
@@ -84,20 +129,24 @@ async function runAgainstStubs(overrides = {}) {
 		await context.route("**/*", (route) => {
 			const request = route.request();
 			methods.add(request.method());
-			const body = pages[new URL(request.url()).pathname];
-			return body
-				? route.fulfill({ contentType: "text/html", body })
-				: route.fulfill({ status: 404, contentType: "text/plain", body: "" });
+			const page = site[new URL(request.url()).pathname];
+			if (!page) {
+				return route.fulfill({ status: 404, contentType: "text/plain" });
+			}
+			const { type, body } = asDocument(page);
+			return route.fulfill({ contentType: type, body });
 		});
 		const page = await context.newPage();
-		page.setDefaultTimeout(STUB_TIMEOUT_MS);
+		page.setDefaultTimeout(timeout);
 		await page.goto(productionUrl);
 		const checked = [];
 		const requested = [];
 		await smoke({
 			page,
-			context: { request: stubRequest(requested) },
-			verifyHttp: stubVerifyHttp(checked),
+			context: {
+				request: stubRequest({ ...MARKDOWN, ...markdown }, requested),
+			},
+			verifyHttp: stubVerifyHttp(site, checked),
 		});
 		return { methods, checked, requested };
 	} finally {
@@ -106,29 +155,23 @@ async function runAgainstStubs(overrides = {}) {
 }
 
 it("mobile navigation without its script fails", async () => {
-	const browser = await chromium.launch();
-	try {
-		const context = await browser.newContext();
-		const page = await context.newPage();
-		page.setDefaultTimeout(300);
-		await context.route("**/*", (route) =>
-			route.fulfill({
-				status: 200,
-				contentType: "text/html",
-				body: '<h1>Hi, I\'m John Solly.</h1><button aria-label="Toggle mobile menu" aria-expanded="false">Menu</button><nav aria-label="Mobile navigation" hidden>About</nav>',
-			}),
-		);
-		await page.goto(productionUrl);
-		await assert.rejects(smoke({ page, context }), EXPECTED_FAILURE);
-	} finally {
-		await browser.close();
-	}
+	await assert.rejects(
+		runAgainstStubs({
+			pages: {
+				"/": `<header><button aria-label="Toggle mobile menu" aria-expanded="false">Menu</button><nav aria-label="Mobile navigation" hidden>${PORTFOLIO_LINKS}</nav></header><main><h1>Hi, I'm John Solly.</h1></main>`,
+			},
+			timeout: SHORT_TIMEOUT_MS,
+		}),
+		MENU_NEVER_OPENS,
+	);
 });
 
 it("an article page with no article body fails the public reading smoke", async () => {
 	await assert.rejects(
 		runAgainstStubs({
-			"/blog/example/": `${BLOG_MENU}<article><h1>Example post</h1><div class="post-text"></div></article>`,
+			pages: {
+				[POST]: `${BLOG_MENU}<main><article><h1>${TITLE_HTML}</h1><div class="article-body post-text"></div></article></main>`,
+			},
 		}),
 		MISSING_BODY,
 	);
@@ -140,22 +183,24 @@ it("public article, GET search, feeds and mobile navigation are read-only", asyn
 	assert.deepEqual(checked, [
 		`${productionUrl}/about/`,
 		`${productionUrl}/contact/`,
-		`${productionUrl}/blog/example/`,
-		`${productionUrl}/blog/search/?searched=Example+post`,
+		`${productionUrl}${POST}`,
+		SEARCH_URL,
 		`${productionUrl}/blog/rss.xml`,
 		`${productionUrl}/blog/atom.xml`,
 		`${productionUrl}/recipes/`,
 	]);
 	assert.deepEqual(requested, [
 		{ url: `${productionUrl}/about/`, accept: "text/markdown" },
-		{ url: `${productionUrl}/blog/example/`, accept: "text/markdown" },
+		{ url: `${productionUrl}${POST}`, accept: "text/markdown" },
 	]);
 });
 
 it("a search that does not list the article just read fails", async () => {
 	await assert.rejects(
 		runAgainstStubs({
-			"/blog/search/": `${BLOG_MENU}<h1>You searched for 'Example post'</h1><div role="status">1 result</div><div class="post-list"><a class="post-card-link" href="/blog/other/">Other post</a></div>`,
+			pages: {
+				"/blog/search/": `${BLOG_MENU}<main><h1>You searched for '${TITLE_HTML}'</h1><div role="status"><p>1 result</p></div><div class="post-list">${postCard("/blog/astro-islands-in-practice/", "Astro Islands in Practice")}</div></main>`,
+			},
 		}),
 		MISSING_RESULT,
 	);
@@ -163,12 +208,92 @@ it("a search that does not list the article just read fails", async () => {
 
 it("feed smoke rejects a successful HTML response in place of XML", async () => {
 	await assert.rejects(
-		verifyFeeds({
-			verifyHttp: async () =>
-				new Response("<html></html>", {
-					headers: { "content-type": "text/html" },
-				}),
+		runAgainstStubs({
+			pages: { "/blog/rss.xml": BLOG_HOME_HTML },
 		}),
 		NOT_XML,
+	);
+});
+
+it("a feed with its XML type but an HTML body fails", async () => {
+	await assert.rejects(
+		runAgainstStubs({
+			pages: {
+				"/blog/rss.xml": {
+					type: "application/rss+xml; charset=utf-8",
+					body: `<!doctype html>${BLOG_HOME_HTML}`,
+				},
+			},
+		}),
+		NOT_A_FEED,
+	);
+});
+
+it("a recipe library that never hydrates fails", async () => {
+	await assert.rejects(
+		runAgainstStubs({
+			pages: {
+				"/recipes/": SITE["/recipes/"].replace(
+					'data-hydrated="true"',
+					'data-hydrated="false"',
+				),
+			},
+			timeout: SHORT_TIMEOUT_MS,
+		}),
+		NEVER_HYDRATES,
+	);
+});
+
+it("a recipe library with no recipe cards fails", async () => {
+	await assert.rejects(
+		runAgainstStubs({
+			pages: {
+				"/recipes/": recipeLibrary(
+					'<p class="no-results" role="status">No recipes match these appliances and filters.</p>',
+				),
+			},
+		}),
+		NO_CARDS,
+	);
+});
+
+it("a post that answers Markdown fails the HTML-only check", async () => {
+	await assert.rejects(
+		runAgainstStubs({
+			markdown: {
+				[POST]: {
+					type: "text/markdown; charset=utf-8",
+					vary: "Accept",
+					body: `# ${TITLE}\n`,
+				},
+			},
+		}),
+		POST_NOT_HTML,
+	);
+});
+
+it("a post whose HTML varies on Accept fails the HTML-only check", async () => {
+	await assert.rejects(
+		runAgainstStubs({
+			markdown: {
+				[POST]: {
+					type: "text/html; charset=utf-8",
+					vary: "Accept-Encoding, Accept",
+					body: POST_PAGE,
+				},
+			},
+		}),
+		POST_VARIES,
+	);
+});
+
+it("Markdown on /about/ that varies only on Accept-Encoding fails", async () => {
+	await assert.rejects(
+		runAgainstStubs({
+			markdown: {
+				"/about/": { ...MARKDOWN["/about/"], vary: "Accept-Encoding" },
+			},
+		}),
+		ABOUT_DOES_NOT_VARY,
 	);
 });

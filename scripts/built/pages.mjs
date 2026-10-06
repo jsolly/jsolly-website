@@ -144,6 +144,17 @@ export async function serveStatic(root, headers = {}) {
 	};
 }
 
+// Collects what `page` logs to the console with one of `types`, and every
+// uncaught page error, into the array it returns, which grows as they happen.
+export function collectErrors(page, types = ["error"]) {
+	const errors = [];
+	page.on("console", (message) => {
+		if (types.includes(message.type())) errors.push(message.text());
+	});
+	page.on("pageerror", (error) => errors.push(String(error)));
+	return errors;
+}
+
 // Fulfills every request a Playwright `context` makes outside `origin` with a
 // stand-in (an empty HTML document for frames, an image otherwise), so a test
 // never waits on (or fails with) a remote host. Resolves to the Set of hosts
