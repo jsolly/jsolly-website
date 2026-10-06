@@ -169,7 +169,9 @@
 			flex-wrap: wrap;
 			margin-bottom: 10px;
 		}
-		.flow-heading {
+		/* Only the library dialog's h3 flow heading loses its margin, as in SRC;
+		   the recipe page's h2 keeps the blog heading spacing (live parity). */
+		h3.flow-heading {
 			margin: 0;
 		}
 		:global(.reset-checks) {
@@ -275,7 +277,7 @@
 			.trn-help {
 				display: none;
 			}
-			.flow-heading {
+			h3.flow-heading {
 				font: 700 12pt/1.2 Georgia, serif;
 				margin: 6pt 0;
 			}
