@@ -228,7 +228,7 @@ Overrides that change only the target:
 | Blog components | 4 | 0 / 4 / 0 | `src/components/blog/{AuthorCard.astro,BlogNavigation.svelte,PostCards.svelte,Search.svelte}` | Avoids name clashes with DST components. |
 | Layout `Base.astro` | 1 | 0 / 1 / 0 | `src/layouts/BlogLayout.astro`: standalone; honors `MAINTENANCE_MODE`; no Markdown alternate link; head slot; `section` prop | Keeps blog CSS isolated. DST's `Layout.astro` advertises `.md` alternates that would not exist. |
 | Blog pages and endpoints | 14 | 0 / 10 / 4 | `src/pages/blog/{index,all-posts,search,works-cited,category/[slug],[slug]}`, `blog/search-index.json.ts`, `blog/rss.xml.ts`, `blog/atom.xml.ts`. Privacy merges into DST. | Drop `sitemap.xml.ts`, `robots.txt.ts`, `release.json.ts` and `404.astro`; DST's sitemap integration, static robots and 404/500 take over. |
-| Styles | 7 | 0 / 7 / 0 | `src/styles/blog/{theme,ui,blog,no-script}.css` (global, article-content and motion merge into `blog.css`); `src/styles/recipes/{recipes-theme,recipes-no-script}.css` | Wrapped in one `@layer blog`, with the order `theme, base, components, utilities, blog` declared. `@source` paths are re-pathed (§1.13, CSPB-1). |
+| Styles | 7 | 0 / 7 / 0 | `src/styles/blog/{theme,ui,blog,no-script}.css` (global, article-content and motion merge into `blog.css`); `src/styles/recipes/{recipes-theme,recipes-no-script}.css` | Wrapped in one `@layer blog`. Every blog and recipe sheet opens with the same order statement, `properties, theme, base, components, utilities, blog, blog-no-script` (no-script fallback in its own last layer; landed in B06b, §7.5). `@source` paths are re-pathed (§1.13, CSPB-1). |
 | shadcn ui `src/lib/components/ui/**` | 33 | 0 / 16 / 17 | Flattened to `src/lib/components/ui/<name>.svelte` | §1.4 |
 | Recipe components, data and unit tests | 30 | 3 / 27 / 0 | `src/components/recipes/**` (same names) | §1.6 |
 | Recipe page `src/pages/recipes/[slug].astro` | 1 | 0 / 1 / 0 | Same path, plus a new `src/pages/recipes/index.astro` | Brief item 5 |
@@ -913,7 +913,6 @@ legacy/blogthedata/
     robots.txt         "User-agent: *" / "Allow: /", with no Disallow, so crawlers can follow the 301s
     .well-known/security.txt
                        Contact https://www.jsolly.com/contact/ (J15)
-                       Encryption https://www.jsolly.com/pgp-key.txt
                        Canonical https://www.blogthedata.com/.well-known/security.txt
                        Expires < 365 days out (RFC 9116)
     recipe-service-worker.js
@@ -1390,7 +1389,7 @@ Gate G+R. Tests: +6 temporary. These scripts and the test are removed in C0.
 
 - `src/styles/blog/{theme,ui,blog,no-script}.css` in `@layer blog`, with the layer order declared. They are Biome-conformant (223 diagnostics budgeted) and not yet imported.
 - `ui.css` `@source` lines are re-pathed to `../../lib/components/ui` and `../../components/blog/BlogNavigation.svelte`. The `Search.svelte` line is added in B09, with its file.
-- Gate G+R. Knip does not gate CSS, so the unimported styles are allowed.
+- Gate G+R. Knip does gate CSS here (its tailwind plugin reports unimported `.css`), so B06b carried a temporary `knip.json` ignore for the four sheets, which B06c's import forced out (§7.5).
 
 **B06c. BlogLayout, navigation, first route.** L. Depends on: B06b.
 
@@ -1920,6 +1919,18 @@ One `/ship` PR to jsolly-website `main`:
 8. **The `related`-slug check is a content-contract scenario, not a unit test.** `content.ts` imports `astro:content`, which plain `node --test` cannot load.
 9. **The merge hold lifts at C2 step 8, and auto-assign stays off through a soak.** Brief A3 tied the hold to verification. Re-enabling auto-assign is what exposes the full-blog rollback target to replacement (SEQ-04).
 10. **Plus the review-driven changes** in "Brief positions changed by review" under Decisions.
+
+### 7.5 Where Phase B departed from this plan, as implemented
+
+Recorded while porting (each step's PR body on `port/awesome-blog` has the detail; the final PR jsolly/jsolly-website#65 lists the steps):
+
+1. **Route manifest.** Phase A generates it in the `routeManifest` Astro integration from `astro:build:done`, so there is no `scripts/route-manifest.mjs` and no `npm run routes`; the B08/B16/B17 "expansion" bullets need no code.
+2. **Flat pages.** Pages are flat files where routing allows (`blog/works-cited.astro`, `blog/all-posts.astro`, `blog/search.astro`, `blog/[slug].astro`); `blog/category/[slug].astro` keeps its folder because Astro routing requires it.
+3. **Test placement.** B06a's id test lives in `scripts/unit/` (it never reads `dist/`), and every suite's absolute totals in §4.14 shift accordingly; each step PR states its before and after counts. The `built` suite runs with the same TS loader flags as `unit` (B08), and the `unit` glob includes `src/**/*.test.mjs` (B15).
+4. **Layer order and knip.** See the §1.2 Styles row and the B06b bullet above.
+5. **security.txt has no `Encryption` field on either host.** `public/pgp-key.txt` (key 257BD207…) expired on 2023-05-08 and its only UID cannot receive mail; the file stays because legacy row SEC-001 and two posts link it. Re-add the field only after John publishes a current key (B11).
+6. **Recipe data counts.** `recipe-library.json` holds 84 image values (123 path occurrences); `recipe-library.md` holds none. Three exports are un-exported in B15 (`dailyNutrients`, `recipeDisclaimer`, `applianceChoices`), and recipe constants live in `src/components/recipes/constants.mjs`.
+7. **Unknown `related` slugs fail the build** in `publishedContent` (a unit test and a B14 built scenario), drafts included; a slug naming a draft still builds without a card.
 
 ---
 
