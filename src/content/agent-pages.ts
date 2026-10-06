@@ -123,9 +123,9 @@ This site does not publish a public inbox address. Use Say Hello on the HTML con
 function privacyMarkdown(origin: string): string {
 	return `# Privacy Policy & Data Practices
 
-Last updated: June 2026
+Last updated: October 2026
 
-jsolly.com is the personal website of John Solly. It is a static site with no analytics or advertising trackers, and it does not collect personal information directly.
+jsolly.com is the personal website of John Solly, including his blog and recipes. It is a static site with no analytics or advertising trackers of its own, and it does not collect personal information directly.
 
 ## Contact form
 
@@ -135,9 +135,33 @@ If you reach out through the contact link, your message is handled by Mailchimp 
 
 The site is hosted on Vercel, which may record standard server and CDN logs (such as IP address and user agent) for security and operations, per Vercel's privacy policy.
 
+## Blog images
+
+Most blog post images are served from Amazon CloudFront and Amazon S3, which may likewise record standard request logs (such as IP address and user agent), per the AWS privacy notice.
+
+## Embedded media
+
+Some blog posts embed YouTube videos, diagrams.net diagrams or nbviewer notebooks. An embed loads from that service as it scrolls into view, so the service receives your request, and YouTube may set its own cookies, per Google's privacy policy. Posts without embeds make no such requests.
+
+## Recipe settings & offline use
+
+The recipes pages remember your settings (such as servings and filters) in your browser's local storage. To work offline, they also install a service worker that keeps copies of the recipe pages, images, styles and scripts in your browser's cache. Both stay on your device and are never sent to the site; clearing this site's data in your browser removes them.
+
+## Scripts & styles
+
+All JavaScript, CSS and fonts are self-hosted, and a [content security policy](${origin}/blog/how-to-implement-content-security-policy-django/) stops scripts from anywhere else from running.
+
+## Links to other sites
+
+This site links to other websites, whose privacy practices are their own. Links in blog posts carry \`rel="noopener noreferrer"\`, so the site you open does not learn which page sent you or get a handle on this one.
+
 ## Cookies
 
-This site sets no first-party tracking cookies.
+This site sets no first-party tracking cookies. Third-party embeds, such as YouTube videos, may set their own.
+
+## Children
+
+This site is not intended for children.
 
 ## Questions
 
