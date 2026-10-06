@@ -233,6 +233,10 @@ const FULL_REUSE_PAGES = [
 	"/blog/",
 	"/blog/works-cited/",
 	"/blog/search/",
+	// The recipe library hydrates in place too; its cards' shuffle on mount
+	// moves the keyed card nodes rather than replacing them.
+	"/recipes/meals/",
+	"/recipes/",
 ];
 // A recipe page legitimately replaces part of its server render on mount (it
 // turns interactive: shadcn-svelte controls replace the native fallbacks), so

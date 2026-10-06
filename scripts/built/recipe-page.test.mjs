@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { after, before, it } from "node:test";
 import { chromium } from "playwright";
+import { PRINT_FAILED } from "../../src/components/recipes/constants.mjs";
 import { serveStatic } from "./pages.mjs";
 
 // A built recipe page (/recipes/<id>/) in Chromium, with and without
@@ -23,8 +24,6 @@ const KINDS = [
 	},
 	{ kind: "a smoothie", id: "strawberry-banana-smoothie", familySides: false },
 ];
-const PRINT_FAILED =
-	"Printing could not open. Use your browser’s Print command.";
 // biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
 const NATIVE_CHECKBOX = 'input[type="checkbox"]';
 const VITAMINS = /Vitamins & minerals/u;

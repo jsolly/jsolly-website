@@ -1,10 +1,17 @@
 import {
 	applianceChoices,
+	applianceDependencies,
+	applianceLimits,
+	applianceNeeds,
+	carbStyles,
+	DEFAULT_FILTERS,
 	defaultAppliances,
+	proteins,
 	recipeStarches,
+	starchOptions,
 } from "./constants.mjs";
 import { dailyNutrition, recordedOmega3 } from "./nutrition.mjs";
-import { ingredientAmount } from "./recipe-logic.mjs";
+import { ingredientAmount, validateSettings } from "./recipe-logic.mjs";
 
 const immuneNutrients = new Set([
 	"vitamin_a",
@@ -44,28 +51,20 @@ export function smoothieIngredientChoices(recipes) {
 			.map(([id, entry]) => [id, entry.name]),
 	);
 }
-// Saved multi-select filters are arrays; anything else restores as no selection.
+// Saved multi-select filters are arrays of option keys; anything else
+// restores as no selection.
 export function normalizeSelection(value, options) {
 	if (!Array.isArray(value)) return [];
-	return [
-		...new Set(
-			value.filter((item) => item !== "all" && Object.hasOwn(options, item)),
-		),
-	];
+	return [...new Set(value.filter((item) => Object.hasOwn(options, item)))];
 }
+// An empty selection matches every value.
 function selectedMatches(selection, value) {
-	return Array.isArray(selection)
-		? !selection.length || selection.includes(value)
-		: selection === "all" || selection === value;
+	return !selection.length || selection.includes(value);
 }
-export function normalizeMealStyles(value) {
-	const selected = normalizeSelection(value, {
-		keto: true,
-		nonketo: true,
-		shared: true,
-	});
-	const exclusive = selected.filter((item) => item !== "shared").at(-1);
-	return selected.filter((item) => item === "shared" || item === exclusive);
+// A choice is unavailable when it is not picked and picking it would leave
+// no recipe (`wouldMatch` says whether any would remain).
+export function choiceUnavailable(picked, wouldMatch) {
+	return !picked && !wouldMatch();
 }
 // Saved appliance counts, clamped per appliance; a missing or invalid count
 // restores its default.
@@ -77,7 +76,7 @@ export function availableAppliances(value) {
 				Math.max(
 					0,
 					Math.min(
-						["Instant Pot", "Two air fryers"].includes(key) ? 2 : 1,
+						applianceLimits[key] ?? 1,
 						Number.isInteger(value[key]) ? value[key] : defaultAppliances[key],
 					),
 				),
@@ -88,17 +87,18 @@ export function availableAppliances(value) {
 export function hasAppliances(recipe, inventory) {
 	return recipe.appliancesNeeded.every(
 		(key) =>
-			(inventory[key] || 0) >= (key === "Two air fryers" ? 2 : 1) &&
-			(key !== "Pans" || inventory.Oven > 0),
+			(inventory[key] || 0) >= (applianceNeeds[key] ?? 1) &&
+			(!applianceDependencies[key] ||
+				inventory[applianceDependencies[key]] > 0),
 	);
 }
 export function matchesRecipe(
 	recipe,
 	servings,
 	{
-		protein = "all",
-		carb = "all",
-		starch = "all",
+		protein = [],
+		carb = [],
+		starch = [],
 		immune = false,
 		iron = false,
 		omega = false,
@@ -115,12 +115,56 @@ export function matchesRecipe(
 		hasAppliances(recipe, appliances) &&
 		selectedMatches(protein, recipe.proteinType) &&
 		selectedMatches(carb, recipe.group) &&
-		(Array.isArray(starch)
-			? !starch.length ||
-				starch.some((type) => recipeStarches[recipe.id]?.includes(type))
-			: starch === "all" || recipeStarches[recipe.id]?.includes(starch)) &&
+		(!starch.length ||
+			starch.some((type) => recipeStarches[recipe.id]?.includes(type))) &&
 		(!immune || flags.immune) &&
 		(!iron || flags.iron) &&
 		(!omega || flags.omega)
 	);
+}
+
+const isObject = (value) =>
+	Boolean(value) && typeof value === "object" && !Array.isArray(value);
+
+// The library's saved settings (localStorage recipes-settings-v1), validated
+// key by key: anything missing, of the wrong shape or no longer offered
+// restores its default. `recipes` are the library's recipes (a family side
+// must still be one of its recipe's sides) and `ingredients` the smoothie
+// ingredient choices.
+export function parseSavedSettings(saved, { recipes, ingredients }) {
+	const settings = isObject(saved) ? saved : {};
+	const filters = isObject(settings.filters) ? settings.filters : {};
+	const familyChoice = isObject(settings.familyChoice)
+		? Object.fromEntries(
+				Object.entries(settings.familyChoice).filter(([id, side]) =>
+					recipes
+						.find((recipe) => recipe.id === id)
+						?.familyOptions.some((option) => option.id === side),
+				),
+			)
+		: {};
+	const flag = (key) => filters[key] === true;
+	return {
+		servings: validateSettings({ servings: settings.servings }).servings,
+		filters: {
+			...DEFAULT_FILTERS,
+			proteinChoice: normalizeSelection(filters.proteinChoice, proteins),
+			starchChoice: normalizeSelection(filters.starchChoice, starchOptions),
+			ingredientChoice: normalizeSelection(
+				filters.ingredientChoice,
+				ingredients,
+			),
+			mealStyle:
+				typeof filters.mealStyle === "string" &&
+				Object.hasOwn(carbStyles, filters.mealStyle)
+					? filters.mealStyle
+					: DEFAULT_FILTERS.mealStyle,
+			smoothieKetoOnly: flag("smoothieKetoOnly"),
+			immuneSupport: flag("immuneSupport"),
+			ironRich: flag("ironRich"),
+			omega3: flag("omega3"),
+		},
+		appliancesOnHand: availableAppliances(settings.appliancesOnHand),
+		familyChoice,
+	};
 }

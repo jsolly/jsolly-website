@@ -48,7 +48,17 @@ const PAGES = [
 		hosts: [],
 		prepare: openMethodDialog,
 	},
+	// The library with its filter and nutrition help popovers open (floating-ui
+	// positions them with inline styles), and the landing with an old
+	// #<recipe-id> link opening the recipe dialog.
+	{ path: "/recipes/meals/", hosts: [], prepare: openLibraryPopovers },
+	{
+		path: "/recipes/#lemon-salmon-and-asparagus",
+		hosts: [],
+		prepare: waitForRecipeDialog,
+	},
 ];
+const PROTEINS = /^Proteins:/u;
 // How long one page may take to hydrate, settle its images or request a host.
 const WAIT_MS = 15_000;
 const POLL_MS = 50;
@@ -84,6 +94,19 @@ async function openMethodDialog(page) {
 		.getByRole("button", { name: "Learn more about Tabular Recipe Notation" })
 		.click();
 	await page.getByRole("dialog").waitFor();
+}
+
+async function openLibraryPopovers(page) {
+	await page.locator("[data-hydrated=true]").waitFor();
+	await page.getByRole("button", { name: PROTEINS }).click();
+	await page.locator(".multi-options").waitFor();
+	await page.keyboard.press("Escape");
+	await page.getByRole("button", { name: "About nutrition filters" }).click();
+	await page.locator(".nutrition-help").waitFor();
+}
+
+async function waitForRecipeDialog(page) {
+	await page.locator(".recipe-takeover").waitFor();
 }
 
 // Resolves once `hosts` (a growing Set) holds every `expected` host, or after
@@ -158,7 +181,7 @@ async function visit(path, expected, prepare) {
 	}
 }
 
-it("blog posts with embeds, the blog home, a blog search, /about/ and a recipe page with its dialog open load under the vercel.json header and their meta policy without a violation", {
+it("blog posts with embeds, the blog home, a blog search, /about/, a recipe page with its dialog open and the recipe library with its popovers or a linked recipe open load under the vercel.json header and their meta policy without a violation", {
 	timeout: 120_000,
 }, async () => {
 	// One page at a time keeps each page's requests its own.

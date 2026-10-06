@@ -1,0 +1,20 @@
+---
+// /recipes/meals/ and /recipes/smoothies/, the same paths as on
+// blogthedata.com: the recipe library opened on one collection.
+import BlogLayout from "../../layouts/BlogLayout.astro";
+import "../../styles/recipes/recipes-theme.css";
+import RecipeExperience from "./RecipeExperience.astro";
+
+interface Props {
+	collection: "meal" | "smoothie";
+	title: string;
+}
+
+const { collection, title } = Astro.props;
+---
+
+<BlogLayout section="recipes" {title} description="Find your next meal or smoothie." article>
+	<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/blog/">Home</a><span aria-hidden="true">/</span><a href="/recipes/">Easy Meals &amp; Smoothies</a></nav>
+	<h1>{title}</h1>
+	<RecipeExperience {collection} />
+</BlogLayout>

@@ -145,7 +145,7 @@ Some blog posts embed YouTube videos, diagrams.net diagrams or nbviewer notebook
 
 ## Recipe settings & offline use
 
-The recipes pages remember your settings (such as servings and filters) in your browser's local storage. To work offline, they also install a service worker that keeps copies of the recipe pages, images, styles and scripts in your browser's cache. Both stay on your device and are never sent to the site; clearing this site's data in your browser removes them.
+The recipe library remembers your settings (servings, filters, appliances on hand and family sides) in your browser's local storage. To work offline, the recipes pages also install a service worker that keeps copies of the recipe pages, images, styles and scripts in your browser's cache. Both stay on your device and are never sent to the site; clearing this site's data in your browser removes them. A recipe link you open or share does carry its servings and family side in its address.
 
 ## Scripts & styles
 
