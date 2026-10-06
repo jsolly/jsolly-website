@@ -25,6 +25,7 @@ content:
         type: string
         required: true
         description: "Stable article URL: the post lives at /blog/<slug>/. Give a new post a slug of lowercase letters, digits and hyphens, so its file name and URL match. Keep the slug unchanged when editing a published post."
+        pattern: '^[A-Za-z0-9_-]+$'
       - name: category
         type: reference
         required: true
@@ -43,13 +44,13 @@ content:
         type: string
         required: true
         description: "ISO 8601 with seconds and a timezone, for example 2026-10-02T14:00:00Z. Preserve this value on existing posts."
-        pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$'
+        pattern: '^\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\d|3[01])T(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d+)?(?:Z|[+-](?:[01]\d|2[0-3]):[0-5]\d)$'
       - name: updated
         label: Updated timestamp
         type: string
         required: true
         description: "ISO 8601 with seconds and a timezone. Change this when making an editorial update."
-        pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$'
+        pattern: '^\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\d|3[01])T(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d+)?(?:Z|[+-](?:[01]\d|2[0-3]):[0-5]\d)$'
       - name: author
         type: string
         default: John Solly
@@ -106,6 +107,7 @@ content:
         type: string
         required: true
         description: "Stable category URL: the category lives at /blog/category/<slug>/. Give a new category a slug of lowercase letters, digits and hyphens, so its file name and URL match. Preserve case on existing slugs."
+        pattern: '^[A-Za-z0-9_-]+$'
       - name: description
         type: text
         required: true

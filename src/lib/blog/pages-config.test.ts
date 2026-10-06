@@ -19,17 +19,33 @@ import { z } from "zod";
 import {
 	CATEGORIES_DIR,
 	DEFAULT_IMAGE,
+	LEGACY_FRONTMATTER_KEYS,
 	LEGACY_MEDIA,
 	POSTS_DIR,
 } from "./constants.js";
 import { parsePost } from "./post-loader.js";
-import { categorySchema, postSchema } from "./schemas.js";
+import { categorySchema, postSchema, SLUG } from "./schemas.js";
 import { categoryHref, postHref } from "./urls.js";
 
 const ROOT = fileURLToPath(new URL("../../../", import.meta.url));
 const BIOME = join(ROOT, "node_modules/.bin/biome");
-// Frontmatter PagesCMS keeps but does not manage (J19).
-const UNMANAGED = new Set(["legacyId", "legacyImage", "legacyAuthorId"]);
+const UNMANAGED = new Set(LEGACY_FRONTMATTER_KEYS);
+// A value of each CMS field type, for checking the schema accepts what the
+// CMS field would save. A field with a pattern takes the first of
+// PATTERN_SAMPLES its pattern accepts instead.
+const TYPE_SAMPLES: Record<string, unknown> = {
+	string: "Geodev",
+	text: "Some text",
+	boolean: true,
+	number: 640,
+	reference: "Geodev",
+	code: "<p>Body</p>",
+};
+const PATTERN_SAMPLES = [
+	"2026-10-02T14:00:23.123456-04:00",
+	DEFAULT_IMAGE,
+	"Geodev",
+];
 
 // The parts of .pages.yml these tests read.
 const fieldSchema = z.object({
@@ -43,6 +59,7 @@ const fieldSchema = z.object({
 		.object({
 			collection: z.string().optional(),
 			value: z.string().optional(),
+			multiple: z.boolean().optional(),
 			format: z.string().optional(),
 		})
 		.optional(),
@@ -149,7 +166,7 @@ describe(".pages.yml", () => {
 		assert.equal(posts.field("draft").default, true);
 	});
 
-	it("Every .pages.yml path and field matches the content collections and their schemas", async () => {
+	it("An editor creating a post or category in PagesCMS writes it where the collections load it, with the schema's required fields and defaults", async () => {
 		const cms = await pagesConfig();
 		assert.equal(cms.media.input, `public${cms.media.output}`);
 		assert.ok(statSync(join(ROOT, cms.media.input)).isDirectory());
@@ -195,7 +212,35 @@ describe(".pages.yml", () => {
 			}
 		}
 		for (const name of ["category", "related"]) {
+			assert.equal(posts.field(name).type, "reference", name);
 			assert.equal(posts.field(name).options?.value, "{fields.slug}", name);
+		}
+		assert.equal(posts.field("category").options?.multiple, undefined);
+		assert.equal(posts.field("related").options?.multiple, true);
+
+		// The schema accepts a value of each CMS field's type (a list for a
+		// multiple reference), so a save cannot produce a type the build rejects.
+		for (const [collection, shape] of schemas) {
+			for (const field of collection.fields.filter((f) => f.name in shape)) {
+				const pattern = field.pattern && fieldPattern(field);
+				const sample = pattern
+					? PATTERN_SAMPLES.find((candidate) => pattern.test(candidate))
+					: TYPE_SAMPLES[field.type];
+				assert.notEqual(sample, undefined, field.name);
+				const value = field.options?.multiple ? [sample] : sample;
+				const result = shape[field.name]?.safeParse(value);
+				assert.equal(result?.success, true, `${field.name}: ${field.type}`);
+			}
+		}
+
+		const postSlug = fieldPattern(posts.field("slug"));
+		const categorySlug = fieldPattern(categories.field("slug"));
+		for (const pattern of [postSlug, categorySlug]) {
+			assert.equal(pattern.source, SLUG.source);
+			assert.match("Some_Post-2", pattern);
+			for (const rejected of ["My New Post!", "web dev", ""]) {
+				assert.doesNotMatch(rejected, pattern);
+			}
 		}
 
 		assert.ok(existsSync(join(ROOT, "public", DEFAULT_IMAGE)));
@@ -212,8 +257,23 @@ describe(".pages.yml", () => {
 		}));
 		for (const { pattern } of timestamps) {
 			assert.match("2026-10-02T14:00:23.123456-04:00", pattern);
-			for (const rejected of ["2026-10-02", "2026-10-02T14:00:00"]) {
-				assert.doesNotMatch(rejected, pattern);
+			// Each sample the schema rejects, the CMS rejects before saving.
+			const rejected = [
+				"2026-10-02",
+				"2026-10-02T14:00:00",
+				"2026-13-02T14:00:00Z",
+				"2026-10-32T14:00:00Z",
+				"2026-10-02T24:00:00Z",
+				"2026-10-02T14:60:00Z",
+				"2026-10-02T14:00:60Z",
+				"2026-10-02T14:00:00+24:00",
+			];
+			for (const sample of rejected) {
+				assert.equal(
+					postSchema.shape.published.safeParse(sample).success,
+					false,
+				);
+				assert.doesNotMatch(sample, pattern);
 			}
 		}
 		assert.match(
@@ -239,6 +299,7 @@ describe(".pages.yml", () => {
 			const raw = parsePost(source);
 			const post = postSchema.parse(raw);
 			assert.ok(accepts(posts.filename, post.slug, name), name);
+			assert.match(post.slug, postSlug, name);
 			assert.match(post.image, imagePattern, name);
 			for (const { name: key, pattern } of timestamps) {
 				assert.match(String(raw[key]), pattern, `${name} ${key}`);
@@ -250,6 +311,7 @@ describe(".pages.yml", () => {
 		for (const { name, source } of categoryFiles) {
 			const category = categorySchema.parse(JSON.parse(source));
 			assert.ok(accepts(categories.filename, category.slug, name), name);
+			assert.match(category.slug, categorySlug, name);
 		}
 	});
 
