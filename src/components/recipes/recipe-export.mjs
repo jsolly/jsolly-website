@@ -1,6 +1,7 @@
 import { cookText } from "./display-units.mjs";
 import { dailyNutrition } from "./nutrition.mjs";
 import {
+	BASE_SERVINGS,
 	capacityNote,
 	displayNutrition,
 	familyNutrition,
@@ -48,7 +49,7 @@ export function recipeDocument(recipe, settings = {}) {
 							: undefined,
 						scale: "fixed",
 					},
-					4,
+					BASE_SERVINGS,
 					units,
 				),
 				name: option.ingredientName,
@@ -74,7 +75,7 @@ export function recipeDocument(recipe, settings = {}) {
 		},
 		summary: recipe.summary,
 		activeMinutes: recipe.activeMinutes,
-		totalTime: `${recipe.totalMin}–${recipe.totalMax}${servings > 4 ? "+" : ""} min${servings > 4 ? " / base batch" : ""}${recipe.timeVariable ? " expected; pressure buildup can take longer" : ""}`,
+		totalTime: `${recipe.totalMin}–${recipe.totalMax}${servings > BASE_SERVINGS ? "+" : ""} min${servings > BASE_SERVINGS ? " / base batch" : ""}${recipe.timeVariable ? " expected; pressure buildup can take longer" : ""}`,
 		attentionSummary: recipe.attentionSummary,
 		capacity: text(smoothie ? recipe.capacity : capacityNote(servings)),
 		timingNote: smoothie
@@ -86,7 +87,11 @@ export function recipeDocument(recipe, settings = {}) {
 		familyOptions: recipe.familyOptions.map((o) => ({
 			choiceId: o.id,
 			label: o.label,
-			quantityPerPerson: formatIngredient({ ...o, scale: "fixed" }, 4, units),
+			quantityPerPerson: formatIngredient(
+				{ ...o, scale: "fixed" },
+				BASE_SERVINGS,
+				units,
+			),
 			name: o.ingredientName,
 			state: text(o.state),
 			note: text(o.note),
@@ -200,13 +205,10 @@ export function documentMarkdown(d, headingLevel = 1) {
 		.join("\n\n");
 	return `${body}\n`;
 }
-export function recipeBrief(recipe, settings = {}) {
-	return documentMarkdown(recipeDocument(recipe, settings));
-}
 export function recipeBundle(recipes, settings = {}) {
 	return {
 		schemaVersion: 1,
-		baseServings: 4,
+		baseServings: BASE_SERVINGS,
 		settings: validateSettings(settings),
 		disclaimer: recipeDisclaimer,
 		measurementPolicy:

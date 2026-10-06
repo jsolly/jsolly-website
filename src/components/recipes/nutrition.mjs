@@ -1,5 +1,5 @@
 import data from "./nutrition-data.json" with { type: "json" };
-import { smoothieGlassesPerBatch } from "./recipe-logic.mjs";
+import { BASE_SERVINGS, smoothieGlassesPerBatch } from "./recipe-logic.mjs";
 
 const dailyNutrients = data.nutrients;
 export function dailyNutrition(recipe, servings, scaledAmount) {
@@ -16,7 +16,7 @@ export function dailyNutrition(recipe, servings, scaledAmount) {
 			const factor =
 				ingredient?.scale === "minimum"
 					? scaledAmount(ingredient, servings) / ingredient.amount
-					: servings / 4;
+					: servings / BASE_SERVINGS;
 			total +=
 				(((row.nutrients[nutrient.key] * row.grams) / 100) * factor) / servings;
 		}
@@ -26,7 +26,7 @@ export function dailyNutrition(recipe, servings, scaledAmount) {
 				recipe.estimatedYieldMl <= 0
 			)
 				observed = false;
-			else total *= 4 / smoothieGlassesPerBatch(recipe);
+			else total *= BASE_SERVINGS / smoothieGlassesPerBatch(recipe);
 		}
 		return {
 			...nutrient,
@@ -54,12 +54,12 @@ export function recordedOmega3(recipe, servings, scaledAmount) {
 		const factor =
 			ingredient?.scale === "minimum"
 				? scaledAmount(ingredient, servings) / ingredient.amount
-				: servings / 4;
+				: servings / BASE_SERVINGS;
 		total +=
 			((((row.omega3RecordedGramsPer100g || 0) * row.grams) / 100) * factor) /
 			servings;
 	}
 	return recipe.type === "smoothie"
-		? (total * 4) / smoothieGlassesPerBatch(recipe)
+		? (total * BASE_SERVINGS) / smoothieGlassesPerBatch(recipe)
 		: total;
 }

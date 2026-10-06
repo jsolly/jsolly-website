@@ -1,5 +1,6 @@
 import { cookText } from "./display-units.mjs";
 import {
+	BASE_SERVINGS,
 	formatIngredient,
 	ingredientAmount,
 	purchaseNote,
@@ -102,7 +103,7 @@ export function flowGrid(recipe, settings = {}) {
 										: undefined,
 									scale: "fixed",
 								},
-								4,
+								BASE_SERVINGS,
 								units,
 								{ wholeOunces: recipe.type === "smoothie" },
 							);
@@ -173,9 +174,6 @@ export function flowGrid(recipe, settings = {}) {
 		columns: root.depth + 1,
 		rows,
 	};
-}
-export function flowHtml(recipe, settings = {}) {
-	return gridHtml(recipe.title, flowGrid(recipe, settings));
 }
 export function gridHtml(title, grid) {
 	return `<div class="trn-scroll" tabindex="0" role="region" aria-label="${escapeHtml(title)} cooking flow, scroll horizontally"><table class="trn-table"><tbody>${grid.prep.map((t) => `<tr><td colspan="${grid.columns}" class="trn-prep">${escapeHtml(t)}</td></tr>`).join("")}${grid.rows.map((r) => `<tr>${r.cells.map((c) => (c.kind === "ingredient" ? `<th scope="row" colspan="${c.colspan}" class="trn-ingredient"><strong>${escapeHtml(c.text)}</strong> ${escapeHtml(c.name)}<small class="${c.essentialState ? "trn-state-essential" : "trn-state-detail"}">${escapeHtml(c.state)}</small></th>` : `<td rowspan="${c.rowspan}" colspan="${c.colspan}" class="trn-operation">${escapeHtml(c.text)}</td>`)).join("")}</tr>`).join("")}</tbody></table></div>`;

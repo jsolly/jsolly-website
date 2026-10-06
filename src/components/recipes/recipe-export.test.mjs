@@ -1,7 +1,11 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import it from "node:test";
-import { recipeBrief, recipeBundle, recipeDocument } from "./recipe-export.mjs";
+import {
+	documentMarkdown,
+	recipeBundle,
+	recipeDocument,
+} from "./recipe-export.mjs";
 
 const { recipes } = JSON.parse(
 	readFileSync(new URL("./recipes.json", import.meta.url), "utf8"),
@@ -32,7 +36,7 @@ it("assistant/print document preserves safe pressure liquid, recalculated macros
 	assert(d.familyIngredient);
 	assert.equal(d.steps.length, r.steps.length);
 	assert.match(
-		recipeBrief(r, { servings: 2, units: "metric" }),
+		documentMarkdown(recipeDocument(r, { servings: 2, units: "metric" })),
 		SAFE_POULTRY_METRIC,
 	);
 	assert(d.sources.every((s) => s.url.startsWith("https://")));

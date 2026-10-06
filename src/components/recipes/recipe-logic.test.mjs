@@ -119,6 +119,7 @@ it("temperature keeps the source setting and rounds safe endpoints upward", () =
 });
 
 it("family macros are per serving and base remains intact", () => {
+	const before = structuredClone(chicken);
 	assert.deepEqual(familyNutrition(chicken, "rice"), {
 		kcal: 566,
 		protein_g: 39,
@@ -130,7 +131,7 @@ it("family macros are per serving and base remains intact", () => {
 		familyNutrition(chicken, "unknown"),
 		familyNutrition(chicken, "rice"),
 	);
-	assert.deepEqual(chicken.nutrition, nutrition);
+	assert.deepEqual(chicken, before);
 });
 
 it("invalid settings fail to a safe four-serving settings and capacity messaging is honest", () => {

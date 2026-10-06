@@ -1,5 +1,5 @@
 /** Pure calculations for the meal library. Recipe ingredient amounts are for four adults. */
-const BASE_SERVINGS = 4;
+export const BASE_SERVINGS = 4;
 const SERVINGS = new Set([2, 4, 6, 8]);
 const NUTRIENTS = ["kcal", "protein_g", "carbs_g", "fiber_g", "net_carbs_g"];
 
@@ -129,7 +129,7 @@ export function shuffleRecipes(recipes, random = Math.random) {
 	return result;
 }
 
-export function servingNutrition(recipe, servings = 4) {
+export function servingNutrition(recipe, servings = BASE_SERVINGS) {
 	const count = validateSettings({ servings }).servings;
 	const result = { ...recipe.nutrition };
 	for (const ingredient of recipe.ingredients ?? []) {
@@ -137,7 +137,8 @@ export function servingNutrition(recipe, servings = 4) {
 		const actual = ingredientAmount(ingredient, count) / ingredient.amount;
 		for (const key of NUTRIENTS)
 			result[key] +=
-				(Number(ingredient.nutritionBatch[key] ?? 0) * (actual - count / 4)) /
+				(Number(ingredient.nutritionBatch[key] ?? 0) *
+					(actual - count / BASE_SERVINGS)) /
 				count;
 	}
 	return result;
@@ -160,7 +161,7 @@ export function smoothiePortionNutrition(recipe, fluidOunces = 8) {
 		]),
 	);
 }
-export function displayNutrition(recipe, servings = 4) {
+export function displayNutrition(recipe, servings = BASE_SERVINGS) {
 	return recipe.type === "smoothie"
 		? smoothiePortionNutrition(recipe)
 		: servingNutrition(recipe, servings);
@@ -170,16 +171,16 @@ export function nutritionHeading(recipe) {
 		? "Nutrition per 8 oz glass"
 		: "Nutrition per serving";
 }
-export function smoothieYieldNote(recipe, servings = 4) {
+export function smoothieYieldNote(recipe, servings = BASE_SERVINGS) {
 	const glasses =
 		(smoothieGlassesPerBatch(recipe) *
 			validateSettings({ servings }).servings) /
-		4;
+		BASE_SERVINGS;
 	return `This batch makes about ${glasses.toFixed(1)} eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume.`;
 }
 
 /** A family's serving receives one chosen starch; the keto base stays untouched. */
-export function familyNutrition(recipe, choiceId, servings = 4) {
+export function familyNutrition(recipe, choiceId, servings = BASE_SERVINGS) {
 	const option =
 		recipe?.group === "shared"
 			? (recipe.familyOptions ?? []).find((item) => item.id === choiceId) ||
@@ -204,7 +205,7 @@ export function capacityNote(servings) {
 }
 
 /** Package counts are shopping estimates; recipe weights remain the measured target. */
-export function purchaseNote(ingredient, servings = 4) {
+export function purchaseNote(ingredient, servings = BASE_SERVINGS) {
 	const pack = ingredient?.package;
 	const amount = ingredientAmount(ingredient, servings);
 	if (!pack || !finite(pack.grams) || pack.grams <= 0 || !finite(amount))

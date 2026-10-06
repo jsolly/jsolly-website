@@ -10,8 +10,9 @@ const LENGTH =
 const LENGTH_UNIT_SEPARATOR = /[- ]/u;
 
 function inches(value) {
-	if (!INCHES.test(value)) return Number(value);
-	const { whole, fraction } = INCHES.exec(value).groups;
+	const match = value.match(INCHES);
+	if (match === null) return Number(value);
+	const { whole, fraction } = match.groups;
 	return Number(whole || 0) + (fractions[fraction] || 0);
 }
 /** Convert display geometry only. Preserve the original setting and safe endpoint. */

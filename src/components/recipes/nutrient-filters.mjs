@@ -78,15 +78,12 @@ export function smoothieIngredientChoices(recipes) {
 			.map(([id, entry]) => [id, entry.name]),
 	);
 }
+// Saved multi-select filters are arrays; anything else restores as no selection.
 export function normalizeSelection(value, options) {
-	const values = Array.isArray(value)
-		? value
-		: typeof value === "string"
-			? [value]
-			: [];
+	if (!Array.isArray(value)) return [];
 	return [
 		...new Set(
-			values.filter((item) => item !== "all" && Object.hasOwn(options, item)),
+			value.filter((item) => item !== "all" && Object.hasOwn(options, item)),
 		),
 	];
 }
@@ -104,11 +101,6 @@ export function normalizeMealStyles(value) {
 	const exclusive = selected.filter((item) => item !== "shared").at(-1);
 	return selected.filter((item) => item === "shared" || item === exclusive);
 }
-export function toggleMealStyle(selected, value) {
-	if (selected.includes(value))
-		return selected.filter((item) => item !== value);
-	return normalizeMealStyles([...selected, value]);
-}
 const applianceChoices = {
 	"Instant Pot": "Pressure cookers",
 	Oven: "Oven",
@@ -125,14 +117,9 @@ export const defaultAppliances = {
 	"Two air fryers": 2,
 	Blender: 1,
 };
+// Saved appliance counts, clamped per appliance; a missing or invalid count
+// restores its default.
 export function availableAppliances(value) {
-	if (Array.isArray(value))
-		return Object.fromEntries(
-			Object.keys(applianceChoices).map((key) => [
-				key,
-				value.includes(key) ? (key === "Two air fryers" ? 2 : 1) : 0,
-			]),
-		);
 	if (value && typeof value === "object")
 		return Object.fromEntries(
 			Object.keys(applianceChoices).map((key) => [

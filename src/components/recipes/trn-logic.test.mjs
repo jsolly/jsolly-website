@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import it from "node:test";
-import { flowGrid, flowHtml, validateFlow } from "./trn-logic.mjs";
+import { flowGrid, gridHtml, validateFlow } from "./trn-logic.mjs";
 
 const { recipes } = JSON.parse(
 	readFileSync(new URL("./recipes.json", import.meta.url), "utf8"),
@@ -53,12 +53,18 @@ it("incomplete or duplicate ingredient allocations fail closed", () => {
 });
 it("tables keep scaled spoon measures, safe endpoint conversions and symbolic pinches", () => {
 	const salmon = recipes.find((r) => r.key === "salmon");
-	const html = flowHtml(salmon, { servings: 2, units: "metric" });
+	const html = gridHtml(
+		salmon.title,
+		flowGrid(salmon, { servings: 2, units: "metric" }),
+	);
 	assert.match(html, QUARTER_TEASPOON);
 	assert.match(html, SAFE_FISH_METRIC);
 	assert.match(html, ONE_GRAM_ZEST);
 	const shawarma = recipes.find((r) => r.key === "shawarma");
-	const s = flowHtml(shawarma, { servings: 4, units: "metric" });
+	const s = gridHtml(
+		shawarma.title,
+		flowGrid(shawarma, { servings: 4, units: "metric" }),
+	);
 	assert.match(s, PINCH);
 	assert.match(s, HALF_REMAINING);
 	assert.match(s, ROWSPAN);
@@ -92,4 +98,21 @@ it("smoothie loading starts with liquids and keeps seeds and greens ahead of fru
 		))
 			assert.ok(ids.indexOf(id) < firstFruit, `${recipe.id} ${id}`);
 	}
+});
+
+it("table text escapes HTML-special characters in titles and ingredient names", () => {
+	const recipe = structuredClone(recipes[0]);
+	const special = `Fish & chips <b>"crispy"</b> 'n' salt`;
+	recipe.title = special;
+	recipe.ingredients[0].name = special;
+	const html = gridHtml(
+		recipe.title,
+		flowGrid(recipe, { servings: 4, units: "us" }),
+	);
+	const escaped =
+		"Fish &amp; chips &lt;b&gt;&quot;crispy&quot;&lt;/b&gt; &#39;n&#39; salt";
+	assert.ok(html.includes(`aria-label="${escaped} cooking flow`));
+	assert.ok(html.includes(`</strong> ${escaped}<small`));
+	assert.ok(!html.includes(special));
+	assert.ok(!html.includes("<b>"));
 });

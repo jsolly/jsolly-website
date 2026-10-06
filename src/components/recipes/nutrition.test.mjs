@@ -57,3 +57,22 @@ it("missing ingredient observations cannot become partial daily totals", () => {
 		null,
 	);
 });
+
+// Nutrition rows name USDA foods, which often differ from ingredient ids
+// (fine_salt -> salt), and those rows scale linearly. Only a minimum-scale
+// ingredient needs a row under its own id, or its floor never reaches the totals.
+it("every minimum-scale ingredient has a nutrition row under its own id", () => {
+	const minimum = recipes.recipes.flatMap((recipe) =>
+		recipe.ingredients
+			.filter((ingredient) => ingredient.scale === "minimum")
+			.map((ingredient) => ({ recipe, ingredient })),
+	);
+	assert.ok(minimum.length > 0, "the library has minimum-scale ingredients");
+	const unmatched = minimum
+		.filter(
+			({ recipe, ingredient }) =>
+				!data.recipes[recipe.id].some((row) => row.food === ingredient.id),
+		)
+		.map(({ recipe, ingredient }) => `${recipe.id}/${ingredient.id}`);
+	assert.deepEqual(unmatched, []);
+});

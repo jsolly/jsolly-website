@@ -11,7 +11,6 @@ import {
 	recipeStarches,
 	smoothieIngredientChoices,
 	starchTypes,
-	toggleMealStyle,
 } from "./nutrient-filters.mjs";
 import { recordedOmega3 } from "./nutrition.mjs";
 import { ingredientAmount } from "./recipe-logic.mjs";
@@ -91,7 +90,7 @@ it("starch categories cover every recipe and include main ingredients and family
 		for (const type of types) assert(type in starchTypes);
 });
 
-it("multi-select uses OR within each filter and AND across filters; legacy settings normalize", () => {
+it("multi-select uses OR within each filter and AND across filters; saved selections normalize", () => {
 	const matches = (filters) =>
 		data.recipes.filter((r) => matchesRecipe(r, 4, filters));
 	assert.equal(matches({ starch: ["rice", "pasta"] }).length, 3);
@@ -104,24 +103,19 @@ it("multi-select uses OR within each filter and AND across filters; legacy setti
 		matches({ protein: [], starch: [] }).length,
 		data.recipes.length,
 	);
-	assert.deepEqual(normalizeSelection("rice", starchTypes), ["rice"]);
 	assert.deepEqual(
 		normalizeSelection(["rice", "rice", "invalid", "all"], starchTypes),
 		["rice"],
 	);
-	assert.deepEqual(normalizeSelection("all", starchTypes), []);
+	assert.deepEqual(normalizeSelection("rice", starchTypes), []);
 });
 
-it("Shared Main combines with either exclusive meal style and saved styles normalize", () => {
-	assert.deepEqual(toggleMealStyle(["keto"], "shared"), ["keto", "shared"]);
-	assert.deepEqual(toggleMealStyle(["keto", "shared"], "nonketo"), [
+it("Shared Main combines with either exclusive meal style when saved styles normalize", () => {
+	assert.deepEqual(normalizeMealStyles(["keto", "shared"]), ["keto", "shared"]);
+	assert.deepEqual(normalizeMealStyles(["keto", "shared", "nonketo"]), [
 		"shared",
 		"nonketo",
 	]);
-	assert.deepEqual(toggleMealStyle(["shared", "nonketo"], "shared"), [
-		"nonketo",
-	]);
-	assert.deepEqual(normalizeMealStyles("keto"), ["keto"]);
 	assert.deepEqual(
 		normalizeMealStyles(["keto", "nonketo", "shared", "bogus"]),
 		["nonketo", "shared"],
@@ -134,7 +128,7 @@ it("Shared Main combines with either exclusive meal style and saved styles norma
 	);
 });
 
-it("appliance inventory honors counts and oven/pan dependency, and validates storage", () => {
+it("appliance inventory honors counts and oven/pan dependency, and validates saved counts", () => {
 	const fry = data.recipes.find((r) => r.id === "greek-turkey-patties");
 	assert(!hasAppliances(fry, { ...defaultAppliances, "Two air fryers": 1 }));
 	assert(hasAppliances(fry, defaultAppliances));
@@ -144,8 +138,8 @@ it("appliance inventory honors counts and oven/pan dependency, and validates sto
 	assert(hasAppliances(pan, defaultAppliances));
 	assert(!hasAppliances(pan, { ...defaultAppliances, Oven: 0 }));
 	assert.equal(availableAppliances({ "Instant Pot": 8 })["Instant Pot"], 2);
-	assert.equal(availableAppliances(["Two air fryers"])["Two air fryers"], 2);
-	assert.equal(availableAppliances([]).Oven, 0);
+	assert.equal(availableAppliances({ Oven: 0 }).Oven, 0);
+	assert.deepEqual(availableAppliances(null), defaultAppliances);
 	assert.equal(data.recipes.filter((r) => r.type === "smoothie").length, 6);
 	assert(
 		data.recipes
