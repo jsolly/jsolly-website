@@ -1,9 +1,8 @@
 ---
 import AuthorCard from "../../components/blog/AuthorCard.astro";
 import RecipeExperience from "../../components/recipes/RecipeExperience.astro";
-import BlogLayout from "../../layouts/BlogLayout.astro";
+import RecipeLayout from "../../layouts/RecipeLayout.astro";
 import { headingLinkLabel } from "../../lib/blog/html.js";
-import "../../styles/recipes/recipes-theme.css";
 
 // The recipe library's landing page, where blogthedata.com's Easy Meals &
 // Smoothies post now 301s (RCP-001). It renders the library as that post did:
@@ -16,14 +15,14 @@ const DESCRIPTION =
 	"Easy meals and smoothies with keto and non-keto options, serving scaling and appliance filters.";
 ---
 
-<BlogLayout section="recipes" title={TITLE} description={DESCRIPTION}>
+<RecipeLayout title={TITLE} description={DESCRIPTION}>
 	<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/blog/">Home</a><span aria-hidden="true">/</span><a href="/blog/category/resources/">Resources</a></nav>
 	<article>
 		<h1 id={TITLE_ID}>{TITLE}<a class="heading-link" href={`#${TITLE_ID}`} aria-label={headingLinkLabel(TITLE)}>#</a></h1>
 		<RecipeExperience />
 	</article>
 	<AuthorCard />
-</BlogLayout>
+</RecipeLayout>
 
 <style>
 	/* Every recipe stylesheet declares the full order (as the blog sheets do), so

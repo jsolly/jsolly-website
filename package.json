@@ -8,7 +8,7 @@
 	"scripts": {
 		"worktree:init": "npm ci",
 		"dev": "astro dev",
-		"build": "astro build && node process-html.mjs && node scripts/run-tests.mjs csp",
+		"build": "astro build && node process-html.mjs && node scripts/recipes/pwa-build.mjs && node scripts/run-tests.mjs csp",
 		"build:maintenance": "MAINTENANCE_MODE=true npm run build",
 		"preview": "astro preview",
 		"lint": "biome lint --no-errors-on-unmatched",

@@ -12,11 +12,14 @@ import { serveStatic, stubOffOrigin } from "./pages.mjs";
 // each page must also have requested the hosts its content uses, which proves
 // the lazy embeds and images (switched to eager) were loaded, not skipped. Every
 // island must hydrate, so the page's own scripts ran under both policies.
-// Positive control: each response carries the header policy and each page a
+// Every recipe page's service worker must activate, at scope /recipes/ and no
+// wider. Positive control: each response carries the header policy and each page a
 // meta policy, and an image from an unlisted host injected on /about/ must
 // raise exactly one img-src violation under each of the two policies.
 const DIST = "dist";
 const CLOUDFRONT = "d1d7p8ufhgz4ld.cloudfront.net";
+// The recipe pages, which the recipe service worker controls.
+const RECIPES = "/recipes/";
 const UNLISTED_IMAGE = "https://example.invalid/x.png";
 const PAGES = [
 	{ path: "/blog/", hosts: [CLOUDFRONT] },
@@ -167,6 +170,11 @@ async function visit(path, expected, prepare) {
 				Array.from(document.images).every((image) => image.complete),
 		);
 		await hostsRequested(hosts, expected);
+		// A recipe page registers the recipe service worker, which then claims
+		// the page; a registration the policies block would never get there.
+		if (path.startsWith(RECIPES)) {
+			await page.waitForFunction(() => navigator.serviceWorker.controller);
+		}
 		return {
 			header: response?.headers()["content-security-policy"],
 			metaPolicies: await page
@@ -174,6 +182,10 @@ async function visit(path, expected, prepare) {
 				.evaluateAll((metas) => metas.map((meta) => meta.content)),
 			violations: await page.evaluate(() => window.__violations),
 			requested: [...hosts].sort((a, b) => a.localeCompare(b, "en")),
+			workerScope: await page.evaluate(
+				async () =>
+					(await navigator.serviceWorker.getRegistration())?.scope ?? null,
+			),
 			errors,
 		};
 	} finally {
@@ -181,7 +193,7 @@ async function visit(path, expected, prepare) {
 	}
 }
 
-it("blog posts with embeds, the blog home, a blog search, /about/, a recipe page with its dialog open and the recipe library with its popovers or a linked recipe open load under the vercel.json header and their meta policy without a violation", {
+it("blog posts with embeds, the blog home, a blog search, /about/, a recipe page with its dialog open and the recipe library with its popovers or a linked recipe open load under the vercel.json header and their meta policy without a violation, recipe pages with their service worker active", {
 	timeout: 120_000,
 }, async () => {
 	// One page at a time keeps each page's requests its own.
@@ -197,6 +209,11 @@ it("blog posts with embeds, the blog home, a blog search, /about/, a recipe page
 		assert.equal(result.metaPolicies.length, 1, `${path}: one meta policy`);
 		assert.deepEqual(result.violations, [], `${path}: CSP violations`);
 		assert.deepEqual(result.errors, [], `${path}: page errors`);
+		assert.equal(
+			result.workerScope,
+			path.startsWith(RECIPES) ? `${site.origin}${RECIPES}` : null,
+			`${path}: service worker scope`,
+		);
 		for (const host of hosts) {
 			assert.ok(
 				result.requested.includes(host),

@@ -23,6 +23,7 @@ const EXCLUDED = [
 	"src/components/blog/",
 	"src/pages/blog/",
 	"src/layouts/BlogLayout.astro",
+	"src/layouts/RecipeLayout.astro",
 	"src/components/recipes/",
 	"src/pages/recipes/",
 ];

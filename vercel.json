@@ -63,6 +63,15 @@
 					"value": "application/atom+xml; charset=utf-8"
 				}
 			]
+		},
+		{
+			"source": "/recipes/service-worker.js",
+			"headers": [
+				{
+					"key": "Cache-Control",
+					"value": "no-cache"
+				}
+			]
 		}
 	]
 }
