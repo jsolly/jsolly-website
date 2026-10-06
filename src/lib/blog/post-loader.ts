@@ -1,7 +1,12 @@
-import { readFile } from "node:fs/promises";
+import { readdir, readFile } from "node:fs/promises";
 import { glob, type Loader } from "astro/loaders";
 import { parseFrontmatter } from "astro/markdown";
 import { parseDocument } from "yaml";
+import { postSchema } from "./schemas.js";
+import { postHref } from "./urls.js";
+
+const POST_FILE = /\.md$/u;
+const lastmodSchema = postSchema.pick({ slug: true, updated: true });
 
 // PagesCMS writes YAML 1.2 strings, including unquoted ISO timestamps. The
 // core schema keeps them strings, so the collection schema sees the exact
@@ -44,4 +49,23 @@ export function postLoader(): Loader {
 			});
 		},
 	};
+}
+
+// Each post's page path mapped to its `updated` time as an ISO string, read
+// from the post files in `dir` the way the collection loader reads them. The
+// sitemap's lastmod; throws when `dir` holds no post, so a wrong path cannot
+// quietly drop every lastmod.
+export async function postLastmods(dir: URL): Promise<Map<string, string>> {
+	const files = (await readdir(dir)).filter((name) => POST_FILE.test(name));
+	if (files.length === 0) throw new Error(`No posts in ${dir.href}`);
+	const posts = await Promise.all(
+		files.map(async (name) =>
+			lastmodSchema.parse(
+				parsePost(await readFile(new URL(name, dir), "utf8")),
+			),
+		),
+	);
+	return new Map(
+		posts.map(({ slug, updated }) => [postHref(slug), updated.toISOString()]),
+	);
 }

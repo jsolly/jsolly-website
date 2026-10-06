@@ -5,10 +5,16 @@ import svelte from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
 import type { AstroIntegration } from "astro";
 import { defineConfig } from "astro/config";
+import { postLastmods } from "./src/lib/blog/post-loader.js";
 
 // Astro builds these as dist/404.html and dist/500.html; they are not routes.
 const ERROR_ROUTES = new Set(["/404/", "/500/"]);
 const EDGE_SLASHES = /^\/+|\/+$/gu;
+// Pages the sitemap leaves out: the error pages and the noindex blog search.
+// Everything else built is listed, /recipes/ pages included (J12).
+const SITEMAP_EXCLUDED = new Set([...ERROR_ROUTES, "/blog/search/"]);
+const POSTS = new URL("./src/content/blog/posts/", import.meta.url);
+let lastmods: Promise<Map<string, string>> | undefined;
 
 /**
  * Writes the gitignored src/generated/route-manifest.js from the pages this
@@ -62,6 +68,13 @@ export default defineConfig({
 				process.env.NODE_ENV === "development"
 					? ["http://localhost:4321/John-Solly-Resume.pdf"]
 					: ["https://www.jsolly.com/John-Solly-Resume.pdf"],
+			filter: (page) => !SITEMAP_EXCLUDED.has(new URL(page).pathname),
+			// A post's lastmod is its frontmatter `updated`; no other page has one.
+			serialize: async (item) => {
+				lastmods ??= postLastmods(POSTS);
+				const lastmod = (await lastmods).get(new URL(item.url).pathname);
+				return lastmod ? { ...item, lastmod } : item;
+			},
 		}),
 		routeManifest(),
 	],
