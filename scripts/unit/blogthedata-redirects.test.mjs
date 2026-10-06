@@ -18,6 +18,8 @@ import {
 	isPageRow,
 	JSOLLY_ORIGIN,
 	LEGACY_DIR,
+	lowercaseNegatives,
+	probePaths,
 	readLegacyJson,
 	redirectForms,
 	routePath,
@@ -38,7 +40,6 @@ const ROOT = fileURLToPath(new URL("../..", import.meta.url));
 const PUBLIC_DIR = join(LEGACY_DIR, "public");
 const PUBLIC_TRACKED = "legacy/blogthedata/public";
 const VERCEL_REDIRECT_LIMIT = 2048;
-const UPPERCASE = /[A-Z]/u;
 const FETCH_LISTENER = /addEventListener\(\s*["']fetch["']|\bonfetch\b/u;
 const UNREGISTER = /\.registration\.unregister\(\)/u;
 const CLAIM = /\.clients\.claim\(\)/u;
@@ -132,18 +133,13 @@ const patternRegex = new Map(
 		.map((row) => [row.id, new RegExp(sourceToRegex(row.source).src, "u")]),
 );
 
-// Mirrors the map's matching rule: exact page rows cover the slashless form,
-// and redirect pages also cover /index.html and /index.html/.
+// Mirrors the map's matching rule: a pattern row matches its compiled
+// source, an exact row the paths it answers (probePaths).
 function rowMatches(row, path) {
 	if (row.match === "pattern") {
 		return patternRegex.get(row.id).test(path);
 	}
-	if (row.action === "redirect-301") {
-		return redirectForms(row).includes(path);
-	}
-	return (
-		path === row.source || (isPageRow(row) && path === row.source.slice(0, -1))
-	);
+	return probePaths(row).includes(path);
 }
 
 const escapeRegex = (text) => text.replaceAll(REGEX_SPECIAL, "\\$&");
@@ -305,22 +301,8 @@ it("The old host serves exactly its tracked public files, with no-cache headers 
 });
 
 it("Retired, unknown and near-miss old URLs get a 404, never a redirect", () => {
-	const stays = rowsByAction("stays-404");
-	assert.deepEqual(
-		stays
-			.filter((row) => row.match === "pattern" && !(row.samples?.length > 0))
-			.map((row) => row.id),
-		[],
-		"every stays-404 pattern row carries samples",
-	);
-	const paths = stays.flatMap((row) => {
-		if (row.match === "pattern") {
-			return row.samples;
-		}
-		return isPageRow(row)
-			? [row.source, row.source.slice(0, -1)]
-			: [row.source];
-	});
+	// probePaths throws on a pattern row without samples.
+	const paths = rowsByAction("stays-404").flatMap(probePaths);
 	assert.deepEqual(unredirected([...paths, ...NEAR_MISSES]), []);
 	// Every known path whose row is not a redirect, routed directly.
 	const knownUnredirected = union.elements
@@ -335,11 +317,7 @@ it("Retired, unknown and near-miss old URLs get a 404, never a redirect", () => 
 });
 
 it("A lowercased URL of a mixed-case old slug gets a 404, not a redirect", () => {
-	const sources = new Set(map.rows.map((row) => row.source));
-	const lowercase = rowsByAction("redirect-301")
-		.filter((row) => UPPERCASE.test(row.source))
-		.map((row) => row.source.toLowerCase())
-		.filter((source) => !sources.has(source));
+	const lowercase = lowercaseNegatives(map.rows);
 	assert.ok(lowercase.length > 0);
 	assert.deepEqual(unredirected(lowercase), []);
 });

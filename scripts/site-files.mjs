@@ -5,7 +5,7 @@ import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
-const DAY_MS = 86_400_000;
+export const DAY_MS = 86_400_000;
 // The one `Name: value` line form both files use (RFC 9116 requires the
 // single space; RFC 9309 robots.txt allows it).
 const FIELD = /^(?<name>[A-Za-z-]+): (?<value>\S.*)$/u;
@@ -56,6 +56,18 @@ function rfc3339Time(text) {
 	return Number(day) > monthDays.getUTCDate() ? Number.NaN : Date.parse(text);
 }
 
+// The one Expires of security.txt `fields` (fieldLines() `fields`) as
+// { text, time }, time in epoch milliseconds and NaN for an impossible date;
+// null when Expires is missing, repeated or not RFC 3339 shaped. The cutover
+// verifier reads the live files' Expires with it too.
+export function securityTxtExpires(fields) {
+	const expires = fieldValues(fields, "expires");
+	if (expires.length !== 1 || !RFC3339.test(expires[0])) {
+		return null;
+	}
+	return { text: expires[0], time: rfc3339Time(expires[0]) };
+}
+
 // What is wrong with security.txt `text`, as messages (none when it is
 // valid): a line that is not blank, a comment or a field; a field in
 // `expected` (lowercase names) that does not appear exactly once with that
@@ -83,21 +95,21 @@ export function securityTxtProblems(text, expected, { committed }) {
 			problems.push(`unexpected field ${name}: ${value}`);
 		}
 	}
-	const expires = fieldValues(fields, "expires");
-	if (expires.length !== 1 || !RFC3339.test(expires[0])) {
+	const expires = securityTxtExpires(fields);
+	if (!expires) {
 		problems.push(
-			`Expires is ${JSON.stringify(expires)}, not one RFC 3339 time`,
+			`Expires is ${JSON.stringify(fieldValues(fields, "expires"))}, not one RFC 3339 time`,
 		);
 		return problems;
 	}
-	const lifetime = rfc3339Time(expires[0]) - committedAt;
+	const lifetime = expires.time - committedAt;
 	if (Number.isNaN(lifetime)) {
-		problems.push(`Expires ${expires[0]} is not a valid time`);
+		problems.push(`Expires ${expires.text} is not a valid time`);
 	} else if (!(lifetime > 0)) {
-		problems.push(`Expires ${expires[0]} is not after ${committed}`);
+		problems.push(`Expires ${expires.text} is not after ${committed}`);
 	} else if (!(lifetime < 365 * DAY_MS)) {
 		problems.push(
-			`Expires ${expires[0]} is 365 days or more after ${committed}`,
+			`Expires ${expires.text} is 365 days or more after ${committed}`,
 		);
 	}
 	return problems;

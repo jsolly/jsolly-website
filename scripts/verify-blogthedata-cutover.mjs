@@ -5,7 +5,7 @@
 // is sent with redirects off, so each hop is checked on its own.
 //
 // Modes (each prints a per-check summary and exits 1 on any failure, 2 on a
-// usage error):
+// usage error; any other flag combination is a usage error):
 //
 //   --production
 //     Every url-map row on each of meta.hosts (blogthedata.com,
@@ -23,6 +23,7 @@
 //   --destinations-only --base-url <url> [--transport ...] [--bypass-env NAME]
 //     Only the destinations, on <url> (a jsolly deployment), and the two feeds'
 //     XML Content-Types. C0 step 8 (the preview, vercel-curl) and C1 (production).
+//   <url> is an https origin (http only for a loopback stub, as in the tests).
 //
 // Transports, which apply to the --base-url requests only:
 //   fetch (default): Node fetch with `redirect: "manual"`. `--bypass-env NAME`
@@ -35,7 +36,17 @@
 //     so the CLI never links or prompts inside a checkout. The write-out is the
 //     status, Location, Content-Type and Cache-Control headers (the plan's
 //     `%{http_code} %{redirect_url}` cannot check served files), and served
-//     files are written to a temp file to compare their bytes.
+//     files are written to a temp file to compare their bytes. One serial
+//     warm-up call (with curl -v) first lets the CLI find or create the
+//     deployment's bypass secret and reads it from the request headers; every
+//     later call gets it as VERCEL_AUTOMATION_BYPASS_SECRET, which the CLI uses
+//     without asking the API, so the run creates at most one secret and a
+//     rate-limited API call cannot turn into a 401.
+//
+// A request is retried once, with a warning, only on a transient transport
+// error (a fetch network error or timeout; curl exit 6, 7 or 28). Anything
+// else, such as a CLI login or scope error or an unreadable write-out, fails
+// its check at once. A failed request is a failure, never a skip.
 //
 // Checks:
 //   - 301: every form of a redirect row (exact; for page rows also slashless,
@@ -56,8 +67,8 @@
 //   - destinations: every distinct 301 destination answers 200 on jsolly.com,
 //     and the two feeds answer application/rss+xml and application/atom+xml.
 //   Recorded only, never failed: the double-slash forms //post/<slug>/,
-//   /post/<slug>// and // (§2.3, J28: each hop on the same host is printed),
-//   and fragments, which never reach a server.
+//   /post/<slug>// and // of the first post row (§2.3, J28: each hop on the
+//   same host is printed), and fragments, which never reach a server.
 //
 // The sample (--sample), derived from url-map.json by these fixed rules:
 //   the first post redirect row whose source has an uppercase letter; the
@@ -66,7 +77,7 @@
 //   service-worker row; the first stays-404 row that is the lowercase of a
 //   redirect source; and the security row served 200. It also checks
 //   jsolly.com's own /.well-known/security.txt, so both sites' security.txt
-//   files are watched.
+//   files are watched. It has no query probes and no double-slash records.
 import { spawn } from "node:child_process";
 import { mkdtempSync, readFileSync, realpathSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
@@ -74,34 +85,35 @@ import { extname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { isDeepStrictEqual, parseArgs } from "node:util";
 import {
-	isPageRow,
 	JSOLLY_ORIGIN,
 	LEGACY_DIR,
+	lowercaseNegatives,
+	probePaths,
 	readLegacyJson,
-	redirectForms,
 	SERVICE_WORKER_HEADERS,
+	servedIndexForms,
 } from "./blogthedata-redirects.mjs";
-import { fieldLines, fieldValues } from "./site-files.mjs";
+import { DAY_MS, fieldLines, securityTxtExpires } from "./site-files.mjs";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const LEGACY_PUBLIC = join(LEGACY_DIR, "public");
 const JSOLLY_SECURITY_TXT = "/.well-known/security.txt";
 const VERCEL_BIN = join(ROOT, "node_modules", ".bin", "vercel");
 const VERCEL_SCOPE = "jsollys-projects";
+const BYPASS_ENV = "VERCEL_AUTOMATION_BYPASS_SECRET";
+// curl -v prints each request header the CLI added as `> name: value`.
+const BYPASS_HEADER = /^> x-vercel-protection-bypass: (?<token>\S+)\r?$/imu;
+const BYPASS_HEADERS = /^> x-vercel-protection-bypass: \S+/gimu;
+// curl exits 6 (host not resolved), 7 (no connection) and 28 (timeout).
+const TRANSIENT_CURL_EXITS = new Set([6, 7, 28]);
 const TIMEOUT_SECONDS = 30;
 const CONCURRENCY = 8;
-const DAY_MS = 86_400_000;
 const EXPIRY_MARGIN_DAYS = 30;
 const UPPERCASE = /[A-Z]/u;
+const LOOPBACK_HOSTS = new Set(["127.0.0.1", "localhost", "[::1]"]);
 // curl's write-out, after a marker so CLI chatter on stdout cannot be misread.
 const CURL_MARKER = "verify-blogthedata-cutover";
 const CURL_WRITE_OUT = `\n${CURL_MARKER}\n%{http_code}\n%header{location}\n%header{content-type}\n%header{cache-control}`;
-const QUERY_PROBES = [
-	// biome-ignore lint/security/noSecrets: the plan's recipe query probe, not credential material.
-	{ source: "/recipes/meals/", query: "servings=6&starch=a:b" },
-	{ source: "/search/", query: "searched=django" },
-	{ source: null, query: "utm_source=x" },
-];
 const FEED_TYPES = {
 	"rss.xml": "application/rss+xml",
 	"atom.xml": "application/atom+xml",
@@ -114,16 +126,17 @@ const SERVED_TYPES = {
 const SW_HEADERS = Object.fromEntries(
 	SERVICE_WORKER_HEADERS.map(({ key, value }) => [key.toLowerCase(), value]),
 );
-const GROUPS = [
-	"301 redirect",
-	"http upgrade",
-	"query kept",
-	"served 200",
-	"stays 404",
-	"lowercase 404",
-	"destination 200",
-	"security.txt",
-];
+// Every check belongs to one of these groups; the summary lists them in order.
+export const GROUP = Object.freeze({
+	redirect: "301 redirect",
+	upgrade: "http upgrade",
+	query: "query kept",
+	served: "served 200",
+	stays404: "stays 404",
+	lowercase404: "lowercase 404",
+	destination: "destination 200",
+	securityTxt: "security.txt",
+});
 const USAGE = `usage: node scripts/verify-blogthedata-cutover.mjs
   --production [--sample]
   --base-url <url> [--transport fetch|vercel-curl] [--bypass-env NAME]
@@ -168,21 +181,18 @@ function statusProblem(response, status) {
 }
 
 function expiryProblem(body, now) {
-	const expires = fieldValues(
-		fieldLines(body.toString("utf8")).fields,
-		"expires",
-	);
-	const at = expires.length === 1 ? Date.parse(expires[0]) : Number.NaN;
-	if (Number.isNaN(at)) {
-		return `Expires is ${JSON.stringify(expires)}, not one time`;
+	const expires = securityTxtExpires(fieldLines(body.toString("utf8")).fields);
+	if (!expires || Number.isNaN(expires.time)) {
+		return "Expires is not one valid RFC 3339 time";
 	}
-	return at - now > EXPIRY_MARGIN_DAYS * DAY_MS
+	return expires.time - now > EXPIRY_MARGIN_DAYS * DAY_MS
 		? null
-		: `Expires ${expires[0]} is within ${EXPIRY_MARGIN_DAYS} days`;
+		: `Expires ${expires.text} is within ${EXPIRY_MARGIN_DAYS} days`;
 }
 
-// What a served file must answer: 200, its type, its exact bytes.
-function servedExpectation(file, { serviceWorker, securityTxt, now }) {
+// What a served file must answer: 200, its type, its exact bytes. The check
+// gets the run's context, whose `now` dates the security.txt expiry.
+function servedExpectation(file, { serviceWorker = false, securityTxt }) {
 	const bytes = readFileSync(file);
 	const type = SERVED_TYPES[extname(file)];
 	if (!type) {
@@ -190,7 +200,7 @@ function servedExpectation(file, { serviceWorker, securityTxt, now }) {
 	}
 	return {
 		body: true,
-		check(response) {
+		check(response, { now }) {
 			const problems = [statusProblem(response, 200)];
 			if (serviceWorker) {
 				if (response.contentType !== SW_HEADERS["content-type"]) {
@@ -225,11 +235,38 @@ const redirectExpectation = (location) => ({
 		locationProblem(response.location, location),
 });
 
+const feedExpectation = (feedType) => ({
+	body: false,
+	check(response) {
+		const problem = statusProblem(response, 200);
+		if (problem || !feedType) {
+			return problem;
+		}
+		return mediaType(response.contentType) === feedType
+			? null
+			: `Content-Type ${response.contentType}, not ${feedType}`;
+	},
+});
+
+function firstPostRow(map) {
+	const row = map.rows.find(
+		(candidate) =>
+			candidate.class === "post" && candidate.action === "redirect-301",
+	);
+	if (!row) {
+		throw new Error("url-map has no post redirect row");
+	}
+	return row;
+}
+
 // The fixed --sample rows; see the header for the rules.
 export function sampleRows(map) {
 	const rows = map.rows;
-	const redirects = rows.filter((row) => row.action === "redirect-301");
-	const lowered = new Set(redirects.map((row) => row.source.toLowerCase()));
+	const lowered = new Set(
+		rows
+			.filter((row) => row.action === "redirect-301")
+			.map((row) => row.source.toLowerCase()),
+	);
 	const pick = (name, predicate) => {
 		const row = rows.find(predicate);
 		if (!row) {
@@ -272,133 +309,164 @@ export function sampleRows(map) {
 	];
 }
 
-// The index.html forms the old host serves today, from url-union.json.
-const servedIndexForms = (union) =>
-	union.elements.filter(
-		(element) =>
-			element.kind === "path" &&
-			element.served_today &&
-			element.path.endsWith("index.html"),
-	);
-
-// Every [group, path, expectation] the legacy host must answer for these rows.
-function legacyProbes(rows, { map, union, now }) {
-	const probes = [];
-	const rowsById = new Map(map.rows.map((row) => [row.id, row]));
-	const sources = new Set(map.rows.map((row) => row.source));
-	for (const row of rows) {
+// The { group, path, expectation } probes each legacy host must answer for
+// these rows.
+function rowProbes(rows) {
+	return rows.flatMap((row) => {
 		if (row.action === "redirect-301") {
-			for (const path of redirectForms(row)) {
-				probes.push([
-					"301 redirect",
-					path,
-					redirectExpectation(row.destination),
-				]);
-			}
-		} else if (row.action === "serve-200") {
-			const expectation = servedExpectation(join(LEGACY_PUBLIC, row.source), {
-				serviceWorker: row.class === "service-worker",
-				securityTxt: row.class === "security",
-				now,
-			});
-			probes.push(["served 200", row.source, expectation]);
-		} else {
-			if (row.match === "pattern" && !(row.samples?.length > 0)) {
-				throw new Error(`stays-404 pattern row ${row.id} has no samples`);
-			}
-			const paths =
-				row.match === "pattern"
-					? row.samples
-					: isPageRow(row)
-						? [row.source, row.source.slice(0, -1)]
-						: [row.source];
-			for (const path of paths) {
-				probes.push(["stays 404", path, statusExpectation(404)]);
-			}
+			return probePaths(row).map((path) => ({
+				group: GROUP.redirect,
+				path,
+				expectation: redirectExpectation(row.destination),
+			}));
 		}
-	}
-	const included = new Set(rows.map((row) => row.id));
-	for (const element of servedIndexForms(union)) {
-		if (!included.has(element.row_id)) {
-			continue;
-		}
-		const row = rowsById.get(element.row_id);
-		probes.push(
-			row.action === "redirect-301"
-				? ["301 redirect", element.probe, redirectExpectation(row.destination)]
-				: ["stays 404", element.probe, statusExpectation(404)],
-		);
-	}
-	for (const row of rows) {
-		const lower = row.source.toLowerCase();
-		if (
-			row.action === "redirect-301" &&
-			UPPERCASE.test(row.source) &&
-			!sources.has(lower)
-		) {
-			probes.push(["lowercase 404", lower, statusExpectation(404)]);
-		}
-	}
-	return probes;
-}
-
-function queryProbes(map) {
-	const firstPost = map.rows.find(
-		(row) => row.class === "post" && row.action === "redirect-301",
-	);
-	return QUERY_PROBES.map(({ source, query }) => {
-		const row = map.rows.find(
-			(candidate) =>
-				candidate.action === "redirect-301" &&
-				candidate.source === (source ?? firstPost.source),
-		);
-		if (!row) {
-			throw new Error(`url-map has no redirect row for ${source}`);
-		}
-		return [
-			"query kept",
-			`${row.source}?${query}`,
-			redirectExpectation(withQuery(row.destination, query)),
-		];
-	});
-}
-
-function doubleSlashPaths(map) {
-	const post = map.rows.find(
-		(row) => row.class === "post" && row.action === "redirect-301",
-	);
-	return [`/${post.source}`, `${post.source}/`, "//"];
-}
-
-// Paths and their expected jsolly answers: every distinct 301 destination
-// path, the feeds with their XML type.
-function destinationProbes(rows) {
-	const paths = [
-		...new Set(
-			rows
-				.filter((row) => row.action === "redirect-301")
-				.map((row) => row.destination.slice(JSOLLY_ORIGIN.length)),
-		),
-	];
-	return paths.map((path) => {
-		const feedType = FEED_TYPES[path.split("/").pop()];
-		return [
-			"destination 200",
-			path,
-			{
-				body: false,
-				check(response) {
-					const problem = statusProblem(response, 200);
-					if (problem || !feedType) {
-						return problem;
-					}
-					return mediaType(response.contentType) === feedType
-						? null
-						: `Content-Type ${response.contentType}, not ${feedType}`;
+		if (row.action === "serve-200") {
+			return [
+				{
+					group: GROUP.served,
+					path: row.source,
+					expectation: servedExpectation(join(LEGACY_PUBLIC, row.source), {
+						serviceWorker: row.class === "service-worker",
+						securityTxt: row.class === "security",
+					}),
 				},
-			},
-		];
+			];
+		}
+		return probePaths(row).map((path) => ({
+			group: GROUP.stays404,
+			path,
+			expectation: statusExpectation(404),
+		}));
 	});
+}
+
+// Every distinct 301 destination of these rows, the feeds with their type.
+function destinationProbes(rows) {
+	const paths = new Set(
+		rows
+			.filter((row) => row.action === "redirect-301")
+			.map((row) => row.destination.slice(JSOLLY_ORIGIN.length)),
+	);
+	return [...paths].map((path) => ({
+		group: GROUP.destination,
+		path,
+		expectation: feedExpectation(FEED_TYPES[path.split("/").pop()]),
+	}));
+}
+
+// A served index.html form from url-union.json answers as its row does.
+function indexFormProbe(element, rowsById) {
+	const row = rowsById.get(element.row_id);
+	if (row.action === "redirect-301") {
+		return {
+			group: GROUP.redirect,
+			path: element.probe,
+			expectation: redirectExpectation(row.destination),
+		};
+	}
+	if (row.action === "stays-404") {
+		return {
+			group: GROUP.stays404,
+			path: element.probe,
+			expectation: statusExpectation(404),
+		};
+	}
+	throw new Error(
+		`served index.html form ${element.probe} has serve-200 row ${row.id}`,
+	);
+}
+
+// One probe per path: the first wins.
+function uniqueByPath(probes) {
+	const seen = new Set();
+	return probes.filter(({ path }) => !seen.has(path) && seen.add(path));
+}
+
+function fragmentNote() {
+	const pages = readLegacyJson("fragment-ids.json").pages;
+	const ids = Object.values(pages).reduce((sum, list) => sum + list.length, 0);
+	return `fragments: ${Object.keys(pages).length} old pages carry ${ids} ids (legacy/blogthedata/fragment-ids.json); the browser keeps #fragment across the 301 and never sends it, so scripts/built/legacy-fragments.test.mjs checks the ids against the build`;
+}
+
+// A plan: `legacy` probes run on each legacy target, `destinations` on the
+// destination origin, `doubleSlash` paths are recorded hop by hop on each
+// target, and `notes` are printed as they are.
+
+// Every row, every served index.html form, the lowercase negatives, the query
+// probes, the destinations and the double-slash records.
+export function fullPlan(map, union) {
+	const rowsById = new Map(map.rows.map((row) => [row.id, row]));
+	const post = firstPostRow(map);
+	const indexForms = servedIndexForms(union);
+	const queries = [
+		// biome-ignore lint/security/noSecrets: the plan's recipe query probe, not credential material.
+		["/recipes/meals/", "servings=6&starch=a:b"],
+		["/search/", "searched=django"],
+		[post.source, "utm_source=x"],
+	];
+	const legacy = uniqueByPath([
+		...rowProbes(map.rows),
+		...indexForms.map((element) => indexFormProbe(element, rowsById)),
+		...lowercaseNegatives(map.rows).map((path) => ({
+			group: GROUP.lowercase404,
+			path,
+			expectation: statusExpectation(404),
+		})),
+		...queries.map(([source, query]) => {
+			const row = map.rows.find(
+				(candidate) =>
+					candidate.action === "redirect-301" && candidate.source === source,
+			);
+			if (!row) {
+				throw new Error(`url-map has no redirect row for ${source}`);
+			}
+			return {
+				group: GROUP.query,
+				path: `${source}?${query}`,
+				expectation: redirectExpectation(withQuery(row.destination, query)),
+			};
+		}),
+	]);
+	return {
+		legacy,
+		destinations: destinationProbes(map.rows),
+		doubleSlash: [`/${post.source}`, `${post.source}/`, "//"],
+		notes: [
+			`url-union.json: ${indexForms.length} served index.html forms probed`,
+			fragmentNote(),
+		],
+	};
+}
+
+// The fixed sample (see the header) and jsolly.com's security.txt.
+export function samplePlan(map) {
+	const rows = sampleRows(map);
+	return {
+		legacy: uniqueByPath(rowProbes(rows)),
+		destinations: [
+			...destinationProbes(rows),
+			{
+				group: GROUP.securityTxt,
+				path: JSOLLY_SECURITY_TXT,
+				expectation: servedExpectation(
+					join(ROOT, "public", JSOLLY_SECURITY_TXT),
+					{ securityTxt: true },
+				),
+			},
+		],
+		doubleSlash: [],
+		notes: [],
+	};
+}
+
+// Only the destinations and the feeds' types.
+export function destinationsPlan(map) {
+	return {
+		legacy: [],
+		destinations: destinationProbes(map.rows),
+		doubleSlash: [],
+		notes: [],
+	};
 }
 
 async function pool(tasks, size) {
@@ -415,46 +483,55 @@ async function pool(tasks, size) {
 	return results;
 }
 
-// One request, retried once on a transport error; a second error is the
-// check's failure, never a skip.
-async function ask(request, url, body) {
+// One request. A transient transport error is retried once, with a warning;
+// any other error, or a second one, is the check's failure.
+async function ask(context, request, url, body) {
 	try {
 		return await request(url, { body });
-	} catch {
-		try {
-			return await request(url, { body });
-		} catch (error) {
+	} catch (error) {
+		if (!error.transient) {
 			return { error: `request failed: ${error.message}` };
 		}
+		context.warn(`⚠ retrying ${url} after: ${error.message}`);
+	}
+	try {
+		return await request(url, { body });
+	} catch (error) {
+		return { error: `request failed: ${error.message}` };
 	}
 }
 
-function runCheck(request, group, url, expectation) {
+function runCheck(context, request, { group, url, expectation }) {
 	return async () => {
-		const response = await ask(request, url, expectation.body);
+		const response = await ask(context, request, url, expectation.body);
 		return {
 			group,
 			url,
-			problem: response.error ?? expectation.check(response),
+			problem: response.error ?? expectation.check(response, context),
 		};
 	};
 }
 
 // http → 308 to the https URL → the https answer.
-function runUpgrade(request, httpUrl, httpsUrl, expectation) {
+function runUpgrade(context, request, httpUrl, httpsUrl, expectation) {
 	return async () => {
-		const upgrade = await ask(request, httpUrl, false);
+		const upgrade = await ask(context, request, httpUrl, false);
 		const problem =
 			upgrade.error ??
 			statusProblem(upgrade, 308) ??
 			locationProblem(upgrade.location, httpsUrl);
 		if (problem) {
-			return { group: "http upgrade", url: httpUrl, problem };
+			return { group: GROUP.upgrade, url: httpUrl, problem };
 		}
-		const response = await ask(request, upgrade.location, expectation.body);
-		const then = response.error ?? expectation.check(response);
+		const response = await ask(
+			context,
+			request,
+			upgrade.location,
+			expectation.body,
+		);
+		const then = response.error ?? expectation.check(response, context);
 		return {
-			group: "http upgrade",
+			group: GROUP.upgrade,
 			url: httpUrl,
 			problem: then && `after the 308, ${then}`,
 		};
@@ -462,14 +539,14 @@ function runUpgrade(request, httpUrl, httpsUrl, expectation) {
 }
 
 // Each same-host hop of a double-slash form, for the record.
-function recordHops(request, url) {
+function recordHops(context, request, origin, path) {
 	return async () => {
+		const url = `${origin}${path}`;
 		const hops = [];
 		let current = url;
-		const origin = url.slice(0, url.indexOf("/", url.indexOf("//") + 2));
 		for (let hop = 0; hop < 3; hop += 1) {
 			// biome-ignore lint/performance/noAwaitInLoops: each hop follows the previous one's Location.
-			const response = await ask(request, current, false);
+			const response = await ask(context, request, current, false);
 			if (response.error) {
 				hops.push(response.error);
 				break;
@@ -487,109 +564,86 @@ function recordHops(request, url) {
 	};
 }
 
-function fragmentRecord() {
-	const pages = readLegacyJson("fragment-ids.json").pages;
-	const ids = Object.values(pages).reduce((sum, list) => sum + list.length, 0);
-	return `fragments: ${Object.keys(pages).length} old pages carry ${ids} ids (legacy/blogthedata/fragment-ids.json); the browser keeps #fragment across the 301 and never sends it, so scripts/built/legacy-fragments.test.mjs checks the ids against the build`;
-}
-
-// Runs the checks. `targets` are the legacy origins ({ origin, upgradeOrigin
-// }, upgradeOrigin null to skip http), `request` asks them, and
-// `destinationRequest` asks `destinationOrigin`. Returns every check's
+// Runs `plan`. `targets` are the legacy origins ({ origin, upgradeOrigin },
+// upgradeOrigin null to skip http), `request` asks them, and
+// `destinationRequest` asks `destinationOrigin`. `now` dates the
+// security.txt expiry and `warn` reports retries. Returns every check's
 // { group, url, problem } (problem null when it passed) and the records.
 export async function verifyCutover({
+	plan,
 	targets,
 	request,
 	destinationOrigin,
 	destinationRequest,
-	sample = false,
 	now = Date.now(),
-	map = readLegacyJson("url-map.json"),
-	union = readLegacyJson("url-union.json"),
+	warn = console.warn,
 }) {
-	const rows = sample ? sampleRows(map) : map.rows;
+	const context = { now, warn };
 	const tasks = [];
 	const recordTasks = [];
-	const seen = new Set();
-	const legacy = [
-		...legacyProbes(rows, { map, union, now }),
-		...(sample ? [] : queryProbes(map)),
-	];
 	for (const { origin, upgradeOrigin } of targets) {
-		for (const [group, path, expectation] of legacy) {
+		for (const { group, path, expectation } of plan.legacy) {
 			const [pathname, query] = path.split("?");
 			const url = withQuery(`${origin}${encodePath(pathname)}`, query);
-			if (seen.has(url)) {
-				continue;
-			}
-			seen.add(url);
-			tasks.push(runCheck(request, group, url, expectation));
+			tasks.push(runCheck(context, request, { group, url, expectation }));
 			if (upgradeOrigin) {
 				const httpUrl = withQuery(
 					`${upgradeOrigin}${encodePath(pathname)}`,
 					query,
 				);
-				tasks.push(runUpgrade(request, httpUrl, url, expectation));
+				tasks.push(runUpgrade(context, request, httpUrl, url, expectation));
 			}
 		}
-		if (!sample) {
-			for (const path of doubleSlashPaths(map)) {
-				recordTasks.push(recordHops(request, `${origin}${path}`));
-			}
+		for (const path of plan.doubleSlash) {
+			recordTasks.push(recordHops(context, request, origin, path));
 		}
 	}
-	const destinations = destinationProbes(rows);
-	if (sample) {
-		destinations.push([
-			"security.txt",
-			JSOLLY_SECURITY_TXT,
-			servedExpectation(join(ROOT, "public", JSOLLY_SECURITY_TXT), {
-				securityTxt: true,
-				now,
-			}),
-		]);
-	}
-	for (const [group, path, expectation] of destinations) {
+	for (const { group, path, expectation } of plan.destinations) {
 		tasks.push(
-			runCheck(
-				destinationRequest,
+			runCheck(context, destinationRequest, {
 				group,
-				`${destinationOrigin}${path}`,
+				url: `${destinationOrigin}${path}`,
 				expectation,
-			),
+			}),
 		);
 	}
 	const results = await pool(tasks, CONCURRENCY);
 	const records = await pool(recordTasks, CONCURRENCY);
-	if (targets.length > 0 && !sample) {
-		records.push(
-			`url-union.json: ${servedIndexForms(union).length} served index.html forms probed`,
-			fragmentRecord(),
-		);
-	}
-	return { results, records };
+	return { results, records: [...records, ...plan.notes] };
 }
 
-// Node fetch with redirects off; `headers` go on every request.
+// Node fetch with redirects off; `headers` go on every request. A network
+// error or timeout is marked transient.
 export function fetchTransport(headers = {}) {
 	return async (url, { body }) => {
-		const response = await fetch(url, {
-			redirect: "manual",
-			headers,
-			signal: AbortSignal.timeout(TIMEOUT_SECONDS * 1000),
-		});
-		const answer = {
-			status: response.status,
-			location: response.headers.get("location"),
-			contentType: response.headers.get("content-type"),
-			cacheControl: response.headers.get("cache-control"),
-		};
-		if (body) {
-			answer.body = Buffer.from(await response.arrayBuffer());
-		} else {
-			await response.body?.cancel();
+		try {
+			const response = await fetch(url, {
+				redirect: "manual",
+				headers,
+				signal: AbortSignal.timeout(TIMEOUT_SECONDS * 1000),
+			});
+			const answer = {
+				status: response.status,
+				location: response.headers.get("location"),
+				contentType: response.headers.get("content-type"),
+				cacheControl: response.headers.get("cache-control"),
+			};
+			if (body) {
+				answer.body = Buffer.from(await response.arrayBuffer());
+			} else {
+				await response.body?.cancel();
+			}
+			return answer;
+		} catch (error) {
+			const cause = error.cause?.code ?? error.cause?.message;
+			throw Object.assign(
+				new Error(cause ? `${error.message} (${cause})` : error.message),
+				{
+					transient:
+						error instanceof TypeError || error.name === "TimeoutError",
+				},
+			);
 		}
-		return answer;
 	};
 }
 
@@ -614,9 +668,15 @@ function curlArgs(url, cwd, output) {
 	];
 }
 
-function run(command, args) {
+// Runs `bin args` and resolves its stdout and stderr; a non-zero exit
+// rejects, transient for curl's DNS, connect and timeout exits. The bypass
+// secret is redacted from any error.
+function vercelCurl(bin, args, env) {
 	return new Promise((resolve, reject) => {
-		const child = spawn(command, args, { stdio: ["ignore", "pipe", "pipe"] });
+		const child = spawn(bin, args, {
+			env,
+			stdio: ["ignore", "pipe", "pipe"],
+		});
 		let stdout = "";
 		let stderr = "";
 		child.stdout.on("data", (chunk) => {
@@ -628,33 +688,55 @@ function run(command, args) {
 		child.on("error", reject);
 		child.on("close", (code) => {
 			if (code === 0) {
-				resolve(stdout);
-			} else {
-				reject(new Error(`vercel curl exited ${code}: ${stderr.trim()}`));
+				resolve({ stdout, stderr });
+				return;
 			}
+			const shown = stderr
+				.replaceAll(BYPASS_HEADERS, "> x-vercel-protection-bypass: [redacted]")
+				.trim();
+			reject(
+				Object.assign(new Error(`vercel curl exited ${code}: ${shown}`), {
+					transient: TRANSIENT_CURL_EXITS.has(code),
+				}),
+			);
 		});
 	});
 }
 
-// `vercel curl` from the repo's pinned CLI, in an empty working directory.
-function vercelCurlTransport(scratch) {
+function parseWriteOut(stdout) {
+	const lines = stdout.slice(stdout.lastIndexOf(CURL_MARKER)).split("\n");
+	if (lines[0] !== CURL_MARKER || lines.length !== 5) {
+		throw new Error(`unreadable curl write-out: ${JSON.stringify(stdout)}`);
+	}
+	const [, status, location, contentType, cacheControl] = lines;
+	return {
+		status: Number(status),
+		location: location || null,
+		contentType: contentType || null,
+		cacheControl: cacheControl || null,
+	};
+}
+
+// `vercel curl` through `bin` in an empty working directory. The serial
+// warm-up on `origin` reads the bypass secret the CLI attached (curl -v), and
+// every later call passes it as VERCEL_AUTOMATION_BYPASS_SECRET.
+export async function vercelCurlTransport(bin, origin, scratch) {
 	const cwd = mkdtempSync(join(scratch, "cwd-"));
+	const warmUp = await vercelCurl(
+		bin,
+		[...curlArgs(`${origin}/`, cwd, "/dev/null"), "-v"],
+		process.env,
+	);
+	const token = BYPASS_HEADER.test(warmUp.stderr)
+		? BYPASS_HEADER.exec(warmUp.stderr).groups.token
+		: null;
+	const env = token ? { ...process.env, [BYPASS_ENV]: token } : process.env;
 	let files = 0;
 	return async (url, { body }) => {
 		files += 1;
 		const output = body ? join(scratch, `body-${files}`) : "/dev/null";
-		const stdout = await run(VERCEL_BIN, curlArgs(url, cwd, output));
-		const lines = stdout.slice(stdout.lastIndexOf(CURL_MARKER)).split("\n");
-		if (lines[0] !== CURL_MARKER || lines.length < 5) {
-			throw new Error(`unreadable curl write-out: ${JSON.stringify(stdout)}`);
-		}
-		const [, status, location, contentType, cacheControl] = lines;
-		const answer = {
-			status: Number(status),
-			location: location || null,
-			contentType: contentType || null,
-			cacheControl: cacheControl || null,
-		};
+		const { stdout } = await vercelCurl(bin, curlArgs(url, cwd, output), env);
+		const answer = parseWriteOut(stdout);
 		if (body) {
 			answer.body = readFileSync(output);
 			rmSync(output, { force: true });
@@ -663,6 +745,33 @@ function vercelCurlTransport(scratch) {
 	};
 }
 
+function baseOrigin(text) {
+	let url;
+	try {
+		url = new URL(text);
+	} catch (error) {
+		throw new Error(`--base-url ${text} must start with https://`, {
+			cause: error,
+		});
+	}
+	const loopback = url.protocol === "http:" && LOOPBACK_HOSTS.has(url.hostname);
+	if (url.protocol !== "https:" && !loopback) {
+		throw new Error(`--base-url ${text} must start with https://`);
+	}
+	if (
+		url.pathname !== "/" ||
+		url.search ||
+		url.hash ||
+		url.username ||
+		url.password
+	) {
+		throw new Error(`--base-url ${text} must be an origin, with no path`);
+	}
+	return url.origin;
+}
+
+// The one mode the flags name, with that mode's options; any other
+// combination throws a usage error.
 function parseCli(argv) {
 	const { values } = parseArgs({
 		args: argv,
@@ -671,7 +780,7 @@ function parseCli(argv) {
 			sample: { type: "boolean", default: false },
 			"destinations-only": { type: "boolean", default: false },
 			"base-url": { type: "string" },
-			transport: { type: "string", default: "fetch" },
+			transport: { type: "string" },
 			"bypass-env": { type: "string" },
 		},
 		strict: true,
@@ -681,45 +790,51 @@ function parseCli(argv) {
 	if (values.production === (baseUrl !== undefined)) {
 		throw new Error("pass exactly one of --production and --base-url");
 	}
-	if (!["fetch", "vercel-curl"].includes(values.transport)) {
-		throw new Error(`unknown --transport ${values.transport}`);
-	}
-	if (values.production && values.transport !== "fetch") {
-		throw new Error("--production probes public hosts with fetch only");
-	}
-	if (values["bypass-env"] && (!baseUrl || values.transport !== "fetch")) {
-		throw new Error("--bypass-env needs --base-url and the fetch transport");
-	}
-	if (values["destinations-only"] && values.sample) {
-		throw new Error("--sample is a legacy-host mode, not --destinations-only");
-	}
-	let base = null;
-	if (baseUrl) {
-		base = new URL(baseUrl);
-		if (base.pathname !== "/" || base.search || base.hash) {
-			throw new Error(`--base-url ${baseUrl} must be an origin`);
+	if (values.production) {
+		if (values["destinations-only"]) {
+			throw new Error("--destinations-only needs --base-url, not --production");
 		}
+		if (values.transport !== undefined) {
+			throw new Error("--transport applies to --base-url only");
+		}
+		if (values["bypass-env"] !== undefined) {
+			throw new Error("--bypass-env applies to --base-url only");
+		}
+		return { mode: values.sample ? "production-sample" : "production" };
 	}
-	return { ...values, base };
-}
-
-function bypassHeaders(name) {
-	if (!name) {
-		return {};
+	if (values.sample) {
+		throw new Error("--sample runs with --production only");
 	}
-	const secret = process.env[name];
-	if (!secret) {
-		throw new Error(`environment variable ${name} is empty`);
+	const transport = values.transport ?? "fetch";
+	if (!["fetch", "vercel-curl"].includes(transport)) {
+		throw new Error(`unknown --transport ${transport}`);
 	}
-	return { "x-vercel-protection-bypass": secret };
+	const bypassEnv = values["bypass-env"];
+	if (bypassEnv !== undefined && transport !== "fetch") {
+		throw new Error("--bypass-env applies to the fetch transport only");
+	}
+	if (bypassEnv !== undefined && !process.env[bypassEnv]) {
+		throw new Error(`environment variable ${bypassEnv} is empty`);
+	}
+	return {
+		mode: values["destinations-only"] ? "destinations-only" : "base-url",
+		origin: baseOrigin(baseUrl),
+		transport,
+		bypassEnv,
+	};
 }
 
 function report({ results, records }, out) {
+	const groups = Object.values(GROUP);
+	const unknown = results.filter((result) => !groups.includes(result.group));
+	if (unknown.length > 0) {
+		throw new Error(`checks outside GROUP: ${unknown[0].group}`);
+	}
 	const failures = results.filter((result) => result.problem);
 	for (const { group, url, problem } of failures) {
 		out(`✗ ${group} ${url}: ${problem}`);
 	}
-	for (const group of GROUPS) {
+	for (const group of groups) {
 		const inGroup = results.filter((result) => result.group === group);
 		if (inGroup.length === 0) {
 			continue;
@@ -740,73 +855,90 @@ function report({ results, records }, out) {
 	return failures.length ? 1 : 0;
 }
 
+// The transport for --base-url requests.
+async function baseTransport(options, scratch) {
+	if (options.transport === "fetch") {
+		return fetchTransport(
+			options.bypassEnv
+				? { "x-vercel-protection-bypass": process.env[options.bypassEnv] }
+				: {},
+		);
+	}
+	const shown = curlArgs("<url>", "<empty temp dir>", "<file|/dev/null>");
+	console.log(
+		`Each probe runs: ${VERCEL_BIN} ${shown.map((arg) => JSON.stringify(arg)).join(" ")}`,
+	);
+	return await vercelCurlTransport(VERCEL_BIN, options.origin, scratch);
+}
+
+async function run(options, scratch) {
+	const map = readLegacyJson("url-map.json");
+	const publicFetch = fetchTransport();
+	const hosts = map.meta.hosts;
+	const production = {
+		targets: hosts.map((host) => ({
+			origin: `https://${host}`,
+			upgradeOrigin: `http://${host}`,
+		})),
+		request: publicFetch,
+		destinationOrigin: JSOLLY_ORIGIN,
+		destinationRequest: publicFetch,
+	};
+	switch (options.mode) {
+		case "production":
+			console.log(
+				`Checking url-map.json on ${hosts.join(", ")} (https and http); destinations on ${JSOLLY_ORIGIN}.`,
+			);
+			return verifyCutover({
+				plan: fullPlan(map, readLegacyJson("url-union.json")),
+				...production,
+			});
+		case "production-sample":
+			console.log(
+				`Checking the url-map.json sample on ${hosts.join(", ")} (https and http); destinations on ${JSOLLY_ORIGIN}.`,
+			);
+			return verifyCutover({ plan: samplePlan(map), ...production });
+		case "base-url":
+			console.log(
+				`Checking url-map.json on ${options.origin}; destinations on ${JSOLLY_ORIGIN}.`,
+			);
+			return verifyCutover({
+				plan: fullPlan(map, readLegacyJson("url-union.json")),
+				targets: [{ origin: options.origin, upgradeOrigin: null }],
+				request: await baseTransport(options, scratch),
+				destinationOrigin: JSOLLY_ORIGIN,
+				destinationRequest: publicFetch,
+			});
+		case "destinations-only": {
+			console.log(`Checking the url-map destinations on ${options.origin}.`);
+			const request = await baseTransport(options, scratch);
+			return verifyCutover({
+				plan: destinationsPlan(map),
+				targets: [],
+				request,
+				destinationOrigin: options.origin,
+				destinationRequest: request,
+			});
+		}
+		default:
+			throw new Error(`unknown mode ${options.mode}`);
+	}
+}
+
 async function main(argv) {
 	let options;
-	let bypass;
 	try {
 		options = parseCli(argv);
-		bypass = bypassHeaders(options["bypass-env"]);
 	} catch (error) {
 		console.error(`✗ ${error.message}\n${USAGE}`);
 		return 2;
 	}
-	const map = readLegacyJson("url-map.json");
 	const scratch = mkdtempSync(join(tmpdir(), "verify-blogthedata-cutover-"));
 	try {
-		let baseRequest = null;
-		if (options.base) {
-			if (options.transport === "vercel-curl") {
-				const shown = curlArgs("<url>", "<empty temp dir>", "<file|/dev/null>");
-				console.log(
-					`Each probe runs: ${VERCEL_BIN} ${shown.map((arg) => JSON.stringify(arg)).join(" ")}`,
-				);
-				baseRequest = vercelCurlTransport(scratch);
-			} else {
-				baseRequest = fetchTransport(bypass);
-			}
-		}
-		const publicFetch = fetchTransport();
-		const origin = options.base?.origin;
-		let plan;
-		if (options["destinations-only"]) {
-			console.log(`Checking the url-map destinations on ${origin}.`);
-			plan = {
-				targets: [],
-				request: baseRequest,
-				destinationOrigin: origin,
-				destinationRequest: baseRequest,
-			};
-		} else if (options.production) {
-			const hosts = map.meta.hosts;
-			console.log(
-				`Checking ${options.sample ? "the sample of " : ""}url-map.json on ${hosts.join(", ")} (https and http); destinations on ${JSOLLY_ORIGIN}.`,
-			);
-			plan = {
-				targets: hosts.map((host) => ({
-					origin: `https://${host}`,
-					upgradeOrigin: `http://${host}`,
-				})),
-				request: publicFetch,
-				destinationOrigin: JSOLLY_ORIGIN,
-				destinationRequest: publicFetch,
-			};
-		} else {
-			console.log(
-				`Checking ${options.sample ? "the sample of " : ""}url-map.json on ${origin}; destinations on ${JSOLLY_ORIGIN}.`,
-			);
-			plan = {
-				targets: [{ origin, upgradeOrigin: null }],
-				request: baseRequest,
-				destinationOrigin: JSOLLY_ORIGIN,
-				destinationRequest: publicFetch,
-			};
-		}
-		const result = await verifyCutover({
-			...plan,
-			sample: options.sample,
-			map,
-		});
-		return report(result, console.log);
+		return report(await run(options, scratch), console.log);
+	} catch (error) {
+		console.error(`✗ ${error.message}`);
+		return 1;
 	} finally {
 		rmSync(scratch, { recursive: true, force: true });
 	}

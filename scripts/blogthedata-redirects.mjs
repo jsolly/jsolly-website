@@ -26,6 +26,7 @@ const ACTIONS = new Set(["redirect-301", "serve-200", "stays-404"]);
 const PATTERN_SYNTAX = /[:*?+(){}\\]/u;
 // Vercel interpolates `$1` and `:param` into a redirect destination.
 const DESTINATION_PARAM = /[$:]/u;
+const UPPERCASE = /[A-Z]/u;
 
 const SECURITY_HEADERS = [
 	{ key: "X-Content-Type-Options", value: "nosniff" },
@@ -58,6 +59,44 @@ export function redirectForms(row) {
 	}
 	const base = row.source.slice(0, -1);
 	return [row.source, base, `${base}/index.html`, `${base}/index.html/`];
+}
+
+// The known paths one row answers, as probes: every form of a redirect row;
+// a pattern row's samples (it must carry some); an exact page row's slash and
+// slashless forms; any other row's exact source.
+export function probePaths(row) {
+	if (row.action === "redirect-301") {
+		return redirectForms(row);
+	}
+	if (row.match === "pattern") {
+		if (!(row.samples?.length > 0)) {
+			throw new Error(`url-map pattern row ${row.id} has no samples`);
+		}
+		return row.samples;
+	}
+	return isPageRow(row) ? [row.source, row.source.slice(0, -1)] : [row.source];
+}
+
+// The lowercase variants of mixed-case redirect sources that no row owns:
+// matching is case-sensitive, so each must stay 404.
+export function lowercaseNegatives(rows) {
+	const sources = new Set(rows.map((row) => row.source));
+	return rows
+		.filter(
+			(row) => row.action === "redirect-301" && UPPERCASE.test(row.source),
+		)
+		.map((row) => row.source.toLowerCase())
+		.filter((source) => !sources.has(source));
+}
+
+// The index.html forms the old host serves today, from url-union.json.
+export function servedIndexForms(union) {
+	return union.elements.filter(
+		(element) =>
+			element.kind === "path" &&
+			element.served_today &&
+			element.path.endsWith("index.html"),
+	);
 }
 
 function redirectSource(row) {
