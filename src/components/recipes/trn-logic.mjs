@@ -1,6 +1,6 @@
+import { BASE_SERVINGS } from "./constants.mjs";
 import { cookText } from "./display-units.mjs";
 import {
-	BASE_SERVINGS,
 	formatIngredient,
 	ingredientAmount,
 	purchaseNote,

@@ -1,5 +1,6 @@
+import { BASE_SERVINGS } from "./constants.mjs";
 import data from "./nutrition-data.json" with { type: "json" };
-import { BASE_SERVINGS, smoothieGlassesPerBatch } from "./recipe-logic.mjs";
+import { smoothieGlassesPerBatch } from "./recipe-logic.mjs";
 
 const dailyNutrients = data.nutrients;
 export function dailyNutrition(recipe, servings, scaledAmount) {

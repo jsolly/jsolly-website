@@ -11,23 +11,70 @@ import data from "../../src/components/recipes/recipes.json" with {
 import { drift, generate } from "../recipes/sync-assistant-data.mjs";
 
 const PUBLIC = fileURLToPath(new URL("../../public", import.meta.url));
-const MEDIA_PATH = /\/recipes\/media\/[^\s",]+/gu;
+const MEDIA_PREFIX = "/recipes/media/";
+const CANDIDATE_SEPARATOR = /,\s*/u;
+const WHITESPACE = /\s+/u;
+const HEADING = /^(?<marks>#+) (?<text>.*)$/u;
 
-it("every /recipes/media/ file the recipe images reference exists under public/recipes/media", () => {
-	const referenced = new Set(
-		data.recipes.flatMap((recipe) =>
-			Object.values(recipe.image).flatMap((value) =>
-				typeof value === "string"
-					? [...value.matchAll(MEDIA_PATH)].map(([path]) => path)
-					: [],
-			),
-		),
+// Every image URL a recipe names: src and cardSrc, plus the URL (the first
+// token) of each srcset candidate.
+function imageUrls(image) {
+	const candidates = [image.cardSrcset, image.detailSrcset].flatMap((srcset) =>
+		srcset
+			.trim()
+			.split(CANDIDATE_SEPARATOR)
+			.map((candidate) => candidate.split(WHITESPACE)[0]),
 	);
-	assert.ok(referenced.size > 0, "recipe images reference /recipes/media/");
-	const missing = [...referenced].filter(
-		(path) => !existsSync(join(PUBLIC, path)),
+	return [image.src, image.cardSrc, ...candidates];
+}
+
+it("every recipe image URL is a /recipes/media/ file that exists under public/recipes/media", () => {
+	const missingImage = data.recipes
+		.filter((recipe) => typeof recipe.image !== "object" || !recipe.image)
+		.map((recipe) => recipe.id);
+	assert.deepEqual(missingImage, [], "every recipe has an image");
+	const urls = data.recipes.flatMap((recipe) =>
+		imageUrls(recipe.image).map((url) => ({ id: recipe.id, url })),
+	);
+	assert.ok(urls.length >= data.recipes.length * 4);
+	const outside = urls.filter(({ url }) => !url?.startsWith(MEDIA_PREFIX));
+	assert.deepEqual(outside, [], "recipe images outside /recipes/media/");
+	const missing = urls.filter(
+		({ url }) =>
+			url?.startsWith(MEDIA_PREFIX) && !existsSync(join(PUBLIC, url)),
 	);
 	assert.deepEqual(missing, [], "referenced recipe media are missing");
+});
+
+it("the public Markdown library has one title, one ## section per recipe in order and ### sections", () => {
+	const markdown = generate().get("recipe-library.md");
+	const headings = markdown
+		.split("\n")
+		.filter((line) => HEADING.test(line))
+		.map((line) => HEADING.exec(line).groups);
+	assert.deepEqual(
+		headings.filter(({ marks }) => marks === "#").map(({ text }) => text),
+		["Easy Meals recipe library"],
+	);
+	assert.deepEqual(
+		headings.filter(({ marks }) => marks === "##").map(({ text }) => text),
+		data.recipes.map((recipe) => recipe.title),
+	);
+	assert.ok(
+		headings.filter(({ marks }) => marks === "###").length >=
+			data.recipes.length,
+		"each recipe has ### sections",
+	);
+	assert.deepEqual(
+		headings.filter(({ marks }) => marks.length > 3).map(({ text }) => text),
+		[],
+		"recipe sections sit at ### level",
+	);
+	assert.equal(
+		markdown.split("\n---\n").length - 1,
+		data.recipes.length - 1,
+		"one --- separator between consecutive recipes",
+	);
 });
 
 it("recipes:check reports an edited and a missing assistant download as drift", async () => {

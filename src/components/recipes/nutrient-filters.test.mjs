@@ -1,16 +1,18 @@
 import assert from "node:assert/strict";
 import it from "node:test";
 import {
-	availableAppliances,
 	defaultAppliances,
+	recipeStarches,
+	starchTypes,
+} from "./constants.mjs";
+import {
+	availableAppliances,
 	hasAppliances,
 	matchesRecipe,
 	normalizeMealStyles,
 	normalizeSelection,
 	nutrientFilters,
-	recipeStarches,
 	smoothieIngredientChoices,
-	starchTypes,
 } from "./nutrient-filters.mjs";
 import { recordedOmega3 } from "./nutrition.mjs";
 import { ingredientAmount } from "./recipe-logic.mjs";

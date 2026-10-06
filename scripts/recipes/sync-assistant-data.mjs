@@ -10,11 +10,11 @@ import { realpathSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { BASE_SERVINGS } from "../../src/components/recipes/constants.mjs";
 import {
 	documentMarkdown,
 	recipeBundle,
 } from "../../src/components/recipes/recipe-export.mjs";
-import { BASE_SERVINGS } from "../../src/components/recipes/recipe-logic.mjs";
 import data from "../../src/components/recipes/recipes.json" with {
 	type: "json",
 };

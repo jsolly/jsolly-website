@@ -1,3 +1,8 @@
+import {
+	applianceChoices,
+	defaultAppliances,
+	recipeStarches,
+} from "./constants.mjs";
 import { dailyNutrition, recordedOmega3 } from "./nutrition.mjs";
 import { ingredientAmount } from "./recipe-logic.mjs";
 
@@ -20,45 +25,6 @@ export function nutrientFilters(recipe, servings) {
 	};
 }
 
-// Main starches and available family sides; vegetable carbs are not starch categories.
-export const starchTypes = {
-	all: "All starches",
-	rice: "Rice",
-	pasta: "Pasta",
-	bread: "Bread",
-	tortillas: "Tortillas",
-	potatoes: "Potatoes",
-	legumes: "Legumes",
-	none: "No starch",
-	fruit: "Fruit",
-};
-export const recipeStarches = {
-	"lemon-salmon-and-asparagus": ["none"],
-	"smoky-chicken-thighs-and-broccoli": ["none"],
-	"pesto-cod-and-zucchini": ["none"],
-	"spinach-feta-and-hemp-frittata": ["none"],
-	"shawarma-chicken-bowls": ["rice", "bread"],
-	"sheet-pan-chicken-fajitas": ["tortillas"],
-	"salsa-verde-shredded-chicken": ["rice"],
-	"greek-turkey-patties": ["bread"],
-	"pan-fried-greek-turkey-patties": ["bread"],
-	"keto-zuppa-toscana": ["none"],
-	"avocado-lime-smoothie": ["none"],
-	"strawberry-avocado-smoothie": ["fruit"],
-	"strawberry-hemp-smoothie": ["fruit"],
-	"cucumber-spinach-lime-smoothie": ["none"],
-	"strawberry-banana-smoothie": ["fruit"],
-	"banana-flax-smoothie": ["fruit"],
-	"chicken-posole": ["legumes"],
-	"tomato-lentil-and-chicken-bake": ["legumes"],
-	"harissa-chickpea-and-cauliflower-bowls": ["legumes"],
-	"lemon-chicken-potatoes-and-green-beans": ["potatoes"],
-	"sheet-pan-gnocchi-white-beans-and-broccoli": [
-		"pasta",
-		"potatoes",
-		"legumes",
-	],
-};
 // Omit shared bases such as water and yogurt; the remaining ingredients distinguish smoothies.
 export function smoothieIngredientChoices(recipes) {
 	const smoothies = recipes.filter((recipe) => recipe.type === "smoothie");
@@ -101,22 +67,6 @@ export function normalizeMealStyles(value) {
 	const exclusive = selected.filter((item) => item !== "shared").at(-1);
 	return selected.filter((item) => item === "shared" || item === exclusive);
 }
-const applianceChoices = {
-	"Instant Pot": "Pressure cookers",
-	Oven: "Oven",
-	Pans: "Pans",
-	Microwave: "Microwave",
-	"Two air fryers": "Air fryers",
-	Blender: "Blender",
-};
-export const defaultAppliances = {
-	"Instant Pot": 1,
-	Oven: 1,
-	Pans: 1,
-	Microwave: 1,
-	"Two air fryers": 2,
-	Blender: 1,
-};
 // Saved appliance counts, clamped per appliance; a missing or invalid count
 // restores its default.
 export function availableAppliances(value) {

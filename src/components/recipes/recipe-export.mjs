@@ -1,7 +1,11 @@
+import {
+	BASE_SERVINGS,
+	mealLeftovers,
+	recipeDisclaimer,
+} from "./constants.mjs";
 import { cookText } from "./display-units.mjs";
 import { dailyNutrition } from "./nutrition.mjs";
 import {
-	BASE_SERVINGS,
 	capacityNote,
 	displayNutrition,
 	familyNutrition,
@@ -14,10 +18,6 @@ import {
 } from "./recipe-logic.mjs";
 import { flowGrid, gridHtml } from "./trn-logic.mjs";
 
-const recipeDisclaimer =
-	"These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.";
-const leftovers =
-	"Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.";
 /** One cooking document drives print and assistant exports. Model weights stay in recipes.json. */
 export function recipeDocument(recipe, settings = {}) {
 	const smoothie = recipe.type === "smoothie";
@@ -122,7 +122,7 @@ export function recipeDocument(recipe, settings = {}) {
 		leftovers: text(
 			smoothie
 				? "Serve chilled immediately for best texture; refrigerate any remainder promptly."
-				: leftovers,
+				: mealLeftovers,
 		),
 		safety: smoothie
 			? "Wash fresh produce and use a clean blender. Keep yogurt and finished smoothies chilled."

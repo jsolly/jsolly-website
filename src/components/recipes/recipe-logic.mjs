@@ -1,5 +1,7 @@
-/** Pure calculations for the meal library. Recipe ingredient amounts are for four adults. */
-export const BASE_SERVINGS = 4;
+// Pure calculations for the meal library. Recipe ingredient amounts are for
+// BASE_SERVINGS (four) adults.
+import { BASE_SERVINGS } from "./constants.mjs";
+
 const SERVINGS = new Set([2, 4, 6, 8]);
 const NUTRIENTS = ["kcal", "protein_g", "carbs_g", "fiber_g", "net_carbs_g"];
 
