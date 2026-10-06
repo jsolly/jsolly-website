@@ -24,6 +24,7 @@ const EXCLUDED = [
 	"src/pages/blog/",
 	"src/layouts/BlogLayout.astro",
 	"src/components/recipes/",
+	"src/pages/recipes/",
 ];
 // The shared shadcn-svelte parts feed main.css only when portfolio code
 // imports them; main.css excludes the directory and re-includes those files.

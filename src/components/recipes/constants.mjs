@@ -3,6 +3,20 @@
 
 /** Recipe ingredient amounts and timings are written for this many adults. */
 export const BASE_SERVINGS = 4;
+/** Each recipe group's badge on its page. */
+export const groupBadges = {
+	keto: "Keto",
+	shared: "Shared main",
+	nonketo: "Not Keto",
+};
+/** Each recipe group's label in the printed copy. */
+export const printGroupLabels = {
+	keto: "Keto",
+	shared: "Keto main + family starch",
+	nonketo: "Not Keto",
+};
+/** The servings a reader can choose. */
+export const SERVING_CHOICES = [2, 4, 6, 8];
 
 export const recipeDisclaimer =
 	"These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.";

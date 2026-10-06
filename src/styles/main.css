@@ -25,6 +25,7 @@
 /* Recipe code is not portfolio UI either; its data and modules hold
    class-like strings (TRN table classes, recipe prose). */
 @source not "../components/recipes";
+@source not "../pages/recipes";
 /* Generated shadcn-svelte parts feed the blog bundle; the portfolio uses only
    the button. */
 @source not "../lib/components/ui";

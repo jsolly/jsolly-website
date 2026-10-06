@@ -40,6 +40,14 @@ const PAGES = [
 		prepare: loadSearchResults,
 	},
 	{ path: "/about/", hosts: [] },
+	// A recipe page for its island scripts and same-origin recipe images, with
+	// the notation dialog opened so its bits-ui code runs too (the inline
+	// styles it sets fall under style-src 'unsafe-inline').
+	{
+		path: "/recipes/greek-turkey-patties/",
+		hosts: [],
+		prepare: openMethodDialog,
+	},
 ];
 // How long one page may take to hydrate, settle its images or request a host.
 const WAIT_MS = 15_000;
@@ -69,6 +77,13 @@ async function loadSearchResults(page) {
 			image.loading = "eager";
 		}
 	});
+}
+
+async function openMethodDialog(page) {
+	await page
+		.getByRole("button", { name: "Learn more about Tabular Recipe Notation" })
+		.click();
+	await page.getByRole("dialog").waitFor();
 }
 
 // Resolves once `hosts` (a growing Set) holds every `expected` host, or after
@@ -143,7 +158,7 @@ async function visit(path, expected, prepare) {
 	}
 }
 
-it("blog posts with embeds, the blog home, a blog search and /about/ load under the vercel.json header and their meta policy without a violation", {
+it("blog posts with embeds, the blog home, a blog search, /about/ and a recipe page with its dialog open load under the vercel.json header and their meta policy without a violation", {
 	timeout: 120_000,
 }, async () => {
 	// One page at a time keeps each page's requests its own.

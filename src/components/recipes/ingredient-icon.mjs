@@ -1,0 +1,35 @@
+// Decorative Unicode food symbols; names remain the accessible ingredient labels.
+const icons = [
+	[/\bwater\b/iu, "💧"],
+	[/strawberr/iu, "🍓"],
+	[/banana/iu, "🍌"],
+	[/bell pepper/iu, "🫑"],
+	[/green beans/iu, "🫛"],
+	[/cooked rice/iu, "🍚"],
+	[/pita|tortilla/iu, "🫓"],
+	[/\bbun\b/iu, "🍞"],
+	[/chickpea|lentil/iu, "🫘"],
+	[/parmesan/iu, "🧀"],
+	[/oregano|basil/iu, "🌿"],
+	[/chili|paprika|harissa/iu, "🌶️"],
+	[/broth/iu, "🥣"],
+	[/salt/iu, "🧂"],
+	[/chicken|turkey/iu, "🍗"],
+	[/salmon|cod|fish/iu, "🐟"],
+	[/egg/iu, "🥚"],
+	[/olive oil/iu, "🫒"],
+	[/broccoli/iu, "🥦"],
+	[/cabbage|spinach|lettuce|salad greens/iu, "🥬"],
+	[/cucumber/iu, "🥒"],
+	[/potato/iu, "🥔"],
+	[/tomato/iu, "🍅"],
+	[/lemon|lime/iu, "🍋"],
+	[/garlic/iu, "🧄"],
+	[/onion/iu, "🧅"],
+	[/avocado/iu, "🥑"],
+	[/beans/iu, "🫘"],
+	[/feta|cheese/iu, "🧀"],
+];
+export function ingredientIcon(name) {
+	return icons.find(([pattern]) => pattern.test(name))?.[1] || "";
+}

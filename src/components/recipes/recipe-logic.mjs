@@ -1,8 +1,8 @@
 // Pure calculations for the meal library. Recipe ingredient amounts are for
 // BASE_SERVINGS (four) adults.
-import { BASE_SERVINGS } from "./constants.mjs";
+import { BASE_SERVINGS, SERVING_CHOICES } from "./constants.mjs";
 
-const SERVINGS = new Set([2, 4, 6, 8]);
+const SERVINGS = new Set(SERVING_CHOICES);
 const NUTRIENTS = ["kcal", "protein_g", "carbs_g", "fiber_g", "net_carbs_g"];
 
 const finite = (value) => typeof value === "number" && Number.isFinite(value);

@@ -20,6 +20,11 @@ const MINIFY_OPTIONS = {
 	conservativeCollapse: true,
 };
 
+// Svelte ends a <select> or <option> whose content is a snippet or component
+// with `<!>`, an empty comment html-minifier cannot parse. `<!---->` parses to
+// the same empty comment node, which the empty-anchor rule above keeps.
+const RICH_SELECT_ANCHOR = /<!>(?=<\/(?:select|option)>)/gu;
+
 // Blog and recipe pages get their heading ids from the article renderer
 // (src/lib/blog/html.ts), and old links and feeds point at those ids, so
 // the id pass leaves these pages alone.
@@ -58,7 +63,10 @@ await Promise.all(
 		}
 
 		// Minify the HTML
-		html = await minify(html, MINIFY_OPTIONS);
+		html = await minify(
+			html.replace(RICH_SELECT_ANCHOR, "<!---->"),
+			MINIFY_OPTIONS,
+		);
 		await fs.writeFile(file, html);
 	}),
 );
