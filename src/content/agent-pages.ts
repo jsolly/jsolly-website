@@ -153,7 +153,7 @@ All JavaScript, CSS and fonts are self-hosted, and a [content security policy]($
 
 ## Links to other sites
 
-This site links to other websites, whose privacy practices are their own. Links in blog posts carry \`rel="noopener noreferrer"\`, so the site you open does not learn which page sent you or get a handle on this one.
+This site links to other websites, whose privacy practices are their own. Links in the text of blog posts carry \`rel="noopener noreferrer"\`, so the site you open does not learn which page sent you or get a handle on this one. Other links share at most the address jsolly.com, and a post's share buttons send that post's address to the service you pick.
 
 ## Cookies
 
