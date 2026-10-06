@@ -1,6 +1,11 @@
 {
 	"$schema": "https://unpkg.com/knip@6/schema.json",
-	"entry": ["middleware.ts", "src/**/*.test.ts", "scripts/**/*.mjs"],
+	"entry": [
+		"middleware.ts",
+		"src/**/*.test.ts",
+		"src/**/*.test.mjs",
+		"scripts/**/*.mjs"
+	],
 	"ignore": ["legacy/blogthedata/public/**"],
 	"ignoreBinaries": ["uvx"],
 	"ignoreDependencies": ["markdownlint-cli2"],

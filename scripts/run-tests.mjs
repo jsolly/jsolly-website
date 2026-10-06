@@ -24,7 +24,11 @@ const SUITES = {
 			"--experimental-strip-types",
 			"--test",
 		],
-		patterns: ["src/**/*.test.ts", "scripts/unit/*.test.mjs"],
+		patterns: [
+			"src/**/*.test.ts",
+			"src/**/*.test.mjs",
+			"scripts/unit/*.test.mjs",
+		],
 	},
 	// Post-build tests against dist/ that run outside `build` (browser tests need
 	// Playwright, which the Vercel build does not have); see `csp` below.

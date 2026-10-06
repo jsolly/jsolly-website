@@ -155,6 +155,8 @@ jobs:
         if: steps.verified-tree.outputs.run_full != 'false'
       - run: npm run redirects:check
         if: steps.verified-tree.outputs.run_full != 'false'
+      - run: npm run recipes:check
+        if: steps.verified-tree.outputs.run_full != 'false'
       - run: npm run check:ts
         if: steps.verified-tree.outputs.run_full != 'false'
       - run: npm test
