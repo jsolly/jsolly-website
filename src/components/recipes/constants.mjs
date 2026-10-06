@@ -99,15 +99,6 @@ export const COLLECTION_PATHS = {
 export const PWA_WORKER_PATH = "/recipes/service-worker.js";
 /** The recipe app's manifest and icons. */
 export const PWA_FILES_PATH = "/recipes/pwa/";
-/** The recipe app's name on a home screen and its theme colour (as in its manifest). */
-export const PWA_TITLE = "Easy Meals";
-export const PWA_THEME_COLOR = "#183e2b";
-/** The recipe images and the assistant downloads under /recipes/. */
-export const RECIPE_MEDIA_PATH = "/recipes/media/";
-export const RECIPE_DATA_FILES = [
-	"/recipes/data/recipe-library.json",
-	"/recipes/data/recipe-library.md",
-];
 
 /** localStorage key for the library's saved settings (merge-plan J13). */
 export const STORAGE_KEY = "recipes-settings-v1";

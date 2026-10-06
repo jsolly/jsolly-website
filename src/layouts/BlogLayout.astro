@@ -12,12 +12,6 @@ import "../styles/blog/blog.css";
 import BlogNavigation from "../components/blog/BlogNavigation.svelte";
 import Maintenance from "../components/Maintenance.astro";
 import {
-	PWA_FILES_PATH,
-	PWA_THEME_COLOR,
-	PWA_TITLE,
-} from "../components/recipes/constants.mjs";
-import RecipePwa from "../components/recipes/RecipePwa.astro";
-import {
 	DEFAULT_IMAGE,
 	EMBED_HOSTS,
 	FEEDS,
@@ -64,10 +58,6 @@ if (section === "blog") {
 }
 
 const isMaintenanceMode = process.env.MAINTENANCE_MODE === "true";
-// Every recipe page carries the recipe app (its manifest and its service
-// worker), except in a maintenance build, which ships no worker
-// (scripts/recipes/pwa-build.mjs).
-const recipeApp = section === "recipes" && !isMaintenanceMode;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const socialImage = new URL(image, Astro.site).href;
 const navigation = await blogNavigation();
@@ -96,16 +86,6 @@ const navigation = await blogNavigation();
 		<meta name="twitter:card" content="summary_large_image" />
 		{noindex && <meta name="robots" content="noindex, follow" />}
 		<noscript><link rel="stylesheet" href={noScriptStyles} /></noscript>
-		{
-			recipeApp && (
-				<>
-					<link rel="manifest" href={`${PWA_FILES_PATH}manifest.webmanifest`} />
-					<meta name="theme-color" content={PWA_THEME_COLOR} />
-					<link rel="apple-touch-icon" href={`${PWA_FILES_PATH}icon-180.png`} />
-					<meta name="apple-mobile-web-app-title" content={PWA_TITLE} />
-				</>
-			)
-		}
 		<slot name="head" />
 	</head>
 	<body id="top">
@@ -128,7 +108,7 @@ const navigation = await blogNavigation();
 			</div>
 		</header>
 		<div class="page-layout" data-page={Astro.url.pathname}>
-			<main id="main">{isMaintenanceMode ? <Maintenance /> : <>{recipeApp && <RecipePwa />}<slot /></>}</main>
+			<main id="main">{isMaintenanceMode ? <Maintenance /> : <slot />}</main>
 		</div>
 		<footer class="site-footer">
 			<nav aria-label="Footer"

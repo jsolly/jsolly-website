@@ -107,18 +107,15 @@ const CONTENT_TYPES = {
 
 // Serves `root` on a free local port the way a static host does: a path
 // ending in / answers with its index.html, anything missing with a plain 404.
-// `root` is a directory, or a function that returns the directory to serve
-// each request from (a test that swaps one build for another on one origin).
 // `headers` go on every response, as vercel.json's do. Resolves to
 // { origin, close }.
 export async function serveStatic(root, headers = {}) {
-	const rootOf = typeof root === "function" ? root : () => root;
 	const server = createServer(async (request, response) => {
 		const { pathname } = new URL(request.url, "http://localhost");
 		// normalize() resolves "..", so the absolute path never leaves root.
 		const relative = normalize(decodeURIComponent(pathname));
 		const file = join(
-			rootOf(),
+			root,
 			relative.endsWith("/") ? `${relative}index.html` : relative,
 		);
 		try {

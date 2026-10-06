@@ -3,27 +3,68 @@ import { PWA_WORKER_PATH, RECIPES_PATH } from "./constants.mjs";
 // Registers the recipe app's service worker on every recipe page and reports
 // its state in RecipePwa's status line. The worker controls /recipes/ only.
 // An update waits for every recipe tab to close (scripts/recipes/pwa-build.mjs).
-const UPDATE_READY =
-	"Updated recipes are downloaded. Close all recipe tabs and the recipe app, then reopen to use the update.";
-const UPDATE_FAILED =
-	"Update download failed. Previously saved recipes remain available offline. Reconnect and reload to retry the update.";
-const OFFLINE =
-	"You are offline. Saved recipes, scaling and grocery lists are available. External links need a connection.";
-
 const status = document.querySelector("#recipe-offline-status");
 const instructions = status?.textContent ?? "";
+// `active`: a worker holds an offline copy; `waiting`: an update is
+// downloaded; `failed`: the first download, or with `active` an update,
+// failed; `online` mirrors navigator.onLine.
+const state = {
+	active: false,
+	waiting: false,
+	failed: false,
+	online: navigator.onLine,
+};
 
-// Resolves once `worker` activates; rejects when its install fails.
-function activation(worker) {
-	return new Promise((resolve, reject) => {
-		const check = () => {
-			if (worker.state === "activated") resolve();
-			if (worker.state === "redundant") {
-				reject(new Error("Offline download failed"));
-			}
-		};
-		worker.addEventListener("statechange", check);
-		check();
+// The status line for `state`.
+function message({ active, waiting, failed, online }) {
+	if (!active) {
+		return failed
+			? `Recipes could not be saved offline. Reconnect and reload to try again. ${instructions}`
+			: instructions;
+	}
+	if (waiting) {
+		return "Updated recipes are downloaded. Close all recipe tabs and the recipe app, then reopen to use the update.";
+	}
+	if (failed) {
+		return "Update download failed. Previously saved recipes remain available offline. Reconnect and reload to retry the update.";
+	}
+	return online
+		? `Recipes saved for offline use. ${instructions}`
+		: "You are offline. Saved recipes, scaling and grocery lists are available. External links need a connection.";
+}
+
+function render() {
+	status.textContent = message(state);
+}
+
+// Whether `registration` has an activated worker, one with an offline copy.
+const hasActive = (registration) => registration.active?.state === "activated";
+
+// Follows the worker `registration` is installing, the first one or an
+// update. One that turns redundant before it installed failed to download;
+// a later redundant state only means a newer worker replaced it. Both
+// register() and updatefound may report the same worker; it is followed once.
+let observed = null;
+function observeInstaller(registration) {
+	const worker = registration.installing;
+	if (!worker || worker === observed) return;
+	observed = worker;
+	state.failed = false;
+	let installed = false;
+	worker.addEventListener("statechange", () => {
+		if (worker.state === "installed") installed = true;
+		if (worker.state === "redundant" && !installed) {
+			state.failed = true;
+			console.error(
+				hasActive(registration)
+					? "Recipe update download failed:"
+					: "Recipe offline download failed:",
+				worker.scriptURL,
+			);
+		}
+		state.active = hasActive(registration);
+		state.waiting = Boolean(registration.waiting);
+		render();
 	});
 }
 
@@ -32,35 +73,25 @@ async function register() {
 		scope: RECIPES_PATH,
 		updateViaCache: "none",
 	});
-	const observeInstaller = () => {
-		const worker = registration.installing;
-		if (!worker) return;
-		worker.addEventListener("statechange", () => {
-			if (registration.waiting) {
-				status.textContent = UPDATE_READY;
-			} else if (worker.state === "redundant" && registration.active) {
-				status.textContent = UPDATE_FAILED;
-			}
-		});
-	};
-	observeInstaller();
-	registration.addEventListener("updatefound", observeInstaller);
-	if (!registration.active && registration.installing) {
-		await activation(registration.installing);
-	}
-	const showReady = () => {
-		status.textContent = navigator.onLine
-			? `Recipes saved for offline use. ${instructions}`
-			: OFFLINE;
-	};
-	showReady();
-	window.addEventListener("online", showReady);
-	window.addEventListener("offline", showReady);
-	if (registration.waiting) status.textContent = UPDATE_READY;
+	state.active = hasActive(registration);
+	state.waiting = Boolean(registration.waiting);
+	observeInstaller(registration);
+	registration.addEventListener("updatefound", () =>
+		observeInstaller(registration),
+	);
+	render();
 }
 
 if (!import.meta.env.DEV && "serviceWorker" in navigator && status) {
-	register().catch(() => {
-		status.textContent = `Recipes could not be saved offline. Reconnect and reload to try again. ${instructions}`;
+	for (const event of ["online", "offline"]) {
+		window.addEventListener(event, () => {
+			state.online = navigator.onLine;
+			render();
+		});
+	}
+	register().catch((error) => {
+		state.failed = true;
+		console.error("Recipe service worker registration failed:", error);
+		render();
 	});
 }

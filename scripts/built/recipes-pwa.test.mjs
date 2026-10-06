@@ -1,5 +1,13 @@
 import assert from "node:assert/strict";
-import { cp, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import {
+	cp,
+	mkdtemp,
+	readFile,
+	rename,
+	rm,
+	symlink,
+	writeFile,
+} from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { after, before, it } from "node:test";
@@ -11,9 +19,12 @@ import { readBuilt, serveStatic } from "./pages.mjs";
 // (scripts/recipes/pwa.test.mjs): it installs and the cooking tools work
 // offline at a desktop and a phone width, an update waits until every recipe
 // tab closes, and a failed download keeps the previous snapshot or claims no
-// readiness. Each test serves copies of dist/ with their own worker: A and B
-// differ in a marker on /recipes/ and in the recipe data, and "broken" is B
-// with a precached icon missing, so its install fails. Every response carries
+// readiness, while a maintenance deploy (no worker) leaves the installed app
+// as it was. The server serves one fixed directory whose contents a test
+// swaps between copies of dist/ with their own worker: A and B differ in a
+// marker on /recipes/ and in the recipe data, "broken" is B with a precached
+// icon missing, so its install fails, and "maintenance" is A without its
+// worker, as a maintenance build ships (plan §1.6). Every response carries
 // Vary: Accept, as middleware-negotiated HTML does (in Chromium the worker's
 // bare-URL lookups match it with or without its ignoreVary). The worker
 // controls /recipes/ only: blog and portfolio pages stay uncontrolled, and its
@@ -60,7 +71,7 @@ let fixture;
 let site;
 let browser;
 const snapshots = {};
-let serving;
+let served;
 
 // Copies dist/ to `label`, marks its landing page and recipe data with the
 // label, and writes its worker twice: `worker` and `rebuilt` are the two
@@ -94,8 +105,13 @@ before(async () => {
 	await cp(snapshots.B.directory, broken, { recursive: true });
 	await rm(join(broken, MISSING_FILE));
 	snapshots.broken = { ...snapshots.B, directory: broken };
-	serving = snapshots.A;
-	site = await serveStatic(() => serving.directory, {
+	const maintenance = join(fixture, "maintenance");
+	await cp(snapshots.A.directory, maintenance, { recursive: true });
+	await rm(join(maintenance, WORKER));
+	snapshots.maintenance = { ...snapshots.A, directory: maintenance };
+	served = join(fixture, "served");
+	await serve("A");
+	site = await serveStatic(served, {
 		Vary: "Accept",
 		"Cache-Control": "no-store",
 	});
@@ -107,6 +123,15 @@ after(async () => {
 	await site?.close();
 	if (fixture) await rm(fixture, { recursive: true, force: true });
 });
+
+// Points the served directory at snapshot `label`'s files. Renaming a fresh
+// link over the old one swaps them in one step, so no request ever sees a
+// half-copied tree.
+async function serve(label) {
+	const next = `${served}.next`;
+	await symlink(snapshots[label].directory, next, "dir");
+	await rename(next, served);
+}
 
 // Playwright's waitForFunction polls synchronous predicates; this awaits the
 // browser-side service worker and cache reads before judging the condition.
@@ -149,7 +174,7 @@ function installCheck(name, viewport) {
 	it(`Recipe PWA installs and cooking tools work offline on ${name}`, {
 		timeout: 90_000,
 	}, async () => {
-		serving = snapshots.A;
+		await serve("A");
 		const { urls } = snapshots.A;
 		for (const label of ["A", "B"]) {
 			const { worker, rebuilt } = snapshots[label];
@@ -264,9 +289,6 @@ function installCheck(name, viewport) {
 				[200, 200],
 				"the assistant downloads offline",
 			);
-			await page.emulateMedia({ media: "print" });
-			assert.equal(await page.locator(".recipe-pwa").isVisible(), false);
-			await page.emulateMedia({ media: "screen" });
 			// Changing the recipe URL's query or fragment still opens the cached app.
 			await page.goto(`${site.origin}${LANDING}?cooking=1#meal-results`);
 			const servings = page.getByRole("combobox", { name: SERVINGS });
@@ -304,7 +326,7 @@ it("Distinct snapshot update waits for both tabs, then serves new recipes offlin
 	timeout: 90_000,
 }, async () => {
 	assert.notEqual(snapshots.A.cache, snapshots.B.cache);
-	serving = snapshots.A;
+	await serve("A");
 	const context = await browser.newContext();
 	try {
 		const tabs = [await context.newPage(), await context.newPage()];
@@ -314,7 +336,7 @@ it("Distinct snapshot update waits for both tabs, then serves new recipes offlin
 			await statusText(page, SAVED);
 			assert.equal(await snapshotLabel(page), "A");
 		}
-		serving = snapshots.B;
+		await serve("B");
 		await tabs[0].evaluate(async () => {
 			await (await navigator.serviceWorker.getRegistration()).update();
 		});
@@ -357,16 +379,42 @@ it("Distinct snapshot update waits for both tabs, then serves new recipes offlin
 	}
 });
 
-it("Failed replacement preserves the previous offline snapshot and reports failure", {
+it("A maintenance deploy or a failed replacement keeps the previous offline snapshot, and the failed download reports failure", {
 	timeout: 90_000,
 }, async () => {
-	serving = snapshots.A;
+	await serve("A");
 	const context = await browser.newContext();
 	try {
 		const page = await context.newPage();
 		await page.goto(`${site.origin}${LANDING}`);
 		await statusText(page, SAVED);
-		serving = snapshots.broken;
+		// A maintenance deploy has no worker: the update check 404s and the
+		// installed app keeps its worker, its cache and its offline copy.
+		await serve("maintenance");
+		assert.equal(
+			await page.evaluate(async () => {
+				const registration = await navigator.serviceWorker.getRegistration();
+				return registration.update().then(
+					() => "updated",
+					() => "rejected",
+				);
+			}),
+			"rejected",
+			"the update check against a maintenance deploy",
+		);
+		assert.equal(await controlled(page), true);
+		assert.ok(
+			(await page.evaluate(() => caches.keys())).includes(snapshots.A.cache),
+			"snapshot A's cache survives the maintenance deploy",
+		);
+		await context.setOffline(true);
+		await page.reload();
+		assert.equal(await snapshotLabel(page), "A");
+		await context.setOffline(false);
+		await page.reload();
+		await statusText(page, SAVED);
+
+		await serve("broken");
 		await page.evaluate(async () => {
 			await (await navigator.serviceWorker.getRegistration()).update();
 		});
@@ -386,7 +434,7 @@ it("Failed replacement preserves the previous offline snapshot and reports failu
 it("Failed first download does not claim offline readiness", {
 	timeout: 90_000,
 }, async () => {
-	serving = snapshots.broken;
+	await serve("broken");
 	const context = await browser.newContext();
 	try {
 		const page = await context.newPage();

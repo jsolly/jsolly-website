@@ -3,58 +3,56 @@
 // `npm run build` after process-html.mjs, so the snapshot covers the HTML as
 // served.
 //
-// The worker precaches one complete built snapshot: the landing, collection
-// and recipe pages, every file they load (scripts, styles, fonts, images,
-// the manifest and icons, and the no-JavaScript stylesheets inside
-// <noscript>), the recipe media and the two assistant downloads. A changed
-// snapshot gets a new cache name, and the new worker waits until every recipe
-// tab closes, so new HTML never mixes with an older bundle mid-recipe.
+// The worker (scripts/recipes/service-worker.js) precaches one complete built
+// snapshot: every file under dist/recipes/ (the recipe pages, the recipe
+// media, the manifest and icons, and the two assistant downloads) and every
+// file those pages load (scripts, styles, fonts, images, the favicon and the
+// no-JavaScript stylesheets inside <noscript>). A changed snapshot gets a new
+// cache name, and the new worker waits until every recipe tab closes, so new
+// HTML never mixes with an older bundle mid-recipe.
 //
-// A maintenance build (MAINTENANCE_MODE=true) writes no worker: installed
-// workers then get a 404 on their update check, which leaves them and their
-// caches as they were, instead of precaching the maintenance page.
+// It writes a worker only when the built landing page links the recipe app's
+// manifest, so RecipeLayout's decision governs: a maintenance build links no
+// app and ships no worker. Installed workers then get a 404 on their update
+// check, which leaves them and their caches as they were, instead of
+// precaching the maintenance page.
 //
 //   node scripts/recipes/pwa-build.mjs [dist]
 import { createHash } from "node:crypto";
 import { realpathSync } from "node:fs";
-import { readdir, readFile, writeFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { globby } from "globby";
 import { JSDOM } from "jsdom";
 import {
-	COLLECTION_PATHS,
 	PWA_FILES_PATH,
 	PWA_WORKER_PATH,
-	RECIPE_DATA_FILES,
-	RECIPE_MEDIA_PATH,
 	RECIPES_PATH,
 } from "../../src/components/recipes/constants.mjs";
-import data from "../../src/components/recipes/recipes.json" with {
-	type: "json",
-};
 
+const WORKER_SOURCE = new URL("service-worker.js", import.meta.url);
 // Every recipe app cache name starts with this; the worker deletes older ones.
 const CACHE_PREFIX = "recipe-pages-pwa-";
-// The pages the app works offline on.
-const RECIPE_PAGES = [
-	RECIPES_PATH,
-	...Object.values(COLLECTION_PATHS),
-	...data.recipes.map(({ id }) => `${RECIPES_PATH}${id}/`),
-];
+const MANIFEST = `${PWA_FILES_PATH}manifest.webmanifest`;
+// biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
+const MANIFEST_LINK = 'link[rel="manifest"]';
 // Any origin works: it only resolves relative URLs to same-site paths.
 const BASE = "https://recipe.invalid";
 // The elements whose src or href a page loads.
 const PAGE_RESOURCES =
 	// biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
-	'[src], link[rel="stylesheet"], link[rel="modulepreload"], link[rel="manifest"], link[rel="apple-touch-icon"]';
+	'[src], link[rel="stylesheet"], link[rel="modulepreload"], link[rel="manifest"], link[rel="apple-touch-icon"], link[rel="icon"]';
 // Files a script or stylesheet names: quoted script, style and font paths
 // (the minifier quotes some strings with backticks) and CSS url()s.
 const QUOTED_ASSET = /["'`](?<path>[^"'`\s]+\.(?:js|css|woff2?))["'`]/gu;
 const CSS_URL = /url\(["']?(?<path>[^\s)"']+)["']?\)/gu;
 const WHITESPACE = /\s+/u;
 const SCRIPT_OR_STYLE = /\.(?:js|css)$/u;
+const INDEX_FILE = /(?<=^|\/)index\.html$/u;
 
-// The URLs the page at `page` loads, as [value, base] pairs.
+// The URLs the page at `page` loads, as [value, base] pairs, and whether it
+// links the recipe app's manifest.
 function pageReferences(html, page) {
 	// jsdom runs no scripts, so <noscript> holds parsed elements: the offline
 	// copy keeps the no-JavaScript stylesheets too.
@@ -76,7 +74,12 @@ function pageReferences(html, page) {
 				island.getAttribute("renderer-url"),
 			);
 		}
-		return values.filter(Boolean).map((value) => [value, page]);
+		return {
+			references: values.filter(Boolean).map((value) => [value, page]),
+			linksApp: [...document.querySelectorAll(MANIFEST_LINK)].some(
+				(link) => link.getAttribute("href") === MANIFEST,
+			),
+		};
 	} finally {
 		window.close();
 	}
@@ -124,31 +127,29 @@ async function collect(root, references, files) {
 /**
  * Writes `root`/recipes/service-worker.js for the build in `root` (dist/ or a
  * copy of it) and returns { cache, urls }: its cache name and the sorted paths
- * it precaches.
+ * it precaches. Returns null, writing nothing, when the landing page links no
+ * recipe app.
  */
 export async function buildRecipePwa(root) {
+	// Every file under /recipes/, a page (…/index.html) as its /…/ path.
+	const local = (await globby("**/*", { cwd: join(root, RECIPES_PATH) })).map(
+		(file) => `${RECIPES_PATH}${file.replace(INDEX_FILE, "")}`,
+	);
 	const pages = await Promise.all(
-		RECIPE_PAGES.map(async (page) =>
-			pageReferences(await readFile(fileOf(root, page), "utf8"), page),
-		),
+		local
+			.filter((path) => path.endsWith("/"))
+			.map(async (page) => ({
+				page,
+				...pageReferences(await readFile(fileOf(root, page), "utf8"), page),
+			})),
 	);
-	// All the recipe media (a recipe dialog picks image sizes the
-	// server-rendered cards do not use) and the app's manifest and icons.
-	const directories = await Promise.all(
-		[RECIPE_MEDIA_PATH, PWA_FILES_PATH].map(async (directory) =>
-			(await readdir(join(root, directory))).map((file) => [file, directory]),
-		),
-	);
+	if (!pages.find(({ page }) => page === RECIPES_PATH)?.linksApp) return null;
 	const files = new Map();
 	await collect(
 		root,
 		[
-			...["/favicon.ico", ...RECIPE_DATA_FILES, ...RECIPE_PAGES].map((path) => [
-				path,
-				"/",
-			]),
-			...pages.flat(),
-			...directories.flat(),
+			...local.map((path) => [path, "/"]),
+			...pages.flatMap(({ references }) => references),
 		],
 		files,
 	);
@@ -156,41 +157,16 @@ export async function buildRecipePwa(root) {
 	const hash = createHash("sha256");
 	for (const path of assets) hash.update(path).update(files.get(path));
 	const cache = `${CACHE_PREFIX}${hash.digest("hex").slice(0, 20)}`;
-	await writeFile(join(root, PWA_WORKER_PATH), workerSource(cache, assets));
+	const constants = [
+		`const CACHE = ${JSON.stringify(cache)};`,
+		`const PREFIX = ${JSON.stringify(CACHE_PREFIX)};`,
+		`const ASSETS = new Set(${JSON.stringify(assets)});`,
+	].join("\n");
+	await writeFile(
+		join(root, PWA_WORKER_PATH),
+		`${constants}\n${await readFile(WORKER_SOURCE, "utf8")}`,
+	);
 	return { cache, urls: assets };
-}
-
-// The worker serves a precached path cache-first, a page only for a
-// navigation to its exact /…/ path (any query or fragment). The lookup ignores
-// Vary as a second safeguard (plan §1.13): the precached requests and the
-// lookup are bare URLs, so a Vary: Accept response matches today, and it
-// keeps matching should either side ever carry a navigation's Accept.
-function workerSource(cache, assets) {
-	return `const CACHE = ${JSON.stringify(cache)};
-const PREFIX = ${JSON.stringify(CACHE_PREFIX)};
-const ASSETS = new Set(${JSON.stringify(assets)});
-self.addEventListener("install", (event) => {
-	event.waitUntil(caches.open(CACHE).then((store) => store.addAll([...ASSETS])));
-});
-self.addEventListener("activate", (event) => {
-	event.waitUntil((async () => {
-		for (const key of await caches.keys()) {
-			if (key.startsWith(PREFIX) && key !== CACHE) await caches.delete(key);
-		}
-		await self.clients.claim();
-	})());
-});
-self.addEventListener("fetch", (event) => {
-	const url = new URL(event.request.url);
-	if (event.request.method !== "GET" || url.origin !== self.location.origin) return;
-	const key = url.pathname;
-	if (!ASSETS.has(key) || (event.request.mode === "navigate" && !key.endsWith("/"))) return;
-	event.respondWith((async () => {
-		const store = await caches.open(CACHE);
-		return (await store.match(key, { ignoreVary: true })) || fetch(event.request);
-	})());
-});
-`;
 }
 
 if (
@@ -198,12 +174,10 @@ if (
 	realpathSync(process.argv[1]) === fileURLToPath(import.meta.url)
 ) {
 	const root = process.argv[2] ?? "./dist";
-	if (process.env.MAINTENANCE_MODE === "true") {
-		console.info("Maintenance build: no recipe service worker written.");
-	} else {
-		const { cache, urls } = await buildRecipePwa(root);
-		console.info(
-			`Wrote ${join(root, PWA_WORKER_PATH)}: ${cache}, ${urls.length} files.`,
-		);
-	}
+	const built = await buildRecipePwa(root);
+	console.info(
+		built
+			? `Wrote ${join(root, PWA_WORKER_PATH)}: ${built.cache}, ${built.urls.length} files.`
+			: `No recipe service worker: ${RECIPES_PATH} links no recipe app (a maintenance build).`,
+	);
 }
