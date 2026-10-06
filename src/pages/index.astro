@@ -2,12 +2,13 @@
 import Hero from "../components/home/Hero.astro";
 import SiteIntro from "../components/home/SiteIntro.astro";
 import Testimonials from "../components/home/Testimonials.astro";
+import { ROLE } from "../content/identity.js";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-	title="John Solly — CTO of Enterprise Health at Leidos Digital & Software Engineer"
-	description="Welcome to jsolly.com, the personal website of John Solly. CTO of Enterprise Health at Leidos Digital, software engineer, and builder of things."
+	title={`John Solly — ${ROLE} & Software Engineer`}
+	description={`Welcome to jsolly.com, the personal website of John Solly. ${ROLE}, software engineer, and builder of things.`}
 >
 	<div class="min-h-screen">
 		<section

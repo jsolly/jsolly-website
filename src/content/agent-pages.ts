@@ -1,3 +1,13 @@
+import {
+	BLOG_DESCRIPTION,
+	HTML_ONLY_PAGES,
+	MARKDOWN_PAGES,
+	RECIPES_DESCRIPTION,
+	ROLE,
+	ROLE_STRATEGY,
+	SHORT_ROLE,
+} from "./identity.js";
+
 const PAGES: Record<string, (origin: string) => string> = {
 	"/": homeMarkdown,
 	"/about": aboutMarkdown,
@@ -44,13 +54,13 @@ Request any of those URLs with \`Accept: text/markdown\` to get a Markdown body.
 function homeMarkdown(origin: string): string {
 	return `# Hi, I'm John Solly
 
-CTO of Enterprise Health at Leidos Digital, leading digital modernization for federal health and benefits agencies. This is my personal website.
+${ROLE}, leading digital modernization for federal health and benefits agencies. This is my personal website.
 
 ## About this site
 
 [jsolly.com](${origin}/) is a small static site: who I am, how to reach me, my blog and recipes, and pointers to the work I publish elsewhere. It is not a product, docs portal, or corporate site for Leidos.
 
-I spent most of my career building spatial systems — at Esri, startups, and federal agencies. I now lead technology strategy for Enterprise Health at Leidos Digital, supporting agencies such as SSA, VA, and HHS. My primary focus is the convergence of spatial computing and AI: helping machines interpret the physical world and applying that to missions that matter.
+I spent most of my career building spatial systems — at Esri, startups, and federal agencies. I now ${ROLE_STRATEGY}, supporting agencies such as SSA, VA, and HHS. My primary focus is the convergence of spatial computing and AI: helping machines interpret the physical world and applying that to missions that matter.
 
 ### Pages
 
@@ -59,12 +69,12 @@ I spent most of my career building spatial systems — at Esri, startups, and fe
 - [Privacy](${origin}/privacy/) — data practices for this static site
 - [Terms](${origin}/terms/) — a short, permissive note about using this site
 - [Resume (PDF)](${origin}/John-Solly-Resume.pdf)
-- [Blog](${origin}/blog/) — articles about geospatial development, web development, AI and productivity
-- [Recipes](${origin}/recipes/) — easy meals and smoothies, with serving scaling and appliance filters
+- [Blog](${origin}/blog/) — ${BLOG_DESCRIPTION}
+- [Recipes](${origin}/recipes/) — ${RECIPES_DESCRIPTION}
 
 ### For agents
 
-Start at [${origin}/llms.txt](${origin}/llms.txt) for when-to-use guidance and links. Send \`Accept: text/markdown\` on the home, about, contact, privacy or terms page URL (or fetch its \`.md\` sibling) to skip the HTML chrome; blog and recipe pages are HTML only.
+Start at [${origin}/llms.txt](${origin}/llms.txt) for when-to-use guidance and links. Send \`Accept: text/markdown\` on the ${MARKDOWN_PAGES} page URL (or fetch its \`.md\` sibling) to skip the HTML chrome; ${HTML_ONLY_PAGES}.
 
 ## Testimonials
 
@@ -79,11 +89,11 @@ Start at [${origin}/llms.txt](${origin}/llms.txt) for when-to-use guidance and l
 function aboutMarkdown(origin: string): string {
 	return `# John Solly
 
-CTO, Enterprise Health & Software Engineer
+${SHORT_ROLE}
 
 A hands-on AI practitioner who transitioned to a CTO role to broaden my impact.
 
-Most of my career has been dedicated to developing spatial systems at Esri, startups, and federal agencies. Currently, I lead technology strategy for Enterprise Health at Leidos Digital, supporting agencies such as SSA, VA, and HHS.
+Most of my career has been dedicated to developing spatial systems at Esri, startups, and federal agencies. Currently, I ${ROLE_STRATEGY}, supporting agencies such as SSA, VA, and HHS.
 
 My primary focus is the convergence of spatial computing and AI, enabling machines to interpret the physical world and applying these capabilities to meaningful missions.
 

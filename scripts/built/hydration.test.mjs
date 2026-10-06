@@ -29,6 +29,7 @@ const SHIPPED = "dist";
 const HYDRATION_COMMENT = /^(?:\[.*|\].*|\$.*|astro:end|)$/su;
 const COMMENT = /<!(?:--(?<data>[\s\S]*?)--)?>/gu;
 const ISLAND_MODULE = /\s(?:component|renderer)-url="(?<url>[^"]+)"/gu;
+const OLD_BLOG_HOST = /blogthedata\.com/u;
 // Astro hashes an island's uid from the component's absolute path, so the
 // temp copy's uids differ from the real tree's; the dist/ comparison masks them.
 const ISLAND_UID = /(?<=<astro-island\b[^>]*\s)uid="[^"]*"/gu;
@@ -430,6 +431,79 @@ it("a phone visitor without JavaScript gets the expanded header menu from the no
 			page.waitForURL("**/blog/all-posts/"),
 			header.getByRole("link", { name: "All posts" }).click(),
 		]);
+	} finally {
+		await context.close();
+	}
+});
+
+// The portfolio's primary links as each landmark renders them: the on-site
+// blog and recipes open in the same tab, only the resume opens a new one.
+// Landmarks are found by label, not role, because a phone viewport hides the
+// desktop Primary navigation.
+const SITE_LINKS = [
+	{ text: "About", href: "/about/", target: null, rel: null },
+	{ text: "Contact", href: "/contact/", target: null, rel: null },
+	{ text: "Blog", href: "/blog/", target: null, rel: null },
+	{ text: "Recipes", href: "/recipes/", target: null, rel: null },
+	{
+		text: "Resume",
+		href: "/John-Solly-Resume.pdf",
+		target: "_blank",
+		rel: "noopener noreferrer",
+	},
+];
+
+function landmarkLinks(page, name) {
+	return page.locator(`nav[aria-label="${name}"] a`).evaluateAll((links) =>
+		links.map((link) => ({
+			text: link.textContent.trim(),
+			href: link.getAttribute("href"),
+			target: link.getAttribute("target"),
+			rel: link.getAttribute("rel"),
+		})),
+	);
+}
+
+it("A visitor on / reaches the on-site blog and recipes in the same tab and gets the resume in a new tab", async () => {
+	const context = await browser.newContext({
+		viewport: { width: 390, height: 844 },
+	});
+	try {
+		const page = await context.newPage();
+		const errors = [];
+		page.on("pageerror", (error) => errors.push(error.message));
+		await page.goto(`${sites.shipped.origin}/`);
+		await page.waitForFunction(
+			() => !document.querySelector("astro-island[ssr]"),
+		);
+		await page.getByRole("button", { name: "Toggle mobile menu" }).click();
+		await page
+			.getByRole("navigation", { name: "Mobile navigation" })
+			.waitFor({ state: "visible" });
+		const names = [
+			"Primary navigation",
+			"Mobile navigation",
+			"Footer navigation",
+		];
+		const landmarks = Object.fromEntries(
+			await Promise.all(
+				names.map(async (name) => [name, await landmarkLinks(page, name)]),
+			),
+		);
+		assert.deepEqual(landmarks, {
+			"Primary navigation": SITE_LINKS,
+			"Mobile navigation": SITE_LINKS,
+			"Footer navigation": SITE_LINKS,
+		});
+		const hrefs = await page
+			.locator("a[href]")
+			.evaluateAll((links) => links.map((link) => link.href));
+		assert.deepEqual(
+			hrefs.filter((href) => OLD_BLOG_HOST.test(href)),
+			[],
+			"no link on / points at the old blog host",
+		);
+		assert.deepEqual(errors, [], "no page errors");
 	} finally {
 		await context.close();
 	}

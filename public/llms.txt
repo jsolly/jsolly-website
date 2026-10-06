@@ -2,7 +2,7 @@
 
 > Personal website of John Solly — CTO of Enterprise Health at Leidos Digital, software engineer, and builder of spatial + AI systems. Static site; no product API.
 
-This file is the index for agents. Prefer it over scraping HTML. The five portfolio pages (home, about, contact, privacy, terms) also honor `Accept: text/markdown` (acceptmarkdown.com) and have `.md` siblings (`/index.md`, `/about.md`, `/contact.md`, `/privacy.md`, `/terms.md`). Blog and recipe pages under `/blog/` and `/recipes/` are HTML only: they return HTML even for `Accept: text/markdown`, and have no `.md` siblings.
+This file is the index for agents. Prefer it over scraping HTML. The five portfolio pages (home, about, contact, privacy, terms) also honor `Accept: text/markdown` (acceptmarkdown.com) and have `.md` siblings (`/index.md`, `/about.md`, `/contact.md`, `/privacy.md`, `/terms.md`); blog and recipe pages are HTML only: under `/blog/` and `/recipes/` they return HTML even for `Accept: text/markdown`, and have no `.md` siblings.
 
 ## When to use this
 

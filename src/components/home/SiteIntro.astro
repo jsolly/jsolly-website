@@ -1,4 +1,13 @@
 ---
+import {
+	BLOG_DESCRIPTION,
+	HTML_ONLY_PAGES,
+	MARKDOWN_PAGES,
+	RECIPES_DESCRIPTION,
+	ROLE,
+	ROLE_STRATEGY,
+} from "../../content/identity.js";
+
 const origin = Astro.site?.origin ?? "https://www.jsolly.com";
 ---
 
@@ -10,17 +19,17 @@ const origin = Astro.site?.origin ?? "https://www.jsolly.com";
 		About this site
 	</h2>
 	<p class="text-lg text-text-secondary leading-relaxed mb-4">
-		jsolly.com is the personal website of John Solly, CTO of Enterprise Health
-		at Leidos Digital. It is a small static site: who I am, how to reach me, my
-		blog and recipes, and pointers to work I publish elsewhere. It is not a
-		Leidos corporate page and it does not ship a product API.
+		jsolly.com is the personal website of John Solly, {ROLE}. It is a small
+		static site: who I am, how to reach me, my blog and recipes, and pointers
+		to work I publish elsewhere. It is not a Leidos corporate page and it does
+		not ship a product API.
 	</p>
 	<p class="text-lg text-text-secondary leading-relaxed mb-8">
 		Most of my career has been building spatial systems — at Esri, startups, and
-		federal agencies. I now lead technology strategy for Enterprise Health at
-		Leidos Digital, supporting agencies such as SSA, VA, and HHS. My focus is the
-		convergence of spatial computing and AI: helping machines interpret the
-		physical world and putting that to work on missions that matter.
+		federal agencies. I now {ROLE_STRATEGY}, supporting agencies such as SSA,
+		VA, and HHS. My focus is the convergence of spatial computing and AI:
+		helping machines interpret the physical world and putting that to work on
+		missions that matter.
 	</p>
 
 	<h3
@@ -49,12 +58,10 @@ const origin = Astro.site?.origin ?? "https://www.jsolly.com";
 			(PDF)
 		</li>
 		<li>
-			<a href="/blog/">Blog</a> — articles about geospatial development, web
-			development, AI and productivity
+			<a href="/blog/">Blog</a> — {BLOG_DESCRIPTION}
 		</li>
 		<li>
-			<a href="/recipes/">Recipes</a> — easy meals and smoothies, with serving
-			scaling and appliance filters
+			<a href="/recipes/">Recipes</a> — {RECIPES_DESCRIPTION}
 		</li>
 	</ul>
 
@@ -67,13 +74,12 @@ const origin = Astro.site?.origin ?? "https://www.jsolly.com";
 	<p class="text-lg text-text-secondary leading-relaxed">
 		Start at
 		<a href={`${origin}/llms.txt`}>{origin}/llms.txt</a>
-		for when-to-use guidance. Request the home, about, contact, privacy or
-		terms page with
+		for when-to-use guidance. Request the {MARKDOWN_PAGES} page with
 		<code class="text-base">Accept: text/markdown</code>
 		(or fetch its
 		<code class="text-base">.md</code>
-		sibling) to get a Markdown body without the layout chrome; blog and recipe
-		pages are HTML only. Missing paths return HTTP 404 with recovery links to
+		sibling) to get a Markdown body without the layout chrome; {HTML_ONLY_PAGES}.
+		Missing paths return HTTP 404 with recovery links to
 		the sitemap and that index.
 	</p>
 </section>

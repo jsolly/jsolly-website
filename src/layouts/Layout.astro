@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Maintenance from "../components/Maintenance.astro";
 import StructuredData from "../components/StructuredData.astro";
+import { ROLE } from "../content/identity.js";
 
 interface Props {
 	title: string;
@@ -90,7 +91,7 @@ const llmsTxtURL = new URL("/llms.txt", Astro.site);
 		<meta property="og:image:type" content="image/jpeg" />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="1200" />
-		<meta property="og:image:alt" content="John Solly, CTO of Enterprise Health at Leidos Digital" />
+		<meta property="og:image:alt" content={`John Solly, ${ROLE}`} />
 
 		<!-- Twitter -->
 		<meta name="twitter:card" content="summary_large_image" />
@@ -98,7 +99,7 @@ const llmsTxtURL = new URL("/llms.txt", Astro.site);
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={socialImageURL} />
-		<meta name="twitter:image:alt" content="John Solly, CTO of Enterprise Health at Leidos Digital" />
+		<meta name="twitter:image:alt" content={`John Solly, ${ROLE}`} />
 	</head>
 	<body class="bg-background text-text-primary font-body">
 		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

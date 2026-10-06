@@ -1,12 +1,13 @@
 ---
 import ContactMe from "../components/ContactMe.astro";
 import SocialLinks from "../components/SocialLinks.astro";
+import { ROLE, TITLE_ROLE } from "../content/identity.js";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-	title="Contact John Solly — Enterprise Health CTO & Software Engineer"
-	description="Get in touch with John Solly, CTO of Enterprise Health at Leidos Digital and software engineer — reach out about spatial computing, AI, or federal health IT."
+	title={`Contact John Solly — ${TITLE_ROLE} & Software Engineer`}
+	description={`Get in touch with John Solly, ${ROLE} and software engineer — reach out about spatial computing, AI, or federal health IT.`}
 >
 	<section class="max-w-2xl mx-auto py-8 text-center">
 		<h1
