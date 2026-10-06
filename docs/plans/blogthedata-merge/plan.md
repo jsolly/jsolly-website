@@ -978,7 +978,7 @@ Leaving the dashboard's own build settings untouched means a rollback reconnect 
 3. Merge. Every jsolly-website merge creates a new legacy deployment.
    - **During the soak** (auto-assign off, C2 step 9 to the end of the soak), that deployment is staged and not served. John runs the staged verification and promotes it by hand.
    - **After the soak,** auto-assign is back on and it goes live directly.
-4. Run `node scripts/verify-blogthedata-cutover.mjs --production`. The `legacy-redirects.yml` workflow (C2 step 8) also checks a fixed sample daily and after every `blogthedata` deployment.
+4. Run `npm ci`, then `node scripts/verify-blogthedata-cutover.mjs --production`. The `legacy-redirects.yml` workflow (C2 step 8) also checks a fixed sample daily and after every `blogthedata` deployment.
 
 `ignoreCommand` is not used; whether it works at Vercel's clone depth is UNVERIFIED.
 
@@ -1029,7 +1029,7 @@ Leaving the dashboard's own build settings untouched means a rollback reconnect 
 | 4.7 | Feed legacy ids | B10. Each pre-merge post in `/blog/rss.xml` has `<guid isPermaLink="false">` whose text is exactly the old `https://www.blogthedata.com/post/<slug>/`. Its `<link>` is `https://www.jsolly.com/blog/<slug>/`. Atom `<id>` values keep the old text, and the Atom feed `<id>` is unchanged. The recipe post is absent. Content-Type header rules for both feeds exist in `vercel.json`. Readers dedupe on guid text, which is unchanged. | Gate | Exact equality |
 | 4.8 | Kill-switch across two origins | `scripts/built/blogthedata-killswitch.test.mjs` (PA6, Playwright). Origin A (`127.0.0.1:<p1>`) first serves a cache-first fixture worker that mimics the old ones: same URLs, same scopes (`/` and the post path), same cache prefixes. It precaches a page. Origin A then switches to serving `legacy/blogthedata/public`, with redirects compiled to origin B (`127.0.0.1:<p2>`). Trigger `registration.update()` or a navigation, then assert the caches are empty, there are no registrations, and the tab lands on origin B's mapped URL. | Gate (PA6); C2 production fetch | 2/2 |
 | 4.9 | Visual comparison with live | `scripts/port/visual-compare.mjs` (Playwright and sharp), writing under `os.tmpdir()`. Local `astro preview` against live `www.blogthedata.com`, at 1280×800 and 390×844. Pages: home, a code post, a YouTube post, a category, all-posts, search, works-cited, `/recipes/meals/` (shuffled cards masked) and a recipe detail. Header and footer link targets are masked. | After B06c, B07 and B08, and in C0 | ≤ 0.5% differing pixels per page outside masks. Anything over is reviewed and recorded in the PR body. |
-| 4.10 | Live cutover verifier | `scripts/verify-blogthedata-cutover.mjs` (B21) with `redirect: 'manual'`, 2 unit tests against a stub server (detail below the table) | C0 step 8 (destinations, on the preview, John), C1 (destinations), C2, then daily and per `blogthedata` deployment from C2 step 8 | 0 failures |
+| 4.10 | Live cutover verifier | `scripts/verify-blogthedata-cutover.mjs` (B21) with `redirect: 'manual'`, 5 unit tests against local stub servers and a fake `vercel` CLI (detail below the table) | C0 step 8 (destinations, on the preview, John), C1 (destinations), C2, then daily and per `blogthedata` deployment from C2 step 8 | 0 failures |
 | 4.11 | Production smoke | B20 adds to `scripts/production-smoke-scenario.mjs`: (1) `/blog/` → first post, with h1 and body present, checked by `verifyHttp`; (2) GET search round trip on `/blog/search/?searched=<that post's title>`, which must list the post (this exercises the `/blog/search-index.json` fetch under production CSP and middleware); (3) the `/recipes/` island hydrates, with service workers blocked by the runner; (4) the feeds return `application/rss+xml` and `application/atom+xml`; (5) `Accept: text/markdown` on a real post returns HTML 200. The fleet runner template is not edited. | Every production deploy from C1 on | The run for the release SHA succeeds |
 | 4.12 | PagesCMS and content contracts | Ported "CMS fields cover…", plus a new `.pages.yml` paths test and a PagesCMS-shaped category JSON passing `biome ci` (unit, B13). `blog-content-contracts.test.mjs` (B14) in a temp copy: a CMS post builds; a draft never leaks into `dist` or the route manifest; invalid timestamps fail; a duplicate post or category slug fails; an unknown `related` slug fails; a CMS image under `/blog/media/` renders same-origin. | Gate | 3/3 unit, 7/7 built |
 | 4.13 | Middleware | PA3 adds 6 cases to `src/lib/accept-negotiate.test.ts`: a real route passes through; unknown `/blog/nope/` keeps the Markdown 404; `/recipes/data/*.md` passes through; `.avif` and `.mp4` never get 406; `.xml` feeds are untouched; exempt routes get no `Vary: Accept`. A built test also checks that the route manifest equals the built routes. | Gate | All green |
@@ -1120,12 +1120,12 @@ Modes:
 
 **DST baseline: 20** (`npm test` 18, smoke contract 1, built-csp 1).
 
-**New tests: 49 that survive, plus 6 temporary.**
+**New tests: 52 that survive, plus 6 temporary.**
 
 | Phase | Count | Steps |
 | --- | --- | --- |
 | A | 24 | PA1 1 (count wrapper); PA2 3 (2 hydration, 1 comment kinds); PA3 7 (6 unit, 1 manifest); PA4 1; PA5 1 (Layout selector set); PA6 11 (9 unit, 2 browser) |
-| B | 25 | B06a 1 (id ownership); B06c 4 (per-page CSP, maintenance, legacy fragments, CSS sources); B07 1; B08 1; B09 1; B10 1; B11 1 (built: `scripts/built/blog-site-files.test.mjs`); B13 2 (paths, PagesCMS JSON); B14 2 (unknown `related`, CMS image); B16 1; B17 2 (hydration, deep links); B20 1; B21 2; B22 5 (destinations 1, internal links 4) |
+| B | 28 | B06a 1 (id ownership); B06c 4 (per-page CSP, maintenance, legacy fragments, CSS sources); B07 1; B08 1; B09 1; B10 1; B11 1 (built: `scripts/built/blog-site-files.test.mjs`); B13 2 (paths, PagesCMS JSON); B14 2 (unknown `related`, CMS image); B16 1; B17 2 (hydration, deep links); B20 1; B21 5 (verifier and its transports); B22 5 (destinations 1, internal links 4) |
 | Temporary | 6 | B01 `scripts/unit/port-tooling.test.mjs`, deleted with `scripts/port/` at C0 |
 
 **Expected totals.**
@@ -1535,7 +1535,7 @@ Gate G+R. Tests: +6 temporary. These scripts and the test are removed in C0.
 
 **B21. Cutover verifier.** M. Depends on: B20.
 
-- `scripts/verify-blogthedata-cutover.mjs` (§4.10, including the `--sample` mode and the double-slash probes) and `scripts/unit/verify-blogthedata-cutover.test.mjs` (+2).
+- `scripts/verify-blogthedata-cutover.mjs` (§4.10, including the `--sample` mode and the double-slash probes) and `scripts/unit/verify-blogthedata-cutover.test.mjs` (+4), with its transports in `scripts/verify-blogthedata-transports.mjs` and `scripts/unit/verify-blogthedata-transports.test.mjs` (+1).
 - Gate G+R+C.
 
 **B22. Destination existence and link check.** S. Depends on: B04, B09, B10, B11, B12, B18, B19.
@@ -1655,6 +1655,12 @@ The legacy deployment is READY in seconds, so a smoke it triggers can test the p
    cd /Users/johnsolly/code/jsolly-website/.claude/worktrees/port-c0 && git fetch origin && git switch --detach origin/port/awesome-blog && npm ci && node scripts/verify-blogthedata-cutover.mjs --destinations-only --transport vercel-curl --base-url "$PREVIEW_URL"
    ```
 
+   If `vercel curl` fails (its flags are UNVERIFIED), the fallback is a Protection Bypass for Automation secret that stays in John's shell, in the same worktree after the same `npm ci`:
+
+   ```bash
+   node scripts/verify-blogthedata-cutover.mjs --destinations-only --base-url "$PREVIEW_URL" --bypass-env VERCEL_AUTOMATION_BYPASS_SECRET
+   ```
+
    **Pass:** every 301 destination returns 200 on the preview, and both feeds return their XML Content-Types. The 4.11 scenario does not run here: it pins `https://www.jsolly.com` and first runs at C1.
 
 **Approval gate:** "C0 done; approve C1?"
@@ -1685,10 +1691,10 @@ The legacy deployment is READY in seconds, so a smoke it triggers can test the p
    git -C /Users/johnsolly/code/jsolly-website push origin --delete port/awesome-blog
    ```
 
-4. Agent: check that every 301 destination returns 200 and the feeds return the right Content-Types.
+4. Agent: check that every 301 destination returns 200 and the feeds return the right Content-Types. The verifier imports the repo's own modules and dependencies, so `npm ci` runs first.
 
    ```bash
-   cd /Users/johnsolly/code/jsolly-website && git pull --ff-only && node scripts/verify-blogthedata-cutover.mjs --destinations-only --base-url https://www.jsolly.com
+   cd /Users/johnsolly/code/jsolly-website && git pull --ff-only && npm ci && node scripts/verify-blogthedata-cutover.mjs --destinations-only --base-url https://www.jsolly.com
    ```
 
 5. Agent: confirm the port branch is gone (the command prints nothing). Then John grants the PagesCMS GitHub App access to jsolly-website and runs the rehearsal in §1.5. The rehearsal PR is closed unmerged.
@@ -1727,19 +1733,23 @@ The legacy deployment is READY in seconds, so a smoke it triggers can test the p
    cd /Users/johnsolly/code/jsolly-website && git pull --ff-only && npm ci && node scripts/verify-blogthedata-cutover.mjs --transport vercel-curl --base-url "$STAGED_URL"
    ```
 
-   `vercel curl` may create a project automation-bypass secret. If its flags differ (UNVERIFIED), the fallback is a Protection Bypass for Automation secret that stays in John's shell, passed as `--bypass-env VERCEL_AUTOMATION_BYPASS_SECRET`.
+   `vercel curl` may create a project automation-bypass secret. If its flags differ (UNVERIFIED), or its warm-up stops the run, the fallback is a Protection Bypass for Automation secret that stays in John's shell, run in the same checkout after the same `npm ci`:
+
+   ```bash
+   node scripts/verify-blogthedata-cutover.mjs --base-url "$STAGED_URL" --bypass-env VERCEL_AUTOMATION_BYPASS_SECRET
+   ```
 
    **Pass:** 0 failures, with both service-worker URLs returning 200. The double-slash results go in the execution record (§2.3, J28).
 6. John: Promote the staged deployment. No rebuild.
-7. Agent: run the full production check, then compare the production kill-switch bodies against the repo bytes. Optionally, John opens an installed old recipe PWA and confirms it lands on `https://www.jsolly.com/recipes/`.
+7. Agent: run the full production check, which also compares the production kill-switch bodies against the repo bytes. `npm ci` runs first, as the verifier imports the repo's modules and dependencies. Optionally, John opens an installed old recipe PWA and confirms it lands on `https://www.jsolly.com/recipes/`.
 
    ```bash
-   cd /Users/johnsolly/code/jsolly-website && node scripts/verify-blogthedata-cutover.mjs --production
+   cd /Users/johnsolly/code/jsolly-website && npm ci && node scripts/verify-blogthedata-cutover.mjs --production
    ```
 
 8. Deployment-discrimination check, the monitoring workflow, and lifting the hold:
    1. John revokes any automation-bypass secret that step 5 created.
-   2. Agent: one `/ship` PR adding `.github/workflows/legacy-redirects.yml`. It runs `node scripts/verify-blogthedata-cutover.mjs --production --sample` daily on a schedule, on `workflow_dispatch`, and on `deployment_status` events whose `environment_url` starts with the legacy project's host prefix (candidate `https://blogthedata-`, confirmed against the real `environment_url` of the C2 step 4 deployment, read with the read-only Vercel MCP `list_deployments`; the same kind of discriminator X1 uses), with a short retry so a just-promoted deployment is probed. The sample: a mixed-case post, a category, the instant-pot → `/recipes/` row, `/rss/`, both service-worker URLs at 200, one stays-404 row, and both hosts' security.txt (valid, `Expires` more than 30 days out). The repo is private, so the schedule is not auto-disabled for inactivity.
+   2. Agent: one `/ship` PR adding `.github/workflows/legacy-redirects.yml`. It runs `npm ci`, then `node scripts/verify-blogthedata-cutover.mjs --production --sample`, daily on a schedule, on `workflow_dispatch`, and on `deployment_status` events whose `environment_url` starts with the legacy project's host prefix (candidate `https://blogthedata-`, confirmed against the real `environment_url` of the C2 step 4 deployment, read with the read-only Vercel MCP `list_deployments`; the same kind of discriminator X1 uses), with a short retry so a just-promoted deployment is probed. The sample: a mixed-case post, a category, the instant-pot → `/recipes/` row, `/rss/`, both service-worker URLs at 200, one stays-404 row, and both hosts' security.txt (valid, `Expires` more than 30 days out). The repo is private, so the schedule is not auto-disabled for inactivity.
    3. That merge is the discrimination probe. It must show exactly one jsolly Production smoke run for the merge SHA, with `/ship`'s release gate finding it, and no smoke run for the staged `blogthedata` deployment the merge also creates.
       - **If it fails** (a smoke run for the `blogthedata` deployment, or `/ship` picking the wrong deployment): keep the merge hold, record the run URLs, and ask John to authorize an X1 fix in dotagents plus its jsolly-website sync; re-run this probe with a trivial follow-up PR after the sync. Until then, `/ship` identifies the jsolly deployment by project through the read-only Vercel MCP `list_deployments`.
    4. John, after that merge: open the Instant Rollback dialog on `blogthedata`, confirm it still offers the awesome-blog deployment from step 1, then cancel. This checks the SEQ-04 assumption that a staged, unpromoted deployment does not displace the rollback target. If the dialog no longer offers it, the rollback path is the manual reconnect, and the soak still applies.
@@ -1931,6 +1941,7 @@ Recorded while porting (each step's PR body on `port/awesome-blog` has the detai
 5. **security.txt has no `Encryption` field on either host** (both files changed on `port/awesome-blog` in B11; they reach `main` with C1). `public/pgp-key.txt` (key 257BD207…) expired on 2023-05-08 and its only UID cannot receive mail; the file stays because legacy row SEC-001 and two posts link it. Re-add the field only after John publishes a current key (B11).
 6. **Recipe data counts.** `recipe-library.json` holds 84 image values (123 path occurrences); `recipe-library.md` holds none. Three exports are un-exported in B15 (`dailyNutrients`, `recipeDisclaimer`, `applianceChoices`), and recipe constants live in `src/components/recipes/constants.mjs`.
 7. **Unknown `related` slugs fail the build** in `publishedContent` (a unit test and a B14 built scenario), drafts included; a slug naming a draft still builds without a card.
+8. **Cutover verifier (B21).** `--transport vercel-curl` writes out the status and the Location, Content-Type and Cache-Control headers, and saves served files to a temp file instead of `-o /dev/null`, because the §4.10 serve-200 checks need the type and the bytes that `%{http_code} %{redirect_url}` cannot give. One serial `curl -v` warm-up lets the CLI find or create the deployment's bypass secret and reads it from the request headers; every later call passes it as `VERCEL_AUTOMATION_BYPASS_SECRET`, so a run creates at most one secret and the CLI asks the API only once. A request is retried once, with a warning, only on a transient transport error (fetch network error or timeout, curl exit 6, 7 or 28). If the warm-up shows no bypass secret, or answers anything but 2xx, 3xx or 404, the run stops. Any flag combination outside the four modes exits 2, and `--base-url` must be an https origin (http only for a loopback stub). The verifier reads the feed types from `FEEDS` in `src/lib/blog/constants.ts`, and must run after `npm ci`. B21 adds 5 unit tests: "A correct cutover passes every check, records the double slashes and keeps a fixed sample", "A broken cutover fails each wrong answer by name and exits non-zero", "Each valid flag set runs its own mode, plan, targets and transports" and "Any flag combination outside the four modes is a usage error" in `scripts/unit/verify-blogthedata-cutover.test.mjs`, and "The vercel-curl transport warms up once, then reads each answer past the CLI's chatter" in `scripts/unit/verify-blogthedata-transports.test.mjs`. `--base-url` probes only that origin's own scheme; the http → https 308 is a custom-domain behaviour that `--production` checks. In full `--base-url` mode the destinations are still checked on `https://www.jsolly.com` with fetch. The `--sample` rows are derived by fixed rules written in the script header (PST-002, CAT-001, RCP-001, FED-002, both service workers, PST-108 and SEC-002 today), and "both hosts' security.txt" covers the legacy hosts and jsolly.com.
 
 ---
 
