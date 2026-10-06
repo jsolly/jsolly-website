@@ -3,6 +3,8 @@
 
 /** Recipe ingredient amounts and timings are written for this many adults. */
 export const BASE_SERVINGS = 4;
+/** The servings a reader can choose. */
+export const SERVING_CHOICES = [2, 4, 6, 8];
 
 export const recipeDisclaimer =
 	"These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.";

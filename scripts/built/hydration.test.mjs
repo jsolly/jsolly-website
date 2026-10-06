@@ -23,17 +23,21 @@ const SHIPPED = "dist";
 // The comments islands hydrate from, listed independently of process-html.mjs
 // so that dropping one of its ignoreCustomComments patterns fails here: Svelte
 // block open (`[`, `[!`, `[-1`) and close (`]`), empty anchors, `$props.id()`
-// markers (`$s1`) and Astro's `astro:end`.
+// markers (`$s1`) and Astro's `astro:end`. Svelte writes the empty anchor that
+// ends a <select> or <option> with snippet content as `<!>`, which parses to
+// the same empty comment as `<!---->`.
 const HYDRATION_COMMENT = /^(?:\[.*|\].*|\$.*|astro:end|)$/su;
-const COMMENT = /<!--(?<data>[\s\S]*?)-->/gu;
+const COMMENT = /<!(?:--(?<data>[\s\S]*?)--)?>/gu;
 const ISLAND_MODULE = /\s(?:component|renderer)-url="(?<url>[^"]+)"/gu;
 // Astro hashes an island's uid from the component's absolute path, so the
 // temp copy's uids differ from the real tree's; the dist/ comparison masks them.
 const ISLAND_UID = /(?<=<astro-island\b[^>]*\s)uid="[^"]*"/gu;
 const KINDS = ["[", "]", "", "$", "astro:end"];
-// No page uses $props.id() yet, so a synthetic page carries every kind, plus
-// an ordinary comment that processing must drop.
-const SYNTHETIC_PAGE = "__hydration-markers__/index.html";
+// A synthetic page carries every kind in one place, the `<!>` select anchor
+// and an ordinary comment that processing must drop. It sits under recipes/,
+// whose pages skip process-html's jsdom id pass, so the minifier itself meets
+// the `<!>` it cannot parse unless process-html rewrites it.
+const SYNTHETIC_PAGE = "recipes/__hydration-markers__/index.html";
 const SYNTHETIC_HTML = `<!doctype html>
 <html lang="en">
 	<head><title>markers</title><!-- dropped --></head>
@@ -42,6 +46,7 @@ const SYNTHETIC_HTML = `<!doctype html>
 			<!--[--><p>
 				one   <!--$s1-->
 			</p><!----><!--[!--><!--]--><!--[-1--><span>two</span><!--]--><!--]-->
+			<select><!--[--><option>three</option><!--]--><!----><!></select>
 		</astro-island>
 		<!--astro:end-->
 	</body>
@@ -66,7 +71,7 @@ async function pageComments(dist) {
 		files.map(async (file) => {
 			const html = await fs.readFile(join(dist, file), "utf8");
 			const comments = [...html.matchAll(COMMENT)].map(
-				(match) => match.groups.data,
+				(match) => match.groups.data ?? "",
 			);
 			return [
 				file,
@@ -196,12 +201,17 @@ after(async () => {
 	await copy?.remove();
 });
 
-for (const path of [
-	"/",
-	"/about/",
-	"/blog/",
-	"/blog/works-cited/",
-	"/blog/search/",
+// A recipe page legitimately replaces part of its server render on mount (it
+// turns interactive: shadcn-svelte controls replace the native fallbacks), so
+// it is held to parity with the unprocessed build only (plan §4.5). Greek
+// turkey patties has a family side, so its island includes the side select.
+for (const { path, fullReuse } of [
+	{ path: "/", fullReuse: true },
+	{ path: "/about/", fullReuse: true },
+	{ path: "/blog/", fullReuse: true },
+	{ path: "/blog/works-cited/", fullReuse: true },
+	{ path: "/blog/search/", fullReuse: true },
+	{ path: "/recipes/greek-turkey-patties/", fullReuse: false },
 ]) {
 	it(`a visitor opening ${path} gets its islands hydrated in place`, async (t) => {
 		const [shipped, baseline] = await Promise.all([
@@ -229,9 +239,11 @@ for (const path of [
 			{ reused: baseline.reused, total: baseline.total },
 			`${path}: process-html changes island node reuse`,
 		);
+		// Full-reuse pages must keep every node; a recipe page keeps what the
+		// unprocessed build keeps (the parity check above).
 		assert.equal(
 			shipped.reused,
-			shipped.total,
+			fullReuse ? shipped.total : baseline.reused,
 			`${path}: every server-rendered island node survives hydration`,
 		);
 	});

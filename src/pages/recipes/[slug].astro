@@ -1,0 +1,25 @@
+---
+import type { InferGetStaticPropsType } from "astro";
+import RecipePage from "../../components/recipes/RecipePage.svelte";
+import data from "../../components/recipes/recipes.json" with { type: "json" };
+import BlogLayout from "../../layouts/BlogLayout.astro";
+import "../../styles/recipes/recipes-theme.css";
+
+// One page per recipe at /recipes/<id>/, the same path as on blogthedata.com.
+// Its section id is the recipe id, so old /recipes/<id>/#<id> links still land.
+export function getStaticPaths() {
+	return data.recipes.map((entry) => ({
+		params: { slug: entry.id },
+		props: { recipe: entry },
+	}));
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { recipe } = Astro.props;
+---
+
+<BlogLayout section="recipes" title={recipe.title} description={recipe.summary} article>
+	<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/blog/">Home</a><span aria-hidden="true">/</span><a href="/recipes/">Easy Meals &amp; Smoothies</a></nav>
+	<RecipePage {recipe} client:load />
+</BlogLayout>
