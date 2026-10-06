@@ -1,7 +1,9 @@
 import { z } from "zod";
 import { DEFAULT_IMAGE } from "./constants.js";
 
-const SLUG = /^[A-Za-z0-9_-]+$/u;
+// Post and category slugs; case is kept. .pages.yml gives both slug fields
+// this pattern.
+export const SLUG = /^[A-Za-z0-9_-]+$/u;
 
 const slug = z.string().regex(SLUG);
 const timestamp = z.iso.datetime({ offset: true }).pipe(z.coerce.date());

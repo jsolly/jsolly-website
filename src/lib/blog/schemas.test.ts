@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
+import { LEGACY_FRONTMATTER_KEYS } from "./constants.js";
 import {
 	categoryCounts,
 	categorySchema,
@@ -32,7 +33,7 @@ function failingPaths(input: unknown) {
 describe("blog collection schemas", () => {
 	it("A PagesCMS post carrying unmanaged legacy fields loads with only the managed fields and the default image", () => {
 		const post = postSchema.parse(CMS_POST);
-		for (const key of ["legacyId", "legacyImage", "legacyAuthorId"]) {
+		for (const key of LEGACY_FRONTMATTER_KEYS) {
 			assert.equal(Object.hasOwn(post, key), false, key);
 		}
 		assert.equal(post.slug, "Some-Post");
