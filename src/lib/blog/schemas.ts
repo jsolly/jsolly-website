@@ -41,7 +41,7 @@ type PostEntry = {
 	rendered?: { html?: string };
 	data: Pick<
 		z.infer<typeof postSchema>,
-		"slug" | "category" | "draft" | "published"
+		"slug" | "category" | "draft" | "published" | "related"
 	>;
 };
 type CategoryEntry = {
@@ -51,9 +51,11 @@ type CategoryEntry = {
 // Checks the loaded collections as a whole, then returns the published posts
 // newest first (each with its rendered html and its category's name) and the
 // categories by name. The
-// category field is a plain slug in the schema, so an unknown one is caught
-// here. Throws, naming the offender, on an empty article, a duplicate post or
-// category slug, or an unknown category.
+// category and related fields are plain slugs in the schema, so an unknown one
+// is caught here. Throws, naming the offender, on an empty article, a
+// duplicate post or category slug, an unknown category, or a related slug
+// that names no post. A related slug naming a draft is known: the post page
+// leaves it out of its cards until the draft is published.
 export function publishedContent<P extends PostEntry, C extends CategoryEntry>(
 	entries: P[],
 	categories: C[],
@@ -83,6 +85,12 @@ export function publishedContent<P extends PostEntry, C extends CategoryEntry>(
 		slugs.add(post.data.slug);
 		return { ...post, html, categoryName };
 	});
+	for (const { data } of posts) {
+		const unknown = data.related.find((related) => !slugs.has(related));
+		if (unknown !== undefined) {
+			throw new Error(`Unknown related post: ${unknown} (post ${data.slug})`);
+		}
+	}
 	return {
 		posts: posts
 			.filter((post) => !post.data.draft)

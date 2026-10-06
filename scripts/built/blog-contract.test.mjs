@@ -58,10 +58,11 @@ function article(document) {
 	};
 }
 
-// The snapshot holds no drafts, so this test cannot catch a draft leaking;
-// that scenario, a real draft in a temp copy, and its wording arrive with
-// B14's content-contract test.
-it("every legacy post and category URL leads to a built page, and every published post is built, archived, searchable, in the sitemap and in the route manifest", async () => {
+// The snapshot holds no drafts, so the draft half of "exactly when published"
+// is held by blog-content-contracts.test.mjs, which builds a real draft in a
+// temp copy and finds it in no built file (page, archive, search index,
+// sitemap, feeds) and not in the route manifest.
+it("every legacy post and category URL leads to a built page, and each post is built, archived, searchable, in the sitemap and in the route manifest exactly when published", async () => {
 	const posts = await allPosts();
 	const published = posts.filter((post) => post.published);
 	assert.ok(published.length > 0, "the snapshot publishes posts");

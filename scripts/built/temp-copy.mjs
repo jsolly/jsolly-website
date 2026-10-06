@@ -1,7 +1,8 @@
 // A throwaway copy of the working tree for built tests that need their own
-// build (today: the unprocessed baseline in hydration.test.mjs and the
-// maintenance build in blog-maintenance.test.mjs). The real tree, its dist/
-// and its Astro data store are never touched.
+// build (today: the unprocessed baseline in hydration.test.mjs, the
+// maintenance build in blog-maintenance.test.mjs and the PagesCMS-shaped posts
+// in blog-content-contracts.test.mjs). The real tree, its dist/ and its Astro
+// data store are never touched.
 //
 // - Files: the `git ls-files -co --exclude-standard` set, so gitignored output
 //   (dist/, .astro/, node_modules/) never comes across.

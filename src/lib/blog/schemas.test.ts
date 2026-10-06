@@ -83,7 +83,12 @@ function entry(
 	slug: string,
 	category: string,
 	published: string,
-	overrides: { draft?: boolean; body?: string; html?: string } = {},
+	overrides: {
+		draft?: boolean;
+		body?: string;
+		html?: string;
+		related?: string[];
+	} = {},
 ) {
 	return {
 		body: overrides.body ?? "Notes from the field.",
@@ -93,6 +98,7 @@ function entry(
 			category,
 			draft: overrides.draft ?? false,
 			published: new Date(published),
+			related: overrides.related ?? [],
 		},
 	};
 }
@@ -192,5 +198,38 @@ describe("published blog content", () => {
 				message,
 			});
 		}
+	});
+
+	it("A related slug that names no post stops the build, naming it and its post; one that names a draft does not", () => {
+		const relating = (related: string[]) => [
+			...POSTS,
+			entry("stac-browser-tips", "Geodev", "2026-02-01T12:00:00Z", {
+				related,
+			}),
+		];
+		assert.throws(
+			() =>
+				publishedContent(
+					relating(["intro-to-stac-apis", "15-minute-instant-pot-recipes"]),
+					CATEGORIES,
+				),
+			{
+				message:
+					"Unknown related post: 15-minute-instant-pot-recipes (post stac-browser-tips)",
+			},
+		);
+		const { posts } = publishedContent(
+			relating(["intro-to-stac-apis", "weekly-review-template"]),
+			CATEGORIES,
+		);
+		assert.deepEqual(
+			posts.map((post) => post.data.slug),
+			[
+				"stac-browser-tips",
+				"content-security-policy",
+				"mapbox-vector-tiles",
+				"intro-to-stac-apis",
+			],
+		);
 	});
 });
