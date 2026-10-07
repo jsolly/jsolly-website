@@ -89,6 +89,7 @@ If a green merge creates no Vercel deployment, verify that the project's Git con
 - **Tabs** for indentation (Biome default, also matches `biome.jsonc`).
 - **Tailwind utilities** over custom CSS; theme tokens live in `src/styles/`.
 - **Tailwind sources are explicit.** `src/styles/main.css` imports Tailwind with `source(none)` and lists its `@source` / `@source not` paths, so docs, data and blog or recipe code never change the portfolio bundle; Tailwind class strings must live in `src/components`, `src/layouts`, `src/pages` or `src/lib`. `scripts/unit/tailwind-sources.test.mjs` asks Tailwind's own scanner which files feed `main.css` and fails on any file outside those four roots.
+- **Whitespace is lossless.** `astro.config.ts` sets `compressHTML: true`; Astro 7's default `"jsx"` drops line-break whitespace next to elements and glues prose to inline links and code. `scripts/built/inline-spacing.test.mjs` checks the rendered text of the portfolio pages.
 - **Heading IDs are auto-generated** by `process-html.mjs` from heading text — don't hand-write `id="..."` on headings unless overriding the generated slug.
 
 ## Local UI verification
