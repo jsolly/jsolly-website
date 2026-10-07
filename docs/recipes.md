@@ -82,8 +82,9 @@ notes and the cooking-adaptation boundaries are kept in
 byte from the handoff package they were recorded in. Biome and markdownlint
 skip that folder so its bytes never change. The whole folder, including
 `recompute-nutrition.py`, is an inert record under J17: nothing in the build or
-the gate runs it. Recipe
-source links and modelled limits are also in `recipes.json` itself.
+the gate runs it. The script needs Python 3 and, if run, rewrites
+`nutrition-calculations.json` from its sibling files. Recipe source links and
+modelled limits are also in `recipes.json` itself.
 
 ## Pipeline
 
