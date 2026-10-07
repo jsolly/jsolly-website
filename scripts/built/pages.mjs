@@ -40,6 +40,21 @@ export async function routeManifest(root = ROOT) {
 	return routes;
 }
 
+// Every file under `root` (dotfiles included), as a Set of root-relative
+// paths. Membership is exact-case, as on Vercel, where a case-insensitive
+// disk (macOS) would let a wrong-case access() succeed.
+export async function distFiles(root = "dist") {
+	return new Set(await globby("**/*", { cwd: root, dot: true }));
+}
+
+// The root-relative file a static host serves for a URL `pathname`: a path
+// ending in / is its index.html, anything else the file itself. Each segment
+// is percent-decoded, as the host decodes the request path.
+export function distFileFor(pathname) {
+	const path = pathname.split("/").map(decodeURIComponent).join("/").slice(1);
+	return path === "" || path.endsWith("/") ? `${path}index.html` : path;
+}
+
 // Every built HTML page under `root`, as { file (relative to root), html }.
 export async function readBuiltPages(root = "dist") {
 	const files = await globby("**/*.html", { cwd: root });

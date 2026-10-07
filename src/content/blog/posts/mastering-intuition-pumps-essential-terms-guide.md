@@ -47,7 +47,7 @@ DnD is a way of evaluating something by revealing more truth about it. PnD is at
 
 <h3 id="collaboration-principle">Collaboration Principle</h3>
 
-An emergent phenomenon in which people unconciously/conciously collaborate in a conversation. The shared goal is in maintaining eachother's [positive](#positive-face) 👫 and [negative](#negative-face) face. When following the Collaboration Principle, you are probably also following [Grices Maxiums](#grices-maxiums)
+An emergent phenomenon in which people unconciously/conciously collaborate in a conversation. The shared goal is in maintaining eachother's [positive](#positive-face) 👫 and [negative](#negative-face) face. When following the Collaboration Principle, you are probably also following [Grices Maxiums](#grice-s-maxiums)
 
 <h3 id="imposition-equation">Imposition Equation</h3>
 
@@ -83,7 +83,7 @@ Honing something bad into something dangerous and bad. 💩
 
 <h3 id="-i-m-just-kidding-_-_-">“I’m just kidding” ¯\_(ツ)_/¯</h3>
 
-A sign that your [intention has not aligned with your impact](#the-big-ones)
+A sign that your intention has not aligned with your impact
 
 <h3 id="cold-shower-effect">Cold Shower effect</h3>
 
@@ -257,7 +257,7 @@ Dennett saves for last one of his favorite boogeymen, the “deepity,” a term 
 
 <h2 id="things-that-make-people-not-like-you">Things that make people not like you</h2>
 
-<ol><li>Too much or too little eye contact</li><li>Not enough or too much physical space between individuals</li><li>Body hygiene (breath, smell, hair)</li><li>No commitment to the <a href="#collaboration-principle">collaboration Princible</a>. Including any violation of <a href="#grices-maxiums">Grice's Maxiums</a></li><li>Entering and leaving an interaction without grace or tact.</li><li>Wrong amount of mmhmms and oh yeahs?</li><li>Lacking empathy/connection (Not vibin')</li><li>Imbalance of linear vs diffusive thinking (taking things too literally or webbing too much)</li><li>Interpreting ambiguous situations as negative</li></ol>
+<ol><li>Too much or too little eye contact</li><li>Not enough or too much physical space between individuals</li><li>Body hygiene (breath, smell, hair)</li><li>No commitment to the <a href="#collaboration-principle">collaboration Princible</a>. Including any violation of <a href="#grice-s-maxiums">Grice's Maxiums</a></li><li>Entering and leaving an interaction without grace or tact.</li><li>Wrong amount of mmhmms and oh yeahs?</li><li>Lacking empathy/connection (Not vibin')</li><li>Imbalance of linear vs diffusive thinking (taking things too literally or webbing too much)</li><li>Interpreting ambiguous situations as negative</li></ol>
 
 <h2 id="things-that-make-people-like-you">Things that make people like you</h2>
 
