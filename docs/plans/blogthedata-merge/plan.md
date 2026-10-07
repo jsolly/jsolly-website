@@ -1135,6 +1135,9 @@ Modes:
 | After Phase A | **44** (= 20 + 24) | 34 | 1 | 2 | 7 |
 | During Phase B, at B23 (B01's temporary 6 still present) | **142** | 86 | 5 | 3 | 48 |
 | At C1, after C0 deletes `scripts/port/` | **136** (= 20 + 67 + 49) | 80 | 5 | 3 | 48 |
+| **Actual, as merged at B23** (B01's temporary 6 still present) | **258** (unit 151 + built 89 + csp 3 + smoke 15) | 151 | 15 | 3 | 89 |
+
+The rows above are the original projections. Phase B added tests beyond them (§7.5), so the last row is the figure to use: `scripts/test-counts.json` at B23 reads unit 151, built 89, csp 3, smoke 15. At C1 the unit figure drops by the 6 temporary tests that C0 deletes with `scripts/port/`, which the gate requires the C0 commit to name.
 
 Every step's PR body states its before and after counts and updates `scripts/test-counts.json`. A count that drops without naming the dropped test fails the gate.
 
