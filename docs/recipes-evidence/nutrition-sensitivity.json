@@ -1,0 +1,35 @@
+{
+  "shawarma_yogurt_label_bound": {
+    "protein_g": 39.447206249999994,
+    "net_carbs_g": 7.83141625,
+    "assumption": "Yogurt exactly9g protein and4g total carb per100g, the article substitution limits."
+  },
+  "fajitas_yogurt_label_bound": {
+    "protein_g": 37.318298750000004,
+    "net_carbs_g": 7.13870625,
+    "assumption": "Yogurt exactly9g protein and4g total carb per100g, the article substitution limits."
+  },
+  "salsa_chicken_yogurt_label_bound": {
+    "protein_g": 38.438933750000004,
+    "net_carbs_g": 8.413588749999999,
+    "assumption": "Yogurt exactly9g protein and4g total carb per100g, the article substitution limits."
+  },
+  "turkey_yogurt_label_bound": {
+    "protein_g": 39.61543749999999,
+    "net_carbs_g": 5.4077075,
+    "assumption": "Yogurt exactly9g protein and4g total carb per100g, the article substitution limits."
+  },
+  "chickpea_yogurt_label_bound": {
+    "protein_g": 27.410533750000006,
+    "net_carbs_g": 33.00803875,
+    "assumption": "Yogurt exactly9g protein and4g total carb per100g, the article substitution limits."
+  },
+  "frittata_extreme_spinach_protein_loss": {
+    "protein_g": 26.174281249999996,
+    "assumption": "Unrealistic stress test: remove all modeled spinach protein. Egg/feta/hemp/yeast/salad still supply this amount."
+  },
+  "gnocchi_lower_bean_protein": {
+    "protein_g": 25.207741964285713,
+    "assumption": "Hypothetical drained beans6g protein/100g, below7.26g USDA canned proxy; no claim this is a verified manufacturer datum."
+  }
+}

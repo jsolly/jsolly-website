@@ -1,0 +1,2463 @@
+{
+  "method": "Sum per100g nutrient*edible ingredient grams/100, divide batch by4. US total carb minus dietary fiber for net carbs. No sugar alcohol subtraction. No cooking-yield scaling of raw meat. All specified oil, acid, sauces, seeds, yeast and salad included. Black pepper to taste and salt excluded from five macros; sodium not reported. Values are estimates, not lab results.",
+  "usda_archive": {
+    "source_archive": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+    "sha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+    "release": "SR Legacy April 2018, final static USDA release, FDC publication 2019-04-01",
+    "retrieved": "2026-10-02"
+  },
+  "foods": {
+    "salmon": {
+      "fdc_id": 175167,
+      "description": "Fish, salmon, Atlantic, farmed, raw",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/175167/nutrients",
+      "kcal": 208.0,
+      "fat_g": 13.42,
+      "protein_g": 20.42,
+      "sodium_mg": 59.0,
+      "fiber_g": 0.0,
+      "carbs_g": 0.0
+    },
+    "cod": {
+      "fdc_id": 171955,
+      "description": "Fish, cod, Atlantic, raw",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/171955/nutrients",
+      "kcal": 82.0,
+      "fiber_g": 0.0,
+      "sodium_mg": 54.0,
+      "protein_g": 17.81,
+      "fat_g": 0.67,
+      "carbs_g": 0.0
+    },
+    "chicken_thigh": {
+      "fdc_id": 173627,
+      "description": "Chicken, broilers or fryers, dark meat, thigh, meat only, raw",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/173627/nutrients",
+      "kcal": 121.0,
+      "fat_g": 4.12,
+      "sodium_mg": 95.0,
+      "protein_g": 19.66,
+      "carbs_g": 0.0,
+      "fiber_g": 0.0
+    },
+    "turkey93": {
+      "fdc_id": 172850,
+      "description": "Turkey, ground, 93% lean, 7% fat, raw",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/172850/nutrients",
+      "fiber_g": 0.0,
+      "sodium_mg": 69.0,
+      "protein_g": 18.73,
+      "fat_g": 8.34,
+      "carbs_g": 0.0,
+      "kcal": 150.0
+    },
+    "hemp": {
+      "fdc_id": 170148,
+      "description": "Seeds, hemp seed, hulled",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/170148/nutrients",
+      "protein_g": 31.56,
+      "fiber_g": 4.0,
+      "sodium_mg": 5.0,
+      "fat_g": 48.75,
+      "carbs_g": 8.67,
+      "kcal": 553.0
+    },
+    "spinach_frozen": {
+      "fdc_id": 169287,
+      "description": "Spinach, frozen, chopped or leaf, unprepared (Includes foods for USDA's Food Distribution Program)",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/169287/nutrients",
+      "sodium_mg": 74.0,
+      "fiber_g": 2.9,
+      "protein_g": 3.63,
+      "fat_g": 0.57,
+      "carbs_g": 4.21,
+      "kcal": 29.0
+    },
+    "spinach_raw": {
+      "fdc_id": 168462,
+      "description": "Spinach, raw",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/168462/nutrients",
+      "protein_g": 2.86,
+      "sodium_mg": 79.0,
+      "fiber_g": 2.2,
+      "fat_g": 0.39,
+      "carbs_g": 3.63,
+      "kcal": 23.0
+    },
+    "white_beans_canned": {
+      "fdc_id": 175204,
+      "description": "Beans, white, mature seeds, canned",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/175204/nutrients",
+      "carbs_g": 21.2,
+      "kcal": 114.0,
+      "sodium_mg": 340.0,
+      "fat_g": 0.29,
+      "fiber_g": 4.8,
+      "protein_g": 7.26
+    },
+    "white_beans_cooked": {
+      "fdc_id": 175203,
+      "description": "Beans, white, mature seeds, cooked, boiled, without salt",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/175203/nutrients",
+      "carbs_g": 25.09,
+      "kcal": 139.0,
+      "fiber_g": 6.3,
+      "sodium_mg": 6.0,
+      "protein_g": 9.73,
+      "fat_g": 0.35
+    },
+    "chickpeas_rinsed": {
+      "fdc_id": 173801,
+      "description": "Chickpeas (garbanzo beans, bengal gram), mature seeds, canned, drained, rinsed in tap water",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/173801/nutrients",
+      "fat_g": 2.47,
+      "carbs_g": 22.87,
+      "kcal": 138.0,
+      "protein_g": 7.04,
+      "sodium_mg": 212.0,
+      "fiber_g": 6.3
+    },
+    "yogurt2": {
+      "fdc_id": 170903,
+      "description": "Yogurt, Greek, plain, lowfat",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/170903/nutrients",
+      "fat_g": 1.92,
+      "carbs_g": 3.94,
+      "kcal": 73.0,
+      "protein_g": 9.95,
+      "fiber_g": 0.0,
+      "sodium_mg": 34.0
+    },
+    "feta": {
+      "fdc_id": 173420,
+      "description": "Cheese, feta",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/173420/nutrients",
+      "fat_g": 21.49,
+      "carbs_g": 3.88,
+      "kcal": 265.0,
+      "sodium_mg": 1139.0,
+      "protein_g": 14.21,
+      "fiber_g": 0.0
+    },
+    "egg": {
+      "fdc_id": 171287,
+      "description": "Egg, whole, raw, fresh",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/171287/nutrients",
+      "kcal": 143.0,
+      "protein_g": 12.56,
+      "sodium_mg": 142.0,
+      "fat_g": 9.51,
+      "carbs_g": 0.72,
+      "fiber_g": 0.0
+    },
+    "lentils_cooked": {
+      "fdc_id": 172421,
+      "description": "Lentils, mature seeds, cooked, boiled, without salt",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/172421/nutrients",
+      "carbs_g": 20.13,
+      "kcal": 116.0,
+      "protein_g": 9.02,
+      "fiber_g": 7.9,
+      "sodium_mg": 2.0,
+      "fat_g": 0.38
+    },
+    "pesto": {
+      "fdc_id": 171580,
+      "description": "Sauce, pesto, ready-to-serve, shelf stable",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/171580/nutrients",
+      "fiber_g": 1.7,
+      "sodium_mg": 998.0,
+      "protein_g": 5.0,
+      "fat_g": 42.42,
+      "carbs_g": 6.14,
+      "kcal": 426.0
+    },
+    "asparagus": {
+      "fdc_id": 168389,
+      "description": "Asparagus, raw",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/168389/nutrients",
+      "protein_g": 2.2,
+      "sodium_mg": 2.0,
+      "carbs_g": 3.88,
+      "kcal": 20.0,
+      "fiber_g": 2.1,
+      "fat_g": 0.12
+    },
+    "broccoli": {
+      "fdc_id": 170379,
+      "description": "Broccoli, raw",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/170379/nutrients",
+      "carbs_g": 6.64,
+      "kcal": 34.0,
+      "fat_g": 0.37,
+      "protein_g": 2.82,
+      "fiber_g": 2.6,
+      "sodium_mg": 33.0
+    },
+    "zucchini": {
+      "fdc_id": 169291,
+      "description": "Squash, summer, zucchini, includes skin, raw",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/169291/nutrients",
+      "fat_g": 0.32,
+      "carbs_g": 3.11,
+      "kcal": 17.0,
+      "fiber_g": 1.0,
+      "sodium_mg": 8.0,
+      "protein_g": 1.21
+    },
+    "cabbage": {
+      "fdc_id": 169975,
+      "description": "Cabbage, raw",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/169975/nutrients",
+      "fat_g": 0.1,
+      "carbs_g": 5.8,
+      "kcal": 25.0,
+      "protein_g": 1.28,
+      "fiber_g": 2.5,
+      "sodium_mg": 18.0
+    },
+    "flax": {
+      "fdc_id": 169414,
+      "description": "Seeds, flaxseed",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/169414/nutrients",
+      "fat_g": 42.16,
+      "fiber_g": 27.3,
+      "sodium_mg": 30.0,
+      "protein_g": 18.29,
+      "carbs_g": 28.88,
+      "kcal": 534.0
+    },
+    "cauliflower": {
+      "fdc_id": 169986,
+      "description": "Cauliflower, raw",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/169986/nutrients",
+      "carbs_g": 4.97,
+      "kcal": 25.0,
+      "protein_g": 1.92,
+      "fiber_g": 2.0,
+      "sodium_mg": 30.0,
+      "fat_g": 0.28
+    },
+    "red_pepper": {
+      "fdc_id": 170108,
+      "description": "Peppers, sweet, red, raw",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/170108/nutrients",
+      "fiber_g": 2.1,
+      "kcal": 26.0,
+      "sodium_mg": 4.0,
+      "carbs_g": 6.03,
+      "protein_g": 0.99,
+      "fat_g": 0.3
+    },
+    "onion": {
+      "fdc_id": 170000,
+      "description": "Onions, raw",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/170000/nutrients",
+      "fat_g": 0.1,
+      "carbs_g": 9.34,
+      "kcal": 40.0,
+      "protein_g": 1.1,
+      "fiber_g": 1.7,
+      "sodium_mg": 4.0
+    },
+    "cucumber": {
+      "fdc_id": 168409,
+      "description": "Cucumber, with peel, raw",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/168409/nutrients",
+      "carbs_g": 3.63,
+      "kcal": 15.0,
+      "sodium_mg": 2.0,
+      "fat_g": 0.11,
+      "fiber_g": 0.5,
+      "protein_g": 0.65
+    },
+    "avocado": {
+      "fdc_id": 171705,
+      "description": "Avocados, raw, all commercial varieties",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/171705/nutrients",
+      "protein_g": 2.0,
+      "fiber_g": 6.7,
+      "sodium_mg": 7.0,
+      "fat_g": 14.66,
+      "carbs_g": 8.53,
+      "kcal": 160.0
+    },
+    "paprika": {
+      "fdc_id": 171329,
+      "description": "Spices, paprika",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/171329/nutrients",
+      "fiber_g": 34.9,
+      "sodium_mg": 68.0,
+      "protein_g": 14.14,
+      "fat_g": 12.89,
+      "carbs_g": 53.99,
+      "kcal": 282.0
+    },
+    "garlic_powder": {
+      "fdc_id": 171325,
+      "description": "Spices, garlic powder",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
+      "fiber_g": 9.0,
+      "sodium_mg": 60.0,
+      "protein_g": 16.55,
+      "fat_g": 0.73,
+      "carbs_g": 72.73,
+      "kcal": 331.0
+    },
+    "oregano": {
+      "fdc_id": 171328,
+      "description": "Spices, oregano, dried",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/171328/nutrients",
+      "fat_g": 4.28,
+      "carbs_g": 68.92,
+      "kcal": 265.0,
+      "fiber_g": 42.5,
+      "sodium_mg": 25.0,
+      "protein_g": 9.0
+    },
+    "cinnamon": {
+      "fdc_id": 171320,
+      "description": "Spices, cinnamon, ground",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/171320/nutrients",
+      "fiber_g": 53.1,
+      "protein_g": 3.99,
+      "sodium_mg": 10.0,
+      "fat_g": 1.24,
+      "carbs_g": 80.59,
+      "kcal": 247.0
+    },
+    "cumin": {
+      "fdc_id": 170923,
+      "description": "Spices, cumin seed",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/170923/nutrients",
+      "protein_g": 17.81,
+      "fiber_g": 10.5,
+      "sodium_mg": 168.0,
+      "fat_g": 22.27,
+      "carbs_g": 44.24,
+      "kcal": 375.0
+    },
+    "curry": {
+      "fdc_id": 170924,
+      "description": "Spices, curry powder",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/170924/nutrients",
+      "kcal": 325.0,
+      "sodium_mg": 52.0,
+      "fiber_g": 53.2,
+      "protein_g": 14.29,
+      "fat_g": 14.01,
+      "carbs_g": 55.83
+    },
+    "turmeric": {
+      "fdc_id": 172231,
+      "description": "Spices, turmeric, ground",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/172231/nutrients",
+      "fat_g": 3.25,
+      "carbs_g": 67.14,
+      "kcal": 312.0,
+      "protein_g": 9.68,
+      "fiber_g": 22.7,
+      "sodium_mg": 27.0
+    },
+    "potato": {
+      "fdc_id": 170026,
+      "description": "Potatoes, flesh and skin, raw",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/170026/nutrients",
+      "fat_g": 0.09,
+      "kcal": 77.0,
+      "sodium_mg": 6.0,
+      "protein_g": 2.05,
+      "fiber_g": 2.1,
+      "carbs_g": 17.49
+    },
+    "green_beans": {
+      "fdc_id": 169961,
+      "description": "Beans, snap, green, raw",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/169961/nutrients",
+      "fat_g": 0.22,
+      "protein_g": 1.83,
+      "fiber_g": 2.7,
+      "sodium_mg": 6.0,
+      "carbs_g": 6.97,
+      "kcal": 31.0
+    },
+    "cooked_chicken_breast": {
+      "fdc_id": 171477,
+      "description": "Chicken, broilers or fryers, breast, meat only, cooked, roasted",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/171477/nutrients",
+      "fat_g": 3.57,
+      "carbs_g": 0.0,
+      "kcal": 165.0,
+      "protein_g": 31.02,
+      "fiber_g": 0.0,
+      "sodium_mg": 74.0
+    },
+    "parmesan": {
+      "fdc_id": 171247,
+      "description": "Cheese, parmesan, grated",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/171247/nutrients",
+      "fat_g": 27.84,
+      "carbs_g": 13.91,
+      "kcal": 420.0,
+      "protein_g": 28.42,
+      "sodium_mg": 1804.0,
+      "fiber_g": 0.0
+    },
+    "lemon_juice": {
+      "fdc_id": 167747,
+      "description": "Lemon juice, raw",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/167747/nutrients",
+      "protein_g": 0.35,
+      "fiber_g": 0.3,
+      "sodium_mg": 1.0,
+      "fat_g": 0.24,
+      "carbs_g": 6.9,
+      "kcal": 22.0
+    },
+    "lime_juice": {
+      "fdc_id": 168156,
+      "description": "Lime juice, raw",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/168156/nutrients",
+      "protein_g": 0.42,
+      "fiber_g": 0.4,
+      "sodium_mg": 2.0,
+      "fat_g": 0.07,
+      "carbs_g": 8.42,
+      "kcal": 25.0
+    },
+    "olive_oil": {
+      "fdc_id": 171413,
+      "description": "Oil, olive, salad or cooking",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+      "fat_g": 100.0,
+      "carbs_g": 0.0,
+      "kcal": 884.0,
+      "sodium_mg": 2.0,
+      "protein_g": 0.0,
+      "fiber_g": 0.0
+    },
+    "tomato_canned": {
+      "fdc_id": 170051,
+      "description": "Tomatoes, red, ripe, canned, packed in tomato juice",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/170051/nutrients",
+      "sodium_mg": 115.0,
+      "fat_g": 0.25,
+      "carbs_g": 3.47,
+      "kcal": 16.0,
+      "fiber_g": 1.9,
+      "protein_g": 0.79
+    },
+    "tomato_raw": {
+      "fdc_id": 170457,
+      "description": "Tomatoes, red, ripe, raw, year round average",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/170457/nutrients",
+      "carbs_g": 3.89,
+      "kcal": 18.0,
+      "fat_g": 0.2,
+      "fiber_g": 1.2,
+      "sodium_mg": 5.0,
+      "protein_g": 0.88
+    },
+    "lettuce": {
+      "fdc_id": 169247,
+      "description": "Lettuce, cos or romaine, raw",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/169247/nutrients",
+      "carbs_g": 3.29,
+      "kcal": 17.0,
+      "sodium_mg": 8.0,
+      "fat_g": 0.3,
+      "fiber_g": 2.1,
+      "protein_g": 1.23
+    },
+    "rice_cooked": {
+      "fdc_id": 168878,
+      "description": "Rice, white, long-grain, regular, enriched, cooked",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/168878/nutrients",
+      "fiber_g": 0.4,
+      "sodium_mg": 1.0,
+      "protein_g": 2.69,
+      "fat_g": 0.28,
+      "carbs_g": 28.17,
+      "kcal": 130.0
+    },
+    "pita": {
+      "fdc_id": 174915,
+      "description": "Bread, pita, white, enriched",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/174915/nutrients",
+      "fiber_g": 2.2,
+      "fat_g": 1.2,
+      "carbs_g": 55.7,
+      "kcal": 275.0,
+      "protein_g": 9.1,
+      "sodium_mg": 536.0
+    },
+    "lemon_zest": {
+      "fdc_id": 167749,
+      "description": "Lemon peel, raw",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/167749/nutrients",
+      "kcal": 47.0,
+      "fiber_g": 10.6,
+      "sodium_mg": 6.0,
+      "protein_g": 1.5,
+      "fat_g": 0.3,
+      "carbs_g": 16.0
+    },
+    "chili_powder": {
+      "fdc_id": 171319,
+      "description": "Spices, chili powder",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/171319/nutrients",
+      "sodium_mg": 2867.0,
+      "fat_g": 14.28,
+      "carbs_g": 49.7,
+      "kcal": 282.0,
+      "protein_g": 13.46,
+      "fiber_g": 34.8
+    },
+    "chicken_broth": {
+      "fdc_id": 172888,
+      "description": "Soup, chicken broth, less/reduced sodium, ready to serve",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/172888/nutrients",
+      "fat_g": 0.0,
+      "carbs_g": 0.38,
+      "kcal": 7.0,
+      "protein_g": 1.36,
+      "fiber_g": 0.0,
+      "sodium_mg": 231.0
+    },
+    "salsa_verde": {
+      "fdc_id": 171824,
+      "description": "Sauce, salsa, verde, ready-to-serve",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/171824/nutrients",
+      "protein_g": 1.13,
+      "fiber_g": 1.9,
+      "fat_g": 0.89,
+      "carbs_g": 6.36,
+      "kcal": 38.0,
+      "sodium_mg": 906.0
+    },
+    "corn_tortilla": {
+      "fdc_id": 175036,
+      "description": "Tortillas, ready-to-bake or -fry, corn",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/175036/nutrients",
+      "protein_g": 5.7,
+      "fiber_g": 6.3,
+      "sodium_mg": 45.0,
+      "fat_g": 2.85,
+      "carbs_g": 44.64,
+      "kcal": 218.0
+    },
+    "bun": {
+      "fdc_id": 172796,
+      "description": "Rolls, hamburger or hotdog, plain",
+      "basis": "per 100g edible food in the named state",
+      "source": "https://fdc.nal.usda.gov/food-details/172796/nutrients",
+      "fiber_g": 1.8,
+      "sodium_mg": 494.0,
+      "protein_g": 9.77,
+      "fat_g": 3.91,
+      "carbs_g": 50.12,
+      "kcal": 279.0
+    },
+    "yeast": {
+      "description": "Bob's Red Mill nutritional yeast",
+      "basis": "Manufacturer label per 8g; scaled to per100g",
+      "source": "https://www.bobsredmill.com/product/nutritional-yeast",
+      "assumption": "",
+      "kcal": 375.0,
+      "protein_g": 50.0,
+      "carbs_g": 37.5,
+      "fiber_g": 25.0
+    },
+    "harissa": {
+      "description": "Mina mild harissa",
+      "basis": "Manufacturer label per 15g; scaled to per100g",
+      "source": "https://mina.co/products/mina-harissa-mild",
+      "assumption": "All 60g used is included. Fat not modeled or reported; no inferred fat label values.",
+      "kcal": 66.66666666666667,
+      "protein_g": 0.0,
+      "carbs_g": 6.666666666666667,
+      "fiber_g": 0.0
+    },
+    "salsa": {
+      "description": "Herdez mild salsa verde",
+      "basis": "Manufacturer label per 31g; scaled to per100g",
+      "source": "https://www.salsas.com/herdez/products/salsas/salsa-verde/",
+      "assumption": "Fiber not listed/significant: conservatively assume 0g. Full measured salsa is served after pressure cooking.",
+      "kcal": 32.25806451612903,
+      "protein_g": 0.0,
+      "carbs_g": 6.451612903225806,
+      "fiber_g": 0.0
+    },
+    "gnocchi": {
+      "description": "DeLallo US potato gnocchi",
+      "basis": "Manufacturer label per 140g; scaled to per100g",
+      "source": "https://www.delallo.com/delallo-potato-gnocchi-16-oz/",
+      "assumption": "Current manufacturer US label viewed by independent reviewer; wheat gnocchi, not gluten-free or refrigerated substitute.",
+      "kcal": 164.28571428571428,
+      "protein_g": 4.285714285714286,
+      "carbs_g": 35.714285714285715,
+      "fiber_g": 1.4285714285714286
+    },
+    "pesto_label": {
+      "description": "DeLallo basil pesto squeeze bottle",
+      "basis": "Manufacturer label per 30g; scaled to per100g",
+      "source": "https://www.delallo.com/pesto-squeeze-bottle/",
+      "assumption": "Protein labeled<1g is modeled0 conservatively. Measured45g per batch. Label cup/tbsp equivalence is unusual, so use grams.",
+      "kcal": 633.3333333333334,
+      "protein_g": 0.0,
+      "carbs_g": 10.0,
+      "fiber_g": 3.3333333333333335
+    }
+  },
+  "recipes": {
+    "salmon": {
+      "title": "Lemon salmon and asparagus",
+      "group": "keto",
+      "servings": 4,
+      "ingredients": [
+        {
+          "food_key": "salmon",
+          "description": "Fish, salmon, Atlantic, farmed, raw",
+          "grams_batch": 680,
+          "source": "https://fdc.nal.usda.gov/food-details/175167/nutrients",
+          "fdc_id": 175167,
+          "nutrients_batch": {
+            "kcal": 1414.4,
+            "protein_g": 138.856,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "asparagus",
+          "description": "Asparagus, raw",
+          "grams_batch": 454,
+          "source": "https://fdc.nal.usda.gov/food-details/168389/nutrients",
+          "fdc_id": 168389,
+          "nutrients_batch": {
+            "kcal": 90.8,
+            "protein_g": 9.988000000000001,
+            "carbs_g": 17.6152,
+            "fiber_g": 9.534
+          }
+        },
+        {
+          "food_key": "olive_oil",
+          "description": "Oil, olive, salad or cooking",
+          "grams_batch": 27,
+          "source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+          "fdc_id": 171413,
+          "nutrients_batch": {
+            "kcal": 238.68,
+            "protein_g": 0.0,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "garlic_powder",
+          "description": "Spices, garlic powder",
+          "grams_batch": 3.1,
+          "source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
+          "fdc_id": 171325,
+          "nutrients_batch": {
+            "kcal": 10.261000000000001,
+            "protein_g": 0.5130500000000001,
+            "carbs_g": 2.25463,
+            "fiber_g": 0.279
+          }
+        },
+        {
+          "food_key": "lemon_zest",
+          "description": "Lemon peel, raw",
+          "grams_batch": 2,
+          "source": "https://fdc.nal.usda.gov/food-details/167749/nutrients",
+          "fdc_id": 167749,
+          "nutrients_batch": {
+            "kcal": 0.94,
+            "protein_g": 0.03,
+            "carbs_g": 0.32,
+            "fiber_g": 0.212
+          }
+        },
+        {
+          "food_key": "lemon_juice",
+          "description": "Lemon juice, raw",
+          "grams_batch": 30,
+          "source": "https://fdc.nal.usda.gov/food-details/167747/nutrients",
+          "fdc_id": 167747,
+          "nutrients_batch": {
+            "kcal": 6.6,
+            "protein_g": 0.105,
+            "carbs_g": 2.07,
+            "fiber_g": 0.09
+          }
+        },
+        {
+          "food_key": "hemp",
+          "description": "Seeds, hemp seed, hulled",
+          "grams_batch": 20,
+          "source": "https://fdc.nal.usda.gov/food-details/170148/nutrients",
+          "fdc_id": 170148,
+          "nutrients_batch": {
+            "kcal": 110.6,
+            "protein_g": 6.311999999999999,
+            "carbs_g": 1.734,
+            "fiber_g": 0.8
+          }
+        }
+      ],
+      "per_serving": {
+        "kcal": 468.07025,
+        "protein_g": 38.9510125,
+        "carbs_g": 5.998457500000001,
+        "fiber_g": 2.7287500000000002,
+        "net_carbs_g": 3.2697075000000004
+      },
+      "vegetables_g_per_serving": 113.5,
+      "notes": ""
+    },
+    "smoky_chicken": {
+      "title": "Smoky chicken thighs and broccoli",
+      "group": "keto",
+      "servings": 4,
+      "ingredients": [
+        {
+          "food_key": "chicken_thigh",
+          "description": "Chicken, broilers or fryers, dark meat, thigh, meat only, raw",
+          "grams_batch": 680,
+          "source": "https://fdc.nal.usda.gov/food-details/173627/nutrients",
+          "fdc_id": 173627,
+          "nutrients_batch": {
+            "kcal": 822.8,
+            "protein_g": 133.688,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "broccoli",
+          "description": "Broccoli, raw",
+          "grams_batch": 454,
+          "source": "https://fdc.nal.usda.gov/food-details/170379/nutrients",
+          "fdc_id": 170379,
+          "nutrients_batch": {
+            "kcal": 154.36,
+            "protein_g": 12.8028,
+            "carbs_g": 30.145599999999998,
+            "fiber_g": 11.804
+          }
+        },
+        {
+          "food_key": "olive_oil",
+          "description": "Oil, olive, salad or cooking",
+          "grams_batch": 27,
+          "source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+          "fdc_id": 171413,
+          "nutrients_batch": {
+            "kcal": 238.68,
+            "protein_g": 0.0,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "paprika",
+          "description": "Spices, paprika",
+          "grams_batch": 2.3,
+          "source": "https://fdc.nal.usda.gov/food-details/171329/nutrients",
+          "fdc_id": 171329,
+          "nutrients_batch": {
+            "kcal": 6.485999999999999,
+            "protein_g": 0.32522,
+            "carbs_g": 1.2417699999999998,
+            "fiber_g": 0.8027
+          }
+        },
+        {
+          "food_key": "garlic_powder",
+          "description": "Spices, garlic powder",
+          "grams_batch": 3.1,
+          "source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
+          "fdc_id": 171325,
+          "nutrients_batch": {
+            "kcal": 10.261000000000001,
+            "protein_g": 0.5130500000000001,
+            "carbs_g": 2.25463,
+            "fiber_g": 0.279
+          }
+        },
+        {
+          "food_key": "oregano",
+          "description": "Spices, oregano, dried",
+          "grams_batch": 0.5,
+          "source": "https://fdc.nal.usda.gov/food-details/171328/nutrients",
+          "fdc_id": 171328,
+          "nutrients_batch": {
+            "kcal": 1.325,
+            "protein_g": 0.045,
+            "carbs_g": 0.3446,
+            "fiber_g": 0.2125
+          }
+        },
+        {
+          "food_key": "lemon_juice",
+          "description": "Lemon juice, raw",
+          "grams_batch": 15,
+          "source": "https://fdc.nal.usda.gov/food-details/167747/nutrients",
+          "fdc_id": 167747,
+          "nutrients_batch": {
+            "kcal": 3.3,
+            "protein_g": 0.0525,
+            "carbs_g": 1.035,
+            "fiber_g": 0.045
+          }
+        },
+        {
+          "food_key": "yeast",
+          "description": "Bob's Red Mill nutritional yeast",
+          "grams_batch": 8,
+          "source": "https://www.bobsredmill.com/product/nutritional-yeast",
+          "fdc_id": null,
+          "nutrients_batch": {
+            "kcal": 30.0,
+            "protein_g": 4.0,
+            "carbs_g": 3.0,
+            "fiber_g": 2.0
+          }
+        }
+      ],
+      "per_serving": {
+        "kcal": 316.803,
+        "protein_g": 37.85664249999999,
+        "carbs_g": 9.505399999999998,
+        "fiber_g": 3.7858,
+        "net_carbs_g": 5.719599999999998
+      },
+      "vegetables_g_per_serving": 113.5,
+      "notes": ""
+    },
+    "cod": {
+      "title": "Pesto cod and zucchini",
+      "group": "keto",
+      "servings": 4,
+      "ingredients": [
+        {
+          "food_key": "cod",
+          "description": "Fish, cod, Atlantic, raw",
+          "grams_batch": 680,
+          "source": "https://fdc.nal.usda.gov/food-details/171955/nutrients",
+          "fdc_id": 171955,
+          "nutrients_batch": {
+            "kcal": 557.6,
+            "protein_g": 121.10799999999999,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "zucchini",
+          "description": "Squash, summer, zucchini, includes skin, raw",
+          "grams_batch": 680,
+          "source": "https://fdc.nal.usda.gov/food-details/169291/nutrients",
+          "fdc_id": 169291,
+          "nutrients_batch": {
+            "kcal": 115.6,
+            "protein_g": 8.228,
+            "carbs_g": 21.147999999999996,
+            "fiber_g": 6.8
+          }
+        },
+        {
+          "food_key": "pesto_label",
+          "description": "DeLallo basil pesto squeeze bottle",
+          "grams_batch": 45,
+          "source": "https://www.delallo.com/pesto-squeeze-bottle/",
+          "fdc_id": null,
+          "nutrients_batch": {
+            "kcal": 285.0,
+            "protein_g": 0.0,
+            "carbs_g": 4.5,
+            "fiber_g": 1.5
+          }
+        },
+        {
+          "food_key": "olive_oil",
+          "description": "Oil, olive, salad or cooking",
+          "grams_batch": 27,
+          "source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+          "fdc_id": 171413,
+          "nutrients_batch": {
+            "kcal": 238.68,
+            "protein_g": 0.0,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "lemon_juice",
+          "description": "Lemon juice, raw",
+          "grams_batch": 15,
+          "source": "https://fdc.nal.usda.gov/food-details/167747/nutrients",
+          "fdc_id": 167747,
+          "nutrients_batch": {
+            "kcal": 3.3,
+            "protein_g": 0.0525,
+            "carbs_g": 1.035,
+            "fiber_g": 0.045
+          }
+        },
+        {
+          "food_key": "hemp",
+          "description": "Seeds, hemp seed, hulled",
+          "grams_batch": 20,
+          "source": "https://fdc.nal.usda.gov/food-details/170148/nutrients",
+          "fdc_id": 170148,
+          "nutrients_batch": {
+            "kcal": 110.6,
+            "protein_g": 6.311999999999999,
+            "carbs_g": 1.734,
+            "fiber_g": 0.8
+          }
+        }
+      ],
+      "per_serving": {
+        "kcal": 327.695,
+        "protein_g": 33.925125,
+        "carbs_g": 7.104249999999999,
+        "fiber_g": 2.2862500000000003,
+        "net_carbs_g": 4.817999999999998
+      },
+      "vegetables_g_per_serving": 170.0,
+      "notes": "Manufacturer squeeze-bottle pesto45g. Substitutes must supply <=2g net carbs per30g. All sauce/oil included."
+    },
+    "frittata": {
+      "title": "Spinach, feta, and hemp frittata",
+      "group": "keto",
+      "servings": 4,
+      "ingredients": [
+        {
+          "food_key": "egg",
+          "description": "Egg, whole, raw, fresh",
+          "grams_batch": 600,
+          "source": "https://fdc.nal.usda.gov/food-details/171287/nutrients",
+          "fdc_id": 171287,
+          "nutrients_batch": {
+            "kcal": 858.0,
+            "protein_g": 75.36,
+            "carbs_g": 4.32,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "spinach_frozen",
+          "description": "Spinach, frozen, chopped or leaf, unprepared (Includes foods for USDA's Food Distribution Program)",
+          "grams_batch": 454,
+          "source": "https://fdc.nal.usda.gov/food-details/169287/nutrients",
+          "fdc_id": 169287,
+          "nutrients_batch": {
+            "kcal": 131.66,
+            "protein_g": 16.4802,
+            "carbs_g": 19.1134,
+            "fiber_g": 13.165999999999999
+          }
+        },
+        {
+          "food_key": "feta",
+          "description": "Cheese, feta",
+          "grams_batch": 75,
+          "source": "https://fdc.nal.usda.gov/food-details/173420/nutrients",
+          "fdc_id": 173420,
+          "nutrients_batch": {
+            "kcal": 198.75,
+            "protein_g": 10.6575,
+            "carbs_g": 2.91,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "hemp",
+          "description": "Seeds, hemp seed, hulled",
+          "grams_batch": 40,
+          "source": "https://fdc.nal.usda.gov/food-details/170148/nutrients",
+          "fdc_id": 170148,
+          "nutrients_batch": {
+            "kcal": 221.2,
+            "protein_g": 12.623999999999999,
+            "carbs_g": 3.468,
+            "fiber_g": 1.6
+          }
+        },
+        {
+          "food_key": "yeast",
+          "description": "Bob's Red Mill nutritional yeast",
+          "grams_batch": 8,
+          "source": "https://www.bobsredmill.com/product/nutritional-yeast",
+          "fdc_id": null,
+          "nutrients_batch": {
+            "kcal": 30.0,
+            "protein_g": 4.0,
+            "carbs_g": 3.0,
+            "fiber_g": 2.0
+          }
+        },
+        {
+          "food_key": "garlic_powder",
+          "description": "Spices, garlic powder",
+          "grams_batch": 1.55,
+          "source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
+          "fdc_id": 171325,
+          "nutrients_batch": {
+            "kcal": 5.1305000000000005,
+            "protein_g": 0.25652500000000006,
+            "carbs_g": 1.127315,
+            "fiber_g": 0.1395
+          }
+        },
+        {
+          "food_key": "olive_oil",
+          "description": "Oil, olive, salad or cooking",
+          "grams_batch": 18,
+          "source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+          "fdc_id": 171413,
+          "nutrients_batch": {
+            "kcal": 159.12,
+            "protein_g": 0.0,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "lettuce",
+          "description": "Lettuce, cos or romaine, raw",
+          "grams_batch": 142,
+          "source": "https://fdc.nal.usda.gov/food-details/169247/nutrients",
+          "fdc_id": 169247,
+          "nutrients_batch": {
+            "kcal": 24.14,
+            "protein_g": 1.7466,
+            "carbs_g": 4.6718,
+            "fiber_g": 2.9819999999999998
+          }
+        },
+        {
+          "food_key": "lemon_juice",
+          "description": "Lemon juice, raw",
+          "grams_batch": 15,
+          "source": "https://fdc.nal.usda.gov/food-details/167747/nutrients",
+          "fdc_id": 167747,
+          "nutrients_batch": {
+            "kcal": 3.3,
+            "protein_g": 0.0525,
+            "carbs_g": 1.035,
+            "fiber_g": 0.045
+          }
+        }
+      ],
+      "per_serving": {
+        "kcal": 407.82512499999996,
+        "protein_g": 30.294331249999995,
+        "carbs_g": 9.911378749999999,
+        "fiber_g": 4.983125,
+        "net_carbs_g": 4.928253749999999
+      },
+      "vegetables_g_per_serving": 149.0,
+      "notes": "12 eggs at50g edible/egg. Spinach454g BEFORE thaw/drain; nutrient retention modeled100%, so drained losses make this an approximate estimate. Salad included."
+    },
+    "shawarma": {
+      "title": "Shawarma chicken bowls",
+      "group": "family",
+      "servings": 4,
+      "ingredients": [
+        {
+          "food_key": "chicken_thigh",
+          "description": "Chicken, broilers or fryers, dark meat, thigh, meat only, raw",
+          "grams_batch": 680,
+          "source": "https://fdc.nal.usda.gov/food-details/173627/nutrients",
+          "fdc_id": 173627,
+          "nutrients_batch": {
+            "kcal": 822.8,
+            "protein_g": 133.688,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "cauliflower",
+          "description": "Cauliflower, raw",
+          "grams_batch": 454,
+          "source": "https://fdc.nal.usda.gov/food-details/169986/nutrients",
+          "fdc_id": 169986,
+          "nutrients_batch": {
+            "kcal": 113.5,
+            "protein_g": 8.7168,
+            "carbs_g": 22.5638,
+            "fiber_g": 9.08
+          }
+        },
+        {
+          "food_key": "olive_oil",
+          "description": "Oil, olive, salad or cooking",
+          "grams_batch": 27,
+          "source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+          "fdc_id": 171413,
+          "nutrients_batch": {
+            "kcal": 238.68,
+            "protein_g": 0.0,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "cumin",
+          "description": "Spices, cumin seed",
+          "grams_batch": 4.2,
+          "source": "https://fdc.nal.usda.gov/food-details/170923/nutrients",
+          "fdc_id": 170923,
+          "nutrients_batch": {
+            "kcal": 15.75,
+            "protein_g": 0.7480199999999999,
+            "carbs_g": 1.8580800000000002,
+            "fiber_g": 0.441
+          }
+        },
+        {
+          "food_key": "paprika",
+          "description": "Spices, paprika",
+          "grams_batch": 2.3,
+          "source": "https://fdc.nal.usda.gov/food-details/171329/nutrients",
+          "fdc_id": 171329,
+          "nutrients_batch": {
+            "kcal": 6.485999999999999,
+            "protein_g": 0.32522,
+            "carbs_g": 1.2417699999999998,
+            "fiber_g": 0.8027
+          }
+        },
+        {
+          "food_key": "garlic_powder",
+          "description": "Spices, garlic powder",
+          "grams_batch": 3.1,
+          "source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
+          "fdc_id": 171325,
+          "nutrients_batch": {
+            "kcal": 10.261000000000001,
+            "protein_g": 0.5130500000000001,
+            "carbs_g": 2.25463,
+            "fiber_g": 0.279
+          }
+        },
+        {
+          "food_key": "turmeric",
+          "description": "Spices, turmeric, ground",
+          "grams_batch": 1.5,
+          "source": "https://fdc.nal.usda.gov/food-details/172231/nutrients",
+          "fdc_id": 172231,
+          "nutrients_batch": {
+            "kcal": 4.68,
+            "protein_g": 0.1452,
+            "carbs_g": 1.0071,
+            "fiber_g": 0.34049999999999997
+          }
+        },
+        {
+          "food_key": "cinnamon",
+          "description": "Spices, cinnamon, ground",
+          "grams_batch": 0.65,
+          "source": "https://fdc.nal.usda.gov/food-details/171320/nutrients",
+          "fdc_id": 171320,
+          "nutrients_batch": {
+            "kcal": 1.6055000000000001,
+            "protein_g": 0.025935,
+            "carbs_g": 0.523835,
+            "fiber_g": 0.34515
+          }
+        },
+        {
+          "food_key": "yogurt2",
+          "description": "Yogurt, Greek, plain, lowfat",
+          "grams_batch": 120,
+          "source": "https://fdc.nal.usda.gov/food-details/170903/nutrients",
+          "fdc_id": 170903,
+          "nutrients_batch": {
+            "kcal": 87.6,
+            "protein_g": 11.94,
+            "carbs_g": 4.728,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "lemon_juice",
+          "description": "Lemon juice, raw",
+          "grams_batch": 30,
+          "source": "https://fdc.nal.usda.gov/food-details/167747/nutrients",
+          "fdc_id": 167747,
+          "nutrients_batch": {
+            "kcal": 6.6,
+            "protein_g": 0.105,
+            "carbs_g": 2.07,
+            "fiber_g": 0.09
+          }
+        },
+        {
+          "food_key": "cucumber",
+          "description": "Cucumber, with peel, raw",
+          "grams_batch": 150,
+          "source": "https://fdc.nal.usda.gov/food-details/168409/nutrients",
+          "fdc_id": 168409,
+          "nutrients_batch": {
+            "kcal": 22.5,
+            "protein_g": 0.975,
+            "carbs_g": 5.445,
+            "fiber_g": 0.75
+          }
+        },
+        {
+          "food_key": "lettuce",
+          "description": "Lettuce, cos or romaine, raw",
+          "grams_batch": 142,
+          "source": "https://fdc.nal.usda.gov/food-details/169247/nutrients",
+          "fdc_id": 169247,
+          "nutrients_batch": {
+            "kcal": 24.14,
+            "protein_g": 1.7466,
+            "carbs_g": 4.6718,
+            "fiber_g": 2.9819999999999998
+          }
+        }
+      ],
+      "per_serving": {
+        "kcal": 338.650625,
+        "protein_g": 39.73220624999999,
+        "carbs_g": 11.59100375,
+        "fiber_g": 3.7775875,
+        "net_carbs_g": 7.81341625
+      },
+      "vegetables_g_per_serving": 186.5,
+      "notes": ""
+    },
+    "fajitas": {
+      "title": "Sheet-pan chicken fajitas",
+      "group": "family",
+      "servings": 4,
+      "ingredients": [
+        {
+          "food_key": "chicken_thigh",
+          "description": "Chicken, broilers or fryers, dark meat, thigh, meat only, raw",
+          "grams_batch": 680,
+          "source": "https://fdc.nal.usda.gov/food-details/173627/nutrients",
+          "fdc_id": 173627,
+          "nutrients_batch": {
+            "kcal": 822.8,
+            "protein_g": 133.688,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "red_pepper",
+          "description": "Peppers, sweet, red, raw",
+          "grams_batch": 300,
+          "source": "https://fdc.nal.usda.gov/food-details/170108/nutrients",
+          "fdc_id": 170108,
+          "nutrients_batch": {
+            "kcal": 78.0,
+            "protein_g": 2.97,
+            "carbs_g": 18.09,
+            "fiber_g": 6.3
+          }
+        },
+        {
+          "food_key": "onion",
+          "description": "Onions, raw",
+          "grams_batch": 60,
+          "source": "https://fdc.nal.usda.gov/food-details/170000/nutrients",
+          "fdc_id": 170000,
+          "nutrients_batch": {
+            "kcal": 24.0,
+            "protein_g": 0.66,
+            "carbs_g": 5.604,
+            "fiber_g": 1.02
+          }
+        },
+        {
+          "food_key": "olive_oil",
+          "description": "Oil, olive, salad or cooking",
+          "grams_batch": 27,
+          "source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+          "fdc_id": 171413,
+          "nutrients_batch": {
+            "kcal": 238.68,
+            "protein_g": 0.0,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "chili_powder",
+          "description": "Spices, chili powder",
+          "grams_batch": 5.4,
+          "source": "https://fdc.nal.usda.gov/food-details/171319/nutrients",
+          "fdc_id": 171319,
+          "nutrients_batch": {
+            "kcal": 15.228000000000002,
+            "protein_g": 0.7268400000000002,
+            "carbs_g": 2.6838000000000006,
+            "fiber_g": 1.8792
+          }
+        },
+        {
+          "food_key": "cumin",
+          "description": "Spices, cumin seed",
+          "grams_batch": 2.1,
+          "source": "https://fdc.nal.usda.gov/food-details/170923/nutrients",
+          "fdc_id": 170923,
+          "nutrients_batch": {
+            "kcal": 7.875,
+            "protein_g": 0.37400999999999995,
+            "carbs_g": 0.9290400000000001,
+            "fiber_g": 0.2205
+          }
+        },
+        {
+          "food_key": "paprika",
+          "description": "Spices, paprika",
+          "grams_batch": 2.3,
+          "source": "https://fdc.nal.usda.gov/food-details/171329/nutrients",
+          "fdc_id": 171329,
+          "nutrients_batch": {
+            "kcal": 6.485999999999999,
+            "protein_g": 0.32522,
+            "carbs_g": 1.2417699999999998,
+            "fiber_g": 0.8027
+          }
+        },
+        {
+          "food_key": "garlic_powder",
+          "description": "Spices, garlic powder",
+          "grams_batch": 1.55,
+          "source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
+          "fdc_id": 171325,
+          "nutrients_batch": {
+            "kcal": 5.1305000000000005,
+            "protein_g": 0.25652500000000006,
+            "carbs_g": 1.127315,
+            "fiber_g": 0.1395
+          }
+        },
+        {
+          "food_key": "lime_juice",
+          "description": "Lime juice, raw",
+          "grams_batch": 30,
+          "source": "https://fdc.nal.usda.gov/food-details/168156/nutrients",
+          "fdc_id": 168156,
+          "nutrients_batch": {
+            "kcal": 7.5,
+            "protein_g": 0.126,
+            "carbs_g": 2.526,
+            "fiber_g": 0.12
+          }
+        },
+        {
+          "food_key": "lettuce",
+          "description": "Lettuce, cos or romaine, raw",
+          "grams_batch": 142,
+          "source": "https://fdc.nal.usda.gov/food-details/169247/nutrients",
+          "fdc_id": 169247,
+          "nutrients_batch": {
+            "kcal": 24.14,
+            "protein_g": 1.7466,
+            "carbs_g": 4.6718,
+            "fiber_g": 2.9819999999999998
+          }
+        },
+        {
+          "food_key": "avocado",
+          "description": "Avocados, raw, all commercial varieties",
+          "grams_batch": 150,
+          "source": "https://fdc.nal.usda.gov/food-details/171705/nutrients",
+          "fdc_id": 171705,
+          "nutrients_batch": {
+            "kcal": 240.0,
+            "protein_g": 3.0,
+            "carbs_g": 12.795,
+            "fiber_g": 10.05
+          }
+        },
+        {
+          "food_key": "yogurt2",
+          "description": "Yogurt, Greek, plain, lowfat",
+          "grams_batch": 60,
+          "source": "https://fdc.nal.usda.gov/food-details/170903/nutrients",
+          "fdc_id": 170903,
+          "nutrients_batch": {
+            "kcal": 43.8,
+            "protein_g": 5.97,
+            "carbs_g": 2.364,
+            "fiber_g": 0.0
+          }
+        }
+      ],
+      "per_serving": {
+        "kcal": 378.40987500000006,
+        "protein_g": 37.46079875,
+        "carbs_g": 13.00818125,
+        "fiber_g": 5.878475,
+        "net_carbs_g": 7.12970625
+      },
+      "vegetables_g_per_serving": 125.5,
+      "notes": "Avocado is excluded from vegetable benchmark but included in macros."
+    },
+    "salsa_chicken": {
+      "title": "Salsa verde shredded chicken",
+      "group": "family",
+      "servings": 4,
+      "ingredients": [
+        {
+          "food_key": "chicken_thigh",
+          "description": "Chicken, broilers or fryers, dark meat, thigh, meat only, raw",
+          "grams_batch": 680,
+          "source": "https://fdc.nal.usda.gov/food-details/173627/nutrients",
+          "fdc_id": 173627,
+          "nutrients_batch": {
+            "kcal": 822.8,
+            "protein_g": 133.688,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "chicken_broth",
+          "description": "Soup, chicken broth, less/reduced sodium, ready to serve",
+          "grams_batch": 375,
+          "source": "https://fdc.nal.usda.gov/food-details/172888/nutrients",
+          "fdc_id": 172888,
+          "nutrients_batch": {
+            "kcal": 26.25,
+            "protein_g": 5.1000000000000005,
+            "carbs_g": 1.425,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "salsa",
+          "description": "Herdez mild salsa verde",
+          "grams_batch": 124,
+          "source": "https://www.salsas.com/herdez/products/salsas/salsa-verde/",
+          "fdc_id": null,
+          "nutrients_batch": {
+            "kcal": 40.0,
+            "protein_g": 0.0,
+            "carbs_g": 8.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "cumin",
+          "description": "Spices, cumin seed",
+          "grams_batch": 2.1,
+          "source": "https://fdc.nal.usda.gov/food-details/170923/nutrients",
+          "fdc_id": 170923,
+          "nutrients_batch": {
+            "kcal": 7.875,
+            "protein_g": 0.37400999999999995,
+            "carbs_g": 0.9290400000000001,
+            "fiber_g": 0.2205
+          }
+        },
+        {
+          "food_key": "garlic_powder",
+          "description": "Spices, garlic powder",
+          "grams_batch": 1.55,
+          "source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
+          "fdc_id": 171325,
+          "nutrients_batch": {
+            "kcal": 5.1305000000000005,
+            "protein_g": 0.25652500000000006,
+            "carbs_g": 1.127315,
+            "fiber_g": 0.1395
+          }
+        },
+        {
+          "food_key": "lime_juice",
+          "description": "Lime juice, raw",
+          "grams_batch": 30,
+          "source": "https://fdc.nal.usda.gov/food-details/168156/nutrients",
+          "fdc_id": 168156,
+          "nutrients_batch": {
+            "kcal": 7.5,
+            "protein_g": 0.126,
+            "carbs_g": 2.526,
+            "fiber_g": 0.12
+          }
+        },
+        {
+          "food_key": "cabbage",
+          "description": "Cabbage, raw",
+          "grams_batch": 454,
+          "source": "https://fdc.nal.usda.gov/food-details/169975/nutrients",
+          "fdc_id": 169975,
+          "nutrients_batch": {
+            "kcal": 113.5,
+            "protein_g": 5.8112,
+            "carbs_g": 26.331999999999997,
+            "fiber_g": 11.35
+          }
+        },
+        {
+          "food_key": "avocado",
+          "description": "Avocados, raw, all commercial varieties",
+          "grams_batch": 150,
+          "source": "https://fdc.nal.usda.gov/food-details/171705/nutrients",
+          "fdc_id": 171705,
+          "nutrients_batch": {
+            "kcal": 240.0,
+            "protein_g": 3.0,
+            "carbs_g": 12.795,
+            "fiber_g": 10.05
+          }
+        },
+        {
+          "food_key": "yogurt2",
+          "description": "Yogurt, Greek, plain, lowfat",
+          "grams_batch": 60,
+          "source": "https://fdc.nal.usda.gov/food-details/170903/nutrients",
+          "fdc_id": 170903,
+          "nutrients_batch": {
+            "kcal": 43.8,
+            "protein_g": 5.97,
+            "carbs_g": 2.364,
+            "fiber_g": 0.0
+          }
+        }
+      ],
+      "per_serving": {
+        "kcal": 326.713875,
+        "protein_g": 38.58143375,
+        "carbs_g": 13.87458875,
+        "fiber_g": 5.470000000000001,
+        "net_carbs_g": 8.404588749999998
+      },
+      "vegetables_g_per_serving": 113.5,
+      "notes": "Conservatively counts ALL broth even though most is reserved, plus all salsa served. Pure cabbage slaw; carrot mix requires label recalculation."
+    },
+    "turkey": {
+      "title": "Greek turkey patties",
+      "group": "family",
+      "servings": 4,
+      "ingredients": [
+        {
+          "food_key": "turkey93",
+          "description": "Turkey, ground, 93% lean, 7% fat, raw",
+          "grams_batch": 680,
+          "source": "https://fdc.nal.usda.gov/food-details/172850/nutrients",
+          "fdc_id": 172850,
+          "nutrients_batch": {
+            "kcal": 1020.0,
+            "protein_g": 127.36399999999999,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "egg",
+          "description": "Egg, whole, raw, fresh",
+          "grams_batch": 50,
+          "source": "https://fdc.nal.usda.gov/food-details/171287/nutrients",
+          "fdc_id": 171287,
+          "nutrients_batch": {
+            "kcal": 71.5,
+            "protein_g": 6.28,
+            "carbs_g": 0.36,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "flax",
+          "description": "Seeds, flaxseed",
+          "grams_batch": 14,
+          "source": "https://fdc.nal.usda.gov/food-details/169414/nutrients",
+          "fdc_id": 169414,
+          "nutrients_batch": {
+            "kcal": 74.76,
+            "protein_g": 2.5606,
+            "carbs_g": 4.0432,
+            "fiber_g": 3.822
+          }
+        },
+        {
+          "food_key": "feta",
+          "description": "Cheese, feta",
+          "grams_batch": 50,
+          "source": "https://fdc.nal.usda.gov/food-details/173420/nutrients",
+          "fdc_id": 173420,
+          "nutrients_batch": {
+            "kcal": 132.5,
+            "protein_g": 7.105,
+            "carbs_g": 1.94,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "oregano",
+          "description": "Spices, oregano, dried",
+          "grams_batch": 1,
+          "source": "https://fdc.nal.usda.gov/food-details/171328/nutrients",
+          "fdc_id": 171328,
+          "nutrients_batch": {
+            "kcal": 2.65,
+            "protein_g": 0.09,
+            "carbs_g": 0.6892,
+            "fiber_g": 0.425
+          }
+        },
+        {
+          "food_key": "garlic_powder",
+          "description": "Spices, garlic powder",
+          "grams_batch": 3.1,
+          "source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
+          "fdc_id": 171325,
+          "nutrients_batch": {
+            "kcal": 10.261000000000001,
+            "protein_g": 0.5130500000000001,
+            "carbs_g": 2.25463,
+            "fiber_g": 0.279
+          }
+        },
+        {
+          "food_key": "olive_oil",
+          "description": "Oil, olive, salad or cooking",
+          "grams_batch": 4.5,
+          "source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+          "fdc_id": 171413,
+          "nutrients_batch": {
+            "kcal": 39.78,
+            "protein_g": 0.0,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "cucumber",
+          "description": "Cucumber, with peel, raw",
+          "grams_batch": 300,
+          "source": "https://fdc.nal.usda.gov/food-details/168409/nutrients",
+          "fdc_id": 168409,
+          "nutrients_batch": {
+            "kcal": 45.0,
+            "protein_g": 1.95,
+            "carbs_g": 10.89,
+            "fiber_g": 1.5
+          }
+        },
+        {
+          "food_key": "lettuce",
+          "description": "Lettuce, cos or romaine, raw",
+          "grams_batch": 142,
+          "source": "https://fdc.nal.usda.gov/food-details/169247/nutrients",
+          "fdc_id": 169247,
+          "nutrients_batch": {
+            "kcal": 24.14,
+            "protein_g": 1.7466,
+            "carbs_g": 4.6718,
+            "fiber_g": 2.9819999999999998
+          }
+        },
+        {
+          "food_key": "yogurt2",
+          "description": "Yogurt, Greek, plain, lowfat",
+          "grams_batch": 120,
+          "source": "https://fdc.nal.usda.gov/food-details/170903/nutrients",
+          "fdc_id": 170903,
+          "nutrients_batch": {
+            "kcal": 87.6,
+            "protein_g": 11.94,
+            "carbs_g": 4.728,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "lemon_juice",
+          "description": "Lemon juice, raw",
+          "grams_batch": 15,
+          "source": "https://fdc.nal.usda.gov/food-details/167747/nutrients",
+          "fdc_id": 167747,
+          "nutrients_batch": {
+            "kcal": 3.3,
+            "protein_g": 0.0525,
+            "carbs_g": 1.035,
+            "fiber_g": 0.045
+          }
+        }
+      ],
+      "per_serving": {
+        "kcal": 377.87275,
+        "protein_g": 39.90043749999999,
+        "carbs_g": 7.6529575,
+        "fiber_g": 2.2632499999999998,
+        "net_carbs_g": 5.3897075
+      },
+      "vegetables_g_per_serving": 110.5,
+      "notes": ""
+    },
+    "lentil_bake": {
+      "title": "Tomato, lentil, and chicken bake",
+      "group": "nonketo",
+      "servings": 4,
+      "ingredients": [
+        {
+          "food_key": "cooked_chicken_breast",
+          "description": "Chicken, broilers or fryers, breast, meat only, cooked, roasted",
+          "grams_batch": 340,
+          "source": "https://fdc.nal.usda.gov/food-details/171477/nutrients",
+          "fdc_id": 171477,
+          "nutrients_batch": {
+            "kcal": 561.0,
+            "protein_g": 105.46799999999999,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "lentils_cooked",
+          "description": "Lentils, mature seeds, cooked, boiled, without salt",
+          "grams_batch": 480,
+          "source": "https://fdc.nal.usda.gov/food-details/172421/nutrients",
+          "fdc_id": 172421,
+          "nutrients_batch": {
+            "kcal": 556.8,
+            "protein_g": 43.29599999999999,
+            "carbs_g": 96.624,
+            "fiber_g": 37.92
+          }
+        },
+        {
+          "food_key": "tomato_canned",
+          "description": "Tomatoes, red, ripe, canned, packed in tomato juice",
+          "grams_batch": 411,
+          "source": "https://fdc.nal.usda.gov/food-details/170051/nutrients",
+          "fdc_id": 170051,
+          "nutrients_batch": {
+            "kcal": 65.76,
+            "protein_g": 3.2469,
+            "carbs_g": 14.261700000000001,
+            "fiber_g": 7.809
+          }
+        },
+        {
+          "food_key": "spinach_raw",
+          "description": "Spinach, raw",
+          "grams_batch": 142,
+          "source": "https://fdc.nal.usda.gov/food-details/168462/nutrients",
+          "fdc_id": 168462,
+          "nutrients_batch": {
+            "kcal": 32.66,
+            "protein_g": 4.0612,
+            "carbs_g": 5.1546,
+            "fiber_g": 3.1240000000000006
+          }
+        },
+        {
+          "food_key": "olive_oil",
+          "description": "Oil, olive, salad or cooking",
+          "grams_batch": 13.5,
+          "source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+          "fdc_id": 171413,
+          "nutrients_batch": {
+            "kcal": 119.34,
+            "protein_g": 0.0,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "paprika",
+          "description": "Spices, paprika",
+          "grams_batch": 2.3,
+          "source": "https://fdc.nal.usda.gov/food-details/171329/nutrients",
+          "fdc_id": 171329,
+          "nutrients_batch": {
+            "kcal": 6.485999999999999,
+            "protein_g": 0.32522,
+            "carbs_g": 1.2417699999999998,
+            "fiber_g": 0.8027
+          }
+        },
+        {
+          "food_key": "cumin",
+          "description": "Spices, cumin seed",
+          "grams_batch": 2.1,
+          "source": "https://fdc.nal.usda.gov/food-details/170923/nutrients",
+          "fdc_id": 170923,
+          "nutrients_batch": {
+            "kcal": 7.875,
+            "protein_g": 0.37400999999999995,
+            "carbs_g": 0.9290400000000001,
+            "fiber_g": 0.2205
+          }
+        },
+        {
+          "food_key": "garlic_powder",
+          "description": "Spices, garlic powder",
+          "grams_batch": 1.55,
+          "source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
+          "fdc_id": 171325,
+          "nutrients_batch": {
+            "kcal": 5.1305000000000005,
+            "protein_g": 0.25652500000000006,
+            "carbs_g": 1.127315,
+            "fiber_g": 0.1395
+          }
+        },
+        {
+          "food_key": "oregano",
+          "description": "Spices, oregano, dried",
+          "grams_batch": 0.5,
+          "source": "https://fdc.nal.usda.gov/food-details/171328/nutrients",
+          "fdc_id": 171328,
+          "nutrients_batch": {
+            "kcal": 1.325,
+            "protein_g": 0.045,
+            "carbs_g": 0.3446,
+            "fiber_g": 0.2125
+          }
+        },
+        {
+          "food_key": "lemon_juice",
+          "description": "Lemon juice, raw",
+          "grams_batch": 15,
+          "source": "https://fdc.nal.usda.gov/food-details/167747/nutrients",
+          "fdc_id": 167747,
+          "nutrients_batch": {
+            "kcal": 3.3,
+            "protein_g": 0.0525,
+            "carbs_g": 1.035,
+            "fiber_g": 0.045
+          }
+        },
+        {
+          "food_key": "feta",
+          "description": "Cheese, feta",
+          "grams_batch": 60,
+          "source": "https://fdc.nal.usda.gov/food-details/173420/nutrients",
+          "fdc_id": 173420,
+          "nutrients_batch": {
+            "kcal": 159.0,
+            "protein_g": 8.526,
+            "carbs_g": 2.328,
+            "fiber_g": 0.0
+          }
+        }
+      ],
+      "per_serving": {
+        "kcal": 379.669125,
+        "protein_g": 41.412838750000006,
+        "carbs_g": 30.76150625,
+        "fiber_g": 12.5683,
+        "net_carbs_g": 18.19320625
+      },
+      "vegetables_g_per_serving": 138.25,
+      "notes": "Lentils are a cooked-boiled USDA proxy for drained canned lentils; brand and drained yield vary. Cooked breast340g not raw. Tomato liquid included in vegetable mass; spinach alone is35g/person."
+    },
+    "chickpea": {
+      "title": "Harissa chickpea and cauliflower bowls",
+      "group": "nonketo",
+      "servings": 4,
+      "ingredients": [
+        {
+          "food_key": "chickpeas_rinsed",
+          "description": "Chickpeas (garbanzo beans, bengal gram), mature seeds, canned, drained, rinsed in tap water",
+          "grams_batch": 480,
+          "source": "https://fdc.nal.usda.gov/food-details/173801/nutrients",
+          "fdc_id": 173801,
+          "nutrients_batch": {
+            "kcal": 662.4,
+            "protein_g": 33.792,
+            "carbs_g": 109.77600000000001,
+            "fiber_g": 30.24
+          }
+        },
+        {
+          "food_key": "cauliflower",
+          "description": "Cauliflower, raw",
+          "grams_batch": 680,
+          "source": "https://fdc.nal.usda.gov/food-details/169986/nutrients",
+          "fdc_id": 169986,
+          "nutrients_batch": {
+            "kcal": 170.0,
+            "protein_g": 13.056,
+            "carbs_g": 33.796,
+            "fiber_g": 13.6
+          }
+        },
+        {
+          "food_key": "olive_oil",
+          "description": "Oil, olive, salad or cooking",
+          "grams_batch": 27,
+          "source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+          "fdc_id": 171413,
+          "nutrients_batch": {
+            "kcal": 238.68,
+            "protein_g": 0.0,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "harissa",
+          "description": "Mina mild harissa",
+          "grams_batch": 60,
+          "source": "https://mina.co/products/mina-harissa-mild",
+          "fdc_id": null,
+          "nutrients_batch": {
+            "kcal": 40.00000000000001,
+            "protein_g": 0.0,
+            "carbs_g": 4.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "cumin",
+          "description": "Spices, cumin seed",
+          "grams_batch": 2.1,
+          "source": "https://fdc.nal.usda.gov/food-details/170923/nutrients",
+          "fdc_id": 170923,
+          "nutrients_batch": {
+            "kcal": 7.875,
+            "protein_g": 0.37400999999999995,
+            "carbs_g": 0.9290400000000001,
+            "fiber_g": 0.2205
+          }
+        },
+        {
+          "food_key": "garlic_powder",
+          "description": "Spices, garlic powder",
+          "grams_batch": 1.55,
+          "source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
+          "fdc_id": 171325,
+          "nutrients_batch": {
+            "kcal": 5.1305000000000005,
+            "protein_g": 0.25652500000000006,
+            "carbs_g": 1.127315,
+            "fiber_g": 0.1395
+          }
+        },
+        {
+          "food_key": "yogurt2",
+          "description": "Yogurt, Greek, plain, lowfat",
+          "grams_batch": 600,
+          "source": "https://fdc.nal.usda.gov/food-details/170903/nutrients",
+          "fdc_id": 170903,
+          "nutrients_batch": {
+            "kcal": 438.0,
+            "protein_g": 59.7,
+            "carbs_g": 23.64,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "lemon_juice",
+          "description": "Lemon juice, raw",
+          "grams_batch": 30,
+          "source": "https://fdc.nal.usda.gov/food-details/167747/nutrients",
+          "fdc_id": 167747,
+          "nutrients_batch": {
+            "kcal": 6.6,
+            "protein_g": 0.105,
+            "carbs_g": 2.07,
+            "fiber_g": 0.09
+          }
+        },
+        {
+          "food_key": "hemp",
+          "description": "Seeds, hemp seed, hulled",
+          "grams_batch": 20,
+          "source": "https://fdc.nal.usda.gov/food-details/170148/nutrients",
+          "fdc_id": 170148,
+          "nutrients_batch": {
+            "kcal": 110.6,
+            "protein_g": 6.311999999999999,
+            "carbs_g": 1.734,
+            "fiber_g": 0.8
+          }
+        },
+        {
+          "food_key": "lettuce",
+          "description": "Lettuce, cos or romaine, raw",
+          "grams_batch": 142,
+          "source": "https://fdc.nal.usda.gov/food-details/169247/nutrients",
+          "fdc_id": 169247,
+          "nutrients_batch": {
+            "kcal": 24.14,
+            "protein_g": 1.7466,
+            "carbs_g": 4.6718,
+            "fiber_g": 2.9819999999999998
+          }
+        }
+      ],
+      "per_serving": {
+        "kcal": 425.85637499999996,
+        "protein_g": 28.835533750000003,
+        "carbs_g": 45.436038749999994,
+        "fiber_g": 12.017999999999999,
+        "net_carbs_g": 33.418038749999994
+      },
+      "vegetables_g_per_serving": 205.5,
+      "notes": "Mandatory strained Greek yogurt600g. Protein threshold additionally tested at yogurt9g/100g. Harissa60g, split between roast and yogurt; not a variable range."
+    },
+    "potato_chicken": {
+      "title": "Lemon chicken, potatoes, and green beans",
+      "group": "nonketo",
+      "servings": 4,
+      "ingredients": [
+        {
+          "food_key": "chicken_thigh",
+          "description": "Chicken, broilers or fryers, dark meat, thigh, meat only, raw",
+          "grams_batch": 680,
+          "source": "https://fdc.nal.usda.gov/food-details/173627/nutrients",
+          "fdc_id": 173627,
+          "nutrients_batch": {
+            "kcal": 822.8,
+            "protein_g": 133.688,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "potato",
+          "description": "Potatoes, flesh and skin, raw",
+          "grams_batch": 567,
+          "source": "https://fdc.nal.usda.gov/food-details/170026/nutrients",
+          "fdc_id": 170026,
+          "nutrients_batch": {
+            "kcal": 436.59,
+            "protein_g": 11.6235,
+            "carbs_g": 99.1683,
+            "fiber_g": 11.907
+          }
+        },
+        {
+          "food_key": "green_beans",
+          "description": "Beans, snap, green, raw",
+          "grams_batch": 454,
+          "source": "https://fdc.nal.usda.gov/food-details/169961/nutrients",
+          "fdc_id": 169961,
+          "nutrients_batch": {
+            "kcal": 140.74,
+            "protein_g": 8.308200000000001,
+            "carbs_g": 31.643800000000002,
+            "fiber_g": 12.258000000000003
+          }
+        },
+        {
+          "food_key": "olive_oil",
+          "description": "Oil, olive, salad or cooking",
+          "grams_batch": 27,
+          "source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+          "fdc_id": 171413,
+          "nutrients_batch": {
+            "kcal": 238.68,
+            "protein_g": 0.0,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "oregano",
+          "description": "Spices, oregano, dried",
+          "grams_batch": 1,
+          "source": "https://fdc.nal.usda.gov/food-details/171328/nutrients",
+          "fdc_id": 171328,
+          "nutrients_batch": {
+            "kcal": 2.65,
+            "protein_g": 0.09,
+            "carbs_g": 0.6892,
+            "fiber_g": 0.425
+          }
+        },
+        {
+          "food_key": "garlic_powder",
+          "description": "Spices, garlic powder",
+          "grams_batch": 3.1,
+          "source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
+          "fdc_id": 171325,
+          "nutrients_batch": {
+            "kcal": 10.261000000000001,
+            "protein_g": 0.5130500000000001,
+            "carbs_g": 2.25463,
+            "fiber_g": 0.279
+          }
+        },
+        {
+          "food_key": "lemon_zest",
+          "description": "Lemon peel, raw",
+          "grams_batch": 2,
+          "source": "https://fdc.nal.usda.gov/food-details/167749/nutrients",
+          "fdc_id": 167749,
+          "nutrients_batch": {
+            "kcal": 0.94,
+            "protein_g": 0.03,
+            "carbs_g": 0.32,
+            "fiber_g": 0.212
+          }
+        },
+        {
+          "food_key": "lemon_juice",
+          "description": "Lemon juice, raw",
+          "grams_batch": 30,
+          "source": "https://fdc.nal.usda.gov/food-details/167747/nutrients",
+          "fdc_id": 167747,
+          "nutrients_batch": {
+            "kcal": 6.6,
+            "protein_g": 0.105,
+            "carbs_g": 2.07,
+            "fiber_g": 0.09
+          }
+        },
+        {
+          "food_key": "yeast",
+          "description": "Bob's Red Mill nutritional yeast",
+          "grams_batch": 8,
+          "source": "https://www.bobsredmill.com/product/nutritional-yeast",
+          "fdc_id": null,
+          "nutrients_batch": {
+            "kcal": 30.0,
+            "protein_g": 4.0,
+            "carbs_g": 3.0,
+            "fiber_g": 2.0
+          }
+        }
+      ],
+      "per_serving": {
+        "kcal": 422.31525,
+        "protein_g": 39.589437499999995,
+        "carbs_g": 34.7864825,
+        "fiber_g": 6.792750000000001,
+        "net_carbs_g": 27.993732499999997
+      },
+      "vegetables_g_per_serving": 113.5,
+      "notes": "Potatoes raw edible weight; pre-microwaved at home during oven preheat, not a purchased precooked product."
+    },
+    "gnocchi": {
+      "title": "Sheet-pan gnocchi, white beans, and broccoli",
+      "group": "nonketo",
+      "servings": 4,
+      "ingredients": [
+        {
+          "food_key": "gnocchi",
+          "description": "DeLallo US potato gnocchi",
+          "grams_batch": 454,
+          "source": "https://www.delallo.com/delallo-potato-gnocchi-16-oz/",
+          "fdc_id": null,
+          "nutrients_batch": {
+            "kcal": 745.8571428571428,
+            "protein_g": 19.457142857142856,
+            "carbs_g": 162.14285714285717,
+            "fiber_g": 6.485714285714286
+          }
+        },
+        {
+          "food_key": "white_beans_canned",
+          "description": "Beans, white, mature seeds, canned",
+          "grams_batch": 480,
+          "source": "https://fdc.nal.usda.gov/food-details/175204/nutrients",
+          "fdc_id": 175204,
+          "nutrients_batch": {
+            "kcal": 547.2,
+            "protein_g": 34.848,
+            "carbs_g": 101.76,
+            "fiber_g": 23.04
+          }
+        },
+        {
+          "food_key": "broccoli",
+          "description": "Broccoli, raw",
+          "grams_batch": 454,
+          "source": "https://fdc.nal.usda.gov/food-details/170379/nutrients",
+          "fdc_id": 170379,
+          "nutrients_batch": {
+            "kcal": 154.36,
+            "protein_g": 12.8028,
+            "carbs_g": 30.145599999999998,
+            "fiber_g": 11.804
+          }
+        },
+        {
+          "food_key": "tomato_raw",
+          "description": "Tomatoes, red, ripe, raw, year round average",
+          "grams_batch": 300,
+          "source": "https://fdc.nal.usda.gov/food-details/170457/nutrients",
+          "fdc_id": 170457,
+          "nutrients_batch": {
+            "kcal": 54.0,
+            "protein_g": 2.64,
+            "carbs_g": 11.67,
+            "fiber_g": 3.6
+          }
+        },
+        {
+          "food_key": "olive_oil",
+          "description": "Oil, olive, salad or cooking",
+          "grams_batch": 40.5,
+          "source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+          "fdc_id": 171413,
+          "nutrients_batch": {
+            "kcal": 358.02,
+            "protein_g": 0.0,
+            "carbs_g": 0.0,
+            "fiber_g": 0.0
+          }
+        },
+        {
+          "food_key": "oregano",
+          "description": "Spices, oregano, dried",
+          "grams_batch": 1,
+          "source": "https://fdc.nal.usda.gov/food-details/171328/nutrients",
+          "fdc_id": 171328,
+          "nutrients_batch": {
+            "kcal": 2.65,
+            "protein_g": 0.09,
+            "carbs_g": 0.6892,
+            "fiber_g": 0.425
+          }
+        },
+        {
+          "food_key": "garlic_powder",
+          "description": "Spices, garlic powder",
+          "grams_batch": 1.55,
+          "source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
+          "fdc_id": 171325,
+          "nutrients_batch": {
+            "kcal": 5.1305000000000005,
+            "protein_g": 0.25652500000000006,
+            "carbs_g": 1.127315,
+            "fiber_g": 0.1395
+          }
+        },
+        {
+          "food_key": "yeast",
+          "description": "Bob's Red Mill nutritional yeast",
+          "grams_batch": 4,
+          "source": "https://www.bobsredmill.com/product/nutritional-yeast",
+          "fdc_id": null,
+          "nutrients_batch": {
+            "kcal": 15.0,
+            "protein_g": 2.0,
+            "carbs_g": 1.5,
+            "fiber_g": 1.0
+          }
+        },
+        {
+          "food_key": "lemon_juice",
+          "description": "Lemon juice, raw",
+          "grams_batch": 15,
+          "source": "https://fdc.nal.usda.gov/food-details/167747/nutrients",
+          "fdc_id": 167747,
+          "nutrients_batch": {
+            "kcal": 3.3,
+            "protein_g": 0.0525,
+            "carbs_g": 1.035,
+            "fiber_g": 0.045
+          }
+        },
+        {
+          "food_key": "hemp",
+          "description": "Seeds, hemp seed, hulled",
+          "grams_batch": 20,
+          "source": "https://fdc.nal.usda.gov/food-details/170148/nutrients",
+          "fdc_id": 170148,
+          "nutrients_batch": {
+            "kcal": 110.6,
+            "protein_g": 6.311999999999999,
+            "carbs_g": 1.734,
+            "fiber_g": 0.8
+          }
+        },
+        {
+          "food_key": "parmesan",
+          "description": "Cheese, parmesan, grated",
+          "grams_batch": 100,
+          "source": "https://fdc.nal.usda.gov/food-details/171247/nutrients",
+          "fdc_id": 171247,
+          "nutrients_batch": {
+            "kcal": 420.0,
+            "protein_g": 28.42,
+            "carbs_g": 13.91,
+            "fiber_g": 0.0
+          }
+        }
+      ],
+      "per_serving": {
+        "kcal": 604.0294107142857,
+        "protein_g": 26.719741964285713,
+        "carbs_g": 81.42849303571431,
+        "fiber_g": 11.834803571428571,
+        "net_carbs_g": 69.59368946428575
+      },
+      "vegetables_g_per_serving": 188.5,
+      "notes": "USDA canned-white-bean proxy has no explicit drained-state qualifier: intentional conservative approximation, also checked against boiled white beans. All beans added at midpoint to reduce drying. Grated Parmesan100g mandatory, yeast4g only."
+    }
+  },
+  "addons": {
+    "rice_half_cup": {
+      "food_key": "rice_cooked",
+      "grams": 80,
+      "nutrients": {
+        "kcal": 104.0,
+        "protein_g": 2.1519999999999997,
+        "carbs_g": 22.536000000000005,
+        "fiber_g": 0.32,
+        "net_carbs_g": 22.216000000000005
+      },
+      "source": "https://fdc.nal.usda.gov/food-details/168878/nutrients"
+    },
+    "pita_one": {
+      "food_key": "pita",
+      "grams": 60,
+      "nutrients": {
+        "kcal": 165.0,
+        "protein_g": 5.46,
+        "carbs_g": 33.42,
+        "fiber_g": 1.32,
+        "net_carbs_g": 32.1
+      },
+      "source": "https://fdc.nal.usda.gov/food-details/174915/nutrients"
+    },
+    "corn_tortillas_two": {
+      "food_key": "corn_tortilla",
+      "grams": 50,
+      "nutrients": {
+        "kcal": 109.0,
+        "protein_g": 2.85,
+        "carbs_g": 22.32,
+        "fiber_g": 3.15,
+        "net_carbs_g": 19.17
+      },
+      "source": "https://fdc.nal.usda.gov/food-details/175036/nutrients"
+    },
+    "bun_one": {
+      "food_key": "bun",
+      "grams": 45,
+      "nutrients": {
+        "kcal": 125.55,
+        "protein_g": 4.3965,
+        "carbs_g": 22.554000000000002,
+        "fiber_g": 0.81,
+        "net_carbs_g": 21.744000000000003
+      },
+      "source": "https://fdc.nal.usda.gov/food-details/172796/nutrients"
+    }
+  },
+  "checks": {
+    "salmon": {
+      "protein_pass": true,
+      "vegetable_pass": true,
+      "keto_pass": true
+    },
+    "smoky_chicken": {
+      "protein_pass": true,
+      "vegetable_pass": true,
+      "keto_pass": true
+    },
+    "cod": {
+      "protein_pass": true,
+      "vegetable_pass": true,
+      "keto_pass": true
+    },
+    "frittata": {
+      "protein_pass": true,
+      "vegetable_pass": true,
+      "keto_pass": true
+    },
+    "shawarma": {
+      "protein_pass": true,
+      "vegetable_pass": true,
+      "keto_pass": true
+    },
+    "fajitas": {
+      "protein_pass": true,
+      "vegetable_pass": true,
+      "keto_pass": true
+    },
+    "salsa_chicken": {
+      "protein_pass": true,
+      "vegetable_pass": true,
+      "keto_pass": true
+    },
+    "turkey": {
+      "protein_pass": true,
+      "vegetable_pass": true,
+      "keto_pass": true
+    },
+    "lentil_bake": {
+      "protein_pass": true,
+      "vegetable_pass": true,
+      "keto_pass": true
+    },
+    "chickpea": {
+      "protein_pass": true,
+      "vegetable_pass": true,
+      "keto_pass": true
+    },
+    "potato_chicken": {
+      "protein_pass": true,
+      "vegetable_pass": true,
+      "keto_pass": true
+    },
+    "gnocchi": {
+      "protein_pass": true,
+      "vegetable_pass": true,
+      "keto_pass": true
+    }
+  },
+  "uncertainty": "Food composition and label rounding vary. Generic chicken thigh is lean trimmed USDA meat and may understate fattier products. Oil retained100%; broth retained100% conservatively. No micronutrient-retention claim. Vegetable mass is edible ingredient weight before cooking/draining spinach, not cooked plate weight. Raw meat and cooked meat records are never swapped."
+}
