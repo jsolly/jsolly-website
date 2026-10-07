@@ -28,7 +28,7 @@ I have discovered and tested certain directives and parameters for GPT through t
 
 ## Directives
 
-Directives are action verbs that allow you to instruct GPT to do different things. <a target="_blank" rel="noopener noreferrer" href="/blog/optimizing-gpt-for-nlp-tips-and-tricks/#directives">Learn more about bracket directive syntax</a>. 
+Directives are action verbs that allow you to instruct GPT to do different things. <a target="_blank" rel="noopener noreferrer" href="/blog/optimizing-gpt-for-nlp-tips-and-tricks/#explore-a-topic-with-dynamic-inline-values-directives">Learn more about bracket directive syntax</a>. 
 
 A directive is a term used to tell GPT you are instructing it to do something. Directives, are written in a specific format and can include action verbs such as "write," "do," or "type." Directives may also include additional conditions that must be followed, indicated by a colon (:). GPT processes directives in the order they are written and can follow logical operations such as AND, OR, and XAND (which represents "not AND"). The general format looks like this:
 

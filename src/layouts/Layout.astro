@@ -35,7 +35,9 @@ const llmsTxtURL = new URL("/llms.txt", Astro.site);
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<link rel="canonical" href={canonicalURL} />
+		{/* A noindex page (404, 500) answers whatever URL failed, so it names no
+		URL of its own: no canonical, og:url, twitter:url or Markdown sibling. */}
+		{!noindex && <link rel="canonical" href={canonicalURL} />}
 		{!noindex && (
 			<link rel="alternate" type="text/markdown" href={markdownHref} />
 		)}
@@ -84,7 +86,7 @@ const llmsTxtURL = new URL("/llms.txt", Astro.site);
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="John Solly" />
 		<meta property="og:locale" content="en_US" />
-		<meta property="og:url" content={canonicalURL} />
+		{!noindex && <meta property="og:url" content={canonicalURL} />}
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={socialImageURL} />
@@ -95,7 +97,7 @@ const llmsTxtURL = new URL("/llms.txt", Astro.site);
 
 		<!-- Twitter -->
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:url" content={canonicalURL} />
+		{!noindex && <meta name="twitter:url" content={canonicalURL} />}
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={socialImageURL} />

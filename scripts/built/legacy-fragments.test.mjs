@@ -4,7 +4,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import it from "node:test";
 import { JSDOM } from "jsdom";
-import { exists } from "./pages.mjs";
+import { DIST, exists } from "./pages.mjs";
 
 // Plan §2.3 Fragments, §4.6: browsers re-apply a #fragment across a 301, so an
 // old blogthedata.com deep link survives only if the page its path redirects
@@ -12,7 +12,6 @@ import { exists } from "./pages.mjs";
 // each old page offered (scripts/port/fragment-ids.mjs, from the cut build);
 // url-map.json says where each old page now lives. A destination the port has
 // not built yet is skipped and counted, so the check grows as routes land.
-const DIST = "dist";
 const SITE = "https://www.jsolly.com";
 const OFF_SITE = "https://www.blogthedata.com/e/";
 const FRAGMENTS = new URL(
