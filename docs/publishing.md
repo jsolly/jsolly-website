@@ -17,8 +17,8 @@ ruleset. Editorial PRs run the full gate, because post edits are not docs-only.
 
 ### Grant timing and rehearsal
 
-The blog moved here from `jsolly/awesome-blog`, where PagesCMS was verified
-before this merge (awesome-blog's rehearsal PR #679). None of that verification
+The blog is moving here from `jsolly/awesome-blog` (the old host redirects here
+from cutover step C2), where PagesCMS was verified before this merge (awesome-blog's rehearsal PR #679). None of that verification
 carries over to this repository. The grant follows the merge plan
 (`docs/plans/blogthedata-merge/plan.md` §1.5):
 

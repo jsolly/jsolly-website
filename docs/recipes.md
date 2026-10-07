@@ -2,15 +2,16 @@
 
 The recipe library lives under `/recipes/`: the landing page `/recipes/`, the
 collection pages `/recipes/meals/` and `/recipes/smoothies/`, and one page per
-recipe at `/recipes/<recipe-id>/`. It came from blogthedata.com's Easy Meals &
-Smoothies post, which now 301s to `/recipes/`. The code map, test layout and
+recipe at `/recipes/<recipe-id>/`. It comes from blogthedata.com's Easy Meals &
+Smoothies post, which will 301 to `/recipes/` once the old host is re-pointed at
+cutover step C2. The code map, test layout and
 invariants are in `AGENTS.md`; this file covers the data, the pipeline, the
 offline app and the old host's kill-switch.
 
 ## Data contract
 
-The canonical data is `src/components/recipes/recipes.json` (21 recipes: 15
-meals and 6 smoothies) and `src/components/recipes/nutrition-data.json` (the
+The canonical data is `src/components/recipes/recipes.json` (15 meals and 6
+smoothies, pinned by `scripts/unit/recipe-data.test.mjs`) and `src/components/recipes/nutrition-data.json` (the
 Daily Value nutrients and each recipe's per-ingredient nutrient rows). Recipe
 ids are stable: each is a page slug (`/recipes/<id>/`) and a fragment id
 (`/recipes/#<id>` opens it in the library dialog), and old links use both.
@@ -79,8 +80,9 @@ The original recipe formulas, the USDA records, the label evidence, the review
 notes and the cooking-adaptation boundaries are kept in
 [`docs/recipes-evidence/`](recipes-evidence/) (decision J17), copied byte for
 byte from the handoff package they were recorded in. Biome and markdownlint
-skip that folder so its bytes never change; `recompute-nutrition.py` there is an
-inert record of how the numbers were computed, not part of the build. Recipe
+skip that folder so its bytes never change. The whole folder, including
+`recompute-nutrition.py`, is an inert record under J17: nothing in the build or
+the gate runs it. Recipe
 source links and modelled limits are also in `recipes.json` itself.
 
 ## Pipeline
@@ -96,9 +98,7 @@ downloads from `recipes.json`. Their settings are fixed: four adults, US units,
 no family starch selected, with each shared recipe's per-person starch options
 listed. The JSON uses `schemaVersion: 1` and holds stable recipe ids, readable
 quantities, food states, dependency cells, steps, sources, restrictions and
-estimates; the Markdown is the same documents as text. Print, the current-setting
-downloads and these files all use one `recipeDocument` from
-`recipe-export.mjs`. The files are committed, and Biome and markdownlint skip
+estimates; the Markdown is the same documents as text. Print and these files use one `recipeDocument` from `recipe-export.mjs`. The files are committed, and Biome and markdownlint skip
 `public/recipes/data/` so their bytes stay exactly what the script writes. The
 gate's `recipes:check` fails on drift, so run `recipes:sync` after every edit to
 `recipes.json` and commit the result with it.
