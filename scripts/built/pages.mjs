@@ -10,6 +10,8 @@ import { JSDOM } from "jsdom";
 import { parseDocument } from "yaml";
 
 const ROOT = fileURLToPath(new URL("../..", import.meta.url));
+// The built site, relative to the repo root the built suite runs from.
+export const DIST = "dist";
 const POSTS = new URL("../../src/content/blog/posts/", import.meta.url);
 const CATEGORIES = new URL(
 	"../../src/content/blog/categories/",
@@ -43,7 +45,7 @@ export async function routeManifest(root = ROOT) {
 // Every file under `root` (dotfiles included), as a Set of root-relative
 // paths. Membership is exact-case, as on Vercel, where a case-insensitive
 // disk (macOS) would let a wrong-case access() succeed.
-export async function distFiles(root = "dist") {
+export async function distFiles(root = DIST) {
 	return new Set(await globby("**/*", { cwd: root, dot: true }));
 }
 
@@ -56,7 +58,7 @@ export function distFileFor(pathname) {
 }
 
 // Every built HTML page under `root`, as { file (relative to root), html }.
-export async function readBuiltPages(root = "dist") {
+export async function readBuiltPages(root = DIST) {
 	const files = await globby("**/*.html", { cwd: root });
 	return Promise.all(
 		files
@@ -80,13 +82,13 @@ function readHtml(html, read) {
 
 // Reads the built page at `path` (a directory such as "blog/all-posts" or
 // "/blog/<slug>/", served as its index.html) under `root` with `read`.
-export async function readBuilt(path, read, root = "dist") {
+export async function readBuilt(path, read, root = DIST) {
 	return readHtml(await readFile(join(root, path, "index.html"), "utf8"), read);
 }
 
 // The robots meta content of the built page at `path` (as readBuilt takes
 // it), or null when the page has none.
-export function robotsMeta(path, root = "dist") {
+export function robotsMeta(path, root = DIST) {
 	return readBuilt(
 		path,
 		(document) =>

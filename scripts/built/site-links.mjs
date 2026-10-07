@@ -14,7 +14,7 @@ import { JSDOM } from "jsdom";
 import { MARKDOWN_PATHS } from "../../src/content/agent-pages.js";
 import { markdownSiblingPath } from "../../src/lib/accept-negotiate.js";
 import { JSOLLY_ORIGIN, readLegacyJson } from "../blogthedata-redirects.mjs";
-import { distFileFor, distFiles } from "./pages.mjs";
+import { DIST, distFileFor, distFiles } from "./pages.mjs";
 
 // Text the checks read; everything else in dist/ only has to exist.
 const TEXT_EXTENSIONS = new Set([
@@ -289,7 +289,7 @@ export function buildSite(entries) {
 	return { files, pages, values, texts, manifests };
 }
 
-export async function readSite(root) {
+export async function readSite(root = DIST) {
 	const files = await distFiles(root);
 	return buildSite(
 		await Promise.all(

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { extname } from "node:path";
 import it from "node:test";
-import { categorySlugs, publishedPosts } from "./pages.mjs";
+import { categorySlugs, DIST, publishedPosts } from "./pages.mjs";
 import {
 	brokenReferences,
 	buildSite,
@@ -26,7 +26,6 @@ import {
 //   (c) every link to a mixed-case post or category slug uses its exact case;
 //   (d) no legacy root path (/post/, /search/, /media/, ...) is built in code
 //       or in the JS, JSON and XML the HTML check cannot see.
-const DIST = "dist";
 const MIXED_CASE_POSTS = 22;
 const MIXED_CASE_CATEGORIES = ["Geodev"];
 
