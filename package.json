@@ -58,7 +58,7 @@
 		"svelte-check": "4.7.6",
 		"tailwindcss": "^4.3.3",
 		"typescript": "^6.0.3",
-		"vercel": "^59.17.0",
+		"vercel": "^62.0.0",
 		"yaml": "2.9.1"
 	},
 	"overrides": {
