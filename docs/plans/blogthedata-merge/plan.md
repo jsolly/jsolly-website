@@ -127,9 +127,9 @@ J24 gates nothing; it is out of scope.
 
 | Item | Value | Recorded at |
 | --- | --- | --- |
-| awesome-blog cut SHA | `86bbaf29bfaa60b35ce0cc943dcd4cb46c061adc` (2026-10-05; differs from bf1f7ff1 only by the AGENTS.md freeze notice) | B00 step 3 (also `scripts/port/source.json`, B01) |
+| awesome-blog cut SHA | `6545bc279bb906ac6fdb53cb0e0d7946d0f5b4c9` (2026-10-08 pinned bootstrap remedy; original B00 cut `86bbaf29bfaa60b35ce0cc943dcd4cb46c061adc` was recorded on 2026-10-05) | B00 remedy, §7.6 (also `scripts/port/source.json`) |
 | Final port → main PR number | jsolly/jsolly-website#65 (draft) | B01 |
-| awesome-blog freeze SHA | pending | C0 step 4 (also `legacy/blogthedata/url-map.json` `meta.freeze_sha`) |
+| awesome-blog freeze SHA | `6545bc279bb906ac6fdb53cb0e0d7946d0f5b4c9` (2026-10-08) | C0 step 4 (also `legacy/blogthedata/url-map.json` `meta.freeze_sha`) |
 | C1 squash SHA, Production smoke run URL | pending | C1 |
 | `blogthedata` rollback deployment ID | pending | C2 step 1 |
 | Double-slash outcome (J28), C2 verifier results | pending | C2 step 5 |
@@ -1954,6 +1954,24 @@ Recorded while porting (each step's PR body on `port/awesome-blog` has the detai
 14. **Docs (B23).** `.markdownlint-cli2.jsonc` also ignores `docs/recipes-evidence/**`, which §1.13 and B23 do not list; knip needs no entry. The evidence folder is 11 files copied byte for byte (sha256-checked), and `recompute-nutrition.py` in it is an inert record that nothing runs. `AGENTS.md` was consolidated and gained an Invariants section; the portfolio Layout CSS pin there is review-only.
 
 ---
+
+### 7.6 Prelaunch decisions and source bootstrap drift (2026-10-08)
+
+PR #96 landed the approved prelaunch display branding, recipe navigation, offline-only connection status and privacy-enhanced YouTube embeds on the port. Full independent review and the full local gate passed; exact-head CI succeeded. Native playback, cached offline cooking and reconnection were verified on desktop and mobile. Legacy feed identities, video IDs/options and article fragments remain intact. No production deployment or cutover occurred.
+
+The source freeze check then reported only two non-content changes from B00 cut `86bbaf29bfaa60b35ce0cc943dcd4cb46c061adc` to pinned source `6545bc279bb906ac6fdb53cb0e0d7946d0f5b4c9` (awesome-blog #702): `.cursor/CLOUD.md` and `.cursor/aws-oidc-login.sh`. The extra B-step copies exactly those two paths from that immutable source commit and advances `scripts/port/source.json` `cut_sha` to it, following the B00 remedy. Both files are byte-identical to website main's already-landed cloud bootstrap. No bootstrap script is executed, no host/infra role is deployed, and no source repository file is edited.
+
+There are no content changes between those two source commits. All B04/B22 article hand edits, the prelaunch embed conversion and the preserved after-C1 recipe archive are untouched. `freeze_sha` remains null; C0 resync, final main sync, Preview and C1 merge still require their documented gates. The three open source Dependabot PRs remain unarmed and untouched under the code freeze.
+
+### 7.7 C0 source publication freeze (2026-10-08)
+
+John approved starting C0 and source PRs #696, #695 and #680 were closed unmerged. The source open-PR inventory was empty. He subsequently waived removal of the source repository from PagesCMS access and committed not to publish source updates. PagesCMS installation settings remain unchanged; this explicit exception replaces the access-removal action in C0. Any later source change still requires the freeze check and documented remedy.
+
+The final resync and all six generation steps ran at source `6545bc279bb906ac6fdb53cb0e0d7946d0f5b4c9`. There was no content delta; only the freeze/provenance values in `scripts/port/source.json`, `legacy/blogthedata/url-map.json` and `legacy/blogthedata/fragment-ids.json` changed (port PR #98). All 105 regular posts, B04/B22 hand edits and prelaunch changes remain intact.
+
+The C0 visual comparison ran at both prescribed viewports. It exited 1: eleven of twenty-two cases exceeded 0.5%. Existing intentional port/prelaunch differences were reviewed and recorded in PR #98 under §4.9; no threshold or masks were changed. The source recipe article now has its own library route, the blog archive has 105 posts, author-card wording and the YouTube player reflect the approved prelaunch choices, and destination recipe controls use the approved components. The full report and screenshots remain in the native coordination receipt.
+
+This records source freeze and preparation only. Temporary-tool removal, final real main→port sync and exact-final-head Preview destinations/feed verification remain C0 obligations. C1 production merge and C2 cutover still require their separate gates. New recipes and their illustrations remain preserved for the agreed destination PR after C1.
 
 ## Appendix A: dropped infra test titles (47)
 
