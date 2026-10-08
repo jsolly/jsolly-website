@@ -10,6 +10,8 @@ import assert from "node:assert/strict";
 // 5. the RSS and Atom feeds with their XML Content-Types;
 // 6. the post asked for as Markdown answers HTML, with no Vary: Accept (J11);
 // 7. the mobile menu's Recipes link, and the /recipes/ library hydrating.
+const FULL_SHA = /^[a-f0-9]{40}$/u;
+
 const CONTACT_HEADING = /Contact/iu;
 const MARKDOWN_TYPE = /text\/markdown/u;
 const HTML_TYPE = /^text\/html/u;
@@ -215,7 +217,23 @@ async function openRecipes({ page, verifyHttp }) {
 	await verifyHttp(page.url());
 }
 
-export async function smoke({ page, context, verifyHttp }) {
+export async function verifyRelease({ verifyHttp, releaseSha }) {
+	assert.match(releaseSha ?? "", FULL_SHA, "Smoke requires a full release SHA");
+	const response = await verifyHttp(`${productionUrl}/release.json`);
+	assert.equal(
+		(await response.json())?.sha,
+		releaseSha,
+		"Canonical site must serve the intended release",
+	);
+}
+
+export async function smoke({
+	page,
+	context,
+	verifyHttp,
+	releaseSha = process.env.PRODUCTION_SMOKE_RELEASE_SHA,
+}) {
+	await verifyRelease({ verifyHttp, releaseSha });
 	await browsePortfolio({ page, verifyHttp });
 	await checkMarkdownNegotiation(context);
 	const { title, postPath } = await readFirstPost({ page, verifyHttp });
