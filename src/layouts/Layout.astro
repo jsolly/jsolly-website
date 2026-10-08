@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Maintenance from "../components/Maintenance.astro";
 import StructuredData from "../components/StructuredData.astro";
+import { ROLE } from "../content/constants.js";
 
 interface Props {
 	title: string;
@@ -34,7 +35,9 @@ const llmsTxtURL = new URL("/llms.txt", Astro.site);
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<link rel="canonical" href={canonicalURL} />
+		{/* A noindex page (404, 500) answers whatever URL failed, so it names no
+		URL of its own: no canonical, og:url, twitter:url or Markdown sibling. */}
+		{!noindex && <link rel="canonical" href={canonicalURL} />}
 		{!noindex && (
 			<link rel="alternate" type="text/markdown" href={markdownHref} />
 		)}
@@ -83,22 +86,22 @@ const llmsTxtURL = new URL("/llms.txt", Astro.site);
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="John Solly" />
 		<meta property="og:locale" content="en_US" />
-		<meta property="og:url" content={canonicalURL} />
+		{!noindex && <meta property="og:url" content={canonicalURL} />}
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={socialImageURL} />
 		<meta property="og:image:type" content="image/jpeg" />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="1200" />
-		<meta property="og:image:alt" content="John Solly, Health-IT Division CTO at Leidos" />
+		<meta property="og:image:alt" content={`John Solly, ${ROLE}`} />
 
 		<!-- Twitter -->
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:url" content={canonicalURL} />
+		{!noindex && <meta name="twitter:url" content={canonicalURL} />}
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={socialImageURL} />
-		<meta name="twitter:image:alt" content="John Solly, Health-IT Division CTO at Leidos" />
+		<meta name="twitter:image:alt" content={`John Solly, ${ROLE}`} />
 	</head>
 	<body class="bg-background text-text-primary font-body">
 		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

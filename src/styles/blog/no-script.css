@@ -1,0 +1,25 @@
+/* Every blog sheet declares the full order, Tailwind's own `properties` layer
+   first, so blog and blog-no-script stay last whichever sheet loads first. */
+@layer properties, theme, base, components, utilities, blog, blog-no-script;
+/* A first-party stylesheet keeps fallback styles compatible with the CSP. */
+/* Its own last layer lets the no-JavaScript fallback beat blog.css by layer order. */
+@layer blog-no-script {
+	/* Load more needs JavaScript (a ?page= reload renders the same first cards);
+	   the <noscript> link to /blog/all-posts/ is the way on. */
+	.load-more {
+		display: none;
+	}
+	@media (max-width: 900px) {
+		.navigation-panel.collapsed {
+			grid-template-rows: 1fr;
+			opacity: 1;
+			visibility: visible;
+		}
+		.navigation-panel.collapsed nav {
+			padding-top: 1rem;
+		}
+		.menu-toggle {
+			display: none;
+		}
+	}
+}

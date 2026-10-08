@@ -1,29 +1,30 @@
 # John Solly
 
-> Personal website of John Solly — Health-IT Division CTO at Leidos, software engineer, and builder of spatial + AI systems. Static site; no product API.
+> Personal website of John Solly — CTO of Enterprise Health at Leidos Digital, software engineer, and builder of spatial + AI systems. Static site; no product API.
 
-This file is the index for agents. Prefer it over scraping HTML. HTML pages also honor `Accept: text/markdown` (acceptmarkdown.com) and have `.md` siblings (`/index.md`, `/about.md`, `/contact.md`, `/privacy.md`, `/terms.md`).
+This file is the index for agents. Prefer it over scraping HTML. The five portfolio pages (home, about, contact, privacy, terms) also honor `Accept: text/markdown` (acceptmarkdown.com) and have `.md` siblings (`/index.md`, `/about.md`, `/contact.md`, `/privacy.md`, `/terms.md`); blog and recipe pages are HTML only: under `/blog/` and `/recipes/` they return HTML even for `Accept: text/markdown`, and have no `.md` siblings.
 
 ## When to use this
 
 Use jsolly.com when you need:
 
-- A short, canonical bio for **John Solly** (Health-IT Division CTO at Leidos; spatial systems / GIS; applied AI in federal health and benefits)
+- A short, canonical bio for **John Solly** (CTO, Enterprise Health, Leidos Digital; spatial systems / GIS; applied AI in federal health and benefits)
 - How to **contact** him (form + public profiles) — not a Leidos switchboard
-- Links to his **resume**, **GitHub**, and writing on **Blogthedata**
+- His **blog**: articles about geospatial development, web development, AI and productivity, with RSS and Atom feeds
+- His **recipes**: easy meals and smoothies, with serving scaling and appliance filters
+- Links to his **resume** and **GitHub**
 - Privacy / data-handling facts for this personal site
 - Terms for using and reusing this site's original content
 
 Do **not** use this site when you need:
 
 - Official **Leidos** corporate, careers, or contract information — use [leidos.com](https://www.leidos.com/)
-- Long-form articles or GIS tutorials — those live on [blogthedata.com](https://www.blogthedata.com/)
 - A public HTTP API, OpenAPI spec, MCP server, OAuth, webhooks, or a SaaS product — this origin has none
 
 How to fetch:
 
 1. Read this file.
-2. GET the page URL with `Accept: text/markdown`, or GET the `.md` sibling.
+2. For a portfolio page, GET its URL with `Accept: text/markdown`, or GET the `.md` sibling. For a blog post or recipe, GET the HTML page, or read the blog through its feeds.
 3. For a missing page path (no file extension) or `.md` sibling, expect HTTP 404 with a Markdown recovery body (sitemap, this file, contact); a missing file returns the site's HTML 404.
 4. To reach John, use [Contact](https://www.jsolly.com/contact/) — there is no public email published here.
 
@@ -34,12 +35,18 @@ How to fetch:
 - [Contact](https://www.jsolly.com/contact/): profiles and contact form
 - [Privacy](https://www.jsolly.com/privacy/): data practices
 - [Terms](https://www.jsolly.com/terms/): short, permissive terms for this personal site
+- [Blog](https://www.jsolly.com/blog/): latest posts, the full archive at [/blog/all-posts/](https://www.jsolly.com/blog/all-posts/), and search at [/blog/search/](https://www.jsolly.com/blog/search/) (HTML)
+- [Recipes](https://www.jsolly.com/recipes/): the recipe library, one page per recipe (HTML)
 - [Resume (PDF)](https://www.jsolly.com/John-Solly-Resume.pdf)
 - [Sitemap](https://www.jsolly.com/sitemap-index.xml)
 
+## Feeds
+
+- [Blog RSS](https://www.jsolly.com/blog/rss.xml)
+- [Blog Atom](https://www.jsolly.com/blog/atom.xml)
+
 ## Elsewhere
 
-- [Blogthedata](https://www.blogthedata.com/)
 - [GitHub](https://github.com/jsolly)
 - [LinkedIn](https://www.linkedin.com/in/jsolly/)
 - [X](https://x.com/_jsolly)

@@ -26,6 +26,7 @@ const ACTIONS = new Set(["redirect-301", "serve-200", "stays-404"]);
 const PATTERN_SYNTAX = /[:*?+(){}\\]/u;
 // Vercel interpolates `$1` and `:param` into a redirect destination.
 const DESTINATION_PARAM = /[$:]/u;
+const UPPERCASE = /[A-Z]/u;
 
 const SECURITY_HEADERS = [
 	{ key: "X-Content-Type-Options", value: "nosniff" },
@@ -48,6 +49,45 @@ export function readLegacyJson(name, dir = LEGACY_DIR) {
 
 export function isPageRow(row) {
 	return row.source.endsWith("/") && row.source !== "/";
+}
+
+// Whether a row's source has an uppercase letter; its lowercase is then a
+// different URL, since matching is case-sensitive.
+export function isMixedCase(row) {
+	return UPPERCASE.test(row.source);
+}
+
+// The paths one exact redirect row answers: a page row also answers its
+// slashless, /index.html and /index.html/ forms.
+export function redirectForms(row) {
+	if (!isPageRow(row)) {
+		return [row.source];
+	}
+	const base = row.source.slice(0, -1);
+	return [row.source, base, `${base}/index.html`, `${base}/index.html/`];
+}
+
+// The known paths one row answers, as probes: every form of a redirect row;
+// a pattern row's samples (assertValidMap requires some); an exact page row's
+// slash and slashless forms; any other row's exact source.
+export function probePaths(row) {
+	if (row.action === "redirect-301") {
+		return redirectForms(row);
+	}
+	if (row.match === "pattern") {
+		return row.samples;
+	}
+	return isPageRow(row) ? [row.source, row.source.slice(0, -1)] : [row.source];
+}
+
+// The lowercase variants of mixed-case redirect sources that no row owns:
+// matching is case-sensitive, so each must stay 404.
+export function lowercaseNegatives(rows) {
+	const sources = new Set(rows.map((row) => row.source));
+	return rows
+		.filter((row) => row.action === "redirect-301" && isMixedCase(row))
+		.map((row) => row.source.toLowerCase())
+		.filter((source) => !sources.has(source));
 }
 
 function redirectSource(row) {
@@ -77,6 +117,10 @@ function assertValidMap(rows) {
 			);
 		}
 		if (row.action !== "redirect-301") {
+			// The samples are a pattern row's only probes.
+			if (row.match === "pattern" && !(row.samples?.length > 0)) {
+				throw new Error(`url-map pattern row ${row.id} has no samples`);
+			}
 			continue;
 		}
 		// A pattern redirect could send an unknown filename to a jsolly.com 404.
@@ -165,6 +209,17 @@ export function compileRoutes(config) {
 		...route,
 		regex: route.src ? new RegExp(route.src, "u") : null,
 	}));
+}
+
+// The jsolly.com project's own vercel.json (the repo root's), compiled.
+// routePath ignores `has`, so the apex-host redirect (it only answers
+// jsolly.com) stays out.
+export function rootVercelRoutes() {
+	const config = JSON.parse(readFileSync(join(ROOT, "vercel.json"), "utf8"));
+	return compileRoutes({
+		...config,
+		redirects: config.redirects.filter((redirect) => !redirect.has),
+	});
 }
 
 // Walks the compiled routes in order, as Vercel does before its filesystem

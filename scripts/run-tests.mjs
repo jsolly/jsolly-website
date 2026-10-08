@@ -24,12 +24,23 @@ const SUITES = {
 			"--experimental-strip-types",
 			"--test",
 		],
-		patterns: ["src/**/*.test.ts", "scripts/unit/*.test.mjs"],
+		patterns: [
+			"src/**/*.test.ts",
+			"src/**/*.test.mjs",
+			"scripts/unit/*.test.mjs",
+		],
 	},
 	// Post-build tests against dist/ that run outside `build` (browser tests need
 	// Playwright, which the Vercel build does not have); see `csp` below.
+	// The same TS loader as unit, so a test can import src/lib helpers.
 	built: {
-		flags: ["--test", "--test-concurrency=1"],
+		flags: [
+			"--import",
+			"./scripts/register-ts-from-js.mjs",
+			"--experimental-strip-types",
+			"--test",
+			"--test-concurrency=1",
+		],
 		patterns: ["scripts/built/*.test.mjs"],
 	},
 	// Runs inside `build` (and so on Vercel), right after process-html.

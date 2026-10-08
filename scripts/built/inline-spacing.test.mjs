@@ -22,9 +22,10 @@ const FOOTER = /© \d{4} John Solly\. Privacy · Terms/u;
 const PINNED = {
 	"index.html": [
 		"Resume (PDF)",
-		"Blog — writing lives on Blogthedata",
+		"Blog — articles about geospatial development",
+		"Recipes — easy meals and smoothies",
 		"Start at https://www.jsolly.com/llms.txt for when-to-use guidance.",
-		"Request any page with Accept: text/markdown (or fetch the .md sibling) to get",
+		"privacy or terms page with Accept: text/markdown (or fetch its .md sibling) to get",
 	],
 	"privacy/index.html": ["policy? Get in touch"],
 	"terms/index.html": ["John Solly — jsolly.com. Questions? Get in touch."],

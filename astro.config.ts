@@ -1,13 +1,25 @@
 import { mkdir, writeFile } from "node:fs/promises";
+import { fileURLToPath } from "node:url";
+import { satteri } from "@astrojs/markdown-satteri";
 import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
 import type { AstroIntegration } from "astro";
 import { defineConfig } from "astro/config";
+import { postLastmods } from "./src/lib/blog/post-loader.js";
 
 // Astro builds these as dist/404.html and dist/500.html; they are not routes.
 const ERROR_ROUTES = new Set(["/404/", "/500/"]);
 const EDGE_SLASHES = /^\/+|\/+$/gu;
+// The one page the sitemap leaves out, the noindex blog search; the
+// integration already drops the 404 and 500 pages. Everything else built is
+// listed, /recipes/ pages included (J12).
+const SITEMAP_EXCLUDED = "/blog/search/";
+// Read once at config load, outside @astrojs/sitemap's serialize, whose
+// try/catch would swallow a throw and leave the build green without a sitemap.
+const POST_LASTMODS = await postLastmods(
+	fileURLToPath(new URL(".", import.meta.url)),
+);
 
 /**
  * Writes the gitignored src/generated/route-manifest.js from the pages this
@@ -51,6 +63,8 @@ export default defineConfig({
 		process.env.NODE_ENV === "development"
 			? "http://localhost:4321"
 			: "https://www.jsolly.com",
+	trailingSlash: "always",
+	prerenderConflictBehavior: "error",
 
 	integrations: [
 		svelte(),
@@ -59,9 +73,24 @@ export default defineConfig({
 				process.env.NODE_ENV === "development"
 					? ["http://localhost:4321/John-Solly-Resume.pdf"]
 					: ["https://www.jsolly.com/John-Solly-Resume.pdf"],
+			filter: (page) => new URL(page).pathname !== SITEMAP_EXCLUDED,
+			// A post's lastmod is its frontmatter `updated`; no other page has one.
+			serialize: (item) => {
+				const lastmod = POST_LASTMODS.get(new URL(item.url).pathname);
+				return lastmod ? { ...item, lastmod } : item;
+			},
 		}),
 		routeManifest(),
 	],
+
+	// Prism highlights with classes; Shiki would emit inline style attributes
+	// (plan §1.13, CSP).
+	markdown: {
+		processor: satteri({
+			features: { smartPunctuation: false, gfm: false },
+		}),
+		syntaxHighlight: "prism",
+	},
 
 	// Astro 7's default "jsx" mode drops line-break whitespace next to elements,
 	// gluing prose to inline links and code spans; `true` compresses losslessly.

@@ -46,10 +46,11 @@ run_step "biome ci"  npx --no-install biome ci . --error-on-warnings
 run_step "yaml lint" npm run check:yaml
 run_step "knip" npm run check:knip
 run_step "legacy redirects" npm run redirects:check   # legacy/blogthedata/vercel.json matches url-map.json
+run_step "recipe data" npm run recipes:check   # public/recipes/data matches recipes.json
 run_step "actionlint"             npm run check:actions
 run_step "markdown lint" npm run check:md
 run_step "smoke scenario" npm run smoke:scenario-contract
-run_step "astro check (types)" npm run check:ts
+run_step "types (astro + svelte)" npm run check:ts
 run_step "unit tests" npm test
 run_step "build"     npm run build
 run_step "built tests" npm run test:built

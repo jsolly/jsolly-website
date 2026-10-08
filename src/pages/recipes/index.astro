@@ -1,0 +1,37 @@
+---
+import AuthorCard from "../../components/blog/AuthorCard.astro";
+import RecipeExperience from "../../components/recipes/RecipeExperience.astro";
+import RecipeLayout from "../../layouts/RecipeLayout.astro";
+import { headingLinkLabel } from "../../lib/blog/html.js";
+
+// The recipe library's landing page, where blogthedata.com's Easy Meals &
+// Smoothies post now 301s (RCP-001). It renders the library as that post did:
+// every recipe, meals first. The h1, #meal-results and the author card's
+// h2#about-author keep the post's fragment ids, and each recipe's #<id> opens
+// it in the library dialog (plan §1.6).
+const TITLE = "Easy Meals & Smoothies";
+const TITLE_ID = "easy-meals--smoothies";
+const DESCRIPTION =
+	"Easy meals and smoothies with keto and non-keto options, serving scaling and appliance filters.";
+---
+
+<RecipeLayout title={TITLE} description={DESCRIPTION}>
+	<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Recipes</span></nav>
+	<article>
+		<h1 id={TITLE_ID}>{TITLE}<a class="heading-link" href={`#${TITLE_ID}`} aria-label={headingLinkLabel(TITLE)}>#</a></h1>
+		<RecipeExperience />
+	</article>
+	<AuthorCard />
+</RecipeLayout>
+
+<style>
+	/* Every recipe stylesheet declares the full order (as the blog sheets do), so
+	   blog stays last whichever stylesheet the browser reads first. */
+	@layer properties, theme, base, components, utilities, blog, blog-no-script;
+	@layer blog {
+		/* The post's footer used to separate the library from the author card. */
+		article {
+			margin-bottom: 1.5rem;
+		}
+	}
+</style>

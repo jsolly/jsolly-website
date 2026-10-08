@@ -25,6 +25,9 @@ const ROUTES = routeSet([
 	"/recipes/chicken-posole/",
 ]);
 
+// The blog moved on-site; no portfolio Markdown may still send readers there.
+const OLD_BLOG_HOST = /blogthedata\.com/u;
+
 describe("preferredType", () => {
 	it("defaults to HTML when Accept is missing", () => {
 		assert.equal(preferredType(null), "text/html");
@@ -115,6 +118,12 @@ describe("agentResponse", () => {
 		);
 		const body = await res.text();
 		assert.match(body, /^# Hi, I'm John Solly/mu);
+		assert.ok(body.includes(`](${origin}/blog/)`), "links the on-site blog");
+		assert.ok(
+			body.includes(`](${origin}/recipes/)`),
+			"links the on-site recipes",
+		);
+		assert.doesNotMatch(body, OLD_BLOG_HOST);
 	});
 
 	it("returns markdown 404 with recovery links for unknown paths", async () => {
@@ -140,7 +149,28 @@ describe("agentResponse", () => {
 		);
 		assert.ok(res);
 		assert.equal(res.status, 200);
-		assert.match(await res.text(), /^# John Solly/mu);
+		const body = await res.text();
+		assert.match(body, /^# John Solly/mu);
+		assert.ok(body.includes(`](${origin}/blog/)`), "links the on-site blog");
+		assert.ok(
+			body.includes(`](${origin}/recipes/)`),
+			"links the on-site recipes",
+		);
+		assert.doesNotMatch(body, OLD_BLOG_HOST);
+	});
+
+	it("An agent requesting /contact/ as Markdown gets the contact page with no link to the old blog host", async () => {
+		const res = agentResponse(
+			new Request(`${origin}/contact/`, {
+				headers: { accept: "text/markdown" },
+			}),
+			ROUTES,
+		);
+		assert.ok(res);
+		assert.equal(res.status, 200);
+		const body = await res.text();
+		assert.match(body, /^# Contact John Solly/mu);
+		assert.doesNotMatch(body, OLD_BLOG_HOST);
 	});
 
 	it("serves terms page markdown", async () => {
@@ -209,7 +239,7 @@ describe("agentResponse", () => {
 			assert.equal(res.status, 503);
 			const body = await res.text();
 			assert.match(body, /^# Maintenance/mu);
-			assert.doesNotMatch(body, /Health-IT Division CTO/u);
+			assert.doesNotMatch(body, /^# John Solly/mu);
 		} finally {
 			if (previous === undefined) {
 				delete process.env.MAINTENANCE_MODE;
@@ -346,11 +376,15 @@ describe("route-aware exemptions", () => {
 		}
 	});
 
-	it("leaves .xml feeds untouched", () => {
+	it("leaves .xml feeds and sitemaps and the site's .txt files untouched", () => {
 		for (const path of [
 			"/blog/rss.xml",
 			"/blog/atom.xml",
 			"/sitemap-index.xml",
+			"/sitemap-0.xml",
+			"/robots.txt",
+			"/.well-known/security.txt",
+			"/pgp-key.txt",
 		]) {
 			for (const accept of [
 				"application/rss+xml",

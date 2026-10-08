@@ -1,6 +1,8 @@
 // A throwaway copy of the working tree for built tests that need their own
-// build (today: the unprocessed baseline in hydration.test.mjs). The real tree,
-// its dist/ and its Astro data store are never touched.
+// build (today: the unprocessed baseline in hydration.test.mjs, the
+// maintenance build in blog-maintenance.test.mjs and the PagesCMS-shaped posts
+// in blog-content-contracts.test.mjs). The real tree, its dist/ and its Astro
+// data store are never touched.
 //
 // - Files: the `git ls-files -co --exclude-standard` set, so gitignored output
 //   (dist/, .astro/, node_modules/) never comes across.
@@ -10,11 +12,16 @@
 // - Guard: remove() fails when the real tree's node_modules/.astro/data-store.json
 //   changed while the copy existed. Astro writes that file only for content
 //   collections, so until the site has some it checks the file stays absent.
-import { spawnSync } from "node:child_process";
+// - Commands: astroBuild(), npmRun() and node() run in the copy without colour
+//   (CI=true makes Astro colour its error text) and return { command, status,
+//   output }, the output being stdout then stderr with any escape codes
+//   stripped, so tests can match error messages the same way locally and on CI.
+import { execFileSync, spawnSync } from "node:child_process";
 import fs from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { stripVTControlCharacters } from "node:util";
 
 const ROOT = fileURLToPath(new URL("../..", import.meta.url));
 const REAL_MODULES = join(ROOT, "node_modules");
@@ -72,6 +79,43 @@ async function linkModules(dir) {
 	);
 }
 
+// Runs `file args` in `dir` without colour; see Commands above.
+function run(dir, file, args, command) {
+	const result = spawnSync(file, args, {
+		cwd: dir,
+		encoding: "utf8",
+		maxBuffer: 64 * 1024 * 1024,
+		// Copies deliberately omit .git. Supply their source commit explicitly,
+		// as CI and Vercel do, so static release identity can still be built.
+		env: {
+			...process.env,
+			GITHUB_SHA:
+				process.env.GITHUB_SHA ||
+				execFileSync("git", ["rev-parse", "HEAD"], {
+					cwd: ROOT,
+					encoding: "utf8",
+				}).trim(),
+			NO_COLOR: "1",
+			FORCE_COLOR: "0",
+		},
+	});
+	if (result.error) {
+		throw result.error;
+	}
+	return {
+		command: `${command} in ${dir}`,
+		status: result.status,
+		output: stripVTControlCharacters(`${result.stdout}${result.stderr}`),
+	};
+}
+
+// Throws with the command's output unless it exited 0.
+export function requireSuccess({ command, status, output }) {
+	if (status !== 0) {
+		throw new Error(`${command} failed (exit ${status}):\n${output}`);
+	}
+}
+
 export async function createTempCopy(label) {
 	const before = await dataStoreMtime();
 	const dir = await fs.mkdtemp(join(tmpdir(), `jsolly-${label}-`));
@@ -86,13 +130,17 @@ export async function createTempCopy(label) {
 	}
 	return {
 		dir,
-		// `astro build` in the copy, without process-html. Returns the spawn result.
+		// `astro build` in the copy, without process-html.
 		astroBuild() {
-			return spawnSync(process.execPath, [ASTRO_BIN, "build"], {
-				cwd: dir,
-				encoding: "utf8",
-				maxBuffer: 64 * 1024 * 1024,
-			});
+			return run(dir, process.execPath, [ASTRO_BIN, "build"], "astro build");
+		},
+		// `npm run <script>` in the copy.
+		npmRun(script) {
+			return run(dir, "npm", ["run", script], `npm run ${script}`);
+		},
+		// `node <script>` in the copy, the script relative to its root.
+		node(script) {
+			return run(dir, process.execPath, [script], `node ${script}`);
 		},
 		// Deletes the copy (symlinks are unlinked, never followed), then checks
 		// that the real data store is unchanged.

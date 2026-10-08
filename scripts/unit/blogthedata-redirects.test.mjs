@@ -18,12 +18,21 @@ import {
 	isPageRow,
 	JSOLLY_ORIGIN,
 	LEGACY_DIR,
+	lowercaseNegatives,
+	probePaths,
 	readLegacyJson,
+	redirectForms,
 	routePath,
 	SERVICE_WORKER_HEADERS,
 	vercelConfig,
 	vercelJsonDrift,
 } from "../blogthedata-redirects.mjs";
+import {
+	fieldLines,
+	fieldValues,
+	headCommitDate,
+	securityTxtProblems,
+} from "../site-files.mjs";
 
 // The URL map is the legacy host's whole behaviour: these tests route every
 // known path through Vercel's own compiler and router library.
@@ -31,11 +40,6 @@ const ROOT = fileURLToPath(new URL("../..", import.meta.url));
 const PUBLIC_DIR = join(LEGACY_DIR, "public");
 const PUBLIC_TRACKED = "legacy/blogthedata/public";
 const VERCEL_REDIRECT_LIMIT = 2048;
-const DAY_MS = 86_400_000;
-const UPPERCASE = /[A-Z]/u;
-const SECURITY_FIELD = /^(?<name>[A-Za-z-]+): (?<value>\S.*)$/u;
-const RFC3339 =
-	/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/u;
 const FETCH_LISTENER = /addEventListener\(\s*["']fetch["']|\bonfetch\b/u;
 const UNREGISTER = /\.registration\.unregister\(\)/u;
 const CLAIM = /\.clients\.claim\(\)/u;
@@ -102,6 +106,16 @@ const BROKEN_MAP_EDITS = [
 		error: /carries a host condition/u,
 	},
 	{
+		name: "pattern row without samples",
+		edit: (row) => {
+			row.action = "stays-404";
+			row.match = "pattern";
+			row.source = "/post/:slug/";
+			row.destination = null;
+		},
+		error: /pattern row PST-\d+ has no samples/u,
+	},
+	{
 		name: "pattern redirect",
 		edit: (row) => {
 			row.match = "pattern";
@@ -129,28 +143,13 @@ const patternRegex = new Map(
 		.map((row) => [row.id, new RegExp(sourceToRegex(row.source).src, "u")]),
 );
 
-// The forms one exact redirect row answers: a page also answers its
-// slashless, /index.html and /index.html/ forms.
-function redirectForms(row) {
-	if (!isPageRow(row)) {
-		return [row.source];
-	}
-	const base = row.source.slice(0, -1);
-	return [row.source, base, `${base}/index.html`, `${base}/index.html/`];
-}
-
-// Mirrors the map's matching rule: exact page rows cover the slashless form,
-// and redirect pages also cover /index.html and /index.html/.
+// Mirrors the map's matching rule: a pattern row matches its compiled
+// source, an exact row the paths it answers (probePaths).
 function rowMatches(row, path) {
 	if (row.match === "pattern") {
 		return patternRegex.get(row.id).test(path);
 	}
-	if (row.action === "redirect-301") {
-		return redirectForms(row).includes(path);
-	}
-	return (
-		path === row.source || (isPageRow(row) && path === row.source.slice(0, -1))
-	);
+	return probePaths(row).includes(path);
 }
 
 const escapeRegex = (text) => text.replaceAll(REGEX_SPECIAL, "\\$&");
@@ -312,22 +311,8 @@ it("The old host serves exactly its tracked public files, with no-cache headers 
 });
 
 it("Retired, unknown and near-miss old URLs get a 404, never a redirect", () => {
-	const stays = rowsByAction("stays-404");
-	assert.deepEqual(
-		stays
-			.filter((row) => row.match === "pattern" && !(row.samples?.length > 0))
-			.map((row) => row.id),
-		[],
-		"every stays-404 pattern row carries samples",
-	);
-	const paths = stays.flatMap((row) => {
-		if (row.match === "pattern") {
-			return row.samples;
-		}
-		return isPageRow(row)
-			? [row.source, row.source.slice(0, -1)]
-			: [row.source];
-	});
+	// vercelConfig (the redirects:check) refuses a pattern row without samples.
+	const paths = rowsByAction("stays-404").flatMap(probePaths);
 	assert.deepEqual(unredirected([...paths, ...NEAR_MISSES]), []);
 	// Every known path whose row is not a redirect, routed directly.
 	const knownUnredirected = union.elements
@@ -342,11 +327,7 @@ it("Retired, unknown and near-miss old URLs get a 404, never a redirect", () => 
 });
 
 it("A lowercased URL of a mixed-case old slug gets a 404, not a redirect", () => {
-	const sources = new Set(map.rows.map((row) => row.source));
-	const lowercase = rowsByAction("redirect-301")
-		.filter((row) => UPPERCASE.test(row.source))
-		.map((row) => row.source.toLowerCase())
-		.filter((source) => !sources.has(source));
+	const lowercase = lowercaseNegatives(map.rows);
 	assert.ok(lowercase.length > 0);
 	assert.deepEqual(unredirected(lowercase), []);
 });
@@ -434,47 +415,29 @@ it("A broken url-map edit fails generation instead of shipping a bad redirect", 
 });
 
 it("Crawlers on the old host get a robots.txt that allows following the 301s", () => {
-	const robots = readFileSync(join(PUBLIC_DIR, "robots.txt"), "utf8");
-	assert.ok(robots.split("\n").includes("User-agent: *"));
-	assert.ok(!robots.toLowerCase().includes("disallow"));
+	const { fields, unparsed } = fieldLines(
+		readFileSync(join(PUBLIC_DIR, "robots.txt"), "utf8"),
+	);
+	assert.deepEqual(unparsed, [], "every robots.txt line is a directive");
+	assert.deepEqual(fieldValues(fields, "user-agent"), ["*"]);
+	assert.deepEqual(fieldValues(fields, "allow"), ["/"]);
+	assert.deepEqual(fieldValues(fields, "disallow"), []);
 });
 
 it("Security researchers on the old host get a valid, unexpired security.txt", () => {
-	const fields = readFileSync(
-		join(PUBLIC_DIR, ".well-known", "security.txt"),
-		"utf8",
-	)
-		.split("\n")
-		.filter((line) => line !== "" && !line.startsWith("#"))
-		.map((line) => {
-			const match = SECURITY_FIELD.exec(line);
-			assert.ok(match, `security.txt line "${line}" is a field`);
-			return [match.groups.name.toLowerCase(), match.groups.value];
-		});
-	const values = (name) =>
-		fields.filter(([field]) => field === name).map(([, value]) => value);
-	assert.deepEqual(values("contact"), [`${JSOLLY_ORIGIN}/contact/`]);
-	assert.deepEqual(values("canonical"), [
-		"https://www.blogthedata.com/.well-known/security.txt",
-	]);
-	const [expires, ...extra] = values("expires");
-	assert.deepEqual(extra, [], "Expires appears once");
-	assert.match(expires, RFC3339);
-	// Hermetic: measured from HEAD's commit date, not from today. In the
-	// pre-commit hook HEAD is the parent of the commit being made.
-	const committed = spawnSync("git", ["log", "-1", "--format=%cI"], {
-		cwd: ROOT,
-		encoding: "utf8",
-	});
-	assert.equal(committed.status, 0, committed.stderr);
-	const lifetime = Date.parse(expires) - Date.parse(committed.stdout.trim());
-	assert.ok(
-		lifetime > 0,
-		`Expires ${expires} is not after HEAD's commit date ${committed.stdout.trim()}`,
-	);
-	assert.ok(
-		lifetime < 365 * DAY_MS,
-		`Expires ${expires} is 365 days or more after HEAD's commit date`,
+	// Any field beyond these and Expires fails, Encryption included:
+	// public/pgp-key.txt expired on 2023-05-08.
+	assert.deepEqual(
+		securityTxtProblems(
+			readFileSync(join(PUBLIC_DIR, ".well-known", "security.txt"), "utf8"),
+			{
+				contact: `${JSOLLY_ORIGIN}/contact/`,
+				"preferred-languages": "en",
+				canonical: "https://www.blogthedata.com/.well-known/security.txt",
+			},
+			{ committed: headCommitDate() },
+		),
+		[],
 	);
 });
 

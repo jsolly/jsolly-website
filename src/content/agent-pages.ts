@@ -1,3 +1,11 @@
+import {
+	BLOG_DESCRIPTION,
+	RECIPES_DESCRIPTION,
+	ROLE,
+	ROLE_STRATEGY,
+	SHORT_ROLE,
+} from "./constants.js";
+
 const PAGES: Record<string, (origin: string) => string> = {
 	"/": homeMarkdown,
 	"/about": aboutMarkdown,
@@ -5,6 +13,16 @@ const PAGES: Record<string, (origin: string) => string> = {
 	"/privacy": privacyMarkdown,
 	"/terms": termsMarkdown,
 };
+
+// Markdown negotiation (PA3, J11): only these pages have a Markdown variant
+// and a .md sibling; real /blog/ and /recipes/ routes return HTML.
+export const MARKDOWN_PATHS = Object.keys(PAGES);
+const pageNames = MARKDOWN_PATHS.map((path) =>
+	path === "/" ? "home" : path.slice(1),
+);
+// "home, about, contact, privacy or terms"
+export const MARKDOWN_PAGES = `${pageNames.slice(0, -1).join(", ")} or ${pageNames.at(-1)}`;
+export const HTML_ONLY_PAGES = "blog and recipe pages are HTML only";
 
 export function markdownForPath(
 	pathname: string,
@@ -44,13 +62,13 @@ Request any of those URLs with \`Accept: text/markdown\` to get a Markdown body.
 function homeMarkdown(origin: string): string {
 	return `# Hi, I'm John Solly
 
-Health-IT Division CTO at Leidos, leading digital modernization for federal health and benefits agencies. This is my personal website.
+${ROLE}, leading digital modernization for federal health and benefits agencies. This is my personal website.
 
 ## About this site
 
-[jsolly.com](${origin}/) is a small static site: who I am, how to reach me, and pointers to the work I publish elsewhere. It is not a product, docs portal, or corporate site for Leidos.
+[jsolly.com](${origin}/) is a small static site: who I am, how to reach me, my blog and recipes, and pointers to the work I publish elsewhere. It is not a product, docs portal, or corporate site for Leidos.
 
-I spent most of my career building spatial systems — at Esri, startups, and federal agencies. I now lead technology strategy for Leidos' Health IT division, supporting agencies such as SSA, VA, and HHS. My primary focus is the convergence of spatial computing and AI: helping machines interpret the physical world and applying that to missions that matter.
+I spent most of my career building spatial systems — at Esri, startups, and federal agencies. I now ${ROLE_STRATEGY}, supporting agencies such as SSA, VA, and HHS. My primary focus is the convergence of spatial computing and AI: helping machines interpret the physical world and applying that to missions that matter.
 
 ### Pages
 
@@ -59,11 +77,12 @@ I spent most of my career building spatial systems — at Esri, startups, and fe
 - [Privacy](${origin}/privacy/) — data practices for this static site
 - [Terms](${origin}/terms/) — a short, permissive note about using this site
 - [Resume (PDF)](${origin}/John-Solly-Resume.pdf)
-- [Blog](https://www.blogthedata.com/) — writing lives on Blogthedata, not here
+- [Blog](${origin}/blog/) — ${BLOG_DESCRIPTION}
+- [Recipes](${origin}/recipes/) — ${RECIPES_DESCRIPTION}
 
 ### For agents
 
-Start at [${origin}/llms.txt](${origin}/llms.txt) for when-to-use guidance and links. Send \`Accept: text/markdown\` on any page URL (or fetch the \`.md\` sibling) to skip the HTML chrome.
+Start at [${origin}/llms.txt](${origin}/llms.txt) for when-to-use guidance and links. Send \`Accept: text/markdown\` on the ${MARKDOWN_PAGES} page URL (or fetch its \`.md\` sibling) to skip the HTML chrome; ${HTML_ONLY_PAGES}.
 
 ## Testimonials
 
@@ -78,11 +97,11 @@ Start at [${origin}/llms.txt](${origin}/llms.txt) for when-to-use guidance and l
 function aboutMarkdown(origin: string): string {
 	return `# John Solly
 
-Health-IT Division CTO and software engineer.
+${SHORT_ROLE}
 
 A hands-on AI practitioner who transitioned to a CTO role to broaden my impact.
 
-Most of my career has been dedicated to developing spatial systems at Esri, startups, and federal agencies. Currently, I lead technology strategy for Leidos' Health IT division, supporting agencies such as SSA, VA, and HHS.
+Most of my career has been dedicated to developing spatial systems at Esri, startups, and federal agencies. Currently, I ${ROLE_STRATEGY}, supporting agencies such as SSA, VA, and HHS.
 
 My primary focus is the convergence of spatial computing and AI, enabling machines to interpret the physical world and applying these capabilities to meaningful missions.
 
@@ -91,7 +110,8 @@ Please [reach out](${origin}/contact/) if you are interested in spatial systems 
 - [Home](${origin}/)
 - [Contact](${origin}/contact/)
 - [Resume (PDF)](${origin}/John-Solly-Resume.pdf)
-- [Blog](https://www.blogthedata.com/)
+- [Blog](${origin}/blog/)
+- [Recipes](${origin}/recipes/)
 `;
 }
 
@@ -108,7 +128,6 @@ This site does not publish a public inbox address. Use Say Hello on the HTML con
 - [LinkedIn](https://www.linkedin.com/in/jsolly/)
 - [X](https://x.com/_jsolly)
 - [YouTube](https://www.youtube.com/channel/UCxsK9UorVj2F17DMSXLuSQw)
-- [Blogthedata](https://www.blogthedata.com/)
 
 ## Other pages
 
@@ -123,9 +142,9 @@ This site does not publish a public inbox address. Use Say Hello on the HTML con
 function privacyMarkdown(origin: string): string {
 	return `# Privacy Policy & Data Practices
 
-Last updated: June 2026
+Last updated: October 2026
 
-jsolly.com is the personal website of John Solly. It is a static site with no analytics or advertising trackers, and it does not collect personal information directly.
+jsolly.com is the personal website of John Solly, including his blog and recipes. It is a static site with no analytics or advertising trackers of its own, and it does not collect personal information directly.
 
 ## Contact form
 
@@ -135,9 +154,33 @@ If you reach out through the contact link, your message is handled by Mailchimp 
 
 The site is hosted on Vercel, which may record standard server and CDN logs (such as IP address and user agent) for security and operations, per Vercel's privacy policy.
 
+## Blog images
+
+Most blog post images are served from Amazon CloudFront and Amazon S3, which may likewise record standard request logs (such as IP address and user agent), per the AWS privacy notice.
+
+## Embedded media
+
+Some blog posts embed YouTube videos using youtube-nocookie.com, diagrams.net diagrams or nbviewer notebooks. An embed loads from that service as it scrolls into view, so the service receives your request, and YouTube may set its own cookies, per Google's privacy policy. Posts without embeds make no such requests.
+
+## Recipe settings & offline use
+
+The recipe library remembers your settings (servings, filters, appliances on hand and family sides) in your browser's local storage. To work offline, the recipe pages also install a service worker, which runs only on pages under /recipes/. It downloads copies of the recipe pages, their images, the app icons, the scripts, styles and fonts those pages use, and the recipe library's two data files from this site into your browser's cache. Your settings and those copies stay on your device and are never sent to the site; clearing this site's data in your browser removes them. A recipe link you open or share does carry its servings and family side in its address.
+
+## Scripts & styles
+
+All JavaScript, CSS and fonts are self-hosted, and a [content security policy](${origin}/blog/how-to-implement-content-security-policy-django/) stops scripts from anywhere else from running.
+
+## Links to other sites
+
+This site links to other websites, whose privacy practices are their own. Links in the text of blog posts carry \`rel="noopener noreferrer"\`, so the site you open does not learn which page sent you or get a handle on this one. Other links share at most the address jsolly.com, and a post's share buttons send that post's address to the service you pick.
+
 ## Cookies
 
-This site sets no first-party tracking cookies.
+This site sets no first-party tracking cookies. Third-party embeds, such as YouTube videos, may set their own.
+
+## Children
+
+This site is not intended for children.
 
 ## Questions
 
