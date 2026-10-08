@@ -16,7 +16,7 @@
 //   (CI=true makes Astro colour its error text) and return { command, status,
 //   output }, the output being stdout then stderr with any escape codes
 //   stripped, so tests can match error messages the same way locally and on CI.
-import { spawnSync } from "node:child_process";
+import { execFileSync, spawnSync } from "node:child_process";
 import fs from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
@@ -85,7 +85,19 @@ function run(dir, file, args, command) {
 		cwd: dir,
 		encoding: "utf8",
 		maxBuffer: 64 * 1024 * 1024,
-		env: { ...process.env, NO_COLOR: "1", FORCE_COLOR: "0" },
+		// Copies deliberately omit .git. Supply their source commit explicitly,
+		// as CI and Vercel do, so static release identity can still be built.
+		env: {
+			...process.env,
+			GITHUB_SHA:
+				process.env.GITHUB_SHA ||
+				execFileSync("git", ["rev-parse", "HEAD"], {
+					cwd: ROOT,
+					encoding: "utf8",
+				}).trim(),
+			NO_COLOR: "1",
+			FORCE_COLOR: "0",
+		},
 	});
 	if (result.error) {
 		throw result.error;
