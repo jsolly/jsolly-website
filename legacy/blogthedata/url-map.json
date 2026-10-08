@@ -3,7 +3,7 @@
 		"source_repo": "jsolly/awesome-blog",
 		"source_ref": "bf1f7ff1cb92faacfdc3b98ba17fb2f93cac59b5",
 		"source_sha": "bf1f7ff1cb92faacfdc3b98ba17fb2f93cac59b5",
-		"freeze_sha": null,
+		"freeze_sha": "6545bc279bb906ac6fdb53cb0e0d7946d0f5b4c9",
 		"hosts": [
 			"blogthedata.com",
 			"www.blogthedata.com",
