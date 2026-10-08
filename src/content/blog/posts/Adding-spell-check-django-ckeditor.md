@@ -33,7 +33,7 @@ Added an 'All Categories' section to the sidebar and enabled spell checking on <
 
 Check out this video about how to enable it in a Django project!
 
-<figure class="media"><div data-oembed-url="https://www.youtube.com/embed/ggPfQfuV7rM"><div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;"><iframe src="https://www.youtube.com/embed/ggPfQfuV7rM" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" title="Video: Enhance Your Blog: Enable Spell Checking With SCAYT in Django CKEditor"></iframe></div></div></figure>
+<figure class="media"><div data-oembed-url="https://www.youtube.com/embed/ggPfQfuV7rM"><div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;"><iframe src="https://www.youtube-nocookie.com/embed/ggPfQfuV7rM" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" title="Video: Enhance Your Blog: Enable Spell Checking With SCAYT in Django CKEditor"></iframe></div></div></figure>
 
 After scanning through a few Github repos, I came across SCAYT. It's a plugin for django-ckeditor. The installation directions instruct you to clone a repo into the plugins folder, but when I checked that folder, I noticed SCAYT was already there!
 

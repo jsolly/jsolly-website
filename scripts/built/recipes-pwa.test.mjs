@@ -244,6 +244,7 @@ function installCheck(name, viewport) {
 		try {
 			await page.goto(`${site.origin}${LANDING}`);
 			await statusText(page, SAVED);
+			assert.equal(await page.locator(".recipe-pwa").isVisible(), false);
 			await page.waitForFunction(() => navigator.serviceWorker.controller);
 			const metadata = await page.evaluate(async (selector) => {
 				const link = document.querySelector(selector);
@@ -272,6 +273,7 @@ function installCheck(name, viewport) {
 			await context.setOffline(true);
 			await page.reload();
 			await statusText(page, OFFLINE);
+			await page.locator(".recipe-pwa").waitFor({ state: "visible" });
 			await page.getByRole("combobox", { name: SERVINGS }).selectOption("2");
 			await page
 				.locator(".recipe-card")
@@ -324,6 +326,7 @@ function installCheck(name, viewport) {
 			);
 
 			await context.setOffline(false);
+			await page.locator(".recipe-pwa").waitFor({ state: "hidden" });
 			for (const path of ["/blog/", "/about/"]) {
 				// biome-ignore lint/performance/noAwaitInLoops: one page at a time in the one tab
 				await page.goto(`${site.origin}${path}`);

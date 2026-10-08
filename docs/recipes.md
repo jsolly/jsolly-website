@@ -138,6 +138,9 @@ file those pages load (scripts, styles, fonts, images, the favicon and the
 `<noscript>` stylesheets). The cache name is a hash of the snapshot, so any
 change to a precached file gives a new snapshot.
 
+The recipe status is visible while offline and hidden when the connection returns.
+It describes the cached snapshot and reminds readers that external links need a connection.
+
 - **Serving.** A precached path is answered cache-first; a page only for a
   navigation to its exact `/…/` path. Other blog pages and external recipe
   sources need a connection.

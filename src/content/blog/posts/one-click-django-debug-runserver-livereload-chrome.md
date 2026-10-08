@@ -25,4 +25,4 @@ related:
 
 Thought this was an easier one to explain in a video! Enjoy!
 
-<figure class="media"><div data-oembed-url="https://www.youtube.com/watch?v=C5M2cy80LxE"><div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;"><iframe src="https://www.youtube.com/embed/C5M2cy80LxE" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" title="Video: How to Launch Runserver, Livereload, and Chrome Together in Django"></iframe></div></div></figure>
+<figure class="media"><div data-oembed-url="https://www.youtube.com/watch?v=C5M2cy80LxE"><div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;"><iframe src="https://www.youtube-nocookie.com/embed/C5M2cy80LxE" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" title="Video: How to Launch Runserver, Livereload, and Chrome Together in Django"></iframe></div></div></figure>

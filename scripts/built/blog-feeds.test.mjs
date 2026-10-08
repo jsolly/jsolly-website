@@ -84,6 +84,11 @@ it("feeds follow current published metadata and retain canonical identities", as
 	const ids = await expectedIds(posts);
 	const rss = await readFeed("rss");
 	const atom = await readFeed("atom");
+	assert.equal(
+		rss.querySelector("channel > title").textContent,
+		"John Solly | Blog",
+	);
+	assert.equal(rootChild(atom, "title").textContent, "John Solly | Blog");
 
 	assert.deepEqual(
 		[...rss.querySelectorAll("item")].map((item) => ({

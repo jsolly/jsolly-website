@@ -25,7 +25,7 @@ const PAGES = [
 	{ path: "/blog/", hosts: [CLOUDFRONT] },
 	{
 		path: "/blog/how-to-debug-an-astro-app/",
-		hosts: ["www.youtube.com", CLOUDFRONT],
+		hosts: ["www.youtube-nocookie.com", CLOUDFRONT],
 	},
 	{
 		path: "/blog/Planetary-Computer-STAC-Landsat-data/",
