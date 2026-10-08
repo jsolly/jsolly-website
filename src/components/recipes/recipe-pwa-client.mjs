@@ -35,6 +35,7 @@ function message({ active, waiting, failed, online }) {
 
 function render() {
 	status.textContent = message(state);
+	status.closest(".recipe-pwa").hidden = state.online;
 }
 
 // Whether `registration` has an activated worker, one with an offline copy.
@@ -85,16 +86,18 @@ async function register() {
 	render();
 }
 
-if (!import.meta.env.DEV && "serviceWorker" in navigator && status) {
+if (status) {
+	render();
 	for (const event of ["online", "offline"]) {
 		window.addEventListener(event, () => {
 			state.online = navigator.onLine;
 			render();
 		});
 	}
-	register().catch((error) => {
-		state.failed = true;
-		console.error("Recipe service worker registration failed:", error);
-		render();
-	});
+	if (!import.meta.env.DEV && "serviceWorker" in navigator)
+		register().catch((error) => {
+			state.failed = true;
+			console.error("Recipe service worker registration failed:", error);
+			render();
+		});
 }

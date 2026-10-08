@@ -28,7 +28,7 @@ related:
 Hey!   
 Since this blogpost was written, I created a new and improved way to do infinite scrolling. Check out this YouTube Video to see the latest implementation. 
 
-<figure class="media"><div data-oembed-url="https://youtu.be/Oj1aEz8XsiI"><div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;"><iframe src="https://www.youtube.com/embed/Oj1aEz8XsiI" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" title="Video: Eliminating Duplicate Pages With HTMX Infinite Scrolling"></iframe></div></div></figure>
+<figure class="media"><div data-oembed-url="https://youtu.be/Oj1aEz8XsiI"><div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;"><iframe src="https://www.youtube-nocookie.com/embed/Oj1aEz8XsiI" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" title="Video: Eliminating Duplicate Pages With HTMX Infinite Scrolling"></iframe></div></div></figure>
 
 ## Legacy Implementation
 

@@ -16,7 +16,7 @@ const DESCRIPTION =
 ---
 
 <RecipeLayout title={TITLE} description={DESCRIPTION}>
-	<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/blog/">Home</a><span aria-hidden="true">/</span><a href="/blog/category/resources/">Resources</a></nav>
+	<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Recipes</span></nav>
 	<article>
 		<h1 id={TITLE_ID}>{TITLE}<a class="heading-link" href={`#${TITLE_ID}`} aria-label={headingLinkLabel(TITLE)}>#</a></h1>
 		<RecipeExperience />

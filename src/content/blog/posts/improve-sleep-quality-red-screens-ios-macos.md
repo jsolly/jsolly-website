@@ -33,7 +33,7 @@ Did you know that limiting blue light exposure is one of the most effective ways
 
 3 - To apply a color filter on your iPhone, triple-click the side button (the specific button may vary depending on your iPhone model). This will bring up the option to enable the filter. To turn off the filter, simply triple-click the side button again.
 
-<figure class="media"><div data-oembed-url="https://www.youtube.com/embed/R1njwg1wGOU"><div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;"><iframe src="https://www.youtube.com/embed/R1njwg1wGOU" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" title="Video: Maximizing Sleep Quality: How to Use Red Screens on iOS and MacOS — 1"></iframe></div></div></figure>
+<figure class="media"><div data-oembed-url="https://www.youtube.com/embed/R1njwg1wGOU"><div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;"><iframe src="https://www.youtube-nocookie.com/embed/R1njwg1wGOU" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" title="Video: Maximizing Sleep Quality: How to Use Red Screens on iOS and MacOS — 1"></iframe></div></div></figure>
 
 ## Red Screen on MacOS
 
@@ -63,7 +63,7 @@ If you own an iPhone or a Mac, you can improve the process explained earlier by 
 
 Additionally, you can switch to dark mode during the night for a better viewing experience. Personally, I set my Night Shift to turn on two hours before my bedtime. The process is quite similar on MacOS, and if you share an account between your Mac and iPhone, the settings will synchronize.
 
-<figure class="media"><div data-oembed-url="https://www.youtube.com/embed/oiEdiBG1p-Y"><div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;"><iframe src="https://www.youtube.com/embed/oiEdiBG1p-Y" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" title="Video: Maximizing Sleep Quality: How to Use Red Screens on iOS and MacOS — 2"></iframe></div></div></figure>
+<figure class="media"><div data-oembed-url="https://www.youtube.com/embed/oiEdiBG1p-Y"><div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;"><iframe src="https://www.youtube-nocookie.com/embed/oiEdiBG1p-Y" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" title="Video: Maximizing Sleep Quality: How to Use Red Screens on iOS and MacOS — 2"></iframe></div></div></figure>
 
 ## Conclusion
 

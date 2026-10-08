@@ -8,6 +8,7 @@ import {
 	JOB_TITLE,
 	RECIPES_DESCRIPTION,
 	ROLE,
+	SHORT_ROLE,
 } from "./constants.js";
 
 // public/llms.txt is static text and cannot import the shared constants, so
@@ -27,6 +28,7 @@ it("an agent reading llms.txt gets the same title, role, blog and recipe descrip
 	]) {
 		assert.ok(LLMS_TXT.includes(text), `llms.txt says "${text}"`);
 	}
+	assert.equal(SHORT_ROLE, "CTO & Software Engineer");
 	assert.equal(MARKDOWN_PATHS.length, 5, "five pages negotiate Markdown");
 	for (const sibling of MARKDOWN_PATHS.map(markdownSiblingPath)) {
 		assert.ok(

@@ -20,7 +20,6 @@ const BLOG_IMG_SRC = [
 	"https://d1d7p8ufhgz4ld.cloudfront.net",
 ];
 const BLOG_FRAME_SRC = [
-	"https://www.youtube.com",
 	"https://www.youtube-nocookie.com",
 	"https://viewer.diagrams.net",
 	"https://nbviewer.org",
@@ -141,7 +140,7 @@ it("every built page image loads under both the header and the page meta policy"
 	}
 });
 
-it("blog pages, and only blog pages, allow CloudFront post images and the four embed hosts in their meta policy", async () => {
+it("blog pages, and only blog pages, allow CloudFront post images and the three embed hosts in their meta policy", async () => {
 	const pages = await readBuiltPages();
 	const blogPages = pages.filter(({ file }) => file.startsWith(BLOG_PAGES));
 	assert.ok(blogPages.length > 0, "built blog pages are required");

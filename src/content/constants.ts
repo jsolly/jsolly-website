@@ -14,7 +14,7 @@ export const ROLE = `${ROLE_PREFIX} ${EMPLOYER}`;
 // The formal title (JSON-LD jobTitle).
 export const JOB_TITLE = `CTO, ${UNIT}, ${EMPLOYER}`;
 // The short label under his name.
-export const SHORT_ROLE = `CTO, ${UNIT} & Software Engineer`;
+export const SHORT_ROLE = "CTO & Software Engineer";
 export const ROLE_STRATEGY = `lead technology strategy for ${UNIT} at ${EMPLOYER}`;
 
 export const BLOG_DESCRIPTION =

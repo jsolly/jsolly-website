@@ -25,7 +25,7 @@ related:
 
 Fought a war with Django to migrate from sqlite to postgres. Documented the 'gotchas' I ran into in my latest video:
 
-<figure class="media"><div data-oembed-url="https://www.youtube.com/embed/Y2g5nUnZpNc"><div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;"><iframe src="https://www.youtube.com/embed/Y2g5nUnZpNc" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" title="Video: Migrating From SQLite to Postgres With Django - Documenting Gotchas"></iframe></div></div></figure>
+<figure class="media"><div data-oembed-url="https://www.youtube.com/embed/Y2g5nUnZpNc"><div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;"><iframe src="https://www.youtube-nocookie.com/embed/Y2g5nUnZpNc" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" title="Video: Migrating From SQLite to Postgres With Django - Documenting Gotchas"></iframe></div></div></figure>
 
 Why did I go through the effort to migrate everything from slqlite? To be honest, I didn't 'need' to use postgres. According to the <a target="_blank" rel="noopener noreferrer" href="https://sqlite.org/whentouse.html">sqllite documentation</a>, it's perfectly fine to use it for websites this like mine.
 

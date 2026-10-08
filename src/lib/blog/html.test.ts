@@ -47,10 +47,10 @@ describe("articleHtml", () => {
 	it("Article rendering strips executable authored HTML", () => {
 		const rendered = articleHtml(
 			// biome-ignore lint/security/noSecrets: an HTML fixture, not credential material.
-			'<script>alert(1)</script><img src="post_imgs/test.webp" onerror="alert(2)"><a href="javascript:alert(3)">bad</a><iframe src="https://evil.example/test"></iframe><iframe src="https://www.youtube.com/embed/example"></iframe><table><tr><td>kept</td></tr></table>',
+			'<script>alert(1)</script><img src="post_imgs/test.webp" onerror="alert(2)"><a href="javascript:alert(3)">bad</a><iframe src="https://evil.example/test"></iframe><iframe src="https://www.youtube-nocookie.com/embed/example"></iframe><table><tr><td>kept</td></tr></table>',
 		);
 		assert.match(rendered, /<table>/u);
-		assert.match(rendered, /youtube\.com\/embed/u);
+		assert.match(rendered, /youtube-nocookie\.com\/embed/u);
 		assert.doesNotMatch(rendered, /<script|onerror|javascript:|evil\.example/u);
 	});
 
@@ -118,9 +118,9 @@ describe("articleHtml", () => {
 	it("An untitled embed gets a default accessible title", () => {
 		assert.match(
 			articleHtml(
-				'<iframe src="https://www.youtube.com/embed/example"></iframe>',
+				'<iframe src="https://www.youtube-nocookie.com/embed/example"></iframe>',
 			),
-			/<iframe src="https:\/\/www\.youtube\.com\/embed\/example" title="Embedded article content" loading="lazy">/u,
+			/<iframe src="https:\/\/www\.youtube-nocookie\.com\/embed\/example" title="Embedded article content" loading="lazy">/u,
 		);
 	});
 
@@ -131,6 +131,11 @@ describe("articleHtml", () => {
 			const source = readFileSync(new URL(name, POSTS), "utf8");
 			postSchema.parse(parsePost(source));
 			const body = parseFrontmatter(source).content.trim();
+			assert.doesNotMatch(
+				body,
+				/<iframe[^>]*src="https:\/\/www\.youtube\.com\/embed\//u,
+				`${name}: uses the approved privacy-enhanced player`,
+			);
 			const rendered = articleHtml(body);
 			const ids = [
 				...rendered.matchAll(/<[a-z][^>]*\sid="(?<id>[^"]*)"/gu),

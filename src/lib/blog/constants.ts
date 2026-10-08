@@ -25,7 +25,6 @@ export const LEGACY_MEDIA = "https://d1d7p8ufhgz4ld.cloudfront.net/media/";
 // The hosts post bodies may embed in an iframe: the sanitizer keeps only these
 // iframes, and BlogLayout allows exactly these in frame-src.
 export const EMBED_HOSTS = [
-	"www.youtube.com",
 	"www.youtube-nocookie.com",
 	"viewer.diagrams.net",
 	"nbviewer.org",
@@ -48,9 +47,9 @@ export const LEGACY_SITE = "https://www.blogthedata.com";
 // Posts the feeds list, most recently updated first.
 export const FEED_SIZE = 5;
 
-// Both feeds' title and description, kept from the old blog (J25 parity).
-export const FEED_TITLE = "blogthedata | Blog";
-export const FEED_DESCRIPTION = "Latest blog posts from blogthedata";
+// Feed display names use John Solly; legacy feed and entry IDs stay stable.
+export const FEED_TITLE = "John Solly | Blog";
+export const FEED_DESCRIPTION = "Latest blog posts from John Solly";
 
 // The Atom feed's id on the old host, unchanged so readers keep the feed (J8).
 export const ATOM_FEED_ID = `${LEGACY_SITE}/atom/`;
@@ -62,11 +61,11 @@ export const FEEDS = {
 	rss: {
 		path: "/blog/rss.xml",
 		type: "application/rss+xml",
-		title: "Blogthedata RSS",
+		title: "John Solly RSS",
 	},
 	atom: {
 		path: "/blog/atom.xml",
 		type: "application/atom+xml",
-		title: "Blogthedata Atom",
+		title: "John Solly Atom",
 	},
 } as const;

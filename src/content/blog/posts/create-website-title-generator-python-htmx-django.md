@@ -25,8 +25,8 @@ related:
 
 ## Part 1
 
-<figure class="media"><div data-oembed-url="https://www.youtube.com/watch?v=9pmih5-BpOk"><div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;"><iframe src="https://www.youtube.com/embed/9pmih5-BpOk" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" title="Video: Create a Website Title Generator with GPT3, Python, HTMX and Django! — 1"></iframe></div></div></figure>
+<figure class="media"><div data-oembed-url="https://www.youtube.com/watch?v=9pmih5-BpOk"><div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;"><iframe src="https://www.youtube-nocookie.com/embed/9pmih5-BpOk" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" title="Video: Create a Website Title Generator with GPT3, Python, HTMX and Django! — 1"></iframe></div></div></figure>
 
 ## Part 2
 
-<figure class="media"><div data-oembed-url="https://www.youtube.com/watch?v=lggIGIVxhcY"><div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;"><iframe src="https://www.youtube.com/embed/lggIGIVxhcY" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" title="Video: Create a Website Title Generator with GPT3, Python, HTMX and Django! — 2"></iframe></div></div></figure>
+<figure class="media"><div data-oembed-url="https://www.youtube.com/watch?v=lggIGIVxhcY"><div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;"><iframe src="https://www.youtube-nocookie.com/embed/lggIGIVxhcY" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" title="Video: Create a Website Title Generator with GPT3, Python, HTMX and Django! — 2"></iframe></div></div></figure>
