@@ -33,8 +33,8 @@
 //     sends the Protection Bypass for Automation secret held in environment
 //     variable NAME as `x-vercel-protection-bypass`; the value is never printed.
 //   vercel-curl: John only, for SSO-protected deployments. Each request runs
-//     the repo's pinned CLI as
-//       vercel curl <url> --scope jsollys-projects --cwd <empty temp dir> --
+//     the repo's pinned CLI in an empty temporary working directory as
+//       vercel curl <url> --scope jsollys-projects --
 //         -sS -o <file|/dev/null> --max-redirs 0 --max-time 30 -w <format>
 //     so the CLI never links or prompts inside a checkout. The write-out is the
 //     status, Location, Content-Type and Cache-Control headers (the plan's
@@ -793,9 +793,9 @@ function baseTransport(options, scratch) {
 				: {},
 		);
 	}
-	const shown = curlArgs("<url>", "<empty temp dir>", "<file|/dev/null>");
+	const shown = curlArgs("<url>", "<file|/dev/null>");
 	console.log(
-		`Each probe runs: ${VERCEL_BIN} ${shown.map((arg) => JSON.stringify(arg)).join(" ")}`,
+		`Each probe runs in an empty temporary working directory: ${VERCEL_BIN} ${shown.map((arg) => JSON.stringify(arg)).join(" ")}`,
 	);
 	return vercelCurlTransport(VERCEL_BIN, options.origin, scratch);
 }
