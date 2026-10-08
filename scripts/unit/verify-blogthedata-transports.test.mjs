@@ -3,6 +3,7 @@ import {
 	chmodSync,
 	mkdtempSync,
 	readFileSync,
+	realpathSync,
 	rmSync,
 	writeFileSync,
 } from "node:fs";
@@ -28,11 +29,18 @@ const WARM_UP_401 =
 // fails. /slow exits 28, /garbled prints no write-out, /moved answers 301,
 // and every other request answers 200 with a body written to the -o path.
 const FAKE_VERCEL = `#!/usr/bin/env node
-import { appendFileSync, writeFileSync } from "node:fs";
+import { appendFileSync, readdirSync, writeFileSync } from "node:fs";
 const args = process.argv.slice(2);
+// Pinned CLI forwards --cwd to curl rather than consuming it.
+if (args.includes("--cwd")) {
+ console.error("curl: option --cwd: is unknown");
+ process.exit(2);
+}
+const cwd = process.cwd();
+const cwdEntries = readdirSync(cwd);
 const bypass = process.env.VERCEL_AUTOMATION_BYPASS_SECRET ?? null;
 const warmUp = args.includes("-v");
-appendFileSync(new URL("calls.jsonl", import.meta.url), JSON.stringify({ args, bypass }) + "\\n");
+appendFileSync(new URL("calls.jsonl", import.meta.url), JSON.stringify({ args, bypass, cwd, cwdEntries }) + "\\n");
 const url = new URL(args[1]);
 const marker = "\\nverify-blogthedata-cutover\\n";
 process.stdout.write("Vercel CLI 59.17.0\\nchatter before the write-out\\n");
@@ -126,15 +134,12 @@ it("The vercel-curl transport warms up once, then reads each answer past the CLI
 		assert.equal(warmUp.args[1], `${STUB}/`);
 		assert.ok(warmUp.args.includes("-v"));
 		assert.equal(probes.length, 4);
-		for (const { args } of calls) {
+		for (const { args, cwd, cwdEntries } of calls) {
 			assert.equal(args[0], "curl");
-			assert.deepEqual(args.slice(2, 5), [
-				"--scope",
-				"jsollys-projects",
-				"--cwd",
-			]);
-			assert.ok(args[5].startsWith(scratch));
-			assert.equal(args[6], "--");
+			assert.deepEqual(args.slice(2, 5), ["--scope", "jsollys-projects", "--"]);
+			assert.ok(cwd.startsWith(`${realpathSync(scratch)}/cwd-`));
+			assert.deepEqual(cwdEntries, []);
+			assert.equal(cwd, warmUp.cwd);
 			const at = args.indexOf("--max-redirs");
 			assert.deepEqual(args.slice(at, at + 2), ["--max-redirs", "0"]);
 		}

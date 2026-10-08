@@ -58,14 +58,12 @@ export function fetchTransport(headers = {}) {
 
 // The `vercel` arguments for one request of `url`, its body written to
 // `output` (a file, or /dev/null).
-export function curlArgs(url, cwd, output) {
+export function curlArgs(url, output) {
 	return [
 		"curl",
 		url,
 		"--scope",
 		VERCEL_SCOPE,
-		"--cwd",
-		cwd,
 		"--",
 		"-sS",
 		"-o",
@@ -82,10 +80,11 @@ export function curlArgs(url, cwd, output) {
 // Runs `bin args` and resolves its stdout and stderr; a non-zero exit
 // rejects, transient for curl's DNS, connect and timeout exits. The bypass
 // secret is redacted from any error.
-function vercelCurl(bin, args, env) {
+function vercelCurl(bin, args, env, cwd) {
 	return new Promise((resolve, reject) => {
 		const child = spawn(bin, args, {
 			env,
+			cwd,
 			stdio: ["ignore", "pipe", "pipe"],
 		});
 		let stdout = "";
@@ -142,8 +141,9 @@ export async function vercelCurlTransport(bin, origin, scratch) {
 	const cwd = mkdtempSync(join(scratch, "cwd-"));
 	const warmUp = await vercelCurl(
 		bin,
-		[...curlArgs(`${origin}/`, cwd, "/dev/null"), "-v"],
+		[...curlArgs(`${origin}/`, "/dev/null"), "-v"],
 		process.env,
+		cwd,
 	);
 	const warmAnswer = parseWriteOut(warmUp.stdout);
 	if (!warmedUp(warmAnswer)) {
@@ -162,7 +162,7 @@ export async function vercelCurlTransport(bin, origin, scratch) {
 	return async (url, { body }) => {
 		files += 1;
 		const output = body ? join(scratch, `body-${files}`) : "/dev/null";
-		const { stdout } = await vercelCurl(bin, curlArgs(url, cwd, output), env);
+		const { stdout } = await vercelCurl(bin, curlArgs(url, output), env, cwd);
 		const answer = parseWriteOut(stdout);
 		if (body) {
 			answer.body = readFileSync(output);
