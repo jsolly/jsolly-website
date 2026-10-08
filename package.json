@@ -55,7 +55,6 @@
 		"markdownlint-cli2": "^0.23.2",
 		"playwright": "1.63.0",
 		"sanitize-html": "2.18.0",
-		"sharp": "^0.35.3",
 		"svelte-check": "4.7.6",
 		"tailwindcss": "^4.3.3",
 		"typescript": "^6.0.3",
