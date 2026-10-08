@@ -9,7 +9,7 @@ import { DIST, exists } from "./pages.mjs";
 // Plan §2.3 Fragments, §4.6: browsers re-apply a #fragment across a 301, so an
 // old blogthedata.com deep link survives only if the page its path redirects
 // to carries the same id. legacy/blogthedata/fragment-ids.json records the ids
-// each old page offered (scripts/port/fragment-ids.mjs, from the cut build);
+// each old page offered (generated from the frozen source build at C0);
 // url-map.json says where each old page now lives. A destination the port has
 // not built yet is skipped and counted, so the check grows as routes land.
 const SITE = "https://www.jsolly.com";
