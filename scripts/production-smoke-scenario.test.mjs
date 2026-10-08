@@ -1,8 +1,13 @@
 import assert from "node:assert/strict";
 import it from "node:test";
 import { chromium } from "playwright";
-import { productionUrl, smoke } from "./production-smoke-scenario.mjs";
+import {
+	productionUrl,
+	smoke,
+	verifyRelease,
+} from "./production-smoke-scenario.mjs";
 
+const STALE_RELEASE = /Canonical site must serve the intended release/u;
 const MENU_NEVER_OPENS = /Timeout[\s\S]*Mobile navigation/u;
 const MISSING_BODY = /article body is not empty/u;
 const MISSING_RESULT = /search lists the article just read/u;
@@ -53,7 +58,12 @@ const recipeCard = (name) =>
 // The recipe landing, its library holding `content` after its controls.
 const recipeLibrary = (content) =>
 	`<main><h1>Easy Meals &amp; Smoothies</h1><section class="meal-library" data-hydrated="true" aria-label="Easy Meals &amp; Smoothies recipe library"><label for="servings">Servings</label><select id="servings"><option>4</option></select>${content}</section></main>`;
+const RELEASE_SHA = "a".repeat(40);
 const SITE = {
+	"/release.json": {
+		type: "application/json",
+		body: JSON.stringify({ sha: RELEASE_SHA }),
+	},
 	"/": `${PORTFOLIO_MENU}<main><h1>Hi, I'm John Solly.</h1></main>`,
 	"/about/": `${PORTFOLIO_MENU}<main><h1>John Solly</h1></main>`,
 	"/contact/": `${PORTFOLIO_MENU}<main><h1>Contact John</h1></main>`,
@@ -150,6 +160,7 @@ async function runAgainstStubs({
 		const checked = [];
 		const requested = [];
 		await smoke({
+			releaseSha: RELEASE_SHA,
 			page,
 			context: {
 				request: stubRequest({ ...MARKDOWN, ...markdown }, requested),
@@ -189,6 +200,7 @@ it("public article, GET search, feeds and mobile navigation are read-only", asyn
 	const { methods, checked, requested } = await runAgainstStubs();
 	assert.deepEqual([...methods], ["GET"]);
 	assert.deepEqual(checked, [
+		`${productionUrl}/release.json`,
 		`${productionUrl}/about/`,
 		`${productionUrl}/contact/`,
 		`${productionUrl}${POST}`,
@@ -354,5 +366,51 @@ it("a first blog card that links off /blog/ fails the public-article check", asy
 			},
 		}),
 		OFF_BLOG,
+	);
+});
+
+it("the intended release identity passes before public reading", async () => {
+	const checked = [];
+	await verifyRelease({
+		releaseSha: RELEASE_SHA,
+		verifyHttp: stubVerifyHttp(SITE, checked),
+	});
+	assert.deepEqual(checked, [`${productionUrl}/release.json`]);
+});
+
+it("a stale live release stops before any public browser interaction", async () => {
+	const checked = [];
+	await assert.rejects(
+		smoke({
+			releaseSha: RELEASE_SHA,
+			verifyHttp: stubVerifyHttp(
+				{
+					"/release.json": {
+						type: "application/json",
+						body: JSON.stringify({
+							sha: "b".repeat(40),
+						}),
+					},
+				},
+				checked,
+			),
+			page: null,
+			context: null,
+		}),
+		STALE_RELEASE,
+	);
+	assert.deepEqual(checked, [`${productionUrl}/release.json`]);
+});
+
+it("missing or malformed live release identity cannot pass the smoke", async () => {
+	await Promise.all(
+		["{}", "null", "not JSON", JSON.stringify({ sha: "short" })].map((body) =>
+			assert.rejects(
+				verifyRelease({
+					releaseSha: RELEASE_SHA,
+					verifyHttp: async () => new Response(body),
+				}),
+			),
+		),
 	);
 });

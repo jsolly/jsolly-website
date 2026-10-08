@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdtemp, rm } from "node:fs/promises";
+import { mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { after, before, it } from "node:test";
@@ -144,14 +144,20 @@ it("The production smoke passes on the built site under the runner's failure rul
 	const browserStub = launch();
 	process.chdir(workDir);
 	try {
+		const releaseSha = JSON.parse(
+			await readFile(
+				new URL("../../dist/release.json", import.meta.url),
+				"utf8",
+			),
+		).sha;
 		const receipt = await runSmoke({
 			scenario: {
 				productionUrl,
-				smoke: (args) => smoke({ ...args, context: { request } }),
+				smoke: (args) => smoke({ ...args, releaseSha, context: { request } }),
 			},
 			env: {
 				PRODUCTION_SMOKE_REQUEST_ID: "built-site",
-				PRODUCTION_SMOKE_RELEASE_SHA: "0".repeat(40),
+				PRODUCTION_SMOKE_RELEASE_SHA: releaseSha,
 			},
 			fetcher,
 			launch: () => Promise.resolve(browserStub),
@@ -164,9 +170,10 @@ it("The production smoke passes on the built site under the runner's failure rul
 		// The runner's own checks (readiness, then the scenario's verifyHttp).
 		const checked = receipt.observations.filter(({ source }) => !source);
 		const paths = checked.map(({ url }) => new URL(url).pathname);
-		assert.match(paths[3], POST_PATH, "the fourth check is the post read");
-		assert.deepEqual(paths.toSpliced(3, 1), [
+		assert.match(paths[4], POST_PATH, "the fifth check is the post read");
+		assert.deepEqual(paths.toSpliced(4, 1), [
 			"/",
+			"/release.json",
 			"/about/",
 			"/contact/",
 			"/blog/search/",

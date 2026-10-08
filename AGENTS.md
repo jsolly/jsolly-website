@@ -6,7 +6,7 @@ Ship profile: `vercel-static`
 
 Production URL: <https://www.jsolly.com>
 
-Production verification follows Vercel READY and the public navigation, blog, recipe and Markdown behavior smoke.
+Production verification follows Vercel READY and the public navigation, blog, recipe and Markdown behavior smoke. `/release.json` records the build SHA; smoke rejects stale or malformed live release identity before scenario interactions.
 
 Local gate before push: `npm run gate`.
 
@@ -74,7 +74,7 @@ Every suite runs through `scripts/run-tests.mjs`: `unit` (`npm test`: `src/**/*.
 - Browser tests wait for `!document.querySelector("astro-island[ssr]")` before interacting.
 - Expectations come from the post frontmatter, `recipes.json` and `legacy/blogthedata/url-map.json`, never from the code under test.
 
-This is the one inventory of the test files.
+This is the one inventory of the test files. The unit `release-identity` contract checks Vercel/GitHub SHA precedence, Git HEAD fallback and malformed build-SHA rejection.
 
 - **Unit, `scripts/unit/`:**
   - `run-tests` pins the runner and its ledger.
@@ -101,7 +101,7 @@ This is the one inventory of the test files.
   - `recipes-deep-links`: every old `/recipes/#<recipe-id>` link and `#meal-results`, opened cold.
   - `recipes-pwa`: install, offline use, updates, failed downloads, a maintenance deploy, and hydration with service workers blocked.
 - **Built, legacy host:** `blogthedata-killswitch` (both kill-switch workers in Chromium across two origins), `blogthedata-destinations` (every 301 destination is built) and `legacy-fragments` (each 301 destination keeps the old page's fragment ids once its route is built).
-- **Built, site-wide:** `internal-links` (the link checks over the whole build, on the site model in `scripts/built/site-links.mjs`), `hydration` (islands hydrate in place after `process-html.mjs`), `route-manifest`, `noindex-pages` (404 and 500 name no URL of their own), `csp-browser` (Content Security Policy below) and `production-smoke` (the smoke runner against the built site, GET only).
+- **Built, site-wide:** `internal-links` (the link checks over the whole build, on the site model in `scripts/built/site-links.mjs`), `hydration` (islands hydrate in place after `process-html.mjs`), `route-manifest`, `noindex-pages` (404 and 500 name no URL of their own), `csp-browser` (Content Security Policy below), `release-identity` (the exact build SHA) and `production-smoke` (the smoke runner against the built site, GET only).
 
 ## Worktrees
 
