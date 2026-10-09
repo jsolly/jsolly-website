@@ -126,7 +126,7 @@ function decodedPath(pathname: string): string {
  * A file under /recipes/data/, served as it is even when it ends in `.md`.
  * An extensionless path there is not a file and keeps the Markdown 404.
  */
-export function isStaticDataPath(pathname: string): boolean {
+function isStaticDataPath(pathname: string): boolean {
 	const path = routeKey(pathname);
 	return path.startsWith(STATIC_DATA_PREFIX) && FILE_EXT_RE.test(path);
 }
