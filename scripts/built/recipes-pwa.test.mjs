@@ -354,6 +354,11 @@ it("Distinct snapshot update waits for both tabs, then serves new recipes offlin
 			await statusText(page, SAVED);
 			assert.equal(await snapshotLabel(page), "A");
 		}
+		// Observe activation from outside the worker's scope. Reopening a
+		// recipe tab before B activates can keep A alive and prevent the swap.
+		const reopened = await context.newPage();
+		await reopened.goto(`${site.origin}/about/`);
+		assert.equal(await controlled(reopened), false);
 		await serve("B");
 		await tabs[0].evaluate(async () => {
 			await (await navigator.serviceWorker.getRegistration()).update();
@@ -378,14 +383,24 @@ it("Distinct snapshot update waits for both tabs, then serves new recipes offlin
 			(await tabs[1].evaluate(() => caches.keys())).includes(snapshots.A.cache),
 		);
 		await tabs[1].close();
-		const reopened = await context.newPage();
-		// Wait for activation without relying on a network visit to establish it.
-		await reopened.goto(`${site.origin}${LANDING}`);
+		// No online recipe visit is needed: the observer stays outside the
+		// scope until B has activated and retired A's cache.
 		await waitForBrowserState(
 			reopened,
-			async () => !(await navigator.serviceWorker.getRegistration()).waiting,
+			async (cache) => {
+				const registration =
+					await navigator.serviceWorker.getRegistration("/recipes/");
+				const keys = await caches.keys();
+				return (
+					registration?.active?.state === "activated" &&
+					!registration.waiting &&
+					keys.length === 1 &&
+					keys[0] === cache
+				);
+			},
+			snapshots.B.cache,
 		);
-		await reopened.reload();
+		await reopened.goto(`${site.origin}${LANDING}`);
 		assert.equal(await snapshotLabel(reopened), "B");
 		assert.equal(await dataLabel(reopened), "B");
 		assert.deepEqual(await reopened.evaluate(() => caches.keys()), [
