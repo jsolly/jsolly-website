@@ -9,8 +9,8 @@ remains available; the active website repository is private.
 
 Vercel project `blogthedata` (`prj_QxSNy3z51xOp295HUvPfDa1JY9h8`, team
 `jsollys-projects`) is connected to `jsolly/jsolly-website`, production branch
-`main`, Root Directory `legacy/blogthedata`. It serves blogthedata.com,
-www.blogthedata.com and blogthedata.vercel.app. Never reconnect the archived source.
+`main`, Root Directory `legacy/blogthedata`. It serves `blogthedata.com`,
+`www.blogthedata.com` and `blogthedata.vercel.app`. Never reconnect the archived source.
 
 Auto-assign Custom Production Domains is off. It stays off through the soak ending
 October 23, 2026; John decides whether to restore it after reviewing monitoring.
