@@ -7,10 +7,14 @@ import {
 	rmSync,
 	writeFileSync,
 } from "node:fs";
+import { createServer } from "node:http";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import it from "node:test";
-import { vercelCurlTransport } from "../verify-blogthedata-transports.mjs";
+import {
+	fetchTransport,
+	vercelCurlTransport,
+} from "../verify-blogthedata-transports.mjs";
 
 // The vercel-curl transport against a fake `vercel` CLI; nothing here runs
 // the real CLI or reaches the network.
@@ -52,7 +56,7 @@ if (warmUp) {
 		console.error("Error: the deployment could not be reached");
 		process.exit(1);
 	}
-	process.stdout.write(marker + (url.hostname === "denied.invalid" ? "401\\n\\n\\n" : "200\\n\\ntext/html\\n"));
+	process.stdout.write(marker + (url.hostname === "denied.invalid" ? "401\\n\\n\\n\\n" : "200\\n\\ntext/html\\n\\n"));
 	process.exit(0);
 }
 if (bypass !== "fake-token") {
@@ -73,8 +77,8 @@ if (output !== "/dev/null") {
 }
 process.stdout.write(
 	url.pathname === "/moved"
-		? marker + "301\\nhttps://www.jsolly.com/moved/\\n\\n"
-		: marker + "200\\n\\ntext/plain; charset=utf-8\\nno-cache",
+		? marker + "301\\nhttps://www.jsolly.com/moved/\\n\\n\\n"
+		: marker + "200\\n\\ntext/plain; charset=utf-8\\nno-cache\\ndeny",
 );
 `;
 
@@ -103,6 +107,7 @@ it("The vercel-curl transport warms up once, then reads each answer past the CLI
 			location: null,
 			contentType: "text/plain; charset=utf-8",
 			cacheControl: "no-cache",
+			mitigated: "deny",
 			body: Buffer.from("served bytes\n"),
 		});
 		assert.deepEqual(await request(`${STUB}/moved`, { body: false }), {
@@ -110,6 +115,7 @@ it("The vercel-curl transport warms up once, then reads each answer past the CLI
 			location: "https://www.jsolly.com/moved/",
 			contentType: null,
 			cacheControl: null,
+			mitigated: null,
 		});
 		await assert.rejects(
 			request(`${STUB}/garbled`, { body: false }),
@@ -153,5 +159,27 @@ it("The vercel-curl transport warms up once, then reads each answer past the CLI
 		assert.equal(probes[1].args[probes[1].args.indexOf("-o") + 1], "/dev/null");
 	} finally {
 		rmSync(dir, { recursive: true, force: true });
+	}
+});
+
+it("Fetch reports Vercel mitigation and Location without following a deny", async () => {
+	const server = createServer((_req, res) => {
+		res.writeHead(403, {
+			"x-vercel-mitigated": "deny",
+			location: "/unexpected",
+		});
+		res.end("denied");
+	});
+	await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+	try {
+		const response = await fetchTransport()(
+			`http://127.0.0.1:${server.address().port}/wp-login.php`,
+			{ body: false },
+		);
+		assert.equal(response.status, 403);
+		assert.equal(response.mitigated, "deny");
+		assert.equal(response.location, "/unexpected");
+	} finally {
+		await new Promise((resolve) => server.close(resolve));
 	}
 });

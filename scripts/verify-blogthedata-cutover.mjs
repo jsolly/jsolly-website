@@ -67,7 +67,8 @@
 //     security.txt must also expire more than 30 days from now.
 //   - stays-404: every stays-404 row (slash and slashless page forms, pattern
 //     samples) and the lowercase variants of mixed-case redirect sources
-//     answer 404.
+//     answer 404. Only exact /wp-login.php may instead answer 403 with
+//     x-vercel-mitigated: deny and no Location, preserving Vercel protection.
 //   - destinations: every distinct 301 destination answers 200 on jsolly.com,
 //     and the two feeds answer their FEEDS types.
 //   Recorded only, never failed: the double-slash forms //post/<slug>/,
@@ -243,6 +244,23 @@ const statusExpectation = (status) => ({
 	check: (response) => statusProblem(response, status),
 });
 
+// John approved this exact-path exception on 2026-10-09. Other paths and
+// unmarked 403s still fail the migration contract.
+const absentExpectation = (source) => ({
+	body: false,
+	check(response) {
+		if (
+			source === "/wp-login.php" &&
+			response.status === 403 &&
+			response.mitigated === "deny" &&
+			!response.location
+		) {
+			return null;
+		}
+		return statusProblem(response, 404);
+	},
+});
+
 const redirectExpectation = (location) => ({
 	body: false,
 	check: (response) =>
@@ -294,7 +312,10 @@ function rowCheck(row, query = "") {
 				}),
 			};
 		case "stays-404":
-			return { group: GROUP.stays404, expectation: statusExpectation(404) };
+			return {
+				group: GROUP.stays404,
+				expectation: absentExpectation(row.source),
+			};
 		default:
 			throw new Error(`url-map row ${row.id} has unknown action ${row.action}`);
 	}
