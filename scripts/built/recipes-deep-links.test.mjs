@@ -109,17 +109,27 @@ function registerFragmentLink(fontDelay) {
 			}
 			await page.goto(`${site.origin}${LANDING}#meal-results`);
 			await page.locator("[data-hydrated=true]").waitFor();
+			const position = await page.evaluate(() => {
+				const target = document.querySelector(":target");
+				const { top } = target?.getBoundingClientRect() ?? { top: -1 };
+				return {
+					target: target?.id,
+					inView: top >= 0 && top < window.innerHeight,
+					dialogs: document.querySelectorAll(".recipe-takeover").length,
+				};
+			});
 			assert.deepEqual(
-				await page.evaluate(() => {
-					const target = document.querySelector(":target");
-					const { top } = target?.getBoundingClientRect() ?? { top: -1 };
-					return {
-						target: target?.id,
-						inView: top >= 0 && top < window.innerHeight,
-						dialogs: document.querySelectorAll(".recipe-takeover").length,
-					};
-				}),
+				position,
 				{ target: "meal-results", inView: true, dialogs: 0 },
+				JSON.stringify(
+					await page.evaluate(() => ({
+						top: document.querySelector(":target")?.getBoundingClientRect().top,
+						scrollY: window.scrollY,
+						fonts: document.fonts.status,
+						scrolling: getComputedStyle(document.documentElement)
+							.scrollBehavior,
+					})),
+				),
 			);
 			assert.deepEqual(errors, []);
 		} finally {

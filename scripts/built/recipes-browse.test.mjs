@@ -146,7 +146,26 @@ function detailsCheck(width) {
 				await page.goto(`${site.origin}/recipes/${recipe.id}/`);
 				await staticPage.goto(`${site.origin}/recipes/${recipe.id}/`);
 				const live = page.locator(".recipe-detail .recipe-body");
-				await live.locator(".reset-checks-row").waitFor();
+				try {
+					await live.locator(".reset-checks-row").waitFor();
+				} catch (error) {
+					const state = await page.evaluate(() => {
+						const row = document.querySelector(
+							".recipe-detail .reset-checks-row",
+						);
+						return {
+							rowPresent: Boolean(row),
+							rowDisplay: row ? getComputedStyle(row).display : null,
+							pendingIslands: [
+								...document.querySelectorAll("astro-island[ssr]"),
+							].map((island) => island.getAttribute("component-url")),
+						};
+					});
+					throw new Error(
+						`Recipe ${recipe.id} did not expose cooking checks at ${page.url()}; state: ${JSON.stringify(state)}; browser errors: ${JSON.stringify(errors)}`,
+						{ cause: error },
+					);
+				}
 				await live.getByRole("button", { name: VITAMINS }).click();
 				const staticBody = staticPage.locator(`#${recipe.id} .recipe-body`);
 				await staticBody.locator("summary").click();
