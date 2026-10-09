@@ -2,27 +2,29 @@
 slug: implement-infinite-scroll-in-django-with-htmx
 title: Eliminating Duplicate Pages With HTMX Infinite Scrolling
 category: web-dev
-description: Discover how htmx can be used to improve your website by implementing infinite scrolling, resolving duplication issues and enhancing functionality.
+description: Discover how htmx can be used to improve your website by
+  implementing infinite scrolling, resolving duplication issues and enhancing
+  functionality.
 draft: false
 image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/htmx.webp
 legacyImage: post_metaimgs/htmx.webp
 imageAlt: HTMX Logo
-imageAttribution: ""
 imageWidth: 256
 imageHeight: 256
-published: "2022-10-26T23:41:20.564Z"
-updated: "2026-09-07T14:25:05.503Z"
+published: 2022-10-26T23:41:20.564Z
+updated: 2026-09-07T14:25:05.503Z
 author: John Solly
 feedAuthor: John_Solly
 legacyAuthorId: 2
-excerpt: <p>Discover how htmx can be used to improve your website by implementing infinite scrolling, resolving duplication issues and enhancing functionality.&nbsp;</p>
+excerpt: <p>Discover how htmx can be used to improve your website by
+  implementing infinite scrolling, resolving duplication issues and enhancing
+  functionality.&nbsp;</p>
 legacyId: 105
 related:
   - optimizing-ahrefs-orphan-pages-duplicate-content
   - get-a-perfect-score-on-seo-tool-ahrefs
   - I-made-my-code-async-its-388-percent-faster
 ---
-
 ## Note
 
 Hey!   
@@ -64,3 +66,6 @@ This way, the template is always fetching the correct url!
 After running into <a target="_blank" rel="noopener noreferrer" href="/blog/get-a-perfect-score-on-seo-tool-ahrefs/">issues with duplicate content</a> with my previous pagination implementation, I decided to use htmx to implement infinite scrolling. This resolved the duplication issue and introduced new functionality. I call that a win!
 
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/awesome-django-blog/pull/142/files">See the PR where I implemented infinite scroll.</a>
+
+
+<!-- PagesCMS rehearsal: temporary branch only; close the test PR without merging. -->
