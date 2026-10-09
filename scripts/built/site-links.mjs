@@ -9,6 +9,7 @@
 //   (d) legacyRoots: root-anchored legacy paths.
 import { readFile } from "node:fs/promises";
 import { extname, join } from "node:path";
+import { setImmediate as yieldToEventLoop } from "node:timers/promises";
 import { createSatteriMarkdownProcessor } from "@astrojs/markdown-satteri";
 import { globby } from "globby";
 import { JSDOM } from "jsdom";
@@ -260,16 +261,6 @@ export async function buildSite(entries) {
 		syntaxHighlight: false,
 		features: { gfm: false, smartPunctuation: false },
 	});
-	const rendered = new Map(
-		await Promise.all(
-			entries
-				.filter(({ file, text }) => extname(file) === ".md" && text !== null)
-				.map(async ({ file, text }) => [
-					file,
-					(await markdown.render(text)).code,
-				]),
-		),
-	);
 	const files = new Set(entries.map(({ file }) => file));
 	const pages = new Map();
 	const values = new Map();
@@ -279,9 +270,15 @@ export async function buildSite(entries) {
 		texts.set(file, text);
 		const extension = extname(file);
 		if (extension === ".html" || extension === ".md") {
-			const page = readPage(file, rendered.get(file) ?? text);
+			// Render and parse one page at a time. Parallel Markdown renders retain
+			// every syntax tree, while jsdom cleanup waits for the event loop.
+			const markup =
+				// biome-ignore lint/performance/noAwaitInLoops: Sequential rendering bounds syntax-tree memory on the CI runner.
+				extension === ".md" ? (await markdown.render(text)).code : text;
+			const page = readPage(file, markup);
 			pages.set(file, page);
 			values.set(file, page.values);
+			await yieldToEventLoop();
 		} else if (JSON_EXTENSIONS.has(extension)) {
 			values.set(file, jsonValues(file, text));
 		} else if (extension === ".xml") {
