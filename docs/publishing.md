@@ -15,25 +15,20 @@ production changes only after a PR passes `CI / ci` and merges. Start each later
 branch from updated `main`. Do not edit protected `main` directly or weaken the
 ruleset. Editorial PRs run the full gate, because post edits are not docs-only.
 
-### Grant timing and rehearsal
+### Completed migration rehearsal
 
-The blog is moving here from `jsolly/awesome-blog` (the old host redirects here
-from cutover step C2), where PagesCMS was verified before this merge (awesome-blog's rehearsal PR #679). None of that verification
-carries over to this repository. The grant follows the merge plan
-(`docs/plans/blogthedata-merge/plan.md` §1.5):
+PagesCMS now edits this repository. John accepted the source App-access exception;
+the old `awesome-blog` repository is archived and cannot accept editorial writes.
+The migration branch was retired before destination editing began.
 
-1. At cutover step C0, John removes awesome-blog from the App's repository
-   selection.
-2. After C1, once `port/awesome-blog` has been deleted and C1 step 5 has shown it
-   is gone, John grants the App access to jsolly-website. The grant is never
-   made while that branch exists: non-default branches have no ruleset
-   protection, and the App could write to it.
-3. Rehearsal, on a throwaway editorial branch from `main`: save and reopen an
-   existing post with a table, code and an embed, upload an image to
-   `public/blog/media`, open a PR, then close it unmerged.
+Destination rehearsal [PR105](https://github.com/jsolly/jsolly-website/pull/105)
+was closed unmerged after the complex-article roundtrip and image-upload checks,
+independent review, full local gate and successful CI. Keep using a fresh editorial
+branch from `main`; that rehearsal does not authorize direct protected-main edits.
 
-Until John records that rehearsal as passed, treat PagesCMS editing of this
-repository as unverified.
+An email PagesCMS login can connect a GitHub installation from Settings. If the
+installation shows Disconnected, connect it there; verify the repository list
+before editing. John's connection currently uses GitHub sign-in.
 
 ## Write an article
 
