@@ -2,27 +2,28 @@
 slug: migrating-to-ckeditor-5
 title: "Demystifying the CKEditor 4 to 5 Migration Process: Lessons Learned"
 category: web-dev
-description: Learn how to migrate from CKEditor 4 to CKEditor 5 and strengthen your Content Security Policy (CSP) by removing unsafe-inline scripts | A Guide
+description: Learn how to migrate from CKEditor 4 to CKEditor 5 and strengthen
+  your Content Security Policy (CSP) by removing unsafe-inline scripts | A Guide
 draft: false
 image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/toad.jpg
 legacyImage: post_metaimgs/toad.jpg
 imageAlt: A picture of a toad chilling in the sand.
-imageAttribution: ""
 imageWidth: 1920
 imageHeight: 1280
-published: "2022-05-27T18:45:25Z"
-updated: "2022-05-27T18:45:25Z"
+published: 2022-05-27T18:45:25Z
+updated: 2022-05-27T18:45:25Z
 author: John Solly
 feedAuthor: John_Solly
 legacyAuthorId: 2
-excerpt: <p>Learn how to migrate from CKEditor 4 to CKEditor 5 and strengthen your Content Security Policy (CSP) by removing unsafe-inline scripts | A Guide</p>
+excerpt: <p>Learn how to migrate from CKEditor 4 to CKEditor 5 and strengthen
+  your Content Security Policy (CSP) by removing unsafe-inline scripts | A
+  Guide</p>
 legacyId: 54
 related:
   - smartly-load-CSS-JS-page-load-time
   - how-to-implement-content-security-policy-django
   - how-to-ask-questions-like-a-senior-engineer
 ---
-
 <p style="margin-left:0px;">Migrating ckeditor4 to CKEditor is not straightforward.</p>
 
 <blockquote><p style="margin-left:0px;"><i>When compared to its predecessor, CKEditor 5 should be considered <strong>a totally new editor</strong>. Every single aspect of it was redesigned — from installation, to integration, to features, to its data model, and finally to its API. Therefore, moving applications using a previous CKEditor version to version 5 cannot be simply called an "upgrade". It is something bigger, so the "migration" term fits better.</i></p><p style="margin-left:0px;"><a target="_blank" rel="noopener noreferrer" href="https://ckeditor.com/docs/ckeditor5/latest/installation/getting-started/migration-from-ckeditor-4.html"><i>Ckeditor5 Migration Doc</i></a></p></blockquote>
@@ -71,3 +72,6 @@ related:
 <h2 style="margin-left:0px;">Conclusion</h2>
 
 <p style="margin-left:0px;">Migrating from CKEditor 4 to CKEditor 5 was no easy feat, having to make several configuration changes to migrate plugins. I had issues with image uploads, form widgets, and inline styles. The good news is that CKEditor 5 allowed me to strengthen my CSP by removing unsafe-inline scripts. Blogthedata.com now has an <a target="_blank" rel="noopener noreferrer" href="https://observatory.mozilla.org/analyze/blogthedata.com">A+ in Mozilla Observatory</a>! Another benefit is that through my struggles, I helped improve the module. Over the next couple of weeks, I will use CKEditor 5 on production and fix any defects <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/blogthedata/pull/82">in the PR</a>.&nbsp;</p>
+
+
+<!-- PagesCMS rehearsal: temporary branch only; close the test PR without merging. -->
