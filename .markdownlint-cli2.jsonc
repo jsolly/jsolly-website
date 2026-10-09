@@ -16,8 +16,7 @@
 	},
 	"ignores": [
 		"node_modules/**",
-		// Archival planning/spec records — not active content, not lint-gated.
-		"docs/plans/**",
+		// Archival spec records — not active content, not lint-gated.
 		"docs/specs/**",
 		// Recipe provenance evidence (J17), kept byte-for-byte as recorded.
 		"docs/recipes-evidence/**",
