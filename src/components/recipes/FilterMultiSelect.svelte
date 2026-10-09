@@ -38,6 +38,7 @@
 	function enterFocus(event) {
 		event.preventDefault();
 		if (document.activeElement !== trigger) return;
+		// biome-ignore lint/security/noSecrets: CSS selector, not a credential.
 		content?.querySelector('button:not([disabled])')?.focus();
 	}
 
