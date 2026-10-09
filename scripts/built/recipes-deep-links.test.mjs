@@ -30,42 +30,47 @@ after(async () => {
 	await site?.close();
 });
 
-it("each old /recipes/#<recipe-id> link opens that recipe in the library dialog on its collection, and #meal-results lands on the cards", {
-	timeout: 120_000,
-}, async () => {
-	const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
-	const context = await browser.newContext({
-		viewport: { width: 1280, height: 800 },
-	});
-	const page = await context.newPage();
-	const errors = collectErrors(page, []);
-	try {
-		const opened = [];
-		for (const recipe of recipes) {
-			// biome-ignore lint/performance/noAwaitInLoops: each link opens cold in the one page, in turn
-			await page.goto("about:blank");
+const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
+
+// Give every cold link its own bounded test, so expanding the library does not
+// turn a fixed aggregate timeout into a limit on the number of recipes covered.
+function registerRecipeLink(recipe) {
+	it(`old /recipes/#${recipe.id} opens its recipe dialog on the right collection`, {
+		timeout: 30_000,
+	}, async () => {
+		const context = await browser.newContext({
+			viewport: { width: 1280, height: 800 },
+		});
+		const page = await context.newPage();
+		const errors = collectErrors(page, []);
+		try {
 			await page.goto(`${site.origin}${LANDING}#${recipe.id}`);
 			const section = page.locator(`.recipe-takeover section#${recipe.id}`);
 			await section.waitFor();
-			opened.push({
-				id: recipe.id,
-				title: await section.getByRole("heading", { level: 2 }).textContent(),
-				dialogOpen: await page.getByRole("dialog").isVisible(),
-				// The dialog covers the viewport rather than its centred default.
-				fillsViewport: await page
-					.locator(".recipe-takeover")
-					.evaluate((dialog) => {
-						const { top, left, height } = dialog.getBoundingClientRect();
-						return top === 0 && left === 0 && height === window.innerHeight;
-					}),
-				collection: await page
+			assert.equal(
+				await section.getByRole("heading", { level: 2 }).textContent(),
+				recipe.title,
+			);
+			assert.equal(await page.getByRole("dialog").isVisible(), true);
+			assert.equal(
+				await page.locator(".recipe-takeover").evaluate((dialog) => {
+					const { top, left, height } = dialog.getBoundingClientRect();
+					return top === 0 && left === 0 && height === window.innerHeight;
+				}),
+				true,
+			);
+			assert.equal(
+				await page
 					.getByRole("link", {
 						name: COLLECTION_LINKS[recipe.type],
 						exact: true,
 						includeHidden: true,
 					})
 					.getAttribute("aria-current"),
-				otherCollection: await page
+				"true",
+			);
+			assert.equal(
+				await page
 					.getByRole("link", {
 						name: COLLECTION_LINKS[
 							recipe.type === "meal" ? "smoothie" : "meal"
@@ -74,22 +79,26 @@ it("each old /recipes/#<recipe-id> link opens that recipe in the library dialog 
 						includeHidden: true,
 					})
 					.getAttribute("aria-current"),
-			});
+				null,
+			);
+			assert.deepEqual(errors, []);
+		} finally {
+			await context.close();
 		}
-		assert.deepEqual(
-			opened,
-			recipes.map((recipe) => ({
-				id: recipe.id,
-				title: recipe.title,
-				dialogOpen: true,
-				fillsViewport: true,
-				// The landing shows either collection, so neither link is the page.
-				collection: "true",
-				otherCollection: null,
-			})),
-		);
+	});
+}
 
-		await page.goto("about:blank");
+for (const recipe of recipes) registerRecipeLink(recipe);
+
+it("old /recipes/#meal-results lands on the cards without a recipe dialog", {
+	timeout: 30_000,
+}, async () => {
+	const context = await browser.newContext({
+		viewport: { width: 1280, height: 800 },
+	});
+	const page = await context.newPage();
+	const errors = collectErrors(page, []);
+	try {
 		await page.goto(`${site.origin}${LANDING}#meal-results`);
 		await page.locator("[data-hydrated=true]").waitFor();
 		assert.deepEqual(
