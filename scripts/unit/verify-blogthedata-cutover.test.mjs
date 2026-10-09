@@ -800,3 +800,29 @@ it("Any flag combination outside the four modes is a usage error", async () => {
 		assert.ok(stderr.includes(message), `${args.join(" ")}: ${stderr}`);
 	});
 });
+
+it("Only the exact WordPress login path accepts a marked Vercel deny", () => {
+	const probes = fullPlan(map, union).legacy;
+	const wordpress = probes.find(({ path }) => path === "/wp-login.php");
+	assert.ok(wordpress);
+	const check = wordpress.expectation.check;
+	assert.equal(check({ status: 404 }), null);
+	assert.equal(check({ status: 403, mitigated: "deny", location: null }), null);
+	for (const response of [
+		{ status: 403 },
+		{ status: 403, mitigated: "challenge" },
+		{ status: 403, mitigated: "deny", location: "https://www.jsolly.com/" },
+		{ status: 301, mitigated: "deny" },
+		{ status: 500, mitigated: "deny" },
+	]) {
+		assert.ok(check(response), JSON.stringify(response));
+	}
+	for (const probe of probes.filter(
+		({ group, path }) => group === GROUP.stays404 && path !== "/wp-login.php",
+	)) {
+		assert.ok(
+			probe.expectation.check({ status: 403, mitigated: "deny" }),
+			probe.path,
+		);
+	}
+});

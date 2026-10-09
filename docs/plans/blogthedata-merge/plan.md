@@ -1714,6 +1714,13 @@ The legacy deployment is READY in seconds, so a smoke it triggers can test the p
 
 ### C2. Switch blogthedata.com to redirect-only
 
+**Approved production contract exception, 2026-10-09.** John approved preserving
+Vercel System Mitigations. The exact nonexistent `/wp-login.php` path may return
+403 only with `x-vercel-mitigated: deny` and no `Location`. It may still return
+404. Every other stays-404 path retains its 404 requirement; an unmarked deny,
+a challenge or a redirect fails verification. Both verifier transports report
+the mitigation header. This changes verification only, not routing or protection.
+
 **Preconditions:**
 
 - C1 is verified.

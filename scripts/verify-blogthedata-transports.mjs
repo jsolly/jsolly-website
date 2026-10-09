@@ -1,6 +1,6 @@
 // The request transports of scripts/verify-blogthedata-cutover.mjs (see its
 // header). A transport is `async (url, { body }) => answer`, where answer is
-// { status, location, contentType, cacheControl } plus `body` (a Buffer) when
+// { status, location, contentType, cacheControl, mitigated } plus `body` (a Buffer) when
 // asked; a failed request throws, with `transient: true` only for an error a
 // retry may cure.
 import { spawn } from "node:child_process";
@@ -17,7 +17,7 @@ const TRANSIENT_CURL_EXITS = new Set([6, 7, 28]);
 const TIMEOUT_SECONDS = 30;
 // curl's write-out, after a marker so CLI chatter on stdout cannot be misread.
 const CURL_MARKER = "verify-blogthedata-cutover";
-const CURL_WRITE_OUT = `\n${CURL_MARKER}\n%{http_code}\n%header{location}\n%header{content-type}\n%header{cache-control}`;
+const CURL_WRITE_OUT = `\n${CURL_MARKER}\n%{http_code}\n%header{location}\n%header{content-type}\n%header{cache-control}\n%header{x-vercel-mitigated}`;
 const NO_BYPASS_SECRET =
 	"vercel curl warm-up attached no bypass secret; check vercel login/--scope, or use the fetch transport for an unprotected deployment";
 
@@ -36,6 +36,7 @@ export function fetchTransport(headers = {}) {
 				location: response.headers.get("location"),
 				contentType: response.headers.get("content-type"),
 				cacheControl: response.headers.get("cache-control"),
+				mitigated: response.headers.get("x-vercel-mitigated"),
 			};
 			if (body) {
 				answer.body = Buffer.from(await response.arrayBuffer());
@@ -116,15 +117,16 @@ function vercelCurl(bin, args, env, cwd) {
 // The answer in the write-out after the last marker; anything else throws.
 function parseWriteOut(stdout) {
 	const lines = stdout.slice(stdout.lastIndexOf(CURL_MARKER)).split("\n");
-	if (lines[0] !== CURL_MARKER || lines.length !== 5) {
+	if (lines[0] !== CURL_MARKER || lines.length !== 6) {
 		throw new Error(`unreadable curl write-out: ${JSON.stringify(stdout)}`);
 	}
-	const [, status, location, contentType, cacheControl] = lines;
+	const [, status, location, contentType, cacheControl, mitigated] = lines;
 	return {
 		status: Number(status),
 		location: location || null,
 		contentType: contentType || null,
 		cacheControl: cacheControl || null,
+		mitigated: mitigated || null,
 	};
 }
 
