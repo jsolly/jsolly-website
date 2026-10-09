@@ -12,6 +12,14 @@
 		<rect x="5" y="3" width="22" height="26" rx="5" /><path d="M12 8h8M7 14h18M14 18h4v6h-4z" />
 	{:else if name === "Blender"}
 		<path d="M9 3h14l-2 16H11zM12 19h8l4 10H8zM23 6h4v9h-5M12 9h4M12 13h4" /><circle cx="16" cy="25" r="1" />
+  {:else if name === "Stovetop"}
+    <rect x="3" y="5" width="26" height="22" rx="3"/><circle cx="10" cy="12" r="3"/><circle cx="22" cy="12" r="3"/><circle cx="10" cy="21" r="3"/><circle cx="22" cy="21" r="3"/>
+  {:else if name === "Grill"}
+    <path d="M4 12h24a12 12 0 0 1-24 0zM10 24l-3 5M22 24l3 5M7 7h18M10 3v4M16 3v4M22 3v4"/>
+  {:else if name === "Waffle iron"}
+    <rect x="4" y="5" width="24" height="22" rx="4"/><path d="M10 9v14M16 9v14M22 9v14M8 13h16M8 19h16M11 29h10"/>
+  {:else if name === "Slow cooker"}
+    <path d="M5 10h22v14a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4zM3 10h26M10 7h12M13 4h6v3M2 16h3M27 16h3"/><circle cx="16" cy="22" r="2"/>
 	{:else if name === "Pans"}
 		<path d="M3 15h17v3a7 7 0 0 1-7 7h-3a7 7 0 0 1-7-7zM20 17l10-4M8 7v4M13 5v6" />
 	{:else if name === "Microwave"}

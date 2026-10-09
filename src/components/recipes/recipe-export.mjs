@@ -10,10 +10,12 @@ import {
 	displayNutrition,
 	familyNutrition,
 	formatIngredient,
+	formatNutrition,
 	ingredientAmount,
 	nutritionHeading,
 	purchaseNote,
 	smoothieYieldNote,
+	totalTimeLabel,
 	validateSettings,
 } from "./recipe-logic.mjs";
 import { flowGrid, gridHtml } from "./trn-logic.mjs";
@@ -75,7 +77,15 @@ export function recipeDocument(recipe, settings = {}) {
 		},
 		summary: recipe.summary,
 		activeMinutes: recipe.activeMinutes,
-		totalTime: `${recipe.totalMin}–${recipe.totalMax}${servings > BASE_SERVINGS ? "+" : ""} min${servings > BASE_SERVINGS ? " / base batch" : ""}${recipe.timeVariable ? " expected; pressure buildup can take longer" : ""}`,
+		portionLabel: recipe.sourceRecipe ? "portions" : "adult servings",
+		timeBasis: recipe.sourceRecipe
+			? "publisher preparation"
+			: "active per base batch",
+		sourceRecipe: recipe.sourceRecipe
+			? // Snapshot canonical JSON metadata, including Svelte reactive proxies.
+				JSON.parse(JSON.stringify(recipe.sourceRecipe))
+			: null,
+		totalTime: totalTimeLabel(recipe, servings),
 		attentionSummary: recipe.attentionSummary,
 		capacity: text(smoothie ? recipe.capacity : capacityNote(servings)),
 		timingNote: smoothie
@@ -113,7 +123,9 @@ export function recipeDocument(recipe, settings = {}) {
 		familyNutrition: option
 			? familyNutrition(recipe, option.id, servings)
 			: null,
-		nutritionNote: `${smoothie ? `${smoothieYieldNote(recipe, servings)} ${recipe.yieldEstimateNote} ` : ""}Per ${smoothie ? "estimated glass" : "adult"}: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.`,
+		nutritionNote: recipe.sourceRecipe
+			? recipe.sourceRecipe.nutritionBasis
+			: `${smoothie ? `${smoothieYieldNote(recipe, servings)} ${recipe.yieldEstimateNote} ` : ""}Per ${smoothie ? "estimated glass" : "adult"}: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.`,
 		allergens: [
 			...new Set([...recipe.allergens, ...(option?.allergens || [])]),
 		],
@@ -131,12 +143,12 @@ export function recipeDocument(recipe, settings = {}) {
 	};
 }
 const HEADING_MARKS = /^(?<marks>#{1,6}) /gmu;
-const macros = (n) =>
-	`${Math.round(n.kcal)} kcal; ${n.protein_g.toFixed(1)} g protein; ${n.carbs_g.toFixed(1)} g total carbs; ${n.fiber_g.toFixed(1)} g fiber; ${n.net_carbs_g.toFixed(1)} g net carbs`;
+export const nutritionSummary = (n) =>
+	`Calories: ${formatNutrition(n.kcal, "kcal")}; protein: ${formatNutrition(n.protein_g, "g", 1)}; total carbs: ${formatNutrition(n.carbs_g, "g", 1)}; fiber: ${formatNutrition(n.fiber_g, "g", 1)}; net carbs: ${formatNutrition(n.net_carbs_g, "g", 1)}`;
 export function documentMarkdown(d, headingLevel = 1) {
 	const lines = [
 		`# ${d.title}`,
-		`${d.servings} adult servings · ${d.units === "metric" ? "Metric" : "US"} measures · ${d.group} · ${d.activeMinutes} min active per base batch · ${d.totalTime}`,
+		`${d.servings} ${d.portionLabel} · ${d.units === "metric" ? "Metric" : "US"} measures · ${d.group} · ${Number.isFinite(d.activeMinutes) ? `${d.activeMinutes} min ${d.timeBasis}` : "Preparation time not provided"} · ${d.totalTime}`,
 		d.summary,
 		d.attentionSummary,
 		d.capacity,
@@ -179,10 +191,12 @@ export function documentMarkdown(d, headingLevel = 1) {
 		...d.tips.map((t) => `- ${t}`),
 		d.fallback,
 		`## ${d.nutritionHeading}`,
-		macros(d.nutrition),
+		nutritionSummary(d.nutrition),
 	);
 	if (d.familyNutrition)
-		lines.push(`With selected family starch: ${macros(d.familyNutrition)}`);
+		lines.push(
+			`With selected family starch: ${nutritionSummary(d.familyNutrition)}`,
+		);
 	lines.push(
 		d.nutritionNote,
 		`Known allergens for these plates: ${d.allergens.join(", ") || "none listed; check every product label"}. Check product labels and cross-contact.`,
@@ -192,6 +206,10 @@ export function documentMarkdown(d, headingLevel = 1) {
 		d.leftovers,
 		"## Sources",
 		...d.sources.map((s) => `- [${s.title}](${s.url})`),
+		d.sourceRecipe?.resolvedUrl &&
+			!d.sources.some((source) => source.url === d.sourceRecipe.resolvedUrl)
+			? `- [Resolved publisher source](${d.sourceRecipe.resolvedUrl})`
+			: "",
 		d.disclaimer,
 	);
 	const body = lines

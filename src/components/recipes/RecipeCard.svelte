@@ -3,6 +3,7 @@
 	import { BASE_SERVINGS } from "./constants.mjs";
 	import RecipeBadge from "./RecipeBadge.svelte";
 	import {
+		formatNutrition,
 		servingNutrition,
 		smoothiePortionNutrition,
 	} from "./recipe-logic.mjs";
@@ -19,12 +20,12 @@
 	<h3><a class="title-button" data-recipe-id={recipe.id} {href}>{recipe.title}</a></h3>
 	<dl class="card-numbers">
 		<div>
-			<dt>Active time</dt>
-			<dd class="active-time"><span class="time-number">{recipe.activeMinutes}{servings > BASE_SERVINGS ? "+" : ""}</span><span class="time-unit">min</span></dd>
+			<dt>{recipe.sourceRecipe ? "Prep time (publisher)" : "Active time"}</dt>
+			<dd class="active-time"><span class="time-number" class:unknown={recipe.activeMinutes === null}>{recipe.activeMinutes === null ? "Not provided" : recipe.activeMinutes}{servings > BASE_SERVINGS && recipe.activeMinutes !== null ? "+" : ""}</span>{#if recipe.activeMinutes !== null}<span class="time-unit">min</span>{/if}</dd>
 		</div>
 		<div>
 			<dt>{recipe.type === "smoothie" ? "Net Carbs (8 oz)" : `Net carbs per ${servings} servings`}</dt>
-			<dd>{recipe.type === "smoothie" ? smoothiePortionNutrition(recipe).net_carbs_g.toFixed(1) : Math.round(servingNutrition(recipe, servings).net_carbs_g * servings)} g</dd>
+			<dd>{recipe.type === "smoothie" ? formatNutrition(smoothiePortionNutrition(recipe).net_carbs_g, "g", 1) : formatNutrition(Number.isFinite(servingNutrition(recipe, servings).net_carbs_g) ? servingNutrition(recipe, servings).net_carbs_g * servings : null, "g")}</dd>
 		</div>
 		<div>
 			<dt>Appliances needed</dt>
@@ -115,6 +116,7 @@
 			font-weight: 700;
 			letter-spacing: -0.04em;
 		}
+		.time-number.unknown { font-size: 1rem; letter-spacing: normal; }
 		.time-unit {
 			font-size: 1rem;
 			font-weight: 600;

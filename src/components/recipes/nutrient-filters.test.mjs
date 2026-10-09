@@ -51,19 +51,21 @@ it("nutrition filters have usable intersections at all supported serving counts"
 	});
 });
 
+const legacyRecipes = data.recipes.filter((recipe) => !recipe.sourceRecipe);
+
 it("protein and carb categories combine with nutrient criteria", () => {
-	const fish = data.recipes.filter((r) =>
+	const fish = legacyRecipes.filter((r) =>
 		matchesRecipe(r, 4, { protein: ["fish"] }),
 	);
 	assert.equal(fish.length, 2);
 	assert(fish.every((r) => r.proteinType === "fish"));
 	assert.equal(
-		data.recipes.filter((r) =>
+		legacyRecipes.filter((r) =>
 			matchesRecipe(r, 4, { protein: ["fish"], iron: true }),
 		).length,
 		0,
 	);
-	const shared = data.recipes.filter((r) =>
+	const shared = legacyRecipes.filter((r) =>
 		matchesRecipe(r, 4, { protein: ["chicken"], carb: ["shared"] }),
 	);
 	assert.equal(shared.length, 3);
@@ -75,10 +77,10 @@ it("protein and carb categories combine with nutrient criteria", () => {
 it("starch categories cover every recipe and include main ingredients and family sides", () => {
 	assert.deepEqual(
 		Object.keys(recipeStarches).sort(),
-		data.recipes.map((r) => r.id).sort(),
+		legacyRecipes.map((r) => r.id).sort(),
 	);
 	const ids = (starch) =>
-		data.recipes
+		legacyRecipes
 			.filter((r) => matchesRecipe(r, 4, { starch: [starch] }))
 			.map((r) => r.id);
 	assert.deepEqual(ids("rice").sort(), [
@@ -96,7 +98,7 @@ it("starch categories cover every recipe and include main ingredients and family
 
 it("multi-select uses OR within each filter and AND across filters; saved selections normalize", () => {
 	const matches = (filters) =>
-		data.recipes.filter((r) => matchesRecipe(r, 4, filters));
+		legacyRecipes.filter((r) => matchesRecipe(r, 4, filters));
 	assert.equal(matches({ starch: ["rice", "pasta"] }).length, 3);
 	assert.equal(matches({ protein: ["fish", "turkey"] }).length, 4);
 	assert.equal(
@@ -105,7 +107,7 @@ it("multi-select uses OR within each filter and AND across filters; saved select
 	);
 	assert.equal(
 		matches({ protein: [], starch: [] }).length,
-		data.recipes.length,
+		legacyRecipes.length,
 	);
 	assert.deepEqual(
 		normalizeSelection(["rice", "rice", "invalid", "all"], starchOptions),
@@ -115,7 +117,7 @@ it("multi-select uses OR within each filter and AND across filters; saved select
 });
 
 it("each meal style the library offers selects that group's meals", () => {
-	const meals = data.recipes.filter((r) => r.type === "meal");
+	const meals = legacyRecipes.filter((r) => r.type === "meal");
 	const ids = (style) =>
 		meals
 			.filter((r) => matchesRecipe(r, 4, { carb: [style] }))
@@ -143,7 +145,7 @@ it("each meal style the library offers selects that group's meals", () => {
 	]);
 });
 
-it("appliance inventory honors counts and oven/pan dependency, and validates saved counts", () => {
+it("appliance inventory honors counts and explicit heat sources, and validates saved counts", () => {
 	const fry = data.recipes.find((r) => r.id === "greek-turkey-patties");
 	assert(!hasAppliances(fry, { ...defaultAppliances, "Two air fryers": 1 }));
 	assert(hasAppliances(fry, defaultAppliances));
@@ -151,7 +153,8 @@ it("appliance inventory honors counts and oven/pan dependency, and validates sav
 		(r) => r.id === "pan-fried-greek-turkey-patties",
 	);
 	assert(hasAppliances(pan, defaultAppliances));
-	assert(!hasAppliances(pan, { ...defaultAppliances, Oven: 0 }));
+	assert(hasAppliances(pan, { ...defaultAppliances, Oven: 0 }));
+	assert(!hasAppliances(pan, { ...defaultAppliances, Stovetop: 0 }));
 	assert.equal(availableAppliances({ "Instant Pot": 8 })["Instant Pot"], 2);
 	assert.equal(availableAppliances({ Oven: 0 }).Oven, 0);
 	assert.deepEqual(availableAppliances(null), defaultAppliances);

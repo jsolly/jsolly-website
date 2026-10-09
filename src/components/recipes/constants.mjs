@@ -8,18 +8,20 @@ export const groupBadges = {
 	keto: "Keto",
 	shared: "Shared main",
 	nonketo: "Not Keto",
+	unverified: "Nutrition unverified",
 };
 /** Each recipe group's label in the printed copy. */
 export const printGroupLabels = {
 	keto: "Keto",
 	shared: "Keto main + family starch",
 	nonketo: "Not Keto",
+	unverified: "Nutrition unverified",
 };
 /** The servings a reader can choose. */
 export const SERVING_CHOICES = [2, 4, 6, 8];
 
 export const recipeDisclaimer =
-	"These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.";
+	"These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.";
 // Meal leftovers guidance; smoothies carry their own.
 export const mealLeftovers =
 	"Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.";
@@ -71,6 +73,10 @@ export const applianceChoices = {
 	Microwave: "Microwave",
 	"Two air fryers": "Air fryers",
 	Blender: "Blender",
+	Stovetop: "Stovetop",
+	Grill: "Grill",
+	"Slow cooker": "Slow cooker",
+	"Waffle iron": "Waffle iron",
 };
 export const defaultAppliances = {
 	"Instant Pot": 1,
@@ -79,14 +85,17 @@ export const defaultAppliances = {
 	Microwave: 1,
 	"Two air fryers": 2,
 	Blender: 1,
+	Stovetop: 1,
+	Grill: 1,
+	"Slow cooker": 1,
+	"Waffle iron": 1,
 };
 // The appliances a reader counts rather than ticks, with the most they can
 // have on hand; every other appliance is on hand (1) or not (0).
 export const applianceLimits = { "Instant Pot": 2, "Two air fryers": 2 };
 // How many of an appliance a recipe that needs it uses (otherwise one).
 export const applianceNeeds = { "Two air fryers": 2 };
-// An appliance usable only with another on hand: pans go in the oven.
-export const applianceDependencies = { Pans: "Oven" };
+// Pans may be used on a stovetop, grill or oven; recipes name their heat source.
 
 /** The recipe library's landing page; the recipe app's id, start URL and scope. */
 export const RECIPES_PATH = "/recipes/";
@@ -111,6 +120,12 @@ export const proteins = {
 	chicken: "Chicken",
 	fish: "Fish",
 	turkey: "Turkey",
+	beef: "Beef",
+	pork: "Pork",
+	shrimp: "Shrimp",
+	seafood: "Other seafood",
+	eggs: "Eggs",
+	mixed: "Mixed meats",
 	vegetarian: "Vegetarian",
 	"plant-forward": "Plant-forward",
 };
@@ -119,12 +134,15 @@ export const carbStyles = {
 	keto: "Keto",
 	nonketo: "Not Keto",
 	shared: "Shared Main",
+	unverified: "Nutrition unverified",
 };
 export const mealStyleDescriptions = {
 	all: "Keto meals, higher-carb meals, and shared mains with different sides.",
 	keto: "Low-carb meals without a starchy side.",
 	nonketo: "Meals with over 50g net carbs per four servings.",
 	shared: "One main dish with different sides for keto and non-keto diners.",
+	unverified:
+		"The publisher labels these low-carb, but a complete net-carb total is unavailable.",
 };
 /** The family starches a library filter offers ("all" and "none" are not choices). */
 export const starchOptions = Object.fromEntries(

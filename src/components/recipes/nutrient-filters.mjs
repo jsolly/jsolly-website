@@ -1,6 +1,5 @@
 import {
 	applianceChoices,
-	applianceDependencies,
 	applianceLimits,
 	applianceNeeds,
 	carbStyles,
@@ -86,10 +85,7 @@ export function availableAppliances(value) {
 }
 export function hasAppliances(recipe, inventory) {
 	return recipe.appliancesNeeded.every(
-		(key) =>
-			(inventory[key] || 0) >= (applianceNeeds[key] ?? 1) &&
-			(!applianceDependencies[key] ||
-				inventory[applianceDependencies[key]] > 0),
+		(key) => (inventory[key] || 0) >= (applianceNeeds[key] ?? 1),
 	);
 }
 export function matchesRecipe(
@@ -116,7 +112,9 @@ export function matchesRecipe(
 		selectedMatches(protein, recipe.proteinType) &&
 		selectedMatches(carb, recipe.group) &&
 		(!starch.length ||
-			starch.some((type) => recipeStarches[recipe.id]?.includes(type))) &&
+			starch.some((type) =>
+				(recipe.starches ?? recipeStarches[recipe.id])?.includes(type),
+			)) &&
 		(!immune || flags.immune) &&
 		(!iron || flags.iron) &&
 		(!omega || flags.omega)

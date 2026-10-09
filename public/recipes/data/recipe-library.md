@@ -1,6 +1,6 @@
 # Easy Meals recipe library
 
-21 complete four-serving recipes. Keto bases are shown without family starch; separate measured per-person options are included below each shared recipe. Small seasoning amounts use spoon measures. Recipes are newly designed and not kitchen-tested.
+146 recipes, including household recipes and adaptations from linked publishers. Ingredient quantities use four portions; whole-bird recipes round up to complete batches. Keto bases are shown without family starch; separate measured per-person options accompany shared recipes. Missing source quantities and nutrition are unreported. Adaptations have not been kitchen-tested.
 
 ## Lemon salmon and asparagus
 
@@ -76,7 +76,7 @@ If either basket cannot hold its full batch, use two half-sheet pans at 425°F: 
 
 ### Nutrition per serving
 
-468 kcal; 39.0 g protein; 6.0 g total carbs; 2.7 g fiber; 3.3 g net carbs
+Calories: 468 kcal; protein: 39.0 g; total carbs: 6.0 g; fiber: 2.7 g; net carbs: 3.3 g
 
 Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -100,7 +100,7 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [Instant Pot salmon and asparagus example](https://instantpot.com/blogs/recipes/super-easy-roast-salmon-and-asparagus)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
@@ -184,7 +184,7 @@ If baskets cannot hold the batch, use two oven pans at 425°F for about 20–25 
 
 ### Nutrition per serving
 
-317 kcal; 37.9 g protein; 9.5 g total carbs; 3.8 g fiber; 5.7 g net carbs
+Calories: 317 kcal; protein: 37.9 g; total carbs: 9.5 g; fiber: 3.8 g; net carbs: 5.7 g
 
 Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -210,7 +210,7 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [USDA poultry handling guidance](https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/chicken-farm-table)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
@@ -288,7 +288,7 @@ Separating wet zucchini keeps cod from steaming in vegetable liquid; pesto stays
 
 ### Nutrition per serving
 
-328 kcal; 33.9 g protein; 7.1 g total carbs; 2.3 g fiber; 4.8 g net carbs
+Calories: 328 kcal; protein: 33.9 g; total carbs: 7.1 g; fiber: 2.3 g; net carbs: 4.8 g
 
 Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -316,7 +316,7 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [DeLallo basil pesto label](https://www.delallo.com/pesto-squeeze-bottle/)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
@@ -406,7 +406,7 @@ Dry spinach prevents a watery center; feta, hemp, and yeast add savory depth.
 
 ### Nutrition per serving
 
-408 kcal; 30.3 g protein; 9.9 g total carbs; 5.0 g fiber; 4.9 g net carbs
+Calories: 408 kcal; protein: 30.3 g; total carbs: 9.9 g; fiber: 5.0 g; net carbs: 4.9 g
 
 Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -432,7 +432,7 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [Bob's Red Mill nutritional yeast label](https://www.bobsredmill.com/product/nutritional-yeast)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
@@ -522,7 +522,7 @@ Chicken sausage and turkey bacon replace pork, and cauliflower stands in for pot
 
 ### Nutrition per serving
 
-220 kcal; 12.7 g protein; 7.5 g total carbs; 1.8 g fiber; 5.6 g net carbs
+Calories: 220 kcal; protein: 12.7 g; total carbs: 7.5 g; fiber: 1.8 g; net carbs: 5.6 g
 
 Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -550,7 +550,7 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [FoodSafety.gov safe minimum temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
@@ -568,7 +568,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Shawarma chicken bowls cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>150g</strong> Cucumber<small class="trn-state-detail">diced</small></th><td rowspan="2" colspan="2" class="trn-operation">Prepare cucumber and greens.</td><td rowspan="25" colspan="1" class="trn-operation">Plate shawarma bowls: greens, cucumber, cooked chicken and cauliflower, yogurt sauce and remaining lemon.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>142g</strong> Salad greens<small class="trn-state-detail">washed, ready to eat · Buy by scaled edible weight.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>120g</strong> Plain strained Greek yogurt<small class="trn-state-detail">plain, strained · At least 9 g protein and no more than 4 g total carbs per 100 g.</small></th><td rowspan="4" colspan="2" class="trn-operation">Mix yogurt sauce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>pinch of</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>15g</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>454g</strong> Cauliflower florets<small class="trn-state-detail">about 1 inch across</small></th><td rowspan="9" colspan="1" class="trn-operation">Toss cauliflower with oil and spices on its own 18×13-inch pan.</td><td rowspan="18" colspan="1" class="trn-operation">Heat oven to 425°F on bake. Roast both pans for 18–23 min, until chicken reaches 165°F and cauliflower is tender.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14g</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1g</strong> Smoked paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1g</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Ground turmeric<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ tsp</strong> Ground cinnamon<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ remaining (5g total)</strong> Fine salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>680g</strong> Boneless skinless chicken thighs<small class="trn-state-essential">raw, thawed, cut into 1-inch pieces</small></th><td rowspan="9" colspan="1" class="trn-operation">Toss chicken with oil and spices on its own 18×13-inch pan.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14g</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1g</strong> Smoked paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1g</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Ground turmeric<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ tsp</strong> Ground cinnamon<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ remaining (5g total)</strong> Fine salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>15g</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Shawarma chicken bowls cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>150g</strong> Cucumber<small class="trn-state-detail">diced</small></th><td rowspan="2" colspan="2" class="trn-operation">Prepare cucumber and greens.</td><td rowspan="25" colspan="1" class="trn-operation">Plate shawarma bowls: greens, cucumber, cooked chicken and cauliflower, yogurt sauce and remaining lemon.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>142g</strong> Salad greens<small class="trn-state-detail">washed, ready to eat · Buy by scaled edible weight.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>120g</strong> Plain strained Greek yogurt<small class="trn-state-detail">plain, strained · At least 9 g protein and no more than 4 g total carbs per 100 g.</small></th><td rowspan="4" colspan="2" class="trn-operation">Mix yogurt sauce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>pinch of</strong> Fine salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>15g</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>454g</strong> Cauliflower florets<small class="trn-state-detail">about 1 inch across</small></th><td rowspan="9" colspan="1" class="trn-operation">Toss cauliflower with oil and spices on its own 18×13-inch pan.</td><td rowspan="18" colspan="1" class="trn-operation">Heat oven to 425°F on bake. Roast both pans for 18–23 min, until chicken reaches 165°F and cauliflower is tender.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14g</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1g</strong> Smoked paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1g</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Ground turmeric<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ tsp</strong> Ground cinnamon<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ remaining (5g total)</strong> Fine salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>680g</strong> Boneless skinless chicken thighs<small class="trn-state-essential">raw, thawed, cut into 1-inch pieces</small></th><td rowspan="9" colspan="1" class="trn-operation">Toss chicken with oil and spices on its own 18×13-inch pan.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14g</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1g</strong> Smoked paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1g</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Ground turmeric<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ tsp</strong> Ground cinnamon<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ remaining (5g total)</strong> Fine salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>15g</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
@@ -646,7 +646,7 @@ Warm spices coat small chicken pieces and cauliflower; cold lemon yogurt balance
 
 ### Nutrition per serving
 
-339 kcal; 39.7 g protein; 11.6 g total carbs; 3.8 g fiber; 7.8 g net carbs
+Calories: 339 kcal; protein: 39.7 g; total carbs: 11.6 g; fiber: 3.8 g; net carbs: 7.8 g
 
 Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -670,7 +670,7 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [USDA poultry handling guidance](https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/chicken-farm-table)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
@@ -762,7 +762,7 @@ Roasting spaced strips concentrates pepper flavor; lime, avocado, and yogurt rou
 
 ### Nutrition per serving
 
-378 kcal; 37.5 g protein; 13.0 g total carbs; 5.9 g fiber; 7.1 g net carbs
+Calories: 378 kcal; protein: 37.5 g; total carbs: 13.0 g; fiber: 5.9 g; net carbs: 7.1 g
 
 Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -786,7 +786,7 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [USDA poultry handling guidance](https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/chicken-farm-table)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
@@ -878,7 +878,7 @@ Salsa after pressure cooking keeps its tang and meets the cooker’s need for th
 
 ### Nutrition per serving
 
-327 kcal; 38.6 g protein; 13.9 g total carbs; 5.5 g fiber; 8.4 g net carbs
+Calories: 327 kcal; protein: 38.6 g; total carbs: 13.9 g; fiber: 5.5 g; net carbs: 8.4 g
 
 Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -910,7 +910,7 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [Herdez salsa verde label](https://www.salsas.com/herdez/products/salsas/salsa-verde/)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
@@ -1004,7 +1004,7 @@ If patties do not fit with gaps, bake on half-sheet pans at 425°F for about 18�
 
 ### Nutrition per serving
 
-378 kcal; 39.9 g protein; 7.7 g total carbs; 2.3 g fiber; 5.4 g net carbs
+Calories: 378 kcal; protein: 39.9 g; total carbs: 7.7 g; fiber: 2.3 g; net carbs: 5.4 g
 
 Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -1028,7 +1028,7 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [USDA poultry handling guidance](https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/chicken-farm-table)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
@@ -1116,7 +1116,7 @@ A tight foil cover and tomato liquid keep precooked chicken moist while lentils 
 
 ### Nutrition per serving
 
-380 kcal; 41.4 g protein; 30.8 g total carbs; 12.6 g fiber; 18.2 g net carbs
+Calories: 380 kcal; protein: 41.4 g; total carbs: 30.8 g; fiber: 12.6 g; net carbs: 18.2 g
 
 Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -1142,7 +1142,7 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [ABC chicken-lentil tray pairing](https://www.abc.net.au/news/2024-11-02/easy-chicken-and-lentil-tray-bake/104313206)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
@@ -1226,7 +1226,7 @@ Cumin-roasted cauliflower and soft-centered chickpeas meet a cold lemon-harissa 
 
 ### Nutrition per serving
 
-426 kcal; 28.8 g protein; 45.4 g total carbs; 12.0 g fiber; 33.4 g net carbs
+Calories: 426 kcal; protein: 28.8 g; total carbs: 45.4 g; fiber: 12.0 g; net carbs: 33.4 g
 
 Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -1254,7 +1254,7 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [Mina mild harissa](https://mina.co/products/mina-harissa-mild)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
@@ -1348,7 +1348,7 @@ The same lemon, garlic and oregano oil seasons the chicken and both vegetables. 
 
 ### Nutrition per serving
 
-422 kcal; 39.6 g protein; 34.8 g total carbs; 6.8 g fiber; 28.0 g net carbs
+Calories: 422 kcal; protein: 39.6 g; total carbs: 34.8 g; fiber: 6.8 g; net carbs: 28.0 g
 
 Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -1378,7 +1378,7 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [Potatoes USA microwave guidance](https://potatogoodness.com/wp-content/uploads/2018/04/Wow_Book_For_Web_Potatoes_USA_Branding.pdf)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
@@ -1468,7 +1468,7 @@ Roasted shelf-stable gnocchi stays tender inside; later beans avoid drying, whil
 
 ### Nutrition per serving
 
-604 kcal; 26.7 g protein; 81.4 g total carbs; 11.8 g fiber; 69.6 g net carbs
+Calories: 604 kcal; protein: 26.7 g; total carbs: 81.4 g; fiber: 11.8 g; net carbs: 69.6 g
 
 Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -1500,7 +1500,7 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [DeLallo sheet-pan gnocchi method](https://www.delallo.com/recipe/sheet-pan-pesto-gnocchi/)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
@@ -1592,7 +1592,7 @@ Ground flax binds the turkey; feta and lemon yogurt keep a lean patty from tasti
 
 ### Nutrition per serving
 
-378 kcal; 39.9 g protein; 7.7 g total carbs; 2.3 g fiber; 5.4 g net carbs
+Calories: 378 kcal; protein: 39.9 g; total carbs: 7.7 g; fiber: 2.3 g; net carbs: 5.4 g
 
 Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -1614,13 +1614,13 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [USDA poultry handling guidance](https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/chicken-farm-table)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
 ## Avocado-lime smoothie
 
-4 adult servings · US measures · keto · 5 min active per base batch · 5–5 min
+4 adult servings · US measures · keto · 5 min active per base batch · 5 min
 
 A creamy avocado-lime smoothie with plain Greek yogurt and no added sugar.
 
@@ -1680,7 +1680,7 @@ Greek yogurt gives the smoothie body and a tangy finish.
 
 ### Nutrition per 8 oz glass
 
-158 kcal; 9.4 g protein; 9.8 g total carbs; 4.6 g fiber; 5.2 g net carbs
+Calories: 158 kcal; protein: 9.4 g; total carbs: 9.8 g; fiber: 4.6 g; net carbs: 5.2 g
 
 This batch makes about 5.4 eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume. Estimated from ingredient mass using approximately 1 g/ml for the blended mixture. Finished volume has not been measured; aeration, blender retention and extra liquid affect yield. Per estimated glass: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -1698,13 +1698,13 @@ Serve chilled immediately for best texture; refrigerate any remainder promptly.
 
 - [USDA FoodData Central ingredient profiles](https://fdc.nal.usda.gov/)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
 ## Strawberry-avocado smoothie
 
-4 adult servings · US measures · keto · 5 min active per base batch · 5–5 min
+4 adult servings · US measures · keto · 5 min active per base batch · 5 min
 
 A creamy strawberry-avocado smoothie with plain Greek yogurt and no added sugar.
 
@@ -1762,7 +1762,7 @@ Greek yogurt gives the smoothie body and a tangy finish.
 
 ### Nutrition per 8 oz glass
 
-159 kcal; 9.7 g protein; 10.8 g total carbs; 4.8 g fiber; 6.0 g net carbs
+Calories: 159 kcal; protein: 9.7 g; total carbs: 10.8 g; fiber: 4.8 g; net carbs: 6.0 g
 
 This batch makes about 5.2 eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume. Estimated from ingredient mass using approximately 1 g/ml for the blended mixture. Finished volume has not been measured; aeration, blender retention and extra liquid affect yield. Per estimated glass: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -1780,13 +1780,13 @@ Serve chilled immediately for best texture; refrigerate any remainder promptly.
 
 - [USDA FoodData Central ingredient profiles](https://fdc.nal.usda.gov/)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
 ## Strawberry-banana smoothie
 
-4 adult servings · US measures · nonketo · 5 min active per base batch · 5–5 min
+4 adult servings · US measures · nonketo · 5 min active per base batch · 5 min
 
 A creamy strawberry-banana smoothie with plain Greek yogurt and no added sugar.
 
@@ -1842,7 +1842,7 @@ Greek yogurt gives the smoothie body and a tangy finish.
 
 ### Nutrition per 8 oz glass
 
-117 kcal; 8.1 g protein; 19.1 g total carbs; 2.6 g fiber; 16.4 g net carbs
+Calories: 117 kcal; protein: 8.1 g; total carbs: 19.1 g; fiber: 2.6 g; net carbs: 16.4 g
 
 This batch makes about 8.5 eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume. Estimated from ingredient mass using approximately 1 g/ml for the blended mixture. Finished volume has not been measured; aeration, blender retention and extra liquid affect yield. Per estimated glass: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -1860,13 +1860,13 @@ Serve chilled immediately for best texture; refrigerate any remainder promptly.
 
 - [USDA FoodData Central ingredient profiles](https://fdc.nal.usda.gov/)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
 ## Banana-flax smoothie
 
-4 adult servings · US measures · nonketo · 5 min active per base batch · 5–5 min
+4 adult servings · US measures · nonketo · 5 min active per base batch · 5 min
 
 A creamy banana-flax smoothie with plain Greek yogurt and no added sugar.
 
@@ -1922,7 +1922,7 @@ Greek yogurt gives the smoothie body and a tangy finish.
 
 ### Nutrition per 8 oz glass
 
-168 kcal; 11.2 g protein; 22.5 g total carbs; 3.6 g fiber; 18.9 g net carbs
+Calories: 168 kcal; protein: 11.2 g; total carbs: 22.5 g; fiber: 3.6 g; net carbs: 18.9 g
 
 This batch makes about 6.4 eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume. Estimated from ingredient mass using approximately 1 g/ml for the blended mixture. Finished volume has not been measured; aeration, blender retention and extra liquid affect yield. Per estimated glass: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -1940,13 +1940,13 @@ Serve chilled immediately for best texture; refrigerate any remainder promptly.
 
 - [USDA FoodData Central ingredient profiles](https://fdc.nal.usda.gov/)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
 ## Strawberry-hemp smoothie
 
-4 adult servings · US measures · keto · 5 min active per base batch · 5–5 min
+4 adult servings · US measures · keto · 5 min active per base batch · 5 min
 
 A tangy strawberry smoothie with hulled hemp hearts for a nutty finish, without banana or added sugar.
 
@@ -2004,7 +2004,7 @@ Greek yogurt supplies a creamy, tangy base; strawberries add fruit flavor and he
 
 ### Nutrition per 8 oz glass
 
-145 kcal; 11.9 g protein; 7.4 g total carbs; 1.4 g fiber; 5.9 g net carbs
+Calories: 145 kcal; protein: 11.9 g; total carbs: 7.4 g; fiber: 1.4 g; net carbs: 5.9 g
 
 This batch makes about 5.6 eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume. Estimated from ingredient mass using approximately 1 g/ml for the blended mixture. Finished volume has not been measured; aeration, blender retention and extra liquid affect yield. Per estimated glass: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -2030,13 +2030,13 @@ Serve chilled immediately for best texture; refrigerate any remainder promptly.
 
 - [Seeds, hemp seed, hulled — USDA FoodData Central](https://fdc.nal.usda.gov/food-details/170148/nutrients)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
 ## Cucumber-spinach-lime smoothie
 
-4 adult servings · US measures · keto · 5 min active per base batch · 5–5 min
+4 adult servings · US measures · keto · 5 min active per base batch · 5 min
 
 A fresh, savory green smoothie with cucumber, raw spinach, lime and ground flaxseed, without added sugar.
 
@@ -2098,7 +2098,7 @@ Cucumber and lime keep this savory smoothie fresh; yogurt gives body and ground 
 
 ### Nutrition per 8 oz glass
 
-89 kcal; 8.5 g protein; 6.7 g total carbs; 2.1 g fiber; 4.6 g net carbs
+Calories: 89 kcal; protein: 8.5 g; total carbs: 6.7 g; fiber: 2.1 g; net carbs: 4.6 g
 
 This batch makes about 6.0 eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume. Estimated from ingredient mass using approximately 1 g/ml for the blended mixture. Finished volume has not been measured; aeration, blender retention and extra liquid affect yield. Per estimated glass: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -2128,7 +2128,7 @@ Serve chilled immediately for best texture; refrigerate any remainder promptly.
 
 - [Seeds, flaxseed — USDA FoodData Central](https://fdc.nal.usda.gov/food-details/169414/nutrients)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
@@ -2218,7 +2218,7 @@ Red enchilada sauce gives the broth chile flavor; lime and fresh cabbage balance
 
 ### Nutrition per serving
 
-376 kcal; 43.0 g protein; 32.6 g total carbs; 6.7 g fiber; 25.9 g net carbs
+Calories: 376 kcal; protein: 43.0 g; total carbs: 32.6 g; fiber: 6.7 g; net carbs: 25.9 g
 
 Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
 
@@ -2246,4 +2246,12938 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [USDA leftovers and reheating guidance](https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety)
 
-These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## One-pan keto green chili chicken
+
+4 portions · US measures · keto · 5 min publisher preparation · 25 min
+
+Cooked shredded chicken in a green-chili cheese sauce.
+
+Stir the sauce until smooth, then cover and reheat cooked chicken to 165°F.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="One-pan keto green chili chicken cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Use fully cooked shredded chicken. Keep the sauce cheddar and topping cheddar separate.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> Butter<small class="trn-state-detail"></small></th><td rowspan="3" colspan="1" class="trn-operation">Melt butter over medium heat; stir garlic and jalapeño for 30 sec.</td><td rowspan="11" colspan="1" class="trn-operation">Whisk in liquids, cream cheese, chilis, spices and sauce cheddar until smooth.</td><td rowspan="13" colspan="1" class="trn-operation">Fold chicken into the smooth sauce and scatter topping cheddar over it. Then: Cover on low; simmer about 10 min and confirm chicken reaches 165°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> Minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> Jalapeño<small class="trn-state-detail">seeded and chopped</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Unsweetened almond milk<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅙ cup</strong> Heavy cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 oz</strong> Cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2.7 oz</strong> Canned green chilis<small class="trn-state-essential">undrained · Two-thirds of the source four-ounce can at four servings.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ tsp</strong> Chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ tsp</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅓ tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Shredded cheddar for the sauce<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>3 ⅓ cup</strong> Shredded chicken<small class="trn-state-essential">fully cooked</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>⅓ cup</strong> Shredded cheddar for topping<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- ⅔ tbsp Butter
+
+- ⅔ tbsp Minced garlic
+
+- ⅔ count Jalapeño — seeded and chopped
+
+- ⅔ cup Unsweetened almond milk
+
+- ⅙ cup Heavy cream
+
+- 2 oz Cream cheese
+
+- 2.7 oz Canned green chilis — undrained. Two-thirds of the source four-ounce can at four servings.
+
+- ⅔ tsp Chili powder
+
+- ⅔ tsp Ground cumin
+
+- ⅓ tsp Onion powder
+
+- ⅔ cup Shredded cheddar for the sauce
+
+- 3 ⅓ cup Shredded chicken — fully cooked
+
+- ⅓ cup Shredded cheddar for topping
+
+### Equipment
+
+- Stovetop and large lidded skillet
+
+- Whisk and spoon
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Start the sauce.** Set a large skillet over medium heat. Melt the butter, then stir in the minced garlic and seeded jalapeño for about 30 seconds.
+
+2. **Melt the cheeses.** Whisk in almond milk, cream, cream cheese, undrained chilis, chili powder, cumin, onion powder and the sauce portion of cheddar. Keep stirring until the sauce is smooth.
+
+3. **Heat the chicken.** Fold in the fully cooked chicken. Scatter the topping cheddar over it, cover, and turn the heat to low. Simmer for about 10 minutes; confirm the chicken reaches 165°F in several places before serving.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+Green chilis, cumin and jalapeño season the creamy cheddar sauce.
+
+- Keep the two cheddar portions separate until topping.
+
+### Nutrition per serving
+
+Calories: 335 kcal; protein: 28.4 g; total carbs: 4.1 g; fiber: 0.5 g; net carbs: 3.6 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves the portion.
+
+Known allergens for these plates: milk, tree nuts. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Adapted from Annie Holmes at The Best Keto Recipes. Ingredient amounts are two-thirds of the original six-serving batch, giving four portions.
+
+- Nutrition is the publisher’s estimate per original portion, retained after proportional scaling. Optional garnishes are excluded. This adaptation has not been kitchen-tested.
+
+- Use fully cooked shredded chicken; the short covered simmer is a reheating step. Larger batches may need a larger skillet or separate batches.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [The Best Keto Recipes: One Pan Keto Green Chili Chicken](https://thebestketorecipes.com/one-pan-keto-green-chili-chicken/)
+
+- [USDA leftovers and reheating guidance](https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Honey Mustard Chicken Sheet Pan Dinner (keto + low carb)
+
+4 portions · US measures · keto · 5 min publisher preparation · Not provided
+
+Honey Mustard Chicken Sheet Pan Dinner (keto + low carb). Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Honey Mustard Chicken Sheet Pan Dinner (keto + low carb) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 425°F. Line a baking sheet. Melt the butter.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 count</strong> Boneless skinless chicken thighs<small class="trn-state-essential">raw</small></th><td rowspan="3" colspan="1" class="trn-operation">Coat seasoned chicken with half the mustard.</td><td rowspan="10" colspan="1" class="trn-operation">Roast together at 425°F for 20–25 min to chicken 165°F. Brush with reserved mustard; broil 2–3 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> G Hughes Sugar Free Honey Mustard<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> salt and pepper to taste<small class="trn-state-detail">Source does not state an amount; measure to taste or as needed.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> asparagus<small class="trn-state-detail">tough ends removed</small></th><td rowspan="6" colspan="1" class="trn-operation">Toss vegetables in garlic butter; season to taste.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> sliced bell pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> sliced red onion<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> salt and pepper to taste<small class="trn-state-detail">Source does not state an amount; measure to taste or as needed.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> G Hughes Sugar Free Honey Mustard<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 8 count Boneless skinless chicken thighs — raw
+
+- ½ cup G Hughes Sugar Free Honey Mustard
+
+- 1 lb asparagus — tough ends removed
+
+- ½ cup sliced bell pepper
+
+- ¼ cup sliced red onion
+
+- 1 tbsp butter
+
+- 2 tsp minced garlic
+
+- to taste salt and pepper to taste. Source does not state an amount; measure to taste or as needed.
+
+### Equipment
+
+- Oven
+
+- Baking sheet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Arrange.** Put chicken at one end of the sheet and season it. Coat with half the honey mustard.
+
+2. **Vegetables.** Arrange the asparagus, pepper and onion at the other end. Mix butter with garlic, drizzle over the vegetables and season to taste.
+
+3. **Roast.** Bake 20–25 minutes, until chicken reaches 165°F internally.
+
+4. **Glaze.** Brush chicken with the remaining mustard. Broil 2–3 minutes, watching the glaze closely.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 441 kcal; protein: 51.0 g; total carbs: 7.9 g; fiber: 3.0 g; net carbs: 4.9 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 20 minutes of cooking, but the method requires 20–25 minutes of roasting plus 2–3 minutes of broiling.
+
+- The source’s per-thigh spoon instructions exceed its listed sauce total; this adaptation divides the listed sauce equally between two coatings.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Farmlife DIY. This adaptation has not been kitchen-tested.
+
+- The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Farmlife DIY: Honey Mustard Chicken Sheet Pan Dinner (keto + low carb)](https://farmlifediy.com/honey-mustard-chicken-sheet-pan-dinner-keto-low-carb/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## One Pan Cheesy Fajita Chicken (keto + low carb)
+
+4 portions · US measures · keto · 10 min publisher preparation · 25 min
+
+One Pan Cheesy Fajita Chicken (keto + low carb). Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="One Pan Cheesy Fajita Chicken (keto + low carb) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cut chicken and vegetables before heating the skillet.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Chicken<small class="trn-state-essential">raw; cut into chunks</small></th><td rowspan="11" colspan="1" class="trn-operation">Season chicken; sear in method spray/oil 2–3 min each side; add vegetables, cook 5 min and reserve.</td><td rowspan="17" colspan="1" class="trn-operation">Return chicken and vegetables to sauce; add reserved cheddar, cover and simmer low 6–8 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> bell pepper<small class="trn-state-detail">cut into small pieces</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> onion<small class="trn-state-detail">cut into small pieces</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> jalapeños<small class="trn-state-detail">seeded and diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil or cooking spray<small class="trn-state-detail">Source method allows up to 1 tablespoon olive oil OR unmeasured nonstick spray. This measured amount is an upper limit, not a mandatory minimum.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> heavy cream<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Melt listed butter into cream, broth, cream cheese and half cheddar over medium-low into a thick sauce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 oz</strong> cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> cheddar<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ cup</strong> cheddar<small class="trn-state-detail">divided</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 ½ lb Chicken — raw; cut into chunks
+
+- 1 tsp cumin
+
+- 1 tsp chili powder
+
+- ½ tsp garlic powder
+
+- ½ tsp onion powder
+
+- ½ tsp salt
+
+- ½ tsp pepper
+
+- 1 tbsp butter
+
+- 1 cup bell pepper — cut into small pieces
+
+- ½ cup onion — cut into small pieces
+
+- 2 count jalapeños — seeded and diced
+
+- ¼ cup heavy cream
+
+- ⅓ cup chicken broth
+
+- 2 oz cream cheese
+
+- 1 cup cheddar — divided
+
+- 1 tbsp Olive oil or cooking spray. Source method allows up to 1 tablespoon olive oil OR unmeasured nonstick spray. This measured amount is an upper limit, not a mandatory minimum.
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Season.** Mix cumin, chili powder, garlic powder, onion powder, salt and pepper. Toss the chicken in this blend.
+
+2. **Brown.** Warm a large skillet over medium heat with the source method's spray or oil. Sear chicken 2–3 minutes per side. Add peppers, onion and jalapeños, then cook about 5 minutes, until the vegetables begin softening. Transfer everything to a plate.
+
+3. **Sauce.** Over medium-low heat, melt the listed butter into cream, broth, cream cheese and half the cheddar; stir until thickened.
+
+4. **Finish.** Return the chicken and vegetables, scatter the remaining cheddar on top and cover. Simmer on low for 6–8 minutes, checking the chicken reaches 165°F.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 344 kcal; protein: 34.0 g; total carbs: 6.1 g; fiber: 1.4 g; net carbs: 4.7 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists butter without a placement; this adaptation melts it into the cheese sauce.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: One Pan Cheesy Fajita Chicken (keto + low carb)](https://www.maebells.com/one-pan-cheesy-fajita-chicken-keto-low-carb/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Keto Jalapeño Chicken
+
+4 portions · US measures · keto · 10 min publisher preparation · 25 min
+
+Keto Jalapeño Chicken. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Jalapeño Chicken cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Use a lidded 12-inch skillet.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> small chicken breast<small class="trn-state-detail">this was about 1.5 pounds for me · Source says 4 small chicken breasts, approximately 1.5 pounds total.</small></th><td rowspan="7" colspan="1" class="trn-operation">Season chicken and sear 2–3 min each side in method spray/oil; reserve.</td><td rowspan="16" colspan="1" class="trn-operation">Return chicken to sauce; add remaining cheddar, cover and simmer low 6–8 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil or cooking spray<small class="trn-state-detail">Source method allows up to 1 tablespoon olive oil OR unmeasured nonstick spray. This measured amount is an upper limit, not a mandatory minimum.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail"></small></th><td rowspan="8" colspan="1" class="trn-operation">Sauté aromatics in butter 3–4 min; lower heat, stir in liquids and cream cheese; melt half cheddar.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> chopped onion<small class="trn-state-detail">half of one small onion</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> jalapenos<small class="trn-state-detail">seeded and diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> heavy cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 oz</strong> cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> shredded cheddar cheese<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ cup</strong> shredded cheddar cheese<small class="trn-state-detail">divided</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 count small chicken breast — this was about 1.5 pounds for me. Source says 4 small chicken breasts, approximately 1.5 pounds total.
+
+- 1 tsp cumin
+
+- ½ tsp chili powder
+
+- ½ tsp garlic powder
+
+- ½ tsp salt
+
+- ½ tsp pepper
+
+- 1 tbsp butter
+
+- ½ cup chopped onion — half of one small onion
+
+- 2 count jalapenos — seeded and diced
+
+- 1 tsp minced garlic
+
+- ¼ cup heavy cream
+
+- ⅓ cup chicken broth
+
+- 2 oz cream cheese
+
+- 1 cup shredded cheddar cheese — divided
+
+- 1 tbsp Olive oil or cooking spray. Source method allows up to 1 tablespoon olive oil OR unmeasured nonstick spray. This measured amount is an upper limit, not a mandatory minimum.
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Season.** Combine the spices and coat both faces of each chicken breast.
+
+2. **Sear.** Warm the skillet over medium with the source spray or oil. Brown the chicken 2–3 minutes per side, then transfer it to a plate.
+
+3. **Sauce.** Melt the butter in the pan; sauté onion, jalapeños and garlic for 3–4 minutes. Lower the heat, pour in cream and broth, and stir in cream cheese until smooth. Melt half the cheddar into the sauce.
+
+4. **Finish.** Return chicken, cover it with the remaining cheddar, then put on the lid. Simmer gently for 6–8 minutes until the chicken is cooked.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 425 kcal; protein: 40.3 g; total carbs: 5.1 g; fiber: 0.8 g; net carbs: 4.3 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Keto Jalapeño Chicken](https://www.maebells.com/one-pan-keto-cheesy-jalapeno-chicken/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Keto Broccoli Cheddar Chicken
+
+4 portions · US measures · keto · 15 min publisher preparation · Not provided
+
+Keto Broccoli Cheddar Chicken. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Broccoli Cheddar Chicken cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Set oven to 350°F. Use an oven-safe skillet.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail"></small></th><td rowspan="7" colspan="1" class="trn-operation">Brown chicken with first butter portion and spices 5–6 min; reserve.</td><td rowspan="15" colspan="1" class="trn-operation">Combine chicken, sauce and broccoli; add topping cheddar; bake 350°F 20–25 min and rest 10 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> chicken breast<small class="trn-state-detail">cut into cubes</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail"></small></th><td rowspan="6" colspan="1" class="trn-operation">Make cheese sauce with second butter portion, garlic, almond milk, heavy cream, cream cheese and sauce cheddar.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> unsweetened almond milk<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 oz</strong> cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> shredded cheddar cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> heavy cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>5 cup</strong> broccoli florets<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ cup</strong> shredded cheddar cheese<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 tbsp butter
+
+- 1 lb chicken breast — cut into cubes
+
+- 1 tsp garlic powder
+
+- 1 tsp onion powder
+
+- ½ tsp paprika
+
+- ¼ tsp salt
+
+- ¼ tsp pepper
+
+- 5 cup broccoli florets
+
+- 1 tbsp butter
+
+- 1 tsp garlic
+
+- 1 cup unsweetened almond milk
+
+- ¼ cup heavy cream
+
+- 3 oz cream cheese
+
+- 1 cup shredded cheddar cheese
+
+- ½ cup shredded cheddar cheese
+
+### Equipment
+
+- Oven-safe skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Chicken.** Warm the skillet over medium. Cook cubed chicken in the first butter portion with the dry spices for 5–6 minutes, browning all faces. Set chicken aside.
+
+2. **Cheese sauce.** In the same pan, heat the second butter portion, garlic, almond milk, heavy cream, cream cheese and sauce cheddar. Whisk as the cream cheese melts.
+
+3. **Bake.** Fold chicken and broccoli into the sauce. Add topping cheddar and bake 20–25 minutes. Wait 10 minutes before serving so the sauce can thicken.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 311 kcal; protein: 30.7 g; total carbs: 9.6 g; fiber: 3.0 g; net carbs: 6.6 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk, tree nuts. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists heavy cream without placing it; this adaptation adds it to the cheese sauce.
+
+- The publisher lists 20 minutes of cooking, but the method requires 5–6 minutes of searing, 20–25 minutes of baking and 10 minutes of cooling.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Keto Broccoli Cheddar Chicken](https://www.maebells.com/keto-broccoli-cheddar-chicken-one-pan-recipe/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Sesame Chicken Keto Stir Fry
+
+4 portions · US measures · keto · Preparation time not provided · 25 min
+
+Sesame Chicken Keto Stir Fry. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Sesame Chicken Keto Stir Fry cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Thinly slice chicken and zucchini.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> gluten free soy sauce<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Whisk sesame sauce.</td><td rowspan="11" colspan="1" class="trn-operation">Add sauce to chicken and zucchini; cover, simmer low 10 min; serve with cashews and green onions.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> rice vinegar<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> brown sugar swerve<small class="trn-state-detail">or other keto friendly sweetener</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> sesame oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil or sesame oil for frying<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Brown seasoned chicken in frying oil 5–6 min; add zucchini 2–3 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> chicken<small class="trn-state-detail">thinly sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> medium size zucchini<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> salt and pepper to taste<small class="trn-state-detail">Source does not state an amount; measure to taste or as needed.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> cashews<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> green onions<small class="trn-state-detail">chopped</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- ¼ cup gluten free soy sauce
+
+- 1 tbsp rice vinegar
+
+- 2 tbsp brown sugar swerve — or other keto friendly sweetener
+
+- 2 tbsp sesame oil
+
+- 2 tsp minced garlic
+
+- 1 tbsp olive oil or sesame oil for frying
+
+- 1 ½ lb chicken — thinly sliced
+
+- 1 count medium size zucchini — sliced
+
+- to taste salt and pepper to taste. Source does not state an amount; measure to taste or as needed.
+
+- 2 tbsp cashews — chopped
+
+- 2 tbsp green onions — chopped
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Sauce.** Whisk soy sauce, rice vinegar, sweetener, sesame oil and garlic together.
+
+2. **Stir-fry.** Heat the frying oil in a skillet over medium. Season chicken to taste and brown it for 5–6 minutes. Stir in zucchini and cook another 2–3 minutes.
+
+3. **Simmer.** Coat the contents with the prepared sauce. Cover and simmer over low heat for 10 minutes. Add the listed chopped cashews and green onions when serving.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 285 kcal; protein: 40.6 g; total carbs: 2.1 g; fiber: 0.3 g; net carbs: 1.8 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: sesame, soy, tree nuts. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists cashews and green onions without saying when to add them; this adaptation uses them as serving garnishes.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Sesame Chicken Keto Stir Fry](https://www.maebells.com/keto-sesame-chicken-stir-fry-one-pan-low-carb/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## One Pan Mushroom Chicken (keto + low carb)
+
+4 portions · US measures · keto · 5 min publisher preparation · 25 min
+
+One Pan Mushroom Chicken (keto + low carb). Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="One Pan Mushroom Chicken (keto + low carb) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Flatten chicken breasts to even thickness.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> boneless skinless chicken breasts<small class="trn-state-detail">pounded to an even thickness</small></th><td rowspan="4" colspan="1" class="trn-operation">Season chicken; sear in first butter 3–4 min per side; reserve.</td><td rowspan="11" colspan="1" class="trn-operation">Add remaining divided butter and cream; return chicken, top with Swiss; cover, simmer 6–8 min to cooked chicken.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> salt and pepper<small class="trn-state-detail">to taste · Source does not state an amount; measure to taste or as needed.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail">divided</small></th><td rowspan="4" colspan="1" class="trn-operation">Simmer mushrooms and garlic with wine/broth and half divided butter until liquid nearly evaporates.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 oz</strong> Mushrooms<small class="trn-state-detail">thinly sliced; source uses one 8-ounce package</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> white cooking wine<small class="trn-state-detail">or chicken broth</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> heavy cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 slice</strong> Swiss cheese<small class="trn-state-detail">halved</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb boneless skinless chicken breasts — pounded to an even thickness
+
+- 1 tsp Italian seasoning
+
+- to taste salt and pepper — to taste. Source does not state an amount; measure to taste or as needed.
+
+- 1 tbsp butter
+
+- 2 tbsp butter — divided
+
+- 1 tsp minced garlic
+
+- 8 oz Mushrooms — thinly sliced; source uses one 8-ounce package
+
+- ½ cup white cooking wine — or chicken broth
+
+- ¼ cup heavy cream
+
+- 2 slice Swiss cheese — halved
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Sear.** Coat chicken with Italian seasoning and salt and pepper. Melt the first butter portion in a 12-inch skillet over medium. Sear chicken 3–4 minutes on each face, then reserve it; it will finish cooking later.
+
+2. **Mushrooms.** Use half the divided butter portion to cook garlic and mushrooms with wine or broth. Simmer until nearly all the liquid evaporates.
+
+3. **Finish.** Stir in the rest of the divided butter and the cream. Return chicken and place halved Swiss slices over it. Cover and simmer for 6–8 minutes until the chicken is cooked.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 278 kcal; protein: 27.8 g; total carbs: 2.9 g; fiber: 0.6 g; net carbs: 2.3 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: One Pan Mushroom Chicken (keto + low carb)](https://www.maebells.com/one-pan-mushroom-chicken-keto-low-carb/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Keto Slow Cooker Zesty Ranch Chicken
+
+4 portions · US measures · unverified · 5 min publisher preparation · 485 min
+
+Keto Slow Cooker Zesty Ranch Chicken. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Slow Cooker Zesty Ranch Chicken cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Use a small slow cooker; source uses 2 quarts.</td></tr><tr><td colspan="2" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> chicken breast<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Slow-cook all ingredients on low 8 h; shred chicken and peppers, then stir.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2.7 oz</strong> cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.7 oz</strong> Hidden Valley Ranch seasoning mix<small class="trn-state-detail">dry mix; source uses one 1-ounce package</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 ⅓ count</strong> jarred pepperoncini peppers<small class="trn-state-detail">Source gives a range; amount is its lower endpoint, amountMax its upper endpoint. Source range: 8–10 count; use the lower stated amount as the scaled starting point.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb chicken breast
+
+- ⅔ tbsp butter
+
+- 2.7 oz cream cheese
+
+- 0.7 oz Hidden Valley Ranch seasoning mix — dry mix; source uses one 1-ounce package
+
+- 5 ⅓ count jarred pepperoncini peppers. Source gives a range; amount is its lower endpoint, amountMax its upper endpoint. Source range: 8–10 count; use the lower stated amount as the scaled starting point.
+
+### Equipment
+
+- Slow cooker
+
+- Forks
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Slow cook.** Load the chicken, butter, cream cheese, ranch mix and pepperoncini into the cooker. Cook on low for 8 hours.
+
+2. **Shred.** Shred the chicken and peppers and stir them into the creamy cooking liquid before serving.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 203 kcal; protein: 26.4 g; total carbs: 1.0 g; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Ingredient quantities are scaled from 6 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Keto Slow Cooker Zesty Ranch Chicken](https://thebestketorecipes.com/keto-slow-cooker-zesty-ranch-chicken-less-than-1-net-carb/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [Resolved publisher source](https://thebestketorecipes.com/keto-slow-cooker-zesty-ranch-chicken/)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Skillet Creamy Lemon Chicken with Cauliflower
+
+4 portions · US measures · keto · 15 min publisher preparation · 30 min
+
+Skillet Creamy Lemon Chicken with Cauliflower. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Skillet Creamy Lemon Chicken with Cauliflower cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare thin chicken cutlets and small cauliflower pieces or cauliflower rice.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> thin cut chicken breasts<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Season chicken; fry in butter 3–5 min, then 2–4 min to 165°F; keep warm.</td><td rowspan="12" colspan="1" class="trn-operation">Off heat, add thyme, cream, lemon juice and zest; return chicken and optional thyme.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> unsalted butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> chicken bone broth<small class="trn-state-detail">or chicken stock</small></th><td rowspan="3" colspan="1" class="trn-operation">Deglaze skillet with stock, garlic and cauliflower; simmer 4–5 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 clove</strong> garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 cup</strong> cauliflower<small class="trn-state-detail">rice or chopped small</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tbsp</strong> fresh thyme<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> heavy cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tbsp</strong> lemon juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tsp</strong> lemon zest<small class="trn-state-detail">from 1 lemon</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh thyme<small class="trn-state-detail">garnish, optional · Source does not state an amount; measure to taste or as needed. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb thin cut chicken breasts
+
+- 1 tsp salt
+
+- ¼ tsp pepper
+
+- 1 tbsp unsalted butter
+
+- 1 cup chicken bone broth — or chicken stock
+
+- 4 clove garlic — minced
+
+- 4 cup cauliflower — rice or chopped small
+
+- 1 tbsp fresh thyme
+
+- 2 tbsp heavy cream
+
+- 1 tbsp lemon juice
+
+- 1 tsp lemon zest — from 1 lemon
+
+- Not specified Fresh thyme — garnish, optional. Source does not state an amount; measure to taste or as needed. Optional; excluded or included as stated in the publisher nutrition.
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Chicken.** Season chicken with salt and pepper. Brown it in butter over medium-high heat for 3–5 minutes, turn, then cook 2–4 minutes more to an internal 165°F. Transfer to a plate and tent with foil.
+
+2. **Cauliflower.** Pour broth into the skillet and add garlic and cauliflower. Loosen the browned residue from the pan and simmer 4–5 minutes until cauliflower is just tender.
+
+3. **Finish.** Take the skillet off the heat. Stir in thyme, cream, lemon juice and zest. Return chicken and add optional thyme garnish.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 222 kcal; protein: 28.0 g; total carbs: 7.0 g; fiber: 2.0 g; net carbs: 5.0 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from deliciouslittlebites.com. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [deliciouslittlebites.com: Skillet Creamy Lemon Chicken with Cauliflower](https://deliciouslittlebites.com/skillet-creamy-lemon-chicken-cauliflower/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Creamy Buffalo Chicken Cauliflower Casserole
+
+4 portions · US measures · keto · 20 min publisher preparation · Not provided
+
+Creamy Buffalo Chicken Cauliflower Casserole. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Creamy Buffalo Chicken Cauliflower Casserole cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 375°F. Chicken must already be cooked and shredded or diced.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> boneless, skinless chicken<small class="trn-state-essential">fully cooked; diced or shredded</small></th><td rowspan="5" colspan="1" class="trn-operation">Mix chicken, cauliflower, buffalo sauce, cream cheese and three quarters cheddar.</td><td rowspan="6" colspan="1" class="trn-operation">Transfer filling to dish, top with remaining cheddar; loosely cover, bake 375°F 25 min then uncovered 10 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 ⅓ cup</strong> cauliflower<small class="trn-state-detail">riced or finely chopped from 1 medium size head</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> buffalo sauce<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5.3 oz</strong> cream cheese<small class="trn-state-detail">room temperature</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 oz</strong> sharp cheddar cheese<small class="trn-state-detail">shredded</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1.3 oz</strong> sharp cheddar cheese<small class="trn-state-detail">shredded</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb boneless, skinless chicken — fully cooked; diced or shredded
+
+- 3 ⅓ cup cauliflower — riced or finely chopped from 1 medium size head
+
+- ⅓ cup buffalo sauce
+
+- 5.3 oz cream cheese — room temperature
+
+- 5.3 oz sharp cheddar cheese — shredded
+
+### Equipment
+
+- Oven
+
+- Baking dish
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Mix.** Combine cooked chicken, cauliflower, buffalo sauce, softened cream cheese and three quarters of the cheddar in a large bowl.
+
+2. **Bake.** Transfer to a casserole dish and scatter the remaining cheddar over it. Loosely cover with foil and bake for 25 minutes. Uncover and bake about 10 minutes more, until bubbling and melted.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 437 kcal; protein: 37.0 g; total carbs: 7.0 g; fiber: 2.0 g; net carbs: 5.0 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Source total 50 min differs from 20 min prep plus 35 min cook. Chicken is pre-cooked.
+
+- Ingredient quantities are scaled from 6 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from deliciouslittlebites.com. This adaptation has not been kitchen-tested.
+
+- The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [deliciouslittlebites.com: Creamy Buffalo Chicken Cauliflower Casserole](https://deliciouslittlebites.com/buffalo-chicken-cauliflower-casserole/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Keto Butter Chicken (Family Favorite)
+
+4 portions · US measures · keto · 60 min publisher preparation · 90 min
+
+Keto Butter Chicken (Family Favorite). Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Butter Chicken (Family Favorite) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cut chicken into bite-sized pieces. Allow 1 hour for refrigerated marination.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> Greek Yogurt<small class="trn-state-detail"></small></th><td rowspan="7" colspan="1" class="trn-operation">Marinate chicken in yogurt mixture chilled 1 h; sear in avocado oil medium-high about 8 min to 165°F and pour off liquid.</td><td rowspan="17" colspan="1" class="trn-operation">Add remaining garlic, ginger, salt and spices 1 min; add tomato products, cream and butter, thicken; garnish cilantro.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> Ginger paste<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 clove</strong> Garlic, minced<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Kosher salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ lb</strong> Boneless skinless chicken thighs cut into bite size chunks<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> avocado oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ tsp</strong> Kosher salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 ⅔ clove</strong> Garlic, minced<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> Ginger paste<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Garam Masala<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Smoked paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>5.3 oz</strong> Tomato sauce<small class="trn-state-detail">source uses one 8-ounce container</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> Tomato paste<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅓ cup</strong> Heavy cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh cilantro for garnish<small class="trn-state-detail">Source does not state an amount; measure to taste or as needed. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- ⅔ cup Greek Yogurt
+
+- ⅔ tbsp Ginger paste
+
+- 2 clove Garlic, minced
+
+- ⅔ tsp Kosher salt
+
+- ⅓ tsp Black pepper
+
+- 1 ⅓ lb Boneless skinless chicken thighs cut into bite size chunks
+
+- 1 ⅓ tbsp avocado oil
+
+- ⅔ tsp Kosher salt
+
+- 2 ⅔ clove Garlic, minced
+
+- 1 ⅓ tbsp Ginger paste
+
+- 1 ⅓ tsp Garam Masala
+
+- 1 ⅓ tsp Smoked paprika
+
+- 5.3 oz Tomato sauce — source uses one 8-ounce container
+
+- 1 ⅓ tbsp Tomato paste
+
+- ⅓ cup Heavy cream
+
+- 2 tbsp Butter
+
+- Not specified Fresh cilantro for garnish. Source does not state an amount; measure to taste or as needed. Optional; excluded or included as stated in the publisher nutrition.
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Marinate.** Stir yogurt, marinade ginger, marinade garlic, first salt portion and pepper together. Coat chicken and refrigerate for 1 hour.
+
+2. **Cook.** Heat the listed avocado oil in a large skillet over medium-high. Cook chicken through to 165°F, about 8 minutes. Pour off liquid released by the chicken and marinade so the sauce stays thick.
+
+3. **Sauce.** Stir in the remaining garlic, ginger and salt, plus garam masala and smoked paprika. Cook 1 minute. Add tomato sauce, tomato paste, cream and butter; cook a few minutes until thickened.
+
+4. **Serve.** Add the optional cilantro garnish. Cauliflower rice is a serving suggestion rather than a measured part of this recipe.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 341 kcal; protein: 32.0 g; total carbs: 9.0 g; fiber: 2.0 g; net carbs: 7.0 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists avocado oil without placing it; this adaptation uses it to sear the chicken.
+
+- The publisher lists 30 minutes of cooking. Its timed steps cover approximately 8 minutes for chicken and 1 minute for spices; sauce thickening has no stated duration.
+
+- Ingredient quantities are scaled from 6 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Jennifer Banz. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Jennifer Banz: Keto Butter Chicken (Family Favorite)](https://jenniferbanz.com/keto-butter-chicken)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Greek Chicken Marinade Sheet Pan Dinner
+
+4 portions · US measures · keto · 20 min publisher preparation · 45 min
+
+Greek Chicken Marinade Sheet Pan Dinner. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Greek Chicken Marinade Sheet Pan Dinner cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Chop peppers and zucchini into bite-sized pieces. Line a baking sheet. Heat oven to 450°F.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> boneless, skinless chicken thighs<small class="trn-state-detail"></small></th><td rowspan="8" colspan="1" class="trn-operation">Marinate chicken with half marinade 20 min or overnight.</td><td rowspan="17" colspan="1" class="trn-operation">Roast chicken and vegetables 450°F 25 min; check chicken 165°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ lemon</strong> Lemon juice<small class="trn-state-detail">juice from one medium lemon</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Red wine vinegar<small class="trn-state-detail">Source misspells tablespoons as tablespoona.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> sea salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tbsp</strong> dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> dried dill<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> large bell peppers<small class="trn-state-detail"></small></th><td rowspan="9" colspan="1" class="trn-operation">Toss vegetables with reserved half marinade.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> zucchini<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ lemon</strong> Lemon juice<small class="trn-state-detail">juice from one medium lemon</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Red wine vinegar<small class="trn-state-detail">Source misspells tablespoons as tablespoona.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> sea salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tbsp</strong> dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> dried dill<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 ½ lb boneless, skinless chicken thighs
+
+- 2 count large bell peppers
+
+- 1 lb zucchini
+
+- 2 tbsp olive oil
+
+- 1 lemon Lemon juice — juice from one medium lemon
+
+- 2 tbsp Red wine vinegar. Source misspells tablespoons as tablespoona.
+
+- 1 tsp sea salt
+
+- ½ tbsp dried oregano
+
+- 1 tsp dried dill
+
+- 1 tsp garlic powder
+
+### Equipment
+
+- Oven
+
+- Baking sheet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Marinate.** Whisk oil, lemon juice, vinegar, salt, oregano, dill and garlic powder together. Coat chicken with half this marinade and refrigerate for 20 minutes or overnight. Keep the other half separate for vegetables.
+
+2. **Arrange.** Place marinated chicken in the middle of the sheet. Put vegetables around it and toss them with the reserved marinade.
+
+3. **Bake.** Roast at 450°F for 25 minutes. Verify chicken reaches 165°F in its thickest part; return to the oven if needed. The source also says to check after 3 minutes, which conflicts with its stated bake time.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 343 kcal; protein: 35.0 g; total carbs: 9.0 g; fiber: 3.0 g; net carbs: 6.0 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The method calls for 25 minutes of baking but also says to check the temperature after 3 minutes. This adaptation follows the 25-minute bake and checks doneness; the source timing is contradictory.
+
+- The title calls this a 30-minute meal, but the publisher lists 45 minutes total, including 20 minutes of marination.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from bitesofwellness.com. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [bitesofwellness.com: Greek Chicken Marinade Sheet Pan Dinner](https://bitesofwellness.com/greek-chicken-marinade-sheet-pan-dinner/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Easy Creamy Chicken Marsala Recipe
+
+4 portions · US measures · keto · 5 min publisher preparation · Not provided
+
+Easy Creamy Chicken Marsala Recipe. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Easy Creamy Chicken Marsala Recipe cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Slice each breast horizontally into thinner fillets.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Boneless skinless chicken breasts<small class="trn-state-essential">raw; slice horizontally into thin fillets · Source says 2–3 breasts, about 1 pound. Uses its explicit weight basis. Source range: 1–1 lb; use the lower stated amount as the scaled starting point.</small></th><td rowspan="4" colspan="1" class="trn-operation">Season chicken; fry in half oil and butter 3–4 min each side; tent on plate.</td><td rowspan="12" colspan="1" class="trn-operation">Return cooked chicken to thickened sauce 1–2 min; add optional parsley.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> salt and pepper<small class="trn-state-detail">to taste · Source does not state an amount; measure to taste or as needed.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th><td rowspan="7" colspan="1" class="trn-operation">Sauté mushrooms in remaining oil 2–3 min; reduce Marsala 3–4 min; add broth, cream and spices; cover simmer low 10 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 cup</strong> sliced mushrooms<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Marsala wine<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> heavy whipping cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> ground mustard<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Chopped Parsley for garnish<small class="trn-state-detail">Source does not state an amount; measure to taste or as needed. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb Boneless skinless chicken breasts — raw; slice horizontally into thin fillets. Source says 2–3 breasts, about 1 pound. Uses its explicit weight basis. Source range: 1–1 lb; use the lower stated amount as the scaled starting point.
+
+- to taste salt and pepper — to taste. Source does not state an amount; measure to taste or as needed.
+
+- 2 tbsp olive oil
+
+- 2 tbsp butter
+
+- 2 cup sliced mushrooms
+
+- ½ cup Marsala wine
+
+- ½ cup chicken broth
+
+- 1 cup heavy whipping cream
+
+- 1 tsp ground mustard
+
+- 1 tsp garlic powder
+
+- Not specified Chopped Parsley for garnish. Source does not state an amount; measure to taste or as needed. Optional; excluded or included as stated in the publisher nutrition.
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Chicken.** Season the chicken to taste. Warm half the oil and all the butter in a large skillet over medium. Fry chicken 3–4 minutes on each side until cooked. Keep it on a plate under foil.
+
+2. **Mushrooms.** Add the remaining oil and sauté mushrooms 2–3 minutes. Pour in Marsala; bring to a boil and reduce for 3–4 minutes.
+
+3. **Sauce.** Stir in broth, cream, mustard and garlic powder. Bring back to a boil, lower the heat, cover and simmer about 10 minutes, stirring occasionally, until thickened.
+
+4. **Finish.** Return chicken for 1–2 minutes to warm it in the sauce. Serve with optional parsley.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 506 kcal; protein: 27.0 g; total carbs: 8.0 g; fiber: 0.3 g; net carbs: 7.7 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Ioana Diaconu from LowCarbSpark.com. This adaptation has not been kitchen-tested.
+
+- The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Ioana Diaconu from LowCarbSpark.com: Easy Creamy Chicken Marsala Recipe](https://www.lowcarbspark.com/chicken-marsala/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Chicken Taco Casserole
+
+4 portions · US measures · keto · 10 min publisher preparation · 30 min
+
+Chicken Taco Casserole. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Chicken Taco Casserole cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 375°F. Measure the scaled undrained tomato amount, then drain. Soften cream cheese.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> boneless chicken breast<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Toss chicken with taco spice and half oil; brown in batches with remaining oil.</td><td rowspan="14" colspan="1" class="trn-operation">Combine browned chicken and juices with filling; top remaining cheese; bake 375°F 20 min to 165°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.2 tbsp</strong> taco spice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.8 tbsp</strong> olive oil<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.8 tbsp</strong> olive oil<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.6 oz</strong> cream cheese<small class="trn-state-detail">softened · Original ten-portion recipe uses 4 ounces, equivalent to half an 8-ounce block. Use the displayed scaled weight.</small></th><td rowspan="9" colspan="1" class="trn-operation">Mix cream cheese, sour cream, drained tomatoes, half cheese and remaining aromatics.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.2 cup</strong> sour cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5.6 oz</strong> Rotel tomatoes with chilies<small class="trn-state-essential">canned; measure undrained contents before draining · Source specifies one 14-ounce can. The listed ounces are undrained package contents, not drained solids: weigh the displayed share before draining. Retain this source can size despite other package sizes.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.6 cup</strong> Mexican blend cheese<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.6 tbsp</strong> dried onion flakes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.4 tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.4 tsp</strong> chipotle powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.1 cup</strong> cilantro<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.1 cup</strong> green onions<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.6 cup</strong> Mexican blend cheese<small class="trn-state-detail">divided</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb boneless chicken breast
+
+- 1.6 tbsp olive oil — divided
+
+- 1.6 oz cream cheese — softened. Original ten-portion recipe uses 4 ounces, equivalent to half an 8-ounce block. Use the displayed scaled weight.
+
+- 0.2 cup sour cream
+
+- 5.6 oz Rotel tomatoes with chilies — canned; measure undrained contents before draining. Source specifies one 14-ounce can. The listed ounces are undrained package contents, not drained solids: weigh the displayed share before draining. Retain this source can size despite other package sizes.
+
+- 1.2 cup Mexican blend cheese — divided
+
+- 1.2 tbsp taco spice
+
+- 0.6 tbsp dried onion flakes
+
+- 0.4 tsp garlic powder
+
+- 0.4 tsp chipotle powder
+
+- 0.1 cup cilantro — chopped
+
+- 0.1 cup green onions — sliced
+
+### Equipment
+
+- Oven
+
+- Large skillet
+
+- Baking dish
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Chicken.** Cut chicken into small chunks and coat with taco seasoning and half the olive oil.
+
+2. **Filling.** Blend cream cheese, sour cream, drained tomatoes and half the shredded cheese. Stir in onion flakes, garlic powder, chipotle, cilantro and green onions.
+
+3. **Brown.** Heat the remaining oil in a large skillet over medium-high. Brown chicken in batches without crowding; it can finish cooking in the oven.
+
+4. **Bake.** Mix browned chicken and its juices into the filling. Spread in a shallow casserole dish, cover with remaining cheese and bake around 20 minutes, until bubbling and chicken reaches 165°F.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 341 kcal; protein: 34.0 g; total carbs: 3.0 g; fiber: 0.2 g; net carbs: 2.8 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Source states a 14-ounce Rotel can. Retained verbatim as package measure, not replaced with typical 10-ounce can.
+
+- Ingredient quantities are scaled from 10 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from ketocookingwins.com. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [ketocookingwins.com: Chicken Taco Casserole](https://www.ketocookingwins.com/chicken-taco-casserole/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Cheesy Chicken Zucchini Boats Recipe
+
+4 portions · US measures · keto · 5 min publisher preparation · 30 min
+
+Cheesy Chicken Zucchini Boats Recipe. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Cheesy Chicken Zucchini Boats Recipe cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 350°F. Chicken and bacon must be cooked. Blend the cottage cheese.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 count</strong> medium zucchini<small class="trn-state-detail"></small></th><td rowspan="9" colspan="1" class="trn-operation">Fill zucchini hollows; top four sevenths cheddar; bake 350°F 20–25 min; top reserved bacon.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 cup</strong> chicken<small class="trn-state-essential">fully cooked; shredded</small></th><td rowspan="6" colspan="1" class="trn-operation">Mix chicken, cottage cheese, ranch and onions with half bacon and three sevenths cheddar.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.11 cup</strong> bacon<small class="trn-state-detail">cooked and chopped about 5 slices</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> cottage cheese<small class="trn-state-detail">blended</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> dry ranch seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅙ cup</strong> green onions<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> shredded cheddar<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> shredded cheddar<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.11 cup</strong> bacon<small class="trn-state-detail">cooked and chopped about 5 slices</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 2 count medium zucchini
+
+- 2 cup chicken — fully cooked; shredded
+
+- 0.22 cup bacon — cooked and chopped about 5 slices
+
+- ½ cup cottage cheese — blended
+
+- 1 ⅓ tbsp dry ranch seasoning
+
+- 1 ⅙ cup shredded cheddar — divided
+
+- ⅙ cup green onions — finely chopped
+
+### Equipment
+
+- Oven
+
+- Baking dish
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Boats.** Halve zucchini lengthwise. Scoop out centers to make hollows and arrange in a 9-by-13-inch dish.
+
+2. **Fill.** Stir chicken, cottage cheese, ranch seasoning and green onions with half the bacon and three sevenths of the cheddar. Pack into the zucchini hollows and add the remaining cheddar.
+
+3. **Bake.** Bake 20–25 minutes until zucchini yields to a fork. Add the reserved bacon before serving.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 328 kcal; protein: 31.4 g; total carbs: 2.9 g; fiber: 0.1 g; net carbs: 2.8 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Original yield 6 corresponds to 6 zucchini boats. Each serving is one half-zucchini boat.
+
+- Ingredient quantities are scaled from 6 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Cheesy Chicken Zucchini Boats Recipe](https://www.maebells.com/chicken-bacon-ranch-zucchini-boats-low-carb-keto/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Asparagus Stuffed Chicken (low carb + keto)
+
+4 portions · US measures · keto · 10 min publisher preparation · Not provided
+
+Asparagus Stuffed Chicken (low carb + keto). Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Asparagus Stuffed Chicken (low carb + keto) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Heat oven to 350°F. Trim asparagus; soften cream cheese.</td></tr><tr><td colspan="4" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 count</strong> chicken breast<small class="trn-state-detail">small to medium size</small></th><td rowspan="6" colspan="1" class="trn-operation">Butterfly chicken, fill with cheese mixture and asparagus; secure toothpicks.</td><td rowspan="10" colspan="1" class="trn-operation">Sear stuffed, seasoned chicken in butter 2–3 min each side; bake 350°F 20 min to cooked; rest 5 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 oz</strong> cream cheese<small class="trn-state-detail">softened</small></th><td rowspan="4" colspan="1" class="trn-operation">Mix creamy cheese filling.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> mayonnaise<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¾ cup</strong> Gruyere cheese<small class="trn-state-detail">shredded</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>12 spear</strong> Asparagus spears<small class="trn-state-detail">woody ends removed</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ tbsp</strong> Italian seasoning<small class="trn-state-detail"></small></th><td rowspan="3" colspan="2" class="trn-operation">Mix rub; coat exterior.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> garlic salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 count chicken breast — small to medium size
+
+- 3 oz cream cheese — softened
+
+- 2 tbsp mayonnaise
+
+- ¾ cup Gruyere cheese — shredded
+
+- 2 tsp minced garlic
+
+- 12 spear Asparagus spears — woody ends removed
+
+- 1 ½ tbsp Italian seasoning
+
+- ¼ tsp garlic salt
+
+- ¼ tsp pepper
+
+- 1 tbsp butter
+
+### Equipment
+
+- Oven-safe skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+- Toothpicks
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Fill.** Mix cream cheese, mayonnaise, Gruyere and minced garlic. Butterfly each chicken breast without separating the halves. Fill with cheese mixture and asparagus, fold shut and fasten with toothpicks.
+
+2. **Season.** Mix Italian seasoning, garlic salt and pepper, then coat chicken exteriors.
+
+3. **Cook.** Melt butter in an oven-safe skillet over medium. Sear chicken 2–3 minutes per side. Transfer to the oven for about 20 minutes, until cooked through. Rest at least 5 minutes before slicing.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 349 kcal; protein: 33.0 g; total carbs: 2.6 g; fiber: 0.4 g; net carbs: 2.2 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: egg, milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Asparagus Stuffed Chicken (low carb + keto)](https://www.maebells.com/?p=12585)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [Resolved publisher source](https://www.maebells.com/asparagus-stuffed-chicken-low-carb-keto/)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Crockpot Shredded Chicken
+
+4 portions · US measures · unverified · 5 min publisher preparation · 485 min
+
+Crockpot Shredded Chicken. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Crockpot Shredded Chicken cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Use a 4–6-quart slow cooker.</td></tr><tr><td colspan="2" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ lb</strong> boneless skinless chicken breast<small class="trn-state-detail">Source gives a range; amount is its lower endpoint, amountMax its upper endpoint. Source range: 2–3 lb; use the lower stated amount as the scaled starting point.</small></th><td rowspan="8" colspan="1" class="trn-operation">Slow-cook low 8 h or high 4 h; remove chicken and shred; broth/celery remain in cooker.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tbsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 stalk</strong> celery<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> salt<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- ⅔ lb boneless skinless chicken breast. Source gives a range; amount is its lower endpoint, amountMax its upper endpoint. Source range: 2–3 lb; use the lower stated amount as the scaled starting point.
+
+- ⅔ cup chicken broth
+
+- ⅓ tbsp minced garlic
+
+- 1 stalk celery
+
+- ⅔ tsp onion powder
+
+- ⅔ tsp garlic powder
+
+- ⅓ tsp pepper
+
+- ⅓ tsp salt
+
+### Equipment
+
+- Slow cooker
+
+- Forks
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Cook.** Place chicken, broth, garlic, celery and dry seasonings in the cooker. Cook on low for 8 hours or high for 4 hours.
+
+2. **Shred.** Lift chicken from the cooking liquid and shred it. The source does not instruct serving the celery or broth.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 192 kcal; protein: 36.0 g; total carbs: 1.0 g; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Original chicken amount is 2–3 lb and yield 12; range endpoints remain explicit.
+
+- Cooked broth and celery are not served by source method.
+
+- Ingredient quantities are scaled from 12 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Crockpot Shredded Chicken](https://www.maebells.com/easy-slow-cooker-shredded-chicken/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Cheesy Chicken Enchilada Soup
+
+4 portions · US measures · keto · 5 min publisher preparation · 35 min
+
+Cheesy Chicken Enchilada Soup. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Cheesy Chicken Enchilada Soup cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare chopped vegetables and bring cream cheese to room temperature.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Boneless skinless chicken breasts<small class="trn-state-essential">raw</small></th><td rowspan="9" colspan="1" class="trn-operation">Sauté vegetables in source unspecified oil; add chicken, canned tomatoes/chilies, seasoning and broth; covered simmer 20–25 min.</td><td rowspan="12" colspan="1" class="trn-operation">Lift and shred chicken; whisk in cream cheese, cream and cheddar; return chicken and serve.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> small green bell pepper<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> small onion<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> jalapeño<small class="trn-state-detail">seeded and finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 oz</strong> Tomatoes with green chilies<small class="trn-state-essential">canned; undrained</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ container</strong> Chicken broth<small class="trn-state-detail">one 32-ounce container · Fraction of a 32-ounce package; the package size is preserved from the publisher.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 oz</strong> Diced green chilies<small class="trn-state-detail">canned</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.5 oz</strong> Taco seasoning<small class="trn-state-detail">dry mix; one 1-ounce package</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Cooking oil<small class="trn-state-detail">Source instruction requires oil but gives no quantity or type.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 oz</strong> room temp cream cheese<small class="trn-state-detail">cut into small pieces</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅛ cup</strong> cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¾ cup</strong> shredded cheddar cheese<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb Boneless skinless chicken breasts — raw
+
+- ½ count small green bell pepper — finely chopped
+
+- ½ count small onion — finely chopped
+
+- ½ count jalapeño — seeded and finely chopped
+
+- 5 oz Tomatoes with green chilies — canned; undrained
+
+- ½ container Chicken broth — one 32-ounce container. Fraction of a 32-ounce package; the package size is preserved from the publisher.
+
+- 2 oz Diced green chilies — canned
+
+- 0.5 oz Taco seasoning — dry mix; one 1-ounce package
+
+- 4 oz room temp cream cheese — cut into small pieces
+
+- ⅛ cup cream
+
+- ¾ cup shredded cheddar cheese
+
+- Not specified Cooking oil. Source instruction requires oil but gives no quantity or type.
+
+### Equipment
+
+- Lidded saucepan or Dutch oven
+
+- Mixing bowl
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Aromatics.** Heat the unspecified cooking oil over medium in a pot. Sauté onion, bell pepper and jalapeño until softened.
+
+2. **Simmer.** Add chicken, undrained tomatoes, green chilies, taco mix and broth. Cover and simmer 20–25 minutes, adjusting heat as needed.
+
+3. **Cream.** Remove chicken and shred it. While it is out, whisk cream cheese, cream and cheddar into the soup until the cream cheese melts.
+
+4. **Finish.** Return shredded chicken, stir and serve.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 356 kcal; protein: 33.0 g; total carbs: 4.3 g; fiber: 1.2 g; net carbs: 3.1 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Oil appears only in method and has no amount/type.
+
+- Source total 35 min differs from 5 min prep plus 25 min cook.
+
+- Ingredient quantities are scaled from 8 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Cheesy Chicken Enchilada Soup](https://www.maebells.com/keto-cheesy-chicken-enchilada-soup/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Bacon Wrapped Chicken with Avocado Salsa
+
+4 portions · US measures · keto · 5 min publisher preparation · Not provided
+
+Bacon Wrapped Chicken with Avocado Salsa. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Bacon Wrapped Chicken with Avocado Salsa cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 350°F. Use an oven-safe skillet.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Chicken breasts<small class="trn-state-essential">raw · Original card marks an unavailable footnote; breast weight is unspecified.</small></th><td rowspan="5" colspan="1" class="trn-operation">Season chicken, stretch and wrap bacon; sear 2–3 min per side, bake 350°F 20 min to 165°F.</td><td rowspan="10" colspan="1" class="trn-operation">Rest cooked chicken 5 min; serve with freshly mixed avocado salsa.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 slice</strong> Bacon<small class="trn-state-essential">raw · Original archived recipe has 8 slices. Method allows fewer for small breasts.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Cajun seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> Tomatoes<small class="trn-state-detail">chopped</small></th><td rowspan="5" colspan="1" class="trn-operation">Mix salsa while chicken rests.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> Avocado<small class="trn-state-detail">chopped · Source says about one large avocado.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Green onions or cilantro<small class="trn-state-detail">chopped · Source says 1–2 tablespoons according to preference. Source range: 1–2 tbsp; use the lower stated amount as the scaled starting point.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Lime juice<small class="trn-state-detail">More to taste is permitted by source.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and pepper<small class="trn-state-detail">To taste; no measured quantity.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 count Chicken breasts — raw. Original card marks an unavailable footnote; breast weight is unspecified.
+
+- 8 slice Bacon — raw. Original archived recipe has 8 slices. Method allows fewer for small breasts.
+
+- 1 tbsp Cajun seasoning
+
+- 1 tsp Cumin
+
+- ½ tsp Garlic powder
+
+- 1 cup Tomatoes — chopped
+
+- 1 cup Avocado — chopped. Source says about one large avocado.
+
+- 1 tbsp Green onions or cilantro — chopped. Source says 1–2 tablespoons according to preference. Source range: 1–2 tbsp; use the lower stated amount as the scaled starting point.
+
+- 1 tsp Lime juice. More to taste is permitted by source.
+
+- to taste Salt and pepper. To taste; no measured quantity.
+
+### Equipment
+
+- Oven-safe skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Wrap.** Mix Cajun seasoning, cumin and garlic powder; rub both sides of chicken. Gently stretch the bacon without tearing, then wrap around the chicken. The original ingredient list uses twice as many bacon slices as chicken breasts; small breasts may need less.
+
+2. **Cook.** Sear wrapped chicken in a skillet over medium for 2–3 minutes per side. Bake at 350°F for about 20 minutes, until chicken reaches 165°F.
+
+3. **Salsa.** Rest chicken at least 5 minutes. Meanwhile mix tomatoes, avocado, green onions or cilantro, lime juice and salt and pepper. Serve salsa with the chicken.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+- Original recipe recovered from its July 15, 2025 Wayback snapshot. Live original URL returns 404.
+
+### Nutrition per serving
+
+Calories: 443 kcal; protein: 34.0 g; total carbs: 6.9 g; fiber: 3.8 g; net carbs: 3.1 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The archived recipe does not include the publisher’s chicken and bacon footnotes.
+
+- The archived recipe includes 8 bacon slices and avocado salsa; the current source page is unavailable.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Bacon Wrapped Chicken with Avocado Salsa](https://www.maebells.com/bacon-wrapped-chicken-with-avocado-salsa/)
+
+- [Archived original recipe](https://web.archive.org/web/20250715172155/https://www.maebells.com/bacon-wrapped-chicken-with-avocado-salsa/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Jalapeño Popper Stuffed Chicken Breast
+
+4 portions · US measures · keto · 5 min publisher preparation · 30 min
+
+Jalapeño Popper Stuffed Chicken Breast. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Jalapeño Popper Stuffed Chicken Breast cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F. Use cooked chopped bacon and softened cream cheese.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 count</strong> small chicken breast<small class="trn-state-detail"></small></th><td rowspan="6" colspan="1" class="trn-operation">Fill butterflied chicken, secure; season exterior; bake greased dish 400°F 25–30 min until cooked.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¾ cup</strong> shredded cheddar cheese<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Combine popper filling.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 oz</strong> cream cheese<small class="trn-state-detail">softened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Fresh jalapeño<small class="trn-state-detail">seeded and chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Bacon<small class="trn-state-detail">cooked and chopped</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tsp</strong> cajun seasoning<small class="trn-state-detail">or your favorite all purpose seasoning</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 count small chicken breast
+
+- ¾ cup shredded cheddar cheese
+
+- 3 oz cream cheese — softened
+
+- ¼ cup Fresh jalapeño — seeded and chopped
+
+- ¼ cup Bacon — cooked and chopped
+
+- 2 tsp cajun seasoning — or your favorite all purpose seasoning
+
+### Equipment
+
+- Oven
+
+- Baking dish
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+- Toothpicks
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Filling.** Mix jalapeño, cheddar, bacon and cream cheese.
+
+2. **Stuff.** Open each breast with a lengthwise butterfly cut, keeping one edge attached. Spread filling inside, close and secure with a toothpick. Season the outsides with Cajun seasoning.
+
+3. **Bake.** Place in a greased baking dish and bake 25–30 minutes, until the chicken is cooked through.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 211 kcal; protein: 15.1 g; total carbs: 2.0 g; fiber: 0.2 g; net carbs: 1.8 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Jalapeño Popper Stuffed Chicken Breast](https://thebestketorecipes.com/jalapeno-popper-stuffed-chicken-keto-low-carb/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Perfect Roast Chicken
+
+4 portions · US measures · keto · 15 min publisher preparation · 80 min
+
+Perfect Roast Chicken. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Perfect Roast Chicken cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Heat oven to 425°F. Remove chicken innards and pat dry. Source specifies a 4–5-pound whole bird.</td></tr><tr><td colspan="4" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 count</strong> Whole chicken (4–5 pounds)<small class="trn-state-essential">raw; remove innards · One whole 4–5-pound bird per four-portion batch; roast intact, then divide the cooked meat. Larger servings require additional whole birds and oven space.</small></th><td rowspan="11" colspan="1" class="trn-operation">Stuff cavity; work flavored butter under skin.</td><td rowspan="18" colspan="1" class="trn-operation">Coat exterior with oil and remaining rub as needed; roast 425°F 45 min then 400°F 20–30 min to 165°F, tent if browning fast.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Cavity stuffing vegetables, herbs and citrus<small class="trn-state-detail">source suggests celery, onion and lemon wedges · No amounts or proportions supplied by source.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> softened butter<small class="trn-state-detail"></small></th><td rowspan="9" colspan="1" class="trn-operation">Mix butter, tomato paste, garlic and one ninth of prepared rub.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> tomato paste<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.11 tbsp</strong> paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.22 tsp</strong> thyme<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅙ tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅙ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.06 tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.06 tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>Not specified</strong> Extra virgin olive oil<small class="trn-state-detail">Source method requires coating oil but omits amount.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.89 tbsp</strong> paprika<small class="trn-state-detail"></small></th><td rowspan="6" colspan="2" class="trn-operation">Remaining eight ninths of rub for exterior; unused excess may remain.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.78 tsp</strong> thyme<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.44 tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.44 tsp</strong> pepper<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 count Whole chicken (4–5 pounds) — raw; remove innards. One whole 4–5-pound bird per four-portion batch; roast intact, then divide the cooked meat. Larger servings require additional whole birds and oven space.
+
+- Not specified Cavity stuffing vegetables, herbs and citrus — source suggests celery, onion and lemon wedges. No amounts or proportions supplied by source.
+
+- 2 tbsp softened butter
+
+- 2 tsp tomato paste
+
+- 2 clove Garlic — minced
+
+- 1 tbsp paprika
+
+- 2 tsp thyme
+
+- 1 ½ tsp onion powder
+
+- 1 ½ tsp garlic powder
+
+- ½ tsp salt
+
+- ½ tsp pepper
+
+- Not specified Extra virgin olive oil. Source method requires coating oil but omits amount.
+
+### Equipment
+
+- Oven
+
+- Baking dish
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+- Roasting pan or cast-iron skillet
+
+- Foil
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Rub.** Combine paprika, thyme, onion powder, garlic powder, salt and pepper to prepare the spice rub. Reserve one ninth for the butter mixture and keep the remainder for the exterior.
+
+2. **Prepare bird.** Fill the cavity with the source-suggested vegetables, herbs and citrus. Mix softened butter, minced garlic, tomato paste and the reserved rub. Ease this mixture beneath the skin.
+
+3. **Season.** Coat the skin with the unspecified olive oil and season generously with remaining rub; extra rub may be left over. Tie legs and wings if desired, and place breast-up in a roasting pan or cast-iron skillet.
+
+4. **Roast.** Roast 45 minutes at 425°F. Reduce to 400°F, tent loosely with foil if browning too quickly, and roast 20–30 minutes longer, until the thickest part reaches 165°F.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 380 kcal; protein: 48.6 g; total carbs: 1.7 g; fiber: 0.4 g; net carbs: 1.2 g
+
+Publisher’s six-portion nutrition estimate multiplied by 1.5 for four equal portions of the intact whole-bird batch. Edible yield varies.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Pat the chicken dry without rinsing it.
+
+- The original spice rub totals 9 teaspoons, but the flavored butter uses only 1 teaspoon. Mix one ninth of each spice into the butter and use the remaining eight ninths on the exterior as needed. The publisher does not say that all remaining rub is consumed; excess may remain.
+
+- Cavity stuffing and exterior olive oil lack amounts.
+
+- Original 65 min cook is minimum of 45 min plus 20–30 min oven stages.
+
+- The whole chicken remains an intact source batch instead of shrinking a raw whole bird. This adaptation divides the source’s six-portion recipe into four larger portions; nutrition is rebased accordingly.
+
+- Serving controls round this whole-bird recipe up to complete four-portion batches: two requested portions leave two portions; six requested portions cook two birds and leave two portions. Nutrition describes one of the four equal portions per bird.
+
+- One intact original batch is divided into four larger portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Perfect Roast Chicken](https://thebestketorecipes.com/perfect-roast-chicken/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Jalapeno Popper Chicken Skillet (keto + low carb)
+
+4 portions · US measures · keto · 5 min publisher preparation · 25 min
+
+Jalapeno Popper Chicken Skillet (keto + low carb). Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Jalapeno Popper Chicken Skillet (keto + low carb) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Chicken must already be cooked and shredded.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> butter<small class="trn-state-detail"></small></th><td rowspan="10" colspan="1" class="trn-operation">Sauté garlic/jalapeño in butter 1 min; whisk in milks, cream cheese, spices and sauce cheddar until smooth.</td><td rowspan="12" colspan="1" class="trn-operation">Stir in cooked chicken; top with topping cheddar; cover and simmer low 10 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> jalapeño<small class="trn-state-detail">seeded and chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> unsweetened almond milk<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅙ cup</strong> heavy cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 oz</strong> cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> shredded cheddar cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>3 ⅓ cup</strong> shredded chicken<small class="trn-state-essential">fully cooked; shredded</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅓ cup</strong> shredded cheddar cheese<small class="trn-state-detail">for topping</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- ⅔ tbsp butter
+
+- ⅔ tbsp minced garlic
+
+- ⅓ cup jalapeño — seeded and chopped
+
+- ⅔ cup unsweetened almond milk
+
+- ⅙ cup heavy cream
+
+- 2 oz cream cheese
+
+- ⅔ tsp chili powder
+
+- ⅔ tsp cumin
+
+- ⅓ tsp onion powder
+
+- ⅔ cup shredded cheddar cheese
+
+- 3 ⅓ cup shredded chicken — fully cooked; shredded
+
+- ⅓ cup shredded cheddar cheese — for topping
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Aromatics.** Melt butter in a large skillet over medium. Sauté garlic and jalapeño for at least 1 minute.
+
+2. **Sauce.** Pour in almond milk and cream, then add cream cheese, spices and the sauce cheddar portion. Whisk until smooth and melted.
+
+3. **Finish.** Stir chicken into the sauce. Scatter the topping cheddar on the surface, cover and simmer over low heat for 10 minutes.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 318 kcal; protein: 26.0 g; total carbs: 3.1 g; fiber: 0.2 g; net carbs: 2.9 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk, tree nuts. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Shredded chicken is already cooked; source total excludes cooking that chicken.
+
+- Ingredient quantities are scaled from 6 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Jalapeno Popper Chicken Skillet (keto + low carb)](https://thebestketorecipes.com/jalapeno-popper-chicken-skillet-keto-low-carb/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Cajun Chicken Sausage and Cabbage Skillet
+
+4 portions · US measures · keto · 5 min publisher preparation · 20 min
+
+Cajun Chicken Sausage and Cabbage Skillet. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Cajun Chicken Sausage and Cabbage Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cut chicken into small bites and slice smoked sausage.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> chicken breast<small class="trn-state-detail">chopped into bite sized pieces about 2 cups</small></th><td rowspan="4" colspan="1" class="trn-operation">Season chicken with Cajun mix; brown in olive oil over medium, add sausage until browned; reserve.</td><td rowspan="8" colspan="1" class="trn-operation">Return chicken and sausage to cabbage; toss and season to taste.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> cajun seasoning<small class="trn-state-detail">or your favorite all purpose seasoning</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>12 oz</strong> smoked sausage<small class="trn-state-detail">sliced about 2 cups</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail"></small></th><td rowspan="3" colspan="1" class="trn-operation">Without washing pan, fry cabbage and garlic in butter over medium to preferred tenderness.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 clove</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 cup</strong> chopped cabbage<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> salt and pepper to taste<small class="trn-state-detail">Source does not state an amount; measure to taste or as needed.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 tbsp olive oil
+
+- 2 count chicken breast — chopped into bite sized pieces about 2 cups
+
+- 2 tsp cajun seasoning — or your favorite all purpose seasoning
+
+- 12 oz smoked sausage — sliced about 2 cups
+
+- 1 tbsp butter
+
+- 2 clove minced garlic
+
+- 4 cup chopped cabbage
+
+- to taste salt and pepper to taste. Source does not state an amount; measure to taste or as needed.
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Meat.** Season chicken with Cajun mix. Warm the listed olive oil over medium and brown the chicken. Add smoked sausage and cook until browned with crisp edges; remove the meat to a plate.
+
+2. **Cabbage.** In the same skillet, melt butter and add garlic and cabbage. Fry over medium, stirring occasionally, until the cabbage reaches the texture you prefer.
+
+3. **Finish.** Return chicken and sausage, mix, and adjust salt and pepper to taste.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 503 kcal; protein: 42.5 g; total carbs: 8.6 g; fiber: 1.9 g; net carbs: 6.7 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists olive oil without placing it; this adaptation uses it to brown the meat.
+
+- Smoked sausage protein species is not specified; recipe combines chicken and sausage.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Cajun Chicken Sausage and Cabbage Skillet](https://thebestketorecipes.com/cajun-chicken-sausage-and-cabbage-skillet/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Spinach Artichoke Stuffed Chicken (low carb + keto)
+
+4 portions · US measures · keto · 5 min publisher preparation · 30 min
+
+Spinach Artichoke Stuffed Chicken (low carb + keto). Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Spinach Artichoke Stuffed Chicken (low carb + keto) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F. Use softened cream cheese, chopped spinach and artichokes.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 count</strong> small chicken breast<small class="trn-state-detail"></small></th><td rowspan="11" colspan="1" class="trn-operation">Stuff butterflied chicken with filling; season exterior; bake greased dish 400°F 25–30 min until cooked.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 oz</strong> cream cheese<small class="trn-state-detail">softened</small></th><td rowspan="5" colspan="1" class="trn-operation">Mix spinach-artichoke filling.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> tightly packed freshly chopped spinach<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> canned artichoke<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> parmesan<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> mozzarella<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ tbsp</strong> Italian seasoning<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Combine exterior seasonings.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> salt<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 count small chicken breast
+
+- 1 ½ tbsp Italian seasoning
+
+- 1 tsp garlic powder
+
+- 1 tsp paprika
+
+- ¼ tsp pepper
+
+- ¼ tsp salt
+
+- 3 oz cream cheese — softened
+
+- ½ cup tightly packed freshly chopped spinach
+
+- ¼ cup canned artichoke — finely chopped
+
+- ¼ cup parmesan
+
+- ¼ cup mozzarella
+
+### Equipment
+
+- Oven
+
+- Baking dish
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+- Toothpicks
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Filling.** Mix artichokes, spinach, parmesan, mozzarella and cream cheese.
+
+2. **Stuff.** Butterfly each chicken breast lengthwise, leaving the joined edge intact. Fill, fold shut, and fasten with toothpicks if needed. Mix the dry seasoning ingredients and dust both sides.
+
+3. **Bake.** Set chicken in a greased baking dish. Bake 25–30 minutes until cooked through.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 221 kcal; protein: 27.4 g; total carbs: 3.6 g; fiber: 1.2 g; net carbs: 2.4 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Spinach Artichoke Stuffed Chicken (low carb + keto)](https://thebestketorecipes.com/spinach-artichoke-stuffed-chicken-low-carb-keto/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Broccoli and Cheese Stuffed Chicken Breasts
+
+4 portions · US measures · keto · 5 min publisher preparation · 30 min
+
+Broccoli and Cheese Stuffed Chicken Breasts. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Broccoli and Cheese Stuffed Chicken Breasts cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F. Chop broccoli and soften cream cheese.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 count</strong> small chicken breasts<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Stuff butterflied chicken; secure, coat with Cajun seasoning; bake greased dish 400°F 25–30 min until cooked.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¾ cup</strong> broccoli<small class="trn-state-detail">chopped</small></th><td rowspan="3" colspan="1" class="trn-operation">Mix broccoli-cheddar filling.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> shredded cheddar cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 oz</strong> cream cheese<small class="trn-state-detail">softened</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tsp</strong> cajun seasoning<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 count small chicken breasts
+
+- ¾ cup broccoli — chopped
+
+- ½ cup shredded cheddar cheese
+
+- 2 oz cream cheese — softened
+
+- 2 tsp cajun seasoning
+
+### Equipment
+
+- Oven
+
+- Baking dish
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+- Toothpicks
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Filling.** Combine broccoli, cheddar and cream cheese.
+
+2. **Stuff.** Cut each chicken breast lengthwise to open it, keeping the far edge attached. Spread filling inside, close and secure with a toothpick. Season both sides with the Cajun mixture.
+
+3. **Bake.** Arrange in a greased baking dish and bake 25–30 minutes, until the chicken is cooked through.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 253 kcal; protein: 30.6 g; total carbs: 2.4 g; fiber: 0.4 g; net carbs: 2.0 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Broccoli and Cheese Stuffed Chicken Breasts](https://thebestketorecipes.com/broccoli-cheddar-stuffed-chicken-low-carb-keto/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Chicken Cheesesteak Skillet
+
+4 portions · US measures · keto · 5 min publisher preparation · 25 min
+
+Chicken Cheesesteak Skillet. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Chicken Cheesesteak Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cut chicken small; thinly slice onion, peppers and mushrooms.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail">divided</small></th><td rowspan="7" colspan="1" class="trn-operation">Cook seasoned chicken in half oil over medium 4–5 min; reserve.</td><td rowspan="13" colspan="1" class="trn-operation">Return chicken to vegetables 2–3 min until cooked; top provolone, cover low 2–3 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> chicken breast or thighs<small class="trn-state-detail">cut into small strips or chunks</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail">divided</small></th><td rowspan="5" colspan="1" class="trn-operation">Sauté onion, peppers and mushrooms in remaining oil 7–10 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> small onion<small class="trn-state-detail">thinly sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> Red bell pepper<small class="trn-state-detail">seeded and thinly sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> Green bell pepper<small class="trn-state-detail">seeded and thinly sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 oz</strong> Mushrooms<small class="trn-state-detail">sliced; source uses one 8-ounce package</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 cup</strong> shredded Provolone cheese<small class="trn-state-detail">or your favorite variety</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 2 tbsp olive oil — divided
+
+- 1 lb chicken breast or thighs — cut into small strips or chunks
+
+- 1 ½ tsp garlic powder
+
+- 1 tsp onion powder
+
+- 1 tsp paprika
+
+- ½ tsp salt
+
+- ½ tsp black pepper
+
+- 1 count small onion — thinly sliced
+
+- 1 cup Red bell pepper — seeded and thinly sliced
+
+- 1 cup Green bell pepper — seeded and thinly sliced
+
+- 8 oz Mushrooms — sliced; source uses one 8-ounce package
+
+- 1 cup shredded Provolone cheese — or your favorite variety
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Chicken.** Heat half the olive oil in a large skillet over medium. Add chicken and the dry seasonings. Toss with tongs and cook 4–5 minutes until browned. Transfer chicken to a plate.
+
+2. **Vegetables.** Heat the remaining oil in the same skillet. Cook onion, peppers and mushrooms for 7–10 minutes, stirring as needed, until peppers soften. Reduce heat if they brown too quickly.
+
+3. **Finish.** Return chicken and cook another 2–3 minutes until cooked through. Lower heat, scatter provolone on top and cover for 2–3 minutes until melted.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 267 kcal; protein: 27.0 g; total carbs: 6.9 g; fiber: 1.9 g; net carbs: 5.0 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Chicken Cheesesteak Skillet](https://thebestketorecipes.com/chicken-philly-cheesesteak-skillet-keto-low-carb/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Keto Asian Chicken Lettuce Wraps
+
+4 portions · US measures · keto · 5 min publisher preparation · 20 min
+
+Keto Asian Chicken Lettuce Wraps. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Asian Chicken Lettuce Wraps cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare cold lettuce leaves; the source omits their total quantity.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Brown chicken in oil; add pepper/garlic to tender and cooked; deglaze with broth.</td><td rowspan="14" colspan="1" class="trn-operation">Mix sauce into deglazed chicken; simmer medium-low 5–6 min; spoon into lettuce, add optional toppings.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> chicken<small class="trn-state-detail">cut into small pieces</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> green bell pepper<small class="trn-state-detail">seeded and chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> chicken broth<small class="trn-state-detail">water or cooking wine will work also</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> soy sauce<small class="trn-state-detail"></small></th><td rowspan="6" colspan="1" class="trn-operation">Whisk Asian peanut sauce; optional microwave 10–20 sec.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> water<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> rice vinegar<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> sesame oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> swerve brown sugar or brown sugar monkfruit<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> peanut butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Green onions<small class="trn-state-detail">sliced · Source does not state an amount; measure to taste or as needed. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Almonds or peanuts<small class="trn-state-detail">crushed · Source does not state an amount; measure to taste or as needed. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Lettuce leaves<small class="trn-state-detail">Source ingredient list omits the leaves. Nutrition serving description gives 4–5 lettuce leaves per serving; method gives no total amount.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 tbsp olive oil
+
+- 1 lb chicken — cut into small pieces
+
+- 1 count green bell pepper — seeded and chopped
+
+- 1 tbsp minced garlic
+
+- ¼ cup chicken broth — water or cooking wine will work also
+
+- 2 tbsp soy sauce
+
+- 2 tbsp water
+
+- 2 tbsp rice vinegar
+
+- 2 tbsp sesame oil
+
+- 1 tbsp swerve brown sugar or brown sugar monkfruit
+
+- 2 tbsp peanut butter
+
+- Not specified Green onions — sliced. Source does not state an amount; measure to taste or as needed. Optional; excluded or included as stated in the publisher nutrition.
+
+- Not specified Almonds or peanuts — crushed. Source does not state an amount; measure to taste or as needed. Optional; excluded or included as stated in the publisher nutrition.
+
+- Not specified Lettuce leaves. Source ingredient list omits the leaves. Nutrition serving description gives 4–5 lettuce leaves per serving; method gives no total amount.
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Chicken.** Warm oil in a 12-inch skillet over medium. Cook chicken until it starts browning. Add pepper and garlic and cook, stirring, until chicken is cooked and pepper is tender.
+
+2. **Deglaze.** Reduce heat to medium-low. Pour in broth and scrape the browned residue from the skillet.
+
+3. **Sauce.** Whisk soy sauce, water, vinegar, sesame oil, sweetener and peanut butter together. If needed, warm the mixture in a microwave for 10–20 seconds to make whisking easier.
+
+4. **Finish.** Stir sauce into chicken and peppers. Simmer over medium-low for 5–6 minutes until thickened. Spoon into lettuce and add optional onions and chopped almonds or peanuts.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 198 kcal; protein: 28.0 g; total carbs: 5.0 g; fiber: 1.6 g; net carbs: 3.4 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk, peanuts, sesame, soy, tree nuts, wheat. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Lettuce leaves are required to serve wraps but absent from source ingredient list.
+
+- Green onions and nuts are unmeasured optional toppings. Microwave is an optional 10–20 second sauce-warming shortcut, not required equipment.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Keto Asian Chicken Lettuce Wraps](https://thebestketorecipes.com/keto-asian-chicken-lettuce-wraps/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Cabbage Casserole with Ground Beef
+
+4 portions · US measures · keto · Preparation time not provided · 20 min
+
+Cabbage Casserole with Ground Beef. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Cabbage Casserole with Ground Beef cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Chop onion and cabbage. The meat is browned in the method despite ingredient wording browned and drained.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ lb</strong> ground beef or turkey<small class="trn-state-essential">raw; brown and drain in method</small></th><td rowspan="2" colspan="1" class="trn-operation">Brown and drain meat; cook onion 3–5 min.</td><td rowspan="9" colspan="1" class="trn-operation">Add cabbage, undrained tomatoes, sauce and spices; cover medium 15–18 min, stir; top cheese.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> small onion<small class="trn-state-detail">diced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 cup</strong> Cabbage<small class="trn-state-detail">chopped into medium chunks · Source gives half a head, roughly 3 cups. Uses its explicit cup equivalent.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>6.7 oz</strong> Tomatoes with green chilies<small class="trn-state-essential">canned; undrained</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>5.3 oz</strong> Tomato sauce<small class="trn-state-detail">canned</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ tsp</strong> chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> salt and pepper to taste<small class="trn-state-detail">Source does not state an amount; measure to taste or as needed.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> shredded cheese<small class="trn-state-detail">cheddar or colby jack is our favorite</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- ⅔ lb ground beef or turkey — raw; brown and drain in method
+
+- ⅔ count small onion — diced
+
+- 2 cup Cabbage — chopped into medium chunks. Source gives half a head, roughly 3 cups. Uses its explicit cup equivalent.
+
+- 6.7 oz Tomatoes with green chilies — canned; undrained
+
+- 5.3 oz Tomato sauce — canned
+
+- ⅔ tsp chili powder
+
+- ⅔ tsp garlic powder
+
+- to taste salt and pepper to taste. Source does not state an amount; measure to taste or as needed.
+
+- ⅔ cup shredded cheese — cheddar or colby jack is our favorite
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Brown.** Brown beef or turkey in a skillet over medium, then drain excess fat. Add onion and cook 3–5 minutes.
+
+2. **Simmer.** Stir in cabbage, undrained tomatoes, tomato sauce, chili powder, garlic powder and salt and pepper. Cover and cook over medium for 15–18 minutes, stirring occasionally.
+
+3. **Top.** Scatter shredded cheese over the finished casserole.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 240 kcal; protein: 18.9 g; total carbs: 9.0 g; fiber: 1.6 g; net carbs: 7.4 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Ingredient describes meat as browned/drained but method browns it. This adaptation follows method from raw meat, avoiding double cooking.
+
+- The publisher lists 20 minutes of cooking, which may be shorter than meat browning plus 3–5 minutes for onions and 15–18 minutes of covered cooking.
+
+- Ingredient quantities are scaled from 6 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Cabbage Casserole with Ground Beef](https://www.maebells.com/one-pan-cabbage-casserole/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Keto Cheeseburger Casserole Skillet
+
+4 portions · US measures · keto · 5 min publisher preparation · 20 min
+
+Keto Cheeseburger Casserole Skillet. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Cheeseburger Casserole Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Chop bacon and onion. Use a large lidded skillet.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 slice</strong> bacon<small class="trn-state-detail">chopped into small pieces</small></th><td rowspan="1" colspan="1" class="trn-operation">Cook bacon until crisp and reserve it. Retain rendered fat for browning meat and onions; source original retains one tablespoon, proportional to batch size.</td><td rowspan="12" colspan="1" class="trn-operation">Top meat sauce with reserved cooked bacon and cheddar; cover low 5–7 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> ground beef or ground turkey<small class="trn-state-detail"></small></th><td rowspan="10" colspan="1" class="trn-operation">Brown ground meat/onion in retained grease; drain excess; stir in sauce ingredients until cream cheese melts.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> chopped onion<small class="trn-state-detail">about half of one small onion</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> tomato paste<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> mustard<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 oz</strong> cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> chicken or beef broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 cup</strong> shredded cheddar cheese<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 slice bacon — chopped into small pieces
+
+- 1 lb ground beef or ground turkey
+
+- ½ cup chopped onion — about half of one small onion
+
+- 2 tbsp tomato paste
+
+- 1 tsp mustard
+
+- 2 oz cream cheese
+
+- ½ cup chicken or beef broth
+
+- ½ tsp onion powder
+
+- ½ tsp garlic powder
+
+- ¼ tsp salt
+
+- ¼ tsp pepper
+
+- 1 cup shredded cheddar cheese
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Bacon.** Lightly grease the skillet and cook bacon over medium until crisp. Transfer it to a plate, reserving only the source-specified portion of grease in the pan.
+
+2. **Meat.** Brown ground meat and onion in the retained bacon fat. Drain excess fat.
+
+3. **Sauce.** Add tomato paste, mustard, cream cheese, broth and dry seasonings. Stir until cream cheese melts and the sauce comes together.
+
+4. **Finish.** Turn heat to low. Add the cooked bacon and cheddar on top, cover and cook for 5–7 minutes until cheese melts.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 423 kcal; protein: 25.0 g; total carbs: 5.3 g; fiber: 0.5 g; net carbs: 4.8 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Source retains 1 tbsp bacon fat; scalable method uses retained rendered fat proportional to batch.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Keto Cheeseburger Casserole Skillet](https://thebestketorecipes.com/one-pan-keto-bacon-cheeseburger-skillet/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Steak and Eggs (keto + low carb)
+
+4 portions · US measures · unverified · 5 min publisher preparation · Not provided
+
+Steak and Eggs (keto + low carb). Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Steak and Eggs (keto + low carb) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Allow 10–60 minutes to marinate steak; the weight follows the publisher’s 6-ounce steak portion.</td></tr><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>24 oz</strong> Steak<small class="trn-state-detail">sirloin, ribeye or preferred cut · The ingredient list omits a weight; this adaptation uses the publisher’s stated 6-ounce steak per nutrition portion.</small></th><td rowspan="4" colspan="1" class="trn-operation">Marinate steak 10–60 min; sear in half butter medium 1–2 min each side to preferred doneness.</td><td rowspan="6" colspan="1" class="trn-operation">Serve steak with eggs.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> Steak marinade<small class="trn-state-detail">prepared · Source specifies 1/4–1/2 cup. Source range: 0.25–0.5 cup; use the lower stated amount as the scaled starting point.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> salt and pepper<small class="trn-state-detail">to taste · Source does not state an amount; measure to taste or as needed.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> butter<small class="trn-state-detail">sliced in half</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 count</strong> large eggs<small class="trn-state-detail"></small></th><td rowspan="2" colspan="1" class="trn-operation">After steak is removed, wipe skillet; melt remaining butter, fry eggs until whites set and yolks runny.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> butter<small class="trn-state-detail">sliced in half</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 24 oz Steak — sirloin, ribeye or preferred cut. The ingredient list omits a weight; this adaptation uses the publisher’s stated 6-ounce steak per nutrition portion.
+
+- 1 cup Steak marinade — prepared. Source specifies 1/4–1/2 cup. Source range: 0.25–0.5 cup; use the lower stated amount as the scaled starting point.
+
+- 8 count large eggs
+
+- 8 tbsp butter — sliced in half
+
+- to taste salt and pepper — to taste. Source does not state an amount; measure to taste or as needed.
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Marinate.** Coat steak with marinade in a shallow dish or bag, adding salt and pepper to taste. Marinate for 10 minutes to 1 hour.
+
+2. **Steak.** Heat a heavy skillet over medium and melt half the butter. Sear steak 1–2 minutes per side or until it reaches your preferred doneness. Transfer it to a plate.
+
+3. **Eggs.** Wipe out the skillet and melt the remaining butter. Crack in the eggs and cook until whites are set with yolks still runny. Serve with steak.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 584 kcal; protein: 66.5 g; total carbs: 0.8 g; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: egg, milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The steak weight uses the publisher’s nutrition portion (6 ounces) because its ingredient list omits a quantity.
+
+- The publisher’s 15-minute total excludes 10–60 minutes of marination. Searing times depend strongly on the steak cut and thickness, which are unspecified.
+
+- Ingredient quantities are scaled from 1 original portion to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Steak and Eggs (keto + low carb)](https://www.maebells.com/steak-and-eggs/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Steak Rolls
+
+4 portions · US measures · keto · 10 min publisher preparation · Not provided
+
+Steak Rolls. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Steak Rolls cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Marinate steak for at least 30 minutes. Heat oven to 350°F.</td></tr><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> flank steak or thinly sliced top round steak<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Marinate steak at least 30 min, cut strips; wrap vegetables and secure toothpicks.</td><td rowspan="6" colspan="1" class="trn-operation">Sear rolls in source unspecified spray/oil medium about 1 min per face; bake 350°F 10–15 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Steak marinade<small class="trn-state-detail">prepared · Source specifies 1/4–1/2 cup; linked marinade is not included in captured recipe card. Source range: 0.25–0.5 cup; use the lower stated amount as the scaled starting point.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> red bell pepper<small class="trn-state-detail">cut into thin strips</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ cup</strong> french style green beans<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> white onion<small class="trn-state-detail">cut into thin strips</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Cooking spray or olive oil<small class="trn-state-detail">Source provides no amount.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 ½ lb flank steak or thinly sliced top round steak
+
+- ¼ cup Steak marinade — prepared. Source specifies 1/4–1/2 cup; linked marinade is not included in captured recipe card. Source range: 0.25–0.5 cup; use the lower stated amount as the scaled starting point.
+
+- ½ count red bell pepper — cut into thin strips
+
+- 1 ½ cup french style green beans
+
+- ⅓ cup white onion — cut into thin strips
+
+- Not specified Cooking spray or olive oil. Source provides no amount.
+
+### Equipment
+
+- Oven-safe skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+- Toothpicks
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Prepare.** Coat steak with the prepared marinade in a bag and refrigerate at least 30 minutes. Cut into strips large enough to wrap the vegetables.
+
+2. **Roll.** Put some pepper strips, green beans and onion onto each steak strip. Wrap tightly and fasten with toothpicks.
+
+3. **Sear and bake.** Grease a skillet with spray or a little oil and heat over medium. Sear rolls about 1 minute, rotating to brown every side. Transfer to a baking sheet and bake 10–15 minutes.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 265 kcal; protein: 37.7 g; total carbs: 6.3 g; fiber: 2.0 g; net carbs: 4.3 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher’s 30-minute total omits at least 30 minutes of marination. Steak-strip dimensions are demonstrated in a video rather than specified in the written recipe.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Steak Rolls](https://www.maebells.com/steak-rolls/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Keto Beef Stroganoff
+
+4 portions · US measures · keto · 20 min publisher preparation · Not provided
+
+Keto Beef Stroganoff. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Beef Stroganoff cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Trim beef and cut across the grain into half-inch pieces.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.1 cup</strong> Avocado oil<small class="trn-state-detail">Source also provides 56 g.</small></th><td rowspan="10" colspan="1" class="trn-operation">Sauté onion/garlic in oil medium 3 min; brown seasoned beef 8 min; add broth/vinegar, uncovered simmer 30 min; add mushrooms, cover 90 min.</td><td rowspan="13" colspan="1" class="trn-operation">Off heat, stir in sour cream and mayonnaise; add xanthan in six equal additions to thicken; cover, rest 10 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.7 oz</strong> White onion<small class="trn-state-detail">finely chopped · Source gives 50 g only. Exact mass conversion to US ounces; no cup estimate.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.8 tsp</strong> Garlic<small class="trn-state-detail">minced · Source also provides 10 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.2 lb</strong> fat-trimmed beef brisket<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.8 tsp</strong> ground thyme<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.3 tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.2 tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.6 cup</strong> Beef broth<small class="trn-state-detail">Source also provides 367 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.8 tbsp</strong> Apple cider vinegar<small class="trn-state-detail">Source also provides 30 mL.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6.4 oz</strong> fresh mushrooms<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.3 cup</strong> Sour cream<small class="trn-state-detail">Source also provides 180 g.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.1 cup</strong> Mayonnaise<small class="trn-state-detail">Source also provides 60 g.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.6 tsp</strong> xanthan gum<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 0.1 cup Avocado oil. Source also provides 56 g.
+
+- 0.7 oz White onion — finely chopped. Source gives 50 g only. Exact mass conversion to US ounces; no cup estimate.
+
+- 0.8 tsp Garlic — minced. Source also provides 10 g.
+
+- 1.2 lb fat-trimmed beef brisket
+
+- 0.8 tsp ground thyme
+
+- 0.3 tsp salt
+
+- 0.2 tsp black pepper
+
+- 0.6 cup Beef broth. Source also provides 367 g.
+
+- 0.8 tbsp Apple cider vinegar. Source also provides 30 mL.
+
+- 6.4 oz fresh mushrooms — sliced
+
+- 0.3 cup Sour cream. Source also provides 180 g.
+
+- 0.1 cup Mayonnaise. Source also provides 60 g.
+
+- 0.6 tsp xanthan gum
+
+### Equipment
+
+- Lidded saucepan or Dutch oven
+
+- Mixing bowl
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Brown.** Heat oil in a large saucepan over medium. Sauté onion and garlic about 3 minutes. Add beef, thyme, salt and pepper. Cook about 8 minutes, stirring to brown all sides.
+
+2. **Simmer.** Lower heat to medium-low and add broth and vinegar. Simmer uncovered for 30 minutes. Stir in mushrooms, cover and simmer another 90 minutes.
+
+3. **Thicken.** Remove from heat and stir in sour cream and mayonnaise. Add xanthan in six equal small additions, mixing between each, until thickened. Cover and let stand for 10 minutes before serving.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 353 kcal; protein: 30.1 g; total carbs: 3.4 g; fiber: 1.0 g; net carbs: 2.4 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: egg, milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The original 50 g onion amount is expressed as 1.763698 oz by weight; no cup conversion is assumed.
+
+- The original method adds xanthan in 1/4 teaspoon increments. This adaptation adds the listed total in six equal portions so the additions scale with the batch.
+
+- Source 130 min cook undercounts 3 min aromatics plus 8 min beef plus 30 min uncovered plus 90 min covered, before 10 min standing.
+
+- Ingredient quantities are scaled from 10 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Sara Nelson. This adaptation has not been kitchen-tested.
+
+- The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Sara Nelson: Keto Beef Stroganoff](https://realbalanced.com/recipe/keto-beef-stroganoff/)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## The BEST Keto Chili Recipe
+
+4 portions · US measures · keto · 5 min publisher preparation · 30 min
+
+The BEST Keto Chili Recipe. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="The BEST Keto Chili Recipe cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Chop pepper, jalapeño and garlic.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> ground beef or turkey<small class="trn-state-detail"></small></th><td rowspan="1" colspan="1" class="trn-operation">Brown meat over medium; drain fat.</td><td rowspan="13" colspan="1" class="trn-operation">Stir all remaining ingredients into browned, drained meat; dissolve tomato paste, simmer uncovered low 25 min.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ count</strong> green bell pepper<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ count</strong> jalapeño<small class="trn-state-detail">seeded and finely chopped</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 clove</strong> garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>5 oz</strong> Tomatoes with green chilies<small class="trn-state-essential">canned; undrained</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>7.5 oz</strong> Tomato sauce<small class="trn-state-detail">canned</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ carton</strong> Beef broth<small class="trn-state-detail">one 32-ounce carton · Fraction of a 32-ounce package; the package size is preserved from the publisher.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>3.5 oz</strong> Tomato paste<small class="trn-state-detail">canned</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tbsp</strong> chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ tsp</strong> Oregano<small class="trn-state-detail">Source says 1 teaspoon each of oregano, cumin and garlic powder; split into three ingredient mappings.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> salt and pepper to taste<small class="trn-state-detail">Source does not state an amount; measure to taste or as needed.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ tsp</strong> Cumin<small class="trn-state-detail">One of the three separately measured spices in the source line.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ tsp</strong> Garlic powder<small class="trn-state-detail">One of the three separately measured spices in the source line.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb ground beef or turkey
+
+- ½ count green bell pepper — finely chopped
+
+- ½ count jalapeño — seeded and finely chopped
+
+- 1 clove garlic — minced
+
+- 5 oz Tomatoes with green chilies — canned; undrained
+
+- 7.5 oz Tomato sauce — canned
+
+- ½ carton Beef broth — one 32-ounce carton. Fraction of a 32-ounce package; the package size is preserved from the publisher.
+
+- 3.5 oz Tomato paste — canned
+
+- 1 tbsp chili powder
+
+- ½ tsp Oregano. Source says 1 teaspoon each of oregano, cumin and garlic powder; split into three ingredient mappings.
+
+- to taste salt and pepper to taste. Source does not state an amount; measure to taste or as needed.
+
+- ½ tsp Cumin. One of the three separately measured spices in the source line.
+
+- ½ tsp Garlic powder. One of the three separately measured spices in the source line.
+
+### Equipment
+
+- Lidded saucepan or Dutch oven
+
+- Mixing bowl
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Brown.** Brown ground meat over medium in a saucepan or Dutch oven. Drain excess fat.
+
+2. **Simmer.** Add vegetables, undrained tomatoes, sauce, broth, paste, all spices and salt and pepper. Stir until the paste is fully blended. Simmer uncovered over low for about 25 minutes to reduce and thicken.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 301 kcal; protein: 24.3 g; total carbs: 11.1 g; fiber: 2.6 g; net carbs: 8.5 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The original recipe lists 1 teaspoon each of oregano, cumin and garlic powder; these are separate ingredients here.
+
+- Source spicy variation raises original chili powder to 3 tbsp; base is 2 tbsp.
+
+- Ingredient quantities are scaled from 8 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: The BEST Keto Chili Recipe](https://www.maebells.com/easy-keto-chili-low-carb-no-bean-chili/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Keto Italian Meatballs
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Keto Italian Meatballs. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Italian Meatballs cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Heat oven to 400°F. Source yield is 24 meatballs, equivalent to 4 servings.</td></tr><tr><td colspan="2" class="trn-prep">Check ground meat or fresh sausage reaches 160°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Italian sausage<small class="trn-state-detail"></small></th><td rowspan="6" colspan="1" class="trn-operation">Mix well, form meatballs; bake 400°F 18–20 min until cooked. Source batch yields 24, six per serving.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> grated parmesan<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> egg<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Pork rind panko<small class="trn-state-detail">Source alternative is regular or gluten-free breadcrumbs. Use pork-rind panko for the keto recipe; breadcrumb choice changes gluten allergens.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> milk<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb Italian sausage
+
+- 1 tbsp minced garlic
+
+- ½ cup grated parmesan
+
+- 1 count egg
+
+- ½ cup Pork rind panko. Source alternative is regular or gluten-free breadcrumbs. Use pork-rind panko for the keto recipe; breadcrumb choice changes gluten allergens.
+
+- 2 tbsp milk
+
+### Equipment
+
+- Oven
+
+- Baking sheet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Mix.** Thoroughly combine sausage, garlic, parmesan, egg, pork-rind panko and milk by hand or with a mixer.
+
+2. **Bake.** Shape into golf-ball-sized meatballs and bake for 18–20 minutes until cooked through. The source makes 24 meatballs, with six per serving.
+
+3. **Serve.** Serve as cooked. Marinara and extra parmesan are optional serving suggestions with no amounts in the source.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 388 kcal; protein: 39.0 g; total carbs: 3.9 g; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: egg, milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The original batch makes 24 meatballs, divided into 4 portions of 6 meatballs each. Nutrition is per 6-meatball portion.
+
+- Pork-rind panko chosen from explicit source alternatives; breadcrumbs may add wheat. Unmeasured marinara/extra parmesan serving suggestion is outside ingredient totals.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Keto Italian Meatballs](https://www.maebells.com/italian-meatballs-with-ricotta-and-basil/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Low Carb Taco Casserole
+
+4 portions · US measures · keto · Preparation time not provided · 20 min
+
+Low Carb Taco Casserole. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Low Carb Taco Casserole cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Chop jalapeño and cabbage. Source does not supply the tomatoes can size.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> ground beef or turkey<small class="trn-state-essential">raw; brown and drain in method</small></th><td rowspan="2" colspan="1" class="trn-operation">Brown and drain meat; cook jalapeño 3–5 min.</td><td rowspan="7" colspan="1" class="trn-operation">Add cabbage, undrained tomatoes, sauce and taco mix; cover medium 15–18 min, stirring; top cheddar.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> jalapeño<small class="trn-state-detail">seeded and diced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>3 cup</strong> Cabbage<small class="trn-state-detail">chopped medium chunks · Source says half a head, roughly 3 cups. Uses its explicit cup equivalent.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 can</strong> Tomatoes with green chilies<small class="trn-state-essential">undrained; can size not supplied · Source omits can size.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>8 oz</strong> Tomato sauce<small class="trn-state-detail">canned</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 oz</strong> Taco seasoning<small class="trn-state-detail">dry mix; source uses one 1-ounce package</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 cup</strong> shredded cheddar cheese<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb ground beef or turkey — raw; brown and drain in method
+
+- 1 count jalapeño — seeded and diced
+
+- 3 cup Cabbage — chopped medium chunks. Source says half a head, roughly 3 cups. Uses its explicit cup equivalent.
+
+- 1 can Tomatoes with green chilies — undrained; can size not supplied. Source omits can size.
+
+- 8 oz Tomato sauce — canned
+
+- 1 oz Taco seasoning — dry mix; source uses one 1-ounce package
+
+- 1 cup shredded cheddar cheese
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Brown.** Brown the ground meat in a skillet over medium and drain fat. Add jalapeño and cook 3–5 minutes.
+
+2. **Simmer.** Stir in cabbage, undrained tomatoes, tomato sauce and taco mix. Cover and cook over medium for 15–18 minutes, stirring occasionally.
+
+3. **Top.** Add shredded cheddar on the finished casserole.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 277 kcal; protein: 32.5 g; total carbs: 6.9 g; fiber: 1.2 g; net carbs: 5.7 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Tomatoes-with-chilies can size is missing. Source recipe cannot provide its weight until resolved.
+
+- Ingredient browned/drained wording conflicts with browning method; this adaptation follows method from raw ground meat.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Low Carb Taco Casserole](https://thebestketorecipes.com/one-pan-cheesy-taco-cabbage-skillet-keto-low-carb/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [Resolved publisher source](https://thebestketorecipes.com/low-carb-taco-casserole/)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## One Pan Keto Philly Cheesesteak
+
+4 portions · US measures · keto · 10 min publisher preparation · 43 min
+
+One Pan Keto Philly Cheesesteak. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="One Pan Keto Philly Cheesesteak cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Thinly slice steak, peppers, onion and mushrooms. Briefly chill steak if necessary for slicing.</td></tr><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ count</strong> bell peppers of any color<small class="trn-state-detail">226 g</small></th><td rowspan="5" colspan="1" class="trn-operation">Brown mushrooms dry with pinch of salt; add half butter and peppers/onion; brown and reserve.</td><td rowspan="15" colspan="1" class="trn-operation">Return steak and vegetables to deglazed pan with cream cheese; top cheeses and cover skillet until melted.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> small onion<small class="trn-state-detail">56 g</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2.7 oz</strong> Baby Bella mushrooms<small class="trn-state-detail">sliced · Source says 4 large or 6 small mushrooms, weighing 4 ounces. Uses its explicit weight basis.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>pinch of</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ lb</strong> flank steak<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Season steak with remaining salt and pepper; sear in remaining butter uncrowded 1–2 min each side; reserve.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Remainder of ⅔ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅙ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> Worcestershire<small class="trn-state-detail"></small></th><td rowspan="3" colspan="1" class="trn-operation">Deglaze medium with Worcestershire, vinegar and garlic.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> apple cider vinegar<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1.3 oz</strong> cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅓ cup</strong> shredded mozzarella<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅓ cup</strong> shredded parmesan<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- ⅔ lb flank steak
+
+- 1 ⅓ count bell peppers of any color — 226 g
+
+- ⅔ count small onion — 56 g
+
+- 2.7 oz Baby Bella mushrooms — sliced. Source says 4 large or 6 small mushrooms, weighing 4 ounces. Uses its explicit weight basis.
+
+- ⅔ tbsp Worcestershire
+
+- ⅔ tbsp apple cider vinegar
+
+- ⅔ tbsp minced garlic
+
+- 1.3 oz cream cheese
+
+- ⅓ cup shredded mozzarella
+
+- ⅓ cup shredded parmesan
+
+- ⅔ tsp salt
+
+- ⅙ tsp pepper
+
+- 1 ⅓ tbsp butter
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Vegetables.** Brown mushrooms in a dry cast-iron skillet over medium-high with a little of the measured salt. Add half the butter with onions and peppers, cook until browning starts, and reserve the vegetables.
+
+2. **Steak.** Season steak with the remaining salt and the pepper. Heat the remaining butter in the skillet and sear steak in uncrowded batches for 1–2 minutes per side. Transfer steak out.
+
+3. **Combine.** Lower heat to medium. Stir Worcestershire, vinegar and garlic into the pan to loosen browned residue. Return steak and vegetables, add cream cheese and stir until it melts.
+
+4. **Melt.** Scatter mozzarella and parmesan on top. Cover the skillet until cheese melts. The publisher also permits 3–5 minutes under a broiler, which requires an oven-safe skillet and oven.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+- Source permits covering the skillet to melt cheese instead of broiling. Oven is only needed for the broiler route.
+
+- The primary method melts cheese under a lid on the stovetop. Optional source broiling needs an oven-safe skillet and oven.
+
+### Nutrition per serving
+
+Calories: 225 kcal; protein: 23.1 g; total carbs: 3.9 g; fiber: 0.6 g; net carbs: 3.3 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: fish, milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Source mushrooms 4 large/6 small also gives 4 oz; explicit weight used.
+
+- Worcestershire sauce often contains anchovies. Fish is flagged as a possible allergen; check the actual brand.
+
+- Salt is to taste: use a pinch first, then the remainder to taste; no measured split is given.
+
+- Ingredient quantities are scaled from 6 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Olivia. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Olivia: One Pan Keto Philly Cheesesteak](https://itstartswithgoodfood.com/one-pan-keto-philly-cheesesteak/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Cabbage with Sausage Foil Packs
+
+4 portions · US measures · keto · 10 min publisher preparation · 34 min
+
+Cabbage with Sausage Foil Packs. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Cabbage with Sausage Foil Packs cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Heat grill to medium, approximately 350°F. Cut heavy-duty foil into 12-inch squares and grease them.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>13 oz</strong> Smoked sausage<small class="trn-state-detail">cut into thick slices; source uses one 13-ounce package</small></th><td rowspan="6" colspan="1" class="trn-operation">Divide ingredients among packets; double-fold seals with room for steam; grill 350°F covered 12 min, rotate, cook 12 min; carefully open and stir.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 cup</strong> Cabbage<small class="trn-state-detail">chopped · Source says quarter head, roughly 3–4 cups. Uses its explicit cup range. Source range: 3–4 cup; use the lower stated amount as the scaled starting point.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> green bell pepper<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> onion<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Old Bay seasoning<small class="trn-state-detail">Source alternative is unmeasured salt and pepper to taste.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> butter<small class="trn-state-detail">cut into 1/2 tablespoon butter slices.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 13 oz Smoked sausage — cut into thick slices; source uses one 13-ounce package
+
+- 3 cup Cabbage — chopped. Source says quarter head, roughly 3–4 cups. Uses its explicit cup range. Source range: 3–4 cup; use the lower stated amount as the scaled starting point.
+
+- 1 count green bell pepper — chopped
+
+- 1 count onion — chopped
+
+- ½ tsp Old Bay seasoning. Source alternative is unmeasured salt and pepper to taste.
+
+- 2 tbsp butter — cut into 1/2 tablespoon butter slices.
+
+### Equipment
+
+- Grill
+
+- Tongs
+
+- Heavy-duty foil
+
+- Mixing bowl
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Pack.** Divide sausage, cabbage, pepper, onion, seasoning and butter evenly among the foil packets.
+
+2. **Seal.** Bring opposite foil edges together, fold twice to seal, then close the ends. Leave space inside for steam and expansion.
+
+3. **Grill.** Cover grill and cook packets for 12 minutes. Rotate each half a turn and cook another 12 minutes until sausage is hot and vegetables are crisp-tender. Open carefully, stir and serve.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 153 kcal; protein: 4.0 g; total carbs: 9.0 g; fiber: 2.0 g; net carbs: 7.0 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Cabbage quarter head is explicitly approximately 3–4 cups; source range preserved.
+
+- Source foil packet count 4 matches original 4 servings. Cooking spray is unmeasured equipment preparation.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Cabbage with Sausage Foil Packs](https://www.maebells.com/keto-sausage-and-cabbage-foil-packs/)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Zuppa Toscana
+
+4 portions · US measures · keto · 15 min publisher preparation · 60 min
+
+Zuppa Toscana. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Zuppa Toscana cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Quarter radishes and remove kale stems.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 slice</strong> bacon<small class="trn-state-detail">roughly chopped</small></th><td rowspan="1" colspan="1" class="trn-operation">Crisp bacon medium 6–8 min; reserve, discard excess fat.</td><td rowspan="11" colspan="1" class="trn-operation">Add browned sausage and kale to radish soup; simmer 5–10 min until wilted, garnish reserved bacon.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ lb</strong> ground mild Italian sausage<small class="trn-state-detail"></small></th><td rowspan="1" colspan="1" class="trn-operation">Then brown sausage medium-high 6–8 min; reserve, discard excess fat.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> Butter<small class="trn-state-detail">Source also provides 14 g.</small></th><td rowspan="8" colspan="1" class="trn-operation">In same pot, sauté garlic/sage/pepper in butter 1 min; add broth/cream/parmesan, simmer; add radishes, medium-low 15–20 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Garlic<small class="trn-state-detail">minced · Source also provides 10 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> ground sage<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅜ cup</strong> chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅜ cup</strong> Heavy whipping cream<small class="trn-state-detail">Source also provides 180 mL.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ cup</strong> Parmesan cheese<small class="trn-state-detail">shredded · Source also provides 28 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ lb</strong> radishes<small class="trn-state-detail">quartered</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 oz</strong> Kale<small class="trn-state-detail">stems removed; roughly chopped · Source also gives approximately 1 cup.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 3 slice bacon — roughly chopped
+
+- ½ lb ground mild Italian sausage
+
+- ½ tbsp Butter. Source also provides 14 g.
+
+- 1 tsp Garlic — minced. Source also provides 10 g.
+
+- ¼ tsp ground sage
+
+- ⅛ tsp black pepper
+
+- 1 ⅜ cup chicken broth
+
+- ⅜ cup Heavy whipping cream. Source also provides 180 mL.
+
+- ⅛ cup Parmesan cheese — shredded. Source also provides 28 g.
+
+- ½ lb radishes — quartered
+
+- 1 oz Kale — stems removed; roughly chopped. Source also gives approximately 1 cup.
+
+### Equipment
+
+- Lidded saucepan or Dutch oven
+
+- Mixing bowl
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Bacon.** Cook bacon in a large pot over medium for 6–8 minutes until crisp. Reserve on a paper-lined plate and discard excess grease.
+
+2. **Sausage.** In the same pot, brown sausage over medium-high for 6–8 minutes, breaking it apart. Reserve it and discard excess grease without washing the pot.
+
+3. **Soup.** Melt butter over medium, then cook garlic, sage and pepper for about 1 minute. Add broth, cream and parmesan, raise heat to medium-high and bring to a simmer. Add radishes and simmer medium-low for 15–20 minutes until fork-tender.
+
+4. **Finish.** Return sausage, add kale, and simmer 5–10 minutes until wilted. Serve topped with the reserved bacon.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 334 kcal; protein: 12.0 g; total carbs: 3.9 g; fiber: 1.1 g; net carbs: 2.8 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Radishes replace potatoes in this source recipe.
+
+- Ingredient quantities are scaled from 8 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Sara Nelson. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Sara Nelson: Zuppa Toscana](https://realbalanced.com/recipe/keto-zuppa-toscana/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Roasted Brussel Sprouts and Kielbasa
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Roasted Brussel Sprouts and Kielbasa. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Roasted Brussel Sprouts and Kielbasa cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F and line a large baking sheet.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> medium sized Brussel sprouts<small class="trn-state-detail"></small></th><td rowspan="3" colspan="1" class="trn-operation">Trim and halve sprouts; toss with oil and seasoning salt.</td><td rowspan="4" colspan="1" class="trn-operation">Mix sliced kielbasa with seasoned sprouts on lined sheet; roast 400°F 20 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> seasoning salt<small class="trn-state-detail">.. my favorite is a Habanaro Lime grinder but any seasoning salt or simply salt and pepper will work fine</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>12 oz</strong> smoked kielbasa, halved lengthwise then cut into bite size pieces<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb medium sized Brussel sprouts
+
+- 2 tbsp olive oil
+
+- 1 tsp seasoning salt — .. my favorite is a Habanaro Lime grinder but any seasoning salt or simply salt and pepper will work fine
+
+- 12 oz smoked kielbasa, halved lengthwise then cut into bite size pieces
+
+### Equipment
+
+- Oven
+
+- Baking sheet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Prepare.** Wash and dry sprouts, trim stem ends and halve them from top to stem. Toss with oil and seasoning salt.
+
+2. **Roast.** Halve kielbasa lengthwise, then cut into bite-sized pieces. Mix with sprouts on the sheet in an even layer. Bake for 20 minutes and serve hot.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Nutrition is unreported because the publisher’s serving-size statement conflicts with its recipe yield. See the linked original for the inconsistent estimate.
+
+Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher’s nutrition serving size says 4 g, although the recipe makes 4 portions. This inconsistent serving label makes the retained per-portion nutrition estimate uncertain.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from awickedwhisk.com. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [awickedwhisk.com: Roasted Brussel Sprouts and Kielbasa](https://www.awickedwhisk.com/roasted-brussel-sprouts-and-kielbasa-3/)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Pan Seared Pork Chops with Creamy Pan Gravy and Garlicky Green Beans
+
+4 portions · US measures · keto · 10 min publisher preparation · Not provided
+
+Pan Seared Pork Chops with Creamy Pan Gravy and Garlicky Green Beans. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Pan Seared Pork Chops with Creamy Pan Gravy and Garlicky Green Beans cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F. Pork chops are 2 inches thick. Green beans are already steamed fork-tender per source ingredient state.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>32 oz</strong> Bone-in pork chops<small class="trn-state-essential">raw; 2 inches thick</small></th><td rowspan="7" colspan="1" class="trn-operation">Dry/season chops; sear in ghee 4–5 min per side; bake 400°F 8–10 min to 145°F; hold under foil. In drippings cook garlic/rosemary low 2–4 min; off heat whisk cream.</td><td rowspan="14" colspan="1" class="trn-operation">Serve pork chops with skillet gravy and beans.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> ghee<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 clove</strong> garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> fresh rosemary<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> heavy whipping cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> unsalted butter<small class="trn-state-detail"></small></th><td rowspan="7" colspan="1" class="trn-operation">Second skillet: melt butter/oil, add pre-steamed beans, garlic, stock and seasonings; cover 10 min, uncover 5 min to evaporate/brown.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> avocado oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> green beans<small class="trn-state-detail">ends trimmed and steamed until fork-tender</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 clove</strong> garlic<small class="trn-state-detail">thinly sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> chicken stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 32 oz Bone-in pork chops — raw; 2 inches thick
+
+- 1 tsp salt
+
+- ½ tsp black pepper
+
+- 2 tbsp ghee
+
+- 2 clove garlic — minced
+
+- 2 tsp fresh rosemary — minced
+
+- 2 tbsp heavy whipping cream
+
+- 1 tbsp unsalted butter
+
+- 1 tbsp avocado oil
+
+- 1 lb green beans — ends trimmed and steamed until fork-tender
+
+- 2 clove garlic — thinly sliced
+
+- ½ cup chicken stock
+
+- ¼ tsp salt
+
+- ¼ tsp black pepper
+
+### Equipment
+
+- Oven-safe skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+- Second skillet
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Chops.** Dry pork and season with its salt and pepper portions. Heat a cast-iron skillet over medium-high and melt ghee. Sear 4–5 minutes per side. Move skillet to the oven for 8–10 minutes, until pork reaches 145°F. Transfer to a plate under foil.
+
+2. **Gravy.** Put the chop skillet over low. Cook gravy garlic and rosemary in the drippings for 2–4 minutes, stirring constantly. Turn off heat and whisk in cream.
+
+3. **Beans.** Heat a second skillet over medium to medium-high. Melt butter with avocado oil. Add pre-steamed beans, sliced garlic, stock and their salt and pepper portions. Cover for 10 minutes, stirring occasionally. Uncover and cook about 5 minutes more until the liquid evaporates and beans brown in spots.
+
+4. **Serve.** Plate chops with gravy and green beans.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 551 kcal; protein: 52.0 g; total carbs: 10.0 g; fiber: 3.0 g; net carbs: 7.0 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Source ingredient explicitly requires steamed beans; prep for steaming is not described and may not fit declared 10 min prep.
+
+- Source chop count is not given; total is 32 oz bone-in, 2-inch-thick chops.
+
+- The publisher lists 20 minutes of cooking but does not say whether the sides cook simultaneously or separately. No complete total time is provided.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from theketoqueens.com. This adaptation has not been kitchen-tested.
+
+- The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [theketoqueens.com: Pan Seared Pork Chops with Creamy Pan Gravy and Garlicky Green Beans](https://theketoqueens.com/cast-iron-pork-chops/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Keto Sausage Veggie Sheet Pan Dinner
+
+4 portions · US measures · keto · 5 min publisher preparation · 30 min
+
+Keto Sausage Veggie Sheet Pan Dinner. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Sausage Veggie Sheet Pan Dinner cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F. Lightly grease a baking sheet.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>16 oz</strong> Keto-friendly smoked sausage<small class="trn-state-detail">sliced; source uses one 16-ounce package</small></th><td rowspan="5" colspan="1" class="trn-operation">Spread sausage and seasoned vegetables on pan; bake 400°F 15 min, toss, bake 10–15 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 cup</strong> broccoli florets<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Toss broccoli and pepper with oil and Cajun seasoning.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> red bell pepper<small class="trn-state-detail">cut into chunks about 1 large bell pepper</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> cajun seasoning<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 16 oz Keto-friendly smoked sausage — sliced; source uses one 16-ounce package
+
+- 3 cup broccoli florets
+
+- 1 cup red bell pepper — cut into chunks about 1 large bell pepper
+
+- 1 tbsp olive oil
+
+- 2 tsp cajun seasoning
+
+### Equipment
+
+- Oven
+
+- Baking sheet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Arrange.** Spread sliced sausage on the pan. Toss broccoli and pepper chunks with oil and Cajun seasoning, then distribute around the sausage.
+
+2. **Roast.** Bake for 15 minutes. Toss the contents and bake another 10–15 minutes, until vegetables reach the tenderness you prefer.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 405 kcal; protein: 16.3 g; total carbs: 8.8 g; fiber: 2.6 g; net carbs: 6.2 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The method requires 25–30 minutes of roasting; the publisher’s 25-minute cooking time is the lower end.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Keto Sausage Veggie Sheet Pan Dinner](https://www.maebells.com/keto-sausage-veggie-sheet-pan-dinner/)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Cheesy Sausage Soup
+
+4 portions · US measures · keto · 10 min publisher preparation · 40 min
+
+Cheesy Sausage Soup. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Cheesy Sausage Soup cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Slice sausage and finely chop vegetables. Cube the cream cheese.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6.8 oz</strong> Smoked sausage<small class="trn-state-detail">sliced; source uses one 13.5-ounce package</small></th><td rowspan="8" colspan="1" class="trn-operation">Brown sausage medium and drain; soften vegetables; add undrained tomatoes/broth, cover low 25 min.</td><td rowspan="10" colspan="1" class="trn-operation">Stir in cubed cream cheese and cheddar until melted; serve.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ count</strong> small onion<small class="trn-state-detail">1/2 cup, finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> orange bell pepper<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> red bell pepper<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> celery<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ container</strong> Broth<small class="trn-state-detail">one 32-ounce container; beef, chicken or vegetable · Fraction of a 32-ounce package; the package size is preserved from the publisher.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 oz</strong> Tomatoes with green chilies<small class="trn-state-essential">canned; undrained</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>3 oz</strong> cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¾ cup</strong> shredded cheddar<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 6.8 oz Smoked sausage — sliced; source uses one 13.5-ounce package
+
+- ½ tsp minced garlic
+
+- ¼ count small onion — 1/2 cup, finely chopped
+
+- ½ count orange bell pepper — finely chopped
+
+- ½ count red bell pepper — finely chopped
+
+- 1 cup celery — finely chopped
+
+- ½ container Broth — one 32-ounce container; beef, chicken or vegetable. Fraction of a 32-ounce package; the package size is preserved from the publisher.
+
+- 5 oz Tomatoes with green chilies — canned; undrained
+
+- 3 oz cream cheese
+
+- ¾ cup shredded cheddar
+
+### Equipment
+
+- Lidded saucepan or Dutch oven
+
+- Mixing bowl
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Brown.** Brown sausage in a stockpot or Dutch oven over medium. Drain excess grease.
+
+2. **Vegetables.** Add garlic, onion, peppers and celery and cook until softened.
+
+3. **Simmer.** Stir in undrained tomatoes and broth. Cover and simmer on low for 25 minutes.
+
+4. **Cheese.** Just before serving, stir in cream cheese and cheddar until melted.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 449 kcal; protein: 20.7 g; total carbs: 8.6 g; fiber: 1.8 g; net carbs: 6.8 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Ingredient quantities are scaled from 8 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Cheesy Sausage Soup](https://www.maebells.com/cheesy-smoked-sausage-soup-low-carb-keto/)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Sausage Broccoli Cheddar Sheet Pan
+
+4 portions · US measures · keto · 5 min publisher preparation · 30 min
+
+Sausage Broccoli Cheddar Sheet Pan. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Sausage Broccoli Cheddar Sheet Pan cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F. Line and lightly oil a baking sheet.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 cup</strong> broccoli florets<small class="trn-state-detail"></small></th><td rowspan="3" colspan="1" class="trn-operation">Spread broccoli/sausage on lined oil-sprayed sheet; roast 400°F 15 min, flip/toss, roast 5–10 min.</td><td rowspan="5" colspan="1" class="trn-operation">Add cheddar, bake 1–2 min to melt; season to taste.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14 oz</strong> Johnsonville Andouille smoked sausage<small class="trn-state-detail">sliced; source uses one 14-ounce package</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Cooking oil spray<small class="trn-state-detail">Source method calls for cooking oil spray but supplies no amount.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 cup</strong> shredded cheddar cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> salt and pepper to taste<small class="trn-state-detail">Source does not state an amount; measure to taste or as needed.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 8 cup broccoli florets
+
+- 14 oz Johnsonville Andouille smoked sausage — sliced; source uses one 14-ounce package
+
+- 1 cup shredded cheddar cheese
+
+- to taste salt and pepper to taste. Source does not state an amount; measure to taste or as needed.
+
+- Not specified Cooking oil spray. Source method calls for cooking oil spray but supplies no amount.
+
+### Equipment
+
+- Oven
+
+- Baking sheet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Roast.** Spread broccoli and sliced sausage on the sheet. Roast for 15 minutes, then turn and toss them. Bake another 5–10 minutes until broccoli reaches your preferred tenderness.
+
+2. **Finish.** Add cheddar and return to the oven for 1–2 minutes to melt. Season with salt and pepper to taste.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 472 kcal; protein: 24.7 g; total carbs: 10.6 g; fiber: 4.0 g; net carbs: 6.6 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Cooking oil spray appears only in method without amount.
+
+- The method requires 20–25 minutes of roasting plus 1–2 minutes to melt the cheese; the publisher lists 25 minutes of cooking.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Sausage Broccoli Cheddar Sheet Pan](https://thebestketorecipes.com/sausage-broccoli-cheddar-sheet-pan/)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Fried Cabbage with Bacon (keto + low carb)
+
+4 portions · US measures · keto · 5 min publisher preparation · Not provided
+
+Fried Cabbage with Bacon (keto + low carb). Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Fried Cabbage with Bacon (keto + low carb) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Chop bacon, onion and cabbage.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 slice</strong> thick cut bacon<small class="trn-state-detail">chopped</small></th><td rowspan="1" colspan="1" class="trn-operation">Crisp bacon over medium; reserve bacon. Retain rendered fat in two equal portions for onions and cabbage; source original uses one tablespoon at each stage, proportional to batch size.</td><td rowspan="6" colspan="1" class="trn-operation">Return reserved crisp bacon and serve.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> small onion<small class="trn-state-detail">chopped</small></th><td rowspan="5" colspan="1" class="trn-operation">Caramelize onion in first retained fat 7–10 min; add second fat, cabbage and seasonings; fry 10–15 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 cup</strong> cabbage<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> paprika<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 slice thick cut bacon — chopped
+
+- 4 cup cabbage — chopped
+
+- ½ count small onion — chopped
+
+- ½ tsp salt
+
+- ½ tsp pepper
+
+- ½ tsp paprika
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Bacon.** Cook bacon in a large skillet over medium until crisp. Transfer with a slotted spoon to a paper-lined plate. Keep the source-specified first portion of rendered fat in the pan and reserve the rest.
+
+2. **Onion.** Sauté onion in retained fat over medium for 7–10 minutes until caramelized.
+
+3. **Cabbage.** Add a second equal portion of the reserved bacon fat, then cabbage, salt, pepper and paprika. Cook 10–15 minutes, stirring occasionally, until softened to taste.
+
+4. **Finish.** Stir the cooked bacon back in and serve immediately.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 171 kcal; protein: 4.8 g; total carbs: 6.3 g; fiber: 2.4 g; net carbs: 3.9 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Source method retains 1 tbsp bacon fat for onions and adds another 1 tbsp for cabbage. For changed servings those rendered-fat portions should scale, while no separate purchased fat is added.
+
+- Source 15 min cook excludes bacon crisping, 7–10 min onion and 10–15 min cabbage.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+- The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Fried Cabbage with Bacon (keto + low carb)](https://thebestketorecipes.com/fried-cabbage-with-bacon-keto-low-carb/)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Keto Lasagna Recipe (low carb + one pan)
+
+4 portions · US measures · keto · 10 min publisher preparation · Not provided
+
+Keto Lasagna Recipe (low carb + one pan). Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Lasagna Recipe (low carb + one pan) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 350°F. Use a 10-inch oven-safe skillet.</td></tr><tr><td colspan="3" class="trn-prep">Check ground meat or fresh sausage reaches 160°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ lb</strong> ground Italian Sausage<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Brown/drain sausage; add zucchini/spinach 2–3 min; add marinara/broth, simmer 6–8 min.</td><td rowspan="12" colspan="1" class="trn-operation">Spread cheese mixture over sausage sauce; top remaining mozzarella; bake 350°F 20 min, rest 5 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> small zucchini sliced<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ cup</strong> spinach<small class="trn-state-detail">roughly chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> low carb Marinara<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅙ cup</strong> beef broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2.7 oz</strong> cream cheese<small class="trn-state-detail">softened</small></th><td rowspan="6" colspan="1" class="trn-operation">Mix cream cheese, sour cream, onions, garlic, seasoning and first mozzarella portion.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.22 cup</strong> sour cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> green onions<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> shredded mozzarella<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> shredded mozzarella<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- ⅔ lb ground Italian Sausage
+
+- ⅔ count small zucchini sliced
+
+- 1 ⅓ cup spinach — roughly chopped
+
+- 1 cup low carb Marinara
+
+- ⅙ cup beef broth
+
+- 2.7 oz cream cheese — softened
+
+- 0.22 cup sour cream
+
+- 1 ⅓ tbsp green onions — chopped
+
+- 1 ⅓ tsp minced garlic
+
+- ⅔ tsp Italian seasoning
+
+- ⅓ cup shredded mozzarella
+
+- ⅔ cup shredded mozzarella
+
+### Equipment
+
+- Oven-safe skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Sausage.** Brown sausage over medium and drain fat. Add zucchini and spinach and cook 2–3 minutes until spinach starts wilting.
+
+2. **Simmer.** Stir in marinara and broth and simmer 6–8 minutes to reduce liquid.
+
+3. **Cheese layer.** Mix cream cheese, sour cream, green onions, garlic, Italian seasoning and the first mozzarella portion in a bowl. Spread over the sausage mixture and add the topping mozzarella.
+
+4. **Bake.** Bake for 20 minutes. Rest at least 5 minutes before serving.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 388 kcal; protein: 20.1 g; total carbs: 5.7 g; fiber: 1.4 g; net carbs: 4.3 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Source 20 min cook excludes browning, 2–3 min vegetables and 6–8 min simmer before 20 min baking plus 5 min rest.
+
+- Ingredient quantities are scaled from 6 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+- The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Keto Lasagna Recipe (low carb + one pan)](https://thebestketorecipes.com/keto-lasagna-skillet-low-carb-one-pan/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Sausage Sheet Pan Dinner
+
+4 portions · US measures · keto · Preparation time not provided · 30 min
+
+Sausage Sheet Pan Dinner. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Sausage Sheet Pan Dinner cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F. Line a large baking sheet. Source omits sausage package weight and link count.</td></tr><tr><td colspan="3" class="trn-prep">Check ground meat or fresh sausage reaches 160°F.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.8 package</strong> Italian sausage links<small class="trn-state-essential">raw; source package weight and link count are missing · Original yield is 5 servings. Do not invent package weight or link count.</small></th><td rowspan="6" colspan="1" class="trn-operation">Place sausage beside coated beans; bake 400°F 15 min, flip/toss, bake 15 min; top parmesan.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.2 lb</strong> fresh green beans<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Coat beans evenly with butter, garlic and seasoning.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.8 tbsp</strong> melted butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.6 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> salt and pepper to taste<small class="trn-state-detail">Source does not state an amount; measure to taste or as needed.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.2 cup</strong> shredded parmesan cheese<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 0.8 package Italian sausage links — raw; source package weight and link count are missing. Original yield is 5 servings. Do not invent package weight or link count.
+
+- 1.2 lb fresh green beans
+
+- 0.8 tbsp melted butter
+
+- 1.6 tsp minced garlic
+
+- to taste salt and pepper to taste. Source does not state an amount; measure to taste or as needed.
+
+- 0.2 cup shredded parmesan cheese
+
+### Equipment
+
+- Oven
+
+- Baking sheet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Arrange.** Put beans on the sheet and coat evenly with melted butter, garlic, salt and pepper. Place sausage links directly on exposed pan surface beside the beans.
+
+2. **Roast.** Bake for 15 minutes. Turn the sausage and toss the beans. Bake 15 minutes more, then add parmesan.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 322 kcal; protein: 22.0 g; total carbs: 9.6 g; fiber: 3.7 g; net carbs: 5.9 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Italian sausage is one package with no weight/link count. Source yield 5 servings; keep this as an unresolved package measure.
+
+- The publisher does not provide a preparation time.
+
+- Ingredient quantities are scaled from 5 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Sausage Sheet Pan Dinner](https://thebestketorecipes.com/sausage-and-green-bean-sheet-pan-dinner/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [Resolved publisher source](https://thebestketorecipes.com/sausage-sheet-pan-dinner/)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Keto Sesame Pork and Green Beans
+
+4 portions · US measures · keto · 5 min publisher preparation · 20 min
+
+Keto Sesame Pork and Green Beans. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Sesame Pork and Green Beans cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Slice pork thinly. Use a large lidded skillet.</td></tr><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th><td rowspan="2" colspan="1" class="trn-operation">Brown thin pork in oil medium 3–4 min undisturbed, stir/cook 3–4 min more.</td><td rowspan="10" colspan="1" class="trn-operation">Add beans and sesame sauce to cooked pork; toss, cover medium-low 5–7 min to tender beans.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Boneless Pork Chops<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> gluten free soy sauce<small class="trn-state-detail"></small></th><td rowspan="7" colspan="1" class="trn-operation">Whisk sesame sauce including optional sriracha.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> brown sugar Swerve or Monkfruit<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> rice vinegar<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 tbsp</strong> sesame oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> minced ginger<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> sriracha<small class="trn-state-detail">optional if you prefer spicy dishes · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>3 cup</strong> fresh green beans<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 tbsp olive oil
+
+- 1 ½ lb Boneless Pork Chops
+
+- ¼ cup gluten free soy sauce
+
+- 1 tbsp brown sugar Swerve or Monkfruit
+
+- 1 tbsp rice vinegar
+
+- 3 tbsp sesame oil
+
+- 2 tsp minced ginger
+
+- 2 tsp minced garlic
+
+- 1 tsp sriracha — optional if you prefer spicy dishes. Optional; excluded or included as stated in the publisher nutrition.
+
+- 3 cup fresh green beans
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Pork.** Heat oil over medium. Add sliced pork and leave undisturbed for 3–4 minutes to brown. Stir and cook another 3–4 minutes until cooked through.
+
+2. **Sauce.** Whisk soy sauce, sweetener, vinegar, sesame oil, ginger, garlic and optional sriracha together.
+
+3. **Finish.** Add beans and sauce to pork, tossing to coat. Reduce heat to medium-low, cover and cook for 5–7 minutes until beans are tender.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 231 kcal; protein: 16.6 g; total carbs: 6.3 g; fiber: 2.2 g; net carbs: 4.1 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: sesame, soy. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Keto Sesame Pork and Green Beans](https://thebestketorecipes.com/keto-sesame-pork-and-green-beans/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Grilled Shrimp Skewers
+
+4 portions · US measures · keto · 10 min publisher preparation · 20 min
+
+Grilled Shrimp Skewers. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Grilled Shrimp Skewers cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Peel shrimp. Have skewers ready and preheat grill to medium, about 350°F.</td></tr><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> shrimp<small class="trn-state-detail">shells removed</small></th><td rowspan="9" colspan="1" class="trn-operation">Marinate shrimp in three quarters of marinade while grill heats.</td><td rowspan="17" colspan="1" class="trn-operation">Skewer shrimp, discard used marinade; grill 350°F 2–3 min each side; brush reserved quarter in last minute.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ¼ tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ tbsp</strong> lemon juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ tbsp</strong> minced parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¾ tbsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¾ tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅜ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅜ tsp</strong> paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.19 tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¾ tbsp</strong> olive oil<small class="trn-state-detail"></small></th><td rowspan="8" colspan="1" class="trn-operation">Keep clean quarter marinade separate for finishing.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> lemon juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> minced parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tbsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ tsp</strong> paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.06 tsp</strong> pepper<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb shrimp — shells removed
+
+- 3 tbsp olive oil
+
+- 2 tbsp lemon juice
+
+- 2 tbsp minced parsley
+
+- 1 tbsp minced garlic
+
+- 1 tsp Italian seasoning
+
+- ½ tsp salt
+
+- ½ tsp paprika
+
+- ¼ tsp pepper
+
+### Equipment
+
+- Grill
+
+- Tongs
+
+- Skewers
+
+- Mixing bowl
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Marinate.** Whisk oil, lemon juice, parsley, garlic, Italian seasoning, salt, paprika and pepper. Reserve one quarter separately. Coat shrimp in a bag with the remaining three quarters while the grill heats.
+
+2. **Grill.** Thread shrimp onto skewers and discard liquid left in their bag. Grill for 2–3 minutes per side until cooked. Brush with the reserved clean marinade during the final minute.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 190 kcal; protein: 22.0 g; total carbs: 0.9 g; fiber: 0.2 g; net carbs: 0.7 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: crustacean shellfish. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Used shrimp marinade is discarded; clean quarter marinade is held separately for last-minute brushing.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Grilled Shrimp Skewers](https://www.maebells.com/mediterranean-grilled-shrimp-skewers/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [Resolved publisher source](https://www.maebells.com/grilled-shrimp-skewers/)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Lemon Garlic Shrimp and Broccolini Sheet Pan Meal
+
+4 portions · US measures · keto · 7 min publisher preparation · 17 min
+
+Lemon Garlic Shrimp and Broccolini Sheet Pan Meal. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon Garlic Shrimp and Broccolini Sheet Pan Meal cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F. Use a rimmed sheet; oil spray is optional. Shell/devein shrimp and cut broccolini small.</td></tr><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> lemon juice<small class="trn-state-detail"></small></th><td rowspan="10" colspan="1" class="trn-operation">Whisk coating, toss shrimp then lift shrimp onto pan; toss broccolini in leftover liquid, add optional lemon slices. Oil-spray pan if desired.</td><td rowspan="11" colspan="1" class="trn-operation">Roast 400°F 6–10 min to pink opaque shrimp; optionally remove shrimp and continue broccolini; add parsley.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ tbsp</strong> avocado oil<small class="trn-state-detail">or your favorite oil</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> lemon zest<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ clove</strong> garlic<small class="trn-state-detail">crushed</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> red pepper flakes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> sea salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>16 oz</strong> large shrimp<small class="trn-state-detail">shelled and deveined, with tails on</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ bunch</strong> Broccolini<small class="trn-state-detail">cut into small florets · Source gives no bunch weight.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> lemon<small class="trn-state-detail">thinly sliced optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Cooking oil spray<small class="trn-state-detail">Source method gives optional pan oil, with no amount. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> parsley<small class="trn-state-detail">chopped</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 ⅓ tbsp lemon juice
+
+- 2 ⅔ tbsp avocado oil — or your favorite oil
+
+- 1 ⅓ tsp lemon zest — finely chopped
+
+- 2 ⅔ clove garlic — crushed
+
+- ⅓ tsp red pepper flakes
+
+- ⅔ tsp sea salt
+
+- 16 oz large shrimp — shelled and deveined, with tails on
+
+- 1 ⅓ bunch Broccolini — cut into small florets. Source gives no bunch weight.
+
+- ⅔ count lemon — thinly sliced optional. Optional; excluded or included as stated in the publisher nutrition.
+
+- 1 ⅓ tbsp parsley — chopped
+
+- Not specified Cooking oil spray. Source method gives optional pan oil, with no amount. Optional; excluded or included as stated in the publisher nutrition.
+
+### Equipment
+
+- Oven
+
+- Baking sheet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Coat shrimp.** Whisk lemon juice, avocado oil, zest, crushed garlic, pepper flakes and salt. Toss shrimp in this mixture, lift shrimp onto the sheet and keep the liquid in the bowl.
+
+2. **Vegetables.** Toss broccolini in that remaining liquid, then place beside the shrimp. Add optional lemon slices.
+
+3. **Roast.** Bake for 6–10 minutes until shrimp are pink and opaque; broccolini will be crisp-tender. For softer broccolini, remove shrimp first and roast vegetables a few minutes longer. Scatter parsley and serve.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 182 kcal; protein: 30.0 g; total carbs: 9.0 g; fiber: 3.0 g; net carbs: 6.0 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: crustacean shellfish. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Broccolini bunch weight is unspecified.
+
+- Use the coating sequentially: shrimp first, then broccolini in the remaining liquid. The publisher does not specify how much coating each component takes.
+
+- Ingredient quantities are scaled from 3 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from simplysohealthy.com. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [simplysohealthy.com: Lemon Garlic Shrimp and Broccolini Sheet Pan Meal](https://simplysohealthy.com/lemon-garlic-shrimp-sheet-pan-dinner-with-broccolini/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Grilled Salmon Kabobs with Greek Marinade
+
+4 portions · US measures · unverified · 15 min publisher preparation · Not provided
+
+Grilled Salmon Kabobs with Greek Marinade. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Grilled Salmon Kabobs with Greek Marinade cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Use skewers. Chill salmon during 30-minute marination. Heat grill to 400°F before grilling.</td></tr><tr><td colspan="3" class="trn-prep">Check fish reaches 145°F at its thickest point.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 fillet</strong> Salmon fillets<small class="trn-state-essential">raw; cut into skewer-sized pieces · Source supplies no fillet weight.</small></th><td rowspan="10" colspan="1" class="trn-operation">Mix marinade, coat cubed salmon and refrigerate 30 min.</td><td rowspan="16" colspan="1" class="trn-operation">Remove salmon from marinade, thread with vegetables; grill 400°F 4 min per side. Turn by skewer or zucchini.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Greek Yogurt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> brown sugar Monkfruit sweetener<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ lemon</strong> Lemon juice<small class="trn-state-detail">juice of half a lemon</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> fresh dill<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> large zucchini<small class="trn-state-detail">sliced</small></th><td rowspan="6" colspan="1" class="trn-operation">Toss zucchini/onion with separate vegetable oil, dill, salt and pepper.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> red onion<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> fresh dill<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 2 fillet Salmon fillets — raw; cut into skewer-sized pieces. Source supplies no fillet weight.
+
+- 1 count large zucchini — sliced
+
+- ½ count red onion — sliced
+
+- ¼ cup Oil
+
+- ¼ cup Greek Yogurt
+
+- 2 tbsp minced garlic
+
+- 1 tbsp brown sugar Monkfruit sweetener
+
+- ½ lemon Lemon juice — juice of half a lemon
+
+- 1 tbsp fresh dill
+
+- 1 tbsp Oregano
+
+- 1 tsp salt
+
+- 1 tsp pepper
+
+- 1 tbsp Oil
+
+- 1 tbsp fresh dill
+
+- ¼ tsp salt
+
+- ¼ tsp pepper
+
+### Equipment
+
+- Grill
+
+- Tongs
+
+- Skewers
+
+- Mixing bowl
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Marinate.** Cut salmon, zucchini and onion into pieces large enough to stay on skewers. Whisk the marinade oil, yogurt, garlic, sweetener, lemon juice, marinade dill, oregano, salt and pepper. Coat salmon and refrigerate for 30 minutes.
+
+2. **Vegetables.** Toss zucchini and onion with the separate vegetable oil, dill, salt and pepper.
+
+3. **Skewer.** Soak wooden skewers for 10 minutes or lightly grease metal ones. Remove salmon from marinade and thread with vegetables.
+
+4. **Grill.** Grill for 4 minutes per side. Turn using the skewer itself or a zucchini piece rather than grabbing salmon, which can break apart.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Nutrition is unreported because the publisher’s serving-size statement conflicts with its recipe yield. See the linked original for the inconsistent estimate.
+
+Known allergens for these plates: fish, milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The original batch makes 4 skewers, but the nutrition serving size says 2 kabobs. The ingredients are scaled from 4 original portions; the conflicting serving description makes the publisher’s nutrition uncertain.
+
+- The publisher’s 15-minute preparation and 25-minute total omit 30 minutes of refrigerated salmon marination.
+
+- Salmon fillet weight is unspecified; nutrition cannot supply an ingredient weight.
+
+- Ingredient names say Oil; vegetable method names corn oil. No source-specific oil is invented for marinade.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Grilled Salmon Kabobs with Greek Marinade](https://www.maebells.com/grilled-salmon-kabobs-with-greek-marinade/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Sheet Pan Butter Dill Salmon with Asparagus
+
+4 portions · US measures · keto · 10 min publisher preparation · Not provided
+
+Sheet Pan Butter Dill Salmon with Asparagus. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Sheet Pan Butter Dill Salmon with Asparagus cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 425°F. Line a large tray with foil. Trim asparagus.</td></tr><tr><td colspan="3" class="trn-prep">Check fish reaches 145°F at its thickest point.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Oil foil-lined tray; arrange salmon/asparagus, season; roast 425°F 12–15 min to opaque flaky fish and tender asparagus.</td><td rowspan="9" colspan="1" class="trn-operation">Drizzle lemon-dill butter over roasted fish and asparagus; serve lemon wedges.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>24 oz</strong> Salmon<small class="trn-state-detail">four 6-ounce fillets</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> asparagus<small class="trn-state-detail">woody ends trimmed off</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> butter<small class="trn-state-detail">melted</small></th><td rowspan="3" colspan="1" class="trn-operation">Mix melted butter, zest and dill.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> fresh lemon zest<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> minced fresh dill<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 count</strong> fresh lemon wedges<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 tbsp olive oil
+
+- 24 oz Salmon — four 6-ounce fillets
+
+- 1 lb asparagus — woody ends trimmed off
+
+- ½ tsp salt
+
+- ¼ tsp black pepper
+
+- 2 tbsp butter — melted
+
+- ½ tsp fresh lemon zest
+
+- 1 tbsp minced fresh dill
+
+- 4 count fresh lemon wedges
+
+### Equipment
+
+- Oven
+
+- Baking sheet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Roast.** Drizzle the tray with oil, arrange salmon and asparagus, and season with salt and pepper. Bake 12–15 minutes until salmon is opaque and flakes, and asparagus is tender. Transfer to a platter.
+
+2. **Butter.** Mix melted butter with lemon zest and dill. Drizzle over salmon and asparagus and serve with lemon wedges.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 351 kcal; protein: 37.0 g; total carbs: 6.0 g; fiber: 3.0 g; net carbs: 3.0 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: fish, milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Source opening step omits Fahrenheit unit after 425; surrounding US recipe context interpreted as 425°F.
+
+- The original baking and butter-finishing directions are split across incomplete sentences; this adaptation combines them into complete cooking steps.
+
+- The publisher does not provide a total time, despite the 30-minute title.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from theketoqueens.com. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [theketoqueens.com: Sheet Pan Butter Dill Salmon with Asparagus](https://theketoqueens.com/butter-dill-baked-salmon-recipe-roasted-asparagus/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Cilantro Lime Shrimp and Cauliflower Rice (keto + low carb)
+
+4 portions · US measures · keto · 5 min publisher preparation · 25 min
+
+Cilantro Lime Shrimp and Cauliflower Rice (keto + low carb). Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Cilantro Lime Shrimp and Cauliflower Rice (keto + low carb) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Use separate pans for the cauliflower rice and shrimp. Shrimp must be shelled; keep the two sets of garlic, lime and cilantro separate.</td></tr><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th><td rowspan="9" colspan="1" class="trn-operation">Sauté rice garlic/onion/jalapeño in rice oil medium 1–2 min; add frozen rice 6–8 min; raise heat, add rice lime/cilantro and seasoning.</td><td rowspan="21" colspan="1" class="trn-operation">Serve shrimp and its sauce over cilantro-lime cauliflower rice.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> red onion<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> fresh jalapeño<small class="trn-state-detail">chopped and seeds removed</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>10 oz</strong> Cauliflower rice<small class="trn-state-detail">frozen; one 10-ounce bag</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ tsp</strong> Lime zest<small class="trn-state-detail">zest from one lime · Source gives about 1 1/2 teaspoons.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Lime juice<small class="trn-state-detail">juice from one lime · Source gives about 1 tablespoon.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Cilantro<small class="trn-state-detail">finely chopped · Source specifies 1/4–1/2 cup, to preference. Source range: 0.25–0.5 cup; use the lower stated amount as the scaled starting point.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> salt and pepper to taste<small class="trn-state-detail">this NEEDS salt and pepper, do a taste test and add to your liking · Source does not state an amount; measure to taste or as needed.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th><td rowspan="12" colspan="1" class="trn-operation">Heat shrimp oil and first butter medium; garlic 30 sec, then shrimp/spices 2–3 min; add shrimp lime, finishing butter and cilantro 1–2 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> shelled shrimp<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lime</strong> Lime zest<small class="trn-state-detail">zest from one lime · The shrimp ingredient line supplies no teaspoon equivalent.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lime</strong> Lime juice<small class="trn-state-detail">juice from one lime · The shrimp ingredient line supplies no tablespoon equivalent.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> cilantro<small class="trn-state-detail">finely chopped</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 tbsp olive oil
+
+- 1 tbsp minced garlic
+
+- ¼ cup red onion — finely chopped
+
+- 1 count fresh jalapeño — chopped and seeds removed
+
+- 10 oz Cauliflower rice — frozen; one 10-ounce bag
+
+- 1 ½ tsp Lime zest — zest from one lime. Source gives about 1 1/2 teaspoons.
+
+- 1 tbsp Lime juice — juice from one lime. Source gives about 1 tablespoon.
+
+- ¼ cup Cilantro — finely chopped. Source specifies 1/4–1/2 cup, to preference. Source range: 0.25–0.5 cup; use the lower stated amount as the scaled starting point.
+
+- to taste salt and pepper to taste — this NEEDS salt and pepper, do a taste test and add to your liking. Source does not state an amount; measure to taste or as needed.
+
+- 1 tbsp olive oil
+
+- 1 tbsp butter
+
+- 2 tbsp minced garlic
+
+- 1 lb shelled shrimp
+
+- ½ tsp chili powder
+
+- ½ tsp cumin
+
+- ¼ tsp pepper
+
+- ¼ tsp salt
+
+- 1 lime Lime zest — zest from one lime. The shrimp ingredient line supplies no teaspoon equivalent.
+
+- 1 lime Lime juice — juice from one lime. The shrimp ingredient line supplies no tablespoon equivalent.
+
+- 3 tbsp butter
+
+- ¼ cup cilantro — finely chopped
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+- Second skillet
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Rice aromatics.** Heat the rice oil over medium and sauté its garlic, red onion and jalapeño for 1–2 minutes. Break up frozen cauliflower rice clumps before adding them.
+
+2. **Rice.** Sauté cauliflower rice for 6–8 minutes, stirring until most steam subsides. Raise heat slightly, stir in its lime zest, lime juice and cilantro, and season to taste.
+
+3. **Shrimp.** In another skillet over medium, heat the shrimp oil and its first butter portion. Sauté shrimp garlic about 30 seconds. Add shrimp with chili powder, cumin, salt and pepper; cook 2–3 minutes until pink.
+
+4. **Finish.** Stir the shrimp lime zest and juice, finishing butter and shrimp cilantro into the skillet. Cook 1–2 minutes until butter melts and the sauce thickens. Serve shrimp over the cauliflower rice.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 299 kcal; protein: 23.8 g; total carbs: 8.9 g; fiber: 2.9 g; net carbs: 6.0 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: crustacean shellfish, milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Rice cilantro amount is 1/4–1/2 cup; range preserved.
+
+- Lime zest/juice have explicit approximate spoon amounts only in rice ingredients. Shrimp lime quantities remain counted-lime measures.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Cilantro Lime Shrimp and Cauliflower Rice (keto + low carb)](https://www.maebells.com/20-minute-cilantro-lime-shrimp-and-rice/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Lobster Bisque (low carb + keto)
+
+4 portions · US measures · keto · 5 min publisher preparation · 35 min
+
+Lobster Bisque (low carb + keto). Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Lobster Bisque (low carb + keto) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Use a stockpot, separate skillet and immersion blender.</td></tr><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> olive oil<small class="trn-state-detail"></small></th><td rowspan="10" colspan="1" class="trn-operation">Sauté soup vegetables in oil medium until soft; add paste, stock, Old Bay and wine, simmer 15 min; blend smooth, add cream, cover low.</td><td rowspan="14" colspan="1" class="trn-operation">Add cooked lobster and its garlic butter to creamy soup; optionally blend again.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> small onion<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ clove</strong> garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ count</strong> carrots<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ stalk</strong> celery<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> tomato paste<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Old Bay<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> good quality dry white wine<small class="trn-state-detail">such as Sauvignon blanc</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ carton</strong> Seafood stock<small class="trn-state-detail">one 32-ounce carton · Vegetable stock is an explicit source alternative. Fraction of a 32-ounce package; the package size is preserved from the publisher.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> heavy cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> butter<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Sauté lobster in butter with second garlic and lemon 3–4 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 clove</strong> garlic<small class="trn-state-detail">Source gives a range; amount is its lower endpoint, amountMax its upper endpoint. Source range: 3–4 clove; use the lower stated amount as the scaled starting point.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> lemon juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>10.7 oz</strong> uncooked Lobster claw meat<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- ⅔ tbsp olive oil
+
+- ⅔ count small onion — chopped
+
+- 2 ⅔ clove garlic — minced
+
+- 1 ⅓ count carrots — chopped
+
+- 1 ⅓ stalk celery — chopped
+
+- 1 ⅓ tbsp tomato paste
+
+- 1 ⅓ tsp Old Bay
+
+- ⅔ cup good quality dry white wine — such as Sauvignon blanc
+
+- ⅔ carton Seafood stock — one 32-ounce carton. Vegetable stock is an explicit source alternative. Fraction of a 32-ounce package; the package size is preserved from the publisher.
+
+- ½ cup heavy cream
+
+- 1 ⅓ tbsp butter
+
+- 2 clove garlic. Source gives a range; amount is its lower endpoint, amountMax its upper endpoint. Source range: 3–4 clove; use the lower stated amount as the scaled starting point.
+
+- ⅔ tbsp lemon juice
+
+- 10.7 oz uncooked Lobster claw meat
+
+### Equipment
+
+- Lidded saucepan or Dutch oven
+
+- Mixing bowl
+
+- Immersion blender
+
+- Skillet
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Soup base.** Heat oil in the pot over medium. Sauté the first garlic portion with onion, carrots and celery until soft. Stir in tomato paste, stock, Old Bay and wine, then simmer at least 15 minutes.
+
+2. **Blend.** Blend the soup smooth with an immersion blender. Stir in cream, reduce heat to low and cover.
+
+3. **Lobster.** In a separate skillet, sauté raw lobster in butter with the second garlic portion and lemon juice for 3–4 minutes. Stir lobster and its butter sauce into the soup. Blend again if you prefer a smoother texture.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 228 kcal; protein: 13.9 g; total carbs: 8.9 g; fiber: 1.4 g; net carbs: 7.5 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: crustacean shellfish, milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Second garlic portion is 3–4 cloves; range preserved.
+
+- Nutrition based on source recipe, seafood-stock/vegetable-stock alternative may change values and allergens.
+
+- The source method requires an immersion blender for the hot soup. Blender availability must include that tool; a standard countertop blender is not automatically interchangeable for hot liquids.
+
+- Ingredient quantities are scaled from 6 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Lobster Bisque (low carb + keto)](https://www.maebells.com/lobster-bisque-low-carb-keto/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Salmon with Jalapeño Lime Butter (keto + low carb)
+
+4 portions · US measures · keto · 5 min publisher preparation · 15 min
+
+Salmon with Jalapeño Lime Butter (keto + low carb). Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Salmon with Jalapeño Lime Butter (keto + low carb) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Set oven to 400°F. Paprika is to taste as an explicit adaptation because the source omitted its unit.</td></tr><tr><td colspan="3" class="trn-prep">Check fish reaches 145°F at its thickest point.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> salmon<small class="trn-state-detail"></small></th><td rowspan="7" colspan="1" class="trn-operation">Mix seasoned lime rub with paprika to taste; coat top of salmon.</td><td rowspan="10" colspan="1" class="trn-operation">Bake or grill salmon skin-down 400°F 7–10 min until flaky; top chilled jalapeño butter to melt.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> lime zest<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Paprika<small class="trn-state-detail">Explicit adaptation: use paprika to taste because source says ¼ paprika without a unit. No teaspoon quantity is inferred.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> salted butter<small class="trn-state-detail">softened</small></th><td rowspan="3" colspan="1" class="trn-operation">Mix softened butter, jalapeño and butter lime-zest portion; chill firm.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> jalapeño<small class="trn-state-detail">seeded and finely diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> lime zest<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 2 tbsp salted butter — softened
+
+- 1 count jalapeño — seeded and finely diced
+
+- ½ tsp lime zest
+
+- 1 ½ lb salmon
+
+- ½ tsp garlic powder
+
+- ½ tsp cumin
+
+- ½ tsp lime zest
+
+- ¼ tsp salt
+
+- ¼ tsp pepper
+
+- to taste Paprika. Explicit adaptation: use paprika to taste because source says ¼ paprika without a unit. No teaspoon quantity is inferred.
+
+### Equipment
+
+- Baking sheet
+
+- Mixing bowl
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Butter.** Mix softened salted butter, finely diced jalapeño and the butter's lime zest portion. Chill until firm while preparing fish.
+
+2. **Rub.** Combine garlic powder, cumin, the rub’s lime zest portion, salt and pepper. Add paprika to taste as an explicit adaptation of the source’s missing-unit quantity.
+
+3. **Cook.** Coat the top of salmon with rub. Bake or grill skin-down at 400°F for 7–10 minutes until it flakes readily. Add the chilled jalapeño butter immediately after cooking and let it melt over the fish.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+- Source also permits grilling at 400°F; use a grill instead of the oven if chosen.
+
+- The two separately listed lime-zest quantities belong to butter and seasoning respectively; do not halve either ingredient quantity again.
+
+### Nutrition per serving
+
+Calories: 276 kcal; protein: 38.0 g; total carbs: 0.5 g; fiber: 0.1 g; net carbs: 0.4 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: fish, milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Source paprika line is 1/4 paprika with unit missing; never silently changed to teaspoons.
+
+- Separate source lime-zest lines are each 1/2 tsp, one for butter and one for rub. Method half/part wording refers to these two equal portions.
+
+- Explicit adaptation uses paprika to taste because the original ¼-paprika ingredient has no unit; the publisher’s nutrition cannot validate that changed seasoning amount.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie Holmes: Salmon with Jalapeño Lime Butter (keto + low carb)](https://www.maebells.com/roasted-salmon-with-jalapeno-lime-butter/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Keto Shrimp and Broccoli Recipe
+
+4 portions · US measures · keto · 5 min publisher preparation · 20 min
+
+Keto Shrimp and Broccoli Recipe. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Shrimp and Broccoli Recipe cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Peel shrimp and slice the pepper. Use a skillet or wok.</td></tr><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> soy sauce<small class="trn-state-detail"></small></th><td rowspan="6" colspan="1" class="trn-operation">Whisk stir-fry sauce.</td><td rowspan="10" colspan="1" class="trn-operation">Add broccoli and prepared sauce; cook 4–5 min, stirring, until broccoli tender.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> brown sugar monkfruit<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> sesame oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> rice vinegar<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> minced ginger<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th><td rowspan="3" colspan="1" class="trn-operation">Sauté shrimp and pepper in oil medium 3–4 min until pink.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> large shrimp<small class="trn-state-detail">shells removed</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> red bell pepper<small class="trn-state-detail">seeded and sliced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 cup</strong> Broccoli florets<small class="trn-state-detail">heaping measure · Source specifies a heaping measure.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 tbsp olive oil
+
+- 1 lb large shrimp — shells removed
+
+- 2 cup Broccoli florets — heaping measure. Source specifies a heaping measure.
+
+- 1 count red bell pepper — seeded and sliced
+
+- ¼ cup soy sauce
+
+- 2 tbsp brown sugar monkfruit
+
+- 2 tbsp sesame oil
+
+- 1 tbsp rice vinegar
+
+- 2 tsp minced garlic
+
+- 1 tsp minced ginger
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Sauce.** Whisk soy sauce, sweetener, sesame oil, rice vinegar, garlic and ginger together.
+
+2. **Stir-fry.** Heat olive oil over medium and sauté shrimp and pepper for 3–4 minutes until shrimp are pink.
+
+3. **Finish.** Add broccoli and prepared sauce. Cook 4–5 minutes, stirring occasionally, until broccoli is tender, then serve.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 170 kcal; protein: 25.0 g; total carbs: 8.2 g; fiber: 2.1 g; net carbs: 6.1 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: crustacean shellfish, sesame, soy, wheat. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Broccoli quantity is 2 heaping cups; do not treat as an exact level-cup weight.
+
+- Optional unmeasured green onions and nuts are source serving suggestions outside ingredient totals.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Keto Shrimp and Broccoli Recipe](https://thebestketorecipes.com/keto-shrimp-and-broccoli-stir-fry/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Keto Parmesan Tilapia and Asparagus for One
+
+4 portions · US measures · keto · Preparation time not provided · 20 min
+
+Keto Parmesan Tilapia and Asparagus for One. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Parmesan Tilapia and Asparagus for One cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F. Lightly grease a small baking dish. Thaw tilapia and trim asparagus.</td></tr><tr><td colspan="3" class="trn-prep">Check fish reaches 145°F at its thickest point.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 fillet</strong> Tilapia fillet<small class="trn-state-essential">thawed · Source gives no fillet weight.</small></th><td rowspan="5" colspan="1" class="trn-operation">Arrange fish/asparagus, drizzle garlic butter on asparagus, season both; bake 400°F 10 min.</td><td rowspan="10" colspan="1" class="trn-operation">After 10 min bake, flip fish and spread parmesan mixture; bake 400°F 6–10 min more; serve optional lemon.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 cup</strong> asparagus<small class="trn-state-detail">about 4.5 ounces or 12-14 spears, woody ends removed</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> salt and pepper to taste<small class="trn-state-detail">Source does not state an amount; measure to taste or as needed.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>12 tbsp</strong> shredded parmesan cheese<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Mix parmesan, mayonnaise, green onion and lemon juice while first bake cooks.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> mayonnaise<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tsp</strong> minced green onion<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> lemon juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Lemon slices<small class="trn-state-detail">sliced · Source does not state an amount; measure to taste or as needed. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 fillet Tilapia fillet — thawed. Source gives no fillet weight.
+
+- 4 cup asparagus — about 4.5 ounces or 12-14 spears, woody ends removed
+
+- 2 tbsp butter
+
+- 4 tsp minced garlic
+
+- 12 tbsp shredded parmesan cheese
+
+- 4 tbsp mayonnaise
+
+- 4 tsp minced green onion
+
+- 2 tsp lemon juice
+
+- to taste salt and pepper to taste. Source does not state an amount; measure to taste or as needed.
+
+- Not specified Lemon slices — sliced. Source does not state an amount; measure to taste or as needed. Optional; excluded or included as stated in the publisher nutrition.
+
+### Equipment
+
+- Oven
+
+- Baking dish
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **First bake.** Place asparagus and fish beside each other in the dish. Mix melted butter with garlic and drizzle over asparagus. Season asparagus and fish to taste. Bake for 10 minutes.
+
+2. **Topping.** While they bake, mix parmesan, mayonnaise, green onion and lemon juice. Turn fish over and spread this topping onto it.
+
+3. **Finish.** Bake another 6–10 minutes, until asparagus is tender and fish flakes easily. Serve with optional lemon slices.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 349 kcal; protein: 32.8 g; total carbs: 6.7 g; fiber: 2.9 g; net carbs: 3.8 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: egg, fish, milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The original recipe makes 1 portion. It specifies 1 tilapia piece without a weight and 1 cup asparagus, approximately 4.5 oz or 12–14 spears.
+
+- Season both the fish and asparagus with salt and pepper, then bake together. The publisher does not specify separate seasoning amounts for each.
+
+- Ingredient quantities are scaled from 1 original portion to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Keto Parmesan Tilapia and Asparagus for One](https://thebestketorecipes.com/keto-parmesan-tilapia-and-asparagus-for-one/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Keto Cajun Shrimp
+
+4 portions · US measures · keto · 5 min publisher preparation · 20 min
+
+Keto Cajun Shrimp. Original recipe adapted with source quantities and workflow.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Cajun Shrimp cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Use peeled, deveined raw shrimp and a large skillet.</td></tr><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail">divided</small></th><td rowspan="10" colspan="1" class="trn-operation">Melt half butter medium; add garlic, shrimp and spices, toss; cook 3–4 min.</td><td rowspan="12" colspan="1" class="trn-operation">Once shrimp pink and tender after 3–4 min, add remaining butter and cream; stir into sauce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Shrimp<small class="trn-state-essential">raw; peeled and deveined</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ tsp</strong> red pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> heavy cream<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb Shrimp — raw; peeled and deveined
+
+- ½ tbsp minced garlic
+
+- ½ tbsp paprika
+
+- 1 tsp Italian seasoning
+
+- ¼ tsp onion powder
+
+- ¼ tsp garlic powder
+
+- ¼ tsp salt
+
+- ⅛ tsp red pepper
+
+- ¼ tsp pepper
+
+- 2 tbsp butter — divided
+
+- ¼ cup heavy cream
+
+### Equipment
+
+- Lidded skillet
+
+- Mixing bowl
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Sauté.** Heat skillet over medium and melt half the butter. Add garlic and shrimp, scatter paprika, Italian seasoning, onion powder, garlic powder, salt, red pepper and black pepper over them, and toss to coat.
+
+2. **Sauce.** Cook shrimp for 3–4 minutes until pink and tender. Stir in remaining butter and cream to make a creamy sauce.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 181 kcal; protein: 23.4 g; total carbs: 1.9 g; fiber: 0.6 g; net carbs: 1.3 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: crustacean shellfish, milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 15 minutes of cooking, although the shrimp stage takes 3–4 minutes and the sauce-stirring time is unspecified.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Keto Cajun Shrimp](https://thebestketorecipes.com/keto-cajun-shrimp-one-pan-20-minutes/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Creamy Chicken Breast in Spinach Parmesan Sauce
+
+4 portions · US measures · unverified · 5 min publisher preparation · 25 min
+
+Creamy Chicken Breast in Spinach Parmesan Sauce, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Creamy Chicken Breast in Spinach Parmesan Sauce cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ count</strong> Chicken breasts<small class="trn-state-detail"></small></th><td rowspan="4" colspan="2" class="trn-operation">Sear chicken about 4 min per side over medium-high; set aside</td><td rowspan="14" colspan="1" class="trn-operation">Reheat chicken in spinach sauce 2–3 min; serve</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ tbsp</strong> Butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> Salt and pepper<small class="trn-state-detail">or to taste · Source combines salt and pepper under one amount; their separate amounts are unspecified.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> Butter<small class="trn-state-detail">divided</small></th><td rowspan="5" colspan="1" class="trn-operation">Cook onion, garlic, tomatoes and oregano in remaining butter</td><td rowspan="10" colspan="1" class="trn-operation">Simmer broth, cream and Parmesan 2–3 min; wilt spinach</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ count</strong> Onion<small class="trn-state-detail">medium, minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 ⅓ clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ jar</strong> Sun-dried tomatoes<small class="trn-state-essential">drained from oil and chopped · small jar size; no weight specified</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Heavy cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.44 cup</strong> Grated Parmesan cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ cup</strong> Spinach<small class="trn-state-detail">or more if you like</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅓ tsp</strong> Salt and pepper<small class="trn-state-detail">or to taste · Source combines salt and pepper under one amount; their separate amounts are unspecified.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 2 ⅔ count Chicken breasts
+
+- 4 tbsp Butter — divided
+
+- ⅔ tsp Salt and pepper — or to taste. Source combines salt and pepper under one amount; their separate amounts are unspecified.
+
+- 1 ⅓ tsp Oregano
+
+- 1 ⅓ count Onion — medium, minced
+
+- 5 ⅓ clove Garlic — minced
+
+- 1 ⅓ jar Sun-dried tomatoes — drained from oil and chopped. small jar size; no weight specified
+
+- ⅔ cup Chicken broth
+
+- ⅔ cup Heavy cream
+
+- 0.44 cup Grated Parmesan cheese
+
+- 1 ⅓ cup Spinach. or more if you like
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Season the chicken with salt, pepper and half the oregano. Reserve some of the combined salt-and-pepper seasoning for the sauce.
+
+2. **Step 2.** Heat two-thirds of the butter in a large skillet over medium-high heat, using a little reserved tomato oil if needed. Brown the chicken about 4 minutes per side, until cooked through, then transfer to a plate.
+
+3. **Step 3.** Add the remaining butter, onion, garlic, tomatoes and remaining oregano. Cook the aromatics, then stir in broth, cream and Parmesan. Simmer 2–3 minutes until smooth; adjust the seasoning.
+
+4. **Step 4.** Wilt the spinach in the sauce. Return the chicken and heat for 2–3 minutes; serve immediately.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Small jar of tomatoes has no package size.
+
+- The publisher does not divide the combined salt-and-pepper amount between stages. This adaptation uses half at each seasoning stage.
+
+- Method adds unspecified tomato oil and parsley garnish not separately quantified; reserve tomato oil if available and omit unlisted garnish.
+
+- Source chicken timing is approximate and no numeric doneness temperature is given.
+
+- Ingredient quantities are scaled from 3 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Creamy Chicken Breast in Spinach Parmesan Sauce](https://www.eatwell101.com/chicken-with-spinach-creamy-parmesan-sauce)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## One Pan Shrimp and Asparagus
+
+4 portions · US measures · unverified · 10 min publisher preparation · 20 min
+
+One Pan Shrimp and Asparagus, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="One Pan Shrimp and Asparagus cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Asparagus<small class="trn-state-detail">rinsed and trimmed · 1 bunch</small></th><td rowspan="4" colspan="1" class="trn-operation">Cook asparagus 4–6 min over medium; set aside</td><td rowspan="15" colspan="1" class="trn-operation">Combine asparagus and cooked shrimp; add lemon, warm 1 min and garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Medium raw shrimp<small class="trn-state-detail">peeled and deveined</small></th><td rowspan="8" colspan="1" class="trn-operation">Cook shrimp 1–2 min; add garlic/spices and flip 1 min; simmer stock/hot sauce 1 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Vegetable stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Sriracha<small class="trn-state-detail">or any hot sauce you like</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Crushed chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped parsley or cilantro<small class="trn-state-detail">for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 ½ lb Medium raw shrimp — peeled and deveined
+
+- 1 ½ lb Asparagus — rinsed and trimmed. 1 bunch
+
+- 3 tbsp Butter
+
+- 1 tbsp Olive oil
+
+- 5 clove Garlic — minced
+
+- 1 tsp Italian seasoning
+
+- 2 tsp Onion powder
+
+- to taste Salt and fresh cracked pepper — to taste. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- ¼ cup Vegetable stock
+
+- 1 tbsp Sriracha. or any hot sauce you like
+
+- Not specified Crushed chili pepper flakes — optional. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- ½ count Lemon — juice
+
+- Not specified Fresh chopped parsley or cilantro — for garnish. Source gives no numeric quantity; use to taste/as garnish as written.
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Warm olive oil and one-third of the butter over medium heat. Season asparagus with part of the salt and pepper and cook 4–6 minutes until crisp-tender; set aside.
+
+2. **Step 2.** Melt the remaining butter in the same skillet. Season shrimp with the remaining salt and pepper and cook 1–2 minutes on the first side.
+
+3. **Step 3.** Add garlic, Italian seasoning and onion powder; flip shrimp and cook another minute. Add stock and hot sauce, then simmer about 1 minute until shrimp are cooked through and the sauce has reduced slightly.
+
+4. **Step 4.** Return asparagus, add lemon juice and warm 1 minute. Finish with herbs and optional chili flakes.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, shellfish. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Salt/pepper split between vegetables and shrimp is a half split chosen for this adaptation; the publisher gives no amount.
+
+- The publisher gives no measured amount for: Salt and fresh cracked pepper, to taste.
+
+- The publisher gives no measured amount for: Crushed chili pepper flakes, optional.
+
+- The publisher gives no measured amount for: Fresh chopped parsley or cilantro, for garnish.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: One Pan Shrimp and Asparagus](https://www.eatwell101.com/lemon-garlic-butter-shrimp-asparagus-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Blackened Shrimp and Asparagus Skillet (20 Minutes)
+
+4 portions · US measures · unverified · 5 min publisher preparation · 20 min
+
+Blackened Shrimp and Asparagus Skillet, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Blackened Shrimp and Asparagus Skillet (20 Minutes) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Large shrimp<small class="trn-state-detail">peeled and deveined</small></th><td rowspan="10" colspan="1" class="trn-operation">Coat shrimp in spices; sear 2–3 min per side over medium-high</td><td rowspan="17" colspan="1" class="trn-operation">Return shrimp to asparagus; warm 1–2 min; garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Freshly cracked black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> Olive oil<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> Unsalted butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> Olive oil<small class="trn-state-detail">divided</small></th><td rowspan="6" colspan="1" class="trn-operation">Simmer lemon sauce; cook asparagus 4–6 min over medium</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> Unsalted butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Asparagus<small class="trn-state-detail">rinsed and trimmed · 1 or 2 bunches</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Vegetable stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Hot sauce<small class="trn-state-detail">optional · we used Sriracha</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Lemon juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Lemon slices, chili pepper flakes and parsley<small class="trn-state-detail">lemon sliced, parsley freshly chopped; garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb Large shrimp — peeled and deveined
+
+- 1 tsp Chili powder
+
+- 2 tsp Paprika
+
+- 1 tsp Onion powder
+
+- 1 tsp Cumin
+
+- ½ tsp Garlic powder
+
+- 1 tsp Salt
+
+- ¼ tsp Freshly cracked black pepper
+
+- 1 tbsp Olive oil — divided
+
+- 1 tbsp Unsalted butter — divided
+
+- 1 ½ lb Asparagus — rinsed and trimmed. 1 or 2 bunches
+
+- ¼ cup Vegetable stock
+
+- 1 tbsp Hot sauce — optional. we used Sriracha
+
+- 1 tbsp Lemon juice
+
+- Not specified Lemon slices, chili pepper flakes and parsley — lemon sliced, parsley freshly chopped; garnish. Source gives no numeric quantity; use to taste/as garnish as written.
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Toss shrimp with chili powder, paprika, onion powder, cumin, garlic powder, salt and black pepper.
+
+2. **Step 2.** Heat half the oil and half the butter over medium-high. Sear shrimp 2–3 minutes per side until browned and cooked through; transfer to a plate.
+
+3. **Step 3.** Clean scorched residue if needed. Add remaining oil and butter over medium heat, then stock, lemon juice and optional hot sauce. Simmer briefly to reduce, add asparagus and cook 4–6 minutes until crisp-tender, turning to coat.
+
+4. **Step 4.** Return shrimp and warm 1–2 minutes. Serve with the optional lemon, chili flakes and parsley garnish.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, shellfish. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Garnish is a combined unquantified lemon/flakes/parsley line.
+
+- Method mentions extra lemon juice after adding shrimp; this adaptation uses the listed lemon juice in sauce and does not invent an additional amount.
+
+- The publisher gives no measured amount for: Lemon slices, red chili pepper flakes, fresh chopped parsley, for garnish.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Blackened Shrimp and Asparagus Skillet (20 Minutes)](https://www.eatwell101.com/blackened-shrimp-asparagus-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Lemon Garlic Butter Chicken and Green Beans Skillet
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Lemon Garlic Butter Chicken and Green Beans Skillet, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon Garlic Butter Chicken and Green Beans Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Chicken thighs<small class="trn-state-detail">skinless, boneless · Source says 3–6 thighs; three chosen for its three-serving yield.</small></th><td rowspan="5" colspan="2" class="trn-operation">Season thighs; sear 5–6 min per side over medium-low to 165°F</td><td rowspan="14" colspan="1" class="trn-operation">Return chicken to bean sauce; reheat and serve</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> Salt and fresh cracked black pepper<small class="trn-state-detail">Source combines salt and pepper under one amount; their separate amounts are unspecified.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ tbsp</strong> Butter<small class="trn-state-detail">divided or · ghee for paleo diet</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ lb</strong> Green beans<small class="trn-state-detail">trimmed</small></th><td rowspan="2" colspan="1" class="trn-operation">Microwave green beans 8–10 min with water</td><td rowspan="9" colspan="1" class="trn-operation">Cook beans in garlic butter 4–5 min; add stock/lemon and reduce</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> Water<small class="trn-state-detail">for microwave steaming · Cooking medium explicitly quantified by the source method; scale with the green-bean batch.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> Butter<small class="trn-state-detail">divided or · ghee for paleo diet</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>5 ⅓ clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ count</strong> Lemon<small class="trn-state-detail">juice · lemon slices for garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Chicken stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> Hot sauce<small class="trn-state-detail">we used Sriracha</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅓ tsp</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Fresh chopped parsley<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 count Chicken thighs — skinless, boneless. Source says 3–6 thighs; three chosen for its three-serving yield.
+
+- 1 ⅓ lb Green beans — trimmed
+
+- 4 tbsp Butter — divided or. ghee for paleo diet
+
+- 5 ⅓ clove Garlic — minced
+
+- 1 ⅓ tsp Paprika
+
+- 1 ⅓ tsp Onion powder
+
+- ⅓ tsp Salt and fresh cracked black pepper. Source combines salt and pepper under one amount; their separate amounts are unspecified.
+
+- ⅔ count Lemon — juice. lemon slices for garnish
+
+- ⅔ cup Chicken stock
+
+- 1 ⅓ tbsp Hot sauce. we used Sriracha
+
+- ⅓ tsp Crushed red chili pepper flakes — optional
+
+- ⅔ cup Fresh chopped parsley
+
+- ⅔ cup Water — for microwave steaming. Cooking medium explicitly quantified by the source method; scale with the green-bean batch.
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+- Microwave
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Dry chicken thighs. Mix paprika, onion powder, salt and pepper; coat the chicken.
+
+2. **Step 2.** Place green beans and the measured steaming water in a microwave-safe dish. Microwave 8–10 minutes, leaving beans slightly crisp.
+
+3. **Step 3.** Melt two-thirds of the butter in a cast-iron skillet over medium-low heat. Cook thighs 5–6 minutes per side, lowering heat if needed, until the thickest portion reaches 165°F. Set aside.
+
+4. **Step 4.** Lower heat and melt the remaining butter. Stir in parsley, garlic, hot sauce, optional chili flakes and the green beans; cook 4–5 minutes. Add lemon juice and stock, reducing for a few minutes.
+
+5. **Step 5.** Return chicken to the pan and warm through. Serve with the source lemon garnish if available.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Source gives 3–6 thighs for three servings; this adaptation chooses three thighs, the lower value. Thigh size is unspecified.
+
+- Lemon garnish has no count.
+
+- Source microwave instruction specifies 1/2 cup water for its original three-portion batch. This cooking medium is included and scaled with the ingredients.
+
+- Ingredient quantities are scaled from 3 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Lemon Garlic Butter Chicken and Green Beans Skillet](https://www.eatwell101.com/lemon-garlic-butter-thighs-and-green-beans-skillet)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Garlic Butter Chicken Bites with Lemon Asparagus
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Garlic Butter Chicken Bites with Lemon Asparagus, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Chicken Bites with Lemon Asparagus cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Wash and trim asparagus; cut chicken into bite-sized chunks.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 count</strong> Chicken breasts<small class="trn-state-detail">boneless, skinless, cut into bite-sized chunks</small></th><td rowspan="8" colspan="1" class="trn-operation">Season and brown chicken over medium; add garlic/herbs for 1 min</td><td rowspan="17" colspan="1" class="trn-operation">Toss asparagus in sauce 2 min; return chicken and heat 1 min; garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning or Herbes de Provence<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Fresh cracked black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Butter<small class="trn-state-detail">divided · 1/4 cup for browning the chicken and 1/4 cup for the sauce</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Minced garlic<small class="trn-state-detail">divided · 1 teaspoon for the chicken bites and 1 teaspoon for the asparagus and sauce</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Minced garlic<small class="trn-state-detail">divided · 1 teaspoon for the chicken bites and 1 teaspoon for the asparagus and sauce</small></th><td rowspan="6" colspan="1" class="trn-operation">Reduce broth with garlic by half; stir in butter, lemon, hot sauce and parsley</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Butter<small class="trn-state-detail">divided · 1/4 cup for browning the chicken and 1/4 cup for the sauce</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Hot sauce<small class="trn-state-detail">optional · we used Sriracha</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Low-sodium chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Minced parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 bunch</strong> Asparagus<small class="trn-state-detail">rinsed and trimmed</small></th><td rowspan="1" colspan="1" class="trn-operation">Blanch asparagus 2 min; ice-chill and drain</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Slices of lemon for garnish<small class="trn-state-detail">Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 3 count Chicken breasts — boneless, skinless, cut into bite-sized chunks
+
+- 2 bunch Asparagus — rinsed and trimmed
+
+- ½ cup Butter — divided. 1/4 cup for browning the chicken and 1/4 cup for the sauce
+
+- 1 tsp Olive oil
+
+- 2 tsp Minced garlic — divided. 1 teaspoon for the chicken bites and 1 teaspoon for the asparagus and sauce
+
+- 1 tsp Italian seasoning or Herbes de Provence
+
+- 1 tbsp Hot sauce — optional. we used Sriracha
+
+- ½ cup Low-sodium chicken broth
+
+- ½ count Lemon — juice
+
+- 1 tbsp Minced parsley
+
+- Not specified Crushed red chili pepper flakes — optional. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- Not specified Slices of lemon for garnish. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- 1 tsp Salt
+
+- 1 tsp Fresh cracked black pepper
+
+- 2 tsp Onion powder
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Season the chicken chunks with salt, pepper and onion powder. Blanch trimmed asparagus for 2 minutes, chill in ice water and drain; very thin stalks can skip blanching.
+
+2. **Step 2.** Melt half the butter with olive oil over medium heat. Brown chicken on all sides, working in batches if necessary. Lower heat, add half the garlic and the Italian herbs, and cook 1 minute until fragrant. Transfer chicken to a plate.
+
+3. **Step 3.** Raise heat to medium-high. Add the remaining garlic and broth, simmering until reduced by half. Stir in the remaining butter, lemon juice, optional hot sauce and parsley.
+
+4. **Step 4.** Toss asparagus in the sauce for 2 minutes, then return chicken and heat 1 minute. Serve with optional chili flakes and lemon slices.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher’s recipe details include salt, pepper and onion powder, although the visible ingredient list omits all three. They are retained here.
+
+- Source browning step has no time or numeric chicken doneness endpoint.
+
+- The publisher gives no measured amount for: Crushed red chili pepper flakes, optional.
+
+- The publisher gives no measured amount for: Slices of lemon for garnish.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Garlic Butter Chicken Bites with Lemon Asparagus](https://www.eatwell101.com/garlic-butter-chicken-bites-asparagus-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Creamy Tuscan Salmon Recipe
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Creamy Tuscan Salmon Recipe, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Creamy Tuscan Salmon Recipe cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check fish reaches 145°F at its thickest point.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Salmon fillets<small class="trn-state-detail"></small></th><td rowspan="3" colspan="2" class="trn-operation">Sear salmon flesh-side first about 5 min per side over medium-high</td><td rowspan="13" colspan="1" class="trn-operation">Return salmon to spinach cream sauce; garnish with parsley</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ tsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ tbsp</strong> Butter<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Fry garlic 1 min; soften onion; cook tomatoes 1–2 min; reduce broth</td><td rowspan="9" colspan="1" class="trn-operation">Gently simmer cream; wilt spinach and melt Parmesan 1 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6 ⅔ clove</strong> Garlic<small class="trn-state-detail">finely diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ count</strong> Yellow onion<small class="trn-state-detail">small, diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.44 cup</strong> Vegetable broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6.7 oz</strong> Jarred sun-dried tomato in oil<small class="trn-state-essential">drained of oil</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 ⅓ cup</strong> Heavy cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 cup</strong> Baby spinach leaves<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Grated Parmesan<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> Fresh parsley<small class="trn-state-detail">chopped</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 count Salmon fillets
+
+- 2 ⅔ tsp Olive oil
+
+- 2 ⅔ tbsp Butter
+
+- 6 ⅔ clove Garlic — finely diced
+
+- 1 ⅓ count Yellow onion — small, diced
+
+- 0.44 cup Vegetable broth
+
+- 6.7 oz Jarred sun-dried tomato in oil — drained of oil
+
+- 2 ⅓ cup Heavy cream
+
+- to taste Salt and pepper — to taste. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- 4 cup Baby spinach leaves
+
+- ⅔ cup Grated Parmesan
+
+- 1 ⅓ tbsp Fresh parsley — chopped
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Heat olive oil over medium-high. Season salmon with part of the salt and pepper. Sear flesh side first, about 5 minutes per side or until cooked to the source preference; set aside.
+
+2. **Step 2.** Melt butter in the same skillet. Fry garlic about 1 minute; add onion and cook until translucent. Add drained tomatoes for 1–2 minutes, then broth; reduce slightly.
+
+3. **Step 3.** Lower heat and gently simmer cream, seasoning with the remaining salt and pepper. Wilt spinach, stir in Parmesan and simmer 1 minute to melt.
+
+4. **Step 4.** Return salmon, scatter parsley over it and spoon sauce over the portions before serving.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, fish. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Three salmon fillets have no weight or thickness. Source asks for preferred doneness without a numeric fish endpoint.
+
+- Unquantified salt-and-pepper split between fish and sauce is chosen for this adaptation.
+
+- The publisher gives no measured amount for: Salt and pepper, to taste.
+
+- Ingredient quantities are scaled from 3 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Creamy Tuscan Salmon Recipe](https://www.eatwell101.com/creamy-garlic-tuscan-salmon-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Lemon Garlic Steak and Broccoli Skillet
+
+4 portions · US measures · unverified · 5 min publisher preparation · Not provided
+
+Lemon Garlic Steak and Broccoli Skillet, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon Garlic Steak and Broccoli Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Sirloin steak<small class="trn-state-detail">sliced against the grain</small></th><td rowspan="4" colspan="1" class="trn-operation">Refrigerate steak in marinade 30–60 min; drain and reserve liquid</td><td rowspan="6" colspan="1" class="trn-operation">Sear marinated steak 1–2 min per side over medium-high</td><td rowspan="15" colspan="1" class="trn-operation">Return steak briefly to warm; garnish and serve</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> Low-sodium soy sauce<small class="trn-state-detail">or coconut amino if you’re strictly paleo</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Sriracha sauce<small class="trn-state-detail">or any hot chili sauce you like</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tbsp</strong> Butter or ghee<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 head</strong> Broccoli<small class="trn-state-detail">cut into florets</small></th><td rowspan="1" colspan="1" class="trn-operation">Blanch broccoli 1–2 min and cool</td><td rowspan="6" colspan="1" class="trn-operation">Boil reserved marinade with garlic/lemon/broth; reduce with broccoli and parsley</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Butter or ghee<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> Low-sodium beef broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> Parsley<small class="trn-state-detail">chopped · Source has malformed “+ or garnish”; use listed parsley in sauce. Optional extra garnish unquantified.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>¼ tsp</strong> Crushed red pepper flakes<small class="trn-state-detail">optional</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>to taste</strong> Fresh cracked black pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>Not specified</strong> Fresh thyme<small class="trn-state-detail">for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 ½ lb Sirloin steak — sliced against the grain
+
+- 2 head Broccoli — cut into florets
+
+- 2 tbsp Olive oil
+
+- 4 clove Garlic — minced
+
+- 3 tbsp Butter or ghee
+
+- ½ count Lemon — juice
+
+- ¼ cup Low-sodium beef broth
+
+- ¼ cup Parsley — chopped. Source has malformed “+ or garnish”; use listed parsley in sauce. Optional extra garnish unquantified.
+
+- ¼ tsp Crushed red pepper flakes — optional
+
+- to taste Fresh cracked black pepper — to taste. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- Not specified Fresh thyme — for garnish. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- ⅓ cup Low-sodium soy sauce. or coconut amino if you’re strictly paleo
+
+- ½ cup Olive oil
+
+- 1 tbsp Sriracha sauce. or any hot chili sauce you like
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Combine soy sauce, marinade olive oil and hot sauce. Add steak strips and refrigerate 30–60 minutes.
+
+2. **Step 2.** Blanch broccoli florets 1–2 minutes, then rinse with cold water. Drain steak while reserving its marinade.
+
+3. **Step 3.** Heat the cooking olive oil and one-third of the butter over medium-high. Sear steak in batches for 1–2 minutes per side until browned; set aside.
+
+4. **Step 4.** Lower to medium and melt remaining butter. Add lemon, garlic, broth and reserved marinade; bring to a full boil before reducing. Add parsley and broccoli, tossing until broccoli is done to preference.
+
+5. **Step 5.** Return steak briefly to warm. Finish with optional chili flakes, black pepper and thyme.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, soy, wheat. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Marination adds 30–60 minutes beyond declared 15-minute prep/cook total.
+
+- Source reuses raw-meat marinade in sauce but only says simmer. This adaptation explicitly boils it before serving for safety; source does not define a boil time.
+
+- The steak is marinated first; the reserved marinade then becomes the sauce. Bring marinade that has touched raw meat to a full boil before serving.
+
+- Source metric steak weight contradicts US weight; US 1 1/2 lb retained.
+
+- The publisher gives no measured amount for: Fresh cracked black pepper, to taste.
+
+- The publisher gives no measured amount for: Fresh thyme, for garnish.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Lemon Garlic Steak and Broccoli Skillet](https://www.eatwell101.com/lemon-garlic-butter-steak-and-broccoli-skillet-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## One-Pan Sausage Veggies
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+One-Pan Sausage Veggies, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="One-Pan Sausage Veggies cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Smoked sausage<small class="trn-state-essential">fully cooked, cut into 1-inch pieces · Source also allows Italian sausage; method assumes smoked sausage. Choose fully cooked smoked sausage for source timing.</small></th><td rowspan="1" colspan="1" class="trn-operation">Brown smoked sausage about 5 min over medium</td><td rowspan="13" colspan="1" class="trn-operation">Deglaze with broth; return sausage and heat through; garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 bunch</strong> Rainbow carrots<small class="trn-state-detail">peeled, trimmed, and cut into sticks</small></th><td rowspan="9" colspan="1" class="trn-operation">Cook carrots 4 min; add other vegetables and seasoning; cook crisp-tender</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>16 oz</strong> Fresh green peas<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> Shallot<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Spring onions<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Salt and pepper<small class="trn-state-detail">Source combines salt and pepper under one amount; their separate amounts are unspecified.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Cajun seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ cup</strong> Low-sodium chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tsp</strong> Red chili pepper flakes<small class="trn-state-detail">optional</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Fresh chopped parsley<small class="trn-state-detail">optional</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 ½ lb Smoked sausage — fully cooked, cut into 1-inch pieces. Source also allows Italian sausage; method assumes smoked sausage. Choose fully cooked smoked sausage for source timing.
+
+- 2 bunch Rainbow carrots — peeled, trimmed, and cut into sticks
+
+- 16 oz Fresh green peas
+
+- 2 count Shallot — sliced
+
+- 4 count Spring onions — sliced
+
+- 6 clove Garlic — minced
+
+- ½ tsp Salt and pepper. Source combines salt and pepper under one amount; their separate amounts are unspecified.
+
+- 4 tbsp Olive oil
+
+- 2 tsp Cajun seasoning
+
+- 1 tsp Italian seasoning
+
+- ½ cup Low-sodium chicken broth
+
+- 1 tsp Red chili pepper flakes — optional
+
+- 2 tbsp Fresh chopped parsley — optional
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Brown sliced smoked sausage in a large skillet over medium heat for about 5 minutes; set aside.
+
+2. **Step 2.** Add olive oil and stir-fry carrots 4 minutes. Add shallot, garlic, spring onions and peas, then salt, pepper, Italian herbs and Cajun seasoning. Continue until vegetables are crisp-tender.
+
+3. **Step 3.** Add chicken broth to loosen browned juices. Return sausage, toss and heat through; finish with optional chili flakes and parsley.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Ingredient allows Italian sausage but method assumes smoked sausage; choose fully cooked smoked sausage for the stated five-minute method. Raw Italian sausage needs a different verified doneness endpoint.
+
+- Carrot bunch has no weight. Combined salt-and-pepper amount is unspecified separately.
+
+- All listed olive oil allocated to vegetables; source uses an unquantified amount there.
+
+- Ingredient quantities are scaled from 2 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: One-Pan Sausage Veggies](https://www.eatwell101.com/one-pan-sausage-veggies-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Garlic Butter Steak Bites with Lemon Zucchini Noodles
+
+4 portions · US measures · unverified · 10 min publisher preparation · Not provided
+
+Garlic Butter Steak Bites with Lemon Zucchini Noodles, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Steak Bites with Lemon Zucchini Noodles cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ¼ lb</strong> Sirloin steak<small class="trn-state-detail">cut into small cubes</small></th><td rowspan="6" colspan="1" class="trn-operation">Marinate steak at least 15–20 min; reserve drained liquid</td><td rowspan="9" colspan="1" class="trn-operation">Sear drained steak 3–4 min over high; add butter/garlic 1–2 min</td><td rowspan="16" colspan="1" class="trn-operation">Cook zucchini in sauce 2–3 min; add herbs; return steak 1 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Low-sodium soy sauce<small class="trn-state-detail">or coconut amino for paleo and gluten-free</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Hot sauce<small class="trn-state-detail">we used Sriracha</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Fresh cracked black pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tsp</strong> Minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Butter<small class="trn-state-detail">divided</small></th><td rowspan="4" colspan="2" class="trn-operation">Boil reserved marinade in lemon butter/broth; reduce 2–3 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Beef or vegetable broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Red chili pepper flakes<small class="trn-state-detail">optional</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>4 count</strong> Zucchini<small class="trn-state-detail">medium, spiralized · or a pack of store-bought Zucchini Noodles</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>1 tbsp</strong> Minced parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>1 tsp</strong> Fresh thyme leaves<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 ¼ lb Sirloin steak — cut into small cubes
+
+- 4 count Zucchini — medium, spiralized. or a pack of store-bought Zucchini Noodles
+
+- 1 tbsp Olive oil
+
+- 3 tbsp Butter — divided
+
+- 2 tsp Minced garlic
+
+- ¼ cup Beef or vegetable broth
+
+- 1 tbsp Minced parsley
+
+- 1 tsp Fresh thyme leaves
+
+- ½ tsp Red chili pepper flakes — optional
+
+- ½ count Lemon — juice
+
+- ¼ cup Low-sodium soy sauce. or coconut amino for paleo and gluten-free
+
+- 1 tbsp Olive oil
+
+- 1 tbsp Hot sauce. we used Sriracha
+
+- to taste Fresh cracked black pepper — to taste. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- ½ count Lemon — juice
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Mix soy sauce, marinade olive oil, hot sauce, pepper and marinade lemon juice. Coat steak cubes and marinate at least 15–20 minutes.
+
+2. **Step 2.** Heat cooking olive oil over high heat. Drain steak and retain marinade. Sear cubes in a single layer 3–4 minutes, stirring; work in batches.
+
+3. **Step 3.** Add two-thirds of the butter and garlic, tossing 1–2 minutes. Remove steak to a plate.
+
+4. **Step 4.** Add remaining butter, sauce lemon juice, optional flakes, broth and reserved marinade. Bring the marinade to a full boil before reducing for 2–3 minutes.
+
+5. **Step 5.** Add zucchini noodles for 2–3 minutes. Stir in parsley and thyme; reduce watery juices another minute if needed. Return steak and warm 1 minute before serving.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, soy, wheat. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- US 1 1/4 lb steak is inconsistent with source 450 g; US weight retained.
+
+- Marination is additional to declared 25-minute prep/cook total.
+
+- Source instructs simmering reused raw marinade; this adaptation requires a full boil before reduction, without inventing a duration.
+
+- A pack of zucchini noodles is an unquantified alternative to four medium zucchini.
+
+- The publisher gives no measured amount for: Fresh cracked black pepper, to taste.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Garlic Butter Steak Bites with Lemon Zucchini Noodles](https://www.eatwell101.com/garlic-butter-steak-bites-zucchini-noodles-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## 15-Minute Lemon Garlic Butter Steak with Zucchini Noodles
+
+4 portions · US measures · unverified · 10 min publisher preparation · Not provided
+
+15-Minute Lemon Garlic Butter Steak with Zucchini Noodles, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="15-Minute Lemon Garlic Butter Steak with Zucchini Noodles cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Flank steak<small class="trn-state-detail">sliced against the grain</small></th><td rowspan="5" colspan="1" class="trn-operation">Marinate steak refrigerated 30–60 min; reserve drained liquid</td><td rowspan="8" colspan="1" class="trn-operation">Sear drained steak 1 min over medium-high; add garlic and cook 1–2 min</td><td rowspan="14" colspan="1" class="trn-operation">Toss zucchini and parsley in sauce 2–3 min; return steak 1 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> Low-sodium soy sauce<small class="trn-state-detail">or coconut amino if you’re strictly paleo</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Lemon juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Sriracha sauce<small class="trn-state-detail">or any hot chili sauce you like</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked black pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter or ghee<small class="trn-state-detail"></small></th><td rowspan="4" colspan="2" class="trn-operation">Boil reserved marinade in butter/lemon/broth; reduce 2–3 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Lemon<small class="trn-state-detail">juice and zest</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Low-sodium chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Crushed red pepper flakes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Zucchini<small class="trn-state-detail">medium</small></th><td rowspan="1" colspan="2" class="trn-operation">Spiralize zucchini</td></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>¼ cup</strong> Chopped parsley<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 ½ lb Flank steak — sliced against the grain
+
+- 4 count Zucchini — medium
+
+- 2 tbsp Olive oil
+
+- 4 clove Garlic — minced
+
+- 2 tbsp Butter or ghee
+
+- 1 count Lemon — juice and zest
+
+- ¼ cup Low-sodium chicken broth
+
+- ¼ cup Chopped parsley
+
+- ¼ tsp Crushed red pepper flakes
+
+- to taste Salt and fresh cracked black pepper — to taste. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- ⅓ cup Low-sodium soy sauce. or coconut amino if you’re strictly paleo
+
+- ¼ cup Lemon juice
+
+- ½ cup Olive oil
+
+- 1 tbsp Sriracha sauce. or any hot chili sauce you like
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Mix marinade soy sauce, lemon juice, olive oil and hot sauce; coat steak strips and refrigerate 30–60 minutes. Spiralize zucchini while it rests.
+
+2. **Step 2.** Heat cooking olive oil over medium-high. Drain steak, reserving marinade, and season with salt and pepper. Sear in one layer 1 minute without stirring. Add garlic and turn for another 1–2 minutes; set aside.
+
+3. **Step 3.** Add butter, whole-lemon juice and zest, chili flakes, broth and reserved marinade. Bring marinade to a full boil before reducing 2–3 minutes.
+
+4. **Step 4.** Add parsley and zucchini noodles; toss 2–3 minutes. Reduce watery juices another minute if needed, return steak and warm 1 minute. Serve immediately.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, soy, wheat. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Marination 30–60 minutes is excluded from declared 25-minute total and the 15-minute title.
+
+- Source metric steak amount conflicts with US quantity; US retained.
+
+- Reused raw marinade is brought to a full boil in this adaptation; source specifies only simmer.
+
+- The publisher gives no measured amount for: Salt and fresh cracked black pepper, to taste.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: 15-Minute Lemon Garlic Butter Steak with Zucchini Noodles](https://www.eatwell101.com/garlic-butter-steak-and-zucchini-noodles-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Garlic Butter Shrimp and Broccoli Skillet
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Garlic Butter Shrimp and Broccoli Skillet, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Shrimp and Broccoli Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Broccoli<small class="trn-state-detail">rinsed and cut into florets · 1 1/2 crown</small></th><td rowspan="4" colspan="1" class="trn-operation">Cook broccoli 4–6 min over medium; set aside</td><td rowspan="16" colspan="1" class="trn-operation">Combine broccoli and shrimp; add lemon; warm 1–2 min and garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Medium raw shrimp<small class="trn-state-detail">peeled and deveined</small></th><td rowspan="9" colspan="1" class="trn-operation">Cook shrimp 1–2 min; add garlic/spices and flip 1 min; reduce stock/hot sauce 1 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Vegetable stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Sriracha<small class="trn-state-detail">or any hot sauce you like</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Crushed chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped parsley or cilantro<small class="trn-state-detail">for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 ½ lb Medium raw shrimp — peeled and deveined
+
+- 1 ½ lb Broccoli — rinsed and cut into florets. 1 1/2 crown
+
+- 3 tbsp Butter
+
+- 1 tbsp Olive oil
+
+- 5 clove Garlic — minced
+
+- 1 tsp Paprika
+
+- 1 tsp Italian seasoning
+
+- 2 tsp Onion powder
+
+- to taste Salt and fresh cracked pepper — to taste. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- ¼ cup Vegetable stock
+
+- 1 tbsp Sriracha. or any hot sauce you like
+
+- Not specified Crushed chili pepper flakes — optional. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- ½ count Lemon — juice
+
+- Not specified Fresh chopped parsley or cilantro — for garnish. Source gives no numeric quantity; use to taste/as garnish as written.
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Heat olive oil and one-third of the butter over medium. Season broccoli with part of the salt and pepper and cook 4–6 minutes until crisp-tender; set aside.
+
+2. **Step 2.** Add the remaining butter and shrimp, seasoned with the remaining salt and pepper. Cook 1–2 minutes on the first side.
+
+3. **Step 3.** Add garlic, paprika, Italian seasoning and onion powder. Flip and cook 1 minute; add stock and hot sauce and reduce 1 minute, keeping shrimp tender and cooked through.
+
+4. **Step 4.** Return broccoli, squeeze over lemon juice and warm 1–2 minutes. Finish with optional chili flakes and herbs.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, shellfish. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher gives no measured salt-and-pepper amount or split between vegetables and shrimp. This adaptation uses half at each stage.
+
+- Extra lemon-slice garnish in method is omitted because not listed or quantified.
+
+- The publisher gives no measured amount for: Salt and fresh cracked pepper, to taste.
+
+- The publisher gives no measured amount for: Crushed chili pepper flakes, optional.
+
+- The publisher gives no measured amount for: Fresh chopped parsley or cilantro, for garnish.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Garlic Butter Shrimp and Broccoli Skillet](https://www.eatwell101.com/garlic-butter-shrimp-broccoli-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Sheet Pan Shrimp Fajitas
+
+4 portions · US measures · unverified · 10 min publisher preparation · 20 min
+
+Sheet Pan Shrimp Fajitas, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Sheet Pan Shrimp Fajitas cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Preheat oven to 400°F; prepare a rimmed baking sheet.</td></tr><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Shrimp<small class="trn-state-detail">peeled and deveined</small></th><td rowspan="12" colspan="1" class="trn-operation">Toss shrimp and sliced vegetables in oil, garlic and mixed seasonings; spread on oiled sheet</td><td rowspan="14" colspan="1" class="trn-operation">Roast at 400°F 8–10 min, toss halfway; optional last-2-min broil; finish with citrus/cilantro</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ count</strong> Red bell pepper<small class="trn-state-detail">cut into strips</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ count</strong> Green bell pepper<small class="trn-state-detail">cut into strips</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ count</strong> Yellow bell pepper<small class="trn-state-detail">cut into strips</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ count</strong> Yellow onion<small class="trn-state-detail">medium, sliced · Malformed source “1/2 1 medium”; interpreted as half of one medium onion.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Dried garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Ancho chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Ground paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> Ground coriander<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> Salt and freshly ground black pepper<small class="trn-state-detail">Source combines salt and pepper under one amount; their separate amounts are unspecified.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> Fresh lime or lemon juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Chopped cilantro<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb Shrimp — peeled and deveined
+
+- ⅓ count Red bell pepper — cut into strips
+
+- ⅓ count Green bell pepper — cut into strips
+
+- ⅓ count Yellow bell pepper — cut into strips
+
+- ⅓ count Yellow onion — medium, sliced. Malformed source “1/2 1 medium”; interpreted as half of one medium onion.
+
+- ⅔ tsp Dried garlic
+
+- 1 ⅓ tsp Ancho chili powder
+
+- 1 tsp Ground cumin
+
+- ⅔ tsp Ground paprika
+
+- ⅓ tsp Ground coriander
+
+- ⅓ tsp Salt and freshly ground black pepper. Source combines salt and pepper under one amount; their separate amounts are unspecified.
+
+- 2 tbsp Olive oil
+
+- 1 ⅓ tbsp Fresh lime or lemon juice
+
+- 2 tbsp Chopped cilantro
+
+### Equipment
+
+- Oven
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Heat oven to 400°F. Lightly oil a rimmed baking sheet using a small share of the listed oil. Mix the chili powder, cumin, paprika, coriander, salt and pepper.
+
+2. **Step 2.** Arrange pepper strips and sliced onion on the sheet; add shrimp, dried garlic and seasoning. Drizzle the remaining oil and toss, then spread in an even layer.
+
+3. **Step 3.** Roast 8–10 minutes, tossing halfway, until shrimp are cooked through and vegetables tender. For more browning, broil during the last 2 minutes.
+
+4. **Step 4.** Finish with citrus juice and cilantro. The source suggests warm tortillas and other toppings; these are optional accompaniments with no listed amounts.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: shellfish. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Onion line reads “1/2 1 medium yellow onion”; interpreted as half of one medium onion.
+
+- Tortillas, chili-flake garnish and toppings occur only in instructions and have no ingredient quantities; they are optional accompaniments not included in the listed ingredient amounts.
+
+- Sheet oil uses the listed olive oil; source separately says lightly oil without an amount.
+
+- Ingredient quantities are scaled from 6 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Sheet Pan Shrimp Fajitas](https://www.eatwell101.com/sheet-pan-shrimp-fajitas-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Garlic Butter Cod with Lemon Asparagus Skillet
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Garlic Butter Cod with Lemon Asparagus Skillet, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Cod with Lemon Asparagus Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Check fish reaches 145°F at its thickest point.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Cod fillet<small class="trn-state-detail">medium, cut in 3 or 4 chunks · or halibut fillet</small></th><td rowspan="2" colspan="1" class="trn-operation">Cook cod on both sides over medium-low until golden and cooked through</td><td rowspan="11" colspan="1" class="trn-operation">Toss asparagus in sauce 2 min; return cod 1 min; garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Minced garlic<small class="trn-state-detail"></small></th><td rowspan="6" colspan="1" class="trn-operation">Simmer garlic in broth; stir in butter/lemon/hot sauce/parsley</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Low-sodium vegetable broth<small class="trn-state-detail">or white wine</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ stick</strong> Unsalted butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Hot sauce<small class="trn-state-detail">optional · we used Sriracha</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Minced parsley<small class="trn-state-detail">or cilantro</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 bunch</strong> Asparagus<small class="trn-state-detail">rinsed and trimmed</small></th><td rowspan="1" colspan="1" class="trn-operation">Blanch asparagus 2–3 min; ice-chill and drain</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Slices of lemon<small class="trn-state-detail">for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 count Cod fillet — medium, cut in 3 or 4 chunks. or halibut fillet
+
+- 2 bunch Asparagus — rinsed and trimmed
+
+- 1 tsp Olive oil
+
+- 2 tsp Minced garlic
+
+- ½ cup Low-sodium vegetable broth. or white wine
+
+- ½ stick Unsalted butter
+
+- 1 tbsp Hot sauce — optional. we used Sriracha
+
+- ½ count Lemon — juice
+
+- 1 tbsp Minced parsley. or cilantro
+
+- Not specified Crushed red chili pepper flakes — optional. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- Not specified Slices of lemon — for garnish. Source gives no numeric quantity; use to taste/as garnish as written.
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Prepare cod portions. Blanch asparagus in boiling water 2–3 minutes, cool in ice water and drain; very thin asparagus can skip this step.
+
+2. **Step 2.** Warm olive oil in a large skillet over medium-low. Cook fish on both sides until golden and cooked through, then set aside.
+
+3. **Step 3.** Over medium heat, add garlic and deglaze with vegetable broth. Simmer, then stir in butter, lemon juice, optional hot sauce and parsley.
+
+4. **Step 4.** Toss asparagus in sauce 2 minutes. Return fish and warm 1 minute. Finish with optional chili flakes and lemon slices.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, fish. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Medium cod fillet and two asparagus bunches have no weights; source cuts fillet into 3–4 chunks despite four-serving yield.
+
+- Method calls for salt and pepper absent from ingredient list. This adaptation omits unsupported seasoning quantity.
+
+- Source gives no time or numeric fish doneness endpoint for pan cooking.
+
+- The publisher gives no measured amount for: Crushed red chili pepper flakes, optional.
+
+- The publisher gives no measured amount for: Slices of lemon, for garnish.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Garlic Butter Cod with Lemon Asparagus Skillet](https://www.eatwell101.com/garlic-butter-cod-asparagus-skillet-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Asado Chicken Breast with Sauteed Lemon Zucchini
+
+4 portions · US measures · unverified · 10 min publisher preparation · Not provided
+
+Asado Chicken Breast with Sauteed Lemon Zucchini, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Asado Chicken Breast with Sauteed Lemon Zucchini cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 lb</strong> Chicken breast<small class="trn-state-detail"></small></th><td rowspan="11" colspan="1" class="trn-operation">Marinate chicken at least 30 min refrigerated; reserve drained liquid</td><td rowspan="12" colspan="1" class="trn-operation">Pan-cook drained chicken about 15 min over medium-low to 165°F</td><td rowspan="13" colspan="1" class="trn-operation">Serve sliced cooked chicken over zucchini and reduced sauce</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Smoked Paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Cumin Powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Chicken stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Lemon juice<small class="trn-state-detail">more for serving</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Onion Powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Chili Flakes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Salt and fresh cracked black pepper<small class="trn-state-detail">Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Olive Oil<small class="trn-state-detail">for marinade</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil for searing<small class="trn-state-detail">for searing · Additional quantity explicitly stated in the source method; the original 1/4 cup marinade oil remains intact.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> Zucchini<small class="trn-state-detail">medium-sized, diced · Source quantity range 2–3; lower value selected for scaling.</small></th><td rowspan="1" colspan="2" class="trn-operation">Sauté zucchini 2–3 min; boil reserved marinade then cook 3–4 min</td></tr></tbody></table></div>
+
+### Ingredients
+
+- 3 lb Chicken breast
+
+- 2 count Zucchini — medium-sized, diced. Source quantity range 2–3; lower value selected for scaling.
+
+- 8 clove Garlic — minced
+
+- 2 tsp Oregano
+
+- 1 tbsp Smoked Paprika
+
+- 2 tsp Cumin Powder
+
+- ¼ cup Chicken stock
+
+- ¼ cup Lemon juice — more for serving
+
+- ½ tsp Onion Powder
+
+- ½ tsp Chili Flakes
+
+- ¼ cup Olive Oil — for marinade
+
+- Not specified Salt and fresh cracked black pepper. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- 1 tbsp Olive oil for searing — for searing. Additional quantity explicitly stated in the source method; the original 1/4 cup marinade oil remains intact.
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Combine smoked paprika, cumin, stock, lemon juice, onion powder, oregano, garlic, chili flakes and the marinade olive oil. Season to taste before adding chicken; coat, cover and refrigerate at least 30 minutes.
+
+2. **Step 2.** Drain chicken and retain marinade. Heat the separate searing olive oil over medium-low. Cook chicken on both sides for about 15 minutes total, until its center reaches 165°F; set aside.
+
+3. **Step 3.** Cook diced zucchini in the same pan 2–3 minutes. Add the reserved marinade, bring it to a full boil, then continue cooking 3–4 minutes until reduced and zucchini are tender.
+
+4. **Step 4.** Slice chicken and serve over zucchini with its sauce.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Zucchini range 2–3 interpreted as two medium zucchini.
+
+- At least 30-minute marinade excluded from declared 30-minute prep/cook total.
+
+- Source reuses raw chicken marinade and only says cook 3–4 minutes; this adaptation explicitly requires a full boil before serving.
+
+- Unlisted parsley and lemon-slice garnish omitted. Source metric chicken quantity inconsistent with US three-pound measure; US retained.
+
+- The publisher gives a 2–3 range for Zucchini; this adaptation uses the lower value when scaling.
+
+- The publisher gives no measured amount for: Salt and fresh cracked black pepper.
+
+- Source uses all listed 1/4 cup olive oil in the marinade, then separately specifies another 1 tablespoon oil for searing. Both source quantities are retained.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Asado Chicken Breast with Sauteed Lemon Zucchini](https://www.eatwell101.com/asado-chicken-sauteed-zucchini-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Garlic Butter Chicken Bites with Zucchini Noodles
+
+4 portions · US measures · unverified · 15 min publisher preparation · Not provided
+
+Garlic Butter Chicken Bites with Zucchini Noodles, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Chicken Bites with Zucchini Noodles cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 count</strong> Chicken breasts<small class="trn-state-detail">boneless, skinless, cut into bite-sized chunks · Source quantity range 3–4; lower value selected for scaling.</small></th><td rowspan="7" colspan="1" class="trn-operation">Refrigerate seasoned chicken 30–60 min</td><td rowspan="8" colspan="1" class="trn-operation">Brown marinated chicken over medium-low until cooked through; set aside</td><td rowspan="18" colspan="1" class="trn-operation">Cook zucchini/garlic/parsley in sauce 2–3 min; return chicken 1 min; garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Hot sauce<small class="trn-state-detail">Source uses 1 tablespoon Sriracha or alternatively 1 teaspoon chili powder. Default hot sauce retained; alternative has a distinct quantity.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Fresh cracked black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail">divided</small></th><td rowspan="4" colspan="2" class="trn-operation">Simmer lemon/broth/hot sauce in remaining butter 1–2 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Hot sauce<small class="trn-state-detail">we used Sriracha</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Low-sodium chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Zucchini<small class="trn-state-detail">medium, rinsed and spiralized · or a pack of store-bought Zucchini Noodles; Source quantity range 4–5; lower value selected for scaling.</small></th><td rowspan="1" colspan="2" class="trn-operation">Spiralize zucchini</td></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>2 tsp</strong> Minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>1 tbsp</strong> Minced parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>1 tsp</strong> Fresh thyme leaves<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>Not specified</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>Not specified</strong> Slices of lemon<small class="trn-state-detail">for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 3 count Chicken breasts — boneless, skinless, cut into bite-sized chunks. Source quantity range 3–4; lower value selected for scaling.
+
+- 4 count Zucchini — medium, rinsed and spiralized. or a pack of store-bought Zucchini Noodles; Source quantity range 4–5; lower value selected for scaling.
+
+- 4 tbsp Butter — divided
+
+- 2 tsp Minced garlic
+
+- 1 tbsp Hot sauce. we used Sriracha
+
+- ¼ cup Low-sodium chicken broth
+
+- ½ count Lemon — juice
+
+- 1 tbsp Minced parsley
+
+- 1 tsp Fresh thyme leaves
+
+- Not specified Crushed red chili pepper flakes — optional. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- Not specified Slices of lemon — for garnish. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- 2 tbsp Olive oil
+
+- 1 tbsp Hot sauce. Source uses 1 tablespoon Sriracha or alternatively 1 teaspoon chili powder. Default hot sauce retained; alternative has a distinct quantity.
+
+- 2 tsp Salt
+
+- 1 tsp Fresh cracked black pepper
+
+- 2 tsp Garlic powder
+
+- 1 tsp Italian seasoning
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Coat chicken chunks with marinade olive oil, hot sauce, salt, pepper, garlic powder and Italian herbs. Refrigerate 30–60 minutes; spiralize zucchini meanwhile.
+
+2. **Step 2.** Melt half the butter over medium-low. Brown chicken on all sides, working in batches, and cook through; set aside.
+
+3. **Step 3.** Over medium-high, add remaining butter, lemon juice, sauce hot sauce and broth. Simmer 1–2 minutes.
+
+4. **Step 4.** Add parsley and minced garlic, then toss zucchini noodles in the sauce 2–3 minutes. Reduce watery juices an extra minute if needed. Return chicken and warm 1 minute; garnish with thyme, optional chili flakes and lemon slices.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Yield range 4–6 interpreted as four, lower end; chicken range 3–4 and zucchini range 4–5 use lower stated counts.
+
+- Marination excluded from declared 30-minute total.
+
+- Hot sauce is separately listed for marinade and sauce; both retained without deduplication. Alternative one teaspoon chili powder is not interchangeable by volume with marinade hot sauce.
+
+- Chicken browning time and numeric doneness endpoint omitted by source.
+
+- The publisher gives a 3–4 range for Chicken breasts; this adaptation uses the lower value when scaling.
+
+- The publisher gives a 4–5 range for zucchini; this adaptation uses the lower count. A pack of store-bought zucchini noodles is an alternative with no specified weight.
+
+- The publisher gives no measured amount for: Crushed red chili pepper flakes, optional.
+
+- The publisher gives no measured amount for: Slices of lemon, for garnish.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Garlic Butter Chicken Bites with Zucchini Noodles](https://www.eatwell101.com/garlic-butter-chicken-bites-with-lemon-zucchini-noodles)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Lemon Garlic Butter Baked Cod Fillets
+
+4 portions · US measures · unverified · 5 min publisher preparation · 20 min
+
+Lemon Garlic Butter Baked Cod Fillets, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon Garlic Butter Baked Cod Fillets cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Preheat oven to 400°F; use an oven-safe skillet.</td></tr><tr><td colspan="3" class="trn-prep">Check fish reaches 145°F at its thickest point.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Cod fillets<small class="trn-state-detail">Source quantity range 4–6; lower value selected for scaling.</small></th><td rowspan="10" colspan="1" class="trn-operation">Brush and season cod; sear over medium 1 min per side; deglaze with broth</td><td rowspan="14" colspan="1" class="trn-operation">Bake in oven-safe skillet at 400°F about 10 min until readily flaking; garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Dried garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Red chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Red chili pepper flakes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Cumin powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Salt and black pepper<small class="trn-state-detail">Source combines salt and pepper under one amount; their separate amounts are unspecified.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Vegetable broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> Lemon juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ tbsp</strong> Butter<small class="trn-state-detail">melted</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Olive oil<small class="trn-state-detail">for searing · Ingredient recovered from the source method; listed ingredient array omits it.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ tbsp</strong> Lemon juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ½ tbsp</strong> Butter<small class="trn-state-detail">melted</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 count</strong> Lemon<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Fresh parsley<small class="trn-state-detail">chopped</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 count Cod fillets. Source quantity range 4–6; lower value selected for scaling.
+
+- 1 tbsp Lemon juice
+
+- 3 tbsp Butter — melted
+
+- 1 tsp Dried garlic
+
+- ½ tsp Red chili powder
+
+- ½ tsp Red chili pepper flakes
+
+- ½ tsp Cumin powder
+
+- ¼ tsp Salt and black pepper. Source combines salt and pepper under one amount; their separate amounts are unspecified.
+
+- ¼ cup Vegetable broth
+
+- 1 count Lemon — sliced
+
+- 2 tbsp Fresh parsley — chopped
+
+- 2 tbsp Olive oil — for searing. Ingredient recovered from the source method; listed ingredient array omits it.
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+- Oven
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Preheat oven to 400°F. Mix lemon juice with melted butter. Separately mix dried garlic, chili powder, chili flakes, cumin, salt and pepper.
+
+2. **Step 2.** Dry cod; brush with half the lemon butter and coat with seasoning. Keep the remaining butter mixture separate for finishing.
+
+3. **Step 3.** Heat the olive oil over medium in an oven-safe skillet. Sear cod 1 minute per side, then loosen pan juices with vegetable broth and pour the remaining lemon butter over fish.
+
+4. **Step 4.** Bake about 10 minutes, checking earlier, until fish flakes readily. Use oven mitts to remove skillet; finish with parsley and lemon slices.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, fish. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Cod range 4–6 uses four fillets; no sizes supplied.
+
+- Source method includes two tablespoons olive oil omitted from its ingredient list. This adaptation recovers this stated quantity as an additional ingredient, attributed to the source method.
+
+- Source gives no split for brushing versus finishing lemon butter; half allocated to each as an explicit editorial split.
+
+- The publisher gives a 4–6 range for Cod fillets; this adaptation uses the lower value when scaling.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Lemon Garlic Butter Baked Cod Fillets](https://www.eatwell101.com/lemon-garlic-butter-baked-cod-fillets-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Lemon Garlic Butter Shrimp with Zucchini Noodles
+
+4 portions · US measures · unverified · 10 min publisher preparation · 20 min
+
+Lemon Garlic Butter Shrimp with Zucchini Noodles, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon Garlic Butter Shrimp with Zucchini Noodles cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Raw medium shrimp<small class="trn-state-detail">peeled and deveined</small></th><td rowspan="7" colspan="1" class="trn-operation">Cook shrimp 1 min; add garlic/herbs/flakes and cook 1–2 min</td><td rowspan="13" colspan="1" class="trn-operation">Toss zucchini in sauce about 2 min; return shrimp 1 min; garnish parsley</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 clove</strong> Garlic<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 pinch</strong> Red pepper flakes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail">softened, divided · Ghee is the source alternative.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail">softened, divided · Ghee is the source alternative.</small></th><td rowspan="4" colspan="1" class="trn-operation">Simmer butter/lemon/stock/hot sauce 2–3 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Chicken or vegetable stock<small class="trn-state-detail">or white wine</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Hot sauce of your choice<small class="trn-state-detail">to taste · we used Sriracha; Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Zucchini<small class="trn-state-detail">medium</small></th><td rowspan="1" colspan="1" class="trn-operation">Spiralize zucchini</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> Chopped fresh parsley<small class="trn-state-detail">for garnish</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb Raw medium shrimp — peeled and deveined
+
+- 4 count Zucchini — medium
+
+- 1 tbsp Olive oil
+
+- 4 tbsp Butter — softened, divided. Ghee is the source alternative.
+
+- 4 clove Garlic — finely chopped
+
+- 1 tsp Italian seasoning
+
+- 1 pinch Red pepper flakes
+
+- ½ count Lemon — juice
+
+- ¼ cup Chicken or vegetable stock. or white wine
+
+- to taste Hot sauce of your choice — to taste. we used Sriracha; Source gives no numeric quantity; use to taste/as garnish as written.
+
+- to taste Salt and fresh cracked pepper — to taste. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- ¼ cup Chopped fresh parsley — for garnish
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Spiralize trimmed zucchini. Heat olive oil with half the butter over medium-high.
+
+2. **Step 2.** Lay shrimp in a single layer and season. Cook 1 minute untouched; add garlic, Italian herbs and chili flakes, then stir and cook another 1–2 minutes. Set shrimp aside.
+
+3. **Step 3.** Add remaining butter, lemon juice, stock and hot sauce. Simmer 2–3 minutes, stirring.
+
+4. **Step 4.** Toss zucchini noodles in the sauce about 2 minutes, reducing excess liquid if needed. Return shrimp and warm 1 minute, then scatter parsley over the dish.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, shellfish. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Additional lemon-slice garnish in method is unlisted and omitted.
+
+- The publisher gives no measured amount for: Hot sauce of your choice, to taste (we used Sriracha).
+
+- The publisher gives no measured amount for: Salt and fresh cracked pepper, to taste.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Lemon Garlic Butter Shrimp with Zucchini Noodles](https://www.eatwell101.com/lemon-garlic-butter-shrimp-with-zucchini-noodles)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Creamy Cajun Shrimp with Sausage
+
+4 portions · US measures · unverified · 10 min publisher preparation · 25 min
+
+Creamy Cajun Shrimp with Sausage, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Creamy Cajun Shrimp with Sausage cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Use fully cooked smoked pork or chicken sausage; the publisher leaves its cooking state unspecified.</td></tr><tr><td colspan="4" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Large shrimp<small class="trn-state-detail">peeled and deveined</small></th><td rowspan="4" colspan="2" class="trn-operation">Cook Cajun-seasoned shrimp and fully cooked sliced sausage in olive oil about 5 min over medium-high, until shrimp are cooked and sausage is hot</td><td rowspan="13" colspan="1" class="trn-operation">Return cooked shrimp/sausage to cream sauce; finish with parsley</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14 oz</strong> Pork or chicken sausage<small class="trn-state-essential">fully cooked smoked sausage, sliced · Explicit safety adaptation: choose fully cooked pork or chicken sausage. The source leaves its cooking state unspecified.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Cajun seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Unsalted butter<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Soften onion in butter; cook peppers 2–3 min, garlic 1 min; reduce broth</td><td rowspan="8" colspan="1" class="trn-operation">Gently simmer cream and seasoning; melt optional Parmesan 1 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 clove</strong> Garlic<small class="trn-state-detail">finely diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Yellow onion<small class="trn-state-detail">small, diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> Red bell peppers<small class="trn-state-detail">chopped into chunks</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> Low-sodium vegetable broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tsp</strong> Salt and pepper<small class="trn-state-detail">Source combines salt and pepper under one amount; their separate amounts are unspecified.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ¾ cup</strong> Heavy cream<small class="trn-state-detail">or less</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ cup</strong> Grated Parmesan<small class="trn-state-detail">optional</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>1 tbsp</strong> Fresh parsley<small class="trn-state-detail">chopped</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb Large shrimp — peeled and deveined
+
+- 14 oz Pork or chicken sausage — fully cooked smoked sausage, sliced. Explicit safety adaptation: choose fully cooked pork or chicken sausage. The source leaves its cooking state unspecified.
+
+- 2 tbsp Cajun seasoning
+
+- 2 tbsp Olive oil
+
+- 1 tbsp Unsalted butter
+
+- 3 clove Garlic — finely diced
+
+- 1 count Yellow onion — small, diced
+
+- 2 count Red bell peppers — chopped into chunks
+
+- ⅓ cup Low-sodium vegetable broth
+
+- 1 tsp Salt and pepper. Source combines salt and pepper under one amount; their separate amounts are unspecified.
+
+- 1 ¾ cup Heavy cream. or less
+
+- ½ cup Grated Parmesan — optional
+
+- 1 tbsp Fresh parsley — chopped
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Toss shrimp and sliced fully cooked sausage with Cajun seasoning and olive oil. Cook over medium-high in a large skillet about 5 minutes until shrimp are cooked and sausage is hot, then set aside.
+
+2. **Step 2.** Melt butter in the pan. Soften onion, cook bell peppers 2–3 minutes, then add garlic for about 1 minute. Add broth and reduce slightly.
+
+3. **Step 3.** Lower heat, stir in cream and salt and pepper, and simmer gently. Add optional Parmesan and simmer another minute to melt it.
+
+4. **Step 4.** Return shrimp and sausage, coat with sauce and sprinkle with parsley; serve.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, shellfish. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Choose fully cooked smoked pork or chicken sausage for the five-minute source method; source does not state sausage cooking state.
+
+- Source first coats with all listed oil then instructs “heat the oil” without a second amount; this adaptation uses coated ingredients in skillet and introduces no extra oil.
+
+- Combined salt-and-pepper quantity is ambiguous separately.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Creamy Cajun Shrimp with Sausage](https://www.eatwell101.com/cajun-shrimp-sausage-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Garlic Butter Shrimp with Lemon Parmesan Cauliflower Rice
+
+4 portions · US measures · unverified · 10 min publisher preparation · 25 min
+
+Garlic Butter Shrimp with Lemon Parmesan Cauliflower Rice, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Shrimp with Lemon Parmesan Cauliflower Rice cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ cup</strong> Unsalted butter<small class="trn-state-detail">divided</small></th><td rowspan="9" colspan="1" class="trn-operation">Cook garlic/onion 1 min in butter; cauliflower 1 min; stock/herbs 1 min; lemon/Parmesan 1 min</td><td rowspan="20" colspan="1" class="trn-operation">Return cauliflower to cooked shrimp; warm and finish parsley/flakes</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ½ clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 head</strong> Cauliflower<small class="trn-state-detail">riced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> White onion<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Lemon<small class="trn-state-detail">juice · + zest, if you like</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Vegetable stock<small class="trn-state-detail">Source 1/4 cup + 2 tablespoons equals six tablespoons; one-third to cauliflower and two-thirds to shrimp.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Fresh parsley<small class="trn-state-detail">chopped · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.3 oz</strong> Fresh Parmesan<small class="trn-state-detail">finely grated</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Medium raw shrimp<small class="trn-state-detail">peeled and deveined</small></th><td rowspan="9" colspan="1" class="trn-operation">Cook shrimp 1–2 min; flip with garlic/spices 1 min; reduce stock/hot sauce/cheese 1 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ cup</strong> Unsalted butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ½ clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Sriracha<small class="trn-state-detail">or any hot sauce you like</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> Vegetable stock<small class="trn-state-detail">Source 1/4 cup + 2 tablespoons equals six tablespoons; one-third to cauliflower and two-thirds to shrimp.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.7 oz</strong> Fresh Parmesan<small class="trn-state-detail">finely grated</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh parsley<small class="trn-state-detail">chopped · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tsp</strong> Red chili pepper flakes<small class="trn-state-detail">optional</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 ½ lb Medium raw shrimp — peeled and deveined
+
+- ¼ cup Unsalted butter — divided
+
+- 1 tsp Italian seasoning
+
+- 2 tsp Onion powder
+
+- to taste Salt and fresh cracked pepper — to taste. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- 6 tbsp Vegetable stock. Source 1/4 cup + 2 tablespoons equals six tablespoons; one-third to cauliflower and two-thirds to shrimp.
+
+- 1 tbsp Sriracha. or any hot sauce you like
+
+- 1 head Cauliflower — riced
+
+- ½ count White onion — chopped
+
+- 5 clove Garlic — minced
+
+- 2 oz Fresh Parmesan — finely grated
+
+- 1 count Lemon — juice. + zest, if you like
+
+- 1 tsp Red chili pepper flakes — optional
+
+- Not specified Fresh parsley — chopped. Source gives no numeric quantity; use to taste/as garnish as written.
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Season shrimp with part of the salt and pepper. Melt half the butter over medium, then cook half the garlic and the onion 1 minute. Stir in riced cauliflower for 1 minute.
+
+2. **Step 2.** Add one-third of the stock, half the parsley and optional lemon zest; cook 1 minute. Add lemon juice and two-thirds of the Parmesan; cook 1 minute until cauliflower is crisp-tender, then set aside.
+
+3. **Step 3.** Melt remaining butter. Add shrimp and cook 1–2 minutes on one side, then add remaining garlic, Italian herbs and onion powder. Flip and cook 1 minute.
+
+4. **Step 4.** Add remaining stock, hot sauce and Parmesan; reduce 1 minute, finishing shrimp without overcooking. Return cauliflower to warm, add remaining parsley and optional flakes, and adjust seasoning.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, shellfish. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Stock listed as quarter cup plus two tablespoons: retained as six tablespoons, split one-third to cauliflower and two-thirds to shrimp.
+
+- Unquantified parsley split in half as source describes.
+
+- The publisher gives no measured salt-and-pepper amount or split; this adaptation divides it equally between stages. The unlisted lemon-slice garnish is omitted.
+
+- The publisher gives no measured amount for: Salt and fresh cracked pepper, to taste.
+
+- The publisher gives no measured amount for: Fresh parsley, chopped.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Garlic Butter Shrimp with Lemon Parmesan Cauliflower Rice](https://www.eatwell101.com/garlic-butter-shrimp-parmesan-cauliflower-rice-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Cheesy Garlic Burgers with Lemon Butter Zucchini Noodles
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Cheesy Garlic Burgers with Lemon Butter Zucchini Noodles, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Cheesy Garlic Burgers with Lemon Butter Zucchini Noodles cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check ground meat or fresh sausage reaches 160°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ¼ lb</strong> Lean ground beef<small class="trn-state-detail"></small></th><td rowspan="8" colspan="1" class="trn-operation">Mix beef and seasoning; form two equal patties per portion and seal one cheese slice between each pair</td><td rowspan="9" colspan="1" class="trn-operation">Cook one cheese-filled burger per portion 5–6 min per side over medium-high</td><td rowspan="17" colspan="1" class="trn-operation">Cook zucchini in lemon butter 2–3 min; return burgers 1–2 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Crumbled beef bouillon cube<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Steak seasoning<small class="trn-state-detail">we used Mc Cormick’s Grill Mates Hamburger</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 slice</strong> Cheese<small class="trn-state-detail">cheddar, mozzarella, provolone…</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ½ clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Chopped fresh parsley<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Salt and fresh cracked pepper<small class="trn-state-detail">Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail">divided · Source “2+2 tablespoons”; half to burgers and half to sauce.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail">divided · Source “2+2 tablespoons”; half to burgers and half to sauce.</small></th><td rowspan="6" colspan="2" class="trn-operation">Melt butter; add garlic/lemon/hot sauce/herbs/flakes</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ½ clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Hot sauce<small class="trn-state-detail">we used Sriracha</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice · lemon slices, for garnish</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>¼ cup</strong> Chopped fresh parsley<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Zucchini<small class="trn-state-detail">medium, spiralized or julienned</small></th><td rowspan="1" colspan="2" class="trn-operation">Spiralize zucchini</td></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 ¼ lb Lean ground beef
+
+- 5 clove Garlic — minced
+
+- ½ cup Chopped fresh parsley — divided
+
+- 1 tsp Crumbled beef bouillon cube
+
+- Not specified Crushed red chili pepper flakes — optional. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- 1 tbsp Steak seasoning. we used Mc Cormick’s Grill Mates Hamburger
+
+- 4 count Zucchini — medium, spiralized or julienned
+
+- 4 slice Cheese. cheddar, mozzarella, provolone…
+
+- 4 tbsp Butter — divided. Source “2+2 tablespoons”; half to burgers and half to sauce.
+
+- 1 tbsp Hot sauce. we used Sriracha
+
+- Not specified Salt and fresh cracked pepper. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- 1 tsp Italian seasoning
+
+- ½ count Lemon — juice. lemon slices, for garnish
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Gently combine beef with steak seasoning, bouillon, half the garlic, half the parsley, half the optional chili flakes and some salt and pepper.
+
+2. **Step 2.** Form two equal patties per portion. Place one cheese slice on one patty of each pair, cover with its partner and seal the edges to make one filled burger per portion.
+
+3. **Step 3.** Melt half the butter over medium-high. Cook filled burgers 5–6 minutes per side to the source desired doneness, basting with pan juices; set aside.
+
+4. **Step 4.** Melt remaining butter and add remaining garlic, lemon juice, hot sauce, Italian herbs and remaining chili flakes. Add remaining parsley and zucchini noodles, tossing 2–3 minutes. Reduce excess liquid another minute if needed.
+
+5. **Step 5.** Return burgers and warm 1–2 minutes. Serve with optional lemon garnish.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Ground beef US 1 1/4 lb conflicts with source 650 g; US measure retained.
+
+- Butter “2+2 tablespoons” equals four tablespoons, split equally.
+
+- Parsley and garlic are split in half as the publisher directs. The publisher gives no chili-flake amount or split; this adaptation uses half with the beef and half in the sauce.
+
+- Source does not give a safe numerical ground-beef endpoint; desired-doneness timing alone is insufficient safety guidance.
+
+- The publisher gives no count for the lemon-slice garnish.
+
+- The publisher gives no measured amount for: Crushed red chili pepper flakes, optional.
+
+- The publisher gives no measured amount for: Salt and fresh cracked pepper.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Cheesy Garlic Burgers with Lemon Butter Zucchini Noodles](https://www.eatwell101.com/cheesy-garlic-burgers-with-lemon-butter-zucchini-noodles)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Garlic Butter Ground Turkey with Cauliflower
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Garlic Butter Ground Turkey with Cauliflower, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Ground Turkey with Cauliflower cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ head</strong> Cauliflower<small class="trn-state-detail">cut into florets; pre-cooked (required by method, preparation unspecified by source)</small></th><td rowspan="4" colspan="1" class="trn-operation">Sauté pre-cooked cauliflower over medium-low until lightly golden; add lemon/herbs</td><td rowspan="16" colspan="1" class="trn-operation">Return cauliflower to turkey sauce; warm; finish sesame oil/herbs/flakes/lemon</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Vegetable oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Lemon juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped cilantro<small class="trn-state-detail">or parsley; Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Ground turkey<small class="trn-state-detail">or ground chicken</small></th><td rowspan="8" colspan="1" class="trn-operation">Brown ground turkey; add garlic/onion powder then soy/water/hot sauce for a few min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Vegetable oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 tbsp</strong> Butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Low-sodium soy sauce<small class="trn-state-detail">or coconut amino, for Paleo</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Hot sauce<small class="trn-state-detail">we used Sriracha</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Water<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tsp</strong> Sesame oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped cilantro<small class="trn-state-detail">or parsley; Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Red chili pepper flakes<small class="trn-state-detail">Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Lemon slices<small class="trn-state-detail">for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb Ground turkey. or ground chicken
+
+- ½ head Cauliflower — cut into florets; pre-cooked (required by method, preparation unspecified by source)
+
+- 2 tbsp Vegetable oil
+
+- 1 tbsp Lemon juice
+
+- 3 tbsp Butter
+
+- 2 tbsp Minced garlic
+
+- 1 tbsp Onion powder
+
+- ¼ cup Low-sodium soy sauce. or coconut amino, for Paleo
+
+- 2 tbsp Hot sauce. we used Sriracha
+
+- 2 tsp Sesame oil
+
+- Not specified Fresh chopped cilantro. or parsley; Source gives no numeric quantity; use to taste/as garnish as written.
+
+- ¼ cup Water
+
+- Not specified Red chili pepper flakes. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- Not specified Lemon slices — for garnish. Source gives no numeric quantity; use to taste/as garnish as written.
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Use pre-cooked cauliflower florets as the source method requires. Heat half the vegetable oil over medium-low and sauté florets until lightly golden. Add lemon juice and half the cilantro or parsley; set aside.
+
+2. **Step 2.** Melt butter with remaining oil in the same skillet. Brown ground turkey, breaking it up until cooked through. Add garlic and onion powder, then soy sauce, water and hot sauce; cook a few minutes, stirring.
+
+3. **Step 3.** Return cauliflower and coat in the sauce. Warm through, finish with sesame oil, remaining herbs, chili flakes and lemon garnish.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, soy, wheat, sesame. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The ingredient list says cauliflower florets, but the method assumes they are already cooked and provides no pre-cooking directions. Use pre-cooked cauliflower; allow additional time if starting raw.
+
+- Method adds salt and pepper absent from ingredient list; omitted from this adaptation.
+
+- The publisher gives no measured herb amount or split; this adaptation uses half with the cauliflower and half at the finish.
+
+- The publisher does not give a numerical ground-turkey doneness temperature.
+
+- The publisher gives no measured amount for: Fresh chopped cilantro (or parsley).
+
+- The publisher gives no measured amount for: Red chili pepper flakes.
+
+- The publisher gives no measured amount for: Lemon slices, for garnish.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Garlic Butter Ground Turkey with Cauliflower](https://www.eatwell101.com/garlic-butter-turkey-with-cauliflower-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Garlic Butter Chicken with Cauliflower Rice
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Garlic Butter Chicken with Cauliflower Rice, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Chicken with Cauliflower Rice cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> Boneless and skinless chicken breasts<small class="trn-state-detail">large, halved horizontally to make 4</small></th><td rowspan="7" colspan="1" class="trn-operation">Halve each chicken breast horizontally; Parmesan-coat cutlets and cook 3–4 min per side over medium-high</td><td rowspan="16" colspan="1" class="trn-operation">Finish cauliflower with lemon/parsley; return cooked chicken and reheat</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Fresh Parmesan<small class="trn-state-detail">finely grated</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Salt and fresh cracked black pepper<small class="trn-state-detail">Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 clove</strong> Garlic<small class="trn-state-detail">grated · large cloves</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Unsalted butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Unsalted butter<small class="trn-state-detail">divided</small></th><td rowspan="6" colspan="1" class="trn-operation">Cook garlic/onion 1 min; add cauliflower 1 min; stock/parsley/zest 1 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 head</strong> Cauliflower<small class="trn-state-detail">riced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> White onion<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 clove</strong> Garlic<small class="trn-state-detail">minced · large cloves</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Vegetable stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ cup</strong> Fresh parsley<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 count</strong> Lemon<small class="trn-state-detail">juice · + zest, if you like</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Red chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅛ cup</strong> Fresh parsley<small class="trn-state-detail">chopped</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 2 count Boneless and skinless chicken breasts — large, halved horizontally to make 4
+
+- ½ cup Fresh Parmesan — finely grated
+
+- Not specified Salt and fresh cracked black pepper. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- 2 clove Garlic — grated. large cloves
+
+- 1 tsp Paprika
+
+- 1 tsp Italian seasoning
+
+- 4 tbsp Unsalted butter — divided
+
+- 1 head Cauliflower — riced
+
+- ½ cup White onion — chopped
+
+- 2 clove Garlic — minced. large cloves
+
+- 2 tbsp Vegetable stock
+
+- 1 count Lemon — juice. + zest, if you like
+
+- Not specified Red chili pepper flakes — optional. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- ¼ cup Fresh parsley — chopped
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Halve each chicken breast horizontally to make thinner cutlets. Mix Parmesan, grated garlic, paprika and Italian herbs. Season chicken with salt and pepper, coat with the Parmesan mixture and shake off loose excess.
+
+2. **Step 2.** Melt half the butter in a nonstick skillet over medium-high. Cook cutlets 3–4 minutes per side, depending on thickness, until cooked through; set aside.
+
+3. **Step 3.** Melt remaining butter; cook onion and minced garlic 1 minute. Add cauliflower rice and stir 1 minute to coat.
+
+4. **Step 4.** Add stock, half the parsley and optional lemon zest; cook 1 minute, then add lemon juice. Stir in remaining parsley and optional chili flakes. Return chicken and warm through.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+- Use a nonstick pan to keep the Parmesan coating from sticking.
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Source mentions leftover coating Parmesan added to cauliflower. This adaptation allocates listed Parmesan fully to coating and omits this optional unquantified addition; loose coating has contacted raw chicken and should not be used as a finishing garnish.
+
+- The publisher does not give a numerical chicken doneness temperature.
+
+- The publisher gives no measured amount for: Salt and fresh cracked black pepper.
+
+- The publisher gives no measured amount for: Red chili pepper flakes, optional.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Garlic Butter Chicken with Cauliflower Rice](https://www.eatwell101.com/garlic-butter-chicken-with-parmesan-cauliflower-rice)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Garlic Butter Pork Bites with Lemon Green Beans
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Garlic Butter Pork Bites with Lemon Green Beans, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Pork Bites with Lemon Green Beans cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Pork chops<small class="trn-state-detail">cut into 1-inch cubes</small></th><td rowspan="3" colspan="1" class="trn-operation">Sear Cajun-coated pork cubes in oil 2–3 min per side over medium-high</td><td rowspan="11" colspan="1" class="trn-operation">Return pork to bean sauce; coat/warm and garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Cajun seasoning mix<small class="trn-state-detail">preferably low sodium</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Olive oil<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Butter<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Melt butter; sauté garlic 30 sec; add lemon/broth; toss blanched beans 3–4 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Vegetable broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 clove</strong> Garlic<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Green beans<small class="trn-state-detail">trimmed and blanched · if thin, no need to blanch the green beans</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Red chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped parsley<small class="trn-state-detail">for the garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Lemon slices<small class="trn-state-detail">for the garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 ½ lb Pork chops — cut into 1-inch cubes
+
+- 1 tbsp Cajun seasoning mix. preferably low sodium
+
+- 2 tbsp Olive oil — divided
+
+- ¼ cup Butter
+
+- ¼ cup Vegetable broth
+
+- ½ count Lemon — juice
+
+- 4 clove Garlic — finely chopped
+
+- 1 lb Green beans — trimmed and blanched. if thin, no need to blanch the green beans
+
+- Not specified Red chili pepper flakes — optional. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- Not specified Fresh chopped parsley — for the garnish. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- Not specified Lemon slices — for the garnish. Source gives no numeric quantity; use to taste/as garnish as written.
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Coat pork cubes in Cajun seasoning. Heat one-third of the olive oil over medium-high; sear cubes in batches 2–3 minutes per side until browned and cooked through, using remaining oil for batches as needed. Set aside.
+
+2. **Step 2.** Lower heat to medium. Melt butter, sauté garlic about 30 seconds and scrape up the browned juices. Add lemon juice and broth.
+
+3. **Step 3.** Toss blanched green beans in the sauce 3–4 minutes. Return pork, coat and warm through; finish with optional flakes, parsley and lemon slices.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Pork US 1 1/2 lb conflicts with source 650 g; US retained.
+
+- Green beans are explicitly pre-blanched in source ingredient state; source offers no blanching time, and thin beans may skip it.
+
+- The original searing method starts with two teaspoons of oil and adds more as needed. Use one third of the listed two tablespoons initially and the remainder for later batches; all listed oil is for searing.
+
+- The publisher does not give a numerical pork doneness temperature.
+
+- The publisher gives no measured amount for: Red chili pepper flakes, optional.
+
+- The publisher gives no measured amount for: Fresh chopped parsley, for the garnish.
+
+- The publisher gives no measured amount for: Lemon slices, for the garnish.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Garlic Butter Pork Bites with Lemon Green Beans](https://www.eatwell101.com/garlic-butter-pork-bites-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Garlic Butter Salmon with Lemon Asparagus
+
+4 portions · US measures · unverified · 5 min publisher preparation · 30 min
+
+Garlic Butter Salmon with Lemon Asparagus, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Salmon with Lemon Asparagus cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Check fish reaches 145°F at its thickest point.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> Salmon fillet<small class="trn-state-detail">medium, cut in 3 or 4 chunks</small></th><td rowspan="2" colspan="1" class="trn-operation">Cook salmon on both sides over medium-low until golden and cooked through</td><td rowspan="11" colspan="1" class="trn-operation">Toss asparagus in sauce 2 min; return salmon 1 min; garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tsp</strong> Minced garlic<small class="trn-state-detail"></small></th><td rowspan="6" colspan="1" class="trn-operation">Simmer garlic/broth; stir in butter/lemon/hot sauce/parsley</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> Low-sodium vegetable broth<small class="trn-state-detail">or white wine</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 stick</strong> Butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Hot sauce<small class="trn-state-detail">optional · we used Sriracha</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Minced parsley<small class="trn-state-detail">or cilantro</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 bunch</strong> Asparagus<small class="trn-state-detail">rinsed and trimmed</small></th><td rowspan="1" colspan="1" class="trn-operation">Blanch asparagus 2–3 min; ice-chill and drain</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Slices of lemon<small class="trn-state-detail">for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 2 count Salmon fillet — medium, cut in 3 or 4 chunks
+
+- 4 bunch Asparagus — rinsed and trimmed
+
+- 2 tsp Olive oil
+
+- 4 tsp Minced garlic
+
+- 1 cup Low-sodium vegetable broth. or white wine
+
+- 1 stick Butter
+
+- 2 tbsp Hot sauce — optional. we used Sriracha
+
+- 1 count Lemon — juice
+
+- 2 tbsp Minced parsley. or cilantro
+
+- Not specified Crushed red chili pepper flakes — optional. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- Not specified Slices of lemon — for garnish. Source gives no numeric quantity; use to taste/as garnish as written.
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Prepare salmon portions. Blanch asparagus 2–3 minutes, chill in ice water and drain; very thin stalks can skip this.
+
+2. **Step 2.** Heat olive oil over medium-low. Cook salmon on both sides until golden and cooked through; set aside.
+
+3. **Step 3.** Over medium, add garlic and broth and bring to a simmer. Stir in butter, lemon juice, optional hot sauce and parsley.
+
+4. **Step 4.** Toss asparagus in sauce 2 minutes. Return salmon and heat 1 minute, then finish with optional flakes and lemon slices.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, fish. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Yield 2–3 interpreted as two, lower end; medium salmon fillet split into 3–4 chunks has no weight.
+
+- Method adds salt and pepper absent from ingredient list; this adaptation omits unsupported seasoning quantities.
+
+- Source does not specify fish pan-cooking time or numeric doneness endpoint.
+
+- The publisher gives no measured amount for: Crushed red chili pepper flakes, optional.
+
+- The publisher gives no measured amount for: Slices of lemon, for garnish.
+
+- Ingredient quantities are scaled from 2 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Garlic Butter Salmon with Lemon Asparagus](https://www.eatwell101.com/garlic-butter-salmon-lemon-asparagus-skillet-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Lemon Garlic Butter Salmon with Zucchini Noodles
+
+4 portions · US measures · unverified · 5 min publisher preparation · 20 min
+
+Lemon Garlic Butter Salmon with Zucchini Noodles, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon Garlic Butter Salmon with Zucchini Noodles cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Check fish reaches 145°F at its thickest point.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Salmon fillet<small class="trn-state-detail">cut in 3 or 4 chunks</small></th><td rowspan="2" colspan="1" class="trn-operation">Pan-cook salmon skin-side first 2–4 min per side until cooked through</td><td rowspan="11" colspan="1" class="trn-operation">Cook zucchini in sauce 3–4 min; return salmon and warm about 2 min; garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail">divided</small></th><td rowspan="6" colspan="1" class="trn-operation">Make lemon butter sauce with garlic/hot sauce/parsley/flakes</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Fresh chopped parsley<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 clove</strong> Garlic<small class="trn-state-detail">minced · Source quantity range 3–4; lower value selected for scaling.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Red crushed chili pepper flakes<small class="trn-state-detail">optional</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Hot sauce of your choice<small class="trn-state-detail">we used Sriracha</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Zucchini<small class="trn-state-detail">spiralized</small></th><td rowspan="1" colspan="1" class="trn-operation">Spiralize zucchini</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ cup</strong> Fresh chopped parsley<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped scallion<small class="trn-state-detail">for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 count Salmon fillet — cut in 3 or 4 chunks
+
+- 4 count Zucchini — spiralized
+
+- 3 tbsp Butter — divided
+
+- 3 clove Garlic — minced. Source quantity range 3–4; lower value selected for scaling.
+
+- 1 cup Fresh chopped parsley — divided
+
+- ½ count Lemon — juice
+
+- ½ tsp Red crushed chili pepper flakes — optional
+
+- 1 tbsp Hot sauce of your choice. we used Sriracha
+
+- Not specified Fresh chopped scallion — for garnish. Source gives no numeric quantity; use to taste/as garnish as written.
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Spiralize zucchini. Melt one-third of the butter in a skillet. Cook salmon skin side first, 2–4 minutes per side depending on thickness, until cooked through; set aside.
+
+2. **Step 2.** Melt remaining butter. Add lemon juice, hot sauce, garlic, half the parsley and optional chili flakes.
+
+3. **Step 3.** Toss zucchini noodles in sauce 3–4 minutes, keeping them crisp while reducing their liquid. Add remaining parsley, return salmon and warm a couple of minutes. Finish with scallion.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+- Zucchini may release water. The source suggests salting and draining after spiralizing, then rinsing and drying; salt is not listed, so this is an optional source tip with no quantified salt.
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, fish. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- One salmon fillet split into 3–4 chunks has no weight.
+
+- Garlic range 3–4 interpreted as three cloves.
+
+- Source method adds salt and pepper and lemon-slice garnish absent from ingredient list; this adaptation omits those unsupported quantities.
+
+- The publisher does not give a numerical fish doneness temperature.
+
+- The publisher gives a 3–4 range for Garlic; this adaptation uses the lower value when scaling.
+
+- The publisher gives no measured amount for: Fresh chopped scallion, for garnish.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Lemon Garlic Butter Salmon with Zucchini Noodles](https://www.eatwell101.com/lemon-garlic-butter-salmon-with-zucchini-noodles)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Lemon Garlic Butter Steak with Spinach
+
+4 portions · US measures · unverified · 10 min publisher preparation · Not provided
+
+Lemon Garlic Butter Steak with Spinach, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon Garlic Butter Steak with Spinach cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 ⅓ lb</strong> Flank steak<small class="trn-state-detail">sliced against the grain</small></th><td rowspan="4" colspan="1" class="trn-operation">Marinate steak refrigerated 30–60 min; reserve drained liquid</td><td rowspan="6" colspan="1" class="trn-operation">Sear seasoned drained steak over medium-high 1 min then turn to finish</td><td rowspan="15" colspan="1" class="trn-operation">Return steak and drained spinach to sauce; warm through</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ cup</strong> Low-sodium soy sauce<small class="trn-state-detail">or coconut amino for paleo and gluten-free</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ cup</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> Sriracha sauce<small class="trn-state-detail">or any hot chili sauce you like</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 tbsp</strong> Butter or ghee<small class="trn-state-detail">or less if you want</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ½ lb</strong> Fresh spinach<small class="trn-state-detail"></small></th><td rowspan="2" colspan="2" class="trn-operation">Wilt spinach 1 min in butter; drain</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter or ghee<small class="trn-state-detail">or less if you want</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter or ghee<small class="trn-state-detail">or less if you want</small></th><td rowspan="7" colspan="2" class="trn-operation">Boil reserved marinade with garlic/lemon/broth/herbs; reduce 1–2 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Low-sodium beef broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Chopped parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Chopped chives<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Crushed red pepper flakes<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 3 ⅓ lb Flank steak — sliced against the grain
+
+- 2 ½ lb Fresh spinach
+
+- 8 tbsp Butter or ghee. or less if you want
+
+- 8 clove Garlic — minced
+
+- 1 count Lemon — juice
+
+- ½ cup Low-sodium beef broth
+
+- ½ cup Chopped parsley
+
+- ½ cup Chopped chives
+
+- ½ tsp Crushed red pepper flakes
+
+- to taste Salt and fresh cracked pepper — to taste. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- 1 ⅓ cup Low-sodium soy sauce. or coconut amino for paleo and gluten-free
+
+- 1 ½ cup Olive oil
+
+- 4 tbsp Sriracha sauce. or any hot chili sauce you like
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Coat steak strips in soy sauce, olive oil and hot sauce; refrigerate 30–60 minutes. Wash and drain spinach.
+
+2. **Step 2.** Melt one-quarter of the butter and wilt spinach for 1 minute, turning. Drain it on a plate and clean the skillet.
+
+3. **Step 3.** Drain steak and reserve marinade. Melt half the butter over medium-high, season steak, and sear strips 1 minute on the first side, then turn to cook the other side; work in batches and set aside.
+
+4. **Step 4.** Add remaining butter, garlic, lemon juice, chili flakes, broth, parsley, chives and reserved marinade. Bring marinade to a full boil before reducing 1–2 minutes.
+
+5. **Step 5.** Return steak and drained spinach, coat in sauce and warm through; serve immediately.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, soy, wheat. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- US spinach 1 1/4 lb conflicts with source 500 g; US measure retained.
+
+- Marination adds 30–60 minutes beyond declared 25-minute total.
+
+- Source raw-marinade sauce says simmer only; this adaptation requires full boil before reduction.
+
+- Source second-side steak time is unspecified; do not assume its one-minute first side guarantees doneness.
+
+- Unlisted lemon-slice garnish omitted.
+
+- The publisher gives no measured amount for: Salt and fresh cracked pepper, to taste.
+
+- Ingredient quantities are scaled from 2 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Lemon Garlic Butter Steak with Spinach](https://www.eatwell101.com/lemon-garlic-butter-steak-and-spinach-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Cowboy Butter Chicken with Zucchini Noodles (15-Minute)
+
+4 portions · US measures · unverified · 10 min publisher preparation · 25 min
+
+Cowboy Butter Chicken with Zucchini Noodles, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Cowboy Butter Chicken with Zucchini Noodles (15-Minute) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 count</strong> Chicken breasts<small class="trn-state-detail">skinless and boneless, cut into strips</small></th><td rowspan="5" colspan="1" class="trn-operation">Cook chicken 1 min over medium-high; add garlic/flakes and turn about 2 min</td><td rowspan="17" colspan="1" class="trn-operation">Toss zucchini/herbs in sauce 2–3 min; return chicken 1 min until cooked through; garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Crushed red pepper flakes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Salt and freshly ground black pepper<small class="trn-state-detail">Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Butter<small class="trn-state-detail">divided · grass-fed butter is best for this recipe</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 tbsp</strong> Butter<small class="trn-state-detail">divided · grass-fed butter is best for this recipe</small></th><td rowspan="7" colspan="1" class="trn-operation">Simmer cowboy butter sauce 2–3 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice and zest · Source calls for half a lemon, juice and zest.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Dijon mustard<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 pinch</strong> Cayenne pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Low-sodium chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Hot sauce of your choice<small class="trn-state-detail">we used Sriracha</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 count</strong> Zucchini<small class="trn-state-detail">medium · Source quantity range 3–4; lower value selected for scaling.</small></th><td rowspan="1" colspan="1" class="trn-operation">Spiralize zucchini</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Fresh chopped parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tbsp</strong> Freshly chopped chives<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tsp</strong> Minced thyme<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Lemon slices<small class="trn-state-detail">for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 3 count Chicken breasts — skinless and boneless, cut into strips
+
+- 3 count Zucchini — medium. Source quantity range 3–4; lower value selected for scaling.
+
+- 4 tbsp Butter — divided. grass-fed butter is best for this recipe
+
+- ½ count Lemon — juice and zest. Source calls for half a lemon, juice and zest.
+
+- 4 clove Garlic — minced
+
+- 1 tbsp Dijon mustard
+
+- 1 pinch Cayenne pepper
+
+- ¼ tsp Paprika
+
+- ¼ cup Low-sodium chicken broth
+
+- 1 tbsp Hot sauce of your choice. we used Sriracha
+
+- 2 tbsp Fresh chopped parsley
+
+- 1 tbsp Freshly chopped chives
+
+- 2 tsp Minced thyme
+
+- ¼ tsp Crushed red pepper flakes
+
+- Not specified Salt and freshly ground black pepper. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- Not specified Lemon slices — for garnish. Source gives no numeric quantity; use to taste/as garnish as written.
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Season chicken strips with salt and pepper. Spiralize zucchini and set aside.
+
+2. **Step 2.** Melt one-quarter of the butter over medium-high. Cook chicken in one layer 1 minute without stirring. Add garlic and chili flakes, turn and cook a couple more minutes until nearly done; set aside.
+
+3. **Step 3.** Melt remaining butter. Stir in lemon juice and zest, Dijon, hot sauce, cayenne, paprika and broth. Simmer 2–3 minutes to reduce.
+
+4. **Step 4.** Add parsley, chives, thyme and zucchini noodles, tossing 2–3 minutes. Return chicken and cook 1 minute, ensuring it is cooked through. Garnish with lemon slices.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Zucchini range 3–4 uses three medium zucchini.
+
+- Title says 15 minutes but declared prep/cook totals 25 minutes.
+
+- Source does not give a numeric chicken doneness endpoint; final return must finish cooking.
+
+- The publisher gives a 3–4 range for Zucchini; this adaptation uses the lower value when scaling.
+
+- The publisher gives no measured amount for: Salt and freshly ground black pepper.
+
+- The publisher gives no measured amount for: Lemon slices, for garnish.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Cowboy Butter Chicken with Zucchini Noodles (15-Minute)](https://www.eatwell101.com/cowboy-butter-chicken-and-zucchini-noodles)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Creamy Garlic Pesto Chicken
+
+4 portions · US measures · unverified · 15 min publisher preparation · 35 min
+
+Creamy Garlic Pesto Chicken, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Creamy Garlic Pesto Chicken cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 count</strong> Chicken breasts<small class="trn-state-detail">boneless, skinless · Source quantity range 3–4; lower value selected for scaling.</small></th><td rowspan="3" colspan="1" class="trn-operation">Cook chicken with tomato oil/herbs/flakes over medium 4–5 min per side</td><td rowspan="13" colspan="1" class="trn-operation">Simmer pesto sauce with vegetables; return sliced chicken 2–3 min; garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Red pepper flakes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> Red onion<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Cook onion/garlic/tomatoes about 1 min; add peppers until crisp-tender</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Sun-dried tomatoes<small class="trn-state-essential">drained of most oil, chopped · keep the drained oil for cooking</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 count</strong> Bell peppers<small class="trn-state-detail">cut into strips · Source says 3 bell peppers but color breakdown (1 red, 1/2 yellow, 1/2 green) totals 2; three-count retained pending editorial choice.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Basil pesto<small class="trn-state-detail"></small></th><td rowspan="3" colspan="1" class="trn-operation">Whisk pesto, cream and chicken stock</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Heavy whipping cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Chicken stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Salt and fresh cracked pepper<small class="trn-state-detail">Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Chopped fresh basil<small class="trn-state-detail">for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Parmesan<small class="trn-state-detail">for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 3 count Chicken breasts — boneless, skinless. Source quantity range 3–4; lower value selected for scaling.
+
+- ¼ tsp Red pepper flakes
+
+- ½ tsp Italian seasoning
+
+- ½ count Red onion
+
+- 3 clove Garlic — minced
+
+- ½ cup Sun-dried tomatoes — drained of most oil, chopped. keep the drained oil for cooking
+
+- 3 count Bell peppers — cut into strips. Source says 3 bell peppers but color breakdown (1 red, 1/2 yellow, 1/2 green) totals 2; three-count retained pending editorial choice.
+
+- ½ cup Basil pesto
+
+- ½ cup Heavy whipping cream
+
+- ½ cup Chicken stock
+
+- Not specified Salt and fresh cracked pepper. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- Not specified Chopped fresh basil — for garnish. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- Not specified Parmesan — for garnish. Source gives no numeric quantity; use to taste/as garnish as written.
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Reserve drained tomato oil. Heat some of it with Italian herbs and chili flakes in a nonstick skillet. Cook chicken over medium heat 4–5 minutes per side until cooked through; reduce heat if it browns too fast, then set aside.
+
+2. **Step 2.** Whisk pesto, cream and stock together.
+
+3. **Step 3.** Cook onion, garlic and tomatoes in the skillet over medium-high for about 1 minute; use a little more reserved tomato oil if needed. Add bell peppers and cook until slightly softened but still crisp.
+
+4. **Step 4.** Add pesto sauce and simmer. Slice chicken into strips, return to the pan and warm 2–3 minutes. Finish with basil and Parmesan garnish.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, tree-nuts. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Chicken range 3–4 uses three breasts, with no weights.
+
+- The publisher lists three bell peppers, but its color breakdown of 1 red + 1/2 yellow + 1/2 green totals two. This adaptation uses the stated three-pepper total; the intended color quantities remain uncertain.
+
+- Method uses one tablespoon tomato oil plus extra as needed but no standalone oil ingredient. Reserve drained oil from listed tomatoes; no measured oil amount is given.
+
+- Pesto allergens depend on label: milk/tree nuts are conservative flags for typical basil pesto.
+
+- The publisher does not give a numerical chicken doneness temperature.
+
+- The publisher gives a 3–4 range for Chicken breasts; this adaptation uses the lower value when scaling.
+
+- The publisher gives no measured amount for: Salt and fresh cracked pepper.
+
+- The publisher gives no measured amount for: Chopped fresh basil, for garnish.
+
+- The publisher gives no measured amount for: Parmesan, for garnish.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Creamy Garlic Pesto Chicken](https://www.eatwell101.com/creamy-garlic-pesto-chicken)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Garlic Herb Butter Chicken Thighs with Asparagus
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Garlic Herb Butter Chicken Thighs with Asparagus, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Herb Butter Chicken Thighs with Asparagus cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Unsalted butter<small class="trn-state-detail">divided</small></th><td rowspan="5" colspan="1" class="trn-operation">Melt butter over medium; briefly warm garlic/herbs</td><td rowspan="8" colspan="1" class="trn-operation">Cook herb-butter thighs skin-side first 5–6 min then 5–7 min to 165°F</td><td rowspan="14" colspan="1" class="trn-operation">Return chicken to asparagus and warm about 2 min; garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Freshly chopped oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Fresh rosemary<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Fresh thyme<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 count</strong> Chicken thighs<small class="trn-state-detail">skin-on, bone-in · Source quantity range 4–5; lower value selected for scaling.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ tsp</strong> Paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ tsp</strong> Salt and pepper<small class="trn-state-detail">to taste · Source combines salt and pepper under one amount; their separate amounts are unspecified.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Unsalted butter<small class="trn-state-detail">divided</small></th><td rowspan="4" colspan="2" class="trn-operation">Sauté asparagus 4–6 min; deglaze with broth and reduce 1 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Asparagus<small class="trn-state-detail">ends trimmed</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Chicken broth<small class="trn-state-detail">or water</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Salt and pepper<small class="trn-state-detail">to taste · Source combines salt and pepper under one amount; their separate amounts are unspecified.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>Not specified</strong> Slices of fresh lemon<small class="trn-state-detail">for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped parsley<small class="trn-state-detail">for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 count Chicken thighs — skin-on, bone-in. Source quantity range 4–5; lower value selected for scaling.
+
+- 3 tbsp Unsalted butter — divided
+
+- 4 clove Garlic — minced
+
+- 1 tbsp Freshly chopped oregano
+
+- 1 tsp Fresh rosemary — chopped
+
+- 1 tsp Fresh thyme — chopped
+
+- 1 lb Asparagus — ends trimmed
+
+- ½ tsp Paprika
+
+- ½ tsp Salt and pepper — to taste. Source combines salt and pepper under one amount; their separate amounts are unspecified.
+
+- ¼ cup Chicken broth — or water
+
+- Not specified Slices of fresh lemon — for garnish. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- Not specified Fresh chopped parsley — for garnish. Source gives no numeric quantity; use to taste/as garnish as written.
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Dry chicken thighs, then season both sides with paprika and part of the salt and pepper.
+
+2. **Step 2.** Melt two-thirds of the butter over medium. Add garlic, oregano, rosemary and thyme; stir briefly until fragrant without burning.
+
+3. **Step 3.** Cook thighs skin side down 5–6 minutes, then turn for 5–7 minutes, until the thickest meat reads 165°F; lower heat if browning too fast. Set aside.
+
+4. **Step 4.** Melt remaining butter, add asparagus and remaining salt and pepper, and sauté 4–6 minutes until tender. Add broth, coat asparagus and reduce 1 minute.
+
+5. **Step 5.** Return thighs and warm a couple of minutes; finish with lemon and parsley.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Chicken range 4–5 uses four bone-in skin-on thighs.
+
+- The publisher gives no separate split for the combined salt-and-pepper amount; this adaptation uses half at each stage.
+
+- The publisher gives a 4–5 range for Chicken thighs; this adaptation uses the lower value when scaling.
+
+- The publisher gives no measured amount for: Slices of fresh lemon, for garnish.
+
+- The publisher gives no measured amount for: Fresh chopped parsley, for garnish.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Garlic Herb Butter Chicken Thighs with Asparagus](https://www.eatwell101.com/garlic-butter-herb-chicken-and-asparagus)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Easy Chicken Fajitas
+
+4 portions · US measures · unverified · 15 min publisher preparation · 25 min
+
+Easy Chicken Fajitas, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Easy Chicken Fajitas cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Shredded rotisserie chicken<small class="trn-state-essential">fully cooked, shredded rotisserie chicken</small></th><td rowspan="9" colspan="1" class="trn-operation">Season cooked rotisserie chicken; heat in oil 2–3 min</td><td rowspan="14" colspan="1" class="trn-operation">Combine warmed chicken and tender vegetables; cook 1 min and serve</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil<small class="trn-state-detail">divided</small></th><td rowspan="5" colspan="1" class="trn-operation">Sauté peppers/onion 5–7 min over medium-high</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Red bell pepper<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Green bell pepper<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Yellow bell pepper<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Onion<small class="trn-state-detail">medium, sliced</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb Shredded rotisserie chicken — fully cooked, shredded rotisserie chicken
+
+- 1 tbsp Chili powder
+
+- 2 tsp Paprika
+
+- 1 tsp Onion powder
+
+- 1 tsp Cumin
+
+- ½ tsp Garlic powder
+
+- 1 tsp Salt
+
+- ¼ tsp Pepper
+
+- 2 tbsp Olive oil — divided
+
+- 1 count Red bell pepper — sliced
+
+- 1 count Green bell pepper — sliced
+
+- 1 count Yellow bell pepper — sliced
+
+- 1 count Onion — medium, sliced
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Mix cooked shredded rotisserie chicken with chili powder, paprika, onion powder, cumin, garlic powder, salt and pepper.
+
+2. **Step 2.** Heat half the olive oil over medium-high. Sauté peppers and onion 5–7 minutes until tender, then move them to one side.
+
+3. **Step 3.** Add remaining oil and seasoned chicken; stir 2–3 minutes to heat through. Combine with vegetables and cook 1 minute more. Serve as a skillet meal or with the source optional accompaniments.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Tortillas, cilantro and lemon juice occur only in the serving instruction, with no ingredient amounts. They are optional accompaniments not included in the listed ingredient amounts.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Easy Chicken Fajitas](https://www.eatwell101.com/skillet-roasted-chicken-fajitas-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Easy Cajun Pork Chops with Lemon Garlic Zucchini
+
+4 portions · US measures · unverified · Preparation time not provided · Not provided
+
+Easy Cajun Pork Chops with Lemon Garlic Zucchini, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Easy Cajun Pork Chops with Lemon Garlic Zucchini cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Pork chops<small class="trn-state-detail">bone-in, at room temperature</small></th><td rowspan="3" colspan="1" class="trn-operation">Sear Cajun-coated chops 3–4 min per side over medium-high; rest under foil</td><td rowspan="12" colspan="1" class="trn-operation">Return pork chops to zucchini sauce; reheat briefly and garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6 tbsp</strong> Low-sodium Cajun seasoning<small class="trn-state-detail">or make you own Cajun seasoning blend, see tips below</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> Canola or sunflower oil<small class="trn-state-detail">divided · Source range 1–2 tablespoons; lower one-tablespoon amount chosen, 2/3 for searing and 1/3 reserved for zucchini.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> Canola or sunflower oil<small class="trn-state-detail">divided · Source range 1–2 tablespoons; lower one-tablespoon amount chosen, 2/3 for searing and 1/3 reserved for zucchini.</small></th><td rowspan="8" colspan="1" class="trn-operation">Sauté garlic in butter 30 sec; zucchini/spices 2–3 min; stock/lemon 2–3 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6 count</strong> Zucchini<small class="trn-state-detail">medium, rinsed and sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Unsalted butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Red chili pepper flakes<small class="trn-state-detail">optional</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6 tbsp</strong> Low-sodium chicken stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> Lemon juice<small class="trn-state-detail">more for serving</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Fresh chopped parsley<small class="trn-state-detail">for garnish</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 count Pork chops — bone-in, at room temperature
+
+- 6 count Zucchini — medium, rinsed and sliced
+
+- 6 tbsp Low-sodium Cajun seasoning. or make you own Cajun seasoning blend, see tips below
+
+- 2 tbsp Canola or sunflower oil — divided. Source range 1–2 tablespoons; lower one-tablespoon amount chosen, 2/3 for searing and 1/3 reserved for zucchini.
+
+- 1 tbsp Unsalted butter
+
+- 8 clove Garlic — minced
+
+- 1 tsp Black pepper
+
+- 2 tsp Red chili pepper flakes — optional
+
+- 6 tbsp Low-sodium chicken stock
+
+- 4 tbsp Lemon juice — more for serving
+
+- 2 tbsp Fresh chopped parsley — for garnish
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Coat both sides and edges of pork chops with Cajun seasoning.
+
+2. **Step 2.** Heat two-thirds of the listed oil over medium-high. Sear chops 3–4 minutes per side, allowing more time for thickness, until cooked through. Rest under foil.
+
+3. **Step 3.** Lower heat to medium. Melt butter and sauté garlic about 30 seconds, loosening browned juices; clean burned residue first if needed.
+
+4. **Step 4.** Add zucchini, pepper, optional chili flakes and remaining oil if needed. Sauté 2–3 minutes over medium-low, then add stock and lemon juice and cook another 2–3 minutes until tender and slightly reduced.
+
+5. **Step 5.** Return chops briefly to warm and serve with parsley.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Oil range 1–2 tablespoons uses one tablespoon: two-thirds gives source initial two teaspoons, one-third reserved for zucchini.
+
+- The publisher’s preparation-time entry appears to mean ten minutes but is incomplete. Preparation and total time are therefore unreported.
+
+- Source lacks numerical pork doneness temperature and assumes chops at room temperature.
+
+- Extra lemon slices for garnish are not listed and omitted.
+
+- Ingredient quantities are scaled from 2 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Easy Cajun Pork Chops with Lemon Garlic Zucchini](https://www.eatwell101.com/cajun-pork-chops-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Creamy Fajita Chicken Breasts Skillet
+
+4 portions · US measures · unverified · 10 min publisher preparation · 25 min
+
+Creamy Fajita Chicken Breasts Skillet, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Creamy Fajita Chicken Breasts Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Chicken breasts<small class="trn-state-detail">small, skinless, boneless</small></th><td rowspan="2" colspan="1" class="trn-operation">Cook fajita-seasoned chicken about 4 min per side over medium</td><td rowspan="9" colspan="1" class="trn-operation">Divide scaled fajita seasoning: measure the source 1 tsp for each original four-portion batch onto chicken, then add the remaining seasoning to vegetables. Cook chicken first, reserve it, and cook vegetables in the same pan before making sauce.</td><td rowspan="11" colspan="1" class="trn-operation">Return chicken to creamy fajita sauce 2–3 min; garnish cheese/herbs</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Vegetable oil<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> Bell peppers<small class="trn-state-detail">red, green, yellow, seeded and cut into strips</small></th><td rowspan="6" colspan="1" class="trn-operation">Cook onion/peppers with remaining oil/seasoning; add broth/tomato/cream cheese and simmer 2–3 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Onion<small class="trn-state-detail">medium, minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 oz</strong> Cream cheese<small class="trn-state-detail">softened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> Tomato sauce of your choice<small class="trn-state-detail">marinara sauce, canned crushed tomatoes</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Low sodium chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Vegetable oil<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 packet</strong> Fajita seasoning<small class="trn-state-detail">divided · Source packet size is unspecified. Its original four-portion method measures 1 tsp for chicken and uses remaining packet for vegetables; scale the measured teaspoon share with portions, without assuming a packet volume.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>½ cup</strong> Shredded Mozzarella<small class="trn-state-detail">or your favorite cheese, Pepperjack, Monterrey Jack, Cheddar</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped cilantro<small class="trn-state-detail">or parsley, for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 count Chicken breasts — small, skinless, boneless
+
+- 2 count Bell peppers — red, green, yellow, seeded and cut into strips
+
+- 1 count Onion — medium, minced
+
+- 8 oz Cream cheese — softened
+
+- ⅓ cup Tomato sauce of your choice. marinara sauce, canned crushed tomatoes
+
+- 1 packet Fajita seasoning — divided. Source packet size is unspecified. Its original four-portion method measures 1 tsp for chicken and uses remaining packet for vegetables; scale the measured teaspoon share with portions, without assuming a packet volume.
+
+- 2 tbsp Vegetable oil — divided
+
+- ¼ cup Low sodium chicken broth
+
+- ½ cup Shredded Mozzarella. or your favorite cheese, Pepperjack, Monterrey Jack, Cheddar
+
+- Not specified Fresh chopped cilantro — or parsley, for garnish. Source gives no numeric quantity; use to taste/as garnish as written.
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** For the original four-portion batch, measure 1 tsp from the fajita packet for chicken; scale this measured share with portions and reserve the remaining scaled seasoning for vegetables. Season chicken with that measured share.
+
+2. **Step 2.** Heat half the oil over medium. Cook chicken about 4 minutes per side until browned and cooked through; set aside.
+
+3. **Step 3.** Add remaining oil and cook onion and pepper strips until crisp-tender. Add remaining fajita seasoning and continue until onion is translucent.
+
+4. **Step 4.** Add broth, tomato sauce and softened cream cheese. Stir and simmer 2–3 minutes until smooth. Return chicken and warm 2–3 minutes.
+
+5. **Step 5.** Finish with shredded mozzarella and cilantro or parsley.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Salt/pepper and chili-flake garnish are unlisted and omitted.
+
+- Extra broth if sauce is too thick is unquantified; listed broth amount retained.
+
+- The publisher does not give a numerical chicken doneness temperature.
+
+- The publisher gives no measured amount for: Fresh chopped cilantro, or parsley, for garnish.
+
+- Fajita packet volume is unspecified. Chicken gets the source method’s measured 1 tsp for the original four portions, scaled with portions; vegetables get the remaining seasoning. No numerical fraction of the unknown-size packet is assumed.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Creamy Fajita Chicken Breasts Skillet](https://www.eatwell101.com/creamy-chicken-fajita-skillet-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Cheesy Turkey Meatballs with Cauliflower Rice
+
+4 portions · US measures · unverified · 15 min publisher preparation · 30 min
+
+Cheesy Turkey Meatballs with Cauliflower Rice, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Cheesy Turkey Meatballs with Cauliflower Rice cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="5" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 oz</strong> Cream cheese<small class="trn-state-detail"></small></th><td rowspan="3" colspan="1" class="trn-operation">Mix cream cheese, garlic powder and half mozzarella</td><td rowspan="9" colspan="1" class="trn-operation">Enclose cream-cheese filling in turkey mixture and seal meatballs</td><td rowspan="10" colspan="1" class="trn-operation">Sear filled turkey meatballs on all sides 10–15 min over medium-high until cooked through</td><td rowspan="17" colspan="1" class="trn-operation">Finish cauliflower with lemon/parsley/flakes; return meatballs and warm</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> Shredded mozzarella cheese<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> Shredded mozzarella cheese<small class="trn-state-detail">divided</small></th><td rowspan="6" colspan="1" class="trn-operation">Mix turkey, egg, bouillon, parsley and seasoning with remaining mozzarella</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Ground turkey<small class="trn-state-detail">or chicken</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cube</strong> Bouillon<small class="trn-state-detail">crumbled</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Egg<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Fresh chopped parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Salt<small class="trn-state-detail">Source adds fresh cracked pepper without a quantity; optional pepper to taste remains a disclosed unquantified accompaniment.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>1 tbsp</strong> Butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 cup</strong> Riced cauliflower<small class="trn-state-detail">about 1 medium head</small></th><td rowspan="4" colspan="3" class="trn-operation">Cook cauliflower rice in butter 1 min; add stock/hot sauce/zest for 1 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Vegetable stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Hot sauce of your choice<small class="trn-state-detail">we used Sriracha</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>1 count</strong> Lemon<small class="trn-state-detail">juice · + zest, if you like</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>Not specified</strong> Red chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>¼ cup</strong> Parsley<small class="trn-state-detail">fresh, chopped</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 8 oz Cream cheese
+
+- 1 tbsp Garlic powder
+
+- 2 cup Shredded mozzarella cheese — divided
+
+- 1 lb Ground turkey. or chicken
+
+- 1 cube Bouillon — crumbled
+
+- 1 count Egg
+
+- ½ cup Fresh chopped parsley
+
+- 1 tsp Salt. Source adds fresh cracked pepper without a quantity; optional pepper to taste remains a disclosed unquantified accompaniment.
+
+- 1 tbsp Butter
+
+- 3 cup Riced cauliflower. about 1 medium head
+
+- 2 tbsp Butter
+
+- ½ cup Vegetable stock
+
+- 1 tbsp Hot sauce of your choice. we used Sriracha
+
+- 1 count Lemon — juice. + zest, if you like
+
+- Not specified Red chili pepper flakes — optional. Source gives no numeric quantity; use to taste/as garnish as written.
+
+- ¼ cup Parsley — fresh, chopped
+
+### Equipment
+
+- Stovetop
+
+- Pans
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Mix cream cheese, garlic powder and half the mozzarella until smooth. Separately mix ground turkey, egg, remaining mozzarella, bouillon, meatball parsley, salt and pepper.
+
+2. **Step 2.** Flatten portions of turkey mixture, place filling in their centers, and wrap and seal into meatballs until both mixtures are used.
+
+3. **Step 3.** Melt meatball butter over medium-high. Brown meatballs on all sides for 10–15 minutes until cooked through; set aside.
+
+4. **Step 4.** Melt cauliflower butter in the same pan. Stir cauliflower rice 1 minute to coat. Add stock, hot sauce and optional lemon zest; cook 1 minute, then add lemon juice.
+
+5. **Step 5.** Stir in rice parsley and optional chili flakes. Return meatballs over cauliflower and warm through.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, egg. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher specifies one teaspoon of salt but no measured fresh-pepper amount. Pepper remains to taste; the teaspoon applies only to salt.
+
+- The publisher does not give a numerical ground-turkey doneness temperature.
+
+- Optional Parmesan serving garnish is absent from ingredient list and omitted.
+
+- The publisher gives no measured amount for: Red chili pepper flakes, optional.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Cheesy Turkey Meatballs with Cauliflower Rice](https://www.eatwell101.com/cheesy-stuffed-turkey-meatballs-with-cauliflower-rice)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Fried Cabbage with Sausage
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Fried Cabbage with Sausage, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Fried Cabbage with Sausage cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ lb</strong> smoked sausage<small class="trn-state-detail">sliced</small></th><td rowspan="1" colspan="1" class="trn-operation">Brown sliced smoked sausage 3 min; reserve and wipe skillet.</td><td rowspan="12" colspan="1" class="trn-operation">Return sausage during covered cooking; cook until cabbage is tender. Add scallions and optional lime.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 tbsp</strong> butter or olive oil<small class="trn-state-detail"></small></th><td rowspan="9" colspan="1" class="trn-operation">Heat fat; cook cabbage/onion 5 min. Add pepper, tomatoes, broth and Cajun seasoning; cover 10 min, then reduce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> small green cabbage<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> onion<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 can</strong> Diced tomatoes<small class="trn-state-essential">undrained (or diced fresh tomatoes) · (15 ounces) is the source parenthetical; original US quantity controls. Source can is 15 ounces, undrained.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> green bell pepper<small class="trn-state-detail">diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tsp</strong> cajun seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¾ cup</strong> chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Salt<small class="trn-state-detail">Or to taste.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Black pepper<small class="trn-state-detail">Or to taste.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 count</strong> scallions<small class="trn-state-detail">sliced, for garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Lime wedges or slices<small class="trn-state-detail">optional · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 3 tbsp butter or olive oil
+
+- 1 count small green cabbage — chopped
+
+- ½ count onion — chopped
+
+- ½ lb smoked sausage — sliced
+
+- 1 can Diced tomatoes — undrained (or diced fresh tomatoes). (15 ounces) is the source parenthetical; original US quantity controls. Source can is 15 ounces, undrained.
+
+- ½ count green bell pepper — diced
+
+- 4 tsp cajun seasoning
+
+- ¾ cup chicken broth
+
+- ½ tsp Salt. Or to taste.
+
+- ½ tsp Black pepper. Or to taste.
+
+- 2 count scallions — sliced, for garnish
+
+- Not specified Lime wedges or slices — optional. Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero. Optional; excluded or included as stated in the publisher nutrition.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Slice the sausage; chop cabbage, onion and pepper. Brown sausage in a nonstick skillet for about 3 minutes, then reserve it and wipe the pan.
+
+2. **Step 2.** Heat the butter or oil. Stir-fry cabbage and onion over medium-high heat for 5 minutes until wilting.
+
+3. **Step 3.** Return sausage with tomatoes, bell pepper, broth and Cajun seasoning. Cover over medium-low heat for 10 minutes. Uncover and reduce the liquid until cabbage is tender; season and finish with scallions and optional lime.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 291 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Fried Cabbage with Sausage](https://www.eatwell101.com/fried-cabbage-sausage-skillet-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Tomato Spinach Chicken Skillet (Low Carb - Keto)
+
+4 portions · US measures · unverified · 10 min publisher preparation · 35 min
+
+Tomato Spinach Chicken Skillet, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Tomato Spinach Chicken Skillet (Low Carb - Keto) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F or broiler. Use an oven-safe skillet.</td></tr><tr><td colspan="3" class="trn-prep">Keep shredded cheese aside for the final broil.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> medium chicken breasts<small class="trn-state-detail">sliced horizontally) · (or 2 chicken breasts</small></th><td rowspan="7" colspan="1" class="trn-operation">Season chicken; brown in half the butter 4–5 min/side to 165°F; reserve.</td><td rowspan="15" colspan="1" class="trn-operation"> Return chicken to sauce, top with cheese and briefly broil; garnish with parsley.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail">Source leaves pepper unquantified; to taste.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Crushed red chili pepper flakes<small class="trn-state-detail">to taste · Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail">divided</small></th><td rowspan="6" colspan="1" class="trn-operation">After chicken is reserved, use remaining butter for onion/garlic 1 min; tomatoes 2 min; stock/spinach 1–2 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 count</strong> garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> small onion<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 count</strong> medium tomatoes<small class="trn-state-detail">(chopped in cubes)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> chicken stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 cup</strong> fresh spinach<small class="trn-state-detail">Source quantity range 3 to 4; lower endpoint chosen explicitly.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped parsley<small class="trn-state-detail">for garnish · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 cup</strong> shredded cheese<small class="trn-state-detail">mozzarella, or a mix…) · (cheddar</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 count medium chicken breasts — sliced horizontally). (or 2 chicken breasts
+
+- ¼ tsp Salt
+
+- to taste Black pepper. Source leaves pepper unquantified; to taste.
+
+- 1 tsp Italian seasoning
+
+- to taste Crushed red chili pepper flakes — to taste. Unquantified in source; use to taste or as optional garnish as stated.
+
+- 1 tsp paprika
+
+- 2 tbsp butter — divided
+
+- 5 count garlic — minced
+
+- 1 count small onion — minced
+
+- 5 count medium tomatoes — (chopped in cubes)
+
+- ½ cup chicken stock
+
+- 3 cup fresh spinach. Source quantity range 3 to 4; lower endpoint chosen explicitly.
+
+- 1 cup shredded cheese — mozzarella, or a mix…). (cheddar
+
+- Not specified Fresh chopped parsley — for garnish. Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Oven and oven-safe skillet
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Heat the oven to 400°F or use its broiler. Season chicken with salt, pepper, Italian seasoning, paprika and optional chili flakes.
+
+2. **Step 2.** In an oven-safe skillet over medium heat, use half the butter to brown chicken for 4–5 minutes per side. Cook poultry to 165°F; reserve on a clean plate.
+
+3. **Step 3.** Melt remaining butter; stir onion and garlic for 1 minute. Add tomatoes for 2 minutes, then broth and spinach for another 1–2 minutes.
+
+4. **Step 4.** Return chicken, add cheese, and briefly broil until melted. Watch continuously and finish with parsley.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 789 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Tomato Spinach Chicken Skillet (Low Carb - Keto)](https://www.eatwell101.com/tomato-spinach-chicken-skillet-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Paprika Chicken Thighs with Lemon Zucchini Skillet
+
+4 portions · US measures · unverified · 10 min publisher preparation · 25 min
+
+Paprika Chicken Thighs with Lemon Zucchini Skillet, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Paprika Chicken Thighs with Lemon Zucchini Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Mix only the measured two-tablespoon share of paprika blend; do not consume the source surplus blend.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> chicken thighs bone-in<small class="trn-state-detail">skinless</small></th><td rowspan="9" colspan="1" class="trn-operation">Coat chicken in measured blend and salt. Cook in oil and half the butter 5–6 min/side to 165°F; reserve.</td><td rowspan="16" colspan="1" class="trn-operation">Return chicken and warm through; add parsley and optional chili flakes.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> kosher salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅛ tsp</strong> Smoked Paprika<small class="trn-state-detail">This is the ingredient share of the two tablespoons of blend used on chicken, not the full surplus source blend batch. Source blend ratios 12:9:3:9:1 teaspoons.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.59 tsp</strong> Garlic Powder<small class="trn-state-detail">This is the ingredient share of the two tablespoons of blend used on chicken, not the full surplus source blend batch. Source blend ratios 12:9:3:9:1 teaspoons.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.53 tsp</strong> Onion Powder<small class="trn-state-detail">This is the ingredient share of the two tablespoons of blend used on chicken, not the full surplus source blend batch. Source blend ratios 12:9:3:9:1 teaspoons.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.59 tsp</strong> Ground Black Pepper<small class="trn-state-detail">This is the ingredient share of the two tablespoons of blend used on chicken, not the full surplus source blend batch. Source blend ratios 12:9:3:9:1 teaspoons.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅙ tsp</strong> Cayenne Pepper<small class="trn-state-detail">This is the ingredient share of the two tablespoons of blend used on chicken, not the full surplus source blend batch. Source blend ratios 12:9:3:9:1 teaspoons.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter or oil divided<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter or oil divided<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">After reserving chicken, cook zucchini/garlic in remaining butter 4–5 min; reduce stock and lemon about 2 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> large zucchini<small class="trn-state-detail">cut into wedges</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 count</strong> garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> chicken stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> chopped parsley<small class="trn-state-detail">for garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tsp</strong> red chili pepper flakes<small class="trn-state-detail">for garnish</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 count chicken thighs bone-in — skinless
+
+- ½ tsp kosher salt
+
+- 1 tbsp oil
+
+- 2 tbsp butter or oil divided
+
+- 2 count large zucchini — cut into wedges
+
+- 3 count garlic — minced
+
+- ½ count lemon — juice. Juice of 1/2 lemon
+
+- ¼ cup chicken stock
+
+- 2 tbsp chopped parsley — for garnish
+
+- 1 tsp red chili pepper flakes — for garnish
+
+- 2 ⅛ tsp Smoked Paprika. This is the ingredient share of the two tablespoons of blend used on chicken, not the full surplus source blend batch. Source blend ratios 12:9:3:9:1 teaspoons.
+
+- 1.59 tsp Garlic Powder. This is the ingredient share of the two tablespoons of blend used on chicken, not the full surplus source blend batch. Source blend ratios 12:9:3:9:1 teaspoons.
+
+- 0.53 tsp Onion Powder. This is the ingredient share of the two tablespoons of blend used on chicken, not the full surplus source blend batch. Source blend ratios 12:9:3:9:1 teaspoons.
+
+- 1.59 tsp Ground Black Pepper. This is the ingredient share of the two tablespoons of blend used on chicken, not the full surplus source blend batch. Source blend ratios 12:9:3:9:1 teaspoons.
+
+- ⅙ tsp Cayenne Pepper. This is the ingredient share of the two tablespoons of blend used on chicken, not the full surplus source blend batch. Source blend ratios 12:9:3:9:1 teaspoons.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Mix the measured paprika-blend components and coat the chicken with them and salt.
+
+2. **Step 2.** Over medium-low heat, melt half the butter with the oil. Cook thighs in one layer for 5–6 minutes per side, continuing until 165°F. Lower heat if spices scorch and reserve cooked chicken.
+
+3. **Step 3.** Use remaining butter to stir-fry zucchini and garlic for 4–5 minutes. Add broth and lemon juice and reduce for about 2 minutes.
+
+4. **Step 4.** Return chicken and warm through. Add parsley and optional chili flakes.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 673 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Source provides a large homemade seasoning blend but uses only two tablespoons. This adaptation apportions the five components to that used amount; it does not include the surplus batch as consumed food.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Paprika Chicken Thighs with Lemon Zucchini Skillet](https://www.eatwell101.com/paprika-chicken-thighs-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Garlic Butter Sausages and Broccoli Skillet
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Garlic Butter Sausages and Broccoli Skillet, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Sausages and Broccoli Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Blanch broccoli 3 min, chill in ice water and drain before skillet cooking.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> sausage<small class="trn-state-detail">(450g) is the source parenthetical; original US quantity controls. (Bratwurst or Italian style)</small></th><td rowspan="4" colspan="1" class="trn-operation">Simmer sausages with their water 10 min; evaporate water. Brown in two-thirds butter and half garlic; pork 160°F/poultry 165°F; reserve.</td><td rowspan="15" colspan="1" class="trn-operation">Return sausages and warm; add optional garnishes.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Water for sausage simmer<small class="trn-state-detail">Added from the source method; omitted from its ingredient list.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> butter<small class="trn-state-detail">or oil divided,</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ½ count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> broccoli<small class="trn-state-detail">cut into florets · (450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="9" colspan="1" class="trn-operation">After sausage is reserved, cook drained broccoli with remaining fat/garlic, herbs and seasoning 4–5 min; add stock, lemon and optional hot sauce and reduce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail">or oil divided,</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ½ count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> vegetable or beef stock<small class="trn-state-detail">(60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> hot sauce<small class="trn-state-detail">optional (we used Sriracha) · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> fresh chopped parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> fresh thyme leaves<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon + lemon slices, for garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb sausage. (450g) is the source parenthetical; original US quantity controls. (Bratwurst or Italian style)
+
+- 1 lb broccoli — cut into florets. (450g) is the source parenthetical; original US quantity controls.
+
+- 3 tbsp butter — or oil divided,
+
+- 5 count garlic cloves — minced
+
+- 1 tsp Italian seasoning
+
+- ½ count lemon — juice. Juice of 1/2 lemon + lemon slices, for garnish
+
+- to taste Salt and fresh cracked pepper. Unquantified in source; use to taste or as optional garnish as stated.
+
+- ¼ cup vegetable or beef stock. (60ml) is the source parenthetical; original US quantity controls.
+
+- 1 tbsp hot sauce — optional (we used Sriracha). Optional; excluded or included as stated in the publisher nutrition.
+
+- to taste Crushed red chili pepper flakes — optional. Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.
+
+- ½ cup fresh chopped parsley
+
+- 1 tbsp fresh thyme leaves
+
+- ½ cup Water for sausage simmer. Added from the source method; omitted from its ingredient list.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Pot for blanching vegetables
+
+- Ice-water bowl
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Boil broccoli for 3 minutes, chill in ice water, then drain.
+
+2. **Step 2.** In a skillet, cook sausages with the listed water, partly covered, over medium heat for 10 minutes, turning occasionally. Let water evaporate.
+
+3. **Step 3.** Add two-thirds of the butter, half the garlic and optional chili flakes. Brown sausages for a few minutes and cook pork sausage to 160°F, or poultry sausage to 165°F; reserve.
+
+4. **Step 4.** Melt remaining butter and add herbs, remaining garlic, seasoning and broccoli for 4–5 minutes. Stir in lemon, stock and optional hot sauce; reduce briefly, return sausages and serve.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 531 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Garlic Butter Sausages and Broccoli Skillet](https://www.eatwell101.com/garlic-butter-sausages-broccoli-recipe)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Garlic Butter Pork with Lemon Asparagus
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Garlic Butter Pork with Lemon Asparagus, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Pork with Lemon Asparagus cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Blanch asparagus 2 min, chill and drain; skip only for thin spears.</td></tr><tr><td colspan="3" class="trn-prep">Separate seasoning Italian herbs from the sauce herbs as listed.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> pork<small class="trn-state-detail">cut into small dices · (600g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="11" colspan="1" class="trn-operation">Season pork; brown uncrowded batches in oil and half butter; add half garlic and herbs, then reserve.</td><td rowspan="20" colspan="1" class="trn-operation">Return pork 1 min; ensure 145°F and 3 min rest. Garnish as listed.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> fresh cracked black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Cayenne pepper<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> butter<small class="trn-state-detail">softened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning or Herbes de Provence<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 bunch</strong> asparagus<small class="trn-state-detail">rinsed and trimmed</small></th><td rowspan="7" colspan="1" class="trn-operation">After pork is reserved, add remaining garlic and stock; reduce by half. Add remaining butter, lemon, parsley and optional hot sauce; toss asparagus 3 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> butter<small class="trn-state-detail">softened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> hot sauce<small class="trn-state-detail">optional (we used Sriracha) · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> low-sodium chicken broth<small class="trn-state-detail">(125ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> minced parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Slices of lemon<small class="trn-state-detail">for garnish · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 ½ lb pork — cut into small dices. (600g) is the source parenthetical; original US quantity controls.
+
+- 2 bunch asparagus — rinsed and trimmed
+
+- ½ cup butter — softened
+
+- 1 tsp olive oil
+
+- 2 tsp minced garlic
+
+- 1 tsp Italian seasoning or Herbes de Provence
+
+- 1 tbsp hot sauce — optional (we used Sriracha). Optional; excluded or included as stated in the publisher nutrition.
+
+- ½ cup low-sodium chicken broth. (125ml) is the source parenthetical; original US quantity controls.
+
+- ½ count lemon — juice. Juice of 1/2 lemon
+
+- 1 tbsp minced parsley
+
+- to taste Crushed red chili pepper flakes — optional. Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.
+
+- Not specified Slices of lemon — for garnish. Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.
+
+- 1 tsp salt
+
+- 1 tsp fresh cracked black pepper
+
+- 2 tsp onion powder
+
+- 1 tsp paprika
+
+- 1 tsp Cayenne pepper — optional. Optional; excluded or included as stated in the publisher nutrition.
+
+- 1 tsp Italian seasoning
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Pot for blanching vegetables
+
+- Ice-water bowl
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Coat diced pork with the listed pork spices. Blanch asparagus for 2 minutes, chill in ice water and drain; thin spears may skip blanching.
+
+2. **Step 2.** Heat half the butter and oil over medium-low heat. Brown pork in uncrowded batches; add half the garlic and the separate Italian seasoning. Reserve pork.
+
+3. **Step 3.** Cook remaining garlic in the pan, add broth and reduce it by half. Stir in remaining butter, lemon juice, optional hot sauce and parsley.
+
+4. **Step 4.** Toss asparagus in the sauce for 3 minutes. Return pork for about 1 minute; ensure whole-cut pork reaches 145°F and rests 3 minutes before eating. Add optional garnishes.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 635 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Garlic Butter Pork with Lemon Asparagus](https://www.eatwell101.com/garlic-butter-pork-asparagus-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Lemon Garlic Butter Chicken and Zucchini Noodles Skillet
+
+4 portions · US measures · unverified · 5 min publisher preparation · 30 min
+
+Lemon Garlic Butter Chicken and Zucchini Noodles Skillet, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon Garlic Butter Chicken and Zucchini Noodles Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 count</strong> Chicken thighs<small class="trn-state-detail">skinless, boneless; source range 3–6 thighs, lower endpoint 3 chosen · Source quantity range 3 to 6; lower endpoint chosen explicitly.</small></th><td rowspan="6" colspan="1" class="trn-operation">Season chicken and cook in two-thirds butter 5–6 min/side to 165°F; reserve.</td><td rowspan="15" colspan="1" class="trn-operation">Return chicken and warm 1 min; serve.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail">Source leaves pepper unquantified; to taste.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> butter<small class="trn-state-detail">divided or (oil or ghee for paleo diet)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> medium zucchini<small class="trn-state-detail">spiralized (or a pack of store-bought Zucchini Noodles)</small></th><td rowspan="9" colspan="1" class="trn-operation">After chicken is reserved, simmer remaining butter, garlic, stock, lemon/hot sauce and optional flakes 2–3 min; toss zucchini 2–3 min; add herbs and reduce 1 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail">divided or (oil or ghee for paleo diet)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> chicken stock<small class="trn-state-detail">(60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> hot sauce<small class="trn-state-detail">(we used Sriracha)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> crushed red chili pepper flakes<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> fresh chopped parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> fresh thyme leaves<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon + lemon slices, for garnish</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 3 count Chicken thighs — skinless, boneless; source range 3–6 thighs, lower endpoint 3 chosen. Source quantity range 3 to 6; lower endpoint chosen explicitly.
+
+- 4 count medium zucchini — spiralized (or a pack of store-bought Zucchini Noodles)
+
+- 3 tbsp butter — divided or (oil or ghee for paleo diet)
+
+- 4 count garlic cloves — minced
+
+- 1 tsp paprika
+
+- 1 tsp onion powder
+
+- ¼ tsp Salt
+
+- to taste Black pepper. Source leaves pepper unquantified; to taste.
+
+- ½ count lemon — juice. Juice of 1/2 lemon + lemon slices, for garnish
+
+- ¼ cup chicken stock. (60ml) is the source parenthetical; original US quantity controls.
+
+- 1 tbsp hot sauce. (we used Sriracha)
+
+- ¼ tsp crushed red chili pepper flakes — optional. Optional; excluded or included as stated in the publisher nutrition.
+
+- ½ cup fresh chopped parsley
+
+- 1 tsp fresh thyme leaves
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Spiralizer, unless using ready-spiralized zucchini
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Season thighs with paprika, onion powder, salt and pepper. Spiralize zucchini.
+
+2. **Step 2.** In a skillet over medium-low heat, use two-thirds of the butter. Cook chicken for 5–6 minutes per side, continuing until 165°F; reserve.
+
+3. **Step 3.** Add remaining butter, lemon juice, stock, garlic, hot sauce and optional flakes; simmer for 2–3 minutes.
+
+4. **Step 4.** Toss zucchini in the sauce for 2–3 minutes. Add parsley and thyme; reduce excess liquid for about 1 minute. Return chicken and warm for a further minute before serving.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 426 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Lemon Garlic Butter Chicken and Zucchini Noodles Skillet](https://www.eatwell101.com/lemon-garlic-butter-chicken-thighs-zucchini-noodles-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## 10-Minute Sheet Pan Steak with Lemon Zucchini
+
+4 portions · US measures · unverified · 10 min publisher preparation · 50–80 min
+
+10-Minute Sheet Pan Steak with Lemon Zucchini, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="10-Minute Sheet Pan Steak with Lemon Zucchini cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Oil total is retained; source does not specify its split between marinade and zucchini. Do not invent a measured split.</td></tr><tr><td colspan="3" class="trn-prep">Never place parchment under a high broiler.</td></tr><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> sirloin steak<small class="trn-state-detail">sliced against the grain · (650g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="4" colspan="1" class="trn-operation">Refrigerate steak in soy sauce, garlic powder, hot sauce and most oil 30–60 min; drain.</td><td rowspan="11" colspan="1" class="trn-operation">Before cooking, distribute the total listed oil between steak marinade and zucchini; source does not specify the split. Broil drained steak and zucchini at source 520°F 5–10 min on broiler-safe metal. Reach steak 145°F/rest 3 min; boil reserved marinade before serving; garnish.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> low-sodium soy sauce<small class="trn-state-detail">(or coconut amino if you’re strictly paleo)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Sriracha sauce<small class="trn-state-detail">(or any hot chili sauce you like)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 count</strong> medium zucchini<small class="trn-state-detail">sliced in half moon · Source quantity range 3 to 4; lower endpoint chosen explicitly.</small></th><td rowspan="4" colspan="1" class="trn-operation">Marinate zucchini with lemon, oregano, remaining oil and seasoning.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> crushed red pepper flakes<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> fresh oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked black pepper<small class="trn-state-detail">to taste · Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> chopped parsley<small class="trn-state-detail">for garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> olive oil<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 ½ lb sirloin steak — sliced against the grain. (650g) is the source parenthetical; original US quantity controls.
+
+- 3 count medium zucchini — sliced in half moon. Source quantity range 3 to 4; lower endpoint chosen explicitly.
+
+- ¼ tsp crushed red pepper flakes — optional. Optional; excluded or included as stated in the publisher nutrition.
+
+- to taste Salt and fresh cracked black pepper — to taste. Unquantified in source; use to taste or as optional garnish as stated.
+
+- ½ cup low-sodium soy sauce. (or coconut amino if you’re strictly paleo)
+
+- 1 tsp garlic powder
+
+- 2 tbsp Sriracha sauce. (or any hot chili sauce you like)
+
+- ½ count lemon — juice. Juice of 1/2 lemon
+
+- 1 tsp fresh oregano
+
+- ¼ cup olive oil
+
+- ¼ cup chopped parsley — for garnish
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Oven and rimmed sheet pan
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Combine soy sauce, garlic powder, hot sauce and most of the oil; refrigerate steak in this marinade for 30–60 minutes. Toss zucchini with lemon, oregano, salt, pepper and a little of the listed oil.
+
+2. **Step 2.** Heat the broiler to the source setting of 520°F if supported. Use a broiler-safe metal pan; keep parchment away from the broiler.
+
+3. **Step 3.** Drain steak and arrange it with zucchini. Broil for 5–10 minutes until zucchini is crisp-tender. Whole-cut steak should reach 145°F and rest 3 minutes.
+
+4. **Step 4.** If using reserved raw-meat marinade as sauce, boil it separately before serving. Finish with parsley and optional chili flakes.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+- Allow up to 80 minutes including the source’s longer marinade option.
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: soy, wheat. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 473 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Listed time excludes the source’s 30–60-minute refrigeration marinade. Total is 50–80 minutes plus oven heating.
+
+- Source says parchment under a 520°F broiler; this adaptation uses a broiler-safe metal pan instead. Oil split between marinade and zucchini is not specified; total listed oil is retained.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: 10-Minute Sheet Pan Steak with Lemon Zucchini](https://www.eatwell101.com/sheet-pan-steak-zucchini-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Creamy Garlic Shrimp with Spinach (10-Minute)
+
+4 portions · US measures · unverified · 5 min publisher preparation · 15 min
+
+Creamy Garlic Shrimp with Spinach, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Creamy Garlic Shrimp with Spinach (10-Minute) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> unsalted butter<small class="trn-state-detail">divided (or ghee, or olive oil)</small></th><td rowspan="3" colspan="1" class="trn-operation">Season shrimp; cook in one-quarter butter 2–3 min to opaque; reserve.</td><td rowspan="13" colspan="1" class="trn-operation">Return shrimp 1 min; garnish and serve.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> medium shrimp<small class="trn-state-detail">peeled and deveined · (700g) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Kosher salt and freshly ground black pepper<small class="trn-state-detail">to taste · Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 count</strong> garlic<small class="trn-state-detail">minced</small></th><td rowspan="8" colspan="1" class="trn-operation">After shrimp is reserved, cook onion/garlic 1 min then tomatoes 1 min; reduce stock/hot sauce 1–2 min, stir remaining butter, spinach and cream.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> onion<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> sundried tomatoes<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> chicken stock or veggie broth<small class="trn-state-detail">(60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> hot sauce of your choice<small class="trn-state-detail">(we used Sriracha)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 cup</strong> chopped spinach<small class="trn-state-detail">(or baby spinach)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> heavy whipping cream or<small class="trn-state-detail">(coconut cream)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 tbsp</strong> unsalted butter<small class="trn-state-detail">divided (or ghee, or olive oil)</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> chopped fresh parsley<small class="trn-state-detail">for garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 tbsp unsalted butter — divided (or ghee, or olive oil)
+
+- 1 ½ lb medium shrimp — peeled and deveined. (700g) is the source parenthetical; original US quantity controls.
+
+- to taste Kosher salt and freshly ground black pepper — to taste. Unquantified in source; use to taste or as optional garnish as stated.
+
+- 5 count garlic — minced
+
+- ½ count onion — minced
+
+- ½ cup sundried tomatoes — chopped
+
+- ¼ cup chicken stock or veggie broth. (60ml) is the source parenthetical; original US quantity controls.
+
+- 1 tsp hot sauce of your choice. (we used Sriracha)
+
+- 2 cup chopped spinach. (or baby spinach)
+
+- 1 cup heavy whipping cream or. (coconut cream)
+
+- 2 tbsp chopped fresh parsley — for garnish
+
+- to taste Crushed red chili pepper flakes — optional. Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Season peeled shrimp with salt and pepper. Heat one-quarter of the butter over medium-high heat and cook shrimp for 2–3 minutes, until opaque; reserve.
+
+2. **Step 2.** Stir onion and garlic in the pan for 1 minute, then tomatoes for another minute. Add stock and hot sauce, boil, and simmer for 1–2 minutes to reduce by half.
+
+3. **Step 3.** Stir remaining butter into the sauce gradually. Add spinach and cream; allow spinach to wilt.
+
+4. **Step 4.** Return shrimp for about 1 minute without overcooking. Finish with parsley and optional chili flakes.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, shellfish. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 331 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Creamy Garlic Shrimp with Spinach (10-Minute)](https://www.eatwell101.com/creamy-garlic-spinach-shrimp-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Lemon Garlic Butter Chicken Tenders Recipe
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Lemon Garlic Butter Chicken Tenders Recipe, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon Garlic Butter Chicken Tenders Recipe cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 lb</strong> chicken tenders<small class="trn-state-detail">or chicken breasts cut into strips · (900g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="6" colspan="1" class="trn-operation">Season chicken strips; cook in two-thirds butter 2–3 min/side to 165°F; reserve.</td><td rowspan="15" colspan="1" class="trn-operation">Return chicken and warm; garnish.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail">Source leaves pepper unquantified; to taste.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> butter<small class="trn-state-detail">divided or (ghee for paleo diet)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> green beans<small class="trn-state-detail">trimmed · (450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="9" colspan="1" class="trn-operation">Microwave beans with water 8–10 min; after chicken is reserved cook beans with remaining butter, herbs, garlic/hot sauce 4–5 min; reduce stock/lemon briefly.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail">divided or (ghee for paleo diet)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> chicken stock<small class="trn-state-detail">(125ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> hot sauce<small class="trn-state-detail">(we used Sriracha)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> crushed red chili pepper flakes<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> fresh chopped parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Water for bean microwave<small class="trn-state-detail">Added from the source method; omitted from its ingredient list.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon + lemon slices, for garnish</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 2 lb chicken tenders — or chicken breasts cut into strips. (900g) is the source parenthetical; original US quantity controls.
+
+- 1 lb green beans — trimmed. (450g) is the source parenthetical; original US quantity controls.
+
+- 3 tbsp butter — divided or (ghee for paleo diet)
+
+- 4 count garlic cloves — minced
+
+- 1 tsp paprika
+
+- 1 tsp onion powder
+
+- ¼ tsp Salt
+
+- to taste Black pepper. Source leaves pepper unquantified; to taste.
+
+- ½ count lemon — juice. Juice of 1/2 lemon + lemon slices, for garnish
+
+- ½ cup chicken stock. (125ml) is the source parenthetical; original US quantity controls.
+
+- 1 tbsp hot sauce. (we used Sriracha)
+
+- ¼ tsp crushed red chili pepper flakes — optional. Optional; excluded or included as stated in the publisher nutrition.
+
+- ½ cup fresh chopped parsley
+
+- ½ cup Water for bean microwave. Added from the source method; omitted from its ingredient list.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Microwave-safe covered dish
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Season chicken strips with onion powder, paprika, salt and pepper. Microwave beans covered with their listed water for 8–10 minutes, until nearly tender.
+
+2. **Step 2.** Heat two-thirds of the butter over medium-low heat. Cook chicken in one layer for 2–3 minutes per side, continuing until 165°F; reserve.
+
+3. **Step 3.** Use remaining butter to cook garlic, parsley, hot sauce, optional flakes and beans for 4–5 minutes. Add stock and lemon and reduce briefly.
+
+4. **Step 4.** Return chicken, warm through and adjust seasoning; add optional lemon garnish.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 626 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Lemon Garlic Butter Chicken Tenders Recipe](https://www.eatwell101.com/lemon-garlic-butter-chicken-tenders-green-beans-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Parmesan Chicken Casserole and Cauliflower Steaks
+
+4 portions · US measures · unverified · 10 min publisher preparation · 55–65 min
+
+Parmesan Chicken Casserole and Cauliflower Steaks, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Parmesan Chicken Casserole and Cauliflower Steaks cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Keep both cheeses and marinara aside until after cauliflower roasting; quantities are totals, not additional per-breast amounts.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> chicken breasts<small class="trn-state-detail"></small></th><td rowspan="7" colspan="1" class="trn-operation">Coat chicken with dry spices and seasonings.</td><td rowspan="13" colspan="1" class="trn-operation"> Add half marinara to cauliflower, chicken, remaining marinara and measured cheeses; bake 35–40 min to 165°F. Finish with herb garnish.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> red chili pepper flakes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> cauliflower<small class="trn-state-detail">(cut into thick slices)</small></th><td rowspan="2" colspan="1" class="trn-operation">Brush cauliflower with oil; roast 425°F 10–15 min, turning once.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 oz</strong> marinara sauce<small class="trn-state-detail">(250 g) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.7 oz</strong> parmesan cheese<small class="trn-state-detail">grated · (30 g) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2.7 oz</strong> mozzarella cheese<small class="trn-state-detail">shredded · (120 g) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ tbsp</strong> fresh chopped basil or parsley<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 2 count chicken breasts
+
+- ⅔ count cauliflower. (cut into thick slices)
+
+- ⅔ tsp Italian seasoning
+
+- ⅔ tsp red chili pepper flakes
+
+- 4 oz marinara sauce. (250 g) is the source parenthetical; original US quantity controls.
+
+- 0.7 oz parmesan cheese — grated. (30 g) is the source parenthetical; original US quantity controls.
+
+- ⅔ tsp garlic powder
+
+- ⅔ tsp onion powder
+
+- ⅔ tbsp olive oil
+
+- 2.7 oz mozzarella cheese — shredded. (120 g) is the source parenthetical; original US quantity controls.
+
+- ⅓ tsp salt
+
+- ⅓ tsp black pepper
+
+- ⅔ tbsp fresh chopped basil or parsley
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Oven and rimmed sheet pan
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Season chicken with garlic powder, onion powder, Italian seasoning, chili flakes, salt and pepper. Heat oven to 425°F.
+
+2. **Step 2.** Brush thick cauliflower slices with oil and arrange in one layer. Roast 10–15 minutes, turning once.
+
+3. **Step 3.** Spread half the marinara over cauliflower, add chicken, then remaining sauce. Distribute the listed Parmesan and mozzarella over chicken.
+
+4. **Step 4.** Bake for 35–40 minutes, continuing until chicken reaches 165°F. Finish with basil or parsley. This follows the instruction times rather than the inconsistent 30-minute metadata.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+- Allow up to 65 minutes when both oven stages take their longer times.
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 418 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Source ounce/gram pairs for sauce and cheeses conflict; use the original US ounce quantities, not the inconsistent metric parentheses.
+
+- Source published cooking time says 30 minutes, while directions require 10–15 minutes cauliflower roasting plus 35–40 minutes after adding chicken. This The total here is 55–65 minutes including 10 minutes prep.
+
+- The measured Parmesan total controls; do not add the source method’s inconsistent two tablespoons per chicken breast on top of it.
+
+- Ingredient quantities are scaled from 6 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Parmesan Chicken Casserole and Cauliflower Steaks](https://www.eatwell101.com/chicken-parmesan-and-cauliflower-steaks-casserole-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Creamy Ground Beef and Cauliflower Rice Casserole
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Creamy Ground Beef and Cauliflower Rice Casserole, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Creamy Ground Beef and Cauliflower Rice Casserole cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.</td></tr><tr><td colspan="3" class="trn-prep">Check ground meat or fresh sausage reaches 160°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> ground beef<small class="trn-state-detail">(450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="3" colspan="1" class="trn-operation">Brown beef in butter to 160°F; add onion 1 min.</td><td rowspan="15" colspan="1" class="trn-operation"> Stir cream cheese, stock, cream, garlic and tomato paste into beef; add cauliflower 5–7 min. Cover low 5 min; top with cheeses until melted and garnish.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> medium onion<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ head</strong> cauliflower<small class="trn-state-detail">riced</small></th><td rowspan="2" colspan="1" class="trn-operation">Microwave cauliflower with listed water 5 min, covered.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Water for cauliflower microwave<small class="trn-state-detail">Added from the source method; omitted from its ingredient list.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Chopped fresh parsley<small class="trn-state-detail">for topping · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>3 oz</strong> cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ cup</strong> beef broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ cup</strong> heavy whipping cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tbsp</strong> tomato paste<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ cup</strong> cheddar<small class="trn-state-detail">shredded</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ cup</strong> mozzarella<small class="trn-state-detail">shredded</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ tsp</strong> red chili pepper flakes<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and pepper<small class="trn-state-detail">Unquantified; to taste.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb ground beef. (450g) is the source parenthetical; original US quantity controls.
+
+- 1 count medium onion — minced
+
+- 3 oz cream cheese
+
+- ½ cup beef broth
+
+- ½ cup heavy whipping cream
+
+- 1 tbsp butter
+
+- 1 tsp garlic powder
+
+- 1 tbsp tomato paste
+
+- ½ head cauliflower — riced
+
+- ½ cup cheddar — shredded
+
+- ½ cup mozzarella — shredded
+
+- Not specified Chopped fresh parsley — for topping. Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.
+
+- ½ tsp red chili pepper flakes — optional. Optional; excluded or included as stated in the publisher nutrition.
+
+- ½ cup Water for cauliflower microwave. Added from the source method; omitted from its ingredient list.
+
+- to taste Salt and pepper. Unquantified; to taste.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Microwave-safe covered dish
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Brown beef in butter over medium-high heat, breaking it up; ensure it reaches 160°F. Add onion and stir for 1 minute.
+
+2. **Step 2.** Microwave cauliflower rice covered with its listed water for 5 minutes.
+
+3. **Step 3.** Melt cream cheese into beef. Add stock, cream, garlic powder, tomato paste, salt and pepper, then cauliflower. Cook over medium-low heat for 5–7 minutes; cover on low for another 5 minutes.
+
+4. **Step 4.** Add cheddar and mozzarella; cover until melted. Serve with parsley and optional chili flakes. Broiling is optional and needs an oven-safe pan.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 475 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Optional broiling needs an oven and oven-safe pan; the main covered-melting method requires only stovetop and microwave.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Creamy Ground Beef and Cauliflower Rice Casserole](https://www.eatwell101.com/ground-beef-cauliflower-casserole-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## 15-Minute Broccoli Chicken in Cream Cheese Sundried Tomato Sauce
+
+4 portions · US measures · unverified · 5 min publisher preparation · 15 min
+
+15-Minute Broccoli Chicken in Cream Cheese Sundried Tomato Sauce, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="15-Minute Broccoli Chicken in Cream Cheese Sundried Tomato Sauce cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Vegetable branch follows chicken browning in the same skillet. Keep cheeses and broth aside until finish.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Chicken breasts<small class="trn-state-detail">skinless, boneless; cut into 1-inch pieces · (450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="5" colspan="1" class="trn-operation">Season chicken; brown in oil 4–5 min to 165°F.</td><td rowspan="11" colspan="1" class="trn-operation"> Add cheeses and melt 3 min; thin with broth as needed.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> crushed pepper<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and pepper<small class="trn-state-detail">to taste · Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 count</strong> garlic minced<small class="trn-state-detail">Source quantity range 3 to 4; lower endpoint chosen explicitly.</small></th><td rowspan="3" colspan="1" class="trn-operation">Add garlic 1 min, sundried tomatoes and broccoli 3–4 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> chopped sundried tomatoes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 cup</strong> broccoli florets<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ cup</strong> shredded cheese<small class="trn-state-detail">cheddar, parmesan, or your favorite melting cheese) · (mozzarella</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 oz</strong> cream cheese<small class="trn-state-detail">(115g) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅓ cup</strong> low-sodium chicken broth<small class="trn-state-detail">Source quantity range 1/3 to 1/2; lower endpoint chosen explicitly.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb Chicken breasts — skinless, boneless; cut into 1-inch pieces. (450g) is the source parenthetical; original US quantity controls.
+
+- 2 tbsp olive oil
+
+- 1 tsp Italian seasoning
+
+- ¼ tsp crushed pepper — optional. Optional; excluded or included as stated in the publisher nutrition.
+
+- to taste Salt and pepper — to taste. Unquantified in source; use to taste or as optional garnish as stated.
+
+- 3 count garlic minced. Source quantity range 3 to 4; lower endpoint chosen explicitly.
+
+- ½ cup chopped sundried tomatoes
+
+- 2 cup broccoli florets
+
+- ½ cup shredded cheese — cheddar, parmesan, or your favorite melting cheese). (mozzarella
+
+- 4 oz cream cheese. (115g) is the source parenthetical; original US quantity controls.
+
+- ⅓ cup low-sodium chicken broth. Source quantity range 1/3 to 1/2; lower endpoint chosen explicitly.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Season inch-sized chicken pieces with Italian seasoning, optional pepper flakes, salt and pepper.
+
+2. **Step 2.** Heat oil over medium-high heat and brown chicken for 4–5 minutes, continuing until 165°F.
+
+3. **Step 3.** Stir garlic for 1 minute, then add tomatoes and broccoli for 3–4 minutes.
+
+4. **Step 4.** Stir in cream cheese and shredded cheese for about 3 minutes until melted; thin with the listed broth as needed.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 451 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: 15-Minute Broccoli Chicken in Cream Cheese Sundried Tomato Sauce](https://www.eatwell101.com/broccoli-chicken-in-cream-cheese-sundried-tomato-sauce-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Chicken Burrito Bowls with Cauliflower
+
+4 portions · US measures · unverified · 5 min publisher preparation · 25 min
+
+Chicken Burrito Bowls with Cauliflower, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Chicken Burrito Bowls with Cauliflower cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> ground chicken<small class="trn-state-detail">(450g) is the source parenthetical; original US quantity controls. (or turkey)</small></th><td rowspan="4" colspan="1" class="trn-operation">Soften onion in two-thirds oil; brown ground chicken to 165°F; reserve.</td><td rowspan="14" colspan="1" class="trn-operation"> Return chicken/onion; top with cheese and cover off heat 2–3 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> yellow onion<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked black pepper<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th><td rowspan="9" colspan="1" class="trn-operation">After chicken is reserved, heat remaining oil; cook cauliflower 2 min, dry spices 2 min, then tomatoes/stock and reduce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> medium head of cauliflower<small class="trn-state-detail">(or one packet of riced cauliflower)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 can</strong> Diced tomatoes<small class="trn-state-essential">drained · Source says small can without specifying ounces; drained.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> chili powder<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> low-sodium vegetable or chicken broth<small class="trn-state-detail">(60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 cup</strong> shredded Monterey Jack or Mozzarella<small class="trn-state-detail">(or your favorite cheese)</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb ground chicken. (450g) is the source parenthetical; original US quantity controls. (or turkey)
+
+- 3 tbsp olive oil
+
+- ½ count yellow onion — minced
+
+- 1 count medium head of cauliflower. (or one packet of riced cauliflower)
+
+- 1 can Diced tomatoes — drained. Source says small can without specifying ounces; drained.
+
+- 1 tsp garlic powder
+
+- 1 tsp onion powder
+
+- 1 tsp paprika
+
+- ½ tsp chili powder — optional. Optional; excluded or included as stated in the publisher nutrition.
+
+- 1 tsp cumin
+
+- ¼ cup low-sodium vegetable or chicken broth. (60ml) is the source parenthetical; original US quantity controls.
+
+- 2 cup shredded Monterey Jack or Mozzarella. (or your favorite cheese)
+
+- to taste Salt and fresh cracked black pepper. Unquantified in source; use to taste or as optional garnish as stated.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Food processor or grater, unless using ready-riced cauliflower
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Rice cauliflower, or use packaged cauliflower rice. Soften onion in two-thirds of the oil.
+
+2. **Step 2.** Add ground chicken, season, and brown over medium-high heat until 165°F. Reserve chicken and onion.
+
+3. **Step 3.** Heat remaining oil; stir-fry cauliflower for 2 minutes. Add dry spices and cook another 2 minutes, then tomatoes and broth. Simmer until excess liquid reduces.
+
+4. **Step 4.** Return chicken and onion. Sprinkle cheese, cover off heat for 2–3 minutes, and divide into bowls.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 538 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- The publisher does not specify the size of at least one can or bag. Check the intended package size before shopping.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Chicken Burrito Bowls with Cauliflower](https://www.eatwell101.com/cauliflower-chicken-burrito-bowls-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Italian Sausage with Cilantro Lime Cauliflower Rice
+
+4 portions · US measures · unverified · 5 min publisher preparation · 25 min
+
+Italian Sausage with Cilantro Lime Cauliflower Rice, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Italian Sausage with Cilantro Lime Cauliflower Rice cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6 count</strong> mild Italian sausages<small class="trn-state-detail">Source quantity range 3 to 4; lower endpoint chosen explicitly.</small></th><td rowspan="2" colspan="1" class="trn-operation">Cook sausages with water covered, turning; evaporate and brown to 160°F for pork or 165°F for poultry; reserve.</td><td rowspan="12" colspan="1" class="trn-operation">Add lime zest/cilantro and pepper; return sausages and warm 2 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Water for sausage simmer<small class="trn-state-detail">Added from the source method; omitted from its ingredient list.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 head</strong> cauliflower<small class="trn-state-detail">riced</small></th><td rowspan="7" colspan="1" class="trn-operation">After reserving sausages, heat butter/oil; cook garlic 1 min, add cauliflower, stock, herbs, lime juice and hot sauce 3–4 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> butter or olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6 count</strong> garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> low sodium chicken stock<small class="trn-state-detail">(60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> hot sauce of choice<small class="trn-state-detail">(we used Sriracha)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> fresh lime juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped cilantro<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Fresh cracked black pepper<small class="trn-state-detail">to taste · Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 count</strong> lime<small class="trn-state-detail">zest</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 6 count mild Italian sausages. Source quantity range 3 to 4; lower endpoint chosen explicitly.
+
+- 1 head cauliflower — riced
+
+- 2 tbsp butter or olive oil
+
+- 6 count garlic — minced
+
+- ½ cup low sodium chicken stock. (60ml) is the source parenthetical; original US quantity controls.
+
+- 2 tbsp hot sauce of choice. (we used Sriracha)
+
+- 1 count lime — zest
+
+- 4 tbsp fresh lime juice
+
+- Not specified Fresh chopped cilantro. Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.
+
+- 2 tsp Italian seasoning
+
+- to taste Fresh cracked black pepper — to taste. Unquantified in source; use to taste or as optional garnish as stated.
+
+- ½ cup Water for sausage simmer. Added from the source method; omitted from its ingredient list.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Food processor or grater, unless using ready-riced cauliflower
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** In a skillet over medium-low heat, bring the listed cooking water to a boil. Add sausages, cover and cook while turning occasionally. Uncover, evaporate water and brown; pork sausage must reach 160°F, or poultry sausage 165°F. Reserve.
+
+2. **Step 2.** Heat butter or oil in the same pan. Stir garlic for 1 minute, add cauliflower rice, stock, Italian seasoning, lime juice and hot sauce; simmer for 3–4 minutes.
+
+3. **Step 3.** Fold in lime zest and cilantro, season with pepper, then return sausages and reheat for about 2 minutes.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 109 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Ingredient quantities are scaled from 2 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Italian Sausage with Cilantro Lime Cauliflower Rice](https://www.eatwell101.com/sausage-cilantro-lime-cauliflower-rice-skillet-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Garlic Butter Turkey Meatballs with Zucchini Noodles
+
+4 portions · US measures · unverified · 15 min publisher preparation · 30 min
+
+Garlic Butter Turkey Meatballs with Zucchini Noodles, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Turkey Meatballs with Zucchini Noodles cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Before forming meatballs, divide the listed cilantro between mixture and garnish to preference; source gives no fixed split. Chili flakes are optional in the mixture and at the zucchini stage.</td></tr><tr><td colspan="2" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ lb</strong> ground turkey meat<small class="trn-state-detail">(220g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="14" colspan="1" class="trn-operation">Mix turkey, optional pork, cheese, grated meatball garlic, Italian seasoning, optional bouillon, some cilantro, optional chili and seasoning; form medium meatballs. Brown in two-thirds of the butter over medium-low for 8–10 min, basting, until 165°F; reserve. In the same skillet use remaining butter with minced zucchini garlic, lemon, hot sauce and optional chili. Toss zucchini 3–4 min, return meatballs 1–2 min, finish with remaining cilantro. The listed cilantro and chili amounts are totals across their stages; source specifies no numeric split.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ lb</strong> ground pork meat<small class="trn-state-detail">see recipe notes) · (220g) is the source parenthetical; original US quantity controls. (optional Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> shredded mozzarella<small class="trn-state-detail">provolone…) · (or cheddar</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Garlic for meatballs<small class="trn-state-detail">grated</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> Garlic for zucchini<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> red crushed chili pepper flakes<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> crumbled bouillon cube<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked black pepper<small class="trn-state-detail">to taste · Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> fresh chopped cilantro<small class="trn-state-detail">divided · (or parsley)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> medium zucchini<small class="trn-state-detail">spiralized</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> hot sauce of your choice<small class="trn-state-detail">(we used Sriracha)</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- ½ lb ground turkey meat. (220g) is the source parenthetical; original US quantity controls.
+
+- ½ lb ground pork meat — see recipe notes). (220g) is the source parenthetical; original US quantity controls. (optional Optional; excluded or included as stated in the publisher nutrition.
+
+- ½ cup shredded mozzarella — provolone…). (or cheddar
+
+- 4 count Garlic for meatballs — grated
+
+- 2 count Garlic for zucchini — minced
+
+- 1 tsp Italian seasoning
+
+- ½ tsp red crushed chili pepper flakes — optional. Optional; excluded or included as stated in the publisher nutrition.
+
+- 1 count crumbled bouillon cube — optional. Optional; excluded or included as stated in the publisher nutrition.
+
+- to taste Salt and fresh cracked black pepper — to taste. Unquantified in source; use to taste or as optional garnish as stated.
+
+- 1 cup fresh chopped cilantro — divided. (or parsley)
+
+- 3 tbsp butter
+
+- 4 count medium zucchini — spiralized
+
+- ½ count lemon — juice. Juice of 1/2 lemon
+
+- 1 tbsp hot sauce of your choice. (we used Sriracha)
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Spiralizer, unless using ready-spiralized zucchini
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Combine turkey, optional pork, cheese, grated garlic, seasoning, optional bouillon and chili flakes, some of the cilantro, salt and pepper. Form medium meatballs.
+
+2. **Step 2.** Heat two-thirds of the butter over medium-low heat. Brown meatballs on all sides for 8–10 minutes, basting with pan juices; continue until poultry mixture reaches 165°F. Reserve.
+
+3. **Step 3.** Use remaining butter with lemon juice, hot sauce, minced garlic and optional flakes. Toss zucchini noodles for 3–4 minutes, keeping them slightly crisp.
+
+4. **Step 4.** Return meatballs for 1–2 minutes. Finish with reserved cilantro or parsley.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 367 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Garlic Butter Turkey Meatballs with Zucchini Noodles](https://www.eatwell101.com/garlic-butter-meatballs-with-lemon-zucchini-noodles)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## 10-Minute Pizza Zucchini Noodles with Marinara Sauce & Pepperoni
+
+4 portions · US measures · unverified · 2 min publisher preparation · 12 min
+
+10-Minute Pizza Zucchini Noodles with Marinara Sauce & Pepperoni, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="10-Minute Pizza Zucchini Noodles with Marinara Sauce &amp; Pepperoni cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter or olive oil<small class="trn-state-detail"></small></th><td rowspan="2" colspan="1" class="trn-operation">Toss zucchini in butter/oil over medium-high 2–3 min; reduce water 1 min.</td><td rowspan="8" colspan="1" class="trn-operation">Season and garnish with parsley and optional Parmesan.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> zucchini<small class="trn-state-detail">spiralized (or a package of spiralized zucchini from the grocery store)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> low-sugar Marinara sauce<small class="trn-state-detail">(or your favorite pasta sauce)</small></th><td rowspan="4" colspan="1" class="trn-operation">Add marinara and pepperoni; cook until sauce clings.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 cup</strong> pepperoni slices<small class="trn-state-detail">(or salami slices)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> fresh cracked black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> crushed red chili pepper flakes<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tbsp</strong> Fresh parsley<small class="trn-state-detail">chopped; garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Parmesan<small class="trn-state-detail">Unquantified optional garnish. Unquantified amount remains unknown, not zero.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 tbsp butter or olive oil
+
+- 4 count zucchini — spiralized (or a package of spiralized zucchini from the grocery store)
+
+- 1 cup low-sugar Marinara sauce. (or your favorite pasta sauce)
+
+- 2 cup pepperoni slices. (or salami slices)
+
+- ½ tsp fresh cracked black pepper
+
+- ½ tsp crushed red chili pepper flakes — optional. Optional; excluded or included as stated in the publisher nutrition.
+
+- 1 tbsp Fresh parsley — chopped; garnish
+
+- Not specified Parmesan. Unquantified optional garnish. Unquantified amount remains unknown, not zero.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Spiralizer, unless using ready-spiralized zucchini
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Heat butter or oil over medium-high heat. Toss zucchini noodles for 2–3 minutes; reduce released liquid for about 1 minute.
+
+2. **Step 2.** Add marinara and pepperoni and keep cooking until sauce coats the noodles. Season with black pepper and optional chili flakes; finish with parsley and optional Parmesan.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 417 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: 10-Minute Pizza Zucchini Noodles with Marinara Sauce & Pepperoni](https://www.eatwell101.com/pizza-zucchini-noodles-with-pepperoni-recipe)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Egg Roll Bowls with Chicken and Cabbage
+
+4 portions · US measures · unverified · 10 min publisher preparation · 20 min
+
+Egg Roll Bowls with Chicken and Cabbage, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Egg Roll Bowls with Chicken and Cabbage cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> ground chicken or any other meat you would like<small class="trn-state-detail">pork, turkey…) · (450g) is the source parenthetical; original US quantity controls. (beef</small></th><td rowspan="3" colspan="1" class="trn-operation">Brown chicken in oil to 165°F; add onion until lightly browned.</td><td rowspan="14" colspan="1" class="trn-operation">Add soy sauce/Sriracha, adjust seasoning and finish with chives.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> vegetable oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> medium onion<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 bag</strong> pre-shredded coleslaw mix<small class="trn-state-detail"></small></th><td rowspan="8" colspan="1" class="trn-operation">Stir dry seasonings and ginger into meat, then stock, coleslaw and green onion; cook until cabbage tender.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> green onions<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> beef or chicken broth<small class="trn-state-detail">(125ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> crushed red pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> fresh ginger<small class="trn-state-detail">(or ginger powder)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Salt<small class="trn-state-detail">Source says approximately this amount; adjust to taste.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Black pepper<small class="trn-state-detail">Source says approximately this amount; adjust to taste.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped chives<small class="trn-state-detail">for garnish · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tbsp</strong> low-sodium soy sauce<small class="trn-state-detail">(or coconut amino or tamari)</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tbsp</strong> Sriracha<small class="trn-state-detail">(or any hot sauce of your choice)</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb ground chicken or any other meat you would like — pork, turkey…). (450g) is the source parenthetical; original US quantity controls. (beef
+
+- 2 tbsp vegetable oil
+
+- 1 bag pre-shredded coleslaw mix
+
+- 1 count medium onion — minced
+
+- 2 count green onions — sliced
+
+- ½ cup beef or chicken broth. (125ml) is the source parenthetical; original US quantity controls.
+
+- 1 tbsp low-sodium soy sauce. (or coconut amino or tamari)
+
+- 1 tbsp garlic powder
+
+- 1 tsp crushed red pepper
+
+- 1 tbsp Sriracha. (or any hot sauce of your choice)
+
+- 1 tbsp fresh ginger. (or ginger powder)
+
+- ½ tsp Salt. Source says approximately this amount; adjust to taste.
+
+- ½ tsp Black pepper. Source says approximately this amount; adjust to taste.
+
+- Not specified Fresh chopped chives — for garnish. Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Heat oil over medium-high heat. Brown ground chicken to 165°F, then add onion and cook until lightly browned.
+
+2. **Step 2.** Stir in garlic powder, chili flakes, ginger and pepper. Add broth, coleslaw and green onions.
+
+3. **Step 3.** Cook while stirring until cabbage is tender. Stir in soy sauce and Sriracha, adjust salt and pepper, and serve with chives.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: soy, wheat. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 592 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- The publisher does not specify the size of at least one can or bag. Check the intended package size before shopping.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Egg Roll Bowls with Chicken and Cabbage](https://www.eatwell101.com/egg-roll-bowls-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Garlic Butter Sausages with Lemon Green Beans
+
+4 portions · US measures · unverified · 10 min publisher preparation · 25 min
+
+Garlic Butter Sausages with Lemon Green Beans, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Sausages with Lemon Green Beans cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> sausage<small class="trn-state-detail">(450g) is the source parenthetical; original US quantity controls. (Bratwurst or Italian style)</small></th><td rowspan="4" colspan="1" class="trn-operation">Simmer sausages with separate sausage water 10 min, evaporate; brown with two-thirds butter/half garlic to 160°F pork or 165°F poultry; reserve.</td><td rowspan="16" colspan="1" class="trn-operation">Return sausages and warm; garnish.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Water for sausage simmer<small class="trn-state-detail">Added from the source method; omitted from its ingredient list.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> butter<small class="trn-state-detail">divided,</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ½ count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> fresh stringless green beans<small class="trn-state-detail">trimmed · (450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="10" colspan="1" class="trn-operation">Microwave beans with bean water 8–10 min. After sausages are reserved, cook beans with remaining fat/garlic, herbs 4–5 min; add lemon/stock/optional hot sauce and reduce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail">divided,</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ½ count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> vegetable or beef stock<small class="trn-state-detail">(60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> hot sauce<small class="trn-state-detail">optional (we used Sriracha) · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> fresh chopped parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> fresh thyme leaves<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Water for bean microwave<small class="trn-state-detail">Added from the source method; omitted from its ingredient list.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon + lemon slices, for garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb sausage. (450g) is the source parenthetical; original US quantity controls. (Bratwurst or Italian style)
+
+- 1 lb fresh stringless green beans — trimmed. (450g) is the source parenthetical; original US quantity controls.
+
+- 3 tbsp butter — divided,
+
+- 5 count garlic cloves — minced
+
+- 1 tsp Italian seasoning
+
+- ½ count lemon — juice. Juice of 1/2 lemon + lemon slices, for garnish
+
+- to taste Salt and fresh cracked pepper. Unquantified in source; use to taste or as optional garnish as stated.
+
+- ¼ cup vegetable or beef stock. (60ml) is the source parenthetical; original US quantity controls.
+
+- 1 tbsp hot sauce — optional (we used Sriracha). Optional; excluded or included as stated in the publisher nutrition.
+
+- to taste Crushed red chili pepper flakes — optional. Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.
+
+- ½ cup fresh chopped parsley
+
+- 1 tbsp fresh thyme leaves
+
+- ½ cup Water for sausage simmer. Added from the source method; omitted from its ingredient list.
+
+- ½ cup Water for bean microwave. Added from the source method; omitted from its ingredient list.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Microwave-safe covered dish
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Microwave beans covered with their listed water for 8–10 minutes, until nearly tender. Meanwhile, cook sausages with the separate sausage water, partly covered, over medium heat for 10 minutes, turning occasionally.
+
+2. **Step 2.** Let sausage water evaporate. Add two-thirds of the butter, half the garlic and optional flakes; brown and cook pork sausage to 160°F, or poultry sausage to 165°F. Reserve.
+
+3. **Step 3.** Use remaining butter with parsley, thyme, remaining garlic, Italian seasoning and beans; stir for 4–5 minutes. Add lemon, stock and optional hot sauce and reduce briefly.
+
+4. **Step 4.** Return sausages and warm through. Season and add optional lemon slices.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 525 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Garlic Butter Sausages with Lemon Green Beans](https://www.eatwell101.com/garlic-butter-sausages-lemon-green-beans)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Mexican Cauliflower Rice with Cheesy Steak Roll-Ups
+
+4 portions · US measures · unverified · 15 min publisher preparation · 30 min
+
+Mexican Cauliflower Rice with Cheesy Steak Roll-Ups, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Mexican Cauliflower Rice with Cheesy Steak Roll-Ups cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.</td></tr><tr><td colspan="3" class="trn-prep">Check the center of each stuffed beef roll reaches 165°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> flank steak<small class="trn-state-detail">sliced lengthwise · (450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="5" colspan="1" class="trn-operation">Fill steak with garlic-parsley butter and mozzarella; roll/secure/slice. Sear high 3 min/side until the center of each stuffed roll reaches 165°F; reserve.</td><td rowspan="18" colspan="1" class="trn-operation">Return rolls and warm; remove toothpicks and garnish with cilantro.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> melted butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 count</strong> garlic cloves minced<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> chopped parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> shredded mozzarella<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 head</strong> cauliflower<small class="trn-state-detail">riced</small></th><td rowspan="12" colspan="1" class="trn-operation">After rolls are reserved, soften onion, pepper and jalapeño in oil 3 min. Add cauliflower 2 min, measured spices and ingredient-list stock; reduce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> small yellow onion<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> red bell pepper diced<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> jalapeño pepper<small class="trn-state-detail">seeds removed and minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> fine grain sea salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> vegetable stock<small class="trn-state-detail">(60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Cilantro for garnish<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb flank steak — sliced lengthwise. (450g) is the source parenthetical; original US quantity controls.
+
+- 1 tbsp melted butter
+
+- 3 count garlic cloves minced
+
+- ½ cup chopped parsley
+
+- 1 cup shredded mozzarella
+
+- 1 head cauliflower — riced
+
+- 2 tbsp olive oil
+
+- 1 count small yellow onion — minced
+
+- 1 count red bell pepper diced
+
+- 1 count jalapeño pepper — seeds removed and minced
+
+- ½ tsp fine grain sea salt
+
+- ½ tsp onion powder
+
+- ½ tsp garlic powder
+
+- 1 tsp cumin
+
+- 1 tsp chili powder
+
+- 1 tsp paprika
+
+- ¼ cup vegetable stock. (60ml) is the source parenthetical; original US quantity controls.
+
+- Not specified Cilantro for garnish. Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Food processor or grater, unless using ready-riced cauliflower
+
+- Toothpicks for securing rolls
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Mix the listed dry rice seasonings. Combine butter, minced garlic and parsley, brush over flank steak, add mozzarella and roll tightly. Secure with toothpicks and slice across the grain between picks.
+
+2. **Step 2.** Sear rolls over high heat for about 3 minutes per side; continue until the center of each stuffed roll reaches 165°F, then reserve.
+
+3. **Step 3.** In the same pan, heat oil and soften onion, bell pepper and jalapeño for about 3 minutes. Add cauliflower rice for 2 minutes, then dry seasonings and the ingredient-list quantity of stock. Reduce briefly.
+
+4. **Step 4.** Return rolls to warm through and remove toothpicks before eating; finish with cilantro.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 648 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Source method lists cayenne, oregano, pepper and additional garlic without ingredient quantities, and contradicts stock quantity. This adaptation uses only listed measured spices and ¼ cup stock; missing unquantified extras are not invented.
+
+- Source ingredient list says steak sliced lengthwise; keep strips wide enough to roll and secure, then cut rolls across the grain.
+
+- Safety adaptation: stuffed beef roll centers must reach 165°F; the 145°F intact-steak endpoint does not apply. Follow the linked USDA FSIS guidance for stuffed meat. Continue beyond source sear time if needed.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Mexican Cauliflower Rice with Cheesy Steak Roll-Ups](https://www.eatwell101.com/mexican-cauliflower-rice-steak-roll-ups)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA FSIS: Stuffing and Food Safety](https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/stuffing-and-food-safety)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Sausage Taco Cauliflower Rice Skillet
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Sausage Taco Cauliflower Rice Skillet, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Sausage Taco Cauliflower Rice Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ lb</strong> ground Italian sausage<small class="trn-state-detail">(450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="5" colspan="1" class="trn-operation">Brown sausage in butter to 160°F pork or 165°F poultry; stir onion/pepper/garlic 1 min.</td><td rowspan="12" colspan="1" class="trn-operation"> Combine sausage, cauliflower, seasoning, tomatoes/stock 5–7 min; cover low 5 min; top with cheeses until melted; garnish.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.44 cup</strong> diced red onion<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.44 cup</strong> diced green pepper<small class="trn-state-detail">(or Jalapeño)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>16 oz</strong> Riced cauliflower<small class="trn-state-detail">steamed; source specifies one 12-ounce bag or one head · (or 1 head cauliflower</small></th><td rowspan="1" colspan="1" class="trn-operation">Microwave cauliflower according to packet.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Chopped fresh cilantro<small class="trn-state-detail">for topping · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 cup</strong> cheddar cheese<small class="trn-state-detail">or mozzarella</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Monterrey jack cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ can</strong> Diced tomatoes<small class="trn-state-detail">seeded and diced · Source says medium can without specifying ounces; alternatively three fresh tomatoes.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 ⅔ tbsp</strong> homemade taco seasoning or taco seasoning packet<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 cup</strong> chicken broth<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 ⅓ lb ground Italian sausage. (450g) is the source parenthetical; original US quantity controls.
+
+- 1 ⅓ tbsp butter
+
+- 0.44 cup diced red onion
+
+- 0.44 cup diced green pepper. (or Jalapeño)
+
+- 4 count garlic cloves — minced
+
+- 1 ⅓ can Diced tomatoes — seeded and diced. Source says medium can without specifying ounces; alternatively three fresh tomatoes.
+
+- 16 oz Riced cauliflower — steamed; source specifies one 12-ounce bag or one head. (or 1 head cauliflower
+
+- 2 ⅔ tbsp homemade taco seasoning or taco seasoning packet
+
+- 1 cup chicken broth
+
+- 2 cup cheddar cheese — or mozzarella
+
+- ⅔ cup Monterrey jack cheese
+
+- Not specified Chopped fresh cilantro — for topping. Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Microwave-safe covered dish
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Brown ground sausage in butter over medium-high heat to 160°F, or 165°F for poultry sausage. Stir onion, pepper and garlic for 1 minute. Microwave cauliflower according to its packet.
+
+2. **Step 2.** Add taco seasoning, tomatoes, stock and steamed cauliflower. Cook over medium-low heat for 5–7 minutes to reduce excess liquid, then cover on low for 5 minutes.
+
+3. **Step 3.** Sprinkle both cheeses and cover until melted; finish with cilantro. Add extra broth only if needed and note that it changes the measured recipe.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher gives a yield of 2–3 portions. This adaptation uses 3 original portions when scaling to four; the published nutrition basis remains uncertain.
+
+- The publisher lists 1285 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- The publisher does not specify the size of at least one can or bag. Check the intended package size before shopping.
+
+- Ingredient quantities are scaled from 3 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Sausage Taco Cauliflower Rice Skillet](https://www.eatwell101.com/sausage-taco-cauliflower-rice-skillet-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Buttery Garlic Herb Chicken and Lemon Parmesan Cauliflower Rice
+
+4 portions · US measures · unverified · 10 min publisher preparation · 40–45 min
+
+Buttery Garlic Herb Chicken and Lemon Parmesan Cauliflower Rice, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Buttery Garlic Herb Chicken and Lemon Parmesan Cauliflower Rice cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Keep marinade lemon juice separate from the finishing lemon juice; amounts are distinct.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> boneless skinless chicken thighs<small class="trn-state-detail">or breasts · (650g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="11" colspan="1" class="trn-operation">Refrigerate chicken with marinade 10–15 min. Cook in butter and three fresh herbs 4–5 min/side to 165°F; reserve.</td><td rowspan="19" colspan="1" class="trn-operation">Return chicken and warm through.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Fresh thyme<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Fresh oregano<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Fresh rosemary<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Italian seasoning<small class="trn-state-detail">(for the marinade)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> olive oil<small class="trn-state-detail">(for the marinade)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> paprika<small class="trn-state-detail">(for the marinade)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> fresh cracked pepper<small class="trn-state-detail">to taste (for the marinade)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> fresh thyme<small class="trn-state-detail">chopped (for the marinade)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon (for the marinade) (for the marinade)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>9.3 oz</strong> cauliflower<small class="trn-state-detail">riced (1 medium head) · (400g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="8" colspan="1" class="trn-operation">After chicken is reserved, cook onion/garlic 1 min; add hot sauce/cauliflower, stock, parsley, finishing lemon and optional zest 2–3 min; stir Parmesan.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> medium onion<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅙ cup</strong> chicken broth<small class="trn-state-detail">(60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> grated parmesan<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> fresh chopped parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> hot sauce<small class="trn-state-detail">(we used Sriracha)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ count</strong> lemon<small class="trn-state-detail">juice; plus zest, and lemon slices for garnish · Juice of 1/2 lemon, plus zest, and lemon slices for garnish</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb boneless skinless chicken thighs — or breasts. (650g) is the source parenthetical; original US quantity controls.
+
+- 1 ⅓ tbsp butter
+
+- ⅔ tsp Fresh thyme — chopped
+
+- ⅔ tsp Fresh oregano — chopped
+
+- ⅔ tsp Fresh rosemary — chopped
+
+- 9.3 oz cauliflower — riced (1 medium head). (400g) is the source parenthetical; original US quantity controls.
+
+- ⅔ count medium onion — chopped
+
+- 2 ⅔ count garlic cloves — minced
+
+- ⅙ cup chicken broth. (60ml) is the source parenthetical; original US quantity controls.
+
+- ⅓ cup grated parmesan
+
+- ⅓ cup fresh chopped parsley
+
+- ⅔ tbsp hot sauce. (we used Sriracha)
+
+- ⅓ count lemon — juice; plus zest, and lemon slices for garnish. Juice of 1/2 lemon, plus zest, and lemon slices for garnish
+
+- ⅔ tsp Italian seasoning. (for the marinade)
+
+- 1 ⅓ tbsp olive oil. (for the marinade)
+
+- ⅓ tsp paprika. (for the marinade)
+
+- ⅓ tsp fresh cracked pepper — to taste (for the marinade)
+
+- ⅓ count lemon — juice. Juice of 1/2 lemon (for the marinade) (for the marinade)
+
+- ⅔ tsp fresh thyme — chopped (for the marinade)
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Food processor or grater, unless using ready-riced cauliflower
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Coat chicken with the marinade ingredients; refrigerate for 10–15 minutes. Rice cauliflower if needed.
+
+2. **Step 2.** Heat butter over medium-low heat with thyme, oregano and rosemary. Cook chicken for 4–5 minutes per side, continuing until 165°F; reserve, leaving juices in the pan.
+
+3. **Step 3.** Stir onion and garlic for 1 minute, then hot sauce and cauliflower. Add stock, parsley, finishing lemon juice and optional zest; cook for 2–3 minutes to reduce liquid.
+
+4. **Step 4.** Stir in Parmesan, return chicken and warm through. Use boneless skinless chicken as listed; the source method’s skin-side-down wording does not apply.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+- Allow up to45 minutes with the longer marinade.
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 404 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- The source specifies skinless chicken but mentions skin-side down; this adaptation follows the ingredient state. Use the marinade thyme that is listed despite its omission from the source first step.
+
+- Source 10–15-minute marinade is additional to its published preparation and cooking times unless explicitly overlapped; this The total here is 40–45 minutes includes it.
+
+- Ingredient quantities are scaled from 6 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Buttery Garlic Herb Chicken and Lemon Parmesan Cauliflower Rice](https://www.eatwell101.com/garlic-herb-chicken-and-lemon-cauliflower-rice)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Garlic Butter Steak and Green Beans
+
+4 portions · US measures · unverified · 15 min publisher preparation · 30 min
+
+Garlic Butter Steak and Green Beans, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Steak and Green Beans cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.</td></tr><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ lb</strong> flank steak<small class="trn-state-detail">sliced against the grain · (450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="8" colspan="1" class="trn-operation">Marinate steak 10 min; drain. Sear in two-thirds butter 1 min/side with half garlic; reach 145°F/rest 3 min; reserve.</td><td rowspan="18" colspan="1" class="trn-operation">Return steak briefly, garnish and serve.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> low- sodium soy sauce<small class="trn-state-detail">(or coconut amino if you’re strictly paleo)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> hot sauce<small class="trn-state-detail">(we used Sriracha)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Fresh cracked pepper<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ tbsp</strong> butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 ⅓ count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ lb</strong> fresh stringless green beans<small class="trn-state-detail">trimmed · (450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="9" colspan="1" class="trn-operation">Microwave beans with water 8–10 min. After steak is reserved, cook beans with remaining fat/garlic and herbs 4–5 min; add stock/lemon and reserved marinade; bring marinade to full boil.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 ⅓ count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> low-sodium beef stock<small class="trn-state-detail">(125ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> fresh chopped parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> fresh thyme leaves<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> Water for bean microwave<small class="trn-state-detail">Added from the source method; omitted from its ingredient list.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon + lemon slices, for garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 ⅓ lb flank steak — sliced against the grain. (450g) is the source parenthetical; original US quantity controls.
+
+- 1 ⅓ lb fresh stringless green beans — trimmed. (450g) is the source parenthetical; original US quantity controls.
+
+- 4 tbsp butter — divided
+
+- 6 ⅔ count garlic cloves — minced
+
+- 1 ⅓ tsp Italian seasoning
+
+- ⅔ count lemon — juice. Juice of 1/2 lemon + lemon slices, for garnish
+
+- to taste Salt and fresh cracked pepper. Unquantified in source; use to taste or as optional garnish as stated.
+
+- ⅔ cup low-sodium beef stock. (125ml) is the source parenthetical; original US quantity controls.
+
+- to taste Crushed red chili pepper flakes — optional. Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.
+
+- ⅔ cup fresh chopped parsley
+
+- 1 ⅓ tbsp fresh thyme leaves
+
+- ⅓ cup low- sodium soy sauce. (or coconut amino if you’re strictly paleo)
+
+- 1 ⅓ tbsp olive oil
+
+- 1 ⅓ tbsp hot sauce. (we used Sriracha)
+
+- to taste Fresh cracked pepper. Unquantified in source; use to taste or as optional garnish as stated.
+
+- ⅔ cup Water for bean microwave. Added from the source method; omitted from its ingredient list.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Microwave-safe covered dish
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Marinate steak with soy sauce, oil, hot sauce and pepper for 10 minutes in the refrigerator. Microwave beans with their listed water for 8–10 minutes.
+
+2. **Step 2.** Drain steak and reserve marinade. Heat two-thirds of the butter over medium-high heat; sear steak about 1 minute per side, adding half the garlic and optional flakes after turning. Continue to 145°F, then reserve and rest 3 minutes.
+
+3. **Step 3.** Use remaining butter with parsley, thyme, remaining garlic, Italian seasoning and beans; cook 4–5 minutes. Add lemon, stock and reserved marinade; bring to a full boil before reducing.
+
+4. **Step 4.** Return steak briefly to warm through and serve with optional lemon slices.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, soy, wheat. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher gives a yield of 2–3 portions. This adaptation uses 3 original portions when scaling to four; the published nutrition basis remains uncertain.
+
+- The publisher lists 799 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Source 10-minute marinade may overlap microwave bean preparation; total assumes that overlap. Raw-meat marinade must boil before it is served as sauce.
+
+- Ingredient quantities are scaled from 3 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Garlic Butter Steak and Green Beans](https://www.eatwell101.com/garlic-butter-steak-and-green-beans-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Taco Chicken Tenders with Lemon Garlic Butter Zucchini Noodles
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Taco Chicken Tenders with Lemon Garlic Butter Zucchini Noodles, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Taco Chicken Tenders with Lemon Garlic Butter Zucchini Noodles cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Source garlic addition has no listed quantity and is omitted.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 lb</strong> chicken tenders<small class="trn-state-detail">or 3-4 boneless, skinless chicken breasts, cut into strips · (900g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="3" colspan="1" class="trn-operation">Coat chicken in taco seasoning; brown uncrowded in half butter to 165°F; reserve.</td><td rowspan="11" colspan="1" class="trn-operation">Return chicken 1 min; garnish.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Taco seasoning<small class="trn-state-detail">(get the recipe here)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> medium zucchini<small class="trn-state-detail">rinsed and spiralized (or a pack of store-bought Zucchini Noodles) · Source quantity range 4 to 5; lower endpoint chosen explicitly.</small></th><td rowspan="6" colspan="1" class="trn-operation">After chicken is reserved, simmer remaining butter, stock/lemon/optional hot sauce 1–2 min; add parsley/zucchini 2–3 min and reduce 1 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> low-sodium chicken broth<small class="trn-state-detail">(60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> hot sauce of choice<small class="trn-state-detail">optional (we used Sriracha) · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> fresh chopped parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Slices of lemon<small class="trn-state-detail">for garnish · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 2 lb chicken tenders — or 3-4 boneless, skinless chicken breasts, cut into strips. (900g) is the source parenthetical; original US quantity controls.
+
+- 4 count medium zucchini — rinsed and spiralized (or a pack of store-bought Zucchini Noodles). Source quantity range 4 to 5; lower endpoint chosen explicitly.
+
+- 4 tbsp butter — divided
+
+- 2 tbsp Taco seasoning. (get the recipe here)
+
+- ¼ cup low-sodium chicken broth. (60ml) is the source parenthetical; original US quantity controls.
+
+- ½ count lemon — juice. Juice of 1/2 lemon
+
+- 1 tbsp hot sauce of choice — optional (we used Sriracha). Optional; excluded or included as stated in the publisher nutrition.
+
+- 1 tbsp fresh chopped parsley
+
+- to taste Crushed red chili pepper flakes — optional. Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.
+
+- Not specified Slices of lemon — for garnish. Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Spiralizer, unless using ready-spiralized zucchini
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Coat chicken strips with taco seasoning and spiralize zucchini.
+
+2. **Step 2.** Heat half the butter over medium-low heat. Brown chicken in uncrowded batches, cooking it to 165°F; reserve.
+
+3. **Step 3.** Heat remaining butter with lemon juice, optional hot sauce and stock; simmer 1–2 minutes.
+
+4. **Step 4.** Add parsley and zucchini noodles and toss 2–3 minutes. Reduce released water for another minute, return chicken and warm through. Finish with optional chili flakes and lemon slices.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 639 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Source method mentions minced garlic, but its ingredient list gives no garlic amount. This adaptation omits that unsupported addition; do not invent a quantity.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Taco Chicken Tenders with Lemon Garlic Butter Zucchini Noodles](https://www.eatwell101.com/taco-chicken-tenders-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Garlic Butter Herb Pork Chops with Zucchini
+
+4 portions · US measures · unverified · 5 min publisher preparation · 20 min
+
+Garlic Butter Herb Pork Chops with Zucchini, adapted from Veronica Brandy.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Herb Pork Chops with Zucchini cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.</td></tr><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> pork chops<small class="trn-state-detail">boneless</small></th><td rowspan="6" colspan="1" class="trn-operation">Season pork; cook in butter/garlic/oregano/thyme 4–5 min/side to 145°F; reserve/rest 3 min.</td><td rowspan="9" colspan="1" class="trn-operation">Return chops briefly; finish with optional parsley and lemon.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6 ⅔ count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> freshly chopped oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> fresh thyme<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ count</strong> medium sized zucchini<small class="trn-state-detail">diced · Source quantity range 2 to 3; lower endpoint chosen explicitly.</small></th><td rowspan="1" colspan="1" class="trn-operation">After pork is reserved, sauté zucchini in retained pan juices 2–3 min.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped parsley<small class="trn-state-detail">for garnish (optional) · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Lemon slices<small class="trn-state-detail">for garnish · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 count pork chops — boneless
+
+- 4 tbsp butter
+
+- 6 ⅔ count garlic cloves — minced
+
+- ⅓ cup freshly chopped oregano
+
+- 1 ⅓ tsp fresh thyme — chopped
+
+- to taste Salt and fresh cracked pepper — to taste. Unquantified in source; use to taste or as optional garnish as stated.
+
+- 2 ⅔ count medium sized zucchini — diced. Source quantity range 2 to 3; lower endpoint chosen explicitly.
+
+- Not specified Fresh chopped parsley — for garnish (optional). Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero. Optional; excluded or included as stated in the publisher nutrition.
+
+- Not specified Lemon slices — for garnish. Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Season pork with salt and pepper. Melt butter over medium heat with garlic, oregano and thyme.
+
+2. **Step 2.** Cook chops for 4–5 minutes per side, continuing until 145°F. Reserve on a clean plate and rest 3 minutes.
+
+3. **Step 3.** Stir-fry zucchini in the same pan for 2–3 minutes until tender. Return chops to warm briefly and finish with optional parsley and lemon.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 436 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Ingredient quantities are scaled from 3 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Veronica Brandy. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Veronica Brandy: Garlic Butter Herb Pork Chops with Zucchini](https://www.eatwell101.com/garlic-butter-herb-pork-chops-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## One-Pan Lemon Butter Chicken with Asparagus
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+One-Pan Lemon Butter Chicken with Asparagus, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="One-Pan Lemon Butter Chicken with Asparagus cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Prepare sauce first and reserve. Source parsley is divided without a specified fraction; use some in sauce and reserve the rest for finishing. Source additional asparagus butter is unquantified; this adaptation uses residual butter and measured sauce as explained in limitations.</td></tr><tr><td colspan="2" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 lb</strong> Chicken breasts<small class="trn-state-detail">boneless, skinless; source says two large breasts per pound · (2 large) is the source parenthetical; original US quantity controls.</small></th><td rowspan="11" colspan="1" class="trn-operation">Make sauce with three-quarters of listed butter, garlic, lemon juice, soy, optional honey and some parsley; simmer medium-low 3–5 min and reserve. Halve and flatten chicken, lightly coat with coconut flour and salt. Cook in remaining measured butter medium-high 3–5 min per side to 165°F; reserve. Brown lemon slices briefly and reserve. Sauté asparagus using residual butter and some sauce until crisp-tender. Return chicken, add lemon slices, reserved parsley and remaining sauce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> coconut flour<small class="trn-state-detail">(or white flour)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 tbsp</strong> unsalted butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> garlic<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> lemon juice<small class="trn-state-detail">freshly squeezed</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> honey<small class="trn-state-detail">(remove for the keto/low carb version)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> low sodium soy sauce<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> parsley<small class="trn-state-detail">fresh chopped, divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked black pepper<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 bunch</strong> asparagus<small class="trn-state-detail">trimmed · (15-20 spears)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> lemon<small class="trn-state-detail">sliced</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 2 lb Chicken breasts — boneless, skinless; source says two large breasts per pound. (2 large) is the source parenthetical; original US quantity controls.
+
+- ½ cup coconut flour. (or white flour)
+
+- 8 tbsp unsalted butter — divided
+
+- 2 tbsp garlic — finely chopped
+
+- ⅔ cup lemon juice — freshly squeezed
+
+- ½ cup honey. (remove for the keto/low carb version)
+
+- 2 tbsp low sodium soy sauce
+
+- 4 tbsp parsley — fresh chopped, divided
+
+- to taste Salt and fresh cracked black pepper. Unquantified in source; use to taste or as optional garnish as stated.
+
+- 2 bunch asparagus — trimmed. (15-20 spears)
+
+- 2 count lemon — sliced
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** For sauce, heat three-quarters of the butter over medium-high heat with garlic. Add lemon juice, soy sauce, honey if using, and some of the parsley. Simmer over medium-low heat for 3–5 minutes; reserve.
+
+2. **Step 2.** Halve breasts horizontally and flatten evenly. Coat lightly with coconut flour and salt.
+
+3. **Step 3.** Use remaining measured butter over medium-high heat; cook chicken for 3–5 minutes per side, continuing until 165°F. Reserve.
+
+4. **Step 4.** Brown lemon slices briefly on both sides and reserve. Sauté asparagus until bright green and crisp-tender, using residual butter and some reserved sauce. Return chicken, add lemon slices and remaining parsley, and spoon over the sauce.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk, soy, wheat. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 767 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Honey is retained as written; omit it only for the source’s optional keto variation, which changes nutrition.
+
+- Source method adds an unquantified extra butter dollop for asparagus. This adaptation uses residual butter and some measured sauce to retain the listed total rather than invent an extra amount.
+
+- Ingredient quantities are scaled from 2 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: One-Pan Lemon Butter Chicken with Asparagus](https://www.eatwell101.com/lemon-butter-chicken-with-asparagus)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Italian Sausage and Peppers Skillet
+
+4 portions · US measures · unverified · 10 min publisher preparation · 25 min
+
+Italian Sausage and Peppers Skillet, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Italian Sausage and Peppers Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 package</strong> spicy Italian sausage<small class="trn-state-detail">5 or 6 sausages total</small></th><td rowspan="3" colspan="1" class="trn-operation">Brown sausages with initial unquantified oil and optional water; reserve partly cooked.</td><td rowspan="17" colspan="1" class="trn-operation">Slice sausages¼–½inch; return 5–10 min to 160°F pork or 165°F poultry; reduce sauce and garnish.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Oil for initial sausage browning<small class="trn-state-detail">Unquantified drizzle; source does not specify an amount. Unquantified amount remains unknown, not zero.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Optional water for sausages<small class="trn-state-detail">Optional, to prevent scorching. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> red bell pepper<small class="trn-state-detail">sliced</small></th><td rowspan="10" colspan="1" class="trn-operation">After sausages are reserved, discard water; cook onion, fennel/herbs/flakes in measured oil, garlic/tomato paste 1–2 min, then pepper/tomatoes and broth.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> small red onion<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> large ripe tomatoes<small class="trn-state-detail">diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> crushed tomato<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> vegetable or chicken broth<small class="trn-state-detail">(125ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> crushed chili pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> fennel seeds<small class="trn-state-detail">crushed in a mortar</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Oil for vegetables<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper to taste<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 count</strong> scallion<small class="trn-state-detail">sliced, for garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped basil<small class="trn-state-detail">for garnish · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Parmesan<small class="trn-state-detail">garnish · Unquantified garnish mentioned in source method; optional serving choice, amount unknown.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 package spicy Italian sausage — 5 or 6 sausages total
+
+- 1 count red bell pepper — sliced
+
+- 1 count small red onion — sliced
+
+- 4 count garlic — minced
+
+- to taste Salt and fresh cracked pepper to taste. Unquantified in source; use to taste or as optional garnish as stated.
+
+- 4 count large ripe tomatoes — diced
+
+- 2 tbsp crushed tomato
+
+- ½ cup vegetable or chicken broth. (125ml) is the source parenthetical; original US quantity controls.
+
+- ½ tsp crushed chili pepper
+
+- 1 tsp Italian seasoning
+
+- 2 tsp fennel seeds — crushed in a mortar
+
+- 1 count scallion — sliced, for garnish
+
+- Not specified Fresh chopped basil — for garnish. Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.
+
+- Not specified Oil for initial sausage browning. Unquantified drizzle; source does not specify an amount. Unquantified amount remains unknown, not zero.
+
+- 1 tbsp Oil for vegetables
+
+- ¼ cup Optional water for sausages. Optional, to prevent scorching. Optional; excluded or included as stated in the publisher nutrition.
+
+- Not specified Parmesan — garnish. Unquantified garnish mentioned in source method; optional serving choice, amount unknown.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Heat the source method’s initial unquantified drizzle of oil over medium heat. Brown sausages on all sides, adding the listed optional water to prevent sticking; reserve while still partly cooked.
+
+2. **Step 2.** Discard excess water but keep brown bits. Add the method’s measured oil, onion, fennel, chili flakes and Italian seasoning. Add garlic and crushed tomato for 1–2 minutes, then bell pepper and diced tomatoes until crisp-tender.
+
+3. **Step 3.** Add broth and simmer briefly. Slice sausage into ¼–½-inch pieces, return and simmer for 5–10 minutes until pork sausage reaches 160°F, or poultry sausage 165°F, and sauce thickens.
+
+4. **Step 4.** Season and finish with scallion and basil. Add optional Parmesan if desired.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher does not provide verified nutrition values; nutrition remains unreported.
+
+- Source method mentions Parmesan without listing a quantity. Retained as an unquantified optional garnish.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Italian Sausage and Peppers Skillet](https://www.eatwell101.com/sausage-and-peppers-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Beef and Cauliflower Rice Burrito Bowl
+
+4 portions · US measures · unverified · 15 min publisher preparation · 35 min
+
+Beef and Cauliflower Rice Burrito Bowl, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Beef and Cauliflower Rice Burrito Bowl cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Keep fresh garnish tomatoes, bell pepper, jalapeño, avocado, red onion, cilantro and citrus for serving.</td></tr><tr><td colspan="3" class="trn-prep">Check ground meat or fresh sausage reaches 160°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> ground beef<small class="trn-state-detail">(450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="4" colspan="1" class="trn-operation">Soften onion in two-thirds oil; brown beef to 160°F; reserve.</td><td rowspan="21" colspan="1" class="trn-operation"> Return beef; top with cheese and cover off heat 2–3 min; add listed fresh garnishes.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> yellow onion<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked black pepper<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th><td rowspan="9" colspan="1" class="trn-operation">After beef is reserved, cook cauliflower in remaining oil 2 min; add spices 2 min then drained tomatoes/stock and reduce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> medium head of cauliflower<small class="trn-state-detail">(or one packet of riced cauliflower)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 can</strong> Diced tomatoes<small class="trn-state-essential">drained · Source says small can without specifying ounces; drained.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> chili powder<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> low-sodium vegetable or beef broth<small class="trn-state-detail">(60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Freshly diced tomatoes<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 count</strong> Avocado<small class="trn-state-detail">diced; garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped cilantro<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Lemon or lime slices<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 cup</strong> shredded Monterey Jack or Mozzarella<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ count</strong> bell pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 count</strong> jalapeño<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ count</strong> red onion<small class="trn-state-detail">minced</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 lb ground beef. (450g) is the source parenthetical; original US quantity controls.
+
+- 3 tbsp olive oil
+
+- ½ count yellow onion — minced
+
+- 1 count medium head of cauliflower. (or one packet of riced cauliflower)
+
+- 1 can Diced tomatoes — drained. Source says small can without specifying ounces; drained.
+
+- 1 tsp garlic powder
+
+- 1 tsp onion powder
+
+- 1 tsp paprika
+
+- ½ tsp chili powder — optional. Optional; excluded or included as stated in the publisher nutrition.
+
+- 1 tsp cumin
+
+- ¼ cup low-sodium vegetable or beef broth. (60ml) is the source parenthetical; original US quantity controls.
+
+- 2 cup shredded Monterey Jack or Mozzarella
+
+- to taste Salt and fresh cracked black pepper. Unquantified in source; use to taste or as optional garnish as stated.
+
+- Not specified Freshly diced tomatoes. Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.
+
+- ½ count bell pepper
+
+- 1 count jalapeño — sliced
+
+- 1 count Avocado — diced; garnish
+
+- ¼ count red onion — minced
+
+- Not specified Fresh chopped cilantro. Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.
+
+- Not specified Lemon or lime slices. Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Food processor or grater, unless using ready-riced cauliflower
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Rice cauliflower or use packaged rice. Soften onion in two-thirds of the oil, then add beef, salt and pepper; brown over medium-high heat to 160°F. Reserve beef and onion.
+
+2. **Step 2.** Heat remaining oil. Stir-fry cauliflower for 2 minutes, add spices and cook another 2 minutes. Add drained tomatoes and broth; simmer to reduce.
+
+3. **Step 3.** Return beef and onion, add cheese, cover off heat for 2–3 minutes to melt.
+
+4. **Step 4.** Finish with the listed tomato, pepper, jalapeño, avocado, red onion, cilantro and citrus garnishes.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 629 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Fresh garnish tomatoes have no source amount; the listed avocado is one whole avocado and is retained as such.
+
+- The publisher does not specify the size of at least one can or bag. Check the intended package size before shopping.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Beef and Cauliflower Rice Burrito Bowl](https://www.eatwell101.com/keto-burrito-bowl-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Stuffed Chicken Breast with Mozzarella and Spinach
+
+4 portions · US measures · unverified · 5 min publisher preparation · 35 min
+
+Stuffed Chicken Breast with Mozzarella and Spinach, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Stuffed Chicken Breast with Mozzarella and Spinach cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Source can size is unspecified; confirm before shopping. Sauce and chicken can cook in parallel in two skillets.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> small onion<small class="trn-state-detail">minced</small></th><td rowspan="7" colspan="1" class="trn-operation">For sauce: one-third oil, onion/half garlic 3–4 min, tomato/stock 15–20 min, then sugar/balsamic/seasoning; reserve.</td><td rowspan="14" colspan="1" class="trn-operation">Pour sauce around cooked stuffed chicken and simmer briefly.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 can</strong> low-sodium crushed tomatoes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> sugar<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> balsamic vinegar<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> chicken stock<small class="trn-state-detail">(125ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> olive oil<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> boneless skinless chicken breasts<small class="trn-state-detail">butterflied</small></th><td rowspan="6" colspan="1" class="trn-operation">For stuffing: another third oil and remaining garlic 1–2 min, wilt spinach 2–3 min. Butterfly chicken, stuff with spinach and mozzarella, season/fold; cook in last third oil 5 min/side to 165°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> olive oil<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 slice</strong> fresh mozzarella cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 cup</strong> fresh baby spinach<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Crushed red pepper flakes<small class="trn-state-detail">to taste (optional) · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 4 count boneless skinless chicken breasts — butterflied
+
+- 6 tbsp olive oil — divided
+
+- 4 slice fresh mozzarella cheese
+
+- 4 cup fresh baby spinach
+
+- 8 count garlic — minced
+
+- 2 count small onion — minced
+
+- 2 can low-sodium crushed tomatoes
+
+- 2 tbsp sugar
+
+- 1 tsp balsamic vinegar
+
+- 1 cup chicken stock. (125ml) is the source parenthetical; original US quantity controls.
+
+- to taste Crushed red pepper flakes — to taste (optional). Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.
+
+- to taste Salt and fresh cracked pepper. Unquantified in source; use to taste or as optional garnish as stated.
+
+### Equipment
+
+- Stovetop and two skillets
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** For sauce, use one-third of the oil to soften onion and half the garlic for 3–4 minutes. Add crushed tomatoes and stock; simmer 15–20 minutes. Stir in sugar and balsamic, season and reserve.
+
+2. **Step 2.** In a second skillet, use another third of the oil with remaining garlic for 1–2 minutes. Wilt spinach for 2–3 minutes and reserve.
+
+3. **Step 3.** Butterfly and season chicken. Fill each breast with mozzarella and spinach, then fold closed and add optional flakes.
+
+4. **Step 4.** Heat remaining oil over medium heat. Cook stuffed breasts about 5 minutes per side, continuing until the thickest chicken and filling reach 165°F. Add sauce around chicken and bring back to a simmer.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 886 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Source crushed-tomato can size is unspecified; this adaptation retains one can and requires checking its size before shopping. Sugar is present in the source and retained, despite roundup keto framing.
+
+- The publisher does not specify the size of at least one can or bag. Check the intended package size before shopping.
+
+- Ingredient quantities are scaled from 2 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Stuffed Chicken Breast with Mozzarella and Spinach](https://www.eatwell101.com/stuffed-chicken-breast-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Sausage, Pepper and Cauliflower Fried Rice
+
+4 portions · US measures · unverified · 10 min publisher preparation · 20 min
+
+Sausage, Pepper and Cauliflower Fried Rice, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Sausage, Pepper and Cauliflower Fried Rice cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Split oil exactly one-third for sausage and two-thirds for vegetables; combined branch method specifies this split.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> large head cauliflower<small class="trn-state-detail">cut into small florets</small></th><td rowspan="2" colspan="1" class="trn-operation">Rice cauliflower; microwave with its water 7 min until tender.</td><td rowspan="16" colspan="1" class="trn-operation">Return sausage and cauliflower, heat through and finish with parsley.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Water for vegetable microwave<small class="trn-state-detail">Added from source method.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> red bell pepper<small class="trn-state-detail">sliced</small></th><td rowspan="12" colspan="1" class="trn-operation">Brown sausage in one-third oil 5 min; reserve. Cook peppers/onion in remaining oil 4–5 min, add garlic/herbs 1 min; add broth 1 min and optional spices.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> yellow bell pepper<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> green bell pepper<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> onion<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>9 oz</strong> smoked sausage<small class="trn-state-detail">sliced (not ground sausage)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> red pepper flakes<small class="trn-state-detail">(optional) Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> garlic powder<small class="trn-state-detail">or 1 clove garlic, minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> low-sodium chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Cayenne pepper<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> paprika<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and freshly cracked black pepper<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh parsley<small class="trn-state-detail">chopped · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- ½ count large head cauliflower — cut into small florets
+
+- ½ count red bell pepper — sliced
+
+- ½ count yellow bell pepper — sliced
+
+- ½ count green bell pepper — sliced
+
+- ½ count onion — sliced
+
+- 9 oz smoked sausage — sliced (not ground sausage)
+
+- 3 tbsp olive oil
+
+- ¼ tsp red pepper flakes. (optional) Optional; excluded or included as stated in the publisher nutrition.
+
+- ½ tsp garlic powder — or 1 clove garlic, minced
+
+- 1 tsp Italian seasoning
+
+- ½ cup low-sodium chicken broth
+
+- to taste Salt and freshly cracked black pepper. Unquantified in source; use to taste or as optional garnish as stated.
+
+- ½ tsp Cayenne pepper — optional. Optional; excluded or included as stated in the publisher nutrition.
+
+- ½ tsp paprika — optional. Optional; excluded or included as stated in the publisher nutrition.
+
+- Not specified Fresh parsley — chopped. Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.
+
+- 2 tbsp Water for vegetable microwave. Added from source method.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Microwave-safe covered dish
+
+- Food processor or grater, unless using ready-riced cauliflower
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Rice cauliflower and microwave covered with its listed water for about 7 minutes until just tender.
+
+2. **Step 2.** Heat one-third of the oil over medium-high heat. Brown sliced smoked sausage for about 5 minutes, then reserve.
+
+3. **Step 3.** Use remaining oil for peppers and onion for 4–5 minutes. Add garlic, Italian seasoning, salt and pepper for 1 minute.
+
+4. **Step 4.** Add broth and scrape pan; simmer 1 minute and add optional paprika and cayenne. Return cauliflower and sausage; toss until hot. Add optional chili flakes and parsley.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 320 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Sausage, Pepper and Cauliflower Fried Rice](https://www.eatwell101.com/cauliflower-fried-rice-skillet-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Creamy Chicken with Bacon and Spinach
+
+4 portions · US measures · unverified · 10 min publisher preparation · 36–46 min
+
+Creamy Chicken with Bacon and Spinach, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Creamy Chicken with Bacon and Spinach cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Bacon uses a separate skillet while sauce cooks.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ lb</strong> chicken breasts<small class="trn-state-detail">(450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="4" colspan="1" class="trn-operation">Season chicken with half Italian seasoning; brown in half butter 4–5 min/side and reserve.</td><td rowspan="15" colspan="1" class="trn-operation">Add bacon and chicken to sauce 10–15 min, continuing to 165°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and pepper<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> butter or olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Italian seasoning<small class="trn-state-detail">oregano, basil - combined) · (thyme</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> paprika<small class="trn-state-detail"></small></th><td rowspan="11" colspan="1" class="trn-operation">After chicken is reserved, use remaining butter for garlic/paprika/herbs 2–3 min; tomatoes/stock 4–5 min; cream/cheese/spinach/flakes 2–3 min. Crisp bacon separately.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Italian seasoning<small class="trn-state-detail">oregano, basil - combined) · (thyme</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 ⅓ strip</strong> bacon<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 ⅓ count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> butter or olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ count</strong> medium tomatoes<small class="trn-state-detail">diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ cup</strong> fresh spinach<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ cup</strong> chicken stock<small class="trn-state-detail">(240ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ cup</strong> half and half<small class="trn-state-detail">for a lighter cream) · (240ml) is the source parenthetical; original US quantity controls. (half cream mixed with half milk</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ cup</strong> mozzarella<small class="trn-state-detail">shredded</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> crushed red pepper flakes<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 ⅓ lb chicken breasts. (450g) is the source parenthetical; original US quantity controls.
+
+- 1 ⅓ tsp paprika
+
+- 2 ⅔ tsp Italian seasoning — oregano, basil - combined). (thyme
+
+- 5 ⅓ strip bacon
+
+- 5 ⅓ count garlic cloves — minced
+
+- 2 ⅔ tbsp butter or olive oil
+
+- 2 ⅔ count medium tomatoes — diced
+
+- 1 ⅓ cup fresh spinach
+
+- 1 ⅓ tsp crushed red pepper flakes
+
+- 1 ⅓ cup chicken stock. (240ml) is the source parenthetical; original US quantity controls.
+
+- 1 ⅓ cup half and half — for a lighter cream). (240ml) is the source parenthetical; original US quantity controls. (half cream mixed with half milk
+
+- 1 ⅓ cup mozzarella — shredded
+
+- to taste Salt and pepper. Unquantified in source; use to taste or as optional garnish as stated.
+
+### Equipment
+
+- Stovetop and two skillets
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Season chicken with half the Italian seasoning, salt and pepper. Heat half the butter over medium-high heat and brown chicken for 4–5 minutes per side; reserve.
+
+2. **Step 2.** Melt remaining butter. Cook garlic, paprika and remaining seasoning for 2–3 minutes, then add tomatoes and stock for 4–5 minutes.
+
+3. **Step 3.** Meanwhile, cook bacon in a separate pan until crisp, drain and chop.
+
+4. **Step 4.** Stir cream, cheese, spinach and chili flakes into the main pan; simmer for 2–3 minutes. Add bacon and chicken and simmer for 10–15 minutes, continuing until chicken reaches 165°F.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+- Allow up to46 minutes for the longer sequential stage times.
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 2985 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Source published cooking time says 20 minutes, but sequential main-pan stages sum 26–36 minutes. With 10 minutes prep, The total here is 36–46 minutes; bacon can cook in parallel.
+
+- Ingredient quantities are scaled from 3 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Creamy Chicken with Bacon and Spinach](https://www.eatwell101.com/chicken-bacon-spinach-cream-sauce)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Sheet Pan Garlic Butter Chicken and Asparagus
+
+4 portions · US measures · unverified · 15 min publisher preparation · 45 min
+
+Sheet Pan Garlic Butter Chicken and Asparagus, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Sheet Pan Garlic Butter Chicken and Asparagus cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Stovetop browning precedes oven roasting; total timing includes both. Source coffeespoon herb measure is unresolved.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6 count</strong> Chicken thighs<small class="trn-state-detail">bone-in, skin-on; source range 6–8 thighs, lower endpoint 6 chosen · Source quantity range 6 to 8; lower endpoint chosen explicitly.</small></th><td rowspan="1" colspan="1" class="trn-operation">Brown chicken in skillet 4–5 min/side.</td><td rowspan="10" colspan="1" class="trn-operation">Arrange chicken/asparagus on sheet, brush with mixture and optional lemon slices; bake 400°F about 20 min to 165°F; garnish.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> unsalted butter<small class="trn-state-detail">melted</small></th><td rowspan="5" colspan="1" class="trn-operation">Mix butter with lemon juice, garlic, honey and Italian herbs.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> lemon juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 count</strong> garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> honey<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 coffeespoon</strong> Italian herbs<small class="trn-state-detail">thyme, rosemary, basil) · (dried oregano Source measure undefined; do not silently equate to a teaspoon.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Kosher salt and freshly ground black pepper<small class="trn-state-detail">to taste · Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Slices of lemon<small class="trn-state-detail">for garnish · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh parsley<small class="trn-state-detail">chopped · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 bunch</strong> asparagus<small class="trn-state-detail">trimmed · Source quantity range 1 to 2; lower endpoint chosen explicitly.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 6 count Chicken thighs — bone-in, skin-on; source range 6–8 thighs, lower endpoint 6 chosen. Source quantity range 6 to 8; lower endpoint chosen explicitly.
+
+- 1 bunch asparagus — trimmed. Source quantity range 1 to 2; lower endpoint chosen explicitly.
+
+- ½ cup unsalted butter — melted
+
+- 1 tbsp lemon juice
+
+- 5 count garlic — minced
+
+- 1 tbsp honey
+
+- 1 coffeespoon Italian herbs — thyme, rosemary, basil). (dried oregano Source measure undefined; do not silently equate to a teaspoon.
+
+- to taste Kosher salt and freshly ground black pepper — to taste. Unquantified in source; use to taste or as optional garnish as stated.
+
+- Not specified Slices of lemon — for garnish. Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.
+
+- Not specified Fresh parsley — chopped. Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Oven and rimmed sheet pan
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Heat oven to 400°F. Prepare a rimmed baking sheet. Mix melted butter with lemon juice, garlic, honey, Italian herbs, salt and pepper.
+
+2. **Step 2.** Brown thighs in a skillet over medium heat for 4–5 minutes per side.
+
+3. **Step 3.** Arrange thighs and trimmed asparagus in one layer on the sheet. Brush with the butter mixture and add optional lemon slices.
+
+4. **Step 4.** Bake for about 20 minutes, continuing until chicken reaches 165°F. Finish with parsley; browning time is additional to the oven time.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 772 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Source says one coffeespoon of herbs without defining that measure; retain its wording and confirm the source’s intended spoon before measuring.
+
+- Source published cooking time omits 8–10 minutes stovetop browning and oven preheat. This The total here allows 45 minutes including prep; exact size can increase it.
+
+- Honey is retained; this recipe is not automatically keto merely because the roundup labels it so.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Sheet Pan Garlic Butter Chicken and Asparagus](https://www.eatwell101.com/garlic-butter-chicken-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Grilled Bruschetta Chicken
+
+4 portions · US measures · unverified · 10 min publisher preparation · 20 min
+
+Grilled Bruschetta Chicken, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Grilled Bruschetta Chicken cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Despite grilled title, source uses a stovetop skillet. Optional glaze is a separate saucepan operation. Season the fresh tomato mixture to taste as well as chicken.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> Chicken breasts<small class="trn-state-detail">boneless, skinless; halve horizontally into four thin fillets</small></th><td rowspan="4" colspan="1" class="trn-operation">Season thin chicken fillets with Italian herbs and to-taste salt/pepper; skillet-cook in one-third oil to 165°F.</td><td rowspan="12" colspan="1" class="trn-operation">Spoon fresh bruschetta onto cooked chicken, sprinkle toasted pine nuts and drizzle optional glaze.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 tsp</strong> Italian seasoning<small class="trn-state-detail">basil, rosemary, and thyme) · (dried oregano</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and freshly cracked pepper<small class="trn-state-detail">to taste · Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> olive oil<small class="trn-state-detail">divided</small></th><td rowspan="5" colspan="1" class="trn-operation">Combine seeded diced tomatoes, onion, garlic, basil and remaining oil; season fresh mixture to taste.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> tomatoes<small class="trn-state-detail">seeded and finely diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> minced onion<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Fresh basil<small class="trn-state-detail">thinly sliced · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Balsamic vinegar<small class="trn-state-detail">Optional glaze. Optional; excluded or included as stated in the publisher nutrition.</small></th><td rowspan="2" colspan="1" class="trn-operation">Optional: simmer balsamic vinegar and sugar separately 5–8 min to syrupy glaze.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Sugar<small class="trn-state-detail">Optional glaze. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>3 tbsp</strong> toasted pine nuts<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 2 count Chicken breasts — boneless, skinless; halve horizontally into four thin fillets
+
+- 3 tsp Italian seasoning — basil, rosemary, and thyme). (dried oregano
+
+- to taste Salt and freshly cracked pepper — to taste. Unquantified in source; use to taste or as optional garnish as stated.
+
+- 3 tbsp olive oil — divided
+
+- 4 count tomatoes — seeded and finely diced
+
+- 2 tbsp minced onion
+
+- 1 tsp minced garlic
+
+- 3 tbsp toasted pine nuts
+
+- Not specified Fresh basil — thinly sliced. Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.
+
+- ½ cup Balsamic vinegar. Optional glaze. Optional; excluded or included as stated in the publisher nutrition.
+
+- 1 tbsp Sugar. Optional glaze. Optional; excluded or included as stated in the publisher nutrition.
+
+### Equipment
+
+- Stovetop and large skillet
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Small saucepan only if making the optional glaze
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** If using optional glaze, simmer vinegar and sugar in a saucepan for 5–8 minutes until syrupy.
+
+2. **Step 2.** Halve each breast horizontally into thin fillets and season with Italian herbs, salt and pepper. Heat one-third of the oil in a skillet over medium heat and cook on both sides until 165°F; reserve.
+
+3. **Step 3.** Combine tomatoes, onion, garlic, basil, remaining oil and salt. Spoon over cooked chicken and add toasted pine nuts and optional glaze. Despite its title, the captured source method uses a skillet.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: tree nuts. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher lists 445 calories without a serving size or complete nutrition breakdown; per-portion nutrition remains unreported.
+
+- Captured current recipe cooks in a skillet despite its grilled title. No grill is required for this method; optional glaze needs a saucepan.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Grilled Bruschetta Chicken](https://www.eatwell101.com/chicken-bruschetta-recipe)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Garlic Lemon Chicken Breasts with Green Beans
+
+4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+
+Garlic Lemon Chicken Breasts with Green Beans, adapted from Christina Cherrier.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Lemon Chicken Breasts with Green Beans cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Before cooking, divide total listed oil and oregano among beans, chicken and sauce as source describes; no measured split is specified. Keep mixed lemon sauce separate from chicken browning.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> green beans<small class="trn-state-detail">trimmed · (450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="2" colspan="1" class="trn-operation">Microwave beans with cooking water and small portions of total oil, oregano and seasoning, covered 3–5 min, stirring once.</td><td rowspan="10" colspan="1" class="trn-operation">Combine cooked beans and chicken; pour on mixed lemon sauce and cook 3 min. Adjust seasoning and top with crisp bacon. Oil, oregano and salt/pepper quantities shown are totals across preparations.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Water for vegetable microwave<small class="trn-state-detail">Added from source method.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> boneless skinless chicken breasts<small class="trn-state-detail">Source quantity range 1.5 to 2; lower endpoint chosen explicitly. (650g - 900g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="1" colspan="1" class="trn-operation">Season chicken with a portion of oregano and seasoning; cook in remaining oil in a 12-inch skillet, turning about 6–8 min and continuing to 165°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> garlic cloves<small class="trn-state-detail">minced</small></th><td rowspan="3" colspan="1" class="trn-operation">Whisk lemon juice, garlic, chicken broth and a portion of oregano with seasoning; reserve sauce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> fresh lemon juice<small class="trn-state-detail">(75ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> chicken broth<small class="trn-state-detail">(60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 count</strong> bacon<small class="trn-state-detail">coarsely chopped</small></th><td rowspan="1" colspan="1" class="trn-operation">Separately fry chopped bacon over medium-high until crisp; drain.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> olive oil<small class="trn-state-detail">divided · (60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tsp</strong> dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 ½ lb boneless skinless chicken breasts. Source quantity range 1.5 to 2; lower endpoint chosen explicitly. (650g - 900g) is the source parenthetical; original US quantity controls.
+
+- 1 lb green beans — trimmed. (450g) is the source parenthetical; original US quantity controls.
+
+- 3 count bacon — coarsely chopped
+
+- 2 count garlic cloves — minced
+
+- ⅓ cup fresh lemon juice. (75ml) is the source parenthetical; original US quantity controls.
+
+- ¼ cup olive oil — divided. (60ml) is the source parenthetical; original US quantity controls.
+
+- 1 tsp dried oregano
+
+- ¼ cup chicken broth. (60ml) is the source parenthetical; original US quantity controls.
+
+- to taste Salt and fresh cracked pepper — to taste. Unquantified in source; use to taste or as optional garnish as stated.
+
+- 2 tbsp Water for vegetable microwave. Added from source method.
+
+### Equipment
+
+- Stovetop and two skillets
+
+- Knife and cutting board
+
+- Instant-read thermometer
+
+- Microwave-safe covered dish
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** In a covered microwave-safe dish, combine beans, a little of the measured oil and oregano, salt, pepper and the listed cooking water. Microwave 3–5 minutes, stirring once.
+
+2. **Step 2.** Whisk lemon juice, garlic, stock, most of the oregano, salt and pepper. Season chicken with remaining oregano and cook in the remaining oil in a 12-inch skillet, about 6–8 minutes while turning, continuing until 165°F.
+
+3. **Step 3.** Meanwhile, fry chopped bacon in a separate skillet until crisp; drain.
+
+4. **Step 4.** Combine beans and chicken, add lemon sauce and cook for another 3 minutes. Adjust seasoning and scatter bacon over the top.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+
+Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+
+Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The publisher does not provide verified nutrition values; nutrition remains unreported.
+
+- Source distributes oregano and oil across three preparations without measured splits. This adaptation keeps the listed totals and uses small portions for the beans and chicken, with most oregano in the sauce.
+
+- Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
+
+- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Christina Cherrier: Garlic Lemon Chicken Breasts with Green Beans](https://www.eatwell101.com/garlic-lemon-chicken-and-green-beans-skillet)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Basic Keto Chaffle Recipe
+
+4 portions · US measures · keto · 5 min publisher preparation · 13–17 min
+
+Basic Keto Chaffle Recipe, adapted from Annie.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Basic Keto Chaffle Recipe cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">The four-serving batch makes four mini chaffles; one chaffle is one portion.</td></tr><tr><td colspan="3" class="trn-prep">Allow 2–3 minutes per mini-waffle round, or 8–12 minutes cooking for four sequential rounds, plus about 5 minutes to heat and mix.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> large eggs<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Mix eggs, cheese, almond flour and baking powder until evenly combined.</td><td rowspan="5" colspan="1" class="trn-operation">Cook one mini chaffle per round for 2–3 min until set and steam subsides. The four-portion batch needs four sequential rounds. Adjust the round count for the selected portions and follow the waffle iron capacity and manual.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> shredded cheese<small class="trn-state-detail">(any variety or mixture)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅙ cup</strong> almond flour<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> baking powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Cooking spray<small class="trn-state-detail">Optional, unquantified; check waffle-iron instructions. Unquantified amount remains unknown, not zero.</small></th><td rowspan="1" colspan="1" class="trn-operation">Preheat mini waffle iron per manual; use optional light cooking spray.</td></tr></tbody></table></div>
+
+### Ingredients
+
+- 2 count large eggs
+
+- ⅔ cup shredded cheese. (any variety or mixture)
+
+- ⅙ cup almond flour
+
+- ⅓ tsp baking powder
+
+- Not specified Cooking spray. Optional, unquantified; check waffle-iron instructions. Unquantified amount remains unknown, not zero.
+
+### Equipment
+
+- Mini waffle iron
+
+- Mixing bowl and fork
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Step 1.** Beat eggs with shredded cheese, almond flour and baking powder.
+
+2. **Step 2.** Heat a mini waffle iron according to its manual; add an optional light coating of cooking spray.
+
+3. **Step 3.** Cook one mini chaffle at a time for about 2–3 minutes, until set and steam subsides. This four-portion batter makes four mini chaffles. Four sequential rounds take 8–12 minutes, plus about 5 minutes for heating and mixing. Adjust the round count when changing portions.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+### Nutrition per serving
+
+Calories: 138 kcal; protein: 8.1 g; total carbs: 1.6 g; fiber: 0.2 g; net carbs: 1.4 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk, tree nuts, eggs. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- The original six portions mean six mini chaffles, rather than six complete adult meals. This four-portion batch makes four mini chaffles; nutrition is per chaffle.
+
+- The publisher’s 2–3-minute cooking time is per waffle-iron round. Six original rounds take 12–18 minutes of cooking, or 17–23 minutes with the publisher’s 5-minute preparation, before any additional preheating time.
+
+- Cook the four mini chaffles sequentially. The four-portion batch takes 13–17 minutes including preparation; waffle-iron behavior, preheating and larger batches may add time.
+
+- Ingredient quantities are scaled from 6 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from Annie. This adaptation has not been kitchen-tested.
+
+- At four portions, allow 8–12 minutes of sequential cooking plus the publisher’s 5-minute preparation. Follow the waffle-iron instructions and cook until set and steam subsides.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [Annie: Basic Keto Chaffle Recipe](https://thebestketorecipes.com/basic-keto-chaffle-recipe/)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Keto crack chicken (slow cooker)
+
+4 portions · US measures · keto · 5 min publisher preparation · 495 min
+
+Keto crack chicken, adapted from theketoqueens.com.
+
+Follow the cooking flow and check each component at the stated endpoint.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto crack chicken (slow cooker) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Use the publisher slow-cooker variation, not the insufficient-liquid pressure method.</td></tr><tr><td colspan="3" class="trn-prep">Reserve cheddar, scallion and bacon for the finish; crisp bacon separately in a skillet.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> boneless skinless chicken breasts<small class="trn-state-detail"></small></th><td rowspan="2" colspan="1" class="trn-operation">Fully thaw chicken. Put chicken and cream cheese in slow cooker.</td><td rowspan="14" colspan="1" class="trn-operation"> Cover and cook LOW about 8 hours to 165°F; shred/return chicken, stir cheddar; top with stovetop-crisped bacon and scallion.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 oz</strong> cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> water<small class="trn-state-detail"></small></th><td rowspan="9" colspan="1" class="trn-operation">Whisk water, vinegar and all listed seasonings; pour over chicken.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> apple cider vinegar<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> dried chives<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¾ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¾ tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> crushed red pepper flakes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> dried dill<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 count</strong> bacon<small class="trn-state-detail">(chopped)</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> shredded cheddar<small class="trn-state-detail">((2 oz))</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ count</strong> scallion<small class="trn-state-detail">thinly sliced) · (green and white parts</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- 1 count bacon. (chopped)
+
+- 1 lb boneless skinless chicken breasts
+
+- 8 oz cream cheese
+
+- ¼ cup water
+
+- 1 tbsp apple cider vinegar
+
+- ½ tbsp dried chives
+
+- ¾ tsp garlic powder
+
+- ¾ tsp onion powder
+
+- ½ tsp crushed red pepper flakes
+
+- ½ tsp dried dill
+
+- ⅛ tsp salt
+
+- ⅛ tsp black pepper
+
+- ¼ cup shredded cheddar. ((2 oz))
+
+- ½ count scallion — thinly sliced). (green and white parts
+
+### Equipment
+
+- Slow cooker sized for the original or scaled chicken batch
+
+- Stovetop and skillet for bacon
+
+- Two forks
+
+- Instant-read thermometer
+
+### Cook
+
+Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.
+
+1. **Load the slow cooker.** Use fully thawed chicken. Put it with cream cheese in the slow cooker. Whisk water, vinegar, chives, garlic powder, onion powder, chili flakes, dill, salt and pepper; pour over the chicken.
+
+2. **Cook and shred.** Cover and cook on LOW for about 8 hours, following the cooker manual and confirming chicken reaches 165°F. Shred the cooked chicken with two forks and return it to the sauce; stir in cheddar.
+
+3. **Finish.** Cook bacon in a stovetop skillet until crisp, drain and crumble. Scatter it and sliced scallion over the chicken. Allow preparation and finishing time in addition to the 8-hour slow cook.
+
+### Attention timeline
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+- A 15-minute finishing allowance is a planning estimate; cooker behavior and chicken thickness decide the endpoint.
+
+### Nutrition per serving
+
+Calories: 380 kcal; protein: 30.0 g; total carbs: 4.0 g; fiber: 1.0 g; net carbs: 3.0 g
+
+Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+
+Known allergens for these plates: milk. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- Uses Faith Gorsky’s published slow-cooker variation, under How to Make Crack Chicken in a Slow Cooker or Crock Pot at the original recipe link. Ingredient quantities are half the original eight-serving batch, giving four portions.
+
+- The publisher’s Instant Pot version uses ½ cup water for eight portions, or ¼ cup for four. This adaptation follows the publisher’s slow-cooker method; those small liquid amounts must not be assumed safe for pressure cooking.
+
+- Start with fully thawed chicken, follow your exact slow-cooker capacity and operating instructions, and verify 165°F. LOW cooking is approximately 8 hours; allow additional preparation and bacon-finishing time.
+
+- Nutrition retains the publisher’s estimate per original portion; proportional scaling preserves that portion. The publisher does not provide separate laboratory validation of the slow-cooker variation.
+
+- Ingredient quantities are scaled from 8 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
+
+- Adapted from theketoqueens.com. This adaptation has not been kitchen-tested.
+
+- Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
+
+### Leftovers
+
+Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
+
+### Sources
+
+- [theketoqueens.com: Keto Instant Pot Crack Chicken Recipe](https://theketoqueens.com/keto-crack-chicken-recipe/)
+
+- [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.

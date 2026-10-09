@@ -8,8 +8,10 @@
 	import {
 		displayNutrition,
 		formatIngredient,
+		formatNutrition,
 		ingredientAmount,
 		nutritionHeading,
+	totalTimeLabel,
 	} from "./recipe-logic.mjs";
 
 	// A recipe's appliances, facts, photo, family side, cooking flow and
@@ -54,17 +56,19 @@
 </script>
 
 <div class="recipe-body">
+	{#if recipe.sourceRecipe}<p class="source-credit">Adapted from <a href={recipe.sourceRecipe.resolvedUrl || recipe.sourceRecipe.url}>{recipe.sourceRecipe.author || "the original publisher"}</a>. {recipe.sourceRecipe.nutritionBasis}</p>{/if}
 	<div class="detail-appliances">
 		<span>Appliances needed</span>
 		<div class="appliance-icons">{#each recipe.appliancesNeeded as name (name)}<ApplianceIcon {name} />{/each}</div>
 	</div>
 	<div class="detail-facts">
-		<span><strong>{recipe.activeMinutes}{settings.servings > BASE_SERVINGS ? "+" : ""} min</strong> active time{settings.servings > BASE_SERVINGS ? " / base batch" : ""}</span>
+		<span><strong>{recipe.activeMinutes === null ? "Not provided" : `${recipe.activeMinutes}${settings.servings > BASE_SERVINGS ? "+" : ""} min`}</strong> {recipe.sourceRecipe ? "prep time (publisher)" : "active time"}{settings.servings > BASE_SERVINGS ? " / base batch" : ""}</span>
 		<span><strong>{settings.servings}</strong> servings</span>
+		<span><strong>{totalTimeLabel(recipe, settings.servings)}</strong> total time</span>
 	</div>
 	{#if recipe.image}
 		<figure class="recipe-photo">
-			<img src={recipe.image.src} srcset={recipe.image.detailSrcset} sizes="(max-width:600px) 320px, (max-width:1000px) 680px, 960px" width={recipe.image.width} height={recipe.image.height} alt={recipe.image.alt} loading="eager" decoding="async" />
+			<img src={recipe.image.src} srcset={recipe.image.detailSrcset} sizes="(max-width:600px) 320px, (max-width:1000px) 680px, 960px" width={recipe.image.width} height={recipe.image.height} alt={recipe.image.alt} loading="eager" decoding="async" /><figcaption>{recipe.image.caption}</figcaption>
 		</figure>
 	{/if}
 	{#if side}
@@ -77,15 +81,17 @@
 			<p>{sideAmount} {side.ingredientName} · serve separately</p>
 		</div>
 	{/if}
+	{#if recipe.sourceRecipe}<section aria-label="Source notes"><svelte:element this={`h${headingLevel}`}>Before cooking</svelte:element><ul>{#each recipe.limitations as note, index (index)}<li>{note}</li>{/each}</ul></section>{/if}
 	{#key recipe.id}<RecipeFlow {recipe} {settings} {interactive} {headingLevel} />{/key}
+	{#if recipe.sourceRecipe}<section aria-label="Recipe method"><svelte:element this={`h${headingLevel}`}>Method</svelte:element><ol>{#each recipe.steps as step, index (index)}<li><strong>{step.title}.</strong> {step.text}</li>{/each}</ol></section>{/if}
 	<section class="nutrition" aria-label={nutritionHeading(recipe)}>
 		<svelte:element this={`h${headingLevel}`}>{nutritionHeading(recipe)}</svelte:element>
 		<dl>
-			<div><dt>Calories</dt><dd>{Math.round(baseNutrition.kcal)} kcal</dd></div>
-			<div><dt>Protein</dt><dd>{Math.round(baseNutrition.protein_g)} g</dd></div>
-			<div><dt>Total carbs</dt><dd>{Math.round(baseNutrition.carbs_g)} g</dd></div>
-			<div><dt>Fiber</dt><dd>{Math.round(baseNutrition.fiber_g)} g</dd></div>
-			<div><dt>Net carbs</dt><dd>{Math.round(baseNutrition.net_carbs_g)} g</dd></div>
+			<div><dt>Calories</dt><dd>{formatNutrition(baseNutrition.kcal, "kcal")}</dd></div>
+			<div><dt>Protein</dt><dd>{formatNutrition(baseNutrition.protein_g, "g")}</dd></div>
+			<div><dt>Total carbs</dt><dd>{formatNutrition(baseNutrition.carbs_g, "g")}</dd></div>
+			<div><dt>Fiber</dt><dd>{formatNutrition(baseNutrition.fiber_g, "g")}</dd></div>
+			<div><dt>Net carbs</dt><dd>{formatNutrition(baseNutrition.net_carbs_g, "g")}</dd></div>
 		</dl>
 		{#key recipe.id}<NutrientDisclosure nutrients={dailyValues} {interactive} headingLevel={headingLevel + 1} />{/key}
 	</section>
@@ -126,6 +132,8 @@
 			max-width: 60rem;
 			margin: 22px 0;
 		}
+		.recipe-photo figcaption { font-size: 0.8rem; color: var(--recipe-muted); margin-top: 8px; }
+		.source-credit { overflow-wrap: anywhere; }
 		.recipe-photo img {
 			display: block;
 			width: 100%;
