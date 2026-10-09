@@ -1,0 +1,74 @@
+name: Legacy redirects
+run-name: Legacy redirects ${{ github.event.deployment.sha || github.sha }}
+
+on:
+  schedule:
+    - cron: '23 9 * * *'
+  workflow_dispatch:
+  deployment_status:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: legacy-redirects-${{ github.event.deployment.id || github.event_name }}-${{ github.event.deployment_status.state || 'manual' }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    # Only blogthedata's successful main deployments trigger this public check.
+    # Auto-assign stays off during the soak; this checks the promoted domains.
+    if: >-
+      (github.event_name == 'schedule' ||
+       (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')) ||
+      (github.event_name == 'deployment_status' &&
+       github.event.deployment_status.state == 'success' &&
+       github.event.deployment.creator.login == 'vercel[bot]' &&
+       (github.event.deployment.ref == 'main' ||
+        github.event.deployment.ref == 'refs/heads/main' ||
+        github.event.deployment.ref == github.event.deployment.sha) &&
+       (github.event.deployment.environment == 'Production' ||
+        startsWith(github.event.deployment.environment, 'Production – ')) &&
+       startsWith(github.event.deployment_status.environment_url, 'https://blogthedata-'))
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.deployment.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Verify the checked release belongs to main
+        env:
+          RELEASE_SHA: ${{ github.event.deployment.sha || github.sha }}
+        run: |
+          [[ "$RELEASE_SHA" =~ ^[0-9a-f]{40}$ ]] || exit 1
+          git merge-base --is-ancestor "$RELEASE_SHA" origin/main
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Verify public redirects and service-worker kill switches
+        shell: bash
+        run: |
+          mkdir -p legacy-redirect-artifacts
+          for attempt in 1 2 3; do
+            if node scripts/verify-blogthedata-cutover.mjs --production --sample > "legacy-redirect-artifacts/attempt-$attempt.log" 2>&1; then
+              cat "legacy-redirect-artifacts/attempt-$attempt.log"
+              exit 0
+            fi
+            cat "legacy-redirect-artifacts/attempt-$attempt.log"
+            if [[ "$attempt" -lt 3 ]]; then
+              echo "::warning::Legacy redirect check failed; retrying after propagation delay (attempt $attempt of 3)."
+              sleep 10
+            fi
+          done
+          exit 1
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: legacy-redirects-${{ github.run_id }}-${{ github.run_attempt }}
+          path: legacy-redirect-artifacts/
+          if-no-files-found: warn
+          retention-days: 14
