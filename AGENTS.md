@@ -48,7 +48,7 @@ Canon: `~/code/dotagents/rules/frontend-stack.md`.
 
 ```bash
 npm run dev                 # Astro dev server (localhost:4321)
-npm run build               # astro build (writes the route manifest) + node process-html.mjs + recipe service worker (scripts/recipes/pwa-build.mjs) + built-CSP test (csp suite)
+npm run build               # astro build (writes the route manifest) + node process-html.mjs + static Markdown siblings (scripts/markdown-build.mjs) + recipe service worker (scripts/recipes/pwa-build.mjs) + built-CSP test (csp suite)
 npm run build:maintenance   # MAINTENANCE_MODE=true npm run build (renders Maintenance.astro)
 npm run preview             # Preview the production build locally
 npm run gate                # the full pre-commit gate (see CI below)
@@ -101,7 +101,7 @@ Test discovery belongs to `scripts/run-tests.mjs`; suite counts belong only to `
 
 ### Blog
 
-- **`src/layouts/BlogLayout.astro`:** standalone (no Markdown alternate). It honors `MAINTENANCE_MODE` (the notice replaces the body, and the page's head slot, its post JSON-LD and article meta included, is dropped). With `section="blog"` it adds the per-page `img-src` (CloudFront) and `frame-src` (YouTube, diagrams.net, nbviewer) CSP directives, failing the build when `Astro.csp` is unavailable. It imports the stylesheets in `src/styles/blog/` (`theme`, `ui`, `blog`, and `no-script` through `?url`).
+- **`src/layouts/BlogLayout.astro`:** standalone, with a Markdown alternate for each published page outside maintenance mode. It honors `MAINTENANCE_MODE` (the notice replaces the body, and the page's head slot, its post JSON-LD and article meta included, is dropped). With `section="blog"` it adds the per-page `img-src` (CloudFront) and `frame-src` (YouTube, diagrams.net, nbviewer) CSP directives, failing the build when `Astro.csp` is unavailable. It imports the stylesheets in `src/styles/blog/` (`theme`, `ui`, `blog`, and `no-script` through `?url`).
 - **Routes:** `/blog/`, `/blog/all-posts/`, `/blog/category/<slug>/` (slug case kept, e.g. `Geodev`; the `category/` folder is Astro's routing layout), `/blog/works-cited/`, and the noindex `/blog/search/`, whose `Search` island reads `?searched=` and fetches the `/blog/search-index.json` endpoint (one entry per published post). One page per published post, `/blog/<slug>/` (`blog/[slug].astro`, slug case kept), carries breadcrumbs, related cards, share links and BlogPosting JSON-LD on jsolly.com URLs. The `/blog/rss.xml` and `/blog/atom.xml` endpoints list the five most recently updated posts; BlogLayout links both as alternates, and `vercel.json` sends their Content-Types, which a static build cannot.
 - **`src/components/blog/`:** `BlogNavigation` (the blog chrome), `PostCards` (the card list with its load-more island), `AuthorCard` (whose `h2#about-author` is a legacy fragment id) and `Search`.
 - **`src/lib/blog/`:**
