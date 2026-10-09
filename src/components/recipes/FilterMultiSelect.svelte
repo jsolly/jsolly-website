@@ -18,6 +18,9 @@
 		canSelect = () => true,
 	} = $props();
 	const uid = $props.id();
+	let open = $state(false);
+	let trigger = $state(null);
+	let content = $state(null);
 	const summary = $derived(
 		selected.length
 			? selected.map((value) => options[value]).join(", ")
@@ -29,15 +32,32 @@
 			? selected.filter((item) => item !== value)
 			: [...selected, value];
 	}
+
+	// Focus immediately on opening. A queued animation-frame autofocus can
+	// otherwise pull focus back after the user has already tabbed away.
+	function enterFocus(event) {
+		event.preventDefault();
+		if (document.activeElement !== trigger) return;
+		// biome-ignore lint/security/noSecrets: CSS selector, not a credential.
+		content?.querySelector('button:not([disabled])')?.focus();
+	}
+
+	// Return keyboard focus from the panel, but keep an outside control's
+	// focus when the user clicks it to dismiss the filter.
+	function restoreFocus(event) {
+		event.preventDefault();
+		if (open) return;
+		if (content?.contains(document.activeElement)) trigger?.focus();
+	}
 </script>
 
 <div class="filter-select">
 	<span class="filter-label">{label}</span>
-	<PopoverRoot>
-		<PopoverTrigger class="multi-trigger" aria-label={`${label}: ${summary}`} {disabled}>
+	<PopoverRoot bind:open>
+		<PopoverTrigger bind:ref={trigger} class="multi-trigger" aria-label={`${label}: ${summary}`} {disabled}>
 			<span>{summary}</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m4 6 4 4 4-4" /></svg>
 		</PopoverTrigger>
-		<PopoverContent class="multi-options" portalProps={{ disabled: true }} sideOffset={6} role="dialog" aria-label={`${label} choices`}>
+		<PopoverContent bind:ref={content} trapFocus={false} onOpenAutoFocus={enterFocus} onCloseAutoFocus={restoreFocus} class="multi-options" portalProps={{ disabled: true }} sideOffset={6} collisionPadding={16} role="dialog" aria-label={`${label} choices`}>
 			{#each Object.entries(options) as [value, text] (value)}
 				<label for={`${uid}-${value}`}
 					><Checkbox
@@ -107,6 +127,8 @@
 			padding: 10px;
 			width: var(--bits-popover-anchor-width);
 			max-width: calc(100vw - 32px);
+			max-height: min(var(--bits-popover-content-available-height), calc(100dvh - 32px));
+			overflow-y: auto;
 			box-shadow: 0 8px 24px #0002;
 		}
 		label {
