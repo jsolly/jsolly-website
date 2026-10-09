@@ -10,19 +10,25 @@ offline app and the old host's kill-switch.
 
 ## Data contract
 
-The canonical data is `src/components/recipes/recipes.json` (15 meals and 6
+The canonical data is `src/components/recipes/recipes.json` (140 meals and 6
 smoothies, pinned by `scripts/unit/recipe-data.test.mjs`) and `src/components/recipes/nutrition-data.json` (the
 Daily Value nutrients and each recipe's per-ingredient nutrient rows). Recipe
 ids are stable: each is a page slug (`/recipes/<id>/`) and a fragment id
 (`/recipes/#<id>` opens it in the library dialog), and old links use both.
 Images are files under `public/recipes/media/`, referenced as `/recipes/media/...`.
 
-All ingredient amounts describe the reviewed four-adult base, except
+The 125 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Missing ingredient quantities display as "Not specified"; missing nutrition and times display as "Not provided". The 72 nutrition-unverified recipes remain separate from keto eligibility and missing observations do not qualify for nutrient filters. Publisher prep time is distinguished from household active time.
+
+Every recipe has a first-party illustration under the [image contract](recipe-images.md), with a visible AI illustration disclosure.
+
+Household ingredient amounts describe the reviewed four-adult base, except
 `familyOptions`, which describe one non-keto adult's starch. Canonical units
 distinguish mass, volume, count and spoon measures; source-specific US measures
 describe the same food quantity. Pesto and pressure liquid stay weighed or
 measured in grams and mL in both display modes, because generic spoon
 conversions would be misleading.
+
+Publisher adaptations use four portions and preserve their stated quantities and method limits. Whole-bird recipes round up to complete batches for 2, 4, 6 and 8 portions. Do not infer a missing publisher quantity or nutrition value.
 
 Linear ingredient scaling supports 2, 4, 6 and 8 adults (`SERVING_CHOICES`).
 Pressure liquid has a minimum matching the named Duo 6 QT manual; its

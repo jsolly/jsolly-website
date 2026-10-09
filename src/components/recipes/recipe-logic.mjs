@@ -59,10 +59,12 @@ export function formatQuantity(value) {
 
 /** Minimum seasonings retain their baseline amount for smaller batches. */
 export function ingredientAmount(ingredient, servings) {
-	const amount = Number(ingredient?.amount);
+	const amount = ingredient?.amount;
 	if (!Number.isFinite(amount)) return NaN;
 	const validServings = validateSettings({ servings }).servings;
 	if (ingredient.scale === "fixed") return amount;
+	if (ingredient.scale === "whole-batch")
+		return amount * Math.ceil(validServings / BASE_SERVINGS);
 	const scaled = (amount * validServings) / BASE_SERVINGS;
 	return ingredient.scale === "minimum" ? Math.max(amount, scaled) : scaled;
 }
@@ -75,7 +77,7 @@ export function formatIngredient(
 	{ wholeOunces = false } = {},
 ) {
 	const amount = ingredientAmount(ingredient, servings);
-	if (!Number.isFinite(amount)) return "—";
+	if (!Number.isFinite(amount)) return "Not specified";
 	if (amount === 0) return "to taste";
 	const grams =
 		ingredient.unit === "g" ? amount : amount * ingredient.gramsPerUnit;
@@ -138,10 +140,11 @@ export function servingNutrition(recipe, servings = BASE_SERVINGS) {
 		if (!ingredient.nutritionBatch || !ingredient.amount) continue;
 		const actual = ingredientAmount(ingredient, count) / ingredient.amount;
 		for (const key of NUTRIENTS)
-			result[key] +=
-				(Number(ingredient.nutritionBatch[key] ?? 0) *
-					(actual - count / BASE_SERVINGS)) /
-				count;
+			if (finite(result[key]) && finite(ingredient.nutritionBatch[key]))
+				result[key] +=
+					(Number(ingredient.nutritionBatch[key] ?? 0) *
+						(actual - count / BASE_SERVINGS)) /
+					count;
 	}
 	return result;
 }
@@ -159,7 +162,9 @@ export function smoothiePortionNutrition(recipe, fluidOunces = 8) {
 	return Object.fromEntries(
 		NUTRIENTS.map((key) => [
 			key,
-			(recipe.nutrition[key] * BASE_SERVINGS) / glassesPerBatch,
+			finite(recipe.nutrition[key])
+				? (recipe.nutrition[key] * BASE_SERVINGS) / glassesPerBatch
+				: null,
 		]),
 	);
 }
@@ -191,8 +196,11 @@ export function familyNutrition(recipe, choiceId, servings = BASE_SERVINGS) {
 	return Object.fromEntries(
 		NUTRIENTS.map((key) => [
 			key,
-			Number(recipe ? servingNutrition(recipe, servings)[key] : 0) +
-				Number(option?.nutrition?.[key] ?? 0),
+			finite(recipe ? servingNutrition(recipe, servings)[key] : 0) &&
+			finite(option ? option.nutrition?.[key] : 0)
+				? (recipe ? servingNutrition(recipe, servings)[key] : 0) +
+					(option ? option.nutrition[key] : 0)
+				: null,
 		]),
 	);
 }
@@ -216,4 +224,22 @@ export function purchaseNote(ingredient, servings = BASE_SERVINGS) {
 	return pack.drained
 		? `About ${count} × ${pack.label}, assuming ~${pack.grams} g drained per can; check actual yield.`
 		: `Buy ${count} × ${pack.label}; measure out the required weight.`;
+}
+
+/** Label the complete elapsed-time estimate without inventing absent publisher times. */
+export function totalTimeLabel(recipe, servings = BASE_SERVINGS) {
+	if (!finite(recipe.totalMin) || !finite(recipe.totalMax))
+		return "Not provided";
+	const time =
+		recipe.totalMin === recipe.totalMax
+			? `${recipe.totalMin}`
+			: `${recipe.totalMin}–${recipe.totalMax}`;
+	return `${time}${servings > BASE_SERVINGS ? "+" : ""} min${servings > BASE_SERVINGS ? " / base batch" : ""}${recipe.timeVariable ? " expected; pressure buildup can take longer" : ""}`;
+}
+
+/** Preserve absent source nutrition on screen, in print and in exports. */
+export function formatNutrition(value, unit = "", decimals = 0) {
+	return finite(value)
+		? `${value.toFixed(decimals)}${unit ? ` ${unit}` : ""}`
+		: "Not provided";
 }

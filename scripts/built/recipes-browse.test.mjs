@@ -369,8 +369,20 @@ function filtersCheck(width) {
 				.selectOption("0");
 			await checkbox("Oven").uncheck();
 			await checkbox("Microwave").uncheck();
-			assert.equal(await checkbox("Blender").count(), 0);
-			assert.equal(await checkbox("Pans").isDisabled(), true);
+			// Imported meals may use a blender and pans with an explicit heat source.
+			assert.equal(await checkbox("Blender").count(), 1);
+			assert.equal(await checkbox("Pans").isDisabled(), false);
+			for (const name of [
+				"Blender",
+				"Pans",
+				"Stovetop",
+				"Grill",
+				"Slow cooker",
+				"Waffle iron",
+			]) {
+				// biome-ignore lint/performance/noAwaitInLoops: each checkbox rerenders the appliance controls.
+				await checkbox(name).uncheck();
+			}
 			assert.equal(await cards(), 0);
 			// With no recipe left, a checked protein can still be unchecked.
 			await page.getByRole("button", { name: PROTEINS }).click();
@@ -385,10 +397,11 @@ function filtersCheck(width) {
 			const reloaded = await stored(page);
 			assert.deepEqual(reloaded.filters, saved.filters);
 			assert.deepEqual(reloaded.appliancesOnHand, saved.appliancesOnHand);
-			assert.equal(await checkbox("Pans").isDisabled(), true);
+			assert.equal(await checkbox("Pans").isDisabled(), false);
 			assert.equal(await cards(), 0);
 			await checkbox("Oven").check();
 			await checkbox("Microwave").check();
+			await checkbox("Blender").check();
 
 			await follow(
 				page,

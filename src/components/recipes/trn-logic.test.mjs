@@ -73,6 +73,21 @@ it("tables keep scaled spoon measures, safe endpoint conversions and symbolic pi
 it("split symbolic salt preserves one pinch and a complete positive remainder", () => {
 	const recipe = recipes.find((r) => r.key === "shawarma");
 	assert(validateFlow(recipe));
+	const toTaste = structuredClone(recipe);
+	const seasoning = toTaste.ingredients.find(
+		(ingredient) => ingredient.id === "fine_salt",
+	);
+	seasoning.amount = 0;
+	seasoning.name = "Black pepper";
+	const symbolicRows = flowGrid(toTaste, {
+		servings: 4,
+		units: "us",
+	}).rows.filter((row) => row.ingredient.ingredientId === "fine_salt");
+	assert.ok(symbolicRows.length > 1);
+	for (const row of symbolicRows) {
+		assert.equal(row.ingredient.quantity, "to taste");
+		assert.equal(row.ingredient.name, "Black pepper");
+	}
 	const invalid = structuredClone(recipe);
 	const branches = invalid.flow.root.children.at(2).children;
 	branches[0].children.find((x) => x.share === "remainder").fraction = -1;

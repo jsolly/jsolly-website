@@ -7,6 +7,8 @@
 		"defaultBranch": "main"
 	},
 	"files": {
+		// Keep the expanded canonical recipe library fully parsed and checked.
+		"maxSize": 2097152,
 		"includes": [
 			"**",
 			"!.agents",

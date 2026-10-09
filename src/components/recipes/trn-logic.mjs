@@ -86,28 +86,30 @@ export function flowGrid(recipe, settings = {}) {
 				wholeOunces: recipe.type === "smoothie",
 			});
 			item.quantity =
-				node.share === "pinch"
-					? "pinch of"
-					: node.share === "remainder"
-						? `${Number(node.fraction ?? 1) === 0.5 ? `½ remaining (${total} total)` : `Remainder of ${total}`}`
-						: formatIngredient(
-								{
-									...ingredient,
-									amount,
-									us: ingredient.us
-										? {
-												...ingredient.us,
-												amount:
-													(ingredient.us.amount * amount) / ingredient.amount,
-											}
-										: undefined,
-									scale: "fixed",
-								},
-								BASE_SERVINGS,
-								units,
-								{ wholeOunces: recipe.type === "smoothie" },
-							);
-			item.name = node.share === "pinch" ? "salt" : ingredient.name;
+				node.share && ingredient.amount === 0
+					? "to taste"
+					: node.share === "pinch"
+						? "pinch of"
+						: node.share === "remainder"
+							? `${Number(node.fraction ?? 1) === 0.5 ? `½ remaining (${total} total)` : `Remainder of ${total}`}`
+							: formatIngredient(
+									{
+										...ingredient,
+										amount,
+										us: ingredient.us
+											? {
+													...ingredient.us,
+													amount:
+														(ingredient.us.amount * amount) / ingredient.amount,
+												}
+											: undefined,
+										scale: "fixed",
+									},
+									BASE_SERVINGS,
+									units,
+									{ wholeOunces: recipe.type === "smoothie" },
+								);
+			item.name = ingredient.name;
 			item.state = cookText(
 				[ingredient.state, ingredient.note, purchaseNote(ingredient, servings)]
 					.filter(Boolean)

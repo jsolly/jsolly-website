@@ -2,7 +2,7 @@
 	import { printGroupLabels } from "./constants.mjs";
 	import { dailyNutrition, nutrientAmount } from "./nutrition.mjs";
 	import RecipeFlow from "./RecipeFlow.svelte";
-	import { recipeDocument } from "./recipe-export.mjs";
+	import { nutritionSummary, recipeDocument } from "./recipe-export.mjs";
 	import { ingredientAmount } from "./recipe-logic.mjs";
 
 	// The printed copy of one or more recipes: hidden on screen, shown in print.
@@ -11,9 +11,6 @@
 		recipes.map((recipe) => recipeDocument(recipe, settings)),
 	);
 
-	function macros(nutrition) {
-		return `${Math.round(nutrition.kcal)} kcal · ${Math.round(nutrition.protein_g)} g protein · ${Math.round(nutrition.carbs_g)} g total carbohydrate · ${Math.round(nutrition.fiber_g)} g fiber · ${Math.round(nutrition.net_carbs_g)} g net carbohydrate`;
-	}
 
 	// The vitamins and minerals worth printing, highest daily value first.
 	function dailyValues(recipe) {
@@ -34,7 +31,8 @@
 	{#each documents as document, i (document.recipeId)}
 		<article class="print-meal" class:new-page={i > 0} aria-label={document.title}>
 			<h1 class="print-title">{document.title}</h1>
-			<p class="meal-facts">{printGroupLabels[document.group] || document.group} · {document.servings} servings · {document.units === "metric" ? "Metric" : "US"} measures · {document.activeMinutes} min active per original four-serving batch</p>
+			<p class="meal-facts">{printGroupLabels[document.group] || document.group} · {document.servings} servings · {document.units === "metric" ? "Metric" : "US"} measures · {document.activeMinutes === null ? "Prep time not provided" : `${document.activeMinutes} min ${document.timeBasis} per four-serving batch`}</p>
+			<p class="total-time">Total time: {document.totalTime}</p>
 			<p>{document.summary}</p>
 			<p>{document.attentionSummary}</p>
 			<p class="important">{document.capacity}</p>
@@ -72,7 +70,8 @@
 			<p>{document.flavorRationale}</p>
 			<ul>{#each document.tips as tip (tip)}<li>{tip}</li>{/each}</ul>
 			<h2>{document.nutritionHeading}</h2>
-			<p>{macros(document.nutrition)}</p>
+			<p>{nutritionSummary(document.nutrition)}</p>
+			<p>{document.nutritionNote}</p>
 			<dl class="daily-values">
 				{#each dailyValues(recipes[i]) as nutrient (nutrient.key)}
 					<div><dt>{nutrient.label}</dt><dd>{nutrientAmount(nutrient.amount)} {nutrient.unit} · {nutrient.percent === null ? "—" : `${nutrient.percent}% DV`}</dd></div>
@@ -85,7 +84,7 @@
 			<p>{document.leftovers}</p>
 			<h2>Sources</h2>
 			<ul class="source-list">{#each document.sources as source (source.url)}<li>{source.title}<br /><a href={source.url}>{source.url}</a></li>{/each}</ul>
-			<p class="small">Sources support safety, labels or comparable methods. They do not validate this exact newly designed recipe.</p>
+			<p class="small">{document.disclaimer}</p>
 		</article>
 	{/each}
 </section>

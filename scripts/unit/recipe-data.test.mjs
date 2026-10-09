@@ -101,13 +101,13 @@ it("recipes:check reports an edited and a missing assistant download as drift", 
 	}
 });
 
-it("every recipe is a meal or a smoothie: 15 meals and 6 smoothies", () => {
+it("every recipe is a meal or a smoothie: 140 meals and 6 smoothies", () => {
 	const counts = Object.groupBy(data.recipes, (recipe) => recipe.type);
 	assert.deepEqual(
 		Object.fromEntries(
 			Object.entries(counts).map(([type, recipes]) => [type, recipes.length]),
 		),
-		{ meal: 15, smoothie: 6 },
+		{ meal: 140, smoothie: 6 },
 	);
 });
 

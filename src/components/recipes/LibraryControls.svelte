@@ -5,7 +5,6 @@
 	import ApplianceIcon from "./ApplianceIcon.svelte";
 	import {
 		applianceChoices,
-		applianceDependencies,
 		applianceLimits,
 		carbStyles,
 		defaultAppliances,
@@ -96,13 +95,6 @@
 		return pathname === link.href ? "page" : "true";
 	}
 
-	// An appliance that needs another (pans need the oven) is unavailable
-	// without it.
-	function unavailable(value) {
-		const needs = applianceDependencies[value];
-		return Boolean(needs) && !appliancesOnHand[needs];
-	}
-
 	function setAppliance(value, count) {
 		appliancesOnHand = { ...appliancesOnHand, [value]: count };
 	}
@@ -174,7 +166,7 @@
 							id={controlId(`appliance-${index}`)}
 							checked={appliancesOnHand[value] > 0}
 							onCheckedChange={(checked) => setAppliance(value, checked ? 1 : 0)}
-							disabled={!hydrated || unavailable(value)}
+							disabled={!hydrated}
 						/><ApplianceIcon name={value} decorative />{label}</label
 					>
 				{/if}

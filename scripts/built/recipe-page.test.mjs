@@ -31,6 +31,65 @@ const SERVINGS = /^Servings/u;
 const FAMILY_SIDE = /^Family side/u;
 const SPACES = /\s+/gu;
 const LEARN_MORE = "Learn more about Tabular Recipe Notation";
+const MISSING_TOTAL = /Not provided total time/u;
+const PRINT_MISSING_TOTAL = /Total time: Not provided/u;
+const KNOWN_TOTAL = /80 min total time/u;
+const PRINT_KNOWN_TOTAL = /Total time: 80 min/u;
+const UNKNOWN_CARBS = /Net carbs\s*Not provided/u;
+
+for (const width of [390, 1280]) {
+	it(`publisher recipes hydrate, disclose absent times and nutrition, and print known times at ${width}px`, async () => {
+		const context = await browser.newContext({
+			viewport: { width, height: 900 },
+		});
+		const page = await context.newPage();
+		const errors = collectErrors(page, ["error", "warning"]);
+		try {
+			await page.goto(
+				`${site.origin}/recipes/source-honey-mustard-chicken-sheet-pan-dinner-keto-low-carb/`,
+			);
+			await page.getByRole("button", { name: "Print recipe" }).waitFor();
+			assert.match(
+				await page.locator(".detail-facts").textContent(),
+				MISSING_TOTAL,
+			);
+			assert.match(
+				await page.locator(".print-document .total-time").textContent(),
+				PRINT_MISSING_TOTAL,
+			);
+			assert.equal(
+				await page.locator(".source-credit a").getAttribute("href"),
+				"https://farmlifediy.com/honey-mustard-chicken-sheet-pan-dinner-keto-low-carb/",
+			);
+			await page.goto(
+				`${site.origin}/recipes/source-keto-slow-cooker-zesty-ranch-chicken/`,
+			);
+			await page.getByRole("button", { name: "Print recipe" }).waitFor();
+			assert.match(
+				await page.locator(".nutrition > dl").textContent(),
+				UNKNOWN_CARBS,
+			);
+			await page.goto(`${site.origin}/recipes/source-perfect-roast-chicken/`);
+			await page.getByRole("button", { name: "Print recipe" }).waitFor();
+			assert.match(
+				await page.locator(".detail-facts").textContent(),
+				KNOWN_TOTAL,
+			);
+			assert.match(
+				await page.locator(".print-document .total-time").textContent(),
+				PRINT_KNOWN_TOTAL,
+			);
+			await page.getByRole("combobox", { name: SERVINGS }).selectOption("8");
+			assert.equal(
+				await page.getByRole("combobox", { name: SERVINGS }).inputValue(),
+				"8",
+			);
+			assert.deepEqual(errors, []);
+		} finally {
+			await context.close();
+		}
+	});
+}
 
 let site;
 let browser;
@@ -325,7 +384,8 @@ it("a reader who picks 8 servings and the bun side gets the scaled recipe and a 
 				errors,
 			},
 			{
-				facts: "15+ min active time / base batch 8 servings",
+				facts:
+					"15+ min active time / base batch 8 servings 30–40+ min / base batch total time",
 				sideLine: "360g Bun · serve separately",
 				cucumber: "600g",
 				link: `${site.origin}${PAGE}?servings=8&starch=greek-turkey-patties%3Abun_one`,
@@ -358,7 +418,8 @@ it("a shared link with ?servings=6 and a family side opens the recipe at six ser
 			{
 				servings: "6",
 				side: SIDE,
-				facts: "15+ min active time / base batch 6 servings",
+				facts:
+					"15+ min active time / base batch 6 servings 30–40+ min / base batch total time",
 				sideLine: "270g Bun · serve separately",
 				errors: [],
 			},
