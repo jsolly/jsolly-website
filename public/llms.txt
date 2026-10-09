@@ -2,7 +2,7 @@
 
 > Personal website of John Solly — CTO of Enterprise Health at Leidos Digital, software engineer, and builder of spatial + AI systems. Static site; no product API.
 
-This file is the index for agents. Prefer it over scraping HTML. The five portfolio pages (home, about, contact, privacy, terms) also honor `Accept: text/markdown` (acceptmarkdown.com) and have `.md` siblings (`/index.md`, `/about.md`, `/contact.md`, `/privacy.md`, `/terms.md`); blog and recipe pages are HTML only: under `/blog/` and `/recipes/` they return HTML even for `Accept: text/markdown`, and have no `.md` siblings.
+This file is the index for agents. Prefer it over scraping HTML. Every published portfolio, blog and recipe page supports Markdown. Browser controls remain on the HTML page. Send `Accept: text/markdown` (acceptmarkdown.com), or fetch a `.md` sibling: `/index.md`, `/about.md`, `/contact.md`, `/privacy.md`, `/terms.md`, `/blog.md`, `/blog/all-posts.md`, `/recipes.md` and `/recipes/works-cited.md`. A post or recipe at `/blog/slug/` or `/recipes/slug/` has a sibling at `/blog/slug.md` or `/recipes/slug.md`.
 
 ## When to use this
 
@@ -24,7 +24,7 @@ Do **not** use this site when you need:
 How to fetch:
 
 1. Read this file.
-2. For a portfolio page, GET its URL with `Accept: text/markdown`, or GET the `.md` sibling. For a blog post or recipe, GET the HTML page, or read the blog through its feeds.
+2. For a page, GET its URL with `Accept: text/markdown`, or GET the `.md` sibling. Markdown preserves article links, anchors and complex authored HTML. Recipe Markdown uses the canonical four servings in US measures and retains source and nutrition disclosures; query parameters do not change it. Use HTML for search, pagination, servings and other browser controls.
 3. For a missing page path (no file extension) or `.md` sibling, expect HTTP 404 with a Markdown recovery body (sitemap, this file, contact); a missing file returns the site's HTML 404.
 4. To reach John, use [Contact](https://www.jsolly.com/contact/) — there is no public email published here.
 
@@ -35,8 +35,8 @@ How to fetch:
 - [Contact](https://www.jsolly.com/contact/): profiles and contact form
 - [Privacy](https://www.jsolly.com/privacy/): data practices
 - [Terms](https://www.jsolly.com/terms/): short, permissive terms for this personal site
-- [Blog](https://www.jsolly.com/blog/): latest posts, the full archive at [/blog/all-posts/](https://www.jsolly.com/blog/all-posts/), and search at [/blog/search/](https://www.jsolly.com/blog/search/) (HTML)
-- [Recipes](https://www.jsolly.com/recipes/): the recipe library, one page per recipe (HTML)
+- [Blog](https://www.jsolly.com/blog/): latest posts, the full archive at [/blog/all-posts/](https://www.jsolly.com/blog/all-posts/), and search at [/blog/search/](https://www.jsolly.com/blog/search/) (HTML or Markdown)
+- [Recipes](https://www.jsolly.com/recipes/): the recipe library, one page per recipe (HTML or Markdown)
 - [Resume (PDF)](https://www.jsolly.com/John-Solly-Resume.pdf)
 - [Sitemap](https://www.jsolly.com/sitemap-index.xml)
 

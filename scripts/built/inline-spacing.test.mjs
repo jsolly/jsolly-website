@@ -25,7 +25,7 @@ const PINNED = {
 		"Blog — articles about geospatial development",
 		"Recipes — easy meals and smoothies",
 		"Start at https://www.jsolly.com/llms.txt for when-to-use guidance.",
-		"privacy or terms page with Accept: text/markdown (or fetch its .md sibling) to get",
+		"Request a page with Accept: text/markdown (or fetch its .md sibling) to get",
 	],
 	"privacy/index.html": ["policy? Get in touch"],
 	"terms/index.html": ["John Solly — jsolly.com. Questions? Get in touch."],

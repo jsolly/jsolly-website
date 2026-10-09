@@ -24,7 +24,7 @@ const POST_LASTMODS = await postLastmods(
 /**
  * Writes the gitignored src/generated/route-manifest.js from the pages this
  * build emitted, one `/path/` per page ("/" for the index). middleware.ts
- * imports it to tell real /blog/ and /recipes/ routes from unknown paths;
+ * uses the published route list; markdown-build.mjs adds static sibling pairs;
  * Vercel bundles the middleware after `npm run build`, so it gets this list.
  */
 function routeManifest(): AstroIntegration {

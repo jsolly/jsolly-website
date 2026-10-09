@@ -9,6 +9,8 @@
 //   (d) legacyRoots: root-anchored legacy paths.
 import { readFile } from "node:fs/promises";
 import { extname, join } from "node:path";
+import { setImmediate as yieldToEventLoop } from "node:timers/promises";
+import { createSatteriMarkdownProcessor } from "@astrojs/markdown-satteri";
 import { globby } from "globby";
 import { JSDOM } from "jsdom";
 import { MARKDOWN_PATHS } from "../../src/content/agent-pages.js";
@@ -254,7 +256,11 @@ function xmlValues(text) {
 // file, every manifest's references, and per file the values (b) and (d)
 // scan. HTML text nodes are not values: prose and code samples may name any
 // URL as text.
-export function buildSite(entries) {
+export async function buildSite(entries) {
+	const markdown = await createSatteriMarkdownProcessor({
+		syntaxHighlight: false,
+		features: { gfm: false, smartPunctuation: false },
+	});
 	const files = new Set(entries.map(({ file }) => file));
 	const pages = new Map();
 	const values = new Map();
@@ -263,10 +269,16 @@ export function buildSite(entries) {
 		if (text === null) continue;
 		texts.set(file, text);
 		const extension = extname(file);
-		if (extension === ".html") {
-			const page = readPage(file, text);
+		if (extension === ".html" || extension === ".md") {
+			// Render and parse one page at a time. Parallel Markdown renders retain
+			// every syntax tree, while jsdom cleanup waits for the event loop.
+			const markup =
+				// biome-ignore lint/performance/noAwaitInLoops: Sequential rendering bounds syntax-tree memory on the CI runner.
+				extension === ".md" ? (await markdown.render(text)).code : text;
+			const page = readPage(file, markup);
 			pages.set(file, page);
 			values.set(file, page.values);
+			await yieldToEventLoop();
 		} else if (JSON_EXTENSIONS.has(extension)) {
 			values.set(file, jsonValues(file, text));
 		} else if (extension === ".xml") {
@@ -321,7 +333,7 @@ function unresolved(site, url) {
 	const fragment = url.hash.slice(1);
 	// A fragment only names an element on an HTML page; #:~:text= is a text
 	// directive, not an id.
-	if (!fragment || fragment.startsWith(":~:") || extname(file) !== ".html") {
+	if (!fragment || fragment.startsWith(":~:") || !site.pages.has(file)) {
 		return null;
 	}
 	let id;

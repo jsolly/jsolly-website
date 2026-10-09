@@ -23,6 +23,7 @@ import { realpathSync } from "node:fs";
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { build } from "esbuild";
 import { globby } from "globby";
 import { JSDOM } from "jsdom";
 import {
@@ -42,7 +43,7 @@ const BASE = "https://recipe.invalid";
 // The elements whose src or href a page loads.
 const PAGE_RESOURCES =
 	// biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
-	'[src], link[rel="stylesheet"], link[rel="modulepreload"], link[rel="manifest"], link[rel="apple-touch-icon"], link[rel="icon"]';
+	'[src], link[rel="stylesheet"], link[rel="alternate"][type="text/markdown"], link[rel="modulepreload"], link[rel="manifest"], link[rel="apple-touch-icon"], link[rel="icon"]';
 // Files a script or stylesheet names: quoted script, style and font paths
 // (the minifier quotes some strings with backticks) and CSS url()s.
 const QUOTED_ASSET = /["'`](?<path>[^"'`\s]+\.(?:js|css|woff2?))["'`]/gu;
@@ -157,7 +158,17 @@ export async function buildRecipePwa(root) {
 		files,
 	);
 	const assets = [...files.keys()].sort();
+	const bundled = await build({
+		entryPoints: [fileURLToPath(WORKER_SOURCE)],
+		bundle: true,
+		write: false,
+		platform: "browser",
+		format: "iife",
+	});
+	const workerCode = bundled.outputFiles[0].text;
 	const hash = createHash("sha256");
+	// A changed negotiation/cache policy is a new snapshot too.
+	hash.update(workerCode);
 	for (const path of assets) hash.update(path).update(files.get(path));
 	const cache = `${CACHE_PREFIX}${hash.digest("hex").slice(0, 20)}`;
 	const constants = [
@@ -165,10 +176,7 @@ export async function buildRecipePwa(root) {
 		`const PREFIX = ${JSON.stringify(CACHE_PREFIX)};`,
 		`const ASSETS = new Set(${JSON.stringify(assets)});`,
 	].join("\n");
-	await writeFile(
-		join(root, PWA_WORKER_PATH),
-		`${constants}\n${await readFile(WORKER_SOURCE, "utf8")}`,
-	);
+	await writeFile(join(root, PWA_WORKER_PATH), `${constants}\n${workerCode}`);
 	return { cache, urls: assets };
 }
 

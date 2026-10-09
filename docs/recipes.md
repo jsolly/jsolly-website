@@ -137,19 +137,30 @@ Screen; supported desktop and Android browsers offer installation in their menu.
 There is one service worker, `/recipes/service-worker.js`, registered by
 `recipe-pwa-client.mjs` with scope `/recipes/`, so it can never control the
 portfolio or the blog. `scripts/recipes/pwa-build.mjs` writes it in
-`npm run build`, after `process-html.mjs`, so the snapshot holds the HTML as
+`npm run build`, after `process-html.mjs` and `markdown-build.mjs`, so the snapshot holds the HTML and Markdown as
 served. It precaches one complete snapshot: every file under `dist/recipes/`
 (the pages, the media, the manifest and icons, the two downloads) and every
 file those pages load (scripts, styles, fonts, images, the favicon and the
-`<noscript>` stylesheets). The cache name is a hash of the snapshot, so any
-change to a precached file gives a new snapshot.
+`<noscript>` stylesheets). The cache name hashes the snapshot and bundled worker
+policy, so changing a precached file or its serving logic gives a new snapshot.
 
 The recipe status is visible while offline and hidden when the connection returns.
 It describes the cached snapshot and reminds readers that external links need a connection.
 
-- **Serving.** A precached path is answered cache-first; a page only for a
-  navigation to its exact `/…/` path. Other blog pages and external recipe
-  sources need a connection.
+- **Serving.** Precached paths are answered cache-first. GET and HEAD requests
+  for known recipe pages select HTML or Markdown using the shared Accept
+  negotiation helper. Explicit `.md` siblings always serve Markdown. HEAD keeps
+  the selected status and headers with no body; an unsupported page Accept
+  returns 406 with `Vary: Accept`. Query controls do not change canonical
+  four-serving Markdown. Static assistant downloads retain their own bodies and
+  MIME types regardless of the page Accept header. Other blog pages and external
+  recipe sources need a connection.
+- **Representation keys.** Install and lookup use the same explicit Accept
+  keys: HTML for `/…/` pages, Markdown for `.md` files, and `*/*` for other
+  assets. Cache lookup respects Vary; it never uses `ignoreVary`. The root
+  `/recipes.md` sibling is precached for controlled recipe clients, but it lies
+  outside the `/recipes/` scope: opening that URL directly does not give it an
+  offline service-worker controller.
 - **Updates.** A new snapshot downloads on a connected visit and waits until
   every recipe tab and app window has closed, then takes over on reopening and
   deletes the older caches. Nothing reloads mid-recipe. A failed download leaves
@@ -160,18 +171,17 @@ It describes the cached snapshot and reminds readers that external links need a 
   a 404, which leaves it and its cache as they were, so offline cooking keeps
   working through the maintenance window instead of precaching the maintenance
   page. Any other build whose `/recipes/` page links no manifest fails.
-- **`ignoreVary`.** The worker looks pages up with `ignoreVary: true`. Real
-  recipe routes are HTML only and send no `Vary: Accept`, and both the precache
-  and the lookup use bare URLs, so this is a second safeguard should either side
-  ever carry an `Accept`. No test exercises it; do not rely on it alone.
 - **Headers.** `vercel.json` serves the worker with `Cache-Control: no-cache`, so
   update checks always reach the network.
 
 The worker exists only in a production build: the client does nothing under
 `astro dev`. Verify offline behaviour with `npm run build && npm run preview`, or
 through `scripts/built/recipes-pwa.test.mjs`, which covers install, offline use,
-updates, failed downloads, a maintenance deploy and hydration with service
-workers blocked.
+updates, failed downloads, negotiated offline representations, a maintenance
+deploy and hydration with service workers blocked. Maintenance builds replace
+new Markdown backing files with maintenance text; live direct and negotiated
+Markdown requests return 503 while an already installed cooking snapshot stays
+available offline.
 
 ## Old-host kill-switch
 
