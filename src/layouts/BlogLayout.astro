@@ -1,16 +1,9 @@
 ---
-// The blog and recipes layout, ported from awesome-blog's Base.astro.
-// This section shell keeps the blog stylesheets; build-time Markdown siblings
-// share the same published content and canonical URLs.
-import "@fontsource/inter/400.css";
-import "@fontsource/inter/600.css";
-import "@fontsource/poppins/600.css";
-import "@fontsource/poppins/700.css";
-import "../styles/blog/theme.css";
-import "../styles/blog/ui.css";
+// Blog and recipe metadata remain section-specific; the visual shell is shared
+// with the portfolio. Article styles stay scoped to the reading section.
+import SiteShell from "../components/SiteShell.astro";
 import "../styles/blog/blog.css";
 import BlogNavigation from "../components/blog/BlogNavigation.svelte";
-import Maintenance from "../components/Maintenance.astro";
 import { markdownSiblingPath } from "../lib/accept-negotiate.js";
 import {
 	DEFAULT_IMAGE,
@@ -62,6 +55,7 @@ const isMaintenanceMode = process.env.MAINTENANCE_MODE === "true";
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const socialImage = new URL(image, Astro.site).href;
 const navigation = await blogNavigation();
+const isRecipeCollection = ["/recipes/", "/recipes/meals/", "/recipes/smoothies/"].includes(Astro.url.pathname);
 ---
 
 <!doctype html>
@@ -90,37 +84,26 @@ const navigation = await blogNavigation();
 		<noscript><link rel="stylesheet" href={noScriptStyles} /></noscript>
 		{!isMaintenanceMode && <slot name="head" />}
 	</head>
-	<body id="top">
-		<a class="skip-link" href="#main">Skip to content</a>
-		<header class="site-header">
-			<div class="header-inner">
-				<a class="brand" href="/blog/"
-					><img
-						src="/blog/topographic-logo.svg"
-						alt=""
-						width="40"
-						height="40"
-					/>Solly's Blog</a
-				>
-				<BlogNavigation
-					categories={navigation}
-					pathname={Astro.url.pathname}
-					client:load
-				/>
-			</div>
-		</header>
-		<div class="page-layout" data-page={Astro.url.pathname}>
-			<main id="main">{isMaintenanceMode ? <Maintenance /> : <slot />}</main>
-		</div>
-		<footer class="site-footer">
-			<nav aria-label="Footer"
-				><a href="/blog/">Home</a><a href="/blog/all-posts/">All posts</a><a
-					href="/privacy/">Privacy</a
-				><a href="/blog/works-cited/">Works cited</a><a href={FEEDS.rss.path}
-					>RSS</a
-				><a href={FEEDS.atom.path}>Atom</a><a href="#top">Back to top</a></nav
-			>
-			<p>Designed &amp; built by John Solly</p>
-		</footer>
-	</body>
+  <body id="top" class="bg-background text-text-primary font-body">
+    <SiteShell {section}>
+      {section === "blog"
+        ? <BlogNavigation slot="navigation" categories={navigation} pathname={Astro.url.pathname} client:load />
+        : !isRecipeCollection && <nav slot="navigation" class="blog-toolbar" aria-label="Recipe navigation">
+            <a href="/recipes/">All recipes</a>
+            <a href="/recipes/meals/">Meals</a>
+            <a href="/recipes/smoothies/">Smoothies</a>
+          </nav>}
+
+      <slot />
+      <nav slot="section-footer" class="section-footer" aria-label={section === "blog" ? "Blog resources" : "Recipe resources"}>
+        {section === "blog" && <>
+          <a href="/blog/all-posts/">All posts</a>
+          <a href="/blog/works-cited/">Works cited</a>
+          <a href={FEEDS.rss.path}>RSS</a>
+          <a href={FEEDS.atom.path}>Atom</a>
+        </>}
+        <a href="#top">Back to top</a>
+      </nav>
+    </SiteShell>
+  </body>
 </html>

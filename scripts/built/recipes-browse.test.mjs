@@ -658,8 +658,10 @@ function collectionsCheck(width) {
 			assert.equal(await printAll.isVisible(), false);
 			assert.equal(
 				await page
-					.getByRole("link", { name: "All posts", exact: true })
-					.first()
+					.getByRole("navigation", {
+						name: width === 390 ? "Mobile navigation" : "Primary navigation",
+					})
+					.getByRole("link", { name: "Blog by John Solly", exact: true })
 					.isVisible(),
 				true,
 			);

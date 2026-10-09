@@ -6,45 +6,45 @@
    the print rules for a recipe page. Ported from awesome-blog recipes-theme.css. */
 @layer blog {
 	:root {
-		--recipe-canvas: #f5f4ec;
-		--recipe-paper: #fffef8;
-		--recipe-ink: #25392b;
-		--recipe-muted: #53614e;
-		--recipe-line: #d4dacb;
-		--recipe-accent: #365b3d;
-		--recipe-accent-text: #ffffff;
-		--recipe-soft: #e8ecdf;
+		--recipe-canvas: var(--color-background);
+		--recipe-paper: var(--color-card);
+		--recipe-ink: var(--color-text-primary);
+		--recipe-muted: var(--color-text-secondary);
+		--recipe-line: var(--color-border);
+		--recipe-accent: var(--color-primary-900);
+		--recipe-accent-text: var(--color-card);
+		--recipe-soft: var(--color-primary-100);
 		--recipe-warm: #f1dfb7;
-		--recipe-input-border: #aeb8a2;
+		--recipe-input-border: var(--color-primary-500);
 		--recipe-badge: #e3ead8;
 		--recipe-badge-shared: #ede1c8;
 		--recipe-badge-nonketo: #e8e3f0;
 		--recipe-family: #f1ecd9;
-		--recipe-flow-paper: #fffdf5;
-		--recipe-flow-ink: #241c14;
-		--recipe-flow-prep: #f0f4e9;
+		--recipe-flow-paper: var(--color-card);
+		--recipe-flow-ink: var(--color-text-primary);
+		--recipe-flow-prep: var(--color-primary-100);
 		--recipe-focus: #a65c16;
 	}
 	/* Screen only, so print keeps the light colours above. */
 	@media screen and (prefers-color-scheme: dark) {
 		:root {
-			--recipe-canvas: #18211c;
-			--recipe-paper: #222d25;
-			--recipe-ink: #e4ece2;
-			--recipe-muted: #b6c2b1;
-			--recipe-line: #4c5e4f;
-			--recipe-accent: #a6d5a9;
-			--recipe-accent-text: #142219;
-			--recipe-soft: #303f30;
+			--recipe-canvas: var(--color-background);
+			--recipe-paper: var(--color-card);
+			--recipe-ink: var(--color-text-primary);
+			--recipe-muted: var(--color-text-secondary);
+			--recipe-line: var(--color-border);
+			--recipe-accent: var(--color-primary-900);
+			--recipe-accent-text: var(--color-card);
+			--recipe-soft: var(--color-primary-100);
 			--recipe-warm: #4b4028;
-			--recipe-input-border: #71866f;
+			--recipe-input-border: var(--color-primary-500);
 			--recipe-badge: #34452e;
 			--recipe-badge-shared: #4b402c;
 			--recipe-badge-nonketo: #41364d;
 			--recipe-family: #3c3b2b;
-			--recipe-flow-paper: #222d25;
-			--recipe-flow-ink: #e4ece2;
-			--recipe-flow-prep: #2c3b2d;
+			--recipe-flow-paper: var(--color-card);
+			--recipe-flow-ink: var(--color-text-primary);
+			--recipe-flow-prep: var(--color-primary-100);
 			--recipe-focus: #e6ac65;
 		}
 	}
@@ -58,7 +58,7 @@
 		html:is([data-recipe-print], :has(.recipe-page)) h1:not(.print-title) {
 			display: none;
 		}
-		html:is([data-recipe-print], :has(.recipe-page)) .page-layout {
+		html:is([data-recipe-print], :has(.recipe-page)) .reading-section {
 			max-width: none;
 		}
 	}

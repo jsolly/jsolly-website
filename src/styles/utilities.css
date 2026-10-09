@@ -16,7 +16,11 @@ Custom Utilities
 	============== */
 
 	.text-gradient {
-		background: linear-gradient(135deg, #2563eb 0%, #171717 100%);
+		background: linear-gradient(
+			135deg,
+			var(--color-blue-500) 0%,
+			var(--color-text-primary) 100%
+		);
 		background-clip: text;
 		color: transparent;
 		background-size: 200% 200%;

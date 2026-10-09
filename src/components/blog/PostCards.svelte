@@ -2,6 +2,7 @@
 	import { onMount, tick } from "svelte";
 	import { AUTOMATIC_BATCHES } from "../../lib/blog/constants.js";
 	import type { Card } from "../../lib/blog/types.js";
+	import Button from "../../lib/components/ui/button.svelte";
 
 	// Without a pageSize every card renders and there is no load-more.
 	// headingTag sets each card title's level under its section's heading
@@ -91,7 +92,7 @@
 	<div class="load-more" bind:this={sentinel}>
 		<p role="status">Showing {visible.length} of {posts.length} articles</p>
 		{#if page < pages}
-			<a class="load-more-button" class:paused={automaticBatchesLeft === 0} href={`?page=${page + 1}`} onclick={(event) => { event.preventDefault(); void loadMoreFromButton(); }}>Load more posts</a>
+			<Button variant="outline" size="lg" class={["load-more-button", automaticBatchesLeft === 0 && "paused"]} href={`?page=${page + 1}`} onclick={(event) => { event.preventDefault(); void loadMoreFromButton(); }}>Load more posts</Button>
 		{:else}
 			<p>You've reached the end. <a href="#top">Back to top</a></p>
 		{/if}

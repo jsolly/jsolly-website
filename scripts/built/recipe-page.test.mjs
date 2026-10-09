@@ -252,7 +252,15 @@ for (const recipe of KINDS) pageChecks(recipe);
 it("Learn more opens the notation dialog with focus on it; Escape closes it and returns focus to Learn more, and so does its close button", async () => {
 	const { page, errors, close } = await openHydrated(PAGE);
 	try {
+		await page.setViewportSize({ width: 320, height: 812 });
 		const learnMore = page.getByRole("button", { name: LEARN_MORE });
+		assert.equal(
+			await page.evaluate(
+				() => document.documentElement.scrollWidth <= innerWidth,
+			),
+			true,
+			"The narrow recipe page must keep the long notation control inside the viewport",
+		);
 		const dialog = page.getByRole("dialog", {
 			name: "Tabular Recipe Notation",
 		});
@@ -298,6 +306,9 @@ it("Print recipe prints only the recipe copy and restores the page once printing
 		},
 	});
 	try {
+		await page.setViewportSize({ width: 390, height: 844 });
+		await page.getByRole("button", { name: "Toggle mobile menu" }).click();
+		assert.equal(await page.locator("#mobile-menu").isVisible(), true);
 		await page.getByRole("button", { name: "Print recipe" }).click();
 		await page.emulateMedia({ media: "print" });
 		const printing = {
@@ -308,14 +319,23 @@ it("Print recipe prints only the recipe copy and restores the page once printing
 			copyShown: await page.locator(".print-document").isVisible(),
 			pageHidden: await page.locator(".recipe-detail").isHidden(),
 			breadcrumbsHidden: await page.locator(".breadcrumbs").isHidden(),
+			headerHidden: await page.locator("#site-header").isHidden(),
+			mobileNavigationHidden: await page.locator("#mobile-menu").isHidden(),
+			footerHidden: await page.locator(".site-footer").isHidden(),
 		};
 		await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
+		await page.emulateMedia({ media: "screen" });
 		assert.deepEqual(
 			{
 				...printing,
 				modeAfter: await page.evaluate(() =>
 					document.documentElement.getAttribute("data-recipe-print"),
 				),
+				headerRestored: await page.locator("#site-header").isVisible(),
+				mobileNavigationRestored: await page
+					.locator("#mobile-menu")
+					.isVisible(),
+				pageRestored: await page.locator(".recipe-detail").isVisible(),
 				errors,
 			},
 			{
@@ -324,7 +344,13 @@ it("Print recipe prints only the recipe copy and restores the page once printing
 				copyShown: true,
 				pageHidden: true,
 				breadcrumbsHidden: true,
+				headerHidden: true,
+				mobileNavigationHidden: true,
+				footerHidden: true,
 				modeAfter: null,
+				headerRestored: true,
+				mobileNavigationRestored: true,
+				pageRestored: true,
 				errors: [],
 			},
 		);

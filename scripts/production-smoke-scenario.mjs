@@ -146,13 +146,12 @@ async function readFirstPost({ page, verifyHttp }) {
 	return { title, postPath };
 }
 
-// Searches for `title` with the blog's menu search (a GET form), and checks
+// Searches for `title` with the blog toolbar search (a GET form), and checks
 // that the search page, which fetches /blog/search-index.json, lists the post.
 async function searchFor({ page, verifyHttp, title, postPath }) {
-	await page.getByRole("button", { name: "Menu", exact: true }).click();
 	const search = page
-		.getByRole("navigation", { name: "Main navigation" })
-		.getByRole("searchbox", { name: "Search", exact: true });
+		.getByRole("navigation", { name: "Blog navigation" })
+		.getByRole("searchbox", { name: "Search posts", exact: true });
 	await search.fill(title);
 	await leave(page, () => search.press("Enter"));
 	await page.waitForURL(

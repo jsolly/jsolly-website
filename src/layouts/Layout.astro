@@ -1,8 +1,5 @@
 ---
-import "../styles/main.css";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import Maintenance from "../components/Maintenance.astro";
+import SiteShell from "../components/SiteShell.astro";
 import StructuredData from "../components/StructuredData.astro";
 import { ROLE } from "../content/constants.js";
 
@@ -15,7 +12,6 @@ interface Props {
 const { title, description, noindex = false } = Astro.props;
 const TRAILING_SLASHES_RE = /\/+$/u;
 const isRootPath = Astro.url.pathname === "/";
-const isMaintenanceMode = process.env.MAINTENANCE_MODE === "true";
 const socialImageURL = new URL("/images/og-image.jpg", Astro.site);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const pageKey = Astro.url.pathname.replace(TRAILING_SLASHES_RE, "") || "/index";
@@ -103,33 +99,7 @@ const llmsTxtURL = new URL("/llms.txt", Astro.site);
 		<meta name="twitter:image" content={socialImageURL} />
 		<meta name="twitter:image:alt" content={`John Solly, ${ROLE}`} />
 	</head>
-	<body class="bg-background text-text-primary font-body">
-		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-			<Header />
-
-			<main aria-label="Main content">
-				{isMaintenanceMode ? (
-					<Maintenance />
-				) : (
-					<>
-						<slot />
-						{!isRootPath && (
-							<nav aria-label="Home navigation">
-								<a
-									href="/"
-									id="home-btn"
-									class="secondary-btn mt-6 inline-block"
-									transition:persist="home-btn"
-									aria-label="Go to home page"
-								>
-									Home
-								</a>
-							</nav>
-						)}
-					</>
-				)}
-			</main>
-			<Footer />
-		</div>
-	</body>
+	<body id="top" class="bg-background text-text-primary font-body">
+    <SiteShell homeLink={!isRootPath}><slot /></SiteShell>
+  </body>
 </html>

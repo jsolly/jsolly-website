@@ -30,6 +30,7 @@ const SHIPPED = "dist";
 const HYDRATION_COMMENT = /^(?:\[.*|\].*|\$.*|astro:end|)$/su;
 const COMMENT = /<!(?:--(?<data>[\s\S]*?)--)?>/gu;
 const ISLAND_MODULE = /\s(?:component|renderer)-url="(?<url>[^"]+)"/gu;
+const GEO_DEV_LINK = /Geo Dev/u;
 const OLD_BLOG_HOST = /blogthedata\.com/u;
 // Astro hashes an island's uid from the component's absolute path, so the
 // temp copy's uids differ from the real tree's; the dist/ comparison masks them.
@@ -320,7 +321,7 @@ for (const { path, stable } of PARITY_PAGES) {
 	});
 }
 
-it("a phone visitor on a blog page opens and closes the hydrated menu", async () => {
+it("a phone blog visitor uses shared navigation and the hydrated category disclosure", async () => {
 	const context = await browser.newContext({
 		viewport: { width: 390, height: 844 },
 	});
@@ -328,54 +329,69 @@ it("a phone visitor on a blog page opens and closes the hydrated menu", async ()
 		const page = await context.newPage();
 		const errors = collectErrors(page, []);
 		await page.goto(`${sites.shipped.origin}/blog/works-cited/`);
-		const toggle = page.getByRole("button", { name: "Menu" });
-		const panel = page.locator("#mobile-navigation");
-		const allPosts = page.getByRole("link", { name: "All posts" }).first();
 		await page.waitForFunction(
 			() => !document.querySelector("astro-island[ssr]"),
 		);
-		// onMount enables the toggle in the same update that makes the
-		// collapsed panel inert on a phone.
+		const menu = page.getByRole("button", { name: "Toggle mobile menu" });
+		await menu.click();
+		await page
+			.getByRole("navigation", { name: "Mobile navigation" })
+			.waitFor({ state: "visible" });
+		await menu.press("Escape");
+		assert.equal(await menu.getAttribute("aria-expanded"), "false");
+		const toggle = page.getByRole("button", {
+			name: "Categories",
+			exact: true,
+		});
+		assert.equal(await toggle.getAttribute("aria-expanded"), "false");
+		await toggle.focus();
+		await toggle.press("Enter");
 		await page.waitForFunction(
-			() => document.querySelector(".menu-toggle")?.disabled === false,
+			() =>
+				document
+					.querySelector(".category-toggle")
+					?.getAttribute("aria-expanded") === "true",
 		);
-		// Svelte applies a click's state change on its next update, so each
-		// check waits for aria-expanded to settle before reading both values.
-		const settled = async (expanded) => {
-			await page.waitForFunction(
-				(value) =>
-					document
-						.querySelector(".menu-toggle")
-						?.getAttribute("aria-expanded") === value,
-				expanded,
+		const category = page
+			.getByRole("navigation", { name: "Blog navigation" })
+			.getByRole("link", { name: GEO_DEV_LINK });
+		await category.waitFor({ state: "visible" });
+		for (const width of [320, 390]) {
+			// biome-ignore lint/performance/noAwaitInLoops: Each viewport must be applied before measuring this shared page.
+			await page.setViewportSize({ width, height: 844 });
+			const bounds = await page.locator(".category-options").boundingBox();
+			assert.ok(
+				bounds && bounds.x >= 0 && bounds.x + bounds.width <= width,
+				"every category stays inside the viewport when the toolbar wraps",
 			);
-			return {
-				expanded: await toggle.getAttribute("aria-expanded"),
-				inert: await panel.evaluate((element) => element.inert),
-			};
-		};
-		assert.deepEqual(await settled("false"), {
-			expanded: "false",
-			inert: true,
-		});
+		}
+		await toggle.press("Tab");
+		assert.equal(
+			await page.evaluate(
+				() => document.activeElement?.closest(".category-options") !== null,
+			),
+			true,
+			"Tab reaches category links",
+		);
 		await toggle.click();
-		assert.deepEqual(await settled("true"), {
-			expanded: "true",
-			inert: false,
-		});
-		await allPosts.waitFor({ state: "visible" });
-		await toggle.click();
-		assert.deepEqual(await settled("false"), {
-			expanded: "false",
-			inert: true,
-		});
-		assert.deepEqual(errors, [], "no page errors");
+		await category.waitFor({ state: "hidden" });
+		await stubOffOrigin(context, sites.shipped.origin);
+		await page.goto(
+			`${sites.shipped.origin}/blog/Planetary-Computer-STAC-Landsat-data/`,
+		);
+		assert.ok(
+			await page.evaluate(
+				() => document.documentElement.scrollWidth <= window.innerWidth,
+			),
+			"the preserved long image credit must wrap within the mobile page",
+		);
+		assert.deepEqual(errors, []);
 	} finally {
 		await context.close();
 	}
 });
 
-it("a desktop visitor on a blog page uses the header links with no menu toggle", async () => {
+it("a desktop blog visitor reaches the archive through the section toolbar and shared primary navigation", async () => {
 	const context = await browser.newContext({
 		viewport: { width: 1280, height: 800 },
 	});
@@ -384,30 +400,34 @@ it("a desktop visitor on a blog page uses the header links with no menu toggle",
 		const errors = collectErrors(page, []);
 		await page.goto(`${sites.shipped.origin}/blog/works-cited/`);
 		await page.waitForFunction(
-			() => document.querySelector(".menu-toggle")?.disabled === false,
+			() => !document.querySelector("astro-island[ssr]"),
 		);
 		assert.equal(
-			await page.locator("#mobile-navigation").evaluate((panel) => panel.inert),
+			await page
+				.getByRole("button", { name: "Toggle mobile menu" })
+				.isVisible(),
 			false,
-			"the header links stay reachable on desktop",
 		);
 		assert.equal(
-			await page.locator(".menu-toggle").isVisible(),
-			false,
-			"desktop shows no menu toggle",
+			await page
+				.getByRole("navigation", { name: "Primary navigation" })
+				.isVisible(),
+			true,
 		);
-		// Reaching the archive URL proves the click went through.
 		await Promise.all([
 			page.waitForURL("**/blog/all-posts/"),
-			page.locator("header").getByRole("link", { name: "All posts" }).click(),
+			page
+				.getByRole("navigation", { name: "Blog navigation" })
+				.getByRole("link", { name: "All posts", exact: true })
+				.click(),
 		]);
-		assert.deepEqual(errors, [], "no page errors");
+		assert.deepEqual(errors, []);
 	} finally {
 		await context.close();
 	}
 });
 
-it("a phone visitor without JavaScript gets the expanded header menu from the noscript stylesheet", async () => {
+it("a phone visitor without JavaScript can use shared links, categories and GET search", async () => {
 	const context = await browser.newContext({
 		viewport: { width: 390, height: 844 },
 		javaScriptEnabled: false,
@@ -415,19 +435,30 @@ it("a phone visitor without JavaScript gets the expanded header menu from the no
 	try {
 		const page = await context.newPage();
 		await page.goto(`${sites.shipped.origin}/blog/works-cited/`);
-		const header = page.locator("header");
 		assert.equal(
-			await page.locator(".menu-toggle").isVisible(),
+			await page
+				.getByRole("button", { name: "Toggle mobile menu" })
+				.isVisible(),
 			false,
-			"no-script.css hides the toggle that needs JavaScript",
 		);
-		const categories = header.getByText("Categories", { exact: true });
-		assert.equal(await categories.isVisible(), true, "Categories shows");
-		await categories.click();
-		await header.locator("details.category-menu[open]").waitFor();
+		assert.equal(
+			await page
+				.getByRole("navigation", { name: "Mobile navigation" })
+				.getByRole("link", { name: "Recipes by John Solly" })
+				.isVisible(),
+			true,
+		);
+		const toolbar = page.getByRole("navigation", { name: "Blog navigation" });
+		const category = toolbar.getByRole("link", { name: GEO_DEV_LINK });
+		assert.equal(await category.isVisible(), true);
 		await Promise.all([
-			page.waitForURL("**/blog/all-posts/"),
-			header.getByRole("link", { name: "All posts" }).click(),
+			page.waitForURL("**/blog/category/Geodev/"),
+			category.click(),
+		]);
+		await page.getByLabel("Search posts", { exact: true }).fill("django");
+		await Promise.all([
+			page.waitForURL("**/blog/search/?searched=django"),
+			page.getByRole("button", { name: "Search", exact: true }).click(),
 		]);
 	} finally {
 		await context.close();
