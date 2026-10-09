@@ -397,6 +397,10 @@
 			background-image: none;
 			height: auto;
 		}
+		.browse {
+			scroll-margin-top: 1rem;
+		}
+
 		.recipe-grid {
 			display: grid;
 			grid-template-columns: repeat(3, minmax(0, 1fr));

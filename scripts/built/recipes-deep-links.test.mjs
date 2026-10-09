@@ -90,31 +90,39 @@ function registerRecipeLink(recipe) {
 
 for (const recipe of recipes) registerRecipeLink(recipe);
 
-it("old /recipes/#meal-results lands on the cards without a recipe dialog", {
-	timeout: 30_000,
-}, async () => {
-	const context = await browser.newContext({
-		viewport: { width: 1280, height: 800 },
+for (const fontDelay of [0, 500, 2000]) {
+	it(`old /recipes/#meal-results lands on the cards without a recipe dialog (font delay ${fontDelay}ms)`, {
+		timeout: 30_000,
+	}, async () => {
+		const context = await browser.newContext({
+			viewport: { width: 1280, height: 800 },
+		});
+		const page = await context.newPage();
+		const errors = collectErrors(page, []);
+		try {
+			if (fontDelay) {
+				await page.route(/\.woff2?$/, async (route) => {
+					await new Promise((resolve) => setTimeout(resolve, fontDelay));
+					await route.continue();
+				});
+			}
+			await page.goto(`${site.origin}${LANDING}#meal-results`);
+			await page.locator("[data-hydrated=true]").waitFor();
+			assert.deepEqual(
+				await page.evaluate(() => {
+					const target = document.querySelector(":target");
+					const { top } = target?.getBoundingClientRect() ?? { top: -1 };
+					return {
+						target: target?.id,
+						inView: top >= 0 && top < window.innerHeight,
+						dialogs: document.querySelectorAll(".recipe-takeover").length,
+					};
+				}),
+				{ target: "meal-results", inView: true, dialogs: 0 },
+			);
+			assert.deepEqual(errors, []);
+		} finally {
+			await context.close();
+		}
 	});
-	const page = await context.newPage();
-	const errors = collectErrors(page, []);
-	try {
-		await page.goto(`${site.origin}${LANDING}#meal-results`);
-		await page.locator("[data-hydrated=true]").waitFor();
-		assert.deepEqual(
-			await page.evaluate(() => {
-				const target = document.querySelector(":target");
-				const { top } = target?.getBoundingClientRect() ?? { top: -1 };
-				return {
-					target: target?.id,
-					inView: top >= 0 && top < window.innerHeight,
-					dialogs: document.querySelectorAll(".recipe-takeover").length,
-				};
-			}),
-			{ target: "meal-results", inView: true, dialogs: 0 },
-		);
-		assert.deepEqual(errors, []);
-	} finally {
-		await context.close();
-	}
-});
+}
