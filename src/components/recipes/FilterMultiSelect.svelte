@@ -33,6 +33,14 @@
 			: [...selected, value];
 	}
 
+	// Focus immediately on opening. A queued animation-frame autofocus can
+	// otherwise pull focus back after the user has already tabbed away.
+	function enterFocus(event) {
+		event.preventDefault();
+		if (document.activeElement !== trigger) return;
+		content?.querySelector('button:not([disabled])')?.focus();
+	}
+
 	// Return keyboard focus from the panel, but keep an outside control's
 	// focus when the user clicks it to dismiss the filter.
 	function restoreFocus(event) {
@@ -48,7 +56,7 @@
 		<PopoverTrigger bind:ref={trigger} class="multi-trigger" aria-label={`${label}: ${summary}`} {disabled}>
 			<span>{summary}</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m4 6 4 4 4-4" /></svg>
 		</PopoverTrigger>
-		<PopoverContent bind:ref={content} trapFocus={false} onCloseAutoFocus={restoreFocus} class="multi-options" portalProps={{ disabled: true }} sideOffset={6} collisionPadding={16} role="dialog" aria-label={`${label} choices`}>
+		<PopoverContent bind:ref={content} trapFocus={false} onOpenAutoFocus={enterFocus} onCloseAutoFocus={restoreFocus} class="multi-options" portalProps={{ disabled: true }} sideOffset={6} collisionPadding={16} role="dialog" aria-label={`${label} choices`}>
 			{#each Object.entries(options) as [value, text] (value)}
 				<label for={`${uid}-${value}`}
 					><Checkbox

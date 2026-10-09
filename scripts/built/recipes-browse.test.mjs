@@ -828,6 +828,15 @@ function filterFocusCheck(width) {
 					false,
 					`${label}: Tab can leave the nonmodal filter`,
 				);
+				// Catch autofocus that steals focus back on a later frame or remount.
+				await page.waitForTimeout(350);
+				assert.equal(
+					await page.evaluate(() =>
+						Boolean(document.activeElement?.closest(".multi-options")),
+					),
+					false,
+					`${label}: autofocus does not reclaim focus after Tab`,
+				);
 			};
 			for (const [route, label] of [
 				["/recipes/meals/", "Proteins"],
