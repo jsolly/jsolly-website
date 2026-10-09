@@ -340,6 +340,69 @@ function installCheck(name, viewport) {
 
 for (const [name, viewport] of VIEWPORTS) installCheck(name, viewport);
 
+it("An installed worker serves offline HTML when the cached request has a different Accept header", {
+	timeout: 90_000,
+}, async () => {
+	await serve("A");
+	const context = await browser.newContext({
+		viewport: { width: 390, height: 844 },
+	});
+	const page = await context.newPage();
+	try {
+		await page.goto(`${site.origin}${LANDING}`);
+		await statusText(page, SAVED);
+		await page.waitForFunction(() => navigator.serviceWorker.controller);
+		// Simulate a previously cached navigation carrying its HTML Accept.
+		// The worker still looks up the bare URL. Ordinary Cache.match must miss
+		// this Vary response, so removing ignoreVary cannot pass by accident.
+		const cacheState = await page.evaluate(
+			async ({ cache, path }) => {
+				const store = await caches.open(cache);
+				const url = new URL(path, location.origin).href;
+				const response = await store.match(url);
+				if (!response)
+					throw new Error("Installed snapshot has no landing page");
+				const vary = response.headers.get("Vary");
+				await store.delete(url);
+				await store.put(
+					new Request(url, { headers: { Accept: "text/html" } }),
+					response,
+				);
+				return {
+					vary,
+					bareMatch: Boolean(await store.match(url)),
+					htmlMatch: Boolean(
+						await store.match(
+							new Request(url, { headers: { Accept: "text/html" } }),
+						),
+					),
+				};
+			},
+			{ cache: snapshots.A.cache, path: LANDING },
+		);
+		assert.deepEqual(cacheState, {
+			vary: "Accept",
+			bareMatch: false,
+			htmlMatch: true,
+		});
+		await context.setOffline(true);
+		await page.reload();
+		await statusText(page, OFFLINE);
+		assert.equal(await snapshotLabel(page), "A");
+		await page.locator(".meal-library[data-hydrated=true]").waitFor();
+		const servings = page.getByRole("combobox", { name: SERVINGS });
+		await servings.selectOption("2");
+		await page
+			.getByText("Net carbs per 2 servings", { exact: true })
+			.first()
+			.waitFor();
+		assert.equal(await servings.inputValue(), "2");
+		assert.deepEqual(await statuses(page, DATA_FILES), [200, 200]);
+	} finally {
+		await context.close();
+	}
+});
+
 it("Distinct snapshot update waits for both tabs, then serves new recipes offline", {
 	timeout: 90_000,
 }, async () => {
