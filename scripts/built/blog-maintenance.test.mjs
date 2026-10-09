@@ -2,7 +2,9 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { after, before, it } from "node:test";
+import { pathToFileURL } from "node:url";
 import { JSDOM } from "jsdom";
+import { agentResponse } from "../../src/lib/agent-response.js";
 import { exists, readBuiltPages, stylesheets } from "./pages.mjs";
 import { createTempCopy, requireSuccess } from "./temp-copy.mjs";
 
@@ -37,11 +39,22 @@ let copy;
 let pages;
 let blogCss;
 let workerBuilt;
+let markdownPages;
 
 before(async () => {
 	copy = await createTempCopy("maintenance");
 	requireSuccess(copy.npmRun("build:maintenance"));
 	const dist = join(copy.dir, "dist");
+	const { markdownRoutes } = await import(
+		pathToFileURL(join(copy.dir, "src/generated/route-manifest.js")).href
+	);
+	markdownPages = await Promise.all(
+		markdownRoutes.map(async ([key, file]) => ({
+			key,
+			file,
+			body: await readFile(join(dist, file), "utf8"),
+		})),
+	);
 	workerBuilt = await exists(join(dist, RECIPE_WORKER));
 	pages = (await readBuiltPages(dist)).map(({ file, html }) => {
 		const dom = new JSDOM(html);
@@ -79,6 +92,52 @@ before(async () => {
 
 after(async () => {
 	await copy?.remove();
+});
+
+it("Maintenance hides every generated Markdown body and answers direct or negotiated GET/HEAD with 503", async () => {
+	assert.ok(
+		markdownPages.length ===
+			pages.filter(
+				({ file }) => file.startsWith("blog/") || file.startsWith("recipes/"),
+			).length,
+		"the maintenance contract covers every generated section page",
+	);
+	const previous = process.env.MAINTENANCE_MODE;
+	process.env.MAINTENANCE_MODE = "true";
+	try {
+		await Promise.all(
+			markdownPages.map(async ({ key, file, body }) => {
+				assert.ok(
+					body.startsWith("# Maintenance\n"),
+					`${file} contains only maintenance Markdown`,
+				);
+				assert.ok(!body.includes(POST_TEXT));
+				await Promise.all(
+					["GET", "HEAD"].flatMap((method) =>
+						[`${key}/`, file].map(async (path) => {
+							const response = agentResponse(
+								new Request(`https://www.jsolly.com${path}`, {
+									method,
+									headers: { accept: "text/markdown" },
+								}),
+								new Map(),
+							);
+							assert.equal(response?.status, 503, `${method} ${path}`);
+							assert.equal(response.headers.get("vary"), "Accept");
+							assert.equal(
+								await response.text(),
+								method === "HEAD" ? "" : body,
+								`${method} ${path} serves the maintenance body`,
+							);
+						}),
+					),
+				);
+			}),
+		);
+	} finally {
+		if (previous === undefined) delete process.env.MAINTENANCE_MODE;
+		else process.env.MAINTENANCE_MODE = previous;
+	}
 });
 
 it("a maintenance build shows only the maintenance notice on every page, blog pages included, and ships no recipe service worker", () => {

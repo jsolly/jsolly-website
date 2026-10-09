@@ -97,12 +97,6 @@ const MARKDOWN_EXT_RE = /\.md$/iu;
 const MARKDOWN_SIBLING_RE = /\.md(?:\/+)?$/iu;
 
 const STATIC_DATA_PREFIX = "/recipes/data/";
-/**
- * Sections whose real routes serve HTML only (J11). A path in one of them
- * that is not a real route keeps the Markdown 404 that llms.txt promises.
- */
-const HTML_ONLY_SECTIONS = ["/blog/", "/recipes/"] as const;
-
 function routeKey(pathname: string): string {
 	return pathname.replace(TRAILING_SLASHES_RE, "") || "/";
 }
@@ -114,18 +108,18 @@ function routeKey(pathname: string): string {
  */
 function decodedPath(pathname: string): string {
 	try {
-		return pathname.split("/").map(decodeURIComponent).join("/");
+		return pathname
+			.split("/")
+			.map((segment) => {
+				const decoded = decodeURIComponent(segment);
+				return decoded.includes("/") || decoded.includes("\\")
+					? segment
+					: decoded;
+			})
+			.join("/");
 	} catch {
 		return pathname;
 	}
-}
-
-/**
- * The build's page routes (route manifest, `/about/` style paths), keyed by
- * path without trailing slashes. Matching is case-sensitive, like the routes.
- */
-export function routeSet(routes: readonly string[]): ReadonlySet<string> {
-	return new Set(routes.map(routeKey));
 }
 
 /**
@@ -137,23 +131,7 @@ export function isStaticDataPath(pathname: string): boolean {
 	return path.startsWith(STATIC_DATA_PREFIX) && FILE_EXT_RE.test(path);
 }
 
-/** A real route in an HTML-only section: passed through untouched. */
-function isHtmlOnlyRoute(
-	pathname: string,
-	routes: ReadonlySet<string>,
-): boolean {
-	const key = routeKey(decodedPath(pathname));
-	const inSection = HTML_ONLY_SECTIONS.some((section) =>
-		`${key}/`.startsWith(section),
-	);
-	return inSection && routes.has(key);
-}
-
-export function shouldNegotiate(
-	pathname: string,
-	method: string,
-	routes: ReadonlySet<string>,
-): boolean {
+export function shouldNegotiate(pathname: string, method: string): boolean {
 	const verb = method.toUpperCase();
 	if (verb !== "GET" && verb !== "HEAD") return false;
 	if (
@@ -167,13 +145,13 @@ export function shouldNegotiate(
 	}
 	if (MARKDOWN_FILE_RE.test(pathname)) return true;
 	if (FILE_EXT_RE.test(pathname)) return false;
-	return !isHtmlOnlyRoute(pathname, routes);
+	return true;
 }
 
-/** Canonical page key: `/`, `/about`, `/contact`, `/privacy`, `/terms`. */
+/** Decoded, case-sensitive page key without a trailing slash or Markdown suffix. */
 export function normalizePagePath(pathname: string): string {
 	const isMarkdownSibling = MARKDOWN_SIBLING_RE.test(pathname);
-	let path = pathname.replace(TRAILING_SLASHES_RE, "") || "/";
+	let path = decodedPath(pathname).replace(TRAILING_SLASHES_RE, "") || "/";
 	if (MARKDOWN_EXT_RE.test(path)) {
 		path = path.replace(MARKDOWN_EXT_RE, "");
 		path = path.replace(TRAILING_SLASHES_RE, "") || "/";

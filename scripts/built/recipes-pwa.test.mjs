@@ -25,8 +25,8 @@ import { collectErrors, readBuilt, serveStatic } from "./pages.mjs";
 // marker on /recipes/ and in the recipe data, "broken" is B with a precached
 // icon missing, so its install fails, and "maintenance" is A without its
 // worker, as a maintenance build ships (plan §1.6). Every response carries
-// Vary: Accept, as middleware-negotiated HTML does (in Chromium the worker's
-// bare-URL lookups match it with or without its ignoreVary). The worker
+// Vary: Accept. The worker uses explicit Accept keys for each representation.
+// The worker
 // controls /recipes/ only: blog and portfolio pages stay uncontrolled, and its
 // snapshot holds no page outside /recipes/.
 const DIST = "dist";
@@ -208,6 +208,7 @@ function installCheck(name, viewport) {
 						url.startsWith("/recipes/") ||
 						url.startsWith("/_astro/") ||
 						url === "/favicon.ico" ||
+						url === "/recipes.md" ||
 						BLOG_CHROME.test(url)
 					),
 			),
@@ -487,6 +488,100 @@ it("Failed first download does not claim offline readiness", {
 		await page.goto(`${site.origin}${LANDING}`);
 		await statusText(page, "Recipes could not be saved offline.");
 		assert.equal(await controlled(page), false);
+	} finally {
+		await context.close();
+	}
+});
+
+it("Offline page requests select separate HTML and Markdown representations and preserve static downloads", {
+	timeout: 90_000,
+}, async () => {
+	await serve("A");
+	const context = await browser.newContext();
+	try {
+		const page = await context.newPage();
+		await page.goto(`${site.origin}${LANDING}`);
+		await statusText(page, SAVED);
+		await page.waitForFunction(() => navigator.serviceWorker.controller);
+		await context.setOffline(true);
+		const results = await page.evaluate(() => {
+			return Promise.all(
+				[
+					["/recipes/", "text/html", "GET"],
+					["/recipes/", "text/markdown", "GET"],
+					["/recipes/", "text/markdown", "HEAD"],
+					["/recipes/", "application/json", "GET"],
+					["/recipes/", "application/json", "HEAD"],
+					["/recipes/lemon-salmon-and-asparagus.md", "text/html", "GET"],
+					[
+						"/recipes/lemon-salmon-and-asparagus/?servings=8",
+						"text/markdown",
+						"GET",
+					],
+					["/recipes/data/recipe-library.md", "application/json", "GET"],
+				].map(async ([path, accept, method]) => {
+					const response = await fetch(path, { method, headers: { accept } });
+					return {
+						status: response.status,
+						type: response.headers.get("content-type"),
+						vary: response.headers.get("vary"),
+						body: await response.text(),
+					};
+				}),
+			);
+		});
+		for (const [index, type] of [
+			[0, "text/html"],
+			[1, "text/markdown"],
+			[2, "text/markdown"],
+			[5, "text/markdown"],
+			[6, "text/markdown"],
+			[7, "text/markdown"],
+		]) {
+			assert.equal(results[index].status, 200, `response ${index} succeeds`);
+			assert.equal(
+				results[index].type.split(";")[0],
+				type,
+				`response ${index} MIME`,
+			);
+			assert.ok(
+				results[index].vary
+					.split(",")
+					.map((value) => value.trim())
+					.includes("Accept"),
+				`response ${index} respects its cached Vary`,
+			);
+		}
+		assert.equal(results[0].status, 200);
+		assert.ok(results[0].body.includes("<html"));
+		assert.equal(results[1].status, 200);
+		assert.ok(results[1].body.includes("Easy Meals"));
+		assert.ok(!results[1].body.includes("<html"));
+		assert.equal(results[2].body, "");
+		assert.equal(results[3].status, 406);
+		assert.equal(results[3].vary, "Accept");
+		assert.equal(results[4].status, 406);
+		assert.equal(results[4].vary, "Accept");
+		assert.equal(results[4].body, "");
+		assert.ok(results[5].body.includes("Lemon salmon and asparagus"));
+		assert.equal(
+			results[5].body,
+			results[6].body,
+			"query controls do not change the canonical Markdown",
+		);
+		assert.equal(
+			results[7].status,
+			200,
+			"assistant data is static even for a rejected page Accept",
+		);
+		assert.equal(
+			results[7].body,
+			await readFile(
+				join(snapshots.A.directory, "recipes/data/recipe-library.md"),
+				"utf8",
+			),
+			"static assistant download retains its exact built body",
+		);
 	} finally {
 		await context.close();
 	}

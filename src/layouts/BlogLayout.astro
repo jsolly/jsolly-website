@@ -1,7 +1,7 @@
 ---
-// The blog and recipes layout, ported from awesome-blog's Base.astro. It is
-// standalone: the portfolio's Layout.astro advertises Markdown alternates these
-// pages do not have (plan J11), and the blog keeps its own stylesheets.
+// The blog and recipes layout, ported from awesome-blog's Base.astro.
+// This section shell keeps the blog stylesheets; build-time Markdown siblings
+// share the same published content and canonical URLs.
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/600.css";
 import "@fontsource/poppins/600.css";
@@ -11,6 +11,7 @@ import "../styles/blog/ui.css";
 import "../styles/blog/blog.css";
 import BlogNavigation from "../components/blog/BlogNavigation.svelte";
 import Maintenance from "../components/Maintenance.astro";
+import { markdownSiblingPath } from "../lib/accept-negotiate.js";
 import {
 	DEFAULT_IMAGE,
 	EMBED_HOSTS,
@@ -71,6 +72,7 @@ const navigation = await blogNavigation();
 		<title>{title} | John Solly</title>
 		<meta name="description" content={description} />
 		<link rel="canonical" href={canonical} />
+		{!isMaintenanceMode && <link rel="alternate" type="text/markdown" href={markdownSiblingPath(Astro.url.pathname)} />}
 		<link rel="icon" href="/favicon.ico" />
 		{
 			Object.values(FEEDS).map(({ path, type, title: feedTitle }) => (

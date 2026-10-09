@@ -9,6 +9,7 @@
 //   (d) legacyRoots: root-anchored legacy paths.
 import { readFile } from "node:fs/promises";
 import { extname, join } from "node:path";
+import { createSatteriMarkdownProcessor } from "@astrojs/markdown-satteri";
 import { globby } from "globby";
 import { JSDOM } from "jsdom";
 import { MARKDOWN_PATHS } from "../../src/content/agent-pages.js";
@@ -254,7 +255,21 @@ function xmlValues(text) {
 // file, every manifest's references, and per file the values (b) and (d)
 // scan. HTML text nodes are not values: prose and code samples may name any
 // URL as text.
-export function buildSite(entries) {
+export async function buildSite(entries) {
+	const markdown = await createSatteriMarkdownProcessor({
+		syntaxHighlight: false,
+		features: { gfm: false, smartPunctuation: false },
+	});
+	const rendered = new Map(
+		await Promise.all(
+			entries
+				.filter(({ file, text }) => extname(file) === ".md" && text !== null)
+				.map(async ({ file, text }) => [
+					file,
+					(await markdown.render(text)).code,
+				]),
+		),
+	);
 	const files = new Set(entries.map(({ file }) => file));
 	const pages = new Map();
 	const values = new Map();
@@ -263,8 +278,8 @@ export function buildSite(entries) {
 		if (text === null) continue;
 		texts.set(file, text);
 		const extension = extname(file);
-		if (extension === ".html") {
-			const page = readPage(file, text);
+		if (extension === ".html" || extension === ".md") {
+			const page = readPage(file, rendered.get(file) ?? text);
 			pages.set(file, page);
 			values.set(file, page.values);
 		} else if (JSON_EXTENSIONS.has(extension)) {
@@ -321,7 +336,7 @@ function unresolved(site, url) {
 	const fragment = url.hash.slice(1);
 	// A fragment only names an element on an HTML page; #:~:text= is a text
 	// directive, not an id.
-	if (!fragment || fragment.startsWith(":~:") || extname(file) !== ".html") {
+	if (!fragment || fragment.startsWith(":~:") || !site.pages.has(file)) {
 		return null;
 	}
 	let id;

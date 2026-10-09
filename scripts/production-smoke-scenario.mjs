@@ -1,5 +1,6 @@
 // biome-ignore-all lint/suspicious/noMisplacedAssertion: This exported scenario is executed by the production smoke runner.
 import assert from "node:assert/strict";
+import { parseFrontmatter } from "astro/markdown";
 
 // The production smoke, read-only (GET only) at a phone width, run by the
 // fleet runner scripts/production-smoke.mjs, which blocks service workers:
@@ -8,13 +9,12 @@ import assert from "node:assert/strict";
 // 3. the mobile menu's Blog link, and the first post on /blog/;
 // 4. the blog's GET search for that post's title, which must list it;
 // 5. the RSS and Atom feeds with their XML Content-Types;
-// 6. the post asked for as Markdown answers HTML, with no Vary: Accept (J11);
+// 6. the post asked for as Markdown answers Markdown with Vary: Accept (J11);
 // 7. the mobile menu's Recipes link, and the /recipes/ library hydrating.
 const FULL_SHA = /^[a-f0-9]{40}$/u;
 
 const CONTACT_HEADING = /Contact/iu;
 const MARKDOWN_TYPE = /text\/markdown/u;
-const HTML_TYPE = /^text\/html/u;
 const ABOUT_HEADING = /^# John Solly/mu;
 const POST_PATH = /^\/blog\/[^/]+\/$/u;
 const RESULT_COUNT = /^\d+ results?$/u;
@@ -190,17 +190,21 @@ async function verifyFeeds({ verifyHttp }) {
 	}
 }
 
-// Blog pages are HTML only (J11): Markdown asked for still gets the HTML, with
-// no Vary: Accept.
-async function checkHtmlOnly(context, path) {
+// Published blog Markdown must negotiate to the selected article, with Vary: Accept.
+async function checkPostMarkdown(context, path, title) {
 	const post = await askForMarkdown(context, path);
 	assert.equal(post.status, 200, "a post asked for as Markdown answers");
 	assert.match(
 		post.type,
-		HTML_TYPE,
-		"a post serves HTML when Markdown is asked for",
+		MARKDOWN_TYPE,
+		"a post serves Markdown when Markdown is asked for",
 	);
-	assert.ok(!post.variesOnAccept, "a post does not vary on Accept");
+	assert.ok(post.variesOnAccept, "post Markdown varies on Accept");
+	assert.equal(
+		parseFrontmatter(post.body).frontmatter.title,
+		title,
+		"post Markdown retains the selected article title",
+	);
 }
 
 // Goes home and follows the mobile menu's Recipes link; the library hydrates,
@@ -239,6 +243,6 @@ export async function smoke({
 	const { title, postPath } = await readFirstPost({ page, verifyHttp });
 	await searchFor({ page, verifyHttp, title, postPath });
 	await verifyFeeds({ verifyHttp });
-	await checkHtmlOnly(context, postPath);
+	await checkPostMarkdown(context, postPath, title);
 	await openRecipes({ page, verifyHttp });
 }

@@ -9,7 +9,7 @@ import { DIST, publishedPosts } from "./pages.mjs";
 // names no URL of its own. Before B22 its canonical, og:url and twitter:url
 // pointed at /404/ and /500/, which are not pages. Indexable pages keep
 // theirs: the portfolio Layout writes all three plus the Markdown sibling,
-// BlogLayout writes canonical and og:url.
+// BlogLayout writes canonical, og:url and the Markdown sibling.
 const NOINDEX = /\bnoindex\b/u;
 // biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
 const ROBOTS = 'meta[name="robots"]';
@@ -61,7 +61,7 @@ it("error pages are noindex and name no URL of their own, while indexable pages 
 	const expected = {
 		"index.html": portfolio,
 		"about/index.html": portfolio,
-		[`blog/${post}/index.html`]: ["canonical", "og:url"],
+		[`blog/${post}/index.html`]: ["canonical", "og:url", "Markdown alternate"],
 	};
 	const indexable = await heads(Object.keys(expected));
 	for (const [file, page] of indexable) {

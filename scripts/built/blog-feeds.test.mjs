@@ -151,9 +151,10 @@ it("feeds follow current published metadata and retain canonical identities", as
 	);
 	assert.deepEqual(
 		alternates,
-		pages.map(() =>
-			FEEDS.map(({ kind, type }) => ({ type, href: `/blog/${kind}.xml` })),
-		),
+		pages.map((page) => [
+			{ type: "text/markdown", href: `/${page}.md` },
+			...FEEDS.map(({ kind, type }) => ({ type, href: `/blog/${kind}.xml` })),
+		]),
 	);
 });
 

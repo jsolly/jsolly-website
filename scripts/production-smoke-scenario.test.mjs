@@ -15,11 +15,13 @@ const NOT_XML = /blog\/rss\.xml has its XML feed type/u;
 const NOT_A_FEED = /blog\/rss\.xml serves a feed document/u;
 const NEVER_HYDRATES = /Timeout[\s\S]*data-hydrated=true/u;
 const NO_CARDS = /the recipe library shows recipe cards/u;
-const POST_NOT_HTML = /a post serves HTML when Markdown is asked for/u;
-const POST_VARIES = /a post does not vary on Accept/u;
+const POST_NOT_MARKDOWN = /a post serves Markdown when Markdown is asked for/u;
+const POST_VARIES = /post Markdown varies on Accept/u;
 const ABOUT_DOES_NOT_VARY = /negotiated Markdown varies on Accept/u;
 const POST_MISSING = /a post asked for as Markdown answers/u;
 const ABOUT_NOT_MARKDOWN = /\/about\/ answers Markdown/u;
+const WRONG_MARKDOWN_TITLE =
+	/post Markdown retains the selected article title/u;
 const WRONG_TITLE = /article title matches the selected post/u;
 const OFF_BLOG = /the blog links to a public article/u;
 // Long enough for a loaded CI machine; a test that expects a wait to time
@@ -83,8 +85,7 @@ const SITE = {
 	),
 };
 // What the middleware answers when Markdown is asked for: /about/ has a
-// Markdown variant, a post is HTML only (and, as Vercel does, varies on
-// Accept-Encoding).
+// Markdown variant; published posts also vary on Accept.
 const MARKDOWN = {
 	"/about/": {
 		type: "text/markdown; charset=utf-8",
@@ -92,9 +93,9 @@ const MARKDOWN = {
 		body: "# John Solly\n\nCTO of Enterprise Health at Leidos Digital.\n",
 	},
 	[POST]: {
-		type: "text/html; charset=utf-8",
-		vary: "Accept-Encoding",
-		body: POST_PAGE,
+		type: "text/markdown; charset=utf-8",
+		vary: "Accept-Encoding, Accept",
+		body: `---\ntitle: ${JSON.stringify(TITLE)}\n---\n\n# ${TITLE}\n\nThe blog article.\n`,
 	},
 };
 
@@ -277,28 +278,28 @@ it("a recipe library with no recipe cards fails", async () => {
 	);
 });
 
-it("a post that answers Markdown fails the HTML-only check", async () => {
-	await assert.rejects(
-		runAgainstStubs({
-			markdown: {
-				[POST]: {
-					type: "text/markdown; charset=utf-8",
-					vary: "Accept",
-					body: `# ${TITLE}\n`,
-				},
-			},
-		}),
-		POST_NOT_HTML,
-	);
-});
-
-it("a post whose HTML varies on Accept fails the HTML-only check", async () => {
+it("a post that answers HTML fails the Markdown check", async () => {
 	await assert.rejects(
 		runAgainstStubs({
 			markdown: {
 				[POST]: {
 					type: "text/html; charset=utf-8",
-					vary: "Accept-Encoding, Accept",
+					vary: "Accept",
+					body: `# ${TITLE}\n`,
+				},
+			},
+		}),
+		POST_NOT_MARKDOWN,
+	);
+});
+
+it("a post whose Markdown omits Vary Accept fails the negotiation check", async () => {
+	await assert.rejects(
+		runAgainstStubs({
+			markdown: {
+				[POST]: {
+					type: "text/markdown; charset=utf-8",
+					vary: "Accept-Encoding",
 					body: POST_PAGE,
 				},
 			},
@@ -412,5 +413,19 @@ it("missing or malformed live release identity cannot pass the smoke", async () 
 				}),
 			),
 		),
+	);
+});
+
+it("a Markdown response identifying another article fails even when its body mentions the selected title", async () => {
+	await assert.rejects(
+		runAgainstStubs({
+			markdown: {
+				[POST]: {
+					...MARKDOWN[POST],
+					body: `---\ntitle: Another post\n---\n\n# Another post\n\n${TITLE}\n`,
+				},
+			},
+		}),
+		WRONG_MARKDOWN_TITLE,
 	);
 });

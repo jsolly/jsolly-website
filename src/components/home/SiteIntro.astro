@@ -1,5 +1,5 @@
 ---
-import { HTML_ONLY_PAGES, MARKDOWN_PAGES } from "../../content/agent-pages.js";
+import { MARKDOWN_GUIDANCE } from "../../content/agent-pages.js";
 import {
 	BLOG_DESCRIPTION,
 	RECIPES_DESCRIPTION,
@@ -73,11 +73,11 @@ const origin = Astro.site?.origin ?? "https://www.jsolly.com";
 	<p class="text-lg text-text-secondary leading-relaxed">
 		Start at
 		<a href={`${origin}/llms.txt`}>{origin}/llms.txt</a>
-		for when-to-use guidance. Request the {MARKDOWN_PAGES} page with
+		for when-to-use guidance. Request a page with
 		<code class="text-base">Accept: text/markdown</code>
 		(or fetch its
 		<code class="text-base">.md</code>
-		sibling) to get a Markdown body without the layout chrome; {HTML_ONLY_PAGES}.
+		sibling) to get a Markdown body without the layout chrome. {MARKDOWN_GUIDANCE}
 		Missing paths return HTTP 404 with recovery links to
 		the sitemap and that index.
 	</p>
