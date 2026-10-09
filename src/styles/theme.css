@@ -2,7 +2,7 @@
 Theme Configuration
 ============== */
 
-@theme {
+@theme static {
 	/* =============
   Color Palette
   ============== */
@@ -67,4 +67,64 @@ Theme Configuration
 		0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
 	--shadow-medium:
 		0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Shared semantic aliases for authored blog prose and recipe controls. */
+@layer theme {
+	:root {
+		color-scheme: light;
+		--font-body: var(--font-family-body);
+		--font-heading: var(--font-family-heading);
+		--background: var(--color-background);
+		--paper: var(--color-card);
+		--text: var(--color-text-secondary);
+		--heading: var(--color-text-primary);
+		--muted: var(--color-text-muted);
+		--border: var(--color-border);
+		--blue: var(--color-blue-700);
+		--button: var(--color-primary-900);
+		--button-text: var(--color-card);
+		--hover: var(--color-primary-100);
+		--input-border: var(--color-primary-500);
+		--motion-fast: 160ms;
+		--motion-panel: 240ms;
+		--motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+	}
+	@media screen and (prefers-color-scheme: dark) {
+		:root {
+			color-scheme: dark;
+			--color-primary-50: #171717;
+			--color-primary-100: #262626;
+			--color-primary-200: #404040;
+			--color-primary-300: #525252;
+			--color-primary-400: #737373;
+			--color-primary-500: #a3a3a3;
+			--color-primary-600: #d4d4d4;
+			--color-primary-700: #e5e5e5;
+			--color-primary-800: #f5f5f5;
+			--color-primary-900: #fafafa;
+			--color-background: #171717;
+			--color-card: #222222;
+			--color-text-primary: #fafafa;
+			--color-text-secondary: #d4d4d4;
+			--color-text-muted: #b3b3b3;
+			--color-border: #404040;
+			--color-blue-500: #93b4ff;
+			--color-blue-700: #93b4ff;
+			--shadow-soft: 0 2px 15px -3px #0004, 0 10px 20px -2px #0003;
+		}
+	}
+	@media print {
+		:root {
+			color-scheme: light;
+			--color-background: #fff;
+			--color-card: #fff;
+			--color-text-primary: #000;
+			--color-text-secondary: #000;
+			--color-text-muted: #333;
+			--color-border: #aaa;
+			--color-blue-700: #000;
+			--shadow-soft: none;
+		}
+	}
 }

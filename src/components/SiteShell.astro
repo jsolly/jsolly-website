@@ -1,0 +1,25 @@
+---
+import "../styles/main.css";
+import noScriptStyles from "../styles/no-script.css?url";
+import Footer from "./Footer.astro";
+import Header from "./Header.astro";
+import Maintenance from "./Maintenance.astro";
+
+interface Props {
+  section?: "portfolio" | "blog" | "recipes";
+  homeLink?: boolean;
+}
+const { section = "portfolio", homeLink = false } = Astro.props;
+const maintenance = process.env.MAINTENANCE_MODE === "true";
+---
+<noscript><link rel="stylesheet" href={noScriptStyles} /></noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <Header />
+  <slot name="navigation" />
+  <main id="main" aria-label="Main content" class:list={["content-section", section !== "portfolio" && "reading-section"]} data-section={section} data-page={Astro.url.pathname}>
+    {maintenance ? <Maintenance /> : <><slot />{homeLink && <nav aria-label="Home navigation"><a href="/" id="home-btn" class="secondary-btn mt-6 inline-block" aria-label="Go to home page">Home</a></nav>}</>}
+  </main>
+  <slot name="section-footer" />
+  <Footer />
+</div>

@@ -1,0 +1,11 @@
+@layer properties, theme, base, components, utilities, blog, blog-no-script;
+@layer blog-no-script {
+	@media (max-width: 767px) {
+		#mobile-menu {
+			display: block;
+		}
+		#mobile-menu-button {
+			display: none;
+		}
+	}
+}

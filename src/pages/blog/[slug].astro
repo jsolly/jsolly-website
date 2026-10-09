@@ -12,6 +12,7 @@ import {
 	imageUrl,
 } from "../../lib/blog/html.js";
 import { categoryHref, postHref } from "../../lib/blog/urls.js";
+import Button from "../../lib/components/ui/button.svelte";
 
 // One page per published post at /blog/<slug>/ (slug case kept). A related
 // slug naming a draft is left out of the cards; one naming no post at all has
@@ -93,10 +94,10 @@ const structured = JSON.stringify({
 		<footer class="post-details">
 			<p class="post-meta"><time datetime={data.published.toISOString()}>{dateLabel(data.published)}</time> in <a href={categoryPage}>{categoryName}</a></p>
 			<p class="post-meta">Updated <time datetime={data.updated.toISOString()}>{dateLabel(data.updated)}</time></p>
-			<div class="article-actions share-actions"><span class="action-label">Share</span><button id="print-article" type="button">Print this post</button>{SHARE_TARGETS.map(({ name, icon, href }) => <a class="action-button" href={href(url, data.title)} rel="noopener noreferrer" target="_blank"><img src={`/blog/social/${icon}`} alt={`Share on ${name} (opens in new tab)`} width="22" height="22" /></a>)}</div>
+			<div class="article-actions share-actions"><span class="action-label">Share</span><Button id="print-article" variant="outline" type="button">Print this post</Button>{SHARE_TARGETS.map(({ name, icon, href }) => <Button variant="outline" size="icon" class="size-11" href={href(url, data.title)} rel="noopener noreferrer" target="_blank"><img src={`/blog/social/${icon}`} alt={`Share on ${name} (opens in new tab)`} width="22" height="22" /></Button>)}</div>
 		</footer>
 	</article>
-	<div class="article-actions"><a class="action-button" href="/blog/">Back to home</a><span id="heading-copy-status" role="status" /></div>
+	<div class="article-actions"><Button variant="outline" href="/blog/">Back to home</Button><span id="heading-copy-status" role="status" /></div>
 	{related.length > 0 && <section class="related-posts"><h2>Related posts</h2><PostCards posts={related} headingTag="h3" /></section>}
 	<AuthorCard />
 </BlogLayout>

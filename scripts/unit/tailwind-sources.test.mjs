@@ -15,27 +15,19 @@ const SOURCE_ROOTS = [
 	"src/pages/",
 	"src/lib/",
 ];
-// Blog and recipe paths under the source roots must not feed main.css: the
-// blog has its own Tailwind entry (src/styles/blog/ui.css), and recipe data and
-// modules hold class-like strings that are not portfolio UI.
+// Content data and sanitizer modules hold prose rather than UI utilities.
 const EXCLUDED = [
 	"src/lib/blog/",
-	"src/components/blog/",
-	"src/pages/blog/",
-	"src/layouts/BlogLayout.astro",
-	"src/layouts/RecipeLayout.astro",
 	"src/components/recipes/",
 	"src/pages/recipes/",
 ];
-// The shared shadcn-svelte parts feed main.css only when portfolio code
-// imports them; main.css excludes the directory and re-includes those files.
+// The shared stylesheet scans all installed shadcn-svelte parts.
 const UI_DIR = "src/lib/components/ui/";
 const UI_IMPORT =
 	/["'][^"']*lib\/components\/ui\/(?<file>[\w-]+\.svelte)["']/gu;
 
-// The ui files portfolio code (the source roots minus the excluded paths and
-// the ui directory itself) imports.
-async function portfolioUiImports() {
+// UI files imported by the site, excluding content data and the UI parts themselves.
+async function siteUiImports() {
 	const files = (
 		await globby(
 			SOURCE_ROOTS.map((root) => `${root}**/*.{astro,svelte,ts,js,mjs}`),
@@ -74,7 +66,7 @@ async function scan() {
 	};
 }
 
-it("Tailwind builds the portfolio stylesheet only from the four portfolio source roots", async () => {
+it("Tailwind builds the shared stylesheet only from the four UI source roots", async () => {
 	const { root: tailwindRoot, files } = await scan();
 	assert.equal(
 		tailwindRoot,
@@ -87,29 +79,36 @@ it("Tailwind builds the portfolio stylesheet only from the four portfolio source
 	assert.deepEqual(
 		outside,
 		[],
-		"files outside the portfolio source roots feed main.css",
+		"files outside the UI source roots feed main.css",
 	);
 	const excludedFiles = files.filter((file) =>
 		EXCLUDED.some((path) => file.startsWith(path)),
 	);
+	assert.deepEqual(excludedFiles, [], "content-only data paths feed main.css");
+	const used = await siteUiImports();
+	assert.ok(used.size > 0, "site code imports shared ui components");
 	assert.deepEqual(
-		excludedFiles,
+		[...used].filter((file) => !files.includes(file)),
 		[],
-		"blog or recipe paths feed main.css; keep their @source not lines",
+		"every directly used UI component is scanned",
 	);
-	const used = await portfolioUiImports();
-	assert.ok(used.size > 0, "portfolio code imports shared ui components");
+	const uiFiles = await globby(`${UI_DIR}**/*.svelte`, { cwd: ROOT });
 	assert.deepEqual(
-		files.filter((file) => file.startsWith(UI_DIR)).sort(),
-		[...used].sort(),
-		"exactly the ui components portfolio code imports feed main.css; match main.css's ui @source lines to them",
+		files
+			.filter((file) => file.startsWith(UI_DIR))
+			.sort((a, b) => a.localeCompare(b)),
+		uiFiles.sort((a, b) => a.localeCompare(b)),
+		"all composed UI parts are scanned",
 	);
+	for (const component of [
+		"src/components/SiteNavigation.svelte",
+		"src/components/blog/BlogNavigation.svelte",
+		"src/components/SiteShell.astro",
+	]) {
+		assert.ok(files.includes(component), `${component} is scanned`);
+	}
 	const unscannedRoots = SOURCE_ROOTS.filter(
 		(root) => !files.some((file) => file.startsWith(root)),
 	);
-	assert.deepEqual(
-		unscannedRoots,
-		[],
-		"every portfolio source root is scanned",
-	);
+	assert.deepEqual(unscannedRoots, [], "every UI source root is scanned");
 });

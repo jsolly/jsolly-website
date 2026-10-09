@@ -15,6 +15,7 @@ const RECIPES = new URL(
 	"../../src/components/recipes/recipes.json",
 	import.meta.url,
 );
+const FONT_URL = /\.woff2?$/u;
 const COLLECTION_LINKS = { meal: "Meals", smoothie: "Smoothies" };
 
 let site;
@@ -90,19 +91,25 @@ function registerRecipeLink(recipe) {
 
 for (const recipe of recipes) registerRecipeLink(recipe);
 
-it("old /recipes/#meal-results lands on the cards without a recipe dialog", {
-	timeout: 30_000,
-}, async () => {
-	const context = await browser.newContext({
-		viewport: { width: 1280, height: 800 },
-	});
-	const page = await context.newPage();
-	const errors = collectErrors(page, []);
-	try {
-		await page.goto(`${site.origin}${LANDING}#meal-results`);
-		await page.locator("[data-hydrated=true]").waitFor();
-		assert.deepEqual(
-			await page.evaluate(() => {
+function registerFragmentLink(fontDelay) {
+	it(`old /recipes/#meal-results lands on the cards without a recipe dialog (font delay ${fontDelay}ms)`, {
+		timeout: 30_000,
+	}, async () => {
+		const context = await browser.newContext({
+			viewport: { width: 1280, height: 800 },
+		});
+		const page = await context.newPage();
+		const errors = collectErrors(page, []);
+		try {
+			if (fontDelay) {
+				await page.route(FONT_URL, async (route) => {
+					await new Promise((resolve) => setTimeout(resolve, fontDelay));
+					await route.continue();
+				});
+			}
+			await page.goto(`${site.origin}${LANDING}#meal-results`);
+			await page.locator("[data-hydrated=true]").waitFor();
+			const position = await page.evaluate(() => {
 				const target = document.querySelector(":target");
 				const { top } = target?.getBoundingClientRect() ?? { top: -1 };
 				return {
@@ -110,11 +117,25 @@ it("old /recipes/#meal-results lands on the cards without a recipe dialog", {
 					inView: top >= 0 && top < window.innerHeight,
 					dialogs: document.querySelectorAll(".recipe-takeover").length,
 				};
-			}),
-			{ target: "meal-results", inView: true, dialogs: 0 },
-		);
-		assert.deepEqual(errors, []);
-	} finally {
-		await context.close();
-	}
-});
+			});
+			assert.deepEqual(
+				position,
+				{ target: "meal-results", inView: true, dialogs: 0 },
+				JSON.stringify(
+					await page.evaluate(() => ({
+						top: document.querySelector(":target")?.getBoundingClientRect().top,
+						scrollY: window.scrollY,
+						fonts: document.fonts.status,
+						scrolling: getComputedStyle(document.documentElement)
+							.scrollBehavior,
+					})),
+				),
+			);
+			assert.deepEqual(errors, []);
+		} finally {
+			await context.close();
+		}
+	});
+}
+
+for (const fontDelay of [0, 500, 2000]) registerFragmentLink(fontDelay);

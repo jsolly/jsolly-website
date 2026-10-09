@@ -99,6 +99,11 @@
 			margin-bottom: 12px;
 			cursor: pointer;
 			font: inherit;
+			white-space: normal;
+			max-width: 100%;
+			min-width: 0;
+			height: auto;
+			min-height: 44px;
 		}
 		:global(.method-dialog) {
 			max-width: 540px;
