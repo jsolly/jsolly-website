@@ -183,6 +183,12 @@ new Markdown backing files with maintenance text; live direct and negotiated
 Markdown requests return 503 while an already installed cooking snapshot stays
 available offline.
 
+Production smoke first verifies the exact release and ordinary page behavior
+with service workers blocked. It then uses a separate fresh browser context to
+verify that `/recipes/service-worker.js` activates at scope `/recipes/` and
+controls the recipe page after reload. Its receipt records activation and
+control; this does not replace installed-app offline verification.
+
 ## Old-host kill-switch
 
 blogthedata.com registered two cache-first recipe workers: `/recipe-service-worker.js`
