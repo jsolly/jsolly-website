@@ -738,7 +738,113 @@ function collectionsCheck(width) {
 	});
 }
 
+function filterFocusCheck(width) {
+	it(`Recipe filters preserve keyboard and outside-control focus at ${width}px`, {
+		timeout: 60_000,
+	}, async () => {
+		const context = await browser.newContext({
+			viewport: { width, height: HEIGHT },
+		});
+		try {
+			const page = await context.newPage();
+			const checkFilter = async (route, label) => {
+				await page.goto(`${site.origin}${route}`);
+				await hydrated(page);
+				const trigger = page.getByRole("button", {
+					name: new RegExp(`^${label}:`, "u"),
+				});
+				const panel = page.getByRole("dialog", { name: `${label} choices` });
+				await page.evaluate(() => {
+					window.filterFocusEscapes = [];
+					let entered = false;
+					document.addEventListener("focusin", (event) => {
+						if (event.target.closest(".multi-options")) entered = true;
+						else if (entered && document.querySelector(".multi-options")) {
+							window.filterFocusEscapes.push(event.target.outerHTML);
+						}
+					});
+				});
+				await trigger.focus();
+				await page.keyboard.press("Enter");
+				await panel.waitFor();
+				await page.waitForFunction(() =>
+					document.activeElement?.closest(".multi-options"),
+				);
+				await page.waitForFunction(() => {
+					const element = document.querySelector(".multi-options");
+					if (!element) return false;
+					const bounds = element.getBoundingClientRect();
+					return bounds.top >= 0 && bounds.bottom <= window.innerHeight;
+				});
+				// Let the delayed FocusScope remount settle before keyboard input.
+				await page.waitForTimeout(350);
+				assert.deepEqual(
+					await page.evaluate(() => window.filterFocusEscapes),
+					[],
+					`${label}: remount never moves focus out of the open panel`,
+				);
+				const option = panel.getByRole("checkbox").first();
+				assert.equal(
+					await option.evaluate(
+						(element) => element === document.activeElement,
+					),
+					true,
+					`${label}: the open panel retains keyboard focus after remount`,
+				);
+				const emptySummary = await trigger.textContent();
+				await page.keyboard.press("Space");
+				assert.equal(await option.getAttribute("aria-checked"), "true");
+				assert.notEqual(await trigger.textContent(), emptySummary);
+				await page.keyboard.press("Escape");
+				await panel.waitFor({ state: "detached" });
+				assert.equal(
+					await trigger.evaluate(
+						(element) => element === document.activeElement,
+					),
+					true,
+					`${label}: Escape returns to the trigger`,
+				);
+				await trigger.click();
+				await panel.waitFor();
+				const servings = page.getByRole("combobox", { name: SERVINGS });
+				await servings.click();
+				await panel.waitFor({ state: "detached" });
+				assert.equal(
+					await servings.evaluate(
+						(element) => element === document.activeElement,
+					),
+					true,
+					`${label}: clicking Servings keeps its focus`,
+				);
+				await page.keyboard.press("Escape");
+				await trigger.click();
+				await panel.waitFor();
+				await panel.getByRole("button", { name: "Clear selections" }).focus();
+				await page.keyboard.press("Tab");
+				assert.equal(
+					await page.evaluate(() =>
+						Boolean(document.activeElement?.closest(".multi-options")),
+					),
+					false,
+					`${label}: Tab can leave the nonmodal filter`,
+				);
+			};
+			for (const [route, label] of [
+				["/recipes/meals/", "Proteins"],
+				["/recipes/meals/", "Carbs"],
+				["/recipes/smoothies/", "Ingredients"],
+			]) {
+				// biome-ignore lint/performance/noAwaitInLoops: scenarios reuse one page in order.
+				await checkFilter(route, label);
+			}
+		} finally {
+			await context.close();
+		}
+	});
+}
+
 for (const width of WIDTHS) {
+	filterFocusCheck(width);
 	detailsCheck(width);
 	filtersCheck(width);
 	collectionsCheck(width);
