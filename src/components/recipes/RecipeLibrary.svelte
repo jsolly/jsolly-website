@@ -243,7 +243,7 @@
 		<h2 bind:this={listHeading} tabindex="-1">{collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2>
 		<div class="recipe-grid">
 			{#each visibleRecipes as recipe (recipe.id)}
-				<RecipeCard {recipe} {servings} href={recipeHref(recipe, recipeSettings)} />
+				<RecipeCard {recipe} href={recipeHref(recipe, recipeSettings)} />
 			{/each}
 		</div>
 		<p class="no-results" role="status">{hydrated && !visibleRecipes.length ? NO_RESULTS : ""}</p>

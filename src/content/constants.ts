@@ -28,7 +28,7 @@ export const siteLinks: readonly SiteLink[] = [
 	{ href: "/about/", text: "About", label: "About John Solly" },
 	{ href: "/contact/", text: "Contact", label: "Contact John Solly" },
 	{ href: "/blog/", text: "Blog", label: "Blog by John Solly" },
-	{ href: "/recipes/", text: "Recipes", label: "Recipes by John Solly" },
+	{ href: "/recipes/", text: "My Recipes", label: "My Recipes" },
 	{
 		href: "/John-Solly-Resume.pdf",
 		text: "Resume",

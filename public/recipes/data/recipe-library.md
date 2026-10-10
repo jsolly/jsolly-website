@@ -4,7 +4,7 @@
 
 ## Lemon salmon and asparagus
 
-4 adult servings · US measures · keto · 8 min active per base batch · 20–25 min
+4 adult servings · US measures · keto · 8 min active per base batch · 25 min
 
 Lemon salmon with asparagus and garlic.
 
@@ -106,7 +106,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Smoky chicken thighs and broccoli
 
-4 adult servings · US measures · keto · 12 min active per base batch · 25–35 min
+4 adult servings · US measures · keto · 12 min active per base batch · 35 min
 
 Smoky chicken thighs with roasted broccoli.
 
@@ -216,7 +216,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Pesto cod and zucchini
 
-4 adult servings · US measures · keto · 11 min active per base batch · 30–40 min
+4 adult servings · US measures · keto · 11 min active per base batch · 40 min
 
 Pesto cod with zucchini.
 
@@ -322,7 +322,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Spinach, feta, and hemp frittata
 
-4 adult servings · US measures · keto · 15 min active per base batch · 40–50 min
+4 adult servings · US measures · keto · 15 min active per base batch · 50 min
 
 Spinach, feta and hemp frittata with salad.
 
@@ -438,7 +438,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Keto zuppa toscana
 
-4 adult servings · US measures · keto · 20 min active per base batch · 35–45 min expected; pressure buildup can take longer
+4 adult servings · US measures · keto · 20 min active per base batch · 45 min
 
 Creamy Instant Pot soup with chicken Italian sausage, turkey bacon, cauliflower and kale.
 
@@ -556,7 +556,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Shawarma chicken bowls
 
-4 adult servings · US measures · shared · 14 min active per base batch · 30–40 min
+4 adult servings · US measures · shared · 14 min active per base batch · 40 min
 
 Shawarma-spiced chicken, cauliflower and lemon yogurt.
 
@@ -676,7 +676,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Sheet-pan chicken fajitas
 
-4 adult servings · US measures · shared · 14 min active per base batch · 30–40 min
+4 adult servings · US measures · shared · 14 min active per base batch · 40 min
 
 Chicken fajitas with roasted peppers and onions.
 
@@ -792,7 +792,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Salsa verde shredded chicken
 
-4 adult servings · US measures · shared · 15 min active per base batch · 40–45 min expected; pressure buildup can take longer
+4 adult servings · US measures · shared · 15 min active per base batch · 45 min
 
 Salsa verde chicken with avocado and cabbage slaw.
 
@@ -916,7 +916,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Greek turkey patties
 
-4 adult servings · US measures · shared · 15 min active per base batch · 30–40 min
+4 adult servings · US measures · shared · 15 min active per base batch · 40 min
 
 Greek turkey patties with cucumber salad and yogurt.
 
@@ -1034,7 +1034,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Tomato, lentil, and chicken bake
 
-4 adult servings · US measures · nonketo · 10 min active per base batch · 35–40 min
+4 adult servings · US measures · nonketo · 10 min active per base batch · 40 min
 
 Chicken and lentils baked in tomato sauce.
 
@@ -1148,7 +1148,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Harissa chickpea and cauliflower bowls
 
-4 adult servings · US measures · nonketo · 12 min active per base batch · 35–40 min
+4 adult servings · US measures · nonketo · 12 min active per base batch · 40 min
 
 Harissa chickpeas and cauliflower with yogurt.
 
@@ -1260,7 +1260,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lemon chicken, potatoes, and green beans
 
-4 adult servings · US measures · nonketo · 15 min active per base batch · 35–45 min
+4 adult servings · US measures · nonketo · 15 min active per base batch · 45 min
 
 Lemon chicken with potatoes and green beans.
 
@@ -1384,7 +1384,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Sheet-pan gnocchi, white beans, and broccoli
 
-4 adult servings · US measures · nonketo · 12 min active per base batch · 40–45 min
+4 adult servings · US measures · nonketo · 12 min active per base batch · 45 min
 
 Roasted gnocchi, white beans and broccoli.
 
@@ -1506,7 +1506,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Pan-fried Greek turkey patties
 
-4 adult servings · US measures · shared · 30 min active per base batch · 35–40 min
+4 adult servings · US measures · shared · 30 min active per base batch · 40 min
 
 Pan-fried turkey-feta patties with cucumber salad and lemon yogurt.
 
@@ -2134,7 +2134,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Chicken Posole (enchilada soup)
 
-4 adult servings · US measures · nonketo · 15 min active per base batch · 30–40 min
+4 adult servings · US measures · nonketo · 15 min active per base batch · 40 min
 
 Chicken and white beans in red enchilada broth, finished with lime, cabbage and cilantro.
 
@@ -2326,7 +2326,57 @@ Green chilis, cumin and jalapeño season the creamy cheddar sauce.
 
 Calories: 335 kcal; protein: 28.4 g; total carbs: 4.1 g; fiber: 0.5 g; net carbs: 3.6 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves the portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Minced garlic: model uses Garlic, raw.
+
+- Minced garlic: 8.5 g edible food per tbsp for nutrition only.
+
+- Jalapeño: model uses Peppers, hot chili, green, raw.
+
+- Jalapeño: 14 g edible food per count for nutrition only.
+
+- Unsweetened almond milk: model uses Beverages, almond milk, unsweetened, shelf stable.
+
+- Unsweetened almond milk: 240 g edible food per cup for nutrition only.
+
+- Heavy cream: model uses Cream, fluid, heavy whipping.
+
+- Heavy cream: 238 g edible food per cup for nutrition only.
+
+- Cream cheese: model uses Cheese, cream.
+
+- Canned green chilis: model uses Peppers, hot chili, green, canned, pods, excluding seeds, solids and liquids.
+
+- Chili powder: model uses Spices, chili powder.
+
+- Chili powder: 2.7 g edible food per tsp for nutrition only.
+
+- Ground cumin: model uses Spices, cumin seed.
+
+- Ground cumin: 2.1 g edible food per tsp for nutrition only.
+
+- Onion powder: model uses Spices, onion powder.
+
+- Onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- Shredded cheddar for the sauce: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
+
+- Shredded cheddar for the sauce: 113 g edible food per cup for nutrition only.
+
+- Shredded chicken: model uses Chicken, broilers or fryers, breast, meat only, cooked, roasted.
+
+- Shredded chicken: 140 g edible food per cup for nutrition only.
+
+- Shredded cheddar for topping: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
+
+- Shredded cheddar for topping: 113 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk, tree nuts. Check product labels and cross-contact.
 
@@ -2347,6 +2397,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [The Best Keto Recipes: One Pan Keto Green Chili Chicken](https://thebestketorecipes.com/one-pan-keto-green-chili-chicken/)
 
 - [USDA leftovers and reheating guidance](https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -2418,7 +2470,37 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 441 kcal; protein: 51.0 g; total carbs: 7.9 g; fiber: 3.0 g; net carbs: 4.9 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Boneless skinless chicken thighs: model uses Chicken, broilers or fryers, dark meat, thigh, meat only, raw.
+
+- Boneless skinless chicken thighs: 100 g edible food per count for nutrition only.
+
+- G Hughes Sugar Free Honey Mustard: model uses G Hughes sugar-free honey mustard: detailed nutrient observations unavailable.
+
+- G Hughes Sugar Free Honey Mustard: 240 g edible food per cup for nutrition only.
+
+- asparagus: model uses Asparagus, raw.
+
+- sliced bell pepper: model uses Peppers, sweet, red, raw.
+
+- sliced bell pepper: 149 g edible food per cup for nutrition only.
+
+- sliced red onion: model uses Onions, raw.
+
+- sliced red onion: 160 g edible food per cup for nutrition only.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 2.8 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: salt and pepper to taste.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -2445,6 +2527,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Farmlife DIY: Honey Mustard Chicken Sheet Pan Dinner (keto + low carb)](https://farmlifediy.com/honey-mustard-chicken-sheet-pan-dinner-keto-low-carb/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -2530,7 +2614,69 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 344 kcal; protein: 34.0 g; total carbs: 6.1 g; fiber: 1.4 g; net carbs: 4.7 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Chicken: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- cumin: model uses Spices, cumin seed.
+
+- cumin: 2.1 g edible food per tsp for nutrition only.
+
+- chili powder: model uses Spices, chili powder.
+
+- chili powder: 2.7 g edible food per tsp for nutrition only.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- onion powder: model uses Spices, onion powder.
+
+- onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- pepper: model uses Spices, pepper, black.
+
+- pepper: 2.3 g edible food per tsp for nutrition only.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- bell pepper: model uses Peppers, sweet, red, raw.
+
+- bell pepper: 149 g edible food per cup for nutrition only.
+
+- onion: model uses Onions, raw.
+
+- onion: 160 g edible food per cup for nutrition only.
+
+- jalapeños: model uses Peppers, hot chili, green, raw.
+
+- jalapeños: 14 g edible food per count for nutrition only.
+
+- heavy cream: model uses Cream, fluid, heavy whipping.
+
+- heavy cream: 238 g edible food per cup for nutrition only.
+
+- chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken broth: 240 g edible food per cup for nutrition only.
+
+- cream cheese: model uses Cheese, cream.
+
+- cheddar: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
+
+- cheddar: 113 g edible food per cup for nutrition only.
+
+- Olive oil or cooking spray: model uses Oil, olive, salad or cooking.
+
+- Olive oil or cooking spray: 13.5 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -2553,6 +2699,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie Holmes: One Pan Cheesy Fajita Chicken (keto + low carb)](https://www.maebells.com/one-pan-cheesy-fajita-chicken-keto-low-carb/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -2636,7 +2784,67 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 425 kcal; protein: 40.3 g; total carbs: 5.1 g; fiber: 0.8 g; net carbs: 4.3 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- small chicken breast: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- small chicken breast: 174 g edible food per count for nutrition only.
+
+- cumin: model uses Spices, cumin seed.
+
+- cumin: 2.1 g edible food per tsp for nutrition only.
+
+- chili powder: model uses Spices, chili powder.
+
+- chili powder: 2.7 g edible food per tsp for nutrition only.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- pepper: model uses Spices, pepper, black.
+
+- pepper: 2.3 g edible food per tsp for nutrition only.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- chopped onion: model uses Onions, raw.
+
+- chopped onion: 160 g edible food per cup for nutrition only.
+
+- jalapenos: model uses Peppers, hot chili, green, raw.
+
+- jalapenos: 14 g edible food per count for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 2.8 g edible food per tsp for nutrition only.
+
+- heavy cream: model uses Cream, fluid, heavy whipping.
+
+- heavy cream: 238 g edible food per cup for nutrition only.
+
+- chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken broth: 240 g edible food per cup for nutrition only.
+
+- cream cheese: model uses Cheese, cream.
+
+- shredded cheddar cheese: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
+
+- shredded cheddar cheese: 113 g edible food per cup for nutrition only.
+
+- Olive oil or cooking spray: model uses Oil, olive, salad or cooking.
+
+- Olive oil or cooking spray: 13.5 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -2657,6 +2865,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie Holmes: Keto Jalapeño Chicken](https://www.maebells.com/one-pan-keto-cheesy-jalapeno-chicken/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -2738,7 +2948,57 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 311 kcal; protein: 30.7 g; total carbs: 9.6 g; fiber: 3.0 g; net carbs: 6.6 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- chicken breast: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- onion powder: model uses Spices, onion powder.
+
+- onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- paprika: model uses Spices, paprika.
+
+- paprika: 2.3 g edible food per tsp for nutrition only.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- pepper: model uses Spices, pepper, black.
+
+- pepper: 2.3 g edible food per tsp for nutrition only.
+
+- broccoli florets: model uses Broccoli, raw.
+
+- broccoli florets: 91 g edible food per cup for nutrition only.
+
+- garlic: model uses Garlic, raw.
+
+- garlic: 2.8 g edible food per tsp for nutrition only.
+
+- unsweetened almond milk: model uses Beverages, almond milk, unsweetened, shelf stable.
+
+- unsweetened almond milk: 240 g edible food per cup for nutrition only.
+
+- heavy cream: model uses Cream, fluid, heavy whipping.
+
+- heavy cream: 238 g edible food per cup for nutrition only.
+
+- cream cheese: model uses Cheese, cream.
+
+- shredded cheddar cheese: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
+
+- shredded cheddar cheese: 113 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk, tree nuts. Check product labels and cross-contact.
 
@@ -2765,6 +3025,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie Holmes: Keto Broccoli Cheddar Chicken](https://www.maebells.com/keto-broccoli-cheddar-chicken-one-pan-recipe/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -2838,7 +3100,49 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 285 kcal; protein: 40.6 g; total carbs: 2.1 g; fiber: 0.3 g; net carbs: 1.8 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- gluten free soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.
+
+- gluten free soy sauce: 255 g edible food per cup for nutrition only.
+
+- rice vinegar: model uses Vinegar, cider.
+
+- rice vinegar: 15 g edible food per tbsp for nutrition only.
+
+- brown sugar swerve: model uses Swerve erythritol sweetener: additional nutrients unobserved; publisher macros retained.
+
+- brown sugar swerve: 12 g edible food per tbsp for nutrition only.
+
+- sesame oil: model uses Oil, olive, salad or cooking.
+
+- sesame oil: 13.5 g edible food per tbsp for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 2.8 g edible food per tsp for nutrition only.
+
+- olive oil or sesame oil for frying: model uses Oil, olive, salad or cooking.
+
+- olive oil or sesame oil for frying: 13.5 g edible food per tbsp for nutrition only.
+
+- chicken: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- medium size zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- medium size zucchini: 196 g edible food per count for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: salt and pepper to taste.
+
+- cashews: model uses Nuts, cashew nuts, raw.
+
+- cashews: 8.6 g edible food per tbsp for nutrition only.
+
+- green onions: model uses Onions, spring or scallions (includes tops and bulb), raw.
+
+- green onions: 6 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: sesame, soy, tree nuts. Check product labels and cross-contact.
 
@@ -2861,6 +3165,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie Holmes: Sesame Chicken Keto Stir Fry](https://www.maebells.com/keto-sesame-chicken-stir-fry-one-pan-low-carb/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -2932,7 +3238,39 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 278 kcal; protein: 27.8 g; total carbs: 2.9 g; fiber: 0.6 g; net carbs: 2.3 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- boneless skinless chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: salt and pepper.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 2.8 g edible food per tsp for nutrition only.
+
+- Mushrooms: model uses Mushrooms, white, raw.
+
+- white cooking wine: model uses Alcoholic beverage, wine, table, white.
+
+- white cooking wine: 240 g edible food per cup for nutrition only.
+
+- heavy cream: model uses Cream, fluid, heavy whipping.
+
+- heavy cream: 238 g edible food per cup for nutrition only.
+
+- Swiss cheese: model uses Cheese, swiss.
+
+- Swiss cheese: 28 g edible food per slice for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -2953,6 +3291,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie Holmes: One Pan Mushroom Chicken (keto + low carb)](https://www.maebells.com/one-pan-mushroom-chicken-keto-low-carb/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -3008,9 +3348,25 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 203 kcal; protein: 26.4 g; total carbs: 1.0 g; fiber: Not provided; net carbs: Not provided
+Calories: 203 kcal; protein: 26.4 g; total carbs: 1.0 g; fiber: 0.5 g; net carbs: 0.5 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- chicken breast: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- cream cheese: model uses Cheese, cream.
+
+- Ranch seasoning fiber assumed zero; retained publisher calories, protein and total carbohydrates. Fiber estimated from the remaining measured ingredients.
+
+- jarred pepperoncini peppers: model uses Peppers, hot pickled, canned.
+
+- jarred pepperoncini peppers: 14 g edible food per count for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -3019,8 +3375,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 - Ingredient quantities are scaled from 6 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
 
 - Adapted from Annie. This adaptation has not been kitchen-tested.
-
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
@@ -3033,6 +3387,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie: Keto Slow Cooker Zesty Ranch Chicken](https://thebestketorecipes.com/keto-slow-cooker-zesty-ranch-chicken-less-than-1-net-carb/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 - [Resolved publisher source](https://thebestketorecipes.com/keto-slow-cooker-zesty-ranch-chicken/)
 
@@ -3110,7 +3466,53 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 222 kcal; protein: 28.0 g; total carbs: 7.0 g; fiber: 2.0 g; net carbs: 5.0 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- thin cut chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- pepper: model uses Spices, pepper, black.
+
+- pepper: 2.3 g edible food per tsp for nutrition only.
+
+- unsalted butter: model uses Butter, without salt.
+
+- unsalted butter: 14.2 g edible food per tbsp for nutrition only.
+
+- chicken bone broth: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken bone broth: 240 g edible food per cup for nutrition only.
+
+- garlic: model uses Garlic, raw.
+
+- garlic: 3 g edible food per clove for nutrition only.
+
+- cauliflower: model uses Cauliflower, raw.
+
+- cauliflower: 107 g edible food per cup for nutrition only.
+
+- fresh thyme: model uses Thyme, fresh.
+
+- fresh thyme: 2.4 g edible food per tbsp for nutrition only.
+
+- heavy cream: model uses Cream, fluid, heavy whipping.
+
+- heavy cream: 14.9 g edible food per tbsp for nutrition only.
+
+- lemon juice: model uses Lemon juice, raw.
+
+- lemon juice: 15 g edible food per tbsp for nutrition only.
+
+- lemon zest: model uses Lemon peel, raw.
+
+- lemon zest: 2 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh thyme.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -3131,6 +3533,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [deliciouslittlebites.com: Skillet Creamy Lemon Chicken with Cauliflower](https://deliciouslittlebites.com/skillet-creamy-lemon-chicken-cauliflower/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -3192,7 +3596,23 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 437 kcal; protein: 37.0 g; total carbs: 7.0 g; fiber: 2.0 g; net carbs: 5.0 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- boneless, skinless chicken: model uses Chicken, broilers or fryers, breast, meat only, cooked, roasted.
+
+- cauliflower: model uses Cauliflower, raw.
+
+- cauliflower: 107 g edible food per cup for nutrition only.
+
+- buffalo sauce: model uses Sauce, hot chile, sriracha.
+
+- buffalo sauce: 240 g edible food per cup for nutrition only.
+
+- cream cheese: model uses Cheese, cream.
+
+- sharp cheddar cheese: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -3217,6 +3637,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [deliciouslittlebites.com: Creamy Buffalo Chicken Cauliflower Casserole](https://deliciouslittlebites.com/buffalo-chicken-cauliflower-casserole/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -3304,7 +3726,59 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 341 kcal; protein: 32.0 g; total carbs: 9.0 g; fiber: 2.0 g; net carbs: 7.0 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Greek Yogurt: model uses Yogurt, Greek, plain, lowfat.
+
+- Greek Yogurt: 245 g edible food per cup for nutrition only.
+
+- Ginger paste: model uses Ginger root, raw.
+
+- Ginger paste: 6 g edible food per tbsp for nutrition only.
+
+- Garlic, minced: model uses Garlic, raw.
+
+- Garlic, minced: 3 g edible food per clove for nutrition only.
+
+- Kosher salt: model uses Salt, table.
+
+- Kosher salt: 6 g edible food per tsp for nutrition only.
+
+- Black pepper: model uses Spices, pepper, black.
+
+- Black pepper: 2.3 g edible food per tsp for nutrition only.
+
+- Boneless skinless chicken thighs cut into bite size chunks: model uses Chicken, broilers or fryers, dark meat, thigh, meat only, raw.
+
+- avocado oil: model uses Oil, olive, salad or cooking.
+
+- avocado oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Garam Masala: model uses Spices, curry powder.
+
+- Garam Masala: 2 g edible food per tsp for nutrition only.
+
+- Smoked paprika: model uses Spices, paprika.
+
+- Smoked paprika: 2.3 g edible food per tsp for nutrition only.
+
+- Tomato sauce: model uses Tomato products, canned, sauce.
+
+- Tomato paste: model uses Tomato products, canned, paste, without salt added (Includes foods for USDA's Food Distribution Program).
+
+- Tomato paste: 16 g edible food per tbsp for nutrition only.
+
+- Heavy cream: model uses Cream, fluid, heavy whipping.
+
+- Heavy cream: 238 g edible food per cup for nutrition only.
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh cilantro for garnish.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -3329,6 +3803,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Jennifer Banz: Keto Butter Chicken (Family Favorite)](https://jenniferbanz.com/keto-butter-chicken)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -3402,7 +3878,45 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 343 kcal; protein: 35.0 g; total carbs: 9.0 g; fiber: 3.0 g; net carbs: 6.0 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- boneless, skinless chicken thighs: model uses Chicken, broilers or fryers, dark meat, thigh, meat only, raw.
+
+- large bell peppers: model uses Peppers, sweet, red, raw.
+
+- large bell peppers: 119 g edible food per count for nutrition only.
+
+- zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Lemon juice: model uses Lemon juice, raw.
+
+- Lemon juice: 48 g edible food per lemon for nutrition only.
+
+- Red wine vinegar: model uses Vinegar, red wine.
+
+- Red wine vinegar: 15 g edible food per tbsp for nutrition only.
+
+- sea salt: model uses Salt, table.
+
+- sea salt: 6 g edible food per tsp for nutrition only.
+
+- dried oregano: model uses Spices, oregano, dried.
+
+- dried oregano: 3 g edible food per tbsp for nutrition only.
+
+- dried dill: model uses Spices, dill weed, dried.
+
+- dried dill: 1 g edible food per tsp for nutrition only.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
 
 Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
 
@@ -3427,6 +3941,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [bitesofwellness.com: Greek Chicken Marinade Sheet Pan Dinner](https://bitesofwellness.com/greek-chicken-marinade-sheet-pan-dinner/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -3502,7 +4018,47 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 506 kcal; protein: 27.0 g; total carbs: 8.0 g; fiber: 0.3 g; net carbs: 7.7 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Boneless skinless chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- Excluded unmeasured/to-taste ingredient: salt and pepper.
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- sliced mushrooms: model uses Mushrooms, white, raw.
+
+- sliced mushrooms: 70 g edible food per cup for nutrition only.
+
+- Marsala wine: model uses Alcoholic beverage, wine, dessert, dry.
+
+- Marsala wine: 240 g edible food per cup for nutrition only.
+
+- chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken broth: 240 g edible food per cup for nutrition only.
+
+- heavy whipping cream: model uses Cream, fluid, heavy whipping.
+
+- heavy whipping cream: 238 g edible food per cup for nutrition only.
+
+- ground mustard: model uses Spices, mustard seed, ground.
+
+- ground mustard: 2 g edible food per tsp for nutrition only.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Chopped Parsley for garnish.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -3525,6 +4081,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Ioana Diaconu from LowCarbSpark.com: Easy Creamy Chicken Marsala Recipe](https://www.lowcarbspark.com/chicken-marsala/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -3606,7 +4164,51 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 341 kcal; protein: 34.0 g; total carbs: 3.0 g; fiber: 0.2 g; net carbs: 2.8 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- boneless chicken breast: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- cream cheese: model uses Cheese, cream.
+
+- sour cream: model uses Cream, sour, cultured.
+
+- sour cream: 230 g edible food per cup for nutrition only.
+
+- Rotel tomatoes with chilies: model uses Tomatoes, red, ripe, canned, with green chilies.
+
+- Mexican blend cheese: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
+
+- Mexican blend cheese: 113 g edible food per cup for nutrition only.
+
+- taco spice: model uses Seasoning mix, dry, taco, original.
+
+- taco spice: 9 g edible food per tbsp for nutrition only.
+
+- dried onion flakes: model uses Onions, dehydrated flakes.
+
+- dried onion flakes: 5 g edible food per tbsp for nutrition only.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- chipotle powder: model uses Spices, chili powder.
+
+- chipotle powder: 2.7 g edible food per tsp for nutrition only.
+
+- cilantro: model uses Coriander (cilantro) leaves, raw.
+
+- cilantro: 16 g edible food per cup for nutrition only.
+
+- green onions: model uses Onions, spring or scallions (includes tops and bulb), raw.
+
+- green onions: 100 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -3629,6 +4231,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [ketocookingwins.com: Chicken Taco Casserole](https://www.ketocookingwins.com/chicken-taco-casserole/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -3696,7 +4300,35 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 328 kcal; protein: 31.4 g; total carbs: 2.9 g; fiber: 0.1 g; net carbs: 2.8 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- medium zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- medium zucchini: 196 g edible food per count for nutrition only.
+
+- chicken: model uses Chicken, broilers or fryers, breast, meat only, cooked, roasted.
+
+- chicken: 140 g edible food per cup for nutrition only.
+
+- bacon: model uses Pork, cured, bacon, pre-sliced, cooked, pan-fried.
+
+- bacon: 108 g edible food per cup for nutrition only.
+
+- cottage cheese: model uses Cheese, cottage, creamed, large or small curd.
+
+- cottage cheese: 226 g edible food per cup for nutrition only.
+
+- Ranch seasoning fiber assumed zero; retained publisher calories, protein and total carbohydrates. Fiber estimated from the remaining measured ingredients.
+
+- shredded cheddar: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
+
+- shredded cheddar: 113 g edible food per cup for nutrition only.
+
+- green onions: model uses Onions, spring or scallions (includes tops and bulb), raw.
+
+- green onions: 100 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -3719,6 +4351,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie Holmes: Cheesy Chicken Zucchini Boats Recipe](https://www.maebells.com/chicken-bacon-ranch-zucchini-boats-low-carb-keto/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -3792,7 +4426,47 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 349 kcal; protein: 33.0 g; total carbs: 2.6 g; fiber: 0.4 g; net carbs: 2.2 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- chicken breast: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- chicken breast: 174 g edible food per count for nutrition only.
+
+- cream cheese: model uses Cheese, cream.
+
+- mayonnaise: model uses Salad dressing, mayonnaise, regular.
+
+- mayonnaise: 14.5 g edible food per tbsp for nutrition only.
+
+- Gruyere cheese: model uses Cheese, gruyere.
+
+- Gruyere cheese: 108 g edible food per cup for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 2.8 g edible food per tsp for nutrition only.
+
+- Asparagus spears: model uses Asparagus, raw.
+
+- Asparagus spears: 16 g edible food per spear for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 3 g edible food per tbsp for nutrition only.
+
+- garlic salt: model uses Garlic salt model: 75% table salt, 25% garlic powder by mass.
+
+- garlic salt: 4.8 g edible food per tsp for nutrition only.
+
+- pepper: model uses Spices, pepper, black.
+
+- pepper: 2.3 g edible food per tsp for nutrition only.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: egg, milk. Check product labels and cross-contact.
 
@@ -3815,6 +4489,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie Holmes: Asparagus Stuffed Chicken (low carb + keto)](https://www.maebells.com/?p=12585)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 - [Resolved publisher source](https://www.maebells.com/asparagus-stuffed-chicken-low-carb-keto/)
 
@@ -3878,9 +4554,43 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 192 kcal; protein: 36.0 g; total carbs: 1.0 g; fiber: Not provided; net carbs: Not provided
+Calories: 192 kcal; protein: 36.0 g; total carbs: 1.0 g; fiber: 0.3 g; net carbs: 0.7 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- boneless skinless chicken breast: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken broth: 240 g edible food per cup for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 8.5 g edible food per tbsp for nutrition only.
+
+- celery: model uses Celery, raw.
+
+- celery: 40 g edible food per stalk for nutrition only.
+
+- onion powder: model uses Spices, onion powder.
+
+- onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- pepper: model uses Spices, pepper, black.
+
+- pepper: 2.3 g edible food per tsp for nutrition only.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- Broth and celery are counted in the estimate even though the publisher drains them; actual intake can be lower.
 
 Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
 
@@ -3894,8 +4604,6 @@ Known allergens for these plates: none listed; check every product label. Check 
 
 - Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -3907,6 +4615,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie Holmes: Crockpot Shredded Chicken](https://www.maebells.com/easy-slow-cooker-shredded-chicken/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -3982,7 +4692,45 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 356 kcal; protein: 33.0 g; total carbs: 4.3 g; fiber: 1.2 g; net carbs: 3.1 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Boneless skinless chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- small green bell pepper: model uses Peppers, sweet, green, raw.
+
+- small green bell pepper: 119 g edible food per count for nutrition only.
+
+- small onion: model uses Onions, raw.
+
+- small onion: 110 g edible food per count for nutrition only.
+
+- jalapeño: model uses Peppers, hot chili, green, raw.
+
+- jalapeño: 14 g edible food per count for nutrition only.
+
+- Tomatoes with green chilies: model uses Tomatoes, red, ripe, canned, with green chilies.
+
+- Chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- Chicken broth: 960 g edible food per container for nutrition only.
+
+- Diced green chilies: model uses Peppers, hot chili, green, canned, pods, excluding seeds, solids and liquids.
+
+- Taco seasoning: model uses Seasoning mix, dry, taco, original.
+
+- room temp cream cheese: model uses Cheese, cream.
+
+- cream: model uses Cream, fluid, heavy whipping.
+
+- cream: 238 g edible food per cup for nutrition only.
+
+- shredded cheddar cheese: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
+
+- shredded cheddar cheese: 113 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Cooking oil.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -4007,6 +4755,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie Holmes: Cheesy Chicken Enchilada Soup](https://www.maebells.com/keto-cheesy-chicken-enchilada-soup/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -4080,7 +4830,47 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 443 kcal; protein: 34.0 g; total carbs: 6.9 g; fiber: 3.8 g; net carbs: 3.1 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- Chicken breasts: 174 g edible food per count for nutrition only.
+
+- Bacon: model uses Pork, cured, bacon, unprepared.
+
+- Bacon: 28 g edible food per slice for nutrition only.
+
+- Cajun seasoning: model uses Generic Cajun model: 50% table salt, 20% paprika, 10% garlic powder, 10% onion powder, 10% black pepper by mass.
+
+- Cajun seasoning: 9 g edible food per tbsp for nutrition only.
+
+- Cumin: model uses Spices, cumin seed.
+
+- Cumin: 2.1 g edible food per tsp for nutrition only.
+
+- Garlic powder: model uses Spices, garlic powder.
+
+- Garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- Tomatoes: model uses Tomatoes, red, ripe, raw, year round average.
+
+- Tomatoes: 180 g edible food per cup for nutrition only.
+
+- Avocado: model uses Avocados, raw, all commercial varieties.
+
+- Avocado: 150 g edible food per cup for nutrition only.
+
+- Green onions or cilantro: model uses Onions, spring or scallions (includes tops and bulb), raw.
+
+- Green onions or cilantro: 6 g edible food per tbsp for nutrition only.
+
+- Lime juice: model uses Lime juice, raw.
+
+- Lime juice: 5 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and pepper.
 
 Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
 
@@ -4109,6 +4899,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Archived original recipe](https://web.archive.org/web/20250715172155/https://www.maebells.com/bacon-wrapped-chicken-with-avocado-salsa/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -4176,7 +4968,31 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 211 kcal; protein: 15.1 g; total carbs: 2.0 g; fiber: 0.2 g; net carbs: 1.8 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- small chicken breast: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- small chicken breast: 174 g edible food per count for nutrition only.
+
+- shredded cheddar cheese: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
+
+- shredded cheddar cheese: 113 g edible food per cup for nutrition only.
+
+- cream cheese: model uses Cheese, cream.
+
+- Fresh jalapeño: model uses Peppers, hot chili, green, raw.
+
+- Fresh jalapeño: 90 g edible food per cup for nutrition only.
+
+- Bacon: model uses Pork, cured, bacon, pre-sliced, cooked, pan-fried.
+
+- Bacon: 108 g edible food per cup for nutrition only.
+
+- cajun seasoning: model uses Generic Cajun model: 50% table salt, 20% paprika, 10% garlic powder, 10% onion powder, 10% black pepper by mass.
+
+- cajun seasoning: 3 g edible food per tsp for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -4197,6 +5013,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie: Jalapeño Popper Stuffed Chicken Breast](https://thebestketorecipes.com/jalapeno-popper-stuffed-chicken-keto-low-carb/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -4280,7 +5098,53 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 380 kcal; protein: 48.6 g; total carbs: 1.7 g; fiber: 0.4 g; net carbs: 1.2 g
 
-Publisher’s six-portion nutrition estimate multiplied by 1.5 for four equal portions of the intact whole-bird batch. Edible yield varies.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Whole chicken (4–5 pounds): model uses Chicken, broilers or fryers, meat and skin, raw.
+
+- Whole chicken (4–5 pounds): 900 g edible food per count for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Cavity stuffing vegetables, herbs and citrus.
+
+- softened butter: model uses Butter, without salt.
+
+- softened butter: 14.2 g edible food per tbsp for nutrition only.
+
+- tomato paste: model uses Tomato products, canned, paste, without salt added (Includes foods for USDA's Food Distribution Program).
+
+- tomato paste: 5.3 g edible food per tsp for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- paprika: model uses Spices, paprika.
+
+- paprika: 6.9 g edible food per tbsp for nutrition only.
+
+- thyme: model uses Spices, thyme, dried.
+
+- thyme: 1 g edible food per tsp for nutrition only.
+
+- onion powder: model uses Spices, onion powder.
+
+- onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- pepper: model uses Spices, pepper, black.
+
+- pepper: 2.3 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Extra virgin olive oil.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -4313,6 +5177,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie: Perfect Roast Chicken](https://thebestketorecipes.com/perfect-roast-chicken/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -4388,7 +5254,51 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 318 kcal; protein: 26.0 g; total carbs: 3.1 g; fiber: 0.2 g; net carbs: 2.9 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 8.5 g edible food per tbsp for nutrition only.
+
+- jalapeño: model uses Peppers, hot chili, green, raw.
+
+- jalapeño: 90 g edible food per cup for nutrition only.
+
+- unsweetened almond milk: model uses Beverages, almond milk, unsweetened, shelf stable.
+
+- unsweetened almond milk: 240 g edible food per cup for nutrition only.
+
+- heavy cream: model uses Cream, fluid, heavy whipping.
+
+- heavy cream: 238 g edible food per cup for nutrition only.
+
+- cream cheese: model uses Cheese, cream.
+
+- chili powder: model uses Spices, chili powder.
+
+- chili powder: 2.7 g edible food per tsp for nutrition only.
+
+- cumin: model uses Spices, cumin seed.
+
+- cumin: 2.1 g edible food per tsp for nutrition only.
+
+- onion powder: model uses Spices, onion powder.
+
+- onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- shredded cheddar cheese: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
+
+- shredded cheddar cheese: 113 g edible food per cup for nutrition only.
+
+- shredded chicken: model uses Chicken, broilers or fryers, breast, meat only, cooked, roasted.
+
+- shredded chicken: 140 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk, tree nuts. Check product labels and cross-contact.
 
@@ -4411,6 +5321,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie: Jalapeno Popper Chicken Skillet (keto + low carb)](https://thebestketorecipes.com/jalapeno-popper-chicken-skillet-keto-low-carb/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -4478,7 +5390,37 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 503 kcal; protein: 42.5 g; total carbs: 8.6 g; fiber: 1.9 g; net carbs: 6.7 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- chicken breast: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- chicken breast: 174 g edible food per count for nutrition only.
+
+- cajun seasoning: model uses Generic Cajun model: 50% table salt, 20% paprika, 10% garlic powder, 10% onion powder, 10% black pepper by mass.
+
+- cajun seasoning: 3 g edible food per tsp for nutrition only.
+
+- smoked sausage: model uses Kielbasa, fully cooked, unheated.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 3 g edible food per clove for nutrition only.
+
+- chopped cabbage: model uses Cabbage, raw.
+
+- chopped cabbage: 89 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: salt and pepper to taste.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -4503,6 +5445,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie: Cajun Chicken Sausage and Cabbage Skillet](https://thebestketorecipes.com/cajun-chicken-sausage-and-cabbage-skillet/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -4580,7 +5524,51 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 221 kcal; protein: 27.4 g; total carbs: 3.6 g; fiber: 1.2 g; net carbs: 2.4 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- small chicken breast: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- small chicken breast: 174 g edible food per count for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 3 g edible food per tbsp for nutrition only.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- paprika: model uses Spices, paprika.
+
+- paprika: 2.3 g edible food per tsp for nutrition only.
+
+- pepper: model uses Spices, pepper, black.
+
+- pepper: 2.3 g edible food per tsp for nutrition only.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- cream cheese: model uses Cheese, cream.
+
+- tightly packed freshly chopped spinach: model uses Spinach, raw.
+
+- tightly packed freshly chopped spinach: 30 g edible food per cup for nutrition only.
+
+- canned artichoke: model uses Artichokes, (globe or french), cooked, boiled, drained, without salt.
+
+- canned artichoke: 168 g edible food per cup for nutrition only.
+
+- parmesan: model uses Cheese, parmesan, grated.
+
+- parmesan: 100 g edible food per cup for nutrition only.
+
+- mozzarella: model uses Cheese, mozzarella, whole milk.
+
+- mozzarella: 113 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -4601,6 +5589,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie: Spinach Artichoke Stuffed Chicken (low carb + keto)](https://thebestketorecipes.com/spinach-artichoke-stuffed-chicken-low-carb-keto/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -4666,7 +5656,27 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 253 kcal; protein: 30.6 g; total carbs: 2.4 g; fiber: 0.4 g; net carbs: 2.0 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- small chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- small chicken breasts: 174 g edible food per count for nutrition only.
+
+- broccoli: model uses Broccoli, raw.
+
+- broccoli: 91 g edible food per cup for nutrition only.
+
+- shredded cheddar cheese: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
+
+- shredded cheddar cheese: 113 g edible food per cup for nutrition only.
+
+- cream cheese: model uses Cheese, cream.
+
+- cajun seasoning: model uses Generic Cajun model: 50% table salt, 20% paprika, 10% garlic powder, 10% onion powder, 10% black pepper by mass.
+
+- cajun seasoning: 3 g edible food per tsp for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -4687,6 +5697,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie: Broccoli and Cheese Stuffed Chicken Breasts](https://thebestketorecipes.com/broccoli-cheddar-stuffed-chicken-low-carb-keto/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -4762,7 +5774,53 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 267 kcal; protein: 27.0 g; total carbs: 6.9 g; fiber: 1.9 g; net carbs: 5.0 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- chicken breast or thighs: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- onion powder: model uses Spices, onion powder.
+
+- onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- paprika: model uses Spices, paprika.
+
+- paprika: 2.3 g edible food per tsp for nutrition only.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- black pepper: model uses Spices, pepper, black.
+
+- black pepper: 2.3 g edible food per tsp for nutrition only.
+
+- small onion: model uses Onions, raw.
+
+- small onion: 110 g edible food per count for nutrition only.
+
+- Red bell pepper: model uses Peppers, sweet, red, raw.
+
+- Red bell pepper: 149 g edible food per cup for nutrition only.
+
+- Green bell pepper: model uses Peppers, sweet, green, raw.
+
+- Green bell pepper: 149 g edible food per cup for nutrition only.
+
+- Mushrooms: model uses Mushrooms, white, raw.
+
+- shredded Provolone cheese: model uses Cheese, provolone.
+
+- shredded Provolone cheese: 113 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -4783,6 +5841,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie: Chicken Cheesesteak Skillet](https://thebestketorecipes.com/chicken-philly-cheesesteak-skillet-keto-low-carb/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -4864,7 +5924,53 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 198 kcal; protein: 28.0 g; total carbs: 5.0 g; fiber: 1.6 g; net carbs: 3.4 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- chicken: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- green bell pepper: model uses Peppers, sweet, green, raw.
+
+- green bell pepper: 119 g edible food per count for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 8.5 g edible food per tbsp for nutrition only.
+
+- chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken broth: 240 g edible food per cup for nutrition only.
+
+- soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.
+
+- soy sauce: 16 g edible food per tbsp for nutrition only.
+
+- rice vinegar: model uses Vinegar, cider.
+
+- rice vinegar: 15 g edible food per tbsp for nutrition only.
+
+- sesame oil: model uses Oil, olive, salad or cooking.
+
+- sesame oil: 13.5 g edible food per tbsp for nutrition only.
+
+- swerve brown sugar or brown sugar monkfruit: model uses Swerve erythritol sweetener: additional nutrients unobserved; publisher macros retained.
+
+- swerve brown sugar or brown sugar monkfruit: 12 g edible food per tbsp for nutrition only.
+
+- peanut butter: model uses Peanut butter, smooth style, without salt.
+
+- peanut butter: 16 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Green onions.
+
+- Excluded unmeasured/to-taste ingredient: Almonds or peanuts.
+
+- Excluded unmeasured/to-taste ingredient: Lettuce leaves.
 
 Known allergens for these plates: milk, peanuts, sesame, soy, tree nuts, wheat. Check product labels and cross-contact.
 
@@ -4889,6 +5995,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie: Keto Asian Chicken Lettuce Wraps](https://thebestketorecipes.com/keto-asian-chicken-lettuce-wraps/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -4958,7 +6066,37 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 240 kcal; protein: 18.9 g; total carbs: 9.0 g; fiber: 1.6 g; net carbs: 7.4 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- ground beef or turkey: model uses Beef, ground, 90% lean meat / 10% fat, raw.
+
+- small onion: model uses Onions, raw.
+
+- small onion: 110 g edible food per count for nutrition only.
+
+- Cabbage: model uses Cabbage, raw.
+
+- Cabbage: 89 g edible food per cup for nutrition only.
+
+- Tomatoes with green chilies: model uses Tomatoes, red, ripe, canned, with green chilies.
+
+- Tomato sauce: model uses Tomato products, canned, sauce.
+
+- chili powder: model uses Spices, chili powder.
+
+- chili powder: 2.7 g edible food per tsp for nutrition only.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: salt and pepper to taste.
+
+- shredded cheese: model uses Cheese, mozzarella, whole milk.
+
+- shredded cheese: 113 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -4983,6 +6121,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie Holmes: Cabbage Casserole with Ground Beef](https://www.maebells.com/one-pan-cabbage-casserole/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -5060,7 +6200,53 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 423 kcal; protein: 25.0 g; total carbs: 5.3 g; fiber: 0.5 g; net carbs: 4.8 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- bacon: model uses Pork, cured, bacon, unprepared.
+
+- bacon: 28 g edible food per slice for nutrition only.
+
+- ground beef or ground turkey: model uses Beef, ground, 90% lean meat / 10% fat, raw.
+
+- chopped onion: model uses Onions, raw.
+
+- chopped onion: 160 g edible food per cup for nutrition only.
+
+- tomato paste: model uses Tomato products, canned, paste, without salt added (Includes foods for USDA's Food Distribution Program).
+
+- tomato paste: 16 g edible food per tbsp for nutrition only.
+
+- mustard: model uses Mustard, prepared, yellow.
+
+- mustard: 5 g edible food per tsp for nutrition only.
+
+- cream cheese: model uses Cheese, cream.
+
+- chicken or beef broth: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken or beef broth: 240 g edible food per cup for nutrition only.
+
+- onion powder: model uses Spices, onion powder.
+
+- onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- pepper: model uses Spices, pepper, black.
+
+- pepper: 2.3 g edible food per tsp for nutrition only.
+
+- shredded cheddar cheese: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
+
+- shredded cheddar cheese: 113 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -5083,6 +6269,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie: Keto Cheeseburger Casserole Skillet](https://thebestketorecipes.com/one-pan-keto-bacon-cheeseburger-skillet/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -5142,9 +6330,27 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 584 kcal; protein: 66.5 g; total carbs: 0.8 g; fiber: Not provided; net carbs: Not provided
+Calories: 584 kcal; protein: 66.5 g; total carbs: 0.8 g; fiber: 0.0 g; net carbs: 0.8 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Steak: model uses Beef, loin, top sirloin cap steak, boneless, separable lean and fat, trimmed to 1/8" fat, all grades, raw.
+
+- Steak marinade: model uses Salad dressing, italian dressing, commercial, regular.
+
+- Steak marinade: 240 g edible food per cup for nutrition only.
+
+- large eggs: model uses Egg, whole, raw, fresh.
+
+- large eggs: 50 g edible food per count for nutrition only.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: salt and pepper.
 
 Known allergens for these plates: egg, milk. Check product labels and cross-contact.
 
@@ -5157,8 +6363,6 @@ Known allergens for these plates: egg, milk. Check product labels and cross-cont
 - Ingredient quantities are scaled from 1 original portion to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
 
 - Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
-
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
 
 - The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
 
@@ -5173,6 +6377,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie Holmes: Steak and Eggs (keto + low carb)](https://www.maebells.com/steak-and-eggs/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -5238,7 +6444,29 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 265 kcal; protein: 37.7 g; total carbs: 6.3 g; fiber: 2.0 g; net carbs: 4.3 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- flank steak or thinly sliced top round steak: model uses Beef, flank, steak, separable lean only, trimmed to 0" fat, choice, raw.
+
+- Steak marinade: model uses Salad dressing, italian dressing, commercial, regular.
+
+- Steak marinade: 240 g edible food per cup for nutrition only.
+
+- red bell pepper: model uses Peppers, sweet, red, raw.
+
+- red bell pepper: 119 g edible food per count for nutrition only.
+
+- french style green beans: model uses Beans, snap, green, raw.
+
+- french style green beans: 100 g edible food per cup for nutrition only.
+
+- white onion: model uses Onions, raw.
+
+- white onion: 160 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Cooking spray or olive oil.
 
 Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
 
@@ -5263,6 +6491,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie Holmes: Steak Rolls](https://www.maebells.com/steak-rolls/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -5338,7 +6568,55 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 353 kcal; protein: 30.1 g; total carbs: 3.4 g; fiber: 1.0 g; net carbs: 2.4 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Avocado oil: model uses Oil, olive, salad or cooking.
+
+- Avocado oil: 216 g edible food per cup for nutrition only.
+
+- White onion: model uses Onions, raw.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 2.8 g edible food per tsp for nutrition only.
+
+- fat-trimmed beef brisket: model uses Beef, brisket, whole, separable lean only, all grades, raw.
+
+- ground thyme: model uses Spices, thyme, dried.
+
+- ground thyme: 1 g edible food per tsp for nutrition only.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- black pepper: model uses Spices, pepper, black.
+
+- black pepper: 2.3 g edible food per tsp for nutrition only.
+
+- Beef broth: model uses Soup, beef broth or bouillon canned, ready-to-serve.
+
+- Beef broth: 240 g edible food per cup for nutrition only.
+
+- Apple cider vinegar: model uses Vinegar, cider.
+
+- Apple cider vinegar: 15 g edible food per tbsp for nutrition only.
+
+- fresh mushrooms: model uses Mushrooms, white, raw.
+
+- Sour cream: model uses Cream, sour, cultured.
+
+- Sour cream: 230 g edible food per cup for nutrition only.
+
+- Mayonnaise: model uses Salad dressing, mayonnaise, regular.
+
+- Mayonnaise: 232 g edible food per cup for nutrition only.
+
+- xanthan gum: model uses Bob's Red Mill xanthan gum label.
+
+- xanthan gum: 3 g edible food per tsp for nutrition only.
 
 Known allergens for these plates: egg, milk. Check product labels and cross-contact.
 
@@ -5363,6 +6641,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 ### Sources
 
 - [Sara Nelson: Keto Beef Stroganoff](https://realbalanced.com/recipe/keto-beef-stroganoff/)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -5436,7 +6716,51 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 301 kcal; protein: 24.3 g; total carbs: 11.1 g; fiber: 2.6 g; net carbs: 8.5 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- ground beef or turkey: model uses Beef, ground, 90% lean meat / 10% fat, raw.
+
+- green bell pepper: model uses Peppers, sweet, green, raw.
+
+- green bell pepper: 119 g edible food per count for nutrition only.
+
+- jalapeño: model uses Peppers, hot chili, green, raw.
+
+- jalapeño: 14 g edible food per count for nutrition only.
+
+- garlic: model uses Garlic, raw.
+
+- garlic: 3 g edible food per clove for nutrition only.
+
+- Tomatoes with green chilies: model uses Tomatoes, red, ripe, canned, with green chilies.
+
+- Tomato sauce: model uses Tomato products, canned, sauce.
+
+- Beef broth: model uses Soup, beef broth or bouillon canned, ready-to-serve.
+
+- Beef broth: 960 g edible food per carton for nutrition only.
+
+- Tomato paste: model uses Tomato products, canned, paste, without salt added (Includes foods for USDA's Food Distribution Program).
+
+- chili powder: model uses Spices, chili powder.
+
+- chili powder: 8.1 g edible food per tbsp for nutrition only.
+
+- Oregano: model uses Spices, oregano, dried.
+
+- Oregano: 1 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: salt and pepper to taste.
+
+- Cumin: model uses Spices, cumin seed.
+
+- Cumin: 2.1 g edible food per tsp for nutrition only.
+
+- Garlic powder: model uses Spices, garlic powder.
+
+- Garlic powder: 3.1 g edible food per tsp for nutrition only.
 
 Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
 
@@ -5461,6 +6785,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie Holmes: The BEST Keto Chili Recipe](https://www.maebells.com/easy-keto-chili-low-carb-no-bean-chili/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -5524,9 +6850,33 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 388 kcal; protein: 39.0 g; total carbs: 3.9 g; fiber: Not provided; net carbs: Not provided
+Calories: 388 kcal; protein: 39.0 g; total carbs: 3.9 g; fiber: 0.0 g; net carbs: 3.9 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Italian sausage: model uses Sausage, Italian, pork, mild, raw.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 8.5 g edible food per tbsp for nutrition only.
+
+- grated parmesan: model uses Cheese, parmesan, grated.
+
+- grated parmesan: 100 g edible food per cup for nutrition only.
+
+- egg: model uses Egg, whole, raw, fresh.
+
+- egg: 50 g edible food per count for nutrition only.
+
+- Pork rind panko: model uses Snacks, pork skins, plain.
+
+- Pork rind panko: 28 g edible food per cup for nutrition only.
+
+- milk: model uses Milk, whole, 3.25% milkfat, with added vitamin D.
+
+- milk: 15 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: egg, milk. Check product labels and cross-contact.
 
@@ -5540,8 +6890,6 @@ Known allergens for these plates: egg, milk. Check product labels and cross-cont
 
 - Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -5553,6 +6901,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie Holmes: Keto Italian Meatballs](https://www.maebells.com/italian-meatballs-with-ricotta-and-basil/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -5618,7 +6968,31 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 277 kcal; protein: 32.5 g; total carbs: 6.9 g; fiber: 1.2 g; net carbs: 5.7 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- ground beef or turkey: model uses Beef, ground, 90% lean meat / 10% fat, raw.
+
+- jalapeño: model uses Peppers, hot chili, green, raw.
+
+- jalapeño: 14 g edible food per count for nutrition only.
+
+- Cabbage: model uses Cabbage, raw.
+
+- Cabbage: 89 g edible food per cup for nutrition only.
+
+- Tomatoes with green chilies: model uses Tomatoes, red, ripe, canned, with green chilies.
+
+- Tomatoes with green chilies: 283 g edible food per can for nutrition only.
+
+- Tomato sauce: model uses Tomato products, canned, sauce.
+
+- Taco seasoning: model uses Seasoning mix, dry, taco, original.
+
+- shredded cheddar cheese: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
+
+- shredded cheddar cheese: 113 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -5643,6 +7017,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie: Low Carb Taco Casserole](https://thebestketorecipes.com/one-pan-cheesy-taco-cabbage-skillet-keto-low-carb/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 - [Resolved publisher source](https://thebestketorecipes.com/low-carb-taco-casserole/)
 
@@ -5728,7 +7104,55 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 225 kcal; protein: 23.1 g; total carbs: 3.9 g; fiber: 0.6 g; net carbs: 3.3 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- flank steak: model uses Beef, flank, steak, separable lean only, trimmed to 0" fat, choice, raw.
+
+- bell peppers of any color: model uses Peppers, sweet, red, raw.
+
+- bell peppers of any color: 119 g edible food per count for nutrition only.
+
+- small onion: model uses Onions, raw.
+
+- small onion: 110 g edible food per count for nutrition only.
+
+- Baby Bella mushrooms: model uses Mushrooms, white, raw.
+
+- Worcestershire: model uses Sauce, worcestershire.
+
+- Worcestershire: 17 g edible food per tbsp for nutrition only.
+
+- apple cider vinegar: model uses Vinegar, cider.
+
+- apple cider vinegar: 15 g edible food per tbsp for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 8.5 g edible food per tbsp for nutrition only.
+
+- cream cheese: model uses Cheese, cream.
+
+- shredded mozzarella: model uses Cheese, mozzarella, whole milk.
+
+- shredded mozzarella: 113 g edible food per cup for nutrition only.
+
+- shredded parmesan: model uses Cheese, parmesan, grated.
+
+- shredded parmesan: 100 g edible food per cup for nutrition only.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- pepper: model uses Spices, pepper, black.
+
+- pepper: 2.3 g edible food per tsp for nutrition only.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: fish, milk. Check product labels and cross-contact.
 
@@ -5755,6 +7179,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Olivia: One Pan Keto Philly Cheesesteak](https://itstartswithgoodfood.com/one-pan-keto-philly-cheesesteak/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -5820,7 +7246,31 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 153 kcal; protein: 4.0 g; total carbs: 9.0 g; fiber: 2.0 g; net carbs: 7.0 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Smoked sausage: model uses Kielbasa, fully cooked, unheated.
+
+- Cabbage: model uses Cabbage, raw.
+
+- Cabbage: 89 g edible food per cup for nutrition only.
+
+- green bell pepper: model uses Peppers, sweet, green, raw.
+
+- green bell pepper: 119 g edible food per count for nutrition only.
+
+- onion: model uses Onions, raw.
+
+- onion: 110 g edible food per count for nutrition only.
+
+- Old Bay seasoning: model uses Generic Cajun model: 50% table salt, 20% paprika, 10% garlic powder, 10% onion powder, 10% black pepper by mass.
+
+- Old Bay seasoning: 3 g edible food per tsp for nutrition only.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -5841,6 +7291,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 ### Sources
 
 - [Annie Holmes: Cabbage with Sausage Foil Packs](https://www.maebells.com/keto-sausage-and-cabbage-foil-packs/)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -5914,7 +7366,47 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 334 kcal; protein: 12.0 g; total carbs: 3.9 g; fiber: 1.1 g; net carbs: 2.8 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- bacon: model uses Pork, cured, bacon, unprepared.
+
+- bacon: 28 g edible food per slice for nutrition only.
+
+- ground mild Italian sausage: model uses Sausage, Italian, pork, mild, raw.
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 2.8 g edible food per tsp for nutrition only.
+
+- ground sage: model uses Spices, sage, ground.
+
+- ground sage: 0.7 g edible food per tsp for nutrition only.
+
+- black pepper: model uses Spices, pepper, black.
+
+- black pepper: 2.3 g edible food per tsp for nutrition only.
+
+- chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken broth: 240 g edible food per cup for nutrition only.
+
+- Heavy whipping cream: model uses Cream, fluid, heavy whipping.
+
+- Heavy whipping cream: 238 g edible food per cup for nutrition only.
+
+- Parmesan cheese: model uses Cheese, parmesan, grated.
+
+- Parmesan cheese: 100 g edible food per cup for nutrition only.
+
+- radishes: model uses Radishes, raw.
+
+- Kale: model uses Kale, raw.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -5937,6 +7429,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Sara Nelson: Zuppa Toscana](https://realbalanced.com/recipe/keto-zuppa-toscana/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -5994,9 +7488,23 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 385 kcal; protein: 13.1 g; total carbs: 13.3 g; fiber: 4.3 g; net carbs: 9.0 g
 
-Nutrition is unreported because the publisher’s serving-size statement conflicts with its recipe yield. See the linked original for the inconsistent estimate.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- medium sized Brussel sprouts: model uses Brussels sprouts, raw.
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- seasoning salt: model uses Salt, table.
+
+- seasoning salt: 6 g edible food per tsp for nutrition only.
+
+- smoked kielbasa, halved lengthwise then cut into bite size pieces: model uses Kielbasa, fully cooked, unheated.
 
 Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
 
@@ -6008,8 +7516,6 @@ Known allergens for these plates: none listed; check every product label. Check 
 
 - Adapted from awickedwhisk.com. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 ### Leftovers
 
 Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
@@ -6017,6 +7523,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 ### Sources
 
 - [awickedwhisk.com: Roasted Brussel Sprouts and Kielbasa](https://www.awickedwhisk.com/roasted-brussel-sprouts-and-kielbasa-3/)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -6100,7 +7608,47 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 551 kcal; protein: 52.0 g; total carbs: 10.0 g; fiber: 3.0 g; net carbs: 7.0 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- black pepper: model uses Spices, pepper, black.
+
+- black pepper: 2.3 g edible food per tsp for nutrition only.
+
+- garlic: model uses Garlic, raw.
+
+- garlic: 3 g edible food per clove for nutrition only.
+
+- fresh rosemary: model uses Rosemary, fresh.
+
+- fresh rosemary: 1.2 g edible food per tsp for nutrition only.
+
+- heavy whipping cream: model uses Cream, fluid, heavy whipping.
+
+- heavy whipping cream: 14.9 g edible food per tbsp for nutrition only.
+
+- unsalted butter: model uses Butter, without salt.
+
+- unsalted butter: 14.2 g edible food per tbsp for nutrition only.
+
+- avocado oil: model uses Oil, olive, salad or cooking.
+
+- avocado oil: 13.5 g edible food per tbsp for nutrition only.
+
+- green beans: model uses Beans, snap, green, raw.
+
+- chicken stock: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken stock: 240 g edible food per cup for nutrition only.
+
+- Bone-in pork chops: nutrition assumes 80% of the stated gross weight is edible raw meat and fat; bones are excluded. Actual trim and bones can change the estimate.
+
+- ghee: nutrition chooses the stated ghee alternative, modeled as USDA butter oil, anhydrous; 14.2 g per tbsp. Butter instead changes the values.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -6129,6 +7677,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [theketoqueens.com: Pan Seared Pork Chops with Creamy Pan Gravy and Garlicky Green Beans](https://theketoqueens.com/cast-iron-pork-chops/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -6190,7 +7740,27 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 405 kcal; protein: 16.3 g; total carbs: 8.8 g; fiber: 2.6 g; net carbs: 6.2 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Keto-friendly smoked sausage: model uses Kielbasa, fully cooked, unheated.
+
+- broccoli florets: model uses Broccoli, raw.
+
+- broccoli florets: 91 g edible food per cup for nutrition only.
+
+- red bell pepper: model uses Peppers, sweet, red, raw.
+
+- red bell pepper: 149 g edible food per cup for nutrition only.
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- cajun seasoning: model uses Generic Cajun model: 50% table salt, 20% paprika, 10% garlic powder, 10% onion powder, 10% black pepper by mass.
+
+- cajun seasoning: 3 g edible food per tsp for nutrition only.
 
 Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
 
@@ -6209,6 +7779,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 ### Sources
 
 - [Annie Holmes: Keto Sausage Veggie Sheet Pan Dinner](https://www.maebells.com/keto-sausage-veggie-sheet-pan-dinner/)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -6280,7 +7852,43 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 449 kcal; protein: 20.7 g; total carbs: 8.6 g; fiber: 1.8 g; net carbs: 6.8 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Smoked sausage: model uses Kielbasa, fully cooked, unheated.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 2.8 g edible food per tsp for nutrition only.
+
+- small onion: model uses Onions, raw.
+
+- small onion: 110 g edible food per count for nutrition only.
+
+- orange bell pepper: model uses Peppers, sweet, red, raw.
+
+- orange bell pepper: 119 g edible food per count for nutrition only.
+
+- red bell pepper: model uses Peppers, sweet, red, raw.
+
+- red bell pepper: 119 g edible food per count for nutrition only.
+
+- celery: model uses Celery, raw.
+
+- celery: 101 g edible food per cup for nutrition only.
+
+- Broth: model uses Soup, chicken broth, ready-to-serve.
+
+- Broth: 960 g edible food per container for nutrition only.
+
+- Tomatoes with green chilies: model uses Tomatoes, red, ripe, canned, with green chilies.
+
+- cream cheese: model uses Cheese, cream.
+
+- shredded cheddar: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
+
+- shredded cheddar: 113 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -6297,6 +7905,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 ### Sources
 
 - [Annie Holmes: Cheesy Sausage Soup](https://www.maebells.com/cheesy-smoked-sausage-soup-low-carb-keto/)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -6358,7 +7968,23 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 472 kcal; protein: 24.7 g; total carbs: 10.6 g; fiber: 4.0 g; net carbs: 6.6 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- broccoli florets: model uses Broccoli, raw.
+
+- broccoli florets: 91 g edible food per cup for nutrition only.
+
+- Johnsonville Andouille smoked sausage: model uses Kielbasa, fully cooked, unheated.
+
+- shredded cheddar cheese: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
+
+- shredded cheddar cheese: 113 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: salt and pepper to taste.
+
+- Excluded unmeasured/to-taste ingredient: Cooking oil spray.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -6379,6 +8005,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 ### Sources
 
 - [Annie: Sausage Broccoli Cheddar Sheet Pan](https://thebestketorecipes.com/sausage-broccoli-cheddar-sheet-pan/)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -6444,7 +8072,33 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 171 kcal; protein: 4.8 g; total carbs: 6.3 g; fiber: 2.4 g; net carbs: 3.9 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- thick cut bacon: model uses Pork, cured, bacon, unprepared.
+
+- thick cut bacon: 28 g edible food per slice for nutrition only.
+
+- cabbage: model uses Cabbage, raw.
+
+- cabbage: 89 g edible food per cup for nutrition only.
+
+- small onion: model uses Onions, raw.
+
+- small onion: 110 g edible food per count for nutrition only.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- pepper: model uses Spices, pepper, black.
+
+- pepper: 2.3 g edible food per tsp for nutrition only.
+
+- paprika: model uses Spices, paprika.
+
+- paprika: 2.3 g edible food per tsp for nutrition only.
 
 Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
 
@@ -6467,6 +8121,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 ### Sources
 
 - [Annie: Fried Cabbage with Bacon (keto + low carb)](https://thebestketorecipes.com/fried-cabbage-with-bacon-keto-low-carb/)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -6544,7 +8200,49 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 388 kcal; protein: 20.1 g; total carbs: 5.7 g; fiber: 1.4 g; net carbs: 4.3 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- ground Italian Sausage: model uses Sausage, Italian, pork, mild, raw.
+
+- small zucchini sliced: model uses Squash, summer, zucchini, includes skin, raw.
+
+- small zucchini sliced: 196 g edible food per count for nutrition only.
+
+- spinach: model uses Spinach, raw.
+
+- spinach: 30 g edible food per cup for nutrition only.
+
+- low carb Marinara: model uses Tomato products, canned, sauce.
+
+- low carb Marinara: 245 g edible food per cup for nutrition only.
+
+- beef broth: model uses Soup, beef broth or bouillon canned, ready-to-serve.
+
+- beef broth: 240 g edible food per cup for nutrition only.
+
+- cream cheese: model uses Cheese, cream.
+
+- sour cream: model uses Cream, sour, cultured.
+
+- sour cream: 230 g edible food per cup for nutrition only.
+
+- green onions: model uses Onions, spring or scallions (includes tops and bulb), raw.
+
+- green onions: 6 g edible food per tbsp for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 2.8 g edible food per tsp for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- shredded mozzarella: model uses Cheese, mozzarella, whole milk.
+
+- shredded mozzarella: 113 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -6569,6 +8267,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie: Keto Lasagna Recipe (low carb + one pan)](https://thebestketorecipes.com/keto-lasagna-skillet-low-carb-one-pan/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -6632,7 +8332,29 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 322 kcal; protein: 22.0 g; total carbs: 9.6 g; fiber: 3.7 g; net carbs: 5.9 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Italian sausage links: model uses Sausage, Italian, pork, mild, raw.
+
+- Italian sausage links: 454 g edible food per package for nutrition only.
+
+- fresh green beans: model uses Beans, snap, green, raw.
+
+- melted butter: model uses Butter, without salt.
+
+- melted butter: 14.2 g edible food per tbsp for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 2.8 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: salt and pepper to taste.
+
+- shredded parmesan cheese: model uses Cheese, parmesan, grated.
+
+- shredded parmesan cheese: 100 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -6657,6 +8379,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie: Sausage Sheet Pan Dinner](https://thebestketorecipes.com/sausage-and-green-bean-sheet-pan-dinner/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 - [Resolved publisher source](https://thebestketorecipes.com/sausage-sheet-pan-dinner/)
 
@@ -6730,7 +8454,47 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 231 kcal; protein: 16.6 g; total carbs: 6.3 g; fiber: 2.2 g; net carbs: 4.1 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Boneless Pork Chops: model uses Pork, fresh, loin, top loin (chops), boneless, separable lean and fat, raw.
+
+- gluten free soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.
+
+- gluten free soy sauce: 255 g edible food per cup for nutrition only.
+
+- brown sugar Swerve or Monkfruit: model uses Swerve erythritol sweetener: additional nutrients unobserved; publisher macros retained.
+
+- brown sugar Swerve or Monkfruit: 12 g edible food per tbsp for nutrition only.
+
+- rice vinegar: model uses Vinegar, cider.
+
+- rice vinegar: 15 g edible food per tbsp for nutrition only.
+
+- sesame oil: model uses Oil, olive, salad or cooking.
+
+- sesame oil: 13.5 g edible food per tbsp for nutrition only.
+
+- minced ginger: model uses Ginger root, raw.
+
+- minced ginger: 2 g edible food per tsp for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 2.8 g edible food per tsp for nutrition only.
+
+- sriracha: model uses Sauce, hot chile, sriracha.
+
+- sriracha: 5 g edible food per tsp for nutrition only.
+
+- fresh green beans: model uses Beans, snap, green, raw.
+
+- fresh green beans: 100 g edible food per cup for nutrition only.
 
 Known allergens for these plates: sesame, soy. Check product labels and cross-contact.
 
@@ -6751,6 +8515,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie: Keto Sesame Pork and Green Beans](https://thebestketorecipes.com/keto-sesame-pork-and-green-beans/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -6820,7 +8586,43 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 190 kcal; protein: 22.0 g; total carbs: 0.9 g; fiber: 0.2 g; net carbs: 0.7 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- shrimp: model uses Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture).
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- lemon juice: model uses Lemon juice, raw.
+
+- lemon juice: 15 g edible food per tbsp for nutrition only.
+
+- minced parsley: model uses Parsley, fresh.
+
+- minced parsley: 3.8 g edible food per tbsp for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 8.5 g edible food per tbsp for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- paprika: model uses Spices, paprika.
+
+- paprika: 2.3 g edible food per tsp for nutrition only.
+
+- pepper: model uses Spices, pepper, black.
+
+- pepper: 2.3 g edible food per tsp for nutrition only.
 
 Known allergens for these plates: crustacean shellfish. Check product labels and cross-contact.
 
@@ -6843,6 +8645,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie Holmes: Grilled Shrimp Skewers](https://www.maebells.com/mediterranean-grilled-shrimp-skewers/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 - [Resolved publisher source](https://www.maebells.com/grilled-shrimp-skewers/)
 
@@ -6920,7 +8724,49 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 182 kcal; protein: 30.0 g; total carbs: 9.0 g; fiber: 3.0 g; net carbs: 6.0 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- lemon juice: model uses Lemon juice, raw.
+
+- lemon juice: 15 g edible food per tbsp for nutrition only.
+
+- avocado oil: model uses Oil, olive, salad or cooking.
+
+- avocado oil: 13.5 g edible food per tbsp for nutrition only.
+
+- lemon zest: model uses Lemon peel, raw.
+
+- lemon zest: 2 g edible food per tsp for nutrition only.
+
+- garlic: model uses Garlic, raw.
+
+- garlic: 3 g edible food per clove for nutrition only.
+
+- red pepper flakes: model uses Spices, chili powder.
+
+- red pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- sea salt: model uses Salt, table.
+
+- sea salt: 6 g edible food per tsp for nutrition only.
+
+- large shrimp: model uses Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture).
+
+- Broccolini: model uses Broccoli, raw.
+
+- Broccolini: 454 g edible food per bunch for nutrition only.
+
+- lemon: model uses Lemon juice, raw.
+
+- lemon: 48 g edible food per count for nutrition only.
+
+- parsley: model uses Parsley, fresh.
+
+- parsley: 3.8 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Cooking oil spray.
 
 Known allergens for these plates: crustacean shellfish. Check product labels and cross-contact.
 
@@ -6945,6 +8791,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [simplysohealthy.com: Lemon Garlic Shrimp and Broccolini Sheet Pan Meal](https://simplysohealthy.com/lemon-garlic-shrimp-sheet-pan-dinner-with-broccolini/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -7030,9 +8878,59 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 363 kcal; protein: 20.1 g; total carbs: 6.2 g; fiber: 1.3 g; net carbs: 4.9 g
 
-Nutrition is unreported because the publisher’s serving-size statement conflicts with its recipe yield. See the linked original for the inconsistent estimate.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Salmon fillets: model uses Fish, salmon, Atlantic, farmed, raw.
+
+- Salmon fillets: 170 g edible food per fillet for nutrition only.
+
+- large zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- large zucchini: 196 g edible food per count for nutrition only.
+
+- red onion: model uses Onions, raw.
+
+- red onion: 110 g edible food per count for nutrition only.
+
+- Oil: model uses Oil, olive, salad or cooking.
+
+- Oil: 216 g edible food per cup for nutrition only.
+
+- Greek Yogurt: model uses Yogurt, Greek, plain, lowfat.
+
+- Greek Yogurt: 245 g edible food per cup for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 8.5 g edible food per tbsp for nutrition only.
+
+- Monkfruit sweetener modeled as a zero-digestible-carbohydrate erythritol blend; sugar-containing blends do not match this estimate.
+
+- Lemon juice: model uses Lemon juice, raw.
+
+- Lemon juice: 48 g edible food per lemon for nutrition only.
+
+- fresh dill: model uses Dill weed, fresh.
+
+- fresh dill: 0.6 g edible food per tbsp for nutrition only.
+
+- Oregano: model uses Spices, oregano, dried.
+
+- Oregano: 3 g edible food per tbsp for nutrition only.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- pepper: model uses Spices, pepper, black.
+
+- pepper: 2.3 g edible food per tsp for nutrition only.
+
+- Oil: 13.5 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: fish, milk. Check product labels and cross-contact.
 
@@ -7050,8 +8948,6 @@ Known allergens for these plates: fish, milk. Check product labels and cross-con
 
 - Adapted from Annie Holmes. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
@@ -7065,6 +8961,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie Holmes: Grilled Salmon Kabobs with Greek Marinade](https://www.maebells.com/grilled-salmon-kabobs-with-greek-marinade/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -7134,7 +9032,41 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 351 kcal; protein: 37.0 g; total carbs: 6.0 g; fiber: 3.0 g; net carbs: 3.0 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Salmon: model uses Fish, salmon, Atlantic, farmed, raw.
+
+- asparagus: model uses Asparagus, raw.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- black pepper: model uses Spices, pepper, black.
+
+- black pepper: 2.3 g edible food per tsp for nutrition only.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- fresh lemon zest: model uses Lemon peel, raw.
+
+- fresh lemon zest: 2 g edible food per tsp for nutrition only.
+
+- minced fresh dill: model uses Dill weed, fresh.
+
+- minced fresh dill: 0.6 g edible food per tbsp for nutrition only.
+
+- fresh lemon wedges: model uses Lemon juice, raw.
+
+- fresh lemon wedges: 48 g edible food per count for nutrition only.
 
 Known allergens for these plates: fish, milk. Check product labels and cross-contact.
 
@@ -7161,6 +9093,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [theketoqueens.com: Sheet Pan Butter Dill Salmon with Asparagus](https://theketoqueens.com/butter-dill-baked-salmon-recipe-roasted-asparagus/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -7258,7 +9192,71 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 299 kcal; protein: 23.8 g; total carbs: 8.9 g; fiber: 2.9 g; net carbs: 6.0 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 8.5 g edible food per tbsp for nutrition only.
+
+- red onion: model uses Onions, raw.
+
+- red onion: 160 g edible food per cup for nutrition only.
+
+- fresh jalapeño: model uses Peppers, hot chili, green, raw.
+
+- fresh jalapeño: 14 g edible food per count for nutrition only.
+
+- Cauliflower rice: model uses Cauliflower, raw.
+
+- Lime zest: model uses Lemon peel, raw.
+
+- Lime zest: 2 g edible food per tsp for nutrition only.
+
+- Lime juice: model uses Lime juice, raw.
+
+- Lime juice: 15 g edible food per tbsp for nutrition only.
+
+- Cilantro: model uses Coriander (cilantro) leaves, raw.
+
+- Cilantro: 16 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: salt and pepper to taste.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- shelled shrimp: model uses Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture).
+
+- chili powder: model uses Spices, chili powder.
+
+- chili powder: 2.7 g edible food per tsp for nutrition only.
+
+- cumin: model uses Spices, cumin seed.
+
+- cumin: 2.1 g edible food per tsp for nutrition only.
+
+- pepper: model uses Spices, pepper, black.
+
+- pepper: 2.3 g edible food per tsp for nutrition only.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- Lime zest: 2 g edible food per lime for nutrition only.
+
+- Lime juice: 44 g edible food per lime for nutrition only.
+
+- cilantro: model uses Coriander (cilantro) leaves, raw.
+
+- cilantro: 16 g edible food per cup for nutrition only.
 
 Known allergens for these plates: crustacean shellfish, milk. Check product labels and cross-contact.
 
@@ -7283,6 +9281,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie Holmes: Cilantro Lime Shrimp and Cauliflower Rice (keto + low carb)](https://www.maebells.com/20-minute-cilantro-lime-shrimp-and-rice/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -7364,7 +9364,59 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 228 kcal; protein: 13.9 g; total carbs: 8.9 g; fiber: 1.4 g; net carbs: 7.5 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- small onion: model uses Onions, raw.
+
+- small onion: 110 g edible food per count for nutrition only.
+
+- garlic: model uses Garlic, raw.
+
+- garlic: 3 g edible food per clove for nutrition only.
+
+- carrots: model uses Carrots, raw.
+
+- carrots: 61 g edible food per count for nutrition only.
+
+- celery: model uses Celery, raw.
+
+- celery: 40 g edible food per stalk for nutrition only.
+
+- tomato paste: model uses Tomato products, canned, paste, without salt added (Includes foods for USDA's Food Distribution Program).
+
+- tomato paste: 16 g edible food per tbsp for nutrition only.
+
+- Old Bay: model uses Generic Cajun model: 50% table salt, 20% paprika, 10% garlic powder, 10% onion powder, 10% black pepper by mass.
+
+- Old Bay: 3 g edible food per tsp for nutrition only.
+
+- good quality dry white wine: model uses Alcoholic beverage, wine, table, white.
+
+- good quality dry white wine: 240 g edible food per cup for nutrition only.
+
+- Seafood stock: model uses Soup, chicken broth, ready-to-serve.
+
+- Seafood stock: 960 g edible food per carton for nutrition only.
+
+- heavy cream: model uses Cream, fluid, heavy whipping.
+
+- heavy cream: 238 g edible food per cup for nutrition only.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- lemon juice: model uses Lemon juice, raw.
+
+- lemon juice: 15 g edible food per tbsp for nutrition only.
+
+- uncooked Lobster claw meat: model uses Crustaceans, lobster, northern, raw.
 
 Known allergens for these plates: crustacean shellfish, milk. Check product labels and cross-contact.
 
@@ -7391,6 +9443,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie Holmes: Lobster Bisque (low carb + keto)](https://www.maebells.com/lobster-bisque-low-carb-keto/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -7464,7 +9518,41 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 276 kcal; protein: 38.0 g; total carbs: 0.5 g; fiber: 0.1 g; net carbs: 0.4 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- salted butter: model uses Butter, without salt.
+
+- salted butter: 14.2 g edible food per tbsp for nutrition only.
+
+- jalapeño: model uses Peppers, hot chili, green, raw.
+
+- jalapeño: 14 g edible food per count for nutrition only.
+
+- lime zest: model uses Lemon peel, raw.
+
+- lime zest: 2 g edible food per tsp for nutrition only.
+
+- salmon: model uses Fish, salmon, Atlantic, farmed, raw.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- cumin: model uses Spices, cumin seed.
+
+- cumin: 2.1 g edible food per tsp for nutrition only.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- pepper: model uses Spices, pepper, black.
+
+- pepper: 2.3 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Paprika.
 
 Known allergens for these plates: fish, milk. Check product labels and cross-contact.
 
@@ -7491,6 +9579,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie Holmes: Salmon with Jalapeño Lime Butter (keto + low carb)](https://www.maebells.com/roasted-salmon-with-jalapeno-lime-butter/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -7562,7 +9652,45 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 170 kcal; protein: 25.0 g; total carbs: 8.2 g; fiber: 2.1 g; net carbs: 6.1 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- large shrimp: model uses Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture).
+
+- Broccoli florets: model uses Broccoli, raw.
+
+- Broccoli florets: 91 g edible food per cup for nutrition only.
+
+- red bell pepper: model uses Peppers, sweet, red, raw.
+
+- red bell pepper: 119 g edible food per count for nutrition only.
+
+- soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.
+
+- soy sauce: 255 g edible food per cup for nutrition only.
+
+- Monkfruit sweetener modeled as a zero-digestible-carbohydrate erythritol blend; sugar-containing blends do not match this estimate.
+
+- sesame oil: model uses Oil, olive, salad or cooking.
+
+- sesame oil: 13.5 g edible food per tbsp for nutrition only.
+
+- rice vinegar: model uses Vinegar, cider.
+
+- rice vinegar: 15 g edible food per tbsp for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 2.8 g edible food per tsp for nutrition only.
+
+- minced ginger: model uses Ginger root, raw.
+
+- minced ginger: 2 g edible food per tsp for nutrition only.
 
 Known allergens for these plates: crustacean shellfish, sesame, soy, wheat. Check product labels and cross-contact.
 
@@ -7587,6 +9715,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie: Keto Shrimp and Broccoli Recipe](https://thebestketorecipes.com/keto-shrimp-and-broccoli-stir-fry/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -7660,7 +9790,45 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 349 kcal; protein: 32.8 g; total carbs: 6.7 g; fiber: 2.9 g; net carbs: 3.8 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Tilapia fillet: model uses Fish, tilapia, raw.
+
+- Tilapia fillet: 170 g edible food per fillet for nutrition only.
+
+- asparagus: model uses Asparagus, raw.
+
+- asparagus: 134 g edible food per cup for nutrition only.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 2.8 g edible food per tsp for nutrition only.
+
+- shredded parmesan cheese: model uses Cheese, parmesan, grated.
+
+- shredded parmesan cheese: 6.25 g edible food per tbsp for nutrition only.
+
+- mayonnaise: model uses Salad dressing, mayonnaise, regular.
+
+- mayonnaise: 14.5 g edible food per tbsp for nutrition only.
+
+- minced green onion: model uses Onions, spring or scallions (includes tops and bulb), raw.
+
+- minced green onion: 2 g edible food per tsp for nutrition only.
+
+- lemon juice: model uses Lemon juice, raw.
+
+- lemon juice: 5 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: salt and pepper to taste.
+
+- Excluded unmeasured/to-taste ingredient: Lemon slices.
 
 Known allergens for these plates: egg, fish, milk. Check product labels and cross-contact.
 
@@ -7685,6 +9853,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie: Keto Parmesan Tilapia and Asparagus for One](https://thebestketorecipes.com/keto-parmesan-tilapia-and-asparagus-for-one/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -7756,7 +9926,51 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 181 kcal; protein: 23.4 g; total carbs: 1.9 g; fiber: 0.6 g; net carbs: 1.3 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Shrimp: model uses Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture).
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 8.5 g edible food per tbsp for nutrition only.
+
+- paprika: model uses Spices, paprika.
+
+- paprika: 6.9 g edible food per tbsp for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- onion powder: model uses Spices, onion powder.
+
+- onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- red pepper: model uses Spices, chili powder.
+
+- red pepper: 1.8 g edible food per tsp for nutrition only.
+
+- pepper: model uses Spices, pepper, black.
+
+- pepper: 2.3 g edible food per tsp for nutrition only.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- heavy cream: model uses Cream, fluid, heavy whipping.
+
+- heavy cream: 238 g edible food per cup for nutrition only.
 
 Known allergens for these plates: crustacean shellfish, milk. Check product labels and cross-contact.
 
@@ -7779,6 +9993,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Annie: Keto Cajun Shrimp](https://thebestketorecipes.com/keto-cajun-shrimp-one-pan-20-minutes/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -7850,9 +10066,55 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 549 kcal; protein: 34.1 g; total carbs: 19.4 g; fiber: 3.9 g; net carbs: 15.5 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- Chicken breasts: 174 g edible food per count for nutrition only.
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Salt and pepper: model uses Salt/pepper model: equal masses table salt and ground black pepper.
+
+- Salt and pepper: 6 g edible food per tsp for nutrition only.
+
+- Oregano: model uses Spices, oregano, dried.
+
+- Oregano: 1 g edible food per tsp for nutrition only.
+
+- Onion: model uses Onions, raw.
+
+- Onion: 110 g edible food per count for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Sun-dried tomatoes: model uses Tomatoes, sun-dried, packed in oil, drained.
+
+- Sun-dried tomatoes: 140 g edible food per jar for nutrition only.
+
+- Chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- Chicken broth: 240 g edible food per cup for nutrition only.
+
+- Heavy cream: model uses Cream, fluid, heavy whipping.
+
+- Heavy cream: 238 g edible food per cup for nutrition only.
+
+- Grated Parmesan cheese: model uses Cheese, parmesan, grated.
+
+- Grated Parmesan cheese: 100 g edible food per cup for nutrition only.
+
+- Spinach: model uses Spinach, raw.
+
+- Spinach: 30 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -7870,8 +10132,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -7883,6 +10143,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Creamy Chicken Breast in Spinach Parmesan Sauce](https://www.eatwell101.com/chicken-with-spinach-creamy-parmesan-sauce)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -7958,9 +10220,53 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 277 kcal; protein: 27.5 g; total carbs: 11.8 g; fiber: 4.0 g; net carbs: 7.7 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Medium raw shrimp: model uses Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture).
+
+- Asparagus: model uses Asparagus, raw.
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Olive oil: model uses Oil, olive, salad or cooking.
+
+- Olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- Onion powder: model uses Spices, onion powder.
+
+- Onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked pepper.
+
+- Vegetable stock: model uses Soup, vegetable broth, ready to serve.
+
+- Vegetable stock: 240 g edible food per cup for nutrition only.
+
+- Sriracha: model uses Sauce, hot chile, sriracha.
+
+- Sriracha: 15 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Crushed chili pepper flakes.
+
+- Lemon: model uses Lemon juice, raw.
+
+- Lemon: 48 g edible food per count for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh chopped parsley or cilantro.
 
 Known allergens for these plates: milk, shellfish. Check product labels and cross-contact.
 
@@ -7978,8 +10284,6 @@ Known allergens for these plates: milk, shellfish. Check product labels and cros
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -7991,6 +10295,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: One Pan Shrimp and Asparagus](https://www.eatwell101.com/lemon-garlic-butter-shrimp-asparagus-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -8070,9 +10376,65 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 186 kcal; protein: 19.8 g; total carbs: 10.8 g; fiber: 4.5 g; net carbs: 6.3 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Large shrimp: model uses Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture).
+
+- Chili powder: model uses Spices, chili powder.
+
+- Chili powder: 2.7 g edible food per tsp for nutrition only.
+
+- Paprika: model uses Spices, paprika.
+
+- Paprika: 2.3 g edible food per tsp for nutrition only.
+
+- Onion powder: model uses Spices, onion powder.
+
+- Onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- Cumin: model uses Spices, cumin seed.
+
+- Cumin: 2.1 g edible food per tsp for nutrition only.
+
+- Garlic powder: model uses Spices, garlic powder.
+
+- Garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- Salt: model uses Salt, table.
+
+- Salt: 6 g edible food per tsp for nutrition only.
+
+- Freshly cracked black pepper: model uses Spices, pepper, black.
+
+- Freshly cracked black pepper: 2.3 g edible food per tsp for nutrition only.
+
+- Olive oil: model uses Oil, olive, salad or cooking.
+
+- Olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Unsalted butter: model uses Butter, without salt.
+
+- Unsalted butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Asparagus: model uses Asparagus, raw.
+
+- Vegetable stock: model uses Soup, vegetable broth, ready to serve.
+
+- Vegetable stock: 240 g edible food per cup for nutrition only.
+
+- Hot sauce: model uses Sauce, hot chile, sriracha.
+
+- Hot sauce: 15 g edible food per tbsp for nutrition only.
+
+- Lemon juice: model uses Lemon juice, raw.
+
+- Lemon juice: 15 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Lemon slices, chili pepper flakes and parsley.
 
 Known allergens for these plates: milk, shellfish. Check product labels and cross-contact.
 
@@ -8088,8 +10450,6 @@ Known allergens for these plates: milk, shellfish. Check product labels and cros
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -8101,6 +10461,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Blackened Shrimp and Asparagus Skillet (20 Minutes)](https://www.eatwell101.com/blackened-shrimp-asparagus-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -8180,9 +10542,57 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 294 kcal; protein: 23.7 g; total carbs: 15.5 g; fiber: 5.1 g; net carbs: 10.3 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Chicken thighs: model uses Chicken, broilers or fryers, dark meat, thigh, meat only, raw.
+
+- Chicken thighs: 100 g edible food per count for nutrition only.
+
+- Green beans: model uses Beans, snap, green, raw.
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Paprika: model uses Spices, paprika.
+
+- Paprika: 2.3 g edible food per tsp for nutrition only.
+
+- Onion powder: model uses Spices, onion powder.
+
+- Onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- Salt and fresh cracked black pepper: model uses Salt/pepper model: equal masses table salt and ground black pepper.
+
+- Salt and fresh cracked black pepper: 6 g edible food per tsp for nutrition only.
+
+- Lemon: model uses Lemon juice, raw.
+
+- Lemon: 48 g edible food per count for nutrition only.
+
+- Chicken stock: model uses Soup, chicken broth, ready-to-serve.
+
+- Chicken stock: 240 g edible food per cup for nutrition only.
+
+- Hot sauce: model uses Sauce, hot chile, sriracha.
+
+- Hot sauce: 15 g edible food per tbsp for nutrition only.
+
+- Crushed red chili pepper flakes: model uses Spices, chili powder.
+
+- Crushed red chili pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- Fresh chopped parsley: model uses Parsley, fresh.
+
+- Fresh chopped parsley: 60 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -8198,8 +10608,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -8211,6 +10619,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Lemon Garlic Butter Chicken and Green Beans Skillet](https://www.eatwell101.com/lemon-garlic-butter-thighs-and-green-beans-skillet)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -8290,9 +10700,67 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 431 kcal; protein: 35.2 g; total carbs: 12.1 g; fiber: 5.4 g; net carbs: 6.7 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- Chicken breasts: 174 g edible food per count for nutrition only.
+
+- Asparagus: model uses Asparagus, raw.
+
+- Asparagus: 454 g edible food per bunch for nutrition only.
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 227 g edible food per cup for nutrition only.
+
+- Olive oil: model uses Oil, olive, salad or cooking.
+
+- Olive oil: 4.5 g edible food per tsp for nutrition only.
+
+- Minced garlic: model uses Garlic, raw.
+
+- Minced garlic: 2.8 g edible food per tsp for nutrition only.
+
+- Italian seasoning or Herbes de Provence: model uses Spices, oregano, dried.
+
+- Italian seasoning or Herbes de Provence: 1 g edible food per tsp for nutrition only.
+
+- Hot sauce: model uses Sauce, hot chile, sriracha.
+
+- Hot sauce: 15 g edible food per tbsp for nutrition only.
+
+- Low-sodium chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- Low-sodium chicken broth: 240 g edible food per cup for nutrition only.
+
+- Lemon: model uses Lemon juice, raw.
+
+- Lemon: 48 g edible food per count for nutrition only.
+
+- Minced parsley: model uses Parsley, fresh.
+
+- Minced parsley: 3.8 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Crushed red chili pepper flakes.
+
+- Excluded unmeasured/to-taste ingredient: Slices of lemon for garnish.
+
+- Salt: model uses Salt, table.
+
+- Salt: 6 g edible food per tsp for nutrition only.
+
+- Fresh cracked black pepper: model uses Spices, pepper, black.
+
+- Fresh cracked black pepper: 2.3 g edible food per tsp for nutrition only.
+
+- Onion powder: model uses Spices, onion powder.
+
+- Onion powder: 2.4 g edible food per tsp for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -8310,8 +10778,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -8323,6 +10789,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Garlic Butter Chicken Bites with Lemon Asparagus](https://www.eatwell101.com/garlic-butter-chicken-bites-asparagus-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -8396,9 +10864,55 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 1121 kcal; protein: 47.5 g; total carbs: 23.8 g; fiber: 4.2 g; net carbs: 19.6 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Salmon fillets: model uses Fish, salmon, Atlantic, farmed, raw.
+
+- Salmon fillets: 170 g edible food per count for nutrition only.
+
+- Olive oil: model uses Oil, olive, salad or cooking.
+
+- Olive oil: 4.5 g edible food per tsp for nutrition only.
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Yellow onion: model uses Onions, raw.
+
+- Yellow onion: 110 g edible food per count for nutrition only.
+
+- Vegetable broth: model uses Soup, vegetable broth, ready to serve.
+
+- Vegetable broth: 240 g edible food per cup for nutrition only.
+
+- Jarred sun-dried tomato in oil: model uses Tomatoes, sun-dried, packed in oil, drained.
+
+- Heavy cream: model uses Cream, fluid, heavy whipping.
+
+- Heavy cream: 238 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and pepper.
+
+- Baby spinach leaves: model uses Spinach, raw.
+
+- Baby spinach leaves: 30 g edible food per cup for nutrition only.
+
+- Grated Parmesan: model uses Cheese, parmesan, grated.
+
+- Grated Parmesan: 100 g edible food per cup for nutrition only.
+
+- Fresh parsley: model uses Parsley, fresh.
+
+- Fresh parsley: 3.8 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: milk, fish. Check product labels and cross-contact.
 
@@ -8414,8 +10928,6 @@ Known allergens for these plates: milk, fish. Check product labels and cross-con
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -8427,6 +10939,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Creamy Tuscan Salmon Recipe](https://www.eatwell101.com/creamy-garlic-tuscan-salmon-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -8506,9 +11020,57 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 843 kcal; protein: 44.8 g; total carbs: 23.5 g; fiber: 8.3 g; net carbs: 15.3 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Sirloin steak: model uses Beef, loin, top sirloin cap steak, boneless, separable lean and fat, trimmed to 1/8" fat, all grades, raw.
+
+- Broccoli: model uses Broccoli, raw.
+
+- Broccoli: 600 g edible food per head for nutrition only.
+
+- Olive oil: model uses Oil, olive, salad or cooking.
+
+- Olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Lemon: model uses Lemon juice, raw.
+
+- Lemon: 48 g edible food per count for nutrition only.
+
+- Low-sodium beef broth: model uses Soup, beef broth or bouillon canned, ready-to-serve.
+
+- Low-sodium beef broth: 240 g edible food per cup for nutrition only.
+
+- Parsley: model uses Parsley, fresh.
+
+- Parsley: 60 g edible food per cup for nutrition only.
+
+- Crushed red pepper flakes: model uses Spices, chili powder.
+
+- Crushed red pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh cracked black pepper.
+
+- Excluded unmeasured/to-taste ingredient: Fresh thyme.
+
+- Low-sodium soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.
+
+- Low-sodium soy sauce: 255 g edible food per cup for nutrition only.
+
+- Olive oil: 216 g edible food per cup for nutrition only.
+
+- Sriracha sauce: model uses Sauce, hot chile, sriracha.
+
+- Sriracha sauce: 15 g edible food per tbsp for nutrition only.
+
+- Butter or ghee: nutrition chooses the stated ghee alternative, modeled as USDA butter oil, anhydrous; 14.2 g per tbsp. Butter instead changes the values.
 
 Known allergens for these plates: milk, soy, wheat. Check product labels and cross-contact.
 
@@ -8530,8 +11092,6 @@ Known allergens for these plates: milk, soy, wheat. Check product labels and cro
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
@@ -8545,6 +11105,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Lemon Garlic Steak and Broccoli Skillet](https://www.eatwell101.com/lemon-garlic-butter-steak-and-broccoli-skillet-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -8618,9 +11180,59 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 892 kcal; protein: 28.3 g; total carbs: 52.0 g; fiber: 14.6 g; net carbs: 37.4 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Smoked sausage: model uses Kielbasa, fully cooked, unheated.
+
+- Rainbow carrots: model uses Carrots, raw.
+
+- Rainbow carrots: 454 g edible food per bunch for nutrition only.
+
+- Fresh green peas: model uses Peas, green, raw.
+
+- Shallot: model uses Shallots, raw.
+
+- Shallot: 43 g edible food per count for nutrition only.
+
+- Spring onions: model uses Onions, spring or scallions (includes tops and bulb), raw.
+
+- Spring onions: 15 g edible food per count for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Salt and pepper: model uses Salt/pepper model: equal masses table salt and ground black pepper.
+
+- Salt and pepper: 6 g edible food per tsp for nutrition only.
+
+- Olive oil: model uses Oil, olive, salad or cooking.
+
+- Olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Cajun seasoning: model uses Generic Cajun model: 50% table salt, 20% paprika, 10% garlic powder, 10% onion powder, 10% black pepper by mass.
+
+- Cajun seasoning: 3 g edible food per tsp for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- Low-sodium chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- Low-sodium chicken broth: 240 g edible food per cup for nutrition only.
+
+- Red chili pepper flakes: model uses Spices, chili powder.
+
+- Red chili pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- Fresh chopped parsley: model uses Parsley, fresh.
+
+- Fresh chopped parsley: 3.8 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
 
@@ -8636,8 +11248,6 @@ Known allergens for these plates: none listed; check every product label. Check 
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -8649,6 +11259,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: One-Pan Sausage Veggies](https://www.eatwell101.com/one-pan-sausage-veggies-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -8730,9 +11342,59 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 459 kcal; protein: 32.4 g; total carbs: 9.4 g; fiber: 2.4 g; net carbs: 7.0 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Sirloin steak: model uses Beef, loin, top sirloin cap steak, boneless, separable lean and fat, trimmed to 1/8" fat, all grades, raw.
+
+- Zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- Zucchini: 196 g edible food per count for nutrition only.
+
+- Olive oil: model uses Oil, olive, salad or cooking.
+
+- Olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Minced garlic: model uses Garlic, raw.
+
+- Minced garlic: 2.8 g edible food per tsp for nutrition only.
+
+- Beef or vegetable broth: model uses Soup, vegetable broth, ready to serve.
+
+- Beef or vegetable broth: 240 g edible food per cup for nutrition only.
+
+- Minced parsley: model uses Parsley, fresh.
+
+- Minced parsley: 3.8 g edible food per tbsp for nutrition only.
+
+- Fresh thyme leaves: model uses Thyme, fresh.
+
+- Fresh thyme leaves: 0.8 g edible food per tsp for nutrition only.
+
+- Red chili pepper flakes: model uses Spices, chili powder.
+
+- Red chili pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- Lemon: model uses Lemon juice, raw.
+
+- Lemon: 48 g edible food per count for nutrition only.
+
+- Low-sodium soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.
+
+- Low-sodium soy sauce: 255 g edible food per cup for nutrition only.
+
+- Hot sauce: model uses Sauce, hot chile, sriracha.
+
+- Hot sauce: 15 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh cracked black pepper.
 
 Known allergens for these plates: milk, soy, wheat. Check product labels and cross-contact.
 
@@ -8752,8 +11414,6 @@ Known allergens for these plates: milk, soy, wheat. Check product labels and cro
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
@@ -8767,6 +11427,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Garlic Butter Steak Bites with Lemon Zucchini Noodles](https://www.eatwell101.com/garlic-butter-steak-bites-zucchini-noodles-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -8844,9 +11506,59 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 676 kcal; protein: 41.8 g; total carbs: 11.3 g; fiber: 2.6 g; net carbs: 8.8 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Flank steak: model uses Beef, flank, steak, separable lean only, trimmed to 0" fat, choice, raw.
+
+- Zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- Zucchini: 196 g edible food per count for nutrition only.
+
+- Olive oil: model uses Oil, olive, salad or cooking.
+
+- Olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Lemon: model uses Lemon juice and zest model: 48 g juice plus 2 g peel per lemon.
+
+- Lemon: 50 g edible food per count for nutrition only.
+
+- Low-sodium chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- Low-sodium chicken broth: 240 g edible food per cup for nutrition only.
+
+- Chopped parsley: model uses Parsley, fresh.
+
+- Chopped parsley: 60 g edible food per cup for nutrition only.
+
+- Crushed red pepper flakes: model uses Spices, chili powder.
+
+- Crushed red pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked black pepper.
+
+- Low-sodium soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.
+
+- Low-sodium soy sauce: 255 g edible food per cup for nutrition only.
+
+- Lemon juice: model uses Lemon juice, raw.
+
+- Lemon juice: 244 g edible food per cup for nutrition only.
+
+- Olive oil: 216 g edible food per cup for nutrition only.
+
+- Sriracha sauce: model uses Sauce, hot chile, sriracha.
+
+- Sriracha sauce: 15 g edible food per tbsp for nutrition only.
+
+- Butter or ghee: nutrition chooses the stated ghee alternative, modeled as USDA butter oil, anhydrous; 14.2 g per tbsp. Butter instead changes the values.
 
 Known allergens for these plates: milk, soy, wheat. Check product labels and cross-contact.
 
@@ -8864,8 +11576,6 @@ Known allergens for these plates: milk, soy, wheat. Check product labels and cro
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
@@ -8879,6 +11589,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: 15-Minute Lemon Garlic Butter Steak with Zucchini Noodles](https://www.eatwell101.com/garlic-butter-steak-and-zucchini-noodles-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -8956,9 +11668,57 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 302 kcal; protein: 28.6 g; total carbs: 16.8 g; fiber: 5.1 g; net carbs: 11.7 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Medium raw shrimp: model uses Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture).
+
+- Broccoli: model uses Broccoli, raw.
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Olive oil: model uses Oil, olive, salad or cooking.
+
+- Olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Paprika: model uses Spices, paprika.
+
+- Paprika: 2.3 g edible food per tsp for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- Onion powder: model uses Spices, onion powder.
+
+- Onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked pepper.
+
+- Vegetable stock: model uses Soup, vegetable broth, ready to serve.
+
+- Vegetable stock: 240 g edible food per cup for nutrition only.
+
+- Sriracha: model uses Sauce, hot chile, sriracha.
+
+- Sriracha: 15 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Crushed chili pepper flakes.
+
+- Lemon: model uses Lemon juice, raw.
+
+- Lemon: 48 g edible food per count for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh chopped parsley or cilantro.
 
 Known allergens for these plates: milk, shellfish. Check product labels and cross-contact.
 
@@ -8978,8 +11738,6 @@ Known allergens for these plates: milk, shellfish. Check product labels and cros
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -8991,6 +11749,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Garlic Butter Shrimp and Broccoli Skillet](https://www.eatwell101.com/garlic-butter-shrimp-broccoli-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -9068,9 +11828,65 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 162 kcal; protein: 16.3 g; total carbs: 5.9 g; fiber: 1.4 g; net carbs: 4.5 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Shrimp: model uses Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture).
+
+- Red bell pepper: model uses Peppers, sweet, red, raw.
+
+- Red bell pepper: 119 g edible food per count for nutrition only.
+
+- Green bell pepper: model uses Peppers, sweet, green, raw.
+
+- Green bell pepper: 119 g edible food per count for nutrition only.
+
+- Yellow bell pepper: model uses Peppers, sweet, yellow, raw.
+
+- Yellow bell pepper: 186 g edible food per count for nutrition only.
+
+- Yellow onion: model uses Onions, raw.
+
+- Yellow onion: 110 g edible food per count for nutrition only.
+
+- Dried garlic: model uses Spices, garlic powder.
+
+- Dried garlic: 3.1 g edible food per tsp for nutrition only.
+
+- Ancho chili powder: model uses Spices, chili powder.
+
+- Ancho chili powder: 2.7 g edible food per tsp for nutrition only.
+
+- Ground cumin: model uses Spices, cumin seed.
+
+- Ground cumin: 2.1 g edible food per tsp for nutrition only.
+
+- Ground paprika: model uses Spices, paprika.
+
+- Ground paprika: 2.3 g edible food per tsp for nutrition only.
+
+- Ground coriander: model uses Spices, coriander seed.
+
+- Ground coriander: 1.8 g edible food per tsp for nutrition only.
+
+- Salt and freshly ground black pepper: model uses Salt/pepper model: equal masses table salt and ground black pepper.
+
+- Salt and freshly ground black pepper: 6 g edible food per tsp for nutrition only.
+
+- Olive oil: model uses Oil, olive, salad or cooking.
+
+- Olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Fresh lime or lemon juice: model uses Lime juice, raw.
+
+- Fresh lime or lemon juice: 15 g edible food per tbsp for nutrition only.
+
+- Chopped cilantro: model uses Coriander (cilantro) leaves, raw.
+
+- Chopped cilantro: 1 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: shellfish. Check product labels and cross-contact.
 
@@ -9086,8 +11902,6 @@ Known allergens for these plates: shellfish. Check product labels and cross-cont
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -9099,6 +11913,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Sheet Pan Shrimp Fajitas](https://www.eatwell101.com/sheet-pan-shrimp-fajitas-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -9170,9 +11986,51 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 201 kcal; protein: 13.0 g; total carbs: 10.8 g; fiber: 4.9 g; net carbs: 5.8 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Cod fillet: model uses Fish, cod, Atlantic, raw.
+
+- Cod fillet: 170 g edible food per count for nutrition only.
+
+- Asparagus: model uses Asparagus, raw.
+
+- Asparagus: 454 g edible food per bunch for nutrition only.
+
+- Olive oil: model uses Oil, olive, salad or cooking.
+
+- Olive oil: 4.5 g edible food per tsp for nutrition only.
+
+- Minced garlic: model uses Garlic, raw.
+
+- Minced garlic: 2.8 g edible food per tsp for nutrition only.
+
+- Low-sodium vegetable broth: model uses Soup, vegetable broth, ready to serve.
+
+- Low-sodium vegetable broth: 240 g edible food per cup for nutrition only.
+
+- Unsalted butter: model uses Butter, without salt.
+
+- Unsalted butter: 113.4 g edible food per stick for nutrition only.
+
+- Hot sauce: model uses Sauce, hot chile, sriracha.
+
+- Hot sauce: 15 g edible food per tbsp for nutrition only.
+
+- Lemon: model uses Lemon juice, raw.
+
+- Lemon: 48 g edible food per count for nutrition only.
+
+- Minced parsley: model uses Parsley, fresh.
+
+- Minced parsley: 3.8 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Crushed red chili pepper flakes.
+
+- Excluded unmeasured/to-taste ingredient: Slices of lemon.
 
 Known allergens for these plates: milk, fish. Check product labels and cross-contact.
 
@@ -9192,8 +12050,6 @@ Known allergens for these plates: milk, fish. Check product labels and cross-con
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -9205,6 +12061,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Garlic Butter Cod with Lemon Asparagus Skillet](https://www.eatwell101.com/garlic-butter-cod-asparagus-skillet-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -9280,9 +12138,59 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 599 kcal; protein: 78.8 g; total carbs: 8.2 g; fiber: 2.2 g; net carbs: 6.0 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Chicken breast: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- Zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- Zucchini: 196 g edible food per count for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Oregano: model uses Spices, oregano, dried.
+
+- Oregano: 1 g edible food per tsp for nutrition only.
+
+- Smoked Paprika: model uses Spices, paprika.
+
+- Smoked Paprika: 6.9 g edible food per tbsp for nutrition only.
+
+- Cumin Powder: model uses Spices, cumin seed.
+
+- Cumin Powder: 2.1 g edible food per tsp for nutrition only.
+
+- Chicken stock: model uses Soup, chicken broth, ready-to-serve.
+
+- Chicken stock: 240 g edible food per cup for nutrition only.
+
+- Lemon juice: model uses Lemon juice, raw.
+
+- Lemon juice: 244 g edible food per cup for nutrition only.
+
+- Onion Powder: model uses Spices, onion powder.
+
+- Onion Powder: 2.4 g edible food per tsp for nutrition only.
+
+- Chili Flakes: model uses Spices, chili powder.
+
+- Chili Flakes: 1.8 g edible food per tsp for nutrition only.
+
+- Olive Oil: model uses Oil, olive, salad or cooking.
+
+- Olive Oil: 216 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked black pepper.
+
+- Olive oil for searing: model uses Oil, olive, salad or cooking.
+
+- Olive oil for searing: 13.5 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
 
@@ -9306,8 +12214,6 @@ Known allergens for these plates: none listed; check every product label. Check 
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
@@ -9321,6 +12227,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Asado Chicken Breast with Sauteed Lemon Zucchini](https://www.eatwell101.com/asado-chicken-sauteed-zucchini-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -9404,9 +12312,71 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 370 kcal; protein: 32.6 g; total carbs: 10.3 g; fiber: 2.6 g; net carbs: 7.6 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- Chicken breasts: 174 g edible food per count for nutrition only.
+
+- Zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- Zucchini: 196 g edible food per count for nutrition only.
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Minced garlic: model uses Garlic, raw.
+
+- Minced garlic: 2.8 g edible food per tsp for nutrition only.
+
+- Hot sauce: model uses Sauce, hot chile, sriracha.
+
+- Hot sauce: 15 g edible food per tbsp for nutrition only.
+
+- Low-sodium chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- Low-sodium chicken broth: 240 g edible food per cup for nutrition only.
+
+- Lemon: model uses Lemon juice, raw.
+
+- Lemon: 48 g edible food per count for nutrition only.
+
+- Minced parsley: model uses Parsley, fresh.
+
+- Minced parsley: 3.8 g edible food per tbsp for nutrition only.
+
+- Fresh thyme leaves: model uses Thyme, fresh.
+
+- Fresh thyme leaves: 0.8 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Crushed red chili pepper flakes.
+
+- Excluded unmeasured/to-taste ingredient: Slices of lemon.
+
+- Olive oil: model uses Oil, olive, salad or cooking.
+
+- Olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Salt: model uses Salt, table.
+
+- Salt: 6 g edible food per tsp for nutrition only.
+
+- Fresh cracked black pepper: model uses Spices, pepper, black.
+
+- Fresh cracked black pepper: 2.3 g edible food per tsp for nutrition only.
+
+- Garlic powder: model uses Spices, garlic powder.
+
+- Garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -9432,8 +12402,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
@@ -9447,6 +12415,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Garlic Butter Chicken Bites with Zucchini Noodles](https://www.eatwell101.com/garlic-butter-chicken-bites-with-lemon-zucchini-noodles)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -9522,9 +12492,59 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 286 kcal; protein: 30.8 g; total carbs: 2.4 g; fiber: 0.5 g; net carbs: 2.0 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Cod fillets: model uses Fish, cod, Atlantic, raw.
+
+- Cod fillets: 170 g edible food per count for nutrition only.
+
+- Lemon juice: model uses Lemon juice, raw.
+
+- Lemon juice: 15 g edible food per tbsp for nutrition only.
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Dried garlic: model uses Spices, garlic powder.
+
+- Dried garlic: 3.1 g edible food per tsp for nutrition only.
+
+- Red chili powder: model uses Spices, chili powder.
+
+- Red chili powder: 2.7 g edible food per tsp for nutrition only.
+
+- Red chili pepper flakes: model uses Spices, chili powder.
+
+- Red chili pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- Cumin powder: model uses Spices, cumin seed.
+
+- Cumin powder: 2.1 g edible food per tsp for nutrition only.
+
+- Salt and black pepper: model uses Salt/pepper model: equal masses table salt and ground black pepper.
+
+- Salt and black pepper: 6 g edible food per tsp for nutrition only.
+
+- Vegetable broth: model uses Soup, vegetable broth, ready to serve.
+
+- Vegetable broth: 240 g edible food per cup for nutrition only.
+
+- Lemon: model uses Lemon juice, raw.
+
+- Lemon: 48 g edible food per count for nutrition only.
+
+- Fresh parsley: model uses Parsley, fresh.
+
+- Fresh parsley: 3.8 g edible food per tbsp for nutrition only.
+
+- Olive oil: model uses Oil, olive, salad or cooking.
+
+- Olive oil: 13.5 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: milk, fish. Check product labels and cross-contact.
 
@@ -9542,8 +12562,6 @@ Known allergens for these plates: milk, fish. Check product labels and cross-con
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -9555,6 +12573,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Lemon Garlic Butter Baked Cod Fillets](https://www.eatwell101.com/lemon-garlic-butter-baked-cod-fillets-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -9628,9 +12648,53 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 254 kcal; protein: 18.4 g; total carbs: 9.0 g; fiber: 2.3 g; net carbs: 6.8 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Raw medium shrimp: model uses Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture).
+
+- Zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- Zucchini: 196 g edible food per count for nutrition only.
+
+- Olive oil: model uses Oil, olive, salad or cooking.
+
+- Olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- Red pepper flakes: model uses Spices, chili powder.
+
+- Red pepper flakes: 0.1 g edible food per pinch for nutrition only.
+
+- Lemon: model uses Lemon juice, raw.
+
+- Lemon: 48 g edible food per count for nutrition only.
+
+- Chicken or vegetable stock: model uses Soup, chicken broth, ready-to-serve.
+
+- Chicken or vegetable stock: 240 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Hot sauce of your choice.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked pepper.
+
+- Chopped fresh parsley: model uses Parsley, fresh.
+
+- Chopped fresh parsley: 60 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk, shellfish. Check product labels and cross-contact.
 
@@ -9646,8 +12710,6 @@ Known allergens for these plates: milk, shellfish. Check product labels and cros
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -9659,6 +12721,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Lemon Garlic Butter Shrimp with Zucchini Noodles](https://www.eatwell101.com/lemon-garlic-butter-shrimp-with-zucchini-noodles)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -9734,9 +12798,59 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 934 kcal; protein: 34.2 g; total carbs: 18.5 g; fiber: 2.5 g; net carbs: 16.0 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Large shrimp: model uses Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture).
+
+- Pork or chicken sausage: model uses Kielbasa, fully cooked, unheated.
+
+- Cajun seasoning: model uses Generic Cajun model: 50% table salt, 20% paprika, 10% garlic powder, 10% onion powder, 10% black pepper by mass.
+
+- Cajun seasoning: 9 g edible food per tbsp for nutrition only.
+
+- Olive oil: model uses Oil, olive, salad or cooking.
+
+- Olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Unsalted butter: model uses Butter, without salt.
+
+- Unsalted butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Yellow onion: model uses Onions, raw.
+
+- Yellow onion: 110 g edible food per count for nutrition only.
+
+- Red bell peppers: model uses Peppers, sweet, red, raw.
+
+- Red bell peppers: 119 g edible food per count for nutrition only.
+
+- Low-sodium vegetable broth: model uses Soup, vegetable broth, ready to serve.
+
+- Low-sodium vegetable broth: 240 g edible food per cup for nutrition only.
+
+- Salt and pepper: model uses Salt/pepper model: equal masses table salt and ground black pepper.
+
+- Salt and pepper: 6 g edible food per tsp for nutrition only.
+
+- Heavy cream: model uses Cream, fluid, heavy whipping.
+
+- Heavy cream: 238 g edible food per cup for nutrition only.
+
+- Grated Parmesan: model uses Cheese, parmesan, grated.
+
+- Grated Parmesan: 100 g edible food per cup for nutrition only.
+
+- Fresh parsley: model uses Parsley, fresh.
+
+- Fresh parsley: 3.8 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: milk, shellfish. Check product labels and cross-contact.
 
@@ -9752,8 +12866,6 @@ Known allergens for these plates: milk, shellfish. Check product labels and cros
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -9765,6 +12877,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Creamy Cajun Shrimp with Sausage](https://www.eatwell101.com/cajun-shrimp-sausage-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -9842,9 +12956,59 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 342 kcal; protein: 30.8 g; total carbs: 16.3 g; fiber: 3.8 g; net carbs: 12.5 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Medium raw shrimp: model uses Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture).
+
+- Unsalted butter: model uses Butter, without salt.
+
+- Unsalted butter: 227 g edible food per cup for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- Onion powder: model uses Spices, onion powder.
+
+- Onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked pepper.
+
+- Vegetable stock: model uses Soup, vegetable broth, ready to serve.
+
+- Vegetable stock: 15 g edible food per tbsp for nutrition only.
+
+- Sriracha: model uses Sauce, hot chile, sriracha.
+
+- Sriracha: 15 g edible food per tbsp for nutrition only.
+
+- Cauliflower: model uses Cauliflower, raw.
+
+- Cauliflower: 575 g edible food per head for nutrition only.
+
+- White onion: model uses Onions, raw.
+
+- White onion: 110 g edible food per count for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Fresh Parmesan: model uses Cheese, parmesan, grated.
+
+- Lemon: model uses Lemon juice, raw.
+
+- Lemon: 48 g edible food per count for nutrition only.
+
+- Red chili pepper flakes: model uses Spices, chili powder.
+
+- Red chili pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh parsley.
 
 Known allergens for these plates: milk, shellfish. Check product labels and cross-contact.
 
@@ -9864,8 +13028,6 @@ Known allergens for these plates: milk, shellfish. Check product labels and cros
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -9877,6 +13039,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Garlic Butter Shrimp with Lemon Parmesan Cauliflower Rice](https://www.eatwell101.com/garlic-butter-shrimp-parmesan-cauliflower-rice-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -9954,9 +13118,57 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 487 kcal; protein: 37.9 g; total carbs: 10.7 g; fiber: 2.8 g; net carbs: 8.0 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Lean ground beef: model uses Beef, ground, 90% lean meat / 10% fat, raw.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Chopped fresh parsley: model uses Parsley, fresh.
+
+- Chopped fresh parsley: 60 g edible food per cup for nutrition only.
+
+- Crumbled beef bouillon cube: model uses Soup, chicken broth cubes, dry.
+
+- Crumbled beef bouillon cube: 3.5 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Crushed red chili pepper flakes.
+
+- Steak seasoning: model uses Generic Cajun model: 50% table salt, 20% paprika, 10% garlic powder, 10% onion powder, 10% black pepper by mass.
+
+- Steak seasoning: 9 g edible food per tbsp for nutrition only.
+
+- Zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- Zucchini: 196 g edible food per count for nutrition only.
+
+- Cheese: model uses Cheese, mozzarella, whole milk.
+
+- Cheese: 28 g edible food per slice for nutrition only.
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Hot sauce: model uses Sauce, hot chile, sriracha.
+
+- Hot sauce: 15 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked pepper.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- Lemon: model uses Lemon juice, raw.
+
+- Lemon: 48 g edible food per count for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -9980,8 +13192,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -9993,6 +13203,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Cheesy Garlic Burgers with Lemon Butter Zucchini Noodles](https://www.eatwell101.com/cheesy-garlic-burgers-with-lemon-butter-zucchini-noodles)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -10068,9 +13280,55 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 372 kcal; protein: 24.7 g; total carbs: 8.4 g; fiber: 2.3 g; net carbs: 6.1 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Ground turkey: model uses Turkey, ground, 93% lean, 7% fat, raw.
+
+- Cauliflower: model uses Cauliflower, cooked, boiled, drained, without salt.
+
+- Cauliflower: 575 g edible food per head for nutrition only.
+
+- Vegetable oil: model uses Oil, olive, salad or cooking.
+
+- Vegetable oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Lemon juice: model uses Lemon juice, raw.
+
+- Lemon juice: 15 g edible food per tbsp for nutrition only.
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Minced garlic: model uses Garlic, raw.
+
+- Minced garlic: 8.5 g edible food per tbsp for nutrition only.
+
+- Onion powder: model uses Spices, onion powder.
+
+- Onion powder: 7.2 g edible food per tbsp for nutrition only.
+
+- Low-sodium soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.
+
+- Low-sodium soy sauce: 255 g edible food per cup for nutrition only.
+
+- Hot sauce: model uses Sauce, hot chile, sriracha.
+
+- Hot sauce: 15 g edible food per tbsp for nutrition only.
+
+- Sesame oil: model uses Oil, olive, salad or cooking.
+
+- Sesame oil: 4.5 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh chopped cilantro.
+
+- Excluded unmeasured/to-taste ingredient: Red chili pepper flakes.
+
+- Excluded unmeasured/to-taste ingredient: Lemon slices.
 
 Known allergens for these plates: milk, soy, wheat, sesame. Check product labels and cross-contact.
 
@@ -10094,8 +13352,6 @@ Known allergens for these plates: milk, soy, wheat, sesame. Check product labels
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -10107,6 +13363,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Garlic Butter Ground Turkey with Cauliflower](https://www.eatwell101.com/garlic-butter-turkey-with-cauliflower-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -10186,9 +13444,59 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 314 kcal; protein: 26.7 g; total carbs: 13.4 g; fiber: 3.7 g; net carbs: 9.6 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Boneless and skinless chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- Boneless and skinless chicken breasts: 174 g edible food per count for nutrition only.
+
+- Fresh Parmesan: model uses Cheese, parmesan, grated.
+
+- Fresh Parmesan: 100 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked black pepper.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Paprika: model uses Spices, paprika.
+
+- Paprika: 2.3 g edible food per tsp for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- Unsalted butter: model uses Butter, without salt.
+
+- Unsalted butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Cauliflower: model uses Cauliflower, raw.
+
+- Cauliflower: 575 g edible food per head for nutrition only.
+
+- White onion: model uses Onions, raw.
+
+- White onion: 160 g edible food per cup for nutrition only.
+
+- Vegetable stock: model uses Soup, vegetable broth, ready to serve.
+
+- Vegetable stock: 15 g edible food per tbsp for nutrition only.
+
+- Lemon: model uses Lemon juice, raw.
+
+- Lemon: 48 g edible food per count for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Red chili pepper flakes.
+
+- Fresh parsley: model uses Parsley, fresh.
+
+- Fresh parsley: 60 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -10206,8 +13514,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -10219,6 +13525,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Garlic Butter Chicken with Cauliflower Rice](https://www.eatwell101.com/garlic-butter-chicken-with-parmesan-cauliflower-rice)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -10288,9 +13596,45 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 470 kcal; protein: 39.2 g; total carbs: 10.2 g; fiber: 3.4 g; net carbs: 6.8 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Pork chops: model uses Pork, fresh, loin, top loin (chops), boneless, separable lean and fat, raw.
+
+- Cajun seasoning mix: model uses Generic Cajun model: 50% table salt, 20% paprika, 10% garlic powder, 10% onion powder, 10% black pepper by mass.
+
+- Cajun seasoning mix: 9 g edible food per tbsp for nutrition only.
+
+- Olive oil: model uses Oil, olive, salad or cooking.
+
+- Olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 227 g edible food per cup for nutrition only.
+
+- Vegetable broth: model uses Soup, vegetable broth, ready to serve.
+
+- Vegetable broth: 240 g edible food per cup for nutrition only.
+
+- Lemon: model uses Lemon juice, raw.
+
+- Lemon: 48 g edible food per count for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Green beans: model uses Beans, snap, green, raw.
+
+- Excluded unmeasured/to-taste ingredient: Red chili pepper flakes.
+
+- Excluded unmeasured/to-taste ingredient: Fresh chopped parsley.
+
+- Excluded unmeasured/to-taste ingredient: Lemon slices.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -10314,8 +13658,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -10327,6 +13669,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Garlic Butter Pork Bites with Lemon Green Beans](https://www.eatwell101.com/garlic-butter-pork-bites-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -10398,9 +13742,51 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 508 kcal; protein: 28.2 g; total carbs: 21.5 g; fiber: 9.9 g; net carbs: 11.6 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Salmon fillet: model uses Fish, salmon, Atlantic, farmed, raw.
+
+- Salmon fillet: 170 g edible food per count for nutrition only.
+
+- Asparagus: model uses Asparagus, raw.
+
+- Asparagus: 454 g edible food per bunch for nutrition only.
+
+- Olive oil: model uses Oil, olive, salad or cooking.
+
+- Olive oil: 4.5 g edible food per tsp for nutrition only.
+
+- Minced garlic: model uses Garlic, raw.
+
+- Minced garlic: 2.8 g edible food per tsp for nutrition only.
+
+- Low-sodium vegetable broth: model uses Soup, vegetable broth, ready to serve.
+
+- Low-sodium vegetable broth: 240 g edible food per cup for nutrition only.
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 113.4 g edible food per stick for nutrition only.
+
+- Hot sauce: model uses Sauce, hot chile, sriracha.
+
+- Hot sauce: 15 g edible food per tbsp for nutrition only.
+
+- Lemon: model uses Lemon juice, raw.
+
+- Lemon: 48 g edible food per count for nutrition only.
+
+- Minced parsley: model uses Parsley, fresh.
+
+- Minced parsley: 3.8 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Crushed red chili pepper flakes.
+
+- Excluded unmeasured/to-taste ingredient: Slices of lemon.
 
 Known allergens for these plates: milk, fish. Check product labels and cross-contact.
 
@@ -10420,8 +13806,6 @@ Known allergens for these plates: milk, fish. Check product labels and cross-con
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -10433,6 +13817,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Garlic Butter Salmon with Lemon Asparagus](https://www.eatwell101.com/garlic-butter-salmon-lemon-asparagus-skillet-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -10500,9 +13886,45 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 212 kcal; protein: 11.9 g; total carbs: 9.0 g; fiber: 2.7 g; net carbs: 6.4 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Salmon fillet: model uses Fish, salmon, Atlantic, farmed, raw.
+
+- Salmon fillet: 170 g edible food per count for nutrition only.
+
+- Zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- Zucchini: 196 g edible food per count for nutrition only.
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Fresh chopped parsley: model uses Parsley, fresh.
+
+- Fresh chopped parsley: 60 g edible food per cup for nutrition only.
+
+- Lemon: model uses Lemon juice, raw.
+
+- Lemon: 48 g edible food per count for nutrition only.
+
+- Red crushed chili pepper flakes: model uses Spices, chili powder.
+
+- Red crushed chili pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- Hot sauce of your choice: model uses Sauce, hot chile, sriracha.
+
+- Hot sauce of your choice: 15 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh chopped scallion.
 
 Known allergens for these plates: milk, fish. Check product labels and cross-contact.
 
@@ -10524,8 +13946,6 @@ Known allergens for these plates: milk, fish. Check product labels and cross-con
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -10537,6 +13957,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Lemon Garlic Butter Salmon with Zucchini Noodles](https://www.eatwell101.com/lemon-garlic-butter-salmon-with-zucchini-noodles)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -10614,9 +14036,55 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 1674 kcal; protein: 99.5 g; total carbs: 21.6 g; fiber: 7.8 g; net carbs: 13.8 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Flank steak: model uses Beef, flank, steak, separable lean only, trimmed to 0" fat, choice, raw.
+
+- Fresh spinach: model uses Spinach, raw.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Lemon: model uses Lemon juice, raw.
+
+- Lemon: 48 g edible food per count for nutrition only.
+
+- Low-sodium beef broth: model uses Soup, beef broth or bouillon canned, ready-to-serve.
+
+- Low-sodium beef broth: 240 g edible food per cup for nutrition only.
+
+- Chopped parsley: model uses Parsley, fresh.
+
+- Chopped parsley: 60 g edible food per cup for nutrition only.
+
+- Chopped chives: model uses Chives, raw.
+
+- Chopped chives: 48 g edible food per cup for nutrition only.
+
+- Crushed red pepper flakes: model uses Spices, chili powder.
+
+- Crushed red pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked pepper.
+
+- Low-sodium soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.
+
+- Low-sodium soy sauce: 255 g edible food per cup for nutrition only.
+
+- Olive oil: model uses Oil, olive, salad or cooking.
+
+- Olive oil: 216 g edible food per cup for nutrition only.
+
+- Sriracha sauce: model uses Sauce, hot chile, sriracha.
+
+- Sriracha sauce: 15 g edible food per tbsp for nutrition only.
+
+- Butter or ghee: nutrition chooses the stated ghee alternative, modeled as USDA butter oil, anhydrous; 14.2 g per tbsp. Butter instead changes the values.
 
 Known allergens for these plates: milk, soy, wheat. Check product labels and cross-contact.
 
@@ -10638,8 +14106,6 @@ Known allergens for these plates: milk, soy, wheat. Check product labels and cro
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - The publisher’s headline time does not cover every step in the method; no complete elapsed-time estimate is reported.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
@@ -10653,6 +14119,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Lemon Garlic Butter Steak with Spinach](https://www.eatwell101.com/lemon-garlic-butter-steak-and-spinach-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -10734,9 +14202,71 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 298 kcal; protein: 31.9 g; total carbs: 7.4 g; fiber: 2.0 g; net carbs: 5.4 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- Chicken breasts: 174 g edible food per count for nutrition only.
+
+- Zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- Zucchini: 196 g edible food per count for nutrition only.
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Lemon: model uses Lemon juice and zest model: 48 g juice plus 2 g peel per lemon.
+
+- Lemon: 50 g edible food per count for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Dijon mustard: model uses Mustard, prepared, yellow.
+
+- Dijon mustard: 15 g edible food per tbsp for nutrition only.
+
+- Cayenne pepper: model uses Spices, chili powder.
+
+- Cayenne pepper: 0.1 g edible food per pinch for nutrition only.
+
+- Paprika: model uses Spices, paprika.
+
+- Paprika: 2.3 g edible food per tsp for nutrition only.
+
+- Low-sodium chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- Low-sodium chicken broth: 240 g edible food per cup for nutrition only.
+
+- Hot sauce of your choice: model uses Sauce, hot chile, sriracha.
+
+- Hot sauce of your choice: 15 g edible food per tbsp for nutrition only.
+
+- Fresh chopped parsley: model uses Parsley, fresh.
+
+- Fresh chopped parsley: 3.8 g edible food per tbsp for nutrition only.
+
+- Freshly chopped chives: model uses Chives, raw.
+
+- Freshly chopped chives: 3 g edible food per tbsp for nutrition only.
+
+- Minced thyme: model uses Thyme, fresh.
+
+- Minced thyme: 0.8 g edible food per tsp for nutrition only.
+
+- Crushed red pepper flakes: model uses Spices, chili powder.
+
+- Crushed red pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and freshly ground black pepper.
+
+- Excluded unmeasured/to-taste ingredient: Lemon slices.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -10758,8 +14288,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -10771,6 +14299,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Cowboy Butter Chicken with Zucchini Noodles (15-Minute)](https://www.eatwell101.com/cowboy-butter-chicken-and-zucchini-noodles)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -10846,9 +14376,57 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 458 kcal; protein: 33.9 g; total carbs: 13.7 g; fiber: 3.6 g; net carbs: 10.1 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- Chicken breasts: 174 g edible food per count for nutrition only.
+
+- Red pepper flakes: model uses Spices, chili powder.
+
+- Red pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- Red onion: model uses Onions, raw.
+
+- Red onion: 110 g edible food per count for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Sun-dried tomatoes: model uses Tomatoes, sun-dried, packed in oil, drained.
+
+- Sun-dried tomatoes: 110 g edible food per cup for nutrition only.
+
+- Bell peppers: model uses Peppers, sweet, red, raw.
+
+- Bell peppers: 119 g edible food per count for nutrition only.
+
+- Basil pesto: model uses Sauce, pesto, ready-to-serve, shelf stable.
+
+- Basil pesto: 256 g edible food per cup for nutrition only.
+
+- Heavy whipping cream: model uses Cream, fluid, heavy whipping.
+
+- Heavy whipping cream: 238 g edible food per cup for nutrition only.
+
+- Chicken stock: model uses Soup, chicken broth, ready-to-serve.
+
+- Chicken stock: 240 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked pepper.
+
+- Excluded unmeasured/to-taste ingredient: Chopped fresh basil.
+
+- Excluded unmeasured/to-taste ingredient: Parmesan.
 
 Known allergens for these plates: milk, tree-nuts. Check product labels and cross-contact.
 
@@ -10876,8 +14454,6 @@ Known allergens for these plates: milk, tree-nuts. Check product labels and cros
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -10889,6 +14465,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Creamy Garlic Pesto Chicken](https://www.eatwell101.com/creamy-garlic-pesto-chicken)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -10964,9 +14542,51 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 328 kcal; protein: 19.5 g; total carbs: 6.2 g; fiber: 2.7 g; net carbs: 3.5 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Chicken thighs: model uses Chicken, broilers or fryers, thigh, meat and skin, raw.
+
+- Chicken thighs: 100 g edible food per count for nutrition only.
+
+- Unsalted butter: model uses Butter, without salt.
+
+- Unsalted butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Fresh rosemary: model uses Rosemary, fresh.
+
+- Fresh rosemary: 1.2 g edible food per tsp for nutrition only.
+
+- Fresh thyme: model uses Thyme, fresh.
+
+- Fresh thyme: 0.8 g edible food per tsp for nutrition only.
+
+- Asparagus: model uses Asparagus, raw.
+
+- Paprika: model uses Spices, paprika.
+
+- Paprika: 2.3 g edible food per tsp for nutrition only.
+
+- Salt and pepper: model uses Salt/pepper model: equal masses table salt and ground black pepper.
+
+- Salt and pepper: 6 g edible food per tsp for nutrition only.
+
+- Chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- Chicken broth: 240 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Slices of fresh lemon.
+
+- Excluded unmeasured/to-taste ingredient: Fresh chopped parsley.
+
+- Freshly chopped oregano: fresh-herb nutrition proxy uses USDA raw basil, 2.65 g per tbsp; fresh oregano has no record in this archive. This is not a dried-herb substitution in the cooking instructions.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -10986,8 +14606,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -10999,6 +14617,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Garlic Herb Butter Chicken Thighs with Asparagus](https://www.eatwell101.com/garlic-butter-herb-chicken-and-asparagus)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -11072,9 +14692,61 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 299 kcal; protein: 37.2 g; total carbs: 11.4 g; fiber: 3.3 g; net carbs: 8.0 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Shredded rotisserie chicken: model uses Chicken, broilers or fryers, breast, meat only, cooked, roasted.
+
+- Chili powder: model uses Spices, chili powder.
+
+- Chili powder: 8.1 g edible food per tbsp for nutrition only.
+
+- Paprika: model uses Spices, paprika.
+
+- Paprika: 2.3 g edible food per tsp for nutrition only.
+
+- Onion powder: model uses Spices, onion powder.
+
+- Onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- Cumin: model uses Spices, cumin seed.
+
+- Cumin: 2.1 g edible food per tsp for nutrition only.
+
+- Garlic powder: model uses Spices, garlic powder.
+
+- Garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- Salt: model uses Salt, table.
+
+- Salt: 6 g edible food per tsp for nutrition only.
+
+- Pepper: model uses Spices, pepper, black.
+
+- Pepper: 2.3 g edible food per tsp for nutrition only.
+
+- Olive oil: model uses Oil, olive, salad or cooking.
+
+- Olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Red bell pepper: model uses Peppers, sweet, red, raw.
+
+- Red bell pepper: 119 g edible food per count for nutrition only.
+
+- Green bell pepper: model uses Peppers, sweet, green, raw.
+
+- Green bell pepper: 119 g edible food per count for nutrition only.
+
+- Yellow bell pepper: model uses Peppers, sweet, yellow, raw.
+
+- Yellow bell pepper: 186 g edible food per count for nutrition only.
+
+- Onion: model uses Onions, raw.
+
+- Onion: 110 g edible food per count for nutrition only.
 
 Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
 
@@ -11085,8 +14757,6 @@ Known allergens for these plates: none listed; check every product label. Check 
 - Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
-
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
@@ -11099,6 +14769,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Easy Chicken Fajitas](https://www.eatwell101.com/skillet-roasted-chicken-fajitas-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -11172,9 +14844,55 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 457 kcal; protein: 42.8 g; total carbs: 21.9 g; fiber: 6.9 g; net carbs: 15.1 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Pork chops: model uses Pork, fresh, loin, top loin (chops), boneless, separable lean and fat, raw.
+
+- Pork chops: 170 g edible food per count for nutrition only.
+
+- Zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- Zucchini: 196 g edible food per count for nutrition only.
+
+- Low-sodium Cajun seasoning: model uses Low-sodium Cajun model: salt-free blend 40% paprika, 20% garlic powder, 20% onion powder, 20% black pepper.
+
+- Low-sodium Cajun seasoning: 9 g edible food per tbsp for nutrition only.
+
+- Canola or sunflower oil: model uses Oil, olive, salad or cooking.
+
+- Canola or sunflower oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Unsalted butter: model uses Butter, without salt.
+
+- Unsalted butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Garlic: model uses Garlic, raw.
+
+- Garlic: 3 g edible food per clove for nutrition only.
+
+- Black pepper: model uses Spices, pepper, black.
+
+- Black pepper: 2.3 g edible food per tsp for nutrition only.
+
+- Red chili pepper flakes: model uses Spices, chili powder.
+
+- Red chili pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- Low-sodium chicken stock: model uses Soup, chicken broth, ready-to-serve.
+
+- Low-sodium chicken stock: 15 g edible food per tbsp for nutrition only.
+
+- Lemon juice: model uses Lemon juice, raw.
+
+- Lemon juice: 15 g edible food per tbsp for nutrition only.
+
+- Fresh chopped parsley: model uses Parsley, fresh.
+
+- Fresh chopped parsley: 3.8 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -11192,8 +14910,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -11205,6 +14921,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Easy Cajun Pork Chops with Lemon Garlic Zucchini](https://www.eatwell101.com/cajun-pork-chops-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -11276,9 +14994,47 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 564 kcal; protein: 47.3 g; total carbs: 14.8 g; fiber: 3.0 g; net carbs: 11.9 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- Chicken breasts: 174 g edible food per count for nutrition only.
+
+- Bell peppers: model uses Peppers, sweet, red, raw.
+
+- Bell peppers: 119 g edible food per count for nutrition only.
+
+- Onion: model uses Onions, raw.
+
+- Onion: 110 g edible food per count for nutrition only.
+
+- Cream cheese: model uses Cheese, cream.
+
+- Tomato sauce of your choice: model uses Tomato products, canned, sauce.
+
+- Tomato sauce of your choice: 245 g edible food per cup for nutrition only.
+
+- Fajita seasoning: model uses Seasoning mix, dry, taco, original.
+
+- Fajita seasoning: 28 g edible food per packet for nutrition only.
+
+- Vegetable oil: model uses Oil, olive, salad or cooking.
+
+- Vegetable oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Low sodium chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- Low sodium chicken broth: 240 g edible food per cup for nutrition only.
+
+- Shredded Mozzarella: model uses Cheese, mozzarella, whole milk.
+
+- Shredded Mozzarella: 113 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh chopped cilantro.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -11298,8 +15054,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -11311,6 +15065,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Creamy Fajita Chicken Breasts Skillet](https://www.eatwell101.com/creamy-chicken-fajita-skillet-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -11394,9 +15150,65 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 673 kcal; protein: 41.5 g; total carbs: 13.0 g; fiber: 2.3 g; net carbs: 10.7 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Cream cheese: model uses Cheese, cream.
+
+- Garlic powder: model uses Spices, garlic powder.
+
+- Garlic powder: 9.3 g edible food per tbsp for nutrition only.
+
+- Shredded mozzarella cheese: model uses Cheese, mozzarella, whole milk.
+
+- Shredded mozzarella cheese: 113 g edible food per cup for nutrition only.
+
+- Ground turkey: model uses Turkey, ground, 93% lean, 7% fat, raw.
+
+- Bouillon: model uses Soup, chicken broth cubes, dry.
+
+- Bouillon: 3.5 g edible food per cube for nutrition only.
+
+- Egg: model uses Egg, whole, raw, fresh.
+
+- Egg: 50 g edible food per count for nutrition only.
+
+- Fresh chopped parsley: model uses Parsley, fresh.
+
+- Fresh chopped parsley: 60 g edible food per cup for nutrition only.
+
+- Salt: model uses Salt, table.
+
+- Salt: 6 g edible food per tsp for nutrition only.
+
+- Butter: model uses Butter, without salt.
+
+- Butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Riced cauliflower: model uses Cauliflower, raw.
+
+- Riced cauliflower: 107 g edible food per cup for nutrition only.
+
+- Vegetable stock: model uses Soup, vegetable broth, ready to serve.
+
+- Vegetable stock: 240 g edible food per cup for nutrition only.
+
+- Hot sauce of your choice: model uses Sauce, hot chile, sriracha.
+
+- Hot sauce of your choice: 15 g edible food per tbsp for nutrition only.
+
+- Lemon: model uses Lemon juice, raw.
+
+- Lemon: 48 g edible food per count for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Red chili pepper flakes.
+
+- Parsley: model uses Parsley, fresh.
+
+- Parsley: 60 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk, egg. Check product labels and cross-contact.
 
@@ -11414,8 +15226,6 @@ Known allergens for these plates: milk, egg. Check product labels and cross-cont
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -11427,6 +15237,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Cheesy Turkey Meatballs with Cauliflower Rice](https://www.eatwell101.com/cheesy-stuffed-turkey-meatballs-with-cauliflower-rice)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -11500,9 +15312,55 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 334 kcal; protein: 9.9 g; total carbs: 18.4 g; fiber: 6.7 g; net carbs: 11.7 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- butter or olive oil: model uses Butter, without salt.
+
+- butter or olive oil: 14.2 g edible food per tbsp for nutrition only.
+
+- small green cabbage: model uses Cabbage, raw.
+
+- small green cabbage: 714 g edible food per count for nutrition only.
+
+- onion: model uses Onions, raw.
+
+- onion: 110 g edible food per count for nutrition only.
+
+- smoked sausage: model uses Kielbasa, fully cooked, unheated.
+
+- Diced tomatoes: model uses Tomatoes, red, ripe, canned, packed in tomato juice.
+
+- Diced tomatoes: 240 g edible food per can for nutrition only.
+
+- green bell pepper: model uses Peppers, sweet, green, raw.
+
+- green bell pepper: 119 g edible food per count for nutrition only.
+
+- cajun seasoning: model uses Generic Cajun model: 50% table salt, 20% paprika, 10% garlic powder, 10% onion powder, 10% black pepper by mass.
+
+- cajun seasoning: 3 g edible food per tsp for nutrition only.
+
+- chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken broth: 240 g edible food per cup for nutrition only.
+
+- Salt: model uses Salt, table.
+
+- Salt: 6 g edible food per tsp for nutrition only.
+
+- Black pepper: model uses Spices, pepper, black.
+
+- Black pepper: 2.3 g edible food per tsp for nutrition only.
+
+- scallions: model uses Onions, spring or scallions (includes tops and bulb), raw.
+
+- scallions: 15 g edible food per count for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Lime wedges or slices.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -11513,8 +15371,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 - Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
-
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
@@ -11527,6 +15383,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Fried Cabbage with Sausage](https://www.eatwell101.com/fried-cabbage-sausage-skillet-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -11608,9 +15466,61 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 398 kcal; protein: 48.3 g; total carbs: 11.9 g; fiber: 3.2 g; net carbs: 8.7 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- medium chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- medium chicken breasts: 174 g edible food per count for nutrition only.
+
+- Salt: model uses Salt, table.
+
+- Salt: 6 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Black pepper.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Crushed red chili pepper flakes.
+
+- paprika: model uses Spices, paprika.
+
+- paprika: 2.3 g edible food per tsp for nutrition only.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- garlic: model uses Garlic, raw.
+
+- garlic: 3 g edible food per count for nutrition only.
+
+- small onion: model uses Onions, raw.
+
+- small onion: 110 g edible food per count for nutrition only.
+
+- medium tomatoes: model uses Tomatoes, red, ripe, raw, year round average.
+
+- medium tomatoes: 123 g edible food per count for nutrition only.
+
+- chicken stock: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken stock: 240 g edible food per cup for nutrition only.
+
+- fresh spinach: model uses Spinach, raw.
+
+- fresh spinach: 30 g edible food per cup for nutrition only.
+
+- shredded cheese: model uses Cheese, mozzarella, whole milk.
+
+- shredded cheese: 113 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh chopped parsley.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -11621,8 +15531,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 - Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
-
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
@@ -11635,6 +15543,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Tomato Spinach Chicken Skillet (Low Carb - Keto)](https://www.eatwell101.com/tomato-spinach-chicken-skillet-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -11716,9 +15626,71 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 237 kcal; protein: 21.8 g; total carbs: 7.0 g; fiber: 2.1 g; net carbs: 4.9 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- chicken thighs bone-in: model uses Chicken, broilers or fryers, dark meat, thigh, meat only, raw.
+
+- chicken thighs bone-in: 100 g edible food per count for nutrition only.
+
+- kosher salt: model uses Salt, table.
+
+- kosher salt: 6 g edible food per tsp for nutrition only.
+
+- oil: model uses Oil, olive, salad or cooking.
+
+- oil: 13.5 g edible food per tbsp for nutrition only.
+
+- butter or oil divided: model uses Butter, without salt.
+
+- butter or oil divided: 14.2 g edible food per tbsp for nutrition only.
+
+- large zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- large zucchini: 196 g edible food per count for nutrition only.
+
+- garlic: model uses Garlic, raw.
+
+- garlic: 3 g edible food per count for nutrition only.
+
+- lemon: model uses Lemon juice, raw.
+
+- lemon: 48 g edible food per count for nutrition only.
+
+- chicken stock: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken stock: 240 g edible food per cup for nutrition only.
+
+- chopped parsley: model uses Parsley, fresh.
+
+- chopped parsley: 3.8 g edible food per tbsp for nutrition only.
+
+- red chili pepper flakes: model uses Spices, chili powder.
+
+- red chili pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- Smoked Paprika: model uses Spices, paprika.
+
+- Smoked Paprika: 2.3 g edible food per tsp for nutrition only.
+
+- Garlic Powder: model uses Spices, garlic powder.
+
+- Garlic Powder: 3.1 g edible food per tsp for nutrition only.
+
+- Onion Powder: model uses Spices, onion powder.
+
+- Onion Powder: 2.4 g edible food per tsp for nutrition only.
+
+- Ground Black Pepper: model uses Spices, pepper, black.
+
+- Ground Black Pepper: 2.3 g edible food per tsp for nutrition only.
+
+- Cayenne Pepper: model uses Spices, chili powder.
+
+- Cayenne Pepper: 1.8 g edible food per tsp for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -11732,8 +15704,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -11745,6 +15715,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Paprika Chicken Thighs with Lemon Zucchini Skillet](https://www.eatwell101.com/paprika-chicken-thighs-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -11826,9 +15798,51 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 459 kcal; protein: 19.7 g; total carbs: 14.2 g; fiber: 3.6 g; net carbs: 10.6 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- sausage: model uses Sausage, Italian, pork, mild, raw.
+
+- broccoli: model uses Broccoli, raw.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- garlic cloves: model uses Garlic, raw.
+
+- garlic cloves: 3 g edible food per count for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- lemon: model uses Lemon juice, raw.
+
+- lemon: 48 g edible food per count for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked pepper.
+
+- vegetable or beef stock: model uses Soup, vegetable broth, ready to serve.
+
+- vegetable or beef stock: 240 g edible food per cup for nutrition only.
+
+- hot sauce: model uses Sauce, hot chile, sriracha.
+
+- hot sauce: 15 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Crushed red chili pepper flakes.
+
+- fresh chopped parsley: model uses Parsley, fresh.
+
+- fresh chopped parsley: 60 g edible food per cup for nutrition only.
+
+- fresh thyme leaves: model uses Thyme, fresh.
+
+- fresh thyme leaves: 2.4 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -11840,8 +15854,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 ### Leftovers
 
 Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
@@ -11849,6 +15861,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 ### Sources
 
 - [Christina Cherrier: Garlic Butter Sausages and Broccoli Skillet](https://www.eatwell101.com/garlic-butter-sausages-broccoli-recipe)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -11940,9 +15954,77 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 541 kcal; protein: 42.7 g; total carbs: 12.8 g; fiber: 5.8 g; net carbs: 7.0 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- pork: model uses Pork, fresh, loin, top loin (chops), boneless, separable lean and fat, raw.
+
+- asparagus: model uses Asparagus, raw.
+
+- asparagus: 454 g edible food per bunch for nutrition only.
+
+- butter: model uses Butter, without salt.
+
+- butter: 227 g edible food per cup for nutrition only.
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 4.5 g edible food per tsp for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 2.8 g edible food per tsp for nutrition only.
+
+- Italian seasoning or Herbes de Provence: model uses Spices, oregano, dried.
+
+- Italian seasoning or Herbes de Provence: 1 g edible food per tsp for nutrition only.
+
+- hot sauce: model uses Sauce, hot chile, sriracha.
+
+- hot sauce: 15 g edible food per tbsp for nutrition only.
+
+- low-sodium chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- low-sodium chicken broth: 240 g edible food per cup for nutrition only.
+
+- lemon: model uses Lemon juice, raw.
+
+- lemon: 48 g edible food per count for nutrition only.
+
+- minced parsley: model uses Parsley, fresh.
+
+- minced parsley: 3.8 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Crushed red chili pepper flakes.
+
+- Excluded unmeasured/to-taste ingredient: Slices of lemon.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- fresh cracked black pepper: model uses Spices, pepper, black.
+
+- fresh cracked black pepper: 2.3 g edible food per tsp for nutrition only.
+
+- onion powder: model uses Spices, onion powder.
+
+- onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- paprika: model uses Spices, paprika.
+
+- paprika: 2.3 g edible food per tsp for nutrition only.
+
+- Cayenne pepper: model uses Spices, chili powder.
+
+- Cayenne pepper: 1.8 g edible food per tsp for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -11953,8 +16035,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 - Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
-
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
@@ -11967,6 +16047,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Garlic Butter Pork with Lemon Asparagus](https://www.eatwell101.com/garlic-butter-pork-asparagus-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -12048,9 +16130,65 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 217 kcal; protein: 18.0 g; total carbs: 9.7 g; fiber: 2.7 g; net carbs: 6.9 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Chicken thighs: model uses Chicken, broilers or fryers, dark meat, thigh, meat only, raw.
+
+- Chicken thighs: 100 g edible food per count for nutrition only.
+
+- medium zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- medium zucchini: 196 g edible food per count for nutrition only.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- garlic cloves: model uses Garlic, raw.
+
+- garlic cloves: 3 g edible food per count for nutrition only.
+
+- paprika: model uses Spices, paprika.
+
+- paprika: 2.3 g edible food per tsp for nutrition only.
+
+- onion powder: model uses Spices, onion powder.
+
+- onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- Salt: model uses Salt, table.
+
+- Salt: 6 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Black pepper.
+
+- lemon: model uses Lemon juice, raw.
+
+- lemon: 48 g edible food per count for nutrition only.
+
+- chicken stock: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken stock: 240 g edible food per cup for nutrition only.
+
+- hot sauce: model uses Sauce, hot chile, sriracha.
+
+- hot sauce: 15 g edible food per tbsp for nutrition only.
+
+- crushed red chili pepper flakes: model uses Spices, chili powder.
+
+- crushed red chili pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- fresh chopped parsley: model uses Parsley, fresh.
+
+- fresh chopped parsley: 60 g edible food per cup for nutrition only.
+
+- fresh thyme leaves: model uses Thyme, fresh.
+
+- fresh thyme leaves: 0.8 g edible food per tsp for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -12061,8 +16199,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 - Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
-
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
@@ -12076,13 +16212,15 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
 
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
+
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
 ## 10-Minute Sheet Pan Steak with Lemon Zucchini
 
-4 portions · US measures · unverified · 10 min publisher preparation · 50–80 min
+4 portions · US measures · unverified · 10 min publisher preparation · 80 min
 
 10-Minute Sheet Pan Steak with Lemon Zucchini, adapted from Christina Cherrier.
 
@@ -12152,9 +16290,49 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 500 kcal; protein: 38.9 g; total carbs: 9.1 g; fiber: 2.1 g; net carbs: 7.0 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- sirloin steak: model uses Beef, loin, top sirloin cap steak, boneless, separable lean and fat, trimmed to 1/8" fat, all grades, raw.
+
+- medium zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- medium zucchini: 196 g edible food per count for nutrition only.
+
+- crushed red pepper flakes: model uses Spices, chili powder.
+
+- crushed red pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked black pepper.
+
+- low-sodium soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.
+
+- low-sodium soy sauce: 255 g edible food per cup for nutrition only.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- Sriracha sauce: model uses Sauce, hot chile, sriracha.
+
+- Sriracha sauce: 15 g edible food per tbsp for nutrition only.
+
+- lemon: model uses Lemon juice, raw.
+
+- lemon: 48 g edible food per count for nutrition only.
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 216 g edible food per cup for nutrition only.
+
+- chopped parsley: model uses Parsley, fresh.
+
+- chopped parsley: 60 g edible food per cup for nutrition only.
+
+- fresh oregano: fresh-herb nutrition proxy uses USDA raw basil, 0.9 g per tsp; fresh oregano has no record in this archive. This is not a dried-herb substitution in the cooking instructions.
 
 Known allergens for these plates: soy, wheat. Check product labels and cross-contact.
 
@@ -12170,8 +16348,6 @@ Known allergens for these plates: soy, wheat. Check product labels and cross-con
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -12183,6 +16359,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: 10-Minute Sheet Pan Steak with Lemon Zucchini](https://www.eatwell101.com/sheet-pan-steak-zucchini-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -12258,9 +16436,53 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 460 kcal; protein: 26.9 g; total carbs: 10.5 g; fiber: 1.6 g; net carbs: 8.9 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- unsalted butter: model uses Butter, without salt.
+
+- unsalted butter: 14.2 g edible food per tbsp for nutrition only.
+
+- medium shrimp: model uses Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture).
+
+- Excluded unmeasured/to-taste ingredient: Kosher salt and freshly ground black pepper.
+
+- garlic: model uses Garlic, raw.
+
+- garlic: 3 g edible food per count for nutrition only.
+
+- onion: model uses Onions, raw.
+
+- onion: 110 g edible food per count for nutrition only.
+
+- sundried tomatoes: model uses Tomatoes, sun-dried.
+
+- sundried tomatoes: 54 g edible food per cup for nutrition only.
+
+- chicken stock or veggie broth: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken stock or veggie broth: 240 g edible food per cup for nutrition only.
+
+- hot sauce of your choice: model uses Sauce, hot chile, sriracha.
+
+- hot sauce of your choice: 5 g edible food per tsp for nutrition only.
+
+- chopped spinach: model uses Spinach, raw.
+
+- chopped spinach: 30 g edible food per cup for nutrition only.
+
+- heavy whipping cream or: model uses Cream, fluid, heavy whipping.
+
+- heavy whipping cream or: 238 g edible food per cup for nutrition only.
+
+- chopped fresh parsley: model uses Parsley, fresh.
+
+- chopped fresh parsley: 3.8 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Crushed red chili pepper flakes.
 
 Known allergens for these plates: milk, shellfish. Check product labels and cross-contact.
 
@@ -12271,8 +16493,6 @@ Known allergens for these plates: milk, shellfish. Check product labels and cros
 - Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
-
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
@@ -12285,6 +16505,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Creamy Garlic Shrimp with Spinach (10-Minute)](https://www.eatwell101.com/creamy-garlic-spinach-shrimp-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -12366,9 +16588,57 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 401 kcal; protein: 54.1 g; total carbs: 11.5 g; fiber: 3.8 g; net carbs: 7.7 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- chicken tenders: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- green beans: model uses Beans, snap, green, raw.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- garlic cloves: model uses Garlic, raw.
+
+- garlic cloves: 3 g edible food per count for nutrition only.
+
+- paprika: model uses Spices, paprika.
+
+- paprika: 2.3 g edible food per tsp for nutrition only.
+
+- onion powder: model uses Spices, onion powder.
+
+- onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- Salt: model uses Salt, table.
+
+- Salt: 6 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Black pepper.
+
+- lemon: model uses Lemon juice, raw.
+
+- lemon: 48 g edible food per count for nutrition only.
+
+- chicken stock: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken stock: 240 g edible food per cup for nutrition only.
+
+- hot sauce: model uses Sauce, hot chile, sriracha.
+
+- hot sauce: 15 g edible food per tbsp for nutrition only.
+
+- crushed red chili pepper flakes: model uses Spices, chili powder.
+
+- crushed red chili pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- fresh chopped parsley: model uses Parsley, fresh.
+
+- fresh chopped parsley: 60 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -12379,8 +16649,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 - Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
-
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
@@ -12394,13 +16662,15 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
 
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
+
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
 ## Parmesan Chicken Casserole and Cauliflower Steaks
 
-4 portions · US measures · unverified · 10 min publisher preparation · 55–65 min
+4 portions · US measures · unverified · 10 min publisher preparation · 65 min
 
 Parmesan Chicken Casserole and Cauliflower Steaks, adapted from Christina Cherrier.
 
@@ -12474,9 +16744,57 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 236 kcal; protein: 27.5 g; total carbs: 8.5 g; fiber: 2.7 g; net carbs: 5.8 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- chicken breasts: 174 g edible food per count for nutrition only.
+
+- cauliflower: model uses Cauliflower, raw.
+
+- cauliflower: 575 g edible food per count for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- red chili pepper flakes: model uses Spices, chili powder.
+
+- red chili pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- marinara sauce: model uses Tomato products, canned, sauce.
+
+- parmesan cheese: model uses Cheese, parmesan, grated.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- onion powder: model uses Spices, onion powder.
+
+- onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- mozzarella cheese: model uses Cheese, mozzarella, whole milk.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- black pepper: model uses Spices, pepper, black.
+
+- black pepper: 2.3 g edible food per tsp for nutrition only.
+
+- fresh chopped basil or parsley: model uses Parsley, fresh.
+
+- fresh chopped basil or parsley: 3.8 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -12494,8 +16812,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -12507,6 +16823,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Parmesan Chicken Casserole and Cauliflower Steaks](https://www.eatwell101.com/chicken-parmesan-and-cauliflower-steaks-casserole-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -12590,9 +16908,59 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 537 kcal; protein: 33.6 g; total carbs: 10.4 g; fiber: 2.2 g; net carbs: 8.2 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- ground beef: model uses Beef, ground, 90% lean meat / 10% fat, raw.
+
+- medium onion: model uses Onions, raw.
+
+- medium onion: 110 g edible food per count for nutrition only.
+
+- cream cheese: model uses Cheese, cream.
+
+- beef broth: model uses Soup, beef broth or bouillon canned, ready-to-serve.
+
+- beef broth: 240 g edible food per cup for nutrition only.
+
+- heavy whipping cream: model uses Cream, fluid, heavy whipping.
+
+- heavy whipping cream: 238 g edible food per cup for nutrition only.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- tomato paste: model uses Tomato products, canned, paste, without salt added (Includes foods for USDA's Food Distribution Program).
+
+- tomato paste: 16 g edible food per tbsp for nutrition only.
+
+- cauliflower: model uses Cauliflower, raw.
+
+- cauliflower: 575 g edible food per head for nutrition only.
+
+- cheddar: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
+
+- cheddar: 113 g edible food per cup for nutrition only.
+
+- mozzarella: model uses Cheese, mozzarella, whole milk.
+
+- mozzarella: 113 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Chopped fresh parsley.
+
+- red chili pepper flakes: model uses Spices, chili powder.
+
+- red chili pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and pepper.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -12606,8 +16974,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -12619,6 +16985,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Creamy Ground Beef and Cauliflower Rice Casserole](https://www.eatwell101.com/ground-beef-cauliflower-casserole-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -12692,9 +17060,49 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 376 kcal; protein: 32.9 g; total carbs: 9.7 g; fiber: 2.2 g; net carbs: 7.5 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- crushed pepper: model uses Spices, chili powder.
+
+- crushed pepper: 1.8 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and pepper.
+
+- garlic minced: model uses Garlic, raw.
+
+- garlic minced: 3 g edible food per count for nutrition only.
+
+- chopped sundried tomatoes: model uses Tomatoes, sun-dried.
+
+- chopped sundried tomatoes: 54 g edible food per cup for nutrition only.
+
+- broccoli florets: model uses Broccoli, raw.
+
+- broccoli florets: 91 g edible food per cup for nutrition only.
+
+- shredded cheese: model uses Cheese, mozzarella, whole milk.
+
+- shredded cheese: 113 g edible food per cup for nutrition only.
+
+- cream cheese: model uses Cheese, cream.
+
+- low-sodium chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- low-sodium chicken broth: 240 g edible food per cup for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -12705,8 +17113,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 - Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
-
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
@@ -12719,6 +17125,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: 15-Minute Broccoli Chicken in Cream Cheese Sundried Tomato Sauce](https://www.eatwell101.com/broccoli-chicken-in-cream-cheese-sundried-tomato-sauce-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -12798,9 +17206,59 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 524 kcal; protein: 37.5 g; total carbs: 12.8 g; fiber: 4.8 g; net carbs: 8.0 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- ground chicken: model uses Chicken, ground, raw.
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- yellow onion: model uses Onions, raw.
+
+- yellow onion: 110 g edible food per count for nutrition only.
+
+- medium head of cauliflower: model uses Cauliflower, raw.
+
+- medium head of cauliflower: 575 g edible food per count for nutrition only.
+
+- Diced tomatoes: model uses Tomatoes, red, ripe, canned, packed in tomato juice.
+
+- Diced tomatoes: 240 g edible food per can for nutrition only.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- onion powder: model uses Spices, onion powder.
+
+- onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- paprika: model uses Spices, paprika.
+
+- paprika: 2.3 g edible food per tsp for nutrition only.
+
+- chili powder: model uses Spices, chili powder.
+
+- chili powder: 2.7 g edible food per tsp for nutrition only.
+
+- cumin: model uses Spices, cumin seed.
+
+- cumin: 2.1 g edible food per tsp for nutrition only.
+
+- low-sodium vegetable or chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- low-sodium vegetable or chicken broth: 240 g edible food per cup for nutrition only.
+
+- shredded Monterey Jack or Mozzarella: model uses Cheese, monterey.
+
+- shredded Monterey Jack or Mozzarella: 113 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked black pepper.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -12814,8 +17272,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -12827,6 +17283,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Chicken Burrito Bowls with Cauliflower](https://www.eatwell101.com/cauliflower-chicken-burrito-bowls-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -12902,9 +17360,51 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 477 kcal; protein: 21.3 g; total carbs: 15.7 g; fiber: 3.5 g; net carbs: 12.2 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- mild Italian sausages: model uses Sausage, Italian, pork, mild, raw.
+
+- mild Italian sausages: 85 g edible food per count for nutrition only.
+
+- cauliflower: model uses Cauliflower, raw.
+
+- cauliflower: 575 g edible food per head for nutrition only.
+
+- butter or olive oil: model uses Butter, without salt.
+
+- butter or olive oil: 14.2 g edible food per tbsp for nutrition only.
+
+- garlic: model uses Garlic, raw.
+
+- garlic: 3 g edible food per count for nutrition only.
+
+- low sodium chicken stock: model uses Soup, chicken broth, ready-to-serve.
+
+- low sodium chicken stock: 240 g edible food per cup for nutrition only.
+
+- hot sauce of choice: model uses Sauce, hot chile, sriracha.
+
+- hot sauce of choice: 15 g edible food per tbsp for nutrition only.
+
+- lime: model uses Lemon peel, raw.
+
+- lime: 2 g edible food per count for nutrition only.
+
+- fresh lime juice: model uses Lime juice, raw.
+
+- fresh lime juice: 15 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh chopped cilantro.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh cracked black pepper.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -12915,8 +17415,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 - Ingredient quantities are scaled from 2 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
-
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
@@ -12929,6 +17427,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Italian Sausage with Cilantro Lime Cauliflower Rice](https://www.eatwell101.com/sausage-cilantro-lime-cauliflower-rice-skillet-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -13010,9 +17510,61 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 376 kcal; protein: 27.1 g; total carbs: 9.9 g; fiber: 2.5 g; net carbs: 7.5 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- ground turkey meat: model uses Turkey, ground, 93% lean, 7% fat, raw.
+
+- ground pork meat: model uses Pork, ground, 84% lean / 16% fat, raw.
+
+- shredded mozzarella: model uses Cheese, mozzarella, whole milk.
+
+- shredded mozzarella: 113 g edible food per cup for nutrition only.
+
+- Garlic for meatballs: model uses Garlic, raw.
+
+- Garlic for meatballs: 3 g edible food per count for nutrition only.
+
+- Garlic for zucchini: model uses Garlic, raw.
+
+- Garlic for zucchini: 3 g edible food per count for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- red crushed chili pepper flakes: model uses Spices, chili powder.
+
+- red crushed chili pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- crumbled bouillon cube: model uses Soup, chicken broth cubes, dry.
+
+- crumbled bouillon cube: 3.5 g edible food per count for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked black pepper.
+
+- fresh chopped cilantro: model uses Coriander (cilantro) leaves, raw.
+
+- fresh chopped cilantro: 16 g edible food per cup for nutrition only.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- medium zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- medium zucchini: 196 g edible food per count for nutrition only.
+
+- lemon: model uses Lemon juice, raw.
+
+- lemon: 48 g edible food per count for nutrition only.
+
+- hot sauce of your choice: model uses Sauce, hot chile, sriracha.
+
+- hot sauce of your choice: 15 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -13023,8 +17575,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 - Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
-
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
@@ -13037,6 +17587,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Garlic Butter Turkey Meatballs with Zucchini Noodles](https://www.eatwell101.com/garlic-butter-meatballs-with-lemon-zucchini-noodles)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -13102,9 +17654,41 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 327 kcal; protein: 12.9 g; total carbs: 10.3 g; fiber: 3.1 g; net carbs: 7.2 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- butter or olive oil: model uses Butter, without salt.
+
+- butter or olive oil: 14.2 g edible food per tbsp for nutrition only.
+
+- zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- zucchini: 196 g edible food per count for nutrition only.
+
+- low-sugar Marinara sauce: model uses Tomato products, canned, sauce.
+
+- low-sugar Marinara sauce: 245 g edible food per cup for nutrition only.
+
+- pepperoni slices: model uses Pepperoni, beef and pork, sliced.
+
+- pepperoni slices: 100 g edible food per cup for nutrition only.
+
+- fresh cracked black pepper: model uses Spices, pepper, black.
+
+- fresh cracked black pepper: 2.3 g edible food per tsp for nutrition only.
+
+- crushed red chili pepper flakes: model uses Spices, chili powder.
+
+- crushed red chili pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- Fresh parsley: model uses Parsley, fresh.
+
+- Fresh parsley: 3.8 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Parmesan.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -13116,8 +17700,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 ### Leftovers
 
 Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
@@ -13125,6 +17707,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 ### Sources
 
 - [Christina Cherrier: 10-Minute Pizza Zucchini Noodles with Marinara Sauce & Pepperoni](https://www.eatwell101.com/pizza-zucchini-noodles-with-pepperoni-recipe)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -13202,9 +17786,63 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 278 kcal; protein: 22.6 g; total carbs: 12.4 g; fiber: 3.7 g; net carbs: 8.6 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- ground chicken or any other meat you would like: model uses Chicken, ground, raw.
+
+- vegetable oil: model uses Oil, olive, salad or cooking.
+
+- vegetable oil: 13.5 g edible food per tbsp for nutrition only.
+
+- pre-shredded coleslaw mix: model uses Cabbage, raw.
+
+- pre-shredded coleslaw mix: 397 g edible food per bag for nutrition only.
+
+- medium onion: model uses Onions, raw.
+
+- medium onion: 110 g edible food per count for nutrition only.
+
+- green onions: model uses Onions, spring or scallions (includes tops and bulb), raw.
+
+- green onions: 15 g edible food per count for nutrition only.
+
+- beef or chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- beef or chicken broth: 240 g edible food per cup for nutrition only.
+
+- low-sodium soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.
+
+- low-sodium soy sauce: 16 g edible food per tbsp for nutrition only.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 9.3 g edible food per tbsp for nutrition only.
+
+- crushed red pepper: model uses Spices, chili powder.
+
+- crushed red pepper: 1.8 g edible food per tsp for nutrition only.
+
+- Sriracha: model uses Sauce, hot chile, sriracha.
+
+- Sriracha: 15 g edible food per tbsp for nutrition only.
+
+- fresh ginger: model uses Ginger root, raw.
+
+- fresh ginger: 6 g edible food per tbsp for nutrition only.
+
+- Salt: model uses Salt, table.
+
+- Salt: 6 g edible food per tsp for nutrition only.
+
+- Black pepper: model uses Spices, pepper, black.
+
+- Black pepper: 2.3 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh chopped chives.
 
 Known allergens for these plates: soy, wheat. Check product labels and cross-contact.
 
@@ -13218,8 +17856,6 @@ Known allergens for these plates: soy, wheat. Check product labels and cross-con
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -13231,6 +17867,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Egg Roll Bowls with Chicken and Cabbage](https://www.eatwell101.com/egg-roll-bowls-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -13312,9 +17950,51 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 455 kcal; protein: 18.6 g; total carbs: 14.6 g; fiber: 3.7 g; net carbs: 10.9 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- sausage: model uses Sausage, Italian, pork, mild, raw.
+
+- fresh stringless green beans: model uses Beans, snap, green, raw.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- garlic cloves: model uses Garlic, raw.
+
+- garlic cloves: 3 g edible food per count for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- lemon: model uses Lemon juice, raw.
+
+- lemon: 48 g edible food per count for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked pepper.
+
+- vegetable or beef stock: model uses Soup, vegetable broth, ready to serve.
+
+- vegetable or beef stock: 240 g edible food per cup for nutrition only.
+
+- hot sauce: model uses Sauce, hot chile, sriracha.
+
+- hot sauce: 15 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Crushed red chili pepper flakes.
+
+- fresh chopped parsley: model uses Parsley, fresh.
+
+- fresh chopped parsley: 60 g edible food per cup for nutrition only.
+
+- fresh thyme leaves: model uses Thyme, fresh.
+
+- fresh thyme leaves: 2.4 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -13326,8 +18006,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 ### Leftovers
 
 Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.
@@ -13335,6 +18013,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 ### Sources
 
 - [Christina Cherrier: Garlic Butter Sausages with Lemon Green Beans](https://www.eatwell101.com/garlic-butter-sausages-lemon-green-beans)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -13426,9 +18106,79 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 409 kcal; protein: 35.1 g; total carbs: 15.3 g; fiber: 4.9 g; net carbs: 10.4 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- flank steak: model uses Beef, flank, steak, separable lean only, trimmed to 0" fat, choice, raw.
+
+- melted butter: model uses Butter, without salt.
+
+- melted butter: 14.2 g edible food per tbsp for nutrition only.
+
+- garlic cloves minced: model uses Garlic, raw.
+
+- garlic cloves minced: 3 g edible food per count for nutrition only.
+
+- chopped parsley: model uses Parsley, fresh.
+
+- chopped parsley: 60 g edible food per cup for nutrition only.
+
+- shredded mozzarella: model uses Cheese, mozzarella, whole milk.
+
+- shredded mozzarella: 113 g edible food per cup for nutrition only.
+
+- cauliflower: model uses Cauliflower, raw.
+
+- cauliflower: 575 g edible food per head for nutrition only.
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- small yellow onion: model uses Onions, raw.
+
+- small yellow onion: 110 g edible food per count for nutrition only.
+
+- red bell pepper diced: model uses Peppers, sweet, red, raw.
+
+- red bell pepper diced: 119 g edible food per count for nutrition only.
+
+- jalapeño pepper: model uses Peppers, hot chili, green, raw.
+
+- jalapeño pepper: 14 g edible food per count for nutrition only.
+
+- fine grain sea salt: model uses Salt, table.
+
+- fine grain sea salt: 6 g edible food per tsp for nutrition only.
+
+- onion powder: model uses Spices, onion powder.
+
+- onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- cumin: model uses Spices, cumin seed.
+
+- cumin: 2.1 g edible food per tsp for nutrition only.
+
+- chili powder: model uses Spices, chili powder.
+
+- chili powder: 2.7 g edible food per tsp for nutrition only.
+
+- paprika: model uses Spices, paprika.
+
+- paprika: 2.3 g edible food per tsp for nutrition only.
+
+- vegetable stock: model uses Soup, vegetable broth, ready to serve.
+
+- vegetable stock: 240 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Cilantro for garnish.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -13446,8 +18196,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -13461,6 +18209,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
 
 - [USDA FSIS: Stuffing and Food Safety](https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/stuffing-and-food-safety)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -13536,9 +18286,53 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 856 kcal; protein: 42.9 g; total carbs: 23.1 g; fiber: 6.7 g; net carbs: 16.4 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- ground Italian sausage: model uses Sausage, Italian, pork, mild, raw.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- diced red onion: model uses Onions, raw.
+
+- diced red onion: 160 g edible food per cup for nutrition only.
+
+- diced green pepper: model uses Peppers, sweet, green, raw.
+
+- diced green pepper: 149 g edible food per cup for nutrition only.
+
+- garlic cloves: model uses Garlic, raw.
+
+- garlic cloves: 3 g edible food per count for nutrition only.
+
+- Diced tomatoes: model uses Tomatoes, red, ripe, canned, packed in tomato juice.
+
+- Diced tomatoes: 411 g edible food per can for nutrition only.
+
+- Riced cauliflower: model uses Cauliflower, cooked, boiled, drained, without salt.
+
+- homemade taco seasoning or taco seasoning packet: model uses Seasoning mix, dry, taco, original.
+
+- homemade taco seasoning or taco seasoning packet: 9 g edible food per tbsp for nutrition only.
+
+- chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken broth: 240 g edible food per cup for nutrition only.
+
+- cheddar cheese: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
+
+- cheddar cheese: 113 g edible food per cup for nutrition only.
+
+- Monterrey jack cheese: model uses Cheese, monterey.
+
+- Monterrey jack cheese: 113 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Chopped fresh cilantro.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -13554,8 +18348,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -13568,13 +18360,15 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
 
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
+
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
 ## Buttery Garlic Herb Chicken and Lemon Parmesan Cauliflower Rice
 
-4 portions · US measures · unverified · 10 min publisher preparation · 40–45 min
+4 portions · US measures · unverified · 10 min publisher preparation · 45 min
 
 Buttery Garlic Herb Chicken and Lemon Parmesan Cauliflower Rice, adapted from Christina Cherrier.
 
@@ -13660,9 +18454,81 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 281 kcal; protein: 26.7 g; total carbs: 8.7 g; fiber: 2.2 g; net carbs: 6.5 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- boneless skinless chicken thighs: model uses Chicken, broilers or fryers, dark meat, thigh, meat only, raw.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Fresh thyme: model uses Thyme, fresh.
+
+- Fresh thyme: 0.8 g edible food per tsp for nutrition only.
+
+- Fresh rosemary: model uses Rosemary, fresh.
+
+- Fresh rosemary: 1.2 g edible food per tsp for nutrition only.
+
+- cauliflower: model uses Cauliflower, raw.
+
+- medium onion: model uses Onions, raw.
+
+- medium onion: 110 g edible food per count for nutrition only.
+
+- garlic cloves: model uses Garlic, raw.
+
+- garlic cloves: 3 g edible food per count for nutrition only.
+
+- chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken broth: 240 g edible food per cup for nutrition only.
+
+- grated parmesan: model uses Cheese, parmesan, grated.
+
+- grated parmesan: 100 g edible food per cup for nutrition only.
+
+- fresh chopped parsley: model uses Parsley, fresh.
+
+- fresh chopped parsley: 60 g edible food per cup for nutrition only.
+
+- hot sauce: model uses Sauce, hot chile, sriracha.
+
+- hot sauce: 15 g edible food per tbsp for nutrition only.
+
+- lemon: model uses Lemon juice and zest model: 48 g juice plus 2 g peel per lemon.
+
+- lemon: 50 g edible food per count for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- paprika: model uses Spices, paprika.
+
+- paprika: 2.3 g edible food per tsp for nutrition only.
+
+- fresh cracked pepper: model uses Spices, pepper, black.
+
+- fresh cracked pepper: 2.3 g edible food per tsp for nutrition only.
+
+- lemon: model uses Lemon juice, raw.
+
+- lemon: 48 g edible food per count for nutrition only.
+
+- fresh thyme: model uses Thyme, fresh.
+
+- fresh thyme: 0.8 g edible food per tsp for nutrition only.
+
+- Fresh oregano: fresh-herb nutrition proxy uses USDA raw basil, 0.9 g per tsp; fresh oregano has no record in this archive. This is not a dried-herb substitution in the cooking instructions.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -13678,8 +18544,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -13691,6 +18555,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Buttery Garlic Herb Chicken and Lemon Parmesan Cauliflower Rice](https://www.eatwell101.com/garlic-herb-chicken-and-lemon-cauliflower-rice)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -13776,9 +18642,61 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 448 kcal; protein: 38.9 g; total carbs: 16.0 g; fiber: 5.1 g; net carbs: 10.9 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- flank steak: model uses Beef, flank, steak, separable lean only, trimmed to 0" fat, choice, raw.
+
+- fresh stringless green beans: model uses Beans, snap, green, raw.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- garlic cloves: model uses Garlic, raw.
+
+- garlic cloves: 3 g edible food per count for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- lemon: model uses Lemon juice, raw.
+
+- lemon: 48 g edible food per count for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked pepper.
+
+- low-sodium beef stock: model uses Soup, beef broth or bouillon canned, ready-to-serve.
+
+- low-sodium beef stock: 240 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Crushed red chili pepper flakes.
+
+- fresh chopped parsley: model uses Parsley, fresh.
+
+- fresh chopped parsley: 60 g edible food per cup for nutrition only.
+
+- fresh thyme leaves: model uses Thyme, fresh.
+
+- fresh thyme leaves: 2.4 g edible food per tbsp for nutrition only.
+
+- low- sodium soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.
+
+- low- sodium soy sauce: 255 g edible food per cup for nutrition only.
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- hot sauce: model uses Sauce, hot chile, sriracha.
+
+- hot sauce: 15 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh cracked pepper.
 
 Known allergens for these plates: milk, soy, wheat. Check product labels and cross-contact.
 
@@ -13794,8 +18712,6 @@ Known allergens for these plates: milk, soy, wheat. Check product labels and cro
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -13807,6 +18723,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Garlic Butter Steak and Green Beans](https://www.eatwell101.com/garlic-butter-steak-and-green-beans-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -13880,9 +18798,45 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 428 kcal; protein: 53.9 g; total carbs: 10.0 g; fiber: 2.7 g; net carbs: 7.3 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- chicken tenders: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- medium zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- medium zucchini: 196 g edible food per count for nutrition only.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- Taco seasoning: model uses Seasoning mix, dry, taco, original.
+
+- Taco seasoning: 9 g edible food per tbsp for nutrition only.
+
+- low-sodium chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- low-sodium chicken broth: 240 g edible food per cup for nutrition only.
+
+- lemon: model uses Lemon juice, raw.
+
+- lemon: 48 g edible food per count for nutrition only.
+
+- hot sauce of choice: model uses Sauce, hot chile, sriracha.
+
+- hot sauce of choice: 15 g edible food per tbsp for nutrition only.
+
+- fresh chopped parsley: model uses Parsley, fresh.
+
+- fresh chopped parsley: 3.8 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Crushed red chili pepper flakes.
+
+- Excluded unmeasured/to-taste ingredient: Slices of lemon.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -13896,8 +18850,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -13909,6 +18861,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Taco Chicken Tenders with Lemon Garlic Butter Zucchini Noodles](https://www.eatwell101.com/taco-chicken-tenders-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -13976,9 +18930,39 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 396 kcal; protein: 38.8 g; total carbs: 5.9 g; fiber: 1.5 g; net carbs: 4.4 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- pork chops: model uses Pork, fresh, loin, top loin (chops), boneless, separable lean and fat, raw.
+
+- pork chops: 170 g edible food per count for nutrition only.
+
+- butter: model uses Butter, without salt.
+
+- butter: 14.2 g edible food per tbsp for nutrition only.
+
+- garlic cloves: model uses Garlic, raw.
+
+- garlic cloves: 3 g edible food per count for nutrition only.
+
+- fresh thyme: model uses Thyme, fresh.
+
+- fresh thyme: 0.8 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked pepper.
+
+- medium sized zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+
+- medium sized zucchini: 196 g edible food per count for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh chopped parsley.
+
+- Excluded unmeasured/to-taste ingredient: Lemon slices.
+
+- freshly chopped oregano: fresh-herb nutrition proxy uses USDA raw basil, 42 g per cup; fresh oregano has no record in this archive. This is not a dried-herb substitution in the cooking instructions.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -13989,8 +18973,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 - Ingredient quantities are scaled from 3 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
 
 - Adapted from Veronica Brandy. This adaptation has not been kitchen-tested.
-
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
@@ -14003,6 +18985,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Veronica Brandy: Garlic Butter Herb Pork Chops with Zucchini](https://www.eatwell101.com/garlic-butter-herb-pork-chops-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -14076,9 +19060,51 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 735 kcal; protein: 60.7 g; total carbs: 59.0 g; fiber: 10.3 g; net carbs: 48.7 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- coconut flour: model uses Bob's Red Mill organic coconut flour label.
+
+- coconut flour: 112 g edible food per cup for nutrition only.
+
+- unsalted butter: model uses Butter, without salt.
+
+- unsalted butter: 14.2 g edible food per tbsp for nutrition only.
+
+- garlic: model uses Garlic, raw.
+
+- garlic: 8.5 g edible food per tbsp for nutrition only.
+
+- lemon juice: model uses Lemon juice, raw.
+
+- lemon juice: 244 g edible food per cup for nutrition only.
+
+- honey: model uses Honey.
+
+- honey: 336 g edible food per cup for nutrition only.
+
+- low sodium soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.
+
+- low sodium soy sauce: 16 g edible food per tbsp for nutrition only.
+
+- parsley: model uses Parsley, fresh.
+
+- parsley: 3.8 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked black pepper.
+
+- asparagus: model uses Asparagus, raw.
+
+- asparagus: 454 g edible food per bunch for nutrition only.
+
+- lemon: model uses Lemon juice, raw.
+
+- lemon: 48 g edible food per count for nutrition only.
 
 Known allergens for these plates: milk, soy, wheat. Check product labels and cross-contact.
 
@@ -14094,8 +19120,6 @@ Known allergens for these plates: milk, soy, wheat. Check product labels and cro
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -14107,6 +19131,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: One-Pan Lemon Butter Chicken with Asparagus](https://www.eatwell101.com/lemon-butter-chicken-with-asparagus)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -14192,9 +19218,67 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 413 kcal; protein: 18.2 g; total carbs: 15.0 g; fiber: 3.5 g; net carbs: 11.5 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- spicy Italian sausage: model uses Sausage, Italian, pork, mild, raw.
+
+- spicy Italian sausage: 454 g edible food per package for nutrition only.
+
+- red bell pepper: model uses Peppers, sweet, red, raw.
+
+- red bell pepper: 119 g edible food per count for nutrition only.
+
+- small red onion: model uses Onions, raw.
+
+- small red onion: 110 g edible food per count for nutrition only.
+
+- garlic: model uses Garlic, raw.
+
+- garlic: 3 g edible food per count for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked pepper to taste.
+
+- large ripe tomatoes: model uses Tomatoes, red, ripe, raw, year round average.
+
+- large ripe tomatoes: 123 g edible food per count for nutrition only.
+
+- crushed tomato: model uses Tomatoes, red, ripe, canned, packed in tomato juice.
+
+- crushed tomato: 15 g edible food per tbsp for nutrition only.
+
+- vegetable or chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- vegetable or chicken broth: 240 g edible food per cup for nutrition only.
+
+- crushed chili pepper: model uses Spices, chili powder.
+
+- crushed chili pepper: 1.8 g edible food per tsp for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- fennel seeds: model uses Spices, fennel seed.
+
+- fennel seeds: 2 g edible food per tsp for nutrition only.
+
+- scallion: model uses Onions, spring or scallions (includes tops and bulb), raw.
+
+- scallion: 15 g edible food per count for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh chopped basil.
+
+- Excluded unmeasured/to-taste ingredient: Oil for initial sausage browning.
+
+- Oil for vegetables: model uses Oil, olive, salad or cooking.
+
+- Oil for vegetables: 13.5 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Parmesan.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -14208,8 +19292,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -14221,6 +19303,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Italian Sausage and Peppers Skillet](https://www.eatwell101.com/sausage-and-peppers-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -14314,9 +19398,81 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 649 kcal; protein: 41.6 g; total carbs: 18.9 g; fiber: 8.6 g; net carbs: 10.3 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- ground beef: model uses Beef, ground, 90% lean meat / 10% fat, raw.
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- yellow onion: model uses Onions, raw.
+
+- yellow onion: 110 g edible food per count for nutrition only.
+
+- medium head of cauliflower: model uses Cauliflower, raw.
+
+- medium head of cauliflower: 575 g edible food per count for nutrition only.
+
+- Diced tomatoes: model uses Tomatoes, red, ripe, canned, packed in tomato juice.
+
+- Diced tomatoes: 240 g edible food per can for nutrition only.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- onion powder: model uses Spices, onion powder.
+
+- onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- paprika: model uses Spices, paprika.
+
+- paprika: 2.3 g edible food per tsp for nutrition only.
+
+- chili powder: model uses Spices, chili powder.
+
+- chili powder: 2.7 g edible food per tsp for nutrition only.
+
+- cumin: model uses Spices, cumin seed.
+
+- cumin: 2.1 g edible food per tsp for nutrition only.
+
+- low-sodium vegetable or beef broth: model uses Soup, vegetable broth, ready to serve.
+
+- low-sodium vegetable or beef broth: 240 g edible food per cup for nutrition only.
+
+- shredded Monterey Jack or Mozzarella: model uses Cheese, monterey.
+
+- shredded Monterey Jack or Mozzarella: 113 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked black pepper.
+
+- Excluded unmeasured/to-taste ingredient: Freshly diced tomatoes.
+
+- bell pepper: model uses Peppers, sweet, red, raw.
+
+- bell pepper: 119 g edible food per count for nutrition only.
+
+- jalapeño: model uses Peppers, hot chili, green, raw.
+
+- jalapeño: 14 g edible food per count for nutrition only.
+
+- Avocado: model uses Avocados, raw, all commercial varieties.
+
+- Avocado: 201 g edible food per count for nutrition only.
+
+- red onion: model uses Onions, raw.
+
+- red onion: 110 g edible food per count for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh chopped cilantro.
+
+- Excluded unmeasured/to-taste ingredient: Lemon or lime slices.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -14332,8 +19488,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -14345,6 +19499,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Beef and Cauliflower Rice Burrito Bowl](https://www.eatwell101.com/keto-burrito-bowl-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -14420,9 +19576,57 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 571 kcal; protein: 49.2 g; total carbs: 22.8 g; fiber: 5.6 g; net carbs: 17.2 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- boneless skinless chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- boneless skinless chicken breasts: 174 g edible food per count for nutrition only.
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- fresh mozzarella cheese: model uses Cheese, mozzarella, whole milk.
+
+- fresh mozzarella cheese: 28 g edible food per slice for nutrition only.
+
+- fresh baby spinach: model uses Spinach, raw.
+
+- fresh baby spinach: 30 g edible food per cup for nutrition only.
+
+- garlic: model uses Garlic, raw.
+
+- garlic: 3 g edible food per count for nutrition only.
+
+- small onion: model uses Onions, raw.
+
+- small onion: 110 g edible food per count for nutrition only.
+
+- low-sodium crushed tomatoes: model uses Tomatoes, red, ripe, canned, packed in tomato juice.
+
+- low-sodium crushed tomatoes: 411 g edible food per can for nutrition only.
+
+- sugar: model uses Sugars, granulated.
+
+- sugar: 12.6 g edible food per tbsp for nutrition only.
+
+- balsamic vinegar: model uses Vinegar, balsamic.
+
+- Balsamic vinegar fiber assumed zero; USDA record has no fiber observation.
+
+- balsamic vinegar: 5.3 g edible food per tsp for nutrition only.
+
+- chicken stock: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken stock: 240 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Crushed red pepper flakes.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked pepper.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -14438,8 +19642,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -14451,6 +19653,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Stuffed Chicken Breast with Mozzarella and Spinach](https://www.eatwell101.com/stuffed-chicken-breast-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -14538,9 +19742,65 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 339 kcal; protein: 9.3 g; total carbs: 11.2 g; fiber: 2.8 g; net carbs: 8.4 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- large head cauliflower: model uses Cauliflower, raw.
+
+- large head cauliflower: 575 g edible food per count for nutrition only.
+
+- red bell pepper: model uses Peppers, sweet, red, raw.
+
+- red bell pepper: 119 g edible food per count for nutrition only.
+
+- yellow bell pepper: model uses Peppers, sweet, yellow, raw.
+
+- yellow bell pepper: 186 g edible food per count for nutrition only.
+
+- green bell pepper: model uses Peppers, sweet, green, raw.
+
+- green bell pepper: 119 g edible food per count for nutrition only.
+
+- onion: model uses Onions, raw.
+
+- onion: 110 g edible food per count for nutrition only.
+
+- smoked sausage: model uses Kielbasa, fully cooked, unheated.
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- red pepper flakes: model uses Spices, chili powder.
+
+- red pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- low-sodium chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- low-sodium chicken broth: 240 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and freshly cracked black pepper.
+
+- Cayenne pepper: model uses Spices, chili powder.
+
+- Cayenne pepper: 1.8 g edible food per tsp for nutrition only.
+
+- paprika: model uses Spices, paprika.
+
+- paprika: 2.3 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh parsley.
 
 Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
 
@@ -14551,8 +19811,6 @@ Known allergens for these plates: none listed; check every product label. Check 
 - Ingredient quantities are scaled from 4 original portions to four portions. Fractions of whole items may need weighing or dividing after preparation. Larger batches need extra cooking space or batches; keep thickness and endpoint checks.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
-
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
 
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
@@ -14566,13 +19824,15 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
 
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
+
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
 ## Creamy Chicken with Bacon and Spinach
 
-4 portions · US measures · unverified · 10 min publisher preparation · 36–46 min
+4 portions · US measures · unverified · 10 min publisher preparation · 46 min
 
 Creamy Chicken with Bacon and Spinach, adapted from Christina Cherrier.
 
@@ -14644,9 +19904,59 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 648 kcal; protein: 52.1 g; total carbs: 10.8 g; fiber: 2.0 g; net carbs: 8.7 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- paprika: model uses Spices, paprika.
+
+- paprika: 2.3 g edible food per tsp for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- bacon: model uses Pork, cured, bacon, unprepared.
+
+- bacon: 28 g edible food per strip for nutrition only.
+
+- garlic cloves: model uses Garlic, raw.
+
+- garlic cloves: 3 g edible food per count for nutrition only.
+
+- butter or olive oil: model uses Butter, without salt.
+
+- butter or olive oil: 14.2 g edible food per tbsp for nutrition only.
+
+- medium tomatoes: model uses Tomatoes, red, ripe, raw, year round average.
+
+- medium tomatoes: 123 g edible food per count for nutrition only.
+
+- fresh spinach: model uses Spinach, raw.
+
+- fresh spinach: 30 g edible food per cup for nutrition only.
+
+- crushed red pepper flakes: model uses Spices, chili powder.
+
+- crushed red pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- chicken stock: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken stock: 240 g edible food per cup for nutrition only.
+
+- half and half: model uses Cream, fluid, half and half.
+
+- half and half: 242 g edible food per cup for nutrition only.
+
+- mozzarella: model uses Cheese, mozzarella, whole milk.
+
+- mozzarella: 113 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and pepper.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -14660,8 +19970,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -14673,6 +19981,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Creamy Chicken with Bacon and Spinach](https://www.eatwell101.com/chicken-bacon-spinach-cream-sauce)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -14746,9 +20056,45 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 581 kcal; protein: 27.8 g; total carbs: 10.8 g; fiber: 2.6 g; net carbs: 8.2 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Chicken thighs: model uses Chicken, broilers or fryers, thigh, meat and skin, raw.
+
+- Chicken thighs: 100 g edible food per count for nutrition only.
+
+- asparagus: model uses Asparagus, raw.
+
+- asparagus: 454 g edible food per bunch for nutrition only.
+
+- unsalted butter: model uses Butter, without salt.
+
+- unsalted butter: 227 g edible food per cup for nutrition only.
+
+- lemon juice: model uses Lemon juice, raw.
+
+- lemon juice: 15 g edible food per tbsp for nutrition only.
+
+- garlic: model uses Garlic, raw.
+
+- garlic: 3 g edible food per count for nutrition only.
+
+- honey: model uses Honey.
+
+- honey: 21 g edible food per tbsp for nutrition only.
+
+- Italian herbs: model uses Spices, oregano, dried.
+
+- Italian herbs: 1 g edible food per coffeespoon for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Kosher salt and freshly ground black pepper.
+
+- Excluded unmeasured/to-taste ingredient: Slices of lemon.
+
+- Excluded unmeasured/to-taste ingredient: Fresh parsley.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -14766,8 +20112,6 @@ Known allergens for these plates: milk. Check product labels and cross-contact.
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -14779,6 +20123,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Sheet Pan Garlic Butter Chicken and Asparagus](https://www.eatwell101.com/garlic-butter-chicken-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -14852,9 +20198,53 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 304 kcal; protein: 21.8 g; total carbs: 15.4 g; fiber: 2.1 g; net carbs: 13.3 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- Chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- Chicken breasts: 174 g edible food per count for nutrition only.
+
+- Italian seasoning: model uses Spices, oregano, dried.
+
+- Italian seasoning: 1 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and freshly cracked pepper.
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 13.5 g edible food per tbsp for nutrition only.
+
+- tomatoes: model uses Tomatoes, red, ripe, raw, year round average.
+
+- tomatoes: 123 g edible food per count for nutrition only.
+
+- minced onion: model uses Onions, raw.
+
+- minced onion: 10 g edible food per tbsp for nutrition only.
+
+- minced garlic: model uses Garlic, raw.
+
+- minced garlic: 2.8 g edible food per tsp for nutrition only.
+
+- toasted pine nuts: model uses Nuts, pine nuts, dried.
+
+- toasted pine nuts: 8.4 g edible food per tbsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Fresh basil.
+
+- Balsamic vinegar: model uses Vinegar, balsamic.
+
+- Balsamic vinegar fiber assumed zero; USDA record has no fiber observation.
+
+- Balsamic vinegar: 255 g edible food per cup for nutrition only.
+
+- Sugar: model uses Sugars, granulated.
+
+- Sugar: 12.6 g edible food per tbsp for nutrition only.
 
 Known allergens for these plates: tree nuts. Check product labels and cross-contact.
 
@@ -14868,8 +20258,6 @@ Known allergens for these plates: tree nuts. Check product labels and cross-cont
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -14881,6 +20269,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [Christina Cherrier: Grilled Bruschetta Chicken](https://www.eatwell101.com/chicken-bruschetta-recipe)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -14954,9 +20344,41 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: Not provided; protein: Not provided; total carbs: Not provided; fiber: Not provided; net carbs: Not provided
+Calories: 449 kcal; protein: 43.5 g; total carbs: 10.0 g; fiber: 3.3 g; net carbs: 6.8 g
 
-Source nutrition is reported only where its per-portion basis is supported. Unavailable totals are not estimated.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- boneless skinless chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- green beans: model uses Beans, snap, green, raw.
+
+- bacon: model uses Pork, cured, bacon, unprepared.
+
+- bacon: 28 g edible food per count for nutrition only.
+
+- garlic cloves: model uses Garlic, raw.
+
+- garlic cloves: 3 g edible food per count for nutrition only.
+
+- fresh lemon juice: model uses Lemon juice, raw.
+
+- fresh lemon juice: 244 g edible food per cup for nutrition only.
+
+- olive oil: model uses Oil, olive, salad or cooking.
+
+- olive oil: 216 g edible food per cup for nutrition only.
+
+- dried oregano: model uses Spices, oregano, dried.
+
+- dried oregano: 1 g edible food per tsp for nutrition only.
+
+- chicken broth: model uses Soup, chicken broth, ready-to-serve.
+
+- chicken broth: 240 g edible food per cup for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Salt and fresh cracked pepper.
 
 Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
 
@@ -14970,8 +20392,6 @@ Known allergens for these plates: none listed; check every product label. Check 
 
 - Adapted from Christina Cherrier. This adaptation has not been kitchen-tested.
 
-- The source does not provide verified values for every per-portion macronutrient. Missing values stay unreported; a keto label from the publisher is not a verified net-carb total.
-
 - Safe doneness checks are added to the publisher method; timers alone do not establish doneness.
 
 ### Leftovers
@@ -14984,13 +20404,15 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
 
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
+
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
 ---
 
 ## Basic Keto Chaffle Recipe
 
-4 portions · US measures · keto · 5 min publisher preparation · 13–17 min
+4 portions · US measures · keto · 5 min publisher preparation · 17 min
 
 Basic Keto Chaffle Recipe, adapted from Annie.
 
@@ -15042,7 +20464,27 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 138 kcal; protein: 8.1 g; total carbs: 1.6 g; fiber: 0.2 g; net carbs: 1.4 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- large eggs: model uses Egg, whole, raw, fresh.
+
+- large eggs: 50 g edible food per count for nutrition only.
+
+- shredded cheese: model uses Cheese, mozzarella, whole milk.
+
+- shredded cheese: 113 g edible food per cup for nutrition only.
+
+- almond flour: model uses Nuts, almonds.
+
+- almond flour: 112 g edible food per cup for nutrition only.
+
+- baking powder: model uses Leavening agents, baking powder, double-acting, sodium aluminum sulfate.
+
+- baking powder: 4.6 g edible food per tsp for nutrition only.
+
+- Excluded unmeasured/to-taste ingredient: Cooking spray.
 
 Known allergens for these plates: milk, tree nuts, eggs. Check product labels and cross-contact.
 
@@ -15067,6 +20509,8 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 ### Sources
 
 - [Annie: Basic Keto Chaffle Recipe](https://thebestketorecipes.com/basic-keto-chaffle-recipe/)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
 
@@ -15150,7 +20594,57 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 Calories: 380 kcal; protein: 30.0 g; total carbs: 4.0 g; fiber: 1.0 g; net carbs: 3.0 g
 
-Publisher estimate per original portion; proportional ingredient scaling preserves that portion.
+Nutrition estimates use USDA food records and the assumptions below. Supported publisher macros are retained. Unmeasured garnishes and to-taste additions are excluded; brands and portion weights can change values.
+
+Nutrition assumptions:
+
+- bacon: model uses Pork, cured, bacon, unprepared.
+
+- bacon: 28 g edible food per count for nutrition only.
+
+- boneless skinless chicken breasts: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+
+- cream cheese: model uses Cheese, cream.
+
+- apple cider vinegar: model uses Vinegar, cider.
+
+- apple cider vinegar: 15 g edible food per tbsp for nutrition only.
+
+- dried chives: model uses Chives, freeze-dried.
+
+- dried chives: 0.6 g edible food per tbsp for nutrition only.
+
+- garlic powder: model uses Spices, garlic powder.
+
+- garlic powder: 3.1 g edible food per tsp for nutrition only.
+
+- onion powder: model uses Spices, onion powder.
+
+- onion powder: 2.4 g edible food per tsp for nutrition only.
+
+- crushed red pepper flakes: model uses Spices, chili powder.
+
+- crushed red pepper flakes: 1.8 g edible food per tsp for nutrition only.
+
+- dried dill: model uses Spices, dill weed, dried.
+
+- dried dill: 1 g edible food per tsp for nutrition only.
+
+- salt: model uses Salt, table.
+
+- salt: 6 g edible food per tsp for nutrition only.
+
+- black pepper: model uses Spices, pepper, black.
+
+- black pepper: 2.3 g edible food per tsp for nutrition only.
+
+- shredded cheddar: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
+
+- shredded cheddar: 113 g edible food per cup for nutrition only.
+
+- scallion: model uses Onions, spring or scallions (includes tops and bulb), raw.
+
+- scallion: 15 g edible food per count for nutrition only.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -15179,5 +20673,7 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [theketoqueens.com: Keto Instant Pot Crack Chicken Recipe](https://theketoqueens.com/keto-crack-chicken-recipe/)
 
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+- [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.

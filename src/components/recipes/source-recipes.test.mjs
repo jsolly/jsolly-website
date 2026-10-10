@@ -1,10 +1,9 @@
 import assert from "node:assert/strict";
 import it from "node:test";
-import { matchesRecipe, nutrientFilters } from "./nutrient-filters.mjs";
+import { matchesRecipe } from "./nutrient-filters.mjs";
+import nutritionData from "./nutrition-data.json" with { type: "json" };
 import { documentMarkdown, recipeDocument } from "./recipe-export.mjs";
 import {
-	displayNutrition,
-	familyNutrition,
 	formatIngredient,
 	formatNutrition,
 	ingredientAmount,
@@ -12,7 +11,7 @@ import {
 } from "./recipe-logic.mjs";
 import data from "./recipes.json" with { type: "json" };
 
-const MISSING_NUTRITION = /Not provided/u;
+const NUTRITION_ASSUMPTIONS = /Nutrition assumptions:/u;
 const MISSING_PREP = /Preparation time not provided/u;
 
 it("source metadata exports accept reactive proxies and retain resolved publisher links in Markdown", () => {
@@ -41,6 +40,16 @@ it("source metadata exports accept reactive proxies and retain resolved publishe
 it("publisher adaptations retain their IDs, attribution and nutrition provenance in JSON downloads", () => {
 	const adapted = data.recipes.filter((r) => r.sourceRecipe);
 	assert.equal(adapted.length, 125);
+	// The source gives 32 ounces of bone-in chops; model 80% edible weight, not pounds.
+	const porkRows =
+		nutritionData.recipes[
+			"source-pan-seared-pork-chops-with-creamy-pan-gravy-and-garlicky-green-beans"
+		];
+	assert.ok(
+		Math.abs(
+			porkRows.find((row) => row.food === "ingredient-1").grams - 725.747792,
+		) < 0.000001,
+	);
 	assert.equal(new Set(data.recipes.map((r) => r.id)).size, 146);
 	for (const recipe of adapted) {
 		const document = JSON.parse(JSON.stringify(recipeDocument(recipe)));
@@ -54,28 +63,83 @@ it("publisher adaptations retain their IDs, attribution and nutrition provenance
 	}
 });
 
-it("unknown source nutrition remains unreported and cannot qualify for keto or nutrient filters", () => {
-	const unverified = data.recipes.filter((r) => r.group === "unverified");
-	assert.equal(unverified.length, 72);
-	for (const recipe of unverified) {
+it("every recipe has macros and publisher estimates retain ingredient evidence without granting keto eligibility", () => {
+	for (const recipe of data.recipes) {
+		for (const value of Object.values(recipe.nutrition))
+			assert.ok(Number.isFinite(value), recipe.id);
+		assert.ok(
+			Math.abs(
+				recipe.nutrition.net_carbs_g -
+					Math.max(0, recipe.nutrition.carbs_g - recipe.nutrition.fiber_g),
+			) < 0.000001,
+			recipe.id,
+		);
+	}
+	const adapted = data.recipes.filter((recipe) => recipe.sourceRecipe);
+	assert.equal(adapted.length, 125);
+	assert.equal(
+		adapted.filter(
+			(recipe) =>
+				recipe.sourceRecipe.nutritionEstimate.estimatedMacroFields.length,
+		).length,
+		72,
+	);
+	for (const recipe of adapted) {
+		const estimate = recipe.sourceRecipe.nutritionEstimate;
+		const rows = nutritionData.recipes[recipe.id];
+		assert.ok(rows.length > 0, recipe.id);
+		assert.ok(estimate.assumptions.length > 0, recipe.id);
+		assert.deepEqual(
+			estimate.ingredientSnapshot,
+			recipe.ingredients.map(({ id, name, amount, unit, state }) => ({
+				id,
+				name,
+				amount,
+				unit,
+				state,
+			})),
+			recipe.id,
+		);
+		assert.match(
+			documentMarkdown(recipeDocument(recipe)),
+			NUTRITION_ASSUMPTIONS,
+		);
+		for (const row of rows) {
+			const ingredient = recipe.ingredients.find(
+				(candidate) => candidate.id === row.food,
+			);
+			assert.ok(ingredient, recipe.id);
+			const { name, amount, unit, state } = ingredient;
+			assert.deepEqual(
+				row.ingredientSnapshot,
+				{ name, amount, unit, state },
+				recipe.id,
+			);
+			assert.ok(row.grams > 0, recipe.id);
+			assert.ok(row.source.startsWith("https://"), recipe.id);
+		}
+		for (const key of estimate.estimatedMacroFields.filter(
+			(field) => field !== "net_carbs_g",
+		)) {
+			const total =
+				rows.reduce((sum, row) => {
+					assert.ok(Number.isFinite(row.macros[key]), recipe.id + key);
+					return sum + (row.macros[key] * row.grams) / 100;
+				}, 0) / 4;
+			assert.ok(
+				Math.abs(total - recipe.nutrition[key]) < 0.000001,
+				recipe.id + key,
+			);
+		}
+	}
+	for (const recipe of adapted.filter(
+		(candidate) => candidate.group === "unverified",
+	)) {
 		assert.equal(
 			matchesRecipe(recipe, 4, { carb: ["keto"] }),
 			false,
 			recipe.id,
 		);
-		assert.deepEqual(
-			nutrientFilters(recipe, 4),
-			{ immune: false, iron: false, omega: false },
-			recipe.id,
-		);
-		const nutrition = displayNutrition(recipe);
-		for (const [key] of Object.entries(recipe.nutrition).filter(
-			([, value]) => value === null,
-		)) {
-			assert.equal(nutrition[key], null, recipe.id + key);
-			assert.equal(familyNutrition(recipe, "", 8)[key], null, recipe.id + key);
-		}
-		assert.match(documentMarkdown(recipeDocument(recipe)), MISSING_NUTRITION);
 	}
 });
 
@@ -109,10 +173,10 @@ it("whole-batch recipes round up the ingredient quantity without silently droppi
 
 it("missing publisher times stay absent in exported cooking documents", () => {
 	assert.equal(totalTimeLabel({ totalMin: 25, totalMax: 25 }), "25 min");
-	assert.equal(totalTimeLabel({ totalMin: 25, totalMax: 30 }), "25–30 min");
+	assert.equal(totalTimeLabel({ totalMin: 25, totalMax: 30 }), "30 min");
 	assert.equal(
 		totalTimeLabel({ totalMin: 25, totalMax: 25 }, 8),
-		"25+ min / base batch",
+		"25 min / base batch",
 	);
 	const missing = data.recipes.filter(
 		(r) =>

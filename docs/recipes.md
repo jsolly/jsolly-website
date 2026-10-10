@@ -17,7 +17,7 @@ ids are stable: each is a page slug (`/recipes/<id>/`) and a fragment id
 (`/recipes/#<id>` opens it in the library dialog), and old links use both.
 Images are files under `public/recipes/media/`, referenced as `/recipes/media/...`.
 
-The 125 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Missing ingredient quantities display as "Not specified"; missing nutrition and times display as "Not provided". The 72 nutrition-unverified recipes remain separate from keto eligibility and missing observations do not qualify for nutrient filters. Publisher prep time is distinguished from household active time.
+The 125 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Missing ingredient quantities display as "Not specified"; missing nutrition and times display as "Not provided". The 72 recipes that previously lacked complete macros now carry labeled nutrition estimates and remain separate from keto eligibility. Every publisher adaptation has an ingredient nutrient model. Missing nutrient observations do not qualify for nutrient filters. Publisher prep time is distinguished from household active time.
 
 Every recipe has a first-party illustration under the [image contract](recipe-images.md), with a visible AI illustration disclosure.
 
@@ -28,7 +28,7 @@ describe the same food quantity. Pesto and pressure liquid stay weighed or
 measured in grams and mL in both display modes, because generic spoon
 conversions would be misleading.
 
-Publisher adaptations use four portions and preserve their stated quantities and method limits. Whole-bird recipes round up to complete batches for 2, 4, 6 and 8 portions. Do not infer a missing publisher quantity or nutrition value.
+Publisher adaptations use four portions and preserve their stated quantities and method limits. Whole-bird recipes round up to complete batches for 2, 4, 6 and 8 portions. Missing publisher quantities stay missing in cooking instructions. Nutrition models may use explicitly disclosed standard count weights, generic-food substitutes and excluded unmeasured additions; these are estimates rather than publisher claims.
 
 Linear ingredient scaling supports 2, 4, 6 and 8 adults (`SERVING_CHOICES`).
 Pressure liquid has a minimum matching the named Duo 6 QT manual; its
@@ -51,8 +51,12 @@ to the main cooking appliances. Cold-side preparation and family-starch heating
 are active work outside that count. Terminal temperature checks and food finish
 checks always remain; optional oven rack swaps are disclosed.
 
-Nutrition objects copy the unrounded ingredient model at four servings; the
-display rounds. `servingNutrition` adjusts fixed minimums for smaller batches.
+Household nutrition objects and newly estimated publisher macros copy the
+unrounded ingredient model at four servings; supported existing publisher
+macros are retained separately. The display rounds. Library cards always show the same per-serving value from that
+four-serving model (or per 8 fl oz smoothie glass), independent of batch size.
+Recipe time summaries use the upper end of a recorded range without a plus sign;
+capacity and cooking endpoint notes still apply. `servingNutrition` adjusts fixed minimums for smaller batches.
 Family nutrition adds a measured starch to one base serving and leaves keto
 servings unchanged. Extended nutrition (`nutrition.mjs`) covers 23 vitamins,
 minerals and choline plus total fat, saturated fat and cholesterol, against FDA
@@ -79,6 +83,95 @@ Maintain `recipes.json` and its unit, allergen and family metadata together. Do
 not make protein-critical yogurt or Parmesan optional without recalculating, and
 do not substitute frozen, raw or dry food states or sauce brands without
 reviewing the method and the nutrition.
+
+### Nutrition estimates
+
+All 146 recipes have calories, protein, total carbohydrate, fiber and net carbohydrate.
+The 125 publisher adaptations also have ingredient rows in `nutrition-data.json`,
+with edible grams, the USDA FDC record ID/description, source URL and per-100-g
+observations. Existing publisher macros with a supported serving basis remain;
+72 previously incomplete macro sets are filled from these ingredient models.
+`sourceRecipe.nutritionEstimate.estimatedMacroFields` identifies the fields that
+were filled. The model's assumptions are exported and appear in each recipe's
+nutrition-assumption disclosure. Original source nutrition is retained separately.
+
+The additional records use USDA's static SR Legacy April 2018 CSV release,
+retrieved 2026-10-10, with archive SHA-256
+`b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0`.
+Coconut flour and xanthan gum use Bob's Red Mill label observations instead;
+label rounding and unlisted micronutrients remain limitations. Their source URLs
+are stored with the rows. No build or test calls a nutrition API. Each ingredient row and publisher model
+stores a snapshot of its canonical ingredient inputs; the unit suite rejects stale
+snapshots after a recipe edit. To revise a model, review its food record and edible
+gram assumptions, update the recorded per-100-g observations/grams and snapshots,
+then recompute only the fields named in `estimatedMacroFields`: sum
+`macros[field] × grams / 100` across its rows and divide by four. Net carbohydrate
+is total carbohydrate minus fiber, floored at zero. Preserve supported publisher
+macros. Mark an assumed value in `assumedMacroFields` rather than presenting it
+as a USDA observation. Regenerate the assistant downloads and run the gate.
+
+Nutrition-only assumptions include standard edible weights for count-based meat,
+vegetables and packages; generic sauces/seasoning blends; a disclosed stated
+alternative; all measured oil/sauce counted; and unmeasured garnish/to-taste
+additions excluded. The cooking ingredient quantities are unchanged. Each recipe
+lists its actual choices, including generic mustard, marinade and spice proxies. Cajun/Old Bay/steak seasoning uses
+a disclosed generic mix of 50% salt, 20% paprika, 10% garlic powder, 10% onion
+powder and 10% black pepper by mass; garam masala uses a curry-powder proxy.
+The ranch-chicken estimate retains publisher macros and estimates missing fiber
+from the measured ingredients, assuming no fiber from the ranch mix; its
+unobserved micronutrients remain missing. Balsamic vinegar's unreported fiber is
+explicitly assumed zero. These estimates can differ from specific brands and
+actual edible weights. Nutrients with an unobserved contributing value remain
+unreported, rather than being filled with zero.
+
+A 2026-10-10 audit checked all canonical recipes and refreshed publisher sources.
+Eatwell101 exposes calories in structured data and a text-parsing calculator for
+other nutrition. Its calculator was rejected: it returned implausible totals and
+failed to recognize some main ingredients. The site uses the traceable ingredient
+models above instead.
+
+### USDA API lookups
+
+The maintenance-only `recipes:usda` command searches FoodData Central or fetches
+an identified food record. It reads the standard SecureString
+`/shared/nutrition/usda-api-key` in AWS account `730335616323`, `us-east-1`, using
+the existing `agent-readonly` identity. It uses the AWS SDK to avoid CLI
+history, verifies that identity and the returned
+parameter ARN/type, keeps the key in memory and sends it in `X-Api-Key`, never a
+URL. Errors omit provider bodies and credential-bearing diagnostics. The command
+does not modify recipe data or run during builds, tests or browser requests.
+
+From this repo's root (the current worktree is
+`/Users/johnsolly/.codex/worktrees/website-dev/jsolly-website`):
+
+```bash
+npm run recipes:usda -- search "spinach raw"
+```
+
+Fetch a selected FDC record from the same cwd:
+
+```bash
+npm run recipes:usda -- food 168462
+```
+
+Review the food state, brand, portions and nutrient units before updating a model.
+Search results are candidates, not automatic ingredient matches. Food records
+retain USDA's nutrient values and units; missing observations stay missing. The
+existing ingredient-weight, assumption, source-snapshot and download-regeneration
+requirements still apply. Public lookup output may be saved as review evidence;
+never save the credential response or enable credential-bearing SDK diagnostics.
+
+Ownership: `shared-infra/aws/template.yaml` owns the exact IAM exception and
+`shared-infra/docs/identity.md` owns John's provisioning/deployment commands.
+The SecureString value is entered by John outside CloudFormation; neither repo
+contains the key or a secret placeholder. `dotagents` owns the shared agent
+access rules and authentication bootstrap. The standard AWS SDK credential chain must
+already resolve an approved agent identity: local Claude/Codex/Cursor use the separate agent SSO session;
+Cursor Cloud can run the existing `.cursor/aws-oidc-login.sh`. Cloud Claude/Codex
+still need an approved AWS authentication path; this command does not create one.
+The shared role's USDA permission applies across repos using that role. It becomes
+available only after John's manual shared-infra deployment and key provisioning.
+No Vercel secret or site runtime access is needed.
 
 ### Evidence
 

@@ -177,6 +177,15 @@ const noUpdateWaiting = (page) =>
 			(await navigator.serviceWorker.getRegistration()).waiting === null,
 	);
 
+// SSR controls exist before their saved/query settings and handlers are ready.
+async function navigateHydrated(page, url) {
+	if (url) await page.goto(url);
+	else await page.reload();
+	await page.waitForFunction(
+		() => !document.querySelector("astro-island[ssr]"),
+	);
+}
+
 function installCheck(name, viewport) {
 	it(`Recipe PWA installs and cooking tools work offline on ${name}`, {
 		timeout: 90_000,
@@ -243,7 +252,7 @@ function installCheck(name, viewport) {
 		const page = await context.newPage();
 		const errors = collectErrors(page, ["warning", "error"]);
 		try {
-			await page.goto(`${site.origin}${LANDING}`);
+			await navigateHydrated(page, `${site.origin}${LANDING}`);
 			await statusText(page, SAVED);
 			assert.equal(await page.locator(".recipe-pwa").isVisible(), false);
 			await page.waitForFunction(() => navigator.serviceWorker.controller);
@@ -272,7 +281,7 @@ function installCheck(name, viewport) {
 			);
 
 			await context.setOffline(true);
-			await page.reload();
+			await navigateHydrated(page);
 			await statusText(page, OFFLINE);
 			await page.locator(".recipe-pwa").waitFor({ state: "visible" });
 			await page.getByRole("combobox", { name: SERVINGS }).selectOption("2");
@@ -294,13 +303,16 @@ function installCheck(name, viewport) {
 				"the assistant downloads offline",
 			);
 			// Changing the recipe URL's query or fragment still opens the cached app.
-			await page.goto(`${site.origin}${LANDING}?cooking=1#meal-results`);
+			await navigateHydrated(
+				page,
+				`${site.origin}${LANDING}?cooking=1#meal-results`,
+			);
 			const servings = page.getByRole("combobox", { name: SERVINGS });
 			await servings.waitFor();
 			assert.equal(await servings.inputValue(), "2");
 			// A shared recipe link opens offline with its settings, and its
 			// notation dialog still opens.
-			await page.goto(`${site.origin}${SHARED_RECIPE}`);
+			await navigateHydrated(page, `${site.origin}${SHARED_RECIPE}`);
 			await page.locator(".recipe-detail .reset-checks-row").waitFor();
 			assert.equal(
 				await page.getByRole("combobox", { name: SERVINGS }).inputValue(),
@@ -309,7 +321,7 @@ function installCheck(name, viewport) {
 			await page.getByRole("button", { name: LEARN_MORE, exact: true }).click();
 			await page.locator(".method-dialog").waitFor();
 			// So does a collection page.
-			await page.goto(`${site.origin}/recipes/smoothies/`);
+			await navigateHydrated(page, `${site.origin}/recipes/smoothies/`);
 			await page.locator("[data-hydrated=true]").waitFor();
 			assert.equal(await page.locator(".recipe-card").count(), SMOOTHIES);
 			assert.deepEqual(errors, []);
@@ -330,7 +342,7 @@ function installCheck(name, viewport) {
 			await page.locator(".recipe-pwa").waitFor({ state: "hidden" });
 			for (const path of ["/blog/", "/about/"]) {
 				// biome-ignore lint/performance/noAwaitInLoops: one page at a time in the one tab
-				await page.goto(`${site.origin}${path}`);
+				await navigateHydrated(page, `${site.origin}${path}`);
 				assert.equal(await controlled(page), false, `${path} is controlled`);
 			}
 		} finally {
@@ -350,7 +362,7 @@ it("An installed worker serves offline HTML when the cached request has a differ
 	});
 	const page = await context.newPage();
 	try {
-		await page.goto(`${site.origin}${LANDING}`);
+		await navigateHydrated(page, `${site.origin}${LANDING}`);
 		await statusText(page, SAVED);
 		await page.waitForFunction(() => navigator.serviceWorker.controller);
 		// Keep a cached navigation carrying its HTML Accept. A bare Cache.match
@@ -389,14 +401,14 @@ it("An installed worker serves offline HTML when the cached request has a differ
 			htmlMatch: true,
 		});
 		await context.setOffline(true);
-		await page.reload();
+		await navigateHydrated(page);
 		await statusText(page, OFFLINE);
 		assert.equal(await snapshotLabel(page), "A");
 		await page.locator(".meal-library[data-hydrated=true]").waitFor();
 		const servings = page.getByRole("combobox", { name: SERVINGS });
 		await servings.selectOption("2");
 		await page
-			.getByText("Net carbs per 2 servings", { exact: true })
+			.getByText("Net carbs per serving", { exact: true })
 			.first()
 			.waitFor();
 		assert.equal(await servings.inputValue(), "2");
@@ -416,14 +428,14 @@ it("Distinct snapshot update waits for both tabs, then serves new recipes offlin
 		const tabs = [await context.newPage(), await context.newPage()];
 		for (const page of tabs) {
 			// biome-ignore lint/performance/noAwaitInLoops: the tabs open in turn
-			await page.goto(`${site.origin}${LANDING}`);
+			await navigateHydrated(page, `${site.origin}${LANDING}`);
 			await statusText(page, SAVED);
 			assert.equal(await snapshotLabel(page), "A");
 		}
 		// Observe activation from outside the worker's scope. Reopening a
 		// recipe tab before B activates can keep A alive and prevent the swap.
 		const reopened = await context.newPage();
-		await reopened.goto(`${site.origin}/about/`);
+		await navigateHydrated(reopened, `${site.origin}/about/`);
 		assert.equal(await controlled(reopened), false);
 		await serve("B");
 		await tabs[0].evaluate(async () => {
@@ -433,7 +445,7 @@ it("Distinct snapshot update waits for both tabs, then serves new recipes offlin
 		await context.setOffline(true);
 		for (const page of tabs) {
 			// biome-ignore lint/performance/noAwaitInLoops: the tabs reload in turn
-			await page.reload();
+			await navigateHydrated(page);
 			assert.equal(await snapshotLabel(page), "A");
 			assert.equal(await dataLabel(page), "A");
 		}
@@ -466,7 +478,7 @@ it("Distinct snapshot update waits for both tabs, then serves new recipes offlin
 			},
 			snapshots.B.cache,
 		);
-		await reopened.goto(`${site.origin}${LANDING}`);
+		await navigateHydrated(reopened, `${site.origin}${LANDING}`);
 		assert.equal(await snapshotLabel(reopened), "B");
 		assert.equal(await dataLabel(reopened), "B");
 		assert.deepEqual(await reopened.evaluate(() => caches.keys()), [
@@ -485,7 +497,7 @@ it("A maintenance deploy or a failed replacement keeps the previous offline snap
 	const context = await browser.newContext();
 	try {
 		const page = await context.newPage();
-		await page.goto(`${site.origin}${LANDING}`);
+		await navigateHydrated(page, `${site.origin}${LANDING}`);
 		await statusText(page, SAVED);
 		// A maintenance deploy has no worker: the update check 404s and the
 		// installed app keeps its worker, its cache and its offline copy.
@@ -507,10 +519,10 @@ it("A maintenance deploy or a failed replacement keeps the previous offline snap
 			"snapshot A's cache survives the maintenance deploy",
 		);
 		await context.setOffline(true);
-		await page.reload();
+		await navigateHydrated(page);
 		assert.equal(await snapshotLabel(page), "A");
 		await context.setOffline(false);
-		await page.reload();
+		await navigateHydrated(page);
 		await statusText(page, SAVED);
 
 		await serve("broken");
@@ -519,7 +531,7 @@ it("A maintenance deploy or a failed replacement keeps the previous offline snap
 		});
 		await statusText(page, "Update download failed.");
 		await context.setOffline(true);
-		await page.reload();
+		await navigateHydrated(page);
 		await statusText(page, OFFLINE);
 		assert.equal(await snapshotLabel(page), "A");
 		assert.equal(await dataLabel(page), "A");
@@ -542,7 +554,7 @@ it("Recipe library hydrates without errors when the browser blocks service worke
 	try {
 		const page = await context.newPage();
 		const errors = collectErrors(page);
-		await page.goto(`${site.origin}${LANDING}`);
+		await navigateHydrated(page, `${site.origin}${LANDING}`);
 		await page.locator(".meal-library[data-hydrated=true]").waitFor();
 		assert.ok(
 			(await page.locator(".meal-library .recipe-card:visible").count()) > 0,
@@ -565,7 +577,7 @@ it("Failed first download does not claim offline readiness", {
 	const context = await browser.newContext();
 	try {
 		const page = await context.newPage();
-		await page.goto(`${site.origin}${LANDING}`);
+		await navigateHydrated(page, `${site.origin}${LANDING}`);
 		await statusText(page, "Recipes could not be saved offline.");
 		assert.equal(await controlled(page), false);
 	} finally {
@@ -580,7 +592,7 @@ it("Offline page requests select separate HTML and Markdown representations and 
 	const context = await browser.newContext();
 	try {
 		const page = await context.newPage();
-		await page.goto(`${site.origin}${LANDING}`);
+		await navigateHydrated(page, `${site.origin}${LANDING}`);
 		await statusText(page, SAVED);
 		await page.waitForFunction(() => navigator.serviceWorker.controller);
 		await context.setOffline(true);

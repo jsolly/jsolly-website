@@ -15,7 +15,7 @@ export function dailyNutrition(recipe, servings, scaledAmount) {
 			}
 			const ingredient = recipe.ingredients.find((i) => i.id === row.food);
 			const factor =
-				ingredient?.scale === "minimum"
+				ingredient?.scale === "minimum" || ingredient?.scale === "whole-batch"
 					? scaledAmount(ingredient, servings) / ingredient.amount
 					: servings / BASE_SERVINGS;
 			total +=
@@ -53,7 +53,7 @@ export function recordedOmega3(recipe, servings, scaledAmount) {
 	for (const row of data.recipes[recipe.id] || []) {
 		const ingredient = recipe.ingredients.find((i) => i.id === row.food);
 		const factor =
-			ingredient?.scale === "minimum"
+			ingredient?.scale === "minimum" || ingredient?.scale === "whole-batch"
 				? scaledAmount(ingredient, servings) / ingredient.amount
 				: servings / BASE_SERVINGS;
 		total +=

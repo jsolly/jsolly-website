@@ -9,9 +9,9 @@
 	} from "./recipe-logic.mjs";
 
 	// One recipe's card in the library grid: its group, photo, title, active
-	// time, net carbs at the chosen servings and appliances. `href` is the
+	// time, net carbs per serving and appliances. `href` is the
 	// recipe page with the reader's servings and family side.
-	let { recipe, servings, href } = $props();
+	let { recipe, href } = $props();
 </script>
 
 <article class="recipe-card">
@@ -20,12 +20,12 @@
 	<h3><a class="title-button" data-recipe-id={recipe.id} {href}>{recipe.title}</a></h3>
 	<dl class="card-numbers">
 		<div>
-			<dt>{recipe.sourceRecipe ? "Prep time (publisher)" : "Active time"}</dt>
-			<dd class="active-time"><span class="time-number" class:unknown={recipe.activeMinutes === null}>{recipe.activeMinutes === null ? "Not provided" : recipe.activeMinutes}{servings > BASE_SERVINGS && recipe.activeMinutes !== null ? "+" : ""}</span>{#if recipe.activeMinutes !== null}<span class="time-unit">min</span>{/if}</dd>
+			<dt>{recipe.sourceRecipe ? "Prep time" : "Active time"}</dt>
+			<dd class="active-time"><span class="time-number" class:unknown={recipe.activeMinutes === null}>{recipe.activeMinutes === null ? "Not provided" : recipe.activeMinutes}</span>{#if recipe.activeMinutes !== null}<span class="time-unit">min</span>{/if}</dd>
 		</div>
 		<div>
-			<dt>{recipe.type === "smoothie" ? "Net Carbs (8 oz)" : `Net carbs per ${servings} servings`}</dt>
-			<dd>{recipe.type === "smoothie" ? formatNutrition(smoothiePortionNutrition(recipe).net_carbs_g, "g", 1) : formatNutrition(Number.isFinite(servingNutrition(recipe, servings).net_carbs_g) ? servingNutrition(recipe, servings).net_carbs_g * servings : null, "g")}</dd>
+			<dt>{recipe.type === "smoothie" ? "Net Carbs (8 oz)" : "Net carbs per serving"}</dt>
+			<dd>{recipe.type === "smoothie" ? formatNutrition(smoothiePortionNutrition(recipe).net_carbs_g, "g", 1) : formatNutrition(servingNutrition(recipe, BASE_SERVINGS).net_carbs_g, "g", 1)}</dd>
 		</div>
 		<div>
 			<dt>Appliances needed</dt>

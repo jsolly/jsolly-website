@@ -199,6 +199,14 @@ export function documentMarkdown(d, headingLevel = 1) {
 		);
 	lines.push(
 		d.nutritionNote,
+		...(d.sourceRecipe?.nutritionEstimate
+			? [
+					"Nutrition assumptions:",
+					...d.sourceRecipe.nutritionEstimate.assumptions.map(
+						(assumption) => `- ${assumption}`,
+					),
+				]
+			: []),
 		`Known allergens for these plates: ${d.allergens.join(", ") || "none listed; check every product label"}. Check product labels and cross-contact.`,
 		"## First-cook checks and limits",
 		...d.limitations.map((x) => `- ${x}`),

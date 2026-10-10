@@ -206,6 +206,16 @@ it("omega filter uses recorded quantities on meal and smoothie portion bases", (
 		"pesto-cod-and-zucchini",
 		"spinach-feta-and-hemp-frittata",
 		"strawberry-hemp-smoothie",
+		"source-steak-and-eggs-keto-low-carb",
+		"source-grilled-salmon-kabobs-with-greek-marinade",
+		"source-sheet-pan-butter-dill-salmon-with-asparagus",
+		"source-salmon-with-jalapen-o-lime-butter-keto-low-carb",
+		"source-keto-parmesan-tilapia-and-asparagus-for-one",
+		"source-creamy-tuscan-salmon-recipe",
+		"source-creamy-cajun-shrimp-with-sausage",
+		"source-garlic-butter-salmon-with-lemon-asparagus",
+		"source-lemon-garlic-butter-salmon-with-zucchini-noodles",
+		"source-creamy-garlic-pesto-chicken",
 	]);
 	for (const n of [2, 6, 8])
 		assert.deepEqual(

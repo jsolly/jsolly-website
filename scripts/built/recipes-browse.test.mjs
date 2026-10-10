@@ -143,6 +143,34 @@ function detailsCheck(width) {
 				JSON.stringify(value, (_key, item) =>
 					typeof item === "string" ? item.replace(SPACES, " ").trim() : item,
 				);
+			await page.goto(`${site.origin}${LANDING}`);
+			await hydrated(page);
+			const cardFacts = () =>
+				page.locator(".recipe-card .card-numbers").allTextContents();
+			const initialFacts = await cardFacts();
+			for (const count of ["2", "6", "8", "4"]) {
+				// biome-ignore lint/performance/noAwaitInLoops: exercise successive settings on the same page.
+				await page
+					.getByRole("combobox", { name: SERVINGS })
+					.selectOption(count);
+				assert.deepEqual(
+					await cardFacts(),
+					initialFacts,
+					`Card facts stay per serving at ${count} servings`,
+				);
+			}
+			assert.equal(
+				await page.getByText("Net carbs per serving", { exact: true }).count(),
+				mealCount,
+			);
+			assert.equal(
+				await page.locator(".time-number").filter({ hasText: "+" }).count(),
+				0,
+			);
+			assert.equal(
+				await page.getByText("Prep time (publisher)", { exact: true }).count(),
+				0,
+			);
 			for (const recipe of recipes) {
 				// biome-ignore lint/performance/noAwaitInLoops: one recipe at a time on the two pages
 				await page.goto(`${site.origin}/recipes/${recipe.id}/`);
@@ -170,7 +198,10 @@ function detailsCheck(width) {
 				}
 				await live.getByRole("button", { name: VITAMINS }).click();
 				const staticBody = staticPage.locator(`#${recipe.id} .recipe-body`);
-				await staticBody.locator("summary").click();
+				await staticBody
+					.locator("summary")
+					.filter({ hasText: VITAMINS })
+					.click();
 				assert.equal(
 					normalize(await bodyContent(live)),
 					normalize(await bodyContent(staticBody)),

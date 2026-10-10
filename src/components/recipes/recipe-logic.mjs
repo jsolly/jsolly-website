@@ -226,15 +226,11 @@ export function purchaseNote(ingredient, servings = BASE_SERVINGS) {
 		: `Buy ${count} × ${pack.label}; measure out the required weight.`;
 }
 
-/** Label the complete elapsed-time estimate without inventing absent publisher times. */
+/** Use the upper end of the documented elapsed-time estimate; absent times stay absent. */
 export function totalTimeLabel(recipe, servings = BASE_SERVINGS) {
 	if (!finite(recipe.totalMin) || !finite(recipe.totalMax))
 		return "Not provided";
-	const time =
-		recipe.totalMin === recipe.totalMax
-			? `${recipe.totalMin}`
-			: `${recipe.totalMin}–${recipe.totalMax}`;
-	return `${time}${servings > BASE_SERVINGS ? "+" : ""} min${servings > BASE_SERVINGS ? " / base batch" : ""}${recipe.timeVariable ? " expected; pressure buildup can take longer" : ""}`;
+	return `${recipe.totalMax} min${servings > BASE_SERVINGS ? " / base batch" : ""}`;
 }
 
 /** Preserve absent source nutrition on screen, in print and in exports. */

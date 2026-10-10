@@ -3,6 +3,7 @@
 	import ApplianceIcon from "./ApplianceIcon.svelte";
 	import { BASE_SERVINGS } from "./constants.mjs";
 	import NutrientDisclosure from "./NutrientDisclosure.svelte";
+	import NutritionAssumptions from "./NutritionAssumptions.svelte";
 	import { dailyNutrition } from "./nutrition.mjs";
 	import RecipeFlow from "./RecipeFlow.svelte";
 	import {
@@ -62,7 +63,7 @@
 		<div class="appliance-icons">{#each recipe.appliancesNeeded as name (name)}<ApplianceIcon {name} />{/each}</div>
 	</div>
 	<div class="detail-facts">
-		<span><strong>{recipe.activeMinutes === null ? "Not provided" : `${recipe.activeMinutes}${settings.servings > BASE_SERVINGS ? "+" : ""} min`}</strong> {recipe.sourceRecipe ? "prep time (publisher)" : "active time"}{settings.servings > BASE_SERVINGS ? " / base batch" : ""}</span>
+		<span><strong>{recipe.activeMinutes === null ? "Not provided" : `${recipe.activeMinutes} min`}</strong> {recipe.sourceRecipe ? "prep time (publisher)" : "active time"}{settings.servings > BASE_SERVINGS ? " / base batch" : ""}</span>
 		<span><strong>{settings.servings}</strong> servings</span>
 		<span><strong>{totalTimeLabel(recipe, settings.servings)}</strong> total time</span>
 	</div>
@@ -93,6 +94,7 @@
 			<div><dt>Fiber</dt><dd>{formatNutrition(baseNutrition.fiber_g, "g")}</dd></div>
 			<div><dt>Net carbs</dt><dd>{formatNutrition(baseNutrition.net_carbs_g, "g")}</dd></div>
 		</dl>
+		{#if recipe.sourceRecipe?.nutritionEstimate}<NutritionAssumptions assumptions={recipe.sourceRecipe.nutritionEstimate.assumptions} {interactive} />{/if}
 		{#key recipe.id}<NutrientDisclosure nutrients={dailyValues} {interactive} headingLevel={headingLevel + 1} />{/key}
 	</section>
 </div>

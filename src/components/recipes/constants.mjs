@@ -8,14 +8,14 @@ export const groupBadges = {
 	keto: "Keto",
 	shared: "Shared main",
 	nonketo: "Not Keto",
-	unverified: "Nutrition unverified",
+	unverified: "Nutrition estimated",
 };
 /** Each recipe group's label in the printed copy. */
 export const printGroupLabels = {
 	keto: "Keto",
 	shared: "Keto main + family starch",
 	nonketo: "Not Keto",
-	unverified: "Nutrition unverified",
+	unverified: "Nutrition estimated",
 };
 /** The servings a reader can choose. */
 export const SERVING_CHOICES = [2, 4, 6, 8];
@@ -134,7 +134,7 @@ export const carbStyles = {
 	keto: "Keto",
 	nonketo: "Not Keto",
 	shared: "Shared Main",
-	unverified: "Nutrition unverified",
+	unverified: "Nutrition estimated",
 };
 export const mealStyleDescriptions = {
 	all: "Keto meals, higher-carb meals, and shared mains with different sides.",
@@ -142,7 +142,7 @@ export const mealStyleDescriptions = {
 	nonketo: "Meals with over 50g net carbs per four servings.",
 	shared: "One main dish with different sides for keto and non-keto diners.",
 	unverified:
-		"The publisher labels these low-carb, but a complete net-carb total is unavailable.",
+		"Nutrition uses documented ingredient estimates; keto eligibility has not been verified.",
 };
 /** The family starches a library filter offers ("all" and "none" are not choices). */
 export const starchOptions = Object.fromEntries(

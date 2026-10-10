@@ -1,6 +1,10 @@
 import assert from "node:assert/strict";
 import it from "node:test";
-import { dailyNutrition, nutrientAmount } from "./nutrition.mjs";
+import {
+	dailyNutrition,
+	nutrientAmount,
+	recordedOmega3,
+} from "./nutrition.mjs";
 import data from "./nutrition-data.json" with { type: "json" };
 import { ingredientAmount } from "./recipe-logic.mjs";
 import recipes from "./recipes.json" with { type: "json" };
@@ -35,7 +39,9 @@ it("Daily Values use edible weights, include salt, and scale minimum broth per s
 				assert.ok(baseAmount === null || Number.isFinite(amount));
 				assert.ok(
 					baseAmount === null ||
-						recipe.key === "salsa_chicken" ||
+						recipe.ingredients.some((ingredient) =>
+							["minimum", "whole-batch"].includes(ingredient.scale),
+						) ||
 						Math.abs(amount - baseAmount) < 1e-8,
 				);
 			}
@@ -75,4 +81,32 @@ it("every minimum-scale ingredient has a nutrition row under its own id", () => 
 		)
 		.map(({ recipe, ingredient }) => `${recipe.id}/${ingredient.id}`);
 	assert.deepEqual(unmatched, []);
+});
+
+it("whole-batch nutrient totals follow actual rounded ingredient quantities", () => {
+	const recipe = recipes.recipes.find(
+		(r) => r.id === "source-perfect-roast-chicken",
+	);
+	const base = dailyNutrition(recipe, 4, ingredientAmount);
+	const omega = recordedOmega3(recipe, 4, ingredientAmount);
+	for (const [servings, ratio] of [
+		[2, 2],
+		[4, 1],
+		[6, 4 / 3],
+		[8, 1],
+	]) {
+		const actual = dailyNutrition(recipe, servings, ingredientAmount);
+		for (const [index, nutrient] of base.entries()) {
+			assert.equal(actual[index].amount === null, nutrient.amount === null);
+			assert.ok(
+				nutrient.amount === null ||
+					Math.abs(actual[index].amount - nutrient.amount * ratio) < 1e-8,
+			);
+		}
+		assert.ok(
+			Math.abs(
+				recordedOmega3(recipe, servings, ingredientAmount) - omega * ratio,
+			) < 1e-8,
+		);
+	}
 });

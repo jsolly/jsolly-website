@@ -217,7 +217,7 @@ async function checkPostMarkdown(context, path, title) {
 // though the runner blocks service workers.
 async function openRecipes({ page, verifyHttp }) {
 	await leave(page, () => page.goto(productionUrl));
-	await followMobileLink(page, "Recipes by John Solly", "/recipes/");
+	await followMobileLink(page, "My Recipes", "/recipes/");
 	const library = page.locator(".meal-library[data-hydrated=true]");
 	await library.waitFor();
 	assert.ok(
