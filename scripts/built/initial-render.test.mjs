@@ -67,10 +67,14 @@ function firstPaint(page) {
 				}),
 			),
 			categoriesVisible: Boolean(
-				document.querySelector(".category-options")?.checkVisibility(),
+				document
+					.querySelector(".category-options")
+					?.checkVisibility({ checkVisibilityCSS: true, checkOpacity: true }),
 			),
 			mobileMenuVisible: Boolean(
-				document.querySelector("#mobile-menu")?.checkVisibility(),
+				document
+					.querySelector("#mobile-menu")
+					?.checkVisibility({ checkVisibilityCSS: true, checkOpacity: true }),
 			),
 			recipes: [...document.querySelectorAll(".recipe-grid .open-button")].map(
 				(link) => link.getAttribute("href"),
