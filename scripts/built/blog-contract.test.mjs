@@ -60,6 +60,30 @@ function article(document) {
 // temp copy and finds it in no built file (page, archive, search index,
 // sitemap, feeds) and not in the route manifest.
 it("every legacy post and category URL leads to a built page, and each post is built, archived, searchable, in the sitemap and in the route manifest exactly when published", async () => {
+	const descriptions = await Promise.all(
+		["blog", "blog/all-posts"].map((path) =>
+			readBuilt(path, (document) => ({
+				description: document
+					// biome-ignore lint/security/noSecrets: a static CSS selector, not a credential.
+					.querySelector("meta[name=description]")
+					?.getAttribute("content"),
+				social: document
+					.querySelector('meta[property="og:description"]')
+					?.getAttribute("content"),
+			})),
+		),
+	);
+	assert.ok(
+		descriptions.every(
+			({ description, social }) => description && social === description,
+		),
+		"blog landing and archive expose matching search and social descriptions",
+	);
+	assert.notEqual(
+		descriptions[0].description,
+		descriptions[1].description,
+		"latest posts and the full archive have distinct descriptions",
+	);
 	const posts = await allPosts();
 	const published = posts.filter((post) => post.published);
 	assert.ok(published.length > 0, "the snapshot publishes posts");

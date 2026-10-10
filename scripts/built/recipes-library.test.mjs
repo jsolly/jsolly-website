@@ -51,7 +51,11 @@ async function openPage({ initScript, arg } = {}) {
 	if (initScript) await context.addInitScript(initScript, arg);
 	const page = await context.newPage();
 	const errors = collectErrors(page, []);
-	return { page, errors, close: () => context.close() };
+	const consoleErrors = [];
+	page.on("console", (message) => {
+		if (message.type() === "error") consoleErrors.push(message.text());
+	});
+	return { page, errors, consoleErrors, close: () => context.close() };
 }
 
 async function goHydrated(page, path) {
@@ -92,6 +96,11 @@ it("the library prints the open recipe from its dialog or the whole collection, 
 			(recipe) => recipe.id === "shawarma-chicken-bowls",
 		);
 		await goHydrated(page, `/recipes/#${shawarma.id}`);
+		assert.deepEqual(
+			await printedTitles(page),
+			[],
+			"print packets are not rendered while browsing",
+		);
 		const takeover = page.locator(".recipe-takeover");
 		await takeover.waitFor();
 		await takeover.getByRole("button", { name: "Print recipe" }).click();
@@ -111,16 +120,23 @@ it("the library prints the open recipe from its dialog or the whole collection, 
 		const afterPrint = {
 			prepared: await library.getAttribute("data-print-prepared"),
 			mode: await printMode(),
+			titles: await printedTitles(page),
 		};
 		// The browser's own Print command with the dialog closed prints the
 		// whole collection.
 		await page.keyboard.press("Escape");
 		await takeover.waitFor({ state: "detached" });
-		await page.evaluate(() => window.dispatchEvent(new Event("beforeprint")));
-		const menuPrint = {
-			titles: await printedTitles(page),
-			mode: await printMode(),
-		};
+		const menuPrint = await page.evaluate(() => {
+			window.dispatchEvent(new Event("beforeprint"));
+			// The browser snapshots printing before queued DOM updates run.
+			return {
+				titles: Array.from(
+					document.querySelectorAll(".print-output .print-meal"),
+					(article) => article.getAttribute("aria-label"),
+				),
+				mode: document.documentElement.getAttribute("data-recipe-print"),
+			};
+		});
 		await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
 
 		await goHydrated(page, "/recipes/smoothies/");
@@ -156,7 +172,7 @@ it("the library prints the open recipe from its dialog or the whole collection, 
 					copyShown: true,
 					takeoverHidden: true,
 				},
-				afterPrint: { prepared: "false", mode: null },
+				afterPrint: { prepared: "false", mode: null, titles: [] },
 				menuPrint: { titles: meals.map((recipe) => recipe.title), mode: "all" },
 				collectionPrint: {
 					titles: smoothies.map((recipe) => recipe.title),
@@ -331,7 +347,7 @@ it("unreadable or wrongly shaped saved settings leave the library on its default
 		}),
 	]) {
 		// biome-ignore lint/performance/noAwaitInLoops: one fresh browser context per saved value, in turn
-		const { page, errors, close } = await openPage({
+		const { page, errors, consoleErrors, close } = await openPage({
 			initScript: ([key, value]) => {
 				if (!sessionStorage.getItem("seeded")) {
 					localStorage.setItem(key, value);
@@ -342,6 +358,14 @@ it("unreadable or wrongly shaped saved settings leave the library on its default
 		});
 		try {
 			await goHydrated(page, "/recipes/meals/");
+			assert.deepEqual(
+				consoleErrors,
+				saved === "{not json"
+					? [
+							"Recipe settings could not be restored; using defaults. SyntaxError",
+						]
+					: [],
+			);
 			results.push({
 				cards: await page.locator(".recipe-card").count(),
 				servings: await page
@@ -370,6 +394,46 @@ it("unreadable or wrongly shaped saved settings leave the library on its default
 	};
 	assert.deepEqual(results, [defaults, defaults]);
 });
+
+for (const operation of ["getItem", "setItem"]) {
+	it(`a failed settings ${operation} is logged without saved data and cooking controls remain usable`, async () => {
+		const { page, errors, consoleErrors, close } = await openPage({
+			initScript: (method) => {
+				Storage.prototype[method] = () => {
+					throw new DOMException("private saved data", "SecurityError");
+				};
+			},
+			arg: operation,
+		});
+		try {
+			await goHydrated(page, "/recipes/meals/");
+			const servings = page.getByRole("combobox", { name: SERVINGS });
+			assert.equal(await servings.inputValue(), "4");
+			await servings.selectOption("6");
+			assert.equal(await servings.inputValue(), "6");
+			assert.ok((await page.locator(".recipe-card").count()) > 0);
+			assert.ok(
+				consoleErrors.some((text) =>
+					text.includes(
+						operation === "getItem"
+							? "could not be restored"
+							: "could not be saved",
+					),
+				),
+			);
+			assert.ok(
+				consoleErrors.every(
+					(text) =>
+						text.endsWith("SecurityError") &&
+						!text.includes("private saved data"),
+				),
+			);
+			assert.deepEqual(errors, []);
+		} finally {
+			await close();
+		}
+	});
+}
 
 it("a saved family side its recipe no longer offers falls back to the recipe's first side everywhere", {
 	timeout: 60_000,

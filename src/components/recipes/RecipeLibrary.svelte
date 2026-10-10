@@ -1,5 +1,5 @@
 <script>
-	import { onMount, tick, untrack } from "svelte";
+	import { flushSync, onMount, tick, untrack } from "svelte";
 	import {
 		BASE_SERVINGS,
 		DEFAULT_FILTERS,
@@ -19,6 +19,9 @@
 	import { validateSettings } from "./recipe-logic.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
 	import { readRecipeURL, recipeHref } from "./recipe-url.mjs";
+	import data from "./recipes.json" with { type: "json" };
+
+	const recipes = data.recipes;
 
 	// The recipe library on /recipes/ and the meals and smoothies pages. The
 	// server render lists the collection's recipes in the build's order with
@@ -26,7 +29,7 @@
 	// localStorage key recipes-settings-v1), reads a share link or #<recipe-id>,
 	// opens a linked recipe in a full-screen dialog.
 	// `pathname` is the page's path, for the collection links' aria-current.
-	let { recipes, discoveryOrder, initialCollection = "meal", pathname } = $props();
+	let { discoveryOrder, initialCollection = "meal", pathname } = $props();
 	const NO_RESULTS = "No recipes match these appliances and filters.";
 
 	// The saved settings: servings, the filters, the appliances on hand and
@@ -164,8 +167,9 @@
 		let saved = null;
 		try {
 			saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
-		} catch {
-			// Reading remains usable without storage or with a corrupt entry.
+		} catch (error) {
+			// Do not log saved data, which may appear in a JSON parse error.
+			console.error("Recipe settings could not be restored; using defaults.", error instanceof Error ? error.name : "Unknown error");
 		}
 		({ servings, filters, appliancesOnHand, familyChoice } = parseSavedSettings(
 			saved,
@@ -176,7 +180,8 @@
 	const printSession = createRecipePrintSession(
 		() => effectivePrintMode,
 		() => {
-			printPrepared = true;
+			// Browser-menu printing snapshots the DOM as beforeprint returns.
+			flushSync(() => { printPrepared = true; });
 		},
 		() => {
 			printPrepared = false;
@@ -217,8 +222,8 @@
 				STORAGE_KEY,
 				JSON.stringify({ servings, filters, appliancesOnHand, familyChoice }),
 			);
-		} catch {
-			// No persistence required to cook.
+		} catch (error) {
+			console.error("Recipe settings could not be saved; changes apply only to this visit.", error instanceof Error ? error.name : "Unknown error");
 		}
 	});
 </script>
@@ -254,7 +259,7 @@
 	{/if}
 
 	<p class="action-status" role="status" aria-live="polite">{message}</p>
-	<div class="print-output"><RecipePrint recipes={printRecipes} settings={recipeSettings} /></div>
+	<div class="print-output">{#if printPrepared}<RecipePrint recipes={printRecipes} settings={recipeSettings} />{/if}</div>
 </section>
 
 <style>

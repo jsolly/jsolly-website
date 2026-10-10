@@ -1,7 +1,7 @@
 ---
 // The recipe library island with its no-JavaScript fallback styles, on
 // /recipes/ and the meals and smoothies pages. `collection` picks the cards
-// shown first; every page passes all recipes, so a #<recipe-id> link opens
+// shown first; the shared module supplies all recipes, so a #<recipe-id> link opens
 // any recipe, smoothies included (plan §1.6).
 
 import { buildReleaseSha } from "../../lib/build-release.js";
@@ -26,4 +26,4 @@ const discoveryOrder = shuffleRecipes(recipes, () => {
 ---
 
 <noscript><link rel="stylesheet" href={noScriptStyles} /></noscript>
-<div class="recipe-experience"><RecipeLibrary {recipes} {discoveryOrder} initialCollection={collection} pathname={Astro.url.pathname} client:load /></div>
+<div class="recipe-experience"><RecipeLibrary {discoveryOrder} initialCollection={collection} pathname={Astro.url.pathname} client:load /></div>
