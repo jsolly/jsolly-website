@@ -444,7 +444,7 @@ it("a phone visitor without JavaScript can use shared links, categories and GET 
 		assert.equal(
 			await page
 				.getByRole("navigation", { name: "Mobile navigation" })
-				.getByRole("link", { name: "Recipes by John Solly" })
+				.getByRole("link", { name: "My Recipes" })
 				.isVisible(),
 			true,
 		);
@@ -473,7 +473,7 @@ const SITE_LINKS = [
 	{ text: "About", href: "/about/", target: null, rel: null },
 	{ text: "Contact", href: "/contact/", target: null, rel: null },
 	{ text: "Blog", href: "/blog/", target: null, rel: null },
-	{ text: "Recipes", href: "/recipes/", target: null, rel: null },
+	{ text: "My Recipes", href: "/recipes/", target: null, rel: null },
 	{
 		text: "Resume",
 		href: "/John-Solly-Resume.pdf",

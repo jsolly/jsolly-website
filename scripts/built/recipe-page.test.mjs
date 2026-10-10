@@ -2,6 +2,9 @@ import assert from "node:assert/strict";
 import { after, before, it } from "node:test";
 import { chromium } from "playwright";
 import { PRINT_FAILED } from "../../src/components/recipes/constants.mjs";
+import recipeData from "../../src/components/recipes/recipes.json" with {
+	type: "json",
+};
 import { collectErrors, serveStatic } from "./pages.mjs";
 
 // A built recipe page (/recipes/<id>/) in Chromium, with and without
@@ -35,10 +38,12 @@ const MISSING_TOTAL = /Not provided total time/u;
 const PRINT_MISSING_TOTAL = /Total time: Not provided/u;
 const KNOWN_TOTAL = /80 min total time/u;
 const PRINT_KNOWN_TOTAL = /Total time: 80 min/u;
-const UNKNOWN_CARBS = /Net carbs\s*Not provided/u;
+const RANCH = recipeData.recipes.find(
+	(recipe) => recipe.id === "source-keto-slow-cooker-zesty-ranch-chicken",
+);
 
 for (const width of [390, 1280]) {
-	it(`publisher recipes hydrate, disclose absent times and nutrition, and print known times at ${width}px`, async () => {
+	it(`publisher recipes show nutrition estimates, keep absent times and print known times at ${width}px`, async () => {
 		const context = await browser.newContext({
 			viewport: { width, height: 900 },
 		});
@@ -65,10 +70,61 @@ for (const width of [390, 1280]) {
 				`${site.origin}/recipes/source-keto-slow-cooker-zesty-ranch-chicken/`,
 			);
 			await page.getByRole("button", { name: "Print recipe" }).waitFor();
-			assert.match(
-				await page.locator(".nutrition > dl").textContent(),
-				UNKNOWN_CARBS,
+			assert.equal(
+				await page
+					.locator(".nutrition > dl > div")
+					.filter({ has: page.locator("dt", { hasText: "Net carbs" }) })
+					.locator("dd")
+					.textContent(),
+				`${RANCH.nutrition.net_carbs_g.toFixed(0)} g`,
 			);
+			const assumptions = page.getByRole("button", {
+				name: "Nutrition assumptions",
+				exact: true,
+			});
+			await assumptions.focus();
+			await assumptions.press("Enter");
+			assert.equal(await assumptions.getAttribute("aria-expanded"), "true");
+			assert.equal(
+				await page.locator(".nutrition-assumptions-list li").count(),
+				RANCH.sourceRecipe.nutritionEstimate.assumptions.length,
+			);
+			assert.equal(
+				await page.locator(".nutrition-assumptions-list").isVisible(),
+				true,
+			);
+			assert.equal(
+				await page
+					.locator(".print-document")
+					.getByRole("heading", {
+						name: "Nutrition assumptions",
+						includeHidden: true,
+					})
+					.count(),
+				1,
+			);
+			await assumptions.press("Space");
+			assert.equal(await assumptions.getAttribute("aria-expanded"), "false");
+			const plain = await browser.newContext({
+				javaScriptEnabled: false,
+				viewport: { width, height: 900 },
+			});
+			try {
+				const staticPage = await plain.newPage();
+				await staticPage.goto(`${site.origin}/recipes/${RANCH.id}/`);
+				await staticPage
+					.locator("details.nutrition-assumptions summary")
+					.click();
+				await staticPage
+					.locator(".nutrition-assumptions-list")
+					.waitFor({ state: "visible" });
+				assert.equal(
+					await staticPage.locator(".nutrition-assumptions-list").isVisible(),
+					true,
+				);
+			} finally {
+				await plain.close();
+			}
 			await page.goto(`${site.origin}/recipes/source-perfect-roast-chicken/`);
 			await page.getByRole("button", { name: "Print recipe" }).waitFor();
 			assert.match(
@@ -411,7 +467,7 @@ it("a reader who picks 8 servings and the bun side gets the scaled recipe and a 
 			},
 			{
 				facts:
-					"15+ min active time / base batch 8 servings 30–40+ min / base batch total time",
+					"15 min active time / base batch 8 servings 40 min / base batch total time",
 				sideLine: "360g Bun · serve separately",
 				cucumber: "600g",
 				link: `${site.origin}${PAGE}?servings=8&starch=greek-turkey-patties%3Abun_one`,
@@ -445,7 +501,7 @@ it("a shared link with ?servings=6 and a family side opens the recipe at six ser
 				servings: "6",
 				side: SIDE,
 				facts:
-					"15+ min active time / base batch 6 servings 30–40+ min / base batch total time",
+					"15 min active time / base batch 6 servings 40 min / base batch total time",
 				sideLine: "270g Bun · serve separately",
 				errors: [],
 			},

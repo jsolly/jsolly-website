@@ -396,7 +396,7 @@ it("An installed worker serves offline HTML when the cached request has a differ
 		const servings = page.getByRole("combobox", { name: SERVINGS });
 		await servings.selectOption("2");
 		await page
-			.getByText("Net carbs per 2 servings", { exact: true })
+			.getByText("Net carbs per serving", { exact: true })
 			.first()
 			.waitFor();
 		assert.equal(await servings.inputValue(), "2");

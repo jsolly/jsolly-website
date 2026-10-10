@@ -72,6 +72,7 @@
 			<h2>{document.nutritionHeading}</h2>
 			<p>{nutritionSummary(document.nutrition)}</p>
 			<p>{document.nutritionNote}</p>
+			{#if document.sourceRecipe?.nutritionEstimate}<h3>Nutrition assumptions</h3><ul>{#each document.sourceRecipe.nutritionEstimate.assumptions as assumption (assumption)}<li>{assumption}</li>{/each}</ul>{/if}
 			<dl class="daily-values">
 				{#each dailyValues(recipes[i]) as nutrient (nutrient.key)}
 					<div><dt>{nutrient.label}</dt><dd>{nutrientAmount(nutrient.amount)} {nutrient.unit} · {nutrient.percent === null ? "—" : `${nutrient.percent}% DV`}</dd></div>

@@ -48,7 +48,7 @@ const SEARCH_URL = `${productionUrl}/blog/search/?searched=Svelte+5+Search%3A+Wh
 // A stand-in for every page the scenario visits, each with only the markup
 // it reads. The menus open with inline scripts, as the hydrated islands do.
 const PORTFOLIO_LINKS =
-	'<a href="/about/" aria-label="About John Solly">About</a><a href="/contact/" aria-label="Contact John Solly">Contact</a><a href="/blog/" aria-label="Blog by John Solly">Blog</a><a href="/recipes/" aria-label="Recipes by John Solly">Recipes</a>';
+	'<a href="/about/" aria-label="About John Solly">About</a><a href="/contact/" aria-label="Contact John Solly">Contact</a><a href="/blog/" aria-label="Blog by John Solly">Blog</a><a href="/recipes/" aria-label="My Recipes">My Recipes</a>';
 const PORTFOLIO_MENU = `<header><button aria-label="Toggle mobile menu" aria-expanded="false" onclick="const menu = document.getElementById('mobile-menu'); menu.hidden = !menu.hidden; this.setAttribute('aria-expanded', String(!menu.hidden))">Menu</button><nav id="mobile-menu" aria-label="Mobile navigation" hidden>${PORTFOLIO_LINKS}</nav></header>`;
 const BLOG_NAVIGATION =
 	// biome-ignore lint/security/noSecrets: stub HTML markup, not credential material.
