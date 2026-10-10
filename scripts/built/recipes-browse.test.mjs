@@ -75,6 +75,8 @@ after(async () => {
 });
 
 const hydrated = (page) => page.locator("[data-hydrated=true]").waitFor();
+const recipeReady = (page) =>
+	page.waitForFunction(() => !document.querySelector("astro-island[ssr]"));
 const stored = (page) =>
 	page.evaluate((key) => JSON.parse(localStorage.getItem(key)), STORAGE_KEY);
 
@@ -132,9 +134,9 @@ function detailsCheck(width) {
 				image: await body.locator(".recipe-photo img").getAttribute("src"),
 				flow: await body
 					.locator(".trn-table tr:not(.reset-checks-row)")
-					.allTextContents(),
+					.allInnerTexts(),
 				macros: await body.locator(".nutrition>dl").textContent(),
-				nutrients: await body.locator(".daily-values").allTextContents(),
+				nutrients: await body.locator(".daily-values:visible").allInnerTexts(),
 				family: await body.locator(".family-box p").allTextContents(),
 			});
 			const normalize = (value) =>
@@ -147,7 +149,7 @@ function detailsCheck(width) {
 				await staticPage.goto(`${site.origin}/recipes/${recipe.id}/`);
 				const live = page.locator(".recipe-detail .recipe-body");
 				try {
-					await live.locator(".reset-checks-row").waitFor();
+					await recipeReady(page);
 				} catch (error) {
 					const state = await page.evaluate(() => {
 						const row = document.querySelector(
@@ -204,7 +206,7 @@ function detailsCheck(width) {
 			try {
 				const received = await receiver.newPage();
 				await received.goto(shared.href);
-				await received.locator(".reset-checks-row").waitFor();
+				await recipeReady(received);
 				assert.match(
 					await received.locator(".family-box p").textContent(),
 					PITA_SIDE,
@@ -231,7 +233,7 @@ function detailsCheck(width) {
 			try {
 				const reopened = await fresh.newPage();
 				await reopened.goto(changed.href);
-				await reopened.locator(".reset-checks-row").waitFor();
+				await recipeReady(reopened);
 				assert.match(
 					await reopened.locator(".family-box p").textContent(),
 					RICE_SIDE,
@@ -477,7 +479,7 @@ function filtersCheck(width) {
 					.getByRole("link", { name: "Avocado-lime smoothie", exact: true })
 					.click(),
 			]);
-			await page.locator(".recipe-detail .reset-checks-row").waitFor();
+			await recipeReady(page);
 			await page.getByRole("button", { name: LEARN_MORE, exact: true }).click();
 			await page.locator(".method-dialog").waitFor();
 			await page.keyboard.press("Escape");
@@ -700,9 +702,9 @@ function collectionsCheck(width) {
 			await firstCheck.check();
 			assert.equal(await firstCheck.isChecked(), true);
 			await page.locator(".nutrient-disclosure summary").click();
-			await page.locator(".recipe-body .daily-values").waitFor();
+			await page.locator(".recipe-body .daily-values:visible").waitFor();
 			assert.equal(
-				await page.locator(".recipe-body .daily-values").isVisible(),
+				await page.locator(".recipe-body .daily-values:visible").isVisible(),
 				true,
 			);
 			await Promise.all([
@@ -747,7 +749,7 @@ function collectionsCheck(width) {
 					.getByRole("link", { name: "See recipe", exact: true })
 					.click(),
 			]);
-			await enhanced.locator(".reset-checks-row").waitFor();
+			await recipeReady(enhanced);
 			assert.match(
 				await enhanced.locator(".detail-facts").textContent(),
 				EIGHT_SERVINGS,

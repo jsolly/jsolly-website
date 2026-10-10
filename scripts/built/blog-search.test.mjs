@@ -114,7 +114,7 @@ it("a reader arriving with ?searched=django sees that query and published django
 	try {
 		const { page, errors } = await openSearch(context, "?searched=django");
 		const django = await results(page);
-		assert.equal(await heading(page), "You searched for 'django'");
+		assert.equal(await heading(page), "Search posts");
 		const searchbox = page.getByRole("searchbox", { name: "Search articles" });
 		assert.equal(await searchbox.inputValue(), "django");
 		assert.deepEqual(listing(django), LISTED, "django");
@@ -136,7 +136,7 @@ it("a reader arriving with ?searched=django sees that query and published django
 			.getByRole("status")
 			.getByText(countLine(typed.length), { exact: true })
 			.waitFor();
-		assert.equal(await heading(page), "You searched for 'django'");
+		assert.equal(await heading(page), "Search posts");
 
 		await Promise.all([
 			page.waitForURL(
@@ -150,7 +150,7 @@ it("a reader arriving with ?searched=django sees that query and published django
 			() => !document.querySelector("astro-island[ssr]"),
 		);
 		const htmx = await results(page);
-		assert.equal(await heading(page), "You searched for 'htmx'");
+		assert.equal(await heading(page), "Search posts");
 		assert.deepEqual(listing(htmx), LISTED, "htmx");
 		assert.match(htmx.firstTitle, HTMX, "a title match ranks first");
 		assert.deepEqual(errors, []);
@@ -164,7 +164,7 @@ it("a reader whose query matches nothing is told so with no cards", async () => 
 	try {
 		const { page, errors } = await openSearch(context, "?searched=zzzznomatch");
 		const none = await results(page);
-		assert.equal(await heading(page), "You searched for 'zzzznomatch'");
+		assert.equal(await heading(page), "Search posts");
 		assert.equal(none.count, "0 results");
 		assert.deepEqual(none.hrefs, []);
 		assert.equal(await page.getByText(NO_MATCH, { exact: true }).count(), 1);

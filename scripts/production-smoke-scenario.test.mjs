@@ -80,7 +80,7 @@ const SITE = {
 	"/contact/": `${PORTFOLIO_MENU}<main><h1>Contact John</h1></main>`,
 	"/blog/": `${BLOG_NAVIGATION}<main><h1>Latest Posts!</h1>${POST_LIST}</main>`,
 	[POST]: POST_PAGE,
-	"/blog/search/": `${BLOG_NAVIGATION}<main><h1>You searched for '${TITLE_HTML}'</h1><div role="status"><p>1 result</p></div><div class="post-list">${postCard(POST, TITLE_HTML)}</div></main>`,
+	"/blog/search/": `${BLOG_NAVIGATION}<main><h1>Search posts</h1><div role="status"><p>1 result</p></div><div class="post-list">${postCard(POST, TITLE_HTML)}</div></main>`,
 	"/blog/rss.xml": {
 		type: "application/rss+xml; charset=utf-8",
 		body: `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Solly's Blog</title><item><title>${TITLE_HTML}</title></item></channel></rss>`,
@@ -229,7 +229,7 @@ it("a search that does not list the article just read fails", async () => {
 	await assert.rejects(
 		runAgainstStubs({
 			pages: {
-				"/blog/search/": `${BLOG_NAVIGATION}<main><h1>You searched for '${TITLE_HTML}'</h1><div role="status"><p>1 result</p></div><div class="post-list">${postCard("/blog/astro-islands-in-practice/", "Astro Islands in Practice")}</div></main>`,
+				"/blog/search/": `${BLOG_NAVIGATION}<main><h1>Search posts</h1><div role="status"><p>1 result</p></div><div class="post-list">${postCard("/blog/astro-islands-in-practice/", "Astro Islands in Practice")}</div></main>`,
 			},
 		}),
 		MISSING_RESULT,

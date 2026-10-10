@@ -4,7 +4,8 @@
 	.category-toggle {
 		display: none;
 	}
-	.category-options {
+	.category-options[data-state="closed"] {
+		display: block;
 		position: static;
 		width: 100%;
 		max-height: none;
