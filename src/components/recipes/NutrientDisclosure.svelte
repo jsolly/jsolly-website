@@ -28,8 +28,7 @@
 		{/each}
 	</dl>
 {/snippet}
-{#if interactive}
-	<CollapsibleRoot class="nutrient-disclosure">
+	<CollapsibleRoot class="nutrient-disclosure recipe-enhanced" disabled={!interactive}>
 		<svelte:element this={`h${headingLevel}`} class="nutrient-heading"
 			><CollapsibleTrigger class="nutrient-trigger">
 				<span>Vitamins &amp; minerals<small>{preview}</small></span>
@@ -40,9 +39,9 @@
 			{@render stats()}
 		</CollapsibleContent>
 	</CollapsibleRoot>
-{:else}
+<noscript>
 	<details class="nutrient-disclosure"><summary>Vitamins &amp; minerals<small>{preview}</small></summary>{@render stats()}</details>
-{/if}
+</noscript>
 
 <style>
 	/* Every recipe stylesheet declares the full order (as the blog sheets do), so

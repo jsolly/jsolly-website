@@ -1,10 +1,13 @@
 ---
 // The recipe library island with its no-JavaScript fallback styles, on
 // /recipes/ and the meals and smoothies pages. `collection` picks the cards
-// shown first; every page passes all 21 recipes, so a #<recipe-id> link opens
+// shown first; every page passes all recipes, so a #<recipe-id> link opens
 // any recipe, smoothies included (plan §1.6).
+
+import { buildReleaseSha } from "../../lib/build-release.js";
 import noScriptStyles from "../../styles/recipes/recipes-no-script.css?url";
 import RecipeLibrary from "./RecipeLibrary.svelte";
+import { shuffleRecipes } from "./recipe-logic.mjs";
 import data from "./recipes.json" with { type: "json" };
 
 interface Props {
@@ -12,7 +15,15 @@ interface Props {
 }
 
 const { collection = "meal" } = Astro.props;
+// Mix discovery once per release, then serialize the same order for hydration.
+// A commit seed keeps repeated and isolated builds reproducible.
+let seed = Number.parseInt(buildReleaseSha().slice(0, 8), 16);
+const recipes = data.recipes;
+const discoveryOrder = shuffleRecipes(recipes, () => {
+	seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+	return seed / 2 ** 32;
+}).map((recipe) => recipe.id);
 ---
 
 <noscript><link rel="stylesheet" href={noScriptStyles} /></noscript>
-<div class="recipe-experience"><RecipeLibrary recipes={data.recipes} initialCollection={collection} pathname={Astro.url.pathname} client:load /></div>
+<div class="recipe-experience"><RecipeLibrary {recipes} {discoveryOrder} initialCollection={collection} pathname={Astro.url.pathname} client:load /></div>

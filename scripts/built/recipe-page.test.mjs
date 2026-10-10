@@ -148,14 +148,16 @@ function pageChecks({ kind, id, familySides }) {
 			await page.goto(`${site.origin}/recipes/${id}/`);
 			const detail = page.locator(".recipe-detail");
 			const firstCheck = detail.locator(NATIVE_CHECKBOX).first();
-			await detail.locator("th.trn-ingredient label").first().click();
+			await detail.locator("th.trn-ingredient label:visible").first().click();
 			const disclosure = detail.locator("details.nutrient-disclosure");
 			await disclosure.locator("summary").click();
 			assert.deepEqual(
 				{
 					nativeChecks: (await detail.locator(NATIVE_CHECKBOX).count()) > 0,
 					labelTicksBox: await firstCheck.isChecked(),
-					shadcnChecks: await detail.locator("[data-slot=checkbox]").count(),
+					shadcnChecks: await detail
+						.locator("[data-slot=checkbox]:visible")
+						.count(),
 					detailsOpen: await disclosure.evaluate((element) => element.open),
 					familySelect:
 						(await detail.locator(".family-box select").count()) > 0,
@@ -199,7 +201,7 @@ function pageChecks({ kind, id, familySides }) {
 			await first.click();
 			// The label's ingredient text, not the box, takes the second click.
 			await detail
-				.locator("th.trn-ingredient label")
+				.locator("th.trn-ingredient label:visible")
 				.nth(1)
 				.locator("strong")
 				.click();
@@ -317,6 +319,21 @@ it("Print recipe prints only the recipe copy and restores the page once printing
 				document.documentElement.getAttribute("data-recipe-print"),
 			),
 			copyShown: await page.locator(".print-document").isVisible(),
+			printControls: await page.locator(".print-document button").count(),
+			paperChecks: await page
+				.locator(".print-document .trn-ingredient")
+				.evaluateAll(
+					(rows) =>
+						rows.length > 0 &&
+						rows.every((row) => {
+							const box = row.querySelector(".paper-check");
+							return (
+								box?.checkVisibility() &&
+								getComputedStyle(box).borderTopStyle === "solid" &&
+								box.getBoundingClientRect().width > 0
+							);
+						}),
+				),
 			pageHidden: await page.locator(".recipe-detail").isHidden(),
 			breadcrumbsHidden: await page.locator(".breadcrumbs").isHidden(),
 			headerHidden: await page.locator("#site-header").isHidden(),
@@ -342,6 +359,8 @@ it("Print recipe prints only the recipe copy and restores the page once printing
 				prints: 1,
 				mode: "recipe",
 				copyShown: true,
+				printControls: 0,
+				paperChecks: true,
 				pageHidden: true,
 				breadcrumbsHidden: true,
 				headerHidden: true,

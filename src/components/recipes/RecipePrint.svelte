@@ -38,7 +38,7 @@
 			<p class="important">{document.capacity}</p>
 			<p>{document.timingNote}</p>
 			<p class="small">{document.disclaimer}</p>
-			<RecipeFlow recipe={recipes[i]} {settings} interactive={false} headingLevel={2} />
+			<RecipeFlow recipe={recipes[i]} {settings} printOnly headingLevel={2} />
 			<h2>Ingredients</h2>
 			<ul class="ingredient-list">
 				{#each document.ingredients as ingredient, index (index)}

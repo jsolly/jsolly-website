@@ -235,14 +235,11 @@ const FULL_REUSE_PAGES = [
 	"/blog/",
 	"/blog/works-cited/",
 	"/blog/search/",
-	// The recipe library hydrates in place too; its cards' shuffle on mount
-	// moves the keyed card nodes rather than replacing them.
+	// Recipe collections retain the build's card order through hydration.
 	"/recipes/meals/",
 	"/recipes/",
 ];
-// A recipe page legitimately replaces part of its server render on mount (it
-// turns interactive: shadcn-svelte controls replace the native fallbacks), so
-// it is held to parity with the unprocessed build only (plan §4.5). Greek
+// Also compare a recipe page against the unprocessed build. Greek
 // turkey patties has a family side, so its island includes the side select.
 // Its title and flow table are not replaced, so they must survive hydration
 // whatever the parity count says.

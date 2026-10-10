@@ -116,10 +116,16 @@ There is no generated article: the pages render straight from `recipes.json`
 ## Pages and settings
 
 Each recipe page server-renders one recipe body at four servings with the
-default family side. JavaScript then adds scaling, the side choice, the cooking
-checks and share links (`?servings=` and `?starch=<id>:<side>`). Without
+default family side. Enhanced controls render disabled, then JavaScript enables
+scaling, the side choice, the cooking checks and share links
+(`?servings=` and `?starch=<id>:<side>`). Native fallbacks live in `<noscript>`,
+so hydration never replaces a disclosure or cooking check in use. Without
 JavaScript, native ingredient checkboxes and nutrient disclosures still work,
 and the collection pages show only the collection links and the cards.
+
+Collection cards are shuffled once per release using the build commit as the
+seed. Server rendering and hydration keep that order, so cards do not move on
+load. Restoring saved filters or servings can still update their contents.
 
 The library saves `{ servings, filters, appliancesOnHand, familyChoice }` in
 `localStorage` under `recipes-settings-v1` (J13). The old blogthedata.com key is
