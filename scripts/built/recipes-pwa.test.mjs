@@ -497,6 +497,10 @@ it("A maintenance deploy or a failed replacement keeps the previous offline snap
 	const context = await browser.newContext();
 	try {
 		const page = await context.newPage();
+		const consoleErrors = [];
+		page.on("console", (message) => {
+			if (message.type() === "error") consoleErrors.push(message.text());
+		});
 		await navigateHydrated(page, `${site.origin}${LANDING}`);
 		await statusText(page, SAVED);
 		// A maintenance deploy has no worker: the update check 404s and the
@@ -530,6 +534,12 @@ it("A maintenance deploy or a failed replacement keeps the previous offline snap
 			await (await navigator.serviceWorker.getRegistration()).update();
 		});
 		await statusText(page, "Update download failed.");
+		assert.ok(
+			consoleErrors.some((text) =>
+				text.includes("Recipe update download failed:"),
+			),
+			"a failed replacement emits an error-level diagnostic",
+		);
 		await context.setOffline(true);
 		await navigateHydrated(page);
 		await statusText(page, OFFLINE);

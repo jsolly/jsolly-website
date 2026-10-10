@@ -6,4 +6,4 @@ import { blogContent } from "../../lib/blog/content.js";
 
 const { posts } = await blogContent();
 ---
-<BlogLayout title="All posts" section="blog"><h1>All Posts!</h1><p>{posts.length} articles on development, spatial computing and productivity.</p><PostCards posts={cards(posts)} /></BlogLayout>
+<BlogLayout title="All posts" description="Browse the complete archive of John Solly’s articles on development, spatial computing, AI and productivity." section="blog"><h1>All Posts!</h1><p>{posts.length} articles on development, spatial computing and productivity.</p><PostCards posts={cards(posts)} /></BlogLayout>
