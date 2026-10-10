@@ -16,17 +16,17 @@
 	import RecipeCard from "./RecipeCard.svelte";
 	import RecipePrint from "./RecipePrint.svelte";
 	import RecipeTakeover from "./RecipeTakeover.svelte";
-	import { shuffleRecipes, validateSettings } from "./recipe-logic.mjs";
+	import { validateSettings } from "./recipe-logic.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
 	import { readRecipeURL, recipeHref } from "./recipe-url.mjs";
 
 	// The recipe library on /recipes/ and the meals and smoothies pages. The
-	// server render lists the collection's recipes in recipes.json order with
+	// server render lists the collection's recipes in the build's order with
 	// every control disabled; on mount it restores the saved settings (J13:
 	// localStorage key recipes-settings-v1), reads a share link or #<recipe-id>,
-	// shuffles the cards and opens a linked recipe in a full-screen dialog.
+	// opens a linked recipe in a full-screen dialog.
 	// `pathname` is the page's path, for the collection links' aria-current.
-	let { recipes, initialCollection = "meal", pathname } = $props();
+	let { recipes, discoveryOrder, initialCollection = "meal", pathname } = $props();
 	const NO_RESULTS = "No recipes match these appliances and filters.";
 
 	// The saved settings: servings, the filters, the appliances on hand and
@@ -47,14 +47,14 @@
 	let recipeDialog = $state(null);
 	let lastOpenedId = "";
 	let listHeading = $state(null);
-	// recipes.json order until mount shuffles it, so the server render and
-	// the first client render agree.
-	let results = $state(untrack(() => recipes));
 
 	const smoothieIngredients = $derived(smoothieIngredientChoices(recipes));
 	const collectionRecipes = $derived(
 		recipes.filter((recipe) => recipe.type === collection),
 	);
+	// Discovery order belongs to the cards; print packets keep source order.
+	const recipesById = $derived(new Map(recipes.map((recipe) => [recipe.id, recipe])));
+	const discoveryRecipes = $derived(discoveryOrder.map((id) => recipesById.get(id)));
 	const collectionHasIron = $derived(
 		collectionRecipes.some((recipe) => nutrientFilters(recipe, servings).iron),
 	);
@@ -75,13 +75,10 @@
 		omega: filters.omega3,
 		appliances: appliancesOnHand,
 	});
-	const eligibleRecipes = $derived(
-		collectionRecipes.filter((recipe) =>
-			matchesRecipe(recipe, servings, filterSettings),
-		),
-	);
 	const visibleRecipes = $derived(
-		results.filter((recipe) => eligibleRecipes.includes(recipe)),
+		discoveryRecipes.filter((recipe) =>
+			recipe.type === collection && matchesRecipe(recipe, servings, filterSettings),
+		),
 	);
 	const current = $derived(recipes.find((recipe) => recipe.id === recipeId));
 	// What the cards, the dialog and the print copy show each recipe with.
@@ -197,7 +194,6 @@
 		restoreSettings();
 		readURL();
 		setCollection(collection);
-		results = shuffleRecipes(recipes);
 		hydrated = true;
 		if (recipeId) void openRecipe(recipeId);
 		const stopPrint = printSession.listen();

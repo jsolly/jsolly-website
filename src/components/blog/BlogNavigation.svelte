@@ -11,11 +11,11 @@
     categories: { slug: string; name: string; count: number }[];
     pathname: string;
   } = $props();
-  // An expanded server render keeps every category reachable without JavaScript.
-  // forceMount retains the same links when hydration closes the disclosure.
-  let open = $state(true);
+  // Keep first paint and hydration closed. forceMount keeps the links in the
+  // server render; the no-script stylesheet expands them without JavaScript.
+  let open = $state(false);
   let hydrated = $state(false);
-  onMount(() => { open = false; hydrated = true; });
+  onMount(() => { hydrated = true; });
 </script>
 
 <nav class="blog-toolbar" aria-label="Blog navigation">

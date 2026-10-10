@@ -4,7 +4,7 @@
 
 	// Shares the recipe link with the reader's servings and family side: the
 	// share sheet where there is one, else the clipboard, else the link itself.
-	let { recipe, settings } = $props();
+	let { recipe, settings, disabled = false } = $props();
 	let message = $state("");
 	let fallbackUrl = $state("");
 
@@ -32,7 +32,7 @@
 </script>
 
 <div class="recipe-share">
-	<Button variant="outline" onclick={share}>Share recipe</Button>
+	<Button variant="outline" {disabled} onclick={share}>Share recipe</Button>
 	<p role="status">{message}{#if fallbackUrl} <a href={fallbackUrl}>{fallbackUrl}</a>{/if}</p>
 </div>
 

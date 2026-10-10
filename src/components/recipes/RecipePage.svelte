@@ -10,8 +10,8 @@
 	import { readRecipeURL } from "./recipe-url.mjs";
 	import ShareRecipe from "./ShareRecipe.svelte";
 
-	// One recipe's page (/recipes/<id>/). The server render is the no-JavaScript
-	// page; on mount it reads ?servings= and ?starch= and turns interactive.
+	// Render the controls before hydration, disabled until their handlers are
+	// ready. Native fallbacks live in noscript and never get replaced on load.
 	let { recipe } = $props();
 	const servingsId = $props.id();
 	let interactive = $state(false);
@@ -60,24 +60,19 @@
 	<section class="recipe-detail" id={recipe.id}>
 		<div class="toolbar">
 			<a href={`/recipes/${collection}/`}>← Back to {collection}</a>
-			{#if interactive}<Button variant="outline" onclick={print}>Print recipe</Button>{/if}
+			<Button variant="outline" class="recipe-enhanced" disabled={!interactive} onclick={print}>Print recipe</Button>
 		</div>
 		<span class="badge">{groupBadges[recipe.group]}</span>
 		<h1>{recipe.title}</h1>
 		<p>{recipe.summary}</p>
-		{#if interactive}
-			<label class="servings" for={servingsId}
-				>Servings<NativeSelect id={servingsId} value={settings.servings} onchange={(event) => setServings(event.currentTarget.value)}>
+			<label class="servings recipe-enhanced" for={servingsId}
+				>Servings<NativeSelect id={servingsId} value={settings.servings} disabled={!interactive} onchange={(event) => setServings(event.currentTarget.value)}>
 					{#each SERVING_CHOICES as choice (choice)}<option value={choice}>{choice}</option>{/each}
 				</NativeSelect></label
 			>
-		{/if}
 		<RecipeBody {recipe} {settings} {interactive} headingLevel={2} onSideChange={setSide} />
-		{#if interactive}
-			<ShareRecipe {recipe} {settings} />
-		{:else}
-			<div class="share"><a href={`/recipes/${recipe.id}/`}>Share recipe link</a></div>
-		{/if}
+		<div class="recipe-enhanced"><ShareRecipe {recipe} {settings} disabled={!interactive} /></div>
+		<noscript><div class="share"><a href={`/recipes/${recipe.id}/`}>Share recipe link</a></div></noscript>
 		<p role="status">{message}</p>
 	</section>
 	<div class="print-output"><RecipePrint recipes={[recipe]} {settings} /></div>

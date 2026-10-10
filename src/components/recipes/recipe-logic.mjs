@@ -123,7 +123,7 @@ export function temperature(fahrenheit, units = "us", safety = false) {
 	return `${shown}°C (${original})`;
 }
 
-/** Shuffle a copy once per visit, preserving the canonical recipe collection. */
+/** Shuffle a copy, preserving the canonical recipe collection. */
 export function shuffleRecipes(recipes, random = Math.random) {
 	const result = [...recipes];
 	for (let i = result.length - 1; i > 0; i--) {

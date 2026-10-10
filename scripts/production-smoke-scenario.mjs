@@ -167,7 +167,7 @@ async function searchFor({ page, verifyHttp, title, postPath }) {
 			url.searchParams.get("searched") === title,
 	);
 	await page
-		.getByRole("heading", { name: `You searched for '${title}'`, exact: true })
+		.getByRole("heading", { name: "Search posts", exact: true })
 		.waitFor();
 	await page.getByRole("status").filter({ hasText: RESULT_COUNT }).waitFor();
 	assert.ok(

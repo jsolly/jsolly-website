@@ -10,7 +10,7 @@
 
 	// The recipe's Tabular Recipe Notation table. Interactive, each ingredient
 	// row has a check to tick as it goes in; the printed copy has plain boxes.
-	let { recipe, settings, interactive = true, headingLevel = 3 } = $props();
+	let { recipe, settings, interactive = true, printOnly = false, headingLevel = 3 } = $props();
 	const uid = $props.id();
 	const headingId = `${uid}-heading`;
 	const helpId = `${uid}-help`;
@@ -33,6 +33,11 @@
 	}
 </script>
 
+{#snippet ingredient(cell)}
+	<span><strong>{cell.text}</strong> {cell.name}{#if ingredientIcon(cell.name)}
+		<span class="ingredient-icon" aria-hidden="true">{ingredientIcon(cell.name)}</span>{/if}<small>{cell.state}</small></span>
+{/snippet}
+
 <section class="trn-view">
 	<div class="flow-toolbar"><svelte:element this={`h${headingLevel}`} id={headingId} class="flow-heading">{recipe.type === "smoothie" ? "Preparation flow" : "Cooking flow"}</svelte:element></div>
 	<p class="trn-help" id={helpId}>Read left to right. Each merged cell acts on the ingredient rows feeding into it. Parallel branches stay separate until plating.</p>
@@ -44,18 +49,22 @@
 			<table class="trn-table">
 				<tbody>
 					{#each grid.prep as text, i (i)}<tr><td colspan={grid.columns} class="trn-prep">{text}</td></tr>{/each}
-					{#if interactive}<tr class="reset-checks-row"><td colspan={grid.columns}><Button variant="ghost" class="reset-checks" type="button" onclick={() => (checks = [])}>Reset cooking checks</Button></td></tr>{/if}
+					{#if !printOnly}<tr class="reset-checks-row recipe-enhanced"><td colspan={grid.columns}><Button variant="ghost" class="reset-checks" type="button" disabled={!interactive} onclick={() => (checks = [])}>Reset cooking checks</Button></td></tr>{/if}
 					{#each grid.rows as row, i (i)}
 						<tr>
 							{#each row.cells as cell (cell.col)}
 								{#if cell.kind === "ingredient"}
 									<th scope="row" colspan={cell.colspan} class="trn-ingredient" class:checked={checks.includes(i)}>
-										<label for={`${uid}-${i}`}
-											>{#if interactive}<Checkbox id={`${uid}-${i}`} checked={checks.includes(i)} onCheckedChange={() => toggle(i)} />{:else}<input id={`${uid}-${i}`} type="checkbox" />{/if}<span
-												><strong>{cell.text}</strong> {cell.name}{#if ingredientIcon(cell.name)}
-													<span class="ingredient-icon" aria-hidden="true">{ingredientIcon(cell.name)}</span>{/if}<small>{cell.state}</small></span
-											></label
-										>
+									{#if printOnly}
+										<div class="ingredient-label"><span class="paper-check" aria-hidden="true"></span>{@render ingredient(cell)}</div>
+									{:else}
+									<!-- biome-ignore lint/a11y/noLabelWithoutControl: The ingredient snippet supplies the label text. -->
+									<label class="recipe-enhanced" for={`${uid}-${i}`}><span class="paper-check" aria-hidden="true"></span><Checkbox id={`${uid}-${i}`} checked={checks.includes(i)} disabled={!interactive} onCheckedChange={() => toggle(i)} />{@render ingredient(cell)}</label>
+									<noscript>
+										<!-- biome-ignore lint/a11y/noLabelWithoutControl: The ingredient snippet supplies the label text. -->
+										<label for={`${uid}-${i}-native`}><input id={`${uid}-${i}-native`} type="checkbox" />{@render ingredient(cell)}</label>
+									</noscript>
+									{/if}
 									</th>
 								{:else}
 									<td rowspan={cell.rowspan} colspan={cell.colspan} class="trn-operation">{cell.text}</td>
@@ -67,8 +76,8 @@
 			</table>
 		</section>
 	</div>
-	{#if interactive}
-		<Button variant="ghost" class="learn-method" type="button" onclick={() => (methodOpen = true)}>Learn more about Tabular Recipe Notation</Button>
+	{#if !printOnly}
+		<Button variant="ghost" class="learn-method recipe-enhanced" type="button" disabled={!interactive} onclick={() => (methodOpen = true)}>Learn more about Tabular Recipe Notation</Button>
 		<DialogRoot bind:open={methodOpen}>
 			<DialogContent bind:ref={methodContent} class="method-dialog" tabindex={-1} showCloseButton={false} onOpenAutoFocus={focusMethodDialog}>
 				<DialogTitle>Tabular Recipe Notation</DialogTitle>
@@ -80,8 +89,9 @@
 				<Button variant="outline" onclick={() => (methodOpen = false)}>Close and continue recipe</Button>
 			</DialogContent>
 		</DialogRoot>
-	{:else}
+	<noscript>
 		<a class="learn-method" href="https://www.cookingforengineers.com/">Learn more about Tabular Recipe Notation <span aria-hidden="true">↗</span></a>
+	</noscript>
 	{/if}
 </section>
 
@@ -136,11 +146,15 @@
 			line-height: 1;
 			vertical-align: baseline;
 		}
-		.trn-ingredient label {
+		.trn-ingredient label,
+		.ingredient-label {
 			display: flex;
 			align-items: flex-start;
 			gap: 8px;
 			font-weight: 400;
+		}
+		.paper-check {
+			display: none;
 		}
 		/* The blog's button rule would make the bits-ui checkbox (a <button>) a
 		   filled pill; this draws it as a checkbox, filled only when checked. Its
@@ -262,6 +276,13 @@
 			background: var(--recipe-flow-prep);
 		}
 		@media print {
+			.paper-check {
+				display: inline-block;
+				width: 9pt;
+				height: 9pt;
+				flex-shrink: 0;
+				border: 1px solid #000;
+			}
 			.reset-checks-row,
 			:global(.learn-method),
 			:global(.method-dialog),
