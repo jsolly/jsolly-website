@@ -159,7 +159,8 @@
 	}
 	.mobile-menu-clip {
 		min-height: 0;
-		overflow: hidden;
+		/* Clip without a scroll container that can shift links during expansion. */
+		overflow: clip;
 	}
 	@media (min-width: 768px) {
 		.mobile-menu {
