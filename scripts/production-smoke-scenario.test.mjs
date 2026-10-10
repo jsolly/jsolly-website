@@ -3,9 +3,18 @@ import it from "node:test";
 import { chromium } from "playwright";
 import {
 	productionUrl,
+	serviceWorker,
 	smoke,
 	verifyRelease,
 } from "./production-smoke-scenario.mjs";
+
+it("production smoke opts into the exact recipe worker and scope", () => {
+	assert.deepEqual(serviceWorker, {
+		page: "/recipes/",
+		scope: "/recipes/",
+		script: "/recipes/service-worker.js",
+	});
+});
 
 const STALE_RELEASE = /Canonical site must serve the intended release/u;
 const MENU_NEVER_OPENS = /Timeout[\s\S]*Mobile navigation/u;

@@ -8,6 +8,8 @@ Production URL: <https://www.jsolly.com>
 
 Production verification follows Vercel READY and the public navigation, blog, recipe and Markdown behavior smoke. `/release.json` records the build SHA; smoke rejects stale or malformed live release identity before scenario interactions.
 
+After the ordinary worker-blocked scenario succeeds, a fresh worker-enabled context verifies that `/recipes/service-worker.js` activates at scope `/recipes/` and controls the recipe page after reload. This proves production installation and control; installed-app offline behavior remains separate evidence.
+
 Local gate before push: `npm run gate`.
 
 ## Purpose

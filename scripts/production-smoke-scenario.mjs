@@ -11,6 +11,13 @@ import { parseFrontmatter } from "astro/markdown";
 // 5. the RSS and Atom feeds with their XML Content-Types;
 // 6. the post asked for as Markdown answers Markdown with Vary: Accept (J11);
 // 7. the mobile menu's Recipes link, and the /recipes/ library hydrating.
+// A separate fresh context then verifies the recipe worker's activation and page control.
+export const serviceWorker = {
+	page: "/recipes/",
+	scope: "/recipes/",
+	script: "/recipes/service-worker.js",
+};
+
 const FULL_SHA = /^[a-f0-9]{40}$/u;
 
 const CONTACT_HEADING = /Contact/iu;
