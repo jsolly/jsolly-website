@@ -6,7 +6,6 @@ import {
 	DEFAULT_FILTERS,
 	defaultAppliances,
 	proteins,
-	recipeStarches,
 	starchOptions,
 } from "./constants.mjs";
 import { dailyNutrition, recordedOmega3 } from "./nutrition.mjs";
@@ -111,10 +110,7 @@ export function matchesRecipe(
 		hasAppliances(recipe, appliances) &&
 		selectedMatches(protein, recipe.proteinType) &&
 		selectedMatches(carb, recipe.group) &&
-		(!starch.length ||
-			starch.some((type) =>
-				(recipe.starches ?? recipeStarches[recipe.id])?.includes(type),
-			)) &&
+		(!starch.length || starch.some((type) => recipe.starches.includes(type))) &&
 		(!immune || flags.immune) &&
 		(!iron || flags.iron) &&
 		(!omega || flags.omega)

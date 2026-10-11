@@ -35,25 +35,26 @@ function ids(html) {
 
 async function processFixture() {
 	const dir = await mkdtemp(join(tmpdir(), "process-html-ids-"));
-	await Promise.all(
-		Object.entries(PAGES).map(async ([file, html]) => {
+	try {
+		for (const [file, html] of Object.entries(PAGES)) {
+			// biome-ignore lint/performance/noAwaitInLoops: Fixture writes must not outlive failure cleanup.
 			await mkdir(dirname(join(dir, file)), { recursive: true });
 			await writeFile(join(dir, file), html);
-		}),
-	);
-	await promisify(execFile)(process.execPath, ["process-html.mjs", dir], {
-		cwd: ROOT,
-	});
-	const out = Object.fromEntries(
-		await Promise.all(
-			Object.keys(PAGES).map(async (file) => [
-				file,
-				await readFile(join(dir, file), "utf8"),
-			]),
-		),
-	);
-	await rm(dir, { recursive: true, force: true });
-	return out;
+		}
+		await promisify(execFile)(process.execPath, ["process-html.mjs", dir], {
+			cwd: ROOT,
+		});
+		return Object.fromEntries(
+			await Promise.all(
+				Object.keys(PAGES).map(async (file) => [
+					file,
+					await readFile(join(dir, file), "utf8"),
+				]),
+			),
+		);
+	} finally {
+		await rm(dir, { recursive: true, force: true });
+	}
 }
 
 it("process-html leaves blog and recipe heading ids to the article renderer and still ids portfolio headings", async () => {

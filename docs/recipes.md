@@ -3,8 +3,8 @@
 The recipe library lives under `/recipes/`: the landing page `/recipes/`, the
 collection pages `/recipes/meals/` and `/recipes/smoothies/`, and one page per
 recipe at `/recipes/<recipe-id>/`. It comes from blogthedata.com's Easy Meals &
-Smoothies post, which will 301 to `/recipes/` once the old host is re-pointed at
-cutover step C2. The code map, test layout and
+Smoothies post, which redirects to `/recipes/` through the legacy host.
+The code map, test layout and
 invariants are in `AGENTS.md`; this file covers the data, the pipeline, the
 offline app and the old host's kill-switch.
 
@@ -79,6 +79,8 @@ ingredient, compacts successive actions on the same input, and computes
 non-overlapping rowspan and colspan cells. Family starch stays outside the base
 tree.
 
+Every recipe owns its `starches` categories in `recipes.json`; the library filter
+uses that metadata for main ingredients and available family sides.
 Maintain `recipes.json` and its unit, allergen and family metadata together. Do
 not make protein-critical yogurt or Parmesan optional without recalculating, and
 do not substitute frozen, raw or dry food states or sauce brands without
@@ -141,8 +143,7 @@ parameter ARN/type, keeps the key in memory and sends it in `X-Api-Key`, never a
 URL. Errors omit provider bodies and credential-bearing diagnostics. The command
 does not modify recipe data or run during builds, tests or browser requests.
 
-From this repo's root (the current worktree is
-`/Users/johnsolly/.codex/worktrees/website-dev/jsolly-website`):
+From this repo's root:
 
 ```bash
 npm run recipes:usda -- search "spinach raw"

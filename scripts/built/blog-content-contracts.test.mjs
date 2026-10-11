@@ -201,15 +201,13 @@ async function readImagePost() {
 
 before(async () => {
 	copy = await createTempCopy("content-contracts");
-	await Promise.all([
-		writePost(CMS_POST.slug, cmsSource(CMS_POST)),
-		writePost(IMAGE_POST.slug, cmsSource(IMAGE_POST)),
-		writePost(DRAFT_SLUG, DRAFT),
-		copyFile(
-			join(copy.dir, "public", DEFAULT_IMAGE),
-			join(copy.dir, "public", UPLOAD),
-		),
-	]);
+	await writePost(CMS_POST.slug, cmsSource(CMS_POST));
+	await writePost(IMAGE_POST.slug, cmsSource(IMAGE_POST));
+	await writePost(DRAFT_SLUG, DRAFT);
+	await copyFile(
+		join(copy.dir, "public", DEFAULT_IMAGE),
+		join(copy.dir, "public", UPLOAD),
+	);
 	requireSuccess(copy.npmRun("build"));
 	const [cms, draft, image] = await Promise.all([
 		readCmsPost(),
@@ -229,11 +227,10 @@ after(async () => {
 async function failingBuild(files) {
 	const paths = Object.keys(files).map((relative) => join(copy.dir, relative));
 	try {
-		await Promise.all(
-			Object.entries(files).map(([relative, contents]) =>
-				writeFile(join(copy.dir, relative), contents, { flag: "wx" }),
-			),
-		);
+		for (const [relative, contents] of Object.entries(files)) {
+			// biome-ignore lint/performance/noAwaitInLoops: Fixture writes must not outlive failure cleanup.
+			await writeFile(join(copy.dir, relative), contents, { flag: "wx" });
+		}
 		return copy.astroBuild();
 	} finally {
 		await Promise.all(paths.map((path) => rm(path, { force: true })));

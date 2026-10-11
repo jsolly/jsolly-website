@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import {
 	chmodSync,
+	existsSync,
 	mkdtempSync,
 	readFileSync,
 	realpathSync,
@@ -11,6 +12,7 @@ import { createServer } from "node:http";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import it from "node:test";
+import { setTimeout as wait } from "node:timers/promises";
 import {
 	fetchTransport,
 	vercelCurlTransport,
@@ -33,6 +35,7 @@ const WARM_UP_401 =
 // fails. /slow exits 28, /garbled prints no write-out, /moved answers 301,
 // and every other request answers 200 with a body written to the -o path.
 const FAKE_VERCEL = `#!/usr/bin/env node
+import { spawn } from "node:child_process";
 import { appendFileSync, readdirSync, writeFileSync } from "node:fs";
 const args = process.argv.slice(2);
 // Pinned CLI forwards --cwd to curl rather than consuming it.
@@ -46,6 +49,15 @@ const bypass = process.env.VERCEL_AUTOMATION_BYPASS_SECRET ?? null;
 const warmUp = args.includes("-v");
 appendFileSync(new URL("calls.jsonl", import.meta.url), JSON.stringify({ args, bypass, cwd, cwdEntries }) + "\\n");
 const url = new URL(args[1]);
+if (url.hostname === "hungstartup.invalid" || url.pathname === "/hung") {
+	const child = spawn(process.execPath, ["-e", "setInterval(() => {}, 1000)"], {stdio: "inherit"});
+	writeFileSync(new URL("hung-pids.json", import.meta.url), JSON.stringify([process.pid, child.pid]));
+	process.stderr.write("> x-vercel-protection-bypass: fake-token\\n");
+	// Bound the fixture even if the transport deadline regresses.
+	setTimeout(() => { child.kill("SIGKILL"); process.exit(99); }, 6000);
+	setInterval(() => {}, 1000);
+	await new Promise(() => {});
+}
 const marker = "\\nverify-blogthedata-cutover\\n";
 process.stdout.write("Vercel CLI 59.17.0\\nchatter before the write-out\\n");
 if (warmUp) {
@@ -161,6 +173,74 @@ it("The vercel-curl transport warms up once, then reads each answer past the CLI
 		rmSync(dir, { recursive: true, force: true });
 	}
 });
+
+function signalProcess(pid, signal) {
+	try {
+		process.kill(pid, signal);
+		return true;
+	} catch (error) {
+		if (error.code === "ESRCH") return false;
+		throw error;
+	}
+}
+
+for (const phase of ["startup", "request"]) {
+	it(`The vercel-curl ${phase} deadline fails and kills the CLI and its child`, async () => {
+		const dir = mkdtempSync(join(tmpdir(), "verify-cutover-deadline-"));
+		const pidsFile = join(dir, "hung-pids.json");
+		let pids = [];
+		try {
+			const bin = join(dir, "vercel.mjs");
+			writeFileSync(bin, FAKE_VERCEL);
+			chmodSync(bin, 0o755);
+			const scratch = mkdtempSync(join(dir, "scratch-"));
+			const options = { timeoutMs: 2000 };
+			await assert.rejects(
+				async () => {
+					const request = await vercelCurlTransport(
+						bin,
+						phase === "startup" ? "https://hungstartup.invalid" : STUB,
+						scratch,
+						options,
+					);
+					await request(`${STUB}/hung`, { body: false });
+				},
+				(error) => {
+					assert.equal(
+						error.message,
+						"vercel curl exceeded its 2000 ms deadline",
+					);
+					assert.equal(
+						error.transient,
+						undefined,
+						"CLI deadlines are not retried",
+					);
+					return true;
+				},
+			);
+			pids = JSON.parse(readFileSync(pidsFile, "utf8"));
+			// Child exit is causal evidence; bounded polling allows the OS to reap
+			// the descendant after the killed CLI closes its inherited pipes.
+			const reapedBy = Date.now() + 2000;
+			for (const pid of pids) {
+				while (signalProcess(pid, 0) && Date.now() < reapedBy) {
+					// biome-ignore lint/performance/noAwaitInLoops: observe OS process reaping, bounded above.
+					await wait(10);
+				}
+				assert.equal(
+					signalProcess(pid, 0),
+					false,
+					`timed-out process ${pid} still exists`,
+				);
+			}
+		} finally {
+			if (existsSync(pidsFile))
+				pids = JSON.parse(readFileSync(pidsFile, "utf8"));
+			for (const pid of pids) signalProcess(pid, "SIGKILL");
+			rmSync(dir, { recursive: true, force: true });
+		}
+	});
+}
 
 it("Fetch reports Vercel mitigation and Location without following a deny", async () => {
 	const server = createServer((_req, res) => {

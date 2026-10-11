@@ -292,7 +292,10 @@ function detailsCheck(width) {
 			await page.evaluate(() =>
 				Object.defineProperty(navigator, "clipboard", {
 					value: {
-						writeText: () => Promise.reject(new Error("Permission denied")),
+						writeText: () =>
+							Promise.reject(
+								new DOMException("Permission denied", "NotAllowedError"),
+							),
 					},
 				}),
 			);

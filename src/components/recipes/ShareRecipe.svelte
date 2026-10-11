@@ -19,15 +19,24 @@
 			} catch (error) {
 				if (error instanceof DOMException && error.name === "AbortError")
 					return;
+				if (!(error instanceof DOMException && error.name === "NotAllowedError")) {
+					console.error(`Sharing recipe ${recipe.id} failed.`, error);
+				}
 			}
 		}
-		try {
-			await navigator.clipboard.writeText(url.href);
-			message = "Recipe link copied.";
-		} catch {
-			fallbackUrl = url.href;
-			message = "Copy this recipe link:";
+		if (navigator.clipboard) {
+			try {
+				await navigator.clipboard.writeText(url.href);
+				message = "Recipe link copied.";
+				return;
+			} catch (error) {
+				if (!(error instanceof DOMException && error.name === "NotAllowedError")) {
+					console.error(`Copying recipe ${recipe.id} link failed.`, error);
+				}
+			}
 		}
+		fallbackUrl = url.href;
+		message = "Copy this recipe link:";
 	}
 </script>
 

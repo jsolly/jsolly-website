@@ -167,7 +167,12 @@ function blockSharing() {
 		configurable: true,
 	});
 	Object.defineProperty(Navigator.prototype, "clipboard", {
-		value: { writeText: () => Promise.reject(new Error("clipboard blocked")) },
+		value: {
+			writeText: () =>
+				Promise.reject(
+					new DOMException("clipboard blocked", "NotAllowedError"),
+				),
+		},
 		configurable: true,
 	});
 }
@@ -556,3 +561,116 @@ it("where the browser can neither share nor copy, Share recipe announces and sho
 		await close();
 	}
 });
+
+function recipeShareFailureCheck({ failure, result, diagnostic }) {
+	it(`recipe sharing handles ${failure} with a truthful outcome and error signal`, async () => {
+		const { page, errors, close } = await openHydrated(PAGE);
+		try {
+			const diagnostics = collectErrors(page);
+			await page.evaluate((scenario) => {
+				window.__copyCalls = 0;
+				Object.defineProperty(navigator, "share", {
+					value: ["cancel", "share-permission", "share-unexpected"].includes(
+						scenario,
+					)
+						? () => {
+								if (scenario === "cancel")
+									return Promise.reject(
+										new DOMException("Cancelled", "AbortError"),
+									);
+								if (scenario === "share-permission")
+									return Promise.reject(
+										new DOMException("Share denied", "NotAllowedError"),
+									);
+								return Promise.reject(new Error("Share service failed"));
+							}
+						: undefined,
+					configurable: true,
+				});
+				Object.defineProperty(navigator, "clipboard", {
+					value:
+						scenario === "unavailable"
+							? undefined
+							: {
+									writeText: () => {
+										window.__copyCalls += 1;
+										if (scenario === "copy-permission")
+											return Promise.reject(
+												new DOMException("Copy denied", "NotAllowedError"),
+											);
+										if (scenario === "copy-unexpected")
+											return Promise.reject(
+												new Error("Clipboard service failed"),
+											);
+										return Promise.resolve();
+									},
+								},
+					configurable: true,
+				});
+			}, failure);
+			const share = page.locator(".recipe-share");
+			await share.getByRole("button", { name: "Share recipe" }).click();
+			if (result)
+				await share.getByRole("status").filter({ hasText: result }).waitFor();
+			const status = await share.getByRole("status").textContent();
+			const manualLink = result === "Copy this recipe link:";
+			assert.equal(
+				manualLink
+					? status.replace(`${site.origin}${PAGE}?servings=4`, "").trim()
+					: status,
+				result,
+			);
+			assert.equal(
+				await page.evaluate(() => window.__copyCalls),
+				["cancel", "unavailable"].includes(failure) ? 0 : 1,
+			);
+			assert.deepEqual(
+				await share
+					.getByRole("link")
+					.evaluateAll((links) => links.map((link) => link.href)),
+				manualLink ? [`${site.origin}${PAGE}?servings=4`] : [],
+			);
+			assert.deepEqual(errors, []);
+			const expectedDiagnostic =
+				failure === "share-unexpected"
+					? `Sharing recipe ${PAGE.split("/")[2]} failed. Error: Share service failed`
+					: `Copying recipe ${PAGE.split("/")[2]} link failed. Error: Clipboard service failed`;
+			assert.deepEqual(
+				diagnostics.map((error) => error.split("\n")[0]),
+				diagnostic ? [expectedDiagnostic] : [],
+			);
+		} finally {
+			await close();
+		}
+	});
+}
+
+for (const scenario of [
+	{ failure: "cancel", result: "", diagnostic: null },
+	{
+		failure: "share-permission",
+		result: "Recipe link copied.",
+		diagnostic: null,
+	},
+	{
+		failure: "share-unexpected",
+		result: "Recipe link copied.",
+		diagnostic: "Sharing recipe",
+	},
+	{
+		failure: "copy-permission",
+		result: "Copy this recipe link:",
+		diagnostic: null,
+	},
+	{
+		failure: "copy-unexpected",
+		result: "Copy this recipe link:",
+		diagnostic: "Copying recipe",
+	},
+	{
+		failure: "unavailable",
+		result: "Copy this recipe link:",
+		diagnostic: null,
+	},
+])
+	recipeShareFailureCheck(scenario);

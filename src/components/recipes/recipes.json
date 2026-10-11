@@ -4,6 +4,7 @@
 	"recipes": [
 		{
 			"id": "lemon-salmon-and-asparagus",
+			"starches": ["none"],
 			"key": "salmon",
 			"title": "Lemon salmon and asparagus",
 			"group": "keto",
@@ -319,6 +320,7 @@
 		},
 		{
 			"id": "smoky-chicken-thighs-and-broccoli",
+			"starches": ["none"],
 			"key": "smoky_chicken",
 			"title": "Smoky chicken thighs and broccoli",
 			"group": "keto",
@@ -661,6 +663,7 @@
 		},
 		{
 			"id": "pesto-cod-and-zucchini",
+			"starches": ["none"],
 			"key": "cod",
 			"title": "Pesto cod and zucchini",
 			"group": "keto",
@@ -955,6 +958,7 @@
 		},
 		{
 			"id": "spinach-feta-and-hemp-frittata",
+			"starches": ["none"],
 			"key": "frittata",
 			"title": "Spinach, feta, and hemp frittata",
 			"group": "keto",
@@ -1346,6 +1350,7 @@
 		},
 		{
 			"id": "keto-zuppa-toscana",
+			"starches": ["none"],
 			"key": "zuppa",
 			"title": "Keto zuppa toscana",
 			"group": "keto",
@@ -1696,6 +1701,7 @@
 		},
 		{
 			"id": "shawarma-chicken-bowls",
+			"starches": ["rice", "bread"],
 			"key": "shawarma",
 			"title": "Shawarma chicken bowls",
 			"group": "shared",
@@ -2188,6 +2194,7 @@
 		},
 		{
 			"id": "sheet-pan-chicken-fajitas",
+			"starches": ["tortillas"],
 			"key": "fajitas",
 			"title": "Sheet-pan chicken fajitas",
 			"group": "shared",
@@ -2593,6 +2600,7 @@
 		},
 		{
 			"id": "salsa-verde-shredded-chicken",
+			"starches": ["rice"],
 			"key": "salsa_chicken",
 			"title": "Salsa verde shredded chicken",
 			"group": "shared",
@@ -2955,6 +2963,7 @@
 		},
 		{
 			"id": "greek-turkey-patties",
+			"starches": ["bread"],
 			"key": "turkey",
 			"title": "Greek turkey patties",
 			"group": "shared",
@@ -3387,6 +3396,7 @@
 		},
 		{
 			"id": "tomato-lentil-and-chicken-bake",
+			"starches": ["legumes"],
 			"key": "lentil_bake",
 			"title": "Tomato, lentil, and chicken bake",
 			"group": "nonketo",
@@ -3775,6 +3785,7 @@
 		},
 		{
 			"id": "harissa-chickpea-and-cauliflower-bowls",
+			"starches": ["legumes"],
 			"key": "chickpea",
 			"title": "Harissa chickpea and cauliflower bowls",
 			"group": "nonketo",
@@ -4142,6 +4153,7 @@
 		},
 		{
 			"id": "lemon-chicken-potatoes-and-green-beans",
+			"starches": ["potatoes"],
 			"key": "potato_chicken",
 			"title": "Lemon chicken, potatoes, and green beans",
 			"group": "nonketo",
@@ -4606,6 +4618,7 @@
 		},
 		{
 			"id": "sheet-pan-gnocchi-white-beans-and-broccoli",
+			"starches": ["pasta", "potatoes", "legumes"],
 			"key": "gnocchi",
 			"title": "Sheet-pan gnocchi, white beans, and broccoli",
 			"group": "nonketo",
@@ -5025,6 +5038,7 @@
 		},
 		{
 			"id": "pan-fried-greek-turkey-patties",
+			"starches": ["bread"],
 			"key": "pan_turkey",
 			"title": "Pan-fried Greek turkey patties",
 			"group": "shared",
@@ -5456,6 +5470,7 @@
 		},
 		{
 			"id": "avocado-lime-smoothie",
+			"starches": ["none"],
 			"key": "avocado-lime-smoothie",
 			"title": "Avocado-lime smoothie",
 			"group": "keto",
@@ -5638,6 +5653,7 @@
 		},
 		{
 			"id": "strawberry-avocado-smoothie",
+			"starches": ["fruit"],
 			"key": "strawberry-avocado-smoothie",
 			"title": "Strawberry-avocado smoothie",
 			"group": "keto",
@@ -5807,6 +5823,7 @@
 		},
 		{
 			"id": "strawberry-banana-smoothie",
+			"starches": ["fruit"],
 			"key": "strawberry-banana-smoothie",
 			"title": "Strawberry-banana smoothie",
 			"group": "nonketo",
@@ -5963,6 +5980,7 @@
 		},
 		{
 			"id": "banana-flax-smoothie",
+			"starches": ["fruit"],
 			"key": "banana-flax-smoothie",
 			"title": "Banana-flax smoothie",
 			"group": "nonketo",
@@ -6119,6 +6137,7 @@
 		},
 		{
 			"id": "strawberry-hemp-smoothie",
+			"starches": ["fruit"],
 			"key": "strawberry-hemp-smoothie",
 			"title": "Strawberry-hemp smoothie",
 			"group": "keto",
@@ -6288,6 +6307,7 @@
 		},
 		{
 			"id": "cucumber-spinach-lime-smoothie",
+			"starches": ["none"],
 			"key": "cucumber-spinach-lime-smoothie",
 			"title": "Cucumber-spinach-lime smoothie",
 			"group": "keto",
@@ -6491,6 +6511,7 @@
 		},
 		{
 			"id": "chicken-posole",
+			"starches": ["legumes"],
 			"key": "chicken_posole",
 			"title": "Chicken Posole (enchilada soup)",
 			"group": "nonketo",
