@@ -123,6 +123,7 @@ const structured = JSON.stringify({
 	// Copies the heading's address on the post's canonical (jsolly.com) URL,
 	// whichever host serves the page.
 	async function copyHeadingLink(link: HTMLAnchorElement) {
+		if (!navigator.clipboard) return;
 		const canonical =
 			document.querySelector<HTMLLinkElement>("link[rel=canonical]")?.href ??
 			window.location.href;
@@ -132,8 +133,11 @@ const structured = JSON.stringify({
 			);
 			const status = document.querySelector("#heading-copy-status");
 			if (status) announceCopy(status);
-		} catch {
+		} catch (error) {
 			// Following the fragment still works without clipboard permission.
+			if (!(error instanceof DOMException && error.name === "NotAllowedError")) {
+				console.error("Copying blog heading link failed.", error);
+			}
 		}
 	}
 

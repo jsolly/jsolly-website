@@ -1,9 +1,8 @@
 <script>
 	import { printGroupLabels } from "./constants.mjs";
-	import { dailyNutrition, nutrientAmount } from "./nutrition.mjs";
+	import { nutrientAmount } from "./nutrition.mjs";
 	import RecipeFlow from "./RecipeFlow.svelte";
 	import { nutritionSummary, recipeDocument } from "./recipe-export.mjs";
-	import { ingredientAmount } from "./recipe-logic.mjs";
 
 	// The printed copy of one or more recipes: hidden on screen, shown in print.
 	let { recipes = [], settings } = $props();
@@ -13,8 +12,8 @@
 
 
 	// The vitamins and minerals worth printing, highest daily value first.
-	function dailyValues(recipe) {
-		return dailyNutrition(recipe, settings.servings, ingredientAmount)
+	function dailyValues(nutrients) {
+		return nutrients
 			.filter((nutrient) => nutrient.amount !== null && nutrient.percent !== 0)
 			.sort((a, b) => (b.percent ?? -1) - (a.percent ?? -1));
 	}
@@ -74,7 +73,7 @@
 			<p>{document.nutritionNote}</p>
 			{#if document.sourceRecipe?.nutritionEstimate}<h3>Nutrition assumptions</h3><ul>{#each document.sourceRecipe.nutritionEstimate.assumptions as assumption (assumption)}<li>{assumption}</li>{/each}</ul>{/if}
 			<dl class="daily-values">
-				{#each dailyValues(recipes[i]) as nutrient (nutrient.key)}
+				{#each dailyValues(document.dailyNutrition) as nutrient (nutrient.key)}
 					<div><dt>{nutrient.label}</dt><dd>{nutrientAmount(nutrient.amount)} {nutrient.unit} · {nutrient.percent === null ? "—" : `${nutrient.percent}% DV`}</dd></div>
 				{/each}
 			</dl>

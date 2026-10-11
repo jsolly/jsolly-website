@@ -97,15 +97,10 @@ async function fixtureComparison() {
 	try {
 		const page = (ids) =>
 			`<!doctype html><main>${ids.map((id) => `<h2 id="${id}">${id}</h2>`).join("")}</main>`;
-		await Promise.all(
-			[
-				["new-a", page(["kept"])],
-				["new-b", page(["one", "two"])],
-			].map(async ([dir, html]) => {
-				await mkdir(join(root, dir));
-				await writeFile(join(root, dir, "index.html"), html);
-			}),
-		);
+		await mkdir(join(root, "new-a"));
+		await writeFile(join(root, "new-a/index.html"), page(["kept"]));
+		await mkdir(join(root, "new-b"));
+		await writeFile(join(root, "new-b/index.html"), page(["one", "two"]));
 		const redirect = (source, path) => ({
 			source,
 			action: "redirect-301",

@@ -205,13 +205,12 @@ before(async () => {
 	copy = await createTempCopy("hydration");
 	requireSuccess(copy.astroBuild());
 	const dist = join(copy.dir, "dist");
-	await Promise.all(
-		SYNTHETIC_PAGES.map(async (page) => {
-			const synthetic = join(dist, page);
-			await fs.mkdir(dirname(synthetic), { recursive: true });
-			await fs.writeFile(synthetic, SYNTHETIC_HTML);
-		}),
-	);
+	for (const page of SYNTHETIC_PAGES) {
+		const synthetic = join(dist, page);
+		// biome-ignore lint/performance/noAwaitInLoops: Fixture writes must not outlive failure cleanup.
+		await fs.mkdir(dirname(synthetic), { recursive: true });
+		await fs.writeFile(synthetic, SYNTHETIC_HTML);
+	}
 	const baseline = join(copy.dir, "baseline");
 	await fs.cp(dist, baseline, { recursive: true });
 	unprocessed = await pageComments(baseline);

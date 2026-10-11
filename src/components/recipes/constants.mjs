@@ -38,34 +38,6 @@ export const starchTypes = {
 	none: "No starch",
 	fruit: "Fruit",
 };
-export const recipeStarches = {
-	"lemon-salmon-and-asparagus": ["none"],
-	"smoky-chicken-thighs-and-broccoli": ["none"],
-	"pesto-cod-and-zucchini": ["none"],
-	"spinach-feta-and-hemp-frittata": ["none"],
-	"shawarma-chicken-bowls": ["rice", "bread"],
-	"sheet-pan-chicken-fajitas": ["tortillas"],
-	"salsa-verde-shredded-chicken": ["rice"],
-	"greek-turkey-patties": ["bread"],
-	"pan-fried-greek-turkey-patties": ["bread"],
-	"keto-zuppa-toscana": ["none"],
-	"avocado-lime-smoothie": ["none"],
-	"strawberry-avocado-smoothie": ["fruit"],
-	"strawberry-hemp-smoothie": ["fruit"],
-	"cucumber-spinach-lime-smoothie": ["none"],
-	"strawberry-banana-smoothie": ["fruit"],
-	"banana-flax-smoothie": ["fruit"],
-	"chicken-posole": ["legumes"],
-	"tomato-lentil-and-chicken-bake": ["legumes"],
-	"harissa-chickpea-and-cauliflower-bowls": ["legumes"],
-	"lemon-chicken-potatoes-and-green-beans": ["potatoes"],
-	"sheet-pan-gnocchi-white-beans-and-broccoli": [
-		"pasta",
-		"potatoes",
-		"legumes",
-	],
-};
-
 export const applianceChoices = {
 	"Instant Pot": "Pressure cookers",
 	Oven: "Oven",

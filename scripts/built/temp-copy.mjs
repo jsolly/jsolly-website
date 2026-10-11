@@ -70,13 +70,16 @@ async function linkModules(dir) {
 	const modules = join(dir, "node_modules");
 	await fs.mkdir(modules);
 	const entries = await fs.readdir(REAL_MODULES);
-	await Promise.all(
+	// The caller removes the directory on failure; no link may outlive that cleanup.
+	const results = await Promise.allSettled(
 		entries
 			.filter((entry) => !PRIVATE_CACHES.has(entry))
 			.map((entry) =>
 				fs.symlink(join(REAL_MODULES, entry), join(modules, entry)),
 			),
 	);
+	const failure = results.find((result) => result.status === "rejected");
+	if (failure) throw failure.reason;
 }
 
 // Runs `file args` in `dir` without colour; see Commands above.
@@ -120,9 +123,12 @@ export async function createTempCopy(label) {
 	const before = await dataStoreMtime();
 	const dir = await fs.mkdtemp(join(tmpdir(), `jsolly-${label}-`));
 	try {
-		await Promise.all(
+		// Finish every started write before the failure path removes the copy.
+		const results = await Promise.allSettled(
 			workingTreeFiles().map((relative) => copyFile(relative, dir)),
 		);
+		const failure = results.find((result) => result.status === "rejected");
+		if (failure) throw failure.reason;
 		await linkModules(dir);
 	} catch (error) {
 		await fs.rm(dir, { recursive: true, force: true });

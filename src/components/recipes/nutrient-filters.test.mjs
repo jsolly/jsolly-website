@@ -3,7 +3,6 @@ import it from "node:test";
 import {
 	DEFAULT_FILTERS,
 	defaultAppliances,
-	recipeStarches,
 	starchOptions,
 	starchTypes,
 } from "./constants.mjs";
@@ -75,10 +74,24 @@ it("protein and carb categories combine with nutrient criteria", () => {
 });
 
 it("starch categories cover every recipe and include main ingredients and family sides", () => {
-	assert.deepEqual(
-		Object.keys(recipeStarches).sort(),
-		legacyRecipes.map((r) => r.id).sort(),
-	);
+	for (const recipe of data.recipes) {
+		assert(
+			Array.isArray(recipe.starches),
+			`${recipe.id}: starches is an array`,
+		);
+		assert(
+			recipe.starches.length > 0,
+			`${recipe.id}: starch category required`,
+		);
+		assert.equal(new Set(recipe.starches).size, recipe.starches.length);
+		for (const type of recipe.starches)
+			assert(
+				typeof type === "string" &&
+					type !== "all" &&
+					Object.hasOwn(starchTypes, type),
+				`${recipe.id}: unknown starch category ${type}`,
+			);
+	}
 	const ids = (starch) =>
 		legacyRecipes
 			.filter((r) => matchesRecipe(r, 4, { starch: [starch] }))
@@ -92,8 +105,6 @@ it("starch categories cover every recipe and include main ingredients and family
 	]);
 	assert.equal(ids("none").length, 7);
 	assert.equal(ids("bread").length, 3);
-	for (const types of Object.values(recipeStarches))
-		for (const type of types) assert(type in starchTypes);
 });
 
 it("multi-select uses OR within each filter and AND across filters; saved selections normalize", () => {
