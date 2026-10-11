@@ -36,12 +36,13 @@ export function createRecipePrintSession(mode, prepared, restored) {
 	// Resolves to the status message to show: "" once printing opened, or
 	// PRINT_FAILED once the page is restored when the browser cannot print.
 	async function print(settle = () => Promise.resolve()) {
-		prepare();
-		await settle();
 		try {
+			prepare();
+			await settle();
 			window.print();
 			return "";
-		} catch {
+		} catch (error) {
+			console.error("Recipe printing failed:", error);
 			restore();
 			return PRINT_FAILED;
 		}

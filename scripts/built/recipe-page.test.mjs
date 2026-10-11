@@ -48,7 +48,7 @@ for (const width of [390, 1280]) {
 			viewport: { width, height: 900 },
 		});
 		const page = await context.newPage();
-		const errors = collectErrors(page, ["error", "warning"]);
+		const errors = collectErrors(page, { warnings: true });
 		try {
 			await page.goto(
 				`${site.origin}/recipes/source-honey-mustard-chicken-sheet-pan-dinner-keto-low-carb/`,
@@ -191,7 +191,7 @@ async function openHydrated(path, { initScript } = {}) {
 	});
 	if (initScript) await context.addInitScript(initScript);
 	const page = await context.newPage();
-	const errors = collectErrors(page, []);
+	const errors = collectErrors(page);
 	await page.goto(`${site.origin}${path}`);
 	await page.waitForFunction(
 		() => !document.querySelector("astro-island[ssr]"),
@@ -457,9 +457,13 @@ it("when the browser cannot open printing, Print recipe says so and leaves the p
 				mode: await page.evaluate(() =>
 					document.documentElement.getAttribute("data-recipe-print"),
 				),
-				errors,
+				errors: errors.map((error) => error.split("\n")[0]),
 			},
-			{ status: PRINT_FAILED, mode: null, errors: [] },
+			{
+				status: PRINT_FAILED,
+				mode: null,
+				errors: ["Recipe printing failed: Error: printing blocked"],
+			},
 		);
 	} finally {
 		await close();
@@ -566,7 +570,6 @@ function recipeShareFailureCheck({ failure, result, diagnostic }) {
 	it(`recipe sharing handles ${failure} with a truthful outcome and error signal`, async () => {
 		const { page, errors, close } = await openHydrated(PAGE);
 		try {
-			const diagnostics = collectErrors(page);
 			await page.evaluate((scenario) => {
 				window.__copyCalls = 0;
 				Object.defineProperty(navigator, "share", {
@@ -630,13 +633,12 @@ function recipeShareFailureCheck({ failure, result, diagnostic }) {
 					.evaluateAll((links) => links.map((link) => link.href)),
 				manualLink ? [`${site.origin}${PAGE}?servings=4`] : [],
 			);
-			assert.deepEqual(errors, []);
 			const expectedDiagnostic =
 				failure === "share-unexpected"
 					? `Sharing recipe ${PAGE.split("/")[2]} failed. Error: Share service failed`
 					: `Copying recipe ${PAGE.split("/")[2]} link failed. Error: Clipboard service failed`;
 			assert.deepEqual(
-				diagnostics.map((error) => error.split("\n")[0]),
+				errors.map((error) => error.split("\n")[0]),
 				diagnostic ? [expectedDiagnostic] : [],
 			);
 		} finally {

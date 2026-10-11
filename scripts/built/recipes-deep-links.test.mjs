@@ -43,7 +43,7 @@ function registerRecipeLink(recipe) {
 			viewport: { width: 1280, height: 800 },
 		});
 		const page = await context.newPage();
-		const errors = collectErrors(page, []);
+		const errors = collectErrors(page);
 		try {
 			await page.goto(`${site.origin}${LANDING}#${recipe.id}`);
 			const section = page.locator(`.recipe-takeover section#${recipe.id}`);
@@ -99,7 +99,7 @@ function registerFragmentLink(fontDelay) {
 			viewport: { width: 1280, height: 800 },
 		});
 		const page = await context.newPage();
-		const errors = collectErrors(page, []);
+		const errors = collectErrors(page);
 		try {
 			if (fontDelay) {
 				await page.route(FONT_URL, async (route) => {

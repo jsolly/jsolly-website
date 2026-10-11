@@ -161,12 +161,16 @@ export async function serveStatic(root, headers = {}) {
 	};
 }
 
-// Collects what `page` logs to the console with one of `types`, and every
-// uncaught page error, into the array it returns, which grows as they happen.
-export function collectErrors(page, types = ["error"]) {
+// Collects console errors and uncaught page errors. Warnings can be included
+// when a scenario also requires a warning-free console. Errors are always collected.
+export function collectErrors(page, { warnings = false } = {}) {
 	const errors = [];
 	page.on("console", (message) => {
-		if (types.includes(message.type())) errors.push(message.text());
+		if (
+			message.type() === "error" ||
+			(warnings && message.type() === "warning")
+		)
+			errors.push(message.text());
 	});
 	page.on("pageerror", (error) => errors.push(String(error)));
 	return errors;

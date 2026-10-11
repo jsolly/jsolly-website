@@ -105,7 +105,7 @@ async function auditPath(path, width, colorScheme) {
 			await route.fallback();
 		});
 		const page = await context.newPage();
-		const errors = collectErrors(page, ["error", "warning"]);
+		const errors = collectErrors(page, { warnings: true });
 		await page.goto(`${site.origin}${path}`, { waitUntil: "commit" });
 		await page.locator("main h1").first().waitFor();
 		await page.waitForFunction(() =>

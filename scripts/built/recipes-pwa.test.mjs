@@ -250,7 +250,7 @@ function installCheck(name, viewport) {
 
 		const context = await browser.newContext({ viewport });
 		const page = await context.newPage();
-		const errors = collectErrors(page, ["warning", "error"]);
+		const errors = collectErrors(page, { warnings: true });
 		try {
 			await navigateHydrated(page, `${site.origin}${LANDING}`);
 			await statusText(page, SAVED);

@@ -80,3 +80,31 @@ it("process-html leaves blog and recipe heading ids to the article renderer and 
 		"skipped pages are still minified",
 	);
 });
+
+for (const input of ["missing", "empty", "file"]) {
+	it(`process-html refuses ${input} input instead of reporting successful processing`, async () => {
+		const dir = await mkdtemp(join(tmpdir(), "process-html-input-"));
+		const root = join(dir, "input");
+		try {
+			if (input === "empty") await mkdir(root);
+			if (input === "file") await writeFile(root, "not a directory");
+			await assert.rejects(
+				promisify(execFile)(process.execPath, ["process-html.mjs", root], {
+					cwd: ROOT,
+				}),
+				(error) =>
+					error.code === 1 &&
+					error.stderr.includes(root) &&
+					error.stderr.includes(
+						input === "missing"
+							? "ENOENT"
+							: input === "empty"
+								? "no HTML files"
+								: "requires a directory",
+					),
+			);
+		} finally {
+			await rm(dir, { recursive: true, force: true });
+		}
+	});
+}
