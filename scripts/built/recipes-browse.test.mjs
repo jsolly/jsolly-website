@@ -123,7 +123,7 @@ function detailsCheck(width) {
 		});
 		const staticPage = await plain.newPage();
 		const page = await context.newPage();
-		const errors = collectErrors(page, ["error", "warning"]);
+		const errors = collectErrors(page, { warnings: true });
 		try {
 			await staticPage.goto(`${site.origin}${LANDING}`);
 			assert.equal(await staticPage.locator(".recipe-card").count(), mealCount);
@@ -344,7 +344,7 @@ function filtersCheck(width) {
 			viewport: { width, height: 984 },
 		});
 		const page = await context.newPage();
-		const errors = collectErrors(page, []);
+		const errors = collectErrors(page);
 		const checkbox = (name) =>
 			page.getByRole("checkbox", { name, exact: true });
 		const cards = () => page.locator(".recipe-card").count();

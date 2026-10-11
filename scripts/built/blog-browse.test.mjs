@@ -57,14 +57,31 @@ async function openPage({
 	javaScriptEnabled = true,
 } = {}) {
 	const context = await browser.newContext({ viewport, javaScriptEnabled });
-	if (!observer) {
+	if (observer === "controlled") {
+		await context.addInitScript(() => {
+			window.IntersectionObserver = class {
+				constructor(callback) {
+					this.callback = callback;
+				}
+				observe(target) {
+					if (target.matches(".load-more"))
+						window.deliverBlogIntersection = () =>
+							this.callback([{ target, isIntersecting: true }], this);
+				}
+				disconnect() {
+					this.callback = undefined;
+					window.deliverBlogIntersection = undefined;
+				}
+			};
+		});
+	} else if (!observer) {
 		await context.addInitScript(() => {
 			Reflect.deleteProperty(window, "IntersectionObserver");
 		});
 	}
 	await stubOffOrigin(context, site.origin);
 	const page = await context.newPage();
-	const errors = collectErrors(page, []);
+	const errors = collectErrors(page);
 	page.setDefaultTimeout(5000);
 	return { context, page, errors };
 }
@@ -90,10 +107,15 @@ async function appendByScrolling(page, count) {
 	await countIs(page, count);
 }
 
-// Lets the observer fire if it still would; the count must not move.
-async function settle(page) {
-	await page.locator(".load-more").scrollIntoViewIfNeeded();
-	await page.waitForTimeout(300);
+// Deliver the guard's input explicitly, then let Svelte's DOM updates flush
+// before reading the result. Real scrolling remains covered independently.
+async function deliverIntersection(page) {
+	await page.evaluate(async () => {
+		if (!window.deliverBlogIntersection)
+			throw new Error("Blog observer is not observing Load more");
+		window.deliverBlogIntersection();
+		await new Promise(requestAnimationFrame);
+	});
 }
 
 function cardHrefs(page) {
@@ -123,7 +145,6 @@ it("Scrolling pauses, keyboard loading resumes, and returning preserves the load
 		await appendByScrolling(page, 6);
 		await appendByScrolling(page, 9);
 		await appendByScrolling(page, 12);
-		await settle(page);
 		await countIs(page, 12);
 		assert.equal(await page.locator(".load-more-button.paused").count(), 1);
 		await loadMore(page).focus();
@@ -137,7 +158,6 @@ it("Scrolling pauses, keyboard loading resumes, and returning preserves the load
 		await appendByScrolling(page, 18);
 		await appendByScrolling(page, 21);
 		await appendByScrolling(page, 24);
-		await settle(page);
 		await countIs(page, 24);
 		const links = await cardHrefs(page);
 		assert.equal(new Set(links).size, 24);
@@ -200,14 +220,18 @@ it("Manual loading remains usable without IntersectionObserver", async () => {
 });
 
 it("A keyboard user who reaches Load more on a phone gets no automatic batch until pressing it", async () => {
-	const { context, page, errors } = await openPage({ viewport: PHONE });
+	const { context, page, errors } = await openPage({
+		viewport: PHONE,
+		observer: "controlled",
+	});
 	try {
 		await navigate(page);
 		await countIs(page, 3);
 		// Focus scrolls the button into view, where the observer would fire.
 		await loadMore(page).focus();
-		await page.waitForTimeout(300);
-		await countIs(page, 3);
+		await deliverIntersection(page);
+		assert.equal(await page.locator(".post-card").count(), 3);
+		assert.equal(new URL(page.url()).searchParams.get("page"), null);
 		await page.keyboard.press("Enter");
 		await countIs(page, 6);
 		assert.deepEqual(errors, []);
@@ -222,8 +246,41 @@ it("A viewport taller than a batch keeps loading on its own until the automatic 
 		await navigate(page);
 		// 3 server-rendered cards and 3 automatic batches of 3, with no scrolling.
 		await countIs(page, 12);
-		await page.waitForTimeout(300);
 		await countIs(page, 12);
+		assert.equal(await page.locator(".load-more-button.paused").count(), 1);
+		assert.deepEqual(errors, []);
+	} finally {
+		await context.close();
+	}
+});
+
+it("intersecting callbacks cannot exceed the automatic budget, and manual loading renews it", async () => {
+	const { context, page, errors } = await openPage({
+		viewport: TALL,
+		observer: "controlled",
+	});
+	try {
+		await navigate(page);
+		await deliverIntersection(page);
+		await countIs(page, 12);
+		await deliverIntersection(page);
+		assert.equal(await page.locator(".post-card").count(), 12);
+		assert.equal(new URL(page.url()).searchParams.get("page"), "4");
+		assert.equal(await page.locator(".load-more-button.paused").count(), 1);
+		await loadMore(page).press("Enter");
+		await countIs(page, 15);
+		await page.waitForFunction(
+			() =>
+				document.activeElement ===
+				document.querySelectorAll(".post-card-link")[12],
+		);
+		await deliverIntersection(page);
+		await deliverIntersection(page);
+		await deliverIntersection(page);
+		await countIs(page, 24);
+		await deliverIntersection(page);
+		assert.equal(await page.locator(".post-card").count(), 24);
+		assert.equal(new URL(page.url()).searchParams.get("page"), "8");
 		assert.equal(await page.locator(".load-more-button.paused").count(), 1);
 		assert.deepEqual(errors, []);
 	} finally {

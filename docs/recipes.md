@@ -209,7 +209,7 @@ There is no generated article: the pages render straight from `recipes.json`
 
 ## Pages and settings
 
-The library renders its print packet when printing starts, including browser-menu printing, and removes it when printing ends. Browsing pages share bundled recipe data instead of embedding the full dataset in each page’s island props; the server-rendered collection cards still work without JavaScript.
+The library renders its print packet when printing starts, including browser-menu printing, and removes it when printing ends. If preparing the packet or opening the print dialog fails, it restores the previous print mode, shows a failure message and logs the cause in the browser console. Browsing pages share bundled recipe data instead of embedding the full dataset in each page’s island props; the server-rendered collection cards still work without JavaScript.
 
 Each recipe page server-renders one recipe body at four servings with the
 default family side. Enhanced controls render disabled, then JavaScript enables

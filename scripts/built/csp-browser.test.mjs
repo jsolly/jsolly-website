@@ -152,7 +152,7 @@ async function visit(path, expected, prepare) {
 	});
 	const page = await context.newPage();
 	page.setDefaultTimeout(WAIT_MS);
-	const errors = collectErrors(page, []);
+	const errors = collectErrors(page);
 	try {
 		const response = await page.goto(`${site.origin}${path}`, {
 			waitUntil: "load",

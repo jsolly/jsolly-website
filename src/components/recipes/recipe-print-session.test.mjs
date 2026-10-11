@@ -61,7 +61,9 @@ it("a page with no earlier print mode has none again once printing ends, even wh
 	);
 });
 
-it("Print opens the browser's print dialog in print mode once the island settles, and when the browser cannot print it restores the page and reports why", async () => {
+it("Print opens the browser's print dialog in print mode once the island settles, and when the browser cannot print it restores the page and reports why", async (t) => {
+	const errors = [];
+	t.mock.method(console, "error", (...args) => errors.push(args));
 	const steps = [];
 	const session = createRecipePrintSession(
 		() => "all",
@@ -78,6 +80,9 @@ it("Print opens the browser's print dialog in print mode once the island settles
 		throw new Error("printing blocked");
 	};
 	const failed = await session.print();
+	assert.equal(errors.length, 1);
+	assert.equal(errors[0][0], "Recipe printing failed:");
+	assert.equal(errors[0][1].message, "printing blocked");
 	assert.deepEqual(
 		{ printed, failed, after: mode(), steps },
 		{
@@ -95,3 +100,34 @@ it("Print opens the browser's print dialog in print mode once the island settles
 		},
 	);
 });
+
+for (const failure of ["prepare", "settle"]) {
+	it(`a ${failure} failure restores the prior print mode, reports the cause and permits a later print`, async (t) => {
+		const errors = [];
+		t.mock.method(console, "error", (...args) => errors.push(args));
+		document.documentElement.setAttribute("data-recipe-print", "library");
+		let preparations = 0;
+		let restores = 0;
+		let prints = 0;
+		const cause = new Error(`${failure} failed`);
+		const session = createRecipePrintSession(
+			() => "recipe",
+			() => {
+				preparations++;
+				if (preparations === 1 && failure === "prepare") throw cause;
+			},
+			() => restores++,
+		);
+		window.print = () => prints++;
+		const result = await session.print(() => Promise.reject(cause));
+		assert.deepEqual(
+			{ result, mode: mode(), restores, prints },
+			{ result: PRINT_FAILED, mode: "library", restores: 1, prints: 0 },
+		);
+		assert.deepEqual(errors, [["Recipe printing failed:", cause]]);
+		assert.equal(await session.print(), "");
+		assert.equal(prints, 1);
+		session.restore();
+		assert.equal(mode(), "library");
+	});
+}

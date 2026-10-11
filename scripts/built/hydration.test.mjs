@@ -163,7 +163,7 @@ async function nodeReuse({ root, origin }, path, stable = ":not(*)") {
 			},
 		);
 		const page = await context.newPage();
-		const errors = collectErrors(page, []);
+		const errors = collectErrors(page);
 		await page.goto(`${origin}${path}`, { waitUntil: "domcontentloaded" });
 		const { total, stableTotal } = await page.evaluate((selector) => {
 			window.__ssrIslandNodes = [
@@ -323,7 +323,7 @@ it("a phone blog visitor uses shared navigation and the hydrated category disclo
 	});
 	try {
 		const page = await context.newPage();
-		const errors = collectErrors(page, []);
+		const errors = collectErrors(page);
 		await page.goto(`${sites.shipped.origin}/blog/works-cited/`);
 		await page.waitForFunction(
 			() => !document.querySelector("astro-island[ssr]"),
@@ -393,7 +393,7 @@ it("a desktop blog visitor reaches the archive through the section toolbar and s
 	});
 	try {
 		const page = await context.newPage();
-		const errors = collectErrors(page, []);
+		const errors = collectErrors(page);
 		await page.goto(`${sites.shipped.origin}/blog/works-cited/`);
 		await page.waitForFunction(
 			() => !document.querySelector("astro-island[ssr]"),
@@ -495,7 +495,7 @@ it("A visitor on / reaches the on-site blog and recipes in the same tab and gets
 	});
 	try {
 		const page = await context.newPage();
-		const errors = collectErrors(page, []);
+		const errors = collectErrors(page);
 		await page.goto(`${sites.shipped.origin}/`);
 		await page.waitForFunction(
 			() => !document.querySelector("astro-island[ssr]"),

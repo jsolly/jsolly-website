@@ -44,7 +44,7 @@ it("a post's heading link copies its jsolly.com address and announces every copy
 		});
 		const page = await context.newPage();
 		page.setDefaultTimeout(5000);
-		const errors = collectErrors(page, []);
+		const errors = collectErrors(page);
 		await page.goto(`${site.origin}${postHref(SLUG)}`, {
 			waitUntil: "load",
 		});

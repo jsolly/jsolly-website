@@ -50,12 +50,8 @@ async function openPage({ initScript, arg } = {}) {
 	});
 	if (initScript) await context.addInitScript(initScript, arg);
 	const page = await context.newPage();
-	const errors = collectErrors(page, []);
-	const consoleErrors = [];
-	page.on("console", (message) => {
-		if (message.type() === "error") consoleErrors.push(message.text());
-	});
-	return { page, errors, consoleErrors, close: () => context.close() };
+	const errors = collectErrors(page);
+	return { page, errors, close: () => context.close() };
 }
 
 async function goHydrated(page, path) {
@@ -164,7 +160,8 @@ it("the library prints the open recipe from its dialog or the whole collection, 
 						document.documentElement.getAttribute("data-recipe-print"),
 					),
 				},
-				errors: [...errors, ...failing.errors],
+				errors,
+				failureErrors: failing.errors.map((error) => error.split("\n")[0]),
 			},
 			{
 				recipePrint: {
@@ -181,6 +178,7 @@ it("the library prints the open recipe from its dialog or the whole collection, 
 				},
 				failure: { status: PRINT_FAILED, mode: null },
 				errors: [],
+				failureErrors: ["Recipe printing failed: Error: printing blocked"],
 			},
 		);
 	} finally {
@@ -347,7 +345,7 @@ it("unreadable or wrongly shaped saved settings leave the library on its default
 		}),
 	]) {
 		// biome-ignore lint/performance/noAwaitInLoops: one fresh browser context per saved value, in turn
-		const { page, errors, consoleErrors, close } = await openPage({
+		const { page, errors, close } = await openPage({
 			initScript: ([key, value]) => {
 				if (!sessionStorage.getItem("seeded")) {
 					localStorage.setItem(key, value);
@@ -359,7 +357,7 @@ it("unreadable or wrongly shaped saved settings leave the library on its default
 		try {
 			await goHydrated(page, "/recipes/meals/");
 			assert.deepEqual(
-				consoleErrors,
+				errors,
 				saved === "{not json"
 					? [
 							"Recipe settings could not be restored; using defaults. SyntaxError",
@@ -375,7 +373,6 @@ it("unreadable or wrongly shaped saved settings leave the library on its default
 					(key) => JSON.parse(localStorage.getItem(key)),
 					STORAGE_KEY,
 				),
-				errors,
 			});
 		} finally {
 			await close();
@@ -390,14 +387,13 @@ it("unreadable or wrongly shaped saved settings leave the library on its default
 			appliancesOnHand: defaultAppliances,
 			familyChoice: {},
 		},
-		errors: [],
 	};
 	assert.deepEqual(results, [defaults, defaults]);
 });
 
 for (const operation of ["getItem", "setItem"]) {
 	it(`a failed settings ${operation} is logged without saved data and cooking controls remain usable`, async () => {
-		const { page, errors, consoleErrors, close } = await openPage({
+		const { page, errors, close } = await openPage({
 			initScript: (method) => {
 				Storage.prototype[method] = () => {
 					throw new DOMException("private saved data", "SecurityError");
@@ -413,7 +409,7 @@ for (const operation of ["getItem", "setItem"]) {
 			assert.equal(await servings.inputValue(), "6");
 			assert.ok((await page.locator(".recipe-card").count()) > 0);
 			assert.ok(
-				consoleErrors.some((text) =>
+				errors.some((text) =>
 					text.includes(
 						operation === "getItem"
 							? "could not be restored"
@@ -422,13 +418,12 @@ for (const operation of ["getItem", "setItem"]) {
 				),
 			);
 			assert.ok(
-				consoleErrors.every(
+				errors.every(
 					(text) =>
 						text.endsWith("SecurityError") &&
 						!text.includes("private saved data"),
 				),
 			);
-			assert.deepEqual(errors, []);
 		} finally {
 			await close();
 		}
