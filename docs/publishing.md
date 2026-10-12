@@ -100,7 +100,8 @@ client data; `scripts/built/blog-content-contracts.test.mjs` builds a real draft
 and checks that. Set `draft` to false only when ready. Review image
 accessibility, the canonical URL, the category, the article, and the search and
 feed entries, then merge after green CI. Branch pushes create no Vercel Preview;
-use a local preview unless John asks for the opt-in `/preview` workflow.
+use a local preview unless John asks for the opt-in `/preview` comment or
+`preview` label.
 
 ## Content validation
 
