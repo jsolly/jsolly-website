@@ -268,3 +268,7 @@ On the recipe pages it also waits for the recipe service worker to control the p
 
 Astro lists every inline script hash of the build in each page's meta policy,
 so an inline `<script>` on a blog page also adds its hash to the portfolio pages.
+
+## Cloud skills
+
+- **Cloud skills.** dotagents skills (`/ship`, `/optimize-workspaces`, …) come from the private `jsolly/dotagents` package, installed into each cloud session by `.cursor/install-cloud-skills.sh` (Cursor runs it from `.cursor/environment.json`, Claude Code from the `.claude/settings.json` SessionStart hook). Before repository work in a cloud session, read `~/.local/share/dotagents/package/CLOUD.md` when it exists and follow its installed owners. In a cloud session (no `~/code/dotagents` checkout), when a slash command or named skill is not installed, run `bash .cursor/install-cloud-skills.sh`, then read `~/.local/share/dotagents/package/CLOUD.md` and `~/.local/share/dotagents/package/skills/<name>/SKILL.md` and follow them. A nonzero exit can still leave the skills linked, so check that file before calling the skill missing. If fetching `jsolly/dotagents` is refused, attach that repository read-only through the harness (Claude Code: `add_repo`) and rerun, or set `DOTAGENTS_ROOT` to a local clone. Still blocked: report setup blocked. Never reconstruct a skill from memory or prose. Canon: dotagents `templates/cloud-agent/README.md`.
