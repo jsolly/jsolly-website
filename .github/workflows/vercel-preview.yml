@@ -247,7 +247,8 @@ jobs:
           # needs no GitHub token, so GH_TOKEN is dropped from its environment,
           # and it gets a fresh npm cache that no earlier run could have seeded.
           preview_url="$(
-            cd "$RUNNER_TEMP" && env -u GH_TOKEN NPM_CONFIG_CACHE="$RUNNER_TEMP/npm-cache" npx --yes vercel@59.20.0 deploy --yes --archive=tgz --cwd "$GITHUB_WORKSPACE" \
+            cd "$RUNNER_TEMP" && unset GH_TOKEN && export NPM_CONFIG_CACHE="$RUNNER_TEMP/npm-cache" &&
+              npx --yes vercel@59.20.0 deploy --yes --archive=tgz --cwd "$GITHUB_WORKSPACE" \
               --scope jsollys-projects \
               --build-env "VERCEL_GIT_COMMIT_SHA=${HEAD_SHA}" \
               --meta "githubDeployment=1" \
