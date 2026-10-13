@@ -10,3 +10,7 @@ declare namespace NodeJS {
 		readonly CI?: string;
 	}
 }
+
+interface ImportMetaEnv {
+	readonly VERCEL_ENV?: string;
+}

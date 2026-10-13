@@ -45,6 +45,9 @@ require "git -C \"\$SOURCE_DIR\" ls-files --cached --others -- ':(glob)**/vercel
 require "if: \${{ needs.resolve.outputs.skip == 'false' }}" 'deploy only after the resolve job accepts the event'
 require 'package-manager-cache: false' 'not restore a PR-written npm cache into the token-holding job'
 require 'if [[ "$current_sha" != "$HEAD_SHA" ]]; then' 'stand down for a newer head on every trigger'
+require 'npx --yes vercel@59.20.0 alias set "$preview_url" "$preview_alias" --scope jsollys-projects' 'assign a stable project/PR alias with the pinned isolated CLI'
+require 'preview_alias="pr-${PR_NUMBER}-${VERCEL_PROJECT_ID#prj_}.vercel.app"' 'scope the stable Preview alias to the full project ID and PR number'
+require 'PR closed or moved during the build; leaving its Preview URL unchanged.' 'recheck the head after building before changing the alias'
 # Tokens may appear only in the named API/deployment steps, never in setup or
 # checkout. The template's fixed indentation keeps this guard dependency-free.
 awk '

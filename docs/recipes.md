@@ -8,6 +8,18 @@ The code map, test layout and
 invariants are in `AGENTS.md`; this file covers the data, the pipeline, the
 offline app and the old host's kill-switch.
 
+## Preview recipe changes
+
+Keep UI work in a draft pull request and add the `preview` label. The Vercel
+Preview workflow deploys each pushed commit and updates one Preview comment on
+the pull request. Remove the label to stop automatic redeployments.
+
+The Preview comment links to one protected URL for the project and pull request,
+plus the immutable URL for that build. Reload the stable URL after a deployment
+finishes to see the new commit. Preview builds do not register the offline
+worker, so its cache cannot hide changes. Production keeps the offline app's
+normal update behavior and changes only after the pull request merges.
+
 ## Data contract
 
 The canonical data is `src/components/recipes/recipes.json` (140 meals and 6
@@ -131,6 +143,11 @@ Eatwell101 exposes calories in structured data and a text-parsing calculator for
 other nutrition. Its calculator was rejected: it returned implausible totals and
 failed to recognize some main ingredients. The site uses the traceable ingredient
 models above instead.
+
+Qualifying recipes show Immune support, Iron-rich and High in Omega-3s pills on
+library cards, in the recipe dialog and on individual pages. Pills use the same
+nutrient eligibility checks and selected serving count as the library filters.
+Recipes with missing observations do not gain a pill from those observations.
 
 ### USDA API lookups
 

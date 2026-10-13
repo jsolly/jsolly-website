@@ -4,6 +4,7 @@
 	import DialogContent from "../../lib/components/ui/dialog-content.svelte";
 	import DialogDescription from "../../lib/components/ui/dialog-description.svelte";
 	import DialogTitle from "../../lib/components/ui/dialog-title.svelte";
+	import NutritionPills from "./NutritionPills.svelte";
 	import RecipeBadge from "./RecipeBadge.svelte";
 	import RecipeBody from "./RecipeBody.svelte";
 	import ShareRecipe from "./ShareRecipe.svelte";
@@ -40,6 +41,7 @@
 			<div class="detail-toolbar"><Button variant="ghost" type="button" class="text-button" onclick={() => onBack()}>← Back to recipes</Button><Button variant="outline" type="button" class="print-recipe" onclick={onPrint}>Print recipe</Button></div>
 			<RecipeBadge group={recipe.group} class="detail-badge" />
 			<DialogTitle id="recipe-detail-title" tabindex={-1} bind:ref={heading}>{recipe.title}</DialogTitle>
+			<NutritionPills {recipe} servings={settings.servings} />
 			<DialogDescription class="detail-summary">{recipe.summary}</DialogDescription>
 			<RecipeBody {recipe} {settings} {onSideChange} />
 			<ShareRecipe {recipe} {settings} />

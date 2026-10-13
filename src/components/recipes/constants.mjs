@@ -143,3 +143,13 @@ export const nutritionThresholds = {
 	omega3:
 		"at least 0.5 g of recorded ALA, EPA, and DHA per meal serving or 8 oz smoothie glass. Missing nutrient observations are excluded. This is a recipe filter threshold, not a Daily Value.",
 };
+
+/** Shared labels and explanations for nutrition filters and recipe highlights. */
+export const nutritionHighlights = {
+	immune: {
+		label: "Immune support",
+		description: nutritionThresholds.immuneSupport,
+	},
+	iron: { label: "Iron-rich", description: nutritionThresholds.ironRich },
+	omega: { label: "High in Omega-3s", description: nutritionThresholds.omega3 },
+};

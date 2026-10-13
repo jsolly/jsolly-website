@@ -3,6 +3,7 @@
 	import Button from "../../lib/components/ui/button.svelte";
 	import NativeSelect from "../../lib/components/ui/native-select.svelte";
 	import { BASE_SERVINGS, groupBadges, SERVING_CHOICES } from "./constants.mjs";
+	import NutritionPills from "./NutritionPills.svelte";
 	import RecipeBody from "./RecipeBody.svelte";
 	import RecipePrint from "./RecipePrint.svelte";
 	import { validateSettings } from "./recipe-logic.mjs";
@@ -64,6 +65,7 @@
 		</div>
 		{#if groupBadges[recipe.group]}<span class="badge">{groupBadges[recipe.group]}</span>{/if}
 		<h1>{recipe.title}</h1>
+		<NutritionPills {recipe} servings={settings.servings} />
 		<p>{recipe.summary}</p>
 			<label class="servings recipe-enhanced" for={servingsId}
 				>Servings<NativeSelect id={servingsId} value={settings.servings} disabled={!interactive} onchange={(event) => setServings(event.currentTarget.value)}>

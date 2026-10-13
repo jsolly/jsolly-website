@@ -1,6 +1,7 @@
 <script>
 	import ApplianceIcon from "./ApplianceIcon.svelte";
 	import { BASE_SERVINGS } from "./constants.mjs";
+	import NutritionPills from "./NutritionPills.svelte";
 	import RecipeBadge from "./RecipeBadge.svelte";
 	import {
 		formatNutrition,
@@ -11,11 +12,11 @@
 	// One recipe's card in the library grid: its group, photo, title, active
 	// time, net carbs per serving and appliances. `href` is the
 	// recipe page with the reader's servings and family side.
-	let { recipe, href } = $props();
+	let { recipe, href, servings = BASE_SERVINGS } = $props();
 </script>
 
 <article class="recipe-card">
-	<div class="card-top"><RecipeBadge group={recipe.group} /></div>
+	<div class="card-top"><RecipeBadge group={recipe.group} /><NutritionPills {recipe} {servings} /></div>
 	{#if recipe.image}<figure class="card-photo"><img src={recipe.image.cardSrc} srcset={recipe.image.cardSrcset} sizes="(max-width:600px) 340px, (max-width:1000px) 420px, 360px" width={recipe.image.width} height={recipe.image.height} alt={recipe.image.alt} loading="lazy" decoding="async" /></figure>{/if}
 	<h3><a class="title-button" data-recipe-id={recipe.id} {href}>{recipe.title}</a></h3>
 	<dl class="card-numbers">
@@ -53,6 +54,7 @@
 		}
 		.card-top {
 			display: flex;
+			flex-wrap: wrap;
 			justify-content: space-between;
 			gap: 10px;
 			align-items: center;
