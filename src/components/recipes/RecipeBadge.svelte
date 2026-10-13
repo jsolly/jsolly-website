@@ -6,7 +6,9 @@
 	let { group, class: className } = $props();
 </script>
 
-<span class={["badge", className]} class:shared={group === "shared"} class:nonketo={group === "nonketo"}>{groupBadges[group]}</span>
+{#if groupBadges[group]}
+	<span class={["badge", className]} class:shared={group === "shared"} class:nonketo={group === "nonketo"}>{groupBadges[group]}</span>
+{/if}
 
 <style>
 	/* Every recipe stylesheet declares the full order (as the blog sheets do), so

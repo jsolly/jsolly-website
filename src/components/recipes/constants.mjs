@@ -8,7 +8,7 @@ export const groupBadges = {
 	keto: "Keto",
 	shared: "Shared main",
 	nonketo: "Not Keto",
-	unverified: "Nutrition estimated",
+	unverified: null,
 };
 /** Each recipe group's label in the printed copy. */
 export const printGroupLabels = {

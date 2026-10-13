@@ -155,6 +155,39 @@ Fetch a selected FDC record from the same cwd:
 npm run recipes:usda -- food 168462
 ```
 
+Refresh the already reviewed ingredient matches from this repo's root:
+
+```bash
+node scripts/recipes/refresh-nutrition.mjs --cache /private/tmp/jsolly-usda-refresh-20261013
+```
+
+The cache contains public USDA responses and their retrieval timestamps, never the
+key. `--delay-ms 0` permits a finite refresh without the default delay when
+the remaining request count is known to fit the hourly quota. Reusing it reproduces the same refresh without another API call; choose a
+new absolute directory outside the repository for a fresh snapshot. The script
+deduplicates the existing FDC IDs, respects the [USDA API quota](https://fdc.nal.usda.gov/api-guide/#rate-limits)
+with a default delay of four seconds per new record,
+and validates reviewed SR Legacy/FNDDS identity, nutrient IDs, units and finite nonnegative
+amounts before writing either canonical data file. It never searches or rematches
+foods. `nutrition-data.json`'s `apiRefresh` receipt records the earliest cached
+retrieval time, matched IDs, row coverage and retained brand/composite profiles.
+
+The 2026-10-13 API check covered 149 distinct reviewed FDC records (148 SR Legacy
+records and the existing FNDDS gnocchi proxy), refreshing 1,474 ingredient rows
+across all 146 recipes. The remaining 36 rows retained reviewed brand, composite
+or hybrid profiles. All observed nutrient and macro values agreed with the
+existing snapshots, so this check changed provenance rather than nutritional
+totals. Explicit null observations remain missing.
+
+Only the reviewed nutrient observation set is refreshed, preserving deliberate
+omissions such as the sausage proxy's outlier iron. An observation absent from the
+API is omitted, never replaced with zero. Fortified yeast's hybrid label/USDA
+profile, brand labels, composite seasonings, omega-3 observations, edible weights
+and explicit macro assumptions stay as reviewed. Only publisher macro fields
+listed in `estimatedMacroFields` are recalculated; supported publisher macros and
+household macro formulas retain their existing evidence. Run `recipes:sync` and
+the gate after refreshing. Neither routine builds nor visitors call this API.
+
 Review the food state, brand, portions and nutrient units before updating a model.
 Search results are candidates, not automatic ingredient matches. Food records
 retain USDA's nutrient values and units; missing observations stay missing. The

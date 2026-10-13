@@ -62,7 +62,7 @@
 			<a href={`/recipes/${collection}/`}>← Back to {collection}</a>
 			<Button variant="outline" class="recipe-enhanced" disabled={!interactive} onclick={print}>Print recipe</Button>
 		</div>
-		<span class="badge">{groupBadges[recipe.group]}</span>
+		{#if groupBadges[recipe.group]}<span class="badge">{groupBadges[recipe.group]}</span>{/if}
 		<h1>{recipe.title}</h1>
 		<p>{recipe.summary}</p>
 			<label class="servings recipe-enhanced" for={servingsId}
