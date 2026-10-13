@@ -42,6 +42,18 @@ else
 		"$@"
 	}
 fi
+# The caller verifies live draft+preview PR/head context through GitHub before
+# using this shortcut. The scope guard independently rejects non-UI deltas.
+if [[ "${FLEET_UI_PREVIEW:-0}" == 1 ]]; then
+	if [[ ! -f "$gate_lib" ]]; then
+		echo "✗ UI preview requires the shared gate's secrets/bootstrap checks." >&2
+		exit 1
+	fi
+	run_step "UI preview scope" node scripts/ui-preview-scope.mjs
+	run_step "UI preview checks" npm run check:preview
+	echo "✓ preview checks passed — full gate and required ci still needed before ready/merge."
+	exit 0
+fi
 run_step "biome ci"  npx --no-install biome ci . --error-on-warnings
 run_step "yaml lint" npm run check:yaml
 run_step "knip" npm run check:knip

@@ -28,10 +28,12 @@
 		"outdated": "npm outdated",
 		"update": "npx --yes npm-check-updates -u && npm install",
 		"check:actions": "bash scripts/check-actions.sh && bash scripts/vercel-preview-comment-contract.sh && bash scripts/vercel-preview-workflow-contract.sh",
-		"gate": "FLEET_DOC_FAST=0 bash .git-hooks/pre-commit",
+		"gate": "FLEET_UI_PREVIEW=0 FLEET_DOC_FAST=0 bash .git-hooks/pre-commit",
 		"smoke:production": "node scripts/production-smoke.mjs",
 		"smoke:scenario-contract": "node scripts/run-tests.mjs smoke",
-		"recipes:usda": "node scripts/recipes/usda.mjs"
+		"recipes:usda": "node scripts/recipes/usda.mjs",
+		"check:preview": "npx --no-install biome ci . --error-on-warnings && npm run check:ts && npm test",
+		"gate:preview": "FLEET_UI_PREVIEW=1 FLEET_DOC_FAST=0 bash .git-hooks/pre-commit"
 	},
 	"devDependencies": {
 		"@astrojs/check": "0.9.10",

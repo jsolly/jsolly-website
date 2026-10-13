@@ -1,23 +1,38 @@
 name: CI
 run-name: >-
-  ${{ (github.event_name != 'pull_request' ||
+  ${{ ((github.event_name != 'pull_request' ||
   (github.event.action != 'labeled' && github.event.pull_request.user.login != 'dependabot[bot]') ||
-  (github.event.action == 'labeled' && github.event.label.name == 'ow-ci')) && format('{0} validation', github.workflow) || 'Deferred validation' }}
+  (github.event.action == 'labeled' && github.event.label.name == 'ow-ci')) &&
+  !(github.event_name == 'pull_request' &&
+  github.event.pull_request.draft &&
+  github.event.pull_request.head.repo.full_name == github.repository &&
+  github.event.pull_request.user.type == 'User' &&
+  github.event.pull_request.user.login != 'dependabot[bot]' &&
+  contains(github.event.pull_request.labels.*.name, 'preview'))) && format('{0} validation', github.workflow) || 'Deferred validation' }}
 
 on:
   workflow_dispatch:
   pull_request:
-    types: [opened, synchronize, reopened, labeled]
+    types: [opened, synchronize, reopened, labeled, unlabeled, ready_for_review, converted_to_draft]
   push:
     branches: [main]
 
 # The event_name suffix keeps a workflow_dispatch of CI on main (ensure-main-ci, humans) from
 # cancelling the push run that a push-only Deploy follows via workflow_run.
+# A newer main push still cancels an older one: the newer run's scan starts from main's nearest
+# green push run, so it rescans the cancelled commit. Where a Deploy follows CI (aws-sam), an older
+# run left to finish would queue a Deploy that refuses as stale.
 concurrency:
   group: >-
-    ${{ (github.event_name != 'pull_request' ||
+    ${{ ((github.event_name != 'pull_request' ||
     (github.event.action != 'labeled' && github.event.pull_request.user.login != 'dependabot[bot]') ||
-    (github.event.action == 'labeled' && github.event.label.name == 'ow-ci')) && format('ci-{0}-{1}-{2}', github.workflow, github.event.pull_request.number || github.ref, github.event_name) || format('deferred-{0}', github.run_id) }}
+    (github.event.action == 'labeled' && github.event.label.name == 'ow-ci')) &&
+    !(github.event_name == 'pull_request' &&
+    github.event.pull_request.draft &&
+    github.event.pull_request.head.repo.full_name == github.repository &&
+    github.event.pull_request.user.type == 'User' &&
+    github.event.pull_request.user.login != 'dependabot[bot]' &&
+    contains(github.event.pull_request.labels.*.name, 'preview'))) && format('ci-{0}-{1}-{2}', github.workflow, github.event.pull_request.number || github.ref, github.event_name) || format('deferred-{0}', github.run_id) }}
   cancel-in-progress: true
 
 permissions:
@@ -32,13 +47,25 @@ jobs:
   # name `ci-deferred` so a skipped required `ci` check cannot look green.
   ci:
     name: >-
-      ${{ (github.event_name != 'pull_request' ||
+      ${{ ((github.event_name != 'pull_request' ||
       (github.event.action != 'labeled' && github.event.pull_request.user.login != 'dependabot[bot]') ||
-      (github.event.action == 'labeled' && github.event.label.name == 'ow-ci')) && 'ci' || 'ci-deferred' }}
+      (github.event.action == 'labeled' && github.event.label.name == 'ow-ci')) &&
+      !(github.event_name == 'pull_request' &&
+      github.event.pull_request.draft &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.user.type == 'User' &&
+      github.event.pull_request.user.login != 'dependabot[bot]' &&
+      contains(github.event.pull_request.labels.*.name, 'preview'))) && 'ci' || 'ci-deferred' }}
     if: >-
-      github.event_name != 'pull_request' ||
+      ((github.event_name != 'pull_request' ||
       (github.event.action != 'labeled' && github.event.pull_request.user.login != 'dependabot[bot]') ||
-      (github.event.action == 'labeled' && github.event.label.name == 'ow-ci')
+      (github.event.action == 'labeled' && github.event.label.name == 'ow-ci')) &&
+      !(github.event_name == 'pull_request' &&
+      github.event.pull_request.draft &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.user.type == 'User' &&
+      github.event.pull_request.user.login != 'dependabot[bot]' &&
+      contains(github.event.pull_request.labels.*.name, 'preview')))
     runs-on: ubuntu-24.04-arm
     steps:
       # Keep full history: Secrets scan (range) below scans a commit range, not just the checked-out tree.
