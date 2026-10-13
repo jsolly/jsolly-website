@@ -1,4 +1,5 @@
 <script>
+	import Button from "../../lib/components/ui/button.svelte";
 	import ApplianceIcon from "./ApplianceIcon.svelte";
 	import { BASE_SERVINGS } from "./constants.mjs";
 	import NutritionPills from "./NutritionPills.svelte";
@@ -13,12 +14,18 @@
 	// time, net carbs per serving and appliances. `href` is the
 	// recipe page with the reader's servings and family side.
 	let { recipe, href, servings = BASE_SERVINGS } = $props();
+	// Diet labels already live in the card badge; retain canonical source titles.
+	const cardTitle = $derived(recipe.title
+		.replace(/\(\s*(?:(?:keto|low[ -]carb)\s*(?:\+|-)?\s*)+\)/giu, "")
+		.replace(/\b(?:keto|low[ -]carb)\b(?:\s*\+\s*)?/giu, "")
+		.replace(/\s+/gu, " ").trim()
+		.replace(/^./u, (letter) => letter.toUpperCase()));
 </script>
 
 <article class="recipe-card">
 	<div class="card-top"><RecipeBadge group={recipe.group} /></div>
 	{#if recipe.image}<figure class="card-photo"><img src={recipe.image.cardSrc} srcset={recipe.image.cardSrcset} sizes="(max-width:600px) 340px, (max-width:1000px) 420px, 360px" width={recipe.image.width} height={recipe.image.height} alt={recipe.image.alt} loading="lazy" decoding="async" /></figure>{/if}
-	<h3><a class="title-button" data-recipe-id={recipe.id} {href}>{recipe.title}</a></h3>
+	<h3><a class="title-button" data-recipe-id={recipe.id} {href}>{cardTitle}</a></h3>
 	<div class="card-details">
 		<dl class="card-numbers">
 			<div>
@@ -30,13 +37,13 @@
 				<dd class="carb-value">{recipe.type === "smoothie" ? formatNutrition(smoothiePortionNutrition(recipe).net_carbs_g, "g", 1) : formatNutrition(servingNutrition(recipe, BASE_SERVINGS).net_carbs_g, "g", 1)}</dd>
 			</div>
 			<div>
-				<dt>Appliances needed</dt>
+				<dt>Kitchen stuff needed</dt>
 				<dd class="appliance-icons">{#each recipe.appliancesNeeded as name (name)}<ApplianceIcon {name} />{/each}</dd>
 			</div>
 		</dl>
 		<div class="card-nutrition"><NutritionPills {recipe} {servings} /></div>
 	</div>
-	<div class="card-actions"><a class="open-button" {href}>See recipe</a></div>
+	<div class="card-actions"><Button class="open-button" {href} aria-label={`Open recipe: ${cardTitle}`}>Open recipe <span aria-hidden="true">→</span></Button></div>
 </article>
 
 <style>
@@ -74,14 +81,16 @@
 		.recipe-card h3 {
 			margin: 18px 0 8px;
 		}
-		/* The library's link colour outranks this one, as in awesome-blog. */
-		.title-button {
+		/* Keep card links consistent with the recipe palette. */
+		.recipe-card .title-button {
 			display: block;
 			font: 600 1.5rem / 1.18 var(--font-heading);
 			color: var(--recipe-ink);
 		}
-		.title-button:hover {
+		.recipe-card .title-button:hover {
+			color: var(--recipe-ink);
 			text-decoration: underline;
+			text-decoration-color: currentColor;
 			text-underline-offset: 4px;
 		}
 		.card-nutrition:has(> :global(.nutrition-pills)) {
@@ -109,10 +118,8 @@
 		}
 		.card-numbers > div:last-child {
 			grid-column: 1 / -1;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			gap: 12px;
+			display: grid;
+			gap: 8px;
 		}
 		.card-numbers dt {
 			font-size: 0.68rem;
@@ -137,7 +144,7 @@
 			letter-spacing: -0.04em;
 		}
 		.time-number {
-			font-size: 1.5rem;
+			font-size: 2.5rem;
 			line-height: 1.1;
 			font-weight: 700;
 			letter-spacing: -0.04em;
@@ -152,7 +159,7 @@
 			align-items: center;
 			gap: 8px;
 			flex-wrap: wrap;
-			justify-content: flex-end;
+			justify-content: flex-start;
 		}
 		.card-actions {
 			margin-top: 16px;
@@ -163,9 +170,20 @@
 			padding-top: 12px;
 			gap: 10px;
 		}
-		.open-button {
+		.card-actions :global(.open-button) {
+			width: 100%;
+			min-height: 48px;
 			font-weight: 700;
-			font-size: 0.84rem;
+			font-size: 1rem;
+			gap: 10px;
+			color: var(--recipe-accent-text);
+			background: var(--recipe-accent);
+			text-decoration: none;
+		}
+		.card-actions :global(.open-button:hover) {
+			color: var(--recipe-accent-text);
+			background: color-mix(in oklch, var(--recipe-accent), var(--recipe-accent-text) 15%);
+			text-decoration: none;
 		}
 		@media (max-width: 600px) {
 			.recipe-card {
