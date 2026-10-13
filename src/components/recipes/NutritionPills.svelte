@@ -1,16 +1,17 @@
 <script>
-	import { BASE_SERVINGS, nutritionHighlights } from "./constants.mjs";
+	import { BASE_SERVINGS, groupBadges, nutritionHighlights } from "./constants.mjs";
 	import { nutrientFilters } from "./nutrient-filters.mjs";
 
-	let { recipe, servings = BASE_SERVINGS } = $props();
+	let { recipe, servings = BASE_SERVINGS, includeGroup = false } = $props();
 	const flags = $derived(nutrientFilters(recipe, servings));
 	const highlights = $derived(
 		Object.entries(nutritionHighlights).filter(([key]) => flags[key]),
 	);
 </script>
 
-{#if highlights.length}
-	<ul class="nutrition-pills" aria-label="Nutrition highlights">
+{#if highlights.length || (includeGroup && groupBadges[recipe.group] && recipe.group !== "nonketo")}
+	<ul class="nutrition-pills" aria-label={includeGroup ? "Recipe highlights" : "Nutrition highlights"}>
+		{#if includeGroup && groupBadges[recipe.group] && recipe.group !== "nonketo"}<li class:shared={recipe.group === "shared"} data-group={recipe.group}>{groupBadges[recipe.group]}</li>{/if}
 		{#each highlights as [key, { label, description }] (key)}
 			<li data-nutrient={key} title={description}>{label}</li>
 		{/each}
@@ -23,7 +24,7 @@
 		.nutrition-pills {
 			display: flex;
 			flex-wrap: wrap;
-			gap: 6px;
+			gap: 8px;
 			list-style: none;
 			padding: 0;
 			margin: 0;
@@ -38,6 +39,7 @@
 			font-weight: 600;
 			line-height: 1.4;
 		}
+		.nutrition-pills li.shared { background: var(--recipe-badge-shared); }
 		.nutrition-pills li[data-nutrient="immune"] { background: #e3edda; color: #29451f; border-color: #c4d6b7; }
 		.nutrition-pills li[data-nutrient="iron"] { background: #e2e5e9; color: #353c46; border-color: #bcc2cc; }
 		.nutrition-pills li[data-nutrient="omega"] { background: #dcecf5; color: #204b65; border-color: #b0cfdf; }

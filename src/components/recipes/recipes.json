@@ -19905,21 +19905,6 @@
 					"sourceUnit": "cup",
 					"sourceRawIngredientIndex": 4,
 					"optional": false
-				},
-				{
-					"id": "ingredient-6",
-					"name": "Cooking spray or olive oil",
-					"state": "",
-					"amount": null,
-					"unit": "unspecified",
-					"category": "pantry",
-					"note": "Source provides no amount.",
-					"scale": "linear",
-					"sourceLine": "Spray with cooking spay or drizzle a little olive oil on the inside.",
-					"sourceAmount": null,
-					"sourceUnit": "unspecified",
-					"sourceRawIngredientIndex": 105,
-					"optional": false
 				}
 			],
 			"steps": [
@@ -20011,7 +19996,7 @@
 						"french style green beans: 100 g edible food per cup for nutrition only.",
 						"white onion: model uses Onions, raw.",
 						"white onion: 160 g edible food per cup for nutrition only.",
-						"Excluded unmeasured/to-taste ingredient: Cooking spray or olive oil."
+						"Excluded unmeasured equipment preparation: Cooking spray or olive oil."
 					],
 					"ingredientSnapshot": [
 						{
@@ -20048,25 +20033,18 @@
 							"amount": 0.3333333333333333,
 							"unit": "cup",
 							"state": "cut into thin strips"
-						},
-						{
-							"id": "ingredient-6",
-							"name": "Cooking spray or olive oil",
-							"amount": null,
-							"unit": "unspecified",
-							"state": ""
 						}
 					]
 				}
 			},
 			"flow": {
 				"prep": [
-					"Marinate steak for at least 30 minutes. Heat oven to 350°F.",
+					"Marinate steak for at least 30 minutes. Heat oven to 350°F. Grease the skillet with cooking spray or a little olive oil before searing.",
 					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.",
 					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Sear rolls in source unspecified spray/oil medium about 1 min per face; bake 350°F 10–15 min.",
+					"action": "Sear rolls over medium heat about 1 min per face; bake 350°F 10–15 min.",
 					"children": [
 						{
 							"action": "Marinate steak refrigerated at least 30 min; cut strips wide enough to wrap vegetables, wrap tightly and secure with toothpicks.",
@@ -20092,10 +20070,6 @@
 									"fraction": 1
 								}
 							]
-						},
-						{
-							"ingredientId": "ingredient-6",
-							"fraction": 1
 						}
 					]
 				}
@@ -24486,21 +24460,6 @@
 					"sourceUnit": "unspecified",
 					"sourceRawIngredientIndex": 3,
 					"optional": false
-				},
-				{
-					"id": "ingredient-5",
-					"name": "Cooking oil spray",
-					"state": "",
-					"amount": null,
-					"unit": "unspecified",
-					"category": "pantry",
-					"note": "Source method calls for cooking oil spray but supplies no amount.",
-					"scale": "linear",
-					"sourceLine": "Lightly spray with cooking oil",
-					"sourceAmount": null,
-					"sourceUnit": "unspecified",
-					"sourceRawIngredientIndex": 104,
-					"optional": false
 				}
 			],
 			"steps": [
@@ -24583,7 +24542,7 @@
 						"shredded cheddar cheese: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).",
 						"shredded cheddar cheese: 113 g edible food per cup for nutrition only.",
 						"Excluded unmeasured/to-taste ingredient: salt and pepper to taste.",
-						"Excluded unmeasured/to-taste ingredient: Cooking oil spray."
+						"Excluded unmeasured equipment preparation: Cooking oil spray."
 					],
 					"ingredientSnapshot": [
 						{
@@ -24613,20 +24572,13 @@
 							"amount": 0,
 							"unit": "unspecified",
 							"state": ""
-						},
-						{
-							"id": "ingredient-5",
-							"name": "Cooking oil spray",
-							"amount": null,
-							"unit": "unspecified",
-							"state": ""
 						}
 					]
 				}
 			},
 			"flow": {
 				"prep": [
-					"Heat oven to 400°F. Line and lightly oil a baking sheet.",
+					"Heat oven to 400°F. Line a baking sheet and lightly coat it with cooking oil spray.",
 					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
@@ -24641,10 +24593,6 @@
 								},
 								{
 									"ingredientId": "ingredient-2",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-5",
 									"fraction": 1
 								}
 							]
@@ -26746,21 +26694,6 @@
 					"sourceUnit": "tbsp",
 					"sourceRawIngredientIndex": 9,
 					"optional": false
-				},
-				{
-					"id": "ingredient-11",
-					"name": "Cooking oil spray",
-					"state": "",
-					"amount": null,
-					"unit": "unspecified",
-					"category": "pantry",
-					"note": "Source method gives optional pan oil, with no amount. Optional; excluded or included as stated in the publisher nutrition.",
-					"scale": "linear",
-					"sourceLine": "Prepare a rimmed baking pan by spraying lightly with oil, if desired.",
-					"sourceAmount": null,
-					"sourceUnit": "unspecified",
-					"sourceRawIngredientIndex": 110,
-					"optional": true
 				}
 			],
 			"steps": [
@@ -26867,7 +26800,7 @@
 						"lemon: 48 g edible food per count for nutrition only.",
 						"parsley: model uses Parsley, fresh.",
 						"parsley: 3.8 g edible food per tbsp for nutrition only.",
-						"Excluded unmeasured/to-taste ingredient: Cooking oil spray."
+						"Excluded unmeasured equipment preparation: Cooking oil spray."
 					],
 					"ingredientSnapshot": [
 						{
@@ -26939,20 +26872,13 @@
 							"amount": 1.3333333333333333,
 							"unit": "tbsp",
 							"state": "chopped"
-						},
-						{
-							"id": "ingredient-11",
-							"name": "Cooking oil spray",
-							"amount": null,
-							"unit": "unspecified",
-							"state": ""
 						}
 					]
 				}
 			},
 			"flow": {
 				"prep": [
-					"Heat oven to 400°F. Use a rimmed sheet; oil spray is optional. Shell/devein shrimp and cut broccolini small.",
+					"Heat oven to 400°F. Lightly spray a rimmed baking sheet with oil if desired. Shell/devein shrimp and cut broccolini small.",
 					"Cook shellfish until the flesh is pearly white and opaque.",
 					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
@@ -26960,7 +26886,7 @@
 					"action": "Roast 400°F 6–10 min until shrimp pink/opaque and broccolini crisp-tender; for softer broccolini remove shrimp and roast vegetables a few minutes longer; add parsley.",
 					"children": [
 						{
-							"action": "Whisk coating, toss shrimp then lift shrimp onto pan; toss broccolini in leftover liquid, add optional lemon slices. Oil-spray pan if desired.",
+							"action": "Whisk coating, toss shrimp then lift shrimp onto pan; toss broccolini in leftover liquid, add optional lemon slices.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -26996,10 +26922,6 @@
 								},
 								{
 									"ingredientId": "ingredient-9",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-11",
 									"fraction": 1
 								}
 							]
@@ -64055,20 +63977,6 @@
 					"sourceAmount": 0.5,
 					"sourceUnit": "tsp",
 					"optional": false
-				},
-				{
-					"id": "ingredient-5",
-					"name": "Cooking spray",
-					"state": "",
-					"amount": null,
-					"unit": "",
-					"category": "pantry",
-					"note": "Optional, unquantified; check waffle-iron instructions. Unquantified amount remains unknown, not zero.",
-					"scale": "linear",
-					"sourceLine": "Source method: lightly spray with cooking oil if needed",
-					"sourceAmount": null,
-					"sourceUnit": "",
-					"optional": false
 				}
 			],
 			"steps": [
@@ -64154,7 +64062,7 @@
 						"almond flour: 112 g edible food per cup for nutrition only.",
 						"baking powder: model uses Leavening agents, baking powder, double-acting, sodium aluminum sulfate.",
 						"baking powder: 4.6 g edible food per tsp for nutrition only.",
-						"Excluded unmeasured/to-taste ingredient: Cooking spray."
+						"Excluded unmeasured equipment preparation: Cooking spray."
 					],
 					"ingredientSnapshot": [
 						{
@@ -64184,19 +64092,13 @@
 							"amount": 0.3333333333333333,
 							"unit": "tsp",
 							"state": ""
-						},
-						{
-							"id": "ingredient-5",
-							"name": "Cooking spray",
-							"amount": null,
-							"unit": "",
-							"state": ""
 						}
 					]
 				}
 			},
 			"flow": {
 				"prep": [
+					"Preheat the mini waffle iron according to its manual. Lightly coat with cooking spray if needed and permitted by the manual.",
 					"The four-serving batch makes four mini chaffles; one chaffle is one portion.",
 					"Allow 2–3 minutes per mini-waffle round, or 8–12 minutes cooking for four sequential rounds, plus about 5 minutes to heat and mix.",
 					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
@@ -64221,15 +64123,6 @@
 								},
 								{
 									"ingredientId": "ingredient-4",
-									"fraction": 1
-								}
-							]
-						},
-						{
-							"action": "Preheat mini waffle iron per manual; use optional light cooking spray.",
-							"children": [
-								{
-									"ingredientId": "ingredient-5",
 									"fraction": 1
 								}
 							]

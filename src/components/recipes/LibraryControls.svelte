@@ -176,7 +176,7 @@
 	</fieldset>
 	<!-- The legend floats so it lines up with the help trigger beside it. -->
 	<fieldset class="nutrient-filters">
-		<legend>Nutrition</legend><NutritionHelp />
+		<legend>Nutrition filters</legend><NutritionHelp />
 		<div class="nutrient-options">
 			{#each nutritionChecks as check (check.key)}<label for={controlId(check.key)} title={check.title}
 					><Checkbox

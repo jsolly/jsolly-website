@@ -9,15 +9,22 @@ const CASES = [
 		"spinach-feta-and-hemp-frittata",
 		"/recipes/",
 		["Immune support", "Iron-rich", "High in Omega-3s"],
+		["Keto"],
 	],
 	[
 		"tomato-lentil-and-chicken-bake",
 		"/recipes/",
 		["Immune support", "Iron-rich"],
+		[],
 	],
-	["pesto-cod-and-zucchini", "/recipes/", ["High in Omega-3s"]],
-	["strawberry-hemp-smoothie", "/recipes/smoothies/", ["High in Omega-3s"]],
-	["avocado-lime-smoothie", "/recipes/smoothies/", []],
+	["pesto-cod-and-zucchini", "/recipes/", ["High in Omega-3s"], ["Keto"]],
+	[
+		"strawberry-hemp-smoothie",
+		"/recipes/smoothies/",
+		["High in Omega-3s"],
+		["Keto"],
+	],
+	["avocado-lime-smoothie", "/recipes/smoothies/", [], ["Keto"]],
 ];
 let site;
 let browser;
@@ -43,13 +50,18 @@ function registerPillTest(width) {
 		const page = await context.newPage();
 		const errors = collectErrors(page);
 		try {
-			for (const [id, collection, expected] of CASES) {
+			for (const [id, collection, expected, group] of CASES) {
 				await page.goto(`${site.origin}${collection}`);
 				await hydrated(page);
 				const card = page.locator(
 					`.recipe-card:has(a[data-recipe-id="${id}"])`,
 				);
-				assert.deepEqual(await pills(card), expected, `${id} card`);
+				assert.deepEqual(
+					await pills(card),
+					[...group, ...expected],
+					`${id} card`,
+				);
+				assert.equal(await card.locator(".card-top").count(), 0);
 				await page.goto(`${site.origin}${collection}#${id}`);
 				await hydrated(page);
 				const dialog = page.getByRole("dialog");

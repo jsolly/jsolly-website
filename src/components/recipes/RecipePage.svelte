@@ -4,6 +4,7 @@
 	import NativeSelect from "../../lib/components/ui/native-select.svelte";
 	import { BASE_SERVINGS, groupBadges, SERVING_CHOICES } from "./constants.mjs";
 	import NutritionPills from "./NutritionPills.svelte";
+	import RecipeAttribution from "./RecipeAttribution.svelte";
 	import RecipeBody from "./RecipeBody.svelte";
 	import RecipePrint from "./RecipePrint.svelte";
 	import { validateSettings } from "./recipe-logic.mjs";
@@ -63,10 +64,11 @@
 			<a href={`/recipes/${collection}/`}>← Back to {collection}</a>
 			<Button variant="outline" class="recipe-enhanced" disabled={!interactive} onclick={print}>Print recipe</Button>
 		</div>
-		{#if groupBadges[recipe.group]}<span class="badge">{groupBadges[recipe.group]}</span>{/if}
+		{#if groupBadges[recipe.group] && recipe.group !== "nonketo"}<span class="badge">{groupBadges[recipe.group]}</span>{/if}
 		<h1>{recipe.title}</h1>
 		<NutritionPills {recipe} servings={settings.servings} />
 		<p>{recipe.summary}</p>
+		<RecipeAttribution {recipe} />
 			<label class="servings recipe-enhanced" for={servingsId}
 				>Servings<NativeSelect id={servingsId} value={settings.servings} disabled={!interactive} onchange={(event) => setServings(event.currentTarget.value)}>
 					{#each SERVING_CHOICES as choice (choice)}<option value={choice}>{choice}</option>{/each}

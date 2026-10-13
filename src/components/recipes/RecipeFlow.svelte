@@ -46,7 +46,7 @@
 </script>
 
 {#snippet ingredient(cell)}
-	<span><strong>{cell.text}</strong> <span class="ingredient-name">{cell.name}</span>{#if ingredientIcon(cell.name)}
+	<span><strong>{cell.text === "to taste" && /\bto taste\b/iu.test(cell.name) ? "" : cell.text}</strong> <span class="ingredient-name">{cell.name}</span>{#if ingredientIcon(cell.name)}
 		<span class="ingredient-icon" aria-hidden="true">{ingredientIcon(cell.name)}</span>{/if}<small>{cookingNotes(cell.state).replace("Use the proportional split described in the method.", "Use the amount shown for this branch.")}</small></span>
 {/snippet}
 

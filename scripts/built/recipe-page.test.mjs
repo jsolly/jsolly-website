@@ -35,9 +35,9 @@ const SERVINGS = /^Servings/u;
 const FAMILY_SIDE = /^Family side/u;
 const SPACES = /\s+/gu;
 const LEARN_MORE = "Learn more about Tabular Recipe Notation";
-const MISSING_TOTAL = /Not provided total time/u;
+const MISSING_TOTAL = /Not provided ready in/u;
 const PRINT_MISSING_TOTAL = /Total time: Not provided/u;
-const KNOWN_TOTAL = /80 min total time/u;
+const KNOWN_TOTAL = /80 min ready in/u;
 const PRINT_KNOWN_TOTAL = /Total time: 80 min/u;
 const RANCH = recipeData.recipes.find(
 	(recipe) => recipe.id === "source-keto-slow-cooker-zesty-ranch-chicken",
@@ -623,7 +623,7 @@ it("a reader who picks 8 servings and the bun side gets the scaled recipe and a 
 			},
 			{
 				facts:
-					"15 min active time / base batch 8 servings 40 min / base batch total time",
+					"15 min active time / base batch 8 servings 40 min / base batch ready in",
 				sideLine: "360g Bun · serve separately",
 				cucumber: "600g",
 				link: `${site.origin}${PAGE}?servings=8&starch=greek-turkey-patties%3Abun_one`,
@@ -657,7 +657,7 @@ it("a shared link with ?servings=6 and a family side opens the recipe at six ser
 				servings: "6",
 				side: SIDE,
 				facts:
-					"15 min active time / base batch 6 servings 40 min / base batch total time",
+					"15 min active time / base batch 6 servings 40 min / base batch ready in",
 				sideLine: "270g Bun · serve separately",
 				errors: [],
 			},

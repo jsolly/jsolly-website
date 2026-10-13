@@ -3,7 +3,6 @@
 	import ApplianceIcon from "./ApplianceIcon.svelte";
 	import { BASE_SERVINGS } from "./constants.mjs";
 	import NutritionPills from "./NutritionPills.svelte";
-	import RecipeBadge from "./RecipeBadge.svelte";
 	import {
 		formatNutrition,
 		servingNutrition,
@@ -14,16 +13,17 @@
 	// time, net carbs per serving and appliances. `href` is the
 	// recipe page with the reader's servings and family side.
 	let { recipe, href, servings = BASE_SERVINGS } = $props();
-	// Diet labels already live in the card badge; retain canonical source titles.
+	// Diet labels live with the other highlights; retain canonical source titles.
 	const cardTitle = $derived(recipe.title
 		.replace(/\(\s*(?:(?:keto|low[ -]carb)\s*(?:\+|-)?\s*)+\)/giu, "")
 		.replace(/\b(?:keto|low[ -]carb)\b(?:\s*\+\s*)?/giu, "")
+		.replace(/\s*\(family favorite\)/giu, "")
 		.replace(/\s+/gu, " ").trim()
 		.replace(/^./u, (letter) => letter.toUpperCase()));
+	const netCarbs = $derived(recipe.type === "smoothie" ? smoothiePortionNutrition(recipe).net_carbs_g : servingNutrition(recipe, BASE_SERVINGS).net_carbs_g);
 </script>
 
 <article class="recipe-card">
-	<div class="card-top"><RecipeBadge group={recipe.group} /></div>
 	{#if recipe.image}<figure class="card-photo"><img src={recipe.image.cardSrc} srcset={recipe.image.cardSrcset} sizes="(max-width:600px) 340px, (max-width:1000px) 420px, 360px" width={recipe.image.width} height={recipe.image.height} alt={recipe.image.alt} loading="lazy" decoding="async" /></figure>{/if}
 	<h3><a class="title-button" data-recipe-id={recipe.id} {href}>{cardTitle}</a></h3>
 	<div class="card-details">
@@ -34,14 +34,14 @@
 			</div>
 			<div>
 				<dt>{recipe.type === "smoothie" ? "Net Carbs (8 oz)" : "Net carbs per serving"}</dt>
-				<dd class="carb-value">{recipe.type === "smoothie" ? formatNutrition(smoothiePortionNutrition(recipe).net_carbs_g, "g", 1) : formatNutrition(servingNutrition(recipe, BASE_SERVINGS).net_carbs_g, "g", 1)}</dd>
+				<dd class="carb-value">{netCarbs === null ? "Not provided" : `~${formatNutrition(netCarbs, "g")}`}</dd>
 			</div>
 			<div>
 				<dt>Kitchen stuff needed</dt>
 				<dd class="appliance-icons">{#each recipe.appliancesNeeded as name (name)}<ApplianceIcon {name} />{/each}</dd>
 			</div>
 		</dl>
-		<div class="card-nutrition"><NutritionPills {recipe} {servings} /></div>
+		<div class="card-nutrition"><NutritionPills {recipe} {servings} includeGroup /></div>
 	</div>
 	<div class="card-actions"><Button class="open-button" {href} aria-label={`Open recipe: ${cardTitle}`}>Open recipe <span aria-hidden="true">→</span></Button></div>
 </article>
@@ -55,22 +55,14 @@
 			background: var(--recipe-paper);
 			border: 1px solid var(--recipe-line);
 			border-radius: 16px;
-			display: grid;
-			grid-template-rows: subgrid;
-			grid-row: span 5;
+			display: flex;
+			flex-direction: column;
 			padding: 20px;
 			min-width: 0;
 			row-gap: 0;
 		}
-		.card-top {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
-			gap: 10px;
-			align-items: center;
-		}
 		.card-photo {
-			margin: 14px 0 0;
+			margin: 0;
 		}
 		.card-photo img {
 			display: block;
@@ -161,8 +153,9 @@
 			flex-wrap: wrap;
 			justify-content: flex-start;
 		}
+		.card-details { margin-bottom: 16px; }
 		.card-actions {
-			margin-top: 16px;
+			margin-top: auto;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;

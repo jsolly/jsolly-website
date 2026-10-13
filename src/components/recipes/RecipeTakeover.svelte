@@ -5,6 +5,7 @@
 	import DialogDescription from "../../lib/components/ui/dialog-description.svelte";
 	import DialogTitle from "../../lib/components/ui/dialog-title.svelte";
 	import NutritionPills from "./NutritionPills.svelte";
+	import RecipeAttribution from "./RecipeAttribution.svelte";
 	import RecipeBadge from "./RecipeBadge.svelte";
 	import RecipeBody from "./RecipeBody.svelte";
 	import ShareRecipe from "./ShareRecipe.svelte";
@@ -43,6 +44,7 @@
 			<DialogTitle id="recipe-detail-title" tabindex={-1} bind:ref={heading}>{recipe.title}</DialogTitle>
 			<NutritionPills {recipe} servings={settings.servings} />
 			<DialogDescription class="detail-summary">{recipe.summary}</DialogDescription>
+			<RecipeAttribution {recipe} />
 			<RecipeBody {recipe} {settings} {onSideChange} />
 			<ShareRecipe {recipe} {settings} />
 		</section></DialogContent

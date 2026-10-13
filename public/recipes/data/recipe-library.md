@@ -6398,7 +6398,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Steak Rolls cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Marinate steak for at least 30 minutes. Heat oven to 350°F.</td></tr><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> flank steak or thinly sliced top round steak<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Marinate steak refrigerated at least 30 min; cut strips wide enough to wrap vegetables, wrap tightly and secure with toothpicks.</td><td rowspan="6" colspan="1" class="trn-operation">Sear rolls in source unspecified spray/oil medium about 1 min per face; bake 350°F 10–15 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Steak marinade<small class="trn-state-detail">prepared · Source specifies 1/4–1/2 cup; linked marinade is not included in captured recipe card. Source range: 0.25–0.5 cup; use the lower stated amount as the scaled starting point.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> red bell pepper<small class="trn-state-detail">cut into thin strips</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ cup</strong> french style green beans<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> white onion<small class="trn-state-detail">cut into thin strips</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Cooking spray or olive oil<small class="trn-state-detail">Source provides no amount.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Steak Rolls cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Marinate steak for at least 30 minutes. Heat oven to 350°F. Grease the skillet with cooking spray or a little olive oil before searing.</td></tr><tr><td colspan="2" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="2" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> flank steak or thinly sliced top round steak<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Marinate steak refrigerated at least 30 min; cut strips wide enough to wrap vegetables, wrap tightly and secure with toothpicks. Then: Sear rolls over medium heat about 1 min per face; bake 350°F 10–15 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Steak marinade<small class="trn-state-detail">prepared · Source specifies 1/4–1/2 cup; linked marinade is not included in captured recipe card. Source range: 0.25–0.5 cup; use the lower stated amount as the scaled starting point.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> red bell pepper<small class="trn-state-detail">cut into thin strips</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ cup</strong> french style green beans<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> white onion<small class="trn-state-detail">cut into thin strips</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
@@ -6411,8 +6411,6 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 - 1 ½ cup french style green beans
 
 - ⅓ cup white onion — cut into thin strips
-
-- Not specified Cooking spray or olive oil. Source provides no amount.
 
 ### Equipment
 
@@ -6466,7 +6464,7 @@ Nutrition assumptions:
 
 - white onion: 160 g edible food per cup for nutrition only.
 
-- Excluded unmeasured/to-taste ingredient: Cooking spray or olive oil.
+- Excluded unmeasured equipment preparation: Cooking spray or olive oil.
 
 Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
 
@@ -7926,7 +7924,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Sausage Broccoli Cheddar Sheet Pan cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F. Line and lightly oil a baking sheet.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 cup</strong> broccoli florets<small class="trn-state-detail"></small></th><td rowspan="3" colspan="1" class="trn-operation">Spread broccoli/sausage on lined oil-sprayed sheet; roast 400°F 15 min, flip/toss, roast 5–10 min until broccoli reaches preferred tenderness.</td><td rowspan="5" colspan="1" class="trn-operation">Add cheddar, bake 1–2 min to melt; season to taste.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14 oz</strong> Johnsonville Andouille smoked sausage<small class="trn-state-detail">sliced; source uses one 14-ounce package</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Cooking oil spray<small class="trn-state-detail">Source method calls for cooking oil spray but supplies no amount.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 cup</strong> shredded cheddar cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> salt and pepper to taste<small class="trn-state-detail">Source does not state an amount; measure to taste or as needed.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Sausage Broccoli Cheddar Sheet Pan cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F. Line a baking sheet and lightly coat it with cooking oil spray.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 cup</strong> broccoli florets<small class="trn-state-detail"></small></th><td rowspan="2" colspan="1" class="trn-operation">Spread broccoli/sausage on lined oil-sprayed sheet; roast 400°F 15 min, flip/toss, roast 5–10 min until broccoli reaches preferred tenderness.</td><td rowspan="4" colspan="1" class="trn-operation">Add cheddar, bake 1–2 min to melt; season to taste.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14 oz</strong> Johnsonville Andouille smoked sausage<small class="trn-state-detail">sliced; source uses one 14-ounce package</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 cup</strong> shredded cheddar cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> salt and pepper to taste<small class="trn-state-detail">Source does not state an amount; measure to taste or as needed.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
@@ -7937,8 +7935,6 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 - 1 cup shredded cheddar cheese
 
 - to taste salt and pepper to taste. Source does not state an amount; measure to taste or as needed.
-
-- Not specified Cooking oil spray. Source method calls for cooking oil spray but supplies no amount.
 
 ### Equipment
 
@@ -7984,7 +7980,7 @@ Nutrition assumptions:
 
 - Excluded unmeasured/to-taste ingredient: salt and pepper to taste.
 
-- Excluded unmeasured/to-taste ingredient: Cooking oil spray.
+- Excluded unmeasured equipment preparation: Cooking oil spray.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -8668,7 +8664,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon Garlic Shrimp and Broccolini Sheet Pan Meal cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F. Use a rimmed sheet; oil spray is optional. Shell/devein shrimp and cut broccolini small.</td></tr><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> lemon juice<small class="trn-state-detail"></small></th><td rowspan="10" colspan="1" class="trn-operation">Whisk coating, toss shrimp then lift shrimp onto pan; toss broccolini in leftover liquid, add optional lemon slices. Oil-spray pan if desired.</td><td rowspan="11" colspan="1" class="trn-operation">Roast 400°F 6–10 min until shrimp pink/opaque and broccolini crisp-tender; for softer broccolini remove shrimp and roast vegetables a few minutes longer; add parsley.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ tbsp</strong> avocado oil<small class="trn-state-detail">or your favorite oil</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> lemon zest<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ clove</strong> garlic<small class="trn-state-detail">crushed</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> red pepper flakes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> sea salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>16 oz</strong> large shrimp<small class="trn-state-detail">shelled and deveined, with tails on</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ bunch</strong> Broccolini<small class="trn-state-detail">cut into small florets · Source gives no bunch weight.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> lemon<small class="trn-state-detail">thinly sliced optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Cooking oil spray<small class="trn-state-detail">Source method gives optional pan oil, with no amount. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> parsley<small class="trn-state-detail">chopped</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon Garlic Shrimp and Broccolini Sheet Pan Meal cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F. Lightly spray a rimmed baking sheet with oil if desired. Shell/devein shrimp and cut broccolini small.</td></tr><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> lemon juice<small class="trn-state-detail"></small></th><td rowspan="9" colspan="1" class="trn-operation">Whisk coating, toss shrimp then lift shrimp onto pan; toss broccolini in leftover liquid, add optional lemon slices.</td><td rowspan="10" colspan="1" class="trn-operation">Roast 400°F 6–10 min until shrimp pink/opaque and broccolini crisp-tender; for softer broccolini remove shrimp and roast vegetables a few minutes longer; add parsley.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ tbsp</strong> avocado oil<small class="trn-state-detail">or your favorite oil</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> lemon zest<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ clove</strong> garlic<small class="trn-state-detail">crushed</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> red pepper flakes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> sea salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>16 oz</strong> large shrimp<small class="trn-state-detail">shelled and deveined, with tails on</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ bunch</strong> Broccolini<small class="trn-state-detail">cut into small florets · Source gives no bunch weight.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> lemon<small class="trn-state-detail">thinly sliced optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> parsley<small class="trn-state-detail">chopped</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
@@ -8691,8 +8687,6 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 - ⅔ count lemon — thinly sliced optional. Optional; excluded or included as stated in the publisher nutrition.
 
 - 1 ⅓ tbsp parsley — chopped
-
-- Not specified Cooking oil spray. Source method gives optional pan oil, with no amount. Optional; excluded or included as stated in the publisher nutrition.
 
 ### Equipment
 
@@ -8766,7 +8760,7 @@ Nutrition assumptions:
 
 - parsley: 3.8 g edible food per tbsp for nutrition only.
 
-- Excluded unmeasured/to-taste ingredient: Cooking oil spray.
+- Excluded unmeasured equipment preparation: Cooking oil spray.
 
 Known allergens for these plates: crustacean shellfish. Check product labels and cross-contact.
 
@@ -20424,7 +20418,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Basic Keto Chaffle Recipe cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">The four-serving batch makes four mini chaffles; one chaffle is one portion.</td></tr><tr><td colspan="3" class="trn-prep">Allow 2–3 minutes per mini-waffle round, or 8–12 minutes cooking for four sequential rounds, plus about 5 minutes to heat and mix.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> large eggs<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Mix eggs, cheese, almond flour and baking powder until evenly combined.</td><td rowspan="5" colspan="1" class="trn-operation">Cook one mini chaffle per round for 2–3 min until set and steam subsides. The four-portion batch needs four sequential rounds. Adjust the round count for the selected portions and follow the waffle iron capacity and manual.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> shredded cheese<small class="trn-state-detail">(any variety or mixture)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅙ cup</strong> almond flour<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> baking powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Cooking spray<small class="trn-state-detail">Optional, unquantified; check waffle-iron instructions. Unquantified amount remains unknown, not zero.</small></th><td rowspan="1" colspan="1" class="trn-operation">Preheat mini waffle iron per manual; use optional light cooking spray.</td></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Basic Keto Chaffle Recipe cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Preheat the mini waffle iron according to its manual. Lightly coat with cooking spray if needed and permitted by the manual.</td></tr><tr><td colspan="2" class="trn-prep">The four-serving batch makes four mini chaffles; one chaffle is one portion.</td></tr><tr><td colspan="2" class="trn-prep">Allow 2–3 minutes per mini-waffle round, or 8–12 minutes cooking for four sequential rounds, plus about 5 minutes to heat and mix.</td></tr><tr><td colspan="2" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> large eggs<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Mix eggs, cheese, almond flour and baking powder until evenly combined. Then: Cook one mini chaffle per round for 2–3 min until set and steam subsides. The four-portion batch needs four sequential rounds. Adjust the round count for the selected portions and follow the waffle iron capacity and manual.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> shredded cheese<small class="trn-state-detail">(any variety or mixture)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅙ cup</strong> almond flour<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> baking powder<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
@@ -20435,8 +20429,6 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 - ⅙ cup almond flour
 
 - ⅓ tsp baking powder
-
-- Not specified Cooking spray. Optional, unquantified; check waffle-iron instructions. Unquantified amount remains unknown, not zero.
 
 ### Equipment
 
@@ -20484,7 +20476,7 @@ Nutrition assumptions:
 
 - baking powder: 4.6 g edible food per tsp for nutrition only.
 
-- Excluded unmeasured/to-taste ingredient: Cooking spray.
+- Excluded unmeasured equipment preparation: Cooking spray.
 
 Known allergens for these plates: milk, tree nuts, eggs. Check product labels and cross-contact.
 

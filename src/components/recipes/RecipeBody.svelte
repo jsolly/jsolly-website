@@ -57,7 +57,6 @@
 </script>
 
 <div class="recipe-body">
-	{#if recipe.sourceRecipe}<p class="source-credit">Adapted from <a href={recipe.sourceRecipe.resolvedUrl || recipe.sourceRecipe.url}>{recipe.sourceRecipe.author || "the original publisher"}</a>.</p>{/if}
 	<div class="detail-appliances">
 		<span>Kitchen stuff needed</span>
 		<div class="appliance-icons">{#each recipe.appliancesNeeded as name (name)}<ApplianceIcon {name} />{/each}</div>
@@ -65,7 +64,7 @@
 	<div class="detail-facts">
 		<span><strong>{recipe.activeMinutes === null ? "Not provided" : `${recipe.activeMinutes} min`}</strong> {recipe.sourceRecipe ? "prep time" : "active time"}{settings.servings > BASE_SERVINGS ? " / base batch" : ""}</span>
 		<span><strong>{settings.servings}</strong> servings</span>
-		<span><strong>{totalTimeLabel(recipe, settings.servings)}</strong> total time</span>
+		<span><strong>{totalTimeLabel(recipe, settings.servings)}</strong> ready in</span>
 	</div>
 	{#if recipe.image}
 		<figure class="recipe-photo">
@@ -130,7 +129,6 @@
 			max-width: 60rem;
 			margin: 22px 0;
 		}
-		.source-credit { overflow-wrap: anywhere; }
 		.recipe-photo img {
 			display: block;
 			width: 100%;

@@ -1,4 +1,5 @@
 <script>
+	import Share2 from "@lucide/svelte/icons/share-2";
 	import Button from "../../lib/components/ui/button.svelte";
 	import { recipeHref } from "./recipe-url.mjs";
 
@@ -41,7 +42,7 @@
 </script>
 
 <div class="recipe-share">
-	<Button variant="outline" {disabled} onclick={share}>Share this recipe</Button>
+	<Button variant="outline" {disabled} onclick={share}><Share2 aria-hidden="true" size={18} />Share this recipe</Button>
 	<p role="status">{message}{#if fallbackUrl} <a href={fallbackUrl}>{fallbackUrl}</a>{/if}</p>
 </div>
 
