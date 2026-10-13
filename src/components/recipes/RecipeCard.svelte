@@ -27,7 +27,7 @@
 			</div>
 			<div>
 				<dt>{recipe.type === "smoothie" ? "Net Carbs (8 oz)" : "Net carbs per serving"}</dt>
-				<dd>{recipe.type === "smoothie" ? formatNutrition(smoothiePortionNutrition(recipe).net_carbs_g, "g", 1) : formatNutrition(servingNutrition(recipe, BASE_SERVINGS).net_carbs_g, "g", 1)}</dd>
+				<dd class="carb-value">{recipe.type === "smoothie" ? formatNutrition(smoothiePortionNutrition(recipe).net_carbs_g, "g", 1) : formatNutrition(servingNutrition(recipe, BASE_SERVINGS).net_carbs_g, "g", 1)}</dd>
 			</div>
 			<div>
 				<dt>Appliances needed</dt>
@@ -87,10 +87,17 @@
 		.card-nutrition:has(> :global(.nutrition-pills)) {
 			margin-top: 14px;
 		}
+		.card-nutrition :global(.nutrition-pills) {
+			padding: 0;
+			margin: 0;
+		}
+		.card-nutrition :global(.nutrition-pills li) {
+			margin: 0;
+		}
 		.card-numbers {
 			display: grid;
 			grid-template-columns: repeat(2, minmax(0, 1fr));
-			gap: 12px;
+			gap: 16px 20px;
 			border-top: 1px solid var(--recipe-line);
 			padding-top: 13px;
 			margin: 12px 0 0;
@@ -98,9 +105,14 @@
 		.card-numbers > div {
 			display: grid;
 			grid-template-rows: 1fr auto;
+			gap: 6px;
 		}
 		.card-numbers > div:last-child {
 			grid-column: 1 / -1;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 12px;
 		}
 		.card-numbers dt {
 			font-size: 0.68rem;
@@ -111,15 +123,21 @@
 		.card-numbers dd {
 			font-size: 0.86rem;
 			font-weight: 650;
-			margin: 4px 0 0;
+			margin: 0;
 		}
 		.card-numbers .active-time {
 			display: flex;
 			align-items: baseline;
 			gap: 6px;
 		}
+		.card-numbers .carb-value {
+			font-size: 1.5rem;
+			line-height: 1.1;
+			font-weight: 700;
+			letter-spacing: -0.04em;
+		}
 		.time-number {
-			font-size: 2.4rem;
+			font-size: 1.5rem;
 			line-height: 1.1;
 			font-weight: 700;
 			letter-spacing: -0.04em;
@@ -132,7 +150,9 @@
 		.appliance-icons {
 			display: flex;
 			align-items: center;
-			gap: 10px;
+			gap: 8px;
+			flex-wrap: wrap;
+			justify-content: flex-end;
 		}
 		.card-actions {
 			margin-top: 16px;
