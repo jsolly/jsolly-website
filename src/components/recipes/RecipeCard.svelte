@@ -16,23 +16,26 @@
 </script>
 
 <article class="recipe-card">
-	<div class="card-top"><RecipeBadge group={recipe.group} /><NutritionPills {recipe} {servings} /></div>
+	<div class="card-top"><RecipeBadge group={recipe.group} /></div>
 	{#if recipe.image}<figure class="card-photo"><img src={recipe.image.cardSrc} srcset={recipe.image.cardSrcset} sizes="(max-width:600px) 340px, (max-width:1000px) 420px, 360px" width={recipe.image.width} height={recipe.image.height} alt={recipe.image.alt} loading="lazy" decoding="async" /></figure>{/if}
 	<h3><a class="title-button" data-recipe-id={recipe.id} {href}>{recipe.title}</a></h3>
-	<dl class="card-numbers">
-		<div>
-			<dt>{recipe.sourceRecipe ? "Prep time" : "Active time"}</dt>
-			<dd class="active-time"><span class="time-number" class:unknown={recipe.activeMinutes === null}>{recipe.activeMinutes === null ? "Not provided" : recipe.activeMinutes}</span>{#if recipe.activeMinutes !== null}<span class="time-unit">min</span>{/if}</dd>
-		</div>
-		<div>
-			<dt>{recipe.type === "smoothie" ? "Net Carbs (8 oz)" : "Net carbs per serving"}</dt>
-			<dd>{recipe.type === "smoothie" ? formatNutrition(smoothiePortionNutrition(recipe).net_carbs_g, "g", 1) : formatNutrition(servingNutrition(recipe, BASE_SERVINGS).net_carbs_g, "g", 1)}</dd>
-		</div>
-		<div>
-			<dt>Appliances needed</dt>
-			<dd class="appliance-icons">{#each recipe.appliancesNeeded as name (name)}<ApplianceIcon {name} />{/each}</dd>
-		</div>
-	</dl>
+	<div class="card-details">
+		<dl class="card-numbers">
+			<div>
+				<dt>{recipe.sourceRecipe ? "Prep time" : "Active time"}</dt>
+				<dd class="active-time"><span class="time-number" class:unknown={recipe.activeMinutes === null}>{recipe.activeMinutes === null ? "Not provided" : recipe.activeMinutes}</span>{#if recipe.activeMinutes !== null}<span class="time-unit">min</span>{/if}</dd>
+			</div>
+			<div>
+				<dt>{recipe.type === "smoothie" ? "Net Carbs (8 oz)" : "Net carbs per serving"}</dt>
+				<dd>{recipe.type === "smoothie" ? formatNutrition(smoothiePortionNutrition(recipe).net_carbs_g, "g", 1) : formatNutrition(servingNutrition(recipe, BASE_SERVINGS).net_carbs_g, "g", 1)}</dd>
+			</div>
+			<div>
+				<dt>Appliances needed</dt>
+				<dd class="appliance-icons">{#each recipe.appliancesNeeded as name (name)}<ApplianceIcon {name} />{/each}</dd>
+			</div>
+		</dl>
+		<div class="card-nutrition"><NutritionPills {recipe} {servings} /></div>
+	</div>
 	<div class="card-actions"><a class="open-button" {href}>See recipe</a></div>
 </article>
 
@@ -80,6 +83,9 @@
 		.title-button:hover {
 			text-decoration: underline;
 			text-underline-offset: 4px;
+		}
+		.card-nutrition:has(> :global(.nutrition-pills)) {
+			margin-top: 14px;
 		}
 		.card-numbers {
 			display: grid;
