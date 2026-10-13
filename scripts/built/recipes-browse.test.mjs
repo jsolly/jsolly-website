@@ -51,14 +51,14 @@ const TWO_SERVINGS_CHICKEN = /340g/u;
 const BEFORE_YOU_START = /Before you start/u;
 const COOK = /Cook/u;
 const SMOOTHIE_YIELD = /up to two servings/u;
-const GLASS_NUTRITION = /Nutrition per 8 oz glass/u;
+const GLASS_NUTRITION = /Nutrition\s*per 8 oz glass/u;
 const EIGHT_SERVINGS_WATER = /27 oz Cold water/u;
 const EIGHT_SERVINGS = /8\s+servings/u;
 // Longer than the help popover's 120ms close delay.
 const HELP_CLOSE_WAIT_MS = 400;
 const LEARN_MORE = "Learn more about Tabular Recipe Notation";
 // biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
-const NATIVE_CHECKBOX = ".trn-ingredient input[type=checkbox]";
+const NATIVE_CHECKBOX = "input[type=checkbox]:visible";
 const SHARED = "/recipes/shawarma-chicken-bowls/";
 
 let site;
@@ -127,15 +127,25 @@ function detailsCheck(width) {
 		try {
 			await staticPage.goto(`${site.origin}${LANDING}`);
 			assert.equal(await staticPage.locator(".recipe-card").count(), mealCount);
+			assert.equal(
+				await staticPage
+					.getByRole("navigation", { name: "Breadcrumb" })
+					.count(),
+				0,
+			);
 			assert.equal(await staticPage.locator(".recipe-detail").count(), 0);
 			const bodyContent = async (body) => ({
 				appliances: await body.locator(".detail-appliances").textContent(),
 				facts: await body.locator(".detail-facts").textContent(),
 				image: await body.locator(".recipe-photo img").getAttribute("src"),
 				flow: await body
-					.locator(".trn-table tr:not(.reset-checks-row)")
+					.locator(
+						width <= 760
+							? ".mobile-prep p, .mobile-ingredient label:visible, .branch-join p"
+							: ".trn-table tr:not(.reset-checks-row)",
+					)
 					.allInnerTexts(),
-				macros: await body.locator(".nutrition>dl").textContent(),
+				macros: await body.locator(".nutrition>dl dd").allTextContents(),
 				nutrients: await body.locator(".daily-values:visible").allInnerTexts(),
 				family: await body.locator(".family-box p").allTextContents(),
 			});
@@ -212,7 +222,7 @@ function detailsCheck(width) {
 				`${site.origin}${SHARED}?servings=8&starch=shawarma-chicken-bowls:pita_one`,
 			);
 			const share = page.getByRole("button", {
-				name: "Share recipe",
+				name: "Share this recipe",
 				exact: true,
 			});
 			await share.click();
@@ -780,7 +790,10 @@ function collectionsCheck(width) {
 				enhanced
 					.locator(".recipe-card")
 					.filter({ hasText: "Lemon salmon and asparagus" })
-					.getByRole("link", { name: "See recipe", exact: true })
+					.getByRole("link", {
+						name: "Open recipe: Lemon salmon and asparagus",
+						exact: true,
+					})
 					.click(),
 			]);
 			await recipeReady(enhanced);

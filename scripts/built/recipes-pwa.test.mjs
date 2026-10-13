@@ -288,9 +288,9 @@ function installCheck(name, viewport) {
 			await page
 				.locator(".recipe-card")
 				.filter({ hasText: "Lemon salmon and asparagus" })
-				.getByRole("link", { name: "See recipe" })
+				.getByRole("link", { name: "Open recipe: Lemon salmon and asparagus" })
 				.click();
-			await page.locator(".recipe-detail .reset-checks-row").waitFor();
+			await page.locator(".recipe-detail .reset-checks:visible").waitFor();
 			assert.ok((await page.locator(".recipe-detail .trn-table").count()) > 0);
 			await page.waitForFunction(() =>
 				[...document.querySelectorAll(".recipe-detail img")].every(
@@ -313,7 +313,7 @@ function installCheck(name, viewport) {
 			// A shared recipe link opens offline with its settings, and its
 			// notation dialog still opens.
 			await navigateHydrated(page, `${site.origin}${SHARED_RECIPE}`);
-			await page.locator(".recipe-detail .reset-checks-row").waitFor();
+			await page.locator(".recipe-detail .reset-checks:visible").waitFor();
 			assert.equal(
 				await page.getByRole("combobox", { name: SERVINGS }).inputValue(),
 				"8",

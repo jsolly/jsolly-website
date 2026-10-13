@@ -3,7 +3,7 @@
 	import ApplianceIcon from "./ApplianceIcon.svelte";
 	import { BASE_SERVINGS } from "./constants.mjs";
 	import NutrientDisclosure from "./NutrientDisclosure.svelte";
-	import NutritionAssumptions from "./NutritionAssumptions.svelte";
+	import NutritionHelp from "./NutritionHelp.svelte";
 	import { dailyNutrition } from "./nutrition.mjs";
 	import RecipeFlow from "./RecipeFlow.svelte";
 	import {
@@ -57,19 +57,19 @@
 </script>
 
 <div class="recipe-body">
-	{#if recipe.sourceRecipe}<p class="source-credit">Adapted from <a href={recipe.sourceRecipe.resolvedUrl || recipe.sourceRecipe.url}>{recipe.sourceRecipe.author || "the original publisher"}</a>. {recipe.sourceRecipe.nutritionBasis}</p>{/if}
+	{#if recipe.sourceRecipe}<p class="source-credit">Adapted from <a href={recipe.sourceRecipe.resolvedUrl || recipe.sourceRecipe.url}>{recipe.sourceRecipe.author || "the original publisher"}</a>.</p>{/if}
 	<div class="detail-appliances">
-		<span>Appliances needed</span>
+		<span>Kitchen stuff needed</span>
 		<div class="appliance-icons">{#each recipe.appliancesNeeded as name (name)}<ApplianceIcon {name} />{/each}</div>
 	</div>
 	<div class="detail-facts">
-		<span><strong>{recipe.activeMinutes === null ? "Not provided" : `${recipe.activeMinutes} min`}</strong> {recipe.sourceRecipe ? "prep time (publisher)" : "active time"}{settings.servings > BASE_SERVINGS ? " / base batch" : ""}</span>
+		<span><strong>{recipe.activeMinutes === null ? "Not provided" : `${recipe.activeMinutes} min`}</strong> {recipe.sourceRecipe ? "prep time" : "active time"}{settings.servings > BASE_SERVINGS ? " / base batch" : ""}</span>
 		<span><strong>{settings.servings}</strong> servings</span>
 		<span><strong>{totalTimeLabel(recipe, settings.servings)}</strong> total time</span>
 	</div>
 	{#if recipe.image}
 		<figure class="recipe-photo">
-			<img src={recipe.image.src} srcset={recipe.image.detailSrcset} sizes="(max-width:600px) 320px, (max-width:1000px) 680px, 960px" width={recipe.image.width} height={recipe.image.height} alt={recipe.image.alt} loading="eager" decoding="async" /><figcaption>{recipe.image.caption}</figcaption>
+			<img src={recipe.image.src} srcset={recipe.image.detailSrcset} sizes="(max-width:600px) 320px, (max-width:1000px) 680px, 960px" width={recipe.image.width} height={recipe.image.height} alt={recipe.image.alt} loading="eager" decoding="async" />
 		</figure>
 	{/if}
 	{#if side}
@@ -82,19 +82,16 @@
 			<p>{sideAmount} {side.ingredientName} · serve separately</p>
 		</div>
 	{/if}
-	{#if recipe.sourceRecipe}<section aria-label="Source notes"><svelte:element this={`h${headingLevel}`}>Before cooking</svelte:element><ul>{#each recipe.limitations as note, index (index)}<li>{note}</li>{/each}</ul></section>{/if}
 	{#key recipe.id}<RecipeFlow {recipe} {settings} {interactive} {headingLevel} />{/key}
-	{#if recipe.sourceRecipe}<section aria-label="Recipe method"><svelte:element this={`h${headingLevel}`}>Method</svelte:element><ol>{#each recipe.steps as step, index (index)}<li><strong>{step.title}.</strong> {step.text}</li>{/each}</ol></section>{/if}
 	<section class="nutrition" aria-label={nutritionHeading(recipe)}>
-		<svelte:element this={`h${headingLevel}`}>{nutritionHeading(recipe)}</svelte:element>
+		<svelte:element this={`h${headingLevel}`}>Nutrition</svelte:element><p class="nutrition-portion">{nutritionHeading(recipe).replace(/^Nutrition /u, "")}</p>
 		<dl>
-			<div><dt>Calories</dt><dd>{formatNutrition(baseNutrition.kcal, "kcal")}</dd></div>
-			<div><dt>Protein</dt><dd>{formatNutrition(baseNutrition.protein_g, "g")}</dd></div>
+			<div><dt><span aria-hidden="true">🔥</span> Calories</dt><dd>{formatNutrition(baseNutrition.kcal, "kcal")}</dd></div>
+			<div><dt><span aria-hidden="true">💪</span> Protein</dt><dd>{formatNutrition(baseNutrition.protein_g, "g")}</dd></div>
 			<div><dt>Total carbs</dt><dd>{formatNutrition(baseNutrition.carbs_g, "g")}</dd></div>
 			<div><dt>Fiber</dt><dd>{formatNutrition(baseNutrition.fiber_g, "g")}</dd></div>
-			<div><dt>Net carbs</dt><dd>{formatNutrition(baseNutrition.net_carbs_g, "g")}</dd></div>
+			<div><dt>Net carbs <NutritionHelp topic="net-carbs" /></dt><dd>{formatNutrition(baseNutrition.net_carbs_g, "g")}</dd></div>
 		</dl>
-		{#if recipe.sourceRecipe?.nutritionEstimate}<NutritionAssumptions assumptions={recipe.sourceRecipe.nutritionEstimate.assumptions} {interactive} />{/if}
 		{#key recipe.id}<NutrientDisclosure nutrients={dailyValues} {interactive} headingLevel={headingLevel + 1} />{/key}
 	</section>
 </div>
@@ -105,9 +102,8 @@
 	@layer properties, theme, base, components, utilities, blog, blog-no-script;
 	@layer blog {
 		.detail-appliances {
-			display: flex;
-			align-items: center;
-			gap: 14px;
+			display: grid;
+			gap: 8px;
 			margin: 16px 0;
 			font-size: 0.84rem;
 		}
@@ -134,7 +130,6 @@
 			max-width: 60rem;
 			margin: 22px 0;
 		}
-		.recipe-photo figcaption { font-size: 0.8rem; color: var(--recipe-muted); margin-top: 8px; }
 		.source-credit { overflow-wrap: anywhere; }
 		.recipe-photo img {
 			display: block;
@@ -161,6 +156,7 @@
 		.nutrition {
 			margin-top: 20px;
 		}
+		.nutrition-portion { margin: 0 0 12px; font-size: 0.85rem; color: var(--recipe-muted); }
 		.nutrition dl {
 			display: grid;
 			grid-template-columns: 1fr 1fr;

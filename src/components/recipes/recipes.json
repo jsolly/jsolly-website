@@ -577,7 +577,8 @@
 			"flow": {
 				"prep": [
 					"Preheat both air fryers to 390°F. Start chicken first; start broccoli 5 min later.",
-					"Use uncrowded baskets; thighs must be unfolded and no more than ¾ inch thick."
+					"Use uncrowded baskets; thighs must be unfolded and no more than ¾ inch thick.",
+					"If smaller baskets cannot hold the batch uncrowded, use extra batches or the oven fallback."
 				],
 				"root": {
 					"action": "Plate cooked chicken and finished broccoli as separate components.",
@@ -1622,22 +1623,23 @@
 			},
 			"flow": {
 				"prep": [
-					"Remove sausage casings; chop bacon, onion and kale; mince garlic."
+					"Remove sausage casings; chop bacon, onion and kale; mince garlic.",
+					"Follow your exact cooker model’s liquid minimum, PC MAX, venting and float-valve instructions. Do not leave it operating unattended. Keep raw sausage and its utensils away from kale and cream."
 				],
 				"root": {
-					"action": "Stir in cream and kale; thicken with xanthan if using. Serve with Parmesan if using.",
+					"action": "Stir in cream and kale until kale wilts; sprinkle xanthan while stirring if thickening. Serve with optional Parmesan.",
 					"children": [
 						{
-							"action": "High pressure: 5 min, Keep Warm off. Quick release; open after the float drops. Sausage must reach 165°F.",
+							"action": "Seal; high pressure 5 min, Keep Warm off. Stay under PC MAX. Quick release per manual, clear of steam; vent in short bursts if soup sputters. Open only after float valve drops; sausage must reach 165°F.",
 							"children": [
 								{
 									"action": "Add broth, scrape the bottom, then add cauliflower.",
 									"children": [
 										{
-											"action": "Add garlic briefly.",
+											"action": "Add garlic about 30 sec, then turn Sauté off.",
 											"children": [
 												{
-													"action": "Sauté sausage and turkey bacon in the Instant Pot, then onion and red pepper.",
+													"action": "Set Instant Pot to Sauté. Brown sausage and turkey bacon, breaking sausage apart; add onion/red pepper and cook until onion softens.",
 													"children": [
 														{
 															"ingredientId": "chicken_italian_sausage",
@@ -2881,15 +2883,18 @@
 				"styleVersion": "warm-overhead-v1"
 			},
 			"flow": {
-				"prep": ["Prepare slaw and avocado while pressure builds."],
+				"prep": [
+					"Prepare slaw and avocado while pressure builds.",
+					"Follow your exact cooker model’s liquid minimum and PC MAX; keep cold sides away from raw-poultry equipment. Follow its venting instructions, keep clear of steam and do not leave it operating unattended."
+				],
 				"root": {
 					"action": "Plate salsa-verde chicken over cold slaw, with avocado.",
 					"children": [
 						{
-							"action": "Mix with salsa, remaining lime and enough broth to moisten.",
+							"action": "Mix with salsa, remaining lime and only enough broth to moisten; reserve excess broth, no reduction needed.",
 							"children": [
 								{
-									"action": "Cook to 165°F, then shred.",
+									"action": "Check thickest thighs reach 165°F; if needed, finish cooking in liquid and recheck. Lift to clean board and shred; if safely cooked thighs resist, slice or chop instead.",
 									"children": [
 										{
 											"action": "Natural release: 10 min, then vent. Open after the float drops.",
@@ -3301,7 +3306,8 @@
 			"flow": {
 				"prep": [
 					"Preheat both air fryers to 380°F. Arrange four patties per basket with gaps.",
-					"If scaled egg is half an egg: beat one whole egg and weigh about 25 g."
+					"If scaled egg is half an egg: beat one whole egg and weigh about 25 g.",
+					"If patties do not fit with gaps in smaller baskets, use the oven fallback or extra batches."
 				],
 				"root": {
 					"action": "Plate two cooked turkey patties per serving with cold cucumber, greens and lemon-yogurt sauce.",
@@ -5605,14 +5611,14 @@
 			},
 			"flow": {
 				"prep": [
-					"Prepare fruit and vegetables as listed; use chilled ingredients.",
+					"Peel and pit avocado; trim and chop cucumber. Weigh edible ingredients after preparation; use chilled ingredients.",
 					"Blend two servings at a time in a 1.5 L blender."
 				],
 				"root": {
 					"action": "Divide among serving glasses and serve chilled.",
 					"children": [
 						{
-							"action": "Blend in batches of up to two servings for 30–60 sec per batch, until smooth.",
+							"action": "Add water first; blend in batches of up to two servings for 30–60 sec per batch, until smooth.",
 							"children": [
 								{
 									"ingredientId": "water",
@@ -5779,14 +5785,14 @@
 			},
 			"flow": {
 				"prep": [
-					"Prepare fruit and vegetables as listed; use chilled ingredients.",
+					"Peel and pit avocado; hull strawberries. Weigh edible ingredients after preparation; use chilled ingredients.",
 					"Blend two servings at a time in a 1.5 L blender."
 				],
 				"root": {
 					"action": "Divide among serving glasses and serve chilled.",
 					"children": [
 						{
-							"action": "Blend in batches of up to two servings for 30–60 sec per batch, until smooth.",
+							"action": "Add water first; blend in batches of up to two servings for 30–60 sec per batch, until smooth.",
 							"children": [
 								{
 									"ingredientId": "water",
@@ -5940,14 +5946,14 @@
 			},
 			"flow": {
 				"prep": [
-					"Prepare fruit and vegetables as listed; use chilled ingredients.",
+					"Hull strawberries; peel and slice banana. Weigh edible ingredients after preparation; use chilled ingredients.",
 					"Blend two servings at a time in a 1.5 L blender."
 				],
 				"root": {
 					"action": "Divide among serving glasses and serve chilled.",
 					"children": [
 						{
-							"action": "Blend in batches of up to two servings for 30–60 sec per batch, until smooth.",
+							"action": "Add water first; blend in batches of up to two servings for 30–60 sec per batch, until smooth.",
 							"children": [
 								{
 									"ingredientId": "water",
@@ -6097,14 +6103,14 @@
 			},
 			"flow": {
 				"prep": [
-					"Prepare fruit and vegetables as listed; use chilled ingredients.",
+					"Peel and slice banana. Weigh edible ingredients after preparation; use chilled ingredients.",
 					"Blend two servings at a time in a 1.5 L blender."
 				],
 				"root": {
 					"action": "Divide among serving glasses and serve chilled.",
 					"children": [
 						{
-							"action": "Blend in batches of up to two servings for 30–60 sec per batch, until smooth.",
+							"action": "Add water first; blend in batches of up to two servings for 30–60 sec per batch, until smooth.",
 							"children": [
 								{
 									"ingredientId": "water",
@@ -6268,13 +6274,14 @@
 			"flow": {
 				"prep": [
 					"Hull and quarter the strawberries. Weigh the yogurt and hulled hemp hearts.",
-					"Use chilled ingredients; blend at most two servings per batch in a 1.5 L blender."
+					"Use chilled ingredients; blend at most two servings per batch in a 1.5 L blender.",
+					"Keep the blender below its marked fill limit; use additional batches when needed."
 				],
 				"root": {
 					"action": "Divide among serving glasses and serve chilled.",
 					"children": [
 						{
-							"action": "Blend in batches of up to two servings for 30–60 sec per batch, until smooth.",
+							"action": "Add water first; blend in batches of up to two servings for 30–60 sec per batch, until smooth.",
 							"children": [
 								{
 									"ingredientId": "water",
@@ -6464,13 +6471,14 @@
 			"flow": {
 				"prep": [
 					"Rinse cucumber and spinach under running water. Trim and chop cucumber; juice the lime and weigh the juice.",
-					"Use chilled ingredients; blend at most two servings per batch in a 1.5 L blender."
+					"Use chilled ingredients; blend at most two servings per batch in a 1.5 L blender.",
+					"Keep the blender below its marked fill limit; use additional batches when needed."
 				],
 				"root": {
 					"action": "Divide among serving glasses and serve chilled.",
 					"children": [
 						{
-							"action": "Blend in batches of up to two servings for 30–60 sec per batch, until smooth.",
+							"action": "Add water first; blend in batches of up to two servings for 30–60 sec per batch, until smooth.",
 							"children": [
 								{
 									"ingredientId": "water",
@@ -7263,7 +7271,9 @@
 			},
 			"flow": {
 				"prep": [
-					"Use fully cooked shredded chicken. Keep the sauce cheddar and topping cheddar separate."
+					"Use fully cooked shredded chicken. Keep the sauce cheddar and topping cheddar separate.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.",
+					"For larger batches, choose a larger skillet or cook separate batches."
 				],
 				"root": {
 					"action": "Cover on low; simmer about 10 min and confirm chicken reaches 165°F.",
@@ -7656,10 +7666,11 @@
 			"flow": {
 				"prep": [
 					"Heat oven to 425°F. Line a baking sheet. Melt the butter.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Roast together at 425°F for 20–25 min to chicken 165°F. Brush with reserved mustard; broil 2–3 min.",
+					"action": "Roast together at 425°F for 20–25 min to chicken 165°F. Brush with reserved mustard; broil 2–3 min, watching glaze closely.",
 					"children": [
 						{
 							"action": "Coat seasoned chicken with half the mustard.",
@@ -8222,13 +8233,14 @@
 			"flow": {
 				"prep": [
 					"Cut chicken and vegetables before heating the skillet.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return chicken and vegetables to sauce; add reserved cheddar, cover and simmer low 6–8 min.",
 					"children": [
 						{
-							"action": "Season chicken; sear in method spray/oil 2–3 min each side; add vegetables, cook 5 min and reserve.",
+							"action": "Season chicken; sear over medium in method spray/oil 2–3 min each side; add vegetables, cook 5 min until beginning to soften and reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -8787,13 +8799,14 @@
 			"flow": {
 				"prep": [
 					"Use a lidded 12-inch skillet.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return chicken to sauce; add remaining cheddar, cover and simmer low 6–8 min.",
 					"children": [
 						{
-							"action": "Season chicken and sear 2–3 min each side in method spray/oil; reserve.",
+							"action": "Season chicken and sear over medium 2–3 min each side in method spray/oil; reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -9344,13 +9357,14 @@
 			"flow": {
 				"prep": [
 					"Set oven to 350°F. Use an oven-safe skillet.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Combine chicken, sauce and broccoli; add topping cheddar; bake 350°F 20–25 min and rest 10 min.",
 					"children": [
 						{
-							"action": "Brown chicken with first butter portion and spices 5–6 min; reserve.",
+							"action": "Brown chicken over medium with first butter portion and spices 5–6 min, browning all faces; reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -9804,7 +9818,8 @@
 			"flow": {
 				"prep": [
 					"Thinly slice chicken and zucchini.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Add sauce to chicken and zucchini; cover, simmer low 10 min; serve with cashews and green onions.",
@@ -9835,7 +9850,7 @@
 							]
 						},
 						{
-							"action": "Brown seasoned chicken in frying oil 5–6 min; add zucchini 2–3 min.",
+							"action": "Brown seasoned chicken over medium in frying oil 5–6 min; add zucchini 2–3 min.",
 							"children": [
 								{
 									"ingredientId": "ingredient-6",
@@ -10217,13 +10232,14 @@
 			"flow": {
 				"prep": [
 					"Flatten chicken breasts to even thickness.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Add remaining divided butter and cream; return chicken, top with Swiss; cover, simmer 6–8 min to cooked chicken.",
 					"children": [
 						{
-							"action": "Season chicken; sear in first butter 3–4 min per side; reserve.",
+							"action": "Season chicken; sear over medium in first butter 3–4 min per side; reserve to finish in sauce.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -10506,7 +10522,8 @@
 			"flow": {
 				"prep": [
 					"Use a small slow cooker; source uses 2 quarts.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Slow-cook all ingredients on low 8 h; shred chicken and peppers, then stir.",
@@ -10940,13 +10957,14 @@
 			"flow": {
 				"prep": [
 					"Prepare thin chicken cutlets and small cauliflower pieces or cauliflower rice.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Off heat, add thyme, cream, lemon juice and zest; return chicken and optional thyme.",
 					"children": [
 						{
-							"action": "Season chicken; fry in butter 3–5 min, then 2–4 min to 165°F; keep warm.",
+							"action": "Season chicken; fry in butter over medium-high 3–5 min, turn, then 2–4 min to 165°F; tent with foil on a plate.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -10967,7 +10985,7 @@
 							]
 						},
 						{
-							"action": "Deglaze skillet with stock, garlic and cauliflower; simmer 4–5 min.",
+							"action": "Deglaze skillet with stock, garlic and cauliflower, scraping browned residue; simmer 4–5 min until cauliflower just tender.",
 							"children": [
 								{
 									"ingredientId": "ingredient-5",
@@ -11244,10 +11262,11 @@
 			"flow": {
 				"prep": [
 					"Heat oven to 375°F. Chicken must already be cooked and shredded or diced.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Transfer filling to dish, top with remaining cheddar; loosely cover, bake 375°F 25 min then uncovered 10 min.",
+					"action": "Transfer filling to dish, top with remaining cheddar; loosely cover with foil, bake 375°F 25 min, then uncovered about 10 min until bubbling and melted.",
 					"children": [
 						{
 							"action": "Mix chicken, cauliflower, buffalo sauce, cream cheese and three quarters cheddar.",
@@ -11804,7 +11823,8 @@
 			"flow": {
 				"prep": [
 					"Cut chicken into bite-sized pieces. Allow 1 hour for refrigerated marination.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Add remaining garlic, ginger, salt and spices 1 min; add tomato products, cream and butter, thicken; garnish cilantro.",
@@ -12246,13 +12266,14 @@
 			"flow": {
 				"prep": [
 					"Chop peppers and zucchini into bite-sized pieces. Line a baking sheet. Heat oven to 450°F.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Roast chicken and vegetables 450°F 25 min; check chicken 165°F.",
 					"children": [
 						{
-							"action": "Marinate chicken with half marinade 20 min or overnight.",
+							"action": "Coat chicken in half marinade and refrigerate 20 min or overnight; keep the other half separate for vegetables.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -12720,13 +12741,14 @@
 			"flow": {
 				"prep": [
 					"Slice each breast horizontally into thinner fillets.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return cooked chicken to thickened sauce 1–2 min; add optional parsley.",
 					"children": [
 						{
-							"action": "Season chicken; fry in half oil and butter 3–4 min each side; tent on plate.",
+							"action": "Season chicken; fry over medium in half oil and butter 3–4 min each side to 165°F; tent on plate.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -12747,7 +12769,7 @@
 							]
 						},
 						{
-							"action": "Sauté mushrooms in remaining oil 2–3 min; reduce Marsala 3–4 min; add broth, cream and spices; cover simmer low 10 min.",
+							"action": "Sauté mushrooms in remaining oil 2–3 min; bring Marsala to boil and reduce 3–4 min; add broth/cream/spices, bring to boil, lower heat and cover; simmer about 10 min, stirring occasionally until thickened.",
 							"children": [
 								{
 									"ingredientId": "ingredient-3",
@@ -13200,13 +13222,14 @@
 			"flow": {
 				"prep": [
 					"Heat oven to 375°F. Measure the scaled undrained tomato amount, then drain. Soften cream cheese.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Combine browned chicken and juices with filling; top remaining cheese; bake 375°F 20 min to 165°F.",
+					"action": "Combine browned chicken and juices with filling; spread in shallow casserole dish, top remaining cheese; bake 375°F about 20 min until bubbling and chicken reaches 165°F.",
 					"children": [
 						{
-							"action": "Toss chicken with taco spice and half oil; brown in batches with remaining oil.",
+							"action": "Toss chicken with taco spice and half oil; brown over medium-high in uncrowded batches with remaining oil.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -13562,10 +13585,11 @@
 			"flow": {
 				"prep": [
 					"Heat oven to 350°F. Chicken and bacon must be cooked. Blend the cottage cheese.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Fill zucchini hollows; top four sevenths cheddar; bake 350°F 20–25 min; top reserved bacon.",
+					"action": "Halve zucchini lengthwise and scoop centers; arrange hollows in 9×13-inch dish. Fill, top four sevenths cheddar; bake 350°F 20–25 min until zucchini fork-tender; top reserved bacon.",
 					"children": [
 						{
 							"ingredientId": "ingredient-1",
@@ -13971,10 +13995,11 @@
 			"flow": {
 				"prep": [
 					"Heat oven to 350°F. Trim asparagus; soften cream cheese.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Sear stuffed, seasoned chicken in butter 2–3 min each side; bake 350°F 20 min to cooked; rest 5 min.",
+					"action": "Sear stuffed, seasoned chicken in butter over medium 2–3 min each side; bake 350°F about 20 min until chicken and filling reach 165°F; rest at least 5 min.",
 					"children": [
 						{
 							"action": "Butterfly chicken, fill with cheese mixture and asparagus; secure toothpicks.",
@@ -14339,7 +14364,8 @@
 			"flow": {
 				"prep": [
 					"Use a 4–6-quart slow cooker.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Slow-cook low 8 h or high 4 h; remove chicken and shred; broth/celery remain in cooker.",
@@ -14782,13 +14808,14 @@
 			"flow": {
 				"prep": [
 					"Prepare chopped vegetables and bring cream cheese to room temperature.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Lift and shred chicken; whisk in cream cheese, cream and cheddar; return chicken and serve.",
+					"action": "Lift and shred safely cooked chicken; while out, whisk cream cheese, cream and cheddar into soup until cream cheese melts; return chicken, stir and serve.",
 					"children": [
 						{
-							"action": "Sauté vegetables in source unspecified oil; add chicken, canned tomatoes/chilies, seasoning and broth; covered simmer 20–25 min.",
+							"action": "Sauté vegetables over medium in source unspecified oil until softened; add chicken, undrained canned tomatoes/chilies, seasoning and broth; covered simmer 20–25 min, adjusting heat as needed.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -15200,13 +15227,14 @@
 			"flow": {
 				"prep": [
 					"Heat oven to 350°F. Use an oven-safe skillet.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Rest cooked chicken 5 min; serve with freshly mixed avocado salsa.",
 					"children": [
 						{
-							"action": "Season chicken, stretch and wrap bacon; sear 2–3 min per side, bake 350°F 20 min to 165°F.",
+							"action": "Season chicken, gently stretch and wrap bacon without tearing; sear over medium 2–3 min per side, bake 350°F about 20 min to 165°F.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -15522,7 +15550,8 @@
 			"flow": {
 				"prep": [
 					"Heat oven to 400°F. Use cooked chopped bacon and softened cream cheese.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Fill butterflied chicken, secure; season exterior; bake greased dish 400°F 25–30 min until cooked.",
@@ -15977,7 +16006,9 @@
 			"flow": {
 				"prep": [
 					"Heat oven to 425°F. Remove chicken innards and pat dry. Source specifies a 4–5-pound whole bird.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.",
+					"Do not rinse raw chicken. Keep each bird intact; requested servings round up to complete four-portion birds, with leftover portions as needed. Extra birds need additional pan space or batches."
 				],
 				"root": {
 					"action": "Coat exterior with oil and remaining rub as needed; roast 425°F 45 min then 400°F 20–30 min to 165°F, tent if browning fast.",
@@ -16477,13 +16508,14 @@
 			"flow": {
 				"prep": [
 					"Chicken must already be cooked and shredded.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Stir in cooked chicken; top with topping cheddar; cover and simmer low 10 min.",
 					"children": [
 						{
-							"action": "Sauté garlic/jalapeño in butter 1 min; whisk in milks, cream cheese, spices and sauce cheddar until smooth.",
+							"action": "Sauté garlic/jalapeño in butter over medium at least 1 min; whisk in milks, cream cheese, spices and sauce cheddar until smooth and melted.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -16849,13 +16881,14 @@
 			"flow": {
 				"prep": [
 					"Cut chicken into small bites and slice smoked sausage.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return chicken and sausage to cabbage; toss and season to taste.",
 					"children": [
 						{
-							"action": "Season chicken with Cajun mix; brown in olive oil over medium, add sausage until browned; reserve.",
+							"action": "Season chicken with Cajun mix; brown in olive oil over medium, add sausage until browned with crisp edges; reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-2",
@@ -17283,7 +17316,8 @@
 			"flow": {
 				"prep": [
 					"Heat oven to 400°F. Use softened cream cheese, chopped spinach and artichokes.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Stuff butterflied chicken with filling; season exterior; bake greased dish 400°F 25–30 min until cooked.",
@@ -17584,7 +17618,8 @@
 			"flow": {
 				"prep": [
 					"Heat oven to 400°F. Chop broccoli and soften cream cheese.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Stuff butterflied chicken; secure, coat with Cajun seasoning; bake greased dish 400°F 25–30 min until cooked.",
@@ -18023,7 +18058,8 @@
 			"flow": {
 				"prep": [
 					"Cut chicken small; thinly slice onion, peppers and mushrooms.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return chicken to vegetables 2–3 min until cooked; top provolone, cover low 2–3 min.",
@@ -18062,7 +18098,7 @@
 							]
 						},
 						{
-							"action": "Sauté onion, peppers and mushrooms in remaining oil 7–10 min.",
+							"action": "Sauté onion/peppers/mushrooms in remaining oil 7–10 min, stirring until peppers soften; reduce heat if browning too quickly.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -18548,13 +18584,14 @@
 			"flow": {
 				"prep": [
 					"Prepare cold lettuce leaves; the source omits their total quantity.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Mix sauce into deglazed chicken; simmer medium-low 5–6 min; spoon into lettuce, add optional toppings.",
 					"children": [
 						{
-							"action": "Brown chicken in oil; add pepper/garlic to tender and cooked; deglaze with broth.",
+							"action": "Brown chicken in oil over medium; add pepper/garlic, stirring until pepper tender and chicken cooked to 165°F; lower to medium-low and deglaze with broth.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -18955,7 +18992,8 @@
 			"flow": {
 				"prep": [
 					"Chop onion and cabbage. The meat is browned in the method despite ingredient wording browned and drained.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Add cabbage, undrained tomatoes, sauce and spices; cover medium 15–18 min, stir; top cheese.",
@@ -19414,13 +19452,14 @@
 			"flow": {
 				"prep": [
 					"Chop bacon and onion. Use a large lidded skillet.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Top meat sauce with reserved cooked bacon and cheddar; cover low 5–7 min.",
 					"children": [
 						{
-							"action": "Cook bacon until crisp and reserve it. Retain rendered fat for browning meat and onions; source original retains one tablespoon, proportional to batch size.",
+							"action": "Lightly grease skillet; cook bacon over medium until crisp and reserve it. Retain rendered fat for browning meat and onions; use one tablespoon per original batch, proportional to selected servings.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -19634,7 +19673,7 @@
 				"kcal": 584,
 				"protein_g": 66.5,
 				"carbs_g": 0.8,
-				"fiber_g": 0.0,
+				"fiber_g": 0,
 				"net_carbs_g": 0.8
 			},
 			"familyOptions": [],
@@ -19719,7 +19758,8 @@
 			"flow": {
 				"prep": [
 					"Allow 10–60 minutes to marinate steak; the weight follows the publisher’s 6-ounce steak portion.",
-					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes."
+					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Serve steak with eggs.",
@@ -20022,13 +20062,14 @@
 			"flow": {
 				"prep": [
 					"Marinate steak for at least 30 minutes. Heat oven to 350°F.",
-					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes."
+					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Sear rolls in source unspecified spray/oil medium about 1 min per face; bake 350°F 10–15 min.",
 					"children": [
 						{
-							"action": "Marinate steak at least 30 min, cut strips; wrap vegetables and secure toothpicks.",
+							"action": "Marinate steak refrigerated at least 30 min; cut strips wide enough to wrap vegetables, wrap tightly and secure with toothpicks.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -20480,12 +20521,15 @@
 				}
 			},
 			"flow": {
-				"prep": ["Trim beef and cut across the grain into half-inch pieces."],
+				"prep": [
+					"Trim beef and cut across the grain into half-inch pieces.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
+				],
 				"root": {
 					"action": "Off heat, stir in sour cream and mayonnaise; add xanthan in six equal additions to thicken; cover, rest 10 min.",
 					"children": [
 						{
-							"action": "Sauté onion/garlic in oil medium 3 min; brown seasoned beef 8 min; add broth/vinegar, uncovered simmer 30 min; add mushrooms, cover 90 min.",
+							"action": "Sauté onion/garlic in oil over medium about 3 min; brown seasoned beef 8 min, stirring to brown all sides; lower to medium-low, add broth/vinegar, simmer uncovered 30 min; add mushrooms, cover and simmer 90 min.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -20964,7 +21008,8 @@
 			"flow": {
 				"prep": [
 					"Chop pepper, jalapeño and garlic.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Stir all remaining ingredients into browned, drained meat; dissolve tomato paste, simmer uncovered low 25 min.",
@@ -21293,10 +21338,11 @@
 			"flow": {
 				"prep": [
 					"Heat oven to 400°F. Source yield is 24 meatballs, equivalent to 4 servings.",
-					"Check ground meat or fresh sausage reaches 160°F."
+					"Check ground meat or fresh sausage reaches 160°F.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Mix well, form meatballs; bake 400°F 18–20 min until cooked. Source batch yields 24, six per serving.",
+					"action": "Mix well, form golf-ball-sized meatballs; bake 400°F 18–20 min until 160°F. Original batch yields 24, six per serving.",
 					"children": [
 						{
 							"ingredientId": "ingredient-1",
@@ -21608,7 +21654,8 @@
 			"flow": {
 				"prep": [
 					"Chop jalapeño and cabbage. Source does not supply the tomatoes can size.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Add cabbage, undrained tomatoes, sauce and taco mix; cover medium 15–18 min, stirring; top cheddar.",
@@ -22085,13 +22132,14 @@
 			"flow": {
 				"prep": [
 					"Thinly slice steak, peppers, onion and mushrooms. Briefly chill steak if necessary for slicing.",
-					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes."
+					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Return steak and vegetables to deglazed pan with cream cheese; top cheeses and cover skillet until melted.",
+					"action": "Return steak and vegetables to deglazed pan; stir cream cheese until melted, top with mozzarella/Parmesan and cover until melted. Optional: broil 3–5 min using oven-safe skillet.",
 					"children": [
 						{
-							"action": "Brown mushrooms dry with pinch of salt; add half butter and peppers/onion; brown and reserve.",
+							"action": "Brown mushrooms dry over medium-high with pinch of salt; add half butter and peppers/onion; cook until browning starts and reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-2",
@@ -22426,10 +22474,11 @@
 			},
 			"flow": {
 				"prep": [
-					"Heat grill to medium, approximately 350°F. Cut heavy-duty foil into 12-inch squares and grease them."
+					"Heat grill to medium, approximately 350°F. Cut heavy-duty foil into 12-inch squares and grease them.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Divide ingredients among packets; double-fold seals with room for steam; grill 350°F covered 12 min, rotate, cook 12 min; carefully open and stir.",
+					"action": "Divide ingredients among packets; double-fold seals with room for steam/expansion; grill 350°F covered 12 min, rotate half turn, cook 12 min until sausage hot and vegetables crisp-tender; open carefully and stir.",
 					"children": [
 						{
 							"ingredientId": "ingredient-1",
@@ -22839,7 +22888,8 @@
 			"flow": {
 				"prep": [
 					"Quarter radishes and remove kale stems.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Add browned sausage and kale to radish soup; simmer 5–10 min until wilted, garnish reserved bacon.",
@@ -22854,7 +22904,7 @@
 							]
 						},
 						{
-							"action": "Then brown sausage medium-high 6–8 min; reserve, discard excess fat.",
+							"action": "Then brown sausage over medium-high 6–8 min, breaking it apart; reserve and discard excess grease without washing pot.",
 							"children": [
 								{
 									"ingredientId": "ingredient-2",
@@ -22863,7 +22913,7 @@
 							]
 						},
 						{
-							"action": "In same pot, sauté garlic/sage/pepper in butter 1 min; add broth/cream/parmesan, simmer; add radishes, medium-low 15–20 min.",
+							"action": "In same pot, sauté garlic/sage/pepper in butter over medium about 1 min; add broth/cream/Parmesan, raise to medium-high and simmer; add radishes, simmer medium-low 15–20 min until fork-tender.",
 							"children": [
 								{
 									"ingredientId": "ingredient-3",
@@ -23118,7 +23168,10 @@
 				}
 			},
 			"flow": {
-				"prep": ["Heat oven to 400°F and line a large baking sheet."],
+				"prep": [
+					"Heat oven to 400°F and line a large baking sheet.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
+				],
 				"root": {
 					"action": "Mix sliced kielbasa with seasoned sprouts on lined sheet; roast 400°F 20 min.",
 					"children": [
@@ -23602,13 +23655,14 @@
 			"flow": {
 				"prep": [
 					"Heat oven to 400°F. Pork chops are 2 inches thick. Green beans are already steamed fork-tender per source ingredient state.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check pork reaches 145°F, then rest at least 3 min before serving.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Serve pork chops with skillet gravy and beans.",
 					"children": [
 						{
-							"action": "Dry/season chops; sear in ghee 4–5 min per side; bake 400°F 8–10 min to 145°F; hold under foil. In drippings cook garlic/rosemary low 2–4 min; off heat whisk cream.",
+							"action": "Dry/season chops; sear in ghee over medium-high 4–5 min per side; bake 400°F 8–10 min to 145°F; rest at least 3 min under foil. Cook garlic/rosemary in drippings over low 2–4 min, stirring constantly; off heat whisk cream.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -23641,7 +23695,7 @@
 							]
 						},
 						{
-							"action": "Second skillet: melt butter/oil, add pre-steamed beans, garlic, stock and seasonings; cover 10 min, uncover 5 min to evaporate/brown.",
+							"action": "Second skillet over medium to medium-high: melt butter/oil, add pre-steamed beans, garlic, stock and seasonings; cover 10 min, stirring occasionally; uncover about 5 min to evaporate liquid and brown beans in spots.",
 							"children": [
 								{
 									"ingredientId": "ingredient-8",
@@ -23904,9 +23958,12 @@
 				}
 			},
 			"flow": {
-				"prep": ["Heat oven to 400°F. Lightly grease a baking sheet."],
+				"prep": [
+					"Heat oven to 400°F. Lightly grease a baking sheet.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
+				],
 				"root": {
-					"action": "Spread sausage and seasoned vegetables on pan; bake 400°F 15 min, toss, bake 10–15 min.",
+					"action": "Spread sausage and seasoned vegetables in even layer on pan; bake 400°F 15 min, toss, bake 10–15 min until vegetables reach preferred tenderness.",
 					"children": [
 						{
 							"ingredientId": "ingredient-1",
@@ -24286,7 +24343,8 @@
 			},
 			"flow": {
 				"prep": [
-					"Slice sausage and finely chop vegetables. Cube the cream cheese."
+					"Slice sausage and finely chop vegetables. Cube the cream cheese.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Stir in cubed cream cheese and cheddar until melted; serve.",
@@ -24567,12 +24625,15 @@
 				}
 			},
 			"flow": {
-				"prep": ["Heat oven to 400°F. Line and lightly oil a baking sheet."],
+				"prep": [
+					"Heat oven to 400°F. Line and lightly oil a baking sheet.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
+				],
 				"root": {
 					"action": "Add cheddar, bake 1–2 min to melt; season to taste.",
 					"children": [
 						{
-							"action": "Spread broccoli/sausage on lined oil-sprayed sheet; roast 400°F 15 min, flip/toss, roast 5–10 min.",
+							"action": "Spread broccoli/sausage on lined oil-sprayed sheet; roast 400°F 15 min, flip/toss, roast 5–10 min until broccoli reaches preferred tenderness.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -24861,7 +24922,10 @@
 				}
 			},
 			"flow": {
-				"prep": ["Chop bacon, onion and cabbage."],
+				"prep": [
+					"Chop bacon, onion and cabbage.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
+				],
 				"root": {
 					"action": "Return reserved crisp bacon and serve.",
 					"children": [
@@ -24875,7 +24939,7 @@
 							]
 						},
 						{
-							"action": "Caramelize onion in first retained fat 7–10 min; add second fat, cabbage and seasonings; fry 10–15 min.",
+							"action": "Caramelize onion in first retained fat over medium 7–10 min; add second fat, cabbage and seasonings; fry 10–15 min, stirring occasionally until softened to taste.",
 							"children": [
 								{
 									"ingredientId": "ingredient-3",
@@ -25311,13 +25375,14 @@
 			"flow": {
 				"prep": [
 					"Heat oven to 350°F. Use a 10-inch oven-safe skillet.",
-					"Check ground meat or fresh sausage reaches 160°F."
+					"Check ground meat or fresh sausage reaches 160°F.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Spread cheese mixture over sausage sauce; top remaining mozzarella; bake 350°F 20 min, rest 5 min.",
 					"children": [
 						{
-							"action": "Brown/drain sausage; add zucchini/spinach 2–3 min; add marinara/broth, simmer 6–8 min.",
+							"action": "Brown sausage over medium and drain; add zucchini/spinach 2–3 min until spinach starts wilting; add marinara/broth, simmer 6–8 min to reduce liquid.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -25633,7 +25698,8 @@
 			"flow": {
 				"prep": [
 					"Heat oven to 400°F. Line a large baking sheet. Source omits sausage package weight and link count.",
-					"Check ground meat or fresh sausage reaches 160°F."
+					"Check ground meat or fresh sausage reaches 160°F.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Place sausage beside coated beans; bake 400°F 15 min, flip/toss, bake 15 min; top parmesan.",
@@ -26028,7 +26094,8 @@
 			"flow": {
 				"prep": [
 					"Slice pork thinly. Use a large lidded skillet.",
-					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes."
+					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Add beans and sesame sauce to cooked pork; toss, cover medium-low 5–7 min to tender beans.",
@@ -26413,7 +26480,8 @@
 			"flow": {
 				"prep": [
 					"Peel shrimp. Have skewers ready and preheat grill to medium, about 350°F.",
-					"Cook shellfish until the flesh is pearly white and opaque."
+					"Cook shellfish until the flesh is pearly white and opaque.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Skewer shrimp, discard used marinade; grill 350°F 2–3 min each side; brush reserved quarter in last minute.",
@@ -26885,10 +26953,11 @@
 			"flow": {
 				"prep": [
 					"Heat oven to 400°F. Use a rimmed sheet; oil spray is optional. Shell/devein shrimp and cut broccolini small.",
-					"Cook shellfish until the flesh is pearly white and opaque."
+					"Cook shellfish until the flesh is pearly white and opaque.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Roast 400°F 6–10 min to pink opaque shrimp; optionally remove shrimp and continue broccolini; add parsley.",
+					"action": "Roast 400°F 6–10 min until shrimp pink/opaque and broccolini crisp-tender; for softer broccolini remove shrimp and roast vegetables a few minutes longer; add parsley.",
 					"children": [
 						{
 							"action": "Whisk coating, toss shrimp then lift shrimp onto pan; toss broccolini in leftover liquid, add optional lemon slices. Oil-spray pan if desired.",
@@ -27448,7 +27517,9 @@
 			"flow": {
 				"prep": [
 					"Use skewers. Chill salmon during 30-minute marination. Heat grill to 400°F before grilling.",
-					"Check fish reaches 145°F at its thickest point."
+					"Check fish reaches 145°F at its thickest point.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.",
+					"Soak wooden skewers 10 min, or lightly grease metal skewers. Cut salmon and vegetables large enough to stay on skewers."
 				],
 				"root": {
 					"action": "Remove salmon from marinade, thread with vegetables; grill 400°F 4 min per side. Turn by skewer or zucchini.",
@@ -27864,7 +27935,8 @@
 			"flow": {
 				"prep": [
 					"Heat oven to 425°F. Line a large tray with foil. Trim asparagus.",
-					"Check fish reaches 145°F at its thickest point."
+					"Check fish reaches 145°F at its thickest point.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Drizzle lemon-dill butter over roasted fish and asparagus; serve lemon wedges.",
@@ -28537,13 +28609,14 @@
 			"flow": {
 				"prep": [
 					"Use separate pans for the cauliflower rice and shrimp. Shrimp must be shelled; keep the two sets of garlic, lime and cilantro separate.",
-					"Cook shellfish until the flesh is pearly white and opaque."
+					"Cook shellfish until the flesh is pearly white and opaque.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Serve shrimp and its sauce over cilantro-lime cauliflower rice.",
 					"children": [
 						{
-							"action": "Sauté rice garlic/onion/jalapeño in rice oil medium 1–2 min; add frozen rice 6–8 min; raise heat, add rice lime/cilantro and seasoning.",
+							"action": "Sauté rice garlic/onion/jalapeño in rice oil over medium 1–2 min; break up frozen rice clumps, add rice 6–8 min, stirring until most steam subsides; raise heat slightly, add rice lime/cilantro and seasoning.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -28584,7 +28657,7 @@
 							]
 						},
 						{
-							"action": "Heat shrimp oil and first butter medium; garlic 30 sec, then shrimp/spices 2–3 min; add shrimp lime, finishing butter and cilantro 1–2 min.",
+							"action": "Heat shrimp oil and first butter over medium; garlic about 30 sec, then shrimp/spices 2–3 min until pink; add shrimp lime, finishing butter and cilantro 1–2 min until butter melts and sauce thickens.",
 							"children": [
 								{
 									"ingredientId": "ingredient-10",
@@ -29095,7 +29168,8 @@
 			"flow": {
 				"prep": [
 					"Use a stockpot, separate skillet and immersion blender.",
-					"Cook shellfish until the flesh is pearly white and opaque."
+					"Cook shellfish until the flesh is pearly white and opaque.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Add cooked lobster and its garlic butter to creamy soup; optionally blend again.",
@@ -29526,7 +29600,8 @@
 			"flow": {
 				"prep": [
 					"Set oven to 400°F. Paprika is to taste as an explicit adaptation because the source omitted its unit.",
-					"Check fish reaches 145°F at its thickest point."
+					"Check fish reaches 145°F at its thickest point.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Bake or grill salmon skin-down 400°F 7–10 min until flaky; top chilled jalapeño butter to melt.",
@@ -29944,7 +30019,8 @@
 			"flow": {
 				"prep": [
 					"Peel shrimp and slice the pepper. Use a skillet or wok.",
-					"Cook shellfish until the flesh is pearly white and opaque."
+					"Cook shellfish until the flesh is pearly white and opaque.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Add broccoli and prepared sauce; cook 4–5 min, stirring, until broccoli tender.",
@@ -30362,10 +30438,11 @@
 			"flow": {
 				"prep": [
 					"Heat oven to 400°F. Lightly grease a small baking dish. Thaw tilapia and trim asparagus.",
-					"Check fish reaches 145°F at its thickest point."
+					"Check fish reaches 145°F at its thickest point.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "After 10 min bake, flip fish and spread parmesan mixture; bake 400°F 6–10 min more; serve optional lemon.",
+					"action": "After 10 min bake, flip fish and spread Parmesan mixture; bake 400°F 6–10 min more until asparagus tender and fish readily flakes and reaches 145°F; serve optional lemon.",
 					"children": [
 						{
 							"action": "Arrange fish/asparagus, drizzle garlic butter on asparagus, season both; bake 400°F 10 min.",
@@ -30799,7 +30876,8 @@
 			"flow": {
 				"prep": [
 					"Use peeled, deveined raw shrimp and a large skillet.",
-					"Cook shellfish until the flesh is pearly white and opaque."
+					"Cook shellfish until the flesh is pearly white and opaque.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Once shrimp pink and tender after 3–4 min, add remaining butter and cream; stir into sauce.",
@@ -31233,7 +31311,8 @@
 			},
 			"flow": {
 				"prep": [
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Reheat chicken in spinach sauce 2–3 min; serve",
@@ -31725,12 +31804,15 @@
 				}
 			},
 			"flow": {
-				"prep": ["Cook shellfish until the flesh is pearly white and opaque."],
+				"prep": [
+					"Cook shellfish until the flesh is pearly white and opaque.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
+				],
 				"root": {
 					"action": "Combine asparagus and cooked shrimp; add lemon, warm 1 min and garnish",
 					"children": [
 						{
-							"action": "Cook asparagus 4–6 min over medium; set aside",
+							"action": "Cook asparagus in oil and one-third butter over medium 4–6 min until crisp-tender, using part of salt/pepper; set aside.",
 							"children": [
 								{
 									"ingredientId": "ingredient-2",
@@ -32262,7 +32344,10 @@
 				}
 			},
 			"flow": {
-				"prep": ["Cook shellfish until the flesh is pearly white and opaque."],
+				"prep": [
+					"Cook shellfish until the flesh is pearly white and opaque.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
+				],
 				"root": {
 					"action": "Return shrimp to asparagus; warm 1–2 min; garnish",
 					"children": [
@@ -32312,7 +32397,7 @@
 							]
 						},
 						{
-							"action": "Simmer lemon sauce; cook asparagus 4–6 min over medium",
+							"action": "After reserving shrimp, clean scorched residue if needed. Heat remaining oil/butter over medium; simmer lemon/stock/optional hot sauce briefly to reduce; cook asparagus 4–6 min until crisp-tender, turning to coat.",
 							"children": [
 								{
 									"ingredientId": "ingredient-9",
@@ -32766,7 +32851,8 @@
 			},
 			"flow": {
 				"prep": [
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return chicken to bean sauce; reheat and serve",
@@ -33309,13 +33395,14 @@
 			"flow": {
 				"prep": [
 					"Wash and trim asparagus; cut chicken into bite-sized chunks.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Toss asparagus in sauce 2 min; return chicken and heat 1 min; garnish",
 					"children": [
 						{
-							"action": "Season and brown chicken over medium; add garlic/herbs for 1 min",
+							"action": "Season and brown chicken on all sides over medium in oil/half butter, in batches if needed; lower heat, add half garlic/herbs for 1 min until fragrant; reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -33352,7 +33439,7 @@
 							]
 						},
 						{
-							"action": "Reduce broth with garlic by half; stir in butter, lemon, hot sauce and parsley",
+							"action": "Raise heat to medium-high; reduce broth with remaining garlic by half; stir in remaining butter, lemon, optional hot sauce and parsley.",
 							"children": [
 								{
 									"ingredientId": "ingredient-5",
@@ -33792,7 +33879,10 @@
 				}
 			},
 			"flow": {
-				"prep": ["Check fish reaches 145°F at its thickest point."],
+				"prep": [
+					"Check fish reaches 145°F at its thickest point.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
+				],
 				"root": {
 					"action": "Return salmon to spinach cream sauce; garnish with parsley",
 					"children": [
@@ -33814,10 +33904,10 @@
 							]
 						},
 						{
-							"action": "Gently simmer cream; wilt spinach and melt Parmesan 1 min",
+							"action": "Lower heat and gently simmer cream with remaining salt/pepper; wilt spinach and melt Parmesan about 1 min.",
 							"children": [
 								{
-									"action": "Fry garlic 1 min; soften onion; cook tomatoes 1–2 min; reduce broth",
+									"action": "Fry garlic in butter about 1 min; soften onion until translucent; cook drained tomatoes 1–2 min; add broth and reduce slightly.",
 									"children": [
 										{
 											"ingredientId": "ingredient-3",
@@ -34310,7 +34400,8 @@
 			},
 			"flow": {
 				"prep": [
-					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes."
+					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return steak briefly to warm; garnish and serve",
@@ -34350,7 +34441,7 @@
 							]
 						},
 						{
-							"action": "Boil reserved marinade with garlic/lemon/broth; reduce with broccoli and parsley",
+							"action": "Lower to medium and melt remaining butter; bring reserved marinade with garlic/lemon/broth to full boil before reducing; add parsley/broccoli and toss to preferred tenderness.",
 							"children": [
 								{
 									"action": "Blanch broccoli 1–2 min and cool",
@@ -34810,7 +34901,8 @@
 			},
 			"flow": {
 				"prep": [
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Deglaze with broth; return sausage and heat through; garnish",
@@ -35345,13 +35437,14 @@
 			},
 			"flow": {
 				"prep": [
-					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes."
+					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Cook zucchini in sauce 2–3 min; add herbs; return steak 1 min",
+					"action": "Cook zucchini in sauce 2–3 min; add herbs, reduce watery juices another 1 min if needed; return steak and warm 1 min.",
 					"children": [
 						{
-							"action": "Sear drained steak 3–4 min over high; add butter/garlic 1–2 min",
+							"action": "Sear drained steak in cooking oil over high in one layer 3–4 min, stirring and working in batches; add two-thirds butter/garlic 1–2 min; reserve.",
 							"children": [
 								{
 									"action": "Marinate steak at least 15–20 min; reserve drained liquid",
@@ -35871,13 +35964,14 @@
 			},
 			"flow": {
 				"prep": [
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check whole-cut steak reaches 145°F, then rest at least 3 min before serving.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Toss zucchini and parsley in sauce 2–3 min; return steak 1 min",
+					"action": "Toss zucchini and parsley in sauce 2–3 min; reduce watery juices another 1 min if needed; return steak and warm 1 min; serve immediately.",
 					"children": [
 						{
-							"action": "Sear drained steak 1 min over medium-high; add garlic and cook 1–2 min",
+							"action": "Season drained steak; sear in cooking oil over medium-high in one layer 1 min without stirring; add garlic, turn and cook 1–2 min; reserve.",
 							"children": [
 								{
 									"action": "Marinate steak refrigerated 30–60 min; reserve drained liquid",
@@ -36392,12 +36486,15 @@
 				}
 			},
 			"flow": {
-				"prep": ["Cook shellfish until the flesh is pearly white and opaque."],
+				"prep": [
+					"Cook shellfish until the flesh is pearly white and opaque.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
+				],
 				"root": {
 					"action": "Combine broccoli and shrimp; add lemon; warm 1–2 min and garnish",
 					"children": [
 						{
-							"action": "Cook broccoli 4–6 min over medium; set aside",
+							"action": "Cook broccoli in oil/one-third butter over medium 4–6 min until crisp-tender, with part of salt/pepper; set aside.",
 							"children": [
 								{
 									"ingredientId": "ingredient-2",
@@ -36914,10 +37011,11 @@
 			"flow": {
 				"prep": [
 					"Preheat oven to 400°F; prepare a rimmed baking sheet.",
-					"Cook shellfish until the flesh is pearly white and opaque."
+					"Cook shellfish until the flesh is pearly white and opaque.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Roast at 400°F 8–10 min, toss halfway; optional last-2-min broil; finish with citrus/cilantro",
+					"action": "Roast at 400°F 8–10 min, toss halfway, until shrimp cooked through and vegetables tender; optional last-2-min broil for browning; finish with citrus/cilantro.",
 					"children": [
 						{
 							"action": "Toss shrimp and sliced vegetables in oil, garlic and mixed seasonings; spread on oiled sheet",
@@ -37354,7 +37452,10 @@
 				}
 			},
 			"flow": {
-				"prep": ["Check fish reaches 145°F at its thickest point."],
+				"prep": [
+					"Check fish reaches 145°F at its thickest point.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
+				],
 				"root": {
 					"action": "Toss asparagus in sauce 2 min; return cod 1 min; garnish",
 					"children": [
@@ -37372,7 +37473,7 @@
 							]
 						},
 						{
-							"action": "Simmer garlic in broth; stir in butter/lemon/hot sauce/parsley",
+							"action": "Over medium, add garlic and deglaze with broth; simmer, then stir in butter/lemon/optional hot sauce/parsley.",
 							"children": [
 								{
 									"ingredientId": "ingredient-4",
@@ -37841,7 +37942,8 @@
 			},
 			"flow": {
 				"prep": [
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Serve sliced cooked chicken over zucchini and reduced sauce",
@@ -37905,7 +38007,7 @@
 							]
 						},
 						{
-							"action": "Sauté zucchini 2–3 min; boil reserved marinade then cook 3–4 min",
+							"action": "Sauté zucchini 2–3 min; bring reserved raw-chicken marinade to full boil, then cook 3–4 min until reduced and zucchini tender.",
 							"children": [
 								{
 									"ingredientId": "ingredient-2",
@@ -38428,13 +38530,14 @@
 			},
 			"flow": {
 				"prep": [
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Cook zucchini/garlic/parsley in sauce 2–3 min; return chicken 1 min; garnish",
+					"action": "Cook zucchini/garlic/parsley in sauce 2–3 min; reduce watery juices another 1 min if needed; return chicken and warm 1 min; garnish.",
 					"children": [
 						{
-							"action": "Brown marinated chicken over medium-low until cooked through; set aside",
+							"action": "Brown marinated chicken on all sides over medium-low in half butter, working in batches until 165°F; set aside.",
 							"children": [
 								{
 									"action": "Refrigerate seasoned chicken 30–60 min",
@@ -38476,7 +38579,7 @@
 							]
 						},
 						{
-							"action": "Simmer lemon/broth/hot sauce in remaining butter 1–2 min",
+							"action": "Over medium-high, simmer lemon/broth/hot sauce in remaining butter 1–2 min.",
 							"children": [
 								{
 									"ingredientId": "ingredient-3",
@@ -38925,13 +39028,14 @@
 			"flow": {
 				"prep": [
 					"Preheat oven to 400°F; use an oven-safe skillet.",
-					"Check fish reaches 145°F at its thickest point."
+					"Check fish reaches 145°F at its thickest point.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Bake in oven-safe skillet at 400°F about 10 min until readily flaking; garnish",
+					"action": "Bake in oven-safe skillet at 400°F about 10 min, checking earlier, until fish readily flakes and reaches 145°F; remove with oven mitts and garnish.",
 					"children": [
 						{
-							"action": "Brush and season cod; sear over medium 1 min per side; deglaze with broth",
+							"action": "Pat cod dry; mix lemon juice/melted butter and keep half separate. Brush fish with half lemon butter and coat in mixed seasonings; sear in oil over medium 1 min per side; deglaze with broth and pour reserved lemon butter over fish.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -39386,13 +39490,14 @@
 			},
 			"flow": {
 				"prep": [
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Cook shrimp until flesh is pearly white and opaque.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Toss zucchini in sauce about 2 min; return shrimp 1 min; garnish parsley",
 					"children": [
 						{
-							"action": "Cook shrimp 1 min; add garlic/herbs/flakes and cook 1–2 min",
+							"action": "Heat oil and half butter over medium-high; lay seasoned shrimp in one layer, cook 1 min untouched; add garlic/herbs/flakes, stir and cook 1–2 min; reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -39878,7 +39983,8 @@
 			"flow": {
 				"prep": [
 					"Use fully cooked smoked pork or chicken sausage; the publisher leaves its cooking state unspecified.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return cooked shrimp/sausage to cream sauce; finish with parsley",
@@ -40391,12 +40497,15 @@
 				}
 			},
 			"flow": {
-				"prep": ["Cook shellfish until the flesh is pearly white and opaque."],
+				"prep": [
+					"Cook shellfish until the flesh is pearly white and opaque.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
+				],
 				"root": {
 					"action": "Return cauliflower to cooked shrimp; warm and finish parsley/flakes",
 					"children": [
 						{
-							"action": "Cook garlic/onion 1 min in butter; cauliflower 1 min; stock/herbs 1 min; lemon/Parmesan 1 min",
+							"action": "Season shrimp with part of salt/pepper. Over medium, cook half garlic/onion 1 min in half butter; cauliflower 1 min; one-third stock/half parsley/optional zest 1 min; lemon/two-thirds Parmesan 1 min until cauliflower crisp-tender; reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-2",
@@ -40910,12 +41019,15 @@
 				}
 			},
 			"flow": {
-				"prep": ["Check ground meat or fresh sausage reaches 160°F."],
+				"prep": [
+					"Check ground meat or fresh sausage reaches 160°F.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
+				],
 				"root": {
-					"action": "Cook zucchini in lemon butter 2–3 min; return burgers 1–2 min",
+					"action": "Cook zucchini in lemon butter 2–3 min; reduce excess liquid another 1 min if needed; return burgers and warm 1–2 min.",
 					"children": [
 						{
-							"action": "Cook one cheese-filled burger per portion 5–6 min per side over medium-high",
+							"action": "Cook one cheese-filled burger per portion in half butter 5–6 min per side over medium-high, basting with pan juices, until ground beef reaches 160°F; reserve.",
 							"children": [
 								{
 									"action": "Mix beef and seasoning; form two equal patties per portion and seal one cheese slice between each pair",
@@ -41440,7 +41552,8 @@
 			},
 			"flow": {
 				"prep": [
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return cauliflower to turkey sauce; warm; finish sesame oil/herbs/flakes/lemon",
@@ -41467,7 +41580,7 @@
 							]
 						},
 						{
-							"action": "Brown ground turkey; add garlic/onion powder then soy/water/hot sauce for a few min",
+							"action": "Brown ground turkey in butter/remaining oil, breaking it up until 165°F; add garlic/onion powder, then soy/water/hot sauce for a few min, stirring.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -41962,13 +42075,14 @@
 			},
 			"flow": {
 				"prep": [
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Finish cauliflower with lemon/parsley; return cooked chicken and reheat",
 					"children": [
 						{
-							"action": "Halve each chicken breast horizontally; Parmesan-coat cutlets and cook 3–4 min per side over medium-high",
+							"action": "Halve each chicken breast horizontally; season and coat cutlets in Parmesan mixture, shaking off loose excess. Cook in half butter 3–4 min per side over medium-high to 165°F; reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -42411,13 +42525,14 @@
 			},
 			"flow": {
 				"prep": [
-					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes."
+					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return pork to bean sauce; coat/warm and garnish",
 					"children": [
 						{
-							"action": "Sear Cajun-coated pork cubes in oil 2–3 min per side over medium-high",
+							"action": "Sear Cajun-coated pork cubes over medium-high in one-third oil 2–3 min/side in batches, using remaining oil as needed, until 145°F; reserve and rest 3 min.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -42434,7 +42549,7 @@
 							]
 						},
 						{
-							"action": "Melt butter; sauté garlic 30 sec; add lemon/broth; toss blanched beans 3–4 min",
+							"action": "Lower to medium; melt butter, sauté garlic about 30 sec and scrape browned juices; add lemon/broth; toss blanched beans 3–4 min.",
 							"children": [
 								{
 									"ingredientId": "ingredient-4",
@@ -42844,7 +42959,10 @@
 				}
 			},
 			"flow": {
-				"prep": ["Check fish reaches 145°F at its thickest point."],
+				"prep": [
+					"Check fish reaches 145°F at its thickest point.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
+				],
 				"root": {
 					"action": "Toss asparagus in sauce 2 min; return salmon 1 min; garnish",
 					"children": [
@@ -42862,7 +42980,7 @@
 							]
 						},
 						{
-							"action": "Simmer garlic/broth; stir in butter/lemon/hot sauce/parsley",
+							"action": "Over medium, simmer garlic/broth; stir in butter/lemon/optional hot sauce/parsley.",
 							"children": [
 								{
 									"ingredientId": "ingredient-4",
@@ -43235,9 +43353,12 @@
 				}
 			},
 			"flow": {
-				"prep": ["Check fish reaches 145°F at its thickest point."],
+				"prep": [
+					"Check fish reaches 145°F at its thickest point.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
+				],
 				"root": {
-					"action": "Cook zucchini in sauce 3–4 min; return salmon and warm about 2 min; garnish",
+					"action": "Cook zucchini in sauce 3–4 min, keeping crisp while reducing liquid; add remaining parsley, return salmon and warm about 2 min; garnish scallion.",
 					"children": [
 						{
 							"action": "Pan-cook salmon skin-side first 2–4 min per side until cooked through",
@@ -43723,13 +43844,28 @@
 			},
 			"flow": {
 				"prep": [
-					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes."
+					"While steak marinates in the refrigerator, wilt spinach first, drain it and clean the skillet. Then sear steak in that skillet and reserve it; make the sauce only after steak is removed, using its reserved marinade. Return steak and spinach at the final operation.",
+					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return steak and drained spinach to sauce; warm through",
 					"children": [
 						{
-							"action": "Sear seasoned drained steak over medium-high 1 min then turn to finish",
+							"action": "Wilt washed spinach 1 min in one-quarter butter, turning; drain and clean skillet.",
+							"children": [
+								{
+									"ingredientId": "ingredient-2",
+									"fraction": 1
+								},
+								{
+									"ingredientId": "ingredient-3",
+									"fraction": 0.25
+								}
+							]
+						},
+						{
+							"action": "After spinach is drained and skillet cleaned, sear seasoned drained steak in half butter over medium-high 1 min first side, then turn to finish; work in batches and reserve.",
 							"children": [
 								{
 									"action": "Marinate steak refrigerated 30–60 min; reserve drained liquid",
@@ -43763,20 +43899,7 @@
 							]
 						},
 						{
-							"action": "Wilt spinach 1 min in butter; drain",
-							"children": [
-								{
-									"ingredientId": "ingredient-2",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-3",
-									"fraction": 0.25
-								}
-							]
-						},
-						{
-							"action": "Boil reserved marinade with garlic/lemon/broth/herbs; reduce 1–2 min",
+							"action": "After steak is reserved, add remaining butter and sauce ingredients; bring reserved raw-meat marinade with garlic/lemon/broth/herbs to a full boil, then reduce 1–2 min.",
 							"children": [
 								{
 									"ingredientId": "ingredient-3",
@@ -44299,7 +44422,8 @@
 			},
 			"flow": {
 				"prep": [
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Toss zucchini/herbs in sauce 2–3 min; return chicken 1 min until cooked through; garnish",
@@ -44811,13 +44935,14 @@
 			},
 			"flow": {
 				"prep": [
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Simmer pesto sauce with vegetables; return sliced chicken 2–3 min; garnish",
 					"children": [
 						{
-							"action": "Cook chicken with tomato oil/herbs/flakes over medium 4–5 min per side",
+							"action": "Cook chicken with tomato oil/herbs/flakes over medium 4–5 min per side to 165°F; reduce heat if browning too fast, then reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -44834,7 +44959,7 @@
 							]
 						},
 						{
-							"action": "Cook onion/garlic/tomatoes about 1 min; add peppers until crisp-tender",
+							"action": "Cook onion, garlic and tomatoes over medium-high about 1 min in reserved tomato oil as needed; add peppers until slightly softened but crisp.",
 							"children": [
 								{
 									"ingredientId": "ingredient-4",
@@ -45283,16 +45408,17 @@
 			},
 			"flow": {
 				"prep": [
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return chicken to asparagus and warm about 2 min; garnish",
 					"children": [
 						{
-							"action": "Cook herb-butter thighs skin-side first 5–6 min then 5–7 min to 165°F",
+							"action": "Dry and season thighs with paprika and part of salt/pepper. Cook in the prepared herb butter skin-down 5–6 min, turn 5–7 min to 165°F, lowering heat if browning fast; reserve.",
 							"children": [
 								{
-									"action": "Melt butter over medium; briefly warm garlic/herbs",
+									"action": "Melt the two-thirds butter portion over medium; briefly warm garlic and herbs until fragrant without burning.",
 									"children": [
 										{
 											"ingredientId": "ingredient-2",
@@ -45331,7 +45457,7 @@
 							]
 						},
 						{
-							"action": "Sauté asparagus 4–6 min; deglaze with broth and reduce 1 min",
+							"action": "After reserving chicken, melt remaining butter; sauté asparagus with remaining salt/pepper 4–6 min until tender; add broth and reduce 1 min.",
 							"children": [
 								{
 									"ingredientId": "ingredient-2",
@@ -45773,7 +45899,8 @@
 			},
 			"flow": {
 				"prep": [
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Combine warmed chicken and tender vegetables; cook 1 min and serve",
@@ -46224,7 +46351,8 @@
 			},
 			"flow": {
 				"prep": [
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return pork chops to zucchini sauce; reheat briefly and garnish",
@@ -46247,7 +46375,7 @@
 							]
 						},
 						{
-							"action": "Sauté garlic in butter 30 sec; zucchini/spices 2–3 min; stock/lemon 2–3 min",
+							"action": "Lower to medium; melt butter, sauté garlic about 30 sec and loosen browned juices, cleaning scorched residue first if needed. Add zucchini, pepper, optional flakes and remaining oil as needed; sauté medium-low 2–3 min, then stock/lemon 2–3 min until tender and slightly reduced.",
 							"children": [
 								{
 									"ingredientId": "ingredient-4",
@@ -46643,16 +46771,18 @@
 			},
 			"flow": {
 				"prep": [
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Before cooking, divide the fajita seasoning: measure 1 tsp per four servings onto the chicken and reserve the rest for the vegetables. Cook chicken first, reserve it, then cook vegetables and sauce in the same skillet.",
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return chicken to creamy fajita sauce 2–3 min; garnish cheese/herbs",
 					"children": [
 						{
-							"action": "Divide scaled fajita seasoning: measure the source 1 tsp for each original four-portion batch onto chicken, then add the remaining seasoning to vegetables. Cook chicken first, reserve it, and cook vegetables in the same pan before making sauce.",
+							"action": "Combine the reserved seasoned chicken with the smooth vegetable sauce.",
 							"children": [
 								{
-									"action": "Cook fajita-seasoned chicken about 4 min per side over medium",
+									"action": "Season chicken with the measured 1 tsp fajita seasoning per four servings; cook about 4 min per side over medium, then reserve it.",
 									"children": [
 										{
 											"ingredientId": "ingredient-1",
@@ -46665,7 +46795,7 @@
 									]
 								},
 								{
-									"action": "Cook onion/peppers with remaining oil/seasoning; add broth/tomato/cream cheese and simmer 2–3 min",
+									"action": "After chicken is reserved, cook onion and peppers in remaining oil until crisp-tender. Add remaining fajita seasoning and cook until onion translucent; add broth/tomato/softened cream cheese and simmer 2–3 min until smooth.",
 									"children": [
 										{
 											"ingredientId": "ingredient-2",
@@ -47197,7 +47327,8 @@
 			},
 			"flow": {
 				"prep": [
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Finish cauliflower with lemon/parsley/flakes; return meatballs and warm",
@@ -47689,11 +47820,12 @@
 			},
 			"flow": {
 				"prep": [
-					"Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Prepare sliced sausage and chopped vegetables. Brown sausage first and reserve; wipe the skillet, then wilt cabbage and onion. Return sausage with the remaining vegetables, broth and seasoning for the covered finish.",
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Return sausage during covered cooking; cook until cabbage is tender. Add scallions and optional lime.",
+					"action": "Return sausage with tomatoes, pepper, broth and Cajun seasoning; cover medium-low 10 min, then uncover and reduce liquid until cabbage tender; season and garnish.",
 					"children": [
 						{
 							"action": "Brown sliced smoked sausage 3 min; reserve and wipe skillet.",
@@ -47705,7 +47837,7 @@
 							]
 						},
 						{
-							"action": "Heat fat; cook cabbage/onion 5 min. Add pepper, tomatoes, broth and Cajun seasoning; cover 10 min, then reduce.",
+							"action": "After reserving sausage and wiping skillet, heat butter or oil; stir-fry cabbage and onion over medium-high 5 min until wilting. Keep tomatoes, pepper, broth and Cajun seasoning for the final combined operation.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -48199,13 +48331,14 @@
 				"prep": [
 					"Heat oven to 400°F or broiler. Use an oven-safe skillet.",
 					"Keep shredded cheese aside for the final broil.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": " Return chicken to sauce, top with cheese and briefly broil; garnish with parsley.",
+					"action": "Return chicken to sauce, top cheese and briefly broil until melted, watching continuously; garnish parsley.",
 					"children": [
 						{
-							"action": "Season chicken; brown in half the butter 4–5 min/side to 165°F; reserve.",
+							"action": "Season chicken; brown over medium in half butter 4–5 min/side to 165°F; reserve on clean plate.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -48745,13 +48878,14 @@
 			"flow": {
 				"prep": [
 					"Mix only the measured two-tablespoon share of paprika blend; do not consume the source surplus blend.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return chicken and warm through; add parsley and optional chili flakes.",
 					"children": [
 						{
-							"action": "Coat chicken in measured blend and salt. Cook in oil and half the butter 5–6 min/side to 165°F; reserve.",
+							"action": "Coat chicken in measured blend and salt. Cook in oil and half butter over medium-low 5–6 min/side to 165°F; reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -49238,13 +49372,14 @@
 			},
 			"flow": {
 				"prep": [
-					"Blanch broccoli 3 min, chill in ice water and drain before skillet cooking."
+					"Blanch broccoli 3 min, chill in ice water and drain before skillet cooking.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return sausages and warm; add optional garnishes.",
 					"children": [
 						{
-							"action": "Simmer sausages with their water 10 min; evaporate water. Brown in two-thirds butter and half garlic; pork 160°F/poultry 165°F; reserve.",
+							"action": "Simmer sausages with their water partly covered over medium 10 min, turning occasionally; evaporate water. Brown in two-thirds butter and half garlic with optional flakes; pork 160°F/poultry 165°F; reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -49852,13 +49987,14 @@
 				"prep": [
 					"Blanch asparagus 2 min, chill and drain; skip only for thin spears.",
 					"Separate seasoning Italian herbs from the sauce herbs as listed.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return pork 1 min; ensure 145°F and 3 min rest. Garnish as listed.",
 					"children": [
 						{
-							"action": "Season pork; brown uncrowded batches in oil and half butter; add half garlic and herbs, then reserve.",
+							"action": "Season pork; brown uncrowded batches over medium-low in oil and half butter; add half garlic and separate Italian seasoning, then reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -50393,14 +50529,15 @@
 			},
 			"flow": {
 				"prep": [
-					"Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Season chicken and spiralize zucchini. Cook chicken first and reserve; make the sauce in the same skillet, cook zucchini in it, then return chicken to warm.",
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return chicken and warm 1 min; serve.",
 					"children": [
 						{
-							"action": "Season chicken and cook in two-thirds butter 5–6 min/side to 165°F; reserve.",
+							"action": "Season chicken; cook in two-thirds butter over medium-low 5–6 min/side to 165°F; reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -50850,10 +50987,11 @@
 				"prep": [
 					"Oil total is retained; source does not specify its split between marinade and zucchini. Do not invent a measured split.",
 					"Never place parchment under a high broiler.",
-					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes."
+					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Before cooking, distribute the total listed oil between steak marinade and zucchini; source does not specify the split. Broil drained steak and zucchini at source 520°F 5–10 min on broiler-safe metal. Reach steak 145°F/rest 3 min; boil reserved marinade before serving; garnish.",
+					"action": "Before cooking, distribute total listed oil between steak marinade and zucchini; no measured split is specified. Heat broiler to 520°F if supported; broil drained steak and zucchini 5–10 min on broiler-safe metal until zucchini crisp-tender. Reach steak 145°F/rest 3 min; boil reserved raw marinade separately before serving; garnish.",
 					"children": [
 						{
 							"action": "Refrigerate steak in soy sauce, garlic powder, hot sauce and most oil 30–60 min; drain.",
@@ -51306,14 +51444,15 @@
 			},
 			"flow": {
 				"prep": [
-					"Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Season shrimp. Cook shrimp first and reserve; make the sauce and wilt spinach in the same skillet, then return shrimp briefly.",
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return shrimp 1 min; garnish and serve.",
 					"children": [
 						{
-							"action": "Season shrimp; cook in one-quarter butter 2–3 min to opaque; reserve.",
+							"action": "Season shrimp; cook over medium-high in one-quarter butter 2–3 min to opaque; reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -51330,7 +51469,7 @@
 							]
 						},
 						{
-							"action": "After shrimp is reserved, cook onion/garlic 1 min then tomatoes 1 min; reduce stock/hot sauce 1–2 min, stir remaining butter, spinach and cream.",
+							"action": "After reserving shrimp, cook onion/garlic 1 min, tomatoes 1 min; add stock/hot sauce, boil then simmer 1–2 min to reduce by half. Stir remaining butter in gradually, add spinach/cream and let spinach wilt.",
 							"children": [
 								{
 									"ingredientId": "ingredient-4",
@@ -51816,14 +51955,15 @@
 			},
 			"flow": {
 				"prep": [
-					"Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Microwave beans until nearly tender before the final skillet stage. Cook chicken and reserve; cook beans in the same skillet with remaining butter and aromatics, reduce the sauce, then return chicken.",
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return chicken and warm; garnish.",
 					"children": [
 						{
-							"action": "Season chicken strips; cook in two-thirds butter 2–3 min/side to 165°F; reserve.",
+							"action": "Season chicken strips; cook in one layer over medium-low in two-thirds butter 2–3 min/side to 165°F; reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -52319,7 +52459,8 @@
 			"flow": {
 				"prep": [
 					"Keep both cheeses and marinara aside until after cauliflower roasting; quantities are totals, not additional per-breast amounts.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": " Add half marinara to cauliflower, chicken, remaining marinara and measured cheeses; bake 35–40 min to 165°F. Finish with herb garnish.",
@@ -52851,14 +52992,15 @@
 			},
 			"flow": {
 				"prep": [
-					"Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.",
-					"Check ground meat or fresh sausage reaches 160°F."
+					"Brown beef and stir in onion. Microwave cauliflower rice separately; melt cream cheese into beef, add the liquids and seasonings, then cauliflower. Finish covered and melt the topping cheeses.",
+					"Check ground meat or fresh sausage reaches 160°F.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": " Stir cream cheese, stock, cream, garlic and tomato paste into beef; add cauliflower 5–7 min. Cover low 5 min; top with cheeses until melted and garnish.",
+					"action": "Stir cream cheese, stock, cream, garlic and tomato paste into beef; add cauliflower, cook over medium-low 5–7 min. Cover low 5 min; top with cheeses, cover until melted and garnish.",
 					"children": [
 						{
-							"action": "Brown beef in butter to 160°F; add onion 1 min.",
+							"action": "Brown beef in butter over medium-high to 160°F; add onion 1 min.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -53302,13 +53444,14 @@
 			"flow": {
 				"prep": [
 					"Vegetable branch follows chicken browning in the same skillet. Keep cheeses and broth aside until finish.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": " Add cheeses and melt 3 min; thin with broth as needed.",
 					"children": [
 						{
-							"action": "Season chicken; brown in oil 4–5 min to 165°F.",
+							"action": "Season inch-sized chicken pieces; brown in oil over medium-high 4–5 min, continuing to 165°F.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -53784,14 +53927,15 @@
 			},
 			"flow": {
 				"prep": [
-					"Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Rice cauliflower if needed. Cook onion and ground chicken first and reserve both; cook cauliflower, spices and tomato sauce in the same skillet, then return chicken and onion before melting cheese off heat.",
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": " Return chicken/onion; top with cheese and cover off heat 2–3 min.",
 					"children": [
 						{
-							"action": "Soften onion in two-thirds oil; brown ground chicken to 165°F; reserve.",
+							"action": "Soften onion in two-thirds oil; season and brown ground chicken over medium-high to 165°F; reserve chicken and onion.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -54249,14 +54393,15 @@
 			},
 			"flow": {
 				"prep": [
-					"Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Cook sausages in water, evaporate and brown, then reserve. Cook garlic and cauliflower rice in the same skillet; finish with lime and cilantro before returning sausages.",
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Add lime zest/cilantro and pepper; return sausages and warm 2 min.",
 					"children": [
 						{
-							"action": "Cook sausages with water covered, turning; evaporate and brown to 160°F for pork or 165°F for poultry; reserve.",
+							"action": "Bring listed cooking water to boil over medium-low; add sausages, cover and cook, turning occasionally. Uncover, evaporate water and brown to 160°F pork or 165°F poultry; reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -54758,7 +54903,8 @@
 			"flow": {
 				"prep": [
 					"Before forming meatballs, divide the listed cilantro between mixture and garnish to preference; source gives no fixed split. Chili flakes are optional in the mixture and at the zucchini stage.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Mix turkey, optional pork, cheese, grated meatball garlic, Italian seasoning, optional bouillon, some cilantro, optional chili and seasoning; form medium meatballs. Brown in two-thirds of the butter over medium-low for 8–10 min, basting, until 165°F; reserve. In the same skillet use remaining butter with minced zucchini garlic, lemon, hot sauce and optional chili. Toss zucchini 3–4 min, return meatballs 1–2 min, finish with remaining cilantro. The listed cilantro and chili amounts are totals across their stages; source specifies no numeric split.",
@@ -55114,7 +55260,8 @@
 			},
 			"flow": {
 				"prep": [
-					"Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation."
+					"Spiralize zucchini. Cook noodles in butter or oil and reduce their released water first; add marinara and pepperoni, then season and garnish.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Season and garnish with parsley and optional Parmesan.",
@@ -55602,14 +55749,15 @@
 			},
 			"flow": {
 				"prep": [
-					"Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Brown ground chicken first, then onion; add dry seasonings and ginger, followed by broth, cabbage and green onions. Finish with soy sauce and Sriracha once cabbage is tender.",
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Add soy sauce/Sriracha, adjust seasoning and finish with chives.",
 					"children": [
 						{
-							"action": "Brown chicken in oil to 165°F; add onion until lightly browned.",
+							"action": "Brown chicken in oil over medium-high to 165°F; add onion until lightly browned.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -56108,13 +56256,14 @@
 			},
 			"flow": {
 				"prep": [
-					"Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation."
+					"Microwave beans while sausages cook with their separate water. Evaporate sausage water, brown sausages and reserve; cook beans with remaining butter and aromatics in that skillet, reduce the sauce, then return sausages.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return sausages and warm; garnish.",
 					"children": [
 						{
-							"action": "Simmer sausages with separate sausage water 10 min, evaporate; brown with two-thirds butter/half garlic to 160°F pork or 165°F poultry; reserve.",
+							"action": "Simmer sausages over medium with separate sausage water 10 min, evaporate; brown with two-thirds butter/half garlic to 160°F pork or 165°F poultry; reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -56732,8 +56881,9 @@
 			},
 			"flow": {
 				"prep": [
-					"Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.",
-					"Check the center of each stuffed beef roll reaches 165°F."
+					"Mix dry rice seasonings. Fill, secure and slice steak rolls, cook them first and reserve; cook vegetables and cauliflower rice in the same pan, then return rolls and remove toothpicks.",
+					"Check the center of each stuffed beef roll reaches 165°F.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return rolls and warm; remove toothpicks and garnish with cilantro.",
@@ -57216,14 +57366,15 @@
 			},
 			"flow": {
 				"prep": [
-					"Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Brown sausage first and add onion, pepper and garlic. Microwave cauliflower separately, then add it with taco seasoning, tomatoes and stock; reduce, cover and finish with melted cheeses.",
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": " Combine sausage, cauliflower, seasoning, tomatoes/stock 5–7 min; cover low 5 min; top with cheeses until melted; garnish.",
+					"action": "Combine sausage, cauliflower, seasoning, tomatoes/stock over medium-low 5–7 min to reduce excess liquid; cover low 5 min; top with cheeses and cover until melted; garnish.",
 					"children": [
 						{
-							"action": "Brown sausage in butter to 160°F pork or 165°F poultry; stir onion/pepper/garlic 1 min.",
+							"action": "Brown sausage in butter over medium-high to 160°F pork or 165°F poultry; stir onion/pepper/garlic 1 min.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -57842,13 +57993,14 @@
 			"flow": {
 				"prep": [
 					"Keep marinade lemon juice separate from the finishing lemon juice; amounts are distinct.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return chicken and warm through.",
 					"children": [
 						{
-							"action": "Refrigerate chicken with marinade 10–15 min. Cook in butter and three fresh herbs 4–5 min/side to 165°F; reserve.",
+							"action": "Refrigerate chicken with marinade 10–15 min. Cook in butter and three fresh herbs over medium-low 4–5 min/side to 165°F; reserve, leaving pan juices.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -58421,14 +58573,15 @@
 			},
 			"flow": {
 				"prep": [
-					"Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.",
-					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes."
+					"Refrigerate steak in marinade while microwaving beans. Drain steak and reserve marinade; sear steak first and reserve to rest. Cook beans and aromatics in the same skillet, boil the reserved marinade in the sauce, then return steak.",
+					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return steak briefly, garnish and serve.",
 					"children": [
 						{
-							"action": "Marinate steak 10 min; drain. Sear in two-thirds butter 1 min/side with half garlic; reach 145°F/rest 3 min; reserve.",
+							"action": "Marinate steak 10 min in refrigerator; drain and reserve marinade. Sear in two-thirds butter over medium-high about 1 min/side, adding half garlic and optional flakes after turning; continue to 145°F, reserve and rest 3 min.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -58863,13 +59016,14 @@
 			"flow": {
 				"prep": [
 					"Source garlic addition has no listed quantity and is omitted.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return chicken 1 min; garnish.",
 					"children": [
 						{
-							"action": "Coat chicken in taco seasoning; brown uncrowded in half butter to 165°F; reserve.",
+							"action": "Coat chicken in taco seasoning; brown in uncrowded batches over medium-low in half butter to 165°F; reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -59245,14 +59399,15 @@
 			},
 			"flow": {
 				"prep": [
-					"Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.",
-					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes."
+					"Season and cook pork chops first, then reserve on a clean plate to rest. Stir-fry zucchini in the same pan juices before returning chops briefly.",
+					"Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return chops briefly; finish with optional parsley and lemon.",
 					"children": [
 						{
-							"action": "Season pork; cook in butter/garlic/oregano/thyme 4–5 min/side to 145°F; reserve/rest 3 min.",
+							"action": "Season pork; melt butter with garlic/oregano/thyme over medium, cook chops 4–5 min/side to 145°F; reserve on clean plate and rest 3 min.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -59281,7 +59436,7 @@
 							]
 						},
 						{
-							"action": "After pork is reserved, sauté zucchini in retained pan juices 2–3 min.",
+							"action": "After pork is reserved, stir-fry zucchini in retained pan juices 2–3 min until tender.",
 							"children": [
 								{
 									"ingredientId": "ingredient-7",
@@ -59675,7 +59830,8 @@
 			"flow": {
 				"prep": [
 					"Prepare sauce first and reserve. Source parsley is divided without a specified fraction; use some in sauce and reserve the rest for finishing. Source additional asparagus butter is unquantified; this adaptation uses residual butter and measured sauce as explained in limitations.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Make sauce with three-quarters of listed butter, garlic, lemon juice, soy, optional honey and some parsley; simmer medium-low 3–5 min and reserve. Halve and flatten chicken, lightly coat with coconut flour and salt. Cook in remaining measured butter medium-high 3–5 min per side to 165°F; reserve. Brown lemon slices briefly and reserve. Sauté asparagus using residual butter and some sauce until crisp-tender. Return chicken, add lemon slices, reserved parsley and remaining sauce.",
@@ -60230,14 +60386,15 @@
 			},
 			"flow": {
 				"prep": [
-					"Prepare the ingredients as listed. Follow the source order in the method; branches join only at the final operation.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Brown sausages first and reserve partly cooked. Discard excess water, keep brown bits and cook vegetables in the same skillet. Slice sausages and return them to simmer to their safe endpoint before garnishing.",
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Slice sausages¼–½inch; return 5–10 min to 160°F pork or 165°F poultry; reduce sauce and garnish.",
 					"children": [
 						{
-							"action": "Brown sausages with initial unquantified oil and optional water; reserve partly cooked.",
+							"action": "Brown sausages on all sides over medium with initial unquantified oil and optional water to prevent sticking; reserve partly cooked.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -60254,7 +60411,7 @@
 							]
 						},
 						{
-							"action": "After sausages are reserved, discard water; cook onion, fennel/herbs/flakes in measured oil, garlic/tomato paste 1–2 min, then pepper/tomatoes and broth.",
+							"action": "After reserving sausages, discard excess water but keep brown bits; cook onion/fennel/herbs/flakes in measured oil, garlic/tomato paste 1–2 min, then pepper/tomatoes until crisp-tender; add broth and simmer briefly.",
 							"children": [
 								{
 									"ingredientId": "ingredient-2",
@@ -60897,13 +61054,14 @@
 			"flow": {
 				"prep": [
 					"Keep fresh garnish tomatoes, bell pepper, jalapeño, avocado, red onion, cilantro and citrus for serving.",
-					"Check ground meat or fresh sausage reaches 160°F."
+					"Check ground meat or fresh sausage reaches 160°F.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": " Return beef; top with cheese and cover off heat 2–3 min; add listed fresh garnishes.",
 					"children": [
 						{
-							"action": "Soften onion in two-thirds oil; brown beef to 160°F; reserve.",
+							"action": "Soften onion in two-thirds oil; brown seasoned beef over medium-high to 160°F; reserve beef and onion.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -61398,7 +61556,8 @@
 			"flow": {
 				"prep": [
 					"Source can size is unspecified; confirm before shopping. Sauce and chicken can cook in parallel in two skillets.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Pour sauce around cooked stuffed chicken and simmer briefly.",
@@ -61437,7 +61596,7 @@
 							]
 						},
 						{
-							"action": "For stuffing: another third oil and remaining garlic 1–2 min, wilt spinach 2–3 min. Butterfly chicken, stuff with spinach and mozzarella, season/fold; cook in last third oil 5 min/side to 165°F.",
+							"action": "For stuffing: another third oil and remaining garlic 1–2 min, wilt spinach 2–3 min; reserve. Butterfly/season chicken, stuff with spinach/mozzarella, fold closed and add optional flakes. Cook in last third oil over medium about 5 min/side until thickest chicken and filling both reach 165°F.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -61959,13 +62118,14 @@
 			"flow": {
 				"prep": [
 					"Split oil exactly one-third for sausage and two-thirds for vegetables; combined branch method specifies this split.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Return sausage and cauliflower, heat through and finish with parsley.",
 					"children": [
 						{
-							"action": "Rice cauliflower; microwave with its water 7 min until tender.",
+							"action": "Rice cauliflower; microwave covered with its listed water about 7 min until just tender.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -61978,7 +62138,7 @@
 							]
 						},
 						{
-							"action": "Brown sausage in one-third oil 5 min; reserve. Cook peppers/onion in remaining oil 4–5 min, add garlic/herbs 1 min; add broth 1 min and optional spices.",
+							"action": "Brown sausage over medium-high in one-third oil about 5 min; reserve. Cook peppers/onion in remaining oil 4–5 min, garlic/herbs/seasoning 1 min; add broth, scrape pan and simmer 1 min; add optional spices.",
 							"children": [
 								{
 									"ingredientId": "ingredient-2",
@@ -62461,13 +62621,14 @@
 			"flow": {
 				"prep": [
 					"Bacon uses a separate skillet while sauce cooks.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Add bacon and chicken to sauce 10–15 min, continuing to 165°F.",
 					"children": [
 						{
-							"action": "Season chicken with half Italian seasoning; brown in half butter 4–5 min/side and reserve.",
+							"action": "Season chicken with half Italian seasoning, salt/pepper; brown over medium-high in half butter 4–5 min/side and reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -62488,7 +62649,7 @@
 							]
 						},
 						{
-							"action": "After chicken is reserved, use remaining butter for garlic/paprika/herbs 2–3 min; tomatoes/stock 4–5 min; cream/cheese/spinach/flakes 2–3 min. Crisp bacon separately.",
+							"action": "After chicken is reserved, use remaining butter for garlic/paprika/herbs 2–3 min; tomatoes/stock 4–5 min; cream/cheese/spinach/flakes, simmer 2–3 min. Meanwhile crisp bacon separately, drain and chop.",
 							"children": [
 								{
 									"ingredientId": "ingredient-2",
@@ -62892,13 +63053,14 @@
 			"flow": {
 				"prep": [
 					"Stovetop browning precedes oven roasting; total timing includes both. Source coffeespoon herb measure is unresolved.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Arrange chicken/asparagus on sheet, brush with mixture and optional lemon slices; bake 400°F about 20 min to 165°F; garnish.",
+					"action": "Arrange chicken/asparagus in one layer on rimmed sheet, brush butter mixture and add optional lemon slices; bake 400°F about 20 min, continuing to 165°F; garnish parsley.",
 					"children": [
 						{
-							"action": "Brown chicken in skillet 4–5 min/side.",
+							"action": "Brown chicken in skillet over medium 4–5 min/side.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -62907,7 +63069,7 @@
 							]
 						},
 						{
-							"action": "Mix butter with lemon juice, garlic, honey and Italian herbs.",
+							"action": "Mix melted butter with lemon juice, garlic, honey, Italian herbs, salt and pepper.",
 							"children": [
 								{
 									"ingredientId": "ingredient-3",
@@ -63322,13 +63484,14 @@
 			"flow": {
 				"prep": [
 					"Despite grilled title, source uses a stovetop skillet. Optional glaze is a separate saucepan operation. Season the fresh tomato mixture to taste as well as chicken.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Spoon fresh bruschetta onto cooked chicken, sprinkle toasted pine nuts and drizzle optional glaze.",
 					"children": [
 						{
-							"action": "Season thin chicken fillets with Italian herbs and to-taste salt/pepper; skillet-cook in one-third oil to 165°F.",
+							"action": "Halve chicken horizontally into thin fillets; season with Italian herbs and to-taste salt/pepper; skillet-cook over medium in one-third oil on both sides to 165°F; reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -63738,7 +63901,8 @@
 			"flow": {
 				"prep": [
 					"Before cooking, divide total listed oil and oregano among beans, chicken and sauce as source describes; no measured split is specified. Keep mixed lemon sauce separate from chicken browning.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Combine cooked beans and chicken; pour on mixed lemon sauce and cook 3 min. Adjust seasoning and top with crisp bacon. Oil, oregano and salt/pepper quantities shown are totals across preparations.",
@@ -64034,7 +64198,8 @@
 			"flow": {
 				"prep": [
 					"The four-serving batch makes four mini chaffles; one chaffle is one portion.",
-					"Allow 2–3 minutes per mini-waffle round, or 8–12 minutes cooking for four sequential rounds, plus about 5 minutes to heat and mix."
+					"Allow 2–3 minutes per mini-waffle round, or 8–12 minutes cooking for four sequential rounds, plus about 5 minutes to heat and mix.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
 					"action": "Cook one mini chaffle per round for 2–3 min until set and steam subsides. The four-portion batch needs four sequential rounds. Adjust the round count for the selected portions and follow the waffle iron capacity and manual.",
@@ -64518,7 +64683,9 @@
 				"prep": [
 					"Use the publisher slow-cooker variation, not the insufficient-liquid pressure method.",
 					"Reserve cheddar, scallion and bacon for the finish; crisp bacon separately in a skillet.",
-					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center."
+					"Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
+					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.",
+					"Follow your exact slow-cooker capacity and operating instructions; allow preparation and bacon-finishing time in addition to the 8-hour slow cook."
 				],
 				"root": {
 					"action": " Cover and cook LOW about 8 hours to 165°F; shred/return chicken, stir cheddar; top with stovetop-crisped bacon and scallion.",

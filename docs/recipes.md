@@ -42,9 +42,9 @@ ids are stable: each is a page slug (`/recipes/<id>/`) and a fragment id
 (`/recipes/#<id>` opens it in the library dialog), and old links use both.
 Images are files under `public/recipes/media/`, referenced as `/recipes/media/...`.
 
-The 125 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Missing ingredient quantities display as "Not specified"; missing nutrition and times display as "Not provided". The 72 recipes that previously lacked complete macros now carry labeled nutrition estimates and remain separate from keto eligibility. Every publisher adaptation has an ingredient nutrient model. Missing nutrient observations do not qualify for nutrient filters. Publisher prep time is distinguished from household active time.
+The 125 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Missing ingredient quantities display as "Not specified"; missing nutrition and times display as "Not provided". The 72 recipes that previously lacked complete macros now carry labeled nutrition estimates and remain separate from keto eligibility. Every publisher adaptation has an ingredient nutrient model. Missing nutrient observations do not qualify for nutrient filters. Prep time is distinguished from household active time. The browser keeps concise source attribution and cooking instructions; provenance and nutrition assumptions remain in canonical data and assistant downloads. Cooking guidance from source limitations belongs in the flow. Mobile renders the same ingredient allocation tree vertically, preserving branch joins and shared cooking checks; desktop and print retain the table.
 
-Every recipe has a first-party illustration under the [image contract](recipe-images.md), with a visible AI illustration disclosure.
+Every recipe has a first-party illustration under the [image contract](recipe-images.md), with illustration provenance retained in its image metadata and downloads.
 
 Household ingredient amounts describe the reviewed four-adult base, except
 `familyOptions`, which describe one non-keto adult's starch. Canonical units
@@ -119,8 +119,8 @@ with edible grams, the USDA FDC record ID/description, source URL and per-100-g
 observations. Existing publisher macros with a supported serving basis remain;
 72 previously incomplete macro sets are filled from these ingredient models.
 `sourceRecipe.nutritionEstimate.estimatedMacroFields` identifies the fields that
-were filled. The model's assumptions are exported and appear in each recipe's
-nutrition-assumption disclosure. Original source nutrition is retained separately.
+were filled. The model's assumptions remain in canonical data and assistant downloads.
+Original source nutrition is retained separately.
 
 The additional records use USDA's static SR Legacy April 2018 CSV release,
 retrieved 2026-10-10, with archive SHA-256

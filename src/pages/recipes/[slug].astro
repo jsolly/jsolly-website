@@ -19,6 +19,5 @@ const { recipe } = Astro.props;
 ---
 
 <RecipeLayout title={recipe.title} description={recipe.summary} article>
-	<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/recipes/">Easy Meals &amp; Smoothies</a></nav>
 	<RecipePage {recipe} client:load />
 </RecipeLayout>

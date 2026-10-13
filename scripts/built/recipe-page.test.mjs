@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { after, before, it } from "node:test";
 import { chromium } from "playwright";
 import { PRINT_FAILED } from "../../src/components/recipes/constants.mjs";
+import { cookText } from "../../src/components/recipes/display-units.mjs";
 import recipeData from "../../src/components/recipes/recipes.json" with {
 	type: "json",
 };
@@ -43,7 +44,7 @@ const RANCH = recipeData.recipes.find(
 );
 
 for (const width of [390, 1280]) {
-	it(`publisher recipes show nutrition estimates, keep absent times and print known times at ${width}px`, async () => {
+	it(`publisher recipes show concise nutrition help, keep absent times and print known times at ${width}px`, async () => {
 		const context = await browser.newContext({
 			viewport: { width, height: 900 },
 		});
@@ -78,53 +79,26 @@ for (const width of [390, 1280]) {
 					.textContent(),
 				`${RANCH.nutrition.net_carbs_g.toFixed(0)} g`,
 			);
-			const assumptions = page.getByRole("button", {
-				name: "Nutrition assumptions",
-				exact: true,
-			});
-			await assumptions.focus();
-			await assumptions.press("Enter");
-			assert.equal(await assumptions.getAttribute("aria-expanded"), "true");
 			assert.equal(
-				await page.locator(".nutrition-assumptions-list li").count(),
-				RANCH.sourceRecipe.nutritionEstimate.assumptions.length,
-			);
-			assert.equal(
-				await page.locator(".nutrition-assumptions-list").isVisible(),
-				true,
+				await page.locator(".recipe-body .nutrition-assumptions").count(),
+				0,
 			);
 			assert.equal(
 				await page
-					.locator(".print-document")
-					.getByRole("heading", {
-						name: "Nutrition assumptions",
-						includeHidden: true,
-					})
+					.locator(
+						'.recipe-body [aria-label="Source notes"], .recipe-body [aria-label="Recipe method"]',
+					)
 					.count(),
-				1,
+				0,
 			);
-			await assumptions.press("Space");
-			assert.equal(await assumptions.getAttribute("aria-expanded"), "false");
-			const plain = await browser.newContext({
-				javaScriptEnabled: false,
-				viewport: { width, height: 900 },
-			});
-			try {
-				const staticPage = await plain.newPage();
-				await staticPage.goto(`${site.origin}/recipes/${RANCH.id}/`);
-				await staticPage
-					.locator("details.nutrition-assumptions summary")
-					.click();
-				await staticPage
-					.locator(".nutrition-assumptions-list")
-					.waitFor({ state: "visible" });
-				assert.equal(
-					await staticPage.locator(".nutrition-assumptions-list").isVisible(),
-					true,
-				);
-			} finally {
-				await plain.close();
-			}
+			const help = page.getByRole("button", { name: "What are net carbs?" });
+			await help.focus();
+			await help.press("Enter");
+			await page
+				.getByText("Total carbohydrates minus fiber.", { exact: false })
+				.first()
+				.waitFor();
+			await help.press("Escape");
 			await page.goto(`${site.origin}/recipes/source-perfect-roast-chicken/`);
 			await page.getByRole("button", { name: "Print recipe" }).waitFor();
 			assert.match(
@@ -158,6 +132,160 @@ before(async () => {
 after(async () => {
 	await browser?.close();
 	await site?.close();
+});
+
+it("mobile flow preserves ordered operations, allocation leaves and cooking checks across resize", async () => {
+	const context = await browser.newContext({
+		viewport: { width: 390, height: 844 },
+	});
+	const page = await context.newPage();
+	const errors = collectErrors(page, { warnings: true });
+	try {
+		for (const id of [
+			"source-15-minute-broccoli-chicken-in-cream-cheese-sundried-tomato-sauce",
+			"lemon-salmon-and-asparagus",
+			"strawberry-banana-smoothie",
+		]) {
+			const recipe = recipeData.recipes.find(
+				(candidate) => candidate.id === id,
+			);
+			const actions = [];
+			const leaves = [];
+			function walk(node) {
+				if (node.children) {
+					node.children.forEach(walk);
+					actions.push(cookText(node.action, "us").trim());
+				} else leaves.push(node.ingredientId);
+			}
+			walk(recipe.flow.root);
+			// biome-ignore lint/performance/noAwaitInLoops: One page exercises these recipes sequentially.
+			await page.goto(`${site.origin}/recipes/${id}/`);
+			await page.waitForFunction(
+				() => !document.querySelector("astro-island[ssr]"),
+			);
+			const mobile = page.locator(".recipe-body .mobile-flow");
+			assert.equal(await mobile.isVisible(), true);
+			assert.deepEqual(
+				(await mobile.locator(".branch-join p").allTextContents()).map(
+					(content) => content.trim(),
+				),
+				actions,
+			);
+			assert.equal(
+				await mobile.locator(".mobile-ingredient").count(),
+				leaves.length,
+			);
+			assert.deepEqual(
+				await mobile.locator(".ingredient-name").allTextContents(),
+				leaves.map(
+					(ingredientId) =>
+						recipe.ingredients.find((item) => item.id === ingredientId).name,
+				),
+			);
+			const preparation = await mobile.locator(".mobile-prep").textContent();
+			for (const note of recipe.flow.prep)
+				assert.ok(preparation.includes(cookText(note, "us")));
+
+			assert.equal(
+				await page.evaluate(
+					() => document.documentElement.scrollWidth > innerWidth,
+				),
+				false,
+			);
+			await mobile.getByRole("checkbox").first().check();
+			await page.setViewportSize({ width: 1280, height: 900 });
+			const desktop = page.locator(".recipe-body .trn-frame");
+			assert.equal(
+				await desktop.getByRole("checkbox").first().isChecked(),
+				true,
+			);
+			assert.deepEqual(
+				await mobile.locator(".mobile-ingredient strong").allTextContents(),
+				await desktop.locator("th.trn-ingredient strong").allTextContents(),
+			);
+			await desktop
+				.getByRole("button", { name: "Reset cooking checks" })
+				.click();
+			await page.setViewportSize({ width: 390, height: 844 });
+			assert.equal(
+				await mobile.getByRole("checkbox").first().isChecked(),
+				false,
+			);
+		}
+		await page.goto(
+			`${site.origin}/recipes/lemon-salmon-and-asparagus/?servings=8`,
+		);
+		await page.waitForFunction(
+			() => !document.querySelector("astro-island[ssr]"),
+		);
+		assert.equal(
+			await page.getByRole("combobox", { name: SERVINGS }).inputValue(),
+			"8",
+		);
+		const scaledMobile = page.locator(".recipe-body .mobile-flow");
+		// Canonical eight-serving allocations: oil, garlic and salt each have two branches.
+		assert.deepEqual(
+			await scaledMobile.locator(".mobile-ingredient strong").allTextContents(),
+			[
+				"1360g",
+				"27g",
+				"3g",
+				"3g",
+				"to taste",
+				"4g",
+				"908g",
+				"27g",
+				"3g",
+				"3g",
+				"60g",
+				"40g",
+			],
+		);
+		assert.deepEqual(
+			await scaledMobile.locator(".mobile-ingredient strong").allTextContents(),
+			await page
+				.locator(".recipe-body .trn-frame th.trn-ingredient strong")
+				.allTextContents(),
+		);
+		await page.emulateMedia({ media: "print" });
+		assert.equal(
+			await page.locator(".print-document .trn-frame").isVisible(),
+			true,
+		);
+		assert.equal(await page.locator(".print-document .mobile-flow").count(), 0);
+		await page.emulateMedia({ media: "screen" });
+		const plain = await browser.newContext({
+			javaScriptEnabled: false,
+			viewport: { width: 390, height: 844 },
+		});
+		try {
+			const native = await plain.newPage();
+			await native.goto(`${site.origin}/recipes/lemon-salmon-and-asparagus/`);
+			const checkbox = native
+				.locator(".recipe-body .mobile-flow")
+				.locator(NATIVE_CHECKBOX)
+				.first();
+			await checkbox.check();
+			assert.equal(await checkbox.isChecked(), true);
+			assert.equal(
+				await native
+					.getByRole("button", { name: "What are net carbs?" })
+					.count(),
+				0,
+			);
+			assert.equal(
+				await native
+					.getByText("Total carbohydrates minus fiber.", { exact: true })
+					.isVisible(),
+				true,
+			);
+		} finally {
+			await plain.close();
+		}
+		assert.deepEqual(errors, []);
+	} finally {
+		await context.close();
+	}
 });
 
 // An init script for a browser that can neither share nor copy.
@@ -208,7 +336,7 @@ function pageChecks({ kind, id, familySides }) {
 			const page = await context.newPage();
 			await page.goto(`${site.origin}/recipes/${id}/`);
 			const detail = page.locator(".recipe-detail");
-			const firstCheck = detail.locator(NATIVE_CHECKBOX).first();
+			const firstCheck = detail.locator(`${NATIVE_CHECKBOX}:visible`).first();
 			await detail.locator("th.trn-ingredient label:visible").first().click();
 			const disclosure = detail.locator("details.nutrient-disclosure");
 			await disclosure.locator("summary").click();
@@ -226,7 +354,7 @@ function pageChecks({ kind, id, familySides }) {
 						.getByRole("link", { name: "Share recipe link" })
 						.getAttribute("href"),
 					shareButton: await detail
-						.getByRole("button", { name: "Share recipe" })
+						.getByRole("button", { name: "Share this recipe" })
 						.count(),
 					printCopyShown: await page.locator(".print-document").isVisible(),
 					methodLink: await detail
@@ -481,7 +609,7 @@ it("a reader who picks 8 servings and the bun side gets the scaled recipe and a 
 			.getByRole("combobox", { name: FAMILY_SIDE })
 			.selectOption(SIDE);
 		const share = page.locator(".recipe-share");
-		await share.getByRole("button", { name: "Share recipe" }).click();
+		await share.getByRole("button", { name: "Share this recipe" }).click();
 		await share.getByRole("link").waitFor();
 		assert.deepEqual(
 			{
@@ -547,7 +675,7 @@ it("where the browser can neither share nor copy, Share recipe announces and sho
 		const share = page.locator(".recipe-share");
 		const status = share.getByRole("status");
 		const statusBefore = await status.count();
-		await share.getByRole("button", { name: "Share recipe" }).click();
+		await share.getByRole("button", { name: "Share this recipe" }).click();
 		await status.filter({ hasText: "Copy this recipe link:" }).waitFor();
 		assert.deepEqual(
 			{
@@ -612,7 +740,7 @@ function recipeShareFailureCheck({ failure, result, diagnostic }) {
 				});
 			}, failure);
 			const share = page.locator(".recipe-share");
-			await share.getByRole("button", { name: "Share recipe" }).click();
+			await share.getByRole("button", { name: "Share this recipe" }).click();
 			if (result)
 				await share.getByRole("status").filter({ hasText: result }).waitFor();
 			const status = await share.getByRole("status").textContent();

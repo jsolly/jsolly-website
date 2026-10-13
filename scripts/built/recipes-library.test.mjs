@@ -490,7 +490,7 @@ it("Share recipe in the library dialog shares its servings and family side, and 
 		await takeover
 			.getByRole("combobox", { name: FAMILY_SIDE })
 			.selectOption(PITA);
-		await takeover.getByRole("button", { name: "Share recipe" }).click();
+		await takeover.getByRole("button", { name: "Share this recipe" }).click();
 		const shared = new URL(await page.evaluate(() => window.sharedRecipe.url));
 		await page.keyboard.press("Escape");
 		await takeover.waitFor({ state: "detached" });

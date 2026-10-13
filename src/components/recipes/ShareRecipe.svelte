@@ -41,7 +41,7 @@
 </script>
 
 <div class="recipe-share">
-	<Button variant="outline" {disabled} onclick={share}>Share recipe</Button>
+	<Button variant="outline" {disabled} onclick={share}>Share this recipe</Button>
 	<p role="status">{message}{#if fallbackUrl} <a href={fallbackUrl}>{fallbackUrl}</a>{/if}</p>
 </div>
 
