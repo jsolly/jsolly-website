@@ -67,7 +67,7 @@
 		{#if groupBadges[recipe.group] && recipe.group !== "nonketo"}<span class="badge">{groupBadges[recipe.group]}</span>{/if}
 		<h1>{recipe.title}</h1>
 		<NutritionPills {recipe} servings={settings.servings} />
-		<p>{recipe.summary}</p>
+		<p class="detail-summary">{recipe.summary}</p>
 		<RecipeAttribution {recipe} />
 			<label class="servings recipe-enhanced" for={servingsId}
 				>Servings<NativeSelect id={servingsId} value={settings.servings} disabled={!interactive} onchange={(event) => setServings(event.currentTarget.value)}>
@@ -104,8 +104,9 @@
 			border: 1px solid var(--recipe-line);
 			border-radius: 20px;
 			padding: 28px;
-			font: 16px/1.55 var(--font-body);
+			font: 16px/1.4 var(--font-body);
 		}
+		.detail-summary { margin: 10px 0 4px; line-height: 1.4; }
 		.servings {
 			display: flex;
 			gap: 10px;
@@ -126,13 +127,14 @@
 			justify-content: space-between;
 			align-items: center;
 			gap: 12px;
-			margin-bottom: 24px;
+			margin-bottom: 16px;
 		}
 		a {
 			color: var(--recipe-accent);
 		}
 		h1 {
 			font: 600 clamp(2rem, 4vw, 3rem) / 1.13 var(--font-heading);
+			margin: 14px 0 10px;
 		}
 		.badge {
 			display: inline-block;

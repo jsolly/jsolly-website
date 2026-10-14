@@ -91,7 +91,6 @@ const isRecipeCollection = ["/recipes/", "/recipes/meals/", "/recipes/smoothies/
       {section === "blog"
         ? <BlogNavigation slot="navigation" categories={navigation} pathname={Astro.url.pathname} client:load />
         : !isRecipeCollection && <nav slot="navigation" class="blog-toolbar recipe-navigation" aria-label="Recipe navigation">
-            <Button href="/recipes/" variant="outline" size="lg">All recipes</Button>
             <Button href="/recipes/meals/" variant="outline" size="lg">Meals</Button>
             <Button href="/recipes/smoothies/" variant="outline" size="lg">Smoothies</Button>
           </nav>}

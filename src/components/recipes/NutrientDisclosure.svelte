@@ -88,13 +88,13 @@
 		}
 		:global(.nutrient-content) { overflow: hidden; }
 		.nutrient-content-inner { display: flow-root; }
-		:global(.nutrient-content[data-state="open"]) { animation: nutrient-expand 260ms cubic-bezier(0.22, 1, 0.36, 1); }
-		:global(.nutrient-content[data-state="closed"]) { animation: nutrient-collapse 220ms cubic-bezier(0.4, 0, 0.2, 1); }
+		:global(.nutrient-content[data-state="open"]) { animation: nutrient-expand 500ms cubic-bezier(0.22, 1, 0.36, 1); }
+		:global(.nutrient-content[data-state="closed"]) { animation: nutrient-collapse 320ms cubic-bezier(0.4, 0, 0.2, 1); }
 		@keyframes nutrient-expand { from { height: 0; opacity: 0; } to { height: var(--bits-collapsible-content-height); opacity: 1; } }
 		@keyframes nutrient-collapse { from { height: var(--bits-collapsible-content-height); opacity: 1; } to { height: 0; opacity: 0; } }
 		svg {
 			flex-shrink: 0;
-			transition: transform 0.2s;
+			transition: transform 0.4s;
 		}
 		:global(.nutrient-trigger[data-state="open"]) svg {
 			transform: rotate(180deg);

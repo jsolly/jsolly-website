@@ -87,7 +87,7 @@
 		<dl>
 			<div><dt><span aria-hidden="true">🔥</span> Calories</dt><dd>{formatNutrition(baseNutrition.kcal, "kcal")}</dd></div>
 			<div><dt><span aria-hidden="true">💪</span> Protein</dt><dd>{formatNutrition(baseNutrition.protein_g, "g")}</dd></div>
-			<div><dt>Total carbs</dt><dd>{formatNutrition(baseNutrition.carbs_g, "g")}</dd></div>
+			<div><dt>Carbs</dt><dd>{formatNutrition(baseNutrition.carbs_g, "g")}</dd></div>
 			<div><dt>Fiber</dt><dd>{formatNutrition(baseNutrition.fiber_g, "g")}</dd></div>
 			<div><dt>Net carbs <NutritionHelp topic="net-carbs" /></dt><dd>{formatNutrition(baseNutrition.net_carbs_g, "g")}</dd></div>
 		</dl>
@@ -103,7 +103,7 @@
 		.detail-appliances {
 			display: grid;
 			gap: 8px;
-			margin: 16px 0;
+			margin: 12px 0;
 			font-size: 0.84rem;
 		}
 		.appliance-icons {
@@ -115,7 +115,7 @@
 			display: flex;
 			gap: 25px;
 			flex-wrap: wrap;
-			margin: 20px 0;
+			margin: 12px 0;
 		}
 		.detail-facts span {
 			font-size: 0.84rem;
@@ -127,7 +127,7 @@
 		}
 		.recipe-photo {
 			max-width: 60rem;
-			margin: 22px 0;
+			margin: 16px 0;
 		}
 		.recipe-photo img {
 			display: block;
@@ -139,7 +139,7 @@
 			background: var(--recipe-family);
 			border-radius: 12px;
 			padding: 16px 20px;
-			margin: 20px 0;
+			margin: 12px 0;
 		}
 		.family-box p {
 			font-size: 0.9rem;

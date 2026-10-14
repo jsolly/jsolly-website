@@ -5,7 +5,7 @@
 	import DialogContent from "../../lib/components/ui/dialog-content.svelte";
 	import DialogDescription from "../../lib/components/ui/dialog-description.svelte";
 	import DialogTitle from "../../lib/components/ui/dialog-title.svelte";
-	import { cookingNotes } from "./cooking-notes.mjs";
+	import { cookingNotes, OMITTED_PREPARATION } from "./cooking-notes.mjs";
 	import { cookText } from "./display-units.mjs";
 	import { ingredientIcon } from "./ingredient-icon.mjs";
 	import { flowGrid } from "./trn-logic.mjs";
@@ -19,6 +19,7 @@
 	let methodOpen = $state(false);
 	let methodContent = $state(null);
 	const grid = $derived(flowGrid(recipe, settings));
+	const preparation = $derived(grid.prep.filter((text) => printOnly || !OMITTED_PREPARATION.test(text)));
 	let checks = $state([]);
 	// The same allocation leaves feed both views, with one shared check state.
 	const mobileFlow = $derived.by(() => {
@@ -69,7 +70,7 @@
 	<div class="flow-toolbar"><svelte:element this={`h${headingLevel}`} id={headingId} class="flow-heading">{recipe.type === "smoothie" ? "Preparation flow" : "Cooking flow"}</svelte:element></div>
 	<p class="trn-help" id={helpId}><span class="desktop-help">Read left to right. Each merged cell acts on the ingredient rows feeding into it. Parallel branches stay separate until plating.</span><span class="mobile-help">Read top to bottom. Ingredients feed into the action below their branch. Follow each branch until it joins the next action.</span></p>
 	{#if !printOnly}<section class="mobile-flow" aria-labelledby={headingId}>
-		<div class="mobile-prep">{#each grid.prep as text, i (i)}<p>{text}</p>{/each}</div>
+		<div class="mobile-prep" hidden={preparation.length === 0}>{#each preparation as text, i (i)}<p>{text}</p>{/each}</div>
 		<Button variant="ghost" class="reset-checks recipe-enhanced" disabled={!interactive} onclick={() => (checks = [])}>Reset cooking checks</Button>
 		{@render mobileBranch(mobileFlow)}
 	</section>{/if}
@@ -80,7 +81,7 @@
 		<section class="trn-scroll" tabindex="0" aria-labelledby={headingId} aria-describedby={helpId}>
 			<table class="trn-table">
 				<tbody>
-					{#each grid.prep as text, i (i)}<tr><td colspan={grid.columns} class="trn-prep">{text}</td></tr>{/each}
+					{#each preparation as text, i (i)}<tr><td colspan={grid.columns} class="trn-prep">{text}</td></tr>{/each}
 					{#if !printOnly}<tr class="reset-checks-row recipe-enhanced"><td colspan={grid.columns}><Button variant="ghost" class="reset-checks" type="button" disabled={!interactive} onclick={() => (checks = [])}>Reset cooking checks</Button></td></tr>{/if}
 					{#each grid.rows as row, i (i)}
 						<tr>

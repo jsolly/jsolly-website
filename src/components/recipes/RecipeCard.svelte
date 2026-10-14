@@ -34,7 +34,7 @@
 			</div>
 			<div>
 				<dt>{recipe.type === "smoothie" ? "Net Carbs (8 oz)" : "Net carbs per serving"}</dt>
-				<dd class="carb-value">{netCarbs === null ? "Not provided" : `~${formatNutrition(netCarbs, "g")}`}</dd>
+				<dd class="carb-value">{netCarbs === null ? "Not provided" : formatNutrition(netCarbs, "g")}</dd>
 			</div>
 			<div>
 				<dt>Kitchen stuff needed</dt>

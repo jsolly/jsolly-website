@@ -7,6 +7,8 @@
 <style>
 	@layer properties, theme, base, components, utilities, blog, blog-no-script;
 	@layer blog {
-		.source-credit { overflow-wrap: anywhere; font-size: 0.9rem; color: var(--recipe-muted); }
+		.source-credit { margin: 4px 0 12px;
+			overflow-wrap: anywhere; font-size: 0.9rem;
+			line-height: 1.4; color: var(--recipe-muted); }
 	}
 </style>

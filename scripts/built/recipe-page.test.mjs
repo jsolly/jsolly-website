@@ -2,11 +2,14 @@ import assert from "node:assert/strict";
 import { after, before, it } from "node:test";
 import { chromium } from "playwright";
 import { PRINT_FAILED } from "../../src/components/recipes/constants.mjs";
+
 import { cookText } from "../../src/components/recipes/display-units.mjs";
 import recipeData from "../../src/components/recipes/recipes.json" with {
 	type: "json",
 };
 import { collectErrors, serveStatic } from "./pages.mjs";
+
+const OMITTED_PREPARATION = /^Check\b.*°[FC]|^For larger servings,/iu;
 
 // A built recipe page (/recipes/<id>/) in Chromium, with and without
 // JavaScript. The server render is the no-JavaScript page: native checkboxes,
@@ -183,8 +186,10 @@ it("mobile flow preserves ordered operations, allocation leaves and cooking chec
 				),
 			);
 			const preparation = await mobile.locator(".mobile-prep").textContent();
-			for (const note of recipe.flow.prep)
-				assert.ok(preparation.includes(cookText(note, "us")));
+			for (const note of recipe.flow.prep) {
+				const omitted = OMITTED_PREPARATION.test(note);
+				assert.equal(preparation.includes(cookText(note, "us")), !omitted);
+			}
 
 			assert.equal(
 				await page.evaluate(
