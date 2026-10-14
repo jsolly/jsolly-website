@@ -39,10 +39,15 @@ async function fixture(t) {
 		"<p>Before</p>\n",
 	);
 	const receipt = path.join(temp, "calls");
-	const lib = path.join(temp, "gate-lib.sh");
+	await mkdir(path.join(root, "gate"));
+	const lib = path.join(root, "gate/gate-lib.sh");
 	await writeFile(
 		lib,
-		`gate_enter_committing_tree() { ROOT="$(git rev-parse --show-toplevel)"; cd "$ROOT"; }\ngate_require_lib() { :; }\ngate_begin_commit() { echo bootstrap >> "$RECEIPT"; [[ "\${FAIL_BOOTSTRAP:-0}" != 1 ]]; }\ngate_check_bash_floor() { :; }\ngate_require_node() { :; }\nrun_step() { shift; "$@"; }\n`,
+		`gate_enter_committing_tree() { ROOT="$(git rev-parse --show-toplevel)"; cd "$ROOT"; }\ngate_begin_commit() { echo bootstrap >> "$RECEIPT"; [[ "\${FAIL_BOOTSTRAP:-0}" != 1 ]]; }\ngate_check_bash_floor() { :; }\ngate_require_node() { :; }\nrun_step() { shift; "$@"; }\n`,
+	);
+	await writeFile(
+		path.join(root, "scripts/repo-python.sh"),
+		`#!/usr/bin/env bash\nprintf 'trust-fixtures\\n' >> "$RECEIPT"\n`,
 	);
 	await Promise.all(
 		["npm", "npx"].map(async (command) => {
@@ -67,7 +72,6 @@ async function fixture(t) {
 		GIT_AUTHOR_EMAIL: "fixture@example.invalid",
 		GIT_COMMITTER_NAME: "fixture",
 		GIT_COMMITTER_EMAIL: "fixture@example.invalid",
-		DOTAGENTS_GATE_LIB: lib,
 		RECEIPT: receipt,
 		PATH: `${bin}:${env.PATH}`,
 		FLEET_DOC_FAST: "0",
@@ -85,6 +89,8 @@ async function fixture(t) {
 	await git(
 		"add",
 		".git-hooks/pre-commit",
+		"gate/gate-lib.sh",
+		"scripts/repo-python.sh",
 		"scripts/ui-preview-scope.mjs",
 		"src/components/Example.svelte",
 	);
@@ -120,11 +126,11 @@ it("preview hook rejects non-UI files and bootstrap/check failures", async (t) =
 	await assert.rejects(f.hook({ FAIL_CHECK: "1" }));
 });
 
-it("preview shortcut refuses absent shared gate support", async (t) => {
+it("preview shortcut refuses an absent repository gate", async (t) => {
 	const f = await fixture(t);
-	await assert.rejects(
-		f.hook({ DOTAGENTS_GATE_LIB: "", HOME: f.root }),
-		(error) => error.stderr.includes("requires the shared gate"),
+	await rm(path.join(f.root, "gate/gate-lib.sh"));
+	await assert.rejects(f.hook(), (error) =>
+		error.stderr.includes("gate/gate-lib.sh"),
 	);
 });
 
@@ -141,5 +147,6 @@ it("full gate disables preview mode and retains build/browser steps", async (t) 
 	const calls = await f.calls();
 	assert.ok(calls.includes("npm run build\n"));
 	assert.ok(calls.includes("npm run test:built\n"));
+	assert.ok(calls.includes("trust-fixtures\n"));
 	assert.ok(!calls.includes("npm run check:preview"));
 });

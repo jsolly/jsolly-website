@@ -6,7 +6,7 @@
 		"node": "24.x"
 	},
 	"scripts": {
-		"worktree:init": "npm ci",
+		"worktree:init": "bash scripts/setup-agent-environment.sh",
 		"dev": "astro dev",
 		"build": "astro build && node process-html.mjs && node --import ./scripts/register-ts-from-js.mjs scripts/markdown-build.mjs && node scripts/recipes/pwa-build.mjs && node scripts/run-tests.mjs csp",
 		"build:maintenance": "MAINTENANCE_MODE=true npm run build",
