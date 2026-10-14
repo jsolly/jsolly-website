@@ -1,6 +1,7 @@
 <script>
 	import Button from "../../lib/components/ui/button.svelte";
 	import Checkbox from "../../lib/components/ui/checkbox.svelte";
+	import Input from "../../lib/components/ui/input.svelte";
 	import NativeSelect from "../../lib/components/ui/native-select.svelte";
 	import ApplianceIcon from "./ApplianceIcon.svelte";
 	import {
@@ -26,6 +27,7 @@
 	// library's DEFAULT_FILTERS-shaped filter state.
 	let {
 		collection,
+		query = $bindable(""),
 		pathname,
 		hydrated,
 		servings,
@@ -108,6 +110,11 @@
 	<nav class="collection-options" aria-label="Recipe type"
 		>{#each COLLECTION_LINKS as link (link.href)}<a href={link.href} aria-current={current(link)}>{link.label}</a>{/each}</nav
 	>
+	<div class="recipe-search">
+		<label for={`${uid}-search`}>Search recipes</label>
+		<Input id={`${uid}-search`} type="search" bind:value={query} disabled={!hydrated} placeholder="Try chicken, garlic, or air fryer" aria-describedby={`${uid}-search-help`} />
+		<small id={`${uid}-search-help`}>Search names, ingredients, equipment and cooking details in this collection. Filters still apply.</small>
+	</div>
 	<div class="library-intro">
 		<div class="servings-setting">
 			<label for={servingsId}>Servings</label><NativeSelect id={servingsId} value={servings} onchange={(event) => onServingsChange(event.currentTarget.value)} disabled={!hydrated}
@@ -242,10 +249,12 @@
 			background: var(--recipe-accent);
 			color: var(--recipe-accent-text);
 		}
+		.recipe-search { grid-column: 1 / -1; display: grid; gap: 4px; min-width: 0; }
+		.recipe-search :global(input) { min-height: 44px; border-radius: 8px; }
 		.library-intro {
 			display: grid;
 			grid-template-columns: auto minmax(0, 1fr);
-			align-items: center;
+			align-items: end;
 			gap: 24px;
 			grid-column: 1 / -1;
 		}
@@ -257,9 +266,8 @@
 			font-weight: 600;
 		}
 		.servings-setting {
-			display: flex;
-			align-items: center;
-			gap: 10px;
+			display: grid;
+			gap: 4px;
 		}
 		.library-intro > .servings-setting {
 			grid-column: 1;
@@ -354,6 +362,7 @@
 		.inventory-count :global([data-slot="native-select-wrapper"]) {
 			margin-left: auto;
 		}
+		.library-intro .servings-setting :global([data-slot="native-select-wrapper"]) { width: 72px; }
 		.inventory-options > label:has(:global(:disabled)),
 		.inventory-count:has(:global(:disabled)),
 		.nutrient-options label:has(:global(:disabled)) {
@@ -369,7 +378,7 @@
 			flex-wrap: wrap;
 			gap: 0;
 			grid-column: 1;
-			grid-row: 5;
+			grid-row: 6;
 		}
 		/* Floated, the legend is a flex item beside the help trigger rather
 		   than the fieldset's caption. */
@@ -405,7 +414,7 @@
 			align-self: end;
 			justify-self: end;
 			grid-column: 2;
-			grid-row: 5;
+			grid-row: 6;
 			border: 1px solid var(--recipe-input-border);
 			background: transparent;
 			color: var(--recipe-ink);
@@ -429,7 +438,7 @@
 			}
 			.library-controls :global([data-slot="button"].print-all) {
 				grid-column: 1 / -1;
-				grid-row: 6;
+				grid-row: 7;
 				justify-self: end;
 			}
 			.library-intro > .servings-setting {

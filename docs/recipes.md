@@ -320,6 +320,15 @@ There is no generated article: the pages render straight from `recipes.json`
 
 ## Pages and settings
 
+Search recipes searches the current collection alongside the existing filters.
+Names and ingredients rank highest; equipment, cooking instructions, family
+sides and nutrition highlights are searchable too. MiniSearch runs locally
+with accent-insensitive matching, prefixes and limited typo tolerance. Clearing
+search restores the discovery order. Queries are not saved.
+
+Each library card has a Print recipe action using the current servings, units
+and family side. It prints only that recipe without opening the detail dialog.
+
 On iPhone and iPad Home Screen apps, **Print recipe** offers **Open in Safari**
 instead of calling the installed app's unreliable print API. The link opens the
 individual recipe on the current host with the selected servings, units and
@@ -327,7 +336,7 @@ family side; tap **Print recipe** again in Safari. A selectable HTTPS link is
 also shown for manual copy/paste if the Safari application scheme is unavailable.
 Safari needs a network connection and, on a protected Preview, its own authorized
 session. Browser tabs and Mac Dock apps retain their existing print flow.
-This handoff covers individual recipe pages and the library's recipe dialog;
+This handoff covers individual recipe pages, library cards and the library's recipe dialog;
 **Print all meals/smoothies** retains the existing browser printing flow.
 The direct iOS application handoff needs real-device verification; Chromium
 standalone emulation verifies detection, link settings and browser restoration,

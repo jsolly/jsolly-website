@@ -592,6 +592,18 @@ function filtersCheck(width) {
 // moved, so the page moves it when the help appears. Resolves to where focus
 // was after each step.
 async function pointerAndKeyboardHelp({ page, help, popover, heading }) {
+	// The search row can put the title and help in different scroll positions.
+	// Send continuous pointer travel after scrolling so the hover grace area
+	// receives movement out of the trigger, rather than a single teleport.
+	const moveToHeading = async () => {
+		await heading.scrollIntoViewIfNeeded();
+		const target = await heading.boundingBox();
+		await page.mouse.move(
+			target.x + target.width / 2,
+			target.y + target.height / 2,
+			{ steps: 10 },
+		);
+	};
 	const focused = () =>
 		page.evaluate(() => ({
 			onHelp: document.activeElement?.classList.contains("nutrition-info"),
@@ -610,12 +622,12 @@ async function pointerAndKeyboardHelp({ page, help, popover, heading }) {
 	};
 	await help.hover();
 	await popover.waitFor();
-	await heading.hover();
+	await moveToHeading();
 	await popover.waitFor({ state: "detached" });
 	await help.hover();
 	await popover.waitFor();
 	await help.click();
-	await heading.hover();
+	await moveToHeading();
 	await page.waitForTimeout(HELP_CLOSE_WAIT_MS);
 	const clickedStaysOpen = await popover.isVisible();
 	await page.keyboard.press("Escape");

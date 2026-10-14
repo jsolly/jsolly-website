@@ -19,6 +19,7 @@ import RecipeDownload from "./RecipeDownload.svelte";
 	import RecipeTakeover from "./RecipeTakeover.svelte";
 	import { validateSettings } from "./recipe-logic.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
+	import { createRecipeSearch } from "./recipe-search.mjs";
 	import { readRecipeURL, recipeHref } from "./recipe-url.mjs";
 	import data from "./recipes.json" with { type: "json" };
 	import { replaceUnitURL } from "./unit-preference.mjs";
@@ -32,7 +33,9 @@ import RecipeDownload from "./RecipeDownload.svelte";
 	// opens a linked recipe in a full-screen dialog.
 	// `pathname` is the page's path, for the collection links' aria-current.
 	let { discoveryOrder, initialCollection = "meal", pathname } = $props();
-	const NO_RESULTS = "No recipes match these appliances and filters.";
+	const NO_RESULTS = "No recipes match your search and filters. Try fewer words or adjust the filters.";
+	let query = $state("");
+	let printRecipeId = $state("");
 
 	// The saved settings: servings, the filters, the appliances on hand and
 	// each recipe's family side.
@@ -81,8 +84,10 @@ import RecipeDownload from "./RecipeDownload.svelte";
 		omega: filters.omega3,
 		appliances: appliancesOnHand,
 	});
+	const searchRecipes = $derived(createRecipeSearch(recipes, servings));
+	const searchedRecipes = $derived(query.trim() ? searchRecipes(query) : discoveryRecipes);
 	const visibleRecipes = $derived(
-		discoveryRecipes.filter((recipe) =>
+		searchedRecipes.filter((recipe) =>
 			recipe.type === collection && matchesRecipe(recipe, servings, filterSettings),
 		),
 	);
@@ -98,7 +103,8 @@ import RecipeDownload from "./RecipeDownload.svelte";
 		printMode === "auto" ? (current ? "recipe" : "all") : printMode,
 	);
 	const printRecipes = $derived(
-		effectivePrintMode === "recipe" && current ? [current] : collectionRecipes,
+		effectivePrintMode === "recipe" && (printRecipeId || current)
+			? [printRecipeId ? recipesById.get(printRecipeId) : current] : collectionRecipes,
 	);
 
 	function hasMatches(overrides) {
@@ -195,10 +201,12 @@ import RecipeDownload from "./RecipeDownload.svelte";
 		() => {
 			printPrepared = false;
 			printMode = "auto";
+			printRecipeId = "";
 		},
 	);
 
-	async function print(target) {
+	async function print(target, id = "") {
+		printRecipeId = id;
 		printMode = target;
 		await tick();
 		message = await printSession.print(tick);
@@ -240,6 +248,7 @@ import RecipeDownload from "./RecipeDownload.svelte";
 <section class="meal-library" data-hydrated={hydrated} data-print-prepared={printPrepared} bind:this={libraryElement} aria-label="Easy Meals & Smoothies recipe library">
 	<LibraryControls
 		{collection}
+		bind:query
 		{pathname}
 		{hydrated}
 		{servings}
@@ -257,12 +266,12 @@ import RecipeDownload from "./RecipeDownload.svelte";
 
 	<div class="browse" id="meal-results">
 		<h2 bind:this={listHeading} tabindex="-1">{collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2>
+		<p class="no-results" role="status">{hydrated ? !visibleRecipes.length ? NO_RESULTS : query.trim() ? `${visibleRecipes.length} ${visibleRecipes.length === 1 ? "recipe" : "recipes"} found` : "" : ""}</p>
 		<div class="recipe-grid">
 			{#each visibleRecipes as recipe (recipe.id)}
-				<RecipeCard {recipe} servings={recipeSettings.servings} href={recipeHref(recipe, recipeSettings)} />
+				<RecipeCard {recipe} servings={recipeSettings.servings} settings={recipeSettings} onPrint={() => print("recipe", recipe.id)} disabled={!hydrated} href={recipeHref(recipe, recipeSettings)} />
 			{/each}
 		</div>
-		<p class="no-results" role="status">{hydrated && !visibleRecipes.length ? NO_RESULTS : ""}</p>
 	</div>
 
 	{#if current}

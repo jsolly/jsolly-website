@@ -67,7 +67,7 @@ function verifySafariPrint(width) {
 			await page
 				.getByRole("combobox", { name: FAMILY_SIDE })
 				.selectOption("pita_one");
-			for (const view of ["page", "dialog"]) {
+			for (const view of ["page", "dialog", "card"]) {
 				if (view === "dialog") {
 					await page.goto(
 						`${ORIGIN}/recipes/?servings=6&units=metric&starch=${recipeId}:pita_one#${recipeId}`,
@@ -75,7 +75,21 @@ function verifySafariPrint(width) {
 					await ready(page);
 					await page.getByRole("dialog").waitFor();
 				}
-				await page
+				if (view === "card") {
+					await page.goto(
+						`${ORIGIN}/recipes/?servings=6&units=metric&starch=${recipeId}:pita_one`,
+					);
+					await ready(page);
+				}
+				const action =
+					view === "card"
+						? page
+								.locator(".recipe-card")
+								.filter({ has: page.locator(`[data-recipe-id="${recipeId}"]`) })
+						: view === "dialog"
+							? page.getByRole("dialog")
+							: page;
+				await action
 					.getByRole("button", { name: "Print recipe", exact: true })
 					.click();
 				const link = page.getByRole("textbox", {
@@ -89,7 +103,7 @@ function verifySafariPrint(width) {
 				});
 				assert.equal(await openSafari.isVisible(), true);
 				assert.equal(await openSafari.getAttribute("href"), `x-safari-${href}`);
-				await page
+				await action
 					.getByRole("button", { name: "Print recipe", exact: true })
 					.focus();
 				await page.keyboard.press("Tab");
