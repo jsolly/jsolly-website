@@ -1,6 +1,5 @@
 <script>
 	import { onMount } from "svelte";
-	import Button from "../../lib/components/ui/button.svelte";
 	import NativeSelect from "../../lib/components/ui/native-select.svelte";
 	import { BASE_SERVINGS, groupBadges, SERVING_CHOICES } from "./constants.mjs";
 	import NutritionPills from "./NutritionPills.svelte";
@@ -8,6 +7,7 @@
 	import RecipeBody from "./RecipeBody.svelte";
 	import RecipeDownload from "./RecipeDownload.svelte";
 	import RecipePrint from "./RecipePrint.svelte";
+	import RecipePrintButton from "./RecipePrintButton.svelte";
 	import { validateSettings } from "./recipe-logic.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
 	import { readRecipeURL } from "./recipe-url.mjs";
@@ -73,7 +73,7 @@
 	<section class="recipe-detail" id={recipe.id}>
 		<div class="toolbar">
 			<a href={`/recipes/${collection}/`}>← Back to {collection}</a>
-			<Button variant="outline" class="recipe-enhanced" disabled={!interactive} onclick={print}>Print recipe</Button>
+			<RecipePrintButton {recipe} {settings} class="recipe-enhanced" disabled={!interactive} onPrint={print} />
 		</div>
 		{#if groupBadges[recipe.group] && recipe.group !== "nonketo"}<span class="badge">{groupBadges[recipe.group]}</span>{/if}
 		<h1>{recipe.title}</h1>
@@ -162,6 +162,10 @@
 			padding-top: 16px;
 		}
 		@media (max-width: 600px) {
+			.toolbar {
+				flex-direction: column;
+				align-items: stretch;
+			}
 			.recipe-detail {
 				padding: 18px;
 			}

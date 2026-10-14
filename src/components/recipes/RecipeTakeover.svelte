@@ -9,6 +9,7 @@
 	import RecipeBadge from "./RecipeBadge.svelte";
 	import RecipeBody from "./RecipeBody.svelte";
 	import RecipeDownload from "./RecipeDownload.svelte";
+	import RecipePrintButton from "./RecipePrintButton.svelte";
 	import ShareRecipe from "./ShareRecipe.svelte";
 	import UnitControl from "./UnitControl.svelte";
 
@@ -42,7 +43,7 @@
 		}}
 		onCloseAutoFocus={(event) => event.preventDefault()}
 		><section class="recipe-detail" id={recipe.id} aria-labelledby="recipe-detail-title">
-			<div class="detail-toolbar"><Button variant="ghost" type="button" class="text-button" onclick={() => onBack()}>← Back to recipes</Button><Button variant="outline" type="button" class="print-recipe" onclick={onPrint}>Print recipe</Button></div>
+			<div class="detail-toolbar"><Button variant="ghost" type="button" class="text-button" onclick={() => onBack()}>← Back to recipes</Button><RecipePrintButton {recipe} {settings} class="print-recipe" {onPrint} /></div>
 			<RecipeBadge group={recipe.group} class="detail-badge" />
 			<DialogTitle id="recipe-detail-title" tabindex={-1} bind:ref={heading}>{recipe.title}</DialogTitle>
 			<NutritionPills {recipe} servings={settings.servings} />

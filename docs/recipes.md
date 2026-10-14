@@ -320,6 +320,19 @@ There is no generated article: the pages render straight from `recipes.json`
 
 ## Pages and settings
 
+On iPhone and iPad Home Screen apps, **Print recipe** offers **Open in Safari**
+instead of calling the installed app's unreliable print API. The link opens the
+individual recipe on the current host with the selected servings, units and
+family side; tap **Print recipe** again in Safari. A selectable HTTPS link is
+also shown for manual copy/paste if the Safari application scheme is unavailable.
+Safari needs a network connection and, on a protected Preview, its own authorized
+session. Browser tabs and Mac Dock apps retain their existing print flow.
+This handoff covers individual recipe pages and the library's recipe dialog;
+**Print all meals/smoothies** retains the existing browser printing flow.
+The direct iOS application handoff needs real-device verification; Chromium
+standalone emulation verifies detection, link settings and browser restoration,
+not iOS print-sheet presentation.
+
 The library renders its print packet when printing starts, including browser-menu printing, and removes it when printing ends. If preparing the packet or opening the print dialog fails, it restores the previous print mode, shows a failure message and logs the cause in the browser console. Browsing pages share bundled recipe data instead of embedding the full dataset in each page’s island props; the server-rendered collection cards still work without JavaScript.
 
 Each recipe page server-renders one recipe body at four servings with the
