@@ -1,6 +1,5 @@
 <script>
 	import NativeSelect from "../../lib/components/ui/native-select.svelte";
-	import { UNIT_LABELS } from "./ingredient-units.mjs";
 
 	let { units, onUnitsChange, disabled = false } = $props();
 	const id = $props.id();
@@ -9,7 +8,9 @@
 <div class="unit-control recipe-enhanced">
 	<label for={id}>Ingredient units</label>
 	<NativeSelect {id} value={units} {disabled} onchange={(event) => onUnitsChange(event.currentTarget.value)}>
-		{#each Object.entries(UNIT_LABELS) as [value, label] (value)}<option {value}>{label}</option>{/each}
+		<option value="grams">Grams only (100 g)</option>
+		<option value="us">US imperial (4 oz, 1 cup)</option>
+		<option value="metric">Metric (100 g, 250 mL)</option>
 	</NativeSelect>
 </div>
 
