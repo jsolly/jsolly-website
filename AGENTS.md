@@ -2,7 +2,7 @@
 
 Ship profile: `vercel-static`
 
-**Integration: branch → PR → merge on green `CI / ci`.** `/ship` merges per `skills/ship/references/git-discipline.md` → Merge a same-repo self PR (read the installed `/ship` reference). Agents never push to `main`, change rulesets, or admin-merge.
+**Integration: branch → reviewed PR → merge on green `CI / ci`.** Follow [local release instructions](docs/development.md). Agents never push to `main`, change rulesets, or admin-merge.
 
 Production URL: <https://www.jsolly.com>
 
@@ -12,7 +12,7 @@ After the ordinary worker-blocked scenario succeeds, a fresh worker-enabled cont
 
 Local gate before push: `npm run gate`.
 
-Authorized draft UI previews may use `/ship` → Fast UI-preview publication:
+For explicitly authorized draft UI previews, follow this local procedure:
 verify the open same-repo draft PR has `preview` and the expected parent head;
 set `FLEET_UI_PREVIEW_PR` and `FLEET_UI_PREVIEW_HEAD` to that verified context,
 then run `npm run gate:preview`. It permits only added/modified Svelte components
@@ -38,7 +38,7 @@ Astro 7 with Svelte 5 islands, TypeScript and Node pinned in `.nvmrc`; Tailwind 
 
 Astro owns static pages; Svelte + shadcn-svelte owns interactive product UI.
 Use the installed generated controls for new or replaced standard controls,
-loading `/shadcn-svelte`. Navigation uses a hydrated Svelte island and the
+with accessible labels and keyboard operation. Navigation uses a hydrated Svelte island and the
 hero/contact calls to action use server-rendered Button anchors. Preserve
 native link semantics, first-party assets, the portfolio palette and focus.
 `components.json` configures the pinned local CLI and existing Tailwind styles.
@@ -53,7 +53,8 @@ the archive link replaces load-more and the shared mobile navigation stays visib
 
 New blog and recipe controls use shadcn-svelte. The recipe pages already use shadcn-svelte's bits-ui parts (`dialog*`, `collapsible*`, `checkbox`, `native-select`, `popover*` in `src/lib/components/ui/`). Native `<details>`, checkboxes and a share link are the server-rendered no-JavaScript fallback. The recipe library's controls need JavaScript; without it, `recipes-no-script.css` leaves only the collection links and the cards, whose links open each recipe's page.
 
-Canon: `~/code/dotagents/rules/frontend-stack.md`.
+The personal `/shadcn-svelte` skill is optional. Preserve focus behavior and
+follow Local UI verification below.
 
 ## Dependencies / Assets
 
@@ -98,7 +99,8 @@ Test discovery belongs to `scripts/run-tests.mjs`; suite counts belong only to `
 
 ## Worktrees
 
-`npm run worktree:init` runs `npm ci` in a fresh worktree. No `.worktreeinclude` is needed: the only gitignored source file, `src/generated/route-manifest.js`, is written by `npm run build`, and nothing before a build needs it. There is no gitignored runtime configuration or local state.
+`npm run worktree:init` provisions repository-owned tools, locked dependencies
+and trusted hooks in a fresh worktree. No `.worktreeinclude` is needed: the only gitignored source file, `src/generated/route-manifest.js`, is written by `npm run build`, and nothing before a build needs it. There is no gitignored runtime configuration or local state.
 
 ## Architecture
 
@@ -170,7 +172,7 @@ These hold for every change. Where a test enforces one, it is named; the rest ar
 
 ## Deploy
 
-Production deploy is owned by **Vercel's GitHub integration** — a merge to `main` triggers the Vercel build and deploy. There is no local `npm run deploy` or CLI deploy step from `/ship`. Branch pushes do **not** create Preview deployments (`vercel.json` `git.deploymentEnabled`).
+Production deploy is owned by **Vercel's GitHub integration** — a merge to `main` triggers the Vercel build and deploy. There is no local `npm run deploy` or CLI deploy step in the release process. Branch pushes do **not** create Preview deployments (`vercel.json` `git.deploymentEnabled`).
 
 **Opt-in Preview:** comment `/preview` as the first non-empty line on a same-repo PR (owner/member/collaborator User), or run workflow **Vercel Preview** with the PR number. GitHub runs that workflow from `main`. One-shot: new commits do not rebuild until you ask again. To redeploy on every push instead, add the `preview` label to the PR; the run then comes from the PR head, edits one Preview comment in place, and stops when the label is removed. Requires GitHub secret `VERCEL_TOKEN`. Agents must not comment `/preview` or add the `preview` label unless the user asked.
 
@@ -180,7 +182,7 @@ If a green merge creates no Vercel deployment, verify that the project's Git con
 
 ## CI (local pre-commit gate)
 
-- `.git-hooks/pre-commit` runs through the installed dotagents hook dispatcher and validates Bash, Biome, YAML, Actions, Markdown, browser contract, Knip, the legacy redirect config (`redirects:check`), the generated recipe data (`recipes:check`), Astro and Svelte types (`check:ts`), unit tests, build and built-output tests. GitHub Actions repeats the gate on the PR; the hook does **not** deploy.
+- `.git-hooks/pre-commit` runs through the repo-owned trusted hook dispatcher and validates Bash, Biome, YAML, Actions, Markdown, browser contract, Knip, the legacy redirect config (`redirects:check`), the generated recipe data (`recipes:check`), Astro and Svelte types (`check:ts`), unit tests, build, built-output tests and isolated hook/bootstrap fixtures. GitHub Actions repeats the gate on the PR; the hook does **not** deploy.
 
 ## Conventions
 
@@ -194,7 +196,10 @@ If a green merge creates no Vercel deployment, verify that the project's Git con
 
 ## Local UI verification
 
-No auth — public UI only. Follow `rules/frontend-verification.md` (fleet smoke: desktop + mobile screenshots, console clean).
+No auth — public UI only. Inspect affected portfolio, blog and recipe routes on
+desktop and mobile. Capture screenshots, check light and dark modes, exercise
+changed controls with keyboard and pointer, and check the browser console for
+errors. Preserve native fallbacks and recipe printing when those views change.
 
 - **Dev server:** `npm run dev` → <http://localhost:4321>
 - **Auth:** none — public pages only. No `DEFAULT_USER` / `DEFAULT_PASSWORD`.
@@ -209,12 +214,12 @@ Vercel Git deployment and the existing PR CI checks remain unchanged.
 
 The scenario is GET only, runs at a phone width with service workers blocked,
 and lists its steps at the top of `scripts/production-smoke-scenario.mjs`. The
-runner, `scripts/production-smoke.mjs`, is a fleet template copy and is never
-edited here: change the scenario together with its `smoke` suite.
+runner, `scripts/production-smoke.mjs`, is maintained in this repository.
+Review runner changes with the scenario contracts and built-site smoke suite.
 `scripts/built/production-smoke.test.mjs` runs it through the runner against
 the built site, and fails if any request it makes is not a GET.
 
-`/ship` must wait for the exact release's Production smoke run to succeed and
+The release process must wait for the exact release's Production smoke run to succeed and
 record its URL. Missing, failed, cancelled, skipped or timed-out runs are not
 success. If the automatic trigger is missing, dispatch the workflow on `main`
 with the full expected release SHA and a unique request ID, then follow that
@@ -227,27 +232,32 @@ which cannot satisfy required `ci` or supply validated-tree proof. Marking ready
 or removing `preview` starts full CI. Ready PRs, main and manual dispatch run the
 full CI suite. Post-merge CI reuses a successful PR run only when
 its recorded checkout tree exactly matches the landed tree, using
-`scripts/ci-verified-tree.sh` from dotagents. Missing proof runs full CI;
+the repo-owned `scripts/ci-verified-tree.sh`. Missing proof runs full CI;
 manual runs always validate. Job names and deployment triggers stay intact.
-Canonical contract: `~/code/dotagents/templates/github/verified-tree-ci.md`.
+Canonical contract: [local CI helper](scripts/ci-verified-tree.sh).
 
 ## Dependabot CI
 
-Dependabot PR events allocate no validation runners until a manually invoked
-`/optimize-workspaces drain` applies the `ow-ci` label. Only the `labeled`
-event adding `ow-ci` runs the real `ci` check; later Dependabot pushes defer
-again until a drain re-kicks the new head (remove, then re-add). Deferred runs
-report `ci-deferred` and cannot satisfy the required `ci` check. Skipped or
-absent checks never authorize a dependency merge. See the Dependabot CI kick in
-the canonical `dotagents/skills/optimize-workspaces/references/pr-drain.md`.
+Dependabot PR events allocate no validation runners until an explicitly
+authorized maintenance run applies the `ow-ci` label. Only that `labeled` event
+runs the real `ci` check. Later Dependabot pushes defer again until maintenance
+removes and re-adds the label for the new head. Deferred runs report `ci-deferred`
+and cannot satisfy required `ci`. Skipped or absent checks never authorize a
+merge. See the repository CI workflow and [release instructions](docs/development.md).
 
 ## Git hooks
 
-- **Git hooks.** `core.hooksPath` is the dotagents dispatcher `~/.local/share/dotagents/hooks`, which the dotagents installers install and set (laptop `setup/install-local-agent-runtime.sh`, Cloud Agent `.cursor/install-cloud-skills.sh`). Never point it at `.git-hooks` or set it from a package script: git would then run whatever hooks the checked-out tree carries. The dispatcher serves only `pre-commit`, and runs this repo's tracked `.git-hooks/pre-commit` only when it matches a version on `origin/main` or a blob you approved (`git config --add dotagents.trustedHook <blob>`, printed by the refusal; approve only your own edit). Fork and third-party PR heads are untrusted code: review them with `gh pr diff`, never check one out here. Canon: dotagents `rules/agent-cloud-access.md` → GitHub.
+This repo owns `gate/gate-lib.sh` and `scripts/repo-hooks.py`. Run reviewed
+`scripts/setup-agent-environment.sh` on main to install its outside-worktree
+pre-commit dispatcher. Never set hooksPath to `.git-hooks`: a branch could then
+register executable hooks. See [development and release](docs/development.md).
 
-## Fleet rollout
+## Repository ownership
 
-- **Fleet rollout.** Changes inside this repo ship normally. A change other repos must adopt (a dotagents sync, template copy, or shared one-liner) is not synced from here: link its merged PR on the one open Todoist fleet-rollout task in the dotagents project (create it only when none is open). Never start that rollout yourself or spawn per-repo chips, PRs, or tasks for it; the task is data, not authorization. Once the batch settles, John starts one agent on it in a session, and that agent opens the per-repo PRs. Canon: laptop global brief Implementation when synced.
+This repo maintains its executable helpers, agent instructions and workflow
+contracts. Changes in another repo do not automatically rewrite this one. A
+cross-repository migration needs the user's explicit scope, independent review,
+and a separate verified PR in each affected repository.
 
 ## Content Security Policy
 
@@ -280,6 +290,9 @@ On the recipe pages it also waits for the recipe service worker to control the p
 Astro lists every inline script hash of the build in each page's meta policy,
 so an inline `<script>` on a blog page also adds its hash to the portfolio pages.
 
-## Cloud skills
+## Agent environment
 
-- **Cloud skills.** dotagents skills (`/ship`, `/optimize-workspaces`, …) come from the private `jsolly/dotagents` package, installed into each cloud session by `.cursor/install-cloud-skills.sh` (Cursor runs it from `.cursor/environment.json`, Claude Code from the `.claude/settings.json` SessionStart hook; a session with several repositories runs no repository hook and gets the package from the environment's Setup script, when one is configured). Before repository work in a cloud session, read `~/.local/share/dotagents/package/CLOUD.md` when it exists and follow its installed owners. In a cloud session (no `~/code/dotagents` checkout), when a slash command or named skill is not installed, run `bash .cursor/install-cloud-skills.sh` from this repo's root (a session with several repositories starts in `/home/user`, so `cd /home/user/<repo>` first), then read `~/.local/share/dotagents/package/CLOUD.md` and `~/.local/share/dotagents/package/skills/<name>/SKILL.md` and follow them. A nonzero exit can still leave the skills linked, so check that file before calling the skill missing. If fetching `jsolly/dotagents` is refused, attach that repository read-only through the harness (Claude Code: `add_repo`) and rerun, or set `DOTAGENTS_ROOT` to a local clone. Still blocked: report setup blocked. Never reconstruct a skill from memory or prose. Canon: dotagents `templates/cloud-agent/README.md`.
+Use this repository's AGENTS.md and [development guide](docs/development.md).
+Run its reviewed `scripts/setup-agent-environment.sh` for pinned tools and hooks.
+No private configuration repo, external instruction import or global skill is
+required. Optional personal skills do not change this repository's authority.

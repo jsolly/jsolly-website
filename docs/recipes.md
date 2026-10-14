@@ -28,8 +28,8 @@ wait for required `ci` on the current head. Marking ready or removing `preview`
 starts full CI. A skipped `ci-deferred` or passing `ci-preview` cannot authorize
 merging.
 
-For explicitly authorized UI-only local publication, `/ship` verifies the live
-PR/head context, then `npm run gate:preview` uses the scope guard and quick
+For explicitly authorized UI-only local publication, verify the live same-repo
+draft PR has `preview` and the expected head, then `npm run gate:preview` uses the scope guard and quick
 checks. Only added/modified Svelte components and stylesheets qualify; other
 changes still require `npm run gate`. The full gate always disables preview mode.
 
@@ -273,9 +273,9 @@ never save the credential response or enable credential-bearing SDK diagnostics.
 Ownership: `shared-infra/aws/template.yaml` owns the exact IAM exception and
 `shared-infra/docs/identity.md` owns John's provisioning/deployment commands.
 The SecureString value is entered by John outside CloudFormation; neither repo
-contains the key or a secret placeholder. `dotagents` owns the shared agent
-access rules and authentication bootstrap. The standard AWS SDK credential chain must
-already resolve an approved agent identity: local Claude/Codex/Cursor use the separate agent SSO session;
+contains the key or a secret placeholder. This repository owns its access
+guidance and optional `.cursor/aws-oidc-login.sh` bootstrap. The standard AWS SDK
+credential chain must already resolve an approved agent identity: local Claude/Codex/Cursor use the separate agent SSO session;
 Cursor Cloud can run the existing `.cursor/aws-oidc-login.sh`. Cloud Claude/Codex
 still need an approved AWS authentication path; this command does not create one.
 The shared role's USDA permission applies across repos using that role. It becomes
