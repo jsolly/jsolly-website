@@ -13,12 +13,13 @@ import {
 	validateSettings,
 } from "./recipe-logic.mjs";
 
+const WEIGHED = /g/u;
+const IMPERIAL_MEASURE = /tsp|g|oz/u;
 const EXTRA_BATCHES = /extra pan or basket batches/u;
 const PRESSURE_MINIMUM = /do not shorten a pressure minimum/u;
 const ABOUT_ONE_CAN = /About 1 ×/u;
 const ABOUT_FOUR_CANS = /About 4 ×/u;
 const BUY_TWO = /Buy 2 ×/u;
-const GRAMS = /g$/u;
 const MICROWAVE = /microwave/iu;
 const YIELD = /yield/u;
 const POSITIVE_GLASS = /positive glass/u;
@@ -93,9 +94,9 @@ it("familiar fractions, typed US measures, and seasoning rules survive serving c
 	assert.equal(formatQuantity(1.5), "1 ½");
 	assert.equal(formatQuantity(0.3333), "⅓");
 	assert.equal(formatQuantity(37.5), "37.5");
-	assert.equal(formatIngredient(chicken.ingredients[1], 2, "us"), "1 tbsp");
-	assert.equal(formatIngredient(chicken.ingredients[1], 2, "metric"), "15 ml");
-	assert.equal(formatIngredient(chicken.ingredients[0], 8, "us"), "1600g");
+	assert.equal(formatIngredient(chicken.ingredients[1], 2, "us"), "0.51 fl oz");
+	assert.equal(formatIngredient(chicken.ingredients[1], 2, "metric"), "15 mL");
+	assert.equal(formatIngredient(chicken.ingredients[0], 8, "us"), "3.53 lb");
 	assert.equal(ingredientAmount(chicken.ingredients[2], 2), 1);
 	assert.equal(formatIngredient(chicken.ingredients[2], 2, "us"), "1 tsp");
 	assert.equal(ingredientAmount(chicken.ingredients[2], 8), 2);
@@ -104,7 +105,7 @@ it("familiar fractions, typed US measures, and seasoning rules survive serving c
 	});
 	assert.equal(ingredientAmount(fixedEgg, 8), 1);
 	const linearEgg = { ...fixedEgg, scale: "linear" };
-	assert.equal(formatIngredient(linearEgg, 2), "½ count");
+	assert.equal(formatIngredient(linearEgg, 2), "½ count (weight unavailable)");
 	assert.equal(
 		formatIngredient(ingredient("pepper", "black pepper", 0, "tsp"), 8),
 		"to taste",
@@ -192,31 +193,23 @@ it("package counts follow scaled ingredient weights rather than fixed recipe not
 	assert.match(purchaseNote(gnocchi, 8), BUY_TWO);
 });
 
-it("small finishing amounts use spoons in both modes without changing nutrition weights", async () => {
+it("finishing amounts use sourced grams in weighing mode and retain spoons in US mode", async () => {
 	const data = JSON.parse(
 		await readFile(new URL("./recipes.json", import.meta.url), "utf8"),
 	).recipes;
 	for (const r of data)
 		for (const i of r.ingredients.filter(
 			(item) => item.displayMeasure === "spoon",
-		)) {
+		))
 			for (const count of [2, 4, 6, 8]) {
-				assert.equal(
-					formatIngredient(i, count, "metric"),
-					formatIngredient(i, count, "us"),
-				);
-				// A spoon measure of a gram or more still shows grams.
-				assert.ok(
-					ingredientAmount(i, count) < 1 ||
-						GRAMS.test(formatIngredient(i, count, "metric")),
-					`${i.id} at ${count} servings`,
-				);
+				assert.match(formatIngredient(i, count, "grams"), WEIGHED);
+				assert.match(formatIngredient(i, count, "us"), IMPERIAL_MEASURE);
 			}
-		}
-	const salmon = data.find((r) => r.key === "salmon");
-	const zest = salmon.ingredients.find((i) => i.id === "lemon_zest");
+	const zest = data
+		.find((r) => r.key === "salmon")
+		.ingredients.find((i) => i.id === "lemon_zest");
 	assert.equal(zest.amount, 2);
-	assert.equal(formatIngredient(zest, 2, "metric"), "1g");
+	assert.equal(formatIngredient(zest, 2, "metric"), "1 g");
 });
 
 it("appliance card requirements include the microwaves specified by recipe equipment", async () => {
@@ -260,16 +253,16 @@ it("gram threshold preserves subgram source measures", () => {
 		displayMeasure: "spoon",
 		us: { amount: 0.5, unit: "tsp" },
 	});
-	assert.equal(formatIngredient(i, 4, "us"), "1g");
-	assert.equal(formatIngredient(i, 2, "us"), "¼ tsp");
+	assert.equal(formatIngredient(i, 4, "us"), "0.04 oz");
+	assert.equal(formatIngredient(i, 2, "us"), "0.02 oz");
 });
 
 it("display rounds gram amounts without changing scaling weights", () => {
 	const i = ingredient("paprika", "paprika", 2.3, "g");
 	for (const count of [2, 4, 6, 8])
 		assert.equal(
-			formatIngredient(i, count, "us"),
-			`${Math.round((2.3 * count) / 4)}g`,
+			formatIngredient(i, count, "grams"),
+			`${Number(((2.3 * count) / 4).toFixed(1))} g`,
 		);
 	assert.ok(Math.abs(ingredientAmount(i, 6) - 3.45) < 1e-10);
 });
@@ -302,17 +295,17 @@ it("smoothie nutrition uses explicit estimated fluid yield, independent of batch
 	);
 	assert.throws(() => smoothiePortionNutrition(smoothie, 0), POSITIVE_GLASS);
 });
-it("whole-ounce smoothie display keeps canonical quantities intact", () => {
-	const water = { id: "water", amount: 400, unit: "ml", scale: "linear" };
-	assert.equal(formatIngredient(water, 4, "us"), "13.5 oz");
-	assert.equal(
-		formatIngredient(water, 4, "us", { wholeOunces: true }),
-		"14 oz",
-	);
-	assert.equal(formatIngredient(water, 2, "us", { wholeOunces: true }), "7 oz");
-	assert.equal(
-		formatIngredient(water, 4, "metric", { wholeOunces: true }),
-		"400 ml",
-	);
+it("smoothie liquid keeps fluid-ounce precision without changing the canonical amount", () => {
+	const water = {
+		id: "water",
+		name: "Cold water",
+		amount: 400,
+		unit: "ml",
+		scale: "linear",
+	};
+	assert.equal(formatIngredient(water, 4, "us"), "13.53 fl oz");
+	assert.equal(formatIngredient(water, 2, "us"), "6.76 fl oz");
+	assert.equal(formatIngredient(water, 4, "metric"), "400 mL");
+	assert.equal(formatIngredient(water, 4, "grams"), "~400 g (400 ml)");
 	assert.equal(water.amount, 400);
 });

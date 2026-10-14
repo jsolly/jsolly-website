@@ -261,6 +261,7 @@ const context = { recipes: data.recipes, ingredients };
 it("saved library settings restore as saved when every value is still offered", () => {
 	const saved = {
 		servings: 8,
+		units: "metric",
 		filters: {
 			proteinChoice: ["fish", "turkey"],
 			starchChoice: ["bread"],
@@ -283,6 +284,7 @@ it("saved library settings restore as saved when every value is still offered", 
 it("malformed or stale saved library settings restore each key's default", () => {
 	const defaults = {
 		servings: 4,
+		units: "us",
 		filters: DEFAULT_FILTERS,
 		appliancesOnHand: defaultAppliances,
 		familyChoice: {},

@@ -82,9 +82,7 @@ export function flowGrid(recipe, settings = {}) {
 			);
 			const amount =
 				ingredientAmount(ingredient, servings) * Number(node.fraction ?? 1);
-			const total = formatIngredient(ingredient, servings, units, {
-				wholeOunces: recipe.type === "smoothie",
-			});
+			const total = formatIngredient(ingredient, servings, units);
 			item.quantity =
 				node.share && ingredient.amount === 0
 					? "to taste"
@@ -96,18 +94,10 @@ export function flowGrid(recipe, settings = {}) {
 									{
 										...ingredient,
 										amount,
-										us: ingredient.us
-											? {
-													...ingredient.us,
-													amount:
-														(ingredient.us.amount * amount) / ingredient.amount,
-												}
-											: undefined,
-										scale: "fixed",
+										scale: ingredient.scale,
 									},
 									BASE_SERVINGS,
 									units,
-									{ wholeOunces: recipe.type === "smoothie" },
 								);
 			item.name = ingredient.name;
 			item.state = cookText(

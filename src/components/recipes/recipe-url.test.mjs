@@ -21,12 +21,14 @@ it("a shared recipe link restores its servings, family side and recipe", () => {
 		),
 		{
 			servings: 6,
+			units: "us",
 			familyChoice: { "greek-turkey-patties": "bun_one" },
 			recipeId: "greek-turkey-patties",
 		},
 	);
 	assert.deepEqual(read("/recipes/#spinach-feta-and-hemp-frittata"), {
 		servings: 4,
+		units: "us",
 		familyChoice: {},
 		recipeId: "spinach-feta-and-hemp-frittata",
 	});
@@ -38,10 +40,11 @@ it("a link with unsupported servings, unknown sides or no recipe falls back to t
 			// biome-ignore lint/security/noSecrets: a recipe share URL fixture, not credential material.
 			"/recipes/?servings=5&starch=greek-turkey-patties:rice_half_cup,nope:bun_one,spinach-feta-and-hemp-frittata:pita_one,broken",
 		),
-		{ servings: 4, familyChoice: {}, recipeId: "" },
+		{ servings: 4, units: "us", familyChoice: {}, recipeId: "" },
 	);
 	assert.deepEqual(read("/recipes/?servings=lots"), {
 		servings: 4,
+		units: "us",
 		familyChoice: {},
 		recipeId: "",
 	});
@@ -57,31 +60,35 @@ it("a recipe's share link carries its servings and only a family side the recipe
 	assert.equal(
 		recipeHref(patties, {
 			servings: 6,
+			units: "us",
 			familyChoice: { "greek-turkey-patties": "pita_one" },
 		}),
 		// biome-ignore lint/security/noSecrets: a recipe share URL fixture, not credential material.
-		"/recipes/greek-turkey-patties/?servings=6&starch=greek-turkey-patties%3Apita_one",
+		"/recipes/greek-turkey-patties/?servings=6&units=us&starch=greek-turkey-patties%3Apita_one",
 	);
 	assert.equal(
 		recipeHref(patties, {
 			servings: 3,
+			units: "us",
 			familyChoice: { "greek-turkey-patties": "rice_half_cup" },
 		}),
-		"/recipes/greek-turkey-patties/?servings=4",
+		"/recipes/greek-turkey-patties/?servings=4&units=us",
 	);
 	assert.equal(
 		recipeHref(frittata, { servings: 2 }),
-		"/recipes/spinach-feta-and-hemp-frittata/?servings=2",
+		"/recipes/spinach-feta-and-hemp-frittata/?servings=2&units=us",
 	);
 });
 
 it("a share link reads back as the settings it was made from", () => {
 	const settings = {
 		servings: 8,
+		units: "us",
 		familyChoice: { "greek-turkey-patties": "bun_one" },
 	};
 	assert.deepEqual(read(recipeHref(patties, settings)), {
 		servings: 8,
+		units: "us",
 		familyChoice: { "greek-turkey-patties": "bun_one" },
 		recipeId: "greek-turkey-patties",
 	});

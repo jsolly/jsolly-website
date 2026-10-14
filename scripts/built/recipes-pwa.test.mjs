@@ -280,8 +280,17 @@ function installCheck(name, viewport) {
 				"the manifest icons",
 			);
 
+			await page
+				.getByRole("combobox", { name: "Ingredient units" })
+				.selectOption("grams");
 			await context.setOffline(true);
 			await navigateHydrated(page);
+			assert.equal(
+				await page
+					.getByRole("combobox", { name: "Ingredient units" })
+					.inputValue(),
+				"grams",
+			);
 			await statusText(page, OFFLINE);
 			await page.locator(".recipe-pwa").waitFor({ state: "visible" });
 			await page.getByRole("combobox", { name: SERVINGS }).selectOption("2");
@@ -320,10 +329,22 @@ function installCheck(name, viewport) {
 			);
 			await page.getByRole("button", { name: LEARN_MORE, exact: true }).click();
 			await page.locator(".method-dialog").waitFor();
+			await page
+				.getByRole("button", { name: "Close and continue recipe" })
+				.click();
+			await page
+				.getByRole("combobox", { name: "Ingredient units" })
+				.selectOption("metric");
 			// So does a collection page.
 			await navigateHydrated(page, `${site.origin}/recipes/smoothies/`);
 			await page.locator("[data-hydrated=true]").waitFor();
 			assert.equal(await page.locator(".recipe-card").count(), SMOOTHIES);
+			assert.equal(
+				await page
+					.getByRole("combobox", { name: "Ingredient units" })
+					.inputValue(),
+				"metric",
+			);
 			assert.deepEqual(errors, []);
 			// The worker answers for its snapshot only: a blog page is not in it.
 			// (The failed request logs a console error, so this comes last.)

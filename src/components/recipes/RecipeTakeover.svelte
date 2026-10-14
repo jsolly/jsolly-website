@@ -8,7 +8,9 @@
 	import RecipeAttribution from "./RecipeAttribution.svelte";
 	import RecipeBadge from "./RecipeBadge.svelte";
 	import RecipeBody from "./RecipeBody.svelte";
+	import RecipeDownload from "./RecipeDownload.svelte";
 	import ShareRecipe from "./ShareRecipe.svelte";
+	import UnitControl from "./UnitControl.svelte";
 
 	// The library's full-screen recipe dialog. Its section id is the recipe id,
 	// so an old /recipes/#<id> link lands on it. Closing it (Escape or Back to
@@ -19,6 +21,7 @@
 		onBack,
 		onPrint,
 		onSideChange,
+		onUnitsChange,
 		heading = $bindable(null),
 		dialog = $bindable(null),
 	} = $props();
@@ -45,8 +48,10 @@
 			<NutritionPills {recipe} servings={settings.servings} />
 			<DialogDescription class="detail-summary">{recipe.summary}</DialogDescription>
 			<RecipeAttribution {recipe} />
+			<UnitControl units={settings.units} {onUnitsChange} />
 			<RecipeBody {recipe} {settings} {onSideChange} />
 			<ShareRecipe {recipe} {settings} />
+			<RecipeDownload recipes={[recipe]} {settings} />
 		</section></DialogContent
 	></DialogRoot
 >

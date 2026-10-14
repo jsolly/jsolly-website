@@ -29,7 +29,7 @@ it("assistant/print document preserves safe pressure liquid, recalculated macros
 	});
 	assert.equal(
 		d.ingredients.find((i) => BROTH.test(i.name)).quantity,
-		"375 ml",
+		"375 mL minimum (measure by volume)",
 	);
 	assert(Math.abs(d.nutrition.kcal - r.nutrition.kcal - 6.5625) < 1e-9);
 	assert.equal(d.familyDiners, 1);
@@ -51,7 +51,7 @@ it("exports keep family choices, food states, allergies, limits and tiny spoon m
 		familyChoice: { [r.id]: o.id },
 	});
 	assert.equal(d.familyIngredient.choiceId, o.id);
-	assert.equal(d.familyIngredient.quantity, "180g");
+	assert.equal(d.familyIngredient.quantity, "180 g");
 	assert(d.allergens.includes("wheat"));
 	assert(d.ingredients.every((i) => typeof i.state === "string"));
 	assert.match(d.capacity, EXTRA_BATCHES);
@@ -69,7 +69,7 @@ it("exports keep family choices, food states, allergies, limits and tiny spoon m
 	);
 	assert.equal(
 		d2.ingredients.find((i) => i.name === "Lemon zest").quantity,
-		"1g",
+		"1 g",
 	);
 	const bundle = JSON.parse(
 		JSON.stringify(
@@ -107,7 +107,7 @@ it("new keto smoothies scale ingredients and keep cold preparation in exports", 
 			assert.equal(
 				document.ingredients.find((i) => i.name === "Plain lowfat Greek yogurt")
 					.quantity,
-				`${100 * servings}g`,
+				`${100 * servings} g`,
 			);
 			assert.ok(
 				Math.abs(

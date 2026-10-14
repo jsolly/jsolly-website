@@ -4,7 +4,7 @@
 
 ## Lemon salmon and asparagus
 
-4 adult servings · US measures · keto · 8 min active per base batch · 25 min
+4 adult servings · US imperial measures · keto · 8 min active per base batch · 25 min
 
 Lemon salmon with asparagus and garlic.
 
@@ -14,29 +14,31 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon salmon and asparagus cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Preheat both air fryers to 390°F. Start both baskets together; remove each component at its own endpoint.</td></tr><tr><td colspan="4" class="trn-prep">Use uncrowded baskets with room for the full batch; keep 1-inch-thick salmon fillets apart and medium asparagus out of a dense pile.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>680g</strong> Skin-on salmon fillets<small class="trn-state-essential">raw, thawed; individual fillets about 1 inch thick · Choose individual fillets about 170 g (6 oz) each, keeping the stated thickness.</small></th><td rowspan="1" colspan="1" class="trn-operation">Pat thawed, 1-inch-thick salmon fillets dry.</td><td rowspan="6" colspan="1" class="trn-operation">Rub dry salmon with oil, garlic, salt, pepper and zest. Then: Salmon basket: skin-side down with gaps; air fry at 390°F for 10–14 min, check at 10 min; reach 145°F.</td><td rowspan="12" colspan="1" class="trn-operation">Plate salmon and asparagus separately; finish both with lemon juice and hemp.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>14g</strong> Olive oil<small class="trn-state-detail">as purchased · Half to asparagus; half to salmon.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2g</strong> Garlic powder<small class="trn-state-detail">Divide equally.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2g</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2g</strong> Lemon zest<small class="trn-state-detail">finely grated · Use finely grated zest.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>454g</strong> Asparagus<small class="trn-state-detail">trimmed, medium stalks</small></th><td rowspan="4" colspan="2" class="trn-operation">Toss trimmed, medium asparagus with oil, garlic and salt. Then: Asparagus basket: spread without a dense pile; air fry at 390°F for 7–10 min, check at 7 min; remove when ready.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14g</strong> Olive oil<small class="trn-state-detail">as purchased · Half to asparagus; half to salmon.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Garlic powder<small class="trn-state-detail">Divide equally.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>30g</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>20g</strong> Hemp hearts<small class="trn-state-detail">hulled · Use hulled hemp hearts in the measured portion.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon salmon and asparagus cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Preheat both air fryers to 390°F. Start both baskets together; remove each component at its own endpoint.</td></tr><tr><td colspan="4" class="trn-prep">Use uncrowded baskets with room for the full batch; keep 1-inch-thick salmon fillets apart and medium asparagus out of a dense pile.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Skin-on salmon fillets<small class="trn-state-essential">raw, thawed; individual fillets about 1 inch thick · Choose individual fillets about 170 g (6 oz) each, keeping the stated thickness.</small></th><td rowspan="1" colspan="1" class="trn-operation">Pat thawed, 1-inch-thick salmon fillets dry.</td><td rowspan="6" colspan="1" class="trn-operation">Rub dry salmon with oil, garlic, salt, pepper and zest. Then: Salmon basket: skin-side down with gaps; air fry at 390°F for 10–14 min, check at 10 min; reach 145°F.</td><td rowspan="12" colspan="1" class="trn-operation">Plate salmon and asparagus separately; finish both with lemon juice and hemp.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.48 oz</strong> Olive oil<small class="trn-state-detail">as purchased · Half to asparagus; half to salmon.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ tsp</strong> Garlic powder<small class="trn-state-detail">Divide equally.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ tsp</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.07 oz</strong> Lemon zest<small class="trn-state-detail">finely grated · Use finely grated zest.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Asparagus<small class="trn-state-detail">trimmed, medium stalks</small></th><td rowspan="4" colspan="2" class="trn-operation">Toss trimmed, medium asparagus with oil, garlic and salt. Then: Asparagus basket: spread without a dense pile; air fry at 390°F for 7–10 min, check at 7 min; remove when ready.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.48 oz</strong> Olive oil<small class="trn-state-detail">as purchased · Half to asparagus; half to salmon.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Garlic powder<small class="trn-state-detail">Divide equally.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>1.06 oz</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>0.71 oz</strong> Hemp hearts<small class="trn-state-detail">hulled · Use hulled hemp hearts in the measured portion.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 680g Skin-on salmon fillets — raw, thawed; individual fillets about 1 inch thick. Choose individual fillets about 170 g (6 oz) each, keeping the stated thickness.
+- 1.5 lb Skin-on salmon fillets — raw, thawed; individual fillets about 1 inch thick. Choose individual fillets about 170 g (6 oz) each, keeping the stated thickness.
 
-- 454g Asparagus — trimmed, medium stalks
+- 1 lb Asparagus — trimmed, medium stalks
 
-- 27g Olive oil — as purchased. Half to asparagus; half to salmon.
+- 0.95 oz Olive oil — as purchased. Half to asparagus; half to salmon.
 
-- 3g Garlic powder. Divide equally.
+- 1 tsp Garlic powder. Divide equally.
 
-- 3g Fine salt. Use the proportional split described in the method.
+- ½ tsp Fine salt. Use the proportional split described in the method.
 
 - to taste Black pepper
 
-- 2g Lemon zest — finely grated. Use finely grated zest.
+- 0.07 oz Lemon zest — finely grated. Use finely grated zest.
 
-- 30g Lemon juice — unsweetened
+- 1.06 oz Lemon juice — unsweetened
 
-- 20g Hemp hearts — hulled. Use hulled hemp hearts in the measured portion.
+- 0.71 oz Hemp hearts — hulled. Use hulled hemp hearts in the measured portion.
 
 ### Equipment
 
@@ -106,7 +108,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Smoky chicken thighs and broccoli
 
-4 adult servings · US measures · keto · 12 min active per base batch · 35 min
+4 adult servings · US imperial measures · keto · 12 min active per base batch · 35 min
 
 Smoky chicken thighs with roasted broccoli.
 
@@ -116,31 +118,33 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Smoky chicken thighs and broccoli cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Preheat both air fryers to 390°F. Start chicken first; start broccoli 5 min later.</td></tr><tr><td colspan="4" class="trn-prep">Use uncrowded baskets; thighs must be unfolded and no more than ¾ inch thick.</td></tr><tr><td colspan="4" class="trn-prep">If smaller baskets cannot hold the batch uncrowded, use extra batches or the oven fallback.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>680g</strong> Boneless skinless chicken thighs<small class="trn-state-essential">raw, thawed, unfolded; no more than ¾ inch thick</small></th><td rowspan="7" colspan="2" class="trn-operation">Coat unfolded thighs with oil, paprika, garlic, oregano, salt and pepper. Then: Chicken basket: smooth-side up, no overlap; air fry at 390°F for 16–22 min; thickest pieces must reach 165°F.</td><td rowspan="12" colspan="1" class="trn-operation">Plate cooked chicken and finished broccoli as separate components.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14g</strong> Olive oil<small class="trn-state-detail">as purchased · Half to broccoli; half to chicken.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Smoked paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3g</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3g</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>454g</strong> Broccoli florets<small class="trn-state-detail">about 1½ inches across</small></th><td rowspan="3" colspan="1" class="trn-operation">Toss 1½-inch broccoli florets with oil and salt; load without crowding. Then: Broccoli basket: start 5 min after chicken; air fry at 390°F for 10–14 min, shake once halfway; stems fork-tender, crowns lightly browned.</td><td rowspan="5" colspan="1" class="trn-operation">Finish cooked broccoli with lemon juice and nutritional yeast.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14g</strong> Olive oil<small class="trn-state-detail">as purchased · Half to broccoli; half to chicken.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>15g</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>8g</strong> Nutritional yeast<small class="trn-state-detail">flakes · Add after cooking.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Smoky chicken thighs and broccoli cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Preheat both air fryers to 390°F. Start chicken first; start broccoli 5 min later.</td></tr><tr><td colspan="4" class="trn-prep">Use uncrowded baskets; thighs must be unfolded and no more than ¾ inch thick.</td></tr><tr><td colspan="4" class="trn-prep">If smaller baskets cannot hold the batch uncrowded, use extra batches or the oven fallback.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Boneless skinless chicken thighs<small class="trn-state-essential">raw, thawed, unfolded; no more than ¾ inch thick</small></th><td rowspan="7" colspan="2" class="trn-operation">Coat unfolded thighs with oil, paprika, garlic, oregano, salt and pepper. Then: Chicken basket: smooth-side up, no overlap; air fry at 390°F for 16–22 min; thickest pieces must reach 165°F.</td><td rowspan="12" colspan="1" class="trn-operation">Plate cooked chicken and finished broccoli as separate components.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.48 oz</strong> Olive oil<small class="trn-state-detail">as purchased · Half to broccoli; half to chicken.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Smoked paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Broccoli florets<small class="trn-state-detail">about 1½ inches across</small></th><td rowspan="3" colspan="1" class="trn-operation">Toss 1½-inch broccoli florets with oil and salt; load without crowding. Then: Broccoli basket: start 5 min after chicken; air fry at 390°F for 10–14 min, shake once halfway; stems fork-tender, crowns lightly browned.</td><td rowspan="5" colspan="1" class="trn-operation">Finish cooked broccoli with lemon juice and nutritional yeast.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.48 oz</strong> Olive oil<small class="trn-state-detail">as purchased · Half to broccoli; half to chicken.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.53 oz</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.28 oz</strong> Nutritional yeast<small class="trn-state-detail">flakes · Add after cooking.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 680g Boneless skinless chicken thighs — raw, thawed, unfolded; no more than ¾ inch thick
+- 1.5 lb Boneless skinless chicken thighs — raw, thawed, unfolded; no more than ¾ inch thick
 
-- 454g Broccoli florets — about 1½ inches across
+- 1 lb Broccoli florets — about 1½ inches across
 
-- 27g Olive oil — as purchased. Half to broccoli; half to chicken.
+- 0.95 oz Olive oil — as purchased. Half to broccoli; half to chicken.
 
-- 2g Smoked paprika
+- 1 tsp Smoked paprika
 
-- 3g Garlic powder
+- 1 tsp Garlic powder
 
 - ½ tsp Dried oregano
 
-- 5g Fine salt. Use the proportional split described in the method.
+- ¾ tsp Fine salt. Use the proportional split described in the method.
 
 - to taste Black pepper
 
-- 15g Lemon juice — unsweetened
+- 0.53 oz Lemon juice — unsweetened
 
-- 8g Nutritional yeast — flakes. Add after cooking.
+- 0.28 oz Nutritional yeast — flakes. Add after cooking.
 
 ### Equipment
 
@@ -216,7 +220,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Pesto cod and zucchini
 
-4 adult servings · US measures · keto · 11 min active per base batch · 40 min
+4 adult servings · US imperial measures · keto · 11 min active per base batch · 40 min
 
 Pesto cod with zucchini.
 
@@ -226,27 +230,29 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Pesto cod and zucchini cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Heat oven to 425°F on bake. Use two separate 18×13-inch rimmed metal half-sheet pans.</td></tr><tr><td colspan="4" class="trn-prep">Start zucchini first; add fish pan 6 min later. Remove each pan at its own endpoint and serve promptly.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>680g</strong> Cod fillets<small class="trn-state-essential">raw, thawed; individual fillets about 1 inch thick · Choose individual fillets about 170 g (6 oz) each, keeping the stated thickness.</small></th><td rowspan="2" colspan="1" class="trn-operation">Pat thawed, 1-inch-thick cod dry; rub with oil and place on its own pan. Then: Fish pan: add 6 min after zucchini; roast at 425°F for 12–18 min, check at 12 min of fish cooking; reach 145°F.</td><td rowspan="3" colspan="1" class="trn-operation">Spoon pesto over cooked fish after roasting.</td><td rowspan="9" colspan="1" class="trn-operation">Plate pesto-topped cod and zucchini separately; finish both with lemon juice and hemp.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>7g</strong> Olive oil<small class="trn-state-detail">as purchased · Three quarters to zucchini; remainder to fish.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>45g</strong> DeLallo basil pesto<small class="trn-state-essential">squeeze-bottle, as sold · Weigh the scaled amount; do not infer tablespoons from the unusual label volume. Substitute at most 2 g net carbs per 30 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>680g</strong> Zucchini<small class="trn-state-detail">sliced into ½-inch half-moons</small></th><td rowspan="4" colspan="2" class="trn-operation">Toss ½-inch zucchini half-moons with oil, salt and pepper; spread on separate pan. Then: Zucchini pan: roast at 425°F for 18–23 min; check at 18 min of zucchini cooking; browned edges and tender center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>20g</strong> Olive oil<small class="trn-state-detail">as purchased · Three quarters to zucchini; remainder to fish.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Fine salt<small class="trn-state-detail">Use the measured salt in the zucchini seasoning.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>15g</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>20g</strong> Hemp hearts<small class="trn-state-detail">hulled · Use hulled hemp hearts in the measured portion.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Pesto cod and zucchini cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Heat oven to 425°F on bake. Use two separate 18×13-inch rimmed metal half-sheet pans.</td></tr><tr><td colspan="4" class="trn-prep">Start zucchini first; add fish pan 6 min later. Remove each pan at its own endpoint and serve promptly.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Cod fillets<small class="trn-state-essential">raw, thawed; individual fillets about 1 inch thick · Choose individual fillets about 170 g (6 oz) each, keeping the stated thickness.</small></th><td rowspan="2" colspan="1" class="trn-operation">Pat thawed, 1-inch-thick cod dry; rub with oil and place on its own pan. Then: Fish pan: add 6 min after zucchini; roast at 425°F for 12–18 min, check at 12 min of fish cooking; reach 145°F.</td><td rowspan="3" colspan="1" class="trn-operation">Spoon pesto over cooked fish after roasting.</td><td rowspan="9" colspan="1" class="trn-operation">Plate pesto-topped cod and zucchini separately; finish both with lemon juice and hemp.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.24 oz</strong> Olive oil<small class="trn-state-detail">as purchased · Three quarters to zucchini; remainder to fish.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1.59 oz</strong> DeLallo basil pesto<small class="trn-state-essential">squeeze-bottle, as sold · Weigh the scaled amount; do not infer tablespoons from the unusual label volume. Substitute at most 2 g net carbs per 30 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Zucchini<small class="trn-state-detail">sliced into ½-inch half-moons</small></th><td rowspan="4" colspan="2" class="trn-operation">Toss ½-inch zucchini half-moons with oil, salt and pepper; spread on separate pan. Then: Zucchini pan: roast at 425°F for 18–23 min; check at 18 min of zucchini cooking; browned edges and tender center.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.71 oz</strong> Olive oil<small class="trn-state-detail">as purchased · Three quarters to zucchini; remainder to fish.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Fine salt<small class="trn-state-detail">Use the measured salt in the zucchini seasoning.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>0.53 oz</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>0.71 oz</strong> Hemp hearts<small class="trn-state-detail">hulled · Use hulled hemp hearts in the measured portion.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 680g Cod fillets — raw, thawed; individual fillets about 1 inch thick. Choose individual fillets about 170 g (6 oz) each, keeping the stated thickness.
+- 1.5 lb Cod fillets — raw, thawed; individual fillets about 1 inch thick. Choose individual fillets about 170 g (6 oz) each, keeping the stated thickness.
 
-- 680g Zucchini — sliced into ½-inch half-moons
+- 1.5 lb Zucchini — sliced into ½-inch half-moons
 
-- 45g DeLallo basil pesto — squeeze-bottle, as sold. Weigh the scaled amount; do not infer tablespoons from the unusual label volume. Substitute at most 2 g net carbs per 30 g.
+- 1.59 oz DeLallo basil pesto — squeeze-bottle, as sold. Weigh the scaled amount; do not infer tablespoons from the unusual label volume. Substitute at most 2 g net carbs per 30 g.
 
-- 27g Olive oil — as purchased. Three quarters to zucchini; remainder to fish.
+- 0.95 oz Olive oil — as purchased. Three quarters to zucchini; remainder to fish.
 
-- 2g Fine salt. Use the measured salt in the zucchini seasoning.
+- ¼ tsp Fine salt. Use the measured salt in the zucchini seasoning.
 
 - to taste Black pepper
 
-- 15g Lemon juice — unsweetened
+- 0.53 oz Lemon juice — unsweetened
 
-- 20g Hemp hearts — hulled. Use hulled hemp hearts in the measured portion.
+- 0.71 oz Hemp hearts — hulled. Use hulled hemp hearts in the measured portion.
 
 ### Equipment
 
@@ -322,7 +328,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Spinach, feta, and hemp frittata
 
-4 adult servings · US measures · keto · 15 min active per base batch · 50 min
+4 adult servings · US imperial measures · keto · 15 min active per base batch · 50 min
 
 Spinach, feta and hemp frittata with salad.
 
@@ -332,35 +338,37 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Spinach, feta, and hemp frittata cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="5" class="trn-prep">Heat oven to 375°F on bake. Microwave spinach during preheating.</td></tr><tr><td colspan="5" class="trn-prep">Use one 9-inch square metal dish, at least 2 inches deep, for 2 or 4 servings; use two matching dishes for 6 or 8. Keep the mixture no deeper than the original four-serving layer.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>600g</strong> Large eggs<small class="trn-state-detail">as purchased</small></th><td rowspan="5" colspan="1" class="trn-operation">Bowl: whisk eggs, water, garlic, salt and pepper.</td><td rowspan="9" colspan="1" class="trn-operation">Stir squeezed spinach, feta, hemp and yeast into whisked eggs.</td><td rowspan="10" colspan="1" class="trn-operation">Transfer to selected greased dishes; divide so the mixture is no deeper than the original four-serving layer. Then: Bake at 375°F for 25–30 min for the four-serving layer; at 2 servings check from 18 min; center set and 160°F. Then: Rest frittata 3 min, then cut into the selected number of equal portions.</td><td rowspan="13" colspan="1" class="trn-operation">Plate equal portions of rested frittata with the separate dressed-greens salad.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> Water<small class="trn-state-detail">potable · Mix into the eggs.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Fine salt<small class="trn-state-detail">Use the measured salt in the egg mixture; feta adds salt too.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>454g</strong> Frozen chopped spinach<small class="trn-state-essential">package weight before thawing and squeezing · Heat according to package directions, cool until safe to handle and press very dry in a sieve. · Buy 1 × 16 oz (454 g) packages; measure out the required weight.</small></th><td rowspan="1" colspan="1" class="trn-operation">Microwave spinach according to package directions. Then: Fine-mesh sieve: cool spinach until safe to handle, then press very dry with a spoon.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>75g</strong> Crumbled feta<small class="trn-state-detail">as sold · Cheese label and rennet vary.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>40g</strong> Hemp hearts<small class="trn-state-detail">hulled · Use hulled hemp hearts in the measured portion.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>8g</strong> Nutritional yeast<small class="trn-state-detail">flakes · Mix into eggs.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5g</strong> Olive oil<small class="trn-state-detail">as purchased · One quarter for dish; three quarters for salad. Base batch is 1 tsp + 1 tbsp.</small></th><td rowspan="1" colspan="2" class="trn-operation">Grease selected metal baking dishes with oil.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>142g</strong> Salad greens<small class="trn-state-detail">washed, ready to eat · Buy by scaled edible weight.</small></th><td rowspan="3" colspan="3" class="trn-operation">During baking, toss greens with oil and lemon juice.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14g</strong> Olive oil<small class="trn-state-detail">as purchased · One quarter for dish; three quarters for salad. Base batch is 1 tsp + 1 tbsp.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>15g</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Spinach, feta, and hemp frittata cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="5" class="trn-prep">Heat oven to 375°F on bake. Microwave spinach during preheating.</td></tr><tr><td colspan="5" class="trn-prep">Use one 9-inch square metal dish, at least 2 inches deep, for 2 or 4 servings; use two matching dishes for 6 or 8. Keep the mixture no deeper than the original four-serving layer.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>12 count</strong> Large eggs<small class="trn-state-detail">as purchased</small></th><td rowspan="5" colspan="1" class="trn-operation">Bowl: whisk eggs, water, garlic, salt and pepper.</td><td rowspan="9" colspan="1" class="trn-operation">Stir squeezed spinach, feta, hemp and yeast into whisked eggs.</td><td rowspan="10" colspan="1" class="trn-operation">Transfer to selected greased dishes; divide so the mixture is no deeper than the original four-serving layer. Then: Bake at 375°F for 25–30 min for the four-serving layer; at 2 servings check from 18 min; center set and 160°F. Then: Rest frittata 3 min, then cut into the selected number of equal portions.</td><td rowspan="13" colspan="1" class="trn-operation">Plate equal portions of rested frittata with the separate dressed-greens salad.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2.67 fl oz</strong> Water<small class="trn-state-detail">potable · Mix into the eggs.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Fine salt<small class="trn-state-detail">Use the measured salt in the egg mixture; feta adds salt too.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Frozen chopped spinach<small class="trn-state-essential">package weight before thawing and squeezing · Heat according to package directions, cool until safe to handle and press very dry in a sieve. · Buy 1 × 16 oz (454 g) packages; measure out the required weight.</small></th><td rowspan="1" colspan="1" class="trn-operation">Microwave spinach according to package directions. Then: Fine-mesh sieve: cool spinach until safe to handle, then press very dry with a spoon.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2.65 oz</strong> Crumbled feta<small class="trn-state-detail">as sold · Cheese label and rennet vary.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1.41 oz</strong> Hemp hearts<small class="trn-state-detail">hulled · Use hulled hemp hearts in the measured portion.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.28 oz</strong> Nutritional yeast<small class="trn-state-detail">flakes · Mix into eggs.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.16 oz</strong> Olive oil<small class="trn-state-detail">as purchased · One quarter for dish; three quarters for salad. Base batch is 1 tsp + 1 tbsp.</small></th><td rowspan="1" colspan="2" class="trn-operation">Grease selected metal baking dishes with oil.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5.01 oz</strong> Salad greens<small class="trn-state-detail">washed, ready to eat · Buy by scaled edible weight.</small></th><td rowspan="3" colspan="3" class="trn-operation">During baking, toss greens with oil and lemon juice.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.48 oz</strong> Olive oil<small class="trn-state-detail">as purchased · One quarter for dish; three quarters for salad. Base batch is 1 tsp + 1 tbsp.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.53 oz</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 600g Large eggs — as purchased
+- 12 count Large eggs — as purchased
 
-- ⅓ cup Water — potable. Mix into the eggs.
+- 2.67 fl oz Water — potable. Mix into the eggs.
 
-- 454g Frozen chopped spinach — package weight before thawing and squeezing. Heat according to package directions, cool until safe to handle and press very dry in a sieve. · Buy 1 × 16 oz (454 g) packages; measure out the required weight.
+- 1 lb Frozen chopped spinach — package weight before thawing and squeezing. Heat according to package directions, cool until safe to handle and press very dry in a sieve. · Buy 1 × 16 oz (454 g) packages; measure out the required weight.
 
-- 75g Crumbled feta — as sold. Cheese label and rennet vary.
+- 2.65 oz Crumbled feta — as sold. Cheese label and rennet vary.
 
-- 40g Hemp hearts — hulled. Use hulled hemp hearts in the measured portion.
+- 1.41 oz Hemp hearts — hulled. Use hulled hemp hearts in the measured portion.
 
-- 8g Nutritional yeast — flakes. Mix into eggs.
+- 0.28 oz Nutritional yeast — flakes. Mix into eggs.
 
-- 2g Garlic powder
+- ½ tsp Garlic powder
 
-- 2g Fine salt. Use the measured salt in the egg mixture; feta adds salt too.
+- ¼ tsp Fine salt. Use the measured salt in the egg mixture; feta adds salt too.
 
 - to taste Black pepper
 
-- 18g Olive oil — as purchased. One quarter for dish; three quarters for salad. Base batch is 1 tsp + 1 tbsp.
+- 0.63 oz Olive oil — as purchased. One quarter for dish; three quarters for salad. Base batch is 1 tsp + 1 tbsp.
 
-- 142g Salad greens — washed, ready to eat. Buy by scaled edible weight.
+- 5.01 oz Salad greens — washed, ready to eat. Buy by scaled edible weight.
 
-- 15g Lemon juice — unsweetened
+- 0.53 oz Lemon juice — unsweetened
 
 ### Equipment
 
@@ -438,7 +446,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Keto zuppa toscana
 
-4 adult servings · US measures · keto · 20 min active per base batch · 45 min
+4 adult servings · US imperial measures · keto · 20 min active per base batch · 45 min
 
 Creamy Instant Pot soup with chicken Italian sausage, turkey bacon, cauliflower and kale.
 
@@ -448,29 +456,31 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto zuppa toscana cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="5" class="trn-prep">Remove sausage casings; chop bacon, onion and kale; mince garlic.</td></tr><tr><td colspan="5" class="trn-prep">Follow your exact cooker model’s liquid minimum, PC MAX, venting and float-valve instructions. Do not leave it operating unattended. Keep raw sausage and its utensils away from kale and cream.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>182g</strong> Chicken Italian sausage<small class="trn-state-essential">raw, casings removed · No pork; check the label for allergens and fillers.</small></th><td rowspan="4" colspan="1" class="trn-operation">Set Instant Pot to Sauté. Brown sausage and turkey bacon, breaking sausage apart; add onion/red pepper and cook until onion softens.</td><td rowspan="5" colspan="1" class="trn-operation">Add garlic about 30 sec, then turn Sauté off.</td><td rowspan="7" colspan="1" class="trn-operation">Add broth, scrape the bottom, then add cauliflower. Then: Seal; high pressure 5 min, Keep Warm off. Stay under PC MAX. Quick release per manual, clear of steam; vent in short bursts if soup sputters. Open only after float valve drops; sausage must reach 165°F.</td><td rowspan="11" colspan="1" class="trn-operation">Stir in cream and kale until kale wilts; sprinkle xanthan while stirring if thickening. Serve with optional Parmesan.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>67g</strong> Turkey bacon<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>22g</strong> Onion<small class="trn-state-detail">diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Crushed red pepper<small class="trn-state-detail">flakes</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4g</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>770 ml</strong> Chicken broth<small class="trn-state-detail">thin, water-based</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>171g</strong> Cauliflower florets<small class="trn-state-detail">bite-size</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>95g</strong> Organic heavy cream<small class="trn-state-detail">added after pressure cooking</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>42g</strong> Kale<small class="trn-state-detail">stems removed, chopped · Kale, not spinach.</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>¼ tsp</strong> Xanthan gum<small class="trn-state-detail">Optional thickener; not counted in nutrition.</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>to taste</strong> Parmesan<small class="trn-state-detail">grated · Optional garnish; not counted in nutrition.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto zuppa toscana cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="5" class="trn-prep">Remove sausage casings; chop bacon, onion and kale; mince garlic.</td></tr><tr><td colspan="5" class="trn-prep">Follow your exact cooker model’s liquid minimum, PC MAX, venting and float-valve instructions. Do not leave it operating unattended. Keep raw sausage and its utensils away from kale and cream.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6.42 oz</strong> Chicken Italian sausage<small class="trn-state-essential">raw, casings removed · No pork; check the label for allergens and fillers.</small></th><td rowspan="4" colspan="1" class="trn-operation">Set Instant Pot to Sauté. Brown sausage and turkey bacon, breaking sausage apart; add onion/red pepper and cook until onion softens.</td><td rowspan="5" colspan="1" class="trn-operation">Add garlic about 30 sec, then turn Sauté off.</td><td rowspan="7" colspan="1" class="trn-operation">Add broth, scrape the bottom, then add cauliflower. Then: Seal; high pressure 5 min, Keep Warm off. Stay under PC MAX. Quick release per manual, clear of steam; vent in short bursts if soup sputters. Open only after float valve drops; sausage must reach 165°F.</td><td rowspan="11" colspan="1" class="trn-operation">Stir in cream and kale until kale wilts; sprinkle xanthan while stirring if thickening. Serve with optional Parmesan.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2.36 oz</strong> Turkey bacon<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.78 oz</strong> Onion<small class="trn-state-detail">diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Crushed red pepper<small class="trn-state-detail">flakes</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.14 oz</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>26.04 fl oz</strong> Chicken broth<small class="trn-state-detail">thin, water-based</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>6.03 oz</strong> Cauliflower florets<small class="trn-state-detail">bite-size</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>3.35 oz</strong> Organic heavy cream<small class="trn-state-detail">added after pressure cooking</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>1.48 oz</strong> Kale<small class="trn-state-detail">stems removed, chopped · Kale, not spinach.</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>¼ tsp</strong> Xanthan gum<small class="trn-state-detail">Optional thickener; not counted in nutrition.</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>to taste</strong> Parmesan<small class="trn-state-detail">grated · Optional garnish; not counted in nutrition.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 182g Chicken Italian sausage — raw, casings removed. No pork; check the label for allergens and fillers.
+- 6.42 oz Chicken Italian sausage — raw, casings removed. No pork; check the label for allergens and fillers.
 
-- 67g Turkey bacon — chopped
+- 2.36 oz Turkey bacon — chopped
 
-- 22g Onion — diced
+- 0.78 oz Onion — diced
 
 - ¼ tsp Crushed red pepper — flakes
 
-- 4g Garlic — minced
+- 0.14 oz Garlic — minced
 
-- 770 ml Chicken broth — thin, water-based
+- 26.04 fl oz Chicken broth — thin, water-based
 
-- 171g Cauliflower florets — bite-size
+- 6.03 oz Cauliflower florets — bite-size
 
-- 95g Organic heavy cream — added after pressure cooking
+- 3.35 oz Organic heavy cream — added after pressure cooking
 
-- 42g Kale — stems removed, chopped. Kale, not spinach.
+- 1.48 oz Kale — stems removed, chopped. Kale, not spinach.
 
 - ¼ tsp Xanthan gum. Optional thickener; not counted in nutrition.
 
@@ -556,7 +566,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Shawarma chicken bowls
 
-4 adult servings · US measures · shared · 14 min active per base batch · 40 min
+4 adult servings · US imperial measures · shared · 14 min active per base batch · 40 min
 
 Shawarma-spiced chicken, cauliflower and lemon yogurt.
 
@@ -566,45 +576,47 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Shawarma chicken bowls cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>150g</strong> Cucumber<small class="trn-state-detail">diced</small></th><td rowspan="2" colspan="2" class="trn-operation">Prepare cucumber and greens.</td><td rowspan="25" colspan="1" class="trn-operation">Plate shawarma bowls: greens, cucumber, cooked chicken and cauliflower, yogurt sauce and remaining lemon.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>142g</strong> Salad greens<small class="trn-state-detail">washed, ready to eat · Buy by scaled edible weight.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>120g</strong> Plain strained Greek yogurt<small class="trn-state-detail">plain, strained · At least 9 g protein and no more than 4 g total carbs per 100 g.</small></th><td rowspan="4" colspan="2" class="trn-operation">Mix yogurt sauce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>pinch of</strong> Fine salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>15g</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>454g</strong> Cauliflower florets<small class="trn-state-detail">about 1 inch across</small></th><td rowspan="9" colspan="1" class="trn-operation">Toss cauliflower with oil and spices on its own 18×13-inch pan.</td><td rowspan="18" colspan="1" class="trn-operation">Heat oven to 425°F on bake. Roast both pans for 18–23 min, until chicken reaches 165°F and cauliflower is tender.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14g</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1g</strong> Smoked paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1g</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Ground turmeric<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ tsp</strong> Ground cinnamon<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ remaining (5g total)</strong> Fine salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>680g</strong> Boneless skinless chicken thighs<small class="trn-state-essential">raw, thawed, cut into 1-inch pieces</small></th><td rowspan="9" colspan="1" class="trn-operation">Toss chicken with oil and spices on its own 18×13-inch pan.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14g</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1g</strong> Smoked paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1g</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Ground turmeric<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ tsp</strong> Ground cinnamon<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ remaining (5g total)</strong> Fine salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>15g</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Shawarma chicken bowls cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5.29 oz</strong> Cucumber<small class="trn-state-detail">diced</small></th><td rowspan="2" colspan="2" class="trn-operation">Prepare cucumber and greens.</td><td rowspan="25" colspan="1" class="trn-operation">Plate shawarma bowls: greens, cucumber, cooked chicken and cauliflower, yogurt sauce and remaining lemon.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5.01 oz</strong> Salad greens<small class="trn-state-detail">washed, ready to eat · Buy by scaled edible weight.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4.23 oz</strong> Plain strained Greek yogurt<small class="trn-state-detail">plain, strained · At least 9 g protein and no more than 4 g total carbs per 100 g.</small></th><td rowspan="4" colspan="2" class="trn-operation">Mix yogurt sauce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>pinch of</strong> Fine salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.53 oz</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Cauliflower florets<small class="trn-state-detail">about 1 inch across</small></th><td rowspan="9" colspan="1" class="trn-operation">Toss cauliflower with oil and spices on its own 18×13-inch pan.</td><td rowspan="18" colspan="1" class="trn-operation">Heat oven to 425°F on bake. Roast both pans for 18–23 min, until chicken reaches 165°F and cauliflower is tender.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.48 oz</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Smoked paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅜ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Ground turmeric<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ tsp</strong> Ground cinnamon<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ remaining (¾ tsp total)</strong> Fine salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Boneless skinless chicken thighs<small class="trn-state-essential">raw, thawed, cut into 1-inch pieces</small></th><td rowspan="9" colspan="1" class="trn-operation">Toss chicken with oil and spices on its own 18×13-inch pan.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.48 oz</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Smoked paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅜ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Ground turmeric<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ tsp</strong> Ground cinnamon<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ remaining (¾ tsp total)</strong> Fine salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>0.53 oz</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 680g Boneless skinless chicken thighs — raw, thawed, cut into 1-inch pieces
+- 1.5 lb Boneless skinless chicken thighs — raw, thawed, cut into 1-inch pieces
 
-- 454g Cauliflower florets — about 1 inch across
+- 1 lb Cauliflower florets — about 1 inch across
 
-- 27g Olive oil
+- 0.95 oz Olive oil
 
-- 4g Ground cumin
+- 2 tsp Ground cumin
 
-- 2g Smoked paprika
+- 1 tsp Smoked paprika
 
-- 3g Garlic powder
+- 1 tsp Garlic powder
 
-- 2g Ground turmeric
+- ½ tsp Ground turmeric
 
 - ¼ tsp Ground cinnamon
 
-- 5g Fine salt
+- ¾ tsp Fine salt
 
 - to taste Black pepper
 
-- 120g Plain strained Greek yogurt — plain, strained. At least 9 g protein and no more than 4 g total carbs per 100 g.
+- 4.23 oz Plain strained Greek yogurt — plain, strained. At least 9 g protein and no more than 4 g total carbs per 100 g.
 
-- 30g Lemon juice — unsweetened
+- 1.06 oz Lemon juice — unsweetened
 
-- 150g Cucumber — diced
+- 5.29 oz Cucumber — diced
 
-- 142g Salad greens — washed, ready to eat. Buy by scaled edible weight.
+- 5.01 oz Salad greens — washed, ready to eat. Buy by scaled edible weight.
 
 ### Family starch options (per non-keto adult)
 
-- Cooked rice: 80g Cooked rice — fully cooked, ready to heat. About ½ cup per non-keto diner; heat ready-cooked rice. Buy at least 320 g for four.
+- Cooked rice: 2.82 oz Cooked rice — fully cooked, ready to heat. About ½ cup per non-keto diner; heat ready-cooked rice. Buy at least 320 g for four.
 
-- Pita: 60g Pita — ready to eat; warm briefly. One ready-to-eat 60 g pita per non-keto diner; warm briefly. Contains wheat; check package.
+- Pita: 2.12 oz Pita — ready to eat; warm briefly. One ready-to-eat 60 g pita per non-keto diner; warm briefly. Contains wheat; check package.
 
 ### Equipment
 
@@ -676,7 +688,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Sheet-pan chicken fajitas
 
-4 adult servings · US measures · shared · 14 min active per base batch · 40 min
+4 adult servings · US imperial measures · shared · 14 min active per base batch · 40 min
 
 Chicken fajitas with roasted peppers and onions.
 
@@ -686,37 +698,39 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Sheet-pan chicken fajitas cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="5" class="trn-prep">Heat oven to 425°F on bake; use two 18×13-inch half-sheet pans.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>142g</strong> Shredded lettuce<small class="trn-state-detail">washed, ready to eat · Buy by scaled edible weight.</small></th><td rowspan="2" colspan="3" class="trn-operation">Prepare lettuce and avocado.</td><td rowspan="13" colspan="1" class="trn-operation">Plate fajita bowls with cold lettuce, lime-finished filling, avocado and yogurt.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>150g</strong> Avocado flesh<small class="trn-state-detail">sliced; flesh weight</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>27g</strong> Olive oil<small class="trn-state-detail">as purchased · Half of spiced oil on vegetables; half on chicken.</small></th><td rowspan="6" colspan="1" class="trn-operation">Mix oil and seasoning.</td><td rowspan="9" colspan="1" class="trn-operation">Toss peppers and onion with half the seasoned oil; coat chicken separately with the rest. Spread on two half-sheet pans in a single layer, pieces apart. Then: Bake at 425°F for 18–22 min; largest chicken strips must reach 165°F. No stir if spaced; swap racks halfway if needed.</td><td rowspan="10" colspan="1" class="trn-operation">Finish cooked fajita filling with lime.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5g</strong> Mild chili powder blend<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Smoked paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3g</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>300g</strong> Bell pepper<small class="trn-state-detail">sliced into ¼-inch strips · Buy by the scaled edible weight; produce size varies.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>60g</strong> Onion<small class="trn-state-detail">sliced into ¼-inch strips · Buy by the scaled edible weight; produce size varies.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>680g</strong> Boneless skinless chicken thighs<small class="trn-state-essential">raw, thawed; strips about 1 inch wide, no more than ¾ inch thick</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>30g</strong> Lime juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>60g</strong> Plain strained Greek yogurt<small class="trn-state-detail">plain, strained · At least 9 g protein and no more than 4 g total carbs per 100 g.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Sheet-pan chicken fajitas cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="5" class="trn-prep">Heat oven to 425°F on bake; use two 18×13-inch half-sheet pans.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5.01 oz</strong> Shredded lettuce<small class="trn-state-detail">washed, ready to eat · Buy by scaled edible weight.</small></th><td rowspan="2" colspan="3" class="trn-operation">Prepare lettuce and avocado.</td><td rowspan="13" colspan="1" class="trn-operation">Plate fajita bowls with cold lettuce, lime-finished filling, avocado and yogurt.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5.29 oz</strong> Avocado flesh<small class="trn-state-detail">sliced; flesh weight</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.95 oz</strong> Olive oil<small class="trn-state-detail">as purchased · Half of spiced oil on vegetables; half on chicken.</small></th><td rowspan="6" colspan="1" class="trn-operation">Mix oil and seasoning.</td><td rowspan="9" colspan="1" class="trn-operation">Toss peppers and onion with half the seasoned oil; coat chicken separately with the rest. Spread on two half-sheet pans in a single layer, pieces apart. Then: Bake at 425°F for 18–22 min; largest chicken strips must reach 165°F. No stir if spaced; swap racks halfway if needed.</td><td rowspan="10" colspan="1" class="trn-operation">Finish cooked fajita filling with lime.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Mild chili powder blend<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Smoked paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>10.58 oz</strong> Bell pepper<small class="trn-state-detail">sliced into ¼-inch strips · Buy by the scaled edible weight; produce size varies.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2.12 oz</strong> Onion<small class="trn-state-detail">sliced into ¼-inch strips · Buy by the scaled edible weight; produce size varies.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1.5 lb</strong> Boneless skinless chicken thighs<small class="trn-state-essential">raw, thawed; strips about 1 inch wide, no more than ¾ inch thick</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>1.06 oz</strong> Lime juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>2.12 oz</strong> Plain strained Greek yogurt<small class="trn-state-detail">plain, strained · At least 9 g protein and no more than 4 g total carbs per 100 g.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 680g Boneless skinless chicken thighs — raw, thawed; strips about 1 inch wide, no more than ¾ inch thick
+- 1.5 lb Boneless skinless chicken thighs — raw, thawed; strips about 1 inch wide, no more than ¾ inch thick
 
-- 300g Bell pepper — sliced into ¼-inch strips. Buy by the scaled edible weight; produce size varies.
+- 10.58 oz Bell pepper — sliced into ¼-inch strips. Buy by the scaled edible weight; produce size varies.
 
-- 60g Onion — sliced into ¼-inch strips. Buy by the scaled edible weight; produce size varies.
+- 2.12 oz Onion — sliced into ¼-inch strips. Buy by the scaled edible weight; produce size varies.
 
-- 27g Olive oil — as purchased. Half of spiced oil on vegetables; half on chicken.
+- 0.95 oz Olive oil — as purchased. Half of spiced oil on vegetables; half on chicken.
 
-- 5g Mild chili powder blend
+- 2 tsp Mild chili powder blend
 
-- 2g Ground cumin
+- 1 tsp Ground cumin
 
-- 2g Smoked paprika
+- 1 tsp Smoked paprika
 
-- 2g Garlic powder
+- ½ tsp Garlic powder
 
-- 3g Fine salt. Use the proportional split described in the method.
+- ½ tsp Fine salt. Use the proportional split described in the method.
 
-- 30g Lime juice — unsweetened
+- 1.06 oz Lime juice — unsweetened
 
-- 142g Shredded lettuce — washed, ready to eat. Buy by scaled edible weight.
+- 5.01 oz Shredded lettuce — washed, ready to eat. Buy by scaled edible weight.
 
-- 150g Avocado flesh — sliced; flesh weight
+- 5.29 oz Avocado flesh — sliced; flesh weight
 
-- 60g Plain strained Greek yogurt — plain, strained. At least 9 g protein and no more than 4 g total carbs per 100 g.
+- 2.12 oz Plain strained Greek yogurt — plain, strained. At least 9 g protein and no more than 4 g total carbs per 100 g.
 
 ### Family starch options (per non-keto adult)
 
@@ -792,7 +806,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Salsa verde shredded chicken
 
-4 adult servings · US measures · shared · 15 min active per base batch · 45 min
+4 adult servings · US imperial measures · shared · 15 min active per base batch · 45 min
 
 Salsa verde chicken with avocado and cabbage slaw.
 
@@ -802,33 +816,35 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Salsa verde shredded chicken cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Prepare slaw and avocado while pressure builds.</td></tr><tr><td colspan="4" class="trn-prep">Follow your exact cooker model’s liquid minimum and PC MAX; keep cold sides away from raw-poultry equipment. Follow its venting instructions, keep clear of steam and do not leave it operating unattended.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>375 ml</strong> Low-sodium chicken broth<small class="trn-state-detail">thin, water-based · 375 mL base minimum for Instant Pot Duo 6QT; use your model’s minimum.</small></th><td rowspan="4" colspan="1" class="trn-operation">Add broth, cumin, garlic and thighs; reserve salsa. High pressure: 8 min, Keep Warm off. Then: Natural release: 10 min, then vent. Open after the float drops. Then: Check thickest thighs reach 165°F; if needed, finish cooking in liquid and recheck. Lift to clean board and shred; if safely cooked thighs resist, slice or chop instead.</td><td rowspan="6" colspan="1" class="trn-operation">Mix with salsa, remaining lime and only enough broth to moisten; reserve excess broth, no reduction needed.</td><td rowspan="10" colspan="1" class="trn-operation">Plate salsa-verde chicken over cold slaw, with avocado.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>680g</strong> Boneless skinless chicken thighs<small class="trn-state-essential">raw, thawed, separated and unfolded</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>124g</strong> Herdez mild salsa verde<small class="trn-state-essential">jarred, added after cooking · Substitute at most 2 g total carbs per 31 g; add only after pressure cooking.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>15g</strong> Lime juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>454g</strong> Shredded cabbage<small class="trn-state-detail">plain, no carrots or dressing</small></th><td rowspan="3" colspan="2" class="trn-operation">Toss cabbage with yogurt and half the lime.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>60g</strong> Plain strained Greek yogurt<small class="trn-state-detail">plain, strained · At least 9 g protein and no more than 4 g total carbs per 100 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>15g</strong> Lime juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>150g</strong> Avocado flesh<small class="trn-state-detail">diced; flesh weight</small></th><td rowspan="1" colspan="2" class="trn-operation">Slice avocado.</td></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Salsa verde shredded chicken cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Prepare slaw and avocado while pressure builds.</td></tr><tr><td colspan="4" class="trn-prep">Follow your exact cooker model’s liquid minimum and PC MAX; keep cold sides away from raw-poultry equipment. Follow its venting instructions, keep clear of steam and do not leave it operating unattended.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>375 mL minimum (measure by volume)</strong> Low-sodium chicken broth<small class="trn-state-detail">thin, water-based · 375 mL base minimum for Instant Pot Duo 6QT; use your model’s minimum.</small></th><td rowspan="4" colspan="1" class="trn-operation">Add broth, cumin, garlic and thighs; reserve salsa. High pressure: 8 min, Keep Warm off. Then: Natural release: 10 min, then vent. Open after the float drops. Then: Check thickest thighs reach 165°F; if needed, finish cooking in liquid and recheck. Lift to clean board and shred; if safely cooked thighs resist, slice or chop instead.</td><td rowspan="6" colspan="1" class="trn-operation">Mix with salsa, remaining lime and only enough broth to moisten; reserve excess broth, no reduction needed.</td><td rowspan="10" colspan="1" class="trn-operation">Plate salsa-verde chicken over cold slaw, with avocado.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Boneless skinless chicken thighs<small class="trn-state-essential">raw, thawed, separated and unfolded</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4.37 oz</strong> Herdez mild salsa verde<small class="trn-state-essential">jarred, added after cooking · Substitute at most 2 g total carbs per 31 g; add only after pressure cooking.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.53 oz</strong> Lime juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Shredded cabbage<small class="trn-state-detail">plain, no carrots or dressing</small></th><td rowspan="3" colspan="2" class="trn-operation">Toss cabbage with yogurt and half the lime.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2.12 oz</strong> Plain strained Greek yogurt<small class="trn-state-detail">plain, strained · At least 9 g protein and no more than 4 g total carbs per 100 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.53 oz</strong> Lime juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5.29 oz</strong> Avocado flesh<small class="trn-state-detail">diced; flesh weight</small></th><td rowspan="1" colspan="2" class="trn-operation">Slice avocado.</td></tr></tbody></table></div>
 
 ### Ingredients
 
-- 680g Boneless skinless chicken thighs — raw, thawed, separated and unfolded
+- 1.5 lb Boneless skinless chicken thighs — raw, thawed, separated and unfolded
 
-- 375 ml Low-sodium chicken broth — thin, water-based. 375 mL base minimum for Instant Pot Duo 6QT; use your model’s minimum.
+- 375 mL minimum (measure by volume) Low-sodium chicken broth — thin, water-based. 375 mL base minimum for Instant Pot Duo 6QT; use your model’s minimum.
 
-- 124g Herdez mild salsa verde — jarred, added after cooking. Substitute at most 2 g total carbs per 31 g; add only after pressure cooking.
+- 4.37 oz Herdez mild salsa verde — jarred, added after cooking. Substitute at most 2 g total carbs per 31 g; add only after pressure cooking.
 
-- 2g Ground cumin
+- 1 tsp Ground cumin
 
-- 2g Garlic powder
+- ½ tsp Garlic powder
 
-- 30g Lime juice — unsweetened
+- 1.06 oz Lime juice — unsweetened
 
-- 454g Shredded cabbage — plain, no carrots or dressing
+- 1 lb Shredded cabbage — plain, no carrots or dressing
 
-- 150g Avocado flesh — diced; flesh weight
+- 5.29 oz Avocado flesh — diced; flesh weight
 
-- 60g Plain strained Greek yogurt — plain, strained. At least 9 g protein and no more than 4 g total carbs per 100 g.
+- 2.12 oz Plain strained Greek yogurt — plain, strained. At least 9 g protein and no more than 4 g total carbs per 100 g.
 
 ### Family starch options (per non-keto adult)
 
-- Cooked rice: 80g Cooked rice — fully cooked, ready to heat. About ½ cup per non-keto diner; heat ready-cooked rice. Buy at least 320 g for four.
+- Cooked rice: 2.82 oz Cooked rice — fully cooked, ready to heat. About ½ cup per non-keto diner; heat ready-cooked rice. Buy at least 320 g for four.
 
 ### Equipment
 
@@ -916,7 +932,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Greek turkey patties
 
-4 adult servings · US measures · shared · 15 min active per base batch · 40 min
+4 adult servings · US imperial measures · shared · 15 min active per base batch · 40 min
 
 Greek turkey patties with cucumber salad and yogurt.
 
@@ -926,43 +942,45 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Greek turkey patties cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Preheat both air fryers to 380°F. Arrange four patties per basket with gaps.</td></tr><tr><td colspan="4" class="trn-prep">If scaled egg is half an egg: beat one whole egg and weigh about 25 g.</td></tr><tr><td colspan="4" class="trn-prep">If patties do not fit with gaps in smaller baskets, use the oven fallback or extra batches.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>300g</strong> Cucumber<small class="trn-state-detail">diced</small></th><td rowspan="2" colspan="2" class="trn-operation">Prepare cucumber and greens.</td><td rowspan="13" colspan="1" class="trn-operation">Plate two cooked turkey patties per serving with cold cucumber, greens and lemon-yogurt sauce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>142g</strong> Salad greens<small class="trn-state-detail">washed, ready to eat · Buy by scaled edible weight.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>120g</strong> Plain strained Greek yogurt<small class="trn-state-detail">plain, strained · At least 9 g protein and no more than 4 g total carbs per 100 g.</small></th><td rowspan="2" colspan="2" class="trn-operation">Mix yogurt and lemon.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>15g</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>680g</strong> 93%-lean ground turkey<small class="trn-state-essential">raw</small></th><td rowspan="8" colspan="1" class="trn-operation">Mix turkey, egg, flax, feta and seasoning just until combined. Then: Form patties about 100 g each, 3¼ inches across and ¾ inch thick; about two per serving.</td><td rowspan="9" colspan="1" class="trn-operation">Lightly oil both baskets; load patties with gaps. Four per basket for base batch only if they fit; do not cram. Then: Air fry at 380°F for 14–18 min, flipping once halfway; each patty must reach 165°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>50g</strong> Large egg<small class="trn-state-detail">as purchased · For fractional eggs, beat whole eggs and weigh 50 g per large-egg portion; half an egg is about 25 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14g</strong> Ground flaxseed<small class="trn-state-detail">ground, not whole · Ground seed acts as a binder; whole seeds are not equivalent.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>50g</strong> Crumbled feta<small class="trn-state-detail">as sold · Cheese label and rennet vary.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1g</strong> Dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3g</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>5g</strong> Olive oil<small class="trn-state-detail">as purchased · Lightly oil baskets.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Greek turkey patties cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Preheat both air fryers to 380°F. Arrange four patties per basket with gaps.</td></tr><tr><td colspan="4" class="trn-prep">If scaled egg is half an egg: beat one whole egg and weigh about 25 g.</td></tr><tr><td colspan="4" class="trn-prep">If patties do not fit with gaps in smaller baskets, use the oven fallback or extra batches.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>10.58 oz</strong> Cucumber<small class="trn-state-detail">diced</small></th><td rowspan="2" colspan="2" class="trn-operation">Prepare cucumber and greens.</td><td rowspan="13" colspan="1" class="trn-operation">Plate two cooked turkey patties per serving with cold cucumber, greens and lemon-yogurt sauce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5.01 oz</strong> Salad greens<small class="trn-state-detail">washed, ready to eat · Buy by scaled edible weight.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4.23 oz</strong> Plain strained Greek yogurt<small class="trn-state-detail">plain, strained · At least 9 g protein and no more than 4 g total carbs per 100 g.</small></th><td rowspan="2" colspan="2" class="trn-operation">Mix yogurt and lemon.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.53 oz</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> 93%-lean ground turkey<small class="trn-state-essential">raw</small></th><td rowspan="8" colspan="1" class="trn-operation">Mix turkey, egg, flax, feta and seasoning just until combined. Then: Form patties about 100 g each, 3¼ inches across and ¾ inch thick; about two per serving.</td><td rowspan="9" colspan="1" class="trn-operation">Lightly oil both baskets; load patties with gaps. Four per basket for base batch only if they fit; do not cram. Then: Air fry at 380°F for 14–18 min, flipping once halfway; each patty must reach 165°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Large egg<small class="trn-state-detail">as purchased · For fractional eggs, beat whole eggs and weigh 50 g per large-egg portion; half an egg is about 25 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.49 oz</strong> Ground flaxseed<small class="trn-state-detail">ground, not whole · Ground seed acts as a binder; whole seeds are not equivalent.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.76 oz</strong> Crumbled feta<small class="trn-state-detail">as sold · Cheese label and rennet vary.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.16 oz</strong> Olive oil<small class="trn-state-detail">as purchased · Lightly oil baskets.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 680g 93%-lean ground turkey — raw
+- 1.5 lb 93%-lean ground turkey — raw
 
-- 50g Large egg — as purchased. For fractional eggs, beat whole eggs and weigh 50 g per large-egg portion; half an egg is about 25 g.
+- 1 count Large egg — as purchased. For fractional eggs, beat whole eggs and weigh 50 g per large-egg portion; half an egg is about 25 g.
 
-- 14g Ground flaxseed — ground, not whole. Ground seed acts as a binder; whole seeds are not equivalent.
+- 0.49 oz Ground flaxseed — ground, not whole. Ground seed acts as a binder; whole seeds are not equivalent.
 
-- 50g Crumbled feta — as sold. Cheese label and rennet vary.
+- 1.76 oz Crumbled feta — as sold. Cheese label and rennet vary.
 
-- 1g Dried oregano
+- 1 tsp Dried oregano
 
-- 3g Garlic powder
+- 1 tsp Garlic powder
 
-- 2g Fine salt. Use the proportional split described in the method.
+- ¼ tsp Fine salt. Use the proportional split described in the method.
 
 - to taste Black pepper
 
-- 5g Olive oil — as purchased. Lightly oil baskets.
+- 0.16 oz Olive oil — as purchased. Lightly oil baskets.
 
-- 300g Cucumber — diced
+- 10.58 oz Cucumber — diced
 
-- 142g Salad greens — washed, ready to eat. Buy by scaled edible weight.
+- 5.01 oz Salad greens — washed, ready to eat. Buy by scaled edible weight.
 
-- 120g Plain strained Greek yogurt — plain, strained. At least 9 g protein and no more than 4 g total carbs per 100 g.
+- 4.23 oz Plain strained Greek yogurt — plain, strained. At least 9 g protein and no more than 4 g total carbs per 100 g.
 
-- 15g Lemon juice — unsweetened
+- 0.53 oz Lemon juice — unsweetened
 
 ### Family starch options (per non-keto adult)
 
-- Pita: 60g Pita — ready to eat; warm briefly. One ready-to-eat 60 g pita per non-keto diner; warm briefly. Contains wheat; check package. Serve pita alongside both patties and salad.
+- Pita: 2.12 oz Pita — ready to eat; warm briefly. One ready-to-eat 60 g pita per non-keto diner; warm briefly. Contains wheat; check package. Serve pita alongside both patties and salad.
 
-- Bun: 45g Bun — ready to eat; warm briefly. One 45 g ready-to-eat bun per non-keto diner; warm briefly. Contains wheat; check package. The bread accompanies both patties; use a double-patty bun or serve the second patty beside it.
+- Bun: 1.59 oz Bun — ready to eat; warm briefly. One 45 g ready-to-eat bun per non-keto diner; warm briefly. Contains wheat; check package. The bread accompanies both patties; use a double-patty bun or serve the second patty beside it.
 
 ### Equipment
 
@@ -1034,7 +1052,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Tomato, lentil, and chicken bake
 
-4 adult servings · US measures · nonketo · 10 min active per base batch · 40 min
+4 adult servings · US imperial measures · nonketo · 10 min active per base batch · 40 min
 
 Chicken and lentils baked in tomato sauce.
 
@@ -1044,37 +1062,39 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Tomato, lentil, and chicken bake cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Preheat oven to 425°F (bake). Use a shallow 13×9-inch metal baking dish, foil and an instant-read thermometer.</td></tr><tr><td colspan="4" class="trn-prep">Use fully cooked, refrigerated chicken chopped no larger than ¾ inch; raw chicken, dry lentils and frozen chicken blocks are not substitutes. Drain and rinse canned lentils; retain tomato juice; roughly chop spinach.</td></tr><tr><td colspan="4" class="trn-prep">Keep the mixed bake no more than 1 inch deep; split into shallow dishes if needed.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>480g</strong> Canned cooked lentils<small class="trn-state-essential">drained and rinsed · Drained weight; canned yield varies. · About 2 × 15 oz (425 g) cans, assuming ~240 g drained per can; check actual yield.</small></th><td rowspan="10" colspan="1" class="trn-operation">Mix in shallow metal baking dish.</td><td rowspan="11" colspan="1" class="trn-operation">Fold in fully cooked chicken; spread and gently press to an even layer ≤1 inch deep. Then: Cover tightly with foil; bake at 425°F about 20–25 min, until center and several chicken pieces reach 165°F; continue if needed.</td><td rowspan="13" colspan="1" class="trn-operation">Finish baked mixture with lemon and feta. Then: Plate finished meal: divide the moist bake equally among selected portions.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>411g</strong> Canned diced tomatoes<small class="trn-state-essential">with juice, room temperature · do not drain. · Buy 1 × 14.5 oz (411 g) cans; measure out the required weight.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>142g</strong> Baby spinach<small class="trn-state-detail">roughly chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14g</strong> Olive oil<small class="trn-state-detail">as purchased · Mix into the bake.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Smoked paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>340g</strong> Fully cooked chicken breast<small class="trn-state-essential">plain, refrigerated, chopped no larger than ¾ inch · Already fully cooked; raw chicken is not a substitute.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>15g</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>60g</strong> Crumbled feta<small class="trn-state-detail">as sold · Cheese label and rennet vary.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Tomato, lentil, and chicken bake cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Preheat oven to 425°F (bake). Use a shallow 13×9-inch metal baking dish, foil and an instant-read thermometer.</td></tr><tr><td colspan="4" class="trn-prep">Use fully cooked, refrigerated chicken chopped no larger than ¾ inch; raw chicken, dry lentils and frozen chicken blocks are not substitutes. Drain and rinse canned lentils; retain tomato juice; roughly chop spinach.</td></tr><tr><td colspan="4" class="trn-prep">Keep the mixed bake no more than 1 inch deep; split into shallow dishes if needed.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.06 lb</strong> Canned cooked lentils<small class="trn-state-essential">drained and rinsed · Drained weight; canned yield varies. · About 2 × 15 oz (425 g) cans, assuming ~240 g drained per can; check actual yield.</small></th><td rowspan="10" colspan="1" class="trn-operation">Mix in shallow metal baking dish.</td><td rowspan="11" colspan="1" class="trn-operation">Fold in fully cooked chicken; spread and gently press to an even layer ≤1 inch deep. Then: Cover tightly with foil; bake at 425°F about 20–25 min, until center and several chicken pieces reach 165°F; continue if needed.</td><td rowspan="13" colspan="1" class="trn-operation">Finish baked mixture with lemon and feta. Then: Plate finished meal: divide the moist bake equally among selected portions.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14.5 oz</strong> Canned diced tomatoes<small class="trn-state-essential">with juice, room temperature · do not drain. · Buy 1 × 14.5 oz (411 g) cans; measure out the required weight.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5.01 oz</strong> Baby spinach<small class="trn-state-detail">roughly chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.48 oz</strong> Olive oil<small class="trn-state-detail">as purchased · Mix into the bake.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Smoked paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>11.99 oz</strong> Fully cooked chicken breast<small class="trn-state-essential">plain, refrigerated, chopped no larger than ¾ inch · Already fully cooked; raw chicken is not a substitute.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>0.53 oz</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>2.12 oz</strong> Crumbled feta<small class="trn-state-detail">as sold · Cheese label and rennet vary.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 340g Fully cooked chicken breast — plain, refrigerated, chopped no larger than ¾ inch. Already fully cooked; raw chicken is not a substitute.
+- 11.99 oz Fully cooked chicken breast — plain, refrigerated, chopped no larger than ¾ inch. Already fully cooked; raw chicken is not a substitute.
 
-- 480g Canned cooked lentils — drained and rinsed. Drained weight; canned yield varies. · About 2 × 15 oz (425 g) cans, assuming ~240 g drained per can; check actual yield.
+- 1.06 lb Canned cooked lentils — drained and rinsed. Drained weight; canned yield varies. · About 2 × 15 oz (425 g) cans, assuming ~240 g drained per can; check actual yield.
 
-- 411g Canned diced tomatoes — with juice, room temperature. do not drain. · Buy 1 × 14.5 oz (411 g) cans; measure out the required weight.
+- 14.5 oz Canned diced tomatoes — with juice, room temperature. do not drain. · Buy 1 × 14.5 oz (411 g) cans; measure out the required weight.
 
-- 142g Baby spinach — roughly chopped
+- 5.01 oz Baby spinach — roughly chopped
 
-- 14g Olive oil — as purchased. Mix into the bake.
+- 0.48 oz Olive oil — as purchased. Mix into the bake.
 
-- 2g Smoked paprika
+- 1 tsp Smoked paprika
 
-- 2g Ground cumin
+- 1 tsp Ground cumin
 
-- 2g Garlic powder
+- ½ tsp Garlic powder
 
 - ½ tsp Dried oregano
 
-- 2g Fine salt. Use the proportional split described in the method.
+- ¼ tsp Fine salt. Use the proportional split described in the method.
 
 - to taste Black pepper
 
-- 15g Lemon juice — unsweetened
+- 0.53 oz Lemon juice — unsweetened
 
-- 60g Crumbled feta — as sold. Cheese label and rennet vary.
+- 2.12 oz Crumbled feta — as sold. Cheese label and rennet vary.
 
 ### Equipment
 
@@ -1148,7 +1168,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Harissa chickpea and cauliflower bowls
 
-4 adult servings · US measures · nonketo · 12 min active per base batch · 40 min
+4 adult servings · US imperial measures · nonketo · 12 min active per base batch · 40 min
 
 Harissa chickpeas and cauliflower with yogurt.
 
@@ -1158,35 +1178,37 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Harissa chickpea and cauliflower bowls cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Preheat oven to 425°F (bake); use two 18×13-inch half-sheet pans. Drain, rinse and thoroughly pat chickpeas dry; use cauliflower florets about 1 inch across and washed salad greens.</td></tr><tr><td colspan="4" class="trn-prep">Use the specified Mina mild harissa and the full scaled strained-yogurt amount.</td></tr><tr><td colspan="4" class="trn-prep">Keep ingredients in a single layer. For 6 or 8 servings, use extra pans or cook in batches.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>480g</strong> Canned chickpeas<small class="trn-state-essential">drained, rinsed, patted dry · Drained weight; canned yield varies. · About 2 × 15 oz (425 g) cans, assuming ~240 g drained per can; check actual yield.</small></th><td rowspan="6" colspan="1" class="trn-operation">Toss dried chickpeas and cauliflower thoroughly; spread uncrowded across two pans. Then: Roast on two half-sheet pans at 425°F about 22–25 min; stir once and swap racks halfway; cauliflower tender and browned, chickpeas soft inside.</td><td rowspan="14" colspan="1" class="trn-operation">Plate finished meal: divide all cold yogurt sauce equally among plates; add greens and roast, then hemp.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>680g</strong> Cauliflower florets<small class="trn-state-detail">about 1 inch across</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>27g</strong> Olive oil<small class="trn-state-detail">as purchased · Mix with harissa.</small></th><td rowspan="4" colspan="1" class="trn-operation">Mix roasting dressing.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>30g</strong> Mina mild harissa<small class="trn-state-essential">jarred · Measured Mina mild harissa; half for roasting and half for yogurt. Hot concentrated pastes are not equivalent.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Fine salt<small class="trn-state-detail">Half for roasting and half for the yogurt sauce.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>600g</strong> Plain strained Greek yogurt<small class="trn-state-detail">plain, strained · At least 9 g protein and no more than 4 g total carbs per 100 g.</small></th><td rowspan="6" colspan="2" class="trn-operation">During roasting, mix cold yogurt sauce in a separate bowl.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>30g</strong> Mina mild harissa<small class="trn-state-essential">jarred · Measured Mina mild harissa; half for roasting and half for yogurt. Hot concentrated pastes are not equivalent.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Fine salt<small class="trn-state-detail">Half for roasting and half for the yogurt sauce.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>30g</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Garlic powder<small class="trn-state-detail">For yogurt sauce.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail">To taste in yogurt.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>142g</strong> Salad greens<small class="trn-state-detail">washed, ready to eat · Buy by scaled edible weight.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>20g</strong> Hemp hearts<small class="trn-state-detail">hulled · Use hulled hemp hearts in the measured portion.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Harissa chickpea and cauliflower bowls cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Preheat oven to 425°F (bake); use two 18×13-inch half-sheet pans. Drain, rinse and thoroughly pat chickpeas dry; use cauliflower florets about 1 inch across and washed salad greens.</td></tr><tr><td colspan="4" class="trn-prep">Use the specified Mina mild harissa and the full scaled strained-yogurt amount.</td></tr><tr><td colspan="4" class="trn-prep">Keep ingredients in a single layer. For 6 or 8 servings, use extra pans or cook in batches.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1.06 lb</strong> Canned chickpeas<small class="trn-state-essential">drained, rinsed, patted dry · Drained weight; canned yield varies. · About 2 × 15 oz (425 g) cans, assuming ~240 g drained per can; check actual yield.</small></th><td rowspan="6" colspan="1" class="trn-operation">Toss dried chickpeas and cauliflower thoroughly; spread uncrowded across two pans. Then: Roast on two half-sheet pans at 425°F about 22–25 min; stir once and swap racks halfway; cauliflower tender and browned, chickpeas soft inside.</td><td rowspan="14" colspan="1" class="trn-operation">Plate finished meal: divide all cold yogurt sauce equally among plates; add greens and roast, then hemp.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1.5 lb</strong> Cauliflower florets<small class="trn-state-detail">about 1 inch across</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.95 oz</strong> Olive oil<small class="trn-state-detail">as purchased · Mix with harissa.</small></th><td rowspan="4" colspan="1" class="trn-operation">Mix roasting dressing.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.06 oz</strong> Mina mild harissa<small class="trn-state-essential">jarred · Measured Mina mild harissa; half for roasting and half for yogurt. Hot concentrated pastes are not equivalent.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Fine salt<small class="trn-state-detail">Half for roasting and half for the yogurt sauce.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.32 lb</strong> Plain strained Greek yogurt<small class="trn-state-detail">plain, strained · At least 9 g protein and no more than 4 g total carbs per 100 g.</small></th><td rowspan="6" colspan="2" class="trn-operation">During roasting, mix cold yogurt sauce in a separate bowl.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.06 oz</strong> Mina mild harissa<small class="trn-state-essential">jarred · Measured Mina mild harissa; half for roasting and half for yogurt. Hot concentrated pastes are not equivalent.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Fine salt<small class="trn-state-detail">Half for roasting and half for the yogurt sauce.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.06 oz</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Garlic powder<small class="trn-state-detail">For yogurt sauce.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail">To taste in yogurt.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>5.01 oz</strong> Salad greens<small class="trn-state-detail">washed, ready to eat · Buy by scaled edible weight.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>0.71 oz</strong> Hemp hearts<small class="trn-state-detail">hulled · Use hulled hemp hearts in the measured portion.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 480g Canned chickpeas — drained, rinsed, patted dry. Drained weight; canned yield varies. · About 2 × 15 oz (425 g) cans, assuming ~240 g drained per can; check actual yield.
+- 1.06 lb Canned chickpeas — drained, rinsed, patted dry. Drained weight; canned yield varies. · About 2 × 15 oz (425 g) cans, assuming ~240 g drained per can; check actual yield.
 
-- 680g Cauliflower florets — about 1 inch across
+- 1.5 lb Cauliflower florets — about 1 inch across
 
-- 27g Olive oil — as purchased. Mix with harissa.
+- 0.95 oz Olive oil — as purchased. Mix with harissa.
 
-- 60g Mina mild harissa — jarred. Measured Mina mild harissa; half for roasting and half for yogurt. Hot concentrated pastes are not equivalent.
+- 2.12 oz Mina mild harissa — jarred. Measured Mina mild harissa; half for roasting and half for yogurt. Hot concentrated pastes are not equivalent.
 
-- 2g Ground cumin
+- 1 tsp Ground cumin
 
-- 2g Garlic powder. For yogurt sauce.
+- ½ tsp Garlic powder. For yogurt sauce.
 
-- 3g Fine salt. Half for roasting and half for the yogurt sauce.
+- ½ tsp Fine salt. Half for roasting and half for the yogurt sauce.
 
 - to taste Black pepper. To taste in yogurt.
 
-- 600g Plain strained Greek yogurt — plain, strained. At least 9 g protein and no more than 4 g total carbs per 100 g.
+- 1.32 lb Plain strained Greek yogurt — plain, strained. At least 9 g protein and no more than 4 g total carbs per 100 g.
 
-- 30g Lemon juice — unsweetened
+- 1.06 oz Lemon juice — unsweetened
 
-- 20g Hemp hearts — hulled. Use hulled hemp hearts in the measured portion.
+- 0.71 oz Hemp hearts — hulled. Use hulled hemp hearts in the measured portion.
 
-- 142g Salad greens — washed, ready to eat. Buy by scaled edible weight.
+- 5.01 oz Salad greens — washed, ready to eat. Buy by scaled edible weight.
 
 ### Equipment
 
@@ -1260,7 +1282,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lemon chicken, potatoes, and green beans
 
-4 adult servings · US measures · nonketo · 15 min active per base batch · 45 min
+4 adult servings · US imperial measures · nonketo · 15 min active per base batch · 45 min
 
 Lemon chicken with potatoes and green beans.
 
@@ -1270,35 +1292,37 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon chicken, potatoes, and green beans cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="6" class="trn-prep">Preheat oven to 425°F (bake). Use two 18×13-inch half-sheet pans, a vented microwave-safe dish, a roughly 1000 W microwave and an instant-read thermometer.</td></tr><tr><td colspan="6" class="trn-prep">Mix oil, oregano, garlic, zest and pepper. Reserve half for potatoes, one quarter for beans and one quarter for chicken; give each one third of the salt.</td></tr><tr><td colspan="6" class="trn-prep">Use thawed, unfolded thighs ≤¾ inch thick; cut potatoes no larger than ¾ inch and trim beans. Keep potatoes and beans in separate single-layer areas on one vegetable pan and chicken on its own pan.</td></tr><tr><td colspan="6" class="trn-prep">For 6 or 8 servings, microwave potatoes in batches until fork-tender.</td></tr><tr><td colspan="6" class="trn-prep">Start chicken and potatoes together; at roast minute 10 add beans to their reserved area and swap racks. Remove each component at its own endpoint.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>680g</strong> Boneless skinless chicken thighs<small class="trn-state-essential">raw, thawed, unfolded; no more than ¾ inch thick</small></th><td rowspan="7" colspan="3" class="trn-operation">Coat chicken with reserved seasoning and one third of salt; unfold onto its own pan. Then: Roast chicken on separate pan at 425°F for 20–25 min, until thickest pieces reach 165°F; remove when ready.</td><td rowspan="24" colspan="1" class="trn-operation">Plate finished meal: serve cooked chicken beside vegetables; finish all with lemon juice.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>7g</strong> Olive oil<small class="trn-state-detail">as purchased · Half to potatoes; one quarter each to beans and chicken.</small></th><td rowspan="5" colspan="1" class="trn-operation">Use reserved quarter of seasoning mix.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Lemon zest<small class="trn-state-detail">finely grated · Use finely grated zest.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2g</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>567g</strong> Baby potatoes<small class="trn-state-detail">cut no larger than ¾ inch</small></th><td rowspan="2" colspan="1" class="trn-operation">Microwave in vented dish on high about 6–8 min at ~1000 W until just fork-tender; carefully uncover and drain.</td><td rowspan="8" colspan="1" class="trn-operation">Coat drained potatoes with reserved seasoning and one third of salt. Then: Spread on half the vegetable pan, reserve other half; start with chicken and roast at 425°F for 10 min.</td><td rowspan="15" colspan="1" class="trn-operation">Keep beans and potatoes in separate areas; roast at 425°F another 10–15 min until both tender; remove each when ready.</td><td rowspan="16" colspan="1" class="trn-operation">Sprinkle yeast over cooked vegetables.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Water<small class="trn-state-essential">potable · Microwave steaming water; drain before roasting.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14g</strong> Olive oil<small class="trn-state-detail">as purchased · Half to potatoes; one quarter each to beans and chicken.</small></th><td rowspan="5" colspan="1" class="trn-operation">Use reserved half of seasoning mix.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1g</strong> Lemon zest<small class="trn-state-detail">finely grated · Use finely grated zest.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2g</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>454g</strong> Green beans<small class="trn-state-detail">trimmed</small></th><td rowspan="7" colspan="1" class="trn-operation">Coat beans with reserved seasoning and one third of salt; set aside until minute 10. Then: Add beans to reserved vegetable-pan area at roast minute 10; swap racks.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>7g</strong> Olive oil<small class="trn-state-detail">as purchased · Half to potatoes; one quarter each to beans and chicken.</small></th><td rowspan="5" colspan="1" class="trn-operation">Use reserved quarter of seasoning mix.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Lemon zest<small class="trn-state-detail">finely grated · Use finely grated zest.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2g</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>8g</strong> Nutritional yeast<small class="trn-state-detail">flakes · Add after cooking.</small></th></tr><tr><th scope="row" colspan="5" class="trn-ingredient"><strong>30g</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon chicken, potatoes, and green beans cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="6" class="trn-prep">Preheat oven to 425°F (bake). Use two 18×13-inch half-sheet pans, a vented microwave-safe dish, a roughly 1000 W microwave and an instant-read thermometer.</td></tr><tr><td colspan="6" class="trn-prep">Mix oil, oregano, garlic, zest and pepper. Reserve half for potatoes, one quarter for beans and one quarter for chicken; give each one third of the salt.</td></tr><tr><td colspan="6" class="trn-prep">Use thawed, unfolded thighs ≤¾ inch thick; cut potatoes no larger than ¾ inch and trim beans. Keep potatoes and beans in separate single-layer areas on one vegetable pan and chicken on its own pan.</td></tr><tr><td colspan="6" class="trn-prep">For 6 or 8 servings, microwave potatoes in batches until fork-tender.</td></tr><tr><td colspan="6" class="trn-prep">Start chicken and potatoes together; at roast minute 10 add beans to their reserved area and swap racks. Remove each component at its own endpoint.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1.5 lb</strong> Boneless skinless chicken thighs<small class="trn-state-essential">raw, thawed, unfolded; no more than ¾ inch thick</small></th><td rowspan="7" colspan="3" class="trn-operation">Coat chicken with reserved seasoning and one third of salt; unfold onto its own pan. Then: Roast chicken on separate pan at 425°F for 20–25 min, until thickest pieces reach 165°F; remove when ready.</td><td rowspan="24" colspan="1" class="trn-operation">Plate finished meal: serve cooked chicken beside vegetables; finish all with lemon juice.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.24 oz</strong> Olive oil<small class="trn-state-detail">as purchased · Half to potatoes; one quarter each to beans and chicken.</small></th><td rowspan="5" colspan="1" class="trn-operation">Use reserved quarter of seasoning mix.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.02 oz</strong> Lemon zest<small class="trn-state-detail">finely grated · Use finely grated zest.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ tsp</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.25 lb</strong> Baby potatoes<small class="trn-state-detail">cut no larger than ¾ inch</small></th><td rowspan="2" colspan="1" class="trn-operation">Microwave in vented dish on high about 6–8 min at ~1000 W until just fork-tender; carefully uncover and drain.</td><td rowspan="8" colspan="1" class="trn-operation">Coat drained potatoes with reserved seasoning and one third of salt. Then: Spread on half the vegetable pan, reserve other half; start with chicken and roast at 425°F for 10 min.</td><td rowspan="15" colspan="1" class="trn-operation">Keep beans and potatoes in separate areas; roast at 425°F another 10–15 min until both tender; remove each when ready.</td><td rowspan="16" colspan="1" class="trn-operation">Sprinkle yeast over cooked vegetables.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.01 fl oz</strong> Water<small class="trn-state-essential">potable · Microwave steaming water; drain before roasting.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.48 oz</strong> Olive oil<small class="trn-state-detail">as purchased · Half to potatoes; one quarter each to beans and chicken.</small></th><td rowspan="5" colspan="1" class="trn-operation">Use reserved half of seasoning mix.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.04 oz</strong> Lemon zest<small class="trn-state-detail">finely grated · Use finely grated zest.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ tsp</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 lb</strong> Green beans<small class="trn-state-detail">trimmed</small></th><td rowspan="7" colspan="1" class="trn-operation">Coat beans with reserved seasoning and one third of salt; set aside until minute 10. Then: Add beans to reserved vegetable-pan area at roast minute 10; swap racks.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.24 oz</strong> Olive oil<small class="trn-state-detail">as purchased · Half to potatoes; one quarter each to beans and chicken.</small></th><td rowspan="5" colspan="1" class="trn-operation">Use reserved quarter of seasoning mix.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.02 oz</strong> Lemon zest<small class="trn-state-detail">finely grated · Use finely grated zest.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ tsp</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>0.28 oz</strong> Nutritional yeast<small class="trn-state-detail">flakes · Add after cooking.</small></th></tr><tr><th scope="row" colspan="5" class="trn-ingredient"><strong>1.06 oz</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 680g Boneless skinless chicken thighs — raw, thawed, unfolded; no more than ¾ inch thick
+- 1.5 lb Boneless skinless chicken thighs — raw, thawed, unfolded; no more than ¾ inch thick
 
-- 567g Baby potatoes — cut no larger than ¾ inch
+- 1.25 lb Baby potatoes — cut no larger than ¾ inch
 
-- 454g Green beans — trimmed
+- 1 lb Green beans — trimmed
 
-- 27g Olive oil — as purchased. Half to potatoes; one quarter each to beans and chicken.
+- 0.95 oz Olive oil — as purchased. Half to potatoes; one quarter each to beans and chicken.
 
-- 1g Dried oregano
+- 1 tsp Dried oregano
 
-- 3g Garlic powder
+- 1 tsp Garlic powder
 
-- 5g Fine salt. Use the proportional split described in the method.
+- ¾ tsp Fine salt. Use the proportional split described in the method.
 
 - to taste Black pepper
 
-- 2g Lemon zest — finely grated. Use finely grated zest.
+- 0.07 oz Lemon zest — finely grated. Use finely grated zest.
 
-- 30g Lemon juice — unsweetened
+- 1.06 oz Lemon juice — unsweetened
 
-- 8g Nutritional yeast — flakes. Add after cooking.
+- 0.28 oz Nutritional yeast — flakes. Add after cooking.
 
-- 2 tbsp Water — potable. Microwave steaming water; drain before roasting.
+- 1.01 fl oz Water — potable. Microwave steaming water; drain before roasting.
 
 ### Equipment
 
@@ -1384,7 +1408,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Sheet-pan gnocchi, white beans, and broccoli
 
-4 adult servings · US measures · nonketo · 12 min active per base batch · 45 min
+4 adult servings · US imperial measures · nonketo · 12 min active per base batch · 45 min
 
 Roasted gnocchi, white beans and broccoli.
 
@@ -1394,37 +1418,39 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Sheet-pan gnocchi, white beans, and broccoli cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="5" class="trn-prep">Preheat oven to 425°F (bake); use two 18×13-inch half-sheet pans. Use shelf-stable, unfrozen gnocchi; do not boil first. Drain and rinse canned beans; use broccoli florets about 1½ inches across.</td></tr><tr><td colspan="5" class="trn-prep">Keep ingredients in a single layer. For 6 or 8 servings, use extra pans or cook in batches.</td></tr><tr><td colspan="5" class="trn-prep">Add half the Parmesan while warm; divide the rest among plates.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>454g</strong> DeLallo potato gnocchi<small class="trn-state-essential">shelf-stable, not frozen · Buy 1 × 16 oz (454 g) packages; measure out the required weight.</small></th><td rowspan="8" colspan="1" class="trn-operation">Toss and divide across two half-sheet pans; gnocchi remain unboiled. Then: Roast at 425°F for 12 min on two half-sheet pans.</td><td rowspan="10" colspan="1" class="trn-operation">At minute 12 add oiled beans to both pans, stir everything once and swap racks. Then: Continue roasting at 425°F for 13–18 min (25–30 min total), until gnocchi centers tender and broccoli tender and browned. Then: Press a few softened tomatoes with serving spoon; toss their juices through gnocchi and beans.</td><td rowspan="13" colspan="1" class="trn-operation">While warm, toss in yeast, lemon and half the Parmesan.</td><td rowspan="15" colspan="1" class="trn-operation">Plate finished meal: divide equally among selected portions; top with remaining half of Parmesan and hemp.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>454g</strong> Broccoli florets<small class="trn-state-detail">about 1½ inches across</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>300g</strong> Cherry tomatoes<small class="trn-state-detail">Buy by the scaled edible weight; produce size varies.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>27g</strong> Olive oil<small class="trn-state-detail">as purchased · Two thirds for first roast; one third with beans midway.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1g</strong> Dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>480g</strong> Canned cannellini beans<small class="trn-state-essential">drained and rinsed · Drained weight; canned yield varies. · About 2 × 15 oz (425 g) cans, assuming ~240 g drained per can; check actual yield.</small></th><td rowspan="2" colspan="1" class="trn-operation">Toss drained, rinsed beans with remaining one third of oil.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14g</strong> Olive oil<small class="trn-state-detail">as purchased · Two thirds for first roast; one third with beans midway.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>4g</strong> Nutritional yeast<small class="trn-state-detail">flakes · Add after cooking.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>15g</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>50g</strong> Pre-grated Parmesan<small class="trn-state-detail">as sold · Required for stated protein; check rennet label if vegetarian food is needed.</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>50g</strong> Pre-grated Parmesan<small class="trn-state-detail">as sold · Required for stated protein; check rennet label if vegetarian food is needed.</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>20g</strong> Hemp hearts<small class="trn-state-detail">hulled · Use hulled hemp hearts in the measured portion.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Sheet-pan gnocchi, white beans, and broccoli cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="5" class="trn-prep">Preheat oven to 425°F (bake); use two 18×13-inch half-sheet pans. Use shelf-stable, unfrozen gnocchi; do not boil first. Drain and rinse canned beans; use broccoli florets about 1½ inches across.</td></tr><tr><td colspan="5" class="trn-prep">Keep ingredients in a single layer. For 6 or 8 servings, use extra pans or cook in batches.</td></tr><tr><td colspan="5" class="trn-prep">Add half the Parmesan while warm; divide the rest among plates.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> DeLallo potato gnocchi<small class="trn-state-essential">shelf-stable, not frozen · Buy 1 × 16 oz (454 g) packages; measure out the required weight.</small></th><td rowspan="8" colspan="1" class="trn-operation">Toss and divide across two half-sheet pans; gnocchi remain unboiled. Then: Roast at 425°F for 12 min on two half-sheet pans.</td><td rowspan="10" colspan="1" class="trn-operation">At minute 12 add oiled beans to both pans, stir everything once and swap racks. Then: Continue roasting at 425°F for 13–18 min (25–30 min total), until gnocchi centers tender and broccoli tender and browned. Then: Press a few softened tomatoes with serving spoon; toss their juices through gnocchi and beans.</td><td rowspan="13" colspan="1" class="trn-operation">While warm, toss in yeast, lemon and half the Parmesan.</td><td rowspan="15" colspan="1" class="trn-operation">Plate finished meal: divide equally among selected portions; top with remaining half of Parmesan and hemp.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Broccoli florets<small class="trn-state-detail">about 1½ inches across</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>10.58 oz</strong> Cherry tomatoes<small class="trn-state-detail">Buy by the scaled edible weight; produce size varies.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.95 oz</strong> Olive oil<small class="trn-state-detail">as purchased · Two thirds for first roast; one third with beans midway.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.06 lb</strong> Canned cannellini beans<small class="trn-state-essential">drained and rinsed · Drained weight; canned yield varies. · About 2 × 15 oz (425 g) cans, assuming ~240 g drained per can; check actual yield.</small></th><td rowspan="2" colspan="1" class="trn-operation">Toss drained, rinsed beans with remaining one third of oil.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.48 oz</strong> Olive oil<small class="trn-state-detail">as purchased · Two thirds for first roast; one third with beans midway.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>0.14 oz</strong> Nutritional yeast<small class="trn-state-detail">flakes · Add after cooking.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>0.53 oz</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>1.76 oz</strong> Pre-grated Parmesan<small class="trn-state-detail">as sold · Required for stated protein; check rennet label if vegetarian food is needed.</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>1.76 oz</strong> Pre-grated Parmesan<small class="trn-state-detail">as sold · Required for stated protein; check rennet label if vegetarian food is needed.</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>0.71 oz</strong> Hemp hearts<small class="trn-state-detail">hulled · Use hulled hemp hearts in the measured portion.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 454g DeLallo potato gnocchi — shelf-stable, not frozen. Buy 1 × 16 oz (454 g) packages; measure out the required weight.
+- 1 lb DeLallo potato gnocchi — shelf-stable, not frozen. Buy 1 × 16 oz (454 g) packages; measure out the required weight.
 
-- 480g Canned cannellini beans — drained and rinsed. Drained weight; canned yield varies. · About 2 × 15 oz (425 g) cans, assuming ~240 g drained per can; check actual yield.
+- 1.06 lb Canned cannellini beans — drained and rinsed. Drained weight; canned yield varies. · About 2 × 15 oz (425 g) cans, assuming ~240 g drained per can; check actual yield.
 
-- 454g Broccoli florets — about 1½ inches across
+- 1 lb Broccoli florets — about 1½ inches across
 
-- 300g Cherry tomatoes. Buy by the scaled edible weight; produce size varies.
+- 10.58 oz Cherry tomatoes. Buy by the scaled edible weight; produce size varies.
 
-- 41g Olive oil — as purchased. Two thirds for first roast; one third with beans midway.
+- 1.43 oz Olive oil — as purchased. Two thirds for first roast; one third with beans midway.
 
-- 1g Dried oregano
+- 1 tsp Dried oregano
 
-- 2g Garlic powder
+- ½ tsp Garlic powder
 
-- 2g Fine salt. Use the proportional split described in the method.
+- ¼ tsp Fine salt. Use the proportional split described in the method.
 
 - to taste Black pepper
 
-- 4g Nutritional yeast — flakes. Add after cooking.
+- 0.14 oz Nutritional yeast — flakes. Add after cooking.
 
-- 15g Lemon juice — unsweetened
+- 0.53 oz Lemon juice — unsweetened
 
-- 20g Hemp hearts — hulled. Use hulled hemp hearts in the measured portion.
+- 0.71 oz Hemp hearts — hulled. Use hulled hemp hearts in the measured portion.
 
-- 100g Pre-grated Parmesan — as sold. Required for stated protein; check rennet label if vegetarian food is needed.
+- 3.53 oz Pre-grated Parmesan — as sold. Required for stated protein; check rennet label if vegetarian food is needed.
 
 ### Equipment
 
@@ -1506,7 +1532,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Pan-fried Greek turkey patties
 
-4 adult servings · US measures · shared · 30 min active per base batch · 40 min
+4 adult servings · US imperial measures · shared · 30 min active per base batch · 40 min
 
 Pan-fried turkey-feta patties with cucumber salad and lemon yogurt.
 
@@ -1516,43 +1542,45 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Pan-fried Greek turkey patties cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Heat a 12-inch nonstick frying pan over medium heat. Cook four patties per batch.</td></tr><tr><td colspan="4" class="trn-prep">If scaled egg is half an egg: beat one whole egg and weigh about 25 g.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>300g</strong> Cucumber<small class="trn-state-detail">diced</small></th><td rowspan="2" colspan="2" class="trn-operation">Prepare cucumber and greens.</td><td rowspan="13" colspan="1" class="trn-operation">Plate two cooked turkey patties per serving with cold cucumber, greens and lemon-yogurt sauce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>142g</strong> Salad greens<small class="trn-state-detail">washed, ready to eat · Buy by scaled edible weight.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>120g</strong> Plain strained Greek yogurt<small class="trn-state-detail">plain, strained · At least 9 g protein and no more than 4 g total carbs per 100 g.</small></th><td rowspan="2" colspan="2" class="trn-operation">Mix yogurt and lemon.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>15g</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>680g</strong> 93%-lean ground turkey<small class="trn-state-essential">raw</small></th><td rowspan="8" colspan="1" class="trn-operation">Mix turkey, egg, flax, feta and seasoning just until combined. Then: Form patties about 100 g each, 3¼ inches across and ¾ inch thick; about two per serving.</td><td rowspan="9" colspan="1" class="trn-operation">Divide oil between batches; add oil and four patties to the heated pan. Then: Pan-fry 5–6 min per side over medium heat until each patty reaches 165°F. Cook in batches of four.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>50g</strong> Large egg<small class="trn-state-detail">as purchased · For fractional eggs, beat whole eggs and weigh 50 g per large-egg portion; half an egg is about 25 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14g</strong> Ground flaxseed<small class="trn-state-detail">ground, not whole · Ground seed acts as a binder; whole seeds are not equivalent.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>50g</strong> Crumbled feta<small class="trn-state-detail">as sold · Cheese label and rennet vary.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1g</strong> Dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3g</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2g</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>5g</strong> Olive oil<small class="trn-state-detail">as purchased · Divide among batches.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Pan-fried Greek turkey patties cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Heat a 12-inch nonstick frying pan over medium heat. Cook four patties per batch.</td></tr><tr><td colspan="4" class="trn-prep">If scaled egg is half an egg: beat one whole egg and weigh about 25 g.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>10.58 oz</strong> Cucumber<small class="trn-state-detail">diced</small></th><td rowspan="2" colspan="2" class="trn-operation">Prepare cucumber and greens.</td><td rowspan="13" colspan="1" class="trn-operation">Plate two cooked turkey patties per serving with cold cucumber, greens and lemon-yogurt sauce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5.01 oz</strong> Salad greens<small class="trn-state-detail">washed, ready to eat · Buy by scaled edible weight.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4.23 oz</strong> Plain strained Greek yogurt<small class="trn-state-detail">plain, strained · At least 9 g protein and no more than 4 g total carbs per 100 g.</small></th><td rowspan="2" colspan="2" class="trn-operation">Mix yogurt and lemon.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.53 oz</strong> Lemon juice<small class="trn-state-detail">unsweetened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> 93%-lean ground turkey<small class="trn-state-essential">raw</small></th><td rowspan="8" colspan="1" class="trn-operation">Mix turkey, egg, flax, feta and seasoning just until combined. Then: Form patties about 100 g each, 3¼ inches across and ¾ inch thick; about two per serving.</td><td rowspan="9" colspan="1" class="trn-operation">Divide oil between batches; add oil and four patties to the heated pan. Then: Pan-fry 5–6 min per side over medium heat until each patty reaches 165°F. Cook in batches of four.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Large egg<small class="trn-state-detail">as purchased · For fractional eggs, beat whole eggs and weigh 50 g per large-egg portion; half an egg is about 25 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.49 oz</strong> Ground flaxseed<small class="trn-state-detail">ground, not whole · Ground seed acts as a binder; whole seeds are not equivalent.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.76 oz</strong> Crumbled feta<small class="trn-state-detail">as sold · Cheese label and rennet vary.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Fine salt<small class="trn-state-detail">Use the proportional split described in the method.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.16 oz</strong> Olive oil<small class="trn-state-detail">as purchased · Divide among batches.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 680g 93%-lean ground turkey — raw
+- 1.5 lb 93%-lean ground turkey — raw
 
-- 50g Large egg — as purchased. For fractional eggs, beat whole eggs and weigh 50 g per large-egg portion; half an egg is about 25 g.
+- 1 count Large egg — as purchased. For fractional eggs, beat whole eggs and weigh 50 g per large-egg portion; half an egg is about 25 g.
 
-- 14g Ground flaxseed — ground, not whole. Ground seed acts as a binder; whole seeds are not equivalent.
+- 0.49 oz Ground flaxseed — ground, not whole. Ground seed acts as a binder; whole seeds are not equivalent.
 
-- 50g Crumbled feta — as sold. Cheese label and rennet vary.
+- 1.76 oz Crumbled feta — as sold. Cheese label and rennet vary.
 
-- 1g Dried oregano
+- 1 tsp Dried oregano
 
-- 3g Garlic powder
+- 1 tsp Garlic powder
 
-- 2g Fine salt. Use the proportional split described in the method.
+- ¼ tsp Fine salt. Use the proportional split described in the method.
 
 - to taste Black pepper
 
-- 5g Olive oil — as purchased. Divide among batches.
+- 0.16 oz Olive oil — as purchased. Divide among batches.
 
-- 300g Cucumber — diced
+- 10.58 oz Cucumber — diced
 
-- 142g Salad greens — washed, ready to eat. Buy by scaled edible weight.
+- 5.01 oz Salad greens — washed, ready to eat. Buy by scaled edible weight.
 
-- 120g Plain strained Greek yogurt — plain, strained. At least 9 g protein and no more than 4 g total carbs per 100 g.
+- 4.23 oz Plain strained Greek yogurt — plain, strained. At least 9 g protein and no more than 4 g total carbs per 100 g.
 
-- 15g Lemon juice — unsweetened
+- 0.53 oz Lemon juice — unsweetened
 
 ### Family starch options (per non-keto adult)
 
-- Pita: 60g Pita — ready to eat; warm briefly. One ready-to-eat 60 g pita per non-keto diner; warm briefly. Contains wheat; check package. Serve pita alongside both patties and salad.
+- Pita: 2.12 oz Pita — ready to eat; warm briefly. One ready-to-eat 60 g pita per non-keto diner; warm briefly. Contains wheat; check package. Serve pita alongside both patties and salad.
 
-- Bun: 45g Bun — ready to eat; warm briefly. One 45 g ready-to-eat bun per non-keto diner; warm briefly. Contains wheat; check package. The bread accompanies both patties; use a double-patty bun or serve the second patty beside it.
+- Bun: 1.59 oz Bun — ready to eat; warm briefly. One 45 g ready-to-eat bun per non-keto diner; warm briefly. Contains wheat; check package. The bread accompanies both patties; use a double-patty bun or serve the second patty beside it.
 
 ### Equipment
 
@@ -1620,7 +1648,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Avocado-lime smoothie
 
-4 adult servings · US measures · keto · 5 min active per base batch · 5 min
+4 adult servings · US imperial measures · keto · 5 min active per base batch · 5 min
 
 A creamy avocado-lime smoothie with plain Greek yogurt and no added sugar.
 
@@ -1630,23 +1658,25 @@ Blend two servings at a time in a 1.5 L blender. Keep the jar below its marked f
 
 Allow about 5 minutes for four servings in two batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Avocado-lime smoothie cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Peel and pit avocado; trim and chop cucumber. Weigh edible ingredients after preparation; use chilled ingredients.</td></tr><tr><td colspan="2" class="trn-prep">Blend two servings at a time in a 1.5 L blender.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14 oz</strong> Cold water<small class="trn-state-detail"></small></th><td rowspan="6" colspan="1" class="trn-operation">Add water first; blend in batches of up to two servings for 30–60 sec per batch, until smooth. Then: Divide among serving glasses and serve chilled.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>20g</strong> Lime juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>400g</strong> Plain lowfat Greek yogurt<small class="trn-state-detail">plain, unsweetened, 2% fat</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>28g</strong> Ground flaxseed<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>240g</strong> Avocado flesh<small class="trn-state-detail">peeled, pitted</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>200g</strong> Cucumber<small class="trn-state-detail">trimmed, chopped</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Avocado-lime smoothie cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Peel and pit avocado; trim and chop cucumber. Weigh edible ingredients after preparation; use chilled ingredients.</td></tr><tr><td colspan="2" class="trn-prep">Blend two servings at a time in a 1.5 L blender.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>13.53 fl oz</strong> Cold water<small class="trn-state-detail"></small></th><td rowspan="6" colspan="1" class="trn-operation">Add water first; blend in batches of up to two servings for 30–60 sec per batch, until smooth. Then: Divide among serving glasses and serve chilled.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.71 oz</strong> Lime juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14.11 oz</strong> Plain lowfat Greek yogurt<small class="trn-state-detail">plain, unsweetened, 2% fat</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.99 oz</strong> Ground flaxseed<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8.47 oz</strong> Avocado flesh<small class="trn-state-detail">peeled, pitted</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>7.05 oz</strong> Cucumber<small class="trn-state-detail">trimmed, chopped</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 400g Plain lowfat Greek yogurt — plain, unsweetened, 2% fat
+- 14.11 oz Plain lowfat Greek yogurt — plain, unsweetened, 2% fat
 
-- 240g Avocado flesh — peeled, pitted
+- 8.47 oz Avocado flesh — peeled, pitted
 
-- 200g Cucumber — trimmed, chopped
+- 7.05 oz Cucumber — trimmed, chopped
 
-- 20g Lime juice
+- 0.71 oz Lime juice
 
-- 28g Ground flaxseed
+- 0.99 oz Ground flaxseed
 
-- 14 oz Cold water
+- 13.53 fl oz Cold water
 
 ### Equipment
 
@@ -1704,7 +1734,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Strawberry-avocado smoothie
 
-4 adult servings · US measures · keto · 5 min active per base batch · 5 min
+4 adult servings · US imperial measures · keto · 5 min active per base batch · 5 min
 
 A creamy strawberry-avocado smoothie with plain Greek yogurt and no added sugar.
 
@@ -1714,21 +1744,23 @@ Blend two servings at a time in a 1.5 L blender. Keep the jar below its marked f
 
 Allow about 5 minutes for four servings in two batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Strawberry-avocado smoothie cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Peel and pit avocado; hull strawberries. Weigh edible ingredients after preparation; use chilled ingredients.</td></tr><tr><td colspan="2" class="trn-prep">Blend two servings at a time in a 1.5 L blender.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14 oz</strong> Cold water<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Add water first; blend in batches of up to two servings for 30–60 sec per batch, until smooth. Then: Divide among serving glasses and serve chilled.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>400g</strong> Plain lowfat Greek yogurt<small class="trn-state-detail">plain, unsweetened, 2% fat</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>28g</strong> Ground flaxseed<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>200g</strong> Avocado flesh<small class="trn-state-detail">peeled, pitted</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>200g</strong> Strawberries<small class="trn-state-detail">hulled</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Strawberry-avocado smoothie cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Peel and pit avocado; hull strawberries. Weigh edible ingredients after preparation; use chilled ingredients.</td></tr><tr><td colspan="2" class="trn-prep">Blend two servings at a time in a 1.5 L blender.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>13.53 fl oz</strong> Cold water<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Add water first; blend in batches of up to two servings for 30–60 sec per batch, until smooth. Then: Divide among serving glasses and serve chilled.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14.11 oz</strong> Plain lowfat Greek yogurt<small class="trn-state-detail">plain, unsweetened, 2% fat</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.99 oz</strong> Ground flaxseed<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>7.05 oz</strong> Avocado flesh<small class="trn-state-detail">peeled, pitted</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>7.05 oz</strong> Strawberries<small class="trn-state-detail">hulled</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 400g Plain lowfat Greek yogurt — plain, unsweetened, 2% fat
+- 14.11 oz Plain lowfat Greek yogurt — plain, unsweetened, 2% fat
 
-- 200g Avocado flesh — peeled, pitted
+- 7.05 oz Avocado flesh — peeled, pitted
 
-- 200g Strawberries — hulled
+- 7.05 oz Strawberries — hulled
 
-- 28g Ground flaxseed
+- 0.99 oz Ground flaxseed
 
-- 14 oz Cold water
+- 13.53 fl oz Cold water
 
 ### Equipment
 
@@ -1786,7 +1818,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Strawberry-banana smoothie
 
-4 adult servings · US measures · nonketo · 5 min active per base batch · 5 min
+4 adult servings · US imperial measures · nonketo · 5 min active per base batch · 5 min
 
 A creamy strawberry-banana smoothie with plain Greek yogurt and no added sugar.
 
@@ -1796,19 +1828,21 @@ Blend two servings at a time in a 1.5 L blender. Keep the jar below its marked f
 
 Allow about 5 minutes for four servings in two batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Strawberry-banana smoothie cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Hull strawberries; peel and slice banana. Weigh edible ingredients after preparation; use chilled ingredients.</td></tr><tr><td colspan="2" class="trn-prep">Blend two servings at a time in a 1.5 L blender.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14 oz</strong> Cold water<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Add water first; blend in batches of up to two servings for 30–60 sec per batch, until smooth. Then: Divide among serving glasses and serve chilled.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>600g</strong> Plain lowfat Greek yogurt<small class="trn-state-detail">plain, unsweetened, 2% fat</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>400g</strong> Banana<small class="trn-state-detail">peeled, sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>600g</strong> Strawberries<small class="trn-state-detail">hulled</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Strawberry-banana smoothie cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Hull strawberries; peel and slice banana. Weigh edible ingredients after preparation; use chilled ingredients.</td></tr><tr><td colspan="2" class="trn-prep">Blend two servings at a time in a 1.5 L blender.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>13.53 fl oz</strong> Cold water<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Add water first; blend in batches of up to two servings for 30–60 sec per batch, until smooth. Then: Divide among serving glasses and serve chilled.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.32 lb</strong> Plain lowfat Greek yogurt<small class="trn-state-detail">plain, unsweetened, 2% fat</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14.11 oz</strong> Banana<small class="trn-state-detail">peeled, sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.32 lb</strong> Strawberries<small class="trn-state-detail">hulled</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 600g Plain lowfat Greek yogurt — plain, unsweetened, 2% fat
+- 1.32 lb Plain lowfat Greek yogurt — plain, unsweetened, 2% fat
 
-- 600g Strawberries — hulled
+- 1.32 lb Strawberries — hulled
 
-- 400g Banana — peeled, sliced
+- 14.11 oz Banana — peeled, sliced
 
-- 14 oz Cold water
+- 13.53 fl oz Cold water
 
 ### Equipment
 
@@ -1866,7 +1900,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Banana-flax smoothie
 
-4 adult servings · US measures · nonketo · 5 min active per base batch · 5 min
+4 adult servings · US imperial measures · nonketo · 5 min active per base batch · 5 min
 
 A creamy banana-flax smoothie with plain Greek yogurt and no added sugar.
 
@@ -1876,19 +1910,21 @@ Blend two servings at a time in a 1.5 L blender. Keep the jar below its marked f
 
 Allow about 5 minutes for four servings in two batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Banana-flax smoothie cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Peel and slice banana. Weigh edible ingredients after preparation; use chilled ingredients.</td></tr><tr><td colspan="2" class="trn-prep">Blend two servings at a time in a 1.5 L blender.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14 oz</strong> Cold water<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Add water first; blend in batches of up to two servings for 30–60 sec per batch, until smooth. Then: Divide among serving glasses and serve chilled.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>600g</strong> Plain lowfat Greek yogurt<small class="trn-state-detail">plain, unsweetened, 2% fat</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>40g</strong> Ground flaxseed<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>480g</strong> Banana<small class="trn-state-detail">peeled, sliced</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Banana-flax smoothie cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Peel and slice banana. Weigh edible ingredients after preparation; use chilled ingredients.</td></tr><tr><td colspan="2" class="trn-prep">Blend two servings at a time in a 1.5 L blender.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>13.53 fl oz</strong> Cold water<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Add water first; blend in batches of up to two servings for 30–60 sec per batch, until smooth. Then: Divide among serving glasses and serve chilled.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.32 lb</strong> Plain lowfat Greek yogurt<small class="trn-state-detail">plain, unsweetened, 2% fat</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.41 oz</strong> Ground flaxseed<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.06 lb</strong> Banana<small class="trn-state-detail">peeled, sliced</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 600g Plain lowfat Greek yogurt — plain, unsweetened, 2% fat
+- 1.32 lb Plain lowfat Greek yogurt — plain, unsweetened, 2% fat
 
-- 480g Banana — peeled, sliced
+- 1.06 lb Banana — peeled, sliced
 
-- 40g Ground flaxseed
+- 1.41 oz Ground flaxseed
 
-- 14 oz Cold water
+- 13.53 fl oz Cold water
 
 ### Equipment
 
@@ -1946,7 +1982,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Strawberry-hemp smoothie
 
-4 adult servings · US measures · keto · 5 min active per base batch · 5 min
+4 adult servings · US imperial measures · keto · 5 min active per base batch · 5 min
 
 A tangy strawberry smoothie with hulled hemp hearts for a nutty finish, without banana or added sugar.
 
@@ -1956,19 +1992,21 @@ Blend two servings at a time in a 1.5 L blender. Keep the jar below its marked f
 
 Allow about 5 minutes for four servings in two batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Strawberry-hemp smoothie cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Hull and quarter the strawberries. Weigh the yogurt and hulled hemp hearts.</td></tr><tr><td colspan="2" class="trn-prep">Use chilled ingredients; blend at most two servings per batch in a 1.5 L blender.</td></tr><tr><td colspan="2" class="trn-prep">Keep the blender below its marked fill limit; use additional batches when needed.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>20 oz</strong> Cold water<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Add water first; blend in batches of up to two servings for 30–60 sec per batch, until smooth. Then: Divide among serving glasses and serve chilled.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>400g</strong> Plain lowfat Greek yogurt<small class="trn-state-detail">plain, unsweetened, 2% fat</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>80g</strong> Hulled hemp hearts<small class="trn-state-detail">hulled, unsalted</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>240g</strong> Strawberries<small class="trn-state-detail">hulled</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Strawberry-hemp smoothie cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Hull and quarter the strawberries. Weigh the yogurt and hulled hemp hearts.</td></tr><tr><td colspan="2" class="trn-prep">Use chilled ingredients; blend at most two servings per batch in a 1.5 L blender.</td></tr><tr><td colspan="2" class="trn-prep">Keep the blender below its marked fill limit; use additional batches when needed.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>20.29 fl oz</strong> Cold water<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Add water first; blend in batches of up to two servings for 30–60 sec per batch, until smooth. Then: Divide among serving glasses and serve chilled.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14.11 oz</strong> Plain lowfat Greek yogurt<small class="trn-state-detail">plain, unsweetened, 2% fat</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2.82 oz</strong> Hulled hemp hearts<small class="trn-state-detail">hulled, unsalted</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8.47 oz</strong> Strawberries<small class="trn-state-detail">hulled</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 400g Plain lowfat Greek yogurt — plain, unsweetened, 2% fat
+- 14.11 oz Plain lowfat Greek yogurt — plain, unsweetened, 2% fat
 
-- 240g Strawberries — hulled
+- 8.47 oz Strawberries — hulled
 
-- 80g Hulled hemp hearts — hulled, unsalted
+- 2.82 oz Hulled hemp hearts — hulled, unsalted
 
-- 20 oz Cold water
+- 20.29 fl oz Cold water
 
 ### Equipment
 
@@ -2036,7 +2074,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Cucumber-spinach-lime smoothie
 
-4 adult servings · US measures · keto · 5 min active per base batch · 5 min
+4 adult servings · US imperial measures · keto · 5 min active per base batch · 5 min
 
 A fresh, savory green smoothie with cucumber, raw spinach, lime and ground flaxseed, without added sugar.
 
@@ -2046,23 +2084,25 @@ Blend two servings at a time in a 1.5 L blender. Keep the jar below its marked f
 
 Allow about 5 minutes for four servings in two batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Cucumber-spinach-lime smoothie cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Rinse cucumber and spinach under running water. Trim and chop cucumber; juice the lime and weigh the juice.</td></tr><tr><td colspan="2" class="trn-prep">Use chilled ingredients; blend at most two servings per batch in a 1.5 L blender.</td></tr><tr><td colspan="2" class="trn-prep">Keep the blender below its marked fill limit; use additional batches when needed.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>20 oz</strong> Cold water<small class="trn-state-detail"></small></th><td rowspan="6" colspan="1" class="trn-operation">Add water first; blend in batches of up to two servings for 30–60 sec per batch, until smooth. Then: Divide among serving glasses and serve chilled.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>24g</strong> Lime juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>400g</strong> Plain lowfat Greek yogurt<small class="trn-state-detail">plain, unsweetened, 2% fat</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>32g</strong> Ground flaxseed<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>120g</strong> Raw spinach<small class="trn-state-detail">fresh, washed</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>240g</strong> Cucumber<small class="trn-state-detail">trimmed, chopped</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Cucumber-spinach-lime smoothie cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Rinse cucumber and spinach under running water. Trim and chop cucumber; juice the lime and weigh the juice.</td></tr><tr><td colspan="2" class="trn-prep">Use chilled ingredients; blend at most two servings per batch in a 1.5 L blender.</td></tr><tr><td colspan="2" class="trn-prep">Keep the blender below its marked fill limit; use additional batches when needed.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>20.29 fl oz</strong> Cold water<small class="trn-state-detail"></small></th><td rowspan="6" colspan="1" class="trn-operation">Add water first; blend in batches of up to two servings for 30–60 sec per batch, until smooth. Then: Divide among serving glasses and serve chilled.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.85 oz</strong> Lime juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14.11 oz</strong> Plain lowfat Greek yogurt<small class="trn-state-detail">plain, unsweetened, 2% fat</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.13 oz</strong> Ground flaxseed<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4.23 oz</strong> Raw spinach<small class="trn-state-detail">fresh, washed</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8.47 oz</strong> Cucumber<small class="trn-state-detail">trimmed, chopped</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 400g Plain lowfat Greek yogurt — plain, unsweetened, 2% fat
+- 14.11 oz Plain lowfat Greek yogurt — plain, unsweetened, 2% fat
 
-- 240g Cucumber — trimmed, chopped
+- 8.47 oz Cucumber — trimmed, chopped
 
-- 120g Raw spinach — fresh, washed
+- 4.23 oz Raw spinach — fresh, washed
 
-- 24g Lime juice
+- 0.85 oz Lime juice
 
-- 32g Ground flaxseed
+- 1.13 oz Ground flaxseed
 
-- 20 oz Cold water
+- 20.29 fl oz Cold water
 
 ### Equipment
 
@@ -2134,7 +2174,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Chicken Posole (enchilada soup)
 
-4 adult servings · US measures · nonketo · 15 min active per base batch · 40 min
+4 adult servings · US imperial measures · nonketo · 15 min active per base batch · 40 min
 
 Chicken and white beans in red enchilada broth, finished with lime, cabbage and cilantro.
 
@@ -2144,37 +2184,39 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Chicken Posole (enchilada soup) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="5" class="trn-prep">Use fully cooked chicken and canned beans. Prepare washed cabbage and cilantro; keep them for serving. Use a 4-quart or larger pot, or a larger pot/batches above four servings.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>14g</strong> Olive oil<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Heat oil over medium heat; sauté onion and pepper about 5 min until soft, then add garlic for 30 sec.</td><td rowspan="9" colspan="1" class="trn-operation">Add broth, sauce, canned beans with liquid, salt and cayenne. Boil, then simmer 10 min, stirring occasionally.</td><td rowspan="10" colspan="1" class="trn-operation">Add cooked chicken; simmer until chicken reaches 165°F in several places.</td><td rowspan="13" colspan="1" class="trn-operation">Turn off heat, stir in lime; serve with cabbage and cilantro.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>40g</strong> Onion<small class="trn-state-detail">diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>30g</strong> Red bell pepper<small class="trn-state-detail">diced · The old optional pepper is included in this estimate.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>15g</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>32.5 oz</strong> Reduced-sodium chicken broth<small class="trn-state-detail">ready-to-use</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>283g</strong> Red enchilada sauce<small class="trn-state-detail">ready-to-eat, canned · Base four-serving batch: about one 10 oz can. Estimate uses Old El Paso medium red sauce; labels vary.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>425g</strong> Canned white beans<small class="trn-state-essential">fully cooked, including can liquid · Base four-serving batch: one 15 oz can; do not substitute dry beans.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>3g</strong> Fine salt<small class="trn-state-detail">Original amount; reduce to taste if your broth or sauce is salty.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>3g</strong> Cayenne pepper<small class="trn-state-detail">Original amount is very hot. Start with less if desired.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>400g</strong> Cooked shredded chicken breast<small class="trn-state-essential">fully cooked, skinless, boneless; cooked edible weight · Added in the restored version because the old Chicken Posole entry omitted a chicken amount.</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>15g</strong> Lime juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>150g</strong> Cabbage<small class="trn-state-detail">finely shredded · Measured amount for the old to-taste garnish.</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>8g</strong> Cilantro<small class="trn-state-detail">washed and chopped · Measured amount for the old to-taste garnish.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Chicken Posole (enchilada soup) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="5" class="trn-prep">Use fully cooked chicken and canned beans. Prepare washed cabbage and cilantro; keep them for serving. Use a 4-quart or larger pot, or a larger pot/batches above four servings.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.49 oz</strong> Olive oil<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Heat oil over medium heat; sauté onion and pepper about 5 min until soft, then add garlic for 30 sec.</td><td rowspan="9" colspan="1" class="trn-operation">Add broth, sauce, canned beans with liquid, salt and cayenne. Boil, then simmer 10 min, stirring occasionally.</td><td rowspan="10" colspan="1" class="trn-operation">Add cooked chicken; simmer until chicken reaches 165°F in several places.</td><td rowspan="13" colspan="1" class="trn-operation">Turn off heat, stir in lime; serve with cabbage and cilantro.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.41 oz</strong> Onion<small class="trn-state-detail">diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.06 oz</strong> Red bell pepper<small class="trn-state-detail">diced · The old optional pepper is included in this estimate.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.53 oz</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>32.46 fl oz</strong> Reduced-sodium chicken broth<small class="trn-state-detail">ready-to-use</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>9.98 oz</strong> Red enchilada sauce<small class="trn-state-detail">ready-to-eat, canned · Base four-serving batch: about one 10 oz can. Estimate uses Old El Paso medium red sauce; labels vary.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>14.99 oz</strong> Canned white beans<small class="trn-state-essential">fully cooked, including can liquid · Base four-serving batch: one 15 oz can; do not substitute dry beans.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.11 oz</strong> Fine salt<small class="trn-state-detail">Original amount; reduce to taste if your broth or sauce is salty.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.11 oz</strong> Cayenne pepper<small class="trn-state-detail">Original amount is very hot. Start with less if desired.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>14.11 oz</strong> Cooked shredded chicken breast<small class="trn-state-essential">fully cooked, skinless, boneless; cooked edible weight · Added in the restored version because the old Chicken Posole entry omitted a chicken amount.</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>0.53 oz</strong> Lime juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>5.29 oz</strong> Cabbage<small class="trn-state-detail">finely shredded · Measured amount for the old to-taste garnish.</small></th></tr><tr><th scope="row" colspan="4" class="trn-ingredient"><strong>0.28 oz</strong> Cilantro<small class="trn-state-detail">washed and chopped · Measured amount for the old to-taste garnish.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 14g Olive oil
+- 0.49 oz Olive oil
 
-- 40g Onion — diced
+- 1.41 oz Onion — diced
 
-- 15g Garlic — minced
+- 0.53 oz Garlic — minced
 
-- 30g Red bell pepper — diced. The old optional pepper is included in this estimate.
+- 1.06 oz Red bell pepper — diced. The old optional pepper is included in this estimate.
 
-- 3g Fine salt. Original amount; reduce to taste if your broth or sauce is salty.
+- 0.11 oz Fine salt. Original amount; reduce to taste if your broth or sauce is salty.
 
-- 283g Red enchilada sauce — ready-to-eat, canned. Base four-serving batch: about one 10 oz can. Estimate uses Old El Paso medium red sauce; labels vary.
+- 9.98 oz Red enchilada sauce — ready-to-eat, canned. Base four-serving batch: about one 10 oz can. Estimate uses Old El Paso medium red sauce; labels vary.
 
-- 3g Cayenne pepper. Original amount is very hot. Start with less if desired.
+- 0.11 oz Cayenne pepper. Original amount is very hot. Start with less if desired.
 
-- 425g Canned white beans — fully cooked, including can liquid. Base four-serving batch: one 15 oz can; do not substitute dry beans.
+- 14.99 oz Canned white beans — fully cooked, including can liquid. Base four-serving batch: one 15 oz can; do not substitute dry beans.
 
-- 32.5 oz Reduced-sodium chicken broth — ready-to-use
+- 32.46 fl oz Reduced-sodium chicken broth — ready-to-use
 
-- 400g Cooked shredded chicken breast — fully cooked, skinless, boneless; cooked edible weight. Added in the restored version because the old Chicken Posole entry omitted a chicken amount.
+- 14.11 oz Cooked shredded chicken breast — fully cooked, skinless, boneless; cooked edible weight. Added in the restored version because the old Chicken Posole entry omitted a chicken amount.
 
-- 15g Lime juice
+- 0.53 oz Lime juice
 
-- 150g Cabbage — finely shredded. Measured amount for the old to-taste garnish.
+- 5.29 oz Cabbage — finely shredded. Measured amount for the old to-taste garnish.
 
-- 8g Cilantro — washed and chopped. Measured amount for the old to-taste garnish.
+- 0.28 oz Cilantro — washed and chopped. Measured amount for the old to-taste garnish.
 
 ### Equipment
 
@@ -2252,7 +2294,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## One-pan keto green chili chicken
 
-4 portions · US measures · keto · 5 min publisher preparation · 25 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 25 min
 
 Cooked shredded chicken in a green-chili cheese sauce.
 
@@ -2262,9 +2304,11 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="One-pan keto green chili chicken cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Use fully cooked shredded chicken. Keep the sauce cheddar and topping cheddar separate.</td></tr><tr><td colspan="4" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><td colspan="4" class="trn-prep">For larger batches, choose a larger skillet or cook separate batches.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> Butter<small class="trn-state-detail"></small></th><td rowspan="3" colspan="1" class="trn-operation">Melt butter over medium heat; stir garlic and jalapeño for 30 sec.</td><td rowspan="11" colspan="1" class="trn-operation">Whisk in liquids, cream cheese, chilis, spices and sauce cheddar until smooth.</td><td rowspan="13" colspan="1" class="trn-operation">Fold chicken into the smooth sauce and scatter topping cheddar over it. Then: Cover on low; simmer about 10 min and confirm chicken reaches 165°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> Minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> Jalapeño<small class="trn-state-detail">seeded and chopped</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Unsweetened almond milk<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅙ cup</strong> Heavy cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 oz</strong> Cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2.7 oz</strong> Canned green chilis<small class="trn-state-essential">undrained · Two-thirds of the source four-ounce can at four servings.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ tsp</strong> Chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ tsp</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅓ tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Shredded cheddar for the sauce<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>3 ⅓ cup</strong> Shredded chicken<small class="trn-state-essential">fully cooked</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>⅓ cup</strong> Shredded cheddar for topping<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="One-pan keto green chili chicken cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Use fully cooked shredded chicken. Keep the sauce cheddar and topping cheddar separate.</td></tr><tr><td colspan="4" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><td colspan="4" class="trn-prep">For larger batches, choose a larger skillet or cook separate batches.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> Butter<small class="trn-state-detail"></small></th><td rowspan="3" colspan="1" class="trn-operation">Melt butter over medium heat; stir garlic and jalapeño for 30 sec.</td><td rowspan="11" colspan="1" class="trn-operation">Whisk in liquids, cream cheese, chilis, spices and sauce cheddar until smooth.</td><td rowspan="13" colspan="1" class="trn-operation">Fold chicken into the smooth sauce and scatter topping cheddar over it. Then: Cover on low; simmer about 10 min and confirm chicken reaches 165°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> Minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> Jalapeño<small class="trn-state-detail">seeded and chopped</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Unsweetened almond milk<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅙ cup</strong> Heavy cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 oz</strong> Cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2.67 oz</strong> Canned green chilis<small class="trn-state-essential">undrained · Two-thirds of the source four-ounce can at four servings.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ tsp</strong> Chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ tsp</strong> Ground cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅓ tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Shredded cheddar for the sauce<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>3 ⅓ cup</strong> Shredded chicken<small class="trn-state-essential">fully cooked</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>⅓ cup</strong> Shredded cheddar for topping<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
@@ -2280,7 +2324,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - 2 oz Cream cheese
 
-- 2.7 oz Canned green chilis — undrained. Two-thirds of the source four-ounce can at four servings.
+- 2.67 oz Canned green chilis — undrained. Two-thirds of the source four-ounce can at four servings.
 
 - ⅔ tsp Chili powder
 
@@ -2406,7 +2450,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Honey Mustard Chicken Sheet Pan Dinner (keto + low carb)
 
-4 portions · US measures · keto · 5 min publisher preparation · Not provided
+4 portions · US imperial measures · keto · 5 min publisher preparation · Not provided
 
 Honey Mustard Chicken Sheet Pan Dinner (keto + low carb). Original recipe adapted with source quantities and workflow.
 
@@ -2415,6 +2459,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -2536,7 +2582,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## One Pan Cheesy Fajita Chicken (keto + low carb)
 
-4 portions · US measures · keto · 10 min publisher preparation · 25 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 25 min
 
 One Pan Cheesy Fajita Chicken (keto + low carb). Original recipe adapted with source quantities and workflow.
 
@@ -2546,13 +2592,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="One Pan Cheesy Fajita Chicken (keto + low carb) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cut chicken and vegetables before heating the skillet.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Chicken<small class="trn-state-essential">raw; cut into chunks</small></th><td rowspan="11" colspan="1" class="trn-operation">Season chicken; sear over medium in method spray/oil 2–3 min each side; add vegetables, cook 5 min until beginning to soften and reserve.</td><td rowspan="17" colspan="1" class="trn-operation">Return chicken and vegetables to sauce; add reserved cheddar, cover and simmer low 6–8 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> bell pepper<small class="trn-state-detail">cut into small pieces</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> onion<small class="trn-state-detail">cut into small pieces</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> jalapeños<small class="trn-state-detail">seeded and diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil or cooking spray<small class="trn-state-detail">Source method allows up to 1 tablespoon olive oil OR unmeasured nonstick spray. This measured amount is an upper limit, not a mandatory minimum.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> heavy cream<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Melt listed butter into cream, broth, cream cheese and half cheddar over medium-low into a thick sauce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 oz</strong> cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> cheddar<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ cup</strong> cheddar<small class="trn-state-detail">divided</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="One Pan Cheesy Fajita Chicken (keto + low carb) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cut chicken and vegetables before heating the skillet.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Chicken<small class="trn-state-essential">raw; cut into chunks</small></th><td rowspan="11" colspan="1" class="trn-operation">Season chicken; sear over medium in method spray/oil 2–3 min each side; add vegetables, cook 5 min until beginning to soften and reserve.</td><td rowspan="17" colspan="1" class="trn-operation">Return chicken and vegetables to sauce; add reserved cheddar, cover and simmer low 6–8 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> bell pepper<small class="trn-state-detail">cut into small pieces</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> onion<small class="trn-state-detail">cut into small pieces</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> jalapeños<small class="trn-state-detail">seeded and diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil or cooking spray<small class="trn-state-detail">Source method allows up to 1 tablespoon olive oil OR unmeasured nonstick spray. This measured amount is an upper limit, not a mandatory minimum.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> heavy cream<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Melt listed butter into cream, broth, cream cheese and half cheddar over medium-low into a thick sauce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 oz</strong> cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> cheddar<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ cup</strong> cheddar<small class="trn-state-detail">divided</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 1 ½ lb Chicken — raw; cut into chunks
+- 1.5 lb Chicken — raw; cut into chunks
 
 - 1 tsp cumin
 
@@ -2708,7 +2756,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Keto Jalapeño Chicken
 
-4 portions · US measures · keto · 10 min publisher preparation · 25 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 25 min
 
 Keto Jalapeño Chicken. Original recipe adapted with source quantities and workflow.
 
@@ -2717,6 +2765,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -2874,7 +2924,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Keto Broccoli Cheddar Chicken
 
-4 portions · US measures · keto · 15 min publisher preparation · Not provided
+4 portions · US imperial measures · keto · 15 min publisher preparation · Not provided
 
 Keto Broccoli Cheddar Chicken. Original recipe adapted with source quantities and workflow.
 
@@ -2883,6 +2933,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -3034,7 +3086,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Sesame Chicken Keto Stir Fry
 
-4 portions · US measures · keto · Preparation time not provided · 25 min
+4 portions · US imperial measures · keto · Preparation time not provided · 25 min
 
 Sesame Chicken Keto Stir Fry. Original recipe adapted with source quantities and workflow.
 
@@ -3044,9 +3096,11 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Sesame Chicken Keto Stir Fry cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Thinly slice chicken and zucchini.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> gluten free soy sauce<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Whisk sesame sauce.</td><td rowspan="11" colspan="1" class="trn-operation">Add sauce to chicken and zucchini; cover, simmer low 10 min; serve with cashews and green onions.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> rice vinegar<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> brown sugar swerve<small class="trn-state-detail">or other keto friendly sweetener</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> sesame oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil or sesame oil for frying<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Brown seasoned chicken over medium in frying oil 5–6 min; add zucchini 2–3 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> chicken<small class="trn-state-detail">thinly sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> medium size zucchini<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> salt and pepper to taste<small class="trn-state-detail">Source does not state an amount; measure to taste or as needed.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> cashews<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> green onions<small class="trn-state-detail">chopped</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Sesame Chicken Keto Stir Fry cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Thinly slice chicken and zucchini.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> gluten free soy sauce<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Whisk sesame sauce.</td><td rowspan="11" colspan="1" class="trn-operation">Add sauce to chicken and zucchini; cover, simmer low 10 min; serve with cashews and green onions.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> rice vinegar<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> brown sugar swerve<small class="trn-state-detail">or other keto friendly sweetener</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> sesame oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil or sesame oil for frying<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Brown seasoned chicken over medium in frying oil 5–6 min; add zucchini 2–3 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> chicken<small class="trn-state-detail">thinly sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> medium size zucchini<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> salt and pepper to taste<small class="trn-state-detail">Source does not state an amount; measure to taste or as needed.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> cashews<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> green onions<small class="trn-state-detail">chopped</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
@@ -3062,7 +3116,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - 1 tbsp olive oil or sesame oil for frying
 
-- 1 ½ lb chicken — thinly sliced
+- 1.5 lb chicken — thinly sliced
 
 - 1 count medium size zucchini — sliced
 
@@ -3174,7 +3228,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## One Pan Mushroom Chicken (keto + low carb)
 
-4 portions · US measures · keto · 5 min publisher preparation · 25 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 25 min
 
 One Pan Mushroom Chicken (keto + low carb). Original recipe adapted with source quantities and workflow.
 
@@ -3183,6 +3237,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -3300,7 +3356,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Keto Slow Cooker Zesty Ranch Chicken
 
-4 portions · US measures · unverified · 5 min publisher preparation · 485 min
+4 portions · US imperial measures · unverified · 5 min publisher preparation · 485 min
 
 Keto Slow Cooker Zesty Ranch Chicken. Original recipe adapted with source quantities and workflow.
 
@@ -3310,9 +3366,11 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Slow Cooker Zesty Ranch Chicken cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Use a small slow cooker; source uses 2 quarts.</td></tr><tr><td colspan="2" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="2" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> chicken breast<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Slow-cook all ingredients on low 8 h; shred chicken and peppers, then stir.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2.7 oz</strong> cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.7 oz</strong> Hidden Valley Ranch seasoning mix<small class="trn-state-detail">dry mix; source uses one 1-ounce package</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 ⅓ count</strong> jarred pepperoncini peppers<small class="trn-state-detail">Source gives a range; amount is its lower endpoint, amountMax its upper endpoint. Source range: 8–10 count; use the lower stated amount as the scaled starting point.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Slow Cooker Zesty Ranch Chicken cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Use a small slow cooker; source uses 2 quarts.</td></tr><tr><td colspan="2" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="2" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> chicken breast<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Slow-cook all ingredients on low 8 h; shred chicken and peppers, then stir.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2.67 oz</strong> cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.67 oz</strong> Hidden Valley Ranch seasoning mix<small class="trn-state-detail">dry mix; source uses one 1-ounce package</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 ⅓ count</strong> jarred pepperoncini peppers<small class="trn-state-detail">Source gives a range; amount is its lower endpoint, amountMax its upper endpoint. Source range: 8–10 count; use the lower stated amount as the scaled starting point.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
@@ -3320,9 +3378,9 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - ⅔ tbsp butter
 
-- 2.7 oz cream cheese
+- 2.67 oz cream cheese
 
-- 0.7 oz Hidden Valley Ranch seasoning mix — dry mix; source uses one 1-ounce package
+- 0.67 oz Hidden Valley Ranch seasoning mix — dry mix; source uses one 1-ounce package
 
 - 5 ⅓ count jarred pepperoncini peppers. Source gives a range; amount is its lower endpoint, amountMax its upper endpoint. Source range: 8–10 count; use the lower stated amount as the scaled starting point.
 
@@ -3398,7 +3456,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Skillet Creamy Lemon Chicken with Cauliflower
 
-4 portions · US measures · keto · 15 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 15 min publisher preparation · 30 min
 
 Skillet Creamy Lemon Chicken with Cauliflower. Original recipe adapted with source quantities and workflow.
 
@@ -3407,6 +3465,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -3542,7 +3602,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Creamy Buffalo Chicken Cauliflower Casserole
 
-4 portions · US measures · keto · 20 min publisher preparation · Not provided
+4 portions · US imperial measures · keto · 20 min publisher preparation · Not provided
 
 Creamy Buffalo Chicken Cauliflower Casserole. Original recipe adapted with source quantities and workflow.
 
@@ -3552,9 +3612,11 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Creamy Buffalo Chicken Cauliflower Casserole cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 375°F. Chicken must already be cooked and shredded or diced.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> boneless, skinless chicken<small class="trn-state-essential">fully cooked; diced or shredded</small></th><td rowspan="5" colspan="1" class="trn-operation">Mix chicken, cauliflower, buffalo sauce, cream cheese and three quarters cheddar.</td><td rowspan="6" colspan="1" class="trn-operation">Transfer filling to dish, top with remaining cheddar; loosely cover with foil, bake 375°F 25 min, then uncovered about 10 min until bubbling and melted.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 ⅓ cup</strong> cauliflower<small class="trn-state-detail">riced or finely chopped from 1 medium size head</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> buffalo sauce<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5.3 oz</strong> cream cheese<small class="trn-state-detail">room temperature</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 oz</strong> sharp cheddar cheese<small class="trn-state-detail">shredded</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1.3 oz</strong> sharp cheddar cheese<small class="trn-state-detail">shredded</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Creamy Buffalo Chicken Cauliflower Casserole cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 375°F. Chicken must already be cooked and shredded or diced.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> boneless, skinless chicken<small class="trn-state-essential">fully cooked; diced or shredded</small></th><td rowspan="5" colspan="1" class="trn-operation">Mix chicken, cauliflower, buffalo sauce, cream cheese and three quarters cheddar.</td><td rowspan="6" colspan="1" class="trn-operation">Transfer filling to dish, top with remaining cheddar; loosely cover with foil, bake 375°F 25 min, then uncovered about 10 min until bubbling and melted.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 ⅓ cup</strong> cauliflower<small class="trn-state-detail">riced or finely chopped from 1 medium size head</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> buffalo sauce<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5.33 oz</strong> cream cheese<small class="trn-state-detail">room temperature</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 oz</strong> sharp cheddar cheese<small class="trn-state-detail">shredded</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1.33 oz</strong> sharp cheddar cheese<small class="trn-state-detail">shredded</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
@@ -3564,9 +3626,9 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - ⅓ cup buffalo sauce
 
-- 5.3 oz cream cheese — room temperature
+- 5.33 oz cream cheese — room temperature
 
-- 5.3 oz sharp cheddar cheese — shredded
+- 5.33 oz sharp cheddar cheese — shredded
 
 ### Equipment
 
@@ -3646,7 +3708,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Keto Butter Chicken (Family Favorite)
 
-4 portions · US measures · keto · 60 min publisher preparation · 90 min
+4 portions · US imperial measures · keto · 60 min publisher preparation · 90 min
 
 Keto Butter Chicken (Family Favorite). Original recipe adapted with source quantities and workflow.
 
@@ -3656,9 +3718,11 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Butter Chicken (Family Favorite) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cut chicken into bite-sized pieces. Allow 1 hour for refrigerated marination.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> Greek Yogurt<small class="trn-state-detail"></small></th><td rowspan="7" colspan="1" class="trn-operation">Marinate chicken in yogurt mixture chilled 1 h; sear in avocado oil medium-high about 8 min to 165°F and pour off liquid.</td><td rowspan="17" colspan="1" class="trn-operation">Add remaining garlic, ginger, salt and spices 1 min; add tomato products, cream and butter, thicken; garnish cilantro.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> Ginger paste<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 clove</strong> Garlic, minced<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Kosher salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ lb</strong> Boneless skinless chicken thighs cut into bite size chunks<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> avocado oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ tsp</strong> Kosher salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 ⅔ clove</strong> Garlic, minced<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> Ginger paste<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Garam Masala<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Smoked paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>5.3 oz</strong> Tomato sauce<small class="trn-state-detail">source uses one 8-ounce container</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> Tomato paste<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅓ cup</strong> Heavy cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh cilantro for garnish<small class="trn-state-detail">Source does not state an amount; measure to taste or as needed. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Butter Chicken (Family Favorite) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cut chicken into bite-sized pieces. Allow 1 hour for refrigerated marination.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> Greek Yogurt<small class="trn-state-detail"></small></th><td rowspan="7" colspan="1" class="trn-operation">Marinate chicken in yogurt mixture chilled 1 h; sear in avocado oil medium-high about 8 min to 165°F and pour off liquid.</td><td rowspan="17" colspan="1" class="trn-operation">Add remaining garlic, ginger, salt and spices 1 min; add tomato products, cream and butter, thicken; garnish cilantro.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> Ginger paste<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 clove</strong> Garlic, minced<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Kosher salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> Black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.33 lb</strong> Boneless skinless chicken thighs cut into bite size chunks<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> avocado oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ tsp</strong> Kosher salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 ⅔ clove</strong> Garlic, minced<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> Ginger paste<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Garam Masala<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Smoked paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>5.33 oz</strong> Tomato sauce<small class="trn-state-detail">source uses one 8-ounce container</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> Tomato paste<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅓ cup</strong> Heavy cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh cilantro for garnish<small class="trn-state-detail">Source does not state an amount; measure to taste or as needed. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
@@ -3672,7 +3736,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - ⅓ tsp Black pepper
 
-- 1 ⅓ lb Boneless skinless chicken thighs cut into bite size chunks
+- 1.33 lb Boneless skinless chicken thighs cut into bite size chunks
 
 - 1 ⅓ tbsp avocado oil
 
@@ -3686,7 +3750,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - 1 ⅓ tsp Smoked paprika
 
-- 5.3 oz Tomato sauce — source uses one 8-ounce container
+- 5.33 oz Tomato sauce — source uses one 8-ounce container
 
 - 1 ⅓ tbsp Tomato paste
 
@@ -3812,7 +3876,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Greek Chicken Marinade Sheet Pan Dinner
 
-4 portions · US measures · keto · 20 min publisher preparation · 45 min
+4 portions · US imperial measures · keto · 20 min publisher preparation · 45 min
 
 Greek Chicken Marinade Sheet Pan Dinner. Original recipe adapted with source quantities and workflow.
 
@@ -3822,13 +3886,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Greek Chicken Marinade Sheet Pan Dinner cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Chop peppers and zucchini into bite-sized pieces. Line a baking sheet. Heat oven to 450°F.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> boneless, skinless chicken thighs<small class="trn-state-detail"></small></th><td rowspan="8" colspan="1" class="trn-operation">Coat chicken in half marinade and refrigerate 20 min or overnight; keep the other half separate for vegetables.</td><td rowspan="17" colspan="1" class="trn-operation">Roast chicken and vegetables 450°F 25 min; check chicken 165°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ lemon</strong> Lemon juice<small class="trn-state-detail">juice from one medium lemon</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Red wine vinegar<small class="trn-state-detail">Source misspells tablespoons as tablespoona.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> sea salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tbsp</strong> dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> dried dill<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> large bell peppers<small class="trn-state-detail"></small></th><td rowspan="9" colspan="1" class="trn-operation">Toss vegetables with reserved half marinade.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> zucchini<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ lemon</strong> Lemon juice<small class="trn-state-detail">juice from one medium lemon</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Red wine vinegar<small class="trn-state-detail">Source misspells tablespoons as tablespoona.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> sea salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tbsp</strong> dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> dried dill<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Greek Chicken Marinade Sheet Pan Dinner cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Chop peppers and zucchini into bite-sized pieces. Line a baking sheet. Heat oven to 450°F.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> boneless, skinless chicken thighs<small class="trn-state-detail"></small></th><td rowspan="8" colspan="1" class="trn-operation">Coat chicken in half marinade and refrigerate 20 min or overnight; keep the other half separate for vegetables.</td><td rowspan="17" colspan="1" class="trn-operation">Roast chicken and vegetables 450°F 25 min; check chicken 165°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ lemon</strong> Lemon juice<small class="trn-state-detail">juice from one medium lemon</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Red wine vinegar<small class="trn-state-detail">Source misspells tablespoons as tablespoona.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> sea salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tbsp</strong> dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> dried dill<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> large bell peppers<small class="trn-state-detail"></small></th><td rowspan="9" colspan="1" class="trn-operation">Toss vegetables with reserved half marinade.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> zucchini<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ lemon</strong> Lemon juice<small class="trn-state-detail">juice from one medium lemon</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Red wine vinegar<small class="trn-state-detail">Source misspells tablespoons as tablespoona.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> sea salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tbsp</strong> dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> dried dill<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 1 ½ lb boneless, skinless chicken thighs
+- 1.5 lb boneless, skinless chicken thighs
 
 - 2 count large bell peppers
 
@@ -3950,7 +4016,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Easy Creamy Chicken Marsala Recipe
 
-4 portions · US measures · keto · 5 min publisher preparation · Not provided
+4 portions · US imperial measures · keto · 5 min publisher preparation · Not provided
 
 Easy Creamy Chicken Marsala Recipe. Original recipe adapted with source quantities and workflow.
 
@@ -3959,6 +4025,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -4090,7 +4158,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Chicken Taco Casserole
 
-4 portions · US measures · keto · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
 Chicken Taco Casserole. Original recipe adapted with source quantities and workflow.
 
@@ -4099,6 +4167,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -4240,7 +4310,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Cheesy Chicken Zucchini Boats Recipe
 
-4 portions · US measures · keto · 5 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 30 min
 
 Cheesy Chicken Zucchini Boats Recipe. Original recipe adapted with source quantities and workflow.
 
@@ -4249,6 +4319,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -4360,7 +4432,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Asparagus Stuffed Chicken (low carb + keto)
 
-4 portions · US measures · keto · 10 min publisher preparation · Not provided
+4 portions · US imperial measures · keto · 10 min publisher preparation · Not provided
 
 Asparagus Stuffed Chicken (low carb + keto). Original recipe adapted with source quantities and workflow.
 
@@ -4369,6 +4441,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -4500,7 +4574,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Crockpot Shredded Chicken
 
-4 portions · US measures · unverified · 5 min publisher preparation · 485 min
+4 portions · US imperial measures · unverified · 5 min publisher preparation · 485 min
 
 Crockpot Shredded Chicken. Original recipe adapted with source quantities and workflow.
 
@@ -4510,13 +4584,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Crockpot Shredded Chicken cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Use a 4–6-quart slow cooker.</td></tr><tr><td colspan="2" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="2" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ lb</strong> boneless skinless chicken breast<small class="trn-state-detail">Source gives a range; amount is its lower endpoint, amountMax its upper endpoint. Source range: 2–3 lb; use the lower stated amount as the scaled starting point.</small></th><td rowspan="8" colspan="1" class="trn-operation">Slow-cook low 8 h or high 4 h; remove chicken and shred; broth/celery remain in cooker.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tbsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 stalk</strong> celery<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> salt<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Crockpot Shredded Chicken cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Use a 4–6-quart slow cooker.</td></tr><tr><td colspan="2" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="2" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>10.67 oz</strong> boneless skinless chicken breast<small class="trn-state-detail">Source gives a range; amount is its lower endpoint, amountMax its upper endpoint. Source range: 2–3 lb; use the lower stated amount as the scaled starting point.</small></th><td rowspan="8" colspan="1" class="trn-operation">Slow-cook low 8 h or high 4 h; remove chicken and shred; broth/celery remain in cooker.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tbsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 stalk</strong> celery<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> salt<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- ⅔ lb boneless skinless chicken breast. Source gives a range; amount is its lower endpoint, amountMax its upper endpoint. Source range: 2–3 lb; use the lower stated amount as the scaled starting point.
+- 10.67 oz boneless skinless chicken breast. Source gives a range; amount is its lower endpoint, amountMax its upper endpoint. Source range: 2–3 lb; use the lower stated amount as the scaled starting point.
 
 - ⅔ cup chicken broth
 
@@ -4624,7 +4700,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Cheesy Chicken Enchilada Soup
 
-4 portions · US measures · keto · 5 min publisher preparation · 35 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 35 min
 
 Cheesy Chicken Enchilada Soup. Original recipe adapted with source quantities and workflow.
 
@@ -4633,6 +4709,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -4764,7 +4842,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Bacon Wrapped Chicken with Avocado Salsa
 
-4 portions · US measures · keto · 5 min publisher preparation · Not provided
+4 portions · US imperial measures · keto · 5 min publisher preparation · Not provided
 
 Bacon Wrapped Chicken with Avocado Salsa. Original recipe adapted with source quantities and workflow.
 
@@ -4773,6 +4851,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -4908,7 +4988,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Jalapeño Popper Stuffed Chicken Breast
 
-4 portions · US measures · keto · 5 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 30 min
 
 Jalapeño Popper Stuffed Chicken Breast. Original recipe adapted with source quantities and workflow.
 
@@ -4917,6 +4997,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -5022,7 +5104,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Perfect Roast Chicken
 
-4 portions · US measures · keto · 15 min publisher preparation · 80 min
+4 portions · US imperial measures · keto · 15 min publisher preparation · 80 min
 
 Perfect Roast Chicken. Original recipe adapted with source quantities and workflow.
 
@@ -5031,6 +5113,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -5186,7 +5270,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Jalapeno Popper Chicken Skillet (keto + low carb)
 
-4 portions · US measures · keto · 5 min publisher preparation · 25 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 25 min
 
 Jalapeno Popper Chicken Skillet (keto + low carb). Original recipe adapted with source quantities and workflow.
 
@@ -5195,6 +5279,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -5330,7 +5416,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Cajun Chicken Sausage and Cabbage Skillet
 
-4 portions · US measures · keto · 5 min publisher preparation · 20 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 20 min
 
 Cajun Chicken Sausage and Cabbage Skillet. Original recipe adapted with source quantities and workflow.
 
@@ -5339,6 +5425,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -5454,7 +5542,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Spinach Artichoke Stuffed Chicken (low carb + keto)
 
-4 portions · US measures · keto · 5 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 30 min
 
 Spinach Artichoke Stuffed Chicken (low carb + keto). Original recipe adapted with source quantities and workflow.
 
@@ -5463,6 +5551,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -5598,7 +5688,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Broccoli and Cheese Stuffed Chicken Breasts
 
-4 portions · US measures · keto · 5 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 30 min
 
 Broccoli and Cheese Stuffed Chicken Breasts. Original recipe adapted with source quantities and workflow.
 
@@ -5607,6 +5697,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -5706,7 +5798,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Chicken Cheesesteak Skillet
 
-4 portions · US measures · keto · 5 min publisher preparation · 25 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 25 min
 
 Chicken Cheesesteak Skillet. Original recipe adapted with source quantities and workflow.
 
@@ -5715,6 +5807,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -5850,7 +5944,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Keto Asian Chicken Lettuce Wraps
 
-4 portions · US measures · keto · 5 min publisher preparation · 20 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 20 min
 
 Keto Asian Chicken Lettuce Wraps. Original recipe adapted with source quantities and workflow.
 
@@ -5859,6 +5953,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -6004,7 +6100,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Cabbage Casserole with Ground Beef
 
-4 portions · US measures · keto · Preparation time not provided · 20 min
+4 portions · US imperial measures · keto · Preparation time not provided · 20 min
 
 Cabbage Casserole with Ground Beef. Original recipe adapted with source quantities and workflow.
 
@@ -6014,21 +6110,23 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Cabbage Casserole with Ground Beef cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Chop onion and cabbage. The meat is browned in the method despite ingredient wording browned and drained.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ lb</strong> ground beef or turkey<small class="trn-state-essential">raw; brown and drain in method</small></th><td rowspan="2" colspan="1" class="trn-operation">Brown and drain meat; cook onion 3–5 min.</td><td rowspan="9" colspan="1" class="trn-operation">Add cabbage, undrained tomatoes, sauce and spices; cover medium 15–18 min, stir; top cheese.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> small onion<small class="trn-state-detail">diced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 cup</strong> Cabbage<small class="trn-state-detail">chopped into medium chunks · Source gives half a head, roughly 3 cups. Uses its explicit cup equivalent.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>6.7 oz</strong> Tomatoes with green chilies<small class="trn-state-essential">canned; undrained</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>5.3 oz</strong> Tomato sauce<small class="trn-state-detail">canned</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ tsp</strong> chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> salt and pepper to taste<small class="trn-state-detail">Source does not state an amount; measure to taste or as needed.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> shredded cheese<small class="trn-state-detail">cheddar or colby jack is our favorite</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Cabbage Casserole with Ground Beef cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Chop onion and cabbage. The meat is browned in the method despite ingredient wording browned and drained.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>10.67 oz</strong> ground beef or turkey<small class="trn-state-essential">raw; brown and drain in method</small></th><td rowspan="2" colspan="1" class="trn-operation">Brown and drain meat; cook onion 3–5 min.</td><td rowspan="9" colspan="1" class="trn-operation">Add cabbage, undrained tomatoes, sauce and spices; cover medium 15–18 min, stir; top cheese.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> small onion<small class="trn-state-detail">diced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 cup</strong> Cabbage<small class="trn-state-detail">chopped into medium chunks · Source gives half a head, roughly 3 cups. Uses its explicit cup equivalent.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>6.67 oz</strong> Tomatoes with green chilies<small class="trn-state-essential">canned; undrained</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>5.33 oz</strong> Tomato sauce<small class="trn-state-detail">canned</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ tsp</strong> chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> salt and pepper to taste<small class="trn-state-detail">Source does not state an amount; measure to taste or as needed.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> shredded cheese<small class="trn-state-detail">cheddar or colby jack is our favorite</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- ⅔ lb ground beef or turkey — raw; brown and drain in method
+- 10.67 oz ground beef or turkey — raw; brown and drain in method
 
 - ⅔ count small onion — diced
 
 - 2 cup Cabbage — chopped into medium chunks. Source gives half a head, roughly 3 cups. Uses its explicit cup equivalent.
 
-- 6.7 oz Tomatoes with green chilies — canned; undrained
+- 6.67 oz Tomatoes with green chilies — canned; undrained
 
-- 5.3 oz Tomato sauce — canned
+- 5.33 oz Tomato sauce — canned
 
 - ⅔ tsp chili powder
 
@@ -6130,7 +6228,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Keto Cheeseburger Casserole Skillet
 
-4 portions · US measures · keto · 5 min publisher preparation · 20 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 20 min
 
 Keto Cheeseburger Casserole Skillet. Original recipe adapted with source quantities and workflow.
 
@@ -6139,6 +6237,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -6278,7 +6378,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Steak and Eggs (keto + low carb)
 
-4 portions · US measures · unverified · 5 min publisher preparation · Not provided
+4 portions · US imperial measures · unverified · 5 min publisher preparation · Not provided
 
 Steak and Eggs (keto + low carb). Original recipe adapted with source quantities and workflow.
 
@@ -6288,13 +6388,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Steak and Eggs (keto + low carb) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Allow 10–60 minutes to marinate steak; the weight follows the publisher’s 6-ounce steak portion.</td></tr><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>24 oz</strong> Steak<small class="trn-state-detail">sirloin, ribeye or preferred cut · The ingredient list omits a weight; this adaptation uses the publisher’s stated 6-ounce steak per nutrition portion.</small></th><td rowspan="4" colspan="1" class="trn-operation">Marinate steak 10–60 min; sear in half butter medium 1–2 min each side to preferred doneness.</td><td rowspan="6" colspan="1" class="trn-operation">Serve steak with eggs.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> Steak marinade<small class="trn-state-detail">prepared · Source specifies 1/4–1/2 cup. Source range: 0.25–0.5 cup; use the lower stated amount as the scaled starting point.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> salt and pepper<small class="trn-state-detail">to taste · Source does not state an amount; measure to taste or as needed.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> butter<small class="trn-state-detail">sliced in half</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 count</strong> large eggs<small class="trn-state-detail"></small></th><td rowspan="2" colspan="1" class="trn-operation">After steak is removed, wipe skillet; melt remaining butter, fry eggs until whites set and yolks runny.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> butter<small class="trn-state-detail">sliced in half</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Steak and Eggs (keto + low carb) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Allow 10–60 minutes to marinate steak; the weight follows the publisher’s 6-ounce steak portion.</td></tr><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Steak<small class="trn-state-detail">sirloin, ribeye or preferred cut · The ingredient list omits a weight; this adaptation uses the publisher’s stated 6-ounce steak per nutrition portion.</small></th><td rowspan="4" colspan="1" class="trn-operation">Marinate steak 10–60 min; sear in half butter medium 1–2 min each side to preferred doneness.</td><td rowspan="6" colspan="1" class="trn-operation">Serve steak with eggs.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> Steak marinade<small class="trn-state-detail">prepared · Source specifies 1/4–1/2 cup. Source range: 0.25–0.5 cup; use the lower stated amount as the scaled starting point.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> salt and pepper<small class="trn-state-detail">to taste · Source does not state an amount; measure to taste or as needed.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> butter<small class="trn-state-detail">sliced in half</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 count</strong> large eggs<small class="trn-state-detail"></small></th><td rowspan="2" colspan="1" class="trn-operation">After steak is removed, wipe skillet; melt remaining butter, fry eggs until whites set and yolks runny.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> butter<small class="trn-state-detail">sliced in half</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 24 oz Steak — sirloin, ribeye or preferred cut. The ingredient list omits a weight; this adaptation uses the publisher’s stated 6-ounce steak per nutrition portion.
+- 1.5 lb Steak — sirloin, ribeye or preferred cut. The ingredient list omits a weight; this adaptation uses the publisher’s stated 6-ounce steak per nutrition portion.
 
 - 1 cup Steak marinade — prepared. Source specifies 1/4–1/2 cup. Source range: 0.25–0.5 cup; use the lower stated amount as the scaled starting point.
 
@@ -6386,7 +6488,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Steak Rolls
 
-4 portions · US measures · keto · 10 min publisher preparation · Not provided
+4 portions · US imperial measures · keto · 10 min publisher preparation · Not provided
 
 Steak Rolls. Original recipe adapted with source quantities and workflow.
 
@@ -6396,13 +6498,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Steak Rolls cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Marinate steak for at least 30 minutes. Heat oven to 350°F. Grease the skillet with cooking spray or a little olive oil before searing.</td></tr><tr><td colspan="2" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="2" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> flank steak or thinly sliced top round steak<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Marinate steak refrigerated at least 30 min; cut strips wide enough to wrap vegetables, wrap tightly and secure with toothpicks. Then: Sear rolls over medium heat about 1 min per face; bake 350°F 10–15 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Steak marinade<small class="trn-state-detail">prepared · Source specifies 1/4–1/2 cup; linked marinade is not included in captured recipe card. Source range: 0.25–0.5 cup; use the lower stated amount as the scaled starting point.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> red bell pepper<small class="trn-state-detail">cut into thin strips</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ cup</strong> french style green beans<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> white onion<small class="trn-state-detail">cut into thin strips</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Steak Rolls cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Marinate steak for at least 30 minutes. Heat oven to 350°F. Grease the skillet with cooking spray or a little olive oil before searing.</td></tr><tr><td colspan="2" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="2" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> flank steak or thinly sliced top round steak<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Marinate steak refrigerated at least 30 min; cut strips wide enough to wrap vegetables, wrap tightly and secure with toothpicks. Then: Sear rolls over medium heat about 1 min per face; bake 350°F 10–15 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Steak marinade<small class="trn-state-detail">prepared · Source specifies 1/4–1/2 cup; linked marinade is not included in captured recipe card. Source range: 0.25–0.5 cup; use the lower stated amount as the scaled starting point.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> red bell pepper<small class="trn-state-detail">cut into thin strips</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ cup</strong> french style green beans<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> white onion<small class="trn-state-detail">cut into thin strips</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 1 ½ lb flank steak or thinly sliced top round steak
+- 1.5 lb flank steak or thinly sliced top round steak
 
 - ¼ cup Steak marinade — prepared. Source specifies 1/4–1/2 cup; linked marinade is not included in captured recipe card. Source range: 0.25–0.5 cup; use the lower stated amount as the scaled starting point.
 
@@ -6498,7 +6602,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Keto Beef Stroganoff
 
-4 portions · US measures · keto · 20 min publisher preparation · Not provided
+4 portions · US imperial measures · keto · 20 min publisher preparation · Not provided
 
 Keto Beef Stroganoff. Original recipe adapted with source quantities and workflow.
 
@@ -6508,15 +6612,17 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Beef Stroganoff cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Trim beef and cut across the grain into half-inch pieces.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.1 cup</strong> Avocado oil<small class="trn-state-detail">Source also provides 56 g.</small></th><td rowspan="10" colspan="1" class="trn-operation">Sauté onion/garlic in oil over medium about 3 min; brown seasoned beef 8 min, stirring to brown all sides; lower to medium-low, add broth/vinegar, simmer uncovered 30 min; add mushrooms, cover and simmer 90 min.</td><td rowspan="13" colspan="1" class="trn-operation">Off heat, stir in sour cream and mayonnaise; add xanthan in six equal additions to thicken; cover, rest 10 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.7 oz</strong> White onion<small class="trn-state-detail">finely chopped · Source gives 50 g only. Exact mass conversion to US ounces; no cup estimate.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.8 tsp</strong> Garlic<small class="trn-state-detail">minced · Source also provides 10 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.2 lb</strong> fat-trimmed beef brisket<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.8 tsp</strong> ground thyme<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.3 tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.2 tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.6 cup</strong> Beef broth<small class="trn-state-detail">Source also provides 367 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.8 tbsp</strong> Apple cider vinegar<small class="trn-state-detail">Source also provides 30 mL.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6.4 oz</strong> fresh mushrooms<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.3 cup</strong> Sour cream<small class="trn-state-detail">Source also provides 180 g.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.1 cup</strong> Mayonnaise<small class="trn-state-detail">Source also provides 60 g.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.6 tsp</strong> xanthan gum<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Beef Stroganoff cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Trim beef and cut across the grain into half-inch pieces.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.1 cup</strong> Avocado oil<small class="trn-state-detail">Source also provides 56 g.</small></th><td rowspan="10" colspan="1" class="trn-operation">Sauté onion/garlic in oil over medium about 3 min; brown seasoned beef 8 min, stirring to brown all sides; lower to medium-low, add broth/vinegar, simmer uncovered 30 min; add mushrooms, cover and simmer 90 min.</td><td rowspan="13" colspan="1" class="trn-operation">Off heat, stir in sour cream and mayonnaise; add xanthan in six equal additions to thicken; cover, rest 10 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.71 oz</strong> White onion<small class="trn-state-detail">finely chopped · Source gives 50 g only. Exact mass conversion to US ounces; no cup estimate.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.8 tsp</strong> Garlic<small class="trn-state-detail">minced · Source also provides 10 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.2 lb</strong> fat-trimmed beef brisket<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.8 tsp</strong> ground thyme<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.3 tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.2 tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.6 cup</strong> Beef broth<small class="trn-state-detail">Source also provides 367 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.8 tbsp</strong> Apple cider vinegar<small class="trn-state-detail">Source also provides 30 mL.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6.4 oz</strong> fresh mushrooms<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.3 cup</strong> Sour cream<small class="trn-state-detail">Source also provides 180 g.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.1 cup</strong> Mayonnaise<small class="trn-state-detail">Source also provides 60 g.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.6 tsp</strong> xanthan gum<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
 - 0.1 cup Avocado oil. Source also provides 56 g.
 
-- 0.7 oz White onion — finely chopped. Source gives 50 g only. Exact mass conversion to US ounces; no cup estimate.
+- 0.71 oz White onion — finely chopped. Source gives 50 g only. Exact mass conversion to US ounces; no cup estimate.
 
 - 0.8 tsp Garlic — minced. Source also provides 10 g.
 
@@ -6648,7 +6754,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## The BEST Keto Chili Recipe
 
-4 portions · US measures · keto · 5 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 30 min
 
 The BEST Keto Chili Recipe. Original recipe adapted with source quantities and workflow.
 
@@ -6657,6 +6763,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -6792,7 +6900,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Keto Italian Meatballs
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Keto Italian Meatballs. Original recipe adapted with source quantities and workflow.
 
@@ -6801,6 +6909,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -6908,7 +7018,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Low Carb Taco Casserole
 
-4 portions · US measures · keto · Preparation time not provided · 20 min
+4 portions · US imperial measures · keto · Preparation time not provided · 20 min
 
 Low Carb Taco Casserole. Original recipe adapted with source quantities and workflow.
 
@@ -6917,6 +7027,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -7026,7 +7138,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## One Pan Keto Philly Cheesesteak
 
-4 portions · US measures · keto · 10 min publisher preparation · 43 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 43 min
 
 One Pan Keto Philly Cheesesteak. Original recipe adapted with source quantities and workflow.
 
@@ -7036,19 +7148,21 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="One Pan Keto Philly Cheesesteak cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Thinly slice steak, peppers, onion and mushrooms. Briefly chill steak if necessary for slicing.</td></tr><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ count</strong> bell peppers of any color<small class="trn-state-detail">226 g</small></th><td rowspan="5" colspan="1" class="trn-operation">Brown mushrooms dry over medium-high with pinch of salt; add half butter and peppers/onion; cook until browning starts and reserve.</td><td rowspan="15" colspan="1" class="trn-operation">Return steak and vegetables to deglazed pan; stir cream cheese until melted, top with mozzarella/Parmesan and cover until melted. Optional: broil 3–5 min using oven-safe skillet.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> small onion<small class="trn-state-detail">56 g</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2.7 oz</strong> Baby Bella mushrooms<small class="trn-state-detail">sliced · Source says 4 large or 6 small mushrooms, weighing 4 ounces. Uses its explicit weight basis.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>pinch of</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ lb</strong> flank steak<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Season steak with remaining salt and pepper; sear in remaining butter uncrowded 1–2 min each side; reserve.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Remainder of ⅔ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅙ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> Worcestershire<small class="trn-state-detail"></small></th><td rowspan="3" colspan="1" class="trn-operation">Deglaze medium with Worcestershire, vinegar and garlic.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> apple cider vinegar<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1.3 oz</strong> cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅓ cup</strong> shredded mozzarella<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅓ cup</strong> shredded parmesan<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="One Pan Keto Philly Cheesesteak cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Thinly slice steak, peppers, onion and mushrooms. Briefly chill steak if necessary for slicing.</td></tr><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ count</strong> bell peppers of any color<small class="trn-state-detail">226 g</small></th><td rowspan="5" colspan="1" class="trn-operation">Brown mushrooms dry over medium-high with pinch of salt; add half butter and peppers/onion; cook until browning starts and reserve.</td><td rowspan="15" colspan="1" class="trn-operation">Return steak and vegetables to deglazed pan; stir cream cheese until melted, top with mozzarella/Parmesan and cover until melted. Optional: broil 3–5 min using oven-safe skillet.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> small onion<small class="trn-state-detail">56 g</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2.67 oz</strong> Baby Bella mushrooms<small class="trn-state-detail">sliced · Source says 4 large or 6 small mushrooms, weighing 4 ounces. Uses its explicit weight basis.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>pinch of</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>10.67 oz</strong> flank steak<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Season steak with remaining salt and pepper; sear in remaining butter uncrowded 1–2 min each side; reserve.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Remainder of ⅔ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅙ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> Worcestershire<small class="trn-state-detail"></small></th><td rowspan="3" colspan="1" class="trn-operation">Deglaze medium with Worcestershire, vinegar and garlic.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> apple cider vinegar<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1.33 oz</strong> cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅓ cup</strong> shredded mozzarella<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅓ cup</strong> shredded parmesan<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- ⅔ lb flank steak
+- 10.67 oz flank steak
 
 - 1 ⅓ count bell peppers of any color — 226 g
 
 - ⅔ count small onion — 56 g
 
-- 2.7 oz Baby Bella mushrooms — sliced. Source says 4 large or 6 small mushrooms, weighing 4 ounces. Uses its explicit weight basis.
+- 2.67 oz Baby Bella mushrooms — sliced. Source says 4 large or 6 small mushrooms, weighing 4 ounces. Uses its explicit weight basis.
 
 - ⅔ tbsp Worcestershire
 
@@ -7056,7 +7170,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - ⅔ tbsp minced garlic
 
-- 1.3 oz cream cheese
+- 1.33 oz cream cheese
 
 - ⅓ cup shredded mozzarella
 
@@ -7186,7 +7300,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Cabbage with Sausage Foil Packs
 
-4 portions · US measures · keto · 10 min publisher preparation · 34 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 34 min
 
 Cabbage with Sausage Foil Packs. Original recipe adapted with source quantities and workflow.
 
@@ -7195,6 +7309,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -7298,7 +7414,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Zuppa Toscana
 
-4 portions · US measures · keto · 15 min publisher preparation · 60 min
+4 portions · US imperial measures · keto · 15 min publisher preparation · 60 min
 
 Zuppa Toscana. Original recipe adapted with source quantities and workflow.
 
@@ -7308,15 +7424,17 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Zuppa Toscana cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Quarter radishes and remove kale stems.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 slice</strong> bacon<small class="trn-state-detail">roughly chopped</small></th><td rowspan="1" colspan="1" class="trn-operation">Crisp bacon medium 6–8 min; reserve, discard excess fat.</td><td rowspan="11" colspan="1" class="trn-operation">Add browned sausage and kale to radish soup; simmer 5–10 min until wilted, garnish reserved bacon.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ lb</strong> ground mild Italian sausage<small class="trn-state-detail"></small></th><td rowspan="1" colspan="1" class="trn-operation">Then brown sausage over medium-high 6–8 min, breaking it apart; reserve and discard excess grease without washing pot.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> Butter<small class="trn-state-detail">Source also provides 14 g.</small></th><td rowspan="8" colspan="1" class="trn-operation">In same pot, sauté garlic/sage/pepper in butter over medium about 1 min; add broth/cream/Parmesan, raise to medium-high and simmer; add radishes, simmer medium-low 15–20 min until fork-tender.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Garlic<small class="trn-state-detail">minced · Source also provides 10 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> ground sage<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅜ cup</strong> chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅜ cup</strong> Heavy whipping cream<small class="trn-state-detail">Source also provides 180 mL.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ cup</strong> Parmesan cheese<small class="trn-state-detail">shredded · Source also provides 28 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ lb</strong> radishes<small class="trn-state-detail">quartered</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 oz</strong> Kale<small class="trn-state-detail">stems removed; roughly chopped · Source also gives approximately 1 cup.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Zuppa Toscana cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Quarter radishes and remove kale stems.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 slice</strong> bacon<small class="trn-state-detail">roughly chopped</small></th><td rowspan="1" colspan="1" class="trn-operation">Crisp bacon medium 6–8 min; reserve, discard excess fat.</td><td rowspan="11" colspan="1" class="trn-operation">Add browned sausage and kale to radish soup; simmer 5–10 min until wilted, garnish reserved bacon.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 oz</strong> ground mild Italian sausage<small class="trn-state-detail"></small></th><td rowspan="1" colspan="1" class="trn-operation">Then brown sausage over medium-high 6–8 min, breaking it apart; reserve and discard excess grease without washing pot.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> Butter<small class="trn-state-detail">Source also provides 14 g.</small></th><td rowspan="8" colspan="1" class="trn-operation">In same pot, sauté garlic/sage/pepper in butter over medium about 1 min; add broth/cream/Parmesan, raise to medium-high and simmer; add radishes, simmer medium-low 15–20 min until fork-tender.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Garlic<small class="trn-state-detail">minced · Source also provides 10 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> ground sage<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅜ cup</strong> chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅜ cup</strong> Heavy whipping cream<small class="trn-state-detail">Source also provides 180 mL.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ cup</strong> Parmesan cheese<small class="trn-state-detail">shredded · Source also provides 28 g.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 oz</strong> radishes<small class="trn-state-detail">quartered</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 oz</strong> Kale<small class="trn-state-detail">stems removed; roughly chopped · Source also gives approximately 1 cup.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
 - 3 slice bacon — roughly chopped
 
-- ½ lb ground mild Italian sausage
+- 8 oz ground mild Italian sausage
 
 - ½ tbsp Butter. Source also provides 14 g.
 
@@ -7332,7 +7450,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - ⅛ cup Parmesan cheese — shredded. Source also provides 28 g.
 
-- ½ lb radishes — quartered
+- 8 oz radishes — quartered
 
 - 1 oz Kale — stems removed; roughly chopped. Source also gives approximately 1 cup.
 
@@ -7436,7 +7554,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Roasted Brussel Sprouts and Kielbasa
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Roasted Brussel Sprouts and Kielbasa. Original recipe adapted with source quantities and workflow.
 
@@ -7445,6 +7563,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -7530,7 +7650,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Pan Seared Pork Chops with Creamy Pan Gravy and Garlicky Green Beans
 
-4 portions · US measures · keto · 10 min publisher preparation · Not provided
+4 portions · US imperial measures · keto · 10 min publisher preparation · Not provided
 
 Pan Seared Pork Chops with Creamy Pan Gravy and Garlicky Green Beans. Original recipe adapted with source quantities and workflow.
 
@@ -7540,13 +7660,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Pan Seared Pork Chops with Creamy Pan Gravy and Garlicky Green Beans cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F. Pork chops are 2 inches thick. Green beans are already steamed fork-tender per source ingredient state.</td></tr><tr><td colspan="3" class="trn-prep">Check pork reaches 145°F, then rest at least 3 min before serving.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>32 oz</strong> Bone-in pork chops<small class="trn-state-essential">raw; 2 inches thick</small></th><td rowspan="7" colspan="1" class="trn-operation">Dry/season chops; sear in ghee over medium-high 4–5 min per side; bake 400°F 8–10 min to 145°F; rest at least 3 min under foil. Cook garlic/rosemary in drippings over low 2–4 min, stirring constantly; off heat whisk cream.</td><td rowspan="14" colspan="1" class="trn-operation">Serve pork chops with skillet gravy and beans.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> ghee<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 clove</strong> garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> fresh rosemary<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> heavy whipping cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> unsalted butter<small class="trn-state-detail"></small></th><td rowspan="7" colspan="1" class="trn-operation">Second skillet over medium to medium-high: melt butter/oil, add pre-steamed beans, garlic, stock and seasonings; cover 10 min, stirring occasionally; uncover about 5 min to evaporate liquid and brown beans in spots.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> avocado oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> green beans<small class="trn-state-detail">ends trimmed and steamed until fork-tender</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 clove</strong> garlic<small class="trn-state-detail">thinly sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> chicken stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Pan Seared Pork Chops with Creamy Pan Gravy and Garlicky Green Beans cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F. Pork chops are 2 inches thick. Green beans are already steamed fork-tender per source ingredient state.</td></tr><tr><td colspan="3" class="trn-prep">Check pork reaches 145°F, then rest at least 3 min before serving.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 lb</strong> Bone-in pork chops<small class="trn-state-essential">raw; 2 inches thick</small></th><td rowspan="7" colspan="1" class="trn-operation">Dry/season chops; sear in ghee over medium-high 4–5 min per side; bake 400°F 8–10 min to 145°F; rest at least 3 min under foil. Cook garlic/rosemary in drippings over low 2–4 min, stirring constantly; off heat whisk cream.</td><td rowspan="14" colspan="1" class="trn-operation">Serve pork chops with skillet gravy and beans.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> ghee<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 clove</strong> garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> fresh rosemary<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> heavy whipping cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> unsalted butter<small class="trn-state-detail"></small></th><td rowspan="7" colspan="1" class="trn-operation">Second skillet over medium to medium-high: melt butter/oil, add pre-steamed beans, garlic, stock and seasonings; cover 10 min, stirring occasionally; uncover about 5 min to evaporate liquid and brown beans in spots.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> avocado oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> green beans<small class="trn-state-detail">ends trimmed and steamed until fork-tender</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 clove</strong> garlic<small class="trn-state-detail">thinly sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> chicken stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 32 oz Bone-in pork chops — raw; 2 inches thick
+- 2 lb Bone-in pork chops — raw; 2 inches thick
 
 - 1 tsp salt
 
@@ -7684,7 +7806,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Keto Sausage Veggie Sheet Pan Dinner
 
-4 portions · US measures · keto · 5 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 30 min
 
 Keto Sausage Veggie Sheet Pan Dinner. Original recipe adapted with source quantities and workflow.
 
@@ -7694,13 +7816,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Sausage Veggie Sheet Pan Dinner cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F. Lightly grease a baking sheet.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>16 oz</strong> Keto-friendly smoked sausage<small class="trn-state-detail">sliced; source uses one 16-ounce package</small></th><td rowspan="5" colspan="1" class="trn-operation">Spread sausage and seasoned vegetables in even layer on pan; bake 400°F 15 min, toss, bake 10–15 min until vegetables reach preferred tenderness.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 cup</strong> broccoli florets<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Toss broccoli and pepper with oil and Cajun seasoning.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> red bell pepper<small class="trn-state-detail">cut into chunks about 1 large bell pepper</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> cajun seasoning<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Sausage Veggie Sheet Pan Dinner cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F. Lightly grease a baking sheet.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 lb</strong> Keto-friendly smoked sausage<small class="trn-state-detail">sliced; source uses one 16-ounce package</small></th><td rowspan="5" colspan="1" class="trn-operation">Spread sausage and seasoned vegetables in even layer on pan; bake 400°F 15 min, toss, bake 10–15 min until vegetables reach preferred tenderness.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 cup</strong> broccoli florets<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Toss broccoli and pepper with oil and Cajun seasoning.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> red bell pepper<small class="trn-state-detail">cut into chunks about 1 large bell pepper</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> cajun seasoning<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 16 oz Keto-friendly smoked sausage — sliced; source uses one 16-ounce package
+- 1 lb Keto-friendly smoked sausage — sliced; source uses one 16-ounce package
 
 - 3 cup broccoli florets
 
@@ -7786,7 +7910,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Cheesy Sausage Soup
 
-4 portions · US measures · keto · 10 min publisher preparation · 40 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 40 min
 
 Cheesy Sausage Soup. Original recipe adapted with source quantities and workflow.
 
@@ -7796,13 +7920,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Cheesy Sausage Soup cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Slice sausage and finely chop vegetables. Cube the cream cheese.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6.8 oz</strong> Smoked sausage<small class="trn-state-detail">sliced; source uses one 13.5-ounce package</small></th><td rowspan="8" colspan="1" class="trn-operation">Brown sausage medium and drain; soften vegetables; add undrained tomatoes/broth, cover low 25 min.</td><td rowspan="10" colspan="1" class="trn-operation">Stir in cubed cream cheese and cheddar until melted; serve.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ count</strong> small onion<small class="trn-state-detail">1/2 cup, finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> orange bell pepper<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> red bell pepper<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> celery<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ container</strong> Broth<small class="trn-state-detail">one 32-ounce container; beef, chicken or vegetable · Fraction of a 32-ounce package; the package size is preserved from the publisher.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 oz</strong> Tomatoes with green chilies<small class="trn-state-essential">canned; undrained</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>3 oz</strong> cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¾ cup</strong> shredded cheddar<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Cheesy Sausage Soup cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Slice sausage and finely chop vegetables. Cube the cream cheese.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6.75 oz</strong> Smoked sausage<small class="trn-state-detail">sliced; source uses one 13.5-ounce package</small></th><td rowspan="8" colspan="1" class="trn-operation">Brown sausage medium and drain; soften vegetables; add undrained tomatoes/broth, cover low 25 min.</td><td rowspan="10" colspan="1" class="trn-operation">Stir in cubed cream cheese and cheddar until melted; serve.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ count</strong> small onion<small class="trn-state-detail">1/2 cup, finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> orange bell pepper<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> red bell pepper<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> celery<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ container</strong> Broth<small class="trn-state-detail">one 32-ounce container; beef, chicken or vegetable · Fraction of a 32-ounce package; the package size is preserved from the publisher.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 oz</strong> Tomatoes with green chilies<small class="trn-state-essential">canned; undrained</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>3 oz</strong> cream cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¾ cup</strong> shredded cheddar<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 6.8 oz Smoked sausage — sliced; source uses one 13.5-ounce package
+- 6.75 oz Smoked sausage — sliced; source uses one 13.5-ounce package
 
 - ½ tsp minced garlic
 
@@ -7912,7 +8038,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Sausage Broccoli Cheddar Sheet Pan
 
-4 portions · US measures · keto · 5 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 30 min
 
 Sausage Broccoli Cheddar Sheet Pan. Original recipe adapted with source quantities and workflow.
 
@@ -7921,6 +8047,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -8010,7 +8138,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Fried Cabbage with Bacon (keto + low carb)
 
-4 portions · US measures · keto · 5 min publisher preparation · Not provided
+4 portions · US imperial measures · keto · 5 min publisher preparation · Not provided
 
 Fried Cabbage with Bacon (keto + low carb). Original recipe adapted with source quantities and workflow.
 
@@ -8019,6 +8147,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -8126,7 +8256,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Keto Lasagna Recipe (low carb + one pan)
 
-4 portions · US measures · keto · 10 min publisher preparation · Not provided
+4 portions · US imperial measures · keto · 10 min publisher preparation · Not provided
 
 Keto Lasagna Recipe (low carb + one pan). Original recipe adapted with source quantities and workflow.
 
@@ -8136,13 +8266,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Lasagna Recipe (low carb + one pan) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 350°F. Use a 10-inch oven-safe skillet.</td></tr><tr><td colspan="3" class="trn-prep">Check ground meat or fresh sausage reaches 160°F.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ lb</strong> ground Italian Sausage<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Brown sausage over medium and drain; add zucchini/spinach 2–3 min until spinach starts wilting; add marinara/broth, simmer 6–8 min to reduce liquid.</td><td rowspan="12" colspan="1" class="trn-operation">Spread cheese mixture over sausage sauce; top remaining mozzarella; bake 350°F 20 min, rest 5 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> small zucchini sliced<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ cup</strong> spinach<small class="trn-state-detail">roughly chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> low carb Marinara<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅙ cup</strong> beef broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2.7 oz</strong> cream cheese<small class="trn-state-detail">softened</small></th><td rowspan="6" colspan="1" class="trn-operation">Mix cream cheese, sour cream, onions, garlic, seasoning and first mozzarella portion.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.22 cup</strong> sour cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> green onions<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> shredded mozzarella<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> shredded mozzarella<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Lasagna Recipe (low carb + one pan) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 350°F. Use a 10-inch oven-safe skillet.</td></tr><tr><td colspan="3" class="trn-prep">Check ground meat or fresh sausage reaches 160°F.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>10.67 oz</strong> ground Italian Sausage<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Brown sausage over medium and drain; add zucchini/spinach 2–3 min until spinach starts wilting; add marinara/broth, simmer 6–8 min to reduce liquid.</td><td rowspan="12" colspan="1" class="trn-operation">Spread cheese mixture over sausage sauce; top remaining mozzarella; bake 350°F 20 min, rest 5 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> small zucchini sliced<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ cup</strong> spinach<small class="trn-state-detail">roughly chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> low carb Marinara<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅙ cup</strong> beef broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2.67 oz</strong> cream cheese<small class="trn-state-detail">softened</small></th><td rowspan="6" colspan="1" class="trn-operation">Mix cream cheese, sour cream, onions, garlic, seasoning and first mozzarella portion.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.22 cup</strong> sour cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> green onions<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> shredded mozzarella<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> shredded mozzarella<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- ⅔ lb ground Italian Sausage
+- 10.67 oz ground Italian Sausage
 
 - ⅔ count small zucchini sliced
 
@@ -8152,7 +8284,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - ⅙ cup beef broth
 
-- 2.7 oz cream cheese — softened
+- 2.67 oz cream cheese — softened
 
 - 0.22 cup sour cream
 
@@ -8272,7 +8404,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Sausage Sheet Pan Dinner
 
-4 portions · US measures · keto · Preparation time not provided · 30 min
+4 portions · US imperial measures · keto · Preparation time not provided · 30 min
 
 Sausage Sheet Pan Dinner. Original recipe adapted with source quantities and workflow.
 
@@ -8281,6 +8413,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -8386,7 +8520,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Keto Sesame Pork and Green Beans
 
-4 portions · US measures · keto · 5 min publisher preparation · 20 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 20 min
 
 Keto Sesame Pork and Green Beans. Original recipe adapted with source quantities and workflow.
 
@@ -8396,15 +8530,17 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Sesame Pork and Green Beans cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Slice pork thinly. Use a large lidded skillet.</td></tr><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th><td rowspan="2" colspan="1" class="trn-operation">Brown thin pork in oil medium 3–4 min undisturbed, stir/cook 3–4 min more.</td><td rowspan="10" colspan="1" class="trn-operation">Add beans and sesame sauce to cooked pork; toss, cover medium-low 5–7 min to tender beans.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Boneless Pork Chops<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> gluten free soy sauce<small class="trn-state-detail"></small></th><td rowspan="7" colspan="1" class="trn-operation">Whisk sesame sauce including optional sriracha.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> brown sugar Swerve or Monkfruit<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> rice vinegar<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 tbsp</strong> sesame oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> minced ginger<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> sriracha<small class="trn-state-detail">optional if you prefer spicy dishes · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>3 cup</strong> fresh green beans<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Keto Sesame Pork and Green Beans cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Slice pork thinly. Use a large lidded skillet.</td></tr><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th><td rowspan="2" colspan="1" class="trn-operation">Brown thin pork in oil medium 3–4 min undisturbed, stir/cook 3–4 min more.</td><td rowspan="10" colspan="1" class="trn-operation">Add beans and sesame sauce to cooked pork; toss, cover medium-low 5–7 min to tender beans.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Boneless Pork Chops<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> gluten free soy sauce<small class="trn-state-detail"></small></th><td rowspan="7" colspan="1" class="trn-operation">Whisk sesame sauce including optional sriracha.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> brown sugar Swerve or Monkfruit<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> rice vinegar<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 tbsp</strong> sesame oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> minced ginger<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> sriracha<small class="trn-state-detail">optional if you prefer spicy dishes · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>3 cup</strong> fresh green beans<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
 - 1 tbsp olive oil
 
-- 1 ½ lb Boneless Pork Chops
+- 1.5 lb Boneless Pork Chops
 
 - ¼ cup gluten free soy sauce
 
@@ -8520,7 +8656,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Grilled Shrimp Skewers
 
-4 portions · US measures · keto · 10 min publisher preparation · 20 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 20 min
 
 Grilled Shrimp Skewers. Original recipe adapted with source quantities and workflow.
 
@@ -8529,6 +8665,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -8652,7 +8790,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lemon Garlic Shrimp and Broccolini Sheet Pan Meal
 
-4 portions · US measures · keto · 7 min publisher preparation · 17 min
+4 portions · US imperial measures · keto · 7 min publisher preparation · 17 min
 
 Lemon Garlic Shrimp and Broccolini Sheet Pan Meal. Original recipe adapted with source quantities and workflow.
 
@@ -8662,9 +8800,11 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon Garlic Shrimp and Broccolini Sheet Pan Meal cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F. Lightly spray a rimmed baking sheet with oil if desired. Shell/devein shrimp and cut broccolini small.</td></tr><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> lemon juice<small class="trn-state-detail"></small></th><td rowspan="9" colspan="1" class="trn-operation">Whisk coating, toss shrimp then lift shrimp onto pan; toss broccolini in leftover liquid, add optional lemon slices.</td><td rowspan="10" colspan="1" class="trn-operation">Roast 400°F 6–10 min until shrimp pink/opaque and broccolini crisp-tender; for softer broccolini remove shrimp and roast vegetables a few minutes longer; add parsley.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ tbsp</strong> avocado oil<small class="trn-state-detail">or your favorite oil</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> lemon zest<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ clove</strong> garlic<small class="trn-state-detail">crushed</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> red pepper flakes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> sea salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>16 oz</strong> large shrimp<small class="trn-state-detail">shelled and deveined, with tails on</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ bunch</strong> Broccolini<small class="trn-state-detail">cut into small florets · Source gives no bunch weight.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> lemon<small class="trn-state-detail">thinly sliced optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> parsley<small class="trn-state-detail">chopped</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon Garlic Shrimp and Broccolini Sheet Pan Meal cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 400°F. Lightly spray a rimmed baking sheet with oil if desired. Shell/devein shrimp and cut broccolini small.</td></tr><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> lemon juice<small class="trn-state-detail"></small></th><td rowspan="9" colspan="1" class="trn-operation">Whisk coating, toss shrimp then lift shrimp onto pan; toss broccolini in leftover liquid, add optional lemon slices.</td><td rowspan="10" colspan="1" class="trn-operation">Roast 400°F 6–10 min until shrimp pink/opaque and broccolini crisp-tender; for softer broccolini remove shrimp and roast vegetables a few minutes longer; add parsley.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ tbsp</strong> avocado oil<small class="trn-state-detail">or your favorite oil</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> lemon zest<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ clove</strong> garlic<small class="trn-state-detail">crushed</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> red pepper flakes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> sea salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> large shrimp<small class="trn-state-detail">shelled and deveined, with tails on</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ bunch</strong> Broccolini<small class="trn-state-detail">cut into small florets · Source gives no bunch weight.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> lemon<small class="trn-state-detail">thinly sliced optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> parsley<small class="trn-state-detail">chopped</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
@@ -8680,7 +8820,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - ⅔ tsp sea salt
 
-- 16 oz large shrimp — shelled and deveined, with tails on
+- 1 lb large shrimp — shelled and deveined, with tails on
 
 - 1 ⅓ bunch Broccolini — cut into small florets. Source gives no bunch weight.
 
@@ -8794,7 +8934,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Grilled Salmon Kabobs with Greek Marinade
 
-4 portions · US measures · unverified · 15 min publisher preparation · Not provided
+4 portions · US imperial measures · unverified · 15 min publisher preparation · Not provided
 
 Grilled Salmon Kabobs with Greek Marinade. Original recipe adapted with source quantities and workflow.
 
@@ -8803,6 +8943,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -8964,7 +9106,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Sheet Pan Butter Dill Salmon with Asparagus
 
-4 portions · US measures · keto · 10 min publisher preparation · Not provided
+4 portions · US imperial measures · keto · 10 min publisher preparation · Not provided
 
 Sheet Pan Butter Dill Salmon with Asparagus. Original recipe adapted with source quantities and workflow.
 
@@ -8974,15 +9116,17 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Sheet Pan Butter Dill Salmon with Asparagus cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 425°F. Line a large tray with foil. Trim asparagus.</td></tr><tr><td colspan="3" class="trn-prep">Check fish reaches 145°F at its thickest point.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Oil foil-lined tray; arrange salmon/asparagus, season; roast 425°F 12–15 min to opaque flaky fish and tender asparagus.</td><td rowspan="9" colspan="1" class="trn-operation">Drizzle lemon-dill butter over roasted fish and asparagus; serve lemon wedges.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>24 oz</strong> Salmon<small class="trn-state-detail">four 6-ounce fillets</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> asparagus<small class="trn-state-detail">woody ends trimmed off</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> butter<small class="trn-state-detail">melted</small></th><td rowspan="3" colspan="1" class="trn-operation">Mix melted butter, zest and dill.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> fresh lemon zest<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> minced fresh dill<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 count</strong> fresh lemon wedges<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Sheet Pan Butter Dill Salmon with Asparagus cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 425°F. Line a large tray with foil. Trim asparagus.</td></tr><tr><td colspan="3" class="trn-prep">Check fish reaches 145°F at its thickest point.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> olive oil<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Oil foil-lined tray; arrange salmon/asparagus, season; roast 425°F 12–15 min to opaque flaky fish and tender asparagus.</td><td rowspan="9" colspan="1" class="trn-operation">Drizzle lemon-dill butter over roasted fish and asparagus; serve lemon wedges.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Salmon<small class="trn-state-detail">four 6-ounce fillets</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> asparagus<small class="trn-state-detail">woody ends trimmed off</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> butter<small class="trn-state-detail">melted</small></th><td rowspan="3" colspan="1" class="trn-operation">Mix melted butter, zest and dill.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> fresh lemon zest<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> minced fresh dill<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 count</strong> fresh lemon wedges<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
 - 1 tbsp olive oil
 
-- 24 oz Salmon — four 6-ounce fillets
+- 1.5 lb Salmon — four 6-ounce fillets
 
 - 1 lb asparagus — woody ends trimmed off
 
@@ -9096,7 +9240,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Cilantro Lime Shrimp and Cauliflower Rice (keto + low carb)
 
-4 portions · US measures · keto · 5 min publisher preparation · 25 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 25 min
 
 Cilantro Lime Shrimp and Cauliflower Rice (keto + low carb). Original recipe adapted with source quantities and workflow.
 
@@ -9105,6 +9249,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -9284,7 +9430,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lobster Bisque (low carb + keto)
 
-4 portions · US measures · keto · 5 min publisher preparation · 35 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 35 min
 
 Lobster Bisque (low carb + keto). Original recipe adapted with source quantities and workflow.
 
@@ -9294,9 +9440,11 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Lobster Bisque (low carb + keto) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Use a stockpot, separate skillet and immersion blender.</td></tr><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> olive oil<small class="trn-state-detail"></small></th><td rowspan="10" colspan="1" class="trn-operation">Sauté soup vegetables in oil medium until soft; add paste, stock, Old Bay and wine, simmer 15 min; blend smooth, add cream, cover low.</td><td rowspan="14" colspan="1" class="trn-operation">Add cooked lobster and its garlic butter to creamy soup; optionally blend again.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> small onion<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ clove</strong> garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ count</strong> carrots<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ stalk</strong> celery<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> tomato paste<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Old Bay<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> good quality dry white wine<small class="trn-state-detail">such as Sauvignon blanc</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ carton</strong> Seafood stock<small class="trn-state-detail">one 32-ounce carton · Vegetable stock is an explicit source alternative. Fraction of a 32-ounce package; the package size is preserved from the publisher.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> heavy cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> butter<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Sauté lobster in butter with second garlic and lemon 3–4 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 clove</strong> garlic<small class="trn-state-detail">Source gives a range; amount is its lower endpoint, amountMax its upper endpoint. Source range: 3–4 clove; use the lower stated amount as the scaled starting point.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> lemon juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>10.7 oz</strong> uncooked Lobster claw meat<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Lobster Bisque (low carb + keto) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Use a stockpot, separate skillet and immersion blender.</td></tr><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> olive oil<small class="trn-state-detail"></small></th><td rowspan="10" colspan="1" class="trn-operation">Sauté soup vegetables in oil medium until soft; add paste, stock, Old Bay and wine, simmer 15 min; blend smooth, add cream, cover low.</td><td rowspan="14" colspan="1" class="trn-operation">Add cooked lobster and its garlic butter to creamy soup; optionally blend again.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> small onion<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ clove</strong> garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ count</strong> carrots<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ stalk</strong> celery<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> tomato paste<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Old Bay<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> good quality dry white wine<small class="trn-state-detail">such as Sauvignon blanc</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ carton</strong> Seafood stock<small class="trn-state-detail">one 32-ounce carton · Vegetable stock is an explicit source alternative. Fraction of a 32-ounce package; the package size is preserved from the publisher.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> heavy cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> butter<small class="trn-state-detail"></small></th><td rowspan="4" colspan="1" class="trn-operation">Sauté lobster in butter with second garlic and lemon 3–4 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 clove</strong> garlic<small class="trn-state-detail">Source gives a range; amount is its lower endpoint, amountMax its upper endpoint. Source range: 3–4 clove; use the lower stated amount as the scaled starting point.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> lemon juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>10.67 oz</strong> uncooked Lobster claw meat<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
@@ -9326,7 +9474,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - ⅔ tbsp lemon juice
 
-- 10.7 oz uncooked Lobster claw meat
+- 10.67 oz uncooked Lobster claw meat
 
 ### Equipment
 
@@ -9446,7 +9594,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Salmon with Jalapeño Lime Butter (keto + low carb)
 
-4 portions · US measures · keto · 5 min publisher preparation · 15 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 15 min
 
 Salmon with Jalapeño Lime Butter (keto + low carb). Original recipe adapted with source quantities and workflow.
 
@@ -9456,9 +9604,11 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Salmon with Jalapeño Lime Butter (keto + low carb) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Set oven to 400°F. Paprika is to taste as an explicit adaptation because the source omitted its unit.</td></tr><tr><td colspan="3" class="trn-prep">Check fish reaches 145°F at its thickest point.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> salmon<small class="trn-state-detail"></small></th><td rowspan="7" colspan="1" class="trn-operation">Mix seasoned lime rub with paprika to taste; coat top of salmon.</td><td rowspan="10" colspan="1" class="trn-operation">Bake or grill salmon skin-down 400°F 7–10 min until flaky; top chilled jalapeño butter to melt.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> lime zest<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Paprika<small class="trn-state-detail">Explicit adaptation: use paprika to taste because source says ¼ paprika without a unit. No teaspoon quantity is inferred.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> salted butter<small class="trn-state-detail">softened</small></th><td rowspan="3" colspan="1" class="trn-operation">Mix softened butter, jalapeño and butter lime-zest portion; chill firm.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> jalapeño<small class="trn-state-detail">seeded and finely diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> lime zest<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Salmon with Jalapeño Lime Butter (keto + low carb) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Set oven to 400°F. Paprika is to taste as an explicit adaptation because the source omitted its unit.</td></tr><tr><td colspan="3" class="trn-prep">Check fish reaches 145°F at its thickest point.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> salmon<small class="trn-state-detail"></small></th><td rowspan="7" colspan="1" class="trn-operation">Mix seasoned lime rub with paprika to taste; coat top of salmon.</td><td rowspan="10" colspan="1" class="trn-operation">Bake or grill salmon skin-down 400°F 7–10 min until flaky; top chilled jalapeño butter to melt.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> lime zest<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Paprika<small class="trn-state-detail">Explicit adaptation: use paprika to taste because source says ¼ paprika without a unit. No teaspoon quantity is inferred.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> salted butter<small class="trn-state-detail">softened</small></th><td rowspan="3" colspan="1" class="trn-operation">Mix softened butter, jalapeño and butter lime-zest portion; chill firm.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> jalapeño<small class="trn-state-detail">seeded and finely diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> lime zest<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
@@ -9468,7 +9618,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - ½ tsp lime zest
 
-- 1 ½ lb salmon
+- 1.5 lb salmon
 
 - ½ tsp garlic powder
 
@@ -9582,7 +9732,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Keto Shrimp and Broccoli Recipe
 
-4 portions · US measures · keto · 5 min publisher preparation · 20 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 20 min
 
 Keto Shrimp and Broccoli Recipe. Original recipe adapted with source quantities and workflow.
 
@@ -9591,6 +9741,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -9718,7 +9870,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Keto Parmesan Tilapia and Asparagus for One
 
-4 portions · US measures · keto · Preparation time not provided · 20 min
+4 portions · US imperial measures · keto · Preparation time not provided · 20 min
 
 Keto Parmesan Tilapia and Asparagus for One. Original recipe adapted with source quantities and workflow.
 
@@ -9727,6 +9879,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -9856,7 +10010,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Keto Cajun Shrimp
 
-4 portions · US measures · keto · 5 min publisher preparation · 20 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 20 min
 
 Keto Cajun Shrimp. Original recipe adapted with source quantities and workflow.
 
@@ -9865,6 +10019,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -9996,7 +10152,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Creamy Chicken Breast in Spinach Parmesan Sauce
 
-4 portions · US measures · unverified · 5 min publisher preparation · 25 min
+4 portions · US imperial measures · unverified · 5 min publisher preparation · 25 min
 
 Creamy Chicken Breast in Spinach Parmesan Sauce, adapted from Christina Cherrier.
 
@@ -10005,6 +10161,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -10146,7 +10304,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## One Pan Shrimp and Asparagus
 
-4 portions · US measures · unverified · 10 min publisher preparation · 20 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 20 min
 
 One Pan Shrimp and Asparagus, adapted from Christina Cherrier.
 
@@ -10156,15 +10314,17 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="One Pan Shrimp and Asparagus cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Asparagus<small class="trn-state-detail">rinsed and trimmed · 1 bunch</small></th><td rowspan="4" colspan="1" class="trn-operation">Cook asparagus in oil and one-third butter over medium 4–6 min until crisp-tender, using part of salt/pepper; set aside.</td><td rowspan="15" colspan="1" class="trn-operation">Combine asparagus and cooked shrimp; add lemon, warm 1 min and garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Medium raw shrimp<small class="trn-state-detail">peeled and deveined</small></th><td rowspan="8" colspan="1" class="trn-operation">Cook shrimp 1–2 min; add garlic/spices and flip 1 min; simmer stock/hot sauce 1 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Vegetable stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Sriracha<small class="trn-state-detail">or any hot sauce you like</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Crushed chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped parsley or cilantro<small class="trn-state-detail">for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="One Pan Shrimp and Asparagus cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Asparagus<small class="trn-state-detail">rinsed and trimmed · 1 bunch</small></th><td rowspan="4" colspan="1" class="trn-operation">Cook asparagus in oil and one-third butter over medium 4–6 min until crisp-tender, using part of salt/pepper; set aside.</td><td rowspan="15" colspan="1" class="trn-operation">Combine asparagus and cooked shrimp; add lemon, warm 1 min and garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Medium raw shrimp<small class="trn-state-detail">peeled and deveined</small></th><td rowspan="8" colspan="1" class="trn-operation">Cook shrimp 1–2 min; add garlic/spices and flip 1 min; simmer stock/hot sauce 1 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Vegetable stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Sriracha<small class="trn-state-detail">or any hot sauce you like</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Crushed chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped parsley or cilantro<small class="trn-state-detail">for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 1 ½ lb Medium raw shrimp — peeled and deveined
+- 1.5 lb Medium raw shrimp — peeled and deveined
 
-- 1 ½ lb Asparagus — rinsed and trimmed. 1 bunch
+- 1.5 lb Asparagus — rinsed and trimmed. 1 bunch
 
 - 3 tbsp Butter
 
@@ -10298,7 +10458,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Blackened Shrimp and Asparagus Skillet (20 Minutes)
 
-4 portions · US measures · unverified · 5 min publisher preparation · 20 min
+4 portions · US imperial measures · unverified · 5 min publisher preparation · 20 min
 
 Blackened Shrimp and Asparagus Skillet, adapted from Christina Cherrier.
 
@@ -10308,9 +10468,11 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Blackened Shrimp and Asparagus Skillet (20 Minutes) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Large shrimp<small class="trn-state-detail">peeled and deveined</small></th><td rowspan="10" colspan="1" class="trn-operation">Coat shrimp in spices; sear 2–3 min per side over medium-high</td><td rowspan="17" colspan="1" class="trn-operation">Return shrimp to asparagus; warm 1–2 min; garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Freshly cracked black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> Olive oil<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> Unsalted butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> Olive oil<small class="trn-state-detail">divided</small></th><td rowspan="6" colspan="1" class="trn-operation">After reserving shrimp, clean scorched residue if needed. Heat remaining oil/butter over medium; simmer lemon/stock/optional hot sauce briefly to reduce; cook asparagus 4–6 min until crisp-tender, turning to coat.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> Unsalted butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Asparagus<small class="trn-state-detail">rinsed and trimmed · 1 or 2 bunches</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Vegetable stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Hot sauce<small class="trn-state-detail">optional · we used Sriracha</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Lemon juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Lemon slices, chili pepper flakes and parsley<small class="trn-state-detail">lemon sliced, parsley freshly chopped; garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Blackened Shrimp and Asparagus Skillet (20 Minutes) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Large shrimp<small class="trn-state-detail">peeled and deveined</small></th><td rowspan="10" colspan="1" class="trn-operation">Coat shrimp in spices; sear 2–3 min per side over medium-high</td><td rowspan="17" colspan="1" class="trn-operation">Return shrimp to asparagus; warm 1–2 min; garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Chili powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Cumin<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Freshly cracked black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> Olive oil<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> Unsalted butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> Olive oil<small class="trn-state-detail">divided</small></th><td rowspan="6" colspan="1" class="trn-operation">After reserving shrimp, clean scorched residue if needed. Heat remaining oil/butter over medium; simmer lemon/stock/optional hot sauce briefly to reduce; cook asparagus 4–6 min until crisp-tender, turning to coat.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tbsp</strong> Unsalted butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Asparagus<small class="trn-state-detail">rinsed and trimmed · 1 or 2 bunches</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Vegetable stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Hot sauce<small class="trn-state-detail">optional · we used Sriracha</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Lemon juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Lemon slices, chili pepper flakes and parsley<small class="trn-state-detail">lemon sliced, parsley freshly chopped; garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
@@ -10334,7 +10496,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - 1 tbsp Unsalted butter — divided
 
-- 1 ½ lb Asparagus — rinsed and trimmed. 1 or 2 bunches
+- 1.5 lb Asparagus — rinsed and trimmed. 1 or 2 bunches
 
 - ¼ cup Vegetable stock
 
@@ -10464,7 +10626,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lemon Garlic Butter Chicken and Green Beans Skillet
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Lemon Garlic Butter Chicken and Green Beans Skillet, adapted from Christina Cherrier.
 
@@ -10474,15 +10636,17 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon Garlic Butter Chicken and Green Beans Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="4" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Chicken thighs<small class="trn-state-detail">skinless, boneless · Source says 3–6 thighs; three chosen for its three-serving yield.</small></th><td rowspan="5" colspan="2" class="trn-operation">Season thighs; sear 5–6 min per side over medium-low to 165°F</td><td rowspan="14" colspan="1" class="trn-operation">Return chicken to bean sauce; reheat and serve</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> Salt and fresh cracked black pepper<small class="trn-state-detail">Source combines salt and pepper under one amount; their separate amounts are unspecified.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ tbsp</strong> Butter<small class="trn-state-detail">divided or · ghee for paleo diet</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ lb</strong> Green beans<small class="trn-state-detail">trimmed</small></th><td rowspan="2" colspan="1" class="trn-operation">Microwave green beans 8–10 min with water</td><td rowspan="9" colspan="1" class="trn-operation">Cook beans in garlic butter 4–5 min; add stock/lemon and reduce</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> Water<small class="trn-state-detail">for microwave steaming · Cooking medium explicitly quantified by the source method; scale with the green-bean batch.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> Butter<small class="trn-state-detail">divided or · ghee for paleo diet</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>5 ⅓ clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ count</strong> Lemon<small class="trn-state-detail">juice · lemon slices for garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Chicken stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> Hot sauce<small class="trn-state-detail">we used Sriracha</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅓ tsp</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Fresh chopped parsley<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon Garlic Butter Chicken and Green Beans Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="4" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Chicken thighs<small class="trn-state-detail">skinless, boneless · Source says 3–6 thighs; three chosen for its three-serving yield.</small></th><td rowspan="5" colspan="2" class="trn-operation">Season thighs; sear 5–6 min per side over medium-low to 165°F</td><td rowspan="14" colspan="1" class="trn-operation">Return chicken to bean sauce; reheat and serve</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> Salt and fresh cracked black pepper<small class="trn-state-detail">Source combines salt and pepper under one amount; their separate amounts are unspecified.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ tbsp</strong> Butter<small class="trn-state-detail">divided or · ghee for paleo diet</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.33 lb</strong> Green beans<small class="trn-state-detail">trimmed</small></th><td rowspan="2" colspan="1" class="trn-operation">Microwave green beans 8–10 min with water</td><td rowspan="9" colspan="1" class="trn-operation">Cook beans in garlic butter 4–5 min; add stock/lemon and reduce</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> Water<small class="trn-state-detail">for microwave steaming · Cooking medium explicitly quantified by the source method; scale with the green-bean batch.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> Butter<small class="trn-state-detail">divided or · ghee for paleo diet</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>5 ⅓ clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ count</strong> Lemon<small class="trn-state-detail">juice · lemon slices for garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Chicken stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> Hot sauce<small class="trn-state-detail">we used Sriracha</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅓ tsp</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Fresh chopped parsley<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
 - 4 count Chicken thighs — skinless, boneless. Source says 3–6 thighs; three chosen for its three-serving yield.
 
-- 1 ⅓ lb Green beans — trimmed
+- 1.33 lb Green beans — trimmed
 
 - 4 tbsp Butter — divided or. ghee for paleo diet
 
@@ -10622,7 +10786,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Chicken Bites with Lemon Asparagus
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Garlic Butter Chicken Bites with Lemon Asparagus, adapted from Christina Cherrier.
 
@@ -10631,6 +10795,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -10792,7 +10958,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Creamy Tuscan Salmon Recipe
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Creamy Tuscan Salmon Recipe, adapted from Christina Cherrier.
 
@@ -10802,9 +10968,11 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Creamy Tuscan Salmon Recipe cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check fish reaches 145°F at its thickest point.</td></tr><tr><td colspan="4" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Salmon fillets<small class="trn-state-detail"></small></th><td rowspan="3" colspan="2" class="trn-operation">Sear salmon flesh-side first about 5 min per side over medium-high</td><td rowspan="13" colspan="1" class="trn-operation">Return salmon to spinach cream sauce; garnish with parsley</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ tsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ tbsp</strong> Butter<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Fry garlic in butter about 1 min; soften onion until translucent; cook drained tomatoes 1–2 min; add broth and reduce slightly.</td><td rowspan="9" colspan="1" class="trn-operation">Lower heat and gently simmer cream with remaining salt/pepper; wilt spinach and melt Parmesan about 1 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6 ⅔ clove</strong> Garlic<small class="trn-state-detail">finely diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ count</strong> Yellow onion<small class="trn-state-detail">small, diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.44 cup</strong> Vegetable broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6.7 oz</strong> Jarred sun-dried tomato in oil<small class="trn-state-essential">drained of oil</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 ⅓ cup</strong> Heavy cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 cup</strong> Baby spinach leaves<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Grated Parmesan<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> Fresh parsley<small class="trn-state-detail">chopped</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Creamy Tuscan Salmon Recipe cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check fish reaches 145°F at its thickest point.</td></tr><tr><td colspan="4" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Salmon fillets<small class="trn-state-detail"></small></th><td rowspan="3" colspan="2" class="trn-operation">Sear salmon flesh-side first about 5 min per side over medium-high</td><td rowspan="13" colspan="1" class="trn-operation">Return salmon to spinach cream sauce; garnish with parsley</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ tsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ tbsp</strong> Butter<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Fry garlic in butter about 1 min; soften onion until translucent; cook drained tomatoes 1–2 min; add broth and reduce slightly.</td><td rowspan="9" colspan="1" class="trn-operation">Lower heat and gently simmer cream with remaining salt/pepper; wilt spinach and melt Parmesan about 1 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6 ⅔ clove</strong> Garlic<small class="trn-state-detail">finely diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ count</strong> Yellow onion<small class="trn-state-detail">small, diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.44 cup</strong> Vegetable broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6.67 oz</strong> Jarred sun-dried tomato in oil<small class="trn-state-essential">drained of oil</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 ⅓ cup</strong> Heavy cream<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 cup</strong> Baby spinach leaves<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Grated Parmesan<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> Fresh parsley<small class="trn-state-detail">chopped</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
@@ -10820,7 +10988,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - 0.44 cup Vegetable broth
 
-- 6.7 oz Jarred sun-dried tomato in oil — drained of oil
+- 6.67 oz Jarred sun-dried tomato in oil — drained of oil
 
 - 2 ⅓ cup Heavy cream
 
@@ -10942,7 +11110,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lemon Garlic Steak and Broccoli Skillet
 
-4 portions · US measures · unverified · 5 min publisher preparation · Not provided
+4 portions · US imperial measures · unverified · 5 min publisher preparation · Not provided
 
 Lemon Garlic Steak and Broccoli Skillet, adapted from Christina Cherrier.
 
@@ -10952,13 +11120,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon Garlic Steak and Broccoli Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="4" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Sirloin steak<small class="trn-state-detail">sliced against the grain</small></th><td rowspan="4" colspan="1" class="trn-operation">Refrigerate steak in marinade 30–60 min; drain and reserve liquid</td><td rowspan="6" colspan="1" class="trn-operation">Sear marinated steak 1–2 min per side over medium-high</td><td rowspan="15" colspan="1" class="trn-operation">Return steak briefly to warm; garnish and serve</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> Low-sodium soy sauce<small class="trn-state-detail">or coconut amino if you’re strictly paleo</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Sriracha sauce<small class="trn-state-detail">or any hot chili sauce you like</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tbsp</strong> Butter or ghee<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 head</strong> Broccoli<small class="trn-state-detail">cut into florets</small></th><td rowspan="1" colspan="1" class="trn-operation">Blanch broccoli 1–2 min and cool</td><td rowspan="6" colspan="1" class="trn-operation">Lower to medium and melt remaining butter; bring reserved marinade with garlic/lemon/broth to full boil before reducing; add parsley/broccoli and toss to preferred tenderness.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Butter or ghee<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> Low-sodium beef broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> Parsley<small class="trn-state-detail">chopped · Source has malformed “+ or garnish”; use listed parsley in sauce. Optional extra garnish unquantified.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>¼ tsp</strong> Crushed red pepper flakes<small class="trn-state-detail">optional</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>to taste</strong> Fresh cracked black pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>Not specified</strong> Fresh thyme<small class="trn-state-detail">for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon Garlic Steak and Broccoli Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="4" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Sirloin steak<small class="trn-state-detail">sliced against the grain</small></th><td rowspan="4" colspan="1" class="trn-operation">Refrigerate steak in marinade 30–60 min; drain and reserve liquid</td><td rowspan="6" colspan="1" class="trn-operation">Sear marinated steak 1–2 min per side over medium-high</td><td rowspan="15" colspan="1" class="trn-operation">Return steak briefly to warm; garnish and serve</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> Low-sodium soy sauce<small class="trn-state-detail">or coconut amino if you’re strictly paleo</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Sriracha sauce<small class="trn-state-detail">or any hot chili sauce you like</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tbsp</strong> Butter or ghee<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 head</strong> Broccoli<small class="trn-state-detail">cut into florets</small></th><td rowspan="1" colspan="1" class="trn-operation">Blanch broccoli 1–2 min and cool</td><td rowspan="6" colspan="1" class="trn-operation">Lower to medium and melt remaining butter; bring reserved marinade with garlic/lemon/broth to full boil before reducing; add parsley/broccoli and toss to preferred tenderness.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Butter or ghee<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> Low-sodium beef broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> Parsley<small class="trn-state-detail">chopped · Source has malformed “+ or garnish”; use listed parsley in sauce. Optional extra garnish unquantified.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>¼ tsp</strong> Crushed red pepper flakes<small class="trn-state-detail">optional</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>to taste</strong> Fresh cracked black pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>Not specified</strong> Fresh thyme<small class="trn-state-detail">for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 1 ½ lb Sirloin steak — sliced against the grain
+- 1.5 lb Sirloin steak — sliced against the grain
 
 - 2 head Broccoli — cut into florets
 
@@ -11108,7 +11278,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## One-Pan Sausage Veggies
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 One-Pan Sausage Veggies, adapted from Christina Cherrier.
 
@@ -11118,17 +11288,19 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="One-Pan Sausage Veggies cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Smoked sausage<small class="trn-state-essential">fully cooked, cut into 1-inch pieces · Source also allows Italian sausage; method assumes smoked sausage. Choose fully cooked smoked sausage for source timing.</small></th><td rowspan="1" colspan="1" class="trn-operation">Brown smoked sausage about 5 min over medium</td><td rowspan="13" colspan="1" class="trn-operation">Deglaze with broth; return sausage and heat through; garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 bunch</strong> Rainbow carrots<small class="trn-state-detail">peeled, trimmed, and cut into sticks</small></th><td rowspan="9" colspan="1" class="trn-operation">Cook carrots 4 min; add other vegetables and seasoning; cook crisp-tender</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>16 oz</strong> Fresh green peas<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> Shallot<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Spring onions<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Salt and pepper<small class="trn-state-detail">Source combines salt and pepper under one amount; their separate amounts are unspecified.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Cajun seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ cup</strong> Low-sodium chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tsp</strong> Red chili pepper flakes<small class="trn-state-detail">optional</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Fresh chopped parsley<small class="trn-state-detail">optional</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="One-Pan Sausage Veggies cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Smoked sausage<small class="trn-state-essential">fully cooked, cut into 1-inch pieces · Source also allows Italian sausage; method assumes smoked sausage. Choose fully cooked smoked sausage for source timing.</small></th><td rowspan="1" colspan="1" class="trn-operation">Brown smoked sausage about 5 min over medium</td><td rowspan="13" colspan="1" class="trn-operation">Deglaze with broth; return sausage and heat through; garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 bunch</strong> Rainbow carrots<small class="trn-state-detail">peeled, trimmed, and cut into sticks</small></th><td rowspan="9" colspan="1" class="trn-operation">Cook carrots 4 min; add other vegetables and seasoning; cook crisp-tender</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Fresh green peas<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> Shallot<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Spring onions<small class="trn-state-detail">sliced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>6 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Salt and pepper<small class="trn-state-detail">Source combines salt and pepper under one amount; their separate amounts are unspecified.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Cajun seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ cup</strong> Low-sodium chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tsp</strong> Red chili pepper flakes<small class="trn-state-detail">optional</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Fresh chopped parsley<small class="trn-state-detail">optional</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 1 ½ lb Smoked sausage — fully cooked, cut into 1-inch pieces. Source also allows Italian sausage; method assumes smoked sausage. Choose fully cooked smoked sausage for source timing.
+- 1.5 lb Smoked sausage — fully cooked, cut into 1-inch pieces. Source also allows Italian sausage; method assumes smoked sausage. Choose fully cooked smoked sausage for source timing.
 
 - 2 bunch Rainbow carrots — peeled, trimmed, and cut into sticks
 
-- 16 oz Fresh green peas
+- 1 lb Fresh green peas
 
 - 2 count Shallot — sliced
 
@@ -11262,7 +11434,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Steak Bites with Lemon Zucchini Noodles
 
-4 portions · US measures · unverified · 10 min publisher preparation · Not provided
+4 portions · US imperial measures · unverified · 10 min publisher preparation · Not provided
 
 Garlic Butter Steak Bites with Lemon Zucchini Noodles, adapted from Christina Cherrier.
 
@@ -11272,13 +11444,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Steak Bites with Lemon Zucchini Noodles cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="4" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ¼ lb</strong> Sirloin steak<small class="trn-state-detail">cut into small cubes</small></th><td rowspan="6" colspan="1" class="trn-operation">Marinate steak at least 15–20 min; reserve drained liquid</td><td rowspan="9" colspan="1" class="trn-operation">Sear drained steak in cooking oil over high in one layer 3–4 min, stirring and working in batches; add two-thirds butter/garlic 1–2 min; reserve.</td><td rowspan="16" colspan="1" class="trn-operation">Cook zucchini in sauce 2–3 min; add herbs, reduce watery juices another 1 min if needed; return steak and warm 1 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Low-sodium soy sauce<small class="trn-state-detail">or coconut amino for paleo and gluten-free</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Hot sauce<small class="trn-state-detail">we used Sriracha</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Fresh cracked black pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tsp</strong> Minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Butter<small class="trn-state-detail">divided</small></th><td rowspan="4" colspan="2" class="trn-operation">Boil reserved marinade in lemon butter/broth; reduce 2–3 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Beef or vegetable broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Red chili pepper flakes<small class="trn-state-detail">optional</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>4 count</strong> Zucchini<small class="trn-state-detail">medium, spiralized · or a pack of store-bought Zucchini Noodles</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>1 tbsp</strong> Minced parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>1 tsp</strong> Fresh thyme leaves<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Steak Bites with Lemon Zucchini Noodles cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="4" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.25 lb</strong> Sirloin steak<small class="trn-state-detail">cut into small cubes</small></th><td rowspan="6" colspan="1" class="trn-operation">Marinate steak at least 15–20 min; reserve drained liquid</td><td rowspan="9" colspan="1" class="trn-operation">Sear drained steak in cooking oil over high in one layer 3–4 min, stirring and working in batches; add two-thirds butter/garlic 1–2 min; reserve.</td><td rowspan="16" colspan="1" class="trn-operation">Cook zucchini in sauce 2–3 min; add herbs, reduce watery juices another 1 min if needed; return steak and warm 1 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Low-sodium soy sauce<small class="trn-state-detail">or coconut amino for paleo and gluten-free</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Hot sauce<small class="trn-state-detail">we used Sriracha</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Fresh cracked black pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tsp</strong> Minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Butter<small class="trn-state-detail">divided</small></th><td rowspan="4" colspan="2" class="trn-operation">Boil reserved marinade in lemon butter/broth; reduce 2–3 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Beef or vegetable broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Red chili pepper flakes<small class="trn-state-detail">optional</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>4 count</strong> Zucchini<small class="trn-state-detail">medium, spiralized · or a pack of store-bought Zucchini Noodles</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>1 tbsp</strong> Minced parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>1 tsp</strong> Fresh thyme leaves<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 1 ¼ lb Sirloin steak — cut into small cubes
+- 1.25 lb Sirloin steak — cut into small cubes
 
 - 4 count Zucchini — medium, spiralized. or a pack of store-bought Zucchini Noodles
 
@@ -11430,7 +11604,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## 15-Minute Lemon Garlic Butter Steak with Zucchini Noodles
 
-4 portions · US measures · unverified · 10 min publisher preparation · Not provided
+4 portions · US imperial measures · unverified · 10 min publisher preparation · Not provided
 
 15-Minute Lemon Garlic Butter Steak with Zucchini Noodles, adapted from Christina Cherrier.
 
@@ -11440,13 +11614,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="15-Minute Lemon Garlic Butter Steak with Zucchini Noodles cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check whole-cut steak reaches 145°F, then rest at least 3 min before serving.</td></tr><tr><td colspan="4" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Flank steak<small class="trn-state-detail">sliced against the grain</small></th><td rowspan="5" colspan="1" class="trn-operation">Marinate steak refrigerated 30–60 min; reserve drained liquid</td><td rowspan="8" colspan="1" class="trn-operation">Season drained steak; sear in cooking oil over medium-high in one layer 1 min without stirring; add garlic, turn and cook 1–2 min; reserve.</td><td rowspan="14" colspan="1" class="trn-operation">Toss zucchini and parsley in sauce 2–3 min; reduce watery juices another 1 min if needed; return steak and warm 1 min; serve immediately.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> Low-sodium soy sauce<small class="trn-state-detail">or coconut amino if you’re strictly paleo</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Lemon juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Sriracha sauce<small class="trn-state-detail">or any hot chili sauce you like</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked black pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter or ghee<small class="trn-state-detail"></small></th><td rowspan="4" colspan="2" class="trn-operation">Boil reserved marinade in butter/lemon/broth; reduce 2–3 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Lemon<small class="trn-state-detail">juice and zest</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Low-sodium chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Crushed red pepper flakes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Zucchini<small class="trn-state-detail">medium</small></th><td rowspan="1" colspan="2" class="trn-operation">Spiralize zucchini</td></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>¼ cup</strong> Chopped parsley<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="15-Minute Lemon Garlic Butter Steak with Zucchini Noodles cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check whole-cut steak reaches 145°F, then rest at least 3 min before serving.</td></tr><tr><td colspan="4" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Flank steak<small class="trn-state-detail">sliced against the grain</small></th><td rowspan="5" colspan="1" class="trn-operation">Marinate steak refrigerated 30–60 min; reserve drained liquid</td><td rowspan="8" colspan="1" class="trn-operation">Season drained steak; sear in cooking oil over medium-high in one layer 1 min without stirring; add garlic, turn and cook 1–2 min; reserve.</td><td rowspan="14" colspan="1" class="trn-operation">Toss zucchini and parsley in sauce 2–3 min; reduce watery juices another 1 min if needed; return steak and warm 1 min; serve immediately.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> Low-sodium soy sauce<small class="trn-state-detail">or coconut amino if you’re strictly paleo</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Lemon juice<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Sriracha sauce<small class="trn-state-detail">or any hot chili sauce you like</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked black pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter or ghee<small class="trn-state-detail"></small></th><td rowspan="4" colspan="2" class="trn-operation">Boil reserved marinade in butter/lemon/broth; reduce 2–3 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Lemon<small class="trn-state-detail">juice and zest</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Low-sodium chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Crushed red pepper flakes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Zucchini<small class="trn-state-detail">medium</small></th><td rowspan="1" colspan="2" class="trn-operation">Spiralize zucchini</td></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>¼ cup</strong> Chopped parsley<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 1 ½ lb Flank steak — sliced against the grain
+- 1.5 lb Flank steak — sliced against the grain
 
 - 4 count Zucchini — medium
 
@@ -11592,7 +11768,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Shrimp and Broccoli Skillet
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Garlic Butter Shrimp and Broccoli Skillet, adapted from Christina Cherrier.
 
@@ -11602,15 +11778,17 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Shrimp and Broccoli Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Broccoli<small class="trn-state-detail">rinsed and cut into florets · 1 1/2 crown</small></th><td rowspan="4" colspan="1" class="trn-operation">Cook broccoli in oil/one-third butter over medium 4–6 min until crisp-tender, with part of salt/pepper; set aside.</td><td rowspan="16" colspan="1" class="trn-operation">Combine broccoli and shrimp; add lemon; warm 1–2 min and garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Medium raw shrimp<small class="trn-state-detail">peeled and deveined</small></th><td rowspan="9" colspan="1" class="trn-operation">Cook shrimp 1–2 min; add garlic/spices and flip 1 min; reduce stock/hot sauce 1 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Vegetable stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Sriracha<small class="trn-state-detail">or any hot sauce you like</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Crushed chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped parsley or cilantro<small class="trn-state-detail">for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Shrimp and Broccoli Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Broccoli<small class="trn-state-detail">rinsed and cut into florets · 1 1/2 crown</small></th><td rowspan="4" colspan="1" class="trn-operation">Cook broccoli in oil/one-third butter over medium 4–6 min until crisp-tender, with part of salt/pepper; set aside.</td><td rowspan="16" colspan="1" class="trn-operation">Combine broccoli and shrimp; add lemon; warm 1–2 min and garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Medium raw shrimp<small class="trn-state-detail">peeled and deveined</small></th><td rowspan="9" colspan="1" class="trn-operation">Cook shrimp 1–2 min; add garlic/spices and flip 1 min; reduce stock/hot sauce 1 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Vegetable stock<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Sriracha<small class="trn-state-detail">or any hot sauce you like</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Crushed chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped parsley or cilantro<small class="trn-state-detail">for garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 1 ½ lb Medium raw shrimp — peeled and deveined
+- 1.5 lb Medium raw shrimp — peeled and deveined
 
-- 1 ½ lb Broccoli — rinsed and cut into florets. 1 1/2 crown
+- 1.5 lb Broccoli — rinsed and cut into florets. 1 1/2 crown
 
 - 3 tbsp Butter
 
@@ -11752,7 +11930,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Sheet Pan Shrimp Fajitas
 
-4 portions · US measures · unverified · 10 min publisher preparation · 20 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 20 min
 
 Sheet Pan Shrimp Fajitas, adapted from Christina Cherrier.
 
@@ -11761,6 +11939,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -11916,7 +12096,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Cod with Lemon Asparagus Skillet
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Garlic Butter Cod with Lemon Asparagus Skillet, adapted from Christina Cherrier.
 
@@ -11925,6 +12105,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -12064,7 +12246,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Asado Chicken Breast with Sauteed Lemon Zucchini
 
-4 portions · US measures · unverified · 10 min publisher preparation · Not provided
+4 portions · US imperial measures · unverified · 10 min publisher preparation · Not provided
 
 Asado Chicken Breast with Sauteed Lemon Zucchini, adapted from Christina Cherrier.
 
@@ -12073,6 +12255,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -12230,7 +12414,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Chicken Bites with Zucchini Noodles
 
-4 portions · US measures · unverified · 15 min publisher preparation · Not provided
+4 portions · US imperial measures · unverified · 15 min publisher preparation · Not provided
 
 Garlic Butter Chicken Bites with Zucchini Noodles, adapted from Christina Cherrier.
 
@@ -12239,6 +12423,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -12418,7 +12604,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lemon Garlic Butter Baked Cod Fillets
 
-4 portions · US measures · unverified · 5 min publisher preparation · 20 min
+4 portions · US imperial measures · unverified · 5 min publisher preparation · 20 min
 
 Lemon Garlic Butter Baked Cod Fillets, adapted from Christina Cherrier.
 
@@ -12427,6 +12613,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -12576,7 +12764,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lemon Garlic Butter Shrimp with Zucchini Noodles
 
-4 portions · US measures · unverified · 10 min publisher preparation · 20 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 20 min
 
 Lemon Garlic Butter Shrimp with Zucchini Noodles, adapted from Christina Cherrier.
 
@@ -12585,6 +12773,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -12724,7 +12914,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Creamy Cajun Shrimp with Sausage
 
-4 portions · US measures · unverified · 10 min publisher preparation · 25 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 25 min
 
 Creamy Cajun Shrimp with Sausage, adapted from Christina Cherrier.
 
@@ -12733,6 +12923,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -12880,7 +13072,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Shrimp with Lemon Parmesan Cauliflower Rice
 
-4 portions · US measures · unverified · 10 min publisher preparation · 25 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 25 min
 
 Garlic Butter Shrimp with Lemon Parmesan Cauliflower Rice, adapted from Christina Cherrier.
 
@@ -12890,13 +13082,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Shrimp with Lemon Parmesan Cauliflower Rice cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ cup</strong> Unsalted butter<small class="trn-state-detail">divided</small></th><td rowspan="9" colspan="1" class="trn-operation">Season shrimp with part of salt/pepper. Over medium, cook half garlic/onion 1 min in half butter; cauliflower 1 min; one-third stock/half parsley/optional zest 1 min; lemon/two-thirds Parmesan 1 min until cauliflower crisp-tender; reserve.</td><td rowspan="20" colspan="1" class="trn-operation">Return cauliflower to cooked shrimp; warm and finish parsley/flakes</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ½ clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 head</strong> Cauliflower<small class="trn-state-detail">riced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> White onion<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Lemon<small class="trn-state-detail">juice · + zest, if you like</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Vegetable stock<small class="trn-state-detail">Source 1/4 cup + 2 tablespoons equals six tablespoons; one-third to cauliflower and two-thirds to shrimp.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Fresh parsley<small class="trn-state-detail">chopped · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.3 oz</strong> Fresh Parmesan<small class="trn-state-detail">finely grated</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Medium raw shrimp<small class="trn-state-detail">peeled and deveined</small></th><td rowspan="9" colspan="1" class="trn-operation">Cook shrimp 1–2 min; flip with garlic/spices 1 min; reduce stock/hot sauce/cheese 1 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ cup</strong> Unsalted butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ½ clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Sriracha<small class="trn-state-detail">or any hot sauce you like</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> Vegetable stock<small class="trn-state-detail">Source 1/4 cup + 2 tablespoons equals six tablespoons; one-third to cauliflower and two-thirds to shrimp.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.7 oz</strong> Fresh Parmesan<small class="trn-state-detail">finely grated</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh parsley<small class="trn-state-detail">chopped · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tsp</strong> Red chili pepper flakes<small class="trn-state-detail">optional</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Shrimp with Lemon Parmesan Cauliflower Rice cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Cook shellfish until the flesh is pearly white and opaque.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ cup</strong> Unsalted butter<small class="trn-state-detail">divided</small></th><td rowspan="9" colspan="1" class="trn-operation">Season shrimp with part of salt/pepper. Over medium, cook half garlic/onion 1 min in half butter; cauliflower 1 min; one-third stock/half parsley/optional zest 1 min; lemon/two-thirds Parmesan 1 min until cauliflower crisp-tender; reserve.</td><td rowspan="20" colspan="1" class="trn-operation">Return cauliflower to cooked shrimp; warm and finish parsley/flakes</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ½ clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 head</strong> Cauliflower<small class="trn-state-detail">riced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> White onion<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Lemon<small class="trn-state-detail">juice · + zest, if you like</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Vegetable stock<small class="trn-state-detail">Source 1/4 cup + 2 tablespoons equals six tablespoons; one-third to cauliflower and two-thirds to shrimp.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Fresh parsley<small class="trn-state-detail">chopped · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.33 oz</strong> Fresh Parmesan<small class="trn-state-detail">finely grated</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Medium raw shrimp<small class="trn-state-detail">peeled and deveined</small></th><td rowspan="9" colspan="1" class="trn-operation">Cook shrimp 1–2 min; flip with garlic/spices 1 min; reduce stock/hot sauce/cheese 1 min</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ cup</strong> Unsalted butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ½ clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> Onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Sriracha<small class="trn-state-detail">or any hot sauce you like</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> Vegetable stock<small class="trn-state-detail">Source 1/4 cup + 2 tablespoons equals six tablespoons; one-third to cauliflower and two-thirds to shrimp.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.67 oz</strong> Fresh Parmesan<small class="trn-state-detail">finely grated</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh parsley<small class="trn-state-detail">chopped · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tsp</strong> Red chili pepper flakes<small class="trn-state-detail">optional</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 1 ½ lb Medium raw shrimp — peeled and deveined
+- 1.5 lb Medium raw shrimp — peeled and deveined
 
 - ¼ cup Unsalted butter — divided
 
@@ -13042,7 +13236,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Cheesy Garlic Burgers with Lemon Butter Zucchini Noodles
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Cheesy Garlic Burgers with Lemon Butter Zucchini Noodles, adapted from Christina Cherrier.
 
@@ -13052,13 +13246,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Cheesy Garlic Burgers with Lemon Butter Zucchini Noodles cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check ground meat or fresh sausage reaches 160°F.</td></tr><tr><td colspan="4" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ¼ lb</strong> Lean ground beef<small class="trn-state-detail"></small></th><td rowspan="8" colspan="1" class="trn-operation">Mix beef and seasoning; form two equal patties per portion and seal one cheese slice between each pair</td><td rowspan="9" colspan="1" class="trn-operation">Cook one cheese-filled burger per portion in half butter 5–6 min per side over medium-high, basting with pan juices, until ground beef reaches 160°F; reserve.</td><td rowspan="17" colspan="1" class="trn-operation">Cook zucchini in lemon butter 2–3 min; reduce excess liquid another 1 min if needed; return burgers and warm 1–2 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Crumbled beef bouillon cube<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Steak seasoning<small class="trn-state-detail">we used Mc Cormick’s Grill Mates Hamburger</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 slice</strong> Cheese<small class="trn-state-detail">cheddar, mozzarella, provolone…</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ½ clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Chopped fresh parsley<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Salt and fresh cracked pepper<small class="trn-state-detail">Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail">divided · Source “2+2 tablespoons”; half to burgers and half to sauce.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail">divided · Source “2+2 tablespoons”; half to burgers and half to sauce.</small></th><td rowspan="6" colspan="2" class="trn-operation">Melt butter; add garlic/lemon/hot sauce/herbs/flakes</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ½ clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Hot sauce<small class="trn-state-detail">we used Sriracha</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice · lemon slices, for garnish</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>¼ cup</strong> Chopped fresh parsley<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Zucchini<small class="trn-state-detail">medium, spiralized or julienned</small></th><td rowspan="1" colspan="2" class="trn-operation">Spiralize zucchini</td></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Cheesy Garlic Burgers with Lemon Butter Zucchini Noodles cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">Check ground meat or fresh sausage reaches 160°F.</td></tr><tr><td colspan="4" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.25 lb</strong> Lean ground beef<small class="trn-state-detail"></small></th><td rowspan="8" colspan="1" class="trn-operation">Mix beef and seasoning; form two equal patties per portion and seal one cheese slice between each pair</td><td rowspan="9" colspan="1" class="trn-operation">Cook one cheese-filled burger per portion in half butter 5–6 min per side over medium-high, basting with pan juices, until ground beef reaches 160°F; reserve.</td><td rowspan="17" colspan="1" class="trn-operation">Cook zucchini in lemon butter 2–3 min; reduce excess liquid another 1 min if needed; return burgers and warm 1–2 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Crumbled beef bouillon cube<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Steak seasoning<small class="trn-state-detail">we used Mc Cormick’s Grill Mates Hamburger</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 slice</strong> Cheese<small class="trn-state-detail">cheddar, mozzarella, provolone…</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ½ clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Chopped fresh parsley<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Salt and fresh cracked pepper<small class="trn-state-detail">Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail">divided · Source “2+2 tablespoons”; half to burgers and half to sauce.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter<small class="trn-state-detail">divided · Source “2+2 tablespoons”; half to burgers and half to sauce.</small></th><td rowspan="6" colspan="2" class="trn-operation">Melt butter; add garlic/lemon/hot sauce/herbs/flakes</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ½ clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>Not specified</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Hot sauce<small class="trn-state-detail">we used Sriracha</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice · lemon slices, for garnish</small></th></tr><tr><th scope="row" colspan="3" class="trn-ingredient"><strong>¼ cup</strong> Chopped fresh parsley<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Zucchini<small class="trn-state-detail">medium, spiralized or julienned</small></th><td rowspan="1" colspan="2" class="trn-operation">Spiralize zucchini</td></tr></tbody></table></div>
 
 ### Ingredients
 
-- 1 ¼ lb Lean ground beef
+- 1.25 lb Lean ground beef
 
 - 5 clove Garlic — minced
 
@@ -13206,7 +13402,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Ground Turkey with Cauliflower
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Garlic Butter Ground Turkey with Cauliflower, adapted from Christina Cherrier.
 
@@ -13215,6 +13411,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -13366,7 +13564,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Chicken with Cauliflower Rice
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Garlic Butter Chicken with Cauliflower Rice, adapted from Christina Cherrier.
 
@@ -13375,6 +13573,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -13528,7 +13728,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Pork Bites with Lemon Green Beans
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Garlic Butter Pork Bites with Lemon Green Beans, adapted from Christina Cherrier.
 
@@ -13538,13 +13738,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Pork Bites with Lemon Green Beans cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> Pork chops<small class="trn-state-detail">cut into 1-inch cubes</small></th><td rowspan="3" colspan="1" class="trn-operation">Sear Cajun-coated pork cubes over medium-high in one-third oil 2–3 min/side in batches, using remaining oil as needed, until 145°F; reserve and rest 3 min.</td><td rowspan="11" colspan="1" class="trn-operation">Return pork to bean sauce; coat/warm and garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Cajun seasoning mix<small class="trn-state-detail">preferably low sodium</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Olive oil<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Butter<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Lower to medium; melt butter, sauté garlic about 30 sec and scrape browned juices; add lemon/broth; toss blanched beans 3–4 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Vegetable broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 clove</strong> Garlic<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Green beans<small class="trn-state-detail">trimmed and blanched · if thin, no need to blanch the green beans</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Red chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped parsley<small class="trn-state-detail">for the garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Lemon slices<small class="trn-state-detail">for the garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Pork Bites with Lemon Green Beans cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> Pork chops<small class="trn-state-detail">cut into 1-inch cubes</small></th><td rowspan="3" colspan="1" class="trn-operation">Sear Cajun-coated pork cubes over medium-high in one-third oil 2–3 min/side in batches, using remaining oil as needed, until 145°F; reserve and rest 3 min.</td><td rowspan="11" colspan="1" class="trn-operation">Return pork to bean sauce; coat/warm and garnish</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Cajun seasoning mix<small class="trn-state-detail">preferably low sodium</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Olive oil<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Butter<small class="trn-state-detail"></small></th><td rowspan="5" colspan="1" class="trn-operation">Lower to medium; melt butter, sauté garlic about 30 sec and scrape browned juices; add lemon/broth; toss blanched beans 3–4 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Vegetable broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 clove</strong> Garlic<small class="trn-state-detail">finely chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Green beans<small class="trn-state-detail">trimmed and blanched · if thin, no need to blanch the green beans</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Red chili pepper flakes<small class="trn-state-detail">optional · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Fresh chopped parsley<small class="trn-state-detail">for the garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Lemon slices<small class="trn-state-detail">for the garnish · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 1 ½ lb Pork chops — cut into 1-inch cubes
+- 1.5 lb Pork chops — cut into 1-inch cubes
 
 - 1 tbsp Cajun seasoning mix. preferably low sodium
 
@@ -13672,7 +13874,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Salmon with Lemon Asparagus
 
-4 portions · US measures · unverified · 5 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 5 min publisher preparation · 30 min
 
 Garlic Butter Salmon with Lemon Asparagus, adapted from Christina Cherrier.
 
@@ -13681,6 +13883,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -13820,7 +14024,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lemon Garlic Butter Salmon with Zucchini Noodles
 
-4 portions · US measures · unverified · 5 min publisher preparation · 20 min
+4 portions · US imperial measures · unverified · 5 min publisher preparation · 20 min
 
 Lemon Garlic Butter Salmon with Zucchini Noodles, adapted from Christina Cherrier.
 
@@ -13829,6 +14033,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -13960,7 +14166,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lemon Garlic Butter Steak with Spinach
 
-4 portions · US measures · unverified · 10 min publisher preparation · Not provided
+4 portions · US imperial measures · unverified · 10 min publisher preparation · Not provided
 
 Lemon Garlic Butter Steak with Spinach, adapted from Christina Cherrier.
 
@@ -13970,15 +14176,17 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon Garlic Butter Steak with Spinach cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">While steak marinates in the refrigerator, wilt spinach first, drain it and clean the skillet. Then sear steak in that skillet and reserve it; make the sauce only after steak is removed, using its reserved marinade. Return steak and spinach at the final operation.</td></tr><tr><td colspan="4" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="4" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ½ lb</strong> Fresh spinach<small class="trn-state-detail"></small></th><td rowspan="2" colspan="2" class="trn-operation">Wilt washed spinach 1 min in one-quarter butter, turning; drain and clean skillet.</td><td rowspan="15" colspan="1" class="trn-operation">Return steak and drained spinach to sauce; warm through</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter or ghee<small class="trn-state-detail">or less if you want</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 ⅓ lb</strong> Flank steak<small class="trn-state-detail">sliced against the grain</small></th><td rowspan="4" colspan="1" class="trn-operation">Marinate steak refrigerated 30–60 min; reserve drained liquid</td><td rowspan="6" colspan="1" class="trn-operation">After spinach is drained and skillet cleaned, sear seasoned drained steak in half butter over medium-high 1 min first side, then turn to finish; work in batches and reserve.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ cup</strong> Low-sodium soy sauce<small class="trn-state-detail">or coconut amino for paleo and gluten-free</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ cup</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> Sriracha sauce<small class="trn-state-detail">or any hot chili sauce you like</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 tbsp</strong> Butter or ghee<small class="trn-state-detail">or less if you want</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter or ghee<small class="trn-state-detail">or less if you want</small></th><td rowspan="7" colspan="2" class="trn-operation">After steak is reserved, add remaining butter and sauce ingredients; bring reserved raw-meat marinade with garlic/lemon/broth/herbs to a full boil, then reduce 1–2 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Low-sodium beef broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Chopped parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Chopped chives<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Crushed red pepper flakes<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Lemon Garlic Butter Steak with Spinach cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="4" class="trn-prep">While steak marinates in the refrigerator, wilt spinach first, drain it and clean the skillet. Then sear steak in that skillet and reserve it; make the sauce only after steak is removed, using its reserved marinade. Return steak and spinach at the final operation.</td></tr><tr><td colspan="4" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="4" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2.5 lb</strong> Fresh spinach<small class="trn-state-detail"></small></th><td rowspan="2" colspan="2" class="trn-operation">Wilt washed spinach 1 min in one-quarter butter, turning; drain and clean skillet.</td><td rowspan="15" colspan="1" class="trn-operation">Return steak and drained spinach to sauce; warm through</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter or ghee<small class="trn-state-detail">or less if you want</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3.33 lb</strong> Flank steak<small class="trn-state-detail">sliced against the grain</small></th><td rowspan="4" colspan="1" class="trn-operation">Marinate steak refrigerated 30–60 min; reserve drained liquid</td><td rowspan="6" colspan="1" class="trn-operation">After spinach is drained and skillet cleaned, sear seasoned drained steak in half butter over medium-high 1 min first side, then turn to finish; work in batches and reserve.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ cup</strong> Low-sodium soy sauce<small class="trn-state-detail">or coconut amino for paleo and gluten-free</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ cup</strong> Olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tbsp</strong> Sriracha sauce<small class="trn-state-detail">or any hot chili sauce you like</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 tbsp</strong> Butter or ghee<small class="trn-state-detail">or less if you want</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Source gives no numeric quantity; use to taste/as garnish as written.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Butter or ghee<small class="trn-state-detail">or less if you want</small></th><td rowspan="7" colspan="2" class="trn-operation">After steak is reserved, add remaining butter and sauce ingredients; bring reserved raw-meat marinade with garlic/lemon/broth/herbs to a full boil, then reduce 1–2 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 clove</strong> Garlic<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Lemon<small class="trn-state-detail">juice</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Low-sodium beef broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Chopped parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Chopped chives<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Crushed red pepper flakes<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 3 ⅓ lb Flank steak — sliced against the grain
+- 3.33 lb Flank steak — sliced against the grain
 
-- 2 ½ lb Fresh spinach
+- 2.5 lb Fresh spinach
 
 - 8 tbsp Butter or ghee. or less if you want
 
@@ -14122,7 +14330,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Cowboy Butter Chicken with Zucchini Noodles (15-Minute)
 
-4 portions · US measures · unverified · 10 min publisher preparation · 25 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 25 min
 
 Cowboy Butter Chicken with Zucchini Noodles, adapted from Christina Cherrier.
 
@@ -14131,6 +14339,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -14302,7 +14512,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Creamy Garlic Pesto Chicken
 
-4 portions · US measures · unverified · 15 min publisher preparation · 35 min
+4 portions · US imperial measures · unverified · 15 min publisher preparation · 35 min
 
 Creamy Garlic Pesto Chicken, adapted from Christina Cherrier.
 
@@ -14311,6 +14521,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -14468,7 +14680,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Herb Butter Chicken Thighs with Asparagus
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Garlic Herb Butter Chicken Thighs with Asparagus, adapted from Christina Cherrier.
 
@@ -14477,6 +14689,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -14620,7 +14834,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Easy Chicken Fajitas
 
-4 portions · US measures · unverified · 15 min publisher preparation · 25 min
+4 portions · US imperial measures · unverified · 15 min publisher preparation · 25 min
 
 Easy Chicken Fajitas, adapted from Christina Cherrier.
 
@@ -14629,6 +14843,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -14772,7 +14988,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Easy Cajun Pork Chops with Lemon Garlic Zucchini
 
-4 portions · US measures · unverified · Preparation time not provided · Not provided
+4 portions · US imperial measures · unverified · Preparation time not provided · Not provided
 
 Easy Cajun Pork Chops with Lemon Garlic Zucchini, adapted from Christina Cherrier.
 
@@ -14781,6 +14997,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -14924,7 +15142,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Creamy Fajita Chicken Breasts Skillet
 
-4 portions · US measures · unverified · 10 min publisher preparation · 25 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 25 min
 
 Creamy Fajita Chicken Breasts Skillet, adapted from Christina Cherrier.
 
@@ -14933,6 +15151,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -15068,7 +15288,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Cheesy Turkey Meatballs with Cauliflower Rice
 
-4 portions · US measures · unverified · 15 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 15 min publisher preparation · 30 min
 
 Cheesy Turkey Meatballs with Cauliflower Rice, adapted from Christina Cherrier.
 
@@ -15077,6 +15297,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -15240,7 +15462,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Fried Cabbage with Sausage
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Fried Cabbage with Sausage, adapted from Christina Cherrier.
 
@@ -15250,9 +15472,11 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Fried Cabbage with Sausage cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare sliced sausage and chopped vegetables. Brown sausage first and reserve; wipe the skillet, then wilt cabbage and onion. Return sausage with the remaining vegetables, broth and seasoning for the covered finish.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ lb</strong> smoked sausage<small class="trn-state-detail">sliced</small></th><td rowspan="1" colspan="1" class="trn-operation">Brown sliced smoked sausage 3 min; reserve and wipe skillet.</td><td rowspan="12" colspan="1" class="trn-operation">Return sausage with tomatoes, pepper, broth and Cajun seasoning; cover medium-low 10 min, then uncover and reduce liquid until cabbage tender; season and garnish.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 tbsp</strong> butter or olive oil<small class="trn-state-detail"></small></th><td rowspan="9" colspan="1" class="trn-operation">After reserving sausage and wiping skillet, heat butter or oil; stir-fry cabbage and onion over medium-high 5 min until wilting. Keep tomatoes, pepper, broth and Cajun seasoning for the final combined operation.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> small green cabbage<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> onion<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 can</strong> Diced tomatoes<small class="trn-state-essential">undrained (or diced fresh tomatoes) · (15 ounces) is the source parenthetical; original US quantity controls. Source can is 15 ounces, undrained.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> green bell pepper<small class="trn-state-detail">diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tsp</strong> cajun seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¾ cup</strong> chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Salt<small class="trn-state-detail">Or to taste.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Black pepper<small class="trn-state-detail">Or to taste.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 count</strong> scallions<small class="trn-state-detail">sliced, for garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Lime wedges or slices<small class="trn-state-detail">optional · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Fried Cabbage with Sausage cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Prepare sliced sausage and chopped vegetables. Brown sausage first and reserve; wipe the skillet, then wilt cabbage and onion. Return sausage with the remaining vegetables, broth and seasoning for the covered finish.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 oz</strong> smoked sausage<small class="trn-state-detail">sliced</small></th><td rowspan="1" colspan="1" class="trn-operation">Brown sliced smoked sausage 3 min; reserve and wipe skillet.</td><td rowspan="12" colspan="1" class="trn-operation">Return sausage with tomatoes, pepper, broth and Cajun seasoning; cover medium-low 10 min, then uncover and reduce liquid until cabbage tender; season and garnish.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 tbsp</strong> butter or olive oil<small class="trn-state-detail"></small></th><td rowspan="9" colspan="1" class="trn-operation">After reserving sausage and wiping skillet, heat butter or oil; stir-fry cabbage and onion over medium-high 5 min until wilting. Keep tomatoes, pepper, broth and Cajun seasoning for the final combined operation.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> small green cabbage<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> onion<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 can</strong> Diced tomatoes<small class="trn-state-essential">undrained (or diced fresh tomatoes) · (15 ounces) is the source parenthetical; original US quantity controls. Source can is 15 ounces, undrained.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> green bell pepper<small class="trn-state-detail">diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 tsp</strong> cajun seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¾ cup</strong> chicken broth<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Salt<small class="trn-state-detail">Or to taste.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Black pepper<small class="trn-state-detail">Or to taste.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 count</strong> scallions<small class="trn-state-detail">sliced, for garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Lime wedges or slices<small class="trn-state-detail">optional · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
@@ -15262,7 +15486,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - ½ count onion — chopped
 
-- ½ lb smoked sausage — sliced
+- 8 oz smoked sausage — sliced
 
 - 1 can Diced tomatoes — undrained (or diced fresh tomatoes). (15 ounces) is the source parenthetical; original US quantity controls. Source can is 15 ounces, undrained.
 
@@ -15386,7 +15610,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Tomato Spinach Chicken Skillet (Low Carb - Keto)
 
-4 portions · US measures · unverified · 10 min publisher preparation · 35 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 35 min
 
 Tomato Spinach Chicken Skillet, adapted from Christina Cherrier.
 
@@ -15395,6 +15619,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -15546,7 +15772,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Paprika Chicken Thighs with Lemon Zucchini Skillet
 
-4 portions · US measures · unverified · 10 min publisher preparation · 25 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 25 min
 
 Paprika Chicken Thighs with Lemon Zucchini Skillet, adapted from Christina Cherrier.
 
@@ -15555,6 +15781,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -15718,7 +15946,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Sausages and Broccoli Skillet
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Garlic Butter Sausages and Broccoli Skillet, adapted from Christina Cherrier.
 
@@ -15727,6 +15955,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -15864,7 +16094,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Pork with Lemon Asparagus
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Garlic Butter Pork with Lemon Asparagus, adapted from Christina Cherrier.
 
@@ -15874,13 +16104,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Pork with Lemon Asparagus cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Blanch asparagus 2 min, chill and drain; skip only for thin spears.</td></tr><tr><td colspan="3" class="trn-prep">Separate seasoning Italian herbs from the sauce herbs as listed.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> pork<small class="trn-state-detail">cut into small dices · (600g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="11" colspan="1" class="trn-operation">Season pork; brown uncrowded batches over medium-low in oil and half butter; add half garlic and separate Italian seasoning, then reserve.</td><td rowspan="20" colspan="1" class="trn-operation">Return pork 1 min; ensure 145°F and 3 min rest. Garnish as listed.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> fresh cracked black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Cayenne pepper<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> butter<small class="trn-state-detail">softened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning or Herbes de Provence<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 bunch</strong> asparagus<small class="trn-state-detail">rinsed and trimmed</small></th><td rowspan="7" colspan="1" class="trn-operation">After pork is reserved, add remaining garlic and stock; reduce by half. Add remaining butter, lemon, parsley and optional hot sauce; toss asparagus 3 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> butter<small class="trn-state-detail">softened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> hot sauce<small class="trn-state-detail">optional (we used Sriracha) · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> low-sodium chicken broth<small class="trn-state-detail">(125ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> minced parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Slices of lemon<small class="trn-state-detail">for garnish · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Pork with Lemon Asparagus cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Blanch asparagus 2 min, chill and drain; skip only for thin spears.</td></tr><tr><td colspan="3" class="trn-prep">Separate seasoning Italian herbs from the sauce herbs as listed.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> pork<small class="trn-state-detail">cut into small dices · (600g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="11" colspan="1" class="trn-operation">Season pork; brown uncrowded batches over medium-low in oil and half butter; add half garlic and separate Italian seasoning, then reserve.</td><td rowspan="20" colspan="1" class="trn-operation">Return pork 1 min; ensure 145°F and 3 min rest. Garnish as listed.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> fresh cracked black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> paprika<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Cayenne pepper<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> butter<small class="trn-state-detail">softened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning or Herbes de Provence<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 bunch</strong> asparagus<small class="trn-state-detail">rinsed and trimmed</small></th><td rowspan="7" colspan="1" class="trn-operation">After pork is reserved, add remaining garlic and stock; reduce by half. Add remaining butter, lemon, parsley and optional hot sauce; toss asparagus 3 min.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> butter<small class="trn-state-detail">softened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> minced garlic<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> hot sauce<small class="trn-state-detail">optional (we used Sriracha) · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> low-sodium chicken broth<small class="trn-state-detail">(125ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> minced parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Slices of lemon<small class="trn-state-detail">for garnish · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 1 ½ lb pork — cut into small dices. (600g) is the source parenthetical; original US quantity controls.
+- 1.5 lb pork — cut into small dices. (600g) is the source parenthetical; original US quantity controls.
 
 - 2 bunch asparagus — rinsed and trimmed
 
@@ -16050,7 +16282,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lemon Garlic Butter Chicken and Zucchini Noodles Skillet
 
-4 portions · US measures · unverified · 5 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 5 min publisher preparation · 30 min
 
 Lemon Garlic Butter Chicken and Zucchini Noodles Skillet, adapted from Christina Cherrier.
 
@@ -16059,6 +16291,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -16214,7 +16448,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## 10-Minute Sheet Pan Steak with Lemon Zucchini
 
-4 portions · US measures · unverified · 10 min publisher preparation · 80 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 80 min
 
 10-Minute Sheet Pan Steak with Lemon Zucchini, adapted from Christina Cherrier.
 
@@ -16224,13 +16458,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="10-Minute Sheet Pan Steak with Lemon Zucchini cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Oil total is retained; source does not specify its split between marinade and zucchini. Do not invent a measured split.</td></tr><tr><td colspan="3" class="trn-prep">Never place parchment under a high broiler.</td></tr><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> sirloin steak<small class="trn-state-detail">sliced against the grain · (650g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="4" colspan="1" class="trn-operation">Refrigerate steak in soy sauce, garlic powder, hot sauce and most oil 30–60 min; drain.</td><td rowspan="11" colspan="1" class="trn-operation">Before cooking, distribute total listed oil between steak marinade and zucchini; no measured split is specified. Heat broiler to 520°F if supported; broil drained steak and zucchini 5–10 min on broiler-safe metal until zucchini crisp-tender. Reach steak 145°F/rest 3 min; boil reserved raw marinade separately before serving; garnish.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> low-sodium soy sauce<small class="trn-state-detail">(or coconut amino if you’re strictly paleo)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Sriracha sauce<small class="trn-state-detail">(or any hot chili sauce you like)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 count</strong> medium zucchini<small class="trn-state-detail">sliced in half moon · Source quantity range 3 to 4; lower endpoint chosen explicitly.</small></th><td rowspan="4" colspan="1" class="trn-operation">Marinate zucchini with lemon, oregano, remaining oil and seasoning.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> crushed red pepper flakes<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> fresh oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked black pepper<small class="trn-state-detail">to taste · Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> chopped parsley<small class="trn-state-detail">for garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> olive oil<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="10-Minute Sheet Pan Steak with Lemon Zucchini cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Oil total is retained; source does not specify its split between marinade and zucchini. Do not invent a measured split.</td></tr><tr><td colspan="3" class="trn-prep">Never place parchment under a high broiler.</td></tr><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> sirloin steak<small class="trn-state-detail">sliced against the grain · (650g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="4" colspan="1" class="trn-operation">Refrigerate steak in soy sauce, garlic powder, hot sauce and most oil 30–60 min; drain.</td><td rowspan="11" colspan="1" class="trn-operation">Before cooking, distribute total listed oil between steak marinade and zucchini; no measured split is specified. Heat broiler to 520°F if supported; broil drained steak and zucchini 5–10 min on broiler-safe metal until zucchini crisp-tender. Reach steak 145°F/rest 3 min; boil reserved raw marinade separately before serving; garnish.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> low-sodium soy sauce<small class="trn-state-detail">(or coconut amino if you’re strictly paleo)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Sriracha sauce<small class="trn-state-detail">(or any hot chili sauce you like)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 count</strong> medium zucchini<small class="trn-state-detail">sliced in half moon · Source quantity range 3 to 4; lower endpoint chosen explicitly.</small></th><td rowspan="4" colspan="1" class="trn-operation">Marinate zucchini with lemon, oregano, remaining oil and seasoning.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> crushed red pepper flakes<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> fresh oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked black pepper<small class="trn-state-detail">to taste · Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> chopped parsley<small class="trn-state-detail">for garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> olive oil<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 1 ½ lb sirloin steak — sliced against the grain. (650g) is the source parenthetical; original US quantity controls.
+- 1.5 lb sirloin steak — sliced against the grain. (650g) is the source parenthetical; original US quantity controls.
 
 - 3 count medium zucchini — sliced in half moon. Source quantity range 3 to 4; lower endpoint chosen explicitly.
 
@@ -16362,7 +16598,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Creamy Garlic Shrimp with Spinach (10-Minute)
 
-4 portions · US measures · unverified · 5 min publisher preparation · 15 min
+4 portions · US imperial measures · unverified · 5 min publisher preparation · 15 min
 
 Creamy Garlic Shrimp with Spinach, adapted from Christina Cherrier.
 
@@ -16372,15 +16608,17 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Creamy Garlic Shrimp with Spinach (10-Minute) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Season shrimp. Cook shrimp first and reserve; make the sauce and wilt spinach in the same skillet, then return shrimp briefly.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> unsalted butter<small class="trn-state-detail">divided (or ghee, or olive oil)</small></th><td rowspan="3" colspan="1" class="trn-operation">Season shrimp; cook over medium-high in one-quarter butter 2–3 min to opaque; reserve.</td><td rowspan="13" colspan="1" class="trn-operation">Return shrimp 1 min; garnish and serve.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> medium shrimp<small class="trn-state-detail">peeled and deveined · (700g) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Kosher salt and freshly ground black pepper<small class="trn-state-detail">to taste · Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 count</strong> garlic<small class="trn-state-detail">minced</small></th><td rowspan="8" colspan="1" class="trn-operation">After reserving shrimp, cook onion/garlic 1 min, tomatoes 1 min; add stock/hot sauce, boil then simmer 1–2 min to reduce by half. Stir remaining butter in gradually, add spinach/cream and let spinach wilt.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> onion<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> sundried tomatoes<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> chicken stock or veggie broth<small class="trn-state-detail">(60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> hot sauce of your choice<small class="trn-state-detail">(we used Sriracha)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 cup</strong> chopped spinach<small class="trn-state-detail">(or baby spinach)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> heavy whipping cream or<small class="trn-state-detail">(coconut cream)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 tbsp</strong> unsalted butter<small class="trn-state-detail">divided (or ghee, or olive oil)</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> chopped fresh parsley<small class="trn-state-detail">for garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Creamy Garlic Shrimp with Spinach (10-Minute) cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Season shrimp. Cook shrimp first and reserve; make the sauce and wilt spinach in the same skillet, then return shrimp briefly.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> unsalted butter<small class="trn-state-detail">divided (or ghee, or olive oil)</small></th><td rowspan="3" colspan="1" class="trn-operation">Season shrimp; cook over medium-high in one-quarter butter 2–3 min to opaque; reserve.</td><td rowspan="13" colspan="1" class="trn-operation">Return shrimp 1 min; garnish and serve.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> medium shrimp<small class="trn-state-detail">peeled and deveined · (700g) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Kosher salt and freshly ground black pepper<small class="trn-state-detail">to taste · Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 count</strong> garlic<small class="trn-state-detail">minced</small></th><td rowspan="8" colspan="1" class="trn-operation">After reserving shrimp, cook onion/garlic 1 min, tomatoes 1 min; add stock/hot sauce, boil then simmer 1–2 min to reduce by half. Stir remaining butter in gradually, add spinach/cream and let spinach wilt.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> onion<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> sundried tomatoes<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> chicken stock or veggie broth<small class="trn-state-detail">(60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> hot sauce of your choice<small class="trn-state-detail">(we used Sriracha)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 cup</strong> chopped spinach<small class="trn-state-detail">(or baby spinach)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> heavy whipping cream or<small class="trn-state-detail">(coconut cream)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 tbsp</strong> unsalted butter<small class="trn-state-detail">divided (or ghee, or olive oil)</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 tbsp</strong> chopped fresh parsley<small class="trn-state-detail">for garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
 - 4 tbsp unsalted butter — divided (or ghee, or olive oil)
 
-- 1 ½ lb medium shrimp — peeled and deveined. (700g) is the source parenthetical; original US quantity controls.
+- 1.5 lb medium shrimp — peeled and deveined. (700g) is the source parenthetical; original US quantity controls.
 
 - to taste Kosher salt and freshly ground black pepper — to taste. Unquantified in source; use to taste or as optional garnish as stated.
 
@@ -16508,7 +16746,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lemon Garlic Butter Chicken Tenders Recipe
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Lemon Garlic Butter Chicken Tenders Recipe, adapted from Christina Cherrier.
 
@@ -16517,6 +16755,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -16664,7 +16904,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Parmesan Chicken Casserole and Cauliflower Steaks
 
-4 portions · US measures · unverified · 10 min publisher preparation · 65 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 65 min
 
 Parmesan Chicken Casserole and Cauliflower Steaks, adapted from Christina Cherrier.
 
@@ -16674,9 +16914,11 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Parmesan Chicken Casserole and Cauliflower Steaks cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Keep both cheeses and marinara aside until after cauliflower roasting; quantities are totals, not additional per-breast amounts.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> chicken breasts<small class="trn-state-detail"></small></th><td rowspan="7" colspan="1" class="trn-operation">Coat chicken with dry spices and seasonings.</td><td rowspan="13" colspan="1" class="trn-operation"> Add half marinara to cauliflower, chicken, remaining marinara and measured cheeses; bake 35–40 min to 165°F. Finish with herb garnish.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> red chili pepper flakes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> cauliflower<small class="trn-state-detail">(cut into thick slices)</small></th><td rowspan="2" colspan="1" class="trn-operation">Brush cauliflower with oil; roast 425°F 10–15 min, turning once.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 oz</strong> marinara sauce<small class="trn-state-detail">(250 g) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.7 oz</strong> parmesan cheese<small class="trn-state-detail">grated · (30 g) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2.7 oz</strong> mozzarella cheese<small class="trn-state-detail">shredded · (120 g) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ tbsp</strong> fresh chopped basil or parsley<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Parmesan Chicken Casserole and Cauliflower Steaks cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Keep both cheeses and marinara aside until after cauliflower roasting; quantities are totals, not additional per-breast amounts.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> chicken breasts<small class="trn-state-detail"></small></th><td rowspan="7" colspan="1" class="trn-operation">Coat chicken with dry spices and seasonings.</td><td rowspan="13" colspan="1" class="trn-operation"> Add half marinara to cauliflower, chicken, remaining marinara and measured cheeses; bake 35–40 min to 165°F. Finish with herb garnish.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> red chili pepper flakes<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> garlic powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> onion powder<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> salt<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> black pepper<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> cauliflower<small class="trn-state-detail">(cut into thick slices)</small></th><td rowspan="2" colspan="1" class="trn-operation">Brush cauliflower with oil; roast 425°F 10–15 min, turning once.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>4 oz</strong> marinara sauce<small class="trn-state-detail">(250 g) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>0.67 oz</strong> parmesan cheese<small class="trn-state-detail">grated · (30 g) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2.67 oz</strong> mozzarella cheese<small class="trn-state-detail">shredded · (120 g) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ tbsp</strong> fresh chopped basil or parsley<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
@@ -16690,7 +16932,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - 4 oz marinara sauce. (250 g) is the source parenthetical; original US quantity controls.
 
-- 0.7 oz parmesan cheese — grated. (30 g) is the source parenthetical; original US quantity controls.
+- 0.67 oz parmesan cheese — grated. (30 g) is the source parenthetical; original US quantity controls.
 
 - ⅔ tsp garlic powder
 
@@ -16698,7 +16940,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - ⅔ tbsp olive oil
 
-- 2.7 oz mozzarella cheese — shredded. (120 g) is the source parenthetical; original US quantity controls.
+- 2.67 oz mozzarella cheese — shredded. (120 g) is the source parenthetical; original US quantity controls.
 
 - ⅓ tsp salt
 
@@ -16826,7 +17068,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Creamy Ground Beef and Cauliflower Rice Casserole
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Creamy Ground Beef and Cauliflower Rice Casserole, adapted from Christina Cherrier.
 
@@ -16835,6 +17077,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -16988,7 +17232,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## 15-Minute Broccoli Chicken in Cream Cheese Sundried Tomato Sauce
 
-4 portions · US measures · unverified · 5 min publisher preparation · 15 min
+4 portions · US imperial measures · unverified · 5 min publisher preparation · 15 min
 
 15-Minute Broccoli Chicken in Cream Cheese Sundried Tomato Sauce, adapted from Christina Cherrier.
 
@@ -16997,6 +17241,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -17128,7 +17374,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Chicken Burrito Bowls with Cauliflower
 
-4 portions · US measures · unverified · 5 min publisher preparation · 25 min
+4 portions · US imperial measures · unverified · 5 min publisher preparation · 25 min
 
 Chicken Burrito Bowls with Cauliflower, adapted from Christina Cherrier.
 
@@ -17137,6 +17383,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -17286,7 +17534,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Italian Sausage with Cilantro Lime Cauliflower Rice
 
-4 portions · US measures · unverified · 5 min publisher preparation · 25 min
+4 portions · US imperial measures · unverified · 5 min publisher preparation · 25 min
 
 Italian Sausage with Cilantro Lime Cauliflower Rice, adapted from Christina Cherrier.
 
@@ -17295,6 +17543,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -17430,7 +17680,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Turkey Meatballs with Zucchini Noodles
 
-4 portions · US measures · unverified · 15 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 15 min publisher preparation · 30 min
 
 Garlic Butter Turkey Meatballs with Zucchini Noodles, adapted from Christina Cherrier.
 
@@ -17440,15 +17690,17 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Turkey Meatballs with Zucchini Noodles cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Before forming meatballs, divide the listed cilantro between mixture and garnish to preference; source gives no fixed split. Chili flakes are optional in the mixture and at the zucchini stage.</td></tr><tr><td colspan="2" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="2" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ lb</strong> ground turkey meat<small class="trn-state-detail">(220g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="14" colspan="1" class="trn-operation">Mix turkey, optional pork, cheese, grated meatball garlic, Italian seasoning, optional bouillon, some cilantro, optional chili and seasoning; form medium meatballs. Brown in two-thirds of the butter over medium-low for 8–10 min, basting, until 165°F; reserve. In the same skillet use remaining butter with minced zucchini garlic, lemon, hot sauce and optional chili. Toss zucchini 3–4 min, return meatballs 1–2 min, finish with remaining cilantro. The listed cilantro and chili amounts are totals across their stages; source specifies no numeric split.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ lb</strong> ground pork meat<small class="trn-state-detail">see recipe notes) · (220g) is the source parenthetical; original US quantity controls. (optional Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> shredded mozzarella<small class="trn-state-detail">provolone…) · (or cheddar</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Garlic for meatballs<small class="trn-state-detail">grated</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> Garlic for zucchini<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> red crushed chili pepper flakes<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> crumbled bouillon cube<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked black pepper<small class="trn-state-detail">to taste · Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> fresh chopped cilantro<small class="trn-state-detail">divided · (or parsley)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> medium zucchini<small class="trn-state-detail">spiralized</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> hot sauce of your choice<small class="trn-state-detail">(we used Sriracha)</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Turkey Meatballs with Zucchini Noodles cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="2" class="trn-prep">Before forming meatballs, divide the listed cilantro between mixture and garnish to preference; source gives no fixed split. Chili flakes are optional in the mixture and at the zucchini stage.</td></tr><tr><td colspan="2" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="2" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 oz</strong> ground turkey meat<small class="trn-state-detail">(220g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="14" colspan="1" class="trn-operation">Mix turkey, optional pork, cheese, grated meatball garlic, Italian seasoning, optional bouillon, some cilantro, optional chili and seasoning; form medium meatballs. Brown in two-thirds of the butter over medium-low for 8–10 min, basting, until 165°F; reserve. In the same skillet use remaining butter with minced zucchini garlic, lemon, hot sauce and optional chili. Toss zucchini 3–4 min, return meatballs 1–2 min, finish with remaining cilantro. The listed cilantro and chili amounts are totals across their stages; source specifies no numeric split.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>8 oz</strong> ground pork meat<small class="trn-state-detail">see recipe notes) · (220g) is the source parenthetical; original US quantity controls. (optional Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> shredded mozzarella<small class="trn-state-detail">provolone…) · (or cheddar</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> Garlic for meatballs<small class="trn-state-detail">grated</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> Garlic for zucchini<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> red crushed chili pepper flakes<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> crumbled bouillon cube<small class="trn-state-detail">optional · Optional; excluded or included as stated in the publisher nutrition.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked black pepper<small class="trn-state-detail">to taste · Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 cup</strong> fresh chopped cilantro<small class="trn-state-detail">divided · (or parsley)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> medium zucchini<small class="trn-state-detail">spiralized</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> hot sauce of your choice<small class="trn-state-detail">(we used Sriracha)</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- ½ lb ground turkey meat. (220g) is the source parenthetical; original US quantity controls.
+- 8 oz ground turkey meat. (220g) is the source parenthetical; original US quantity controls.
 
-- ½ lb ground pork meat — see recipe notes). (220g) is the source parenthetical; original US quantity controls. (optional Optional; excluded or included as stated in the publisher nutrition.
+- 8 oz ground pork meat — see recipe notes). (220g) is the source parenthetical; original US quantity controls. (optional Optional; excluded or included as stated in the publisher nutrition.
 
 - ½ cup shredded mozzarella — provolone…). (or cheddar
 
@@ -17590,7 +17842,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## 10-Minute Pizza Zucchini Noodles with Marinara Sauce & Pepperoni
 
-4 portions · US measures · unverified · 2 min publisher preparation · 12 min
+4 portions · US imperial measures · unverified · 2 min publisher preparation · 12 min
 
 10-Minute Pizza Zucchini Noodles with Marinara Sauce & Pepperoni, adapted from Christina Cherrier.
 
@@ -17599,6 +17851,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -17710,7 +17964,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Egg Roll Bowls with Chicken and Cabbage
 
-4 portions · US measures · unverified · 10 min publisher preparation · 20 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 20 min
 
 Egg Roll Bowls with Chicken and Cabbage, adapted from Christina Cherrier.
 
@@ -17719,6 +17973,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -17870,7 +18126,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Sausages with Lemon Green Beans
 
-4 portions · US measures · unverified · 10 min publisher preparation · 25 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 25 min
 
 Garlic Butter Sausages with Lemon Green Beans, adapted from Christina Cherrier.
 
@@ -17879,6 +18135,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -18016,7 +18274,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Mexican Cauliflower Rice with Cheesy Steak Roll-Ups
 
-4 portions · US measures · unverified · 15 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 15 min publisher preparation · 30 min
 
 Mexican Cauliflower Rice with Cheesy Steak Roll-Ups, adapted from Christina Cherrier.
 
@@ -18025,6 +18283,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -18212,7 +18472,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Sausage Taco Cauliflower Rice Skillet
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Sausage Taco Cauliflower Rice Skillet, adapted from Christina Cherrier.
 
@@ -18222,13 +18482,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Sausage Taco Cauliflower Rice Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Brown sausage first and add onion, pepper and garlic. Microwave cauliflower separately, then add it with taco seasoning, tomatoes and stock; reduce, cover and finish with melted cheeses.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ lb</strong> ground Italian sausage<small class="trn-state-detail">(450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="5" colspan="1" class="trn-operation">Brown sausage in butter over medium-high to 160°F pork or 165°F poultry; stir onion/pepper/garlic 1 min.</td><td rowspan="12" colspan="1" class="trn-operation">Combine sausage, cauliflower, seasoning, tomatoes/stock over medium-low 5–7 min to reduce excess liquid; cover low 5 min; top with cheeses and cover until melted; garnish.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.44 cup</strong> diced red onion<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.44 cup</strong> diced green pepper<small class="trn-state-detail">(or Jalapeño)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>16 oz</strong> Riced cauliflower<small class="trn-state-detail">steamed; source specifies one 12-ounce bag or one head · (or 1 head cauliflower</small></th><td rowspan="1" colspan="1" class="trn-operation">Microwave cauliflower according to packet.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Chopped fresh cilantro<small class="trn-state-detail">for topping · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 cup</strong> cheddar cheese<small class="trn-state-detail">or mozzarella</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Monterrey jack cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ can</strong> Diced tomatoes<small class="trn-state-detail">seeded and diced · Source says medium can without specifying ounces; alternatively three fresh tomatoes.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 ⅔ tbsp</strong> homemade taco seasoning or taco seasoning packet<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 cup</strong> chicken broth<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Sausage Taco Cauliflower Rice Skillet cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Brown sausage first and add onion, pepper and garlic. Microwave cauliflower separately, then add it with taco seasoning, tomatoes and stock; reduce, cover and finish with melted cheeses.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.33 lb</strong> ground Italian sausage<small class="trn-state-detail">(450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="5" colspan="1" class="trn-operation">Brown sausage in butter over medium-high to 160°F pork or 165°F poultry; stir onion/pepper/garlic 1 min.</td><td rowspan="12" colspan="1" class="trn-operation">Combine sausage, cauliflower, seasoning, tomatoes/stock over medium-low 5–7 min to reduce excess liquid; cover low 5 min; top with cheeses and cover until melted; garnish.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.44 cup</strong> diced red onion<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>0.44 cup</strong> diced green pepper<small class="trn-state-detail">(or Jalapeño)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>4 count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> Riced cauliflower<small class="trn-state-detail">steamed; source specifies one 12-ounce bag or one head · (or 1 head cauliflower</small></th><td rowspan="1" colspan="1" class="trn-operation">Microwave cauliflower according to packet.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>Not specified</strong> Chopped fresh cilantro<small class="trn-state-detail">for topping · Unquantified in source; use to taste or as optional garnish as stated. Unquantified amount remains unknown, not zero.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 cup</strong> cheddar cheese<small class="trn-state-detail">or mozzarella</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>⅔ cup</strong> Monterrey jack cheese<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 ⅓ can</strong> Diced tomatoes<small class="trn-state-detail">seeded and diced · Source says medium can without specifying ounces; alternatively three fresh tomatoes.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>2 ⅔ tbsp</strong> homemade taco seasoning or taco seasoning packet<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 cup</strong> chicken broth<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 1 ⅓ lb ground Italian sausage. (450g) is the source parenthetical; original US quantity controls.
+- 1.33 lb ground Italian sausage. (450g) is the source parenthetical; original US quantity controls.
 
 - 1 ⅓ tbsp butter
 
@@ -18240,7 +18502,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - 1 ⅓ can Diced tomatoes — seeded and diced. Source says medium can without specifying ounces; alternatively three fresh tomatoes.
 
-- 16 oz Riced cauliflower — steamed; source specifies one 12-ounce bag or one head. (or 1 head cauliflower
+- 1 lb Riced cauliflower — steamed; source specifies one 12-ounce bag or one head. (or 1 head cauliflower
 
 - 2 ⅔ tbsp homemade taco seasoning or taco seasoning packet
 
@@ -18362,7 +18624,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Buttery Garlic Herb Chicken and Lemon Parmesan Cauliflower Rice
 
-4 portions · US measures · unverified · 10 min publisher preparation · 45 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 45 min
 
 Buttery Garlic Herb Chicken and Lemon Parmesan Cauliflower Rice, adapted from Christina Cherrier.
 
@@ -18372,9 +18634,11 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Buttery Garlic Herb Chicken and Lemon Parmesan Cauliflower Rice cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Keep marinade lemon juice separate from the finishing lemon juice; amounts are distinct.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> boneless skinless chicken thighs<small class="trn-state-detail">or breasts · (650g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="11" colspan="1" class="trn-operation">Refrigerate chicken with marinade 10–15 min. Cook in butter and three fresh herbs over medium-low 4–5 min/side to 165°F; reserve, leaving pan juices.</td><td rowspan="19" colspan="1" class="trn-operation">Return chicken and warm through.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Fresh thyme<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Fresh oregano<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Fresh rosemary<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Italian seasoning<small class="trn-state-detail">(for the marinade)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> olive oil<small class="trn-state-detail">(for the marinade)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> paprika<small class="trn-state-detail">(for the marinade)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> fresh cracked pepper<small class="trn-state-detail">to taste (for the marinade)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> fresh thyme<small class="trn-state-detail">chopped (for the marinade)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon (for the marinade) (for the marinade)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>9.3 oz</strong> cauliflower<small class="trn-state-detail">riced (1 medium head) · (400g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="8" colspan="1" class="trn-operation">After chicken is reserved, cook onion/garlic 1 min; add hot sauce/cauliflower, stock, parsley, finishing lemon and optional zest 2–3 min; stir Parmesan.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> medium onion<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅙ cup</strong> chicken broth<small class="trn-state-detail">(60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> grated parmesan<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> fresh chopped parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> hot sauce<small class="trn-state-detail">(we used Sriracha)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ count</strong> lemon<small class="trn-state-detail">juice; plus zest, and lemon slices for garnish · Juice of 1/2 lemon, plus zest, and lemon slices for garnish</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Buttery Garlic Herb Chicken and Lemon Parmesan Cauliflower Rice cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Keep marinade lemon juice separate from the finishing lemon juice; amounts are distinct.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> boneless skinless chicken thighs<small class="trn-state-detail">or breasts · (650g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="11" colspan="1" class="trn-operation">Refrigerate chicken with marinade 10–15 min. Cook in butter and three fresh herbs over medium-low 4–5 min/side to 165°F; reserve, leaving pan juices.</td><td rowspan="19" colspan="1" class="trn-operation">Return chicken and warm through.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> butter<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Fresh thyme<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Fresh oregano<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Fresh rosemary<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> Italian seasoning<small class="trn-state-detail">(for the marinade)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> olive oil<small class="trn-state-detail">(for the marinade)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> paprika<small class="trn-state-detail">(for the marinade)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ tsp</strong> fresh cracked pepper<small class="trn-state-detail">to taste (for the marinade)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tsp</strong> fresh thyme<small class="trn-state-detail">chopped (for the marinade)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon (for the marinade) (for the marinade)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>9.33 oz</strong> cauliflower<small class="trn-state-detail">riced (1 medium head) · (400g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="8" colspan="1" class="trn-operation">After chicken is reserved, cook onion/garlic 1 min; add hot sauce/cauliflower, stock, parsley, finishing lemon and optional zest 2–3 min; stir Parmesan.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> medium onion<small class="trn-state-detail">chopped</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅙ cup</strong> chicken broth<small class="trn-state-detail">(60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> grated parmesan<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> fresh chopped parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ tbsp</strong> hot sauce<small class="trn-state-detail">(we used Sriracha)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ count</strong> lemon<small class="trn-state-detail">juice; plus zest, and lemon slices for garnish · Juice of 1/2 lemon, plus zest, and lemon slices for garnish</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
@@ -18388,7 +18652,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - ⅔ tsp Fresh rosemary — chopped
 
-- 9.3 oz cauliflower — riced (1 medium head). (400g) is the source parenthetical; original US quantity controls.
+- 9.33 oz cauliflower — riced (1 medium head). (400g) is the source parenthetical; original US quantity controls.
 
 - ⅔ count medium onion — chopped
 
@@ -18558,7 +18822,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Steak and Green Beans
 
-4 portions · US measures · unverified · 15 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 15 min publisher preparation · 30 min
 
 Garlic Butter Steak and Green Beans, adapted from Christina Cherrier.
 
@@ -18568,15 +18832,17 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Steak and Green Beans cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Refrigerate steak in marinade while microwaving beans. Drain steak and reserve marinade; sear steak first and reserve to rest. Cook beans and aromatics in the same skillet, boil the reserved marinade in the sauce, then return steak.</td></tr><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ lb</strong> flank steak<small class="trn-state-detail">sliced against the grain · (450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="8" colspan="1" class="trn-operation">Marinate steak 10 min in refrigerator; drain and reserve marinade. Sear in two-thirds butter over medium-high about 1 min/side, adding half garlic and optional flakes after turning; continue to 145°F, reserve and rest 3 min.</td><td rowspan="18" colspan="1" class="trn-operation">Return steak briefly, garnish and serve.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> low- sodium soy sauce<small class="trn-state-detail">(or coconut amino if you’re strictly paleo)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> hot sauce<small class="trn-state-detail">(we used Sriracha)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Fresh cracked pepper<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ tbsp</strong> butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 ⅓ count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ lb</strong> fresh stringless green beans<small class="trn-state-detail">trimmed · (450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="9" colspan="1" class="trn-operation">Microwave beans with water 8–10 min. After steak is reserved, cook beans with remaining fat/garlic and herbs 4–5 min; add stock/lemon and reserved marinade; bring marinade to full boil.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 ⅓ count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> low-sodium beef stock<small class="trn-state-detail">(125ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> fresh chopped parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> fresh thyme leaves<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> Water for bean microwave<small class="trn-state-detail">Added from the source method; omitted from its ingredient list.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon + lemon slices, for garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Butter Steak and Green Beans cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Refrigerate steak in marinade while microwaving beans. Drain steak and reserve marinade; sear steak first and reserve to rest. Cook beans and aromatics in the same skillet, boil the reserved marinade in the sauce, then return steak.</td></tr><tr><td colspan="3" class="trn-prep">Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.33 lb</strong> flank steak<small class="trn-state-detail">sliced against the grain · (450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="8" colspan="1" class="trn-operation">Marinate steak 10 min in refrigerator; drain and reserve marinade. Sear in two-thirds butter over medium-high about 1 min/side, adding half garlic and optional flakes after turning; continue to 145°F, reserve and rest 3 min.</td><td rowspan="18" colspan="1" class="trn-operation">Return steak briefly, garnish and serve.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> low- sodium soy sauce<small class="trn-state-detail">(or coconut amino if you’re strictly paleo)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> hot sauce<small class="trn-state-detail">(we used Sriracha)</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Fresh cracked pepper<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ tbsp</strong> butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 ⅓ count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.33 lb</strong> fresh stringless green beans<small class="trn-state-detail">trimmed · (450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="9" colspan="1" class="trn-operation">Microwave beans with water 8–10 min. After steak is reserved, cook beans with remaining fat/garlic and herbs 4–5 min; add stock/lemon and reserved marinade; bring marinade to full boil.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> butter<small class="trn-state-detail">divided</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 ⅓ count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Italian seasoning<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> low-sodium beef stock<small class="trn-state-detail">(125ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> fresh chopped parsley<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> fresh thyme leaves<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ cup</strong> Water for bean microwave<small class="trn-state-detail">Added from the source method; omitted from its ingredient list.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅔ count</strong> lemon<small class="trn-state-detail">juice · Juice of 1/2 lemon + lemon slices, for garnish</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Crushed red chili pepper flakes<small class="trn-state-detail">optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 1 ⅓ lb flank steak — sliced against the grain. (450g) is the source parenthetical; original US quantity controls.
+- 1.33 lb flank steak — sliced against the grain. (450g) is the source parenthetical; original US quantity controls.
 
-- 1 ⅓ lb fresh stringless green beans — trimmed. (450g) is the source parenthetical; original US quantity controls.
+- 1.33 lb fresh stringless green beans — trimmed. (450g) is the source parenthetical; original US quantity controls.
 
 - 4 tbsp butter — divided
 
@@ -18726,7 +18992,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Taco Chicken Tenders with Lemon Garlic Butter Zucchini Noodles
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Taco Chicken Tenders with Lemon Garlic Butter Zucchini Noodles, adapted from Christina Cherrier.
 
@@ -18735,6 +19001,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -18864,7 +19132,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Herb Pork Chops with Zucchini
 
-4 portions · US measures · unverified · 5 min publisher preparation · 20 min
+4 portions · US imperial measures · unverified · 5 min publisher preparation · 20 min
 
 Garlic Butter Herb Pork Chops with Zucchini, adapted from Veronica Brandy.
 
@@ -18873,6 +19141,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -18988,7 +19258,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## One-Pan Lemon Butter Chicken with Asparagus
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 One-Pan Lemon Butter Chicken with Asparagus, adapted from Christina Cherrier.
 
@@ -18997,6 +19267,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -19134,7 +19406,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Italian Sausage and Peppers Skillet
 
-4 portions · US measures · unverified · 10 min publisher preparation · 25 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 25 min
 
 Italian Sausage and Peppers Skillet, adapted from Christina Cherrier.
 
@@ -19143,6 +19415,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -19306,7 +19580,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Beef and Cauliflower Rice Burrito Bowl
 
-4 portions · US measures · unverified · 15 min publisher preparation · 35 min
+4 portions · US imperial measures · unverified · 15 min publisher preparation · 35 min
 
 Beef and Cauliflower Rice Burrito Bowl, adapted from Christina Cherrier.
 
@@ -19315,6 +19589,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -19502,7 +19778,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Stuffed Chicken Breast with Mozzarella and Spinach
 
-4 portions · US measures · unverified · 5 min publisher preparation · 35 min
+4 portions · US imperial measures · unverified · 5 min publisher preparation · 35 min
 
 Stuffed Chicken Breast with Mozzarella and Spinach, adapted from Christina Cherrier.
 
@@ -19511,6 +19787,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -19656,7 +19934,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Sausage, Pepper and Cauliflower Fried Rice
 
-4 portions · US measures · unverified · 10 min publisher preparation · 20 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 20 min
 
 Sausage, Pepper and Cauliflower Fried Rice, adapted from Christina Cherrier.
 
@@ -19665,6 +19943,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -19826,7 +20106,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Creamy Chicken with Bacon and Spinach
 
-4 portions · US measures · unverified · 10 min publisher preparation · 46 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 46 min
 
 Creamy Chicken with Bacon and Spinach, adapted from Christina Cherrier.
 
@@ -19836,13 +20116,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Creamy Chicken with Bacon and Spinach cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Bacon uses a separate skillet while sauce cooks.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ lb</strong> chicken breasts<small class="trn-state-detail">(450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="4" colspan="1" class="trn-operation">Season chicken with half Italian seasoning, salt/pepper; brown over medium-high in half butter 4–5 min/side and reserve.</td><td rowspan="15" colspan="1" class="trn-operation">Add bacon and chicken to sauce 10–15 min, continuing to 165°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and pepper<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> butter or olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Italian seasoning<small class="trn-state-detail">oregano, basil - combined) · (thyme</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> paprika<small class="trn-state-detail"></small></th><td rowspan="11" colspan="1" class="trn-operation">After chicken is reserved, use remaining butter for garlic/paprika/herbs 2–3 min; tomatoes/stock 4–5 min; cream/cheese/spinach/flakes, simmer 2–3 min. Meanwhile crisp bacon separately, drain and chop.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Italian seasoning<small class="trn-state-detail">oregano, basil - combined) · (thyme</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 ⅓ strip</strong> bacon<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 ⅓ count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> butter or olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ count</strong> medium tomatoes<small class="trn-state-detail">diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ cup</strong> fresh spinach<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ cup</strong> chicken stock<small class="trn-state-detail">(240ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ cup</strong> half and half<small class="trn-state-detail">for a lighter cream) · (240ml) is the source parenthetical; original US quantity controls. (half cream mixed with half milk</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ cup</strong> mozzarella<small class="trn-state-detail">shredded</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> crushed red pepper flakes<small class="trn-state-detail"></small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Creamy Chicken with Bacon and Spinach cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Bacon uses a separate skillet while sauce cooks.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.33 lb</strong> chicken breasts<small class="trn-state-detail">(450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="4" colspan="1" class="trn-operation">Season chicken with half Italian seasoning, salt/pepper; brown over medium-high in half butter 4–5 min/side and reserve.</td><td rowspan="15" colspan="1" class="trn-operation">Add bacon and chicken to sauce 10–15 min, continuing to 165°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>to taste</strong> Salt and pepper<small class="trn-state-detail">Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> butter or olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Italian seasoning<small class="trn-state-detail">oregano, basil - combined) · (thyme</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> paprika<small class="trn-state-detail"></small></th><td rowspan="11" colspan="1" class="trn-operation">After chicken is reserved, use remaining butter for garlic/paprika/herbs 2–3 min; tomatoes/stock 4–5 min; cream/cheese/spinach/flakes, simmer 2–3 min. Meanwhile crisp bacon separately, drain and chop.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> Italian seasoning<small class="trn-state-detail">oregano, basil - combined) · (thyme</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 ⅓ strip</strong> bacon<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>5 ⅓ count</strong> garlic cloves<small class="trn-state-detail">minced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tbsp</strong> butter or olive oil<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 ⅔ count</strong> medium tomatoes<small class="trn-state-detail">diced</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ cup</strong> fresh spinach<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ cup</strong> chicken stock<small class="trn-state-detail">(240ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ cup</strong> half and half<small class="trn-state-detail">for a lighter cream) · (240ml) is the source parenthetical; original US quantity controls. (half cream mixed with half milk</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ cup</strong> mozzarella<small class="trn-state-detail">shredded</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ⅓ tsp</strong> crushed red pepper flakes<small class="trn-state-detail"></small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 1 ⅓ lb chicken breasts. (450g) is the source parenthetical; original US quantity controls.
+- 1.33 lb chicken breasts. (450g) is the source parenthetical; original US quantity controls.
 
 - 1 ⅓ tsp paprika
 
@@ -19984,7 +20266,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Sheet Pan Garlic Butter Chicken and Asparagus
 
-4 portions · US measures · unverified · 15 min publisher preparation · 45 min
+4 portions · US imperial measures · unverified · 15 min publisher preparation · 45 min
 
 Sheet Pan Garlic Butter Chicken and Asparagus, adapted from Christina Cherrier.
 
@@ -19993,6 +20275,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -20126,7 +20410,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Grilled Bruschetta Chicken
 
-4 portions · US measures · unverified · 10 min publisher preparation · 20 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 20 min
 
 Grilled Bruschetta Chicken, adapted from Christina Cherrier.
 
@@ -20135,6 +20419,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -20272,7 +20558,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Lemon Chicken Breasts with Green Beans
 
-4 portions · US measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
 
 Garlic Lemon Chicken Breasts with Green Beans, adapted from Christina Cherrier.
 
@@ -20282,13 +20568,15 @@ The listed pan and basket capacity, cook times, and thermometer endpoint are for
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
 
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
+
 ### Cooking flow (Tabular Recipe Notation)
 
-<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Lemon Chicken Breasts with Green Beans cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Before cooking, divide total listed oil and oregano among beans, chicken and sauce as source describes; no measured split is specified. Keep mixed lemon sauce separate from chicken browning.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> green beans<small class="trn-state-detail">trimmed · (450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="2" colspan="1" class="trn-operation">Microwave beans with cooking water and small portions of total oil, oregano and seasoning, covered 3–5 min, stirring once.</td><td rowspan="10" colspan="1" class="trn-operation">Combine cooked beans and chicken; pour on mixed lemon sauce and cook 3 min. Adjust seasoning and top with crisp bacon. Oil, oregano and salt/pepper quantities shown are totals across preparations.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Water for vegetable microwave<small class="trn-state-detail">Added from source method.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 ½ lb</strong> boneless skinless chicken breasts<small class="trn-state-detail">Source quantity range 1.5 to 2; lower endpoint chosen explicitly. (650g - 900g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="1" colspan="1" class="trn-operation">Season chicken with a portion of oregano and seasoning; cook in remaining oil in a 12-inch skillet, turning about 6–8 min and continuing to 165°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> garlic cloves<small class="trn-state-detail">minced</small></th><td rowspan="3" colspan="1" class="trn-operation">Whisk lemon juice, garlic, chicken broth and a portion of oregano with seasoning; reserve sauce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> fresh lemon juice<small class="trn-state-detail">(75ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> chicken broth<small class="trn-state-detail">(60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 count</strong> bacon<small class="trn-state-detail">coarsely chopped</small></th><td rowspan="1" colspan="1" class="trn-operation">Separately fry chopped bacon over medium-high until crisp; drain.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> olive oil<small class="trn-state-detail">divided · (60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tsp</strong> dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr></tbody></table></div>
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Garlic Lemon Chicken Breasts with Green Beans cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Before cooking, divide total listed oil and oregano among beans, chicken and sauce as source describes; no measured split is specified. Keep mixed lemon sauce separate from chicken browning.</td></tr><tr><td colspan="3" class="trn-prep">Check poultry or reheated cooked chicken reaches 165°F at the thickest center.</td></tr><tr><td colspan="3" class="trn-prep">For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 lb</strong> green beans<small class="trn-state-detail">trimmed · (450g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="2" colspan="1" class="trn-operation">Microwave beans with cooking water and small portions of total oil, oregano and seasoning, covered 3–5 min, stirring once.</td><td rowspan="10" colspan="1" class="trn-operation">Combine cooked beans and chicken; pour on mixed lemon sauce and cook 3 min. Adjust seasoning and top with crisp bacon. Oil, oregano and salt/pepper quantities shown are totals across preparations.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 tbsp</strong> Water for vegetable microwave<small class="trn-state-detail">Added from source method.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1.5 lb</strong> boneless skinless chicken breasts<small class="trn-state-detail">Source quantity range 1.5 to 2; lower endpoint chosen explicitly. (650g - 900g) is the source parenthetical; original US quantity controls.</small></th><td rowspan="1" colspan="1" class="trn-operation">Season chicken with a portion of oregano and seasoning; cook in remaining oil in a 12-inch skillet, turning about 6–8 min and continuing to 165°F.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 count</strong> garlic cloves<small class="trn-state-detail">minced</small></th><td rowspan="3" colspan="1" class="trn-operation">Whisk lemon juice, garlic, chicken broth and a portion of oregano with seasoning; reserve sauce.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> fresh lemon juice<small class="trn-state-detail">(75ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> chicken broth<small class="trn-state-detail">(60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>3 count</strong> bacon<small class="trn-state-detail">coarsely chopped</small></th><td rowspan="1" colspan="1" class="trn-operation">Separately fry chopped bacon over medium-high until crisp; drain.</td></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>¼ cup</strong> olive oil<small class="trn-state-detail">divided · (60ml) is the source parenthetical; original US quantity controls.</small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>1 tsp</strong> dried oregano<small class="trn-state-detail"></small></th></tr><tr><th scope="row" colspan="2" class="trn-ingredient"><strong>to taste</strong> Salt and fresh cracked pepper<small class="trn-state-detail">to taste · Unquantified in source; use to taste or as optional garnish as stated.</small></th></tr></tbody></table></div>
 
 ### Ingredients
 
-- 1 ½ lb boneless skinless chicken breasts. Source quantity range 1.5 to 2; lower endpoint chosen explicitly. (650g - 900g) is the source parenthetical; original US quantity controls.
+- 1.5 lb boneless skinless chicken breasts. Source quantity range 1.5 to 2; lower endpoint chosen explicitly. (650g - 900g) is the source parenthetical; original US quantity controls.
 
 - 1 lb green beans — trimmed. (450g) is the source parenthetical; original US quantity controls.
 
@@ -20406,7 +20694,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Basic Keto Chaffle Recipe
 
-4 portions · US measures · keto · 5 min publisher preparation · 17 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 17 min
 
 Basic Keto Chaffle Recipe, adapted from Annie.
 
@@ -20415,6 +20703,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 
@@ -20510,7 +20800,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Keto crack chicken (slow cooker)
 
-4 portions · US measures · keto · 5 min publisher preparation · 495 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 495 min
 
 Keto crack chicken, adapted from theketoqueens.com.
 
@@ -20519,6 +20809,8 @@ Follow the cooking flow and check each component at the stated endpoint.
 The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
 
 Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.
 
 ### Cooking flow (Tabular Recipe Notation)
 

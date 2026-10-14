@@ -1,0 +1,903 @@
+{
+	"sourceArchive": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+	"sha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+	"retrieved": "2026-10-13",
+	"policy": "Reviewed cooking portion observations. Exact names only; alternatives, undefined sizes, packing and seasoning blends stay unresolved. Prepared liquid and loose spoon/cup weights vary: show approximations and original measures. These are independent of the nutrition model.",
+	"references": [
+		{
+			"names": [
+				"butter",
+				"unsalted butter",
+				"salted butter",
+				"softened butter",
+				"melted butter"
+			],
+			"kind": "mass",
+			"fdcId": 173430,
+			"description": "Butter, without salt",
+			"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 14.2,
+					"portion": "tbsp"
+				},
+				"cup": {
+					"amount": 1.0,
+					"grams": 227.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": ["minced garlic", "garlic", "garlic, minced"],
+			"kind": "mass",
+			"fdcId": 169230,
+			"description": "Garlic, raw",
+			"source": "https://fdc.nal.usda.gov/food-details/169230/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 2.8,
+					"portion": "tsp"
+				}
+			}
+		},
+		{
+			"names": ["unsweetened almond milk"],
+			"kind": "liquid",
+			"fdcId": 174832,
+			"description": "Beverages, almond milk, unsweetened, shelf stable",
+			"source": "https://fdc.nal.usda.gov/food-details/174832/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 262.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": ["heavy cream", "heavy whipping cream"],
+			"kind": "liquid",
+			"fdcId": 170859,
+			"description": "Cream, fluid, heavy whipping",
+			"source": "https://fdc.nal.usda.gov/food-details/170859/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 238.0,
+					"portion": "cup, fluid (yields 2 cups whipped)"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 15.0,
+					"portion": "tbsp"
+				}
+			}
+		},
+		{
+			"names": ["garlic powder"],
+			"kind": "mass",
+			"fdcId": 171325,
+			"description": "Spices, garlic powder",
+			"source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 3.1,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 9.7,
+					"portion": "tbsp"
+				}
+			}
+		},
+		{
+			"names": ["onion powder"],
+			"kind": "mass",
+			"fdcId": 171327,
+			"description": "Spices, onion powder",
+			"source": "https://fdc.nal.usda.gov/food-details/171327/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 2.4,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 6.9,
+					"portion": "tbsp"
+				}
+			}
+		},
+		{
+			"names": ["paprika", "ground paprika", "smoked paprika"],
+			"kind": "mass",
+			"fdcId": 171329,
+			"description": "Spices, paprika",
+			"source": "https://fdc.nal.usda.gov/food-details/171329/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 2.3,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 6.8,
+					"portion": "tbsp"
+				}
+			}
+		},
+		{
+			"names": ["chili powder", "mild chili powder blend"],
+			"kind": "mass",
+			"fdcId": 171319,
+			"description": "Spices, chili powder",
+			"source": "https://fdc.nal.usda.gov/food-details/171319/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 2.7,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 8.0,
+					"portion": "tbsp"
+				}
+			}
+		},
+		{
+			"names": ["black pepper", "ground black pepper"],
+			"kind": "mass",
+			"fdcId": 170931,
+			"description": "Spices, pepper, black",
+			"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 2.3,
+					"portion": "tsp, ground"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 6.9,
+					"portion": "tbsp, ground"
+				}
+			}
+		},
+		{
+			"names": ["dried oregano"],
+			"kind": "mass",
+			"fdcId": 171328,
+			"description": "Spices, oregano, dried",
+			"source": "https://fdc.nal.usda.gov/food-details/171328/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 1.0,
+					"portion": "tsp, leaves"
+				}
+			}
+		},
+		{
+			"names": ["dried dill"],
+			"kind": "mass",
+			"fdcId": 171322,
+			"description": "Spices, dill weed, dried",
+			"source": "https://fdc.nal.usda.gov/food-details/171322/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 1.0,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 3.1,
+					"portion": "tbsp"
+				}
+			}
+		},
+		{
+			"names": ["ground sage"],
+			"kind": "mass",
+			"fdcId": 170935,
+			"description": "Spices, sage, ground",
+			"source": "https://fdc.nal.usda.gov/food-details/170935/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 0.7,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 2.0,
+					"portion": "tbsp"
+				}
+			}
+		},
+		{
+			"names": ["ground thyme"],
+			"kind": "mass",
+			"fdcId": 170938,
+			"description": "Spices, thyme, dried",
+			"source": "https://fdc.nal.usda.gov/food-details/170938/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 1.4,
+					"portion": "tsp, ground"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 4.3,
+					"portion": "tbsp, ground"
+				}
+			}
+		},
+		{
+			"names": ["fresh thyme", "fresh thyme leaves", "minced thyme"],
+			"kind": "mass",
+			"fdcId": 173470,
+			"description": "Thyme, fresh",
+			"source": "https://fdc.nal.usda.gov/food-details/173470/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 0.8,
+					"portion": "tsp"
+				}
+			}
+		},
+		{
+			"names": ["fresh rosemary"],
+			"kind": "mass",
+			"fdcId": 173473,
+			"description": "Rosemary, fresh",
+			"source": "https://fdc.nal.usda.gov/food-details/173473/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 0.7,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 1.7,
+					"portion": "tbsp"
+				}
+			}
+		},
+		{
+			"names": ["chopped chives", "freshly chopped chives"],
+			"kind": "mass",
+			"fdcId": 169994,
+			"description": "Chives, raw",
+			"source": "https://fdc.nal.usda.gov/food-details/169994/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 1.0,
+					"portion": "tsp chopped"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 3.0,
+					"portion": "tbsp chopped"
+				}
+			}
+		},
+		{
+			"names": ["dried chives"],
+			"kind": "mass",
+			"fdcId": 170075,
+			"description": "Chives, freeze-dried",
+			"source": "https://fdc.nal.usda.gov/food-details/170075/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 0.2,
+					"portion": "tbsp"
+				}
+			}
+		},
+		{
+			"names": ["olive oil", "olive oil for searing", "olive oil for marinade"],
+			"kind": "liquid",
+			"fdcId": 171413,
+			"description": "Oil, olive, salad or cooking",
+			"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 4.5,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 13.5,
+					"portion": "tablespoon"
+				},
+				"cup": {
+					"amount": 1.0,
+					"grams": 216.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": [
+				"chicken broth",
+				"chicken stock",
+				"low-sodium chicken broth",
+				"low sodium chicken broth",
+				"low-sodium chicken stock",
+				"low sodium chicken stock",
+				"reduced-sodium chicken broth",
+				"chicken bone broth"
+			],
+			"kind": "liquid",
+			"fdcId": 174536,
+			"description": "Soup, chicken broth, ready-to-serve",
+			"source": "https://fdc.nal.usda.gov/food-details/174536/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 249.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": ["beef broth", "low-sodium beef broth", "low-sodium beef stock"],
+			"kind": "liquid",
+			"fdcId": 171538,
+			"description": "Soup, beef broth or bouillon canned, ready-to-serve",
+			"source": "https://fdc.nal.usda.gov/food-details/171538/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 240.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": [
+				"vegetable broth",
+				"vegetable stock",
+				"low-sodium vegetable broth"
+			],
+			"kind": "liquid",
+			"fdcId": 171583,
+			"description": "Soup, vegetable broth, ready to serve",
+			"source": "https://fdc.nal.usda.gov/food-details/171583/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 221.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": ["lemon juice", "fresh lemon juice"],
+			"kind": "liquid",
+			"fdcId": 167747,
+			"description": "Lemon juice, raw",
+			"source": "https://fdc.nal.usda.gov/food-details/167747/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 244.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": ["lime juice", "fresh lime juice"],
+			"kind": "liquid",
+			"fdcId": 168156,
+			"description": "Lime juice, raw",
+			"source": "https://fdc.nal.usda.gov/food-details/168156/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 242.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": ["apple cider vinegar"],
+			"kind": "liquid",
+			"fdcId": 173469,
+			"description": "Vinegar, cider",
+			"source": "https://fdc.nal.usda.gov/food-details/173469/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 5.0,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 14.9,
+					"portion": "tbsp"
+				},
+				"cup": {
+					"amount": 1.0,
+					"grams": 239.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": ["red wine vinegar"],
+			"kind": "liquid",
+			"fdcId": 172240,
+			"description": "Vinegar, red wine",
+			"source": "https://fdc.nal.usda.gov/food-details/172240/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 5.0,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 14.9,
+					"portion": "tbsp"
+				},
+				"cup": {
+					"amount": 1.0,
+					"grams": 239.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": ["balsamic vinegar"],
+			"kind": "liquid",
+			"fdcId": 172241,
+			"description": "Vinegar, balsamic",
+			"source": "https://fdc.nal.usda.gov/food-details/172241/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 5.3,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 16.0,
+					"portion": "tbsp"
+				},
+				"cup": {
+					"amount": 1.0,
+					"grams": 255.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": ["milk"],
+			"kind": "liquid",
+			"fdcId": 171265,
+			"description": "Milk, whole, 3.25% milkfat, with added vitamin D",
+			"source": "https://fdc.nal.usda.gov/food-details/171265/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 15.0,
+					"portion": "tbsp"
+				},
+				"cup": {
+					"amount": 1.0,
+					"grams": 244.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": ["half and half"],
+			"kind": "liquid",
+			"fdcId": 171255,
+			"description": "Cream, fluid, half and half",
+			"source": "https://fdc.nal.usda.gov/food-details/171255/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 15.0,
+					"portion": "tbsp"
+				},
+				"cup": {
+					"amount": 1.0,
+					"grams": 242.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": ["honey"],
+			"kind": "liquid",
+			"fdcId": 169640,
+			"description": "Honey",
+			"source": "https://fdc.nal.usda.gov/food-details/169640/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 21.0,
+					"portion": "tbsp"
+				},
+				"cup": {
+					"amount": 1.0,
+					"grams": 339.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": ["worcestershire"],
+			"kind": "liquid",
+			"fdcId": 171610,
+			"description": "Sauce, worcestershire",
+			"source": "https://fdc.nal.usda.gov/food-details/171610/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 17.0,
+					"portion": "tbsp"
+				},
+				"cup": {
+					"amount": 1.0,
+					"grams": 275.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": ["sriracha", "sriracha sauce"],
+			"kind": "liquid",
+			"fdcId": 171186,
+			"description": "Sauce, hot chile, sriracha",
+			"source": "https://fdc.nal.usda.gov/food-details/171186/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 6.5,
+					"portion": "tsp"
+				}
+			}
+		},
+		{
+			"names": ["mayonnaise"],
+			"kind": "mass",
+			"fdcId": 171009,
+			"description": "Salad dressing, mayonnaise, regular",
+			"source": "https://fdc.nal.usda.gov/food-details/171009/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 13.8,
+					"portion": "tbsp"
+				},
+				"cup": {
+					"amount": 1.0,
+					"grams": 220.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": ["sour cream"],
+			"kind": "mass",
+			"fdcId": 171257,
+			"description": "Cream, sour, cultured",
+			"source": "https://fdc.nal.usda.gov/food-details/171257/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 12.0,
+					"portion": "tbsp"
+				},
+				"cup": {
+					"amount": 1.0,
+					"grams": 230.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": [
+				"shredded cheddar",
+				"shredded cheddar cheese",
+				"shredded cheddar for the sauce",
+				"shredded cheddar for topping"
+			],
+			"kind": "mass",
+			"fdcId": 173414,
+			"description": "Cheese, cheddar (Includes foods for USDA's Food Distribution Program)",
+			"source": "https://fdc.nal.usda.gov/food-details/173414/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 113.0,
+					"portion": "cup, shredded"
+				}
+			}
+		},
+		{
+			"names": ["shredded mozzarella", "shredded mozzarella cheese"],
+			"kind": "mass",
+			"fdcId": 170845,
+			"description": "Cheese, mozzarella, whole milk",
+			"source": "https://fdc.nal.usda.gov/food-details/170845/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 112.0,
+					"portion": "cup, shredded"
+				}
+			}
+		},
+		{
+			"names": ["grated parmesan", "grated parmesan cheese", "fresh parmesan"],
+			"kind": "mass",
+			"fdcId": 171247,
+			"description": "Cheese, parmesan, grated",
+			"source": "https://fdc.nal.usda.gov/food-details/171247/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 5.0,
+					"portion": "tbsp"
+				},
+				"cup": {
+					"amount": 1.0,
+					"grams": 100.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": ["gruyere cheese"],
+			"kind": "mass",
+			"fdcId": 171242,
+			"description": "Cheese, gruyere",
+			"source": "https://fdc.nal.usda.gov/food-details/171242/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 108.0,
+					"portion": "cup, shredded"
+				}
+			}
+		},
+		{
+			"names": ["chopped onion", "diced red onion", "minced onion"],
+			"kind": "mass",
+			"fdcId": 170000,
+			"description": "Onions, raw",
+			"source": "https://fdc.nal.usda.gov/food-details/170000/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 160.0,
+					"portion": "cup, chopped"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 10.0,
+					"portion": "tbsp chopped"
+				}
+			}
+		},
+		{
+			"names": ["green onions", "minced green onion"],
+			"kind": "mass",
+			"fdcId": 170005,
+			"description": "Onions, spring or scallions (includes tops and bulb), raw",
+			"source": "https://fdc.nal.usda.gov/food-details/170005/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 100.0,
+					"portion": "cup, chopped"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 6.0,
+					"portion": "tbsp chopped"
+				}
+			}
+		},
+		{
+			"names": ["dried onion flakes"],
+			"kind": "mass",
+			"fdcId": 170002,
+			"description": "Onions, dehydrated flakes",
+			"source": "https://fdc.nal.usda.gov/food-details/170002/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 5.0,
+					"portion": "tbsp"
+				}
+			}
+		},
+		{
+			"names": [
+				"parsley",
+				"fresh parsley",
+				"chopped parsley",
+				"fresh chopped parsley",
+				"chopped fresh parsley",
+				"minced parsley"
+			],
+			"kind": "mass",
+			"fdcId": 170416,
+			"description": "Parsley, fresh",
+			"source": "https://fdc.nal.usda.gov/food-details/170416/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 3.8,
+					"portion": "tbsp"
+				},
+				"cup": {
+					"amount": 1.0,
+					"grams": 60.0,
+					"portion": "cup chopped"
+				}
+			}
+		},
+		{
+			"names": ["cilantro", "chopped cilantro", "fresh chopped cilantro"],
+			"kind": "mass",
+			"fdcId": 169997,
+			"description": "Coriander (cilantro) leaves, raw",
+			"source": "https://fdc.nal.usda.gov/food-details/169997/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 0.25,
+					"grams": 4.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": ["sliced mushrooms"],
+			"kind": "mass",
+			"fdcId": 169251,
+			"description": "Mushrooms, white, raw",
+			"source": "https://fdc.nal.usda.gov/food-details/169251/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 70.0,
+					"portion": "cup, pieces or slices"
+				}
+			}
+		},
+		{
+			"names": ["celery"],
+			"kind": "mass",
+			"fdcId": 169988,
+			"description": "Celery, raw",
+			"source": "https://fdc.nal.usda.gov/food-details/169988/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 7.5,
+					"portion": "tbsp"
+				},
+				"cup": {
+					"amount": 1.0,
+					"grams": 101.0,
+					"portion": "cup chopped"
+				}
+			}
+		},
+		{
+			"names": ["tomato paste"],
+			"kind": "mass",
+			"fdcId": 170459,
+			"description": "Tomato products, canned, paste, without salt added (Includes foods for USDA's Food Distribution Program)",
+			"source": "https://fdc.nal.usda.gov/food-details/170459/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 16.0,
+					"portion": "tbsp"
+				},
+				"cup": {
+					"amount": 0.25,
+					"grams": 66.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": ["peanut butter"],
+			"kind": "mass",
+			"fdcId": 172470,
+			"description": "Peanut butter, smooth style, without salt",
+			"source": "https://fdc.nal.usda.gov/food-details/172470/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 2.0,
+					"grams": 32.0,
+					"portion": "tbsp"
+				},
+				"cup": {
+					"amount": 1.0,
+					"grams": 258.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": ["sugar"],
+			"kind": "mass",
+			"fdcId": 169655,
+			"description": "Sugars, granulated",
+			"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 4.2,
+					"portion": "tsp"
+				},
+				"cup": {
+					"amount": 1.0,
+					"grams": 200.0,
+					"portion": "cup"
+				}
+			}
+		},
+		{
+			"names": ["minced ginger", "fresh ginger"],
+			"kind": "mass",
+			"fdcId": 169231,
+			"description": "Ginger root, raw",
+			"source": "https://fdc.nal.usda.gov/food-details/169231/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 2.0,
+					"portion": "tsp"
+				}
+			}
+		},
+		{
+			"names": [
+				"water",
+				"cold water",
+				"water for bean microwave",
+				"water for cauliflower microwave",
+				"water for vegetable microwave",
+				"water for sausage simmer",
+				"optional water for sausages"
+			],
+			"kind": "liquid",
+			"fdcId": 173647,
+			"description": "Beverages, water, tap, drinking",
+			"source": "https://fdc.nal.usda.gov/food-details/173647/nutrients",
+			"measures": {
+				"ml": {
+					"amount": 1000.0,
+					"grams": 1000.0,
+					"portion": "liter"
+				}
+			}
+		}
+	]
+}

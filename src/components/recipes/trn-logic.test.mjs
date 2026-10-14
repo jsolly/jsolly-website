@@ -12,7 +12,7 @@ const UNALLOCATED = /Unallocated/u;
 const UNBALANCED = /Unbalanced/u;
 const QUARTER_TEASPOON = /¼ tsp/u;
 const SAFE_FISH_METRIC = /63°C \(145°F\)/u;
-const ONE_GRAM_ZEST = /1g<\/strong> Lemon zest/u;
+const ONE_GRAM_ZEST = /1 g<\/strong> Lemon zest/u;
 const PINCH = /pinch of/u;
 const HALF_REMAINING = /½ remaining/u;
 const ROWSPAN = /rowspan=/u;

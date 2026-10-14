@@ -988,7 +988,8 @@
 					"note": "",
 					"scale": "linear",
 					"gramsPerUnit": 50,
-					"massSource": "https://fdc.nal.usda.gov/food-details/171287/nutrients"
+					"massSource": "https://fdc.nal.usda.gov/food-details/171287/nutrients",
+					"massBasis": "edible egg, without shells"
 				},
 				{
 					"id": "water",
