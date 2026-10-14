@@ -8,7 +8,7 @@ export const groupBadges = {
 	keto: "Keto",
 	shared: "Shared main",
 	nonketo: "Not Keto",
-	unverified: "Nutrition estimated",
+	unverified: null,
 };
 /** Each recipe group's label in the printed copy. */
 export const printGroupLabels = {
@@ -142,4 +142,14 @@ export const nutritionThresholds = {
 		"at least 20% Daily Value in two or more of vitamins A, C, D, zinc and selenium per serving.",
 	omega3:
 		"at least 0.5 g of recorded ALA, EPA, and DHA per meal serving or 8 oz smoothie glass. Missing nutrient observations are excluded. This is a recipe filter threshold, not a Daily Value.",
+};
+
+/** Shared labels and explanations for nutrition filters and recipe highlights. */
+export const nutritionHighlights = {
+	immune: {
+		label: "Immune support",
+		description: nutritionThresholds.immuneSupport,
+	},
+	iron: { label: "Iron-rich", description: nutritionThresholds.ironRich },
+	omega: { label: "High in Omega-3s", description: nutritionThresholds.omega3 },
 };

@@ -8,6 +8,31 @@ The code map, test layout and
 invariants are in `AGENTS.md`; this file covers the data, the pipeline, the
 offline app and the old host's kill-switch.
 
+## Preview recipe changes
+
+Keep UI work in a draft pull request and add the `preview` label. The Vercel
+Preview workflow deploys each pushed commit and updates one Preview comment on
+the pull request. Remove the label to stop automatic redeployments.
+
+The Preview comment links to one protected URL for the project and pull request,
+plus the immutable URL for that build. Reload the stable URL after a deployment
+finishes to see the new commit. Preview builds do not register the offline
+worker, so its cache cannot hide changes. Production keeps the offline app's
+normal update behavior and changes only after the pull request merges.
+
+Draft PRs carrying `preview` use the separate **UI preview checks** workflow
+(lint, types and unit tests); the long built-site suite waits until full CI is
+requested. The Preview deployment stays independent, so UI iteration does not
+wait for full CI. Before marking ready or merging, run the full local gate and
+wait for required `ci` on the current head. Marking ready or removing `preview`
+starts full CI. A skipped `ci-deferred` or passing `ci-preview` cannot authorize
+merging.
+
+For explicitly authorized UI-only local publication, `/ship` verifies the live
+PR/head context, then `npm run gate:preview` uses the scope guard and quick
+checks. Only added/modified Svelte components and stylesheets qualify; other
+changes still require `npm run gate`. The full gate always disables preview mode.
+
 ## Data contract
 
 The canonical data is `src/components/recipes/recipes.json` (140 meals and 6
@@ -17,9 +42,9 @@ ids are stable: each is a page slug (`/recipes/<id>/`) and a fragment id
 (`/recipes/#<id>` opens it in the library dialog), and old links use both.
 Images are files under `public/recipes/media/`, referenced as `/recipes/media/...`.
 
-The 125 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Missing ingredient quantities display as "Not specified"; missing nutrition and times display as "Not provided". The 72 recipes that previously lacked complete macros now carry labeled nutrition estimates and remain separate from keto eligibility. Every publisher adaptation has an ingredient nutrient model. Missing nutrient observations do not qualify for nutrient filters. Publisher prep time is distinguished from household active time.
+The 125 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Unmeasured cooking spray used only to prepare cookware belongs in flow preparation directions, including any optional use or device-manual conditions, rather than ingredient rows. Measured oil-or-spray alternatives remain ingredients. Missing food ingredient quantities display as "Not specified"; missing nutrition and times display as "Not provided". The 72 recipes that previously lacked complete macros now carry labeled nutrition estimates and remain separate from keto eligibility. Every publisher adaptation has an ingredient nutrient model. Missing nutrient observations do not qualify for nutrient filters. Prep time is distinguished from household active time. The browser keeps concise source attribution and cooking instructions; provenance and nutrition assumptions remain in canonical data and assistant downloads. Cooking guidance from source limitations belongs in the flow. Mobile renders the same ingredient allocation tree vertically, preserving branch joins and shared cooking checks; desktop and print retain the table.
 
-Every recipe has a first-party illustration under the [image contract](recipe-images.md), with a visible AI illustration disclosure.
+Every recipe has a first-party illustration under the [image contract](recipe-images.md), with illustration provenance retained in its image metadata and downloads.
 
 Household ingredient amounts describe the reviewed four-adult base, except
 `familyOptions`, which describe one non-keto adult's starch. Canonical units
@@ -94,8 +119,8 @@ with edible grams, the USDA FDC record ID/description, source URL and per-100-g
 observations. Existing publisher macros with a supported serving basis remain;
 72 previously incomplete macro sets are filled from these ingredient models.
 `sourceRecipe.nutritionEstimate.estimatedMacroFields` identifies the fields that
-were filled. The model's assumptions are exported and appear in each recipe's
-nutrition-assumption disclosure. Original source nutrition is retained separately.
+were filled. The model's assumptions remain in canonical data and assistant downloads.
+Original source nutrition is retained separately.
 
 The additional records use USDA's static SR Legacy April 2018 CSV release,
 retrieved 2026-10-10, with archive SHA-256
@@ -132,6 +157,11 @@ other nutrition. Its calculator was rejected: it returned implausible totals and
 failed to recognize some main ingredients. The site uses the traceable ingredient
 models above instead.
 
+Qualifying recipes show Immune support, Iron-rich and High in Omega-3s pills on
+library cards, in the recipe dialog and on individual pages. Pills use the same
+nutrient eligibility checks and selected serving count as the library filters.
+Recipes with missing observations do not gain a pill from those observations.
+
 ### USDA API lookups
 
 The maintenance-only `recipes:usda` command searches FoodData Central or fetches
@@ -154,6 +184,39 @@ Fetch a selected FDC record from the same cwd:
 ```bash
 npm run recipes:usda -- food 168462
 ```
+
+Refresh the already reviewed ingredient matches from this repo's root:
+
+```bash
+node scripts/recipes/refresh-nutrition.mjs --cache /private/tmp/jsolly-usda-refresh-20261013
+```
+
+The cache contains public USDA responses and their retrieval timestamps, never the
+key. `--delay-ms 0` permits a finite refresh without the default delay when
+the remaining request count is known to fit the hourly quota. Reusing it reproduces the same refresh without another API call; choose a
+new absolute directory outside the repository for a fresh snapshot. The script
+deduplicates the existing FDC IDs, respects the [USDA API quota](https://fdc.nal.usda.gov/api-guide/#rate-limits)
+with a default delay of four seconds per new record,
+and validates reviewed SR Legacy/FNDDS identity, nutrient IDs, units and finite nonnegative
+amounts before writing either canonical data file. It never searches or rematches
+foods. `nutrition-data.json`'s `apiRefresh` receipt records the earliest cached
+retrieval time, matched IDs, row coverage and retained brand/composite profiles.
+
+The 2026-10-13 API check covered 149 distinct reviewed FDC records (148 SR Legacy
+records and the existing FNDDS gnocchi proxy), refreshing 1,474 ingredient rows
+across all 146 recipes. The remaining 36 rows retained reviewed brand, composite
+or hybrid profiles. All observed nutrient and macro values agreed with the
+existing snapshots, so this check changed provenance rather than nutritional
+totals. Explicit null observations remain missing.
+
+Only the reviewed nutrient observation set is refreshed, preserving deliberate
+omissions such as the sausage proxy's outlier iron. An observation absent from the
+API is omitted, never replaced with zero. Fortified yeast's hybrid label/USDA
+profile, brand labels, composite seasonings, omega-3 observations, edible weights
+and explicit macro assumptions stay as reviewed. Only publisher macro fields
+listed in `estimatedMacroFields` are recalculated; supported publisher macros and
+household macro formulas retain their existing evidence. Run `recipes:sync` and
+the gate after refreshing. Neither routine builds nor visitors call this API.
 
 Review the food state, brand, portions and nutrient units before updating a model.
 Search results are candidates, not automatic ingredient matches. Food records

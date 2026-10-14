@@ -6,6 +6,8 @@ import { flowGrid, gridHtml, validateFlow } from "./trn-logic.mjs";
 const { recipes } = JSON.parse(
 	readFileSync(new URL("./recipes.json", import.meta.url), "utf8"),
 );
+const SPRAY = /spray/iu;
+const MEASURED_SPRAY = /Olive oil or cooking spray/u;
 const UNALLOCATED = /Unallocated/u;
 const UNBALANCED = /Unbalanced/u;
 const QUARTER_TEASPOON = /¼ tsp/u;
@@ -130,4 +132,41 @@ it("table text escapes HTML-special characters in titles and ingredient names", 
 	assert.ok(html.includes(`</strong> ${escaped}<small`));
 	assert.ok(!html.includes(special));
 	assert.ok(!html.includes("<b>"));
+});
+
+it("unmeasured cookware spray stays in preparation directions while measured oil alternatives remain allocated", () => {
+	for (const recipe of recipes) {
+		assert.equal(
+			recipe.ingredients.some(
+				(ingredient) =>
+					SPRAY.test(ingredient.name) && ingredient.amount === null,
+			),
+			false,
+			recipe.id,
+		);
+	}
+	const preparation = {
+		"source-steak-rolls":
+			"Grease the skillet with cooking spray or a little olive oil before searing",
+		"source-sausage-broccoli-cheddar-sheet-pan":
+			"Line a baking sheet and lightly coat it with cooking oil spray",
+		"source-lemon-garlic-shrimp-and-broccolini-sheet-pan-meal":
+			"Lightly spray a rimmed baking sheet with oil if desired",
+		"source-basic-keto-chaffle-recipe":
+			"Lightly coat with cooking spray if needed and permitted by the manual",
+	};
+	for (const [id, instruction] of Object.entries(preparation)) {
+		const recipe = recipes.find((candidate) => candidate.id === id);
+		assert.ok(recipe.flow.prep.join(" ").includes(instruction), id);
+		assert(validateFlow(recipe));
+	}
+	const measured = recipes.flatMap((recipe) =>
+		recipe.ingredients.filter((ingredient) => SPRAY.test(ingredient.name)),
+	);
+	assert.equal(measured.length, 2);
+	for (const ingredient of measured) {
+		assert.equal(ingredient.amount, 1);
+		assert.equal(ingredient.unit, "tbsp");
+		assert.match(ingredient.name, MEASURED_SPRAY);
+	}
 });

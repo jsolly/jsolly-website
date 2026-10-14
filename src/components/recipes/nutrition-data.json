@@ -71352,5 +71352,212 @@
 	"brandSources": {
 		"yeast": "https://www.bobsredmill.com/product/nutritional-yeast"
 	},
-	"omega3SourceNote": "Recorded ALA (USDA 1404), EPA (1278), and DHA (1272) grams per 100 g from the same USDA SR Legacy source foods. Missing observations are excluded; this is a lower bound, not a complete total."
+	"omega3SourceNote": "Recorded ALA (USDA 1404), EPA (1278), and DHA (1272) grams per 100 g from the same USDA SR Legacy source foods. Missing observations are excluded; this is a lower bound, not a complete total.",
+	"apiRefresh": {
+		"retrievedAt": "2026-10-13T09:34:02.040Z",
+		"endpoint": "https://api.nal.usda.gov/fdc/v1/food/{fdcId}",
+		"matchedFoodIds": [
+			167747, 167749, 167762, 167839, 167961, 168156, 168277, 168322, 168372,
+			168386, 168389, 168409, 168421, 168462, 168567, 168607, 168609, 169230,
+			169231, 169247, 169251, 169276, 169287, 169291, 169383, 169384, 169414,
+			169640, 169655, 169766, 169961, 169975, 169986, 169988, 169994, 169997,
+			170000, 170002, 170005, 170026, 170051, 170053, 170054, 170075, 170108,
+			170148, 170162, 170379, 170383, 170393, 170397, 170416, 170419, 170426,
+			170427, 170457, 170459, 170497, 170499, 170567, 170591, 170844, 170845,
+			170850, 170859, 170903, 170922, 170923, 170924, 170929, 170931, 170932,
+			170935, 170938, 171009, 171019, 171077, 171116, 171186, 171242, 171247,
+			171251, 171255, 171257, 171265, 171287, 171319, 171320, 171322, 171323,
+			171325, 171327, 171328, 171329, 171413, 171447, 171477, 171538, 171563,
+			171580, 171583, 171610, 171631, 171705, 171824, 171955, 172179, 172231,
+			172232, 172233, 172234, 172240, 172241, 172243, 172385, 172421, 172470,
+			172473, 172803, 172850, 172888, 173412, 173414, 173418, 173420, 173430,
+			173468, 173469, 173470, 173473, 173627, 173801, 173879, 173944, 174030,
+			174208, 174210, 174536, 174575, 174592, 174604, 174706, 174832, 174837,
+			175112, 175167, 175176, 175204, 2708722
+		],
+		"refreshedRows": 1474,
+		"skippedRows": [
+			{
+				"recipeId": "smoky-chicken-thighs-and-broccoli",
+				"food": "yeast",
+				"reason": "hybrid brand/USDA profile"
+			},
+			{
+				"recipeId": "spinach-feta-and-hemp-frittata",
+				"food": "yeast",
+				"reason": "hybrid brand/USDA profile"
+			},
+			{
+				"recipeId": "lemon-chicken-potatoes-and-green-beans",
+				"food": "yeast",
+				"reason": "hybrid brand/USDA profile"
+			},
+			{
+				"recipeId": "sheet-pan-gnocchi-white-beans-and-broccoli",
+				"food": "yeast",
+				"reason": "hybrid brand/USDA profile"
+			},
+			{
+				"recipeId": "chicken-posole",
+				"food": "enchilada_sauce",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-honey-mustard-chicken-sheet-pan-dinner-keto-low-carb",
+				"food": "ingredient-2",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-sesame-chicken-keto-stir-fry",
+				"food": "ingredient-3",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-keto-slow-cooker-zesty-ranch-chicken",
+				"food": "ingredient-4",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-asparagus-stuffed-chicken-low-carb-keto",
+				"food": "ingredient-8",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-bacon-wrapped-chicken-with-avocado-salsa",
+				"food": "ingredient-3",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-jalapen-o-popper-stuffed-chicken-breast",
+				"food": "ingredient-6",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-cajun-chicken-sausage-and-cabbage-skillet",
+				"food": "ingredient-3",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-broccoli-and-cheese-stuffed-chicken-breasts",
+				"food": "ingredient-5",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-keto-asian-chicken-lettuce-wraps",
+				"food": "ingredient-10",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-keto-beef-stroganoff",
+				"food": "ingredient-13",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-cabbage-with-sausage-foil-packs",
+				"food": "ingredient-5",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-keto-sausage-veggie-sheet-pan-dinner",
+				"food": "ingredient-5",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-keto-sesame-pork-and-green-beans",
+				"food": "ingredient-4",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-lobster-bisque-low-carb-keto",
+				"food": "ingredient-7",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-creamy-chicken-breast-in-spinach-parmesan-sauce",
+				"food": "ingredient-3",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-lemon-garlic-butter-chicken-and-green-beans-skillet",
+				"food": "ingredient-7",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-one-pan-sausage-veggies",
+				"food": "ingredient-7",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-one-pan-sausage-veggies",
+				"food": "ingredient-9",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-15-minute-lemon-garlic-butter-steak-with-zucchini-noodles",
+				"food": "ingredient-6",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-sheet-pan-shrimp-fajitas",
+				"food": "ingredient-11",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-lemon-garlic-butter-baked-cod-fillets",
+				"food": "ingredient-8",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-creamy-cajun-shrimp-with-sausage",
+				"food": "ingredient-3",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-creamy-cajun-shrimp-with-sausage",
+				"food": "ingredient-10",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-cheesy-garlic-burgers-with-lemon-butter-zucchini-noodles",
+				"food": "ingredient-6",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-garlic-butter-pork-bites-with-lemon-green-beans",
+				"food": "ingredient-2",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-cowboy-butter-chicken-with-zucchini-noodles-15-minute",
+				"food": "ingredient-4",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-garlic-herb-butter-chicken-thighs-with-asparagus",
+				"food": "ingredient-9",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-easy-cajun-pork-chops-with-lemon-garlic-zucchini",
+				"food": "ingredient-3",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-fried-cabbage-with-sausage",
+				"food": "ingredient-7",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-buttery-garlic-herb-chicken-and-lemon-parmesan-cauliflower-rice",
+				"food": "ingredient-13",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-one-pan-lemon-butter-chicken-with-asparagus",
+				"food": "ingredient-2",
+				"reason": "brand or composite profile"
+			}
+		],
+		"policy": "Existing reviewed SR Legacy/FNDDS matches and observation sets only; no rematching, new zeros, cooking-retention factors or changes to edible weights. Brand/composite profiles, fortified yeast, assumed macro fields, omega-3 observations and supported publisher macros retained."
+	}
 }

@@ -80,8 +80,8 @@ Each canonical recipe's `image` object follows this example:
 
 Write alt text for the depicted dish, naming its defining foods and their visible
 preparation. Do not use generic descriptions such as "recipe image", repeat the
-style prompt, or claim a photograph of a tested meal. The caption discloses that
-the image is generated and that portions are approximate. Shared-main captions
+style prompt, or claim a photograph of a tested meal. The caption metadata records that
+the image is generated and that portions are approximate; the browser omits this metadata caption. Shared-main captions
 may append `Keto base shown; family starch is separate.`
 
 When adding or replacing an image, update the files and metadata together, then

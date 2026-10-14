@@ -1,12 +1,13 @@
 <script>
 	import { groupBadges } from "./constants.mjs";
 
-	// A recipe's group badge (Keto, Shared main or Not Keto) on its library
-	// card and in the library dialog; `class` lets the dialog place it.
+	// Positive diet labels in the library dialog; `class` lets it place the badge.
 	let { group, class: className } = $props();
 </script>
 
-<span class={["badge", className]} class:shared={group === "shared"} class:nonketo={group === "nonketo"}>{groupBadges[group]}</span>
+{#if groupBadges[group] && group !== "nonketo"}
+	<span class={["badge", className]} class:shared={group === "shared"}>{groupBadges[group]}</span>
+{/if}
 
 <style>
 	/* Every recipe stylesheet declares the full order (as the blog sheets do), so
@@ -24,9 +25,6 @@
 		}
 		.badge.shared {
 			background: var(--recipe-badge-shared);
-		}
-		.badge.nonketo {
-			background: var(--recipe-badge-nonketo);
 		}
 	}
 </style>

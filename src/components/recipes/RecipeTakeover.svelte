@@ -4,6 +4,8 @@
 	import DialogContent from "../../lib/components/ui/dialog-content.svelte";
 	import DialogDescription from "../../lib/components/ui/dialog-description.svelte";
 	import DialogTitle from "../../lib/components/ui/dialog-title.svelte";
+	import NutritionPills from "./NutritionPills.svelte";
+	import RecipeAttribution from "./RecipeAttribution.svelte";
 	import RecipeBadge from "./RecipeBadge.svelte";
 	import RecipeBody from "./RecipeBody.svelte";
 	import ShareRecipe from "./ShareRecipe.svelte";
@@ -40,7 +42,9 @@
 			<div class="detail-toolbar"><Button variant="ghost" type="button" class="text-button" onclick={() => onBack()}>← Back to recipes</Button><Button variant="outline" type="button" class="print-recipe" onclick={onPrint}>Print recipe</Button></div>
 			<RecipeBadge group={recipe.group} class="detail-badge" />
 			<DialogTitle id="recipe-detail-title" tabindex={-1} bind:ref={heading}>{recipe.title}</DialogTitle>
+			<NutritionPills {recipe} servings={settings.servings} />
 			<DialogDescription class="detail-summary">{recipe.summary}</DialogDescription>
+			<RecipeAttribution {recipe} />
 			<RecipeBody {recipe} {settings} {onSideChange} />
 			<ShareRecipe {recipe} {settings} />
 		</section></DialogContent
@@ -55,7 +59,7 @@
 		/* bits-ui portals the dialog to <body>, outside the library. It takes
 		   the whole viewport without the dialog's open and close animation. */
 		:global(.recipe-takeover) {
-			font: 16px/1.55 var(--font-body);
+			font: 16px/1.4 var(--font-body);
 			position: fixed;
 			inset: 0;
 			/* Undoes dialog-content's -translate-1/2 centring. Alone: next to
@@ -91,7 +95,7 @@
 			display: flex;
 			justify-content: space-between;
 			gap: 14px;
-			margin-bottom: 24px;
+			margin-bottom: 16px;
 		}
 		.detail-toolbar :global(.text-button) {
 			border: 0;
@@ -115,9 +119,12 @@
 		.recipe-detail :global(h2) {
 			font: 600 clamp(2rem, 4vw, 3rem) / 1.13 var(--font-heading);
 			max-width: 800px;
+			margin: 14px 0 10px;
 		}
 		.recipe-detail :global(.detail-summary) {
 			max-width: 700px;
+			line-height: 1.4;
+			margin: 10px 0 4px;
 			color: var(--recipe-muted);
 		}
 		@media (max-width: 600px) {

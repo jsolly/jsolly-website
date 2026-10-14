@@ -9,6 +9,7 @@
 		carbStyles,
 		defaultAppliances,
 		mealStyleDescriptions,
+		nutritionHighlights,
 		nutritionThresholds,
 		proteins,
 		SERVING_CHOICES,
@@ -67,20 +68,20 @@
 			},
 			{
 				key: "immuneSupport",
-				label: "Immune support",
+				label: nutritionHighlights.immune.label,
 				applies: { immune: true },
 				title:
 					"At least 20% Daily Value in two or more of vitamins A, C, D, zinc and selenium per serving",
 			},
 			collectionHasIron && {
 				key: "ironRich",
-				label: "Iron-rich",
+				label: nutritionHighlights.iron.label,
 				applies: { iron: true },
 				title: "At least 20% Daily Value of iron per serving",
 			},
 			{
 				key: "omega3",
-				label: "High in Omega-3s",
+				label: nutritionHighlights.omega.label,
 				applies: { omega: true },
 				title:
 					"At least 0.5 g recorded ALA, EPA, and DHA per meal serving or 8 oz smoothie glass",
@@ -175,7 +176,7 @@
 	</fieldset>
 	<!-- The legend floats so it lines up with the help trigger beside it. -->
 	<fieldset class="nutrient-filters">
-		<legend>Nutrition</legend><NutritionHelp />
+		<legend>Nutrition filters</legend><NutritionHelp />
 		<div class="nutrient-options">
 			{#each nutritionChecks as check (check.key)}<label for={controlId(check.key)} title={check.title}
 					><Checkbox

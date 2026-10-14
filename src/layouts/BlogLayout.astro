@@ -1,7 +1,9 @@
 ---
 // Blog and recipe metadata remain section-specific; the visual shell is shared
 // with the portfolio. Article styles stay scoped to the reading section.
+
 import SiteShell from "../components/SiteShell.astro";
+import Button from "../lib/components/ui/button.svelte";
 import "../styles/blog/blog.css";
 import BlogNavigation from "../components/blog/BlogNavigation.svelte";
 import { markdownSiblingPath } from "../lib/accept-negotiate.js";
@@ -88,10 +90,9 @@ const isRecipeCollection = ["/recipes/", "/recipes/meals/", "/recipes/smoothies/
     <SiteShell {section}>
       {section === "blog"
         ? <BlogNavigation slot="navigation" categories={navigation} pathname={Astro.url.pathname} client:load />
-        : !isRecipeCollection && <nav slot="navigation" class="blog-toolbar" aria-label="Recipe navigation">
-            <a href="/recipes/">All recipes</a>
-            <a href="/recipes/meals/">Meals</a>
-            <a href="/recipes/smoothies/">Smoothies</a>
+        : !isRecipeCollection && <nav slot="navigation" class="blog-toolbar recipe-navigation" aria-label="Recipe navigation">
+            <Button href="/recipes/meals/" variant="outline" size="lg">Meals</Button>
+            <Button href="/recipes/smoothies/" variant="outline" size="lg">Smoothies</Button>
           </nav>}
 
       <slot />
@@ -107,3 +108,12 @@ const isRecipeCollection = ["/recipes/", "/recipes/meals/", "/recipes/smoothies/
     </SiteShell>
   </body>
 </html>
+
+<style>
+@layer properties, theme, base, components, utilities, blog, blog-no-script;
+@layer blog {
+.recipe-navigation { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-start; padding-block: 16px; }
+.recipe-navigation :global(a) { min-height: 44px; padding: 10px 20px; border: 1px solid var(--recipe-line); background: var(--recipe-paper); color: var(--recipe-ink); font-weight: 650; text-decoration: none; }
+.recipe-navigation :global(a:hover) { background: var(--recipe-soft); color: var(--recipe-ink); text-decoration: none; }
+}
+</style>

@@ -1,0 +1,27 @@
+# Optional draft-preview checks; never required ci or merge proof.
+name: UI preview checks
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled, ready_for_review, converted_to_draft]
+permissions:
+  contents: read
+jobs:
+  # Preview checks never publish required ci or a validated-tree artifact.
+  ci-preview:
+    name: ci-preview
+    if: >-
+      (github.event_name == 'pull_request' && github.event.pull_request.draft && github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.user.type == 'User' && github.event.pull_request.user.login != 'dependabot[bot]' && contains(github.event.pull_request.labels.*.name, 'preview')) &&
+      (github.event.action != 'labeled' || github.event.label.name == 'preview')
+    concurrency:
+      group: ${{ format('ui-preview-{0}', github.event.pull_request.number) }}
+      cancel-in-progress: true
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run check:preview
