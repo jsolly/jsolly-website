@@ -383,6 +383,7 @@ it("unreadable or wrongly shaped saved settings leave the library on its default
 		servings: "4",
 		resaved: {
 			servings: 4,
+			units: "us",
 			filters: DEFAULT_FILTERS,
 			appliancesOnHand: defaultAppliances,
 			familyChoice: {},

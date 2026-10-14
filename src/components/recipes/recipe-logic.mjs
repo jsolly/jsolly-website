@@ -1,6 +1,7 @@
 // Pure calculations for the meal library. Recipe ingredient amounts are for
 // BASE_SERVINGS (four) adults.
 import { BASE_SERVINGS, SERVING_CHOICES } from "./constants.mjs";
+import { ingredientMeasure, unitPreference } from "./ingredient-units.mjs";
 
 const SERVINGS = new Set(SERVING_CHOICES);
 const NUTRIENTS = ["kcal", "protein_g", "carbs_g", "fiber_g", "net_carbs_g"];
@@ -14,7 +15,7 @@ export function validateSettings(settings = {}) {
 	const familyDiners = Number.isInteger(Number(settings?.familyDiners))
 		? Math.max(0, Math.min(servings, Number(settings.familyDiners)))
 		: 0;
-	const units = settings?.units === "metric" ? "metric" : "us";
+	const units = unitPreference(settings?.units);
 	return { servings, familyDiners, units };
 }
 
@@ -69,53 +70,21 @@ export function ingredientAmount(ingredient, servings) {
 	return ingredient.scale === "minimum" ? Math.max(amount, scaled) : scaled;
 }
 
-/** US measures come from typed source quantities, never a generic g-to-cup ratio. */
-export function formatIngredient(
-	ingredient,
-	servings,
-	units = "metric",
-	{ wholeOunces = false } = {},
-) {
-	const amount = ingredientAmount(ingredient, servings);
-	if (!Number.isFinite(amount)) return "Not specified";
-	if (amount === 0) return "to taste";
-	const grams =
-		ingredient.unit === "g" ? amount : amount * ingredient.gramsPerUnit;
-	if (Number.isFinite(grams) && grams >= 1) return `${Math.round(grams)}g`;
-	const hasUS =
-		(units === "us" || ingredient.displayMeasure === "spoon") &&
-		finite(ingredient?.us?.amount) &&
-		ingredient.us.unit;
-	const displayAmount =
-		hasUS && ingredient.amount
-			? (ingredient.us.amount * amount) / ingredient.amount
-			: amount;
-	let unit = hasUS ? ingredient.us.unit : ingredient.unit;
-	let shown = displayAmount;
-	if (units === "us" && !hasUS && unit === "g") {
-		shown = amount / 28.349523125;
-		unit = "oz";
-	}
-	if (units === "us" && !hasUS && unit === "ml") {
-		shown = amount / 29.5735295625;
-		unit = "fl oz";
-	}
-	// Typed source measures can land just below a decimal half after rescaling.
-	const roundedOunces = wholeOunces
-		? Math.round(shown)
-		: Math.round((shown + Number.EPSILON * Math.abs(shown)) * 10) / 10;
-	const quantity =
-		unit === "oz" || unit === "fl oz"
-			? String(roundedOunces)
-			: formatQuantity(shown);
-	return `${quantity}${unit ? ` ${unit === "fl oz" ? "oz" : unit}` : ""}`;
+/** Scale once from the canonical amount, then format the selected measure. */
+export function formatIngredient(ingredient, servings, units = "metric") {
+	return ingredientMeasure(
+		ingredient,
+		ingredientAmount(ingredient, servings),
+		units,
+		formatQuantity,
+	).quantity;
 }
 
 /** Safe endpoints round upward; appliance settings round to the nearest 5°C. */
 export function temperature(fahrenheit, units = "us", safety = false) {
 	if (!finite(fahrenheit)) return "—";
 	const original = `${formatQuantity(fahrenheit)}°F`;
-	if (units !== "metric") return original;
+	if (units === "us") return original;
 	const celsius = ((fahrenheit - 32) * 5) / 9;
 	const shown = safety
 		? Math.ceil(celsius - 1e-10)

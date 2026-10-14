@@ -140,6 +140,7 @@ export function parseSavedSettings(saved, { recipes, ingredients }) {
 	const flag = (key) => filters[key] === true;
 	return {
 		servings: validateSettings({ servings: settings.servings }).servings,
+		units: validateSettings({ units: settings.units }).units,
 		filters: {
 			...DEFAULT_FILTERS,
 			proteinChoice: normalizeSelection(filters.proteinChoice, proteins),

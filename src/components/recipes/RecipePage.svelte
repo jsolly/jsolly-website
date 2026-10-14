@@ -6,11 +6,14 @@
 	import NutritionPills from "./NutritionPills.svelte";
 	import RecipeAttribution from "./RecipeAttribution.svelte";
 	import RecipeBody from "./RecipeBody.svelte";
+	import RecipeDownload from "./RecipeDownload.svelte";
 	import RecipePrint from "./RecipePrint.svelte";
 	import { validateSettings } from "./recipe-logic.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
 	import { readRecipeURL } from "./recipe-url.mjs";
 	import ShareRecipe from "./ShareRecipe.svelte";
+	import UnitControl from "./UnitControl.svelte";
+	import { readUnitPreference, replaceUnitURL, writeUnitPreference } from "./unit-preference.mjs";
 
 	// Render the controls before hydration, disabled until their handlers are
 	// ready. Native fallbacks live in noscript and never get replaced on load.
@@ -45,11 +48,19 @@
 		};
 	}
 
+	function setUnits(value) {
+		const units = validateSettings({ units: value }).units;
+		settings = { ...settings, units };
+		replaceUnitURL(units);
+		writeUnitPreference(units);
+	}
+
 	onMount(() => {
-		const parsed = readRecipeURL(new URL(window.location.href), [recipe]);
+		const parsed = readRecipeURL(new URL(window.location.href), [recipe], { units: readUnitPreference() });
 		settings = {
 			...settings,
 			servings: parsed.servings,
+			units: parsed.units,
 			familyDiners: parsed.servings,
 			familyChoice: parsed.familyChoice,
 		};
@@ -74,8 +85,10 @@
 					{#each SERVING_CHOICES as choice (choice)}<option value={choice}>{choice}</option>{/each}
 				</NativeSelect></label
 			>
+		<UnitControl units={settings.units} onUnitsChange={setUnits} disabled={!interactive} />
 		<RecipeBody {recipe} {settings} {interactive} headingLevel={2} onSideChange={setSide} />
 		<div class="recipe-enhanced"><ShareRecipe {recipe} {settings} disabled={!interactive} /></div>
+		<RecipeDownload recipes={[recipe]} {settings} disabled={!interactive} />
 		<noscript><div class="share"><a href={`/recipes/${recipe.id}/`}>Share recipe link</a></div></noscript>
 		<p role="status">{message}</p>
 	</section>

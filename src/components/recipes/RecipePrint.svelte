@@ -1,5 +1,6 @@
 <script>
 	import { printGroupLabels } from "./constants.mjs";
+	import { UNIT_LABELS } from "./ingredient-units.mjs";
 	import { nutrientAmount } from "./nutrition.mjs";
 	import RecipeFlow from "./RecipeFlow.svelte";
 	import { nutritionSummary, recipeDocument } from "./recipe-export.mjs";
@@ -23,19 +24,20 @@
 	{#if documents.length > 1}
 		<header class="packet-heading">
 			<h1 class="print-title">All recipes</h1>
-			<p>{documents.length} recipes · {settings.servings} servings each · {settings.units === "metric" ? "Metric" : "US"} cooking measures</p>
+			<p>{documents.length} recipes · {settings.servings} servings each · {UNIT_LABELS[settings.units]} cooking measures</p>
 			<p>Each recipe starts on a new page. Safe doneness and appliance capacity take priority over the time estimate.</p>
 		</header>
 	{/if}
 	{#each documents as document, i (document.recipeId)}
 		<article class="print-meal" class:new-page={i > 0} aria-label={document.title}>
 			<h1 class="print-title">{document.title}</h1>
-			<p class="meal-facts">{printGroupLabels[document.group] || document.group} · {document.servings} servings · {document.units === "metric" ? "Metric" : "US"} measures · {document.activeMinutes === null ? "Prep time not provided" : `${document.activeMinutes} min ${document.timeBasis} per four-serving batch`}</p>
+			<p class="meal-facts">{printGroupLabels[document.group] || document.group} · {document.servings} servings · {UNIT_LABELS[document.units]} measures · {document.activeMinutes === null ? "Prep time not provided" : `${document.activeMinutes} min ${document.timeBasis} per four-serving batch`}</p>
 			<p class="total-time">Total time: {document.totalTime}</p>
 			<p>{document.summary}</p>
 			<p>{document.attentionSummary}</p>
 			<p class="important">{document.capacity}</p>
 			<p>{document.timingNote}</p>
+			<p class="small">{document.measurementPolicy}</p>
 			<p class="small">{document.disclaimer}</p>
 			<RecipeFlow recipe={recipes[i]} {settings} printOnly headingLevel={2} />
 			<h2>Ingredients</h2>

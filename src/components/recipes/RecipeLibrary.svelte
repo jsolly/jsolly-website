@@ -14,12 +14,14 @@
 		smoothieIngredientChoices,
 	} from "./nutrient-filters.mjs";
 	import RecipeCard from "./RecipeCard.svelte";
+import RecipeDownload from "./RecipeDownload.svelte";
 	import RecipePrint from "./RecipePrint.svelte";
 	import RecipeTakeover from "./RecipeTakeover.svelte";
 	import { validateSettings } from "./recipe-logic.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
 	import { readRecipeURL, recipeHref } from "./recipe-url.mjs";
 	import data from "./recipes.json" with { type: "json" };
+	import { replaceUnitURL } from "./unit-preference.mjs";
 
 	const recipes = data.recipes;
 
@@ -35,6 +37,7 @@
 	// The saved settings: servings, the filters, the appliances on hand and
 	// each recipe's family side.
 	let servings = $state(BASE_SERVINGS);
+	let units = $state("us");
 	let filters = $state({ ...DEFAULT_FILTERS });
 	let appliancesOnHand = $state({ ...defaultAppliances });
 	let familyChoice = $state({});
@@ -87,7 +90,7 @@
 	// What the cards, the dialog and the print copy show each recipe with.
 	const recipeSettings = $derived({
 		servings,
-		units: "us",
+		units,
 		familyDiners: servings,
 		familyChoice,
 	});
@@ -117,6 +120,11 @@
 				}),
 		);
 		if (!matches) filters = { ...DEFAULT_FILTERS };
+	}
+
+	function setUnits(value) {
+		units = validateSettings({ units: value }).units;
+		replaceUnitURL(units);
 	}
 
 	function setServings(value) {
@@ -154,9 +162,10 @@
 
 	function readURL() {
 		const parsed = readRecipeURL(new URL(window.location.href), recipes, {
-			servings,
+			servings, units,
 		});
 		servings = parsed.servings;
+		units = parsed.units;
 		familyChoice = { ...familyChoice, ...parsed.familyChoice };
 		recipeId = parsed.recipeId;
 	}
@@ -171,7 +180,7 @@
 			// Do not log saved data, which may appear in a JSON parse error.
 			console.error("Recipe settings could not be restored; using defaults.", error instanceof Error ? error.name : "Unknown error");
 		}
-		({ servings, filters, appliancesOnHand, familyChoice } = parseSavedSettings(
+		({ servings, units, filters, appliancesOnHand, familyChoice } = parseSavedSettings(
 			saved,
 			{ recipes, ingredients: smoothieIngredients },
 		));
@@ -220,7 +229,7 @@
 		try {
 			localStorage.setItem(
 				STORAGE_KEY,
-				JSON.stringify({ servings, filters, appliancesOnHand, familyChoice }),
+				JSON.stringify({ servings, units, filters, appliancesOnHand, familyChoice }),
 			);
 		} catch (error) {
 			console.error("Recipe settings could not be saved; changes apply only to this visit.", error instanceof Error ? error.name : "Unknown error");
@@ -234,6 +243,8 @@
 		{pathname}
 		{hydrated}
 		{servings}
+		{units}
+		onUnitsChange={setUnits}
 		onServingsChange={setServings}
 		{collectionRecipes}
 		{collectionHasIron}
@@ -255,9 +266,10 @@
 	</div>
 
 	{#if current}
-		<RecipeTakeover recipe={current} settings={recipeSettings} onBack={() => backToResults()} onPrint={() => print("recipe")} onSideChange={(value) => setChoice(current.id, value)} bind:heading={detailHeading} bind:dialog={recipeDialog} />
+		<RecipeTakeover recipe={current} settings={recipeSettings} onUnitsChange={setUnits} onBack={() => backToResults()} onPrint={() => print("recipe")} onSideChange={(value) => setChoice(current.id, value)} bind:heading={detailHeading} bind:dialog={recipeDialog} />
 	{/if}
 
+	<RecipeDownload recipes={collectionRecipes} settings={recipeSettings} disabled={!hydrated} />
 	<p class="action-status" role="status" aria-live="polite">{message}</p>
 	<div class="print-output">{#if printPrepared}<RecipePrint recipes={printRecipes} settings={recipeSettings} />{/if}</div>
 </section>

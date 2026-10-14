@@ -32,3 +32,14 @@ it("US text and pressure model remain unchanged", () => {
 		"Duo 6QT, 425°F, ½-inch",
 	);
 });
+
+it("cooking geometry converts complete ranges once and preserves the whole original expression", () => {
+	assert.equal(
+		cookText("¼–½-inch pieces, 1-2 inches, 18×13-inch pan", "metric"),
+		"0.64–1.27 cm (¼–½-inch) pieces, 2.54-5.08 cm (1-2 inches), 45.72×33.02 cm (18×13-inch) pan",
+	);
+	assert.equal(
+		cookText("¼–½-inch pieces", "grams"),
+		"0.64–1.27 cm (¼–½-inch) pieces",
+	);
+});

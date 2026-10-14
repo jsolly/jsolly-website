@@ -49,9 +49,8 @@ Every recipe has a first-party illustration under the [image contract](recipe-im
 Household ingredient amounts describe the reviewed four-adult base, except
 `familyOptions`, which describe one non-keto adult's starch. Canonical units
 distinguish mass, volume, count and spoon measures; source-specific US measures
-describe the same food quantity. Pesto and pressure liquid stay weighed or
-measured in grams and mL in both display modes, because generic spoon
-conversions would be misleading.
+describe the same food quantity. Pressure-liquid minima always retain their required mL volume in every display
+mode. A generic broth density cannot establish a cooker's safe liquid minimum.
 
 Publisher adaptations use four portions and preserve their stated quantities and method limits. Whole-bird recipes round up to complete batches for 2, 4, 6 and 8 portions. Missing publisher quantities stay missing in cooking instructions. Nutrition models may use explicitly disclosed standard count weights, generic-food substitutes and excluded unmeasured additions; these are estimates rather than publisher claims.
 
@@ -91,11 +90,57 @@ ingredient observation is omitted from the display. These are product
 estimates, not a medical nutrition prescription, and no cooking, tasting or
 stopwatch testing is claimed.
 
-Ingredients with a scaled mass of at least 1 g display grams. Canonical
-`gramsPerUnit` and `massSource` fields keep source-backed weights for spoon
-measures and eggs without changing the nutrition model; finishing ingredients
-marked `displayMeasure: "spoon"` keep spoon quantities below 1 g. Fine salt uses
-the USDA table-salt mass of 6 g per teaspoon.
+### Ingredient units
+
+Choose **Grams**, **US imperial** or **Metric** on a recipe, in the library or in
+its recipe dialog. The choice persists under the existing settings key. A shared
+link carries `?units=grams|us|metric`; an explicit URL choice takes priority over
+the saved preference. Old links and saved settings default to US imperial.
+US imperial means US customary cups and spoons, not British Imperial volumes.
+`oz` is mass and `fl oz` is volume.
+
+- **Grams** converts known mass and supported volume/count weights to grams.
+  Unsupported counts, packages, mixed ingredients and undefined measures retain
+  their source amount with "weight unavailable". Missing quantities stay missing;
+  to-taste ingredients stay to taste.
+- **US imperial** uses pounds or mass ounces for weights, fluid ounces for mL,
+  and the source US cups/spoons and counts for other quantities. Required pressure-liquid
+  minima retain mL in every mode.
+- **Metric** uses grams for mass and supported dry portions, mL for liquids and
+  other known volumes. An unresolved dry volume explicitly says "mL volume" and
+  retains the original cup/spoon quantity. Counts and undefined measures retain
+  their original amount when no reliable weight is available.
+
+Volume/count weights are approximate, prefixed with `~`, and retain the source
+measure. Source-backed `gramsPerUnit` and `massSource` remain eligible. Additional
+observations live in `ingredient-weights.json`, with exact ingredient-name matches,
+USDA food descriptions, portion descriptions and gram weights, source URLs and
+the retrieved archive hash. Alternatives, packed/heaping measures and whipped
+states stay unresolved. They are cooking references, independent of nutrition
+estimates. No generic cup-to-gram ratio, nutrition-only package assumption, seasoning
+blend proxy or automatic fuzzy food match enters cooking quantities. Review the
+food state and packing before adding a match. The original spoon/count measure
+remains the practical fallback for scales that cannot resolve tiny quantities.
+
+Conversions start from the unrounded canonical amount after linear, fixed,
+minimum or whole-batch scaling. Display rounding never replaces canonical data
+or changes nutrition. Positive amounts below display precision say `<0.01` rather
+than zero. Source method/package notes keep their original quantities; cooking
+settings in Grams and Metric also show metric equivalents with the original
+settings and safe endpoints retained.
+
+[`recipe-units-audit.json`](recipe-units-audit.json) lists every base ingredient
+and family option, its canonical state, source-backed weight if available, and
+its four-serving display and unresolved status in all three modes. Regenerate
+from this repository root after editing recipes or conversion references:
+
+```bash
+node scripts/recipes/audit-units.mjs --write
+```
+
+The unit suite rejects stale audit bytes and checks all recipes at every supported
+serving count in all three modes. `node scripts/recipes/audit-units.mjs` also checks
+the audit without writing it.
 
 `flow` stores the Tabular Recipe Notation operation tree: ingredient leaves with
 fractional allocations that sum to 1 (or a paired salt pinch and remainder),
@@ -262,7 +307,10 @@ downloads from `recipes.json`. Their settings are fixed: four adults, US units,
 no family starch selected, with each shared recipe's per-person starch options
 listed. The JSON uses `schemaVersion: 1` and holds stable recipe ids, readable
 quantities, food states, dependency cells, steps, sources, restrictions and
-estimates; the Markdown is the same documents as text. Print and these files use one `recipeDocument` from `recipe-export.mjs`. The files are committed, and Biome and markdownlint skip
+estimates; the Markdown is the same documents as text. The browser's Download Markdown and Download JSON controls export the current collection or
+recipe with the selected servings, units and family side, including offline. The
+static endpoints keep the fixed defaults above, as do canonical `.md` pages.
+Print and these files use one `recipeDocument` from `recipe-export.mjs`. The files are committed, and Biome and markdownlint skip
 `public/recipes/data/` so their bytes stay exactly what the script writes. The
 gate's `recipes:check` fails on drift, so run `recipes:sync` after every edit to
 `recipes.json` and commit the result with it.
@@ -277,7 +325,7 @@ The library renders its print packet when printing starts, including browser-men
 Each recipe page server-renders one recipe body at four servings with the
 default family side. Enhanced controls render disabled, then JavaScript enables
 scaling, the side choice, the cooking checks and share links
-(`?servings=` and `?starch=<id>:<side>`). Native fallbacks live in `<noscript>`,
+(`?servings=`, `?units=` and `?starch=<id>:<side>`). Native fallbacks live in `<noscript>`,
 so hydration never replaces a disclosure or cooking check in use. Without
 JavaScript, native ingredient checkboxes and nutrient disclosures still work,
 and the collection pages show only the collection links and the cards.
@@ -286,7 +334,7 @@ Collection cards are shuffled once per release using the build commit as the
 seed. Server rendering and hydration keep that order, so cards do not move on
 load. Restoring saved filters or servings can still update their contents.
 
-The library saves `{ servings, filters, appliancesOnHand, familyChoice }` in
+The library saves `{ servings, units, filters, appliancesOnHand, familyChoice }` in
 `localStorage` under `recipes-settings-v1` (J13). The old blogthedata.com key is
 on another origin and is not read, so preferences reset once for returning
 visitors. Every saved key is validated on load; anything that no longer fits is

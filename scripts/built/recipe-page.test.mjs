@@ -228,22 +228,22 @@ it("mobile flow preserves ordered operations, allocation leaves and cooking chec
 			"8",
 		);
 		const scaledMobile = page.locator(".recipe-body .mobile-flow");
-		// Canonical eight-serving allocations: oil, garlic and salt each have two branches.
+		// US display of canonical eight-serving allocations: oil, garlic and salt each have two branches.
 		assert.deepEqual(
 			await scaledMobile.locator(".mobile-ingredient strong").allTextContents(),
 			[
-				"1360g",
-				"27g",
-				"3g",
-				"3g",
+				"3 lb",
+				"0.95 oz",
+				"1 tsp",
+				"½ tsp",
 				"to taste",
-				"4g",
-				"908g",
-				"27g",
-				"3g",
-				"3g",
-				"60g",
-				"40g",
+				"0.14 oz",
+				"2 lb",
+				"0.95 oz",
+				"1 tsp",
+				"½ tsp",
+				"2.12 oz",
+				"1.41 oz",
 			],
 		);
 		assert.deepEqual(
@@ -629,9 +629,9 @@ it("a reader who picks 8 servings and the bun side gets the scaled recipe and a 
 			{
 				facts:
 					"15 min active time / base batch 8 servings 40 min / base batch ready in",
-				sideLine: "360g Bun · serve separately",
-				cucumber: "600g",
-				link: `${site.origin}${PAGE}?servings=8&starch=greek-turkey-patties%3Abun_one`,
+				sideLine: "12.7 oz Bun · serve separately",
+				cucumber: "1.32 lb",
+				link: `${site.origin}${PAGE}?servings=8&units=us&starch=greek-turkey-patties%3Abun_one`,
 				errors: [],
 			},
 		);
@@ -663,7 +663,7 @@ it("a shared link with ?servings=6 and a family side opens the recipe at six ser
 				side: SIDE,
 				facts:
 					"15 min active time / base batch 6 servings 40 min / base batch ready in",
-				sideLine: "270g Bun · serve separately",
+				sideLine: "9.52 oz Bun · serve separately",
 				errors: [],
 			},
 		);
@@ -690,7 +690,7 @@ it("where the browser can neither share nor copy, Share recipe announces and sho
 			},
 			{
 				statusBefore: 1,
-				link: `${site.origin}${PAGE}?servings=4`,
+				link: `${site.origin}${PAGE}?servings=4&units=us`,
 				errors: [],
 			},
 		);
@@ -752,7 +752,9 @@ function recipeShareFailureCheck({ failure, result, diagnostic }) {
 			const manualLink = result === "Copy this recipe link:";
 			assert.equal(
 				manualLink
-					? status.replace(`${site.origin}${PAGE}?servings=4`, "").trim()
+					? status
+							.replace(`${site.origin}${PAGE}?servings=4&units=us`, "")
+							.trim()
 					: status,
 				result,
 			);
@@ -764,7 +766,7 @@ function recipeShareFailureCheck({ failure, result, diagnostic }) {
 				await share
 					.getByRole("link")
 					.evaluateAll((links) => links.map((link) => link.href)),
-				manualLink ? [`${site.origin}${PAGE}?servings=4`] : [],
+				manualLink ? [`${site.origin}${PAGE}?servings=4&units=us`] : [],
 			);
 			const expectedDiagnostic =
 				failure === "share-unexpected"

@@ -4,6 +4,11 @@ import {
 	recipeDisclaimer,
 } from "./constants.mjs";
 import { cookText } from "./display-units.mjs";
+import {
+	ingredientMeasure,
+	MEASUREMENT_POLICY,
+	UNIT_LABELS,
+} from "./ingredient-units.mjs";
 import { dailyNutrition } from "./nutrition.mjs";
 import {
 	capacityNote,
@@ -11,6 +16,7 @@ import {
 	familyNutrition,
 	formatIngredient,
 	formatNutrition,
+	formatQuantity,
 	ingredientAmount,
 	nutritionHeading,
 	purchaseNote,
@@ -35,7 +41,12 @@ export function recipeDocument(recipe, settings = {}) {
 	const text = (value) => cookText(value || "", units);
 	const grid = flowGrid(recipe, valid);
 	const ingredients = recipe.ingredients.map((i) => ({
-		quantity: formatIngredient(i, servings, units, { wholeOunces: smoothie }),
+		...ingredientMeasure(
+			i,
+			ingredientAmount(i, servings),
+			units,
+			formatQuantity,
+		),
 		name: i.name,
 		state: text(i.state),
 		note: text([i.note, purchaseNote(i, servings)].filter(Boolean).join(" · ")),
@@ -46,9 +57,6 @@ export function recipeDocument(recipe, settings = {}) {
 					{
 						...option,
 						amount: option.amount * familyDiners,
-						us: option.us
-							? { ...option.us, amount: option.us.amount * familyDiners }
-							: undefined,
 						scale: "fixed",
 					},
 					BASE_SERVINGS,
@@ -68,6 +76,7 @@ export function recipeDocument(recipe, settings = {}) {
 		group: recipe.group,
 		servings,
 		units,
+		measurementPolicy: MEASUREMENT_POLICY,
 		familyDiners,
 		cookingFlow: {
 			notation: "Tabular Recipe Notation (TRN)",
@@ -148,11 +157,12 @@ export const nutritionSummary = (n) =>
 export function documentMarkdown(d, headingLevel = 1) {
 	const lines = [
 		`# ${d.title}`,
-		`${d.servings} ${d.portionLabel} · ${d.units === "metric" ? "Metric" : "US"} measures · ${d.group} · ${Number.isFinite(d.activeMinutes) ? `${d.activeMinutes} min ${d.timeBasis}` : "Preparation time not provided"} · ${d.totalTime}`,
+		`${d.servings} ${d.portionLabel} · ${UNIT_LABELS[d.units]} measures · ${d.group} · ${Number.isFinite(d.activeMinutes) ? `${d.activeMinutes} min ${d.timeBasis}` : "Preparation time not provided"} · ${d.totalTime}`,
 		d.summary,
 		d.attentionSummary,
 		d.capacity,
 		d.timingNote,
+		d.measurementPolicy,
 		"## Cooking flow (Tabular Recipe Notation)",
 		gridHtml(d.title, {
 			...d.cookingFlow,
@@ -237,8 +247,7 @@ export function recipeBundle(recipes, settings = {}) {
 		baseServings: BASE_SERVINGS,
 		settings: validateSettings(settings),
 		disclaimer: recipeDisclaimer,
-		measurementPolicy:
-			"Small seasoning and finishing amounts use spoon measures even in metric mode. Internal model weights are estimates, not a requirement to weigh tiny amounts.",
+		measurementPolicy: MEASUREMENT_POLICY,
 		recipes: recipes.map((r) => recipeDocument(r, settings)),
 	};
 }
