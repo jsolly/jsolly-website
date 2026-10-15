@@ -910,12 +910,21 @@ it("screen, page printing and card packets use identical cooking copy", {
 				assert.equal(await page.locator(".print-output").count(), 0);
 				assert.equal(
 					await content.locator(".nutrient-content").isVisible(),
-					true,
+					false,
+				);
+				assert.equal(await content.locator(".nutrition").isVisible(), false);
+				assert.equal(
+					await content.locator(".nutrition-pills").isVisible(),
+					false,
 				);
 				await page.evaluate(() =>
 					window.dispatchEvent(new Event("afterprint")),
 				);
 				await page.emulateMedia({ media: "screen" });
+				assert.equal(
+					await content.locator(".nutrient-content").isVisible(),
+					true,
+				);
 				await page.goto(
 					`${site.origin}/recipes/${id.includes("smoothie") ? "smoothies" : "meals"}/`,
 				);
@@ -936,11 +945,18 @@ it("screen, page printing and card packets use identical cooking copy", {
 					.click();
 				const packet = page.locator(".print-output .recipe-content");
 				await packet.waitFor({ state: "attached" });
+				await page.emulateMedia({ media: "print" });
+				assert.equal(await packet.locator(".nutrition").isVisible(), false);
+				assert.equal(
+					await packet.locator(".nutrition-pills").isVisible(),
+					false,
+				);
 				assert.deepEqual(await cookingCopy(packet), expected);
 				assert.doesNotMatch(await packet.textContent(), PRINT_ONLY_COPY);
 				await page.evaluate(() =>
 					window.dispatchEvent(new Event("afterprint")),
 				);
+				await page.emulateMedia({ media: "screen" });
 			}
 		} finally {
 			await context.close();

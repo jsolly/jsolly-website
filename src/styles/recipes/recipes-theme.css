@@ -54,6 +54,11 @@
 	   header and footer and drops the layout's margins and padding, and theme.css
 	   prints black on white. */
 	@media print {
+		html .recipe-content .nutrition,
+		html .recipe-content .nutrition-pills {
+			display: none;
+		}
+
 		html:is([data-recipe-print], :has(.recipe-page)) .breadcrumbs,
 		html:is([data-recipe-print], :has(.recipe-page)) h1:not(.print-title) {
 			display: none;
