@@ -1,15 +1,26 @@
 // Pure calculations for the meal library. Recipe ingredient amounts are for
 // BASE_SERVINGS (four) adults.
-import { BASE_SERVINGS, SERVING_CHOICES } from "./constants.mjs";
+import {
+	BASE_SERVINGS,
+	KETO_NET_CARBS_MAX,
+	SERVING_CHOICES,
+} from "./constants.mjs";
 import {
 	ingredientGrams,
 	ingredientMeasure,
 	unitPreference,
 } from "./ingredient-units.mjs";
-import { macroNutrition } from "./nutrition.mjs";
+import { familyFat, macroNutrition } from "./nutrition.mjs";
 
 const SERVINGS = new Set(SERVING_CHOICES);
-const NUTRIENTS = ["kcal", "protein_g", "carbs_g", "fiber_g", "net_carbs_g"];
+const NUTRIENTS = [
+	"kcal",
+	"protein_g",
+	"fat_g",
+	"carbs_g",
+	"fiber_g",
+	"net_carbs_g",
+];
 
 const finite = (value) => typeof value === "number" && Number.isFinite(value);
 
@@ -122,11 +133,16 @@ function smoothieGlassesPerBatch(recipe, fluidOunces = 8) {
 }
 export function smoothiePortionNutrition(recipe, fluidOunces = 8) {
 	const glassesPerBatch = smoothieGlassesPerBatch(recipe, fluidOunces);
+	const nutrition = servingNutrition(recipe);
+	const nutrients =
+		nutrition.erythritol_g === undefined
+			? NUTRIENTS
+			: [...NUTRIENTS, "erythritol_g"];
 	return Object.fromEntries(
-		NUTRIENTS.map((key) => [
+		nutrients.map((key) => [
 			key,
-			finite(recipe.nutrition[key])
-				? (recipe.nutrition[key] * BASE_SERVINGS) / glassesPerBatch
+			finite(nutrition[key])
+				? (nutrition[key] * BASE_SERVINGS) / glassesPerBatch
 				: null,
 		]),
 	);
@@ -136,10 +152,28 @@ export function displayNutrition(recipe, servings = BASE_SERVINGS) {
 		? smoothiePortionNutrition(recipe)
 		: servingNutrition(recipe, servings);
 }
+/** Classification always uses the base meal's four-serving portion or smoothie glass. */
+export function dietaryClass(recipe) {
+	const netCarbs = displayNutrition(recipe).net_carbs_g;
+	if (!finite(netCarbs))
+		throw new Error(`${recipe.id}: net carbohydrate estimate is required`);
+	return netCarbs <= KETO_NET_CARBS_MAX ? "keto" : "nonketo";
+}
+
+/** Optional sides are selected explicitly; missing or stale choices mean no side. */
+export function selectedSide(recipe, choiceId) {
+	return recipe.familyOptions?.find((option) => option.id === choiceId);
+}
+
 export function nutritionHeading(recipe) {
 	return recipe.type === "smoothie"
-		? "Nutrition per 8 oz glass"
+		? "Nutrition per 8 fl oz (237 mL) glass"
 		: "Nutrition per serving";
+}
+export function nutritionPortionLabel(recipe, servings = BASE_SERVINGS) {
+	return recipe.type === "smoothie"
+		? "per estimated 8 fl oz (237 mL) glass"
+		: `per serving (1/${validateSettings({ servings }).servings} of prepared batch)`;
 }
 export function smoothieYieldNote(recipe, servings = BASE_SERVINGS) {
 	const glasses =
@@ -149,23 +183,12 @@ export function smoothieYieldNote(recipe, servings = BASE_SERVINGS) {
 	return `This batch makes about ${glasses.toFixed(1)} eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume.`;
 }
 
-/** A family's serving receives one chosen starch; the keto base stays untouched. */
-export function familyNutrition(recipe, choiceId, servings = BASE_SERVINGS) {
-	const option =
-		recipe?.group === "shared"
-			? (recipe.familyOptions ?? []).find((item) => item.id === choiceId) ||
-				recipe.familyOptions?.[0]
-			: undefined;
-	return Object.fromEntries(
-		NUTRIENTS.map((key) => [
-			key,
-			finite(recipe ? servingNutrition(recipe, servings)[key] : 0) &&
-			finite(option ? option.nutrition?.[key] : 0)
-				? (recipe ? servingNutrition(recipe, servings)[key] : 0) +
-					(option ? option.nutrition[key] : 0)
-				: null,
-		]),
-	);
+/** One explicitly chosen side portion, independently of the base meal or diner count. */
+export function sideNutrition(recipe, choiceId) {
+	const option = selectedSide(recipe, choiceId);
+	return option
+		? { ...option.nutrition, fat_g: familyFat(recipe, option.id) }
+		: null;
 }
 
 export function capacityNote(servings) {

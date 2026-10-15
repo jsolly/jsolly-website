@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import it from "node:test";
-import { readRecipeURL, recipeHref } from "./recipe-url.mjs";
+import { readRecipeURL, recipeBrowseHref, recipeHref } from "./recipe-url.mjs";
 
 const SITE = "https://www.jsolly.com";
 // Two recipes in the recipes.json shape recipe-url reads: one with family
@@ -92,4 +92,30 @@ it("a share link reads back as the settings it was made from", () => {
 		familyChoice: { "greek-turkey-patties": "bun_one" },
 		recipeId: "greek-turkey-patties",
 	});
+});
+
+it("default browsing links use canonical paths while selected and shared settings remain explicit", () => {
+	assert.equal(recipeBrowseHref(patties, {}), "/recipes/greek-turkey-patties/");
+	assert.equal(
+		recipeBrowseHref(patties, {
+			servings: 4,
+			units: "us",
+			familyChoice: { [patties.id]: "stale" },
+		}),
+		"/recipes/greek-turkey-patties/",
+	);
+	for (const settings of [
+		{ servings: 6, units: "us" },
+		{ servings: 4, units: "grams" },
+		{ servings: 4, units: "us", familyChoice: { [patties.id]: "pita_one" } },
+	]) {
+		assert.equal(
+			recipeBrowseHref(patties, settings),
+			recipeHref(patties, settings),
+		);
+	}
+	assert.equal(
+		recipeHref(patties, { servings: 4, units: "us" }),
+		"/recipes/greek-turkey-patties/?servings=4&units=us",
+	);
 });

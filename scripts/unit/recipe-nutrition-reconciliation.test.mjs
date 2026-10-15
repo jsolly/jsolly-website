@@ -80,6 +80,16 @@ it("reconciliation keeps bone refuse out, adds measured defaults and is repeatab
 		result,
 	);
 	assert.equal(JSON.stringify({ model, recipes }), before);
+	const stale = structuredClone(result.recipes);
+	stale.recipes[0].nutrition.erythritol_g = 99;
+	assert.equal(
+		Object.hasOwn(
+			reconcileNutrition(result.nutrition, stale, dependencies).recipes
+				.recipes[0].nutrition,
+			"erythritol_g",
+		),
+		false,
+	);
 	const larger = structuredClone(result.recipes);
 	larger.recipes[0].ingredients[0].amount = 200;
 	assert.equal(

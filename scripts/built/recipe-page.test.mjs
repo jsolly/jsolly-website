@@ -4,6 +4,9 @@ import { chromium } from "playwright";
 import { PRINT_FAILED } from "../../src/components/recipes/constants.mjs";
 
 import { cookText } from "../../src/components/recipes/display-units.mjs";
+import nutritionData from "../../src/components/recipes/nutrition-data.json" with {
+	type: "json",
+};
 import recipeData from "../../src/components/recipes/recipes.json" with {
 	type: "json",
 };
@@ -37,7 +40,7 @@ const KINDS = [
 const NATIVE_CHECKBOX = 'input[type="checkbox"]';
 const VITAMINS = /Vitamins & minerals/u;
 const SERVINGS = /^Servings/u;
-const FAMILY_SIDE = /^Family side/u;
+const FAMILY_SIDE = /^Add a side/u;
 const SPACES = /\s+/gu;
 const LEARN_MORE = "Learn more about Tabular Recipe Notation";
 const MISSING_TOTAL = /Not provided ready in/u;
@@ -98,7 +101,9 @@ for (const width of [390, 1280]) {
 			await help.focus();
 			await help.press("Enter");
 			await page
-				.getByText("Total carbohydrates minus fiber.", { exact: false })
+				.getByText("Total carbohydrates minus fiber and recorded erythritol.", {
+					exact: false,
+				})
 				.first()
 				.waitFor();
 			await help.press("Escape");
@@ -344,6 +349,19 @@ function pageChecks({ kind, id, familySides }) {
 			const page = await context.newPage();
 			await page.goto(`${site.origin}/recipes/${id}/`);
 			const detail = page.locator(".recipe-detail");
+			assert.deepEqual(
+				await detail.locator(".family-box select").evaluateAll((selects) =>
+					selects.map((select) => ({
+						value: select.value,
+						first: select.options[0].textContent,
+					})),
+				),
+				familySides ? [{ value: "", first: "None" }] : [],
+			);
+			assert.equal(
+				await detail.locator(".family-box p, .side-nutrition").count(),
+				0,
+			);
 			const firstCheck = detail.locator(`${NATIVE_CHECKBOX}:visible`).first();
 			await detail.locator("th.trn-ingredient label:visible").first().click();
 			const disclosure = detail.locator("details.nutrient-disclosure");
@@ -616,10 +634,34 @@ it("a reader who picks 8 servings and the bun side gets the scaled recipe and a 
 	});
 	try {
 		const detail = page.locator(".recipe-detail");
+		const sideSelect = detail.getByRole("combobox", { name: FAMILY_SIDE });
+		assert.equal(await sideSelect.inputValue(), "");
+		assert.equal(
+			await detail.locator(".family-box p, .side-nutrition").count(),
+			0,
+		);
 		await detail.getByRole("combobox", { name: SERVINGS }).selectOption("8");
+		const baseBeforeSide = await detail
+			.locator(".nutrition > dl dd")
+			.allTextContents();
 		await detail
 			.getByRole("combobox", { name: FAMILY_SIDE })
 			.selectOption(SIDE);
+		const selected = recipeData.recipes
+			.find((recipe) => recipe.id === RECIPE)
+			.familyOptions.find((option) => option.id === SIDE);
+		const sideRow = nutritionData.familyOptions[RECIPE].find(
+			(row) => row.ingredientId === SIDE,
+		);
+		const sideFat = (sideRow.nutrients.fat * sideRow.grams) / 100;
+		assert.equal(
+			await text(detail.locator(".side-nutrition")),
+			`Side only, per person: ${selected.nutrition.kcal.toFixed(0)} kcal · Protein ${selected.nutrition.protein_g.toFixed(0)} g · Fat ${sideFat.toFixed(0)} g · Carbs ${selected.nutrition.carbs_g.toFixed(0)} g · Fiber ${selected.nutrition.fiber_g.toFixed(0)} g · Net carbs ${selected.nutrition.net_carbs_g.toFixed(0)} g. Base nutrition below excludes this side.`,
+		);
+		assert.deepEqual(
+			await detail.locator(".nutrition > dl dd").allTextContents(),
+			baseBeforeSide,
+		);
 		const share = page.locator(".recipe-share");
 		await share.getByRole("button", { name: "Share this recipe" }).click();
 		await share.getByRole("link").waitFor();
@@ -642,6 +684,23 @@ it("a reader who picks 8 servings and the bun side gets the scaled recipe and a 
 				errors: [],
 			},
 		);
+		await page.emulateMedia({ media: "print" });
+		assert.equal(await detail.locator(".family-box").isVisible(), true);
+		assert.equal(await detail.locator(".side-nutrition").isVisible(), false);
+		await page.emulateMedia({ media: "screen" });
+		await sideSelect.selectOption("");
+		assert.equal(await sideSelect.inputValue(), "");
+		assert.equal(
+			await detail.locator(".family-box p, .side-nutrition").count(),
+			0,
+		);
+		assert.deepEqual(
+			await detail.locator(".nutrition > dl dd").allTextContents(),
+			baseBeforeSide,
+		);
+		await page.emulateMedia({ media: "print" });
+		assert.equal(await detail.locator(".family-box").isVisible(), false);
+		await page.emulateMedia({ media: "screen" });
 	} finally {
 		await close();
 	}

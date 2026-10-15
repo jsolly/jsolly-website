@@ -17,14 +17,13 @@
 		smoothieIngredientChoices,
 	} from "./nutrient-filters.mjs";
 	import RecipeCard from "./RecipeCard.svelte";
-import RecipeDownload from "./RecipeDownload.svelte";
 	import RecipePrint from "./RecipePrint.svelte";
 	import RecipeTakeover from "./RecipeTakeover.svelte";
 	import { shuffleRecipes, validateSettings } from "./recipe-logic.mjs";
 	import { listVisit } from "./recipe-navigation.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
 	import { createRecipeSearch } from "./recipe-search.mjs";
-	import { readRecipeURL, recipeHref } from "./recipe-url.mjs";
+	import { readRecipeURL, recipeBrowseHref } from "./recipe-url.mjs";
 	import data from "./recipes.json" with { type: "json" };
 	import { replaceUnitURL } from "./unit-preference.mjs";
 
@@ -298,7 +297,7 @@ import RecipeDownload from "./RecipeDownload.svelte";
 	});
 </script>
 
-<section class="meal-library" data-hydrated={hydrated} data-print-prepared={printPrepared} bind:this={libraryElement} aria-label="Easy Meals & Smoothies recipe library">
+<section class="meal-library" data-hydrated={hydrated} data-preferences-ready={hydrated} aria-busy={!hydrated} data-print-prepared={printPrepared} bind:this={libraryElement} aria-label="Easy Meals & Smoothies recipe library">
 	<LibraryControls
 		{collection}
 		bind:query
@@ -324,7 +323,7 @@ import RecipeDownload from "./RecipeDownload.svelte";
 		{#if shuffling}<div class="recipe-grid shuffle-skeleton" bind:this={skeleton} aria-hidden="true">{#each [0, 1, 2] as placeholder (placeholder)}<div class="skeleton-card"><div class="skeleton-photo"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div><div class="skeleton-button"></div></div>{/each}</div><span class="visually-hidden" role="status">Shuffling recipes</span>{/if}
 		<div class="recipe-grid" class:shuffling inert={shuffling}>
 			{#each renderedRecipes as recipe (recipe.id)}
-				<RecipeCard {recipe} servings={recipeSettings.servings} settings={recipeSettings} onPrint={() => print("recipe", recipe.id)} disabled={!hydrated} href={recipeHref(recipe, recipeSettings)} />
+				<RecipeCard {recipe} servings={recipeSettings.servings} settings={recipeSettings} onPrint={() => print("recipe", recipe.id)} disabled={!hydrated} href={recipeBrowseHref(recipe, recipeSettings)} />
 			{/each}
 		</div>
 		</div>
@@ -334,8 +333,6 @@ import RecipeDownload from "./RecipeDownload.svelte";
 	{#if current}
 		<RecipeTakeover recipe={current} settings={recipeSettings} onUnitsChange={setUnits} onBack={() => backToResults()} onPrint={() => print("recipe")} onSideChange={(value) => setChoice(current.id, value)} bind:heading={detailHeading} bind:dialog={recipeDialog} />
 	{/if}
-
-	<RecipeDownload recipes={collectionRecipes} settings={recipeSettings} disabled={!hydrated} />
 	<p class="action-status" role="status" aria-live="polite">{message}</p>
 	<div class="print-output">{#if printPrepared}<RecipePrint recipes={printRecipes} settings={recipeSettings} />{/if}</div>
 </section>

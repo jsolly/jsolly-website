@@ -4,6 +4,8 @@ import { after, before, it } from "node:test";
 import { chromium } from "playwright";
 import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
 
+const DOWNLOAD_BUTTON = /^Download (?:Markdown|JSON)$/u;
+
 const CASES = [
 	[
 		"spinach-feta-and-hemp-frittata",
@@ -15,7 +17,7 @@ const CASES = [
 		"tomato-lentil-and-chicken-bake",
 		"/recipes/",
 		["Immune support", "Iron-rich"],
-		[],
+		["Not keto"],
 	],
 	["pesto-cod-and-zucchini", "/recipes/", ["High in Omega-3s"], ["Keto"]],
 	[
@@ -40,6 +42,23 @@ const hydrated = (page) =>
 	page.waitForFunction(() => !document.querySelector("astro-island[ssr]"));
 const pills = (root) => root.locator(".nutrition-pills li").allTextContents();
 
+async function uniformPillText(page, root) {
+	for (const colorScheme of ["light", "dark"]) {
+		await page.emulateMedia({ colorScheme });
+		const colors = await root
+			.locator(".nutrition-pills li")
+			.evaluateAll((items) =>
+				items.map((item) => getComputedStyle(item).color),
+			);
+		// biome-ignore lint/suspicious/noMisplacedAssertion: Shared browser assertion called from the tests below.
+		assert.ok(
+			new Set(colors).size <= 1,
+			`${colorScheme} pills share one text color`,
+		);
+	}
+	await page.emulateMedia({ colorScheme: "light" });
+}
+
 function registerPillTest(width) {
 	it(`Nutrition pills match recipe eligibility across cards, dialogs and pages (${width}px)`, async () => {
 		const context = await browser.newContext({
@@ -62,11 +81,23 @@ function registerPillTest(width) {
 					`${id} card`,
 				);
 				assert.equal(await card.locator(".card-top").count(), 0);
+				await uniformPillText(page, card);
 				await page.goto(`${site.origin}${collection}#${id}`);
 				await hydrated(page);
 				const dialog = page.getByRole("dialog");
 				await dialog.waitFor();
 				assert.deepEqual(await pills(dialog), expected, `${id} dialog`);
+				await uniformPillText(page, dialog);
+				assert.equal(
+					await dialog
+						.getByRole("button", { name: "Print recipe", exact: true })
+						.count(),
+					1,
+				);
+				assert.equal(
+					await dialog.getByRole("button", { name: DOWNLOAD_BUTTON }).count(),
+					0,
+				);
 				await page.goto(`${site.origin}/recipes/${id}/`);
 				await hydrated(page);
 				assert.deepEqual(
@@ -74,6 +105,7 @@ function registerPillTest(width) {
 					expected,
 					`${id} page`,
 				);
+				await uniformPillText(page, page.locator(".recipe-detail"));
 				assert.equal(
 					await page.evaluate(
 						() => document.documentElement.scrollWidth <= innerWidth,

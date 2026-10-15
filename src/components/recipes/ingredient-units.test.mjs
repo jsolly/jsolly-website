@@ -240,10 +240,10 @@ it("every recipe and family choice has numeric mode-appropriate displays across 
 				});
 				for (const row of [
 					...document.ingredients,
-					...document.familyOptions.map((option) => ({
+					...document.sideOptions.map((option) => ({
 						quantity: option.quantityPerPerson,
 					})),
-					...(document.familyIngredient ? [document.familyIngredient] : []),
+					...(document.sideIngredient ? [document.sideIngredient] : []),
 				]) {
 					assert.ok(
 						!BAD_DISPLAY.test(row.quantity),

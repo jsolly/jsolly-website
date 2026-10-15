@@ -9,7 +9,6 @@
 			],
 			"key": "salmon",
 			"title": "Lemon salmon and asparagus",
-			"group": "keto",
 			"proteinType": "fish",
 			"vegetarian": false,
 			"appliance": "air-fryer",
@@ -510,7 +509,6 @@
 			],
 			"key": "smoky_chicken",
 			"title": "Smoky chicken thighs and broccoli",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "air-fryer",
@@ -1051,7 +1049,6 @@
 			],
 			"key": "cod",
 			"title": "Pesto cod and zucchini",
-			"group": "keto",
 			"proteinType": "fish",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -1516,7 +1513,6 @@
 			],
 			"key": "frittata",
 			"title": "Spinach, feta, and hemp frittata",
-			"group": "keto",
 			"proteinType": "plant-forward",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -2147,7 +2143,6 @@
 			],
 			"key": "zuppa",
 			"title": "Keto zuppa toscana",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "instant-pot",
@@ -2725,7 +2720,6 @@
 			],
 			"key": "shawarma",
 			"title": "Shawarma chicken bowls",
-			"group": "shared",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -3504,7 +3498,6 @@
 			],
 			"key": "fajitas",
 			"title": "Sheet-pan chicken fajitas",
-			"group": "shared",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -4168,7 +4161,6 @@
 			],
 			"key": "salsa_chicken",
 			"title": "Salsa verde shredded chicken",
-			"group": "shared",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "instant-pot",
@@ -4719,7 +4711,6 @@
 			],
 			"key": "turkey",
 			"title": "Greek turkey patties",
-			"group": "shared",
 			"proteinType": "turkey",
 			"vegetarian": false,
 			"appliance": "air-fryer",
@@ -5428,7 +5419,6 @@
 			],
 			"key": "lentil_bake",
 			"title": "Tomato, lentil, and chicken bake",
-			"group": "nonketo",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -6064,7 +6054,6 @@
 			],
 			"key": "chickpea",
 			"title": "Harissa chickpea and cauliflower bowls",
-			"group": "nonketo",
 			"proteinType": "vegetarian",
 			"vegetarian": true,
 			"appliance": "oven",
@@ -6668,7 +6657,6 @@
 			],
 			"key": "potato_chicken",
 			"title": "Lemon chicken, potatoes, and green beans",
-			"group": "nonketo",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -7369,7 +7357,6 @@
 			],
 			"key": "gnocchi",
 			"title": "Sheet-pan gnocchi, white beans, and broccoli",
-			"group": "nonketo",
 			"proteinType": "plant-forward",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -8046,7 +8033,6 @@
 			],
 			"key": "pan_turkey",
 			"title": "Pan-fried Greek turkey patties",
-			"group": "shared",
 			"proteinType": "turkey",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -8756,7 +8742,6 @@
 			],
 			"key": "avocado-lime-smoothie",
 			"title": "Avocado-lime smoothie",
-			"group": "keto",
 			"proteinType": "vegetarian",
 			"vegetarian": true,
 			"appliance": "blender",
@@ -9097,7 +9082,6 @@
 			],
 			"key": "strawberry-avocado-smoothie",
 			"title": "Strawberry-avocado smoothie",
-			"group": "keto",
 			"proteinType": "vegetarian",
 			"vegetarian": true,
 			"appliance": "blender",
@@ -9403,7 +9387,6 @@
 			],
 			"key": "strawberry-banana-smoothie",
 			"title": "Strawberry-banana smoothie",
-			"group": "nonketo",
 			"proteinType": "vegetarian",
 			"vegetarian": true,
 			"appliance": "blender",
@@ -9673,7 +9656,6 @@
 			],
 			"key": "banana-flax-smoothie",
 			"title": "Banana-flax smoothie",
-			"group": "nonketo",
 			"proteinType": "vegetarian",
 			"vegetarian": true,
 			"appliance": "blender",
@@ -9944,7 +9926,6 @@
 			],
 			"key": "strawberry-hemp-smoothie",
 			"title": "Strawberry-hemp smoothie",
-			"group": "keto",
 			"proteinType": "vegetarian",
 			"vegetarian": true,
 			"appliance": "blender",
@@ -10226,7 +10207,6 @@
 			],
 			"key": "cucumber-spinach-lime-smoothie",
 			"title": "Cucumber-spinach-lime smoothie",
-			"group": "keto",
 			"proteinType": "vegetarian",
 			"vegetarian": true,
 			"appliance": "blender",
@@ -10587,7 +10567,6 @@
 			],
 			"key": "chicken_posole",
 			"title": "Chicken Posole (enchilada soup)",
-			"group": "nonketo",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -11210,7 +11189,6 @@
 			"id": "one-pan-keto-green-chili-chicken",
 			"key": "one_pan_keto_green_chili_chicken",
 			"title": "One-pan keto green chili chicken",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -11962,7 +11940,6 @@
 			"id": "source-honey-mustard-chicken-sheet-pan-dinner-keto-low-carb",
 			"key": "source_honey_mustard_chicken_sheet_pan_dinner_keto_low_carb",
 			"title": "Honey Mustard Chicken Sheet Pan Dinner (keto + low carb)",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -12302,11 +12279,11 @@
 				}
 			],
 			"nutrition": {
-				"kcal": 438.3833125,
-				"protein_g": 50.913460625,
-				"carbs_g": 7.299603125,
-				"fiber_g": 2.83893125,
-				"net_carbs_g": 4.460671875
+				"kcal": 318.44493100000005,
+				"protein_g": 42.14182115999999,
+				"carbs_g": 8.321506614000002,
+				"fiber_g": 2.8108161924999995,
+				"net_carbs_g": 5.510690421500003
 			},
 			"familyOptions": [],
 			"attentionSummary": "Follow the cooking flow and check each component at the stated endpoint.",
@@ -12324,7 +12301,7 @@
 				"originalServings": 4,
 				"scaleToFour": 1,
 				"normalizedServings": 4,
-				"nutritionBasis": "Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.",
+				"nutritionBasis": "Complete ingredient-based estimates using measured edible weights and reviewed USDA/manufacturer profiles. Brand proxies and rounded-label limitations are recorded in the ingredient assumptions. Original publisher nutrition is preserved separately.",
 				"sourceYield": [
 					"4"
 				],
@@ -12341,6 +12318,171 @@
 					"sugarContent": "3.4 g"
 				},
 				"nutritionEstimate": {
+					"method": "Measured cooking grams, reduced by explicit edible yield where applicable, times observed nutrients per 100 g. All listed measured ingredients, including optional defaults, are included. No cooking-retention factors.",
+					"estimatedMacroFields": [
+						"kcal",
+						"protein_g",
+						"carbs_g",
+						"fiber_g",
+						"net_carbs_g"
+					],
+					"publisherBaselineFields": [],
+					"ingredientSnapshot": [
+						{
+							"id": "ingredient-1",
+							"name": "Boneless skinless chicken thighs",
+							"amount": 8,
+							"unit": "count",
+							"state": "raw"
+						},
+						{
+							"id": "ingredient-2",
+							"name": "G Hughes Sugar Free Honey Mustard",
+							"amount": 120,
+							"unit": "g",
+							"state": ""
+						},
+						{
+							"id": "ingredient-3",
+							"name": "asparagus",
+							"amount": 1,
+							"unit": "lb",
+							"state": "tough ends removed"
+						},
+						{
+							"id": "ingredient-4",
+							"name": "sliced bell pepper",
+							"amount": 0.5,
+							"unit": "cup",
+							"state": ""
+						},
+						{
+							"id": "ingredient-5",
+							"name": "sliced red onion",
+							"amount": 0.25,
+							"unit": "cup",
+							"state": ""
+						},
+						{
+							"id": "ingredient-6",
+							"name": "butter",
+							"amount": 1,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-7",
+							"name": "minced garlic",
+							"amount": 2,
+							"unit": "tsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-8",
+							"name": "Fine salt",
+							"amount": 0.5,
+							"unit": "tsp",
+							"state": "fine grains"
+						},
+						{
+							"id": "ingredient-8-pepper",
+							"name": "Black pepper",
+							"amount": 0.25,
+							"unit": "tsp",
+							"state": "ground"
+						}
+					],
+					"assumptions": [
+						"Boneless skinless chicken thighs: Chicken, broilers or fryers, dark meat, thigh, meat only, raw.",
+						"G Hughes Sugar Free Honey Mustard: G Hughes honey mustard manufacturer label: 20 kcal, 1.5 g fat, 2 g carbohydrate, 0 g protein/fiber per 30 g; rounded label observations..",
+						"asparagus: Asparagus, raw.",
+						"sliced bell pepper: Peppers, sweet, red, raw.",
+						"sliced red onion: Onions, raw.",
+						"butter: Butter, without salt.",
+						"minced garlic: Garlic, raw.",
+						"Fine salt: Salt, table.",
+						"Black pepper: Spices, pepper, black."
+					]
+				},
+				"preMeasurementNutritionEstimate": {
+					"method": "Ingredient grams × recorded nutrients per 100 g, divided by four portions. No cooking-retention factors; all measured oils and sauces counted. Unmeasured/to-taste additions excluded. Generic-food substitutions and count masses are nutrition-model assumptions, not publisher quantities. Count weights exclude bones. The ingredient snapshot pins the cooking inputs used for this model.",
+					"estimatedMacroFields": [],
+					"assumptions": [
+						"Boneless skinless chicken thighs: model uses Chicken, broilers or fryers, dark meat, thigh, meat only, raw.",
+						"Boneless skinless chicken thighs: 100 g edible food per count for nutrition only.",
+						"G Hughes Sugar Free Honey Mustard: model uses G Hughes sugar-free honey mustard: detailed nutrient observations unavailable.",
+						"G Hughes Sugar Free Honey Mustard: 240 g edible food per cup for nutrition only.",
+						"asparagus: model uses Asparagus, raw.",
+						"sliced bell pepper: model uses Peppers, sweet, red, raw.",
+						"sliced bell pepper: 149 g edible food per cup for nutrition only.",
+						"sliced red onion: model uses Onions, raw.",
+						"sliced red onion: 160 g edible food per cup for nutrition only.",
+						"butter: model uses Butter, without salt.",
+						"butter: 14.2 g edible food per tbsp for nutrition only.",
+						"minced garlic: model uses Garlic, raw.",
+						"minced garlic: 2.8 g edible food per tsp for nutrition only.",
+						"Excluded unmeasured/to-taste ingredient: salt and pepper to taste."
+					],
+					"ingredientSnapshot": [
+						{
+							"id": "ingredient-1",
+							"name": "Boneless skinless chicken thighs",
+							"amount": 8,
+							"unit": "count",
+							"state": "raw"
+						},
+						{
+							"id": "ingredient-2",
+							"name": "G Hughes Sugar Free Honey Mustard",
+							"amount": 0.5,
+							"unit": "cup",
+							"state": ""
+						},
+						{
+							"id": "ingredient-3",
+							"name": "asparagus",
+							"amount": 1,
+							"unit": "lb",
+							"state": "tough ends removed"
+						},
+						{
+							"id": "ingredient-4",
+							"name": "sliced bell pepper",
+							"amount": 0.5,
+							"unit": "cup",
+							"state": ""
+						},
+						{
+							"id": "ingredient-5",
+							"name": "sliced red onion",
+							"amount": 0.25,
+							"unit": "cup",
+							"state": ""
+						},
+						{
+							"id": "ingredient-6",
+							"name": "butter",
+							"amount": 1,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-7",
+							"name": "minced garlic",
+							"amount": 2,
+							"unit": "tsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-8",
+							"name": "salt and pepper to taste",
+							"amount": 0,
+							"unit": "unspecified",
+							"state": ""
+						}
+					]
+				},
+				"preCompleteIngredientNutritionEstimate": {
 					"method": "Measured cooking grams, reduced by explicit edible yield where applicable, times observed nutrients per 100 g. All listed measured ingredients, including optional defaults, are included. No cooking-retention factors.",
 					"estimatedMacroFields": [
 						"kcal",
@@ -12428,84 +12570,6 @@
 						"sliced red onion: model uses Onions, raw.",
 						"butter: model uses Butter, without salt.",
 						"minced garlic: model uses Garlic, raw."
-					]
-				},
-				"preMeasurementNutritionEstimate": {
-					"method": "Ingredient grams × recorded nutrients per 100 g, divided by four portions. No cooking-retention factors; all measured oils and sauces counted. Unmeasured/to-taste additions excluded. Generic-food substitutions and count masses are nutrition-model assumptions, not publisher quantities. Count weights exclude bones. The ingredient snapshot pins the cooking inputs used for this model.",
-					"estimatedMacroFields": [],
-					"assumptions": [
-						"Boneless skinless chicken thighs: model uses Chicken, broilers or fryers, dark meat, thigh, meat only, raw.",
-						"Boneless skinless chicken thighs: 100 g edible food per count for nutrition only.",
-						"G Hughes Sugar Free Honey Mustard: model uses G Hughes sugar-free honey mustard: detailed nutrient observations unavailable.",
-						"G Hughes Sugar Free Honey Mustard: 240 g edible food per cup for nutrition only.",
-						"asparagus: model uses Asparagus, raw.",
-						"sliced bell pepper: model uses Peppers, sweet, red, raw.",
-						"sliced bell pepper: 149 g edible food per cup for nutrition only.",
-						"sliced red onion: model uses Onions, raw.",
-						"sliced red onion: 160 g edible food per cup for nutrition only.",
-						"butter: model uses Butter, without salt.",
-						"butter: 14.2 g edible food per tbsp for nutrition only.",
-						"minced garlic: model uses Garlic, raw.",
-						"minced garlic: 2.8 g edible food per tsp for nutrition only.",
-						"Excluded unmeasured/to-taste ingredient: salt and pepper to taste."
-					],
-					"ingredientSnapshot": [
-						{
-							"id": "ingredient-1",
-							"name": "Boneless skinless chicken thighs",
-							"amount": 8,
-							"unit": "count",
-							"state": "raw"
-						},
-						{
-							"id": "ingredient-2",
-							"name": "G Hughes Sugar Free Honey Mustard",
-							"amount": 0.5,
-							"unit": "cup",
-							"state": ""
-						},
-						{
-							"id": "ingredient-3",
-							"name": "asparagus",
-							"amount": 1,
-							"unit": "lb",
-							"state": "tough ends removed"
-						},
-						{
-							"id": "ingredient-4",
-							"name": "sliced bell pepper",
-							"amount": 0.5,
-							"unit": "cup",
-							"state": ""
-						},
-						{
-							"id": "ingredient-5",
-							"name": "sliced red onion",
-							"amount": 0.25,
-							"unit": "cup",
-							"state": ""
-						},
-						{
-							"id": "ingredient-6",
-							"name": "butter",
-							"amount": 1,
-							"unit": "tbsp",
-							"state": ""
-						},
-						{
-							"id": "ingredient-7",
-							"name": "minced garlic",
-							"amount": 2,
-							"unit": "tsp",
-							"state": ""
-						},
-						{
-							"id": "ingredient-8",
-							"name": "salt and pepper to taste",
-							"amount": 0,
-							"unit": "unspecified",
-							"state": ""
-						}
 					]
 				}
 			},
@@ -12606,7 +12670,6 @@
 			"id": "source-one-pan-cheesy-fajita-chicken-keto-low-carb",
 			"key": "source_one_pan_cheesy_fajita_chicken_keto_low_carb",
 			"title": "One Pan Cheesy Fajita Chicken (keto + low carb)",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -13604,7 +13667,6 @@
 			"id": "source-keto-jalapen-o-chicken",
 			"key": "source_keto_jalapen_o_chicken",
 			"title": "Keto Jalapeño Chicken",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -14549,7 +14611,6 @@
 			"id": "source-keto-broccoli-cheddar-chicken",
 			"key": "source_keto_broccoli_cheddar_chicken",
 			"title": "Keto Broccoli Cheddar Chicken",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -15477,7 +15538,6 @@
 			"id": "source-sesame-chicken-keto-stir-fry",
 			"key": "source_sesame_chicken_keto_stir_fry",
 			"title": "Sesame Chicken Keto Stir Fry",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -15910,11 +15970,12 @@
 				}
 			],
 			"nutrition": {
-				"kcal": 281.5505221179788,
-				"protein_g": 40.474869375000004,
-				"carbs_g": 1.9597936580819195,
-				"fiber_g": 0.311,
-				"net_carbs_g": 1.6487936580819196
+				"kcal": 335.1989636179788,
+				"protein_g": 41.10936934375001,
+				"carbs_g": 10.290684908081921,
+				"fiber_g": 0.8618624999999999,
+				"net_carbs_g": 3.4288224080819223,
+				"erythritol_g": 6
 			},
 			"familyOptions": [],
 			"attentionSummary": "Follow the cooking flow and check each component at the stated endpoint.",
@@ -15932,7 +15993,7 @@
 				"originalServings": 4,
 				"scaleToFour": 1,
 				"normalizedServings": 4,
-				"nutritionBasis": "Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.",
+				"nutritionBasis": "Complete ingredient-based estimates using measured edible weights and reviewed USDA/manufacturer profiles. Brand proxies and rounded-label limitations are recorded in the ingredient assumptions. Original publisher nutrition is preserved separately.",
 				"sourceYield": [
 					"4"
 				],
@@ -15949,6 +16010,222 @@
 					"sugarContent": "0.5 g"
 				},
 				"nutritionEstimate": {
+					"method": "Measured cooking grams, reduced by explicit edible yield where applicable, times observed nutrients per 100 g. All listed measured ingredients, including optional defaults, are included. No cooking-retention factors.",
+					"estimatedMacroFields": [
+						"kcal",
+						"protein_g",
+						"carbs_g",
+						"fiber_g",
+						"net_carbs_g"
+					],
+					"publisherBaselineFields": [],
+					"ingredientSnapshot": [
+						{
+							"id": "ingredient-1",
+							"name": "gluten free soy sauce",
+							"amount": 0.25,
+							"unit": "cup",
+							"state": ""
+						},
+						{
+							"id": "ingredient-2",
+							"name": "Mizkan unseasoned rice vinegar",
+							"amount": 1,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-3",
+							"name": "brown sugar swerve",
+							"amount": 24,
+							"unit": "g",
+							"state": "or other keto friendly sweetener"
+						},
+						{
+							"id": "ingredient-4",
+							"name": "sesame oil",
+							"amount": 2,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-5",
+							"name": "minced garlic",
+							"amount": 2,
+							"unit": "tsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-6",
+							"name": "Olive oil",
+							"amount": 1,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-7",
+							"name": "chicken",
+							"amount": 1.5,
+							"unit": "lb",
+							"state": "thinly sliced"
+						},
+						{
+							"id": "ingredient-8",
+							"name": "medium size zucchini",
+							"amount": 1,
+							"unit": "count",
+							"state": "sliced"
+						},
+						{
+							"id": "ingredient-9",
+							"name": "Fine salt",
+							"amount": 0.5,
+							"unit": "tsp",
+							"state": "fine grains"
+						},
+						{
+							"id": "ingredient-9-pepper",
+							"name": "Black pepper",
+							"amount": 0.25,
+							"unit": "tsp",
+							"state": "ground"
+						},
+						{
+							"id": "ingredient-10",
+							"name": "cashews",
+							"amount": 2,
+							"unit": "tbsp",
+							"state": "chopped"
+						},
+						{
+							"id": "ingredient-11",
+							"name": "green onions",
+							"amount": 2,
+							"unit": "tbsp",
+							"state": "chopped"
+						}
+					],
+					"assumptions": [
+						"gluten free soy sauce: Soy sauce made from soy and wheat (shoyu), low sodium.",
+						"Mizkan unseasoned rice vinegar: Vinegar, cider.",
+						"brown sugar swerve: Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations..",
+						"sesame oil: Oil, sesame, salad or cooking.",
+						"minced garlic: Garlic, raw.",
+						"Olive oil: Oil, olive, salad or cooking.",
+						"chicken: Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.",
+						"medium size zucchini: Squash, summer, zucchini, includes skin, raw.",
+						"cashews: Nuts, cashew nuts, raw.",
+						"green onions: Onions, spring or scallions (includes tops and bulb), raw.",
+						"Fine salt: Salt, table.",
+						"Black pepper: Spices, pepper, black."
+					]
+				},
+				"preMeasurementNutritionEstimate": {
+					"method": "Ingredient grams × recorded nutrients per 100 g, divided by four portions. No cooking-retention factors; all measured oils and sauces counted. Unmeasured/to-taste additions excluded. Generic-food substitutions and count masses are nutrition-model assumptions, not publisher quantities. Count weights exclude bones. The ingredient snapshot pins the cooking inputs used for this model.",
+					"estimatedMacroFields": [],
+					"assumptions": [
+						"gluten free soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.",
+						"gluten free soy sauce: 255 g edible food per cup for nutrition only.",
+						"rice vinegar: model uses Vinegar, cider.",
+						"rice vinegar: 15 g edible food per tbsp for nutrition only.",
+						"brown sugar swerve: model uses Swerve erythritol sweetener: additional nutrients unobserved; publisher macros retained.",
+						"brown sugar swerve: 12 g edible food per tbsp for nutrition only.",
+						"sesame oil: model uses Oil, olive, salad or cooking.",
+						"sesame oil: 13.5 g edible food per tbsp for nutrition only.",
+						"minced garlic: model uses Garlic, raw.",
+						"minced garlic: 2.8 g edible food per tsp for nutrition only.",
+						"olive oil or sesame oil for frying: model uses Oil, olive, salad or cooking.",
+						"olive oil or sesame oil for frying: 13.5 g edible food per tbsp for nutrition only.",
+						"chicken: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.",
+						"medium size zucchini: model uses Squash, summer, zucchini, includes skin, raw.",
+						"medium size zucchini: 196 g edible food per count for nutrition only.",
+						"Excluded unmeasured/to-taste ingredient: salt and pepper to taste.",
+						"cashews: model uses Nuts, cashew nuts, raw.",
+						"cashews: 8.6 g edible food per tbsp for nutrition only.",
+						"green onions: model uses Onions, spring or scallions (includes tops and bulb), raw.",
+						"green onions: 6 g edible food per tbsp for nutrition only."
+					],
+					"ingredientSnapshot": [
+						{
+							"id": "ingredient-1",
+							"name": "gluten free soy sauce",
+							"amount": 0.25,
+							"unit": "cup",
+							"state": ""
+						},
+						{
+							"id": "ingredient-2",
+							"name": "rice vinegar",
+							"amount": 1,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-3",
+							"name": "brown sugar swerve",
+							"amount": 2,
+							"unit": "tbsp",
+							"state": "or other keto friendly sweetener"
+						},
+						{
+							"id": "ingredient-4",
+							"name": "sesame oil",
+							"amount": 2,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-5",
+							"name": "minced garlic",
+							"amount": 2,
+							"unit": "tsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-6",
+							"name": "olive oil or sesame oil for frying",
+							"amount": 1,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-7",
+							"name": "chicken",
+							"amount": 1.5,
+							"unit": "lb",
+							"state": "thinly sliced"
+						},
+						{
+							"id": "ingredient-8",
+							"name": "medium size zucchini",
+							"amount": 1,
+							"unit": "count",
+							"state": "sliced"
+						},
+						{
+							"id": "ingredient-9",
+							"name": "salt and pepper to taste",
+							"amount": 0,
+							"unit": "unspecified",
+							"state": ""
+						},
+						{
+							"id": "ingredient-10",
+							"name": "cashews",
+							"amount": 2,
+							"unit": "tbsp",
+							"state": "chopped"
+						},
+						{
+							"id": "ingredient-11",
+							"name": "green onions",
+							"amount": 2,
+							"unit": "tbsp",
+							"state": "chopped"
+						}
+					]
+				},
+				"preCompleteIngredientNutritionEstimate": {
 					"method": "Measured cooking grams, reduced by explicit edible yield where applicable, times observed nutrients per 100 g. All listed measured ingredients, including optional defaults, are included. No cooking-retention factors.",
 					"estimatedMacroFields": [
 						"kcal",
@@ -16061,111 +16338,6 @@
 						"cashews: model uses Nuts, cashew nuts, raw.",
 						"green onions: model uses Onions, spring or scallions (includes tops and bulb), raw."
 					]
-				},
-				"preMeasurementNutritionEstimate": {
-					"method": "Ingredient grams × recorded nutrients per 100 g, divided by four portions. No cooking-retention factors; all measured oils and sauces counted. Unmeasured/to-taste additions excluded. Generic-food substitutions and count masses are nutrition-model assumptions, not publisher quantities. Count weights exclude bones. The ingredient snapshot pins the cooking inputs used for this model.",
-					"estimatedMacroFields": [],
-					"assumptions": [
-						"gluten free soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.",
-						"gluten free soy sauce: 255 g edible food per cup for nutrition only.",
-						"rice vinegar: model uses Vinegar, cider.",
-						"rice vinegar: 15 g edible food per tbsp for nutrition only.",
-						"brown sugar swerve: model uses Swerve erythritol sweetener: additional nutrients unobserved; publisher macros retained.",
-						"brown sugar swerve: 12 g edible food per tbsp for nutrition only.",
-						"sesame oil: model uses Oil, olive, salad or cooking.",
-						"sesame oil: 13.5 g edible food per tbsp for nutrition only.",
-						"minced garlic: model uses Garlic, raw.",
-						"minced garlic: 2.8 g edible food per tsp for nutrition only.",
-						"olive oil or sesame oil for frying: model uses Oil, olive, salad or cooking.",
-						"olive oil or sesame oil for frying: 13.5 g edible food per tbsp for nutrition only.",
-						"chicken: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.",
-						"medium size zucchini: model uses Squash, summer, zucchini, includes skin, raw.",
-						"medium size zucchini: 196 g edible food per count for nutrition only.",
-						"Excluded unmeasured/to-taste ingredient: salt and pepper to taste.",
-						"cashews: model uses Nuts, cashew nuts, raw.",
-						"cashews: 8.6 g edible food per tbsp for nutrition only.",
-						"green onions: model uses Onions, spring or scallions (includes tops and bulb), raw.",
-						"green onions: 6 g edible food per tbsp for nutrition only."
-					],
-					"ingredientSnapshot": [
-						{
-							"id": "ingredient-1",
-							"name": "gluten free soy sauce",
-							"amount": 0.25,
-							"unit": "cup",
-							"state": ""
-						},
-						{
-							"id": "ingredient-2",
-							"name": "rice vinegar",
-							"amount": 1,
-							"unit": "tbsp",
-							"state": ""
-						},
-						{
-							"id": "ingredient-3",
-							"name": "brown sugar swerve",
-							"amount": 2,
-							"unit": "tbsp",
-							"state": "or other keto friendly sweetener"
-						},
-						{
-							"id": "ingredient-4",
-							"name": "sesame oil",
-							"amount": 2,
-							"unit": "tbsp",
-							"state": ""
-						},
-						{
-							"id": "ingredient-5",
-							"name": "minced garlic",
-							"amount": 2,
-							"unit": "tsp",
-							"state": ""
-						},
-						{
-							"id": "ingredient-6",
-							"name": "olive oil or sesame oil for frying",
-							"amount": 1,
-							"unit": "tbsp",
-							"state": ""
-						},
-						{
-							"id": "ingredient-7",
-							"name": "chicken",
-							"amount": 1.5,
-							"unit": "lb",
-							"state": "thinly sliced"
-						},
-						{
-							"id": "ingredient-8",
-							"name": "medium size zucchini",
-							"amount": 1,
-							"unit": "count",
-							"state": "sliced"
-						},
-						{
-							"id": "ingredient-9",
-							"name": "salt and pepper to taste",
-							"amount": 0,
-							"unit": "unspecified",
-							"state": ""
-						},
-						{
-							"id": "ingredient-10",
-							"name": "cashews",
-							"amount": 2,
-							"unit": "tbsp",
-							"state": "chopped"
-						},
-						{
-							"id": "ingredient-11",
-							"name": "green onions",
-							"amount": 2,
-							"unit": "tbsp",
-							"state": "chopped"
-						}
-					]
 				}
 			},
 			"flow": {
@@ -16261,7 +16433,6 @@
 			"id": "source-one-pan-mushroom-chicken-keto-low-carb",
 			"key": "source_one_pan_mushroom_chicken_keto_low_carb",
 			"title": "One Pan Mushroom Chicken (keto + low carb)",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -16983,7 +17154,6 @@
 			"id": "source-keto-slow-cooker-zesty-ranch-chicken",
 			"key": "source_keto_slow_cooker_zesty_ranch_chicken",
 			"title": "Keto Slow Cooker Zesty Ranch Chicken",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "slow-cooker",
@@ -17187,11 +17357,11 @@
 				}
 			],
 			"nutrition": {
-				"kcal": 203,
-				"protein_g": 26.4,
-				"carbs_g": 1,
+				"kcal": 235.11456626041664,
+				"protein_g": 26.846351260625003,
+				"carbs_g": 4.258342711416666,
 				"fiber_g": 0.48533333333333334,
-				"net_carbs_g": 0.5146666666666666
+				"net_carbs_g": 3.7730093780833327
 			},
 			"familyOptions": [],
 			"attentionSummary": "Follow the cooking flow and check each component at the stated endpoint.",
@@ -17209,7 +17379,7 @@
 				"originalServings": 6,
 				"scaleToFour": 0.6666666666666666,
 				"normalizedServings": 4,
-				"nutritionBasis": "Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.",
+				"nutritionBasis": "Complete ingredient-based estimates using measured edible weights and reviewed USDA/manufacturer profiles. Brand proxies and rounded-label limitations are recorded in the ingredient assumptions. Original publisher nutrition is preserved separately.",
 				"sourceYield": [
 					"6"
 				],
@@ -17225,6 +17395,114 @@
 					"sugarContent": "0.5 g"
 				},
 				"nutritionEstimate": {
+					"method": "Measured cooking grams, reduced by explicit edible yield where applicable, times observed nutrients per 100 g. All listed measured ingredients, including optional defaults, are included. No cooking-retention factors.",
+					"estimatedMacroFields": [
+						"kcal",
+						"protein_g",
+						"carbs_g",
+						"fiber_g",
+						"net_carbs_g"
+					],
+					"publisherBaselineFields": [],
+					"ingredientSnapshot": [
+						{
+							"id": "ingredient-1",
+							"name": "chicken breast",
+							"amount": 1,
+							"unit": "lb",
+							"state": ""
+						},
+						{
+							"id": "ingredient-2",
+							"name": "butter",
+							"amount": 0.6666666666666666,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-3",
+							"name": "cream cheese",
+							"amount": 2.6666666666666665,
+							"unit": "oz",
+							"state": ""
+						},
+						{
+							"id": "ingredient-4",
+							"name": "Hidden Valley Ranch seasoning mix",
+							"amount": 0.6666666666666666,
+							"unit": "oz",
+							"state": "dry mix"
+						},
+						{
+							"id": "ingredient-5",
+							"name": "jarred pepperoncini peppers",
+							"amount": 5.333333333333333,
+							"unit": "count",
+							"state": ""
+						}
+					],
+					"assumptions": [
+						"chicken breast: Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.",
+						"butter: Butter, without salt.",
+						"cream cheese: Cheese, cream.",
+						"jarred pepperoncini peppers: Peppers, hot pickled, canned.",
+						"Hidden Valley Ranch seasoning mix: USDA Our Family dry ranch dressing mix proxy for Hidden Valley dry seasoning; brands differ; rounded label observations.."
+					]
+				},
+				"preMeasurementNutritionEstimate": {
+					"method": "Ingredient grams × recorded nutrients per 100 g, divided by four portions. No cooking-retention factors; all measured oils and sauces counted. Unmeasured/to-taste additions excluded. Generic-food substitutions and count masses are nutrition-model assumptions, not publisher quantities. Count weights exclude bones. The ingredient snapshot pins the cooking inputs used for this model.",
+					"estimatedMacroFields": [
+						"fiber_g",
+						"net_carbs_g"
+					],
+					"assumptions": [
+						"chicken breast: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.",
+						"butter: model uses Butter, without salt.",
+						"butter: 14.2 g edible food per tbsp for nutrition only.",
+						"cream cheese: model uses Cheese, cream.",
+						"Ranch seasoning fiber assumed zero; retained publisher calories, protein and total carbohydrates. Fiber estimated from the remaining measured ingredients.",
+						"jarred pepperoncini peppers: model uses Peppers, hot pickled, canned.",
+						"jarred pepperoncini peppers: 14 g edible food per count for nutrition only."
+					],
+					"ingredientSnapshot": [
+						{
+							"id": "ingredient-1",
+							"name": "chicken breast",
+							"amount": 1,
+							"unit": "lb",
+							"state": ""
+						},
+						{
+							"id": "ingredient-2",
+							"name": "butter",
+							"amount": 0.6666666666666666,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-3",
+							"name": "cream cheese",
+							"amount": 2.6666666666666665,
+							"unit": "oz",
+							"state": ""
+						},
+						{
+							"id": "ingredient-4",
+							"name": "Hidden Valley Ranch seasoning mix",
+							"amount": 0.6666666666666666,
+							"unit": "oz",
+							"state": "dry mix; source uses one 1-ounce package"
+						},
+						{
+							"id": "ingredient-5",
+							"name": "jarred pepperoncini peppers",
+							"amount": 5.333333333333333,
+							"unit": "count",
+							"state": ""
+						}
+					]
+				},
+				"preCompleteIngredientNutritionEstimate": {
 					"method": "Measured cooking grams, reduced by explicit edible yield where applicable, times observed nutrients per 100 g. All listed measured ingredients, including optional defaults, are included. No cooking-retention factors.",
 					"estimatedMacroFields": [
 						"kcal",
@@ -17281,59 +17559,6 @@
 						"cream cheese: model uses Cheese, cream.",
 						"Ranch seasoning fiber assumed zero; retained publisher calories, protein and total carbohydrates. Fiber estimated from the remaining measured ingredients.",
 						"jarred pepperoncini peppers: model uses Peppers, hot pickled, canned."
-					]
-				},
-				"preMeasurementNutritionEstimate": {
-					"method": "Ingredient grams × recorded nutrients per 100 g, divided by four portions. No cooking-retention factors; all measured oils and sauces counted. Unmeasured/to-taste additions excluded. Generic-food substitutions and count masses are nutrition-model assumptions, not publisher quantities. Count weights exclude bones. The ingredient snapshot pins the cooking inputs used for this model.",
-					"estimatedMacroFields": [
-						"fiber_g",
-						"net_carbs_g"
-					],
-					"assumptions": [
-						"chicken breast: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.",
-						"butter: model uses Butter, without salt.",
-						"butter: 14.2 g edible food per tbsp for nutrition only.",
-						"cream cheese: model uses Cheese, cream.",
-						"Ranch seasoning fiber assumed zero; retained publisher calories, protein and total carbohydrates. Fiber estimated from the remaining measured ingredients.",
-						"jarred pepperoncini peppers: model uses Peppers, hot pickled, canned.",
-						"jarred pepperoncini peppers: 14 g edible food per count for nutrition only."
-					],
-					"ingredientSnapshot": [
-						{
-							"id": "ingredient-1",
-							"name": "chicken breast",
-							"amount": 1,
-							"unit": "lb",
-							"state": ""
-						},
-						{
-							"id": "ingredient-2",
-							"name": "butter",
-							"amount": 0.6666666666666666,
-							"unit": "tbsp",
-							"state": ""
-						},
-						{
-							"id": "ingredient-3",
-							"name": "cream cheese",
-							"amount": 2.6666666666666665,
-							"unit": "oz",
-							"state": ""
-						},
-						{
-							"id": "ingredient-4",
-							"name": "Hidden Valley Ranch seasoning mix",
-							"amount": 0.6666666666666666,
-							"unit": "oz",
-							"state": "dry mix; source uses one 1-ounce package"
-						},
-						{
-							"id": "ingredient-5",
-							"name": "jarred pepperoncini peppers",
-							"amount": 5.333333333333333,
-							"unit": "count",
-							"state": ""
-						}
 					]
 				}
 			},
@@ -17393,7 +17618,6 @@
 			"id": "source-skillet-creamy-lemon-chicken-with-cauliflower",
 			"key": "source_skillet_creamy_lemon_chicken_with_cauliflower",
 			"title": "Skillet Creamy Lemon Chicken with Cauliflower",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -18179,7 +18403,6 @@
 			"id": "source-creamy-buffalo-chicken-cauliflower-casserole",
 			"key": "source_creamy_buffalo_chicken_cauliflower_casserole",
 			"title": "Creamy Buffalo Chicken Cauliflower Casserole",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -18600,7 +18823,6 @@
 			"id": "source-keto-butter-chicken-family-favorite",
 			"key": "source_keto_butter_chicken_family_favorite",
 			"title": "Keto Butter Chicken (Family Favorite)",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -19619,7 +19841,6 @@
 			"id": "source-greek-chicken-marinade-sheet-pan-dinner",
 			"key": "source_greek_chicken_marinade_sheet_pan_dinner",
 			"title": "Greek Chicken Marinade Sheet Pan Dinner",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -20325,7 +20546,6 @@
 			"id": "source-easy-creamy-chicken-marsala-recipe",
 			"key": "source_easy_creamy_chicken_marsala_recipe",
 			"title": "Easy Creamy Chicken Marsala Recipe",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -21105,7 +21325,6 @@
 			"id": "source-chicken-taco-casserole",
 			"key": "source_chicken_taco_casserole",
 			"title": "Chicken Taco Casserole",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -21901,7 +22120,6 @@
 			"id": "source-cheesy-chicken-zucchini-boats-recipe",
 			"key": "source_cheesy_chicken_zucchini_boats_recipe",
 			"title": "Cheesy Chicken Zucchini Boats Recipe",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -22171,11 +22389,11 @@
 				}
 			],
 			"nutrition": {
-				"kcal": 327.8775,
-				"protein_g": 31.3861,
-				"carbs_g": 2.895775,
-				"fiber_g": 0.1,
-				"net_carbs_g": 2.795775
+				"kcal": 329.4579166666667,
+				"protein_g": 35.676320833333335,
+				"carbs_g": 7.0169541666666655,
+				"fiber_g": 1.0883333333333334,
+				"net_carbs_g": 5.928620833333332
 			},
 			"familyOptions": [],
 			"attentionSummary": "Follow the cooking flow and check each component at the stated endpoint.",
@@ -22193,7 +22411,7 @@
 				"originalServings": 6,
 				"scaleToFour": 0.6666666666666666,
 				"normalizedServings": 4,
-				"nutritionBasis": "Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.",
+				"nutritionBasis": "Complete ingredient-based estimates using measured edible weights and reviewed USDA/manufacturer profiles. Brand proxies and rounded-label limitations are recorded in the ingredient assumptions. Original publisher nutrition is preserved separately.",
 				"sourceYield": [
 					"6",
 					"6 servings"
@@ -22211,6 +22429,147 @@
 					"sugarContent": "1.4 g"
 				},
 				"nutritionEstimate": {
+					"method": "Measured cooking grams, reduced by explicit edible yield where applicable, times observed nutrients per 100 g. All listed measured ingredients, including optional defaults, are included. No cooking-retention factors.",
+					"estimatedMacroFields": [
+						"kcal",
+						"protein_g",
+						"carbs_g",
+						"fiber_g",
+						"net_carbs_g"
+					],
+					"publisherBaselineFields": [],
+					"ingredientSnapshot": [
+						{
+							"id": "ingredient-1",
+							"name": "medium zucchini",
+							"amount": 2,
+							"unit": "count",
+							"state": ""
+						},
+						{
+							"id": "ingredient-2",
+							"name": "chicken",
+							"amount": 280,
+							"unit": "g",
+							"state": "fully cooked; shredded"
+						},
+						{
+							"id": "ingredient-3",
+							"name": "bacon",
+							"amount": 24,
+							"unit": "g",
+							"state": "cooked and chopped"
+						},
+						{
+							"id": "ingredient-4",
+							"name": "cottage cheese",
+							"amount": 0.5,
+							"unit": "cup",
+							"state": "blended"
+						},
+						{
+							"id": "ingredient-5",
+							"name": "dry ranch seasoning",
+							"amount": 12,
+							"unit": "g",
+							"state": ""
+						},
+						{
+							"id": "ingredient-6",
+							"name": "shredded cheddar",
+							"amount": 1.1666666666666665,
+							"unit": "cup",
+							"state": "divided"
+						},
+						{
+							"id": "ingredient-7",
+							"name": "green onions",
+							"amount": 0.16666666666666666,
+							"unit": "cup",
+							"state": "finely chopped"
+						}
+					],
+					"assumptions": [
+						"medium zucchini: Squash, summer, zucchini, includes skin, raw.",
+						"chicken: Chicken, broilers or fryers, breast, meat only, cooked, roasted.",
+						"bacon: Pork, cured, bacon, pre-sliced, cooked, pan-fried.",
+						"cottage cheese: Cheese, cottage, creamed, large or small curd.",
+						"shredded cheddar: Cheese, cheddar (Includes foods for USDA's Food Distribution Program).",
+						"green onions: Onions, spring or scallions (includes tops and bulb), raw.",
+						"dry ranch seasoning: USDA Our Family dry ranch dressing mix proxy for Hidden Valley dry seasoning; brands differ; rounded label observations.."
+					]
+				},
+				"preMeasurementNutritionEstimate": {
+					"method": "Ingredient grams × recorded nutrients per 100 g, divided by four portions. No cooking-retention factors; all measured oils and sauces counted. Unmeasured/to-taste additions excluded. Generic-food substitutions and count masses are nutrition-model assumptions, not publisher quantities. Count weights exclude bones. The ingredient snapshot pins the cooking inputs used for this model.",
+					"estimatedMacroFields": [],
+					"assumptions": [
+						"medium zucchini: model uses Squash, summer, zucchini, includes skin, raw.",
+						"medium zucchini: 196 g edible food per count for nutrition only.",
+						"chicken: model uses Chicken, broilers or fryers, breast, meat only, cooked, roasted.",
+						"chicken: 140 g edible food per cup for nutrition only.",
+						"bacon: model uses Pork, cured, bacon, pre-sliced, cooked, pan-fried.",
+						"bacon: 108 g edible food per cup for nutrition only.",
+						"cottage cheese: model uses Cheese, cottage, creamed, large or small curd.",
+						"cottage cheese: 226 g edible food per cup for nutrition only.",
+						"Ranch seasoning fiber assumed zero; retained publisher calories, protein and total carbohydrates. Fiber estimated from the remaining measured ingredients.",
+						"shredded cheddar: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).",
+						"shredded cheddar: 113 g edible food per cup for nutrition only.",
+						"green onions: model uses Onions, spring or scallions (includes tops and bulb), raw.",
+						"green onions: 100 g edible food per cup for nutrition only."
+					],
+					"ingredientSnapshot": [
+						{
+							"id": "ingredient-1",
+							"name": "medium zucchini",
+							"amount": 2,
+							"unit": "count",
+							"state": ""
+						},
+						{
+							"id": "ingredient-2",
+							"name": "chicken",
+							"amount": 2,
+							"unit": "cup",
+							"state": "fully cooked; shredded"
+						},
+						{
+							"id": "ingredient-3",
+							"name": "bacon",
+							"amount": 0.2222222222222222,
+							"unit": "cup",
+							"state": "cooked and chopped about 5 slices"
+						},
+						{
+							"id": "ingredient-4",
+							"name": "cottage cheese",
+							"amount": 0.5,
+							"unit": "cup",
+							"state": "blended"
+						},
+						{
+							"id": "ingredient-5",
+							"name": "dry ranch seasoning",
+							"amount": 1.3333333333333333,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-6",
+							"name": "shredded cheddar",
+							"amount": 1.1666666666666665,
+							"unit": "cup",
+							"state": "divided"
+						},
+						{
+							"id": "ingredient-7",
+							"name": "green onions",
+							"amount": 0.16666666666666666,
+							"unit": "cup",
+							"state": "finely chopped"
+						}
+					]
+				},
+				"preCompleteIngredientNutritionEstimate": {
 					"method": "Measured cooking grams, reduced by explicit edible yield where applicable, times observed nutrients per 100 g. All listed measured ingredients, including optional defaults, are included. No cooking-retention factors.",
 					"estimatedMacroFields": [
 						"kcal",
@@ -22284,76 +22643,6 @@
 						"Ranch seasoning fiber assumed zero; retained publisher calories, protein and total carbohydrates. Fiber estimated from the remaining measured ingredients.",
 						"shredded cheddar: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).",
 						"green onions: model uses Onions, spring or scallions (includes tops and bulb), raw."
-					]
-				},
-				"preMeasurementNutritionEstimate": {
-					"method": "Ingredient grams × recorded nutrients per 100 g, divided by four portions. No cooking-retention factors; all measured oils and sauces counted. Unmeasured/to-taste additions excluded. Generic-food substitutions and count masses are nutrition-model assumptions, not publisher quantities. Count weights exclude bones. The ingredient snapshot pins the cooking inputs used for this model.",
-					"estimatedMacroFields": [],
-					"assumptions": [
-						"medium zucchini: model uses Squash, summer, zucchini, includes skin, raw.",
-						"medium zucchini: 196 g edible food per count for nutrition only.",
-						"chicken: model uses Chicken, broilers or fryers, breast, meat only, cooked, roasted.",
-						"chicken: 140 g edible food per cup for nutrition only.",
-						"bacon: model uses Pork, cured, bacon, pre-sliced, cooked, pan-fried.",
-						"bacon: 108 g edible food per cup for nutrition only.",
-						"cottage cheese: model uses Cheese, cottage, creamed, large or small curd.",
-						"cottage cheese: 226 g edible food per cup for nutrition only.",
-						"Ranch seasoning fiber assumed zero; retained publisher calories, protein and total carbohydrates. Fiber estimated from the remaining measured ingredients.",
-						"shredded cheddar: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).",
-						"shredded cheddar: 113 g edible food per cup for nutrition only.",
-						"green onions: model uses Onions, spring or scallions (includes tops and bulb), raw.",
-						"green onions: 100 g edible food per cup for nutrition only."
-					],
-					"ingredientSnapshot": [
-						{
-							"id": "ingredient-1",
-							"name": "medium zucchini",
-							"amount": 2,
-							"unit": "count",
-							"state": ""
-						},
-						{
-							"id": "ingredient-2",
-							"name": "chicken",
-							"amount": 2,
-							"unit": "cup",
-							"state": "fully cooked; shredded"
-						},
-						{
-							"id": "ingredient-3",
-							"name": "bacon",
-							"amount": 0.2222222222222222,
-							"unit": "cup",
-							"state": "cooked and chopped about 5 slices"
-						},
-						{
-							"id": "ingredient-4",
-							"name": "cottage cheese",
-							"amount": 0.5,
-							"unit": "cup",
-							"state": "blended"
-						},
-						{
-							"id": "ingredient-5",
-							"name": "dry ranch seasoning",
-							"amount": 1.3333333333333333,
-							"unit": "tbsp",
-							"state": ""
-						},
-						{
-							"id": "ingredient-6",
-							"name": "shredded cheddar",
-							"amount": 1.1666666666666665,
-							"unit": "cup",
-							"state": "divided"
-						},
-						{
-							"id": "ingredient-7",
-							"name": "green onions",
-							"amount": 0.16666666666666666,
-							"unit": "cup",
-							"state": "finely chopped"
-						}
 					]
 				}
 			},
@@ -22433,7 +22722,6 @@
 			"id": "source-asparagus-stuffed-chicken-low-carb-keto",
 			"key": "source_asparagus_stuffed_chicken_low_carb_keto",
 			"title": "Asparagus Stuffed Chicken (low carb + keto)",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -23118,7 +23406,6 @@
 			"id": "source-crockpot-shredded-chicken",
 			"key": "source_crockpot_shredded_chicken",
 			"title": "Crockpot Shredded Chicken",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "slow-cooker",
@@ -23683,7 +23970,6 @@
 			"id": "source-cheesy-chicken-enchilada-soup",
 			"key": "source_cheesy_chicken_enchilada_soup",
 			"title": "Cheesy Chicken Enchilada Soup",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -24456,7 +24742,6 @@
 			"id": "source-bacon-wrapped-chicken-with-avocado-salsa",
 			"key": "source_bacon_wrapped_chicken_with_avocado_salsa",
 			"title": "Bacon Wrapped Chicken with Avocado Salsa",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -25179,7 +25464,6 @@
 			"id": "source-jalapen-o-popper-stuffed-chicken-breast",
 			"key": "source_jalapen_o_popper_stuffed_chicken_breast",
 			"title": "Jalapeño Popper Stuffed Chicken Breast",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -25648,7 +25932,6 @@
 			"id": "source-perfect-roast-chicken",
 			"key": "source_perfect_roast_chicken",
 			"title": "Perfect Roast Chicken",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -26595,7 +26878,6 @@
 			"id": "source-jalapeno-popper-chicken-skillet-keto-low-carb",
 			"key": "source_jalapeno_popper_chicken_skillet_keto_low_carb",
 			"title": "Jalapeno Popper Chicken Skillet (keto + low carb)",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -27367,7 +27649,6 @@
 			"id": "source-cajun-chicken-sausage-and-cabbage-skillet",
 			"key": "source_cajun_chicken_sausage_and_cabbage_skillet",
 			"title": "Cajun Chicken Sausage and Cabbage Skillet",
-			"group": "keto",
 			"proteinType": "mixed",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -27985,7 +28266,6 @@
 			"id": "source-spinach-artichoke-stuffed-chicken-low-carb-keto",
 			"key": "source_spinach_artichoke_stuffed_chicken_low_carb_keto",
 			"title": "Spinach Artichoke Stuffed Chicken (low carb + keto)",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -28712,7 +28992,6 @@
 			"id": "source-broccoli-and-cheese-stuffed-chicken-breasts",
 			"key": "source_broccoli_and_cheese_stuffed_chicken_breasts",
 			"title": "Broccoli and Cheese Stuffed Chicken Breasts",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -29129,7 +29408,6 @@
 			"id": "source-chicken-cheesesteak-skillet",
 			"key": "source_chicken_cheesesteak_skillet",
 			"title": "Chicken Cheesesteak Skillet",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -29918,7 +30196,6 @@
 			"id": "source-keto-asian-chicken-lettuce-wraps",
 			"key": "source_keto_asian_chicken_lettuce_wraps",
 			"title": "Keto Asian Chicken Lettuce Wraps",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -30438,11 +30715,12 @@
 				}
 			],
 			"nutrition": {
-				"kcal": 243.85329423595766,
-				"protein_g": 29.81031,
-				"carbs_g": 7.576802316163839,
-				"fiber_g": 2.923175,
-				"net_carbs_g": 4.653627316163838
+				"kcal": 335.42725523595755,
+				"protein_g": 30.3126808125,
+				"carbs_g": 10.027477316163838,
+				"fiber_g": 2.3295500000000002,
+				"net_carbs_g": 4.697927316163837,
+				"erythritol_g": 3
 			},
 			"familyOptions": [],
 			"attentionSummary": "Follow the cooking flow and check each component at the stated endpoint.",
@@ -30460,7 +30738,7 @@
 				"originalServings": 4,
 				"scaleToFour": 1,
 				"normalizedServings": 4,
-				"nutritionBasis": "Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.",
+				"nutritionBasis": "Complete ingredient-based estimates using measured edible weights and reviewed USDA/manufacturer profiles. Brand proxies and rounded-label limitations are recorded in the ingredient assumptions. Original publisher nutrition is preserved separately.",
 				"sourceYield": [
 					"4",
 					"4 servings"
@@ -30486,12 +30764,7 @@
 						"fiber_g",
 						"net_carbs_g"
 					],
-					"publisherBaselineFields": [
-						"kcal",
-						"protein_g",
-						"carbs_g",
-						"fiber_g"
-					],
+					"publisherBaselineFields": [],
 					"ingredientSnapshot": [
 						{
 							"id": "ingredient-1",
@@ -30593,16 +30866,20 @@
 						}
 					],
 					"assumptions": [
-						"olive oil: model uses Oil, olive, salad or cooking.",
-						"chicken: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.",
-						"green bell pepper: model uses Peppers, sweet, green, raw.",
-						"minced garlic: model uses Garlic, raw.",
-						"chicken broth: model uses Soup, chicken broth, ready-to-serve.",
-						"soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.",
-						"rice vinegar: model uses Vinegar, cider.",
-						"sesame oil: model uses Oil, sesame, salad or cooking.",
-						"swerve brown sugar or brown sugar monkfruit: model uses Swerve erythritol sweetener: additional nutrients unobserved; publisher macros retained.",
-						"peanut butter: model uses Peanut butter, smooth style, without salt."
+						"olive oil: Oil, olive, salad or cooking.",
+						"chicken: Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.",
+						"green bell pepper: Peppers, sweet, green, raw.",
+						"minced garlic: Garlic, raw.",
+						"chicken broth: Soup, chicken broth, ready-to-serve.",
+						"soy sauce: Soy sauce made from soy and wheat (shoyu), low sodium.",
+						"Mizkan unseasoned rice vinegar: Vinegar, cider.",
+						"sesame oil: Oil, sesame, salad or cooking.",
+						"Swerve brown sugar substitute: Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations..",
+						"peanut butter: Peanut butter, smooth style, without salt.",
+						"water: Beverages, water, tap, drinking.",
+						"Green onions: Onions, spring or scallions (includes tops and bulb), raw.",
+						"Almonds: Nuts, almonds.",
+						"Lettuce leaves: Lettuce, green leaf, raw."
 					]
 				},
 				"preMeasurementNutritionEstimate": {
@@ -30732,6 +31009,134 @@
 							"state": ""
 						}
 					]
+				},
+				"preCompleteIngredientNutritionEstimate": {
+					"method": "Measured cooking grams, reduced by explicit edible yield where applicable, times observed nutrients per 100 g. All listed measured ingredients, including optional defaults, are included. No cooking-retention factors.",
+					"estimatedMacroFields": [
+						"kcal",
+						"protein_g",
+						"carbs_g",
+						"fiber_g",
+						"net_carbs_g"
+					],
+					"publisherBaselineFields": [
+						"kcal",
+						"protein_g",
+						"carbs_g",
+						"fiber_g"
+					],
+					"ingredientSnapshot": [
+						{
+							"id": "ingredient-1",
+							"name": "olive oil",
+							"amount": 1,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-2",
+							"name": "chicken",
+							"amount": 1,
+							"unit": "lb",
+							"state": "cut into small pieces"
+						},
+						{
+							"id": "ingredient-3",
+							"name": "green bell pepper",
+							"amount": 1,
+							"unit": "count",
+							"state": "seeded and chopped"
+						},
+						{
+							"id": "ingredient-4",
+							"name": "minced garlic",
+							"amount": 1,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-5",
+							"name": "chicken broth",
+							"amount": 0.25,
+							"unit": "cup",
+							"state": "water or cooking wine will work also"
+						},
+						{
+							"id": "ingredient-6",
+							"name": "soy sauce",
+							"amount": 2,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-7",
+							"name": "water",
+							"amount": 2,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-8",
+							"name": "Mizkan unseasoned rice vinegar",
+							"amount": 2,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-9",
+							"name": "sesame oil",
+							"amount": 2,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-10",
+							"name": "Swerve brown sugar substitute",
+							"amount": 12,
+							"unit": "g",
+							"state": ""
+						},
+						{
+							"id": "ingredient-11",
+							"name": "peanut butter",
+							"amount": 2,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-12",
+							"name": "Green onions",
+							"amount": 30,
+							"unit": "g",
+							"state": "sliced"
+						},
+						{
+							"id": "ingredient-13",
+							"name": "Almonds",
+							"amount": 28,
+							"unit": "g",
+							"state": "crushed"
+						},
+						{
+							"id": "ingredient-14",
+							"name": "Lettuce leaves",
+							"amount": 80,
+							"unit": "g",
+							"state": ""
+						}
+					],
+					"assumptions": [
+						"olive oil: model uses Oil, olive, salad or cooking.",
+						"chicken: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.",
+						"green bell pepper: model uses Peppers, sweet, green, raw.",
+						"minced garlic: model uses Garlic, raw.",
+						"chicken broth: model uses Soup, chicken broth, ready-to-serve.",
+						"soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.",
+						"rice vinegar: model uses Vinegar, cider.",
+						"sesame oil: model uses Oil, sesame, salad or cooking.",
+						"swerve brown sugar or brown sugar monkfruit: model uses Swerve erythritol sweetener: additional nutrients unobserved; publisher macros retained.",
+						"peanut butter: model uses Peanut butter, smooth style, without salt."
+					]
 				}
 			},
 			"flow": {
@@ -30835,7 +31240,6 @@
 			"id": "source-cabbage-casserole-with-ground-beef",
 			"key": "source_cabbage_casserole_with_ground_beef",
 			"title": "Cabbage Casserole with Ground Beef",
-			"group": "keto",
 			"proteinType": "beef",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -31504,7 +31908,6 @@
 			"id": "source-keto-cheeseburger-casserole-skillet",
 			"key": "source_keto_cheeseburger_casserole_skillet",
 			"title": "Keto Cheeseburger Casserole Skillet",
-			"group": "keto",
 			"proteinType": "beef",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -32302,7 +32705,6 @@
 			"id": "source-steak-and-eggs-keto-low-carb",
 			"key": "source_steak_and_eggs_keto_low_carb",
 			"title": "Steak and Eggs (keto + low carb)",
-			"group": "unverified",
 			"proteinType": "beef",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -32774,7 +33176,6 @@
 			"id": "source-steak-rolls",
 			"key": "source_steak_rolls",
 			"title": "Steak Rolls",
-			"group": "keto",
 			"proteinType": "beef",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -33196,7 +33597,6 @@
 			"id": "source-keto-beef-stroganoff",
 			"key": "source_keto_beef_stroganoff",
 			"title": "Keto Beef Stroganoff",
-			"group": "keto",
 			"proteinType": "beef",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -34017,7 +34417,6 @@
 			"id": "source-the-best-keto-chili-recipe",
 			"key": "source_the_best_keto_chili_recipe",
 			"title": "The BEST Keto Chili Recipe",
-			"group": "keto",
 			"proteinType": "beef",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -34882,7 +35281,6 @@
 			"id": "source-keto-italian-meatballs",
 			"key": "source_keto_italian_meatballs",
 			"title": "Keto Italian Meatballs",
-			"group": "unverified",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -35367,7 +35765,6 @@
 			"id": "source-low-carb-taco-casserole",
 			"key": "source_low_carb_taco_casserole",
 			"title": "Low Carb Taco Casserole",
-			"group": "keto",
 			"proteinType": "beef",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -35891,7 +36288,6 @@
 			"id": "source-one-pan-keto-philly-cheesesteak",
 			"key": "source_one_pan_keto_philly_cheesesteak",
 			"title": "One Pan Keto Philly Cheesesteak",
-			"group": "keto",
 			"proteinType": "beef",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -36745,7 +37141,6 @@
 			"id": "source-cabbage-with-sausage-foil-packs",
 			"key": "source_cabbage_with_sausage_foil_packs",
 			"title": "Cabbage with Sausage Foil Packs",
-			"group": "keto",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "grill",
@@ -37205,7 +37600,6 @@
 			"id": "source-zuppa-toscana",
 			"key": "source_zuppa_toscana",
 			"title": "Zuppa Toscana",
-			"group": "keto",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -37941,7 +38335,6 @@
 			"id": "source-roasted-brussel-sprouts-and-kielbasa",
 			"key": "source_roasted_brussel_sprouts_and_kielbasa",
 			"title": "Roasted Brussel Sprouts and Kielbasa",
-			"group": "unverified",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -38302,7 +38695,6 @@
 			"id": "source-pan-seared-pork-chops-with-creamy-pan-gravy-and-garlicky-green-beans",
 			"key": "source_pan_seared_pork_chops_with_creamy_pan_gravy_and_garlicky_green_beans",
 			"title": "Pan Seared Pork Chops with Creamy Pan Gravy and Garlicky Green Beans",
-			"group": "keto",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -39183,7 +39575,6 @@
 			"id": "source-keto-sausage-veggie-sheet-pan-dinner",
 			"key": "source_keto_sausage_veggie_sheet_pan_dinner",
 			"title": "Keto Sausage Veggie Sheet Pan Dinner",
-			"group": "keto",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -39586,7 +39977,6 @@
 			"id": "source-cheesy-sausage-soup",
 			"key": "source_cheesy_sausage_soup",
 			"title": "Cheesy Sausage Soup",
-			"group": "keto",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -40268,7 +40658,6 @@
 			"id": "source-sausage-broccoli-cheddar-sheet-pan",
 			"key": "source_sausage_broccoli_cheddar_sheet_pan",
 			"title": "Sausage Broccoli Cheddar Sheet Pan",
-			"group": "keto",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -40667,7 +41056,6 @@
 			"id": "source-fried-cabbage-with-bacon-keto-low-carb",
 			"key": "source_fried_cabbage_with_bacon_keto_low_carb",
 			"title": "Fried Cabbage with Bacon (keto + low carb)",
-			"group": "keto",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -41140,7 +41528,6 @@
 			"id": "source-keto-lasagna-recipe-low-carb-one-pan",
 			"key": "source_keto_lasagna_recipe_low_carb_one_pan",
 			"title": "Keto Lasagna Recipe (low carb + one pan)",
-			"group": "keto",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -41922,7 +42309,6 @@
 			"id": "source-sausage-sheet-pan-dinner",
 			"key": "source_sausage_sheet_pan_dinner",
 			"title": "Sausage Sheet Pan Dinner",
-			"group": "keto",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -42424,7 +42810,6 @@
 			"id": "source-keto-sesame-pork-and-green-beans",
 			"key": "source_keto_sesame_pork_and_green_beans",
 			"title": "Keto Sesame Pork and Green Beans",
-			"group": "keto",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -42792,11 +43177,12 @@
 				}
 			],
 			"nutrition": {
-				"kcal": 232.01064711797883,
-				"protein_g": 16.6072375,
-				"carbs_g": 6.37180115808192,
-				"fiber_g": 2.20825,
-				"net_carbs_g": 4.163551158081919
+				"kcal": 421.17158718047887,
+				"protein_g": 39.609379650625,
+				"carbs_g": 10.105122408081918,
+				"fiber_g": 2.2217124999999998,
+				"net_carbs_g": 4.883409908081918,
+				"erythritol_g": 3
 			},
 			"familyOptions": [],
 			"attentionSummary": "Follow the cooking flow and check each component at the stated endpoint.",
@@ -42814,7 +43200,7 @@
 				"originalServings": 4,
 				"scaleToFour": 1,
 				"normalizedServings": 4,
-				"nutritionBasis": "Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.",
+				"nutritionBasis": "Complete ingredient-based estimates using measured edible weights and reviewed USDA/manufacturer profiles. Brand proxies and rounded-label limitations are recorded in the ingredient assumptions. Original publisher nutrition is preserved separately.",
 				"sourceYield": [
 					"4"
 				],
@@ -42839,12 +43225,7 @@
 						"fiber_g",
 						"net_carbs_g"
 					],
-					"publisherBaselineFields": [
-						"kcal",
-						"protein_g",
-						"carbs_g",
-						"fiber_g"
-					],
+					"publisherBaselineFields": [],
 					"ingredientSnapshot": [
 						{
 							"id": "ingredient-1",
@@ -42918,16 +43299,16 @@
 						}
 					],
 					"assumptions": [
-						"olive oil: model uses Oil, olive, salad or cooking.",
-						"Boneless Pork Chops: model uses Pork, fresh, loin, top loin (chops), boneless, separable lean and fat, raw.",
-						"gluten free soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.",
-						"brown sugar Swerve or Monkfruit: model uses Swerve erythritol sweetener: additional nutrients unobserved; publisher macros retained.",
-						"rice vinegar: model uses Vinegar, cider.",
-						"sesame oil: model uses Oil, sesame, salad or cooking.",
-						"minced ginger: model uses Ginger root, raw.",
-						"minced garlic: model uses Garlic, raw.",
-						"sriracha: model uses Sauce, hot chile, sriracha.",
-						"fresh green beans: model uses Beans, snap, green, raw."
+						"olive oil: Oil, olive, salad or cooking.",
+						"Boneless Pork Chops: Pork, fresh, loin, top loin (chops), boneless, separable lean and fat, raw.",
+						"gluten free soy sauce: Soy sauce made from soy and wheat (shoyu), low sodium.",
+						"Swerve brown sugar substitute: Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations..",
+						"Mizkan unseasoned rice vinegar: Vinegar, cider.",
+						"sesame oil: Oil, sesame, salad or cooking.",
+						"minced ginger: Ginger root, raw.",
+						"minced garlic: Garlic, raw.",
+						"sriracha: Sauce, hot chile, sriracha.",
+						"fresh green beans: Beans, snap, green, raw."
 					]
 				},
 				"preMeasurementNutritionEstimate": {
@@ -43026,6 +43407,106 @@
 							"state": ""
 						}
 					]
+				},
+				"preCompleteIngredientNutritionEstimate": {
+					"method": "Measured cooking grams, reduced by explicit edible yield where applicable, times observed nutrients per 100 g. All listed measured ingredients, including optional defaults, are included. No cooking-retention factors.",
+					"estimatedMacroFields": [
+						"kcal",
+						"protein_g",
+						"carbs_g",
+						"fiber_g",
+						"net_carbs_g"
+					],
+					"publisherBaselineFields": [
+						"kcal",
+						"protein_g",
+						"carbs_g",
+						"fiber_g"
+					],
+					"ingredientSnapshot": [
+						{
+							"id": "ingredient-1",
+							"name": "olive oil",
+							"amount": 1,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-2",
+							"name": "Boneless Pork Chops",
+							"amount": 1.5,
+							"unit": "lb",
+							"state": ""
+						},
+						{
+							"id": "ingredient-3",
+							"name": "gluten free soy sauce",
+							"amount": 0.25,
+							"unit": "cup",
+							"state": ""
+						},
+						{
+							"id": "ingredient-4",
+							"name": "Swerve brown sugar substitute",
+							"amount": 12,
+							"unit": "g",
+							"state": ""
+						},
+						{
+							"id": "ingredient-5",
+							"name": "Mizkan unseasoned rice vinegar",
+							"amount": 1,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-6",
+							"name": "sesame oil",
+							"amount": 3,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-7",
+							"name": "minced ginger",
+							"amount": 2,
+							"unit": "tsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-8",
+							"name": "minced garlic",
+							"amount": 2,
+							"unit": "tsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-9",
+							"name": "sriracha",
+							"amount": 1,
+							"unit": "tsp",
+							"state": "optional if you prefer spicy dishes"
+						},
+						{
+							"id": "ingredient-10",
+							"name": "fresh green beans",
+							"amount": 300,
+							"unit": "g",
+							"state": ""
+						}
+					],
+					"assumptions": [
+						"olive oil: model uses Oil, olive, salad or cooking.",
+						"Boneless Pork Chops: model uses Pork, fresh, loin, top loin (chops), boneless, separable lean and fat, raw.",
+						"gluten free soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.",
+						"brown sugar Swerve or Monkfruit: model uses Swerve erythritol sweetener: additional nutrients unobserved; publisher macros retained.",
+						"rice vinegar: model uses Vinegar, cider.",
+						"sesame oil: model uses Oil, sesame, salad or cooking.",
+						"minced ginger: model uses Ginger root, raw.",
+						"minced garlic: model uses Garlic, raw.",
+						"sriracha: model uses Sauce, hot chile, sriracha.",
+						"fresh green beans: model uses Beans, snap, green, raw."
+					]
 				}
 			},
 			"flow": {
@@ -43113,7 +43594,6 @@
 			"id": "source-grilled-shrimp-skewers",
 			"key": "source_grilled_shrimp_skewers",
 			"title": "Grilled Shrimp Skewers",
-			"group": "keto",
 			"proteinType": "shrimp",
 			"vegetarian": false,
 			"appliance": "grill",
@@ -43767,7 +44247,6 @@
 			"id": "source-lemon-garlic-shrimp-and-broccolini-sheet-pan-meal",
 			"key": "source_lemon_garlic_shrimp_and_broccolini_sheet_pan_meal",
 			"title": "Lemon Garlic Shrimp and Broccolini Sheet Pan Meal",
-			"group": "keto",
 			"proteinType": "shrimp",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -44443,7 +44922,6 @@
 			"id": "source-grilled-salmon-kabobs-with-greek-marinade",
 			"key": "source_grilled_salmon_kabobs_with_greek_marinade",
 			"title": "Grilled Salmon Kabobs with Greek Marinade",
-			"group": "unverified",
 			"proteinType": "fish",
 			"vegetarian": false,
 			"appliance": "grill",
@@ -44994,9 +45472,10 @@
 			"nutrition": {
 				"kcal": 370.62975346666667,
 				"protein_g": 20.217840991374995,
-				"carbs_g": 7.173568958333332,
+				"carbs_g": 10.173568958333332,
 				"fiber_g": 1.65854375,
-				"net_carbs_g": 5.515025208333332
+				"net_carbs_g": 5.515025208333332,
+				"erythritol_g": 3
 			},
 			"familyOptions": [],
 			"attentionSummary": "Follow the cooking flow and check each component at the stated endpoint.",
@@ -45014,7 +45493,7 @@
 				"originalServings": 4,
 				"scaleToFour": 1,
 				"normalizedServings": 4,
-				"nutritionBasis": "Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.",
+				"nutritionBasis": "Complete ingredient-based estimates using measured edible weights and reviewed USDA/manufacturer profiles. Brand proxies and rounded-label limitations are recorded in the ingredient assumptions. Original publisher nutrition is preserved separately.",
 				"sourceYield": [
 					"4",
 					"4 skewers"
@@ -45040,12 +45519,7 @@
 						"fiber_g",
 						"net_carbs_g"
 					],
-					"publisherBaselineFields": [
-						"kcal",
-						"protein_g",
-						"carbs_g",
-						"fiber_g"
-					],
+					"publisherBaselineFields": [],
 					"ingredientSnapshot": [
 						{
 							"id": "ingredient-1",
@@ -45161,18 +45635,22 @@
 						}
 					],
 					"assumptions": [
-						"Salmon fillets: model uses Fish, salmon, Atlantic, farmed, raw.",
-						"large zucchini: model uses Squash, summer, zucchini, includes skin, raw.",
-						"red onion: model uses Onions, raw.",
-						"Oil: model uses Oil, olive, salad or cooking.",
-						"Greek Yogurt: model uses Yogurt, Greek, plain, whole milk.",
-						"minced garlic: model uses Garlic, raw.",
-						"Monkfruit sweetener modeled as a zero-digestible-carbohydrate erythritol blend; sugar-containing blends do not match this estimate.",
-						"Lemon juice: model uses Lemon juice, raw.",
-						"fresh dill: model uses Dill weed, fresh.",
-						"Oregano: model uses Spices, oregano, dried.",
-						"salt: model uses Salt, table.",
-						"pepper: model uses Spices, pepper, black."
+						"Salmon fillets: Fish, salmon, Atlantic, farmed, raw.",
+						"large zucchini: Squash, summer, zucchini, includes skin, raw.",
+						"red onion: Onions, raw.",
+						"Olive oil: Oil, olive, salad or cooking.",
+						"Plain whole-milk Greek yogurt: Yogurt, Greek, plain, whole milk.",
+						"minced garlic: Garlic, raw.",
+						"Lemon juice: Lemon juice, raw.",
+						"fresh dill: Dill weed, fresh.",
+						"Oregano: Spices, oregano, dried.",
+						"salt: Salt, table.",
+						"pepper: Spices, pepper, black.",
+						"Olive oil: Oil, olive, salad or cooking.",
+						"fresh dill: Dill weed, fresh.",
+						"salt: Salt, table.",
+						"pepper: Spices, pepper, black.",
+						"brown sugar Monkfruit sweetener: Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations.."
 					]
 				},
 				"preMeasurementNutritionEstimate": {
@@ -45324,6 +45802,150 @@
 							"state": ""
 						}
 					]
+				},
+				"preCompleteIngredientNutritionEstimate": {
+					"method": "Measured cooking grams, reduced by explicit edible yield where applicable, times observed nutrients per 100 g. All listed measured ingredients, including optional defaults, are included. No cooking-retention factors.",
+					"estimatedMacroFields": [
+						"kcal",
+						"protein_g",
+						"carbs_g",
+						"fiber_g",
+						"net_carbs_g"
+					],
+					"publisherBaselineFields": [
+						"kcal",
+						"protein_g",
+						"carbs_g",
+						"fiber_g"
+					],
+					"ingredientSnapshot": [
+						{
+							"id": "ingredient-1",
+							"name": "Salmon fillets",
+							"amount": 2,
+							"unit": "fillet",
+							"state": "raw; cut into skewer-sized pieces"
+						},
+						{
+							"id": "ingredient-2",
+							"name": "large zucchini",
+							"amount": 1,
+							"unit": "count",
+							"state": "sliced"
+						},
+						{
+							"id": "ingredient-3",
+							"name": "red onion",
+							"amount": 0.5,
+							"unit": "count",
+							"state": "sliced"
+						},
+						{
+							"id": "ingredient-4",
+							"name": "Olive oil",
+							"amount": 0.25,
+							"unit": "cup",
+							"state": ""
+						},
+						{
+							"id": "ingredient-5",
+							"name": "Plain whole-milk Greek yogurt",
+							"amount": 0.25,
+							"unit": "cup",
+							"state": ""
+						},
+						{
+							"id": "ingredient-6",
+							"name": "minced garlic",
+							"amount": 2,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-7",
+							"name": "brown sugar Monkfruit sweetener",
+							"amount": 12,
+							"unit": "g",
+							"state": ""
+						},
+						{
+							"id": "ingredient-8",
+							"name": "Lemon juice",
+							"amount": 0.5,
+							"unit": "lemon",
+							"state": ""
+						},
+						{
+							"id": "ingredient-9",
+							"name": "fresh dill",
+							"amount": 1,
+							"unit": "g",
+							"state": ""
+						},
+						{
+							"id": "ingredient-10",
+							"name": "Oregano",
+							"amount": 1,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-11",
+							"name": "salt",
+							"amount": 1,
+							"unit": "tsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-12",
+							"name": "pepper",
+							"amount": 1,
+							"unit": "tsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-13",
+							"name": "Olive oil",
+							"amount": 1,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-14",
+							"name": "fresh dill",
+							"amount": 1,
+							"unit": "g",
+							"state": ""
+						},
+						{
+							"id": "ingredient-15",
+							"name": "salt",
+							"amount": 0.25,
+							"unit": "tsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-16",
+							"name": "pepper",
+							"amount": 0.25,
+							"unit": "tsp",
+							"state": ""
+						}
+					],
+					"assumptions": [
+						"Salmon fillets: model uses Fish, salmon, Atlantic, farmed, raw.",
+						"large zucchini: model uses Squash, summer, zucchini, includes skin, raw.",
+						"red onion: model uses Onions, raw.",
+						"Oil: model uses Oil, olive, salad or cooking.",
+						"Greek Yogurt: model uses Yogurt, Greek, plain, whole milk.",
+						"minced garlic: model uses Garlic, raw.",
+						"Monkfruit sweetener modeled as a zero-digestible-carbohydrate erythritol blend; sugar-containing blends do not match this estimate.",
+						"Lemon juice: model uses Lemon juice, raw.",
+						"fresh dill: model uses Dill weed, fresh.",
+						"Oregano: model uses Spices, oregano, dried.",
+						"salt: model uses Salt, table.",
+						"pepper: model uses Spices, pepper, black."
+					]
 				}
 			},
 			"flow": {
@@ -45436,7 +46058,6 @@
 			"id": "source-sheet-pan-butter-dill-salmon-with-asparagus",
 			"key": "source_sheet_pan_butter_dill_salmon_with_asparagus",
 			"title": "Sheet Pan Butter Dill Salmon with Asparagus",
-			"group": "keto",
 			"proteinType": "fish",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -46061,7 +46682,6 @@
 			"id": "source-cilantro-lime-shrimp-and-cauliflower-rice-keto-low-carb",
 			"key": "source_cilantro_lime_shrimp_and_cauliflower_rice_keto_low_carb",
 			"title": "Cilantro Lime Shrimp and Cauliflower Rice (keto + low carb)",
-			"group": "keto",
 			"proteinType": "shrimp",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -47333,7 +47953,6 @@
 			"id": "source-lobster-bisque-low-carb-keto",
 			"key": "source_lobster_bisque_low_carb_keto",
 			"title": "Lobster Bisque (low carb + keto)",
-			"group": "keto",
 			"proteinType": "seafood",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -48224,7 +48843,6 @@
 			"id": "source-salmon-with-jalapen-o-lime-butter-keto-low-carb",
 			"key": "source_salmon_with_jalapen_o_lime_butter_keto_low_carb",
 			"title": "Salmon with Jalapeño Lime Butter (keto + low carb)",
-			"group": "keto",
 			"proteinType": "fish",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -48900,7 +49518,6 @@
 			"id": "source-keto-shrimp-and-broccoli-recipe",
 			"key": "source_keto_shrimp_and_broccoli_recipe",
 			"title": "Keto Shrimp and Broccoli Recipe",
-			"group": "keto",
 			"proteinType": "shrimp",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -49264,11 +49881,12 @@
 				}
 			],
 			"nutrition": {
-				"kcal": 170.44089711797884,
-				"protein_g": 25,
-				"carbs_g": 8.19995115808192,
-				"fiber_g": 2.1,
-				"net_carbs_g": 6.09995115808192
+				"kcal": 206.02141779297884,
+				"protein_g": 18.55158913925,
+				"carbs_g": 13.32447004983192,
+				"fiber_g": 1.9587125,
+				"net_carbs_g": 5.365757549831919,
+				"erythritol_g": 6
 			},
 			"familyOptions": [],
 			"attentionSummary": "Follow the cooking flow and check each component at the stated endpoint.",
@@ -49286,7 +49904,7 @@
 				"originalServings": 4,
 				"scaleToFour": 1,
 				"normalizedServings": 4,
-				"nutritionBasis": "Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.",
+				"nutritionBasis": "Complete ingredient-based estimates using measured edible weights and reviewed USDA/manufacturer profiles. Brand proxies and rounded-label limitations are recorded in the ingredient assumptions. Original publisher nutrition is preserved separately.",
 				"sourceYield": [
 					"4"
 				],
@@ -49304,6 +49922,197 @@
 					"sugarContent": "3.2 g"
 				},
 				"nutritionEstimate": {
+					"method": "Measured cooking grams, reduced by explicit edible yield where applicable, times observed nutrients per 100 g. All listed measured ingredients, including optional defaults, are included. No cooking-retention factors.",
+					"estimatedMacroFields": [
+						"kcal",
+						"protein_g",
+						"carbs_g",
+						"fiber_g",
+						"net_carbs_g"
+					],
+					"publisherBaselineFields": [],
+					"ingredientSnapshot": [
+						{
+							"id": "ingredient-1",
+							"name": "olive oil",
+							"amount": 1,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-2",
+							"name": "large shrimp",
+							"amount": 1,
+							"unit": "lb",
+							"state": "shells removed"
+						},
+						{
+							"id": "ingredient-3",
+							"name": "Broccoli florets",
+							"amount": 182,
+							"unit": "g",
+							"state": ""
+						},
+						{
+							"id": "ingredient-4",
+							"name": "red bell pepper",
+							"amount": 1,
+							"unit": "count",
+							"state": "seeded and sliced"
+						},
+						{
+							"id": "ingredient-5",
+							"name": "soy sauce",
+							"amount": 0.25,
+							"unit": "cup",
+							"state": ""
+						},
+						{
+							"id": "ingredient-6",
+							"name": "brown sugar monkfruit",
+							"amount": 24,
+							"unit": "g",
+							"state": ""
+						},
+						{
+							"id": "ingredient-7",
+							"name": "sesame oil",
+							"amount": 2,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-8",
+							"name": "Mizkan unseasoned rice vinegar",
+							"amount": 1,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-9",
+							"name": "minced garlic",
+							"amount": 2,
+							"unit": "tsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-10",
+							"name": "minced ginger",
+							"amount": 1,
+							"unit": "tsp",
+							"state": ""
+						}
+					],
+					"assumptions": [
+						"olive oil: Oil, olive, salad or cooking.",
+						"large shrimp: Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture).",
+						"Broccoli florets: Broccoli, raw.",
+						"red bell pepper: Peppers, sweet, red, raw.",
+						"soy sauce: Soy sauce made from soy and wheat (shoyu), low sodium.",
+						"sesame oil: Oil, sesame, salad or cooking.",
+						"Mizkan unseasoned rice vinegar: Vinegar, cider.",
+						"minced garlic: Garlic, raw.",
+						"minced ginger: Ginger root, raw.",
+						"brown sugar monkfruit: Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations.."
+					]
+				},
+				"preMeasurementNutritionEstimate": {
+					"method": "Ingredient grams × recorded nutrients per 100 g, divided by four portions. No cooking-retention factors; all measured oils and sauces counted. Unmeasured/to-taste additions excluded. Generic-food substitutions and count masses are nutrition-model assumptions, not publisher quantities. Count weights exclude bones. The ingredient snapshot pins the cooking inputs used for this model.",
+					"estimatedMacroFields": [],
+					"assumptions": [
+						"olive oil: model uses Oil, olive, salad or cooking.",
+						"olive oil: 13.5 g edible food per tbsp for nutrition only.",
+						"large shrimp: model uses Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture).",
+						"Broccoli florets: model uses Broccoli, raw.",
+						"Broccoli florets: 91 g edible food per cup for nutrition only.",
+						"red bell pepper: model uses Peppers, sweet, red, raw.",
+						"red bell pepper: 119 g edible food per count for nutrition only.",
+						"soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.",
+						"soy sauce: 255 g edible food per cup for nutrition only.",
+						"Monkfruit sweetener modeled as a zero-digestible-carbohydrate erythritol blend; sugar-containing blends do not match this estimate.",
+						"sesame oil: model uses Oil, olive, salad or cooking.",
+						"sesame oil: 13.5 g edible food per tbsp for nutrition only.",
+						"rice vinegar: model uses Vinegar, cider.",
+						"rice vinegar: 15 g edible food per tbsp for nutrition only.",
+						"minced garlic: model uses Garlic, raw.",
+						"minced garlic: 2.8 g edible food per tsp for nutrition only.",
+						"minced ginger: model uses Ginger root, raw.",
+						"minced ginger: 2 g edible food per tsp for nutrition only."
+					],
+					"ingredientSnapshot": [
+						{
+							"id": "ingredient-1",
+							"name": "olive oil",
+							"amount": 1,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-2",
+							"name": "large shrimp",
+							"amount": 1,
+							"unit": "lb",
+							"state": "shells removed"
+						},
+						{
+							"id": "ingredient-3",
+							"name": "Broccoli florets",
+							"amount": 2,
+							"unit": "cup",
+							"state": "heaping measure"
+						},
+						{
+							"id": "ingredient-4",
+							"name": "red bell pepper",
+							"amount": 1,
+							"unit": "count",
+							"state": "seeded and sliced"
+						},
+						{
+							"id": "ingredient-5",
+							"name": "soy sauce",
+							"amount": 0.25,
+							"unit": "cup",
+							"state": ""
+						},
+						{
+							"id": "ingredient-6",
+							"name": "brown sugar monkfruit",
+							"amount": 2,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-7",
+							"name": "sesame oil",
+							"amount": 2,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-8",
+							"name": "rice vinegar",
+							"amount": 1,
+							"unit": "tbsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-9",
+							"name": "minced garlic",
+							"amount": 2,
+							"unit": "tsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-10",
+							"name": "minced ginger",
+							"amount": 1,
+							"unit": "tsp",
+							"state": ""
+						}
+					]
+				},
+				"preCompleteIngredientNutritionEstimate": {
 					"method": "Measured cooking grams, reduced by explicit edible yield where applicable, times observed nutrients per 100 g. All listed measured ingredients, including optional defaults, are included. No cooking-retention factors.",
 					"estimatedMacroFields": [
 						"kcal",
@@ -49402,102 +50211,6 @@
 						"minced garlic: model uses Garlic, raw.",
 						"minced ginger: model uses Ginger root, raw."
 					]
-				},
-				"preMeasurementNutritionEstimate": {
-					"method": "Ingredient grams × recorded nutrients per 100 g, divided by four portions. No cooking-retention factors; all measured oils and sauces counted. Unmeasured/to-taste additions excluded. Generic-food substitutions and count masses are nutrition-model assumptions, not publisher quantities. Count weights exclude bones. The ingredient snapshot pins the cooking inputs used for this model.",
-					"estimatedMacroFields": [],
-					"assumptions": [
-						"olive oil: model uses Oil, olive, salad or cooking.",
-						"olive oil: 13.5 g edible food per tbsp for nutrition only.",
-						"large shrimp: model uses Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture).",
-						"Broccoli florets: model uses Broccoli, raw.",
-						"Broccoli florets: 91 g edible food per cup for nutrition only.",
-						"red bell pepper: model uses Peppers, sweet, red, raw.",
-						"red bell pepper: 119 g edible food per count for nutrition only.",
-						"soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.",
-						"soy sauce: 255 g edible food per cup for nutrition only.",
-						"Monkfruit sweetener modeled as a zero-digestible-carbohydrate erythritol blend; sugar-containing blends do not match this estimate.",
-						"sesame oil: model uses Oil, olive, salad or cooking.",
-						"sesame oil: 13.5 g edible food per tbsp for nutrition only.",
-						"rice vinegar: model uses Vinegar, cider.",
-						"rice vinegar: 15 g edible food per tbsp for nutrition only.",
-						"minced garlic: model uses Garlic, raw.",
-						"minced garlic: 2.8 g edible food per tsp for nutrition only.",
-						"minced ginger: model uses Ginger root, raw.",
-						"minced ginger: 2 g edible food per tsp for nutrition only."
-					],
-					"ingredientSnapshot": [
-						{
-							"id": "ingredient-1",
-							"name": "olive oil",
-							"amount": 1,
-							"unit": "tbsp",
-							"state": ""
-						},
-						{
-							"id": "ingredient-2",
-							"name": "large shrimp",
-							"amount": 1,
-							"unit": "lb",
-							"state": "shells removed"
-						},
-						{
-							"id": "ingredient-3",
-							"name": "Broccoli florets",
-							"amount": 2,
-							"unit": "cup",
-							"state": "heaping measure"
-						},
-						{
-							"id": "ingredient-4",
-							"name": "red bell pepper",
-							"amount": 1,
-							"unit": "count",
-							"state": "seeded and sliced"
-						},
-						{
-							"id": "ingredient-5",
-							"name": "soy sauce",
-							"amount": 0.25,
-							"unit": "cup",
-							"state": ""
-						},
-						{
-							"id": "ingredient-6",
-							"name": "brown sugar monkfruit",
-							"amount": 2,
-							"unit": "tbsp",
-							"state": ""
-						},
-						{
-							"id": "ingredient-7",
-							"name": "sesame oil",
-							"amount": 2,
-							"unit": "tbsp",
-							"state": ""
-						},
-						{
-							"id": "ingredient-8",
-							"name": "rice vinegar",
-							"amount": 1,
-							"unit": "tbsp",
-							"state": ""
-						},
-						{
-							"id": "ingredient-9",
-							"name": "minced garlic",
-							"amount": 2,
-							"unit": "tsp",
-							"state": ""
-						},
-						{
-							"id": "ingredient-10",
-							"name": "minced ginger",
-							"amount": 1,
-							"unit": "tsp",
-							"state": ""
-						}
-					]
 				}
 			},
 			"flow": {
@@ -49585,7 +50298,6 @@
 			"id": "source-keto-parmesan-tilapia-and-asparagus-for-one",
 			"key": "source_keto_parmesan_tilapia_and_asparagus_for_one",
 			"title": "Keto Parmesan Tilapia and Asparagus for One",
-			"group": "keto",
 			"proteinType": "fish",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -50306,7 +51018,6 @@
 			"id": "source-keto-cajun-shrimp",
 			"key": "source_keto_cajun_shrimp",
 			"title": "Keto Cajun Shrimp",
-			"group": "keto",
 			"proteinType": "shrimp",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -51030,7 +51741,6 @@
 			"id": "source-creamy-chicken-breast-in-spinach-parmesan-sauce",
 			"key": "source_creamy_chicken_breast_in_spinach_parmesan_sauce",
 			"title": "Creamy Chicken Breast in Spinach Parmesan Sauce",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -51814,7 +52524,6 @@
 			"id": "source-one-pan-shrimp-and-asparagus",
 			"key": "source_one_pan_shrimp_and_asparagus",
 			"title": "One Pan Shrimp and Asparagus",
-			"group": "unverified",
 			"proteinType": "shrimp",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -52687,7 +53396,6 @@
 			"id": "source-blackened-shrimp-and-asparagus-skillet-20-minutes",
 			"key": "source_blackened_shrimp_and_asparagus_skillet_20_minutes",
 			"title": "Blackened Shrimp and Asparagus Skillet (20 Minutes)",
-			"group": "unverified",
 			"proteinType": "shrimp",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -53689,7 +54397,6 @@
 			"id": "source-lemon-garlic-butter-chicken-and-green-beans-skillet",
 			"key": "source_lemon_garlic_butter_chicken_and_green_beans_skillet",
 			"title": "Lemon Garlic Butter Chicken and Green Beans Skillet",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -54568,7 +55275,6 @@
 			"id": "source-garlic-butter-chicken-bites-with-lemon-asparagus",
 			"key": "source_garlic_butter_chicken_bites_with_lemon_asparagus",
 			"title": "Garlic Butter Chicken Bites with Lemon Asparagus",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -55504,7 +56210,6 @@
 			"id": "source-creamy-tuscan-salmon-recipe",
 			"key": "source_creamy_tuscan_salmon_recipe",
 			"title": "Creamy Tuscan Salmon Recipe",
-			"group": "unverified",
 			"proteinType": "fish",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -56327,7 +57032,6 @@
 			"id": "source-lemon-garlic-steak-and-broccoli-skillet",
 			"key": "source_lemon_garlic_steak_and_broccoli_skillet",
 			"title": "Lemon Garlic Steak and Broccoli Skillet",
-			"group": "unverified",
 			"proteinType": "beef",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -57227,7 +57931,6 @@
 			"id": "source-one-pan-sausage-veggies",
 			"key": "source_one_pan_sausage_veggies",
 			"title": "One-Pan Sausage Veggies",
-			"group": "unverified",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -58076,7 +58779,6 @@
 			"id": "source-garlic-butter-steak-bites-with-lemon-zucchini-noodles",
 			"key": "source_garlic_butter_steak_bites_with_lemon_zucchini_noodles",
 			"title": "Garlic Butter Steak Bites with Lemon Zucchini Noodles",
-			"group": "unverified",
 			"proteinType": "beef",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -59032,7 +59734,6 @@
 			"id": "source-15-minute-lemon-garlic-butter-steak-with-zucchini-noodles",
 			"key": "source_15_minute_lemon_garlic_butter_steak_with_zucchini_noodles",
 			"title": "15-Minute Lemon Garlic Butter Steak with Zucchini Noodles",
-			"group": "unverified",
 			"proteinType": "beef",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -59966,7 +60667,6 @@
 			"id": "source-garlic-butter-shrimp-and-broccoli-skillet",
 			"key": "source_garlic_butter_shrimp_and_broccoli_skillet",
 			"title": "Garlic Butter Shrimp and Broccoli Skillet",
-			"group": "unverified",
 			"proteinType": "shrimp",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -60890,7 +61590,6 @@
 			"id": "source-sheet-pan-shrimp-fajitas",
 			"key": "source_sheet_pan_shrimp_fajitas",
 			"title": "Sheet Pan Shrimp Fajitas",
-			"group": "unverified",
 			"proteinType": "shrimp",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -61800,7 +62499,6 @@
 			"id": "source-garlic-butter-cod-with-lemon-asparagus-skillet",
 			"key": "source_garlic_butter_cod_with_lemon_asparagus_skillet",
 			"title": "Garlic Butter Cod with Lemon Asparagus Skillet",
-			"group": "unverified",
 			"proteinType": "fish",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -62545,7 +63243,6 @@
 			"id": "source-asado-chicken-breast-with-sauteed-lemon-zucchini",
 			"key": "source_asado_chicken_breast_with_sauteed_lemon_zucchini",
 			"title": "Asado Chicken Breast with Sauteed Lemon Zucchini",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -63409,7 +64106,6 @@
 			"id": "source-garlic-butter-chicken-bites-with-zucchini-noodles",
 			"key": "source_garlic_butter_chicken_bites_with_zucchini_noodles",
 			"title": "Garlic Butter Chicken Bites with Zucchini Noodles",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -64448,7 +65144,6 @@
 			"id": "source-lemon-garlic-butter-baked-cod-fillets",
 			"key": "source_lemon_garlic_butter_baked_cod_fillets",
 			"title": "Lemon Garlic Butter Baked Cod Fillets",
-			"group": "unverified",
 			"proteinType": "fish",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -65265,7 +65960,6 @@
 			"id": "source-lemon-garlic-butter-shrimp-with-zucchini-noodles",
 			"key": "source_lemon_garlic_butter_shrimp_with_zucchini_noodles",
 			"title": "Lemon Garlic Butter Shrimp with Zucchini Noodles",
-			"group": "unverified",
 			"proteinType": "shrimp",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -66101,7 +66795,6 @@
 			"id": "source-creamy-cajun-shrimp-with-sausage",
 			"key": "source_creamy_cajun_shrimp_with_sausage",
 			"title": "Creamy Cajun Shrimp with Sausage",
-			"group": "unverified",
 			"proteinType": "shrimp",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -66972,7 +67665,6 @@
 			"id": "source-garlic-butter-shrimp-with-lemon-parmesan-cauliflower-rice",
 			"key": "source_garlic_butter_shrimp_with_lemon_parmesan_cauliflower_rice",
 			"title": "Garlic Butter Shrimp with Lemon Parmesan Cauliflower Rice",
-			"group": "unverified",
 			"proteinType": "shrimp",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -67906,7 +68598,6 @@
 			"id": "source-cheesy-garlic-burgers-with-lemon-butter-zucchini-noodles",
 			"key": "source_cheesy_garlic_burgers_with_lemon_butter_zucchini_noodles",
 			"title": "Cheesy Garlic Burgers with Lemon Butter Zucchini Noodles",
-			"group": "unverified",
 			"proteinType": "beef",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -68792,7 +69483,6 @@
 			"id": "source-garlic-butter-ground-turkey-with-cauliflower",
 			"key": "source_garlic_butter_ground_turkey_with_cauliflower",
 			"title": "Garlic Butter Ground Turkey with Cauliflower",
-			"group": "unverified",
 			"proteinType": "turkey",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -69683,7 +70373,6 @@
 			"id": "source-garlic-butter-chicken-with-cauliflower-rice",
 			"key": "source_garlic_butter_chicken_with_cauliflower_rice",
 			"title": "Garlic Butter Chicken with Cauliflower Rice",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -70597,7 +71286,6 @@
 			"id": "source-garlic-butter-pork-bites-with-lemon-green-beans",
 			"key": "source_garlic_butter_pork_bites_with_lemon_green_beans",
 			"title": "Garlic Butter Pork Bites with Lemon Green Beans",
-			"group": "unverified",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -71306,7 +71994,6 @@
 			"id": "source-garlic-butter-salmon-with-lemon-asparagus",
 			"key": "source_garlic_butter_salmon_with_lemon_asparagus",
 			"title": "Garlic Butter Salmon with Lemon Asparagus",
-			"group": "unverified",
 			"proteinType": "fish",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -72045,7 +72732,6 @@
 			"id": "source-lemon-garlic-butter-salmon-with-zucchini-noodles",
 			"key": "source_lemon_garlic_butter_salmon_with_zucchini_noodles",
 			"title": "Lemon Garlic Butter Salmon with Zucchini Noodles",
-			"group": "unverified",
 			"proteinType": "fish",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -72676,7 +73362,6 @@
 			"id": "source-lemon-garlic-butter-steak-with-spinach",
 			"key": "source_lemon_garlic_butter_steak_with_spinach",
 			"title": "Lemon Garlic Butter Steak with Spinach",
-			"group": "unverified",
 			"proteinType": "beef",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -73576,7 +74261,6 @@
 			"id": "source-cowboy-butter-chicken-with-zucchini-noodles-15-minute",
 			"key": "source_cowboy_butter_chicken_with_zucchini_noodles_15_minute",
 			"title": "Cowboy Butter Chicken with Zucchini Noodles (15-Minute)",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -74594,7 +75278,6 @@
 			"id": "source-creamy-garlic-pesto-chicken",
 			"key": "source_creamy_garlic_pesto_chicken",
 			"title": "Creamy Garlic Pesto Chicken",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -75460,7 +76143,6 @@
 			"id": "source-garlic-herb-butter-chicken-thighs-with-asparagus",
 			"key": "source_garlic_herb_butter_chicken_thighs_with_asparagus",
 			"title": "Garlic Herb Butter Chicken Thighs with Asparagus",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -76296,7 +76978,6 @@
 			"id": "source-easy-chicken-fajitas",
 			"key": "source_easy_chicken_fajitas",
 			"title": "Easy Chicken Fajitas",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -77109,7 +77790,6 @@
 			"id": "source-easy-cajun-pork-chops-with-lemon-garlic-zucchini",
 			"key": "source_easy_cajun_pork_chops_with_lemon_garlic_zucchini",
 			"title": "Easy Cajun Pork Chops with Lemon Garlic Zucchini",
-			"group": "unverified",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -77844,7 +78524,6 @@
 			"id": "source-creamy-fajita-chicken-breasts-skillet",
 			"key": "source_creamy_fajita_chicken_breasts_skillet",
 			"title": "Creamy Fajita Chicken Breasts Skillet",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -78545,7 +79224,6 @@
 			"id": "source-cheesy-turkey-meatballs-with-cauliflower-rice",
 			"key": "source_cheesy_turkey_meatballs_with_cauliflower_rice",
 			"title": "Cheesy Turkey Meatballs with Cauliflower Rice",
-			"group": "unverified",
 			"proteinType": "turkey",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -79537,7 +80215,6 @@
 			"id": "source-fried-cabbage-with-sausage",
 			"key": "source_fried_cabbage_with_sausage",
 			"title": "Fried Cabbage with Sausage",
-			"group": "unverified",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -80313,7 +80990,6 @@
 			"id": "source-tomato-spinach-chicken-skillet-low-carb-keto",
 			"key": "source_tomato_spinach_chicken_skillet_low_carb_keto",
 			"title": "Tomato Spinach Chicken Skillet (Low Carb - Keto)",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -81181,7 +81857,6 @@
 			"id": "source-paprika-chicken-thighs-with-lemon-zucchini-skillet",
 			"key": "source_paprika_chicken_thighs_with_lemon_zucchini_skillet",
 			"title": "Paprika Chicken Thighs with Lemon Zucchini Skillet",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -82113,7 +82788,6 @@
 			"id": "source-garlic-butter-sausages-and-broccoli-skillet",
 			"key": "source_garlic_butter_sausages_and_broccoli_skillet",
 			"title": "Garlic Butter Sausages and Broccoli Skillet",
-			"group": "unverified",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -82984,7 +83658,6 @@
 			"id": "source-garlic-butter-pork-with-lemon-asparagus",
 			"key": "source_garlic_butter_pork_with_lemon_asparagus",
 			"title": "Garlic Butter Pork with Lemon Asparagus",
-			"group": "unverified",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -84064,7 +84737,6 @@
 			"id": "source-lemon-garlic-butter-chicken-and-zucchini-noodles-skillet",
 			"key": "source_lemon_garlic_butter_chicken_and_zucchini_noodles_skillet",
 			"title": "Lemon Garlic Butter Chicken and Zucchini Noodles Skillet",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -84963,7 +85635,6 @@
 			"id": "source-10-minute-sheet-pan-steak-with-lemon-zucchini",
 			"key": "source_10_minute_sheet_pan_steak_with_lemon_zucchini",
 			"title": "10-Minute Sheet Pan Steak with Lemon Zucchini",
-			"group": "unverified",
 			"proteinType": "beef",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -85734,7 +86405,6 @@
 			"id": "source-creamy-garlic-shrimp-with-spinach-10-minute",
 			"key": "source_creamy_garlic_shrimp_with_spinach_10_minute",
 			"title": "Creamy Garlic Shrimp with Spinach (10-Minute)",
-			"group": "unverified",
 			"proteinType": "shrimp",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -86574,7 +87244,6 @@
 			"id": "source-lemon-garlic-butter-chicken-tenders-recipe",
 			"key": "source_lemon_garlic_butter_chicken_tenders_recipe",
 			"title": "Lemon Garlic Butter Chicken Tenders Recipe",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -87455,7 +88124,6 @@
 			"id": "source-parmesan-chicken-casserole-and-cauliflower-steaks",
 			"key": "source_parmesan_chicken_casserole_and_cauliflower_steaks",
 			"title": "Parmesan Chicken Casserole and Cauliflower Steaks",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -88285,7 +88953,6 @@
 			"id": "source-creamy-ground-beef-and-cauliflower-rice-casserole",
 			"key": "source_creamy_ground_beef_and_cauliflower_rice_casserole",
 			"title": "Creamy Ground Beef and Cauliflower Rice Casserole",
-			"group": "unverified",
 			"proteinType": "beef",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -89239,7 +89906,6 @@
 			"id": "source-15-minute-broccoli-chicken-in-cream-cheese-sundried-tomato-sauce",
 			"key": "source_15_minute_broccoli_chicken_in_cream_cheese_sundried_tomato_sauce",
 			"title": "15-Minute Broccoli Chicken in Cream Cheese Sundried Tomato Sauce",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -89992,7 +90658,6 @@
 			"id": "source-chicken-burrito-bowls-with-cauliflower",
 			"key": "source_chicken_burrito_bowls_with_cauliflower",
 			"title": "Chicken Burrito Bowls with Cauliflower",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -90888,7 +91553,6 @@
 			"id": "source-italian-sausage-with-cilantro-lime-cauliflower-rice",
 			"key": "source_italian_sausage_with_cilantro_lime_cauliflower_rice",
 			"title": "Italian Sausage with Cilantro Lime Cauliflower Rice",
-			"group": "unverified",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -91655,7 +92319,6 @@
 			"id": "source-garlic-butter-turkey-meatballs-with-zucchini-noodles",
 			"key": "source_garlic_butter_turkey_meatballs_with_zucchini_noodles",
 			"title": "Garlic Butter Turkey Meatballs with Zucchini Noodles",
-			"group": "unverified",
 			"proteinType": "turkey",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -92569,7 +93232,6 @@
 			"id": "source-10-minute-pizza-zucchini-noodles-with-marinara-sauce-pepperoni",
 			"key": "source_10_minute_pizza_zucchini_noodles_with_marinara_sauce_pepperoni",
 			"title": "10-Minute Pizza Zucchini Noodles with Marinara Sauce & Pepperoni",
-			"group": "unverified",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -93156,7 +93818,6 @@
 			"id": "source-egg-roll-bowls-with-chicken-and-cabbage",
 			"key": "source_egg_roll_bowls_with_chicken_and_cabbage",
 			"title": "Egg Roll Bowls with Chicken and Cabbage",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -94065,7 +94726,6 @@
 			"id": "source-garlic-butter-sausages-with-lemon-green-beans",
 			"key": "source_garlic_butter_sausages_with_lemon_green_beans",
 			"title": "Garlic Butter Sausages with Lemon Green Beans",
-			"group": "unverified",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -94974,7 +95634,6 @@
 			"id": "source-mexican-cauliflower-rice-with-cheesy-steak-roll-ups",
 			"key": "source_mexican_cauliflower_rice_with_cheesy_steak_roll_ups",
 			"title": "Mexican Cauliflower Rice with Cheesy Steak Roll-Ups",
-			"group": "unverified",
 			"proteinType": "beef",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -96048,7 +96707,6 @@
 			"id": "source-sausage-taco-cauliflower-rice-skillet",
 			"key": "source_sausage_taco_cauliflower_rice_skillet",
 			"title": "Sausage Taco Cauliflower Rice Skillet",
-			"group": "unverified",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -96847,7 +97505,6 @@
 			"id": "source-buttery-garlic-herb-chicken-and-lemon-parmesan-cauliflower-rice",
 			"key": "source_buttery_garlic_herb_chicken_and_lemon_parmesan_cauliflower_rice",
 			"title": "Buttery Garlic Herb Chicken and Lemon Parmesan Cauliflower Rice",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -97973,7 +98630,6 @@
 			"id": "source-garlic-butter-steak-and-green-beans",
 			"key": "source_garlic_butter_steak_and_green_beans",
 			"title": "Garlic Butter Steak and Green Beans",
-			"group": "unverified",
 			"proteinType": "beef",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -98992,7 +99648,6 @@
 			"id": "source-taco-chicken-tenders-with-lemon-garlic-butter-zucchini-noodles",
 			"key": "source_taco_chicken_tenders_with_lemon_garlic_butter_zucchini_noodles",
 			"title": "Taco Chicken Tenders with Lemon Garlic Butter Zucchini Noodles",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -99681,7 +100336,6 @@
 			"id": "source-garlic-butter-herb-pork-chops-with-zucchini",
 			"key": "source_garlic_butter_herb_pork_chops_with_zucchini",
 			"title": "Garlic Butter Herb Pork Chops with Zucchini",
-			"group": "unverified",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -100331,7 +100985,6 @@
 			"id": "source-one-pan-lemon-butter-chicken-with-asparagus",
 			"key": "source_one_pan_lemon_butter_chicken_with_asparagus",
 			"title": "One-Pan Lemon Butter Chicken with Asparagus",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -101091,7 +101744,6 @@
 			"id": "source-italian-sausage-and-peppers-skillet",
 			"key": "source_italian_sausage_and_peppers_skillet",
 			"title": "Italian Sausage and Peppers Skillet",
-			"group": "unverified",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -102144,7 +102796,6 @@
 			"id": "source-beef-and-cauliflower-rice-burrito-bowl",
 			"key": "source_beef_and_cauliflower_rice_burrito_bowl",
 			"title": "Beef and Cauliflower Rice Burrito Bowl",
-			"group": "unverified",
 			"proteinType": "beef",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -103388,7 +104039,6 @@
 			"id": "source-stuffed-chicken-breast-with-mozzarella-and-spinach",
 			"key": "source_stuffed_chicken_breast_with_mozzarella_and_spinach",
 			"title": "Stuffed Chicken Breast with Mozzarella and Spinach",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -104206,7 +104856,6 @@
 			"id": "source-sausage-pepper-and-cauliflower-fried-rice",
 			"key": "source_sausage_pepper_and_cauliflower_fried_rice",
 			"title": "Sausage, Pepper and Cauliflower Fried Rice",
-			"group": "unverified",
 			"proteinType": "pork",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -105215,7 +105864,6 @@
 			"id": "source-creamy-chicken-with-bacon-and-spinach",
 			"key": "source_creamy_chicken_with_bacon_and_spinach",
 			"title": "Creamy Chicken with Bacon and Spinach",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -106090,7 +106738,6 @@
 			"id": "source-sheet-pan-garlic-butter-chicken-and-asparagus",
 			"key": "source_sheet_pan_garlic_butter_chicken_and_asparagus",
 			"title": "Sheet Pan Garlic Butter Chicken and Asparagus",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "oven",
@@ -106800,7 +107447,6 @@
 			"id": "source-grilled-bruschetta-chicken",
 			"key": "source_grilled_bruschetta_chicken",
 			"title": "Grilled Bruschetta Chicken",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -107566,7 +108212,6 @@
 			"id": "source-garlic-lemon-chicken-breasts-with-green-beans",
 			"key": "source_garlic_lemon_chicken_breasts_with_green_beans",
 			"title": "Garlic Lemon Chicken Breasts with Green Beans",
-			"group": "unverified",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "stovetop",
@@ -108276,7 +108921,6 @@
 			"id": "source-basic-keto-chaffle-recipe",
 			"key": "source_basic_keto_chaffle_recipe",
 			"title": "Basic Keto Chaffle Recipe",
-			"group": "keto",
 			"proteinType": "vegetarian",
 			"vegetarian": true,
 			"appliance": "waffle-iron",
@@ -108640,7 +109284,6 @@
 			"id": "source-keto-crack-chicken-slow-cooker",
 			"key": "source_keto_crack_chicken_slow_cooker",
 			"title": "Keto crack chicken (slow cooker)",
-			"group": "keto",
 			"proteinType": "chicken",
 			"vegetarian": false,
 			"appliance": "slow-cooker",

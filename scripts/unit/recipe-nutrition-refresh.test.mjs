@@ -219,3 +219,45 @@ it("USDA refresh recomputes measured household macros and preserves publisher co
 		measured.recipes[0].measurementNutritionBaseline,
 	);
 });
+
+it("USDA refresh preserves a reviewed brand fat observation on a generic micronutrient proxy", () => {
+	const branded = {
+		...structuredClone(row),
+		nutrientSources: { fat: "https://example.com/brand-label" },
+	};
+	const result = refreshModels(
+		{ ...model, recipes: { one: [branded] } },
+		{ ...recipes, recipes: [] },
+		new Map([[123, food]]),
+		"2026-10-15",
+	);
+	assert.equal(result.nutrition.recipes.one[0].nutrients.fat, 2);
+	assert.equal(result.nutrition.recipes.one[0].nutrients.iron, 3);
+});
+
+it("USDA refresh accepts an explicitly reviewed branded proxy and preserves documented erythritol", () => {
+	const measuredRecipe = structuredClone(recipes.recipes[0]);
+	measuredRecipe.measurementNutritionBaseline = { ...measuredRecipe.nutrition };
+	measuredRecipe.familyOptions = [];
+	const brandedRow = {
+		...structuredClone(row),
+		reviewedDataType: "Branded",
+		macros: { ...row.macros, erythritol_g: 1 },
+		measurementBaseline: { grams: row.grams, macros: { ...row.macros } },
+	};
+	const brandedFood = structuredClone(food);
+	brandedFood.dataType = "Branded";
+	brandedFood.foodNutrients.push(
+		{ nutrient: { id: 1003, unitName: "g" }, amount: 2 },
+		{ nutrient: { id: 1005, unitName: "g" }, amount: 3 },
+	);
+	const result = refreshModels(
+		{ ...model, recipes: { one: [brandedRow] } },
+		{ ...recipes, recipes: [measuredRecipe] },
+		new Map([[123, brandedFood]]),
+		"2026-10-15",
+	);
+	assert.equal(result.recipes.recipes[0].nutrition.kcal, 20);
+	assert.equal(result.recipes.recipes[0].nutrition.erythritol_g, 1);
+	assert.equal(result.recipes.recipes[0].nutrition.net_carbs_g, 2);
+});

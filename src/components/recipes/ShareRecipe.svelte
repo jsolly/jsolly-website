@@ -3,7 +3,7 @@
 	import Button from "../../lib/components/ui/button.svelte";
 	import { recipeHref } from "./recipe-url.mjs";
 
-	// Shares the recipe link with the reader's servings and family side: the
+	// Shares the recipe link with the reader's servings and optional side: the
 	// share sheet where there is one, else the clipboard, else the link itself.
 	let { recipe, settings, disabled = false } = $props();
 	let message = $state("");

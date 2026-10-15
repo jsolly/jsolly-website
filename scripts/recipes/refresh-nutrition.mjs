@@ -54,12 +54,19 @@ export function refreshModels(nutrition, recipes, foods, retrievedAt) {
 			if (
 				!food ||
 				food.fdcId !== id ||
-				!["SR Legacy", "Survey (FNDDS)"].includes(food.dataType)
+				!(row.reviewedDataType === "Branded"
+					? food.dataType === "Branded"
+					: ["SR Legacy", "Survey (FNDDS)"].includes(food.dataType))
 			)
 				throw new Error(`Missing reviewed SR Legacy/FNDDS record ${id}`);
 			// Refresh the existing observation set only. Deliberate omissions (including
 			// the sausage proxy's outlier iron) must not be silently reintroduced.
 			for (const key of Object.keys(row.nutrients)) {
+				if (
+					row.nutrientSources?.[key] &&
+					row.nutrientSources[key] !== row.source
+				)
+					continue;
 				const nutrient = result.nutrients.find((entry) => entry.key === key);
 				if (!nutrient) throw new Error(`Unknown nutrient ${key}`);
 				const amount = observation(food, nutrient.usdaId, nutrient.unit);
@@ -133,7 +140,7 @@ export function refreshModels(nutrition, recipes, foods, retrievedAt) {
 		refreshedRows,
 		skippedRows,
 		policy:
-			"Existing reviewed SR Legacy/FNDDS matches and observation sets only; no rematching, new zeros, cooking-retention factors or changes to edible weights. Brand/composite profiles, fortified yeast, assumed macro fields, omega-3 observations and supported publisher macros retained.",
+			"Existing reviewed SR Legacy/FNDDS and explicitly reviewed Branded matches and observation sets only; no rematching, new zeros, cooking-retention factors or changes to edible weights. Brand/composite profiles, fortified yeast, assumed macro fields, omega-3 observations and supported publisher macros retained.",
 	};
 	result.apiRefresh = receipt;
 	return { nutrition: result, recipes: recipeResult, receipt };

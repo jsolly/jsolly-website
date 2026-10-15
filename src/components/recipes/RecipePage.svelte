@@ -3,7 +3,6 @@
 	import NativeSelect from "../../lib/components/ui/native-select.svelte";
 	import { BASE_SERVINGS, SERVING_CHOICES } from "./constants.mjs";
 	import RecipeContent from "./RecipeContent.svelte";
-	import RecipeDownload from "./RecipeDownload.svelte";
 	import RecipePrintButton from "./RecipePrintButton.svelte";
 	import { validateSettings } from "./recipe-logic.mjs";
 	import { collectionReturn } from "./recipe-navigation.mjs";
@@ -13,8 +12,8 @@
 	import UnitControl from "./UnitControl.svelte";
 	import { readUnitPreference, replaceUnitURL, writeUnitPreference } from "./unit-preference.mjs";
 
-	// Render the controls before hydration, disabled until their handlers are
-	// ready. Native fallbacks live in noscript and never get replaced on load.
+	// Keep preference-dependent content hidden until URL and saved settings
+	// are resolved. The no-JavaScript stylesheet reveals the static fallback.
 	let { recipe } = $props();
 	const servingsId = $props.id();
 	let interactive = $state(false);
@@ -70,7 +69,7 @@
 	});
 </script>
 
-<div class="recipe-page">
+<div class="recipe-page" data-preferences-ready={interactive} aria-busy={!interactive}>
 	<section class="recipe-detail print-document" id={recipe.id}>
 		<div class="toolbar">
 			<a href={returnUrl || `/recipes/${collection}/`} onclick={(event) => { if (returnUrl && history.length > 1 && event.button === 0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) { event.preventDefault(); history.back(); } }}>← Back to {returnUrl.startsWith("/recipes/?") || returnUrl === "/recipes/" || returnUrl.startsWith("/recipes/#") ? "recipes" : collection}</a>
@@ -87,7 +86,6 @@
 			{/snippet}
 		</RecipeContent>
 		<div class="recipe-enhanced"><ShareRecipe {recipe} {settings} disabled={!interactive} /></div>
-		<RecipeDownload recipes={[recipe]} {settings} disabled={!interactive} />
 		<noscript><div class="share"><a href={`/recipes/${recipe.id}/`}>Share recipe link</a></div></noscript>
 		<p role="status">{message}</p>
 	</section>

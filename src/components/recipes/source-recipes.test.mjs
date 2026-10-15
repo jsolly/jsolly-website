@@ -4,6 +4,8 @@ import { matchesRecipe } from "./nutrient-filters.mjs";
 import nutritionData from "./nutrition-data.json" with { type: "json" };
 import { documentMarkdown, recipeDocument } from "./recipe-export.mjs";
 import {
+	dietaryClass,
+	displayNutrition,
 	formatIngredient,
 	formatNutrition,
 	ingredientAmount,
@@ -64,14 +66,19 @@ it("publisher adaptations retain their IDs, attribution and nutrition provenance
 	}
 });
 
-it("every recipe has macros and publisher estimates retain ingredient evidence without granting keto eligibility", () => {
+it("every recipe has macros and publisher estimates retain ingredient evidence with base-derived dietary eligibility", () => {
 	for (const recipe of data.recipes) {
 		for (const value of Object.values(recipe.nutrition))
 			assert.ok(Number.isFinite(value), recipe.id);
 		assert.ok(
 			Math.abs(
 				recipe.nutrition.net_carbs_g -
-					Math.max(0, recipe.nutrition.carbs_g - recipe.nutrition.fiber_g),
+					Math.max(
+						0,
+						recipe.nutrition.carbs_g -
+							recipe.nutrition.fiber_g -
+							(recipe.nutrition.erythritol_g ?? 0),
+					),
 			) < 0.000001,
 			recipe.id,
 		);
@@ -136,15 +143,12 @@ it("every recipe has macros and publisher estimates retain ingredient evidence w
 			);
 		}
 	}
-	for (const recipe of adapted.filter(
-		(candidate) => candidate.group === "unverified",
-	)) {
+	for (const recipe of adapted)
 		assert.equal(
-			matchesRecipe(recipe, 4, { carb: ["keto"] }),
-			false,
+			dietaryClass(recipe),
+			displayNutrition(recipe).net_carbs_g <= 12.5 ? "keto" : "nonketo",
 			recipe.id,
 		);
-	}
 });
 
 it("every cooking ingredient is measured while missing source amounts remain provenance", () => {
@@ -208,19 +212,30 @@ it("missing publisher times stay absent in exported cooking documents", () => {
 
 it("expanded protein, meal style and starch filters use the canonical recipe fields", () => {
 	const imported = data.recipes.filter((recipe) => recipe.sourceRecipe);
-	for (const key of ["proteinType", "group"]) {
-		for (const value of new Set(imported.map((recipe) => recipe[key]))) {
-			const options =
-				key === "proteinType" ? { protein: [value] } : { carb: [value] };
-			assert.deepEqual(
-				imported
-					.filter((recipe) => matchesRecipe(recipe, 4, options))
-					.map((recipe) => recipe.id),
-				imported
-					.filter((recipe) => recipe[key] === value)
-					.map((recipe) => recipe.id),
-			);
-		}
+	for (const value of new Set(imported.map((recipe) => recipe.proteinType))) {
+		assert.deepEqual(
+			imported
+				.filter((recipe) => matchesRecipe(recipe, 4, { protein: [value] }))
+				.map((recipe) => recipe.id),
+			imported
+				.filter((recipe) => recipe.proteinType === value)
+				.map((recipe) => recipe.id),
+		);
+	}
+	for (const value of ["keto", "nonketo"]) {
+		assert.deepEqual(
+			imported
+				.filter((recipe) => matchesRecipe(recipe, 4, { carb: [value] }))
+				.map((recipe) => recipe.id),
+			imported
+				.filter(
+					(recipe) =>
+						(displayNutrition(recipe).net_carbs_g <= 12.5
+							? "keto"
+							: "nonketo") === value,
+				)
+				.map((recipe) => recipe.id),
+		);
 	}
 	for (const starch of new Set(imported.flatMap((recipe) => recipe.starches))) {
 		assert.deepEqual(

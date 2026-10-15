@@ -1,15 +1,16 @@
 <script>
-	import { groupBadges } from "./constants.mjs";
+	import { dietaryLabels } from "./constants.mjs";
 	import NutritionPills from "./NutritionPills.svelte";
 	import RecipeAttribution from "./RecipeAttribution.svelte";
 	import RecipeBody from "./RecipeBody.svelte";
+	import { dietaryClass } from "./recipe-logic.mjs";
 
 	// One cooking document for pages, dialogs and printed card/collection packets.
 	let { recipe, settings, interactive = true, printOnly = false, headingLevel = 2, onSideChange, title, controls } = $props();
 </script>
 
 <div class="recipe-content">
-	{#if groupBadges[recipe.group] && recipe.group !== "nonketo"}<span class="badge">{groupBadges[recipe.group]}</span>{/if}
+	<span class="badge">{dietaryLabels[dietaryClass(recipe)]}</span>
 	{#if title}{@render title()}{:else}<h1 class="print-title">{recipe.title}</h1>{/if}
 	<NutritionPills {recipe} servings={settings.servings} />
 	<p class="detail-summary">{recipe.summary}</p>

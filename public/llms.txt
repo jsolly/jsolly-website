@@ -28,6 +28,14 @@ How to fetch:
 3. For a missing page path (no file extension) or `.md` sibling, expect HTTP 404 with a Markdown recovery body (sitemap, this file, contact); a missing file returns the site's HTML 404.
 4. To reach John, use [Contact](https://www.jsolly.com/contact/) — there is no public email published here.
 
+## Recipe data
+
+- [Complete recipe library (JSON)](https://www.jsolly.com/recipes/data/recipe-library.json): schemaVersion 2; find a recipe by its stable `recipeId`. Includes measured ingredients, cooking steps and dependency flow, equipment, allergens, source attribution and nutrition assumptions.
+- [Complete recipe library (Markdown)](https://www.jsolly.com/recipes/data/recipe-library.md): the same recipes as readable text. For one recipe, prefer its smaller `/recipes/<recipe-id>.md` document, advertised by the HTML page's `rel="alternate"` link.
+- Static documents use four servings in US measures and no optional side. URL query parameters do not scale these documents. Use each recipe's recorded portion label; smoothies report nutrition per estimated 8 fl oz (237 mL) glass.
+- Keto means at most 12.5 g net carbohydrates per base serving. Optional sides have separate per-person nutrition and do not change the base classification. Nutrition is estimated from reviewed ingredient profiles; preserve the source, brand-proxy and preparation limitations when answering.
+- Human recipe pages keep data access in head metadata rather than download controls. No authentication or browser interaction is needed to read these files.
+
 ## Pages
 
 - [Home](https://www.jsolly.com/): intro, work focus, testimonials

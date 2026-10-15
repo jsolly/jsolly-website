@@ -9,7 +9,11 @@ import {
 	starchOptions,
 } from "./constants.mjs";
 import { dailyNutrition, recordedOmega3 } from "./nutrition.mjs";
-import { ingredientAmount, validateSettings } from "./recipe-logic.mjs";
+import {
+	dietaryClass,
+	ingredientAmount,
+	validateSettings,
+} from "./recipe-logic.mjs";
 
 const immuneNutrients = new Set([
 	"vitamin_a",
@@ -113,7 +117,7 @@ export function matchesRecipe(
 		selectedMatches(protein, recipe.proteinType) &&
 		(!vegetarian || recipe.vegetarian === true) &&
 		(!dumpAndGo || recipe.dumpAndGo === true) &&
-		selectedMatches(carb, recipe.group) &&
+		selectedMatches(carb, dietaryClass(recipe)) &&
 		(!starch.length || starch.some((type) => recipe.starches.includes(type))) &&
 		(!immune || flags.immune) &&
 		(!iron || flags.iron) &&

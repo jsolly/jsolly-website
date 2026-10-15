@@ -18,7 +18,7 @@ after(async () => {
 const ready = (page) =>
 	page.waitForFunction(() => !document.querySelector("astro-island[ssr]"));
 const SERVINGS = /^Servings/u;
-const FAMILY_SIDE = /^Family side/u;
+const FAMILY_SIDE = /^Add a side/u;
 const ORIGIN = "https://recipe-preview.example.test";
 const recipeId = "shawarma-chicken-bowls";
 

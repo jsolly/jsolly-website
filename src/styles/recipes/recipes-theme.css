@@ -17,8 +17,6 @@
 		--recipe-warm: #f1dfb7;
 		--recipe-input-border: var(--color-primary-500);
 		--recipe-badge: #e3ead8;
-		--recipe-badge-shared: #ede1c8;
-		--recipe-badge-nonketo: #e8e3f0;
 		--recipe-family: #f1ecd9;
 		--recipe-flow-paper: var(--color-card);
 		--recipe-flow-ink: var(--color-text-primary);
@@ -39,8 +37,6 @@
 			--recipe-warm: #4b4028;
 			--recipe-input-border: var(--color-primary-500);
 			--recipe-badge: #34452e;
-			--recipe-badge-shared: #4b402c;
-			--recipe-badge-nonketo: #41364d;
 			--recipe-family: #3c3b2b;
 			--recipe-flow-paper: var(--color-card);
 			--recipe-flow-ink: var(--color-text-primary);
@@ -66,5 +62,14 @@
 		html:is([data-recipe-print], :has(.recipe-page)) .reading-section {
 			max-width: none;
 		}
+	}
+}
+
+@layer blog {
+	/* Reveal the resolved preferences and their dependent content together.
+	   Visibility reserves the server-rendered layout and removes pending controls
+	   from keyboard navigation. The noscript sheet reveals the static fallback. */
+	[data-preferences-ready="false"] {
+		visibility: hidden;
 	}
 }

@@ -23,7 +23,7 @@ const RECIPES = new URL(
 const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
 const smoothies = recipes.filter((recipe) => recipe.type === "smoothie");
 const meals = recipes.filter((recipe) => recipe.type === "meal");
-const FAMILY_SIDE = /^Family side/u;
+const FAMILY_SIDE = /^Add a side/u;
 const SERVINGS = /^Servings/u;
 const PITA = "pita_one";
 const SHAWARMA = "shawarma-chicken-bowls";
@@ -435,11 +435,9 @@ for (const operation of ["getItem", "setItem"]) {
 	});
 }
 
-it("a saved family side its recipe no longer offers falls back to the recipe's first side everywhere", {
+it("a saved optional side its recipe no longer offers defaults to none everywhere", {
 	timeout: 60_000,
 }, async () => {
-	const shawarma = recipes.find((recipe) => recipe.id === SHAWARMA);
-	const [first] = shawarma.familyOptions;
 	const { page, errors, close } = await openPage({
 		initScript: ([key, saved]) => {
 			if (!sessionStorage.getItem("seeded")) {
@@ -461,13 +459,11 @@ it("a saved family side its recipe no longer offers falls back to the recipe's f
 				side: await takeover
 					.getByRole("combobox", { name: FAMILY_SIDE })
 					.inputValue(),
-				sideShown: (
-					await takeover.locator(".family-box p").first().textContent()
-				).includes(first.label),
+				sideShown: await takeover.locator(".family-box p").count(),
 				cardStarch: new URL(cardHref, site.origin).searchParams.get("starch"),
 				errors,
 			},
-			{ side: first.id, sideShown: true, cardStarch: null, errors: [] },
+			{ side: "", sideShown: 0, cardStarch: null, errors: [] },
 		);
 	} finally {
 		await close();

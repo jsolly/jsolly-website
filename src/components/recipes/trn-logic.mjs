@@ -156,14 +156,13 @@ export function flowGrid(recipe, settings = {}) {
 			text: op.action,
 		});
 	for (const r of rows) r.cells.sort((a, b) => a.col - b.col);
-	const option =
-		recipe.familyOptions?.find(
-			(o) => o.id === settings.familyChoice?.[recipe.id],
-		) || recipe.familyOptions?.[0];
+	const option = recipe.familyOptions?.find(
+		(o) => o.id === settings.familyChoice?.[recipe.id],
+	);
 	const side =
 		option && familyDiners > 0
 			? [
-					"Warm the family side per package near the end of cooking; serve separately.",
+					"Warm the optional side per package near the end of cooking; serve separately.",
 				]
 			: [];
 	const pressure = recipe.ingredients
