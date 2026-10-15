@@ -386,9 +386,18 @@ served. It precaches one complete snapshot: every file under `dist/recipes/`
 file those pages load (scripts, styles, fonts, images, the favicon and the
 `<noscript>` stylesheets). The cache name hashes the snapshot and bundled worker
 policy, so changing a precached file or its serving logic gives a new snapshot.
+The generated worker carries each file's SHA-256 body digest and expected decoded
+byte count, and validates both before installation can complete. Downloads and
+cache validation run at most eight files at once, with a 15-second limit per file.
+An oversized stream stops when it exceeds that file's build size; a failed batch
+aborts and settles its remaining requests before cleanup or retry. A deployment changing during the
+batch cannot silently mix old HTML with newer data or assets: mismatches fail the
+install and preserve the active snapshot. A rollback reuses an already-active
+matching cache only after validation, without overwriting its live clients' data.
 
-The recipe status is visible while offline and hidden when the connection returns.
-It describes the cached snapshot and reminds readers that external links need a connection.
+The recipe status is visible while offline, when an update is ready, or when saving
+or applying an update fails. It describes the cached snapshot and reminds readers
+that external links need a connection.
 
 - **Serving.** Precached paths are answered cache-first. GET and HEAD requests
   for known recipe pages select HTML or Markdown using the shared Accept
@@ -404,18 +413,41 @@ It describes the cached snapshot and reminds readers that external links need a 
   `/recipes.md` sibling is precached for controlled recipe clients, but it lies
   outside the `/recipes/` scope: opening that URL directly does not give it an
   offline service-worker controller.
-- **Updates.** A new snapshot downloads on a connected visit and waits until
-  every recipe tab and app window has closed, then takes over on reopening and
-  deletes the older caches. Nothing reloads mid-recipe. A failed download leaves
-  the previous snapshot in place and the page reports the failure; it never
-  claims offline readiness it does not have.
+- **Updates.** A new snapshot downloads on a connected visit or a throttled visible, online
+  check on focus, reconnection or the five-minute timer. An **Update available**
+  notice offers **Update and reload**, which activates the downloaded worker and
+  reloads the requesting tab after the new worker controls it. The ready snapshot
+  can be applied offline. Other open recipe tabs retain their cooking view and show
+  a notice with the same button to reload when ready. **Later** collapses the
+  actions; **Show update** reopens them. A distinct release restores the notice.
+  Actual unsaved cooking checks require confirmation; cancelling preserves them
+  and focus. Reload resets those checks in that tab; saved preferences and URL
+  settings survive. Without a click,
+  the worker still waits until every recipe tab and app window closes. First install
+  never reloads. Before activation and after control changes, a bounded
+  MessageChannel handshake verifies the intended full release SHA. Activation
+  requests are release-specific and accepted only from recipe WindowClients.
+  A newer candidate requires a fresh choice. Previous snapshots retain per-client
+  ownership for deferred assets and mutable downloads while older recipe documents
+  stay open, including across worker restarts. Persisted activation generations
+  retain the correct predecessor through rollbacks independently of cache creation
+  order. The separate `recipe-pages-pwa-ownership` cache records active and waiting
+  snapshot ownership across worker restarts. Short browser locks protect those
+  records and retirement; downloads run outside the lock. A waiting rollback
+  snapshot stays owned even when its last historical document closes. Snapshots
+  retire only after no live document, active worker or waiting candidate needs
+  them and a current-release client reports readiness. A failed download keeps the
+  previous snapshot; a failed activation reports a retryable error rather than
+  leaving a disabled button indefinitely. Existing clients from before this notice
+  was introduced need one close-and-reopen cycle to receive its code.
 - **Maintenance builds.** A `MAINTENANCE_MODE=true` build writes no worker, and
   RecipeLayout links no app manifest. An installed worker's update check then gets
   a 404, which leaves it and its cache as they were, so offline cooking keeps
   working through the maintenance window instead of precaching the maintenance
   page. Any other build whose `/recipes/` page links no manifest fails.
 - **Headers.** `vercel.json` serves the worker with `Cache-Control: no-cache`, so
-  update checks always reach the network.
+  update checks always reach the network. `/release.json` has `Cache-Control:
+  no-store` and is excluded from worker responses.
 
 The worker exists only in a production build: the client does nothing under
 `astro dev`. Verify offline behaviour with `npm run build && npm run preview`, or

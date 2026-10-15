@@ -1,0 +1,18 @@
+---
+import { buildReleaseSha } from "../lib/build-release.js";
+import Button from "../lib/components/ui/button.svelte";
+
+const enabled = !import.meta.env.DEV && import.meta.env.VERCEL_ENV !== "preview";
+---
+{enabled && <aside id="site-update-notice" class="update-notice" data-release={buildReleaseSha()} aria-label="Website update" hidden>
+	<p role="status">Update available. A new version of this website is ready.</p>
+	<div id="site-update-details">
+	<p>Reload when you are ready. Unsaved changes in this tab will reset.</p>
+	<Button id="site-update-button">Update and reload</Button>
+	<Button id="site-update-later" variant="outline">Later</Button>
+	</div>
+	<div id="site-update-reopen" hidden><Button id="site-update-show" variant="outline">Show update</Button></div>
+</aside>}
+<script>
+	import "../lib/site-update-client.mjs";
+</script>

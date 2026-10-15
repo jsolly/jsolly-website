@@ -75,3 +75,49 @@ prove infrastructure adoption. Never bypass a dirty-infrastructure deploy refusa
 Repository instructions and access rules are maintained here. Personal home
 configuration and optional global skills remain separate and are not installed,
 removed or overwritten by repo setup.
+
+## Website updates
+
+Production pages embed the same full build SHA as `/release.json`. That endpoint
+has `Cache-Control: no-store`. The shared notice validates the same-origin JSON
+response, full SHA and final URL, with an eight-second timeout. Connected visible
+tabs check at startup, on foreground/reconnect events (coalesced to one minute),
+and at a five-minute interval with jitter. Failures back off up to thirty minutes;
+hidden/offline tabs stop their timers and unload removes listeners.
+
+A different SHA offers **Update and reload**. **Later** collapses the actions;
+**Show update** reopens them. Dismissal belongs to that release, so a distinct
+release announces again. A click rechecks the target; a newer target requires a
+second choice. Actual dirty forms or cooking checks require confirmation, and
+cancelling preserves the tab. No check automatically reloads a page. A reload
+that still receives the old shell leaves a manual retry notice instead of looping.
+Development, opt-in Previews and maintenance omit the notice.
+
+Controlled recipe pages use the downloaded-snapshot workflow in
+[recipe operations](recipes.md). Vercel cache purges do not invalidate those browser
+snapshots. Runtime, fixtures and release tests are owned by this repository.
+
+Ordinary-page old-asset retention remains an unresolved acceptance gap. The
+portfolio/blog use hashed Astro assets, but there is no verified guarantee that
+an A-only chunk remains reachable through the production alias after B deploys.
+Their A/B fixtures test release detection/reload, not changed asset retention.
+[Vercel Skew Protection](https://vercel.com/docs/skew-protection) requires both
+project support and deployment-pinned requests; deployment retention alone does
+not prove this alias behavior. Recipe-controlled clients have the versioned
+snapshot routing described above. Do not claim equivalent protection for an
+ordinary tab that has not finished loading its assets.
+
+The gate's built browser tests serve distinct releases A, B and C at one origin.
+They exercise first installation, explicit multi-tab activation, postponement and
+reopening, dirty cooking confirmation, third-release races, invalid metadata,
+timeouts, stale reloads, and hidden/offline polling. The recipe suite also uses
+the actual previously deployed worker source as an inert fixture, checking old
+mutable data and A-only deferred assets after B activation. A previously deployed
+shell without this detector still needs one initial close-and-reopen cycle.
+
+Acceptance evidence must distinguish executed browser cases from source review:
+first install, two-tab update, delayed/failed install, offline application, old
+assets/data, user-work confirmation, accessibility at both viewports/themes,
+dismissal/C, metadata failures, request ordering, lifecycle races, retry recovery,
+polling cleanup, rollback/scope isolation, and prior-client migration. Authentication
+is absent on this public site. Do not infer full coverage from a fresh B visit.
