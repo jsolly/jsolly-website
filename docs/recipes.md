@@ -310,7 +310,7 @@ quantities, food states, dependency cells, steps, sources, restrictions and
 estimates; the Markdown is the same documents as text. The browser's Download Markdown and Download JSON controls export the current collection or
 recipe with the selected servings, units and family side, including offline. The
 static endpoints keep the fixed defaults above, as do canonical `.md` pages.
-Print and these files use one `recipeDocument` from `recipe-export.mjs`. The files are committed, and Biome and markdownlint skip
+These files use one `recipeDocument` from `recipe-export.mjs`. Screen and print cooking content share `RecipeContent.svelte`. The files are committed, and Biome and markdownlint skip
 `public/recipes/data/` so their bytes stay exactly what the script writes. The
 gate's `recipes:check` fails on drift, so run `recipes:sync` after every edit to
 `recipes.json` and commit the result with it.
@@ -322,7 +322,7 @@ There is no generated article: the pages render straight from `recipes.json`
 
 The information link beside Ingredient units opens `/recipes/assumptions/`,
 which explains approximate conversions and the unit modes. Recipe browsing
-keeps this explanation off the cooking view; print and assistant downloads
+keeps this explanation off the cooking view; assistant downloads
 retain the full measurement policy. Print recipe uses a filled button with a
 printer icon, and download actions label their document-format icons.
 
@@ -455,3 +455,9 @@ meat and unverified cheese recipes are excluded. No current meal is verified
 vegan. Vegetarian and plant-forward are not protein choices. The saved
 `mealStyle` key also stores the vegetarian dietary preference. Carbs clears by
 unticking choices; other multi-choice filters disable Clear selections when empty.
+
+Recipe pages print their on-screen cooking content directly. Card and collection
+print packets use the same RecipeContent renderer. Print changes layout and hides
+controls and photos; it adds no separate method, ingredient list, background
+notes or disclaimers. Measurement assumptions remain on their linked page and
+in Markdown/JSON downloads.

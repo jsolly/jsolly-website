@@ -21,6 +21,7 @@
 		recipe,
 		settings,
 		interactive = true,
+		printOnly = false,
 		headingLevel = 3,
 		onSideChange,
 	} = $props();
@@ -71,14 +72,14 @@
 	{#if side}
 		<div class="family-box">
 			<label for={sideId}
-				>Family side<NativeSelect id={sideId} value={selectedSide} disabled={!interactive} onchange={(event) => onSideChange?.(event.currentTarget.value)}>
+				>Family side{#if printOnly}<span>{side.label}</span>{:else}<NativeSelect id={sideId} value={selectedSide} disabled={!interactive} onchange={(event) => onSideChange?.(event.currentTarget.value)}>
 					{#each recipe.familyOptions as option (option.id)}<option value={option.id}>{option.label}</option>{/each}
-				</NativeSelect></label
+				</NativeSelect>{/if}</label
 			>
 			<p>{sideAmount} {side.ingredientName} · serve separately</p>
 		</div>
 	{/if}
-	{#key recipe.id}<RecipeFlow {recipe} {settings} {interactive} {headingLevel} />{/key}
+	{#key recipe.id}<RecipeFlow {recipe} {settings} {interactive} {printOnly} {headingLevel} />{/key}
 	<section class="nutrition" aria-label={nutritionHeading(recipe)}>
 		<svelte:element this={`h${headingLevel}`}>Nutrition</svelte:element><p class="nutrition-portion">{nutritionHeading(recipe).replace(/^Nutrition /u, "")}</p>
 		<dl>
@@ -88,7 +89,7 @@
 			<div><dt>Fiber</dt><dd>{formatNutrition(baseNutrition.fiber_g, "g")}</dd></div>
 			<div><dt>Net carbs <NutritionHelp topic="net-carbs" /></dt><dd>{formatNutrition(baseNutrition.net_carbs_g, "g")}</dd></div>
 		</dl>
-		{#key recipe.id}<NutrientDisclosure nutrients={dailyValues} {interactive} headingLevel={headingLevel + 1} />{/key}
+		{#key recipe.id}<NutrientDisclosure nutrients={dailyValues} {interactive} {printOnly} headingLevel={headingLevel + 1} />{/key}
 	</section>
 </div>
 

@@ -1,12 +1,9 @@
 <script>
 	import { onMount } from "svelte";
 	import NativeSelect from "../../lib/components/ui/native-select.svelte";
-	import { BASE_SERVINGS, groupBadges, SERVING_CHOICES } from "./constants.mjs";
-	import NutritionPills from "./NutritionPills.svelte";
-	import RecipeAttribution from "./RecipeAttribution.svelte";
-	import RecipeBody from "./RecipeBody.svelte";
+	import { BASE_SERVINGS, SERVING_CHOICES } from "./constants.mjs";
+	import RecipeContent from "./RecipeContent.svelte";
 	import RecipeDownload from "./RecipeDownload.svelte";
-	import RecipePrint from "./RecipePrint.svelte";
 	import RecipePrintButton from "./RecipePrintButton.svelte";
 	import { validateSettings } from "./recipe-logic.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
@@ -70,29 +67,26 @@
 </script>
 
 <div class="recipe-page">
-	<section class="recipe-detail" id={recipe.id}>
+	<section class="recipe-detail print-document" id={recipe.id}>
 		<div class="toolbar">
 			<a href={`/recipes/${collection}/`}>← Back to {collection}</a>
 			<RecipePrintButton {recipe} {settings} class="recipe-enhanced" disabled={!interactive} onPrint={print} />
 		</div>
-		{#if groupBadges[recipe.group] && recipe.group !== "nonketo"}<span class="badge">{groupBadges[recipe.group]}</span>{/if}
-		<h1>{recipe.title}</h1>
-		<NutritionPills {recipe} servings={settings.servings} />
-		<p class="detail-summary">{recipe.summary}</p>
-		<RecipeAttribution {recipe} />
+		<RecipeContent {recipe} {settings} {interactive} onSideChange={setSide}>
+			{#snippet controls()}
 			<label class="servings recipe-enhanced" for={servingsId}
 				>Servings<NativeSelect id={servingsId} value={settings.servings} disabled={!interactive} onchange={(event) => setServings(event.currentTarget.value)}>
 					{#each SERVING_CHOICES as choice (choice)}<option value={choice}>{choice}</option>{/each}
 				</NativeSelect></label
 			>
 		<UnitControl units={settings.units} onUnitsChange={setUnits} disabled={!interactive} />
-		<RecipeBody {recipe} {settings} {interactive} headingLevel={2} onSideChange={setSide} />
+			{/snippet}
+		</RecipeContent>
 		<div class="recipe-enhanced"><ShareRecipe {recipe} {settings} disabled={!interactive} /></div>
 		<RecipeDownload recipes={[recipe]} {settings} disabled={!interactive} />
 		<noscript><div class="share"><a href={`/recipes/${recipe.id}/`}>Share recipe link</a></div></noscript>
 		<p role="status">{message}</p>
 	</section>
-	<div class="print-output"><RecipePrint recipes={[recipe]} {settings} /></div>
 </div>
 
 <style>
@@ -100,17 +94,6 @@
 	   blog stays last whichever stylesheet the browser reads first. */
 	@layer properties, theme, base, components, utilities, blog, blog-no-script;
 	@layer blog {
-		.print-output {
-			display: none;
-		}
-		@media print {
-			.print-output {
-				display: block;
-			}
-			.recipe-detail {
-				display: none;
-			}
-		}
 		.recipe-detail {
 			background: var(--recipe-paper);
 			color: var(--recipe-ink);
@@ -119,7 +102,6 @@
 			padding: 28px;
 			font: 16px/1.4 var(--font-body);
 		}
-		.detail-summary { margin: 10px 0 4px; line-height: 1.4; }
 		.servings {
 			display: flex;
 			gap: 10px;
@@ -144,17 +126,6 @@
 		}
 		a {
 			color: var(--recipe-accent);
-		}
-		h1 {
-			font: 600 clamp(2rem, 4vw, 3rem) / 1.13 var(--font-heading);
-			margin: 14px 0 10px;
-		}
-		.badge {
-			display: inline-block;
-			background: var(--recipe-badge);
-			padding: 4px 10px;
-			border-radius: 4px;
-			font-size: 0.75rem;
 		}
 		.share {
 			margin-top: 24px;

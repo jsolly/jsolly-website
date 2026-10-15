@@ -10,13 +10,6 @@ export const groupBadges = {
 	nonketo: "Not Keto",
 	unverified: null,
 };
-/** Each recipe group's label in the printed copy. */
-export const printGroupLabels = {
-	keto: "Keto",
-	shared: "Keto main + family starch",
-	nonketo: "Not Keto",
-	unverified: "Nutrition estimated",
-};
 /** The servings a reader can choose. */
 export const SERVING_CHOICES = [2, 4, 6, 8];
 

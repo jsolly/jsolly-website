@@ -4,10 +4,7 @@
 	import DialogContent from "../../lib/components/ui/dialog-content.svelte";
 	import DialogDescription from "../../lib/components/ui/dialog-description.svelte";
 	import DialogTitle from "../../lib/components/ui/dialog-title.svelte";
-	import NutritionPills from "./NutritionPills.svelte";
-	import RecipeAttribution from "./RecipeAttribution.svelte";
-	import RecipeBadge from "./RecipeBadge.svelte";
-	import RecipeBody from "./RecipeBody.svelte";
+	import RecipeContent from "./RecipeContent.svelte";
 	import RecipeDownload from "./RecipeDownload.svelte";
 	import RecipePrintButton from "./RecipePrintButton.svelte";
 	import ShareRecipe from "./ShareRecipe.svelte";
@@ -44,13 +41,11 @@
 		onCloseAutoFocus={(event) => event.preventDefault()}
 		><section class="recipe-detail" id={recipe.id} aria-labelledby="recipe-detail-title">
 			<div class="detail-toolbar"><Button variant="ghost" type="button" class="text-button" onclick={() => onBack()}>← Back to recipes</Button><RecipePrintButton {recipe} {settings} class="print-recipe" {onPrint} /></div>
-			<RecipeBadge group={recipe.group} class="detail-badge" />
-			<DialogTitle id="recipe-detail-title" tabindex={-1} bind:ref={heading}>{recipe.title}</DialogTitle>
-			<NutritionPills {recipe} servings={settings.servings} />
-			<DialogDescription class="detail-summary">{recipe.summary}</DialogDescription>
-			<RecipeAttribution {recipe} />
-			<UnitControl units={settings.units} {onUnitsChange} />
-			<RecipeBody {recipe} {settings} {onSideChange} />
+			<DialogDescription class="visually-hidden">{recipe.summary}</DialogDescription>
+			<RecipeContent {recipe} {settings} headingLevel={3} {onSideChange}>
+				{#snippet title()}<DialogTitle id="recipe-detail-title" tabindex={-1} bind:ref={heading}>{recipe.title}</DialogTitle>{/snippet}
+				{#snippet controls()}<UnitControl units={settings.units} {onUnitsChange} />{/snippet}
+			</RecipeContent>
 			<ShareRecipe {recipe} {settings} />
 			<RecipeDownload recipes={[recipe]} {settings} />
 		</section></DialogContent
@@ -110,20 +105,10 @@
 			padding: 8px 3px;
 			font-size: 0.85rem;
 		}
-		.recipe-detail :global(.detail-badge) {
-			display: inline-block;
-			margin-bottom: 12px;
-		}
 		.recipe-detail :global(h2) {
 			font: 600 clamp(2rem, 4vw, 3rem) / 1.13 var(--font-heading);
 			max-width: 800px;
 			margin: 14px 0 10px;
-		}
-		.recipe-detail :global(.detail-summary) {
-			max-width: 700px;
-			line-height: 1.4;
-			margin: 10px 0 4px;
-			color: var(--recipe-muted);
 		}
 		@media (max-width: 600px) {
 			:global(.recipe-takeover) {

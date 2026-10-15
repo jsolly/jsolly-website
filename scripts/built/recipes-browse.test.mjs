@@ -48,14 +48,15 @@ const PITA_SIDE = /1.06 lb Pita/u;
 const EIGHT_SERVINGS_CHICKEN = /3 lb/u;
 const RICE_SIDE = /5.64 oz Cooked rice/u;
 const TWO_SERVINGS_CHICKEN = /11.99 oz/u;
-const BEFORE_YOU_START = /Before you start/u;
-const COOK = /Cook/u;
 const SMOOTHIE_YIELD = /up to two servings/u;
 const GLASS_NUTRITION = /Nutrition\s*per 8 oz glass/u;
 const EIGHT_SERVINGS_WATER = /27.05 fl oz Cold water/u;
 const EIGHT_SERVINGS = /8\s+servings/u;
 // Longer than the help popover's 120ms close delay.
 const HELP_CLOSE_WAIT_MS = 400;
+const COOKING_FLOW = /Cooking flow/u;
+const REMOVED_PRINT_SECTIONS =
+	/Before you start|Where your attention goes|First-cook checks/u;
 const LEARN_MORE = "Learn more about Tabular Recipe Notation";
 // biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
 const NATIVE_CHECKBOX = "input[type=checkbox]:visible";
@@ -319,10 +320,10 @@ function detailsCheck(width) {
 				.click();
 			await page.emulateMedia({ media: "print" });
 			assert.equal(await page.locator(".print-document").isVisible(), true);
-			assert.equal(await page.locator(".recipe-detail").isVisible(), false);
+			assert.equal(await page.locator(".recipe-detail").isVisible(), true);
 			const printed = await page.locator(".print-document").textContent();
-			assert.match(printed, BEFORE_YOU_START);
-			assert.match(printed, COOK);
+			assert.match(printed, COOKING_FLOW);
+			assert.doesNotMatch(printed, REMOVED_PRINT_SECTIONS);
 			const borders = await page
 				.locator(".print-document .trn-table")
 				.evaluate((table) => {

@@ -19,7 +19,7 @@ after(async () => {
 	await site?.close();
 });
 
-const METRIC_SIX = /6 servings.*Metric/su;
+const SIX_SERVINGS = /6 servings/su;
 const PROTEINS = /^Proteins:/u;
 const SMOOTHIE = /smoothie/iu;
 
@@ -115,7 +115,7 @@ function verifyLibrary(width) {
 			);
 			assert.match(
 				await page.locator(".print-output").textContent(),
-				METRIC_SIX,
+				SIX_SERVINGS,
 			);
 			assert.equal(await page.getByRole("dialog").count(), 0);
 			await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));

@@ -26,7 +26,7 @@ import {
 } from "./recipe-logic.mjs";
 import { flowGrid, gridHtml } from "./trn-logic.mjs";
 
-/** One cooking document drives print and assistant exports. Model weights stay in recipes.json. */
+/** One cooking document drives Markdown and JSON assistant exports. Model weights stay in recipes.json. */
 export function recipeDocument(recipe, settings = {}) {
 	const smoothie = recipe.type === "smoothie";
 	const valid = validateSettings(settings);
@@ -152,7 +152,7 @@ export function recipeDocument(recipe, settings = {}) {
 	};
 }
 const HEADING_MARKS = /^(?<marks>#{1,6}) /gmu;
-export const nutritionSummary = (n) =>
+const nutritionSummary = (n) =>
 	`Calories: ${formatNutrition(n.kcal, "kcal")}; protein: ${formatNutrition(n.protein_g, "g", 1)}; total carbs: ${formatNutrition(n.carbs_g, "g", 1)}; fiber: ${formatNutrition(n.fiber_g, "g", 1)}; net carbs: ${formatNutrition(n.net_carbs_g, "g", 1)}`;
 export function documentMarkdown(d, headingLevel = 1) {
 	const lines = [

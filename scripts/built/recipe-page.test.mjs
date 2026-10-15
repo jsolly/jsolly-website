@@ -9,6 +9,8 @@ import recipeData from "../../src/components/recipes/recipes.json" with {
 };
 import { collectErrors, serveStatic } from "./pages.mjs";
 
+const PRINT_ONLY_COPY =
+	/Before you start|Where your attention goes|First-cook checks|These recipes include household adaptations/u;
 const OMITTED_PREPARATION = /^Check\b.*°[FC]|^For larger servings,/iu;
 
 // A built recipe page (/recipes/<id>/) in Chromium, with and without
@@ -39,9 +41,7 @@ const FAMILY_SIDE = /^Family side/u;
 const SPACES = /\s+/gu;
 const LEARN_MORE = "Learn more about Tabular Recipe Notation";
 const MISSING_TOTAL = /Not provided ready in/u;
-const PRINT_MISSING_TOTAL = /Total time: Not provided/u;
 const KNOWN_TOTAL = /80 min ready in/u;
-const PRINT_KNOWN_TOTAL = /Total time: 80 min/u;
 const RANCH = recipeData.recipes.find(
 	(recipe) => recipe.id === "source-keto-slow-cooker-zesty-ranch-chicken",
 );
@@ -63,8 +63,8 @@ for (const width of [390, 1280]) {
 				MISSING_TOTAL,
 			);
 			assert.match(
-				await page.locator(".print-document .total-time").textContent(),
-				PRINT_MISSING_TOTAL,
+				await page.locator(".print-document .detail-facts").textContent(),
+				MISSING_TOTAL,
 			);
 			assert.equal(
 				await page.locator(".source-credit a").getAttribute("href"),
@@ -109,8 +109,8 @@ for (const width of [390, 1280]) {
 				KNOWN_TOTAL,
 			);
 			assert.match(
-				await page.locator(".print-document .total-time").textContent(),
-				PRINT_KNOWN_TOTAL,
+				await page.locator(".print-document .detail-facts").textContent(),
+				KNOWN_TOTAL,
 			);
 			await page.getByRole("combobox", { name: SERVINGS }).selectOption("8");
 			assert.equal(
@@ -257,7 +257,10 @@ it("mobile flow preserves ordered operations, allocation leaves and cooking chec
 			await page.locator(".print-document .trn-frame").isVisible(),
 			true,
 		);
-		assert.equal(await page.locator(".print-document .mobile-flow").count(), 0);
+		assert.equal(
+			await page.locator(".print-document .mobile-flow").isVisible(),
+			false,
+		);
 		await page.emulateMedia({ media: "screen" });
 		const plain = await browser.newContext({
 			javaScriptEnabled: false,
@@ -335,7 +338,7 @@ async function openHydrated(path, { initScript } = {}) {
 
 // Registers the no-JavaScript and hydrated page checks for one recipe page.
 function pageChecks({ kind, id, familySides }) {
-	it(`without JavaScript the page for ${kind} offers native checkboxes, a vitamins details disclosure and a share link, with the print copy hidden`, async () => {
+	it(`without JavaScript the page for ${kind} offers native checkboxes, a vitamins details disclosure and a share link, with one shared cooking document`, async () => {
 		const context = await browser.newContext({ javaScriptEnabled: false });
 		try {
 			const page = await context.newPage();
@@ -374,7 +377,7 @@ function pageChecks({ kind, id, familySides }) {
 					familySelect: familySides,
 					shareLink: `/recipes/${id}/`,
 					shareButton: 0,
-					printCopyShown: false,
+					printCopyShown: true,
 					methodLink: "https://www.cookingforengineers.com/",
 				},
 			);
@@ -513,7 +516,11 @@ it("Print recipe prints only the recipe copy and restores the page once printing
 				document.documentElement.getAttribute("data-recipe-print"),
 			),
 			copyShown: await page.locator(".print-document").isVisible(),
-			printControls: await page.locator(".print-document button").count(),
+			printControls: await page
+				.locator(
+					".print-document button:visible:not(.nutrient-trigger):not(.nutrition-info)",
+				)
+				.count(),
 			paperChecks: await page
 				.locator(".print-document .trn-ingredient")
 				.evaluateAll(
@@ -555,7 +562,7 @@ it("Print recipe prints only the recipe copy and restores the page once printing
 				copyShown: true,
 				printControls: 0,
 				paperChecks: true,
-				pageHidden: true,
+				pageHidden: false,
 				breadcrumbsHidden: true,
 				headerHidden: true,
 				mobileNavigationHidden: true,
@@ -811,3 +818,134 @@ for (const scenario of [
 	},
 ])
 	recipeShareFailureCheck(scenario);
+
+// Compare exact cooking strings, excluding controls and responsive duplicates.
+const cookingCopy = (root) =>
+	root.evaluate((rootElement) => {
+		const content = rootElement.cloneNode(true);
+		for (const fallback of content.querySelectorAll("noscript"))
+			fallback.remove();
+		const fields = [
+			".badge",
+			"h1",
+			".nutrition-pills",
+			".detail-summary",
+			".source-credit",
+			".detail-facts",
+			".family-box p",
+			".trn-prep",
+			".trn-table .ingredient-name",
+			".trn-table .trn-ingredient strong",
+			".trn-table .trn-ingredient small",
+			".trn-operation",
+			".nutrition > h2, .nutrition > h3",
+			".nutrition-portion",
+			".nutrition > dl",
+			".nutrient-disclosure small",
+		];
+		return fields.map((selector) =>
+			Array.from(
+				content.querySelectorAll(selector),
+				(element) => element.textContent,
+			),
+		);
+	});
+
+// biome-ignore-start lint/performance/noAwaitInLoops: ordered browser navigation in isolated viewport contexts.
+it("screen, page printing and card packets use identical cooking copy", {
+	timeout: 120_000,
+}, async () => {
+	for (const width of [390, 1280]) {
+		const context = await browser.newContext({
+			viewport: { width, height: 984 },
+			reducedMotion: "reduce",
+			serviceWorkers: "block",
+		});
+		await context.addInitScript(() => {
+			window.print = () => {
+				/* Stub the native print dialog; assertions inspect print media. */
+			};
+		});
+		const page = await context.newPage();
+		try {
+			for (const id of [
+				"lemon-salmon-and-asparagus",
+				RECIPE,
+				"strawberry-banana-smoothie",
+			]) {
+				await page.goto(
+					`${site.origin}/recipes/${id}/?servings=6&units=metric`,
+				);
+				await page.waitForFunction(
+					() => !document.querySelector("astro-island[ssr]"),
+				);
+				const content = page.locator(".recipe-content");
+				await content.getByRole("button", { name: VITAMINS }).click();
+				await content
+					.locator(".nutrient-content")
+					.waitFor({ state: "visible" });
+				const expected = await cookingCopy(content);
+				await content.evaluate((element) => {
+					window.screenRecipe = element;
+					window.screenRecipeText = element.textContent;
+				});
+				await page
+					.getByRole("button", { name: "Print recipe", exact: true })
+					.click();
+				await page.emulateMedia({ media: "print" });
+				assert.equal(
+					await page
+						.locator(".print-document .recipe-content")
+						.evaluate(
+							(element) =>
+								element === window.screenRecipe &&
+								element.textContent === window.screenRecipeText,
+						),
+					true,
+				);
+				assert.deepEqual(
+					await cookingCopy(page.locator(".print-document .recipe-content")),
+					expected,
+				);
+				assert.equal(await page.locator(".print-output").count(), 0);
+				assert.equal(
+					await content.locator(".nutrient-content").isVisible(),
+					true,
+				);
+				await page.evaluate(() =>
+					window.dispatchEvent(new Event("afterprint")),
+				);
+				await page.emulateMedia({ media: "screen" });
+				await page.goto(
+					`${site.origin}/recipes/${id.includes("smoothie") ? "smoothies" : "meals"}/`,
+				);
+				await page.waitForFunction(
+					() => !document.querySelector("astro-island[ssr]"),
+				);
+				await page
+					.getByRole("combobox", { name: "Servings", exact: true })
+					.selectOption("6");
+				await page
+					.getByRole("combobox", { name: "Ingredient units" })
+					.selectOption("metric");
+				const card = page
+					.locator(".recipe-card")
+					.filter({ has: page.locator(`[data-recipe-id="${id}"]`) });
+				await card
+					.getByRole("button", { name: "Print recipe", exact: true })
+					.click();
+				const packet = page.locator(".print-output .recipe-content");
+				await packet.waitFor({ state: "attached" });
+				assert.deepEqual(await cookingCopy(packet), expected);
+				assert.doesNotMatch(await packet.textContent(), PRINT_ONLY_COPY);
+				await page.evaluate(() =>
+					window.dispatchEvent(new Event("afterprint")),
+				);
+			}
+		} finally {
+			await context.close();
+		}
+	}
+});
+
+// biome-ignore-end lint/performance/noAwaitInLoops: ordered browser navigation.

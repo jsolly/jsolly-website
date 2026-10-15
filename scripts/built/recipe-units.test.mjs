@@ -110,7 +110,7 @@ function verifyUnits(width) {
 
 			await page.emulateMedia({ media: "print" });
 			assert.match(
-				await page.locator(".print-document .ingredient-list").textContent(),
+				await page.locator(".print-document .trn-table").textContent(),
 				GRAMS,
 			);
 			await page.emulateMedia({ media: "screen" });

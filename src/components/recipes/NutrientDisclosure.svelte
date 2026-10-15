@@ -6,7 +6,7 @@
 
 	// The vitamins and minerals behind a disclosure, highest daily value first;
 	// the trigger previews the top three. Without JavaScript it is a <details>.
-	let { nutrients, interactive = true, headingLevel = 4 } = $props();
+	let { nutrients, interactive = true, printOnly = false, headingLevel = 4 } = $props();
 	const visibleNutrients = $derived(
 		nutrients
 			.filter((nutrient) => nutrient.percent !== 0)
@@ -28,6 +28,9 @@
 		{/each}
 	</dl>
 {/snippet}
+{#if printOnly}
+	<div class="nutrient-disclosure"><svelte:element this={`h${headingLevel}`} class="nutrient-heading">Vitamins &amp; minerals<small>{preview}</small></svelte:element></div>
+{:else}
 	<CollapsibleRoot class="nutrient-disclosure recipe-enhanced" disabled={!interactive}>
 		<svelte:element this={`h${headingLevel}`} class="nutrient-heading"
 			><CollapsibleTrigger class="nutrient-trigger">
@@ -42,6 +45,7 @@
 <noscript>
 	<details class="nutrient-disclosure"><summary>Vitamins &amp; minerals<small>{preview}</small></summary>{@render stats()}</details>
 </noscript>
+{/if}
 
 <style>
 	/* Every recipe stylesheet declares the full order (as the blog sheets do), so
