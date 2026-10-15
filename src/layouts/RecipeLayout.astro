@@ -22,12 +22,13 @@ interface Props {
 	title: string;
 	description: string;
 	article?: boolean;
+	noindex?: boolean;
 }
 
-const { title, description, article = false } = Astro.props;
+const { title, description, article = false, noindex = false } = Astro.props;
 ---
 
-<BlogLayout section="recipes" {title} {description} {article}>
+<BlogLayout section="recipes" {title} {description} {article} {noindex}>
 	<Fragment slot="head">
 		<noscript><link rel="stylesheet" href={noScriptStyles} /></noscript>
 		<link rel="manifest" href={`${PWA_FILES_PATH}manifest.webmanifest`} />

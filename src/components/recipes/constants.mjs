@@ -3,6 +3,8 @@
 
 /** Recipe ingredient amounts and timings are written for this many adults. */
 export const BASE_SERVINGS = 4;
+/** Cards appended per scroll or load-more action. */
+export const RECIPE_BATCH_SIZE = 24;
 /** Each recipe group's badge on its page. */
 export const groupBadges = {
 	keto: "Keto",
@@ -99,7 +101,12 @@ export const carbStyles = {
 	shared: "Shared Main",
 	unverified: "Nutrition estimated",
 };
-export const dietaryPreferences = { ...carbStyles, vegetarian: "Vegetarian" };
+export const dietaryPreferences = {
+	keto: carbStyles.keto,
+	shared: carbStyles.shared,
+	unverified: carbStyles.unverified,
+	vegetarian: "Vegetarian",
+};
 export const mealStyleDescriptions = {
 	vegetarian: "Meals without meat or fish; eggs and dairy may be included.",
 	all: "Keto meals, higher-carb meals, and shared mains with different sides.",
@@ -127,6 +134,7 @@ export const DEFAULT_FILTERS = {
 	immuneSupport: false,
 	ironRich: false,
 	omega3: false,
+	dumpAndGo: false,
 };
 /** Each nutrition filter's threshold, as the nutrition help states it. */
 export const nutritionThresholds = {

@@ -6,6 +6,7 @@
 		BASE_SERVINGS,
 		DEFAULT_FILTERS,
 		defaultAppliances,
+		RECIPE_BATCH_SIZE,
 		STORAGE_KEY,
 	} from "./constants.mjs";
 	import LibraryControls from "./LibraryControls.svelte";
@@ -20,6 +21,7 @@ import RecipeDownload from "./RecipeDownload.svelte";
 	import RecipePrint from "./RecipePrint.svelte";
 	import RecipeTakeover from "./RecipeTakeover.svelte";
 	import { shuffleRecipes, validateSettings } from "./recipe-logic.mjs";
+	import { listVisit } from "./recipe-navigation.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
 	import { createRecipeSearch } from "./recipe-search.mjs";
 	import { readRecipeURL, recipeHref } from "./recipe-url.mjs";
@@ -81,6 +83,7 @@ import RecipeDownload from "./RecipeDownload.svelte";
 					? []
 					: [filters.mealStyle],
 		vegetarian: collection === "meal" && filters.mealStyle === "vegetarian",
+		dumpAndGo: collection === "meal" && filters.dumpAndGo,
 		starch: collection === "meal" ? filters.starchChoice : [],
 		ingredients: collection === "smoothie" ? filters.ingredientChoice : [],
 		immune: filters.immuneSupport,
@@ -96,8 +99,43 @@ import RecipeDownload from "./RecipeDownload.svelte";
 		),
 	);
 	const visibleRecipes = $derived(shuffledRanks ? matchingRecipes.toSorted((a, b) => shuffledRanks.get(a.id) - shuffledRanks.get(b.id)) : matchingRecipes);
-	function shuffleCards() {
-		shuffledOrder = shuffleRecipes(recipes).map((recipe) => recipe.id);
+	let page = $state({ key: "", limit: RECIPE_BATCH_SIZE });
+	const browseKey = $derived(JSON.stringify([collection, query, filterSettings, shuffledOrder]));
+	const cardLimit = $derived(page.key === browseKey ? page.limit : RECIPE_BATCH_SIZE);
+	const renderedRecipes = $derived(hydrated ? visibleRecipes.slice(0, cardLimit) : visibleRecipes);
+	let shuffling = $state(false);
+	let skeleton = $state(null);
+	let shuffleAnimation;
+	function loadMore() {
+		page = { key: browseKey, limit: Math.min(recipes.length, cardLimit + RECIPE_BATCH_SIZE) };
+	}
+	async function loadMoreCards() {
+		const firstNewCard = renderedRecipes.length;
+		loadMore();
+		await tick();
+		libraryElement?.querySelectorAll(".recipe-card .title-button")[firstNewCard]?.focus();
+	}
+	function watchMore(node) {
+		if (!("IntersectionObserver" in window)) return;
+		const observer = new IntersectionObserver((entries) => {
+			if (entries.some((entry) => entry.isIntersecting)) loadMore();
+		}, { rootMargin: "300px" });
+		observer.observe(node);
+		return () => observer.disconnect();
+	}
+	async function shuffleCards() {
+		if (shuffling) return;
+		shuffling = true;
+		await tick();
+		try {
+			if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && skeleton) {
+				shuffleAnimation = skeleton.animate([{ opacity: 0.35 }, { opacity: 1 }], { duration: 180, easing: "ease-out" });
+				await shuffleAnimation.finished;
+			}
+			shuffledOrder = shuffleRecipes(recipes).map((recipe) => recipe.id);
+		} catch (error) {
+			if (!(error instanceof DOMException && error.name === "AbortError")) throw error;
+		} finally { shuffling = false; shuffleAnimation = undefined; }
 	}
 	const current = $derived(recipes.find((recipe) => recipe.id === recipeId));
 	// What the cards, the dialog and the print copy show each recipe with.
@@ -224,7 +262,10 @@ import RecipeDownload from "./RecipeDownload.svelte";
 		restoreSettings();
 		readURL();
 		setCollection(collection);
+		const visit = listVisit(history.state, recipes);
+		if (visit) { query = visit.query; shuffledOrder = visit.order; page = { key: browseKey, limit: visit.limit }; }
 		hydrated = true;
+		if (visit && !recipeId) void tick().then(() => window.scrollTo({ top: visit.scrollY, behavior: "instant" }));
 		if (recipeId) void openRecipe(recipeId);
 		const stopPrint = printSession.listen();
 		const hash = () => {
@@ -232,9 +273,13 @@ import RecipeDownload from "./RecipeDownload.svelte";
 			if (recipes.some((recipe) => recipe.id === id)) void openRecipe(id);
 			else if (recipeId) void backToResults(false);
 		};
+		const saveVisit = () => history.replaceState({ ...history.state, recipeList: { scrollY: window.scrollY, query, limit: cardLimit, order: shuffledOrder ? [...shuffledOrder] : null } }, "");
+		window.addEventListener("pagehide", saveVisit);
 		window.addEventListener("hashchange", hash);
 		return () => {
+			window.removeEventListener("pagehide", saveVisit);
 			window.removeEventListener("hashchange", hash);
+			shuffleAnimation?.cancel();
 			stopPrint();
 		};
 	});
@@ -272,14 +317,18 @@ import RecipeDownload from "./RecipeDownload.svelte";
 		bind:appliancesOnHand
 	/>
 
-	<div class="browse" id="meal-results">
-		<div class="results-heading"><h2 bind:this={listHeading} tabindex="-1">{collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2><Button variant="outline" type="button" disabled={!hydrated || visibleRecipes.length < 2} onclick={shuffleCards}><Shuffle aria-hidden="true" />Shuffle recipes</Button></div>
+	<div class="browse" id="meal-results" data-match-count={visibleRecipes.length} aria-busy={shuffling}>
+		<div class="results-heading"><h2 bind:this={listHeading} tabindex="-1">{collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2><Button variant="outline" type="button" disabled={!hydrated || shuffling || visibleRecipes.length < 2} onclick={shuffleCards}><Shuffle aria-hidden="true" />Shuffle recipes</Button></div>
 		<p class="no-results" role="status">{hydrated ? !visibleRecipes.length ? NO_RESULTS : query.trim() ? `${visibleRecipes.length} ${visibleRecipes.length === 1 ? "recipe" : "recipes"} found` : "" : ""}</p>
-		<div class="recipe-grid">
-			{#each visibleRecipes as recipe (recipe.id)}
+		<div class="card-stage">
+		{#if shuffling}<div class="recipe-grid shuffle-skeleton" bind:this={skeleton} aria-hidden="true">{#each [0, 1, 2] as placeholder (placeholder)}<div class="skeleton-card"><div class="skeleton-photo"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div><div class="skeleton-button"></div></div>{/each}</div><span class="visually-hidden" role="status">Shuffling recipes</span>{/if}
+		<div class="recipe-grid" class:shuffling inert={shuffling}>
+			{#each renderedRecipes as recipe (recipe.id)}
 				<RecipeCard {recipe} servings={recipeSettings.servings} settings={recipeSettings} onPrint={() => print("recipe", recipe.id)} disabled={!hydrated} href={recipeHref(recipe, recipeSettings)} />
 			{/each}
 		</div>
+		</div>
+		{#if hydrated && renderedRecipes.length < visibleRecipes.length}<div class="load-more" {@attach watchMore}><Button variant="outline" type="button" onclick={loadMoreCards}>Load more recipes</Button><p>{renderedRecipes.length} of {visibleRecipes.length} recipes shown</p></div>{/if}
 	</div>
 
 	{#if current}
@@ -433,6 +482,17 @@ import RecipeDownload from "./RecipeDownload.svelte";
 			scroll-margin-top: 1rem;
 		}
 
+		.card-stage { position: relative; }
+		.shuffling { visibility: hidden; opacity: 0; pointer-events: none; }
+		.shuffle-skeleton { position: absolute; inset: 0; overflow: hidden; }
+		.skeleton-card { border: 1px solid var(--recipe-line); border-radius: 16px; padding: 20px; background: var(--recipe-paper); align-self: start; }
+		.skeleton-photo, .skeleton-line, .skeleton-button { background: var(--recipe-soft); border-radius: 8px; }
+		.skeleton-photo { aspect-ratio: 4 / 3; margin-bottom: 24px; }
+		.skeleton-line { height: 24px; margin-bottom: 12px; }
+		.skeleton-line.short { width: 65%; }
+		.skeleton-button { height: 48px; margin-top: 48px; }
+		.load-more { text-align: center; padding: 24px 0; }
+		.load-more p { color: var(--recipe-muted); font-size: .85rem; }
 		.recipe-grid {
 			display: grid;
 			grid-template-columns: repeat(3, minmax(0, 1fr));

@@ -234,15 +234,18 @@ const FULL_REUSE_PAGES = [
 	"/blog/",
 	"/blog/works-cited/",
 	"/blog/search/",
-	// Recipe collections retain the build's card order through hydration.
-	"/recipes/meals/",
-	"/recipes/",
 ];
 // Also compare a recipe page against the unprocessed build. Greek
 // turkey patties has a family side, so its island includes the side select.
 // Its title and flow table are not replaced, so they must survive hydration
 // whatever the parity count says.
+const COLLECTION_STABLE =
+	".library-controls *, .recipe-card:nth-child(-n+24), .recipe-card:nth-child(-n+24) *";
 const PARITY_PAGES = [
+	// Collections remove later cards after hydration for progressive loading.
+	// Controls and the first 24 cards must still hydrate in place.
+	{ path: "/recipes/meals/", stable: COLLECTION_STABLE },
+	{ path: "/recipes/", stable: COLLECTION_STABLE },
 	{ path: "/recipes/greek-turkey-patties/", stable: "h1, .trn-view table" },
 ];
 
@@ -298,7 +301,7 @@ for (const path of FULL_REUSE_PAGES) {
 }
 
 for (const { path, stable } of PARITY_PAGES) {
-	it(`a visitor opening ${path} gets its islands hydrated as the unprocessed build hydrates them, keeping its title and flow table`, async (t) => {
+	it(`a visitor opening ${path} gets its islands hydrated as the unprocessed build hydrates them, keeping its stable UI`, async (t) => {
 		const { shipped, report, expected } = await compareReuse(path, t, stable);
 		assert.deepEqual(
 			report,

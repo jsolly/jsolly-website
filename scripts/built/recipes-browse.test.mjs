@@ -25,7 +25,7 @@ const RECIPES = new URL(
 const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
 const meals = recipes.filter((recipe) => recipe.type === "meal");
 const mealCount = meals.length;
-const MEAL_STYLES = ["keto", "nonketo", "shared", "all"];
+const MEAL_STYLES = ["keto", "shared", "all"];
 // The meals that need both air fryers.
 const AIR_FRYER_MEALS = recipes
 	.filter((recipe) => recipe.appliancesNeeded.includes("Two air fryers"))
@@ -172,7 +172,7 @@ function detailsCheck(width) {
 			}
 			assert.equal(
 				await page.getByText("Net carbs per serving", { exact: true }).count(),
-				mealCount,
+				await page.locator(".recipe-card").count(),
 			);
 			assert.equal(
 				await page.locator(".time-number").filter({ hasText: "+" }).count(),
@@ -358,16 +358,28 @@ function filtersCheck(width) {
 		const errors = collectErrors(page);
 		const checkbox = (name) =>
 			page.getByRole("checkbox", { name, exact: true });
-		const cards = () => page.locator(".recipe-card").count();
+		const cards = () =>
+			page
+				.locator("#meal-results")
+				.getAttribute("data-match-count")
+				.then(Number);
 		const mealStyle = page.getByRole("combobox", {
 			name: "Dietary preference",
 		});
-		const shownIds = () =>
-			page
+		const shownIds = async () => {
+			await page.evaluate(async () => {
+				while (document.querySelector(".load-more button")) {
+					document.querySelector(".load-more button").click();
+					// biome-ignore lint/performance/noAwaitInLoops: each batch must render before the next load action.
+					await new Promise(requestAnimationFrame);
+				}
+			});
+			return page
 				.locator(".recipe-card a.title-button")
 				.evaluateAll((links) =>
 					links.map((link) => link.dataset.recipeId).sort(),
 				);
+		};
 		try {
 			await page.goto(`${site.origin}${LANDING}`);
 			await hydrated(page);
@@ -397,7 +409,11 @@ function filtersCheck(width) {
 				await mealStyle
 					.locator("option")
 					.evaluateAll((options) => options.map((option) => option.value)),
-				["all", ...Object.keys(carbStyles), "vegetarian"],
+				[
+					"all",
+					...Object.keys(carbStyles).filter((key) => key !== "nonketo"),
+					"vegetarian",
+				],
 			);
 			await mealStyle.selectOption("vegetarian");
 			assert.deepEqual(
@@ -435,7 +451,7 @@ function filtersCheck(width) {
 				await mealStyle
 					.locator("option:disabled")
 					.evaluateAll((options) => options.map((option) => option.value)),
-				["nonketo", "vegetarian"],
+				["vegetarian"],
 			);
 			await page.getByRole("button", { name: CARBS }).click();
 			assert.equal(
@@ -445,12 +461,8 @@ function filtersCheck(width) {
 			assert.equal(await checkbox("No starch").count(), 0);
 			await checkbox("Bread").check();
 			await page.keyboard.press("Escape");
-			await page
-				.getByRole("combobox", { name: "Pressure cookers count", exact: true })
-				.selectOption("0");
-			await page
-				.getByRole("combobox", { name: "Air fryers count", exact: true })
-				.selectOption("0");
+			await checkbox("Pressure cookers").uncheck();
+			await checkbox("Air fryers").uncheck();
 			await checkbox("Oven").uncheck();
 			await checkbox("Microwave").uncheck();
 			// Imported meals may use a blender and pans with an explicit heat source.
@@ -556,9 +568,9 @@ function filtersCheck(width) {
 				page.getByRole("link", { name: "← Back to smoothies", exact: true }),
 				"**/recipes/smoothies/",
 			);
-			await page.goBack();
-			await page.locator(".recipe-detail").waitFor();
 			await page.goForward();
+			await page.locator(".recipe-detail").waitFor();
+			await page.goBack();
 			await hydrated(page);
 			await page.evaluate(
 				(key) =>
@@ -714,8 +726,8 @@ const DESKTOP_HELP = {
 	movedOnOpen: IMMUNE,
 	movedOnOpenClosed: IMMUNE,
 	opened: ON_HELP,
-	tabbed: IMMUNE,
-	tabbedClosed: IMMUNE,
+	tabbed: { ...IMMUNE, label: "Dump and go" },
+	tabbedClosed: { ...IMMUNE, label: "Dump and go" },
 	onTriggerClosed: ON_HELP,
 	clickedInside: { onHelp: false, inPopover: true, label: undefined },
 	clickedInsideClosed: ON_HELP,

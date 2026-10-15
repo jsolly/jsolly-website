@@ -76,9 +76,14 @@ function firstPaint(page) {
 					.querySelector("#mobile-menu")
 					?.checkVisibility({ checkVisibilityCSS: true, checkOpacity: true }),
 			),
-			recipes: [...document.querySelectorAll(".recipe-grid .open-button")].map(
-				(link) => link.getAttribute("href"),
-			),
+			// Progressive enhancement may remove cards below the first batch.
+			// First paint protects the visible viewport; pagination has its own test.
+			recipes: [...document.querySelectorAll(".recipe-grid .open-button")]
+				.filter((link) => {
+					const box = link.getBoundingClientRect();
+					return box.bottom > 0 && box.top < window.innerHeight;
+				})
+				.map((link) => link.getAttribute("href")),
 			disclosures: [
 				...document.querySelectorAll(
 					".recipe-detail [data-collapsible-trigger]",

@@ -292,7 +292,9 @@ it("saved filters that no smoothie meets are cleared on the smoothies page, so i
 		);
 		assert.deepEqual(
 			{
-				cards: await page.locator(".recipe-card").count(),
+				cards: Number(
+					await page.locator("#meal-results").getAttribute("data-match-count"),
+				),
 				filters: saved.filters,
 				errors,
 			},
@@ -365,7 +367,9 @@ it("unreadable or wrongly shaped saved settings leave the library on its default
 					: [],
 			);
 			results.push({
-				cards: await page.locator(".recipe-card").count(),
+				cards: Number(
+					await page.locator("#meal-results").getAttribute("data-match-count"),
+				),
 				servings: await page
 					.getByRole("combobox", { name: SERVINGS })
 					.inputValue(),

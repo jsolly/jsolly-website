@@ -320,8 +320,10 @@ There is no generated article: the pages render straight from `recipes.json`
 
 ## Pages and settings
 
-The information link beside Ingredient units opens `/recipes/assumptions/`,
-which explains approximate conversions and the unit modes. Recipe browsing
+The information button beside Ingredient units opens a dialog explaining
+approximate conversions and the unit modes. Without JavaScript, recipe pages
+link to `/recipes/<recipe-id>/assumptions/`, whose Back to recipe link returns
+to that recipe. The generic `/recipes/assumptions/` page remains directly accessible. Recipe browsing
 keeps this explanation off the cooking view; assistant downloads
 retain the full measurement policy. Print recipe uses a filled button with a
 printer icon, and download actions label their document-format icons.
@@ -461,3 +463,18 @@ print packets use the same RecipeContent renderer. Print changes layout and hide
 controls and photos; it adds no separate method, ingredient list, background
 notes or disclaimers. Measurement assumptions remain on their linked page and
 in Markdown/JSON downloads.
+
+Back to meals/smoothies uses the matching same-tab collection history entry
+when available. Collection history restores the scroll position, search and
+shuffle order after hydration; direct recipe links return to the collection top.
+Recipe-specific assumptions fallback pages are noindex and omitted from the sitemap.
+
+Heat-bearing ingredients include short adjustment guidance in their canonical notes,
+shared by cooking views, print and downloads. Blend, canned chili and sausage
+notes preserve the measured quantity and suggest a milder or hotter version.
+Nutrition estimates still describe the recorded ingredients and amounts.
+
+Dump and go identifies recipes that load the cooker and start without separate
+browning or mid-cook additions. Preparation and finishing can still be needed.
+The flag is explicitly reviewed recipe metadata, not inferred from elapsed time
+or a zero mid-cook action count.

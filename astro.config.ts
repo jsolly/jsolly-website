@@ -11,10 +11,10 @@ import { postLastmods } from "./src/lib/blog/post-loader.js";
 // Astro builds these as dist/404.html and dist/500.html; they are not routes.
 const ERROR_ROUTES = new Set(["/404/", "/500/"]);
 const EDGE_SLASHES = /^\/+|\/+$/gu;
-// The one page the sitemap leaves out, the noindex blog search; the
-// integration already drops the 404 and 500 pages. Everything else built is
-// listed, /recipes/ pages included (J12).
+// Exclude noindex search and recipe-specific assumptions fallback pages.
+// The integration already drops the 404 and 500 pages.
 const SITEMAP_EXCLUDED = "/blog/search/";
+const RECIPE_ASSUMPTIONS = /^\/recipes\/[^/]+\/assumptions\/$/u;
 // Read once at config load, outside @astrojs/sitemap's serialize, whose
 // try/catch would swallow a throw and leave the build green without a sitemap.
 const POST_LASTMODS = await postLastmods(
@@ -73,7 +73,10 @@ export default defineConfig({
 				process.env.NODE_ENV === "development"
 					? ["http://localhost:4321/John-Solly-Resume.pdf"]
 					: ["https://www.jsolly.com/John-Solly-Resume.pdf"],
-			filter: (page) => new URL(page).pathname !== SITEMAP_EXCLUDED,
+			filter: (page) => {
+				const path = new URL(page).pathname;
+				return path !== SITEMAP_EXCLUDED && !RECIPE_ASSUMPTIONS.test(path);
+			},
 			// A post's lastmod is its frontmatter `updated`; no other page has one.
 			serialize: (item) => {
 				const lastmod = POST_LASTMODS.get(new URL(item.url).pathname);

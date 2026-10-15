@@ -51,9 +51,9 @@
 	const mealStyleId = `${uid}-meal-style`;
 	const mealStyleHelpId = `${uid}-meal-style-help`;
 	const controlId = (name) => `${uid}-${name}`;
-	// Each counted appliance offers 0 up to its limit.
+	// Unchecking handles zero; a checked appliance offers one up to its limit.
 	const countChoices = (value) =>
-		Array.from({ length: applianceLimits[value] + 1 }, (_, count) => count);
+		Array.from({ length: applianceLimits[value] }, (_, count) => count + 1);
 
 	const shownAppliances = $derived(
 		Object.entries(applianceChoices).filter(([value]) =>
@@ -66,6 +66,7 @@
 	// the filter that picking it applies and its tooltip.
 	const nutritionChecks = $derived(
 		[
+			collection === "meal" && { key: "dumpAndGo", label: "Dump and go", applies: { dumpAndGo: true }, title: "Load the cooker and start; no separate browning or mid-cook additions. Preparation and finishing may still be needed." },
 			collection === "smoothie" && {
 				key: "smoothieKetoOnly",
 				label: "Keto Friendly",
@@ -162,8 +163,8 @@
 							/>{label}</label
 						><label class="visually-hidden" for={controlId(`count-${index}`)}>{label} count</label><NativeSelect
 							id={controlId(`count-${index}`)}
-							disabled={!hydrated}
-							value={appliancesOnHand[value]}
+							disabled={!hydrated || appliancesOnHand[value] === 0}
+							value={appliancesOnHand[value] || defaultAppliances[value]}
 							onchange={(event) => setAppliance(value, Number(event.currentTarget.value))}>{#each countChoices(value) as count (count)}<option value={count}>{count}</option>{/each}</NativeSelect
 						>
 					</div>
@@ -182,7 +183,7 @@
 	</fieldset>
 	<!-- The legend floats so it lines up with the help trigger beside it. -->
 	<fieldset class="nutrient-filters">
-		<legend>Nutrition filters</legend><NutritionHelp />
+		<legend>Filters</legend><NutritionHelp />
 		<div class="nutrient-options">
 			{#each nutritionChecks as check (check.key)}<label for={controlId(check.key)} title={check.title}
 					><Checkbox

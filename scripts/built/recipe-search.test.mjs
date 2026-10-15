@@ -21,6 +21,7 @@ after(async () => {
 
 const SIX_SERVINGS = /6 servings/su;
 const PROTEINS = /^Proteins:/u;
+const OPEN_RECIPE = /^Open recipe:/u;
 const SMOOTHIE = /smoothie/iu;
 
 function verifyLibrary(width) {
@@ -73,7 +74,8 @@ function verifyLibrary(width) {
 				await cardIds(),
 				data.recipes
 					.filter((recipe) => recipe.type === "meal")
-					.map((recipe) => recipe.id),
+					.map((recipe) => recipe.id)
+					.slice(0, 24),
 			);
 			const diet = page.getByRole("combobox", { name: "Dietary preference" });
 			await diet.selectOption("vegetarian");
@@ -86,6 +88,11 @@ function verifyLibrary(width) {
 				};
 			});
 			await page.getByRole("button", { name: "Shuffle recipes" }).click();
+			await page.waitForFunction(
+				() =>
+					document.querySelector("#meal-results").getAttribute("aria-busy") ===
+					"false",
+			);
 			const afterShuffle = await cardIds();
 			assert.notDeepEqual(afterShuffle, beforeShuffle);
 			assert.deepEqual([...afterShuffle].sort(), [...beforeShuffle].sort());
@@ -218,3 +225,140 @@ function verifyLibrary(width) {
 verifyLibrary(390);
 verifyLibrary(765);
 verifyLibrary(1280);
+
+it("recipe batches load by scroll and button; shuffle shows gray cards and preserves filters", {
+	timeout: 60000,
+}, async () => {
+	const context = await browser.newContext({
+		viewport: { width: 1280, height: 984 },
+		serviceWorkers: "block",
+	});
+	const page = await context.newPage();
+	try {
+		await page.goto(`${site.origin}/recipes/meals/`);
+		await page.waitForFunction(
+			() => !document.querySelector("astro-island[ssr]"),
+		);
+		assert.equal(await page.locator(".recipe-card").count(), 24);
+		const more = page.getByRole("button", { name: "Load more recipes" });
+		await more.scrollIntoViewIfNeeded();
+		await page.waitForFunction(
+			() => document.querySelectorAll(".recipe-card").length >= 48,
+		);
+		await page.evaluate(() => window.scrollTo(0, 0));
+		await more.focus();
+		await page.keyboard.press("Enter");
+		await page.waitForFunction(
+			() => document.querySelectorAll(".recipe-card").length >= 72,
+		);
+
+		assert.equal(
+			await page
+				.locator(".recipe-card .title-button")
+				.nth(48)
+				.evaluate((link) => link === document.activeElement),
+			true,
+		);
+		await page.keyboard.press("Tab");
+		assert.equal(
+			await page
+				.locator(".recipe-card")
+				.nth(48)
+				.getByRole("link", { name: OPEN_RECIPE })
+				.evaluate((link) => link === document.activeElement),
+			true,
+		);
+		while (await more.count()) {
+			const previous = await page.locator(".recipe-card").count();
+			await page.evaluate(() => window.scrollTo(0, 0));
+			await more.focus();
+			await page.keyboard.press("Enter");
+			await page.waitForFunction(
+				(previousCount) =>
+					document.querySelectorAll(".recipe-card").length > previousCount,
+				previous,
+			);
+			assert.equal(
+				await page
+					.locator(".recipe-card .title-button")
+					.nth(previous)
+					.evaluate((link) => link === document.activeElement),
+				true,
+			);
+		}
+		const count = page.getByRole("combobox", {
+			name: "Pressure cookers count",
+			exact: true,
+		});
+		assert.deepEqual(
+			await count
+				.locator("option")
+				.evaluateAll((options) => options.map((option) => option.value)),
+			["1", "2"],
+		);
+		await page
+			.getByRole("checkbox", { name: "Pressure cookers", exact: true })
+			.uncheck();
+		assert.equal(await count.isDisabled(), true);
+		await page
+			.getByRole("checkbox", { name: "Pressure cookers", exact: true })
+			.check();
+		await page
+			.getByRole("checkbox", { name: "Dump and go", exact: true })
+			.check();
+		assert.equal(await page.locator(".recipe-card").count(), 2);
+		const ids = await page
+			.locator("[data-recipe-id]")
+			.evaluateAll((links) =>
+				links.map((link) => link.dataset.recipeId).sort(),
+			);
+		await page.getByRole("button", { name: "Shuffle recipes" }).click();
+		await page.locator(".shuffle-skeleton").waitFor();
+		assert.equal(
+			await page
+				.locator(".recipe-grid.shuffling")
+				.evaluate(
+					(grid) => grid.inert && getComputedStyle(grid).opacity === "0",
+				),
+			true,
+		);
+		assert.equal(
+			await page.locator("#meal-results").getAttribute("aria-busy"),
+			"true",
+		);
+		await page.waitForFunction(
+			() =>
+				document.querySelector("#meal-results").getAttribute("aria-busy") ===
+				"false",
+		);
+		assert.deepEqual(
+			await page
+				.locator("[data-recipe-id]")
+				.evaluateAll((links) =>
+					links.map((link) => link.dataset.recipeId).sort(),
+				),
+			ids,
+		);
+		assert.equal(
+			await page
+				.getByRole("checkbox", { name: "Dump and go", exact: true })
+				.isChecked(),
+			true,
+		);
+		await page
+			.getByRole("checkbox", { name: "Dump and go", exact: true })
+			.uncheck();
+		await page.evaluate(() => window.scrollTo(0, 0));
+		for (const label of ["Proteins", "Carbs"]) {
+			const trigger = page.getByRole("button", {
+				name: new RegExp(`^${label}:`, "u"),
+			});
+			await trigger.click();
+			const panel = page.getByRole("dialog", { name: `${label} choices` });
+			assert.equal(await panel.getAttribute("data-side"), "bottom");
+			await page.keyboard.press("Escape");
+		}
+	} finally {
+		await context.close();
+	}
+});

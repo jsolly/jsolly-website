@@ -6,6 +6,7 @@
 	import RecipeDownload from "./RecipeDownload.svelte";
 	import RecipePrintButton from "./RecipePrintButton.svelte";
 	import { validateSettings } from "./recipe-logic.mjs";
+	import { collectionReturn } from "./recipe-navigation.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
 	import { readRecipeURL } from "./recipe-url.mjs";
 	import ShareRecipe from "./ShareRecipe.svelte";
@@ -18,6 +19,7 @@
 	const servingsId = $props.id();
 	let interactive = $state(false);
 	let message = $state("");
+	let returnUrl = $state("");
 	let settings = $state({
 		servings: BASE_SERVINGS,
 		units: "us",
@@ -53,6 +55,8 @@
 	}
 
 	onMount(() => {
+		returnUrl = collectionReturn(history.state, document.referrer, new URL(location.href), collection);
+		if (returnUrl) history.replaceState({ ...history.state, recipeReturn: returnUrl }, "");
 		const parsed = readRecipeURL(new URL(window.location.href), [recipe], { units: readUnitPreference() });
 		settings = {
 			...settings,
@@ -69,7 +73,7 @@
 <div class="recipe-page">
 	<section class="recipe-detail print-document" id={recipe.id}>
 		<div class="toolbar">
-			<a href={`/recipes/${collection}/`}>← Back to {collection}</a>
+			<a href={returnUrl || `/recipes/${collection}/`} onclick={(event) => { if (returnUrl && history.length > 1 && event.button === 0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) { event.preventDefault(); history.back(); } }}>← Back to {returnUrl.startsWith("/recipes/?") || returnUrl === "/recipes/" || returnUrl.startsWith("/recipes/#") ? "recipes" : collection}</a>
 			<RecipePrintButton {recipe} {settings} class="recipe-enhanced" disabled={!interactive} onPrint={print} />
 		</div>
 		<RecipeContent {recipe} {settings} {interactive} onSideChange={setSide}>
@@ -79,7 +83,7 @@
 					{#each SERVING_CHOICES as choice (choice)}<option value={choice}>{choice}</option>{/each}
 				</NativeSelect></label
 			>
-		<UnitControl units={settings.units} onUnitsChange={setUnits} disabled={!interactive} />
+		<UnitControl recipeId={recipe.id} units={settings.units} onUnitsChange={setUnits} disabled={!interactive} />
 			{/snippet}
 		</RecipeContent>
 		<div class="recipe-enhanced"><ShareRecipe {recipe} {settings} disabled={!interactive} /></div>

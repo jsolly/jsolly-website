@@ -83,6 +83,9 @@ function registerPillTest(width) {
 			}
 			await page.goto(`${site.origin}/recipes/`);
 			await hydrated(page);
+			await page
+				.getByRole("searchbox", { name: "Search recipes" })
+				.fill("perfect roast chicken");
 			const roastCard = page.locator(
 				'.recipe-card:has(a[data-recipe-id="source-perfect-roast-chicken"])',
 			);

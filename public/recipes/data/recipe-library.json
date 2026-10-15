@@ -2761,7 +2761,7 @@
               "rowspan": 1,
               "text": "¼ tsp",
               "name": "Crushed red pepper",
-              "state": "flakes",
+              "state": "flakes · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -2895,7 +2895,7 @@
           "status": "volume",
           "name": "Crushed red pepper",
           "state": "flakes",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "0.14 oz",
@@ -4216,7 +4216,7 @@
               "rowspan": 1,
               "text": "2 tsp",
               "name": "Mild chili powder blend",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -4383,7 +4383,7 @@
           "status": "volume",
           "name": "Mild chili powder blend",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 tsp",
@@ -6805,7 +6805,7 @@
               "rowspan": 1,
               "text": "1.06 oz",
               "name": "Mina mild harissa",
-              "state": "jarred · Measured Mina mild harissa; half for roasting and half for yogurt. Hot concentrated pastes are not equivalent.",
+              "state": "jarred · Measured Mina mild harissa; half for roasting and half for yogurt. Hot concentrated pastes are not equivalent. Use less harissa for less heat or a little more for more heat; add gradually.",
               "essentialState": true
             }
           ],
@@ -6860,7 +6860,7 @@
               "rowspan": 1,
               "text": "1.06 oz",
               "name": "Mina mild harissa",
-              "state": "jarred · Measured Mina mild harissa; half for roasting and half for yogurt. Hot concentrated pastes are not equivalent.",
+              "state": "jarred · Measured Mina mild harissa; half for roasting and half for yogurt. Hot concentrated pastes are not equivalent. Use less harissa for less heat or a little more for more heat; add gradually.",
               "essentialState": true
             }
           ],
@@ -6982,7 +6982,7 @@
           "source": "https://www.nist.gov/pml/special-publication-811",
           "name": "Mina mild harissa",
           "state": "jarred",
-          "note": "Measured Mina mild harissa; half for roasting and half for yogurt. Hot concentrated pastes are not equivalent."
+          "note": "Measured Mina mild harissa; half for roasting and half for yogurt. Hot concentrated pastes are not equivalent. Use less harissa for less heat or a little more for more heat; add gradually."
         },
         {
           "quantity": "1 tsp",
@@ -12365,7 +12365,7 @@
               "rowspan": 1,
               "text": "9.98 oz",
               "name": "Red enchilada sauce",
-              "state": "ready-to-eat, canned · Base four-serving batch: about one 10 oz can. Estimate uses Old El Paso medium red sauce; labels vary.",
+              "state": "ready-to-eat, canned · Base four-serving batch: about one 10 oz can. Estimate uses Old El Paso medium red sauce; labels vary. Choose a mild version for less heat or a hot version for more heat; keep the measured amount.",
               "essentialState": false
             }
           ],
@@ -12401,7 +12401,7 @@
               "rowspan": 1,
               "text": "0.11 oz",
               "name": "Cayenne pepper",
-              "state": "Original amount is very hot. Start with less if desired.",
+              "state": "Original amount is very hot. Start with less if desired. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -12516,7 +12516,7 @@
           "source": "https://www.nist.gov/pml/special-publication-811",
           "name": "Red enchilada sauce",
           "state": "ready-to-eat, canned",
-          "note": "Base four-serving batch: about one 10 oz can. Estimate uses Old El Paso medium red sauce; labels vary."
+          "note": "Base four-serving batch: about one 10 oz can. Estimate uses Old El Paso medium red sauce; labels vary. Choose a mild version for less heat or a hot version for more heat; keep the measured amount."
         },
         {
           "quantity": "0.11 oz",
@@ -12524,7 +12524,7 @@
           "source": "https://www.nist.gov/pml/special-publication-811",
           "name": "Cayenne pepper",
           "state": "",
-          "note": "Original amount is very hot. Start with less if desired."
+          "note": "Original amount is very hot. Start with less if desired. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "14.99 oz",
@@ -12971,7 +12971,7 @@
               "rowspan": 1,
               "text": "⅔ count",
               "name": "Jalapeño",
-              "state": "seeded and chopped",
+              "state": "seeded and chopped · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -13019,7 +13019,7 @@
               "rowspan": 1,
               "text": "2.67 oz",
               "name": "Canned green chilis",
-              "state": "undrained · Two-thirds of the source four-ounce can at four servings.",
+              "state": "undrained · Two-thirds of the source four-ounce can at four servings. Choose a mild version for less heat or a hot version for more heat; keep the measured amount.",
               "essentialState": true
             }
           ],
@@ -13031,7 +13031,7 @@
               "rowspan": 1,
               "text": "⅔ tsp",
               "name": "Chili powder",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -13261,7 +13261,7 @@
           "status": "source-measure",
           "name": "Jalapeño",
           "state": "seeded and chopped",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "⅔ cup",
@@ -13291,14 +13291,14 @@
           "source": "https://www.nist.gov/pml/special-publication-811",
           "name": "Canned green chilis",
           "state": "undrained",
-          "note": "Two-thirds of the source four-ounce can at four servings."
+          "note": "Two-thirds of the source four-ounce can at four servings. Choose a mild version for less heat or a hot version for more heat; keep the measured amount."
         },
         {
           "quantity": "⅔ tsp",
           "status": "volume",
           "name": "Chili powder",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "⅔ tsp",
@@ -14354,7 +14354,7 @@
               "rowspan": 1,
               "text": "1 tsp",
               "name": "chili powder",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -14438,7 +14438,7 @@
               "rowspan": 1,
               "text": "2 count",
               "name": "jalapeños",
-              "state": "seeded and diced",
+              "state": "seeded and diced · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -14745,7 +14745,7 @@
           "status": "volume",
           "name": "chili powder",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ tsp",
@@ -14801,7 +14801,7 @@
           "status": "source-measure",
           "name": "jalapeños",
           "state": "seeded and diced",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "¼ cup",
@@ -15212,7 +15212,7 @@
               "rowspan": 1,
               "text": "½ tsp",
               "name": "chili powder",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -15303,7 +15303,7 @@
               "rowspan": 1,
               "text": "2 count",
               "name": "jalapenos",
-              "state": "seeded and diced",
+              "state": "seeded and diced · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -15579,7 +15579,7 @@
           "status": "volume",
           "name": "chili powder",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ tsp",
@@ -15621,7 +15621,7 @@
           "status": "source-measure",
           "name": "jalapenos",
           "state": "seeded and diced",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 tsp",
@@ -18249,7 +18249,7 @@
               "rowspan": 1,
               "text": "5 ⅓ count",
               "name": "jarred pepperoncini peppers",
-              "state": "Source gives a range; amount is its lower endpoint, amountMax its upper endpoint. Source range: 8–10 count; use the lower stated amount as the scaled starting point.",
+              "state": "Source gives a range; amount is its lower endpoint, amountMax its upper endpoint. Source range: 8–10 count; use the lower stated amount as the scaled starting point. Choose a mild version for less heat or a hot version for more heat; keep the measured amount.",
               "essentialState": false
             }
           ]
@@ -18382,7 +18382,7 @@
           "status": "source-measure",
           "name": "jarred pepperoncini peppers",
           "state": "",
-          "note": "Source gives a range; amount is its lower endpoint, amountMax its upper endpoint. Source range: 8–10 count; use the lower stated amount as the scaled starting point."
+          "note": "Source gives a range; amount is its lower endpoint, amountMax its upper endpoint. Source range: 8–10 count; use the lower stated amount as the scaled starting point. Choose a mild version for less heat or a hot version for more heat; keep the measured amount."
         }
       ],
       "familyIngredient": null,
@@ -22347,7 +22347,7 @@
               "rowspan": 1,
               "text": "1.2 tbsp",
               "name": "taco spice",
-              "state": "",
+              "state": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount.",
               "essentialState": false
             }
           ],
@@ -22414,7 +22414,7 @@
               "rowspan": 1,
               "text": "5.6 oz",
               "name": "Rotel tomatoes with chilies",
-              "state": "canned; measure undrained contents before draining · Source specifies one 14-ounce can. The listed ounces are undrained package contents, not drained solids: weigh the displayed share before draining. Retain this source can size despite other package sizes.",
+              "state": "canned; measure undrained contents before draining · Source specifies one 14-ounce can. The listed ounces are undrained package contents, not drained solids: weigh the displayed share before draining. Retain this source can size despite other package sizes. Choose a mild version for less heat or a hot version for more heat; keep the measured amount.",
               "essentialState": true
             }
           ],
@@ -22462,7 +22462,7 @@
               "rowspan": 1,
               "text": "0.4 tsp",
               "name": "chipotle powder",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -22699,7 +22699,7 @@
           "source": "https://www.nist.gov/pml/special-publication-811",
           "name": "Rotel tomatoes with chilies",
           "state": "canned; measure undrained contents before draining",
-          "note": "Source specifies one 14-ounce can. The listed ounces are undrained package contents, not drained solids: weigh the displayed share before draining. Retain this source can size despite other package sizes."
+          "note": "Source specifies one 14-ounce can. The listed ounces are undrained package contents, not drained solids: weigh the displayed share before draining. Retain this source can size despite other package sizes. Choose a mild version for less heat or a hot version for more heat; keep the measured amount."
         },
         {
           "quantity": "1.2 cup",
@@ -22713,7 +22713,7 @@
           "status": "volume",
           "name": "taco spice",
           "state": "",
-          "note": ""
+          "note": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount."
         },
         {
           "quantity": "0.6 tbsp",
@@ -22734,7 +22734,7 @@
           "status": "volume",
           "name": "chipotle powder",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "0.1 cup",
@@ -25028,7 +25028,7 @@
               "rowspan": 1,
               "text": "½ count",
               "name": "jalapeño",
-              "state": "seeded and finely chopped",
+              "state": "seeded and finely chopped · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -25040,7 +25040,7 @@
               "rowspan": 1,
               "text": "5 oz",
               "name": "Tomatoes with green chilies",
-              "state": "canned; undrained",
+              "state": "canned; undrained · Choose a mild version for less heat or a hot version for more heat; keep the measured amount.",
               "essentialState": true
             }
           ],
@@ -25064,7 +25064,7 @@
               "rowspan": 1,
               "text": "2 oz",
               "name": "Diced green chilies",
-              "state": "canned",
+              "state": "canned · Choose a mild version for less heat or a hot version for more heat; keep the measured amount.",
               "essentialState": false
             }
           ],
@@ -25076,7 +25076,7 @@
               "rowspan": 1,
               "text": "0.5 oz",
               "name": "Taco seasoning",
-              "state": "dry mix; one 1-ounce package",
+              "state": "dry mix; one 1-ounce package · Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount.",
               "essentialState": false
             }
           ],
@@ -25306,7 +25306,7 @@
           "status": "source-measure",
           "name": "jalapeño",
           "state": "seeded and finely chopped",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "5 oz",
@@ -25314,7 +25314,7 @@
           "source": "https://www.nist.gov/pml/special-publication-811",
           "name": "Tomatoes with green chilies",
           "state": "canned; undrained",
-          "note": ""
+          "note": "Choose a mild version for less heat or a hot version for more heat; keep the measured amount."
         },
         {
           "quantity": "½ container",
@@ -25329,7 +25329,7 @@
           "source": "https://www.nist.gov/pml/special-publication-811",
           "name": "Diced green chilies",
           "state": "canned",
-          "note": ""
+          "note": "Choose a mild version for less heat or a hot version for more heat; keep the measured amount."
         },
         {
           "quantity": "0.5 oz",
@@ -25337,7 +25337,7 @@
           "source": "https://www.nist.gov/pml/special-publication-811",
           "name": "Taco seasoning",
           "state": "dry mix; one 1-ounce package",
-          "note": ""
+          "note": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount."
         },
         {
           "quantity": "4 oz",
@@ -25742,7 +25742,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "Cajun seasoning",
-              "state": "",
+              "state": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount.",
               "essentialState": false
             }
           ],
@@ -25995,7 +25995,7 @@
           "status": "volume",
           "name": "Cajun seasoning",
           "state": "",
-          "note": ""
+          "note": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount."
         },
         {
           "quantity": "1 tsp",
@@ -26433,7 +26433,7 @@
               "rowspan": 1,
               "text": "¼ cup",
               "name": "Fresh jalapeño",
-              "state": "seeded and chopped",
+              "state": "seeded and chopped · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -26457,7 +26457,7 @@
               "rowspan": 1,
               "text": "2 tsp",
               "name": "cajun seasoning",
-              "state": "or your favorite all purpose seasoning",
+              "state": "or your favorite all purpose seasoning · Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount.",
               "essentialState": false
             }
           ]
@@ -26594,7 +26594,7 @@
           "status": "volume",
           "name": "Fresh jalapeño",
           "state": "seeded and chopped",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "¼ cup",
@@ -26608,7 +26608,7 @@
           "status": "volume",
           "name": "cajun seasoning",
           "state": "or your favorite all purpose seasoning",
-          "note": ""
+          "note": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount."
         }
       ],
       "familyIngredient": null,
@@ -27798,7 +27798,7 @@
               "rowspan": 1,
               "text": "⅓ cup",
               "name": "jalapeño",
-              "state": "seeded and chopped",
+              "state": "seeded and chopped · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -27846,7 +27846,7 @@
               "rowspan": 1,
               "text": "⅔ tsp",
               "name": "chili powder",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -28084,7 +28084,7 @@
           "status": "volume",
           "name": "jalapeño",
           "state": "seeded and chopped",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "⅔ cup",
@@ -28113,7 +28113,7 @@
           "status": "volume",
           "name": "chili powder",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "⅔ tsp",
@@ -28508,7 +28508,7 @@
               "rowspan": 1,
               "text": "2 tsp",
               "name": "cajun seasoning",
-              "state": "or your favorite all purpose seasoning",
+              "state": "or your favorite all purpose seasoning · Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount.",
               "essentialState": false
             }
           ],
@@ -28731,7 +28731,7 @@
           "status": "volume",
           "name": "cajun seasoning",
           "state": "or your favorite all purpose seasoning",
-          "note": ""
+          "note": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount."
         },
         {
           "quantity": "12 oz",
@@ -29866,7 +29866,7 @@
               "rowspan": 1,
               "text": "2 tsp",
               "name": "cajun seasoning",
-              "state": "",
+              "state": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount.",
               "essentialState": false
             }
           ]
@@ -30000,7 +30000,7 @@
           "status": "volume",
           "name": "cajun seasoning",
           "state": "",
-          "note": ""
+          "note": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount."
         }
       ],
       "familyIngredient": null,
@@ -31916,7 +31916,7 @@
               "rowspan": 1,
               "text": "6.67 oz",
               "name": "Tomatoes with green chilies",
-              "state": "canned; undrained",
+              "state": "canned; undrained · Choose a mild version for less heat or a hot version for more heat; keep the measured amount.",
               "essentialState": true
             }
           ],
@@ -31940,7 +31940,7 @@
               "rowspan": 1,
               "text": "⅔ tsp",
               "name": "chili powder",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -32135,7 +32135,7 @@
           "source": "https://www.nist.gov/pml/special-publication-811",
           "name": "Tomatoes with green chilies",
           "state": "canned; undrained",
-          "note": ""
+          "note": "Choose a mild version for less heat or a hot version for more heat; keep the measured amount."
         },
         {
           "quantity": "5.33 oz",
@@ -32150,7 +32150,7 @@
           "status": "volume",
           "name": "chili powder",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "⅔ tsp",
@@ -35094,7 +35094,7 @@
               "rowspan": 1,
               "text": "½ count",
               "name": "jalapeño",
-              "state": "seeded and finely chopped",
+              "state": "seeded and finely chopped · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -35118,7 +35118,7 @@
               "rowspan": 1,
               "text": "5 oz",
               "name": "Tomatoes with green chilies",
-              "state": "canned; undrained",
+              "state": "canned; undrained · Choose a mild version for less heat or a hot version for more heat; keep the measured amount.",
               "essentialState": true
             }
           ],
@@ -35166,7 +35166,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "chili powder",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -35399,7 +35399,7 @@
           "status": "source-measure",
           "name": "jalapeño",
           "state": "seeded and finely chopped",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 clove",
@@ -35414,7 +35414,7 @@
           "source": "https://www.nist.gov/pml/special-publication-811",
           "name": "Tomatoes with green chilies",
           "state": "canned; undrained",
-          "note": ""
+          "note": "Choose a mild version for less heat or a hot version for more heat; keep the measured amount."
         },
         {
           "quantity": "7.5 oz",
@@ -35444,7 +35444,7 @@
           "status": "volume",
           "name": "chili powder",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ tsp",
@@ -36380,7 +36380,7 @@
               "rowspan": 1,
               "text": "1 count",
               "name": "jalapeño",
-              "state": "seeded and diced",
+              "state": "seeded and diced · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -36404,7 +36404,7 @@
               "rowspan": 1,
               "text": "1 can",
               "name": "Tomatoes with green chilies",
-              "state": "undrained; can size not supplied · Source omits can size.",
+              "state": "undrained; can size not supplied · Source omits can size. Choose a mild version for less heat or a hot version for more heat; keep the measured amount.",
               "essentialState": true
             }
           ],
@@ -36428,7 +36428,7 @@
               "rowspan": 1,
               "text": "1 oz",
               "name": "Taco seasoning",
-              "state": "dry mix; source uses one 1-ounce package",
+              "state": "dry mix; source uses one 1-ounce package · Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount.",
               "essentialState": false
             }
           ],
@@ -36564,7 +36564,7 @@
           "status": "source-measure",
           "name": "jalapeño",
           "state": "seeded and diced",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "3 cup",
@@ -36578,7 +36578,7 @@
           "status": "source-measure",
           "name": "Tomatoes with green chilies",
           "state": "undrained; can size not supplied",
-          "note": "Source omits can size."
+          "note": "Source omits can size. Choose a mild version for less heat or a hot version for more heat; keep the measured amount."
         },
         {
           "quantity": "8 oz",
@@ -36594,7 +36594,7 @@
           "source": "https://www.nist.gov/pml/special-publication-811",
           "name": "Taco seasoning",
           "state": "dry mix; source uses one 1-ounce package",
-          "note": ""
+          "note": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount."
         },
         {
           "quantity": "1 cup",
@@ -40337,7 +40337,7 @@
               "rowspan": 1,
               "text": "2 tsp",
               "name": "cajun seasoning",
-              "state": "",
+              "state": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount.",
               "essentialState": false
             }
           ]
@@ -40469,7 +40469,7 @@
           "status": "volume",
           "name": "cajun seasoning",
           "state": "",
-          "note": ""
+          "note": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount."
         }
       ],
       "familyIngredient": null,
@@ -40888,7 +40888,7 @@
               "rowspan": 1,
               "text": "5 oz",
               "name": "Tomatoes with green chilies",
-              "state": "canned; undrained",
+              "state": "canned; undrained · Choose a mild version for less heat or a hot version for more heat; keep the measured amount.",
               "essentialState": true
             }
           ],
@@ -41108,7 +41108,7 @@
           "source": "https://www.nist.gov/pml/special-publication-811",
           "name": "Tomatoes with green chilies",
           "state": "canned; undrained",
-          "note": ""
+          "note": "Choose a mild version for less heat or a hot version for more heat; keep the measured amount."
         },
         {
           "quantity": "3 oz",
@@ -41479,7 +41479,7 @@
               "rowspan": 1,
               "text": "14 oz",
               "name": "Johnsonville Andouille smoked sausage",
-              "state": "sliced; source uses one 14-ounce package",
+              "state": "sliced; source uses one 14-ounce package · Choose a milder sausage for less heat or a hotter sausage for more heat; keep the measured amount. Brands can change the nutrition estimate.",
               "essentialState": false
             }
           ],
@@ -41606,7 +41606,7 @@
           "source": "https://www.nist.gov/pml/special-publication-811",
           "name": "Johnsonville Andouille smoked sausage",
           "state": "sliced; source uses one 14-ounce package",
-          "note": ""
+          "note": "Choose a milder sausage for less heat or a hotter sausage for more heat; keep the measured amount. Brands can change the nutrition estimate."
         },
         {
           "quantity": "1 cup",
@@ -43902,7 +43902,7 @@
               "rowspan": 1,
               "text": "1 tsp",
               "name": "sriracha",
-              "state": "optional if you prefer spicy dishes · Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional if you prefer spicy dishes · Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -44119,7 +44119,7 @@
           "status": "volume",
           "name": "sriracha",
           "state": "optional if you prefer spicy dishes",
-          "note": "Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "3 cup",
@@ -45260,7 +45260,7 @@
               "rowspan": 1,
               "text": "⅓ tsp",
               "name": "red pepper flakes",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -45500,7 +45500,7 @@
           "status": "volume",
           "name": "red pepper flakes",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "⅔ tsp",
@@ -47419,7 +47419,7 @@
               "rowspan": 1,
               "text": "1 count",
               "name": "fresh jalapeño",
-              "state": "chopped and seeds removed",
+              "state": "chopped and seeds removed · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -47546,7 +47546,7 @@
               "rowspan": 1,
               "text": "½ tsp",
               "name": "chili powder",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -47889,7 +47889,7 @@
           "status": "source-measure",
           "name": "fresh jalapeño",
           "state": "chopped and seeds removed",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "10 oz",
@@ -47961,7 +47961,7 @@
           "status": "volume",
           "name": "chili powder",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ tsp",
@@ -49254,7 +49254,7 @@
               "rowspan": 1,
               "text": "1 count",
               "name": "jalapeño",
-              "state": "seeded and finely diced",
+              "state": "seeded and finely diced · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -49417,7 +49417,7 @@
           "status": "source-measure",
           "name": "jalapeño",
           "state": "seeded and finely diced",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ tsp",
@@ -51277,7 +51277,7 @@
               "rowspan": 1,
               "text": "⅛ tsp",
               "name": "red pepper",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -51520,7 +51520,7 @@
           "status": "volume",
           "name": "red pepper",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "¼ tsp",
@@ -52769,7 +52769,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "Sriracha",
-              "state": "or any hot sauce you like",
+              "state": "or any hot sauce you like For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -52781,7 +52781,7 @@
               "rowspan": 1,
               "text": "Not specified",
               "name": "Crushed chili pepper flakes",
-              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written.",
+              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -53036,14 +53036,14 @@
           "status": "volume",
           "name": "Sriracha",
           "state": "",
-          "note": "or any hot sauce you like"
+          "note": "or any hot sauce you like For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "Not specified",
           "status": "unspecified",
           "name": "Crushed chili pepper flakes",
           "state": "optional",
-          "note": "Source gives no numeric quantity; use to taste/as garnish as written."
+          "note": "Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ count",
@@ -53423,7 +53423,7 @@
               "rowspan": 1,
               "text": "1 tsp",
               "name": "Chili powder",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -53586,7 +53586,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "Hot sauce",
-              "state": "optional · we used Sriracha",
+              "state": "optional · we used Sriracha For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -53610,7 +53610,7 @@
               "rowspan": 1,
               "text": "Not specified",
               "name": "Lemon slices, chili pepper flakes and parsley",
-              "state": "lemon sliced, parsley freshly chopped; garnish · Source gives no numeric quantity; use to taste/as garnish as written.",
+              "state": "lemon sliced, parsley freshly chopped; garnish · Source gives no numeric quantity; use to taste/as garnish as written. Use fewer chili flakes for less heat or more for more heat; adjust the flakes separately from the other garnishes.",
               "essentialState": false
             }
           ]
@@ -53804,7 +53804,7 @@
           "status": "volume",
           "name": "Chili powder",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "2 tsp",
@@ -53882,7 +53882,7 @@
           "status": "volume",
           "name": "Hot sauce",
           "state": "optional",
-          "note": "we used Sriracha"
+          "note": "we used Sriracha For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 tbsp",
@@ -53896,7 +53896,7 @@
           "status": "unspecified",
           "name": "Lemon slices, chili pepper flakes and parsley",
           "state": "lemon sliced, parsley freshly chopped; garnish",
-          "note": "Source gives no numeric quantity; use to taste/as garnish as written."
+          "note": "Source gives no numeric quantity; use to taste/as garnish as written. Use fewer chili flakes for less heat or more for more heat; adjust the flakes separately from the other garnishes."
         }
       ],
       "familyIngredient": null,
@@ -54395,7 +54395,7 @@
               "rowspan": 1,
               "text": "1 ⅓ tbsp",
               "name": "Hot sauce",
-              "state": "we used Sriracha",
+              "state": "we used Sriracha For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -54407,7 +54407,7 @@
               "rowspan": 1,
               "text": "⅓ tsp",
               "name": "Crushed red chili pepper flakes",
-              "state": "optional",
+              "state": "optional · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -54652,14 +54652,14 @@
           "status": "volume",
           "name": "Hot sauce",
           "state": "",
-          "note": "we used Sriracha"
+          "note": "we used Sriracha For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "⅓ tsp",
           "status": "volume",
           "name": "Crushed red chili pepper flakes",
           "state": "optional",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "⅔ cup",
@@ -55157,7 +55157,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "Hot sauce",
-              "state": "optional · we used Sriracha",
+              "state": "optional · we used Sriracha For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -55224,7 +55224,7 @@
               "rowspan": 1,
               "text": "Not specified",
               "name": "Crushed red chili pepper flakes",
-              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written.",
+              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -55465,7 +55465,7 @@
           "status": "volume",
           "name": "Hot sauce",
           "state": "optional",
-          "note": "we used Sriracha"
+          "note": "we used Sriracha For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ cup",
@@ -55493,7 +55493,7 @@
           "status": "unspecified",
           "name": "Crushed red chili pepper flakes",
           "state": "optional",
-          "note": "Source gives no numeric quantity; use to taste/as garnish as written."
+          "note": "Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "Not specified",
@@ -56666,7 +56666,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "Sriracha sauce",
-              "state": "or any hot chili sauce you like",
+              "state": "or any hot chili sauce you like For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -56788,7 +56788,7 @@
               "rowspan": 1,
               "text": "¼ tsp",
               "name": "Crushed red pepper flakes",
-              "state": "optional",
+              "state": "optional · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -57044,7 +57044,7 @@
           "status": "volume",
           "name": "Crushed red pepper flakes",
           "state": "optional",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "to taste",
@@ -57079,7 +57079,7 @@
           "status": "volume",
           "name": "Sriracha sauce",
           "state": "",
-          "note": "or any hot chili sauce you like"
+          "note": "or any hot chili sauce you like For less heat, use less; for more heat, add gradually to taste."
         }
       ],
       "familyIngredient": null,
@@ -57544,7 +57544,7 @@
               "rowspan": 1,
               "text": "2 tsp",
               "name": "Cajun seasoning",
-              "state": "",
+              "state": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount.",
               "essentialState": false
             }
           ],
@@ -57580,7 +57580,7 @@
               "rowspan": 1,
               "text": "1 tsp",
               "name": "Red chili pepper flakes",
-              "state": "optional",
+              "state": "optional · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -57819,7 +57819,7 @@
           "status": "volume",
           "name": "Cajun seasoning",
           "state": "",
-          "note": ""
+          "note": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount."
         },
         {
           "quantity": "1 tsp",
@@ -57840,7 +57840,7 @@
           "status": "volume",
           "name": "Red chili pepper flakes",
           "state": "optional",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "2 tbsp",
@@ -58236,7 +58236,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "Hot sauce",
-              "state": "we used Sriracha",
+              "state": "we used Sriracha For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -58339,7 +58339,7 @@
               "rowspan": 1,
               "text": "½ tsp",
               "name": "Red chili pepper flakes",
-              "state": "optional",
+              "state": "optional · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -58627,7 +58627,7 @@
           "status": "volume",
           "name": "Red chili pepper flakes",
           "state": "optional",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ count",
@@ -58655,7 +58655,7 @@
           "status": "volume",
           "name": "Hot sauce",
           "state": "",
-          "note": "we used Sriracha"
+          "note": "we used Sriracha For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "to taste",
@@ -59085,7 +59085,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "Sriracha sauce",
-              "state": "or any hot chili sauce you like",
+              "state": "or any hot chili sauce you like For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -59176,7 +59176,7 @@
               "rowspan": 1,
               "text": "¼ tsp",
               "name": "Crushed red pepper flakes",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -59440,7 +59440,7 @@
           "status": "volume",
           "name": "Crushed red pepper flakes",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "to taste",
@@ -59475,7 +59475,7 @@
           "status": "volume",
           "name": "Sriracha sauce",
           "state": "",
-          "note": "or any hot chili sauce you like"
+          "note": "or any hot chili sauce you like For less heat, use less; for more heat, add gradually to taste."
         }
       ],
       "familyIngredient": null,
@@ -59982,7 +59982,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "Sriracha",
-              "state": "or any hot sauce you like",
+              "state": "or any hot sauce you like For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -59994,7 +59994,7 @@
               "rowspan": 1,
               "text": "Not specified",
               "name": "Crushed chili pepper flakes",
-              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written.",
+              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -60265,14 +60265,14 @@
           "status": "volume",
           "name": "Sriracha",
           "state": "",
-          "note": "or any hot sauce you like"
+          "note": "or any hot sauce you like For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "Not specified",
           "status": "unspecified",
           "name": "Crushed chili pepper flakes",
           "state": "optional",
-          "note": "Source gives no numeric quantity; use to taste/as garnish as written."
+          "note": "Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ count",
@@ -60714,7 +60714,7 @@
               "rowspan": 1,
               "text": "1 ⅓ tsp",
               "name": "Ancho chili powder",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -61020,7 +61020,7 @@
           "status": "volume",
           "name": "Ancho chili powder",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 tsp",
@@ -61488,7 +61488,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "Hot sauce",
-              "state": "optional · we used Sriracha",
+              "state": "optional · we used Sriracha For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -61543,7 +61543,7 @@
               "rowspan": 1,
               "text": "Not specified",
               "name": "Crushed red chili pepper flakes",
-              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written.",
+              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -61748,7 +61748,7 @@
           "status": "volume",
           "name": "Hot sauce",
           "state": "optional",
-          "note": "we used Sriracha"
+          "note": "we used Sriracha For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ count",
@@ -61769,7 +61769,7 @@
           "status": "unspecified",
           "name": "Crushed red chili pepper flakes",
           "state": "optional",
-          "note": "Source gives no numeric quantity; use to taste/as garnish as written."
+          "note": "Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "Not specified",
@@ -62234,7 +62234,7 @@
               "rowspan": 1,
               "text": "½ tsp",
               "name": "Chili Flakes",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -62522,7 +62522,7 @@
           "status": "volume",
           "name": "Chili Flakes",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "¼ cup",
@@ -62929,7 +62929,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "Hot sauce",
-              "state": "Source uses 1 tablespoon Sriracha or alternatively 1 teaspoon chili powder. Default hot sauce retained; alternative has a distinct quantity.",
+              "state": "Source uses 1 tablespoon Sriracha or alternatively 1 teaspoon chili powder. Default hot sauce retained; alternative has a distinct quantity. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -63020,7 +63020,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "Hot sauce",
-              "state": "we used Sriracha",
+              "state": "we used Sriracha For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -63111,7 +63111,7 @@
               "rowspan": 1,
               "text": "Not specified",
               "name": "Crushed red chili pepper flakes",
-              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written.",
+              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -63354,7 +63354,7 @@
           "status": "volume",
           "name": "Hot sauce",
           "state": "",
-          "note": "we used Sriracha"
+          "note": "we used Sriracha For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "¼ cup",
@@ -63389,7 +63389,7 @@
           "status": "unspecified",
           "name": "Crushed red chili pepper flakes",
           "state": "optional",
-          "note": "Source gives no numeric quantity; use to taste/as garnish as written."
+          "note": "Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "Not specified",
@@ -63410,7 +63410,7 @@
           "status": "volume",
           "name": "Hot sauce",
           "state": "",
-          "note": "Source uses 1 tablespoon Sriracha or alternatively 1 teaspoon chili powder. Default hot sauce retained; alternative has a distinct quantity."
+          "note": "Source uses 1 tablespoon Sriracha or alternatively 1 teaspoon chili powder. Default hot sauce retained; alternative has a distinct quantity. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "2 tsp",
@@ -63821,7 +63821,7 @@
               "rowspan": 1,
               "text": "½ tsp",
               "name": "Red chili powder",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -63833,7 +63833,7 @@
               "rowspan": 1,
               "text": "½ tsp",
               "name": "Red chili pepper flakes",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -64144,14 +64144,14 @@
           "status": "volume",
           "name": "Red chili powder",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ tsp",
           "status": "volume",
           "name": "Red chili pepper flakes",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ tsp",
@@ -64595,7 +64595,7 @@
               "rowspan": 1,
               "text": "1 pinch",
               "name": "Red pepper flakes",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -64674,7 +64674,7 @@
               "rowspan": 1,
               "text": "to taste",
               "name": "Hot sauce of your choice",
-              "state": "to taste · we used Sriracha; Source gives no numeric quantity; use to taste/as garnish as written.",
+              "state": "to taste · we used Sriracha; Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -64907,7 +64907,7 @@
           "status": "source-measure",
           "name": "Red pepper flakes",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ count",
@@ -64928,7 +64928,7 @@
           "status": "to-taste",
           "name": "Hot sauce of your choice",
           "state": "to taste",
-          "note": "we used Sriracha; Source gives no numeric quantity; use to taste/as garnish as written."
+          "note": "we used Sriracha; Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "to taste",
@@ -65320,7 +65320,7 @@
               "rowspan": 1,
               "text": "2 tbsp",
               "name": "Cajun seasoning",
-              "state": "",
+              "state": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount.",
               "essentialState": false
             }
           ],
@@ -65639,7 +65639,7 @@
           "status": "volume",
           "name": "Cajun seasoning",
           "state": "",
-          "note": ""
+          "note": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount."
         },
         {
           "quantity": "2 tbsp",
@@ -66237,7 +66237,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "Sriracha",
-              "state": "or any hot sauce you like",
+              "state": "or any hot sauce you like For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -66297,7 +66297,7 @@
               "rowspan": 1,
               "text": "1 tsp",
               "name": "Red chili pepper flakes",
-              "state": "optional",
+              "state": "optional · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ]
@@ -66516,7 +66516,7 @@
           "status": "volume",
           "name": "Sriracha",
           "state": "",
-          "note": "or any hot sauce you like"
+          "note": "or any hot sauce you like For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 head",
@@ -66559,7 +66559,7 @@
           "status": "volume",
           "name": "Red chili pepper flakes",
           "state": "optional",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "Not specified",
@@ -67000,7 +67000,7 @@
               "rowspan": 1,
               "text": "Not specified",
               "name": "Crushed red chili pepper flakes",
-              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written.",
+              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -67067,7 +67067,7 @@
               "rowspan": 1,
               "text": "Not specified",
               "name": "Crushed red chili pepper flakes",
-              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written.",
+              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -67079,7 +67079,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "Hot sauce",
-              "state": "we used Sriracha",
+              "state": "we used Sriracha For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -67331,7 +67331,7 @@
           "status": "unspecified",
           "name": "Crushed red chili pepper flakes",
           "state": "optional",
-          "note": "Source gives no numeric quantity; use to taste/as garnish as written."
+          "note": "Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 tbsp",
@@ -67366,7 +67366,7 @@
           "status": "volume",
           "name": "Hot sauce",
           "state": "",
-          "note": "we used Sriracha"
+          "note": "we used Sriracha For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "Not specified",
@@ -67874,7 +67874,7 @@
               "rowspan": 1,
               "text": "2 tbsp",
               "name": "Hot sauce",
-              "state": "we used Sriracha",
+              "state": "we used Sriracha For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -67922,7 +67922,7 @@
               "rowspan": 1,
               "text": "Not specified",
               "name": "Red chili pepper flakes",
-              "state": "Source gives no numeric quantity; use to taste/as garnish as written.",
+              "state": "Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -68165,7 +68165,7 @@
           "status": "volume",
           "name": "Hot sauce",
           "state": "",
-          "note": "we used Sriracha"
+          "note": "we used Sriracha For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "2 tsp",
@@ -68193,7 +68193,7 @@
           "status": "unspecified",
           "name": "Red chili pepper flakes",
           "state": "",
-          "note": "Source gives no numeric quantity; use to taste/as garnish as written."
+          "note": "Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "Not specified",
@@ -68730,7 +68730,7 @@
               "rowspan": 1,
               "text": "Not specified",
               "name": "Red chili pepper flakes",
-              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written.",
+              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -69002,7 +69002,7 @@
           "status": "unspecified",
           "name": "Red chili pepper flakes",
           "state": "optional",
-          "note": "Source gives no numeric quantity; use to taste/as garnish as written."
+          "note": "Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "¼ cup",
@@ -69376,7 +69376,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "Cajun seasoning mix",
-              "state": "preferably low sodium",
+              "state": "preferably low sodium Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount.",
               "essentialState": false
             }
           ],
@@ -69467,7 +69467,7 @@
               "rowspan": 1,
               "text": "Not specified",
               "name": "Red chili pepper flakes",
-              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written.",
+              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -69647,7 +69647,7 @@
           "status": "volume",
           "name": "Cajun seasoning mix",
           "state": "",
-          "note": "preferably low sodium"
+          "note": "preferably low sodium Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount."
         },
         {
           "quantity": "2 tbsp",
@@ -69697,7 +69697,7 @@
           "status": "unspecified",
           "name": "Red chili pepper flakes",
           "state": "optional",
-          "note": "Source gives no numeric quantity; use to taste/as garnish as written."
+          "note": "Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "Not specified",
@@ -70130,7 +70130,7 @@
               "rowspan": 1,
               "text": "2 tbsp",
               "name": "Hot sauce",
-              "state": "optional · we used Sriracha",
+              "state": "optional · we used Sriracha For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -70185,7 +70185,7 @@
               "rowspan": 1,
               "text": "Not specified",
               "name": "Crushed red chili pepper flakes",
-              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written.",
+              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -70390,7 +70390,7 @@
           "status": "volume",
           "name": "Hot sauce",
           "state": "optional",
-          "note": "we used Sriracha"
+          "note": "we used Sriracha For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 count",
@@ -70411,7 +70411,7 @@
           "status": "unspecified",
           "name": "Crushed red chili pepper flakes",
           "state": "optional",
-          "note": "Source gives no numeric quantity; use to taste/as garnish as written."
+          "note": "Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "Not specified",
@@ -70852,7 +70852,7 @@
               "rowspan": 1,
               "text": "½ tsp",
               "name": "Red crushed chili pepper flakes",
-              "state": "optional",
+              "state": "optional · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -70864,7 +70864,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "Hot sauce of your choice",
-              "state": "we used Sriracha",
+              "state": "we used Sriracha For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -71083,14 +71083,14 @@
           "status": "volume",
           "name": "Red crushed chili pepper flakes",
           "state": "optional",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 tbsp",
           "status": "volume",
           "name": "Hot sauce of your choice",
           "state": "",
-          "note": "we used Sriracha"
+          "note": "we used Sriracha For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "Not specified",
@@ -71526,7 +71526,7 @@
               "rowspan": 1,
               "text": "4 tbsp",
               "name": "Sriracha sauce",
-              "state": "or any hot chili sauce you like",
+              "state": "or any hot chili sauce you like For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -71641,7 +71641,7 @@
               "rowspan": 1,
               "text": "½ tsp",
               "name": "Crushed red pepper flakes",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ]
@@ -71866,7 +71866,7 @@
           "status": "volume",
           "name": "Crushed red pepper flakes",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "to taste",
@@ -71894,7 +71894,7 @@
           "status": "volume",
           "name": "Sriracha sauce",
           "state": "",
-          "note": "or any hot chili sauce you like"
+          "note": "or any hot chili sauce you like For less heat, use less; for more heat, add gradually to taste."
         }
       ],
       "familyIngredient": null,
@@ -72280,7 +72280,7 @@
               "rowspan": 1,
               "text": "¼ tsp",
               "name": "Crushed red pepper flakes",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -72359,7 +72359,7 @@
               "rowspan": 1,
               "text": "1 pinch",
               "name": "Cayenne pepper",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -72395,7 +72395,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "Hot sauce of your choice",
-              "state": "we used Sriracha",
+              "state": "we used Sriracha For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -72700,7 +72700,7 @@
           "status": "source-measure",
           "name": "Cayenne pepper",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "¼ tsp",
@@ -72721,7 +72721,7 @@
           "status": "volume",
           "name": "Hot sauce of your choice",
           "state": "",
-          "note": "we used Sriracha"
+          "note": "we used Sriracha For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "2 tbsp",
@@ -72749,7 +72749,7 @@
           "status": "volume",
           "name": "Crushed red pepper flakes",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "Not specified",
@@ -73130,7 +73130,7 @@
               "rowspan": 1,
               "text": "¼ tsp",
               "name": "Red pepper flakes",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -73451,7 +73451,7 @@
           "status": "volume",
           "name": "Red pepper flakes",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ tsp",
@@ -74663,7 +74663,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "Chili powder",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -74992,7 +74992,7 @@
           "status": "volume",
           "name": "Chili powder",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "2 tsp",
@@ -75425,7 +75425,7 @@
               "rowspan": 1,
               "text": "6 tbsp",
               "name": "Low-sodium Cajun seasoning",
-              "state": "or make you own Cajun seasoning blend, see tips below",
+              "state": "or make you own Cajun seasoning blend, see tips below Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount.",
               "essentialState": false
             }
           ],
@@ -75516,7 +75516,7 @@
               "rowspan": 1,
               "text": "2 tsp",
               "name": "Red chili pepper flakes",
-              "state": "optional",
+              "state": "optional · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -75719,7 +75719,7 @@
           "status": "volume",
           "name": "Low-sodium Cajun seasoning",
           "state": "",
-          "note": "or make you own Cajun seasoning blend, see tips below"
+          "note": "or make you own Cajun seasoning blend, see tips below Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount."
         },
         {
           "quantity": "2 tbsp",
@@ -75754,7 +75754,7 @@
           "status": "volume",
           "name": "Red chili pepper flakes",
           "state": "optional",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "6 tbsp",
@@ -77015,7 +77015,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "Hot sauce of your choice",
-              "state": "we used Sriracha",
+              "state": "we used Sriracha For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -77039,7 +77039,7 @@
               "rowspan": 1,
               "text": "Not specified",
               "name": "Red chili pepper flakes",
-              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written.",
+              "state": "optional · Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -77330,7 +77330,7 @@
           "status": "volume",
           "name": "Hot sauce of your choice",
           "state": "",
-          "note": "we used Sriracha"
+          "note": "we used Sriracha For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 count",
@@ -77344,7 +77344,7 @@
           "status": "unspecified",
           "name": "Red chili pepper flakes",
           "state": "optional",
-          "note": "Source gives no numeric quantity; use to taste/as garnish as written."
+          "note": "Source gives no numeric quantity; use to taste/as garnish as written. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "¼ cup",
@@ -77789,7 +77789,7 @@
               "rowspan": 1,
               "text": "4 tsp",
               "name": "cajun seasoning",
-              "state": "",
+              "state": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount.",
               "essentialState": false
             }
           ],
@@ -78053,7 +78053,7 @@
           "status": "volume",
           "name": "cajun seasoning",
           "state": "",
-          "note": ""
+          "note": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount."
         },
         {
           "quantity": "¾ cup",
@@ -78484,7 +78484,7 @@
               "rowspan": 1,
               "text": "to taste",
               "name": "Crushed red chili pepper flakes",
-              "state": "to taste · Unquantified in source; use to taste or as optional garnish as stated.",
+              "state": "to taste · Unquantified in source; use to taste or as optional garnish as stated. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -78818,7 +78818,7 @@
           "status": "to-taste",
           "name": "Crushed red chili pepper flakes",
           "state": "to taste",
-          "note": "Unquantified in source; use to taste or as optional garnish as stated."
+          "note": "Unquantified in source; use to taste or as optional garnish as stated. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 tsp",
@@ -79316,7 +79316,7 @@
               "rowspan": 1,
               "text": "⅙ tsp",
               "name": "Cayenne Pepper",
-              "state": "This is the ingredient share of the two tablespoons of blend used on chicken, not the full surplus source blend batch. Source blend ratios 12:9:3:9:1 teaspoons.",
+              "state": "This is the ingredient share of the two tablespoons of blend used on chicken, not the full surplus source blend batch. Source blend ratios 12:9:3:9:1 teaspoons. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -79419,7 +79419,7 @@
               "rowspan": 1,
               "text": "1 tsp",
               "name": "red chili pepper flakes",
-              "state": "for garnish",
+              "state": "for garnish · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ]
@@ -79672,7 +79672,7 @@
           "status": "volume",
           "name": "red chili pepper flakes",
           "state": "for garnish",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "2 ⅛ tsp",
@@ -79707,7 +79707,7 @@
           "status": "volume",
           "name": "Cayenne Pepper",
           "state": "",
-          "note": "This is the ingredient share of the two tablespoons of blend used on chicken, not the full surplus source blend batch. Source blend ratios 12:9:3:9:1 teaspoons."
+          "note": "This is the ingredient share of the two tablespoons of blend used on chicken, not the full surplus source blend batch. Source blend ratios 12:9:3:9:1 teaspoons. For less heat, use less; for more heat, add gradually to taste."
         }
       ],
       "familyIngredient": null,
@@ -80173,7 +80173,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "hot sauce",
-              "state": "optional (we used Sriracha) · Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional (we used Sriracha) · Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -80233,7 +80233,7 @@
               "rowspan": 1,
               "text": "to taste",
               "name": "Crushed red chili pepper flakes",
-              "state": "optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ]
@@ -80459,14 +80459,14 @@
           "status": "volume",
           "name": "hot sauce",
           "state": "optional (we used Sriracha)",
-          "note": "Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "to taste",
           "status": "to-taste",
           "name": "Crushed red chili pepper flakes",
           "state": "optional",
-          "note": "Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ cup",
@@ -80906,7 +80906,7 @@
               "rowspan": 1,
               "text": "1 tsp",
               "name": "Cayenne pepper",
-              "state": "optional · Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional · Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -81009,7 +81009,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "hot sauce",
-              "state": "optional (we used Sriracha) · Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional (we used Sriracha) · Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -81057,7 +81057,7 @@
               "rowspan": 1,
               "text": "to taste",
               "name": "Crushed red chili pepper flakes",
-              "state": "optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -81328,7 +81328,7 @@
           "status": "volume",
           "name": "hot sauce",
           "state": "optional (we used Sriracha)",
-          "note": "Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ cup",
@@ -81356,7 +81356,7 @@
           "status": "to-taste",
           "name": "Crushed red chili pepper flakes",
           "state": "optional",
-          "note": "Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "Not specified",
@@ -81398,7 +81398,7 @@
           "status": "volume",
           "name": "Cayenne pepper",
           "state": "optional",
-          "note": "Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 tsp",
@@ -81883,7 +81883,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "hot sauce",
-              "state": "(we used Sriracha)",
+              "state": "(we used Sriracha) For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -81895,7 +81895,7 @@
               "rowspan": 1,
               "text": "¼ tsp",
               "name": "crushed red chili pepper flakes",
-              "state": "optional · Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional · Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -82182,14 +82182,14 @@
           "status": "volume",
           "name": "hot sauce",
           "state": "",
-          "note": "(we used Sriracha)"
+          "note": "(we used Sriracha) For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "¼ tsp",
           "status": "volume",
           "name": "crushed red chili pepper flakes",
           "state": "optional",
-          "note": "Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ cup",
@@ -82591,7 +82591,7 @@
               "rowspan": 1,
               "text": "2 tbsp",
               "name": "Sriracha sauce",
-              "state": "(or any hot chili sauce you like)",
+              "state": "(or any hot chili sauce you like) For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -82622,7 +82622,7 @@
               "rowspan": 1,
               "text": "¼ tsp",
               "name": "crushed red pepper flakes",
-              "state": "optional · Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional · Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -82849,7 +82849,7 @@
           "status": "volume",
           "name": "crushed red pepper flakes",
           "state": "optional",
-          "note": "Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "to taste",
@@ -82877,7 +82877,7 @@
           "status": "volume",
           "name": "Sriracha sauce",
           "state": "",
-          "note": "(or any hot chili sauce you like)"
+          "note": "(or any hot chili sauce you like) For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ count",
@@ -83352,7 +83352,7 @@
               "rowspan": 1,
               "text": "1 tsp",
               "name": "hot sauce of your choice",
-              "state": "(we used Sriracha)",
+              "state": "(we used Sriracha) For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -83412,7 +83412,7 @@
               "rowspan": 1,
               "text": "to taste",
               "name": "Crushed red chili pepper flakes",
-              "state": "optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ]
@@ -83622,7 +83622,7 @@
           "status": "volume",
           "name": "hot sauce of your choice",
           "state": "",
-          "note": "(we used Sriracha)"
+          "note": "(we used Sriracha) For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "2 cup",
@@ -83650,7 +83650,7 @@
           "status": "to-taste",
           "name": "Crushed red chili pepper flakes",
           "state": "optional",
-          "note": "Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         }
       ],
       "familyIngredient": null,
@@ -84129,7 +84129,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "hot sauce",
-              "state": "(we used Sriracha)",
+              "state": "(we used Sriracha) For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -84141,7 +84141,7 @@
               "rowspan": 1,
               "text": "¼ tsp",
               "name": "crushed red chili pepper flakes",
-              "state": "optional · Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional · Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -84426,14 +84426,14 @@
           "status": "volume",
           "name": "hot sauce",
           "state": "",
-          "note": "(we used Sriracha)"
+          "note": "(we used Sriracha) For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "¼ tsp",
           "status": "volume",
           "name": "crushed red chili pepper flakes",
           "state": "optional",
-          "note": "Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ cup",
@@ -84822,7 +84822,7 @@
               "rowspan": 1,
               "text": "⅔ tsp",
               "name": "red chili pepper flakes",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -85140,7 +85140,7 @@
           "status": "volume",
           "name": "red chili pepper flakes",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "4 oz",
@@ -85725,7 +85725,7 @@
               "rowspan": 1,
               "text": "½ tsp",
               "name": "red chili pepper flakes",
-              "state": "optional · Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional · Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -86008,7 +86008,7 @@
           "status": "volume",
           "name": "red chili pepper flakes",
           "state": "optional",
-          "note": "Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ cup",
@@ -87202,7 +87202,7 @@
               "rowspan": 1,
               "text": "½ tsp",
               "name": "chili powder",
-              "state": "optional · Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional · Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -87466,7 +87466,7 @@
           "status": "volume",
           "name": "chili powder",
           "state": "optional",
-          "note": "Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 tsp",
@@ -87925,7 +87925,7 @@
               "rowspan": 1,
               "text": "2 tbsp",
               "name": "hot sauce of choice",
-              "state": "(we used Sriracha)",
+              "state": "(we used Sriracha) For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -88180,7 +88180,7 @@
           "status": "volume",
           "name": "hot sauce of choice",
           "state": "",
-          "note": "(we used Sriracha)"
+          "note": "(we used Sriracha) For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 count",
@@ -88634,7 +88634,7 @@
               "rowspan": 1,
               "text": "½ tsp",
               "name": "red crushed chili pepper flakes",
-              "state": "optional · Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional · Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -88718,7 +88718,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "hot sauce of your choice",
-              "state": "(we used Sriracha)",
+              "state": "(we used Sriracha) For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ]
@@ -88941,7 +88941,7 @@
           "status": "volume",
           "name": "red crushed chili pepper flakes",
           "state": "optional",
-          "note": "Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 count",
@@ -88990,7 +88990,7 @@
           "status": "volume",
           "name": "hot sauce of your choice",
           "state": "",
-          "note": "(we used Sriracha)"
+          "note": "(we used Sriracha) For less heat, use less; for more heat, add gradually to taste."
         }
       ],
       "familyIngredient": null,
@@ -89407,7 +89407,7 @@
               "rowspan": 1,
               "text": "½ tsp",
               "name": "crushed red chili pepper flakes",
-              "state": "optional · Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional · Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -89593,7 +89593,7 @@
           "status": "volume",
           "name": "crushed red chili pepper flakes",
           "state": "optional",
-          "note": "Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 tbsp",
@@ -90036,7 +90036,7 @@
               "rowspan": 1,
               "text": "1 tsp",
               "name": "crushed red pepper",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -90108,7 +90108,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "Sriracha",
-              "state": "(or any hot sauce of your choice)",
+              "state": "(or any hot sauce of your choice) For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ]
@@ -90344,14 +90344,14 @@
           "status": "volume",
           "name": "crushed red pepper",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 tbsp",
           "status": "volume",
           "name": "Sriracha",
           "state": "",
-          "note": "(or any hot sauce of your choice)"
+          "note": "(or any hot sauce of your choice) For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 tbsp",
@@ -90842,7 +90842,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "hot sauce",
-              "state": "optional (we used Sriracha) · Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional (we used Sriracha) · Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -90914,7 +90914,7 @@
               "rowspan": 1,
               "text": "to taste",
               "name": "Crushed red chili pepper flakes",
-              "state": "optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ]
@@ -91146,14 +91146,14 @@
           "status": "volume",
           "name": "hot sauce",
           "state": "optional (we used Sriracha)",
-          "note": "Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "to taste",
           "status": "to-taste",
           "name": "Crushed red chili pepper flakes",
           "state": "optional",
-          "note": "Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ cup",
@@ -91642,7 +91642,7 @@
               "rowspan": 1,
               "text": "1 count",
               "name": "jalapeño pepper",
-              "state": "seeds removed and minced",
+              "state": "seeds removed and minced · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -91702,7 +91702,7 @@
               "rowspan": 1,
               "text": "1 tsp",
               "name": "chili powder",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -92019,7 +92019,7 @@
           "status": "source-measure",
           "name": "jalapeño pepper",
           "state": "seeds removed and minced",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ tsp",
@@ -92054,7 +92054,7 @@
           "status": "volume",
           "name": "chili powder",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 tsp",
@@ -92469,7 +92469,7 @@
               "rowspan": 1,
               "text": "0.44 cup",
               "name": "diced green pepper",
-              "state": "(or Jalapeño)",
+              "state": "(or Jalapeño) Use sweet green pepper for less heat or jalapeño for more heat.",
               "essentialState": false
             }
           ],
@@ -92560,7 +92560,7 @@
               "rowspan": 1,
               "text": "2 ⅔ tbsp",
               "name": "homemade taco seasoning or taco seasoning packet",
-              "state": "",
+              "state": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount.",
               "essentialState": false
             }
           ],
@@ -92755,7 +92755,7 @@
           "status": "volume",
           "name": "diced green pepper",
           "state": "",
-          "note": "(or Jalapeño)"
+          "note": "(or Jalapeño) Use sweet green pepper for less heat or jalapeño for more heat."
         },
         {
           "quantity": "4 count",
@@ -92784,7 +92784,7 @@
           "status": "volume",
           "name": "homemade taco seasoning or taco seasoning packet",
           "state": "",
-          "note": ""
+          "note": "Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount."
         },
         {
           "quantity": "1 cup",
@@ -93372,7 +93372,7 @@
               "rowspan": 1,
               "text": "⅔ tbsp",
               "name": "hot sauce",
-              "state": "(we used Sriracha)",
+              "state": "(we used Sriracha) For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -93687,7 +93687,7 @@
           "status": "volume",
           "name": "hot sauce",
           "state": "",
-          "note": "(we used Sriracha)"
+          "note": "(we used Sriracha) For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "⅓ count",
@@ -94139,7 +94139,7 @@
               "rowspan": 1,
               "text": "1 ⅓ tbsp",
               "name": "hot sauce",
-              "state": "(we used Sriracha)",
+              "state": "(we used Sriracha) For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -94302,7 +94302,7 @@
               "rowspan": 1,
               "text": "to taste",
               "name": "Crushed red chili pepper flakes",
-              "state": "optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ]
@@ -94553,7 +94553,7 @@
           "status": "to-taste",
           "name": "Crushed red chili pepper flakes",
           "state": "optional",
-          "note": "Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "⅔ cup",
@@ -94588,7 +94588,7 @@
           "status": "volume",
           "name": "hot sauce",
           "state": "",
-          "note": "(we used Sriracha)"
+          "note": "(we used Sriracha) For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "to taste",
@@ -94969,7 +94969,7 @@
               "rowspan": 1,
               "text": "2 tbsp",
               "name": "Taco seasoning",
-              "state": "(get the recipe here)",
+              "state": "(get the recipe here) Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount.",
               "essentialState": false
             }
           ],
@@ -95048,7 +95048,7 @@
               "rowspan": 1,
               "text": "1 tbsp",
               "name": "hot sauce of choice",
-              "state": "optional (we used Sriracha) · Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional (we used Sriracha) · Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -95072,7 +95072,7 @@
               "rowspan": 1,
               "text": "to taste",
               "name": "Crushed red chili pepper flakes",
-              "state": "optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -95249,7 +95249,7 @@
           "status": "volume",
           "name": "Taco seasoning",
           "state": "",
-          "note": "(get the recipe here)"
+          "note": "(get the recipe here) Choose a mild blend for less heat or a hot blend for more heat; keep the measured amount."
         },
         {
           "quantity": "¼ cup",
@@ -95270,7 +95270,7 @@
           "status": "volume",
           "name": "hot sauce of choice",
           "state": "optional (we used Sriracha)",
-          "note": "Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 tbsp",
@@ -95284,7 +95284,7 @@
           "status": "to-taste",
           "name": "Crushed red chili pepper flakes",
           "state": "optional",
-          "note": "Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "Not specified",
@@ -96958,7 +96958,7 @@
               "rowspan": 1,
               "text": "1 package",
               "name": "spicy Italian sausage",
-              "state": "5 or 6 sausages total",
+              "state": "5 or 6 sausages total · Choose a milder sausage for less heat or a hotter sausage for more heat; keep the measured amount. Brands can change the nutrition estimate.",
               "essentialState": false
             },
             {
@@ -97087,7 +97087,7 @@
               "rowspan": 1,
               "text": "½ tsp",
               "name": "crushed chili pepper",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -97369,7 +97369,7 @@
           "status": "source-measure",
           "name": "spicy Italian sausage",
           "state": "5 or 6 sausages total",
-          "note": ""
+          "note": "Choose a milder sausage for less heat or a hotter sausage for more heat; keep the measured amount. Brands can change the nutrition estimate."
         },
         {
           "quantity": "1 count",
@@ -97425,7 +97425,7 @@
           "status": "volume",
           "name": "crushed chili pepper",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 tsp",
@@ -97960,7 +97960,7 @@
               "rowspan": 1,
               "text": "½ tsp",
               "name": "chili powder",
-              "state": "optional · Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional · Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -98068,7 +98068,7 @@
               "rowspan": 1,
               "text": "1 count",
               "name": "jalapeño",
-              "state": "sliced",
+              "state": "sliced · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -98368,7 +98368,7 @@
           "status": "volume",
           "name": "chili powder",
           "state": "optional",
-          "note": "Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 tsp",
@@ -98417,7 +98417,7 @@
           "status": "source-measure",
           "name": "jalapeño",
           "state": "sliced",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 count",
@@ -98949,7 +98949,7 @@
               "rowspan": 1,
               "text": "to taste",
               "name": "Crushed red pepper flakes",
-              "state": "to taste (optional) · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "to taste (optional) · Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -99193,7 +99193,7 @@
           "status": "to-taste",
           "name": "Crushed red pepper flakes",
           "state": "to taste (optional)",
-          "note": "Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "to taste",
@@ -99656,7 +99656,7 @@
               "rowspan": 1,
               "text": "¼ tsp",
               "name": "red pepper flakes",
-              "state": "(optional) Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "(optional) Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -99704,7 +99704,7 @@
               "rowspan": 1,
               "text": "½ tsp",
               "name": "Cayenne pepper",
-              "state": "optional · Optional; excluded or included as stated in the publisher nutrition.",
+              "state": "optional · Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -99986,7 +99986,7 @@
           "status": "volume",
           "name": "red pepper flakes",
           "state": "",
-          "note": "(optional) Optional; excluded or included as stated in the publisher nutrition."
+          "note": "(optional) Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ tsp",
@@ -100021,7 +100021,7 @@
           "status": "volume",
           "name": "Cayenne pepper",
           "state": "optional",
-          "note": "Optional; excluded or included as stated in the publisher nutrition."
+          "note": "Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ tsp",
@@ -100566,7 +100566,7 @@
               "rowspan": 1,
               "text": "1 ⅓ tsp",
               "name": "crushed red pepper flakes",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ]
@@ -100793,7 +100793,7 @@
           "status": "volume",
           "name": "crushed red pepper flakes",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "1 ⅓ cup",
@@ -103835,7 +103835,7 @@
               "rowspan": 1,
               "text": "½ tsp",
               "name": "crushed red pepper flakes",
-              "state": "",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -104149,7 +104149,7 @@
           "status": "volume",
           "name": "crushed red pepper flakes",
           "state": "",
-          "note": ""
+          "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "½ tsp",
