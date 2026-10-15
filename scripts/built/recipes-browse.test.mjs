@@ -358,7 +358,9 @@ function filtersCheck(width) {
 		const checkbox = (name) =>
 			page.getByRole("checkbox", { name, exact: true });
 		const cards = () => page.locator(".recipe-card").count();
-		const mealStyle = page.getByRole("combobox", { name: "Meal style" });
+		const mealStyle = page.getByRole("combobox", {
+			name: "Dietary preference",
+		});
 		const shownIds = () =>
 			page
 				.locator(".recipe-card a.title-button")
@@ -394,8 +396,20 @@ function filtersCheck(width) {
 				await mealStyle
 					.locator("option")
 					.evaluateAll((options) => options.map((option) => option.value)),
-				["all", ...Object.keys(carbStyles)],
+				["all", ...Object.keys(carbStyles), "vegetarian"],
 			);
+			await mealStyle.selectOption("vegetarian");
+			assert.deepEqual(
+				await shownIds(),
+				meals
+					.filter((recipe) => recipe.vegetarian === true)
+					.map((recipe) => recipe.id)
+					.sort(),
+			);
+			await page.reload();
+			await hydrated(page);
+			assert.equal(await mealStyle.inputValue(), "vegetarian");
+			await mealStyle.selectOption("all");
 			// Re-ticking Air fryers brings back its two and their meals.
 			await checkbox("Air fryers").uncheck();
 			const withoutFryers = await shownIds();
@@ -420,9 +434,13 @@ function filtersCheck(width) {
 				await mealStyle
 					.locator("option:disabled")
 					.evaluateAll((options) => options.map((option) => option.value)),
-				["nonketo"],
+				["nonketo", "vegetarian"],
 			);
 			await page.getByRole("button", { name: CARBS }).click();
+			assert.equal(
+				await page.getByRole("button", { name: "Clear selections" }).count(),
+				0,
+			);
 			assert.equal(await checkbox("No starch").count(), 0);
 			await checkbox("Bread").check();
 			await page.keyboard.press("Escape");
@@ -452,7 +470,7 @@ function filtersCheck(width) {
 			// With no recipe left, a checked protein can still be unchecked.
 			await page.getByRole("button", { name: PROTEINS }).click();
 			assert.equal(await checkbox("Fish").isDisabled(), false);
-			assert.equal(await checkbox("Vegetarian").isDisabled(), true);
+			assert.equal(await checkbox("Vegetarian").count(), 0);
 			await page.keyboard.press("Escape");
 			const saved = await stored(page);
 			assert.deepEqual(saved.filters.proteinChoice, ["fish", "turkey"]);
@@ -482,7 +500,10 @@ function filtersCheck(width) {
 			// Smoothies have no meal styles: the select is not offered.
 			assert.equal(
 				await page
-					.getByRole("combobox", { name: "Meal style", includeHidden: true })
+					.getByRole("combobox", {
+						name: "Dietary preference",
+						includeHidden: true,
+					})
 					.count(),
 				0,
 			);
@@ -901,7 +922,8 @@ function filterFocusCheck(width) {
 				await page.keyboard.press("Escape");
 				await trigger.click();
 				await panel.waitFor();
-				await panel.getByRole("button", { name: "Clear selections" }).focus();
+				// biome-ignore lint/security/noSecrets: CSS selector, not a credential.
+				await panel.locator("button:not([disabled])").last().focus();
 				await page.keyboard.press("Tab");
 				assert.equal(
 					await page.evaluate(() =>

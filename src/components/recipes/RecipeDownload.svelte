@@ -1,4 +1,6 @@
 <script>
+	import FileJson from "@lucide/svelte/icons/file-json";
+	import FileText from "@lucide/svelte/icons/file-text";
 	import { onDestroy } from "svelte";
 	import Button from "../../lib/components/ui/button.svelte";
 	import { documentMarkdown, recipeBundle } from "./recipe-export.mjs";
@@ -26,8 +28,8 @@
 	onDestroy(() => { if (previousUrl) URL.revokeObjectURL(previousUrl); });
 </script>
 <div class="recipe-download recipe-enhanced">
-	<Button variant="outline" {disabled} onclick={() => download("md")}>Download Markdown</Button>
-	<Button variant="outline" {disabled} onclick={() => download("json")}>Download JSON</Button>
+	<Button variant="outline" {disabled} onclick={() => download("md")}><FileText aria-hidden="true" />Download Markdown</Button>
+	<Button variant="outline" {disabled} onclick={() => download("json")}><FileJson aria-hidden="true" />Download JSON</Button>
 	<p role="status">{message}</p>
 </div>
 <style>

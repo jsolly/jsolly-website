@@ -329,3 +329,23 @@ it("malformed or stale saved library settings restore each key's default", () =>
 		"only sides their recipe still offers survive",
 	);
 });
+
+it("vegetarian preference excludes meat and unverified cheeses and survives saved settings", () => {
+	const matches = data.recipes.filter(
+		(recipe) =>
+			recipe.type === "meal" && matchesRecipe(recipe, 4, { vegetarian: true }),
+	);
+	assert.deepEqual(matches.map((recipe) => recipe.id).sort(), [
+		"harissa-chickpea-and-cauliflower-bowls",
+		"source-basic-keto-chaffle-recipe",
+	]);
+	assert.equal(
+		matchesRecipe(matches[0], 4, { vegetarian: true, protein: ["chicken"] }),
+		false,
+	);
+	const saved = parseSavedSettings(
+		{ filters: { mealStyle: "vegetarian" } },
+		{ recipes: data.recipes, ingredients: {} },
+	);
+	assert.equal(saved.filters.mealStyle, "vegetarian");
+});

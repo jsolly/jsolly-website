@@ -2,9 +2,9 @@ import {
 	applianceChoices,
 	applianceLimits,
 	applianceNeeds,
-	carbStyles,
 	DEFAULT_FILTERS,
 	defaultAppliances,
+	dietaryPreferences,
 	proteins,
 	starchOptions,
 } from "./constants.mjs";
@@ -92,6 +92,7 @@ export function matchesRecipe(
 	servings,
 	{
 		protein = [],
+		vegetarian = false,
 		carb = [],
 		starch = [],
 		immune = false,
@@ -109,6 +110,7 @@ export function matchesRecipe(
 			)) &&
 		hasAppliances(recipe, appliances) &&
 		selectedMatches(protein, recipe.proteinType) &&
+		(!vegetarian || recipe.vegetarian === true) &&
 		selectedMatches(carb, recipe.group) &&
 		(!starch.length || starch.some((type) => recipe.starches.includes(type))) &&
 		(!immune || flags.immune) &&
@@ -151,7 +153,7 @@ export function parseSavedSettings(saved, { recipes, ingredients }) {
 			),
 			mealStyle:
 				typeof filters.mealStyle === "string" &&
-				Object.hasOwn(carbStyles, filters.mealStyle)
+				Object.hasOwn(dietaryPreferences, filters.mealStyle)
 					? filters.mealStyle
 					: DEFAULT_FILTERS.mealStyle,
 			smoothieKetoOnly: flag("smoothieKetoOnly"),

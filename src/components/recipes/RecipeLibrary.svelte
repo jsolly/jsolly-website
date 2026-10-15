@@ -1,5 +1,7 @@
 <script>
+	import Shuffle from "@lucide/svelte/icons/shuffle";
 	import { flushSync, onMount, tick, untrack } from "svelte";
+	import Button from "../../lib/components/ui/button.svelte";
 	import {
 		BASE_SERVINGS,
 		DEFAULT_FILTERS,
@@ -17,7 +19,7 @@
 import RecipeDownload from "./RecipeDownload.svelte";
 	import RecipePrint from "./RecipePrint.svelte";
 	import RecipeTakeover from "./RecipeTakeover.svelte";
-	import { validateSettings } from "./recipe-logic.mjs";
+	import { shuffleRecipes, validateSettings } from "./recipe-logic.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
 	import { createRecipeSearch } from "./recipe-search.mjs";
 	import { readRecipeURL, recipeHref } from "./recipe-url.mjs";
@@ -32,7 +34,7 @@ import RecipeDownload from "./RecipeDownload.svelte";
 	// localStorage key recipes-settings-v1), reads a share link or #<recipe-id>,
 	// opens a linked recipe in a full-screen dialog.
 	// `pathname` is the page's path, for the collection links' aria-current.
-	let { discoveryOrder, initialCollection = "meal", pathname } = $props();
+	let { initialCollection = "meal", pathname } = $props();
 	const NO_RESULTS = "No recipes match your search and filters. Try fewer words or adjust the filters.";
 	let query = $state("");
 	let printRecipeId = $state("");
@@ -63,7 +65,8 @@ import RecipeDownload from "./RecipeDownload.svelte";
 	);
 	// Discovery order belongs to the cards; print packets keep source order.
 	const recipesById = $derived(new Map(recipes.map((recipe) => [recipe.id, recipe])));
-	const discoveryRecipes = $derived(discoveryOrder.map((id) => recipesById.get(id)));
+	let shuffledOrder = $state(null);
+	const shuffledRanks = $derived(shuffledOrder ? new Map(shuffledOrder.map((id, rank) => [id, rank])) : null);
 	const collectionHasIron = $derived(
 		collectionRecipes.some((recipe) => nutrientFilters(recipe, servings).iron),
 	);
@@ -74,9 +77,10 @@ import RecipeDownload from "./RecipeDownload.svelte";
 				? filters.smoothieKetoOnly
 					? ["keto"]
 					: []
-				: filters.mealStyle === "all"
+				: ["all", "vegetarian"].includes(filters.mealStyle)
 					? []
 					: [filters.mealStyle],
+		vegetarian: collection === "meal" && filters.mealStyle === "vegetarian",
 		starch: collection === "meal" ? filters.starchChoice : [],
 		ingredients: collection === "smoothie" ? filters.ingredientChoice : [],
 		immune: filters.immuneSupport,
@@ -85,12 +89,16 @@ import RecipeDownload from "./RecipeDownload.svelte";
 		appliances: appliancesOnHand,
 	});
 	const searchRecipes = $derived(createRecipeSearch(recipes, servings));
-	const searchedRecipes = $derived(query.trim() ? searchRecipes(query) : discoveryRecipes);
-	const visibleRecipes = $derived(
+	const searchedRecipes = $derived(query.trim() ? searchRecipes(query) : recipes);
+	const matchingRecipes = $derived(
 		searchedRecipes.filter((recipe) =>
 			recipe.type === collection && matchesRecipe(recipe, servings, filterSettings),
 		),
 	);
+	const visibleRecipes = $derived(shuffledRanks ? matchingRecipes.toSorted((a, b) => shuffledRanks.get(a.id) - shuffledRanks.get(b.id)) : matchingRecipes);
+	function shuffleCards() {
+		shuffledOrder = shuffleRecipes(recipes).map((recipe) => recipe.id);
+	}
 	const current = $derived(recipes.find((recipe) => recipe.id === recipeId));
 	// What the cards, the dialog and the print copy show each recipe with.
 	const recipeSettings = $derived({
@@ -265,7 +273,7 @@ import RecipeDownload from "./RecipeDownload.svelte";
 	/>
 
 	<div class="browse" id="meal-results">
-		<h2 bind:this={listHeading} tabindex="-1">{collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2>
+		<div class="results-heading"><h2 bind:this={listHeading} tabindex="-1">{collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2><Button variant="outline" type="button" disabled={!hydrated || visibleRecipes.length < 2} onclick={shuffleCards}><Shuffle aria-hidden="true" />Shuffle recipes</Button></div>
 		<p class="no-results" role="status">{hydrated ? !visibleRecipes.length ? NO_RESULTS : query.trim() ? `${visibleRecipes.length} ${visibleRecipes.length === 1 ? "recipe" : "recipes"} found` : "" : ""}</p>
 		<div class="recipe-grid">
 			{#each visibleRecipes as recipe (recipe.id)}
@@ -288,6 +296,8 @@ import RecipeDownload from "./RecipeDownload.svelte";
 	   blog stays last whichever stylesheet the browser reads first. */
 	@layer properties, theme, base, components, utilities, blog, blog-no-script;
 	@layer blog {
+		.results-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 0.8rem; }
+		.results-heading :global(h2) { margin: 0; }
 		.meal-library {
 			background: var(--recipe-canvas);
 			border-radius: 16px;

@@ -98,8 +98,6 @@ export const proteins = {
 	seafood: "Other seafood",
 	eggs: "Eggs",
 	mixed: "Mixed meats",
-	vegetarian: "Vegetarian",
-	"plant-forward": "Plant-forward",
 };
 /** The library's meal styles (recipe groups). */
 export const carbStyles = {
@@ -108,7 +106,9 @@ export const carbStyles = {
 	shared: "Shared Main",
 	unverified: "Nutrition estimated",
 };
+export const dietaryPreferences = { ...carbStyles, vegetarian: "Vegetarian" };
 export const mealStyleDescriptions = {
+	vegetarian: "Meals without meat or fish; eggs and dairy may be included.",
 	all: "Keto meals, higher-carb meals, and shared mains with different sides.",
 	keto: "Low-carb meals without a starchy side.",
 	nonketo: "Meals with over 50g net carbs per four servings.",

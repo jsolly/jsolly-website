@@ -15,6 +15,7 @@
 		selected = $bindable([]),
 		emptyLabel,
 		disabled = false,
+		showClear = true,
 		canSelect = () => true,
 	} = $props();
 	const uid = $props.id();
@@ -70,13 +71,14 @@
 					/>{text}</label
 				>
 			{/each}
-			<Button
+			{#if showClear}<Button
 				variant="outline"
 				type="button"
+				disabled={selected.length === 0}
 				onclick={() => {
 					selected = [];
 				}}>Clear selections</Button
-			>
+			>{/if}
 		</PopoverContent>
 	</PopoverRoot>
 </div>

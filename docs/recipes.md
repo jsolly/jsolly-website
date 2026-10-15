@@ -320,11 +320,17 @@ There is no generated article: the pages render straight from `recipes.json`
 
 ## Pages and settings
 
+The information link beside Ingredient units opens `/recipes/assumptions/`,
+which explains approximate conversions and the unit modes. Recipe browsing
+keeps this explanation off the cooking view; print and assistant downloads
+retain the full measurement policy. Print recipe uses a filled button with a
+printer icon, and download actions label their document-format icons.
+
 Search recipes searches the current collection alongside the existing filters.
 Names and ingredients rank highest; equipment, cooking instructions, family
 sides and nutrition highlights are searchable too. MiniSearch runs locally
 with accent-insensitive matching, prefixes and limited typo tolerance. Clearing
-search restores the discovery order. Queries are not saved.
+search restores the current card order. Queries are not saved.
 
 Each library card has a Print recipe action using the current servings, units
 and family side. It prints only that recipe without opening the detail dialog.
@@ -352,9 +358,9 @@ so hydration never replaces a disclosure or cooking check in use. Without
 JavaScript, native ingredient checkboxes and nutrient disclosures still work,
 and the collection pages show only the collection links and the cards.
 
-Collection cards are shuffled once per release using the build commit as the
-seed. Server rendering and hydration keep that order, so cards do not move on
-load. Restoring saved filters or servings can still update their contents.
+Cards start in canonical source order (search uses relevance order). Shuffle
+recipes randomizes the card order for this visit while preserving all search,
+filter and cooking settings. Reload restores the default order.
 
 The library saves `{ servings, units, filters, appliancesOnHand, familyChoice }` in
 `localStorage` under `recipes-settings-v1` (J13). The old blogthedata.com key is
@@ -442,3 +448,10 @@ that has not yet made its update check would otherwise keep serving the old
 cached recipe pages. `scripts/built/blogthedata-killswitch.test.mjs` proves both
 retirements in Chromium across two origins. Visitors who had the old app
 installed install the new one from `/recipes/`.
+
+The library places search after its settings, next to the results. Dietary
+preference includes Vegetarian using the canonical verified vegetarian flag;
+meat and unverified cheese recipes are excluded. No current meal is verified
+vegan. Vegetarian and plant-forward are not protein choices. The saved
+`mealStyle` key also stores the vegetarian dietary preference. Carbs clears by
+unticking choices; other multi-choice filters disable Clear selections when empty.

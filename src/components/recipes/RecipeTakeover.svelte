@@ -110,14 +110,6 @@
 			padding: 8px 3px;
 			font-size: 0.85rem;
 		}
-		.detail-toolbar :global([data-slot="button"].print-recipe) {
-			border: 1px solid var(--recipe-input-border);
-			background: transparent;
-			color: var(--recipe-ink);
-			border-radius: 8px;
-			padding: 8px 12px;
-			font-size: 0.8rem;
-		}
 		.recipe-detail :global(.detail-badge) {
 			display: inline-block;
 			margin-bottom: 12px;
@@ -145,9 +137,6 @@
 				flex-direction: column;
 				margin-bottom: 18px;
 				gap: 5px;
-			}
-			.detail-toolbar :global([data-slot="button"].print-recipe) {
-				padding: 7px 9px;
 			}
 		}
 		@media print {

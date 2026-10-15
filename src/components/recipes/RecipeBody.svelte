@@ -2,7 +2,6 @@
 	import NativeSelect from "../../lib/components/ui/native-select.svelte";
 	import ApplianceIcon from "./ApplianceIcon.svelte";
 	import { BASE_SERVINGS } from "./constants.mjs";
-	import { MEASUREMENT_POLICY } from "./ingredient-units.mjs";
 	import NutrientDisclosure from "./NutrientDisclosure.svelte";
 	import NutritionHelp from "./NutritionHelp.svelte";
 	import { dailyNutrition } from "./nutrition.mjs";
@@ -79,7 +78,6 @@
 			<p>{sideAmount} {side.ingredientName} · serve separately</p>
 		</div>
 	{/if}
-	<p class="measurement-policy">{MEASUREMENT_POLICY}</p>
 	{#key recipe.id}<RecipeFlow {recipe} {settings} {interactive} {headingLevel} />{/key}
 	<section class="nutrition" aria-label={nutritionHeading(recipe)}>
 		<svelte:element this={`h${headingLevel}`}>Nutrition</svelte:element><p class="nutrition-portion">{nutritionHeading(recipe).replace(/^Nutrition /u, "")}</p>

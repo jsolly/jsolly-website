@@ -7,8 +7,8 @@
 	import {
 		applianceChoices,
 		applianceLimits,
-		carbStyles,
 		defaultAppliances,
+		dietaryPreferences,
 		mealStyleDescriptions,
 		nutritionHighlights,
 		nutritionThresholds,
@@ -110,11 +110,6 @@
 	<nav class="collection-options" aria-label="Recipe type"
 		>{#each COLLECTION_LINKS as link (link.href)}<a href={link.href} aria-current={current(link)}>{link.label}</a>{/each}</nav
 	>
-	<div class="recipe-search">
-		<label for={`${uid}-search`}>Search recipes</label>
-		<Input id={`${uid}-search`} type="search" bind:value={query} disabled={!hydrated} placeholder="Try chicken, garlic, or air fryer" aria-describedby={`${uid}-search-help`} />
-		<small id={`${uid}-search-help`}>Search names, ingredients, equipment and cooking details in this collection. Filters still apply.</small>
-	</div>
 	<div class="library-intro">
 		<div class="servings-setting">
 			<label for={servingsId}>Servings</label><NativeSelect id={servingsId} value={servings} onchange={(event) => onServingsChange(event.currentTarget.value)} disabled={!hydrated}
@@ -128,7 +123,7 @@
 		<div class="filter-fields">
 			{#if collection === "meal"}
 				<FilterMultiSelect label="Proteins" options={proteins} bind:selected={filters.proteinChoice} emptyLabel="All proteins" disabled={!hydrated} canSelect={(values) => hasMatches({ protein: values })} />
-				<FilterMultiSelect label="Carbs" options={starchOptions} bind:selected={filters.starchChoice} emptyLabel="All starches" disabled={!hydrated} canSelect={(values) => hasMatches({ starch: values })} />
+				<FilterMultiSelect label="Carbs" showClear={false} options={starchOptions} bind:selected={filters.starchChoice} emptyLabel="All starches" disabled={!hydrated} canSelect={(values) => hasMatches({ starch: values })} />
 			{:else}
 				<div class="smoothie-ingredients">
 					<FilterMultiSelect label="Ingredients" options={smoothieIngredients} bind:selected={filters.ingredientChoice} emptyLabel="All ingredients" disabled={!hydrated} canSelect={(values) => hasMatches({ ingredients: values })} />
@@ -137,7 +132,7 @@
 		</div>
 		{#if collection === "meal"}
 			<div class="style-filter">
-				<label for={mealStyleId}>Meal style</label><NativeSelect
+				<label for={mealStyleId}>Dietary preference</label><NativeSelect
 					id={mealStyleId}
 					aria-describedby={mealStyleHelpId}
 					value={filters.mealStyle}
@@ -145,7 +140,7 @@
 					onchange={(event) => {
 						filters.mealStyle = event.currentTarget.value;
 					}}
-					><option value="all">All meals</option>{#each Object.entries(carbStyles) as [value, label] (value)}<option {value} disabled={choiceUnavailable(filters.mealStyle === value, () => hasMatches({ carb: [value] }))}>{label}</option>{/each}</NativeSelect
+					><option value="all">All meals</option>{#each Object.entries(dietaryPreferences) as [value, label] (value)}<option {value} disabled={choiceUnavailable(filters.mealStyle === value, () => hasMatches({ carb: value === "vegetarian" ? [] : [value], vegetarian: value === "vegetarian" }))}>{label}</option>{/each}</NativeSelect
 				><small id={mealStyleHelpId}>{mealStyleDescriptions[filters.mealStyle]}</small>
 			</div>
 		{/if}
@@ -205,6 +200,11 @@
 		</div>
 	</fieldset>
 	<Button variant="outline" type="button" class="print-all" disabled={!hydrated} onclick={onPrintAll}>{collection === "smoothie" ? "Print all smoothies" : "Print all meals"}</Button>
+	<div class="recipe-search">
+		<label for={`${uid}-search`}>Search recipes</label>
+		<Input id={`${uid}-search`} type="search" bind:value={query} disabled={!hydrated} placeholder="Try chicken, garlic, or air fryer" aria-describedby={`${uid}-search-help`} />
+		<small id={`${uid}-search-help`}>Search names, ingredients, equipment and cooking details in this collection. Filters still apply.</small>
+	</div>
 </div>
 
 <style>
@@ -378,7 +378,7 @@
 			flex-wrap: wrap;
 			gap: 0;
 			grid-column: 1;
-			grid-row: 6;
+			grid-row: 5;
 		}
 		/* Floated, the legend is a flex item beside the help trigger rather
 		   than the fieldset's caption. */
@@ -414,7 +414,7 @@
 			align-self: end;
 			justify-self: end;
 			grid-column: 2;
-			grid-row: 6;
+			grid-row: 5;
 			border: 1px solid var(--recipe-input-border);
 			background: transparent;
 			color: var(--recipe-ink);
@@ -438,7 +438,7 @@
 			}
 			.library-controls :global([data-slot="button"].print-all) {
 				grid-column: 1 / -1;
-				grid-row: 7;
+				grid-row: 6;
 				justify-self: end;
 			}
 			.library-intro > .servings-setting {

@@ -65,6 +65,32 @@ function verifyLibrary(width) {
 				width > 600 ? Math.abs(a.y - b.y) < 2 : b.y > a.y,
 				`settings at ${width}px: ${a.y}, ${b.y}`,
 			);
+			const cardIds = () =>
+				page
+					.locator(".recipe-card a.title-button")
+					.evaluateAll((links) => links.map((link) => link.dataset.recipeId));
+			assert.deepEqual(
+				await cardIds(),
+				data.recipes
+					.filter((recipe) => recipe.type === "meal")
+					.map((recipe) => recipe.id),
+			);
+			const diet = page.getByRole("combobox", { name: "Dietary preference" });
+			await diet.selectOption("vegetarian");
+			const beforeShuffle = await cardIds();
+			await page.evaluate(() => {
+				let seed = 1;
+				Math.random = () => {
+					seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+					return seed / 2 ** 32;
+				};
+			});
+			await page.getByRole("button", { name: "Shuffle recipes" }).click();
+			const afterShuffle = await cardIds();
+			assert.notDeepEqual(afterShuffle, beforeShuffle);
+			assert.deepEqual([...afterShuffle].sort(), [...beforeShuffle].sort());
+			assert.equal(await diet.inputValue(), "vegetarian");
+			await diet.selectOption("all");
 			await servings.selectOption("6");
 			await units.selectOption("metric");
 			const search = page.getByRole("searchbox", { name: "Search recipes" });
@@ -158,9 +184,11 @@ function verifyLibrary(width) {
 					() => !document.querySelector("astro-island[ssr]"),
 				);
 				await page.getByRole("button", { name: PROTEINS }).click();
-				await page
-					.getByRole("button", { name: "Clear selections", exact: true })
-					.click();
+				const clear = page.getByRole("button", {
+					name: "Clear selections",
+					exact: true,
+				});
+				if (await clear.isEnabled()) await clear.click();
 				await page.keyboard.press("Escape");
 				for (const colorScheme of ["light", "dark"]) {
 					await page.emulateMedia({ colorScheme });

@@ -1,0 +1,31 @@
+---
+import { MEASUREMENT_POLICY } from "../../components/recipes/ingredient-units.mjs";
+import RecipeLayout from "../../layouts/RecipeLayout.astro";
+---
+
+<RecipeLayout title="Measurement assumptions" description="How recipe ingredient units and approximate conversions work." article>
+	<article class="measurement-assumptions">
+		<a href="/recipes/">← Back to recipes</a>
+		<h1>Measurement assumptions</h1>
+		<p>{MEASUREMENT_POLICY}</p>
+		<h2>Choosing ingredient units</h2>
+		<ul>
+			<li><strong>Grams only:</strong> shows ingredient weights where a reliable conversion is available.</li>
+			<li><strong>US imperial:</strong> uses US customary weights, cups and spoons.</li>
+			<li><strong>Metric:</strong> uses grams for mass and millilitres for volume.</li>
+		</ul>
+		<h2>Cooking with converted quantities</h2>
+		<p>An approximation marked ~ is a guide, not an exact measured weight. Keep the original measure and ingredient state in mind, and follow the recipe's cooking method, safe doneness checks and appliance capacity notes.</p>
+		<p>Printed recipes and Markdown and JSON downloads include the measurement explanation so it remains available when the recipe is used separately.</p>
+	</article>
+</RecipeLayout>
+
+<style>
+	@layer properties, theme, base, components, utilities, blog, blog-no-script;
+	@layer blog {
+		.measurement-assumptions { line-height: 1.7; }
+		.measurement-assumptions h2 { margin-top: 2rem; }
+		.measurement-assumptions ul { padding-left: 1.5rem; }
+		.measurement-assumptions li { margin-block: 0.5rem; }
+	}
+</style>
