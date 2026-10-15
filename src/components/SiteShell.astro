@@ -1,9 +1,11 @@
 ---
 import "../styles/main.css";
+import "../styles/update-notice.css";
 import noScriptStyles from "../styles/no-script.css?url";
 import Footer from "./Footer.astro";
 import Header from "./Header.astro";
 import Maintenance from "./Maintenance.astro";
+import UpdateNotice from "./UpdateNotice.astro";
 
 interface Props {
   section?: "portfolio" | "blog" | "recipes";
@@ -18,7 +20,7 @@ const maintenance = process.env.MAINTENANCE_MODE === "true";
   <Header />
   <slot name="navigation" />
   <main id="main" aria-label="Main content" class:list={["content-section", section !== "portfolio" && "reading-section"]} data-section={section} data-page={Astro.url.pathname}>
-    {maintenance ? <Maintenance /> : <><slot />{homeLink && <nav aria-label="Home navigation"><a href="/" id="home-btn" class="secondary-btn mt-6 inline-block" aria-label="Go to home page">Home</a></nav>}</>}
+    {maintenance ? <Maintenance /> : <><UpdateNotice /><slot />{homeLink && <nav aria-label="Home navigation"><a href="/" id="home-btn" class="secondary-btn mt-6 inline-block" aria-label="Go to home page">Home</a></nav>}</>}
   </main>
   <slot name="section-footer" />
   <Footer />

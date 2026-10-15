@@ -1,190 +1,37 @@
 import assert from "node:assert/strict";
-import {
-	cp,
-	mkdtemp,
-	readFile,
-	rename,
-	rm,
-	symlink,
-	writeFile,
-} from "node:fs/promises";
-import { tmpdir } from "node:os";
+import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { after, before, it } from "node:test";
-import { chromium } from "playwright";
-import { buildRecipePwa } from "../recipes/pwa-build.mjs";
-import { collectErrors, readBuilt, serveStatic } from "./pages.mjs";
-
-// The recipe app offline, ported from awesome-blog's PWA suite
-// (scripts/recipes/pwa.test.mjs): it installs and the cooking tools work
-// offline at a desktop and a phone width, an update waits until every recipe
-// tab closes, and a failed download keeps the previous snapshot or claims no
-// readiness, while a maintenance deploy (no worker) leaves the installed app
-// as it was. The server serves one fixed directory whose contents a test
-// swaps between copies of dist/ with their own worker: A and B differ in a
-// marker on /recipes/ and in the recipe data, "broken" is B with a precached
-// icon missing, so its install fails, and "maintenance" is A without its
-// worker, as a maintenance build ships (plan §1.6). Every response carries
-// Vary: Accept. The worker uses explicit Accept keys for each representation.
-// The worker
-// controls /recipes/ only: blog and portfolio pages stay uncontrolled, and its
-// snapshot holds no page outside /recipes/.
-const DIST = "dist";
-const LANDING = "/recipes/";
-// Literals on purpose: these are the plan's decisions (§1.6), not whatever
-// constants.mjs says.
-const SCOPE = "/recipes/";
-const WORKER = "/recipes/service-worker.js";
-const DATA_FILES = [
-	"/recipes/data/recipe-library.json",
-	"/recipes/data/recipe-library.md",
-];
-const MISSING_FILE = "recipes/pwa/icon-512.png";
-// The blog chrome the recipe pages show: the header logo and the author card.
-const BLOG_CHROME =
-	/^\/blog\/(?:topographic-logo\.svg|social\/\w+\.svg|media\/default\.webp)$/u;
-const SNAPSHOT_META = 'meta[name="pwa-test-snapshot"]';
-// biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
-const MANIFEST_LINK = 'link[rel="manifest"]';
-const RECIPES = new URL(
-	"../../src/components/recipes/recipes.json",
-	import.meta.url,
-);
-const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
-const RECIPE_PAGES = [
+import { it } from "node:test";
+import { collectErrors, readBuilt } from "./pages.mjs";
+import {
+	BLOG_CHROME,
+	browser,
+	controlled,
+	DATA_FILES,
+	dataLabel,
+	INSTRUCTIONS,
 	LANDING,
-	"/recipes/meals/",
-	"/recipes/smoothies/",
-	...recipes.map(({ id }) => `/recipes/${id}/`),
-];
-const SERVINGS = /^Servings/u;
-const SHARED_RECIPE =
-	"/recipes/shawarma-chicken-bowls/?servings=8&starch=shawarma-chicken-bowls:pita_one";
-const LEARN_MORE = "Learn more about Tabular Recipe Notation";
-const SMOOTHIES = recipes.filter(({ type }) => type === "smoothie").length;
-// RecipePwa's status line before any worker reports.
-const INSTRUCTIONS =
-	"Save recipes to your home screen. On iPhone or iPad, open in Safari and choose Share → Add to Home Screen. Other browsers offer Install or Add to Home Screen in their menu.";
-const SAVED = "Recipes saved for offline use.";
-const OFFLINE = "You are offline.";
-const VIEWPORTS = [
-	["desktop", { width: 1280, height: 900 }],
-	["mobile", { width: 390, height: 844 }],
-];
-const WAIT_MS = 30_000;
-const POLL_MS = 100;
-
-let fixture;
-let site;
-let browser;
-const snapshots = {};
-let served;
-
-// Copies dist/ to `label`, marks its landing page and recipe data with the
-// label, and writes its worker twice: `worker` and `rebuilt` are the two
-// results, which must match.
-async function snapshot(label) {
-	const directory = join(fixture, label);
-	await cp(DIST, directory, { recursive: true });
-	const landing = join(directory, LANDING, "index.html");
-	await writeFile(
-		landing,
-		(await readFile(landing, "utf8")).replace(
-			"</head>",
-			`<meta name="pwa-test-snapshot" content="${label}"></head>`,
-		),
-	);
-	const dataFile = join(directory, DATA_FILES[0]);
-	const data = JSON.parse(await readFile(dataFile, "utf8"));
-	await writeFile(dataFile, JSON.stringify({ ...data, testSnapshot: label }));
-	const built = await buildRecipePwa(directory);
-	const worker = await readFile(join(directory, WORKER), "utf8");
-	await buildRecipePwa(directory);
-	const rebuilt = await readFile(join(directory, WORKER), "utf8");
-	return { directory, ...built, worker, rebuilt };
-}
-
-before(async () => {
-	fixture = await mkdtemp(join(tmpdir(), "recipe-pwa-test-"));
-	snapshots.A = await snapshot("A");
-	snapshots.B = await snapshot("B");
-	const broken = join(fixture, "broken");
-	await cp(snapshots.B.directory, broken, { recursive: true });
-	await rm(join(broken, MISSING_FILE));
-	snapshots.broken = { ...snapshots.B, directory: broken };
-	const maintenance = join(fixture, "maintenance");
-	await cp(snapshots.A.directory, maintenance, { recursive: true });
-	await rm(join(maintenance, WORKER));
-	snapshots.maintenance = { ...snapshots.A, directory: maintenance };
-	served = join(fixture, "served");
-	await serve("A");
-	site = await serveStatic(served, {
-		Vary: "Accept",
-		"Cache-Control": "no-store",
-	});
-	browser = await chromium.launch();
-});
-
-after(async () => {
-	await browser?.close();
-	await site?.close();
-	if (fixture) await rm(fixture, { recursive: true, force: true });
-});
-
-// Points the served directory at snapshot `label`'s files. Renaming a fresh
-// link over the old one swaps them in one step, so no request ever sees a
-// half-copied tree.
-async function serve(label) {
-	const next = `${served}.next`;
-	await symlink(snapshots[label].directory, next, "dir");
-	await rename(next, served);
-}
-
-// Playwright's waitForFunction polls synchronous predicates; this awaits the
-// browser-side service worker and cache reads before judging the condition.
-async function waitForBrowserState(page, predicate, argument) {
-	const deadline = Date.now() + WAIT_MS;
-	while (Date.now() < deadline) {
-		// biome-ignore lint/performance/noAwaitInLoops: polling must be sequential.
-		if (await page.evaluate(predicate, argument)) return;
-		await new Promise((resolve) => setTimeout(resolve, POLL_MS));
-	}
-	throw new Error(
-		`Browser state did not reach the condition within ${WAIT_MS}ms`,
-	);
-}
-
-const statusText = (page, text) =>
-	page.getByText(text, { exact: false }).waitFor({ state: "attached" });
-const snapshotLabel = (page) =>
-	page.locator(SNAPSHOT_META).getAttribute("content");
-const dataLabel = (page) =>
-	page.evaluate(
-		async (path) => (await (await fetch(path)).json()).testSnapshot,
-		DATA_FILES[0],
-	);
-// The HTTP status each of `paths` answers with, fetched from `page`.
-const statuses = (page, paths) =>
-	page.evaluate(
-		(urls) => Promise.all(urls.map(async (url) => (await fetch(url)).status)),
-		paths,
-	);
-const controlled = (page) =>
-	page.evaluate(() => navigator.serviceWorker.controller !== null);
-const noUpdateWaiting = (page) =>
-	page.evaluate(
-		async () =>
-			(await navigator.serviceWorker.getRegistration()).waiting === null,
-	);
-
-// SSR controls exist before their saved/query settings and handlers are ready.
-async function navigateHydrated(page, url) {
-	if (url) await page.goto(url);
-	else await page.reload();
-	await page.waitForFunction(
-		() => !document.querySelector("astro-island[ssr]"),
-	);
-}
+	LEARN_MORE,
+	MANIFEST_LINK,
+	navigateHydrated,
+	noUpdateWaiting,
+	OFFLINE,
+	RECIPE_PAGES,
+	SAVED,
+	SCOPE,
+	SERVINGS,
+	SHARED_RECIPE,
+	SMOOTHIES,
+	serve,
+	site,
+	snapshotLabel,
+	snapshots,
+	statuses,
+	statusText,
+	VIEWPORTS,
+	WORKER,
+	waitForBrowserState,
+} from "./recipes-pwa-fixture.mjs";
 
 function installCheck(name, viewport) {
 	it(`Recipe PWA installs and cooking tools work offline on ${name}`, {
@@ -252,10 +99,21 @@ function installCheck(name, viewport) {
 		const page = await context.newPage();
 		const errors = collectErrors(page, { warnings: true });
 		try {
+			await page.addInitScript(() => {
+				sessionStorage.setItem(
+					"pwaNavigations",
+					String(Number(sessionStorage.getItem("pwaNavigations") ?? 0) + 1),
+				);
+			});
 			await navigateHydrated(page, `${site.origin}${LANDING}`);
 			await statusText(page, SAVED);
 			assert.equal(await page.locator(".recipe-pwa").isVisible(), false);
 			await page.waitForFunction(() => navigator.serviceWorker.controller);
+			assert.equal(
+				await page.evaluate(() => sessionStorage.getItem("pwaNavigations")),
+				"1",
+				"first install never reloads",
+			);
 			const metadata = await page.evaluate(async (selector) => {
 				const link = document.querySelector(selector);
 				const manifest = await fetch(link.href).then((response) =>
@@ -451,6 +309,7 @@ it("Distinct snapshot update waits for both tabs, then serves new recipes offlin
 			// biome-ignore lint/performance/noAwaitInLoops: the tabs open in turn
 			await navigateHydrated(page, `${site.origin}${LANDING}`);
 			await statusText(page, SAVED);
+			await page.waitForFunction(() => navigator.serviceWorker.controller);
 			assert.equal(await snapshotLabel(page), "A");
 		}
 		// Observe activation from outside the worker's scope. Reopening a
@@ -462,7 +321,10 @@ it("Distinct snapshot update waits for both tabs, then serves new recipes offlin
 		await tabs[0].evaluate(async () => {
 			await (await navigator.serviceWorker.getRegistration()).update();
 		});
-		await statusText(tabs[0], "Updated recipes are downloaded.");
+		await tabs[0]
+			.locator("#recipe-offline-status")
+			.filter({ hasText: "Updated recipes are downloaded" })
+			.waitFor({ state: "visible" });
 		await context.setOffline(true);
 		for (const page of tabs) {
 			// biome-ignore lint/performance/noAwaitInLoops: the tabs reload in turn
@@ -489,7 +351,9 @@ it("Distinct snapshot update waits for both tabs, then serves new recipes offlin
 			async (cache) => {
 				const registration =
 					await navigator.serviceWorker.getRegistration("/recipes/");
-				const keys = await caches.keys();
+				const keys = (await caches.keys()).filter(
+					(key) => key !== "recipe-pages-pwa-ownership",
+				);
 				return (
 					registration?.active?.state === "activated" &&
 					!registration.waiting &&
@@ -502,9 +366,14 @@ it("Distinct snapshot update waits for both tabs, then serves new recipes offlin
 		await navigateHydrated(reopened, `${site.origin}${LANDING}`);
 		assert.equal(await snapshotLabel(reopened), "B");
 		assert.equal(await dataLabel(reopened), "B");
-		assert.deepEqual(await reopened.evaluate(() => caches.keys()), [
-			snapshots.B.cache,
-		]);
+		assert.deepEqual(
+			await reopened.evaluate(async () =>
+				(await caches.keys()).filter(
+					(key) => key !== "recipe-pages-pwa-ownership",
+				),
+			),
+			[snapshots.B.cache],
+		);
 		await reopened.getByRole("combobox", { name: SERVINGS }).selectOption("6");
 	} finally {
 		await context.close();
@@ -518,6 +387,7 @@ it("A maintenance deploy or a failed replacement keeps the previous offline snap
 	const context = await browser.newContext();
 	try {
 		const page = await context.newPage();
+		await page.clock.install();
 		const consoleErrors = [];
 		page.on("console", (message) => {
 			if (message.type() === "error") consoleErrors.push(message.text());
@@ -548,7 +418,10 @@ it("A maintenance deploy or a failed replacement keeps the previous offline snap
 		assert.equal(await snapshotLabel(page), "A");
 		await context.setOffline(false);
 		await navigateHydrated(page);
-		await statusText(page, SAVED);
+		await page.clock.fastForward(60_000);
+		await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+		await statusText(page, "Could not check for recipe updates.");
+		assert.equal(await dataLabel(page), "A");
 
 		await serve("broken");
 		await page.evaluate(async () => {

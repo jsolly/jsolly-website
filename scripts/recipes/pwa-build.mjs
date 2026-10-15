@@ -8,8 +8,8 @@
 // media, the manifest and icons, and the two assistant downloads) and every
 // file those pages load (scripts, styles, fonts, images, the favicon and the
 // no-JavaScript stylesheets inside <noscript>). A changed snapshot gets a new
-// cache name, and the new worker waits until every recipe tab closes, so new
-// HTML never mixes with an older bundle mid-recipe.
+// cache name. The new worker waits for an explicit Update and reload request
+// or until every recipe tab closes. Only the requesting tab reloads immediately.
 //
 // A maintenance build (MAINTENANCE_MODE=true) writes no worker: installed
 // workers then get a 404 on their update check, which leaves them and their
@@ -171,10 +171,19 @@ export async function buildRecipePwa(root) {
 	hash.update(workerCode);
 	for (const path of assets) hash.update(path).update(files.get(path));
 	const cache = `${CACHE_PREFIX}${hash.digest("hex").slice(0, 20)}`;
+	const digests = assets.map((path) => [
+		path,
+		{
+			sha256: createHash("sha256").update(files.get(path)).digest("hex"),
+			size: files.get(path).byteLength,
+		},
+	]);
 	const constants = [
 		`const CACHE = ${JSON.stringify(cache)};`,
+		`const RELEASE = ${JSON.stringify(JSON.parse(await readFile(join(root, "release.json"), "utf8")).sha)};`,
 		`const PREFIX = ${JSON.stringify(CACHE_PREFIX)};`,
-		`const ASSETS = new Set(${JSON.stringify(assets)});`,
+		`const ASSET_DIGESTS = new Map(${JSON.stringify(digests)});`,
+		"const ASSETS = new Set(ASSET_DIGESTS.keys());",
 	].join("\n");
 	await writeFile(join(root, PWA_WORKER_PATH), `${constants}\n${workerCode}`);
 	return { cache, urls: assets };

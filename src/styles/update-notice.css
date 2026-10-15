@@ -1,0 +1,18 @@
+@layer components {
+	.update-notice {
+		margin-block: 1rem;
+		padding: 1rem;
+		border: 1px solid var(--color-border);
+		border-radius: 0.75rem;
+		background: var(--color-card);
+		color: var(--color-text-primary);
+	}
+	.update-notice p {
+		margin-block: 0 0.75rem;
+	}
+	@media print {
+		.update-notice {
+			display: none;
+		}
+	}
+}
