@@ -5,9 +5,7 @@ export const UNIT_LABELS = {
 	us: "US imperial",
 	metric: "Metric",
 };
-export const MEASUREMENT_POLICY =
-	"Weights converted from volume or counts are approximate (~); the original measure follows in parentheses. Counts, packages and undefined measures stay as written when no reliable weight is available. US cups and spoons are US customary measures, not British Imperial. oz means mass; fl oz means volume. Changes affect ingredient quantities; source method and package notes retain their stated measures.";
-// NIST customary units. Never treat a fluid ounce as an ounce of mass.
+// NIST customary units. A fluid ounce is volume, never mass.
 const MASS_GRAMS = { g: 1, oz: 28.349523125, lb: 453.59237 };
 const VOLUME_ML = {
 	ml: 1,
@@ -16,10 +14,14 @@ const VOLUME_ML = {
 	tbsp: 14.78676478125,
 	cup: 236.5882365,
 };
-const ALTERNATIVE_OR_PACKING = /\bor\b|\bpacked\b|\bheaping\b|\bwhipped\b/iu;
-const references = new Map(
-	weights.references.flatMap((ref) => ref.names.map((name) => [name, ref])),
-);
+const references = new Map(weights.references.map((ref) => [ref.id, ref]));
+const positive = (value) => Number.isFinite(value) && value > 0;
+
+function invalid(ingredient, reason) {
+	throw new Error(
+		`Invalid measurement for ${ingredient.recipeId ? `${ingredient.recipeId}/` : ""}${ingredient.id || ingredient.name || ingredient.ingredientName || "unnamed ingredient"}: ${reason}`,
+	);
+}
 
 export function unitPreference(value) {
 	return typeof value === "string" && Object.hasOwn(UNIT_LABELS, value)
@@ -27,106 +29,151 @@ export function unitPreference(value) {
 		: "us";
 }
 
-/** Round at the display boundary only, never a positive amount down to zero. */
+/** Round once for display and retain a positive numeric quantity for tiny spices. */
 function measureNumber(value, decimals = value >= 10 ? 0 : value >= 1 ? 1 : 2) {
 	const rounded = Number(value.toFixed(decimals));
-	return rounded === 0 && value > 0 ? "<0.01" : String(rounded);
+	return String(rounded || Number(value.toPrecision(2)));
 }
 
-/** Source-backed portion weights only. Nutrition estimates never enter this path. */
+/** Explicit cooking references only. Display prose never determines food identity. */
 export function ingredientWeight(ingredient) {
-	if (MASS_GRAMS[ingredient.unit])
+	const ref = ingredient.weightRef
+		? references.get(ingredient.weightRef)
+		: null;
+	if (ingredient.weightRef && !ref)
+		invalid(ingredient, `unknown weightRef ${ingredient.weightRef}`);
+	const mass = MASS_GRAMS[ingredient.unit];
+	if (mass)
 		return {
-			gramsPerUnit: MASS_GRAMS[ingredient.unit],
-			approximate: false,
+			gramsPerUnit: mass,
 			source: "https://www.nist.gov/pml/special-publication-811",
+			kind: ref?.kind || "mass",
+			...(ref
+				? {
+						referenceId: ref.id,
+						gramsPerMl: ref.gramsPerMl,
+						referenceSource: ref.source,
+					}
+				: {}),
 		};
-	if (
-		ALTERNATIVE_OR_PACKING.test(
-			[ingredient.name, ingredient.state, ingredient.note]
-				.filter(Boolean)
-				.join(" "),
+	if (!ref) invalid(ingredient, `missing weightRef for ${ingredient.unit}`);
+	const direct = ref.measures[ingredient.unit];
+	let gramsPerUnit;
+	if (direct) {
+		if (!positive(direct.grams) || !positive(direct.amount))
+			invalid(
+				ingredient,
+				`invalid ${ingredient.unit} observation in ${ref.id}`,
+			);
+		gramsPerUnit = direct.grams / direct.amount;
+	} else if (ref.volumeInterpolationUnit && VOLUME_ML[ingredient.unit]) {
+		const unit = ref.volumeInterpolationUnit;
+		const observation = ref.measures[unit];
+		if (
+			!VOLUME_ML[unit] ||
+			!positive(observation?.grams) ||
+			!positive(observation?.amount)
 		)
-	)
-		return null;
-	if (ingredient.gramsPerUnit > 0 && ingredient.massSource)
-		return {
-			gramsPerUnit: ingredient.gramsPerUnit,
-			approximate: true,
-			source: ingredient.massSource,
-			basis: ingredient.massBasis,
-		};
-	const ref = references.get(
-		(ingredient.name || ingredient.ingredientName || "").trim().toLowerCase(),
-	);
-	if (!ref || !VOLUME_ML[ingredient.unit]) return null;
-	const entry = ref.measures[ingredient.unit];
-	const [unit, fallback] = Object.entries(ref.measures)[0];
-	const gramsPerUnit = entry
-		? entry.grams / entry.amount
-		: ((fallback.grams / fallback.amount) * VOLUME_ML[ingredient.unit]) /
-			VOLUME_ML[unit];
+			invalid(
+				ingredient,
+				`invalid volume interpolation observation in ${ref.id}`,
+			);
+		gramsPerUnit =
+			(observation.grams / observation.amount / VOLUME_ML[unit]) *
+			VOLUME_ML[ingredient.unit];
+	} else if (
+		ref.kind === "liquid" &&
+		positive(ref.gramsPerMl) &&
+		VOLUME_ML[ingredient.unit]
+	) {
+		gramsPerUnit = ref.gramsPerMl * VOLUME_ML[ingredient.unit];
+	} else {
+		invalid(ingredient, `no ${ingredient.unit} observation in ${ref.id}`);
+	}
 	return {
 		gramsPerUnit,
-		approximate: true,
 		source: ref.source,
 		description: ref.description,
 		kind: ref.kind,
+		referenceId: ref.id,
+		gramsPerMl: ref.gramsPerMl,
 	};
 }
 
-/** Canonical input is already scaled. Unit switches never reuse a rounded display. */
+/** Preserve the unrounded cooking mass through scaling and every consumer. */
+export function ingredientGrams(ingredient, amount = ingredient.amount) {
+	if (!positive(amount))
+		invalid(ingredient, "amount must be finite and positive");
+	const grams = amount * ingredientWeight(ingredient).gramsPerUnit;
+	if (!positive(grams))
+		invalid(ingredient, "resolved grams must be finite and positive");
+	return grams;
+}
+
+/** Canonical input is already scaled. Unit switches never reuse a display value. */
 export function ingredientMeasure(ingredient, amount, units, formatQuantity) {
-	if (!Number.isFinite(amount))
-		return { quantity: "Not specified", status: "unspecified" };
-	if (amount === 0) return { quantity: "to taste", status: "to-taste" };
-	const original = `${amount < 0.02 ? measureNumber(amount) : formatQuantity(amount)}${ingredient.unit ? ` ${ingredient.unit}` : ""}`;
+	const grams = ingredientGrams(ingredient, amount);
 	const weight = ingredientWeight(ingredient);
 	const mass = MASS_GRAMS[ingredient.unit];
 	const volume = VOLUME_ML[ingredient.unit];
-	// A cooker's minimum liquid is a volume requirement; density estimates cannot replace it.
-	if (ingredient.scale === "minimum" && ingredient.unit === "ml")
-		return {
-			quantity: `${measureNumber(amount * volume)} mL minimum (measure by volume)`,
-			status: "minimum-volume",
-		};
+	let quantity;
+	let status;
 	if (units === "us") {
 		if (mass) {
-			const grams = amount * mass;
 			const unit = grams >= MASS_GRAMS.lb ? "lb" : "oz";
-			return {
-				quantity: `${measureNumber(grams / MASS_GRAMS[unit], 2)} ${unit}`,
-				status: "mass",
-				source: weight.source,
-			};
+			quantity = `${measureNumber(grams / MASS_GRAMS[unit], 2)} ${unit}`;
+			status = "mass";
+		} else if (ingredient.unit === "ml") {
+			quantity = `${measureNumber(amount / VOLUME_ML["fl oz"], 2)} fl oz`;
+			status = "volume";
+		} else {
+			const shown =
+				amount < 0.02 ? measureNumber(amount) : formatQuantity(amount);
+			quantity = `${shown} ${ingredient.unit}`;
+			status = volume ? "volume" : "portion";
 		}
-		if (ingredient.unit === "ml")
-			return {
-				quantity: `${measureNumber(amount / VOLUME_ML["fl oz"], 2)} fl oz`,
-				status: "volume",
-			};
-		return { quantity: original, status: volume ? "volume" : "source-measure" };
+	} else if (units === "metric" && weight.kind === "liquid") {
+		let milliliters;
+		if (volume) milliliters = amount * volume;
+		else {
+			if (!positive(weight.gramsPerMl))
+				invalid(
+					ingredient,
+					"liquid mass or portion needs an explicit gramsPerMl",
+				);
+			milliliters = grams / weight.gramsPerMl;
+		}
+		quantity = `${measureNumber(milliliters)} mL`;
+		status = "volume";
+	} else {
+		quantity = `${measureNumber(grams)} g`;
+		status = "mass";
 	}
-	if (mass)
-		return {
-			quantity: `${measureNumber(amount * mass)} g`,
-			status: "mass",
-			source: weight.source,
-		};
-	if (units === "metric" && volume && (weight?.kind === "liquid" || !weight)) {
-		return {
-			quantity: `${measureNumber(amount * volume)} mL${ingredient.unit === "ml" ? "" : ` volume (${original})`}`,
-			status: "volume",
-		};
-	}
-	if (weight)
-		return {
-			quantity: `~${measureNumber(amount * weight.gramsPerUnit)} g${weight.basis ? ` ${weight.basis}` : ""} (${original})`,
-			status: "approximate-mass",
-			source: weight.source,
-		};
-	return {
-		quantity: `${original} (weight unavailable)`,
-		status: "source-measure",
+	const result = {
+		quantity,
+		status,
+		grams,
+		source:
+			units === "metric" && weight.kind === "liquid"
+				? weight.referenceSource || weight.source
+				: weight.source,
 	};
+	if (ingredient.alternatives?.length) {
+		if (!positive(ingredient.amount))
+			invalid(ingredient, "alternative scaling needs a positive base amount");
+		result.alternatives = ingredient.alternatives.map((alternative) => ({
+			name: alternative.name,
+			...ingredientMeasure(
+				{
+					...alternative,
+					recipeId: ingredient.recipeId,
+					id: `${ingredient.id}/${alternative.name}`,
+				},
+				alternative.amount * (amount / ingredient.amount),
+				units,
+				formatQuantity,
+			),
+		}));
+	}
+	return result;
 }

@@ -151,3 +151,71 @@ it("USDA refresh rejects unexpected food types, wrong units and incomplete estim
 		{ message: "Missing kcal observation for one" },
 	);
 });
+
+it("USDA refresh retains independently sourced label macros on a USDA micronutrient proxy", () => {
+	const label = {
+		...structuredClone(row),
+		macroSource: "https://example.com/reviewed-label",
+	};
+	const result = refreshModels(
+		{ ...model, recipes: { one: [label] } },
+		{ ...recipes, recipes: [] },
+		new Map([[123, food]]),
+		"today",
+	);
+	assert.deepEqual(result.nutrition.recipes.one[0].macros, row.macros);
+	assert.equal(result.nutrition.recipes.one[0].nutrients.iron, 3);
+});
+
+it("USDA refresh recomputes measured household macros and preserves publisher correction baselines", () => {
+	const measured = structuredClone(recipes);
+	measured.recipes[0].measurementNutritionBaseline = structuredClone(
+		measured.recipes[0].nutrition,
+	);
+	measured.recipes[0].familyOptions = [
+		{
+			id: "bread",
+			nutrition: {
+				kcal: 8,
+				protein_g: 0.8,
+				carbs_g: 1.6,
+				fiber_g: 0,
+				net_carbs_g: 1.6,
+			},
+		},
+	];
+	const observed = structuredClone(food);
+	observed.foodNutrients.push(
+		{ nutrient: { id: 1003, unitName: "g" }, amount: 2 },
+		{ nutrient: { id: 1005, unitName: "g" }, amount: 3 },
+	);
+	const measuredRow = {
+		...structuredClone(row),
+		measurementBaseline: { grams: 400, macros: structuredClone(row.macros) },
+	};
+	const result = refreshModels(
+		{
+			...model,
+			recipes: { one: [measuredRow] },
+			familyOptions: {
+				one: [{ ...structuredClone(row), ingredientId: "bread", grams: 80 }],
+			},
+		},
+		measured,
+		new Map([[123, observed]]),
+		"today",
+	);
+	assert.equal(result.recipes.recipes[0].nutrition.kcal, 20);
+	assert.equal(result.recipes.recipes[0].nutrition.protein_g, 2);
+	assert.equal(result.recipes.recipes[0].nutrition.net_carbs_g, 3);
+	assert.equal(result.recipes.recipes[0].familyOptions[0].nutrition.kcal, 16);
+	assert.equal(
+		result.recipes.recipes[0].familyOptions[0].nutrition.protein_g,
+		1.6,
+	);
+	assert.equal(result.nutrition.familyOptions.one[0].nutrients.iron, 3);
+	assert.deepEqual(
+		result.recipes.recipes[0].measurementNutritionBaseline,
+		measured.recipes[0].measurementNutritionBaseline,
+	);
+});

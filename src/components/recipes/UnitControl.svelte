@@ -27,7 +27,7 @@
 <DialogRoot bind:open>
 	<DialogContent class="measurement-assumptions-dialog" bind:ref={dialog} tabindex={-1} showCloseButton={false} onOpenAutoFocus={(event) => { event.preventDefault(); dialog?.focus(); }} onCloseAutoFocus={(event) => { event.preventDefault(); trigger?.focus(); }}>
 		<DialogTitle>Measurement assumptions</DialogTitle>
-		<DialogDescription>How ingredient units and approximate conversions work.</DialogDescription>
+		<DialogDescription>Ingredient units</DialogDescription>
 		<MeasurementAssumptions />
 		<Button variant="outline" onclick={() => (open = false)}>Close and continue</Button>
 	</DialogContent>

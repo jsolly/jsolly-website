@@ -2,14 +2,15 @@
 	import NativeSelect from "../../lib/components/ui/native-select.svelte";
 	import ApplianceIcon from "./ApplianceIcon.svelte";
 	import { BASE_SERVINGS } from "./constants.mjs";
+	import { ingredientMeasure } from "./ingredient-units.mjs";
 	import NutrientDisclosure from "./NutrientDisclosure.svelte";
 	import NutritionHelp from "./NutritionHelp.svelte";
 	import { dailyNutrition } from "./nutrition.mjs";
 	import RecipeFlow from "./RecipeFlow.svelte";
 	import {
 		displayNutrition,
-		formatIngredient,
 		formatNutrition,
+		formatQuantity,
 		ingredientAmount,
 		nutritionHeading,
 	totalTimeLabel,
@@ -41,16 +42,8 @@
 	);
 	// The family side is a fixed amount per diner, whatever the servings.
 	const sideAmount = $derived(
-		side &&
-			formatIngredient(
-				{
-					...side,
-					amount: side.amount * settings.familyDiners,
-					scale: "fixed",
-				},
-				BASE_SERVINGS,
-				settings.units,
-			),
+		side && settings.familyDiners > 0 &&
+			ingredientMeasure(side, side.amount * settings.familyDiners, settings.units, formatQuantity).quantity,
 	);
 </script>
 
@@ -69,7 +62,7 @@
 			<img src={recipe.image.src} srcset={recipe.image.detailSrcset} sizes="(max-width:600px) 320px, (max-width:1000px) 680px, 960px" width={recipe.image.width} height={recipe.image.height} alt={recipe.image.alt} loading="eager" decoding="async" />
 		</figure>
 	{/if}
-	{#if side}
+	{#if side && settings.familyDiners > 0}
 		<div class="family-box">
 			<label for={sideId}
 				>Family side{#if printOnly}<span>{side.label}</span>{:else}<NativeSelect id={sideId} value={selectedSide} disabled={!interactive} onchange={(event) => onSideChange?.(event.currentTarget.value)}>

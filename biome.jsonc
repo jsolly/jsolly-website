@@ -7,8 +7,8 @@
 		"defaultBranch": "main"
 	},
 	"files": {
-		// Keep the expanded canonical recipe library fully parsed and checked.
-		"maxSize": 3145728,
+		// Parse the complete canonical library and its all-serving measurement audit.
+		"maxSize": 8388608,
 		"includes": [
 			"**",
 			"!.agents",
@@ -306,6 +306,15 @@
 		}
 	},
 	"overrides": [
+		{
+			// These large data files use the migration/audit JSON.stringify layout.
+			// Keep both formatting and lint checks without collapsing small arrays.
+			"includes": [
+				"src/components/recipes/recipes.json",
+				"docs/recipe-units-audit.json"
+			],
+			"json": { "formatter": { "expand": "always" } }
+		},
 		{
 			// PagesCMS owns these files: it rewrites each one with
 			// JSON.stringify(x, null, 2) and no final newline. Linting stays on.

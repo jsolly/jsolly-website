@@ -1,285 +1,1275 @@
 {
+	"schemaVersion": 2,
 	"sourceArchive": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
 	"sha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 	"retrieved": "2026-10-13",
-	"policy": "Reviewed cooking portion observations. Exact names only; alternatives, undefined sizes, packing and seasoning blends stay unresolved. Prepared liquid and loose spoon/cup weights vary: show approximations and original measures. These are independent of the nutrition model.",
+	"policy": "Explicit per-ingredient identities. Prefer exact observed source units. Only named volume interpolation is permitted. Editorial mass targets are decisions, not recovered publisher facts. Cooking mass and edible nutrition mass are separate.",
 	"references": [
 		{
-			"names": [
-				"butter",
-				"unsalted butter",
-				"salted butter",
-				"softened butter",
-				"melted butter"
-			],
+			"id": "asparagus-bunch",
 			"kind": "mass",
-			"fdcId": 173430,
-			"description": "Butter, without salt",
-			"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients",
+			"description": "Trimmed asparagus, 225 g cooking portion",
+			"state": "Trimmed asparagus, 225 g cooking portion",
+			"basis": "edible",
+			"source": "https://www.jsolly.com/recipes/",
 			"measures": {
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 14.2,
-					"portion": "tbsp"
-				},
-				"cup": {
-					"amount": 1.0,
-					"grams": 227.0,
-					"portion": "cup"
+				"bunch": {
+					"amount": 1,
+					"grams": 225,
+					"portion": "Trimmed asparagus, 225 g cooking portion; bunch"
 				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
+				"evidence": "https://www.jsolly.com/recipes/"
+			},
+			"fdcId": 168389
+		},
+		{
+			"id": "broccoli-head",
+			"kind": "mass",
+			"description": "Broccoli florets, 300 g per head portion",
+			"state": "Broccoli florets, 300 g per head portion",
+			"basis": "edible",
+			"source": "https://www.jsolly.com/recipes/",
+			"measures": {
+				"head": {
+					"amount": 1,
+					"grams": 300,
+					"portion": "Broccoli florets, 300 g per head portion; head"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
+				"evidence": "https://www.jsolly.com/recipes/"
+			},
+			"fdcId": 170379
+		},
+		{
+			"id": "broccolini-bunch",
+			"kind": "mass",
+			"description": "Trimmed broccolini, 225 g cooking portion",
+			"state": "Trimmed broccolini, 225 g cooking portion",
+			"basis": "edible",
+			"source": "https://www.jsolly.com/recipes/",
+			"measures": {
+				"bunch": {
+					"amount": 1,
+					"grams": 225,
+					"portion": "Trimmed broccolini, 225 g cooking portion; bunch"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
+				"evidence": "https://www.jsolly.com/recipes/"
+			},
+			"fdcId": 170379
+		},
+		{
+			"id": "carrot-bunch",
+			"kind": "mass",
+			"description": "Trimmed carrots, 300 g cooking portion",
+			"state": "Trimmed carrots, 300 g cooking portion",
+			"basis": "edible",
+			"source": "https://www.jsolly.com/recipes/",
+			"measures": {
+				"bunch": {
+					"amount": 1,
+					"grams": 300,
+					"portion": "Trimmed carrots, 300 g cooking portion; bunch"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
+				"evidence": "https://www.jsolly.com/recipes/"
+			},
+			"fdcId": 170393
+		},
+		{
+			"id": "cheese-slice",
+			"kind": "mass",
+			"description": "Cheese, 28 g slice",
+			"state": "Cheese, 28 g slice",
+			"basis": "edible",
+			"source": "https://www.jsolly.com/recipes/",
+			"measures": {
+				"slice": {
+					"amount": 1,
+					"grams": 28,
+					"portion": "Cheese, 28 g slice; slice"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
+				"evidence": "https://www.jsolly.com/recipes/"
+			},
+			"fdcId": 173414
+		},
+		{
+			"id": "chicken-bone-thigh",
+			"kind": "mass",
+			"description": "Bone-in chicken thigh, 200 g purchased weight",
+			"state": "Bone-in chicken thigh, 200 g purchased weight",
+			"basis": "as-purchased",
+			"source": "https://www.jsolly.com/recipes/",
+			"measures": {
+				"count": {
+					"amount": 1,
+					"grams": 200,
+					"portion": "Bone-in chicken thigh, 200 g purchased weight; count"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
+				"evidence": "https://www.jsolly.com/recipes/"
+			},
+			"fdcId": 172385
+		},
+		{
+			"id": "chicken-breast",
+			"kind": "mass",
+			"description": "Boneless skinless chicken breast, 200 g",
+			"state": "Boneless skinless chicken breast, 200 g",
+			"basis": "edible",
+			"source": "https://www.jsolly.com/recipes/",
+			"measures": {
+				"count": {
+					"amount": 1,
+					"grams": 200,
+					"portion": "Boneless skinless chicken breast, 200 g; count"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
+				"evidence": "https://www.jsolly.com/recipes/"
+			},
+			"fdcId": 171077
+		},
+		{
+			"id": "chicken-large-breast",
+			"kind": "mass",
+			"description": "Large boneless skinless chicken breast, 272 g",
+			"state": "Large boneless skinless chicken breast, 272 g",
+			"basis": "edible",
+			"source": "https://www.jsolly.com/recipes/",
+			"measures": {
+				"count": {
+					"amount": 1,
+					"grams": 272,
+					"portion": "Large boneless skinless chicken breast, 272 g; count"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
+				"evidence": "https://www.jsolly.com/recipes/"
+			},
+			"fdcId": 171077
+		},
+		{
+			"id": "chicken-small-breast",
+			"kind": "mass",
+			"description": "Small boneless skinless chicken breast, 170 g",
+			"state": "Small boneless skinless chicken breast, 170 g",
+			"basis": "edible",
+			"source": "https://www.jsolly.com/recipes/",
+			"measures": {
+				"count": {
+					"amount": 1,
+					"grams": 170,
+					"portion": "Small boneless skinless chicken breast, 170 g; count"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
+				"evidence": "https://www.jsolly.com/recipes/"
+			},
+			"fdcId": 171077
+		},
+		{
+			"id": "chicken-thigh",
+			"kind": "mass",
+			"description": "Boneless skinless chicken thigh, 100 g",
+			"state": "Boneless skinless chicken thigh, 100 g",
+			"basis": "edible",
+			"source": "https://www.jsolly.com/recipes/",
+			"measures": {
+				"count": {
+					"amount": 1,
+					"grams": 100,
+					"portion": "Boneless skinless chicken thigh, 100 g; count"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
+				"evidence": "https://www.jsolly.com/recipes/"
+			},
+			"fdcId": 173627
+		},
+		{
+			"id": "cod-portion",
+			"kind": "mass",
+			"description": "Cod fillet portion, 6 oz",
+			"state": "Cod fillet portion, 6 oz",
+			"basis": "edible",
+			"source": "https://www.jsolly.com/recipes/",
+			"measures": {
+				"count": {
+					"amount": 1,
+					"grams": 170.09713875,
+					"portion": "Cod fillet portion, 6 oz; count"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
+				"evidence": "https://www.jsolly.com/recipes/"
+			},
+			"fdcId": 171955
+		},
+		{
+			"id": "fajita-packet",
+			"kind": "mass",
+			"description": "Dry fajita seasoning, 28 g packet",
+			"state": "Dry fajita seasoning, 28 g packet",
+			"basis": "edible",
+			"source": "https://www.jsolly.com/recipes/",
+			"measures": {
+				"packet": {
+					"amount": 1,
+					"grams": 28,
+					"portion": "Dry fajita seasoning, 28 g packet; packet"
+				},
+				"tsp": {
+					"amount": 1,
+					"grams": 3,
+					"portion": "Dry fajita seasoning, 28 g packet; tsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Editorial 28 g packet with measured 3 g chicken portion, 25 g remaining for vegetables; not a generic packet conversion.",
+				"evidence": "https://www.jsolly.com/recipes/"
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "ka-almond-flour",
+			"kind": "mass",
+			"description": "Almond flour, level cup",
+			"state": "Almond flour, level cup",
+			"basis": "edible",
+			"source": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+			"measures": {
+				"cup": {
+					"amount": 1,
+					"grams": 96,
+					"portion": "Almond flour, level cup; cup"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Chart distinguishes almond flour 96 g/cup from almond meal 84 g/cup.",
+				"evidence": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+				"contradictoryObservations": [
+					{
+						"source": "https://fdc.nal.usda.gov/food-details/170567/nutrients",
+						"unit": "cup",
+						"grams": 95,
+						"decision": "Ground almonds are a different preparation from almond flour; retain the flour-specific test-kitchen observation."
+					}
+				]
+			},
+			"volumeInterpolationUnit": "cup",
+			"fdcId": 170567
+		},
+		{
+			"id": "ka-baking-powder",
+			"kind": "mass",
+			"description": "Baking powder, level teaspoon",
+			"state": "Baking powder, level teaspoon",
+			"basis": "edible",
+			"source": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+			"measures": {
+				"tsp": {
+					"amount": 1,
+					"grams": 4,
+					"portion": "Baking powder, level teaspoon; tsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Use the test-kitchen teaspoon observation, consistent with the recipe leavener role.",
+				"evidence": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart"
+			},
+			"volumeInterpolationUnit": "tsp",
+			"fdcId": 172803
+		},
+		{
+			"id": "ka-cashews",
+			"kind": "mass",
+			"description": "Cashews, chopped",
+			"state": "Cashews, chopped",
+			"basis": "edible",
+			"source": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+			"measures": {
+				"cup": {
+					"amount": 1,
+					"grams": 113,
+					"portion": "Cashews, chopped; cup"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Use chopped cashew observation.",
+				"evidence": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart"
+			},
+			"volumeInterpolationUnit": "cup",
+			"fdcId": 170162
+		},
+		{
+			"id": "ka-coconut-cream",
+			"kind": "liquid",
+			"description": "Unsweetened coconut cream",
+			"state": "canned, stirred",
+			"basis": "edible",
+			"source": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+			"measures": {
+				"cup": {
+					"amount": 1,
+					"grams": 284,
+					"portion": "cup unsweetened coconut cream"
+				}
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 1.2003978059154263,
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"evidence": "King Arthur ingredient weight chart coconut cream unsweetened",
+				"decision": "Coconut cream alternative has its own observed cup mass."
 			}
 		},
 		{
-			"names": ["minced garlic", "garlic", "garlic, minced"],
+			"id": "ka-coconut-flour",
+			"kind": "mass",
+			"description": "Coconut flour",
+			"state": "Coconut flour",
+			"basis": "edible",
+			"source": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+			"measures": {
+				"cup": {
+					"amount": 1,
+					"grams": 128,
+					"portion": "Coconut flour; cup"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Use coconut flour observation, not almond flour or almond meal.",
+				"evidence": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart"
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "lemon-whole",
+			"kind": "mass",
+			"description": "Whole lemon for slices, 75 g including peel",
+			"state": "raw, whole, including peel",
+			"basis": "as-purchased",
+			"source": "https://www.jsolly.com/recipes/",
+			"measures": {
+				"count": {
+					"amount": 1,
+					"grams": 75,
+					"portion": "one 75 g whole lemon including peel"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
+				"evidence": "https://www.jsolly.com/recipes/"
+			},
+			"fdcId": 167746
+		},
+		{
+			"id": "morton-kosher",
+			"kind": "mass",
+			"description": "Morton coarse kosher salt",
+			"state": "Morton coarse kosher salt",
+			"basis": "edible",
+			"source": "https://www.mortonsalt.com/shop/kosher-salt/morton-kosher-salt-flakes-16-oz/",
+			"measures": {
+				"tsp": {
+					"amount": 1,
+					"grams": 4.8,
+					"portion": "Morton coarse kosher salt; tsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Adopt Morton coarse kosher salt as explicit brand default; label 1.2 g per 1/4 tsp. Other salt grains are not equivalent.",
+				"evidence": "https://www.mortonsalt.com/shop/kosher-salt/morton-kosher-salt-flakes-16-oz/",
+				"contradictoryObservations": [
+					{
+						"source": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+						"unit": "tbsp",
+						"grams": 16,
+						"decision": "Manufacturer 1.2 g per quarter teaspoon governs this selected branded ingredient; test-kitchen tablespoon observation is not silently averaged."
+					}
+				]
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "pepperoncini",
+			"kind": "mass",
+			"description": "Drained pepperoncini, 14 g portion",
+			"state": "Drained pepperoncini, 14 g portion",
+			"basis": "drained",
+			"source": "https://www.jsolly.com/recipes/",
+			"measures": {
+				"count": {
+					"amount": 1,
+					"grams": 14,
+					"portion": "Drained pepperoncini, 14 g portion; count"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
+				"evidence": "https://www.jsolly.com/recipes/"
+			},
+			"fdcId": 169766
+		},
+		{
+			"id": "pork-bone-chop",
+			"kind": "mass",
+			"description": "Bone-in pork chop, 8 oz purchased weight",
+			"state": "Bone-in pork chop, 8 oz purchased weight",
+			"basis": "as-purchased",
+			"source": "https://www.jsolly.com/recipes/",
+			"measures": {
+				"count": {
+					"amount": 1,
+					"grams": 226.796185,
+					"portion": "Bone-in pork chop, 8 oz purchased weight; count"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
+				"evidence": "https://www.jsolly.com/recipes/"
+			},
+			"fdcId": 167839
+		},
+		{
+			"id": "salmon-portion",
+			"kind": "mass",
+			"description": "Salmon fillet portion, 6 oz",
+			"state": "Salmon fillet portion, 6 oz",
+			"basis": "edible",
+			"source": "https://www.jsolly.com/recipes/",
+			"measures": {
+				"count": {
+					"amount": 1,
+					"grams": 170.09713875,
+					"portion": "Salmon fillet portion, 6 oz; count"
+				},
+				"fillet": {
+					"amount": 1,
+					"grams": 170.09713875,
+					"portion": "Salmon fillet portion, 6 oz; fillet"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
+				"evidence": "https://www.jsolly.com/recipes/"
+			},
+			"fdcId": 175167
+		},
+		{
+			"id": "usda-167746",
+			"kind": "mass",
+			"fdcId": 167746,
+			"description": "Lemons, raw, without peel",
+			"state": "Lemons, raw, without peel",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/167746/nutrients",
+			"measures": {
+				"count": {
+					"amount": 1.0,
+					"grams": 58.0,
+					"portion": "fruit (2-1/8\" dia)"
+				},
+				"slice": {
+					"amount": 1.0,
+					"grams": 7.0,
+					"portion": "wedge or slice (1/8 of one 2-1/8\" dia lemon)"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			}
+		},
+		{
+			"id": "usda-167747",
+			"kind": "liquid",
+			"fdcId": 167747,
+			"description": "Lemon juice, raw",
+			"state": "Lemon juice, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/167747/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 244.0,
+					"portion": "cup"
+				},
+				"lemon": {
+					"amount": 1.0,
+					"grams": 48.0,
+					"portion": "lemon yields"
+				},
+				"count": {
+					"amount": 1.0,
+					"grams": 48.0,
+					"portion": "lemon yields"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 1.0313276924062114
+		},
+		{
+			"id": "usda-167749-zest",
+			"kind": "mass",
+			"fdcId": 167749,
+			"description": "Lemon peel, raw",
+			"state": "zest",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/167749/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 2.0,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 6.0,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-167839",
+			"kind": "mass",
+			"fdcId": 167839,
+			"description": "Pork, fresh, loin, top loin (chops), boneless, separable lean and fat, raw",
+			"state": "Pork, fresh, loin, top loin (chops), boneless, separable lean and fat, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/167839/nutrients",
+			"measures": {
+				"count": {
+					"amount": 1.0,
+					"grams": 185.0,
+					"portion": "chop"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			}
+		},
+		{
+			"id": "usda-168155",
+			"fdcId": 168155,
+			"kind": "mass",
+			"description": "Limes, raw",
+			"state": "Limes, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/168155/nutrients",
+			"measures": {
+				"g": {
+					"amount": 1,
+					"grams": 1,
+					"portion": "weighed edible grams"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy identified food record; cooking quantity independently weighed.",
+				"decision": "Food identity only for a direct measured mass, no inferred count or volume."
+			}
+		},
+		{
+			"id": "usda-168156",
+			"kind": "liquid",
+			"fdcId": 168156,
+			"description": "Lime juice, raw",
+			"state": "Lime juice, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/168156/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 242.0,
+					"portion": "cup"
+				},
+				"lime": {
+					"amount": 1.0,
+					"grams": 44.0,
+					"portion": "lime yields"
+				},
+				"count": {
+					"amount": 1.0,
+					"grams": 44.0,
+					"portion": "lime yields"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 1.0228741867307507
+		},
+		{
+			"id": "usda-168277",
+			"kind": "mass",
+			"fdcId": 168277,
+			"description": "Pork, cured, bacon, unprepared",
+			"state": "Pork, cured, bacon, unprepared",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/168277/nutrients",
+			"measures": {
+				"slice": {
+					"amount": 1.0,
+					"grams": 28.0,
+					"portion": "slice raw"
+				},
+				"strip": {
+					"amount": 1.0,
+					"grams": 28.0,
+					"portion": "slice raw"
+				},
+				"count": {
+					"amount": 1.0,
+					"grams": 28.0,
+					"portion": "slice raw"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			}
+		},
+		{
+			"id": "usda-168389",
+			"kind": "mass",
+			"fdcId": 168389,
+			"description": "Asparagus, raw",
+			"state": "Asparagus, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/168389/nutrients",
+			"measures": {
+				"spear": {
+					"amount": 1.0,
+					"grams": 16.0,
+					"portion": "spear, medium (5-1/4\" to 7\" long)"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			}
+		},
+		{
+			"id": "usda-168462",
+			"kind": "mass",
+			"fdcId": 168462,
+			"description": "Spinach, raw",
+			"state": "Spinach, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/168462/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 30.0,
+					"portion": "cup"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-168567",
+			"kind": "mass",
+			"fdcId": 168567,
+			"description": "Tomatoes, sun-dried",
+			"state": "Tomatoes, sun-dried",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/168567/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 54.0,
+					"portion": "cup"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-168576",
+			"kind": "mass",
+			"fdcId": 168576,
+			"description": "Peppers, jalapeno, raw",
+			"state": "Peppers, jalapeno, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/168576/nutrients",
+			"measures": {
+				"count": {
+					"amount": 1.0,
+					"grams": 14.0,
+					"portion": "pepper"
+				},
+				"cup": {
+					"amount": 1.0,
+					"grams": 90.0,
+					"portion": "cup, sliced"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"nutritionFdcId": 168576
+		},
+		{
+			"id": "usda-168878",
+			"kind": "mass",
+			"fdcId": 168878,
+			"description": "Rice, white, long-grain, regular, enriched, cooked",
+			"state": "Rice, white, long-grain, regular, enriched, cooked",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/168878/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 158.0,
+					"portion": "cup"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-169230",
 			"kind": "mass",
 			"fdcId": 169230,
 			"description": "Garlic, raw",
+			"state": "Garlic, raw",
+			"basis": "edible",
 			"source": "https://fdc.nal.usda.gov/food-details/169230/nutrients",
 			"measures": {
 				"tsp": {
 					"amount": 1.0,
 					"grams": 2.8,
 					"portion": "tsp"
-				}
-			}
-		},
-		{
-			"names": ["unsweetened almond milk"],
-			"kind": "liquid",
-			"fdcId": 174832,
-			"description": "Beverages, almond milk, unsweetened, shelf stable",
-			"source": "https://fdc.nal.usda.gov/food-details/174832/nutrients",
-			"measures": {
+				},
 				"cup": {
 					"amount": 1.0,
-					"grams": 262.0,
+					"grams": 136.0,
 					"portion": "cup"
-				}
-			}
-		},
-		{
-			"names": ["heavy cream", "heavy whipping cream"],
-			"kind": "liquid",
-			"fdcId": 170859,
-			"description": "Cream, fluid, heavy whipping",
-			"source": "https://fdc.nal.usda.gov/food-details/170859/nutrients",
-			"measures": {
-				"cup": {
-					"amount": 1.0,
-					"grams": 238.0,
-					"portion": "cup, fluid (yields 2 cups whipped)"
 				},
-				"tbsp": {
+				"clove": {
 					"amount": 1.0,
-					"grams": 15.0,
-					"portion": "tbsp"
+					"grams": 3.0,
+					"portion": "clove"
+				},
+				"count": {
+					"amount": 1.0,
+					"grams": 3.0,
+					"portion": "clove"
 				}
-			}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
 		},
 		{
-			"names": ["garlic powder"],
+			"id": "usda-169231",
 			"kind": "mass",
-			"fdcId": 171325,
-			"description": "Spices, garlic powder",
-			"source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
+			"fdcId": 169231,
+			"description": "Ginger root, raw",
+			"state": "Ginger root, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/169231/nutrients",
 			"measures": {
 				"tsp": {
-					"amount": 1.0,
-					"grams": 3.1,
-					"portion": "tsp"
-				},
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 9.7,
-					"portion": "tbsp"
-				}
-			}
-		},
-		{
-			"names": ["onion powder"],
-			"kind": "mass",
-			"fdcId": 171327,
-			"description": "Spices, onion powder",
-			"source": "https://fdc.nal.usda.gov/food-details/171327/nutrients",
-			"measures": {
-				"tsp": {
-					"amount": 1.0,
-					"grams": 2.4,
-					"portion": "tsp"
-				},
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 6.9,
-					"portion": "tbsp"
-				}
-			}
-		},
-		{
-			"names": ["paprika", "ground paprika", "smoked paprika"],
-			"kind": "mass",
-			"fdcId": 171329,
-			"description": "Spices, paprika",
-			"source": "https://fdc.nal.usda.gov/food-details/171329/nutrients",
-			"measures": {
-				"tsp": {
-					"amount": 1.0,
-					"grams": 2.3,
-					"portion": "tsp"
-				},
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 6.8,
-					"portion": "tbsp"
-				}
-			}
-		},
-		{
-			"names": ["chili powder", "mild chili powder blend"],
-			"kind": "mass",
-			"fdcId": 171319,
-			"description": "Spices, chili powder",
-			"source": "https://fdc.nal.usda.gov/food-details/171319/nutrients",
-			"measures": {
-				"tsp": {
-					"amount": 1.0,
-					"grams": 2.7,
-					"portion": "tsp"
-				},
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 8.0,
-					"portion": "tbsp"
-				}
-			}
-		},
-		{
-			"names": ["black pepper", "ground black pepper"],
-			"kind": "mass",
-			"fdcId": 170931,
-			"description": "Spices, pepper, black",
-			"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
-			"measures": {
-				"tsp": {
-					"amount": 1.0,
-					"grams": 2.3,
-					"portion": "tsp, ground"
-				},
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 6.9,
-					"portion": "tbsp, ground"
-				}
-			}
-		},
-		{
-			"names": ["dried oregano"],
-			"kind": "mass",
-			"fdcId": 171328,
-			"description": "Spices, oregano, dried",
-			"source": "https://fdc.nal.usda.gov/food-details/171328/nutrients",
-			"measures": {
-				"tsp": {
-					"amount": 1.0,
-					"grams": 1.0,
-					"portion": "tsp, leaves"
-				}
-			}
-		},
-		{
-			"names": ["dried dill"],
-			"kind": "mass",
-			"fdcId": 171322,
-			"description": "Spices, dill weed, dried",
-			"source": "https://fdc.nal.usda.gov/food-details/171322/nutrients",
-			"measures": {
-				"tsp": {
-					"amount": 1.0,
-					"grams": 1.0,
-					"portion": "tsp"
-				},
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 3.1,
-					"portion": "tbsp"
-				}
-			}
-		},
-		{
-			"names": ["ground sage"],
-			"kind": "mass",
-			"fdcId": 170935,
-			"description": "Spices, sage, ground",
-			"source": "https://fdc.nal.usda.gov/food-details/170935/nutrients",
-			"measures": {
-				"tsp": {
-					"amount": 1.0,
-					"grams": 0.7,
-					"portion": "tsp"
-				},
-				"tbsp": {
 					"amount": 1.0,
 					"grams": 2.0,
-					"portion": "tbsp"
+					"portion": "tsp"
 				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-169249",
+			"fdcId": 169249,
+			"kind": "mass",
+			"description": "Lettuce, green leaf, raw",
+			"state": "Lettuce, green leaf, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/169249/nutrients",
+			"measures": {
+				"g": {
+					"amount": 1,
+					"grams": 1,
+					"portion": "weighed edible grams"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy identified food record; cooking quantity independently weighed.",
+				"decision": "Food identity only for a direct measured mass, no inferred count or volume."
 			}
 		},
 		{
-			"names": ["ground thyme"],
+			"id": "usda-169251",
 			"kind": "mass",
-			"fdcId": 170938,
-			"description": "Spices, thyme, dried",
-			"source": "https://fdc.nal.usda.gov/food-details/170938/nutrients",
+			"fdcId": 169251,
+			"description": "Mushrooms, white, raw",
+			"state": "Mushrooms, white, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/169251/nutrients",
 			"measures": {
-				"tsp": {
+				"cup": {
 					"amount": 1.0,
-					"grams": 1.4,
-					"portion": "tsp, ground"
+					"grams": 70.0,
+					"portion": "cup, pieces or slices"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-169276",
+			"kind": "mass",
+			"fdcId": 169276,
+			"description": "Radishes, raw",
+			"state": "Radishes, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/169276/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 116.0,
+					"portion": "cup slices"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-169291",
+			"kind": "mass",
+			"fdcId": 169291,
+			"description": "Squash, summer, zucchini, includes skin, raw",
+			"state": "Squash, summer, zucchini, includes skin, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/169291/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 124.0,
+					"portion": "cup, chopped"
 				},
+				"count": {
+					"amount": 1.0,
+					"grams": 196.0,
+					"portion": "medium"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-169291-large",
+			"kind": "mass",
+			"fdcId": 169291,
+			"description": "Squash, summer, zucchini, includes skin, raw",
+			"state": "large",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/169291/nutrients",
+			"measures": {
+				"count": {
+					"amount": 1.0,
+					"grams": 323.0,
+					"portion": "large"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			}
+		},
+		{
+			"id": "usda-169384",
+			"kind": "mass",
+			"fdcId": 169384,
+			"description": "Tomatoes, sun-dried, packed in oil, drained",
+			"state": "Tomatoes, sun-dried, packed in oil, drained",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/169384/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 110.0,
+					"portion": "cup"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-169414",
+			"kind": "mass",
+			"fdcId": 169414,
+			"description": "Seeds, flaxseed",
+			"state": "Seeds, flaxseed",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/169414/nutrients",
+			"measures": {
 				"tbsp": {
 					"amount": 1.0,
-					"grams": 4.3,
+					"grams": 7.0,
 					"portion": "tbsp, ground"
-				}
-			}
-		},
-		{
-			"names": ["fresh thyme", "fresh thyme leaves", "minced thyme"],
-			"kind": "mass",
-			"fdcId": 173470,
-			"description": "Thyme, fresh",
-			"source": "https://fdc.nal.usda.gov/food-details/173470/nutrients",
-			"measures": {
+				},
 				"tsp": {
 					"amount": 1.0,
-					"grams": 0.8,
-					"portion": "tsp"
+					"grams": 2.5,
+					"portion": "tsp, ground"
 				}
-			}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
 		},
 		{
-			"names": ["fresh rosemary"],
-			"kind": "mass",
-			"fdcId": 173473,
-			"description": "Rosemary, fresh",
-			"source": "https://fdc.nal.usda.gov/food-details/173473/nutrients",
+			"id": "usda-169640",
+			"kind": "liquid",
+			"fdcId": 169640,
+			"description": "Honey",
+			"state": "Honey",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/169640/nutrients",
 			"measures": {
-				"tsp": {
+				"cup": {
 					"amount": 1.0,
-					"grams": 0.7,
-					"portion": "tsp"
+					"grams": 339.0,
+					"portion": "cup"
 				},
 				"tbsp": {
 					"amount": 1.0,
-					"grams": 1.7,
+					"grams": 21.0,
 					"portion": "tbsp"
 				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 1.432869211990597
+		},
+		{
+			"id": "usda-169655",
+			"kind": "mass",
+			"fdcId": 169655,
+			"description": "Sugars, granulated",
+			"state": "Sugars, granulated",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 200.0,
+					"portion": "cup"
+				},
+				"tsp": {
+					"amount": 1.0,
+					"grams": 4.2,
+					"portion": "tsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-169975",
+			"kind": "mass",
+			"fdcId": 169975,
+			"description": "Cabbage, raw",
+			"state": "Cabbage, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/169975/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 89.0,
+					"portion": "cup, chopped"
+				},
+				"count": {
+					"amount": 1.0,
+					"grams": 908.0,
+					"portion": "head, medium (about 5-3/4\" dia)"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-169975-small",
+			"kind": "mass",
+			"fdcId": 169975,
+			"description": "Cabbage, raw",
+			"state": "small",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/169975/nutrients",
+			"measures": {
+				"count": {
+					"amount": 1.0,
+					"grams": 714.0,
+					"portion": "head, small (about 4-1/2\" dia)"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			}
 		},
 		{
-			"names": ["chopped chives", "freshly chopped chives"],
+			"id": "usda-169986",
+			"kind": "mass",
+			"fdcId": 169986,
+			"description": "Cauliflower, raw",
+			"state": "Cauliflower, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/169986/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 107.0,
+					"portion": "cup chopped (1/2\" pieces)"
+				},
+				"count": {
+					"amount": 1.0,
+					"grams": 588.0,
+					"portion": "head medium (5-6\" dia.)"
+				},
+				"head": {
+					"amount": 1.0,
+					"grams": 588.0,
+					"portion": "head medium (5-6\" dia.)"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-169986-large",
+			"kind": "mass",
+			"fdcId": 169986,
+			"description": "Cauliflower, raw",
+			"state": "large",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/169986/nutrients",
+			"measures": {
+				"head": {
+					"amount": 1.0,
+					"grams": 840.0,
+					"portion": "head large (6-7\" dia.)"
+				},
+				"count": {
+					"amount": 1.0,
+					"grams": 840.0,
+					"portion": "head large (6-7\" dia.)"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			}
+		},
+		{
+			"id": "usda-169988",
+			"kind": "mass",
+			"fdcId": 169988,
+			"description": "Celery, raw",
+			"state": "Celery, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/169988/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 101.0,
+					"portion": "cup chopped"
+				},
+				"stalk": {
+					"amount": 1.0,
+					"grams": 40.0,
+					"portion": "stalk, medium (7-1/2\" - 8\" long)"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-169994",
 			"kind": "mass",
 			"fdcId": 169994,
 			"description": "Chives, raw",
+			"state": "Chives, raw",
+			"basis": "edible",
 			"source": "https://fdc.nal.usda.gov/food-details/169994/nutrients",
 			"measures": {
 				"tsp": {
@@ -292,400 +1282,45 @@
 					"grams": 3.0,
 					"portion": "tbsp chopped"
 				}
-			}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
 		},
 		{
-			"names": ["dried chives"],
+			"id": "usda-169997",
 			"kind": "mass",
-			"fdcId": 170075,
-			"description": "Chives, freeze-dried",
-			"source": "https://fdc.nal.usda.gov/food-details/170075/nutrients",
+			"fdcId": 169997,
+			"description": "Coriander (cilantro) leaves, raw",
+			"state": "Coriander (cilantro) leaves, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/169997/nutrients",
 			"measures": {
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 0.2,
-					"portion": "tbsp"
-				}
-			}
-		},
-		{
-			"names": ["olive oil", "olive oil for searing", "olive oil for marinade"],
-			"kind": "liquid",
-			"fdcId": 171413,
-			"description": "Oil, olive, salad or cooking",
-			"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
-			"measures": {
-				"tsp": {
-					"amount": 1.0,
-					"grams": 4.5,
-					"portion": "tsp"
-				},
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 13.5,
-					"portion": "tablespoon"
-				},
 				"cup": {
-					"amount": 1.0,
-					"grams": 216.0,
+					"amount": 0.25,
+					"grams": 4.0,
 					"portion": "cup"
 				}
-			}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
 		},
 		{
-			"names": [
-				"chicken broth",
-				"chicken stock",
-				"low-sodium chicken broth",
-				"low sodium chicken broth",
-				"low-sodium chicken stock",
-				"low sodium chicken stock",
-				"reduced-sodium chicken broth",
-				"chicken bone broth"
-			],
-			"kind": "liquid",
-			"fdcId": 174536,
-			"description": "Soup, chicken broth, ready-to-serve",
-			"source": "https://fdc.nal.usda.gov/food-details/174536/nutrients",
-			"measures": {
-				"cup": {
-					"amount": 1.0,
-					"grams": 249.0,
-					"portion": "cup"
-				}
-			}
-		},
-		{
-			"names": ["beef broth", "low-sodium beef broth", "low-sodium beef stock"],
-			"kind": "liquid",
-			"fdcId": 171538,
-			"description": "Soup, beef broth or bouillon canned, ready-to-serve",
-			"source": "https://fdc.nal.usda.gov/food-details/171538/nutrients",
-			"measures": {
-				"cup": {
-					"amount": 1.0,
-					"grams": 240.0,
-					"portion": "cup"
-				}
-			}
-		},
-		{
-			"names": [
-				"vegetable broth",
-				"vegetable stock",
-				"low-sodium vegetable broth"
-			],
-			"kind": "liquid",
-			"fdcId": 171583,
-			"description": "Soup, vegetable broth, ready to serve",
-			"source": "https://fdc.nal.usda.gov/food-details/171583/nutrients",
-			"measures": {
-				"cup": {
-					"amount": 1.0,
-					"grams": 221.0,
-					"portion": "cup"
-				}
-			}
-		},
-		{
-			"names": ["lemon juice", "fresh lemon juice"],
-			"kind": "liquid",
-			"fdcId": 167747,
-			"description": "Lemon juice, raw",
-			"source": "https://fdc.nal.usda.gov/food-details/167747/nutrients",
-			"measures": {
-				"cup": {
-					"amount": 1.0,
-					"grams": 244.0,
-					"portion": "cup"
-				}
-			}
-		},
-		{
-			"names": ["lime juice", "fresh lime juice"],
-			"kind": "liquid",
-			"fdcId": 168156,
-			"description": "Lime juice, raw",
-			"source": "https://fdc.nal.usda.gov/food-details/168156/nutrients",
-			"measures": {
-				"cup": {
-					"amount": 1.0,
-					"grams": 242.0,
-					"portion": "cup"
-				}
-			}
-		},
-		{
-			"names": ["apple cider vinegar"],
-			"kind": "liquid",
-			"fdcId": 173469,
-			"description": "Vinegar, cider",
-			"source": "https://fdc.nal.usda.gov/food-details/173469/nutrients",
-			"measures": {
-				"tsp": {
-					"amount": 1.0,
-					"grams": 5.0,
-					"portion": "tsp"
-				},
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 14.9,
-					"portion": "tbsp"
-				},
-				"cup": {
-					"amount": 1.0,
-					"grams": 239.0,
-					"portion": "cup"
-				}
-			}
-		},
-		{
-			"names": ["red wine vinegar"],
-			"kind": "liquid",
-			"fdcId": 172240,
-			"description": "Vinegar, red wine",
-			"source": "https://fdc.nal.usda.gov/food-details/172240/nutrients",
-			"measures": {
-				"tsp": {
-					"amount": 1.0,
-					"grams": 5.0,
-					"portion": "tsp"
-				},
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 14.9,
-					"portion": "tbsp"
-				},
-				"cup": {
-					"amount": 1.0,
-					"grams": 239.0,
-					"portion": "cup"
-				}
-			}
-		},
-		{
-			"names": ["balsamic vinegar"],
-			"kind": "liquid",
-			"fdcId": 172241,
-			"description": "Vinegar, balsamic",
-			"source": "https://fdc.nal.usda.gov/food-details/172241/nutrients",
-			"measures": {
-				"tsp": {
-					"amount": 1.0,
-					"grams": 5.3,
-					"portion": "tsp"
-				},
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 16.0,
-					"portion": "tbsp"
-				},
-				"cup": {
-					"amount": 1.0,
-					"grams": 255.0,
-					"portion": "cup"
-				}
-			}
-		},
-		{
-			"names": ["milk"],
-			"kind": "liquid",
-			"fdcId": 171265,
-			"description": "Milk, whole, 3.25% milkfat, with added vitamin D",
-			"source": "https://fdc.nal.usda.gov/food-details/171265/nutrients",
-			"measures": {
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 15.0,
-					"portion": "tbsp"
-				},
-				"cup": {
-					"amount": 1.0,
-					"grams": 244.0,
-					"portion": "cup"
-				}
-			}
-		},
-		{
-			"names": ["half and half"],
-			"kind": "liquid",
-			"fdcId": 171255,
-			"description": "Cream, fluid, half and half",
-			"source": "https://fdc.nal.usda.gov/food-details/171255/nutrients",
-			"measures": {
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 15.0,
-					"portion": "tbsp"
-				},
-				"cup": {
-					"amount": 1.0,
-					"grams": 242.0,
-					"portion": "cup"
-				}
-			}
-		},
-		{
-			"names": ["honey"],
-			"kind": "liquid",
-			"fdcId": 169640,
-			"description": "Honey",
-			"source": "https://fdc.nal.usda.gov/food-details/169640/nutrients",
-			"measures": {
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 21.0,
-					"portion": "tbsp"
-				},
-				"cup": {
-					"amount": 1.0,
-					"grams": 339.0,
-					"portion": "cup"
-				}
-			}
-		},
-		{
-			"names": ["worcestershire"],
-			"kind": "liquid",
-			"fdcId": 171610,
-			"description": "Sauce, worcestershire",
-			"source": "https://fdc.nal.usda.gov/food-details/171610/nutrients",
-			"measures": {
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 17.0,
-					"portion": "tbsp"
-				},
-				"cup": {
-					"amount": 1.0,
-					"grams": 275.0,
-					"portion": "cup"
-				}
-			}
-		},
-		{
-			"names": ["sriracha", "sriracha sauce"],
-			"kind": "liquid",
-			"fdcId": 171186,
-			"description": "Sauce, hot chile, sriracha",
-			"source": "https://fdc.nal.usda.gov/food-details/171186/nutrients",
-			"measures": {
-				"tsp": {
-					"amount": 1.0,
-					"grams": 6.5,
-					"portion": "tsp"
-				}
-			}
-		},
-		{
-			"names": ["mayonnaise"],
-			"kind": "mass",
-			"fdcId": 171009,
-			"description": "Salad dressing, mayonnaise, regular",
-			"source": "https://fdc.nal.usda.gov/food-details/171009/nutrients",
-			"measures": {
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 13.8,
-					"portion": "tbsp"
-				},
-				"cup": {
-					"amount": 1.0,
-					"grams": 220.0,
-					"portion": "cup"
-				}
-			}
-		},
-		{
-			"names": ["sour cream"],
-			"kind": "mass",
-			"fdcId": 171257,
-			"description": "Cream, sour, cultured",
-			"source": "https://fdc.nal.usda.gov/food-details/171257/nutrients",
-			"measures": {
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 12.0,
-					"portion": "tbsp"
-				},
-				"cup": {
-					"amount": 1.0,
-					"grams": 230.0,
-					"portion": "cup"
-				}
-			}
-		},
-		{
-			"names": [
-				"shredded cheddar",
-				"shredded cheddar cheese",
-				"shredded cheddar for the sauce",
-				"shredded cheddar for topping"
-			],
-			"kind": "mass",
-			"fdcId": 173414,
-			"description": "Cheese, cheddar (Includes foods for USDA's Food Distribution Program)",
-			"source": "https://fdc.nal.usda.gov/food-details/173414/nutrients",
-			"measures": {
-				"cup": {
-					"amount": 1.0,
-					"grams": 113.0,
-					"portion": "cup, shredded"
-				}
-			}
-		},
-		{
-			"names": ["shredded mozzarella", "shredded mozzarella cheese"],
-			"kind": "mass",
-			"fdcId": 170845,
-			"description": "Cheese, mozzarella, whole milk",
-			"source": "https://fdc.nal.usda.gov/food-details/170845/nutrients",
-			"measures": {
-				"cup": {
-					"amount": 1.0,
-					"grams": 112.0,
-					"portion": "cup, shredded"
-				}
-			}
-		},
-		{
-			"names": ["grated parmesan", "grated parmesan cheese", "fresh parmesan"],
-			"kind": "mass",
-			"fdcId": 171247,
-			"description": "Cheese, parmesan, grated",
-			"source": "https://fdc.nal.usda.gov/food-details/171247/nutrients",
-			"measures": {
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 5.0,
-					"portion": "tbsp"
-				},
-				"cup": {
-					"amount": 1.0,
-					"grams": 100.0,
-					"portion": "cup"
-				}
-			}
-		},
-		{
-			"names": ["gruyere cheese"],
-			"kind": "mass",
-			"fdcId": 171242,
-			"description": "Cheese, gruyere",
-			"source": "https://fdc.nal.usda.gov/food-details/171242/nutrients",
-			"measures": {
-				"cup": {
-					"amount": 1.0,
-					"grams": 108.0,
-					"portion": "cup, shredded"
-				}
-			}
-		},
-		{
-			"names": ["chopped onion", "diced red onion", "minced onion"],
+			"id": "usda-170000",
 			"kind": "mass",
 			"fdcId": 170000,
 			"description": "Onions, raw",
+			"state": "Onions, raw",
+			"basis": "edible",
 			"source": "https://fdc.nal.usda.gov/food-details/170000/nutrients",
 			"measures": {
 				"cup": {
@@ -697,14 +1332,96 @@
 					"amount": 1.0,
 					"grams": 10.0,
 					"portion": "tbsp chopped"
+				},
+				"count": {
+					"amount": 1.0,
+					"grams": 110.0,
+					"portion": "medium (2-1/2\" dia)"
 				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tbsp"
+		},
+		{
+			"id": "usda-170000-sliced",
+			"kind": "mass",
+			"fdcId": 170000,
+			"description": "Onions, raw",
+			"state": "sliced",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170000/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 115.0,
+					"portion": "cup, sliced"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-170000-small",
+			"kind": "mass",
+			"fdcId": 170000,
+			"description": "Onions, raw",
+			"state": "small",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170000/nutrients",
+			"measures": {
+				"count": {
+					"amount": 1.0,
+					"grams": 70.0,
+					"portion": "small"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			}
 		},
 		{
-			"names": ["green onions", "minced green onion"],
+			"id": "usda-170002",
+			"kind": "mass",
+			"fdcId": 170002,
+			"description": "Onions, dehydrated flakes",
+			"state": "Onions, dehydrated flakes",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170002/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 5.0,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tbsp"
+		},
+		{
+			"id": "usda-170005",
 			"kind": "mass",
 			"fdcId": 170005,
 			"description": "Onions, spring or scallions (includes tops and bulb), raw",
+			"state": "Onions, spring or scallions (includes tops and bulb), raw",
+			"basis": "edible",
 			"source": "https://fdc.nal.usda.gov/food-details/170005/nutrients",
 			"measures": {
 				"cup": {
@@ -716,120 +1433,1701 @@
 					"amount": 1.0,
 					"grams": 6.0,
 					"portion": "tbsp chopped"
+				},
+				"count": {
+					"amount": 1.0,
+					"grams": 15.0,
+					"portion": "medium (4-1/8\" long)"
 				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tbsp"
+		},
+		{
+			"id": "usda-170051",
+			"kind": "mass",
+			"fdcId": 170051,
+			"description": "Tomatoes, red, ripe, canned, packed in tomato juice",
+			"state": "Tomatoes, red, ripe, canned, packed in tomato juice",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170051/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 240.0,
+					"portion": "cup"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 15.0,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tbsp"
+		},
+		{
+			"id": "usda-170054",
+			"kind": "mass",
+			"fdcId": 170054,
+			"description": "Tomato products, canned, sauce",
+			"state": "Tomato products, canned, sauce",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170054/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 245.0,
+					"portion": "cup"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-170075",
+			"kind": "mass",
+			"fdcId": 170075,
+			"description": "Chives, freeze-dried",
+			"state": "Chives, freeze-dried",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170075/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 0.2,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tbsp"
+		},
+		{
+			"id": "usda-170108",
+			"kind": "mass",
+			"fdcId": 170108,
+			"description": "Peppers, sweet, red, raw",
+			"state": "Peppers, sweet, red, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170108/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 149.0,
+					"portion": "cup, chopped"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 9.3,
+					"portion": "tablespoon"
+				},
+				"count": {
+					"amount": 1.0,
+					"grams": 119.0,
+					"portion": "medium (approx 2-3/4\" long, 2-1/2 dia.)"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tbsp"
+		},
+		{
+			"id": "usda-170108-large",
+			"kind": "mass",
+			"fdcId": 170108,
+			"description": "Peppers, sweet, red, raw",
+			"state": "large",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170108/nutrients",
+			"measures": {
+				"count": {
+					"amount": 1.0,
+					"grams": 164.0,
+					"portion": "large (2-1/4 per pound, approx 3-3/4\" long, 3\" dia.)"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			}
 		},
 		{
-			"names": ["dried onion flakes"],
+			"id": "usda-170108-sliced",
 			"kind": "mass",
-			"fdcId": 170002,
-			"description": "Onions, dehydrated flakes",
-			"source": "https://fdc.nal.usda.gov/food-details/170002/nutrients",
+			"fdcId": 170108,
+			"description": "Peppers, sweet, red, raw",
+			"state": "sliced",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170108/nutrients",
 			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 92.0,
+					"portion": "cup, sliced"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-170379",
+			"kind": "mass",
+			"fdcId": 170379,
+			"description": "Broccoli, raw",
+			"state": "Broccoli, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170379/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 91.0,
+					"portion": "cup chopped"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-170383",
+			"kind": "mass",
+			"fdcId": 170383,
+			"description": "Brussels sprouts, raw",
+			"state": "Brussels sprouts, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170383/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 88.0,
+					"portion": "cup"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-170393",
+			"kind": "mass",
+			"fdcId": 170393,
+			"description": "Carrots, raw",
+			"state": "Carrots, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170393/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 128.0,
+					"portion": "cup chopped"
+				},
+				"count": {
+					"amount": 1.0,
+					"grams": 61.0,
+					"portion": "medium"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-170416",
+			"kind": "mass",
+			"fdcId": 170416,
+			"description": "Parsley, fresh",
+			"state": "Parsley, fresh",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170416/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 60.0,
+					"portion": "cup chopped"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 3.8,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tbsp"
+		},
+		{
+			"id": "usda-170419",
+			"kind": "mass",
+			"fdcId": 170419,
+			"description": "Peas, green, raw",
+			"state": "Peas, green, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170419/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 145.0,
+					"portion": "cup"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-170427",
+			"kind": "mass",
+			"fdcId": 170427,
+			"description": "Peppers, sweet, green, raw",
+			"state": "Peppers, sweet, green, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170427/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 149.0,
+					"portion": "cup, chopped"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 9.3,
+					"portion": "tbsp"
+				},
+				"count": {
+					"amount": 1.0,
+					"grams": 119.0,
+					"portion": "medium (approx 2-3/4\" long, 2-1/2\" dia)"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tbsp"
+		},
+		{
+			"id": "usda-170427-sliced",
+			"kind": "mass",
+			"fdcId": 170427,
+			"description": "Peppers, sweet, green, raw",
+			"state": "sliced",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170427/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 92.0,
+					"portion": "cup, sliced"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-170427-small",
+			"kind": "mass",
+			"fdcId": 170427,
+			"description": "Peppers, sweet, green, raw",
+			"state": "small",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170427/nutrients",
+			"measures": {
+				"count": {
+					"amount": 1.0,
+					"grams": 74.0,
+					"portion": "small"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			}
+		},
+		{
+			"id": "usda-170457",
+			"kind": "mass",
+			"fdcId": 170457,
+			"description": "Tomatoes, red, ripe, raw, year round average",
+			"state": "Tomatoes, red, ripe, raw, year round average",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170457/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 180.0,
+					"portion": "cup, chopped or sliced"
+				},
+				"count": {
+					"amount": 1.0,
+					"grams": 123.0,
+					"portion": "medium whole (2-3/5\" dia)"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-170457-large",
+			"kind": "mass",
+			"fdcId": 170457,
+			"description": "Tomatoes, red, ripe, raw, year round average",
+			"state": "large",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170457/nutrients",
+			"measures": {
+				"count": {
+					"amount": 1.0,
+					"grams": 182.0,
+					"portion": "large whole (3\" dia)"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			}
+		},
+		{
+			"id": "usda-170459",
+			"kind": "mass",
+			"fdcId": 170459,
+			"description": "Tomato products, canned, paste, without salt added (Includes foods for USDA's Food Distribution Program)",
+			"state": "Tomato products, canned, paste, without salt added (Includes foods for USDA's Food Distribution Program)",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170459/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 0.25,
+					"grams": 66.0,
+					"portion": "cup"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 16.0,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tbsp"
+		},
+		{
+			"id": "usda-170567",
+			"fdcId": 170567,
+			"kind": "mass",
+			"description": "Nuts, almonds",
+			"state": "Nuts, almonds",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170567/nutrients",
+			"measures": {
+				"g": {
+					"amount": 1,
+					"grams": 1,
+					"portion": "weighed edible grams"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy identified food record; cooking quantity independently weighed.",
+				"decision": "Food identity only for a direct measured mass, no inferred count or volume."
+			}
+		},
+		{
+			"id": "usda-170591",
+			"kind": "mass",
+			"fdcId": 170591,
+			"description": "Nuts, pine nuts, dried",
+			"state": "Nuts, pine nuts, dried",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170591/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 135.0,
+					"portion": "cup"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-170844",
+			"kind": "mass",
+			"fdcId": 170844,
+			"description": "Cheese, monterey",
+			"state": "Cheese, monterey",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170844/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 113.0,
+					"portion": "cup, shredded"
+				},
+				"slice": {
+					"amount": 1.0,
+					"grams": 28.0,
+					"portion": "slice (1 oz)"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-170845",
+			"kind": "mass",
+			"fdcId": 170845,
+			"description": "Cheese, mozzarella, whole milk",
+			"state": "Cheese, mozzarella, whole milk",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170845/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 112.0,
+					"portion": "cup, shredded"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-170859",
+			"kind": "liquid",
+			"fdcId": 170859,
+			"description": "Cream, fluid, heavy whipping",
+			"state": "Cream, fluid, heavy whipping",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170859/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 238.0,
+					"portion": "cup, fluid (yields 2 cups whipped)"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 15.0,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 1.0059671753798292
+		},
+		{
+			"id": "usda-170929",
+			"kind": "mass",
+			"fdcId": 170929,
+			"description": "Spices, mustard seed, ground",
+			"state": "Spices, mustard seed, ground",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170929/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 2.0,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 6.3,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-170931",
+			"kind": "mass",
+			"fdcId": 170931,
+			"description": "Spices, pepper, black",
+			"state": "Spices, pepper, black",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 2.3,
+					"portion": "tsp, ground"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 6.9,
+					"portion": "tbsp, ground"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-170932",
+			"kind": "mass",
+			"fdcId": 170932,
+			"description": "Spices, pepper, red or cayenne",
+			"state": "Spices, pepper, red or cayenne",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170932/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 1.8,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 5.3,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-170935",
+			"kind": "mass",
+			"fdcId": 170935,
+			"description": "Spices, sage, ground",
+			"state": "Spices, sage, ground",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170935/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 0.7,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 2.0,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-170938",
+			"kind": "mass",
+			"fdcId": 170938,
+			"description": "Spices, thyme, dried",
+			"state": "Spices, thyme, dried",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170938/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 1.0,
+					"portion": "tsp, leaves"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 2.7,
+					"portion": "tbsp, leaves"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-170938-ground",
+			"kind": "mass",
+			"fdcId": 170938,
+			"description": "Spices, thyme, dried",
+			"state": "ground",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170938/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 1.4,
+					"portion": "tsp, ground"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 4.3,
+					"portion": "tbsp, ground"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-171009",
+			"kind": "mass",
+			"fdcId": 171009,
+			"description": "Salad dressing, mayonnaise, regular",
+			"state": "Salad dressing, mayonnaise, regular",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171009/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 220.0,
+					"portion": "cup"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 13.8,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-171016",
+			"kind": "liquid",
+			"fdcId": 171016,
+			"description": "Oil, sesame, salad or cooking",
+			"state": "Oil, sesame, salad or cooking",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171016/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 218.0,
+					"portion": "cup"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 13.6,
+					"portion": "tablespoon"
+				},
+				"tsp": {
+					"amount": 1.0,
+					"grams": 4.5,
+					"portion": "tsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 0.9214321186252217,
+			"nutritionFdcId": 171016
+		},
+		{
+			"id": "usda-171186",
+			"kind": "liquid",
+			"fdcId": 171186,
+			"description": "Sauce, hot chile, sriracha",
+			"state": "Sauce, hot chile, sriracha",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171186/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 6.5,
+					"portion": "tsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp",
+			"gramsPerMl": 1.318746885371877
+		},
+		{
+			"id": "usda-171242",
+			"kind": "mass",
+			"fdcId": 171242,
+			"description": "Cheese, gruyere",
+			"state": "Cheese, gruyere",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171242/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 108.0,
+					"portion": "cup, shredded"
+				},
+				"slice": {
+					"amount": 1.0,
+					"grams": 28.0,
+					"portion": "slice (1 oz)"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-171247",
+			"kind": "mass",
+			"fdcId": 171247,
+			"description": "Cheese, parmesan, grated",
+			"state": "Cheese, parmesan, grated",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171247/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 100.0,
+					"portion": "cup"
+				},
 				"tbsp": {
 					"amount": 1.0,
 					"grams": 5.0,
 					"portion": "tbsp"
 				}
-			}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tbsp"
 		},
 		{
-			"names": [
-				"parsley",
-				"fresh parsley",
-				"chopped parsley",
-				"fresh chopped parsley",
-				"chopped fresh parsley",
-				"minced parsley"
-			],
+			"id": "usda-171251",
 			"kind": "mass",
-			"fdcId": 170416,
-			"description": "Parsley, fresh",
-			"source": "https://fdc.nal.usda.gov/food-details/170416/nutrients",
+			"fdcId": 171251,
+			"description": "Cheese, swiss",
+			"state": "Cheese, swiss",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171251/nutrients",
 			"measures": {
-				"tbsp": {
-					"amount": 1.0,
-					"grams": 3.8,
-					"portion": "tbsp"
-				},
 				"cup": {
 					"amount": 1.0,
-					"grams": 60.0,
-					"portion": "cup chopped"
+					"grams": 108.0,
+					"portion": "cup, shredded"
+				},
+				"slice": {
+					"amount": 1.0,
+					"grams": 28.0,
+					"portion": "slice (1 oz)"
 				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-171255",
+			"kind": "liquid",
+			"fdcId": 171255,
+			"description": "Cream, fluid, half and half",
+			"state": "Cream, fluid, half and half",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171255/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 242.0,
+					"portion": "cup"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 15.0,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 1.0228741867307507
+		},
+		{
+			"id": "usda-171257",
+			"kind": "mass",
+			"fdcId": 171257,
+			"description": "Cream, sour, cultured",
+			"state": "Cream, sour, cultured",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171257/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 230.0,
+					"portion": "cup"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 12.0,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tbsp"
+		},
+		{
+			"id": "usda-171265",
+			"kind": "liquid",
+			"fdcId": 171265,
+			"description": "Milk, whole, 3.25% milkfat, with added vitamin D",
+			"state": "Milk, whole, 3.25% milkfat, with added vitamin D",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171265/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 244.0,
+					"portion": "cup"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 15.0,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 1.0313276924062114
+		},
+		{
+			"id": "usda-171287",
+			"kind": "mass",
+			"fdcId": 171287,
+			"description": "Egg, whole, raw, fresh",
+			"state": "Egg, whole, raw, fresh",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients",
+			"measures": {
+				"count": {
+					"amount": 1.0,
+					"grams": 50.0,
+					"portion": "large"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			}
 		},
 		{
-			"names": ["cilantro", "chopped cilantro", "fresh chopped cilantro"],
+			"id": "usda-171319",
 			"kind": "mass",
-			"fdcId": 169997,
-			"description": "Coriander (cilantro) leaves, raw",
-			"source": "https://fdc.nal.usda.gov/food-details/169997/nutrients",
+			"fdcId": 171319,
+			"description": "Spices, chili powder",
+			"state": "Spices, chili powder",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171319/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 2.7,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 8.0,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-171320",
+			"kind": "mass",
+			"fdcId": 171320,
+			"description": "Spices, cinnamon, ground",
+			"state": "Spices, cinnamon, ground",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171320/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 2.6,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 7.8,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-171322",
+			"kind": "mass",
+			"fdcId": 171322,
+			"description": "Spices, dill weed, dried",
+			"state": "Spices, dill weed, dried",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171322/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 1.0,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 3.1,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-171323",
+			"kind": "mass",
+			"fdcId": 171323,
+			"description": "Spices, fennel seed",
+			"state": "Spices, fennel seed",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171323/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 2.0,
+					"portion": "tsp, whole"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 5.8,
+					"portion": "tbsp, whole"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-171325",
+			"kind": "mass",
+			"fdcId": 171325,
+			"description": "Spices, garlic powder",
+			"state": "Spices, garlic powder",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 3.1,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 9.7,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-171327",
+			"kind": "mass",
+			"fdcId": 171327,
+			"description": "Spices, onion powder",
+			"state": "Spices, onion powder",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171327/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 2.4,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 6.9,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-171328",
+			"kind": "mass",
+			"fdcId": 171328,
+			"description": "Spices, oregano, dried",
+			"state": "Spices, oregano, dried",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171328/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 1.0,
+					"portion": "tsp, leaves"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-171329",
+			"kind": "mass",
+			"fdcId": 171329,
+			"description": "Spices, paprika",
+			"state": "Spices, paprika",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171329/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 2.3,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 6.8,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-171413",
+			"kind": "liquid",
+			"fdcId": 171413,
+			"description": "Oil, olive, salad or cooking",
+			"state": "Oil, olive, salad or cooking",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 216.0,
+					"portion": "cup"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 13.5,
+					"portion": "tablespoon"
+				},
+				"tsp": {
+					"amount": 1.0,
+					"grams": 4.5,
+					"portion": "tsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 0.9129786129497609
+		},
+		{
+			"id": "usda-171477",
+			"kind": "mass",
+			"fdcId": 171477,
+			"description": "Chicken, broilers or fryers, breast, meat only, cooked, roasted",
+			"state": "Chicken, broilers or fryers, breast, meat only, cooked, roasted",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171477/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 140.0,
+					"portion": "cup, chopped or diced"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-171538",
+			"kind": "liquid",
+			"fdcId": 171538,
+			"description": "Soup, beef broth or bouillon canned, ready-to-serve",
+			"state": "Soup, beef broth or bouillon canned, ready-to-serve",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171538/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 240.0,
+					"portion": "cup"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 1.01442068105529
+		},
+		{
+			"id": "usda-171563",
+			"kind": "mass",
+			"fdcId": 171563,
+			"description": "Soup, chicken broth cubes, dry",
+			"state": "Soup, chicken broth cubes, dry",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171563/nutrients",
+			"measures": {
+				"cube": {
+					"amount": 1.0,
+					"grams": 4.8,
+					"portion": "cube"
+				},
+				"count": {
+					"amount": 1.0,
+					"grams": 4.8,
+					"portion": "cube"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			}
+		},
+		{
+			"id": "usda-171580",
+			"kind": "mass",
+			"fdcId": 171580,
+			"description": "Sauce, pesto, ready-to-serve, shelf stable",
+			"state": "Sauce, pesto, ready-to-serve, shelf stable",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171580/nutrients",
 			"measures": {
 				"cup": {
 					"amount": 0.25,
-					"grams": 4.0,
+					"grams": 61.0,
 					"portion": "cup"
 				}
-			}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
 		},
 		{
-			"names": ["sliced mushrooms"],
-			"kind": "mass",
-			"fdcId": 169251,
-			"description": "Mushrooms, white, raw",
-			"source": "https://fdc.nal.usda.gov/food-details/169251/nutrients",
+			"id": "usda-171583",
+			"kind": "liquid",
+			"fdcId": 171583,
+			"description": "Soup, vegetable broth, ready to serve",
+			"state": "Soup, vegetable broth, ready to serve",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171583/nutrients",
 			"measures": {
 				"cup": {
 					"amount": 1.0,
-					"grams": 70.0,
-					"portion": "cup, pieces or slices"
+					"grams": 221.0,
+					"portion": "cup"
 				}
-			}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 0.9341123771384128
 		},
 		{
-			"names": ["celery"],
-			"kind": "mass",
-			"fdcId": 169988,
-			"description": "Celery, raw",
-			"source": "https://fdc.nal.usda.gov/food-details/169988/nutrients",
+			"id": "usda-171610",
+			"kind": "liquid",
+			"fdcId": 171610,
+			"description": "Sauce, worcestershire",
+			"state": "Sauce, worcestershire",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171610/nutrients",
 			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 275.0,
+					"portion": "cup"
+				},
 				"tbsp": {
 					"amount": 1.0,
-					"grams": 7.5,
+					"grams": 17.0,
 					"portion": "tbsp"
-				},
-				"cup": {
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 1.162357030375853
+		},
+		{
+			"id": "usda-171631",
+			"kind": "mass",
+			"fdcId": 171631,
+			"description": "Sausage, Italian, pork, mild, raw",
+			"state": "Sausage, Italian, pork, mild, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171631/nutrients",
+			"measures": {
+				"count": {
 					"amount": 1.0,
 					"grams": 101.0,
-					"portion": "cup chopped"
+					"portion": "link"
 				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			}
 		},
 		{
-			"names": ["tomato paste"],
+			"id": "usda-171705",
 			"kind": "mass",
-			"fdcId": 170459,
-			"description": "Tomato products, canned, paste, without salt added (Includes foods for USDA's Food Distribution Program)",
-			"source": "https://fdc.nal.usda.gov/food-details/170459/nutrients",
+			"fdcId": 171705,
+			"description": "Avocados, raw, all commercial varieties",
+			"state": "Avocados, raw, all commercial varieties",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171705/nutrients",
 			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 150.0,
+					"portion": "cup, cubes"
+				},
+				"count": {
+					"amount": 1.0,
+					"grams": 201.0,
+					"portion": "avocado, NS as to Florida or California"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-172179",
+			"kind": "mass",
+			"fdcId": 172179,
+			"description": "Cheese, cottage, creamed, large or small curd",
+			"state": "Cheese, cottage, creamed, large or small curd",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/172179/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 225.0,
+					"portion": "cup, small curd (not packed)"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-172231",
+			"kind": "mass",
+			"fdcId": 172231,
+			"description": "Spices, turmeric, ground",
+			"state": "Spices, turmeric, ground",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/172231/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 3.0,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 9.4,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-172232",
+			"kind": "mass",
+			"fdcId": 172232,
+			"description": "Basil, fresh",
+			"state": "Basil, fresh",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/172232/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 2.0,
+					"grams": 5.3,
+					"portion": "tbsp, chopped"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tbsp"
+		},
+		{
+			"id": "usda-172234",
+			"kind": "mass",
+			"fdcId": 172234,
+			"description": "Mustard, prepared, yellow",
+			"state": "Mustard, prepared, yellow",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/172234/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 249.0,
+					"portion": "cup"
+				},
+				"tsp": {
+					"amount": 1.0,
+					"grams": 5.0,
+					"portion": "tsp or 1 packet"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-172240",
+			"kind": "liquid",
+			"fdcId": 172240,
+			"description": "Vinegar, red wine",
+			"state": "Vinegar, red wine",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/172240/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 239.0,
+					"portion": "cup"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 14.9,
+					"portion": "tbsp"
+				},
+				"tsp": {
+					"amount": 1.0,
+					"grams": 5.0,
+					"portion": "tsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 1.0101939282175596
+		},
+		{
+			"id": "usda-172241",
+			"kind": "liquid",
+			"fdcId": 172241,
+			"description": "Vinegar, balsamic",
+			"state": "Vinegar, balsamic",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/172241/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 255.0,
+					"portion": "cup"
+				},
 				"tbsp": {
 					"amount": 1.0,
 					"grams": 16.0,
 					"portion": "tbsp"
 				},
-				"cup": {
-					"amount": 0.25,
-					"grams": 66.0,
-					"portion": "cup"
+				"tsp": {
+					"amount": 1.0,
+					"grams": 5.3,
+					"portion": "tsp"
 				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 1.0778219736212455
+		},
+		{
+			"id": "usda-172243",
+			"kind": "mass",
+			"fdcId": 172243,
+			"description": "Seasoning mix, dry, taco, original",
+			"state": "Seasoning mix, dry, taco, original",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/172243/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 2.0,
+					"grams": 5.7,
+					"portion": "tsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-172430",
+			"fdcId": 172430,
+			"kind": "mass",
+			"description": "Peanuts, all types, raw",
+			"state": "Peanuts, all types, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/172430/nutrients",
+			"measures": {
+				"g": {
+					"amount": 1,
+					"grams": 1,
+					"portion": "weighed edible grams"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy identified food record; cooking quantity independently weighed.",
+				"decision": "Food identity only for a direct measured mass, no inferred count or volume."
 			}
 		},
 		{
-			"names": ["peanut butter"],
+			"id": "usda-172470",
 			"kind": "mass",
 			"fdcId": 172470,
 			"description": "Peanut butter, smooth style, without salt",
+			"state": "Peanut butter, smooth style, without salt",
+			"basis": "edible",
 			"source": "https://fdc.nal.usda.gov/food-details/172470/nutrients",
 			"measures": {
 				"tbsp": {
@@ -842,62 +3140,864 @@
 					"grams": 258.0,
 					"portion": "cup"
 				}
-			}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tbsp"
 		},
 		{
-			"names": ["sugar"],
-			"kind": "mass",
-			"fdcId": 169655,
-			"description": "Sugars, granulated",
-			"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients",
+			"id": "usda-172473",
+			"kind": "liquid",
+			"fdcId": 172473,
+			"description": "Soy sauce made from soy and wheat (shoyu), low sodium",
+			"state": "Soy sauce made from soy and wheat (shoyu), low sodium",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/172473/nutrients",
 			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 255.0,
+					"portion": "cup"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 14.2,
+					"portion": "tbsp"
+				},
 				"tsp": {
 					"amount": 1.0,
-					"grams": 4.2,
+					"grams": 4.5,
 					"portion": "tsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 1.0778219736212455
+		},
+		{
+			"id": "usda-172888",
+			"kind": "liquid",
+			"fdcId": 172888,
+			"description": "Soup, chicken broth, less/reduced sodium, ready to serve",
+			"state": "Soup, chicken broth, less/reduced sodium, ready to serve",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/172888/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 240.0,
+					"portion": "cup"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 1.01442068105529
+		},
+		{
+			"id": "usda-173412",
+			"kind": "liquid",
+			"fdcId": 173412,
+			"description": "Butter oil, anhydrous",
+			"state": "Butter oil, anhydrous",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/173412/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 205.0,
+					"portion": "cup"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 12.8,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 0.8664843317347268
+		},
+		{
+			"id": "usda-173414",
+			"kind": "mass",
+			"fdcId": 173414,
+			"description": "Cheese, cheddar (Includes foods for USDA's Food Distribution Program)",
+			"state": "Cheese, cheddar (Includes foods for USDA's Food Distribution Program)",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/173414/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 113.0,
+					"portion": "cup, shredded"
+				},
+				"slice": {
+					"amount": 1.0,
+					"grams": 28.0,
+					"portion": "slice (1 oz)"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-173418",
+			"kind": "mass",
+			"fdcId": 173418,
+			"description": "Cheese, cream",
+			"state": "Cheese, cream",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/173418/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 232.0,
+					"portion": "cup"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 14.5,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tbsp"
+		},
+		{
+			"id": "usda-173420",
+			"kind": "mass",
+			"fdcId": 173420,
+			"description": "Cheese, feta",
+			"state": "Cheese, feta",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/173420/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 150.0,
+					"portion": "cup, crumbled"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "usda-173430",
+			"kind": "mass",
+			"fdcId": 173430,
+			"description": "Butter, without salt",
+			"state": "Butter, without salt",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 14.2,
+					"portion": "tbsp"
 				},
 				"cup": {
 					"amount": 1.0,
-					"grams": 200.0,
+					"grams": 227.0,
 					"portion": "cup"
+				},
+				"stick": {
+					"amount": 1.0,
+					"grams": 113.0,
+					"portion": "stick"
 				}
-			}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tbsp"
 		},
 		{
-			"names": ["minced ginger", "fresh ginger"],
+			"id": "usda-173468",
 			"kind": "mass",
-			"fdcId": 169231,
-			"description": "Ginger root, raw",
-			"source": "https://fdc.nal.usda.gov/food-details/169231/nutrients",
+			"fdcId": 173468,
+			"description": "Salt, table",
+			"state": "Salt, table",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
 			"measures": {
 				"tsp": {
 					"amount": 1.0,
-					"grams": 2.0,
+					"grams": 6.0,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 18.0,
+					"portion": "tbsp"
+				},
+				"cup": {
+					"amount": 1.0,
+					"grams": 292.0,
+					"portion": "cup"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-173469",
+			"kind": "liquid",
+			"fdcId": 173469,
+			"description": "Vinegar, cider",
+			"state": "Vinegar, cider",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/173469/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 239.0,
+					"portion": "cup"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 14.9,
+					"portion": "tbsp"
+				},
+				"tsp": {
+					"amount": 1.0,
+					"grams": 5.0,
 					"portion": "tsp"
 				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 1.0101939282175596
+		},
+		{
+			"id": "usda-173470",
+			"kind": "mass",
+			"fdcId": 173470,
+			"description": "Thyme, fresh",
+			"state": "Thyme, fresh",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/173470/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 0.8,
+					"portion": "tsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-173473",
+			"kind": "mass",
+			"fdcId": 173473,
+			"description": "Rosemary, fresh",
+			"state": "Rosemary, fresh",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/173473/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 0.7,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 1.7,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "tsp"
+		},
+		{
+			"id": "usda-173573",
+			"kind": "liquid",
+			"fdcId": 173573,
+			"description": "Oil, avocado",
+			"state": "Oil, avocado",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/173573/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 218.0,
+					"portion": "cup"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 14.0,
+					"portion": "tbsp"
+				},
+				"tsp": {
+					"amount": 1.0,
+					"grams": 4.5,
+					"portion": "tsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 0.9214321186252217,
+			"nutritionFdcId": 173573
+		},
+		{
+			"id": "usda-174536",
+			"kind": "liquid",
+			"fdcId": 174536,
+			"description": "Soup, chicken broth, ready-to-serve",
+			"state": "Soup, chicken broth, ready-to-serve",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/174536/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 249.0,
+					"portion": "cup"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 1.0524614565948633
+		},
+		{
+			"id": "usda-174832",
+			"kind": "liquid",
+			"fdcId": 174832,
+			"description": "Beverages, almond milk, unsweetened, shelf stable",
+			"state": "Beverages, almond milk, unsweetened, shelf stable",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/174832/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 262.0,
+					"portion": "cup"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 1.1074092434853582
+		},
+		{
+			"id": "usda-174837",
+			"kind": "liquid",
+			"fdcId": 174837,
+			"description": "Alcoholic beverage, wine, table, white",
+			"state": "Alcoholic beverage, wine, table, white",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/174837/nutrients",
+			"measures": {
+				"fl oz": {
+					"amount": 1.0,
+					"grams": 29.4,
+					"portion": "fl oz"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "fl oz",
+			"gramsPerMl": 0.9941322674341841
+		},
+		{
+			"id": "usda-175112",
+			"kind": "liquid",
+			"fdcId": 175112,
+			"description": "Alcoholic beverage, wine, dessert, dry",
+			"state": "Alcoholic beverage, wine, dessert, dry",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/175112/nutrients",
+			"measures": {
+				"fl oz": {
+					"amount": 1.0,
+					"grams": 29.5,
+					"portion": "fl oz"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"volumeInterpolationUnit": "fl oz",
+			"gramsPerMl": 0.9975136697043684
+		},
+		{
+			"id": "usda-175176",
+			"kind": "mass",
+			"fdcId": 175176,
+			"description": "Fish, tilapia, raw",
+			"state": "Fish, tilapia, raw",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/175176/nutrients",
+			"measures": {
+				"fillet": {
+					"amount": 1.0,
+					"grams": 116.0,
+					"portion": "fillet"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			}
 		},
 		{
-			"names": [
-				"water",
-				"cold water",
-				"water for bean microwave",
-				"water for cauliflower microwave",
-				"water for vegetable microwave",
-				"water for sausage simmer",
-				"optional water for sausages"
-			],
+			"id": "water",
 			"kind": "liquid",
-			"fdcId": 173647,
-			"description": "Beverages, water, tap, drinking",
-			"source": "https://fdc.nal.usda.gov/food-details/173647/nutrients",
+			"description": "Potable water",
+			"state": "Potable water",
+			"basis": "edible",
+			"source": "https://www.nist.gov/pml/special-publication-811",
 			"measures": {
 				"ml": {
-					"amount": 1000.0,
-					"grams": 1000.0,
-					"portion": "liter"
+					"amount": 1,
+					"grams": 1,
+					"portion": "Potable water; ml"
 				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Cooking convention 1 g/mL for potable water; temperature differences below cooking precision.",
+				"evidence": "https://www.nist.gov/pml/special-publication-811"
+			},
+			"volumeInterpolationUnit": "ml",
+			"gramsPerMl": 1.0,
+			"fdcId": 173647
+		},
+		{
+			"id": "whole-chicken",
+			"kind": "mass",
+			"description": "Whole chicken, 4.5 lb purchased weight, innards removed",
+			"state": "Whole chicken, 4.5 lb purchased weight, innards removed",
+			"basis": "as-purchased",
+			"source": "https://www.jsolly.com/recipes/",
+			"measures": {
+				"count": {
+					"amount": 1,
+					"grams": 2041.165665,
+					"portion": "Whole chicken, 4.5 lb purchased weight, innards removed; count"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
+				"evidence": "https://www.jsolly.com/recipes/"
+			},
+			"fdcId": 171447
+		},
+		{
+			"id": "usda-172885",
+			"fdcId": 172885,
+			"kind": "liquid",
+			"description": "Soup, stock, fish, home-prepared",
+			"state": "Soup, stock, fish, home-prepared",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/172885/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 233.0,
+					"portion": "cup"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv",
+				"decision": "Explicit matching food/state observation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 0.9848334111911773,
+			"nutritionFdcId": 172885
+		},
+		{
+			"id": "usda-170926",
+			"fdcId": 170926,
+			"kind": "mass",
+			"description": "Spices, ginger, ground",
+			"state": "Spices, ginger, ground",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170926/nutrients",
+			"measures": {
+				"tsp": {
+					"amount": 1.0,
+					"grams": 1.8,
+					"portion": "tsp"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 5.2,
+					"portion": "tbsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv",
+				"decision": "Explicit matching food/state observation."
+			},
+			"volumeInterpolationUnit": "tbsp"
+		},
+		{
+			"id": "usda-174278",
+			"fdcId": 174278,
+			"kind": "liquid",
+			"description": "Soy sauce made from soy (tamari)",
+			"state": "Soy sauce made from soy (tamari)",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/174278/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 18.0,
+					"portion": "tbsp"
+				},
+				"tsp": {
+					"amount": 1.0,
+					"grams": 6.0,
+					"portion": "tsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv",
+				"decision": "Explicit matching food/state observation."
+			},
+			"volumeInterpolationUnit": "tbsp",
+			"gramsPerMl": 1.2173048172663479
+		},
+		{
+			"id": "usda-172336",
+			"fdcId": 172336,
+			"kind": "liquid",
+			"description": "Oil, canola",
+			"state": "Oil, canola",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/172336/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 218.0,
+					"portion": "cup"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 14.0,
+					"portion": "tbsp"
+				},
+				"tsp": {
+					"amount": 1.0,
+					"grams": 4.5,
+					"portion": "tsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv",
+				"decision": "Explicit matching food/state observation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 0.9214321186252217
+		},
+		{
+			"id": "usda-171025",
+			"fdcId": 171025,
+			"kind": "liquid",
+			"description": "Oil, sunflower, linoleic, (approx. 65%)",
+			"state": "Oil, sunflower, linoleic, (approx. 65%)",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171025/nutrients",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 218.0,
+					"portion": "cup"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 13.6,
+					"portion": "tbsp"
+				},
+				"tsp": {
+					"amount": 1.0,
+					"grams": 4.5,
+					"portion": "tsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv",
+				"decision": "Explicit matching food/state observation."
+			},
+			"volumeInterpolationUnit": "cup",
+			"gramsPerMl": 0.9214321186252217
+		},
+		{
+			"id": "usda-169291-small",
+			"kind": "mass",
+			"fdcId": 169291,
+			"description": "Squash, summer, zucchini, includes skin, raw",
+			"state": "raw, small zucchini",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/169291/nutrients",
+			"measures": {
+				"count": {
+					"amount": 1,
+					"grams": 118.0,
+					"portion": "small"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			}
+		},
+		{
+			"id": "grey-poupon-dijon",
+			"kind": "mass",
+			"description": "Grey Poupon Dijon mustard",
+			"state": "prepared Dijon mustard",
+			"basis": "edible",
+			"source": "https://www.kraftheinz.com/grey-poupon/products/00054400600506-dijon-mustard",
+			"measures": {
+				"tsp": {
+					"amount": 1,
+					"grams": 5,
+					"portion": "1 tsp (5g) manufacturer serving"
+				}
+			},
+			"volumeInterpolationUnit": "tsp",
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"evidence": "Manufacturer serving size 1 tsp (5g)",
+				"decision": "Select Grey Poupon Dijon as explicit default; do not apply yellow mustard portions."
+			}
+		},
+		{
+			"id": "ka-all-purpose-flour",
+			"kind": "mass",
+			"description": "All-purpose wheat flour",
+			"state": "level cup",
+			"basis": "edible",
+			"source": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+			"measures": {
+				"cup": {
+					"amount": 1,
+					"grams": 120,
+					"portion": "cup all-purpose flour"
+				}
+			},
+			"volumeInterpolationUnit": "cup",
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"evidence": "King Arthur chart 120 g per cup",
+				"decision": "Flour alternative uses its own observation."
+			}
+		},
+		{
+			"id": "big-tree-coconut-aminos",
+			"kind": "liquid",
+			"description": "Big Tree Farms Regenerative Organic Coconut Aminos",
+			"state": "liquid, original",
+			"basis": "edible",
+			"source": "https://bigtreefarms.com/products/regenerative-organic-coco-aminos",
+			"measures": {
+				"tbsp": {
+					"amount": 1,
+					"grams": 18,
+					"portion": "Manufacturer current nutrition label: 1 tbsp (18g)"
+				}
+			},
+			"volumeInterpolationUnit": "tbsp",
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"evidence": "Current manufacturer page nutrition label:1tbsp(18g); manufacturer recommends starting with the same soy-sauce volume. Original2023PDF is retired; current page independently confirmed.",
+				"decision": "Select the identified product as the measured default; retain its own manufacturer portion or density."
+			},
+			"gramsPerMl": 1.2173048172663479
+		},
+		{
+			"id": "franks-buffalo",
+			"kind": "liquid",
+			"description": "Frank’s RedHot Buffalo Wings Sauce",
+			"state": "Frank’s RedHot Buffalo Wings Sauce",
+			"basis": "edible",
+			"source": "https://www.webstaurantstore.com/documents/nutrition/417416104eafranksredhotbuffalowingssauce41gal.pdf",
+			"measures": {
+				"ml": {
+					"amount": 15,
+					"grams": 15,
+					"portion": "Manufacturer product specification417416104, UPC041500741611:15mL(15g). Manufacturer document hosted by distributor."
+				}
+			},
+			"volumeInterpolationUnit": "ml",
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"evidence": "Manufacturer product specification417416104, UPC041500741611:15mL(15g). Manufacturer document hosted by distributor.",
+				"decision": "Use the identified manufacturer specification as portion evidence: 15 mL weighs 15 g. This is not a statement about the current product nutrient formulation."
+			},
+			"gramsPerMl": 1
+		},
+		{
+			"id": "mizkan-rice-vinegar",
+			"kind": "liquid",
+			"description": "Mizkan unseasoned rice vinegar, 5% acidity",
+			"state": "Mizkan unseasoned rice vinegar, 5% acidity",
+			"basis": "edible",
+			"source": "https://shop.hr-gastro.ch/dta.php/vendfiles/hrgastro/prodspecs/de/126928.pdf",
+			"measures": {
+				"ml": {
+					"amount": 1,
+					"grams": 1.013,
+					"portion": "Mizkan manufacturer specification1001248, issue2 dated2015-09-10, page12: specific gravity target1.013, range1.010–1.016. Approximate cooking density uses target; it is not a 15mL-to-15g inference."
+				}
+			},
+			"volumeInterpolationUnit": "ml",
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"evidence": "Mizkan manufacturer specification1001248, issue2 dated2015-09-10, page12: specific gravity target1.013, range1.010–1.016. Approximate cooking density uses target; it is not a 15mL-to-15g inference.",
+				"decision": "Select the identified product as the measured default; retain its own manufacturer portion or density."
+			},
+			"gramsPerMl": 1.013
+		},
+		{
+			"id": "chobani-greek-yogurt",
+			"kind": "mass",
+			"description": "Chobani plain whole-milk Greek yogurt",
+			"state": "Chobani plain whole-milk Greek yogurt",
+			"basis": "edible",
+			"source": "https://www.chobani.com/products/yogurt/greek/whole-milk-plain-large-size-tub",
+			"measures": {
+				"cup": {
+					"amount": 0.75,
+					"grams": 170,
+					"portion": "Manufacturer serving size3/4cup(170g); specific strained Greek product, not generic yogurt."
+				}
+			},
+			"volumeInterpolationUnit": "cup",
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-15",
+				"evidence": "Manufacturer serving size3/4cup(170g); specific strained Greek product, not generic yogurt.",
+				"decision": "Select the identified product as the measured default; retain its own manufacturer portion or density.",
+				"nutrition": "USDA171304 plain whole-milk Greek yogurt composition is the independent nutrition approximation; manufacturer serving weight governs cooking."
+			},
+			"fdcId": 171304,
+			"nutritionFdcId": 171304
+		},
+		{
+			"id": "usda-173431",
+			"kind": "mass",
+			"fdcId": 173431,
+			"description": "Cheese, parmesan, shredded",
+			"state": "shredded",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/173431/nutrients",
+			"measures": {
+				"tbsp": {
+					"amount": 1,
+					"grams": 5,
+					"portion": "tbsp; USDA food_portion.csv id92515"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-15",
+				"retrieved": "2026-10-13",
+				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"decision": "Exact shredded Parmesan tablespoon observation, distinct from grated Parmesan. Permit explicit same-preparation volume interpolation for source cup quantities."
+			},
+			"volumeInterpolationUnit": "tbsp",
+			"nutritionFdcId": 173431
 		}
 	]
 }

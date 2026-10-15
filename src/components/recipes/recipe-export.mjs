@@ -3,12 +3,8 @@ import {
 	mealLeftovers,
 	recipeDisclaimer,
 } from "./constants.mjs";
-import { cookText } from "./display-units.mjs";
-import {
-	ingredientMeasure,
-	MEASUREMENT_POLICY,
-	UNIT_LABELS,
-} from "./ingredient-units.mjs";
+import { cookingText } from "./cooking-quantities.mjs";
+import { ingredientMeasure, UNIT_LABELS } from "./ingredient-units.mjs";
 import { dailyNutrition } from "./nutrition.mjs";
 import {
 	capacityNote,
@@ -38,7 +34,7 @@ export function recipeDocument(recipe, settings = {}) {
 					(o) => o.id === settings.familyChoice?.[recipe.id],
 				) || recipe.familyOptions[0]
 			: null;
-	const text = (value) => cookText(value || "", units);
+	const text = (value) => cookingText(recipe, value, valid);
 	const grid = flowGrid(recipe, valid);
 	const ingredients = recipe.ingredients.map((i) => ({
 		...ingredientMeasure(
@@ -53,14 +49,11 @@ export function recipeDocument(recipe, settings = {}) {
 	}));
 	const familyIngredient = option
 		? {
-				quantity: formatIngredient(
-					{
-						...option,
-						amount: option.amount * familyDiners,
-						scale: "fixed",
-					},
-					BASE_SERVINGS,
+				...ingredientMeasure(
+					option,
+					option.amount * familyDiners,
 					units,
+					formatQuantity,
 				),
 				name: option.ingredientName,
 				state: text(option.state),
@@ -76,7 +69,6 @@ export function recipeDocument(recipe, settings = {}) {
 		group: recipe.group,
 		servings,
 		units,
-		measurementPolicy: MEASUREMENT_POLICY,
 		familyDiners,
 		cookingFlow: {
 			notation: "Tabular Recipe Notation (TRN)",
@@ -162,7 +154,6 @@ export function documentMarkdown(d, headingLevel = 1) {
 		d.attentionSummary,
 		d.capacity,
 		d.timingNote,
-		d.measurementPolicy,
 		"## Cooking flow (Tabular Recipe Notation)",
 		gridHtml(d.title, {
 			...d.cookingFlow,
@@ -171,7 +162,7 @@ export function documentMarkdown(d, headingLevel = 1) {
 		"## Ingredients",
 		...d.ingredients.map(
 			(i) =>
-				`- ${i.quantity} ${i.name}${i.state ? ` — ${i.state}` : ""}${i.note ? `. ${i.note}` : ""}`,
+				`- ${i.quantity} ${i.name}${(i.alternatives || []).map((choice) => ` or ${choice.quantity} ${choice.name}`).join("")}${i.state ? ` — ${i.state}` : ""}${i.note ? `. ${i.note}` : ""}`,
 		),
 	];
 	if (d.familyIngredient)
@@ -247,7 +238,6 @@ export function recipeBundle(recipes, settings = {}) {
 		baseServings: BASE_SERVINGS,
 		settings: validateSettings(settings),
 		disclaimer: recipeDisclaimer,
-		measurementPolicy: MEASUREMENT_POLICY,
 		recipes: recipes.map((r) => recipeDocument(r, settings)),
 	};
 }

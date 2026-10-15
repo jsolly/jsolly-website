@@ -14,7 +14,7 @@ const BROTH = /broth/iu;
 const SAFE_POULTRY_METRIC = /74°C \(165°F\)/u;
 const EXTRA_BATCHES = /extra pan or basket batches/u;
 const UNTESTED = /not been kitchen-tested/u;
-const GRAMS = /g$/u;
+const MILLILITERS = /mL$/u;
 const TWO_SERVINGS = /two servings/u;
 const CHILLED = /chilled/u;
 const HOT_FOOD_SAFETY = /poultry|thermometer/u;
@@ -29,9 +29,18 @@ it("assistant/print document preserves safe pressure liquid, recalculated macros
 	});
 	assert.equal(
 		d.ingredients.find((i) => BROTH.test(i.name)).quantity,
-		"375 mL minimum (measure by volume)",
+		"375 mL",
 	);
-	assert(Math.abs(d.nutrition.kcal - r.nutrition.kcal - 6.5625) < 1e-9);
+	assert.ok(
+		d.cookingFlow.prep.some((step) => step.includes("at least 375 mL")),
+	);
+	assert(
+		Math.abs(
+			d.nutrition.kcal -
+				r.nutrition.kcal -
+				(((375 * 240) / 236.5882365) * 7) / 400,
+		) < 1e-9,
+	);
 	assert.equal(d.familyDiners, 1);
 	assert(d.familyIngredient);
 	assert.equal(d.steps.length, r.steps.length);
@@ -58,7 +67,7 @@ it("exports keep family choices, food states, allergies, limits and tiny spoon m
 	assert.match(d.disclaimer, UNTESTED);
 	assert.match(
 		d.ingredients.find((i) => i.name === "Olive oil").quantity,
-		GRAMS,
+		MILLILITERS,
 	);
 	const noFamily = recipeDocument(r, { familyDiners: 0 });
 	assert.equal(noFamily.familyIngredient, null);
@@ -101,7 +110,7 @@ it("new keto smoothies scale ingredients and keep cold preparation in exports", 
 		assert(recipe);
 		assert.equal(recipe.type, "smoothie");
 		assert.equal(recipe.group, "keto");
-		assert.equal(recipe.nutrition.net_carbs_g, netCarbs);
+		assert.ok(Math.abs(recipe.nutrition.net_carbs_g - netCarbs) < 1e-9);
 		for (const servings of [2, 4, 6, 8]) {
 			const document = recipeDocument(recipe, { servings, units: "metric" });
 			assert.equal(

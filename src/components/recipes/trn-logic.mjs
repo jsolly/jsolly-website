@@ -1,7 +1,7 @@
-import { BASE_SERVINGS } from "./constants.mjs";
-import { cookText } from "./display-units.mjs";
+import { cookingText } from "./cooking-quantities.mjs";
+import { ingredientGrams, ingredientMeasure } from "./ingredient-units.mjs";
 import {
-	formatIngredient,
+	formatQuantity,
 	ingredientAmount,
 	purchaseNote,
 	validateSettings,
@@ -66,10 +66,24 @@ export function validateFlow(recipe) {
 	}
 	return true;
 }
+
+/** A measured pinch is fixed; remainder branches divide the actual amount left. */
+function allocationAmount(ingredient, node, servings) {
+	const total = ingredientAmount(ingredient, servings);
+	if (!node.share) return total * Number(node.fraction ?? 1);
+	const grams = ingredientGrams(ingredient, total);
+	if (!(ingredient.pinchGrams > 0 && ingredient.pinchGrams < grams))
+		throw new Error(`Invalid measured pinch: ${ingredient.id}`);
+	const pinch = (total * ingredient.pinchGrams) / grams;
+	return node.share === "pinch"
+		? pinch
+		: (total - pinch) * Number(node.fraction ?? 1);
+}
 /** Compute a contiguous-row dependency graph. Children extend to their consuming column. */
 export function flowGrid(recipe, settings = {}) {
 	validateFlow(recipe);
 	const { servings, units, familyDiners } = validateSettings(settings);
+	const text = (value) => cookingText(recipe, value, { servings, units });
 	const leaves = [];
 	const operations = [];
 	function walk(node, parent = null) {
@@ -80,31 +94,21 @@ export function flowGrid(recipe, settings = {}) {
 			const ingredient = recipe.ingredients.find(
 				(i) => i.id === node.ingredientId,
 			);
-			const amount =
-				ingredientAmount(ingredient, servings) * Number(node.fraction ?? 1);
-			const total = formatIngredient(ingredient, servings, units);
-			item.quantity =
-				node.share && ingredient.amount === 0
-					? "to taste"
-					: node.share === "pinch"
-						? "pinch of"
-						: node.share === "remainder"
-							? `${Number(node.fraction ?? 1) === 0.5 ? `½ remaining (${total} total)` : `Remainder of ${total}`}`
-							: formatIngredient(
-									{
-										...ingredient,
-										amount,
-										scale: ingredient.scale,
-									},
-									BASE_SERVINGS,
-									units,
-								);
+			const amount = allocationAmount(ingredient, node, servings);
+			const measure = ingredientMeasure(
+				ingredient,
+				amount,
+				units,
+				formatQuantity,
+			);
+			item.quantity = measure.quantity;
+			item.alternatives = measure.alternatives;
+			item.amount = amount;
 			item.name = ingredient.name;
-			item.state = cookText(
+			item.state = text(
 				[ingredient.state, ingredient.note, purchaseNote(ingredient, servings)]
 					.filter(Boolean)
 					.join(" · "),
-				units,
 			);
 			leaves.push(item);
 			return item;
@@ -112,7 +116,7 @@ export function flowGrid(recipe, settings = {}) {
 		item.children = node.children.map((child) => walk(child, item));
 		item.depth = 1 + Math.max(...item.children.map((child) => child.depth));
 		item.rows = leaves.length - item.start;
-		item.action = cookText(node.action, units);
+		item.action = text(node.action);
 		operations.push(item);
 		return item;
 	}
@@ -138,6 +142,7 @@ export function flowGrid(recipe, settings = {}) {
 				text: leaf.quantity,
 				name: leaf.name,
 				state: leaf.state,
+				alternatives: leaf.alternatives,
 				essentialState: ESSENTIAL_STATE.test(leaf.state),
 			},
 		],
@@ -161,12 +166,30 @@ export function flowGrid(recipe, settings = {}) {
 					"Warm the family side per package near the end of cooking; serve separately.",
 				]
 			: [];
+	const pressure = recipe.ingredients
+		.filter(
+			(ingredient) =>
+				ingredient.scale === "minimum" && ingredient.unit === "ml",
+		)
+		.map(
+			(ingredient) =>
+				`Use at least ${ingredientAmount(ingredient, servings)} mL ${ingredient.name.toLowerCase()} for pressure cooking.`,
+		);
 	return {
-		prep: [...recipe.flow.prep, ...side].map((t) => cookText(t, units)),
+		prep: [...recipe.flow.prep, ...pressure, ...side].map(text),
 		columns: root.depth + 1,
 		rows,
 	};
 }
+function ingredientHtml(cell) {
+	const alternatives = (cell.alternatives || [])
+		.map(
+			(choice) =>
+				` or <strong>${escapeHtml(choice.quantity)}</strong> ${escapeHtml(choice.name)}`,
+		)
+		.join("");
+	return `<strong>${escapeHtml(cell.text)}</strong> ${escapeHtml(cell.name)}${alternatives}<small class="${cell.essentialState ? "trn-state-essential" : "trn-state-detail"}">${escapeHtml(cell.state)}</small>`;
+}
 export function gridHtml(title, grid) {
-	return `<div class="trn-scroll" tabindex="0" role="region" aria-label="${escapeHtml(title)} cooking flow, scroll horizontally"><table class="trn-table"><tbody>${grid.prep.map((t) => `<tr><td colspan="${grid.columns}" class="trn-prep">${escapeHtml(t)}</td></tr>`).join("")}${grid.rows.map((r) => `<tr>${r.cells.map((c) => (c.kind === "ingredient" ? `<th scope="row" colspan="${c.colspan}" class="trn-ingredient"><strong>${escapeHtml(c.text)}</strong> ${escapeHtml(c.name)}<small class="${c.essentialState ? "trn-state-essential" : "trn-state-detail"}">${escapeHtml(c.state)}</small></th>` : `<td rowspan="${c.rowspan}" colspan="${c.colspan}" class="trn-operation">${escapeHtml(c.text)}</td>`)).join("")}</tr>`).join("")}</tbody></table></div>`;
+	return `<div class="trn-scroll" tabindex="0" role="region" aria-label="${escapeHtml(title)} cooking flow, scroll horizontally"><table class="trn-table"><tbody>${grid.prep.map((t) => `<tr><td colspan="${grid.columns}" class="trn-prep">${escapeHtml(t)}</td></tr>`).join("")}${grid.rows.map((r) => `<tr>${r.cells.map((c) => (c.kind === "ingredient" ? `<th scope="row" colspan="${c.colspan}" class="trn-ingredient">${ingredientHtml(c)}</th>` : `<td rowspan="${c.rowspan}" colspan="${c.colspan}" class="trn-operation">${escapeHtml(c.text)}</td>`)).join("")}</tr>`).join("")}</tbody></table></div>`;
 }

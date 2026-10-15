@@ -1,20 +1,22 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import it from "node:test";
+import { ingredientGrams } from "./ingredient-units.mjs";
+import { ingredientAmount } from "./recipe-logic.mjs";
 import { flowGrid, gridHtml, validateFlow } from "./trn-logic.mjs";
 
 const { recipes } = JSON.parse(
 	readFileSync(new URL("./recipes.json", import.meta.url), "utf8"),
 );
 const SPRAY = /spray/iu;
-const MEASURED_SPRAY = /Olive oil or cooking spray/u;
+const MEASURED_SPRAY = /cooking spray/iu;
 const UNALLOCATED = /Unallocated/u;
 const UNBALANCED = /Unbalanced/u;
-const QUARTER_TEASPOON = /¼ tsp/u;
+const GARLIC_GRAMS = /0.78 g/u;
 const SAFE_FISH_METRIC = /63°C \(145°F\)/u;
 const ONE_GRAM_ZEST = /1 g<\/strong> Lemon zest/u;
-const PINCH = /pinch of/u;
-const HALF_REMAINING = /½ remaining/u;
+const MEASURED_PINCH = /0.3 g/u;
+const UNMEASURED = /pinch of|remaining|to taste|unavailable/u;
 const ROWSPAN = /rowspan=/u;
 const INVALID_FRACTION = /Invalid ingredient fraction/u;
 const UNBALANCED_SYMBOLIC = /Unbalanced symbolic allocation/u;
@@ -53,13 +55,13 @@ it("incomplete or duplicate ingredient allocations fail closed", () => {
 	r2.flow.root.children.push({ ingredientId: "hemp_hearts" });
 	assert.throws(() => validateFlow(r2), UNBALANCED);
 });
-it("tables keep scaled spoon measures, safe endpoint conversions and symbolic pinches", () => {
+it("tables show scaled gram amounts, safe endpoints and measured pinch allocations", () => {
 	const salmon = recipes.find((r) => r.key === "salmon");
 	const html = gridHtml(
 		salmon.title,
 		flowGrid(salmon, { servings: 2, units: "metric" }),
 	);
-	assert.match(html, QUARTER_TEASPOON);
+	assert.match(html, GARLIC_GRAMS);
 	assert.match(html, SAFE_FISH_METRIC);
 	assert.match(html, ONE_GRAM_ZEST);
 	const shawarma = recipes.find((r) => r.key === "shawarma");
@@ -67,28 +69,38 @@ it("tables keep scaled spoon measures, safe endpoint conversions and symbolic pi
 		shawarma.title,
 		flowGrid(shawarma, { servings: 4, units: "metric" }),
 	);
-	assert.match(s, PINCH);
-	assert.match(s, HALF_REMAINING);
+	assert.match(s, MEASURED_PINCH);
+	for (const row of flowGrid(shawarma, { servings: 4, units: "grams" }).rows)
+		assert.doesNotMatch(row.ingredient.quantity, UNMEASURED);
 	assert.match(s, ROWSPAN);
 });
 
-it("split symbolic salt preserves one pinch and a complete positive remainder", () => {
+it("measured salt pinches and remainder branches conserve the actual scaled ingredient", () => {
 	const recipe = recipes.find((r) => r.key === "shawarma");
 	assert(validateFlow(recipe));
-	const toTaste = structuredClone(recipe);
-	const seasoning = toTaste.ingredients.find(
+	const seasoning = recipe.ingredients.find(
 		(ingredient) => ingredient.id === "fine_salt",
 	);
-	seasoning.amount = 0;
-	seasoning.name = "Black pepper";
-	const symbolicRows = flowGrid(toTaste, {
-		servings: 4,
-		units: "us",
-	}).rows.filter((row) => row.ingredient.ingredientId === "fine_salt");
-	assert.ok(symbolicRows.length > 1);
-	for (const row of symbolicRows) {
-		assert.equal(row.ingredient.quantity, "to taste");
-		assert.equal(row.ingredient.name, "Black pepper");
+	for (const servings of [2, 4, 6, 8]) {
+		const rows = flowGrid(recipe, { servings, units: "grams" }).rows.filter(
+			(row) => row.ingredient.ingredientId === "fine_salt",
+		);
+		assert.equal(rows.length, 3);
+		assert.equal(
+			rows.find((row) => row.ingredient.share === "pinch").ingredient.quantity,
+			"0.3 g",
+		);
+		const total = rows.reduce(
+			(sum, row) => sum + ingredientGrams(seasoning, row.ingredient.amount),
+			0,
+		);
+		assert.ok(
+			Math.abs(
+				total -
+					ingredientGrams(seasoning, ingredientAmount(seasoning, servings)),
+			) < 1e-9,
+		);
+		assert.ok(rows.every((row) => row.ingredient.amount > 0));
 	}
 	const invalid = structuredClone(recipe);
 	const branches = invalid.flow.root.children.at(2).children;
@@ -161,12 +173,19 @@ it("unmeasured cookware spray stays in preparation directions while measured oil
 		assert(validateFlow(recipe));
 	}
 	const measured = recipes.flatMap((recipe) =>
-		recipe.ingredients.filter((ingredient) => SPRAY.test(ingredient.name)),
+		recipe.ingredients.filter((ingredient) =>
+			ingredient.alternatives?.some((choice) => SPRAY.test(choice.name)),
+		),
 	);
 	assert.equal(measured.length, 2);
 	for (const ingredient of measured) {
 		assert.equal(ingredient.amount, 1);
 		assert.equal(ingredient.unit, "tbsp");
-		assert.match(ingredient.name, MEASURED_SPRAY);
+		const spray = ingredient.alternatives.find((choice) =>
+			SPRAY.test(choice.name),
+		);
+		assert.match(spray.name, MEASURED_SPRAY);
+		assert.equal(spray.amount, 1);
+		assert.equal(spray.unit, "g");
 	}
 });
