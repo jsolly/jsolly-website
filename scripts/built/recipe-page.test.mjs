@@ -236,7 +236,7 @@ it("mobile flow preserves ordered operations, allocation leaves and cooking chec
 				"0.95 oz",
 				"1 tsp",
 				"½ tsp",
-				"to taste",
+				"¼ tsp",
 				"0.14 oz",
 				"2 lb",
 				"0.95 oz",

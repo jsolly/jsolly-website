@@ -23,6 +23,7 @@ const BUY_TWO = /Buy 2 ×/u;
 const MICROWAVE = /microwave/iu;
 const YIELD = /yield/u;
 const POSITIVE_GLASS = /positive glass/u;
+const BAD_MEASUREMENT = /amount must be finite and positive/u;
 
 const ingredient = (id, name, amount, unit, state = "raw", extra = {}) => ({
 	id,
@@ -60,9 +61,11 @@ const chicken = {
 			us: { amount: 1.75, unit: "lb" },
 		}),
 		ingredient("lime", "lime juice", 30, "ml", "juiced", {
+			weightRef: "usda-168156",
 			us: { amount: 2, unit: "tbsp" },
 		}),
 		ingredient("salt", "salt", 1, "tsp", "dry", {
+			weightRef: "usda-173468",
 			category: "pantry",
 			scale: "minimum",
 			us: { amount: 1, unit: "tsp" },
@@ -102,13 +105,14 @@ it("familiar fractions, typed US measures, and seasoning rules survive serving c
 	assert.equal(ingredientAmount(chicken.ingredients[2], 8), 2);
 	const fixedEgg = ingredient("egg", "beaten egg", 1, "count", "beaten", {
 		scale: "fixed",
+		weightRef: "usda-171287",
 	});
 	assert.equal(ingredientAmount(fixedEgg, 8), 1);
 	const linearEgg = { ...fixedEgg, scale: "linear" };
-	assert.equal(formatIngredient(linearEgg, 2), "½ count (weight unavailable)");
-	assert.equal(
-		formatIngredient(ingredient("pepper", "black pepper", 0, "tsp"), 8),
-		"to taste",
+	assert.equal(formatIngredient(linearEgg, 2), "25 g");
+	assert.throws(
+		() => formatIngredient(ingredient("pepper", "black pepper", 0, "tsp"), 8),
+		BAD_MEASUREMENT,
 	);
 });
 
@@ -162,9 +166,15 @@ it("pressure minimum changes small-batch per-person nutrition, not safe liquid",
 	).recipes;
 	const pressure = data.find((r) => r.key === "salsa_chicken");
 	const p = servingNutrition(pressure, 2);
-	assert(Math.abs(p.kcal - pressure.nutrition.kcal - 6.5625) < 1e-10);
-	assert(Math.abs(p.protein_g - pressure.nutrition.protein_g - 1.275) < 1e-10);
-	assert(Math.abs(p.carbs_g - pressure.nutrition.carbs_g - 0.35625) < 1e-10);
+	// USDA broth is 240 g per US cup; minimum 375 mL contributes a fixed batch.
+	const extra = (375 * 240) / 236.5882365 / 400;
+	assert(Math.abs(p.kcal - pressure.nutrition.kcal - extra * 7) < 1e-10);
+	assert(
+		Math.abs(p.protein_g - pressure.nutrition.protein_g - extra * 1.36) < 1e-10,
+	);
+	assert(
+		Math.abs(p.carbs_g - pressure.nutrition.carbs_g - extra * 0.38) < 1e-10,
+	);
 	assert.deepEqual(servingNutrition(pressure, 4), pressure.nutrition);
 	assert.deepEqual(servingNutrition(pressure, 8), pressure.nutrition);
 	assert.deepEqual(
@@ -299,6 +309,7 @@ it("smoothie liquid keeps fluid-ounce precision without changing the canonical a
 	const water = {
 		id: "water",
 		name: "Cold water",
+		weightRef: "water",
 		amount: 400,
 		unit: "ml",
 		scale: "linear",
@@ -306,6 +317,6 @@ it("smoothie liquid keeps fluid-ounce precision without changing the canonical a
 	assert.equal(formatIngredient(water, 4, "us"), "13.53 fl oz");
 	assert.equal(formatIngredient(water, 2, "us"), "6.76 fl oz");
 	assert.equal(formatIngredient(water, 4, "metric"), "400 mL");
-	assert.equal(formatIngredient(water, 4, "grams"), "~400 g (400 ml)");
+	assert.equal(formatIngredient(water, 4, "grams"), "400 g");
 	assert.equal(water.amount, 400);
 });

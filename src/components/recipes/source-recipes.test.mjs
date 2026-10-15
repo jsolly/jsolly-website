@@ -13,6 +13,7 @@ import data from "./recipes.json" with { type: "json" };
 
 const NUTRITION_ASSUMPTIONS = /Nutrition assumptions:/u;
 const MISSING_PREP = /Preparation time not provided/u;
+const BAD_MEASUREMENT = /amount must be finite and positive/u;
 
 it("source metadata exports accept reactive proxies and retain resolved publisher links in Markdown", () => {
 	const adapted = data.recipes.filter((recipe) => recipe.sourceRecipe);
@@ -80,7 +81,8 @@ it("every recipe has macros and publisher estimates retain ingredient evidence w
 	assert.equal(
 		adapted.filter(
 			(recipe) =>
-				recipe.sourceRecipe.nutritionEstimate.estimatedMacroFields.length,
+				recipe.sourceRecipe.preMeasurementNutritionEstimate.estimatedMacroFields
+					.length,
 		).length,
 		72,
 	);
@@ -106,7 +108,7 @@ it("every recipe has macros and publisher estimates retain ingredient evidence w
 		);
 		for (const row of rows) {
 			const ingredient = recipe.ingredients.find(
-				(candidate) => candidate.id === row.food,
+				(candidate) => candidate.id === row.ingredientId,
 			);
 			assert.ok(ingredient, recipe.id);
 			const { name, amount, unit, state } = ingredient;
@@ -119,7 +121,9 @@ it("every recipe has macros and publisher estimates retain ingredient evidence w
 			assert.ok(row.source.startsWith("https://"), recipe.id);
 		}
 		for (const key of estimate.estimatedMacroFields.filter(
-			(field) => field !== "net_carbs_g",
+			(field) =>
+				field !== "net_carbs_g" &&
+				!estimate.publisherBaselineFields?.includes(field),
 		)) {
 			const total =
 				rows.reduce((sum, row) => {
@@ -143,14 +147,20 @@ it("every recipe has macros and publisher estimates retain ingredient evidence w
 	}
 });
 
-it("unknown quantities are distinct from explicitly to-taste seasoning", () => {
+it("every cooking ingredient is measured while missing source amounts remain provenance", () => {
 	assert.ok(Number.isNaN(ingredientAmount({ amount: null }, 4)));
 	assert.ok(Number.isNaN(ingredientAmount({ amount: undefined }, 4)));
-	assert.equal(
-		formatIngredient({ amount: null, unit: "g" }, 4),
-		"Not specified",
-	);
-	assert.equal(formatIngredient({ amount: 0, unit: "g" }, 4), "to taste");
+	for (const amount of [null, undefined, 0])
+		assert.throws(
+			() => formatIngredient({ amount, unit: "g" }, 4),
+			BAD_MEASUREMENT,
+		);
+	for (const recipe of data.recipes)
+		for (const ingredient of [...recipe.ingredients, ...recipe.familyOptions])
+			assert.ok(
+				Number.isFinite(ingredient.amount) && ingredient.amount > 0,
+				`${recipe.id}/${ingredient.id}`,
+			);
 	assert.equal(formatNutrition(null, "g"), "Not provided");
 	assert.equal(formatNutrition(0, "g"), "0 g");
 });

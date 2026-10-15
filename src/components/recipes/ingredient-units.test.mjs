@@ -1,120 +1,234 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import it from "node:test";
+import { JSDOM } from "jsdom";
 import { unitAudit } from "../../../scripts/recipes/audit-units.mjs";
-import { ingredientWeight, unitPreference } from "./ingredient-units.mjs";
+import {
+	ingredientGrams,
+	ingredientMeasure,
+	ingredientWeight,
+	unitPreference,
+} from "./ingredient-units.mjs";
+import weights from "./ingredient-weights.json" with { type: "json" };
 import { documentMarkdown, recipeDocument } from "./recipe-export.mjs";
-import { formatIngredient, ingredientAmount } from "./recipe-logic.mjs";
+import {
+	formatIngredient,
+	formatQuantity,
+	ingredientAmount,
+} from "./recipe-logic.mjs";
 import { readRecipeURL, recipeHref } from "./recipe-url.mjs";
 import data from "./recipes.json" with { type: "json" };
+import { flowGrid, gridHtml } from "./trn-logic.mjs";
 import { readUnitPreference, writeUnitPreference } from "./unit-preference.mjs";
 
-const INVALID_DISPLAY = /NaN|Infinity|undefined|^0(?: |g)/u;
-const ingredient = (
+const NO_OBSERVATION = /no fl oz observation/u;
+const BAD_AMOUNT =
+	/test-recipe\/test-ingredient: amount must be finite and positive/u;
+const MISSING_REF = /missing weightRef/u;
+const UNKNOWN_REF = /unknown weightRef/u;
+const GRAMS = /^[\d.e+-]+ g$/u;
+const GRAMS_SMALL = /^[\d.]+ g$/u;
+const BAD_DISPLAY =
+	/unavailable|unspecified|to taste|NaN|Infinity|undefined|~|^0(?: |g)/u;
+const ANY_QUANTITY = /\S/u;
+const ingredient = (amount, unit, extra = {}) => ({
+	id: "test-ingredient",
+	recipeId: "test-recipe",
+	name: "Test ingredient",
 	amount,
 	unit,
-	name = "unidentified ingredient",
-	extra = {},
-) => ({ amount, unit, name, scale: "linear", ...extra });
-it("mass and US fluid ounces have different dimensions and convert from canonical quantities", () => {
+	scale: "linear",
+	...extra,
+});
+
+it("mass conversions preserve dimensions, positive tiny quantities and unrounded amounts", () => {
 	assert.equal(formatIngredient(ingredient(1, "oz"), 4, "grams"), "28 g");
+	assert.equal(ingredientGrams(ingredient(1, "oz")), 28.349523125);
 	assert.equal(formatIngredient(ingredient(1, "lb"), 4, "metric"), "454 g");
+	assert.equal(formatIngredient(ingredient(1, "oz"), 4, "us"), "1 oz");
 	assert.equal(
-		formatIngredient(ingredient(29.5735295625, "ml"), 4, "us"),
+		formatIngredient(ingredient(0.001, "g"), 2, "grams"),
+		"0.0005 g",
+	);
+	assert.ok(
+		Number.parseFloat(formatIngredient(ingredient(0.001, "g"), 2, "us")) > 0,
+	);
+});
+
+it("the chaffle uses reviewed egg, cheese, almond flour and baking powder portions", () => {
+	const recipe = data.recipes.find(
+		(row) => row.id === "source-basic-keto-chaffle-recipe",
+	);
+	assert.deepEqual(
+		recipe.ingredients.map((row) => formatIngredient(row, 4, "grams")),
+		["100 g", "75 g", "16 g", "1.3 g"],
+	);
+	const exact = recipe.ingredients.map((row) => ingredientGrams(row));
+	for (const [index, expected] of [100, (113 * 2) / 3, 96 / 6, 4 / 3].entries())
+		assert.ok(Math.abs(exact[index] - expected) < 1e-9);
+});
+
+it("explicit references ignore ingredient prose and select the observed source unit", () => {
+	const butter = weights.references.find(
+		(ref) =>
+			ref.measures.cup?.grams === 227 && ref.measures.tbsp?.grams === 14.2,
+	);
+	assert.ok(
+		butter,
+		"USDA butter cup and tablespoon observations remain distinct",
+	);
+	const row = ingredient(1, "tbsp", {
+		weightRef: butter.id,
+		name: "Butter or an alternative",
+		state: "packed",
+		note: "whipped or not",
+	});
+	assert.equal(ingredientGrams(row), 14.2);
+	assert.equal(ingredientGrams({ ...row, unit: "cup" }), 227);
+	assert.equal(formatIngredient(row, 4, "grams"), "14 g");
+	const refWithoutInterpolation = weights.references.find(
+		(ref) =>
+			ref.kind === "mass" &&
+			!ref.volumeInterpolationUnit &&
+			!ref.measures["fl oz"],
+	);
+	assert.ok(refWithoutInterpolation);
+	assert.throws(
+		() =>
+			ingredientGrams(
+				ingredient(1, "fl oz", { weightRef: refWithoutInterpolation.id }),
+			),
+		NO_OBSERVATION,
+	);
+});
+
+it("food-specific observed spoons override explicit volume interpolation", () => {
+	const garlic = ingredient(1, "tbsp", { weightRef: "usda-171325" });
+	assert.equal(ingredientGrams(garlic), 9.7);
+	assert.equal(ingredientGrams({ ...garlic, unit: "tsp" }), 3.1);
+	const cream = ingredient(1, "tbsp", { weightRef: "usda-170859" });
+	assert.equal(ingredientGrams(cream), 15);
+	assert.equal(ingredientGrams({ ...cream, unit: "cup" }), 238);
+	assert.equal(ingredientGrams({ ...cream, unit: "fl oz" }), 29.75);
+	assert.equal(
+		formatIngredient({ ...cream, amount: 238, unit: "g" }, 4, "metric"),
+		"237 mL",
+	);
+	assert.equal(
+		formatIngredient({ ...cream, amount: 29.5735295625, unit: "ml" }, 4, "us"),
 		"1 fl oz",
 	);
 	assert.equal(
-		formatIngredient(ingredient(1, "cup"), 4, "metric"),
-		"237 mL volume (1 cup)",
+		ingredientGrams(ingredient(1, "cup", { weightRef: "usda-173414" })),
+		113,
 	);
-	assert.equal(formatIngredient(ingredient(1, "oz"), 4, "us"), "1 oz");
+	assert.equal(
+		ingredientGrams(ingredient(1, "cup", { weightRef: "usda-171247" })),
+		100,
+	);
+	assert.equal(
+		ingredientGrams(ingredient(1, "tbsp", { weightRef: "usda-171247" })),
+		5,
+	);
+	assert.equal(
+		ingredientGrams(ingredient(1, "tsp", { weightRef: "usda-173468" })),
+		6,
+	);
+	assert.equal(
+		ingredientGrams(ingredient(1, "tsp", { weightRef: "morton-kosher" })),
+		4.8,
+	);
+
+	const oliveOil = ingredient(1, "tbsp", { weightRef: "usda-171413" });
+	assert.equal(ingredientGrams(oliveOil), 13.5);
+	assert.notEqual(ingredientGrams(oliveOil), ingredientGrams(cream));
 });
-it("weighing uses food-specific sourced portions and retains approximate source measures", () => {
-	assert.equal(
-		formatIngredient(ingredient(1, "tbsp", "Olive oil"), 4, "grams"),
-		"~14 g (1 tbsp)",
-	);
-	assert.equal(
-		formatIngredient(ingredient(1, "tbsp", "Garlic powder"), 4, "grams"),
-		"~9.7 g (1 tbsp)",
-	);
-	assert.equal(
-		formatIngredient(ingredient(1, "cup", "Heavy cream"), 4, "grams"),
-		"~238 g (1 cup)",
-	);
-	assert.equal(
-		formatIngredient(ingredient(1, "cup", "Heavy cream"), 4, "metric"),
-		"237 mL volume (1 cup)",
-	);
-	assert.equal(ingredientWeight(ingredient(1, "cup", "Kosher salt")), null);
-	const frittata = data.recipes.find(
-		(recipe) => recipe.id === "spinach-feta-and-hemp-frittata",
-	);
-	assert.equal(
-		formatIngredient(
-			frittata.ingredients.find((row) => row.id === "egg"),
-			4,
-			"grams",
-		),
-		"~600 g edible egg, without shells (12 count)",
-	);
-	assert.equal(
-		ingredientWeight(
-			ingredient(1, "cup", "fresh chopped cilantro", { note: "or parsley" }),
-		),
-		null,
-	);
-	assert.equal(
-		ingredientWeight(ingredient(1, "cup", "butter or olive oil")),
-		null,
-	);
-});
-it("missing, to-taste, counts, packages and undefined spoons never acquire invented weights", () => {
+
+it("missing quantities and unresolved references fail with the ingredient identity in every mode", () => {
 	for (const units of ["grams", "us", "metric"]) {
-		assert.equal(
-			formatIngredient(ingredient(null, "g"), 4, units),
-			"Not specified",
-		);
-		assert.equal(formatIngredient(ingredient(0, "tsp"), 4, units), "to taste");
-	}
-	for (const unit of [
-		"count",
-		"package",
-		"can",
-		"bunch",
-		"coffeespoon",
-		"pinch",
-		"",
-	]) {
-		const i = ingredient(1, unit);
-		assert.equal(
-			formatIngredient(i, 2, "grams"),
-			`½${unit ? ` ${unit}` : ""} (weight unavailable)`,
+		for (const amount of [null, undefined, 0, -1, Infinity, NaN])
+			assert.throws(
+				() => formatIngredient(ingredient(amount, "g"), 4, units),
+				BAD_AMOUNT,
+			);
+		for (const unit of ["cup", "ml", "count", "package", "can", "pinch", ""])
+			assert.throws(
+				() => formatIngredient(ingredient(1, unit), 4, units),
+				MISSING_REF,
+			);
+		assert.throws(
+			() =>
+				formatIngredient(
+					ingredient(1, "g", { weightRef: "unknown-reference" }),
+					4,
+					units,
+				),
+			UNKNOWN_REF,
 		);
 	}
 });
-it("small quantities, whole batches and minimums survive display and unit switching without mutation", () => {
-	const i = ingredient(0.001, "g");
-	assert.equal(formatIngredient(i, 2, "grams"), "<0.01 g");
-	assert.equal(formatIngredient(i, 2, "us"), "<0.01 oz");
-	const liquid = ingredient(375, "ml", "Low-sodium chicken broth", {
-		scale: "minimum",
-	});
-	assert.equal(ingredientAmount(liquid, 2), 375);
-	assert.equal(
-		formatIngredient(liquid, 2, "metric"),
-		"375 mL minimum (measure by volume)",
+
+it("pressure liquid minima and whole-batch food retain their actual scaling before conversion", () => {
+	const all = data.recipes.flatMap((recipe) => recipe.ingredients);
+	const liquid = all.find(
+		(row) => row.scale === "minimum" && row.unit === "ml",
 	);
-	const bird = ingredient(1, "count", "whole chicken", {
-		scale: "whole-batch",
-	});
+	assert.ok(liquid);
+	assert.equal(ingredientAmount(liquid, 2), liquid.amount);
+	assert.equal(formatIngredient(liquid, 2, "metric"), `${liquid.amount} mL`);
+	assert.match(formatIngredient(liquid, 2, "grams"), GRAMS_SMALL);
 	assert.equal(
-		formatIngredient(bird, 6, "grams"),
-		"2 count (weight unavailable)",
+		ingredientGrams(liquid, ingredientAmount(liquid, 8)),
+		2 * ingredientGrams(liquid),
 	);
-	assert.equal(ingredientAmount(bird, 6), 2);
+	const bird = all.find((row) => row.scale === "whole-batch");
+	assert.ok(bird);
+	assert.equal(ingredientAmount(bird, 6), bird.amount * 2);
+	assert.equal(
+		ingredientGrams(bird, ingredientAmount(bird, 6)),
+		ingredientGrams(bird) * 2,
+	);
 });
-it("every recipe and family ingredient has finite, nonzero display coverage in every mode and serving choice", () => {
+
+it("liquid mass uses its own density and meaningful alternatives resolve independently", () => {
+	const liquids = weights.references.filter(
+		(ref) => ref.kind === "liquid" && ref.gramsPerMl > 0,
+	);
+	assert.ok(liquids.length >= 2);
+	const [first, second] = liquids;
+	const row = ingredient(first.gramsPerMl * 100, "g", {
+		weightRef: first.id,
+		alternatives: [
+			{
+				name: "Alternative liquid",
+				amount: second.gramsPerMl * 200,
+				unit: "g",
+				weightRef: second.id,
+			},
+		],
+	});
+	const metric = ingredientMeasure(
+		row,
+		row.amount * 1.5,
+		"metric",
+		formatQuantity,
+	);
+	assert.equal(metric.quantity, "150 mL");
+	assert.equal(metric.alternatives[0].quantity, "300 mL");
+	assert.equal(metric.alternatives[0].name, "Alternative liquid");
+	const grams = ingredientMeasure(
+		row,
+		row.amount * 1.5,
+		"grams",
+		formatQuantity,
+	);
+	assert.equal(grams.grams, row.amount * 1.5);
+	assert.ok(
+		Math.abs(grams.alternatives[0].grams - second.gramsPerMl * 300) < 1e-9,
+	);
+});
+
+it("every recipe and family choice has numeric mode-appropriate displays across the full serving matrix", () => {
 	const before = JSON.stringify(data);
 	for (const recipe of data.recipes)
 		for (const servings of [2, 4, 6, 8])
@@ -126,22 +240,184 @@ it("every recipe and family ingredient has finite, nonzero display coverage in e
 				});
 				for (const row of [
 					...document.ingredients,
-					...document.familyOptions.map((o) => ({
-						quantity: o.quantityPerPerson,
+					...document.familyOptions.map((option) => ({
+						quantity: option.quantityPerPerson,
 					})),
 					...(document.familyIngredient ? [document.familyIngredient] : []),
 				]) {
 					assert.ok(
-						!INVALID_DISPLAY.test(row.quantity),
+						!BAD_DISPLAY.test(row.quantity),
 						`${recipe.id}: ${row.quantity}`,
 					);
+					assert.match(row.quantity, units === "grams" ? GRAMS : ANY_QUANTITY);
 				}
-				assert.ok(
-					documentMarkdown(document).includes(document.measurementPolicy),
-				);
+				const markdown = documentMarkdown(document);
+				const restored = JSON.parse(JSON.stringify(document));
+				const grid = flowGrid(recipe, { servings, units });
+				assert.ok(!markdown.includes("weight unavailable"));
+				for (const [index, row] of recipe.ingredients.entries()) {
+					const amount = ingredientAmount(row, servings);
+					const shown = ingredientMeasure(row, amount, units, formatQuantity);
+					assert.equal(shown.grams, ingredientGrams(row, amount));
+					assert.equal(document.ingredients[index].quantity, shown.quantity);
+					assert.equal(formatIngredient(row, servings, units), shown.quantity);
+					assert.deepEqual(
+						restored.ingredients[index].alternatives,
+						shown.alternatives,
+					);
+					for (const [choiceIndex, choice] of (
+						row.alternatives || []
+					).entries()) {
+						const displayed = shown.alternatives[choiceIndex];
+						assert.equal(displayed.name, choice.name);
+						assert.ok(displayed.grams > 0 && Number.isFinite(displayed.grams));
+						assert.match(
+							displayed.quantity,
+							units === "grams" ? GRAMS : ANY_QUANTITY,
+						);
+						assert.ok(!BAD_DISPLAY.test(displayed.quantity));
+						assert.ok(
+							units !== "metric" ||
+								displayed.status ===
+									(ingredientWeight(choice).kind === "liquid"
+										? "volume"
+										: "mass"),
+						);
+						assert.ok(
+							markdown.includes(` or ${displayed.quantity} ${choice.name}`),
+						);
+						const leaves = grid.rows.filter(
+							(leaf) => leaf.ingredient.ingredientId === row.id,
+						);
+						assert.ok(leaves.length > 0);
+						const allocated = leaves.map(
+							(leaf) =>
+								leaf.cells.find((cell) => cell.kind === "ingredient")
+									.alternatives[choiceIndex],
+						);
+						assert.ok(
+							allocated.every(
+								(part) => part.name === choice.name && part.grams > 0,
+							),
+						);
+						assert.ok(
+							Math.abs(
+								allocated.reduce((sum, part) => sum + part.grams, 0) -
+									displayed.grams,
+							) < 1e-8,
+						);
+					}
+
+					assert.ok(
+						units !== "metric" ||
+							shown.status ===
+								(ingredientWeight(row).kind === "liquid" ? "volume" : "mass"),
+					);
+				}
+				for (const option of recipe.familyOptions)
+					for (let diners = 1; diners <= servings; diners++) {
+						const shown = ingredientMeasure(
+							option,
+							option.amount * diners,
+							units,
+							formatQuantity,
+						);
+						assert.ok(
+							Math.abs(shown.grams - ingredientGrams(option) * diners) < 1e-8,
+						);
+						assert.match(
+							shown.quantity,
+							units === "grams" ? GRAMS : ANY_QUANTITY,
+						);
+					}
 			}
 	assert.equal(JSON.stringify(data), before);
 });
+
+it("lettuce-wrap liquid choices preserve independent source weights in JSON, Markdown and flow HTML", () => {
+	const recipe = data.recipes.find(
+		(row) => row.id === "source-keto-asian-chicken-lettuce-wraps",
+	);
+	// USDA SR Legacy: ready-to-serve chicken broth 249 g/cup (174536),
+	// white table wine 29.4 g/fl oz (174837). NIST cup 236.5882365 mL;
+	// the reviewed potable-water cooking convention is 1 g/mL.
+	const baseGrams = [249 / 4, 236.5882365 / 4, 29.4 * 2];
+	const names = ["chicken broth", "Water", "White wine"];
+	const expected = {
+		2: { grams: ["31 g", "30 g", "29 g"], metric: "30 mL", us: "⅛ cup" },
+		4: { grams: ["62 g", "59 g", "59 g"], metric: "59 mL", us: "¼ cup" },
+		6: { grams: ["93 g", "89 g", "88 g"], metric: "89 mL", us: "⅜ cup" },
+		8: { grams: ["125 g", "118 g", "118 g"], metric: "118 mL", us: "½ cup" },
+	};
+	for (const servings of [2, 4, 6, 8])
+		for (const units of ["grams", "metric", "us"]) {
+			const document = recipeDocument(recipe, { servings, units });
+			const row = JSON.parse(JSON.stringify(document)).ingredients.find(
+				(item) => item.name === names[0],
+			);
+			const choices = [row, ...row.alternatives];
+			const quantities =
+				units === "grams"
+					? expected[servings].grams
+					: new Array(3).fill(expected[servings][units]);
+			assert.deepEqual(
+				choices.map((choice) => choice.name),
+				names,
+			);
+			assert.deepEqual(
+				choices.map((choice) => choice.quantity),
+				quantities,
+			);
+			for (const [index, choice] of choices.entries())
+				assert.ok(
+					Math.abs(choice.grams - (baseGrams[index] * servings) / 4) < 1e-9,
+				);
+			const markdown = documentMarkdown(document);
+			assert.ok(
+				markdown.includes(
+					`- ${quantities[0]} chicken broth or ${quantities[1]} Water or ${quantities[2]} White wine`,
+				),
+			);
+			for (const html of [
+				gridHtml(recipe.title, flowGrid(recipe, { servings, units })),
+				markdown,
+			]) {
+				const dom = new JSDOM(html);
+				try {
+					const cell = [
+						...dom.window.document.querySelectorAll("th.trn-ingredient"),
+					].find((item) => item.textContent.includes("chicken broth"));
+					assert.ok(cell);
+					assert.deepEqual(
+						[...cell.querySelectorAll("strong")].map(
+							(strong) => strong.textContent,
+						),
+						quantities,
+					);
+					assert.ok(
+						cell.textContent.includes(
+							`or ${quantities[1]} Water or ${quantities[2]} White wine`,
+						),
+					);
+				} finally {
+					dom.window.close();
+				}
+			}
+		}
+});
+
+it("the migration retains every original ingredient identity, including split mixture components", () => {
+	const audit = JSON.parse(unitAudit());
+	assert.equal(audit.recipeCount, 146);
+	assert.equal(audit.sourceIdentityCount, 1680);
+	assert.equal(
+		audit.sourceIdentitySha256,
+		// biome-ignore lint/security/noSecrets: SHA256 of the pre-migration ingredient identities.
+		"f670105d5e3f41d9ba467a7ef8c7a17db56307fee5efa41fecacba64aaf7b669",
+	);
+	assert.ok(audit.ingredientCount >= audit.sourceIdentityCount);
+});
+
 it("unit links override a saved preference and round-trip every valid mode", () => {
 	const recipe = data.recipes[0];
 	for (const units of ["grams", "us", "metric"]) {

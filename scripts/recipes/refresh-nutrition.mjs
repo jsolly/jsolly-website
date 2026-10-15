@@ -3,7 +3,9 @@
 import { realpathSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
+import { reconcileMacros } from "./reconcile-nutrition.mjs";
 import { loadUsdaKey, lookup } from "./usda.mjs";
+import { observation } from "./usda-observation.mjs";
 
 const ROOT = new URL("../../", import.meta.url);
 const NUTRITION = new URL("src/components/recipes/nutrition-data.json", ROOT);
@@ -21,31 +23,19 @@ export function foodId(row) {
 	return Number(row.source?.match(FDC_SOURCE)?.groups.id) || null;
 }
 
-function observation(food, id, unit) {
-	const matches = food.foodNutrients.filter(
-		({ nutrient }) => nutrient.id === id,
-	);
-	if (matches.length > 1)
-		throw new Error(`Duplicate nutrient ${id} in FDC ${food.fdcId}`);
-	const value = matches[0];
-	if (!value || value.amount === undefined) return;
-	const expected = unit.startsWith("mcg") ? "ug" : unit;
-	if (
-		value.nutrient.unitName.toLowerCase().replace("µg", "ug") !==
-			expected.toLowerCase() ||
-		!Number.isFinite(value.amount) ||
-		value.amount < 0
-	)
-		throw new Error(`Invalid nutrient ${id} in FDC ${food.fdcId}`);
-	return value.amount;
-}
-
 export function refreshModels(nutrition, recipes, foods, retrievedAt) {
 	const result = structuredClone(nutrition);
 	const recipeResult = structuredClone(recipes);
 	let refreshedRows = 0;
 	const skippedRows = [];
-	for (const [recipeId, rows] of Object.entries(result.recipes)) {
+	const collections = [
+		...Object.entries(result.recipes),
+		...Object.entries(result.familyOptions ?? {}).map(([id, rows]) => [
+			`${id}/family`,
+			rows,
+		]),
+	];
+	for (const [recipeId, rows] of collections) {
 		for (const row of rows) {
 			const id = foodId(row);
 			// Fortified nutritional yeast combines a brand label and USDA minerals.
@@ -53,7 +43,7 @@ export function refreshModels(nutrition, recipes, foods, retrievedAt) {
 			if (!id || row.food === "yeast") {
 				skippedRows.push({
 					recipeId,
-					food: row.food,
+					food: row.food ?? row.ingredientId,
 					reason: id
 						? "hybrid brand/USDA profile"
 						: "brand or composite profile",
@@ -78,7 +68,12 @@ export function refreshModels(nutrition, recipes, foods, retrievedAt) {
 				else if (amount !== undefined) row.nutrients[key] = amount;
 			}
 			for (const [key, [nutrientId, unit]] of Object.entries(MACROS)) {
-				if (!row.macros || row.assumedMacroFields?.includes(key)) continue;
+				if (
+					!row.macros ||
+					row.assumedMacroFields?.includes(key) ||
+					(row.macroSource && row.macroSource !== row.source)
+				)
+					continue;
 				const amount = observation(food, nutrientId, unit);
 				if (amount === undefined && row.macros[key] !== null)
 					delete row.macros[key];
@@ -88,6 +83,30 @@ export function refreshModels(nutrition, recipes, foods, retrievedAt) {
 		}
 	}
 	for (const recipe of recipeResult.recipes) {
+		if (recipe.measurementNutritionBaseline) {
+			for (const option of recipe.familyOptions ?? []) {
+				const row = result.familyOptions?.[recipe.id]?.find(
+					(item) => item.ingredientId === option.id,
+				);
+				if (!row)
+					throw new Error(`Missing family model: ${recipe.id}/${option.id}`);
+				for (const key of Object.keys(MACROS))
+					option.nutrition[key] = Number.isFinite(row.macros?.[key])
+						? (row.macros[key] * row.grams) / 100
+						: null;
+				option.nutrition.net_carbs_g =
+					Number.isFinite(option.nutrition.carbs_g) &&
+					Number.isFinite(option.nutrition.fiber_g)
+						? Math.max(0, option.nutrition.carbs_g - option.nutrition.fiber_g)
+						: null;
+			}
+			reconcileMacros(
+				recipe,
+				result.recipes[recipe.id],
+				recipeResult.baseServings,
+			);
+			continue;
+		}
 		const fields =
 			recipe.sourceRecipe?.nutritionEstimate?.estimatedMacroFields ?? [];
 		const rows = result.recipes[recipe.id];
@@ -175,7 +194,10 @@ async function main(args) {
 	const recipes = JSON.parse(await readFile(RECIPES, "utf8"));
 	const ids = [
 		...new Set(
-			Object.values(nutrition.recipes)
+			[
+				...Object.values(nutrition.recipes),
+				...Object.values(nutrition.familyOptions ?? {}),
+			]
 				.flat()
 				.filter((row) => row.food !== "yeast")
 				.map(foodId)

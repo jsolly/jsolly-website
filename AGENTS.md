@@ -141,6 +141,7 @@ Read [docs/recipes.md](docs/recipes.md) before changing recipe data, assistant d
 - `src/pages/recipes/` owns the landing, collection and individual recipe routes. `RecipeLayout.astro` supplies the recipe stylesheet and app head tags through BlogLayout.
 - `src/components/recipes/` holds the canonical JSON, pure modules with adjacent tests, and Svelte controls. `RecipeExperience.astro` supplies the collection island and no-JavaScript fallback; `RecipePage.svelte` supplies individual pages; `RecipeTakeover.svelte` supplies the library dialog.
 - `src/styles/recipes/` holds the recipe and no-JavaScript styles. `RecipeContent.svelte` shares screen and print cooking content; recipe pages print their existing DOM. `recipe-export.mjs` builds the Markdown and JSON assistant downloads.
+- Every ingredient has a positive measured amount and an explicit cooking weight basis. `ingredient-units.mjs` resolves grams, Metric and US imperial through reviewed `weightRef` identities; invalid or unresolved measurements fail validation. `cooking-quantities.mjs` resolves identified instruction amounts. Keep the required pressure-liquid mL volume in cooking preparation in every mode. Developer evidence stays out of conversion copy in cooking views and downloads.
 - `scripts/recipes/` holds assistant-data generation and the service-worker build. The manifest and icons are under `public/recipes/pwa/`; illustrations are under `public/recipes/media/`.
 
 ### Legacy host (`legacy/blogthedata/`)

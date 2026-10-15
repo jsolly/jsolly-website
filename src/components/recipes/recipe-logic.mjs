@@ -1,7 +1,12 @@
 // Pure calculations for the meal library. Recipe ingredient amounts are for
 // BASE_SERVINGS (four) adults.
 import { BASE_SERVINGS, SERVING_CHOICES } from "./constants.mjs";
-import { ingredientMeasure, unitPreference } from "./ingredient-units.mjs";
+import {
+	ingredientGrams,
+	ingredientMeasure,
+	unitPreference,
+} from "./ingredient-units.mjs";
+import { macroNutrition } from "./nutrition.mjs";
 
 const SERVINGS = new Set(SERVING_CHOICES);
 const NUTRIENTS = ["kcal", "protein_g", "carbs_g", "fiber_g", "net_carbs_g"];
@@ -104,22 +109,11 @@ export function shuffleRecipes(recipes, random = Math.random) {
 
 export function servingNutrition(recipe, servings = BASE_SERVINGS) {
 	const count = validateSettings({ servings }).servings;
-	const result = { ...recipe.nutrition };
-	for (const ingredient of recipe.ingredients ?? []) {
-		if (!ingredient.nutritionBatch || !ingredient.amount) continue;
-		const actual = ingredientAmount(ingredient, count) / ingredient.amount;
-		for (const key of NUTRIENTS)
-			if (finite(result[key]) && finite(ingredient.nutritionBatch[key]))
-				result[key] +=
-					(Number(ingredient.nutritionBatch[key] ?? 0) *
-						(actual - count / BASE_SERVINGS)) /
-					count;
-	}
-	return result;
+	return macroNutrition(recipe, count, ingredientAmount);
 }
 
 /** Smoothie volumes are explicit estimates, separate from the canonical per-recipe-portion macros. */
-export function smoothieGlassesPerBatch(recipe, fluidOunces = 8) {
+function smoothieGlassesPerBatch(recipe, fluidOunces = 8) {
 	if (recipe.type !== "smoothie" || !finite(fluidOunces) || fluidOunces <= 0)
 		throw new Error("A smoothie and positive glass size are required.");
 	if (!finite(recipe.estimatedYieldMl) || recipe.estimatedYieldMl <= 0)
@@ -186,9 +180,11 @@ export function capacityNote(servings) {
 /** Package counts are shopping estimates; recipe weights remain the measured target. */
 export function purchaseNote(ingredient, servings = BASE_SERVINGS) {
 	const pack = ingredient?.package;
-	const amount = ingredientAmount(ingredient, servings);
-	if (!pack || !finite(pack.grams) || pack.grams <= 0 || !finite(amount))
-		return "";
+	if (!pack || !finite(pack.grams) || pack.grams <= 0) return "";
+	const amount = ingredientGrams(
+		ingredient,
+		ingredientAmount(ingredient, servings),
+	);
 	const count = Math.ceil(amount / pack.grams - 1e-10);
 	return pack.drained
 		? `About ${count} × ${pack.label}, assuming ~${pack.grams} g drained per can; check actual yield.`

@@ -4,6 +4,7 @@ import { join } from "node:path";
 import it from "node:test";
 import { parseFrontmatter } from "astro/markdown";
 import { JSDOM } from "jsdom";
+import { cookingText } from "../../src/components/recipes/cooking-quantities.mjs";
 import { formatIngredient } from "../../src/components/recipes/recipe-logic.mjs";
 import data from "../../src/components/recipes/recipes.json" with {
 	type: "json",
@@ -14,6 +15,7 @@ import { allPosts, distFiles } from "./pages.mjs";
 
 const MISSING_CANONICAL = /canonical URL/u;
 const INGREDIENT_SECTION = /## Ingredients\n(?<body>[\s\S]*?)(?=\n## |$)/u;
+const UNRESOLVED_QUANTITY = /\{\{/u;
 const COOK_SECTION = /## Cook\n(?<body>[\s\S]*?)(?=\n## |$)/u;
 
 // Expected content comes from source JSON and the separately tested quantity
@@ -23,6 +25,12 @@ function cookingContentGaps(markdown, recipe) {
 	const check = (condition, message) => {
 		if (!condition) gaps.push(message);
 	};
+	check(
+		!UNRESOLVED_QUANTITY.test(markdown),
+		`${recipe.id} resolves every cooking quantity`,
+	);
+	const text = (value) =>
+		cookingText(recipe, value, { servings: 4, units: "us" });
 	const ingredients = markdown.match(INGREDIENT_SECTION)?.groups.body ?? "";
 	const cooking = markdown.match(COOK_SECTION)?.groups.body ?? "";
 	for (const ingredient of recipe.ingredients) {
@@ -33,15 +41,15 @@ function cookingContentGaps(markdown, recipe) {
 			ingredients.includes(`- ${quantity} ${ingredient.name}`),
 			`${recipe.id} retains ingredient ${ingredient.name} at four servings`,
 		);
-		for (const text of [ingredient.state, ingredient.note].filter(Boolean))
+		for (const detail of [ingredient.state, ingredient.note].filter(Boolean))
 			check(
-				ingredients.includes(text),
+				ingredients.includes(text(detail)),
 				`${recipe.id} retains ingredient details`,
 			);
 	}
 	for (const [index, step] of recipe.steps.entries())
 		check(
-			cooking.includes(`${index + 1}. **${step.title}.** ${step.text}`),
+			cooking.includes(`${index + 1}. **${step.title}.** ${text(step.text)}`),
 			`${recipe.id} retains cooking step ${index + 1} and its endpoints`,
 		);
 	const safety =
@@ -50,7 +58,10 @@ function cookingContentGaps(markdown, recipe) {
 			: "Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.";
 	check(cooking.includes(safety), `${recipe.id} retains safety instructions`);
 	for (const limit of recipe.limitations)
-		check(markdown.includes(limit), `${recipe.id} retains cooking limits`);
+		check(
+			markdown.includes(text(limit)),
+			`${recipe.id} retains cooking limits`,
+		);
 	return gaps;
 }
 
@@ -201,7 +212,11 @@ it("Generated recipe fidelity rejects omitted ingredients, steps and safety inst
 	const mutations = [
 		markdown.replace(INGREDIENT_SECTION, ""),
 		markdown.replace(COOK_SECTION, ""),
-		markdown.replace(recipe.steps[0].text, "Method omitted"),
+		markdown.replace(
+			cookingText(recipe, recipe.steps[0].text, { servings: 4, units: "us" }),
+			"Method omitted",
+		),
+		`${markdown}\n{{quantity:unresolved}}`,
 		markdown.replace("A timer is not a doneness test.", ""),
 	];
 	for (const body of mutations)

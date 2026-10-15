@@ -42,7 +42,7 @@ ids are stable: each is a page slug (`/recipes/<id>/`) and a fragment id
 (`/recipes/#<id>` opens it in the library dialog), and old links use both.
 Images are files under `public/recipes/media/`, referenced as `/recipes/media/...`.
 
-The 125 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Unmeasured cooking spray used only to prepare cookware belongs in flow preparation directions, including any optional use or device-manual conditions, rather than ingredient rows. Measured oil-or-spray alternatives remain ingredients. Missing food ingredient quantities display as "Not specified"; missing nutrition and times display as "Not provided". The 72 recipes that previously lacked complete macros now carry labeled nutrition estimates and remain separate from keto eligibility. Every publisher adaptation has an ingredient nutrient model. Missing nutrient observations do not qualify for nutrient filters. Prep time is distinguished from household active time. The browser keeps concise source attribution and cooking instructions; provenance and nutrition assumptions remain in canonical data and assistant downloads. Cooking guidance from source limitations belongs in the flow. Mobile renders the same ingredient allocation tree vertically, preserving branch joins and shared cooking checks; desktop and print retain the table.
+The 125 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Unmeasured cooking spray used only to prepare cookware belongs in flow preparation directions, including any optional use or device-manual conditions, rather than ingredient rows. Measured oil-or-spray alternatives remain ingredients. Every food ingredient has a positive measured quantity. Missing and to-taste source amounts have reviewed measured defaults, with the original source retained in measurement provenance. Missing nutrition and times display as "Not provided". The 72 recipes that previously lacked complete macros now carry labeled nutrition estimates and remain separate from keto eligibility. Every publisher adaptation has an ingredient nutrient model. Missing nutrient observations do not qualify for nutrient filters. Prep time is distinguished from household active time. The browser keeps concise source attribution and cooking instructions; provenance and nutrition assumptions remain in canonical data and assistant downloads. Cooking guidance from source limitations belongs in the flow. Mobile renders the same ingredient allocation tree vertically, preserving branch joins and shared cooking checks; desktop and print retain the table.
 
 Every recipe has a first-party illustration under the [image contract](recipe-images.md), with illustration provenance retained in its image metadata and downloads.
 
@@ -52,7 +52,7 @@ distinguish mass, volume, count and spoon measures; source-specific US measures
 describe the same food quantity. Pressure-liquid minima always retain their required mL volume in every display
 mode. A generic broth density cannot establish a cooker's safe liquid minimum.
 
-Publisher adaptations use four portions and preserve their stated quantities and method limits. Whole-bird recipes round up to complete batches for 2, 4, 6 and 8 portions. Missing publisher quantities stay missing in cooking instructions. Nutrition models may use explicitly disclosed standard count weights, generic-food substitutes and excluded unmeasured additions; these are estimates rather than publisher claims.
+Publisher adaptations use four portions and preserve their method limits and original source quantities in provenance. Whole-bird recipes round up to complete batches for 2, 4, 6 and 8 portions. Measured defaults complete missing publisher quantities in cooking instructions. Nutrition models use the corresponding edible weights and reviewed product profiles; defaults and nutrient estimates are adaptations rather than publisher claims.
 
 Linear ingredient scaling supports 2, 4, 6 and 8 adults (`SERVING_CHOICES`).
 Pressure liquid has a minimum matching the named Duo 6 QT manual; its
@@ -99,33 +99,32 @@ the saved preference. Old links and saved settings default to US imperial.
 US imperial means US customary cups and spoons, not British Imperial volumes.
 `oz` is mass and `fl oz` is volume.
 
-- **Grams** converts known mass and supported volume/count weights to grams.
-  Unsupported counts, packages, mixed ingredients and undefined measures retain
-  their source amount with "weight unavailable". Missing quantities stay missing;
-  to-taste ingredients stay to taste.
+- **Grams** uses grams for every ingredient, including liquids, counts and packages.
 - **US imperial** uses pounds or mass ounces for weights, fluid ounces for mL,
-  and the source US cups/spoons and counts for other quantities. Required pressure-liquid
-  minima retain mL in every mode.
-- **Metric** uses grams for mass and supported dry portions, mL for liquids and
-  other known volumes. An unresolved dry volume explicitly says "mL volume" and
-  retains the original cup/spoon quantity. Counts and undefined measures retain
-  their original amount when no reliable weight is available.
+  and reviewed source US cups/spoons and counts for other quantities.
+- **Metric** uses grams for solids and mL for liquids.
 
-Volume/count weights are approximate, prefixed with `~`, and retain the source
-measure. Source-backed `gramsPerUnit` and `massSource` remain eligible. Additional
-observations live in `ingredient-weights.json`, with exact ingredient-name matches,
-USDA food descriptions, portion descriptions and gram weights, source URLs and
-the retrieved archive hash. Alternatives, packed/heaping measures and whipped
-states stay unresolved. They are cooking references, independent of nutrition
-estimates. No generic cup-to-gram ratio, nutrition-only package assumption, seasoning
-blend proxy or automatic fuzzy food match enters cooking quantities. Review the
-food state and packing before adding a match. The original spoon/count measure
-remains the practical fallback for scales that cannot resolve tiny quantities.
+Ingredient rows use explicit `weightRef` identities in `ingredient-weights.json`.
+Each reference records the food state, portion observation, gram weight, source
+and review. Direct observed units take priority; volume interpolation requires
+an explicit reviewed basis. Counts, package sizes, alternatives and unusual
+packing have their own portion decisions. Runtime matching never infers food
+identity from an ingredient name or note. Invalid or unresolved quantities fail
+validation instead of rendering a fallback.
+
+The display contains only the selected quantity and unit. Conversion evidence
+and editorial default decisions remain in canonical data and the developer
+audit, without conversion explanations or source-quantity echoes in cooking
+documents. Nutrition uses edible weight; bone-in cooking purchase weight remains
+distinct. Pressure cooking retains its scaled required mL volume in the cooking
+preparation in every mode; the grams ingredient amount cannot replace that rule.
 
 Conversions start from the unrounded canonical amount after linear, fixed,
 minimum or whole-batch scaling. Display rounding never replaces canonical data
-or changes nutrition. Positive amounts below display precision say `<0.01` rather
-than zero. Source method/package notes keep their original quantities; cooking
+or changes nutrition. Positive amounts below ordinary display precision retain
+positive numeric precision rather than rounding to zero. Explicit cooking
+quantity references share the ingredient resolver; shopping labels and nutrient
+concentrations retain their own meaning. Cooking
 settings in Grams and Metric also show metric equivalents with the original
 settings and safe endpoints retained.
 
@@ -159,13 +158,15 @@ reviewing the method and the nutrition.
 ### Nutrition estimates
 
 All 146 recipes have calories, protein, total carbohydrate, fiber and net carbohydrate.
-The 125 publisher adaptations also have ingredient rows in `nutrition-data.json`,
-with edible grams, the USDA FDC record ID/description, source URL and per-100-g
-observations. Existing publisher macros with a supported serving basis remain;
-72 previously incomplete macro sets are filled from these ingredient models.
-`sourceRecipe.nutritionEstimate.estimatedMacroFields` identifies the fields that
-were filled. The model's assumptions remain in canonical data and assistant downloads.
-Original source nutrition is retained separately.
+Every recipe has ingredient rows in `nutrition-data.json`, with stable
+`ingredientId` links, edible grams, food-record descriptions, source URLs and
+per-100-g observations. Family options have separate per-diner profiles.
+`sourceRecipe.nutritionEstimate` records the current cooking-quantity model;
+`preMeasurementNutritionEstimate` preserves the previous model, including the
+72 macro sets originally completed during import. Original publisher nutrition
+is retained separately. Some brand profiles lack observations for a full new
+total; `publisherBaselineFields` identifies fields using the publisher baseline
+plus known ingredient corrections. Unknown changed contributions fail reconciliation.
 
 The additional records use USDA's static SR Legacy April 2018 CSV release,
 retrieved 2026-10-10, with archive SHA-256
@@ -176,17 +177,21 @@ are stored with the rows. No build or test calls a nutrition API. Each ingredien
 stores a snapshot of its canonical ingredient inputs; the unit suite rejects stale
 snapshots after a recipe edit. To revise a model, review its food record and edible
 gram assumptions, update the recorded per-100-g observations/grams and snapshots,
-then recompute only the fields named in `estimatedMacroFields`: sum
-`macros[field] × grams / 100` across its rows and divide by four. Net carbohydrate
-is total carbohydrate minus fiber, floored at zero. Preserve supported publisher
-macros. Mark an assumed value in `assumedMacroFields` rather than presenting it
-as a USDA observation. Regenerate the assistant downloads and run the gate.
+then run `scripts/recipes/reconcile-nutrition.mjs` with the reviewed public FDC
+response cache and an output path for the reconciled recipe metadata. Its output
+keeps cooking data separate from the nutrition metadata merge. Complete fields
+sum `macros[field] × grams / 100` across rows and divide by four; incomplete
+profiles retain their recorded baseline and known corrections. Net carbohydrate
+is total carbohydrate minus fiber, floored at zero. Mark an assumed value in
+`assumedMacroFields` rather than presenting it as a USDA observation.
+Regenerate the assistant downloads and run the gate.
 
-Nutrition-only assumptions include standard edible weights for count-based meat,
-vegetables and packages; generic sauces/seasoning blends; a disclosed stated
-alternative; all measured oil/sauce counted; and unmeasured garnish/to-taste
-additions excluded. The cooking ingredient quantities are unchanged. Each recipe
-lists its actual choices, including generic mustard, marinade and spice proxies. Cajun/Old Bay/steak seasoning uses
+Cooking weight and edible nutrient weight have separate bases. Counts, packages
+and measured defaults now use reviewed cooking amounts; nutrient rows account
+for bones, refuse and drained yields separately. Every nutrient contribution
+follows its ingredient's linear, fixed, minimum or whole-batch scaling, with a
+separate per-glass smoothie denominator. Each recipe lists its actual food
+profile choices, including generic mustard, marinade and spice proxies. Cajun/Old Bay/steak seasoning uses
 a disclosed generic mix of 50% salt, 20% paprika, 10% garlic powder, 10% onion
 powder and 10% black pepper by mass; garam masala uses a curry-powder proxy.
 The ranch-chicken estimate retains publisher macros and estimates missing fiber
@@ -320,12 +325,11 @@ There is no generated article: the pages render straight from `recipes.json`
 
 ## Pages and settings
 
-The information button beside Ingredient units opens a dialog explaining
-approximate conversions and the unit modes. Without JavaScript, recipe pages
+The information button beside Ingredient units lists the unit modes.
+Without JavaScript, recipe pages
 link to `/recipes/<recipe-id>/assumptions/`, whose Back to recipe link returns
 to that recipe. The generic `/recipes/assumptions/` page remains directly accessible. Recipe browsing
-keeps this explanation off the cooking view; assistant downloads
-retain the full measurement policy. Print recipe uses a filled button with a
+keeps the mode descriptions off the cooking view. Print recipe uses a filled button with a
 printer icon, and download actions label their document-format icons.
 
 Search recipes searches the current collection alongside the existing filters.

@@ -6,7 +6,7 @@
 	import DialogDescription from "../../lib/components/ui/dialog-description.svelte";
 	import DialogTitle from "../../lib/components/ui/dialog-title.svelte";
 	import { cookingNotes, OMITTED_PREPARATION } from "./cooking-notes.mjs";
-	import { cookText } from "./display-units.mjs";
+	import { cookingText } from "./cooking-quantities.mjs";
 	import { ingredientIcon } from "./ingredient-icon.mjs";
 	import { flowGrid } from "./trn-logic.mjs";
 
@@ -25,7 +25,7 @@
 	const mobileFlow = $derived.by(() => {
 		let row = 0;
 		function branch(node) {
-			if (node.children) return { action: cookText(node.action, settings.units), children: node.children.map(branch) };
+			if (node.children) return { action: cookingText(recipe, node.action, settings), children: node.children.map(branch) };
 			const index = row++;
 			return { row: index, cell: grid.rows[index].cells.find((cell) => cell.kind === "ingredient") };
 		}
@@ -47,8 +47,8 @@
 </script>
 
 {#snippet ingredient(cell)}
-	<span><strong>{cell.text === "to taste" && /\bto taste\b/iu.test(cell.name) ? "" : cell.text}</strong> <span class="ingredient-name">{cell.name}</span>{#if ingredientIcon(cell.name)}
-		<span class="ingredient-icon" aria-hidden="true">{ingredientIcon(cell.name)}</span>{/if}<small>{cookingNotes(cell.state).replace("Use the proportional split described in the method.", "Use the amount shown for this branch.")}</small></span>
+	<span><strong>{cell.text}</strong> <span class="ingredient-name">{cell.name}</span>{#if ingredientIcon(cell.name)}
+		<span class="ingredient-icon" aria-hidden="true">{ingredientIcon(cell.name)}</span>{/if}{#each cell.alternatives || [] as choice (choice.name)} or <strong>{choice.quantity}</strong> <span class="ingredient-name">{choice.name}</span>{/each}<small>{cookingNotes(cell.state).replace("Use the proportional split described in the method.", "Use the amount shown for this branch.")}</small></span>
 {/snippet}
 
 {#snippet mobileBranch(node)}
