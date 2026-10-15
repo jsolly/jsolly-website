@@ -3,19 +3,14 @@
 
 /** Recipe ingredient amounts and timings are written for this many adults. */
 export const BASE_SERVINGS = 4;
+/** Cards appended per scroll or load-more action. */
+export const RECIPE_BATCH_SIZE = 24;
 /** Each recipe group's badge on its page. */
 export const groupBadges = {
 	keto: "Keto",
 	shared: "Shared main",
 	nonketo: "Not Keto",
 	unverified: null,
-};
-/** Each recipe group's label in the printed copy. */
-export const printGroupLabels = {
-	keto: "Keto",
-	shared: "Keto main + family starch",
-	nonketo: "Not Keto",
-	unverified: "Nutrition estimated",
 };
 /** The servings a reader can choose. */
 export const SERVING_CHOICES = [2, 4, 6, 8];
@@ -98,8 +93,6 @@ export const proteins = {
 	seafood: "Other seafood",
 	eggs: "Eggs",
 	mixed: "Mixed meats",
-	vegetarian: "Vegetarian",
-	"plant-forward": "Plant-forward",
 };
 /** The library's meal styles (recipe groups). */
 export const carbStyles = {
@@ -108,7 +101,14 @@ export const carbStyles = {
 	shared: "Shared Main",
 	unverified: "Nutrition estimated",
 };
+export const dietaryPreferences = {
+	keto: carbStyles.keto,
+	shared: carbStyles.shared,
+	unverified: carbStyles.unverified,
+	vegetarian: "Vegetarian",
+};
 export const mealStyleDescriptions = {
+	vegetarian: "Meals without meat or fish; eggs and dairy may be included.",
 	all: "Keto meals, higher-carb meals, and shared mains with different sides.",
 	keto: "Low-carb meals without a starchy side.",
 	nonketo: "Meals with over 50g net carbs per four servings.",
@@ -134,6 +134,7 @@ export const DEFAULT_FILTERS = {
 	immuneSupport: false,
 	ironRich: false,
 	omega3: false,
+	dumpAndGo: false,
 };
 /** Each nutrition filter's threshold, as the nutrition help states it. */
 export const nutritionThresholds = {

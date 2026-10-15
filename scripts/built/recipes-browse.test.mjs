@@ -25,7 +25,7 @@ const RECIPES = new URL(
 const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
 const meals = recipes.filter((recipe) => recipe.type === "meal");
 const mealCount = meals.length;
-const MEAL_STYLES = ["keto", "nonketo", "shared", "all"];
+const MEAL_STYLES = ["keto", "shared", "all"];
 // The meals that need both air fryers.
 const AIR_FRYER_MEALS = recipes
 	.filter((recipe) => recipe.appliancesNeeded.includes("Two air fryers"))
@@ -48,14 +48,15 @@ const PITA_SIDE = /1.06 lb Pita/u;
 const EIGHT_SERVINGS_CHICKEN = /3 lb/u;
 const RICE_SIDE = /5.64 oz Cooked rice/u;
 const TWO_SERVINGS_CHICKEN = /11.99 oz/u;
-const BEFORE_YOU_START = /Before you start/u;
-const COOK = /Cook/u;
 const SMOOTHIE_YIELD = /up to two servings/u;
 const GLASS_NUTRITION = /Nutrition\s*per 8 oz glass/u;
 const EIGHT_SERVINGS_WATER = /27.05 fl oz Cold water/u;
 const EIGHT_SERVINGS = /8\s+servings/u;
 // Longer than the help popover's 120ms close delay.
 const HELP_CLOSE_WAIT_MS = 400;
+const COOKING_FLOW = /Cooking flow/u;
+const REMOVED_PRINT_SECTIONS =
+	/Before you start|Where your attention goes|First-cook checks/u;
 const LEARN_MORE = "Learn more about Tabular Recipe Notation";
 // biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
 const NATIVE_CHECKBOX = "input[type=checkbox]:visible";
@@ -171,7 +172,7 @@ function detailsCheck(width) {
 			}
 			assert.equal(
 				await page.getByText("Net carbs per serving", { exact: true }).count(),
-				mealCount,
+				await page.locator(".recipe-card").count(),
 			);
 			assert.equal(
 				await page.locator(".time-number").filter({ hasText: "+" }).count(),
@@ -319,10 +320,10 @@ function detailsCheck(width) {
 				.click();
 			await page.emulateMedia({ media: "print" });
 			assert.equal(await page.locator(".print-document").isVisible(), true);
-			assert.equal(await page.locator(".recipe-detail").isVisible(), false);
+			assert.equal(await page.locator(".recipe-detail").isVisible(), true);
 			const printed = await page.locator(".print-document").textContent();
-			assert.match(printed, BEFORE_YOU_START);
-			assert.match(printed, COOK);
+			assert.match(printed, COOKING_FLOW);
+			assert.doesNotMatch(printed, REMOVED_PRINT_SECTIONS);
 			const borders = await page
 				.locator(".print-document .trn-table")
 				.evaluate((table) => {
@@ -357,14 +358,28 @@ function filtersCheck(width) {
 		const errors = collectErrors(page);
 		const checkbox = (name) =>
 			page.getByRole("checkbox", { name, exact: true });
-		const cards = () => page.locator(".recipe-card").count();
-		const mealStyle = page.getByRole("combobox", { name: "Meal style" });
-		const shownIds = () =>
+		const cards = () =>
 			page
+				.locator("#meal-results")
+				.getAttribute("data-match-count")
+				.then(Number);
+		const mealStyle = page.getByRole("combobox", {
+			name: "Dietary preference",
+		});
+		const shownIds = async () => {
+			await page.evaluate(async () => {
+				while (document.querySelector(".load-more button")) {
+					document.querySelector(".load-more button").click();
+					// biome-ignore lint/performance/noAwaitInLoops: each batch must render before the next load action.
+					await new Promise(requestAnimationFrame);
+				}
+			});
+			return page
 				.locator(".recipe-card a.title-button")
 				.evaluateAll((links) =>
 					links.map((link) => link.dataset.recipeId).sort(),
 				);
+		};
 		try {
 			await page.goto(`${site.origin}${LANDING}`);
 			await hydrated(page);
@@ -394,8 +409,24 @@ function filtersCheck(width) {
 				await mealStyle
 					.locator("option")
 					.evaluateAll((options) => options.map((option) => option.value)),
-				["all", ...Object.keys(carbStyles)],
+				[
+					"all",
+					...Object.keys(carbStyles).filter((key) => key !== "nonketo"),
+					"vegetarian",
+				],
 			);
+			await mealStyle.selectOption("vegetarian");
+			assert.deepEqual(
+				await shownIds(),
+				meals
+					.filter((recipe) => recipe.vegetarian === true)
+					.map((recipe) => recipe.id)
+					.sort(),
+			);
+			await page.reload();
+			await hydrated(page);
+			assert.equal(await mealStyle.inputValue(), "vegetarian");
+			await mealStyle.selectOption("all");
 			// Re-ticking Air fryers brings back its two and their meals.
 			await checkbox("Air fryers").uncheck();
 			const withoutFryers = await shownIds();
@@ -420,18 +451,18 @@ function filtersCheck(width) {
 				await mealStyle
 					.locator("option:disabled")
 					.evaluateAll((options) => options.map((option) => option.value)),
-				["nonketo"],
+				["vegetarian"],
 			);
 			await page.getByRole("button", { name: CARBS }).click();
+			assert.equal(
+				await page.getByRole("button", { name: "Clear selections" }).count(),
+				0,
+			);
 			assert.equal(await checkbox("No starch").count(), 0);
 			await checkbox("Bread").check();
 			await page.keyboard.press("Escape");
-			await page
-				.getByRole("combobox", { name: "Pressure cookers count", exact: true })
-				.selectOption("0");
-			await page
-				.getByRole("combobox", { name: "Air fryers count", exact: true })
-				.selectOption("0");
+			await checkbox("Pressure cookers").uncheck();
+			await checkbox("Air fryers").uncheck();
 			await checkbox("Oven").uncheck();
 			await checkbox("Microwave").uncheck();
 			// Imported meals may use a blender and pans with an explicit heat source.
@@ -452,7 +483,7 @@ function filtersCheck(width) {
 			// With no recipe left, a checked protein can still be unchecked.
 			await page.getByRole("button", { name: PROTEINS }).click();
 			assert.equal(await checkbox("Fish").isDisabled(), false);
-			assert.equal(await checkbox("Vegetarian").isDisabled(), true);
+			assert.equal(await checkbox("Vegetarian").count(), 0);
 			await page.keyboard.press("Escape");
 			const saved = await stored(page);
 			assert.deepEqual(saved.filters.proteinChoice, ["fish", "turkey"]);
@@ -482,7 +513,10 @@ function filtersCheck(width) {
 			// Smoothies have no meal styles: the select is not offered.
 			assert.equal(
 				await page
-					.getByRole("combobox", { name: "Meal style", includeHidden: true })
+					.getByRole("combobox", {
+						name: "Dietary preference",
+						includeHidden: true,
+					})
 					.count(),
 				0,
 			);
@@ -534,9 +568,9 @@ function filtersCheck(width) {
 				page.getByRole("link", { name: "← Back to smoothies", exact: true }),
 				"**/recipes/smoothies/",
 			);
-			await page.goBack();
-			await page.locator(".recipe-detail").waitFor();
 			await page.goForward();
+			await page.locator(".recipe-detail").waitFor();
+			await page.goBack();
 			await hydrated(page);
 			await page.evaluate(
 				(key) =>
@@ -592,6 +626,18 @@ function filtersCheck(width) {
 // moved, so the page moves it when the help appears. Resolves to where focus
 // was after each step.
 async function pointerAndKeyboardHelp({ page, help, popover, heading }) {
+	// The search row can put the title and help in different scroll positions.
+	// Send continuous pointer travel after scrolling so the hover grace area
+	// receives movement out of the trigger, rather than a single teleport.
+	const moveToHeading = async () => {
+		await heading.scrollIntoViewIfNeeded();
+		const target = await heading.boundingBox();
+		await page.mouse.move(
+			target.x + target.width / 2,
+			target.y + target.height / 2,
+			{ steps: 10 },
+		);
+	};
 	const focused = () =>
 		page.evaluate(() => ({
 			onHelp: document.activeElement?.classList.contains("nutrition-info"),
@@ -610,12 +656,12 @@ async function pointerAndKeyboardHelp({ page, help, popover, heading }) {
 	};
 	await help.hover();
 	await popover.waitFor();
-	await heading.hover();
+	await moveToHeading();
 	await popover.waitFor({ state: "detached" });
 	await help.hover();
 	await popover.waitFor();
 	await help.click();
-	await heading.hover();
+	await moveToHeading();
 	await page.waitForTimeout(HELP_CLOSE_WAIT_MS);
 	const clickedStaysOpen = await popover.isVisible();
 	await page.keyboard.press("Escape");
@@ -680,8 +726,8 @@ const DESKTOP_HELP = {
 	movedOnOpen: IMMUNE,
 	movedOnOpenClosed: IMMUNE,
 	opened: ON_HELP,
-	tabbed: IMMUNE,
-	tabbedClosed: IMMUNE,
+	tabbed: { ...IMMUNE, label: "Dump and go" },
+	tabbedClosed: { ...IMMUNE, label: "Dump and go" },
 	onTriggerClosed: ON_HELP,
 	clickedInside: { onHelp: false, inPopover: true, label: undefined },
 	clickedInsideClosed: ON_HELP,
@@ -889,7 +935,8 @@ function filterFocusCheck(width) {
 				await page.keyboard.press("Escape");
 				await trigger.click();
 				await panel.waitFor();
-				await panel.getByRole("button", { name: "Clear selections" }).focus();
+				// biome-ignore lint/security/noSecrets: CSS selector, not a credential.
+				await panel.locator("button:not([disabled])").last().focus();
 				await page.keyboard.press("Tab");
 				assert.equal(
 					await page.evaluate(() =>

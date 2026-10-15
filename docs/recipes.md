@@ -310,7 +310,7 @@ quantities, food states, dependency cells, steps, sources, restrictions and
 estimates; the Markdown is the same documents as text. The browser's Download Markdown and Download JSON controls export the current collection or
 recipe with the selected servings, units and family side, including offline. The
 static endpoints keep the fixed defaults above, as do canonical `.md` pages.
-Print and these files use one `recipeDocument` from `recipe-export.mjs`. The files are committed, and Biome and markdownlint skip
+These files use one `recipeDocument` from `recipe-export.mjs`. Screen and print cooking content share `RecipeContent.svelte`. The files are committed, and Biome and markdownlint skip
 `public/recipes/data/` so their bytes stay exactly what the script writes. The
 gate's `recipes:check` fails on drift, so run `recipes:sync` after every edit to
 `recipes.json` and commit the result with it.
@@ -319,6 +319,36 @@ There is no generated article: the pages render straight from `recipes.json`
 (`src/pages/recipes/`), so nothing else needs regenerating.
 
 ## Pages and settings
+
+The information button beside Ingredient units opens a dialog explaining
+approximate conversions and the unit modes. Without JavaScript, recipe pages
+link to `/recipes/<recipe-id>/assumptions/`, whose Back to recipe link returns
+to that recipe. The generic `/recipes/assumptions/` page remains directly accessible. Recipe browsing
+keeps this explanation off the cooking view; assistant downloads
+retain the full measurement policy. Print recipe uses a filled button with a
+printer icon, and download actions label their document-format icons.
+
+Search recipes searches the current collection alongside the existing filters.
+Names and ingredients rank highest; equipment, cooking instructions, family
+sides and nutrition highlights are searchable too. MiniSearch runs locally
+with accent-insensitive matching, prefixes and limited typo tolerance. Clearing
+search restores the current card order. Queries are not saved.
+
+Each library card has a Print recipe action using the current servings, units
+and family side. It prints only that recipe without opening the detail dialog.
+
+On iPhone and iPad Home Screen apps, **Print recipe** offers **Open in Safari**
+instead of calling the installed app's unreliable print API. The link opens the
+individual recipe on the current host with the selected servings, units and
+family side; tap **Print recipe** again in Safari. A selectable HTTPS link is
+also shown for manual copy/paste if the Safari application scheme is unavailable.
+Safari needs a network connection and, on a protected Preview, its own authorized
+session. Browser tabs and Mac Dock apps retain their existing print flow.
+This handoff covers individual recipe pages, library cards and the library's recipe dialog;
+**Print all meals/smoothies** retains the existing browser printing flow.
+The direct iOS application handoff needs real-device verification; Chromium
+standalone emulation verifies detection, link settings and browser restoration,
+not iOS print-sheet presentation.
 
 The library renders its print packet when printing starts, including browser-menu printing, and removes it when printing ends. If preparing the packet or opening the print dialog fails, it restores the previous print mode, shows a failure message and logs the cause in the browser console. Browsing pages share bundled recipe data instead of embedding the full dataset in each page’s island props; the server-rendered collection cards still work without JavaScript.
 
@@ -330,9 +360,9 @@ so hydration never replaces a disclosure or cooking check in use. Without
 JavaScript, native ingredient checkboxes and nutrient disclosures still work,
 and the collection pages show only the collection links and the cards.
 
-Collection cards are shuffled once per release using the build commit as the
-seed. Server rendering and hydration keep that order, so cards do not move on
-load. Restoring saved filters or servings can still update their contents.
+Cards start in canonical source order (search uses relevance order). Shuffle
+recipes randomizes the card order for this visit while preserving all search,
+filter and cooking settings. Reload restores the default order.
 
 The library saves `{ servings, units, filters, appliancesOnHand, familyChoice }` in
 `localStorage` under `recipes-settings-v1` (J13). The old blogthedata.com key is
@@ -420,3 +450,31 @@ that has not yet made its update check would otherwise keep serving the old
 cached recipe pages. `scripts/built/blogthedata-killswitch.test.mjs` proves both
 retirements in Chromium across two origins. Visitors who had the old app
 installed install the new one from `/recipes/`.
+
+The library places search after its settings, next to the results. Dietary
+preference includes Vegetarian using the canonical verified vegetarian flag;
+meat and unverified cheese recipes are excluded. No current meal is verified
+vegan. Vegetarian and plant-forward are not protein choices. The saved
+`mealStyle` key also stores the vegetarian dietary preference. Carbs clears by
+unticking choices; other multi-choice filters disable Clear selections when empty.
+
+Recipe pages print their on-screen cooking content directly. Card and collection
+print packets use the same RecipeContent renderer. Print changes layout and hides
+controls and photos; it adds no separate method, ingredient list, background
+notes or disclaimers. Measurement assumptions remain on their linked page and
+in Markdown/JSON downloads.
+
+Back to meals/smoothies uses the matching same-tab collection history entry
+when available. Collection history restores the scroll position, search and
+shuffle order after hydration; direct recipe links return to the collection top.
+Recipe-specific assumptions fallback pages are noindex and omitted from the sitemap.
+
+Heat-bearing ingredients include short adjustment guidance in their canonical notes,
+shared by cooking views, print and downloads. Blend, canned chili and sausage
+notes preserve the measured quantity and suggest a milder or hotter version.
+Nutrition estimates still describe the recorded ingredients and amounts.
+
+Dump and go identifies recipes that load the cooker and start without separate
+browning or mid-cook additions. Preparation and finishing can still be needed.
+The flag is explicitly reviewed recipe metadata, not inferred from elapsed time
+or a zero mid-cook action count.

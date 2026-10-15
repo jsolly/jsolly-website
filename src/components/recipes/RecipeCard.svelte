@@ -3,6 +3,7 @@
 	import ApplianceIcon from "./ApplianceIcon.svelte";
 	import { BASE_SERVINGS } from "./constants.mjs";
 	import NutritionPills from "./NutritionPills.svelte";
+	import RecipePrintButton from "./RecipePrintButton.svelte";
 	import {
 		formatNutrition,
 		servingNutrition,
@@ -12,7 +13,7 @@
 	// One recipe's card in the library grid: its group, photo, title, active
 	// time, net carbs per serving and appliances. `href` is the
 	// recipe page with the reader's servings and family side.
-	let { recipe, href, servings = BASE_SERVINGS } = $props();
+	let { recipe, href, servings = BASE_SERVINGS, settings, onPrint, disabled = false } = $props();
 	// Diet labels live with the other highlights; retain canonical source titles.
 	const cardTitle = $derived(recipe.title
 		.replace(/\(\s*(?:(?:keto|low[ -]carb)\s*(?:\+|-)?\s*)+\)/giu, "")
@@ -43,7 +44,7 @@
 		</dl>
 		<div class="card-nutrition"><NutritionPills {recipe} {servings} includeGroup /></div>
 	</div>
-	<div class="card-actions"><Button class="open-button" {href} aria-label={`Open recipe: ${cardTitle}`}>Open recipe <span aria-hidden="true">→</span></Button></div>
+	<div class="card-actions"><Button class="open-button" {href} aria-label={`Open recipe: ${cardTitle}`}>Open recipe <span aria-hidden="true">→</span></Button>{#if onPrint}<RecipePrintButton {recipe} {settings} {onPrint} {disabled} />{/if}</div>
 </article>
 
 <style>
@@ -157,8 +158,8 @@
 		.card-actions {
 			margin-top: auto;
 			display: flex;
-			justify-content: space-between;
-			align-items: center;
+			flex-direction: column;
+			align-items: stretch;
 			border-top: 1px solid var(--recipe-line);
 			padding-top: 12px;
 			gap: 10px;

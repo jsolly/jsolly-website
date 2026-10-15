@@ -19,7 +19,7 @@
 	let methodOpen = $state(false);
 	let methodContent = $state(null);
 	const grid = $derived(flowGrid(recipe, settings));
-	const preparation = $derived(grid.prep.filter((text) => printOnly || !OMITTED_PREPARATION.test(text)));
+	const preparation = $derived(grid.prep.filter((text) => !OMITTED_PREPARATION.test(text)));
 	let checks = $state([]);
 	// The same allocation leaves feed both views, with one shared check state.
 	const mobileFlow = $derived.by(() => {
@@ -344,9 +344,6 @@
 			.trn-view {
 				margin: 10pt 0;
 				break-inside: avoid;
-			}
-			.trn-help {
-				display: none;
 			}
 			h3.flow-heading {
 				font: 700 12pt/1.2 Georgia, serif;

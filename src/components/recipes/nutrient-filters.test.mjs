@@ -271,6 +271,7 @@ it("saved library settings restore as saved when every value is still offered", 
 			immuneSupport: true,
 			ironRich: true,
 			omega3: true,
+			dumpAndGo: true,
 		},
 		appliancesOnHand: { ...defaultAppliances, Oven: 0, "Two air fryers": 1 },
 		familyChoice: { "shawarma-chicken-bowls": "pita_one" },
@@ -327,5 +328,51 @@ it("malformed or stale saved library settings restore each key's default", () =>
 		).familyChoice,
 		{ "greek-turkey-patties": "bun_one" },
 		"only sides their recipe still offers survive",
+	);
+});
+
+it("vegetarian preference excludes meat and unverified cheeses and survives saved settings", () => {
+	const matches = data.recipes.filter(
+		(recipe) =>
+			recipe.type === "meal" && matchesRecipe(recipe, 4, { vegetarian: true }),
+	);
+	assert.deepEqual(matches.map((recipe) => recipe.id).sort(), [
+		"harissa-chickpea-and-cauliflower-bowls",
+		"source-basic-keto-chaffle-recipe",
+	]);
+	assert.equal(
+		matchesRecipe(matches[0], 4, { vegetarian: true, protein: ["chicken"] }),
+		false,
+	);
+	const saved = parseSavedSettings(
+		{ filters: { mealStyle: "vegetarian" } },
+		{ recipes: data.recipes, ingredients: {} },
+	);
+	assert.equal(saved.filters.mealStyle, "vegetarian");
+});
+
+it("dump and go requires explicit audited data and keeps other filters applied", () => {
+	const matches = data.recipes.filter((recipe) =>
+		matchesRecipe(recipe, 4, { dumpAndGo: true }),
+	);
+	assert.deepEqual(matches.map((recipe) => recipe.id).sort(), [
+		"source-crockpot-shredded-chicken",
+		"source-keto-slow-cooker-zesty-ranch-chicken",
+	]);
+	assert.equal(
+		matchesRecipe(matches[0], 4, { dumpAndGo: true, protein: ["fish"] }),
+		false,
+	);
+	assert.equal(
+		parseSavedSettings(
+			{ filters: { dumpAndGo: "true", mealStyle: "nonketo" } },
+			context,
+		).filters.dumpAndGo,
+		false,
+	);
+	assert.equal(
+		parseSavedSettings({ filters: { mealStyle: "nonketo" } }, context).filters
+			.mealStyle,
+		"all",
 	);
 });

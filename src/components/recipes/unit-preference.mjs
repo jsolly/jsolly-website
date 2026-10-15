@@ -45,5 +45,5 @@ export function writeUnitPreference(units, getStorage = () => localStorage) {
 export function replaceUnitURL(units) {
 	const url = new URL(window.location.href);
 	url.searchParams.set("units", unitPreference(units));
-	window.history.replaceState(null, "", url);
+	window.history.replaceState(window.history.state, "", url);
 }

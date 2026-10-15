@@ -1,0 +1,20 @@
+---
+import type { InferGetStaticPropsType } from "astro";
+import MeasurementAssumptions from "../../../components/recipes/MeasurementAssumptions.svelte";
+import data from "../../../components/recipes/recipes.json" with { type: "json" };
+import RecipeLayout from "../../../layouts/RecipeLayout.astro";
+
+export function getStaticPaths() {
+	return data.recipes.map((entry) => ({ params: { slug: entry.id }, props: { recipe: entry } }));
+}
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { recipe } = Astro.props;
+---
+
+<RecipeLayout title="Measurement assumptions" description={`Ingredient measurements for ${recipe.title}.`} article noindex>
+	<article>
+		<a href={`/recipes/${recipe.id}/`}>← Back to recipe</a>
+		<h1>Measurement assumptions</h1>
+		<MeasurementAssumptions />
+	</article>
+</RecipeLayout>
