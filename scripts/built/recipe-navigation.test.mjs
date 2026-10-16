@@ -38,11 +38,50 @@ function verifyNavigation(width) {
 			});
 			await help.focus();
 			await page.keyboard.press("Enter");
-			const dialog = page.getByRole("dialog", {
-				name: "Measurement assumptions",
-				exact: true,
-			});
-			await dialog.waitFor();
+			const popover = page.locator(".measurement-assumptions-help");
+			await popover.waitFor();
+			assert.equal(
+				await help.evaluate((node) => node === document.activeElement),
+				true,
+			);
+			assert.equal(
+				await page.locator('[data-slot="dialog-overlay"]').count(),
+				0,
+			);
+			assert.equal(
+				await popover
+					.getByRole("link", { name: "Measurement assumptions", exact: true })
+					.getAttribute("href"),
+				`${RECIPE}assumptions/`,
+			);
+			await page.keyboard.press("Tab");
+			await page.evaluate(
+				() =>
+					new Promise((resolve) =>
+						requestAnimationFrame(() => requestAnimationFrame(resolve)),
+					),
+			);
+			assert.equal(
+				await popover
+					.getByRole("link")
+					.evaluate((node) => node === document.activeElement),
+				true,
+			);
+			await page.keyboard.press("Tab");
+			const units = page.getByRole("combobox", { name: "Ingredient units" });
+			assert.equal(
+				await units.evaluate((node) => node === document.activeElement),
+				true,
+			);
+			await page.keyboard.press("Escape");
+			assert.equal(
+				await units.evaluate((node) => node === document.activeElement),
+				true,
+			);
+			await help.focus();
+			await page.keyboard.press("Enter");
+			await popover.waitFor();
+			await popover.getByRole("link").focus();
 			assert.equal(page.url(), url);
 			assert.equal(
 				await page
@@ -51,7 +90,7 @@ function verifyNavigation(width) {
 				"6",
 			);
 			await page.keyboard.press("Escape");
-			await dialog.waitFor({ state: "detached" });
+			await popover.waitFor({ state: "detached" });
 			assert.equal(
 				await help.evaluate((node) => node === document.activeElement),
 				true,
@@ -61,6 +100,19 @@ function verifyNavigation(width) {
 					.getByRole("combobox", { name: "Ingredient units" })
 					.inputValue(),
 				"metric",
+			);
+			await help.focus();
+			await page.keyboard.press("Enter");
+			await popover.waitFor();
+			const servings = page.getByRole("combobox", {
+				name: "Servings",
+				exact: true,
+			});
+			await page.locator("label.servings").click();
+			await popover.waitFor({ state: "detached" });
+			assert.equal(
+				await servings.evaluate((node) => node === document.activeElement),
+				true,
 			);
 			// Direct links go to the top of the collection rather than an old visit.
 			await page
@@ -124,7 +176,7 @@ function verifyNavigation(width) {
 			assert.ok(
 				Math.abs((await page.evaluate(() => scrollY)) - beforeScroll) <= 2,
 			);
-			// The assumptions dialog can also open over the library's recipe dialog.
+			// The assumptions popover also works inside the library recipe dialog.
 			await page.goto(`${site.origin}/recipes/#lemon-salmon-and-asparagus`);
 			await hydrate(page);
 			const recipeDialog = page.getByRole("dialog", {
@@ -135,9 +187,9 @@ function verifyNavigation(width) {
 			await recipeDialog
 				.getByRole("button", { name: "Measurement assumptions" })
 				.click();
-			await dialog.waitFor();
-			await dialog.getByRole("button", { name: "Close and continue" }).click();
-			await dialog.waitFor({ state: "detached" });
+			await popover.waitFor();
+			await page.keyboard.press("Escape");
+			await popover.waitFor({ state: "detached" });
 			assert.equal(await recipeDialog.isVisible(), true);
 			// Playwright emits this harness warning when a production worker is intentionally blocked.
 			assert.deepEqual(

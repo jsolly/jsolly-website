@@ -42,12 +42,12 @@ ids are stable: each is a page slug (`/recipes/<id>/`) and a fragment id
 (`/recipes/#<id>` opens it in the library dialog), and old links use both.
 Images are files under `public/recipes/media/`, referenced as `/recipes/media/...`.
 
-The 125 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Unmeasured cooking spray used only to prepare cookware belongs in flow preparation directions, including any optional use or device-manual conditions, rather than ingredient rows. Measured oil-or-spray alternatives remain ingredients. Every food ingredient has a positive measured quantity. Missing and to-taste source amounts have reviewed measured defaults, with the original source retained in measurement provenance. Missing nutrition and times display as "Not provided". The 72 recipes that previously lacked complete macros now carry labeled nutrition estimates and remain separate from keto eligibility. Every publisher adaptation has an ingredient nutrient model. Missing nutrient observations do not qualify for nutrient filters. Prep time is distinguished from household active time. The browser keeps concise source attribution and cooking instructions; provenance and nutrition assumptions remain in canonical data and assistant downloads. Cooking guidance from source limitations belongs in the flow. Mobile renders the same ingredient allocation tree vertically, preserving branch joins and shared cooking checks; desktop and print retain the table.
+The 125 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Unmeasured cooking spray used only to prepare cookware belongs in flow preparation directions, including any optional use or device-manual conditions, rather than ingredient rows. Measured oil-or-spray alternatives remain ingredients. Every food ingredient has a positive measured quantity. Missing and to-taste source amounts have reviewed measured defaults, with the original source retained in measurement provenance. Missing nutrition and times display as "Not provided". The 72 recipes that previously lacked complete macros now carry labeled nutrition estimates used by the same base-recipe dietary classification. Every publisher adaptation has an ingredient nutrient model. Missing nutrient observations do not qualify for nutrient filters. Prep time is distinguished from household active time. The browser keeps concise source attribution and cooking instructions; provenance and nutrition assumptions remain in canonical data and assistant downloads. Cooking guidance from source limitations belongs in the flow. Mobile renders the same ingredient allocation tree vertically, preserving branch joins and shared cooking checks; desktop and print retain the table.
 
 Every recipe has a first-party illustration under the [image contract](recipe-images.md), with illustration provenance retained in its image metadata and downloads.
 
 Household ingredient amounts describe the reviewed four-adult base, except
-`familyOptions`, which describe one non-keto adult's starch. Canonical units
+`familyOptions`, which describe one adult's optional side. Canonical units
 distinguish mass, volume, count and spoon measures; source-specific US measures
 describe the same food quantity. Pressure-liquid minima always retain their required mL volume in every display
 mode. A generic broth density cannot establish a cooker's safe liquid minimum.
@@ -63,15 +63,13 @@ do not scale linearly. Six or eight servings need capacity checks or batches;
 the frittata uses two matching dishes. Fractional turkey eggs are beaten and
 weighed.
 
-Family controls use one valid option per shared recipe. A missing or invalid
-option id falls back to the recipe's first choice, in the detail and the
-nutrition alike. Neither generic feta nor generic Parmesan is certified
+Optional side controls default to None. Only an explicitly selected valid option is included in cooking or downloads; a missing or invalid choice means no side. Neither generic feta nor generic Parmesan is certified
 vegetarian; those recipes are plant-forward, with label guidance. Package guides
 calculate purchases from scaled ingredient weights; purchased brands can differ,
 so weigh drained food.
 
 `midCookActions` counts scheduled starts, shakes, flips and ingredient additions
-to the main cooking appliances. Cold-side preparation and family-starch heating
+to the main cooking appliances. Cold-side preparation and optional-side heating
 are active work outside that count. Terminal temperature checks and food finish
 checks always remain; optional oven rack swaps are disclosed.
 
@@ -81,8 +79,7 @@ macros are retained separately. The display rounds. Library cards always show th
 four-serving model (or per 8 fl oz smoothie glass), independent of batch size.
 Recipe time summaries use the upper end of a recorded range without a plus sign;
 capacity and cooking endpoint notes still apply. `servingNutrition` adjusts fixed minimums for smaller batches.
-Family nutrition adds a measured starch to one base serving and leaves keto
-servings unchanged. Extended nutrition (`nutrition.mjs`) covers 23 vitamins,
+Optional side nutrition is displayed separately per person; base nutrition and dietary classification exclude the side. Keto means at most 12.5 g net carbohydrates per base serving (four-serving meal model or 8 fl oz smoothie glass); every other recipe is Not keto. The filter, card and recipe use this same derived classification, independent of selected batch size. Extended nutrition (`nutrition.mjs`) covers 23 vitamins,
 minerals and choline plus total fat, saturated fat and cholesterol, against FDA
 Daily Values, using USDA profiles on the same ingredient weights as the macro
 model. Values apply no cooking-retention factors. A nutrient total with a missing
@@ -145,11 +142,11 @@ the audit without writing it.
 fractional allocations that sum to 1 (or a paired salt pinch and remainder),
 operations with children, and preparation rows. `trn-logic.mjs` validates every
 ingredient, compacts successive actions on the same input, and computes
-non-overlapping rowspan and colspan cells. Family starch stays outside the base
+non-overlapping rowspan and colspan cells. Optional sides stay outside the base
 tree.
 
 Every recipe owns its `starches` categories in `recipes.json`; the library filter
-uses that metadata for main ingredients and available family sides.
+uses that metadata for main ingredients and available optional sides.
 Maintain `recipes.json` and its unit, allergen and family metadata together. Do
 not make protein-critical yogurt or Parmesan optional without recalculating, and
 do not substitute frozen, raw or dry food states or sauce brands without
@@ -157,7 +154,11 @@ reviewing the method and the nutrition.
 
 ### Nutrition estimates
 
-All 146 recipes have calories, protein, total carbohydrate, fiber and net carbohydrate.
+All 146 recipes have calories, protein, total fat, total carbohydrate, fiber and net carbohydrate.
+Total fat appears with the main macros and in Markdown and JSON downloads. Meals
+identify a serving as one fraction of the selected prepared batch; smoothies
+identify an estimated 8 fl oz (237 mL) glass. A meal fraction is not a measured
+cooked weight: cooking losses and final batch yield have not been measured.
 Every recipe has ingredient rows in `nutrition-data.json`, with stable
 `ingredientId` links, edible grams, food-record descriptions, source URLs and
 per-100-g observations. Family options have separate per-diner profiles.
@@ -182,7 +183,7 @@ response cache and an output path for the reconciled recipe metadata. Its output
 keeps cooking data separate from the nutrition metadata merge. Complete fields
 sum `macros[field] × grams / 100` across rows and divide by four; incomplete
 profiles retain their recorded baseline and known corrections. Net carbohydrate
-is total carbohydrate minus fiber, floored at zero. Mark an assumed value in
+is total carbohydrate minus fiber and explicitly recorded erythritol, floored at zero. No other sugar alcohol or undisclosed allulose is deducted. Mark an assumed value in
 `assumedMacroFields` rather than presenting it as a USDA observation.
 Regenerate the assistant downloads and run the gate.
 
@@ -194,9 +195,9 @@ separate per-glass smoothie denominator. Each recipe lists its actual food
 profile choices, including generic mustard, marinade and spice proxies. Cajun/Old Bay/steak seasoning uses
 a disclosed generic mix of 50% salt, 20% paprika, 10% garlic powder, 10% onion
 powder and 10% black pepper by mass; garam masala uses a curry-powder proxy.
-The ranch-chicken estimate retains publisher macros and estimates missing fiber
-from the measured ingredients, assuming no fiber from the ranch mix; its
-unobserved micronutrients remain missing. Balsamic vinegar's unreported fiber is
+The ranch-chicken estimate uses the complete measured ingredient model and the
+reviewed dry ranch proxy described below; its unobserved micronutrients remain
+missing. Balsamic vinegar's unreported fiber is
 explicitly assumed zero. These estimates can differ from specific brands and
 actual edible weights. Nutrients with an unobserved contributing value remain
 unreported, rather than being filled with zero.
@@ -211,6 +212,57 @@ Qualifying recipes show Immune support, Iron-rich and High in Omega-3s pills on
 library cards, in the recipe dialog and on individual pages. Pills use the same
 nutrient eligibility checks and selected serving count as the library filters.
 Recipes with missing observations do not gain a pill from those observations.
+
+### Fat and calorie audit
+
+`node scripts/recipes/audit-nutrition.mjs` reads all 146 recipes and every supported
+serving count. Its JSON report includes ingredient coverage, fat sources, serving
+units, displayed macros and the difference from general Atwater energy,
+4 kcal/g protein + 4 kcal/g total carbohydrate + 9 kcal/g fat. A difference over
+both 10% and 25 kcal requires review. This is a discrepancy screen, not a claim
+that every food has the same energy factors. USDA specific Atwater factors,
+fiber, alcohol, sugar alcohols, organic acids and rounded labels can differ.
+The unit suite requires every recipe and supported portion to pass this screen.
+Fat is never calculated as the remaining calories divided by nine.
+
+The 2026-10-15 review added 21 missing ingredient fat observations across nine
+recipes. Chicken Posole uses the already reviewed USDA food matches and the
+Old El Paso manufacturer label. Other missing observations use G Hughes,
+Hidden Valley and Swerve manufacturer fat labels. Unspecified brown monkfruit
+sweetener blends have an explicit editorial zero-fat assumption; their other
+missing observations remain missing. A label zero is rounded, not proof that
+analytical fat is absent. Each decision retains its source and limitation in
+`fatReview`; `assumedNutrientFields` distinguishes the monkfruit assumption.
+
+Eight recipes previously mixed incomplete branded profiles with retained publisher
+macro baselines. They now use complete ingredient models for calories, protein,
+carbohydrate, fiber and total fat at the same measured edible weights. All measured
+oils are counted. `scripts/recipes/complete-macro-models.mjs` records the reviewed
+migration, with `preCompleteIngredientNutritionEstimate` preserving the former
+model and `sourceRecipe.sourceNutrition` preserving the original publisher facts.
+No calorie value or fat value is inferred from the other as a residual.
+
+G Hughes honey mustard uses its manufacturer label. Dry ranch seasoning uses
+USDA FDC 2248025, Our Family dry ranch dressing mix, as an explicit brand proxy;
+its rounded values and differences from Hidden Valley remain limitations.
+Five incompletely specified brown sweetener rows use a clearly labeled Lakanto
+Brown erythritol/monkfruit proxy. Its label has 8 g total carbohydrate and 8 g
+erythritol per 8 g, with 0 g fat/protein and 0 kcal. Original Swerve or unspecified
+brown monkfruit ingredient identities remain in cooking data and provenance.
+Actual Swerve's erythritol/allulose blend differs from this proxy. The model does
+not infer undisclosed allulose grams or subtract them from net carbohydrates.
+Allulose would require its own measured observation and energy factor; the
+[FDA recommends 0.4 kcal/g](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/guidance-industry-declaration-allulose-and-calories-allulose-nutrition-and-supplement-facts-labels).
+Label rounding and trace ingredients such as glycerin remain limitations.
+
+The gnocchi recipe uses DeLallo's label fat alongside DeLallo's macro profile,
+replacing a prepared-food USDA fat proxy that disagreed with those brand macros.
+`nutrientSources` preserves that label override during API refreshes. Other
+micronutrients retain their recorded generic-food proxies. The audit independently
+sums every fat contribution and rejects any displayed total below a single
+ingredient's fat, so a coherent-looking calorie equation cannot hide omitted oil.
+Its energy screen subtracts only explicitly recorded erythritol before comparing
+with 4/4/9. JSON and Markdown include model assumptions and brand limitations.
 
 ### USDA API lookups
 
@@ -247,7 +299,7 @@ the remaining request count is known to fit the hourly quota. Reusing it reprodu
 new absolute directory outside the repository for a fresh snapshot. The script
 deduplicates the existing FDC IDs, respects the [USDA API quota](https://fdc.nal.usda.gov/api-guide/#rate-limits)
 with a default delay of four seconds per new record,
-and validates reviewed SR Legacy/FNDDS identity, nutrient IDs, units and finite nonnegative
+and validates reviewed SR Legacy/FNDDS identity or an explicitly marked reviewed Branded profile, nutrient IDs, units and finite nonnegative
 amounts before writing either canonical data file. It never searches or rematches
 foods. `nutrition-data.json`'s `apiRefresh` receipt records the earliest cached
 retrieval time, matched IDs, row coverage and retained brand/composite profiles.
@@ -258,6 +310,13 @@ across all 146 recipes. The remaining 36 rows retained reviewed brand, composite
 or hybrid profiles. All observed nutrient and macro values agreed with the
 existing snapshots, so this check changed provenance rather than nutritional
 totals. Explicit null observations remain missing.
+
+The 2026-10-15 refresh used the stored AWS USDA key to verify 163 distinct reviewed
+FDC records, refreshing 1,698 ingredient rows across all 146 recipes and retaining
+38 reviewed brand, composite or hybrid rows. The new Chicken Posole records and
+the explicitly reviewed dry ranch brand proxy account for the additional IDs. All observed values agreed with their
+reviewed snapshots; the DeLallo fat label override stayed in place. The
+`apiRefresh` receipt records the current IDs, row coverage and retrieval time.
 
 Only the reviewed nutrient observation set is refreshed, preserving deliberate
 omissions such as the sausage proxy's outlier iron. An observation absent from the
@@ -309,12 +368,23 @@ npm run gate
 
 `scripts/recipes/sync-assistant-data.mjs` regenerates the two assistant
 downloads from `recipes.json`. Their settings are fixed: four adults, US units,
-no family starch selected, with each shared recipe's per-person starch options
-listed. The JSON uses `schemaVersion: 1` and holds stable recipe ids, readable
+no optional side selected, with each recipe's per-person side choices
+listed. The JSON uses `schemaVersion: 2` and holds stable recipe ids, readable
 quantities, food states, dependency cells, steps, sources, restrictions and
-estimates; the Markdown is the same documents as text. The browser's Download Markdown and Download JSON controls export the current collection or
-recipe with the selected servings, units and family side, including offline. The
-static endpoints keep the fixed defaults above, as do canonical `.md` pages.
+estimates; the Markdown is the same documents as text. Data access is discoverable
+in recipe page head metadata and `/llms.txt`, with no human-facing download controls.
+Each page advertises its smaller canonical `.md` sibling and related complete-library
+JSON. Agents select a JSON recipe by its stable `recipeId`. The static endpoints
+keep the fixed defaults above, as do canonical `.md` pages; browser settings and
+query parameters do not alter them.
+Version 2 replaces the old `group` field with the derived `dietaryClassification`
+and replaces combined family nutrition with separate `sideDiners`, `sideIngredient`,
+`sideOptions` and `sideNutritionPerDiner`. Base `nutrition` always excludes the
+optional side. A missing, stale or None choice has no side; side nutrition is one
+canonical portion, independent of the selected batch or side diner count. JSON
+consumers of version 1 must migrate to these fields rather than treating the new
+side values as a combined meal total. The complete-library JSON uses the version 2 envelope.
+
 These files use one `recipeDocument` from `recipe-export.mjs`. Screen and print cooking content share `RecipeContent.svelte`. The files are committed, and Biome and markdownlint skip
 `public/recipes/data/` so their bytes stay exactly what the script writes. The
 gate's `recipes:check` fails on drift, so run `recipes:sync` after every edit to
@@ -330,7 +400,7 @@ Without JavaScript, recipe pages
 link to `/recipes/<recipe-id>/assumptions/`, whose Back to recipe link returns
 to that recipe. The generic `/recipes/assumptions/` page remains directly accessible. Recipe browsing
 keeps the mode descriptions off the cooking view. Print recipe uses a filled button with a
-printer icon, and download actions label their document-format icons.
+printer icon. Machine-readable formats remain available through metadata and direct URLs.
 
 Search recipes searches the current collection alongside the existing filters.
 Names and ingredients rank highest; equipment, cooking instructions, family
@@ -339,12 +409,12 @@ with accent-insensitive matching, prefixes and limited typo tolerance. Clearing
 search restores the current card order. Queries are not saved.
 
 Each library card has a Print recipe action using the current servings, units
-and family side. It prints only that recipe without opening the detail dialog.
+and optional side. It prints only that recipe without opening the detail dialog.
 
 On iPhone and iPad Home Screen apps, **Print recipe** offers **Open in Safari**
 instead of calling the installed app's unreliable print API. The link opens the
 individual recipe on the current host with the selected servings, units and
-family side; tap **Print recipe** again in Safari. A selectable HTTPS link is
+optional side; tap **Print recipe** again in Safari. A selectable HTTPS link is
 also shown for manual copy/paste if the Safari application scheme is unavailable.
 Safari needs a network connection and, on a protected Preview, its own authorized
 session. Browser tabs and Mac Dock apps retain their existing print flow.
@@ -357,7 +427,7 @@ not iOS print-sheet presentation.
 The library renders its print packet when printing starts, including browser-menu printing, and removes it when printing ends. If preparing the packet or opening the print dialog fails, it restores the previous print mode, shows a failure message and logs the cause in the browser console. Browsing pages share bundled recipe data instead of embedding the full dataset in each page’s island props; the server-rendered collection cards still work without JavaScript.
 
 Each recipe page server-renders one recipe body at four servings with the
-default family side. Enhanced controls render disabled, then JavaScript enables
+no optional side. While JavaScript resolves saved and URL settings, the enhanced recipe body remains hidden; then JavaScript enables
 scaling, the side choice, the cooking checks and share links
 (`?servings=`, `?units=` and `?starch=<id>:<side>`). Native fallbacks live in `<noscript>`,
 so hydration never replaces a disclosure or cooking check in use. Without
@@ -367,6 +437,12 @@ and the collection pages show only the collection links and the cards.
 Cards start in canonical source order (search uses relevance order). Shuffle
 recipes randomizes the card order for this visit while preserving all search,
 filter and cooking settings. Reload restores the default order.
+
+Default card links point directly to the canonical recipe URL, keeping every
+recipe discoverable through ordinary internal links. Selected servings, units
+and sides travel in the card URL when they differ from the defaults. Share and
+Safari print handoff links always carry explicit settings so the recipient's
+saved preferences cannot change the shared recipe.
 
 The library saves `{ servings, units, filters, appliancesOnHand, familyChoice }` in
 `localStorage` under `recipes-settings-v1` (J13). The old blogthedata.com key is

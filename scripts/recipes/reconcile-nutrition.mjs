@@ -120,9 +120,19 @@ export function reconcileMacros(recipe, rows, baseServings) {
 			publisherFields.push(key);
 		}
 	}
+	const erythritol =
+		rows.reduce(
+			(sum, row) => sum + ((row.macros.erythritol_g ?? 0) * row.grams) / 100,
+			0,
+		) / baseServings;
+	if (erythritol > 0) recipe.nutrition.erythritol_g = erythritol;
+	else {
+		// biome-ignore lint/performance/noDelete: absence is part of this maintenance output contract; undefined would leave a stale own property.
+		delete recipe.nutrition.erythritol_g;
+	}
 	recipe.nutrition.net_carbs_g = Math.max(
 		0,
-		recipe.nutrition.carbs_g - recipe.nutrition.fiber_g,
+		recipe.nutrition.carbs_g - recipe.nutrition.fiber_g - erythritol,
 	);
 	return publisherFields;
 }

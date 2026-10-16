@@ -7934,7 +7934,7 @@
 				"grams": 454,
 				"source": "https://fdc.nal.usda.gov/food-details/2708722/nutrients",
 				"nutrients": {
-					"fat": 6.33,
+					"fat": 0,
 					"calcium": 22,
 					"iron": 0.83,
 					"magnesium": 12,
@@ -7987,6 +7987,15 @@
 					"amount": 454,
 					"unit": "g",
 					"state": "shelf-stable, not frozen"
+				},
+				"nutrientSources": {
+					"fat": "https://www.delallo.com/delallo-potato-gnocchi-16-oz/"
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://www.delallo.com/delallo-potato-gnocchi-16-oz/",
+					"labelImage": "https://cdn11.bigcommerce.com/s-cjh14ahqln/images/stencil/1280x1280/products/467/7448/Nutrition_Ingredients__39717.1722528549.jpg?c=1",
+					"basis": "Use the same DeLallo shelf-stable product as the macro profile: label reports 0 g total fat per 140 g. Replaces USDA prepared gnocchi 6.33 g per 100 g, which mismatched the brand calories and carbohydrate."
 				}
 			},
 			{
@@ -12013,7 +12022,9 @@
 				"food": "olive_oil",
 				"grams": 14,
 				"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
-				"nutrients": {},
+				"nutrients": {
+					"fat": 100
+				},
 				"ingredientId": "olive_oil",
 				"macros": {
 					"kcal": 884,
@@ -12040,13 +12051,21 @@
 					"amount": 14,
 					"unit": "g",
 					"state": ""
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+					"retrievedAt": "2026-10-13T09:38:56.045Z",
+					"basis": "USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained."
 				}
 			},
 			{
 				"food": "onion",
 				"grams": 40,
 				"source": "https://fdc.nal.usda.gov/food-details/170000/nutrients",
-				"nutrients": {},
+				"nutrients": {
+					"fat": 0.1
+				},
 				"ingredientId": "onion",
 				"macros": {
 					"kcal": 40,
@@ -12073,13 +12092,21 @@
 					"amount": 40,
 					"unit": "g",
 					"state": "diced"
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://fdc.nal.usda.gov/food-details/170000/nutrients",
+					"retrievedAt": "2026-10-13T09:36:51.687Z",
+					"basis": "USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained."
 				}
 			},
 			{
 				"food": "garlic",
 				"grams": 15,
 				"source": "https://fdc.nal.usda.gov/food-details/169230/nutrients",
-				"nutrients": {},
+				"nutrients": {
+					"fat": 0.5
+				},
 				"ingredientId": "garlic",
 				"macros": {
 					"kcal": 149,
@@ -12106,13 +12133,21 @@
 					"amount": 15,
 					"unit": "g",
 					"state": "minced"
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://fdc.nal.usda.gov/food-details/169230/nutrients",
+					"retrievedAt": "2026-10-13T09:35:22.375Z",
+					"basis": "USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained."
 				}
 			},
 			{
 				"food": "red_pepper",
 				"grams": 30,
 				"source": "https://fdc.nal.usda.gov/food-details/170108/nutrients",
-				"nutrients": {},
+				"nutrients": {
+					"fat": 0.3
+				},
 				"ingredientId": "red_pepper",
 				"macros": {
 					"kcal": 26,
@@ -12139,13 +12174,21 @@
 					"amount": 30,
 					"unit": "g",
 					"state": "diced"
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://fdc.nal.usda.gov/food-details/170108/nutrients",
+					"retrievedAt": "2026-10-13T09:37:29.567Z",
+					"basis": "USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained."
 				}
 			},
 			{
 				"food": "fine_salt",
 				"grams": 3,
 				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {},
+				"nutrients": {
+					"fat": 0
+				},
 				"ingredientId": "fine_salt",
 				"macros": {
 					"kcal": 0,
@@ -12172,13 +12215,21 @@
 					"amount": 3,
 					"unit": "g",
 					"state": ""
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
+					"retrievedAt": "2026-10-13T09:39:07.224Z",
+					"basis": "USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained."
 				}
 			},
 			{
 				"food": "enchilada_sauce",
 				"grams": 283,
 				"source": "https://www.oldelpaso.com/products/old-el-paso-red-enchilada-sauce-medium-1",
-				"nutrients": {},
+				"nutrients": {
+					"fat": 0
+				},
 				"ingredientId": "enchilada_sauce",
 				"macros": {
 					"kcal": 25,
@@ -12205,13 +12256,23 @@
 					"amount": 283,
 					"unit": "g",
 					"state": "ready-to-eat, canned"
+				},
+				"nutrientSources": {
+					"fat": "https://www.oldelpaso.com/products/old-el-paso-red-enchilada-sauce-medium-1"
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://www.oldelpaso.com/products/old-el-paso-red-enchilada-sauce-medium-1",
+					"basis": "Manufacturer label reports 0 g fat per quarter-cup serving; rounded label zero retained, not analytical absence of fat."
 				}
 			},
 			{
 				"food": "cayenne",
 				"grams": 3,
 				"source": "https://fdc.nal.usda.gov/food-details/170932/nutrients",
-				"nutrients": {},
+				"nutrients": {
+					"fat": 17.27
+				},
 				"ingredientId": "cayenne",
 				"macros": {
 					"kcal": 318,
@@ -12238,13 +12299,21 @@
 					"amount": 3,
 					"unit": "g",
 					"state": ""
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://fdc.nal.usda.gov/food-details/170932/nutrients",
+					"retrievedAt": "2026-10-13T09:38:46.835Z",
+					"basis": "USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained."
 				}
 			},
 			{
 				"food": "white_beans",
 				"grams": 425,
 				"source": "https://fdc.nal.usda.gov/food-details/175204/nutrients",
-				"nutrients": {},
+				"nutrients": {
+					"fat": 0.29
+				},
 				"ingredientId": "white_beans",
 				"macros": {
 					"kcal": 114,
@@ -12271,13 +12340,21 @@
 					"amount": 425,
 					"unit": "g",
 					"state": "fully cooked, including can liquid"
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://fdc.nal.usda.gov/food-details/175204/nutrients",
+					"retrievedAt": "2026-10-13T09:39:14.188Z",
+					"basis": "USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained."
 				}
 			},
 			{
 				"food": "chicken_broth",
 				"grams": 973.8438538130785,
 				"source": "https://fdc.nal.usda.gov/food-details/172888/nutrients",
-				"nutrients": {},
+				"nutrients": {
+					"fat": 0
+				},
 				"ingredientId": "chicken_broth",
 				"macros": {
 					"kcal": 7,
@@ -12304,13 +12381,21 @@
 					"amount": 960,
 					"unit": "ml",
 					"state": "ready-to-use"
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://fdc.nal.usda.gov/food-details/172888/nutrients",
+					"retrievedAt": "2026-10-13T09:39:04.979Z",
+					"basis": "USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained."
 				}
 			},
 			{
 				"food": "cooked_chicken_breast",
 				"grams": 400,
 				"source": "https://fdc.nal.usda.gov/food-details/171477/nutrients",
-				"nutrients": {},
+				"nutrients": {
+					"fat": 3.57
+				},
 				"ingredientId": "cooked_chicken_breast",
 				"macros": {
 					"kcal": 165,
@@ -12337,13 +12422,21 @@
 					"amount": 400,
 					"unit": "g",
 					"state": "fully cooked, skinless, boneless; cooked edible weight"
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://fdc.nal.usda.gov/food-details/171477/nutrients",
+					"retrievedAt": "2026-10-13T09:38:56.616Z",
+					"basis": "USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained."
 				}
 			},
 			{
 				"food": "lime_juice",
 				"grams": 15,
 				"source": "https://fdc.nal.usda.gov/food-details/168156/nutrients",
-				"nutrients": {},
+				"nutrients": {
+					"fat": 0.07
+				},
 				"ingredientId": "lime_juice",
 				"macros": {
 					"kcal": 25,
@@ -12370,13 +12463,21 @@
 					"amount": 15,
 					"unit": "g",
 					"state": ""
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://fdc.nal.usda.gov/food-details/168156/nutrients",
+					"retrievedAt": "2026-10-13T09:34:25.263Z",
+					"basis": "USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained."
 				}
 			},
 			{
 				"food": "cabbage",
 				"grams": 150,
 				"source": "https://fdc.nal.usda.gov/food-details/169975/nutrients",
-				"nutrients": {},
+				"nutrients": {
+					"fat": 0.1
+				},
 				"ingredientId": "cabbage",
 				"macros": {
 					"kcal": 25,
@@ -12403,13 +12504,21 @@
 					"amount": 150,
 					"unit": "g",
 					"state": "finely shredded"
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://fdc.nal.usda.gov/food-details/169975/nutrients",
+					"retrievedAt": "2026-10-13T09:36:28.162Z",
+					"basis": "USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained."
 				}
 			},
 			{
 				"food": "cilantro",
 				"grams": 8,
 				"source": "https://fdc.nal.usda.gov/food-details/169997/nutrients",
-				"nutrients": {},
+				"nutrients": {
+					"fat": 0.52
+				},
 				"ingredientId": "cilantro",
 				"macros": {
 					"kcal": 23,
@@ -12436,6 +12545,12 @@
 					"amount": 8,
 					"unit": "g",
 					"state": "washed and chopped"
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://fdc.nal.usda.gov/food-details/169997/nutrients",
+					"retrievedAt": "2026-10-13T09:36:46.847Z",
+					"basis": "USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained."
 				}
 			}
 		],
@@ -13389,9 +13504,9 @@
 					"unit": "g",
 					"state": ""
 				},
-				"description": "G Hughes sugar-free honey mustard: detailed nutrient observations unavailable",
+				"description": "G Hughes honey mustard manufacturer label: 20 kcal, 1.5 g fat, 2 g carbohydrate, 0 g protein/fiber per 30 g; rounded label observations.",
 				"nutrients": {
-					"fat": null,
+					"fat": 5,
 					"saturated_fat": null,
 					"cholesterol": null,
 					"sodium": null,
@@ -13419,10 +13534,10 @@
 					"selenium": null
 				},
 				"macros": {
-					"kcal": null,
-					"protein_g": null,
-					"carbs_g": null,
-					"fiber_g": null
+					"kcal": 66.66666666666666,
+					"protein_g": 0,
+					"carbs_g": 6.666666666666667,
+					"fiber_g": 0
 				},
 				"ingredientId": "ingredient-2",
 				"measurementBaseline": {
@@ -13438,7 +13553,18 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 120
-				}
+				},
+				"nutrientSources": {
+					"fat": "https://www.ghughessauce.com/honeymustard"
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://www.ghughessauce.com/honeymustard",
+					"labelImage": "https://images.squarespace-cdn.com/content/v1/69c0c34b670dc032541bcfd3/1776215764660-YCRNG5NFJKZ88C2IEA4B/026825000063_HMD_NFP.jpg",
+					"basis": "Manufacturer label: 1.5 g total fat per 30 g, converted to 5 g per 100 g. Calories and carbohydrate on rounded label can differ from 4/4/9."
+				},
+				"originalProductSource": "https://www.ghughessauce.com/honeymustard",
+				"macroSource": "https://www.ghughessauce.com/honeymustard"
 			},
 			{
 				"assumedMacroFields": [],
@@ -17049,7 +17175,7 @@
 			{
 				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0,
-				"source": "https://swervesweet.com/pages/faqs",
+				"source": "https://www.lakanto.com/products/brown-sugar-replacement",
 				"food": "ingredient-3",
 				"grams": 24,
 				"ingredientSnapshot": {
@@ -17058,9 +17184,9 @@
 					"unit": "g",
 					"state": "or other keto friendly sweetener"
 				},
-				"description": "Swerve erythritol sweetener: additional nutrients unobserved; publisher macros retained",
+				"description": "Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations.",
 				"nutrients": {
-					"fat": null,
+					"fat": 0,
 					"saturated_fat": null,
 					"cholesterol": null,
 					"sodium": null,
@@ -17088,10 +17214,11 @@
 					"selenium": null
 				},
 				"macros": {
-					"kcal": null,
-					"protein_g": null,
-					"carbs_g": null,
-					"fiber_g": null
+					"kcal": 0,
+					"protein_g": 0,
+					"carbs_g": 100,
+					"fiber_g": 0,
+					"erythritol_g": 100
 				},
 				"ingredientId": "ingredient-3",
 				"measurementBaseline": {
@@ -17107,7 +17234,25 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 24
-				}
+				},
+				"nutrientSources": {
+					"fat": "https://www.lakanto.com/products/brown-sugar-replacement"
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://www.lakanto.com/products/brown-sugar-replacement",
+					"labelImage": "https://www.lakanto.com/cdn/shop/files/RP-246-4_1lbBrownErythritolRender_Shadow_TransparentBackground_Back.png?v=1776120527",
+					"basis": "Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations."
+				},
+				"originalProductSource": "https://swervesweet.com/pages/faqs",
+				"carbExclusion": {
+					"nutrient": "erythritol_g",
+					"gramsPer100g": 100,
+					"source": "https://www.lakanto.com/products/brown-sugar-replacement",
+					"labelImage": "https://www.lakanto.com/cdn/shop/files/RP-246-4_1lbBrownErythritolRender_Shadow_TransparentBackground_Back.png?v=1776120527",
+					"basis": "Only documented erythritol is deducted from net carbohydrates; allulose and other sugar alcohols are not assumed."
+				},
+				"macroSource": "https://www.lakanto.com/products/brown-sugar-replacement"
 			},
 			{
 				"assumedMacroFields": [],
@@ -18696,13 +18841,13 @@
 				},
 				"food": "ingredient-4",
 				"grams": 18.89968208333333,
-				"description": "Hidden Valley dry ranch seasoning: micronutrients unobserved",
-				"source": "https://www.hiddenvalley.com/products/ranch-seasonings/seasoning-mix-packets/original-ranch-seasoning-mix-packet/",
+				"description": "USDA Our Family dry ranch dressing mix proxy for Hidden Valley dry seasoning; brands differ; rounded label observations.",
+				"source": "https://fdc.nal.usda.gov/food-details/2248025/nutrients",
 				"nutrients": {
-					"fat": null,
-					"saturated_fat": null,
-					"cholesterol": null,
-					"sodium": null,
+					"fat": 0,
+					"saturated_fat": 0,
+					"cholesterol": 0,
+					"sodium": 7500,
 					"vitamin_a": null,
 					"vitamin_c": null,
 					"vitamin_d": null,
@@ -18716,23 +18861,23 @@
 					"vitamin_b12": null,
 					"pantothenic_acid": null,
 					"choline": null,
-					"calcium": null,
-					"iron": null,
+					"calcium": 500,
+					"iron": 0,
 					"magnesium": null,
 					"phosphorus": null,
-					"potassium": null,
+					"potassium": 600,
 					"zinc": null,
 					"copper": null,
 					"manganese": null,
 					"selenium": null
 				},
 				"macros": {
-					"kcal": null,
-					"protein_g": null,
-					"carbs_g": null,
+					"kcal": 250,
+					"protein_g": 0,
+					"carbs_g": 50,
 					"fiber_g": 0
 				},
-				"assumedMacroFields": ["fiber_g"],
+				"assumedMacroFields": [],
 				"ingredientId": "ingredient-4",
 				"measurementBaseline": {
 					"grams": 18.89968208333333,
@@ -18747,7 +18892,15 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 18.89968208333333
-				}
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://fdc.nal.usda.gov/food-details/2248025/nutrients",
+					"basis": "USDA Our Family dry ranch dressing mix proxy for Hidden Valley dry seasoning; brands differ; rounded label observations."
+				},
+				"originalProductSource": "https://www.hiddenvalley.com/products/ranch-seasonings/seasoning-mix-packets/original-ranch-seasoning-mix-packet/",
+				"reviewedDataType": "Branded",
+				"macroSource": "https://fdc.nal.usda.gov/food-details/2248025/nutrients"
 			}
 		],
 		"source-skillet-creamy-lemon-chicken-with-cauliflower": [
@@ -23569,15 +23722,17 @@
 				}
 			},
 			{
-				"description": "Dry ranch seasoning; nutrient observations unavailable",
-				"source": "https://www.hiddenvalley.com/products/ranch-seasonings/seasoning-mix-packets/original-ranch-seasoning-mix-packet/",
+				"description": "USDA Our Family dry ranch dressing mix proxy for Hidden Valley dry seasoning; brands differ; rounded label observations.",
+				"source": "https://fdc.nal.usda.gov/food-details/2248025/nutrients",
 				"includedInPublisherBaseline": true,
-				"nutrients": {},
+				"nutrients": {
+					"fat": 0
+				},
 				"macros": {
-					"kcal": null,
-					"protein_g": null,
-					"carbs_g": null,
-					"fiber_g": null
+					"kcal": 250,
+					"protein_g": 0,
+					"carbs_g": 50,
+					"fiber_g": 0
 				},
 				"food": "ingredient-5",
 				"ingredientId": "ingredient-5",
@@ -23601,7 +23756,16 @@
 					"amount": 12,
 					"unit": "g",
 					"state": ""
-				}
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://fdc.nal.usda.gov/food-details/2248025/nutrients",
+					"basis": "USDA Our Family dry ranch dressing mix proxy for Hidden Valley dry seasoning; brands differ; rounded label observations."
+				},
+				"originalProductSource": "https://www.hiddenvalley.com/products/ranch-seasonings/seasoning-mix-packets/original-ranch-seasoning-mix-packet/",
+				"reviewedDataType": "Branded",
+				"macroSource": "https://fdc.nal.usda.gov/food-details/2248025/nutrients",
+				"assumedMacroFields": []
 			}
 		],
 		"source-asparagus-stuffed-chicken-low-carb-keto": [
@@ -31396,7 +31560,7 @@
 			{
 				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0,
-				"source": "https://swervesweet.com/pages/faqs",
+				"source": "https://www.lakanto.com/products/brown-sugar-replacement",
 				"food": "ingredient-10",
 				"grams": 12,
 				"ingredientSnapshot": {
@@ -31405,9 +31569,9 @@
 					"unit": "g",
 					"state": ""
 				},
-				"description": "Swerve erythritol sweetener: additional nutrients unobserved; publisher macros retained",
+				"description": "Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations.",
 				"nutrients": {
-					"fat": null,
+					"fat": 0,
 					"saturated_fat": null,
 					"cholesterol": null,
 					"sodium": null,
@@ -31435,10 +31599,11 @@
 					"selenium": null
 				},
 				"macros": {
-					"kcal": null,
-					"protein_g": null,
-					"carbs_g": null,
-					"fiber_g": null
+					"kcal": 0,
+					"protein_g": 0,
+					"carbs_g": 100,
+					"fiber_g": 0,
+					"erythritol_g": 100
 				},
 				"ingredientId": "ingredient-10",
 				"measurementBaseline": {
@@ -31454,7 +31619,25 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 12
-				}
+				},
+				"nutrientSources": {
+					"fat": "https://www.lakanto.com/products/brown-sugar-replacement"
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://www.lakanto.com/products/brown-sugar-replacement",
+					"labelImage": "https://www.lakanto.com/cdn/shop/files/RP-246-4_1lbBrownErythritolRender_Shadow_TransparentBackground_Back.png?v=1776120527",
+					"basis": "Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations."
+				},
+				"originalProductSource": "https://swervesweet.com/pages/faqs",
+				"carbExclusion": {
+					"nutrient": "erythritol_g",
+					"gramsPer100g": 100,
+					"source": "https://www.lakanto.com/products/brown-sugar-replacement",
+					"labelImage": "https://www.lakanto.com/cdn/shop/files/RP-246-4_1lbBrownErythritolRender_Shadow_TransparentBackground_Back.png?v=1776120527",
+					"basis": "Only documented erythritol is deducted from net carbohydrates; allulose and other sugar alcohols are not assumed."
+				},
+				"macroSource": "https://www.lakanto.com/products/brown-sugar-replacement"
 			},
 			{
 				"assumedMacroFields": [],
@@ -42895,7 +43078,7 @@
 			{
 				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0,
-				"source": "https://swervesweet.com/pages/faqs",
+				"source": "https://www.lakanto.com/products/brown-sugar-replacement",
 				"food": "ingredient-4",
 				"grams": 12,
 				"ingredientSnapshot": {
@@ -42904,9 +43087,9 @@
 					"unit": "g",
 					"state": ""
 				},
-				"description": "Swerve erythritol sweetener: additional nutrients unobserved; publisher macros retained",
+				"description": "Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations.",
 				"nutrients": {
-					"fat": null,
+					"fat": 0,
 					"saturated_fat": null,
 					"cholesterol": null,
 					"sodium": null,
@@ -42934,10 +43117,11 @@
 					"selenium": null
 				},
 				"macros": {
-					"kcal": null,
-					"protein_g": null,
-					"carbs_g": null,
-					"fiber_g": null
+					"kcal": 0,
+					"protein_g": 0,
+					"carbs_g": 100,
+					"fiber_g": 0,
+					"erythritol_g": 100
 				},
 				"ingredientId": "ingredient-4",
 				"measurementBaseline": {
@@ -42953,7 +43137,25 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 12
-				}
+				},
+				"nutrientSources": {
+					"fat": "https://www.lakanto.com/products/brown-sugar-replacement"
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://www.lakanto.com/products/brown-sugar-replacement",
+					"labelImage": "https://www.lakanto.com/cdn/shop/files/RP-246-4_1lbBrownErythritolRender_Shadow_TransparentBackground_Back.png?v=1776120527",
+					"basis": "Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations."
+				},
+				"originalProductSource": "https://swervesweet.com/pages/faqs",
+				"carbExclusion": {
+					"nutrient": "erythritol_g",
+					"gramsPer100g": 100,
+					"source": "https://www.lakanto.com/products/brown-sugar-replacement",
+					"labelImage": "https://www.lakanto.com/cdn/shop/files/RP-246-4_1lbBrownErythritolRender_Shadow_TransparentBackground_Back.png?v=1776120527",
+					"basis": "Only documented erythritol is deducted from net carbohydrates; allulose and other sugar alcohols are not assumed."
+				},
+				"macroSource": "https://www.lakanto.com/products/brown-sugar-replacement"
 			},
 			{
 				"assumedMacroFields": [],
@@ -45633,15 +45835,18 @@
 				}
 			},
 			{
-				"description": "Brown monkfruit sweetener; nutrient observations unavailable",
-				"source": "https://www.maebells.com/grilled-salmon-kabobs/",
+				"description": "Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations.",
+				"source": "https://www.lakanto.com/products/brown-sugar-replacement",
 				"includedInPublisherBaseline": true,
-				"nutrients": {},
+				"nutrients": {
+					"fat": 0
+				},
 				"macros": {
-					"kcal": null,
-					"protein_g": null,
-					"carbs_g": null,
-					"fiber_g": null
+					"kcal": 0,
+					"protein_g": 0,
+					"carbs_g": 100,
+					"fiber_g": 0,
+					"erythritol_g": 100
 				},
 				"food": "ingredient-7",
 				"ingredientId": "ingredient-7",
@@ -45665,7 +45870,27 @@
 					"amount": 12,
 					"unit": "g",
 					"state": ""
-				}
+				},
+				"nutrientSources": {
+					"fat": "https://www.lakanto.com/products/brown-sugar-replacement"
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://www.lakanto.com/products/brown-sugar-replacement",
+					"labelImage": "https://www.lakanto.com/cdn/shop/files/RP-246-4_1lbBrownErythritolRender_Shadow_TransparentBackground_Back.png?v=1776120527",
+					"basis": "Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations."
+				},
+				"assumedNutrientFields": ["fat"],
+				"originalProductSource": "https://www.maebells.com/grilled-salmon-kabobs/",
+				"carbExclusion": {
+					"nutrient": "erythritol_g",
+					"gramsPer100g": 100,
+					"source": "https://www.lakanto.com/products/brown-sugar-replacement",
+					"labelImage": "https://www.lakanto.com/cdn/shop/files/RP-246-4_1lbBrownErythritolRender_Shadow_TransparentBackground_Back.png?v=1776120527",
+					"basis": "Only documented erythritol is deducted from net carbohydrates; allulose and other sugar alcohols are not assumed."
+				},
+				"macroSource": "https://www.lakanto.com/products/brown-sugar-replacement",
+				"assumedMacroFields": []
 			}
 		],
 		"source-sheet-pan-butter-dill-salmon-with-asparagus": [
@@ -49928,15 +50153,18 @@
 				}
 			},
 			{
-				"description": "Brown monkfruit sweetener; nutrient observations unavailable",
-				"source": "https://www.maebells.com/keto-shrimp-and-broccoli/",
+				"description": "Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations.",
+				"source": "https://www.lakanto.com/products/brown-sugar-replacement",
 				"includedInPublisherBaseline": true,
-				"nutrients": {},
+				"nutrients": {
+					"fat": 0
+				},
 				"macros": {
-					"kcal": null,
-					"protein_g": null,
-					"carbs_g": null,
-					"fiber_g": null
+					"kcal": 0,
+					"protein_g": 0,
+					"carbs_g": 100,
+					"fiber_g": 0,
+					"erythritol_g": 100
 				},
 				"food": "ingredient-6",
 				"ingredientId": "ingredient-6",
@@ -49960,7 +50188,27 @@
 					"amount": 24,
 					"unit": "g",
 					"state": ""
-				}
+				},
+				"nutrientSources": {
+					"fat": "https://www.lakanto.com/products/brown-sugar-replacement"
+				},
+				"fatReview": {
+					"reviewedOn": "2026-10-15",
+					"source": "https://www.lakanto.com/products/brown-sugar-replacement",
+					"labelImage": "https://www.lakanto.com/cdn/shop/files/RP-246-4_1lbBrownErythritolRender_Shadow_TransparentBackground_Back.png?v=1776120527",
+					"basis": "Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations."
+				},
+				"assumedNutrientFields": ["fat"],
+				"originalProductSource": "https://www.maebells.com/keto-shrimp-and-broccoli/",
+				"carbExclusion": {
+					"nutrient": "erythritol_g",
+					"gramsPer100g": 100,
+					"source": "https://www.lakanto.com/products/brown-sugar-replacement",
+					"labelImage": "https://www.lakanto.com/cdn/shop/files/RP-246-4_1lbBrownErythritolRender_Shadow_TransparentBackground_Back.png?v=1776120527",
+					"basis": "Only documented erythritol is deducted from net carbohydrates; allulose and other sugar alcohols are not assumed."
+				},
+				"macroSource": "https://www.lakanto.com/products/brown-sugar-replacement",
+				"assumedMacroFields": []
 			}
 		],
 		"source-keto-parmesan-tilapia-and-asparagus-for-one": [
@@ -112183,28 +112431,30 @@
 	},
 	"omega3SourceNote": "Recorded ALA (USDA 1404), EPA (1278), and DHA (1272) grams per 100 g from the same USDA SR Legacy source foods. Missing observations are excluded; this is a lower bound, not a complete total.",
 	"apiRefresh": {
-		"retrievedAt": "2026-10-13T09:34:02.040Z",
+		"retrievedAt": "2026-10-15T22:52:47.295Z",
 		"endpoint": "https://api.nal.usda.gov/fdc/v1/food/{fdcId}",
 		"matchedFoodIds": [
-			167747, 167749, 167762, 167839, 167961, 168156, 168277, 168322, 168372,
-			168386, 168389, 168409, 168421, 168462, 168567, 168607, 168609, 169230,
-			169231, 169247, 169251, 169276, 169287, 169291, 169383, 169384, 169414,
-			169640, 169655, 169766, 169961, 169975, 169986, 169988, 169994, 169997,
-			170000, 170002, 170005, 170026, 170051, 170053, 170054, 170075, 170108,
-			170148, 170162, 170379, 170383, 170393, 170397, 170416, 170419, 170426,
-			170427, 170457, 170459, 170497, 170499, 170567, 170591, 170844, 170845,
-			170850, 170859, 170903, 170922, 170923, 170924, 170929, 170931, 170932,
-			170935, 170938, 171009, 171019, 171077, 171116, 171186, 171242, 171247,
-			171251, 171255, 171257, 171265, 171287, 171319, 171320, 171322, 171323,
-			171325, 171327, 171328, 171329, 171413, 171447, 171477, 171538, 171563,
-			171580, 171583, 171610, 171631, 171705, 171824, 171955, 172179, 172231,
-			172232, 172233, 172234, 172240, 172241, 172243, 172385, 172421, 172470,
-			172473, 172803, 172850, 172888, 173412, 173414, 173418, 173420, 173430,
-			173468, 173469, 173470, 173473, 173627, 173801, 173879, 173944, 174030,
-			174208, 174210, 174536, 174575, 174592, 174604, 174706, 174832, 174837,
-			175112, 175167, 175176, 175204, 2708722
+			167746, 167747, 167749, 167762, 167839, 167961, 168155, 168156, 168277,
+			168322, 168372, 168386, 168389, 168409, 168421, 168462, 168567, 168576,
+			168607, 168609, 168878, 169230, 169231, 169247, 169249, 169251, 169276,
+			169287, 169291, 169383, 169384, 169414, 169640, 169655, 169766, 169961,
+			169975, 169986, 169988, 169994, 169997, 170000, 170002, 170005, 170026,
+			170051, 170053, 170054, 170075, 170108, 170148, 170162, 170379, 170383,
+			170393, 170397, 170416, 170419, 170426, 170427, 170457, 170459, 170499,
+			170567, 170591, 170844, 170845, 170850, 170859, 170903, 170922, 170923,
+			170924, 170929, 170931, 170932, 170935, 170938, 171009, 171016, 171019,
+			171077, 171116, 171186, 171242, 171247, 171251, 171255, 171257, 171265,
+			171287, 171304, 171319, 171320, 171322, 171323, 171325, 171327, 171328,
+			171329, 171413, 171447, 171477, 171538, 171563, 171580, 171583, 171610,
+			171631, 171705, 171824, 171955, 172179, 172231, 172232, 172233, 172234,
+			172240, 172241, 172243, 172385, 172421, 172470, 172473, 172796, 172803,
+			172850, 172885, 172888, 173412, 173414, 173418, 173420, 173430, 173431,
+			173468, 173469, 173470, 173473, 173573, 173627, 173647, 173801, 173879,
+			173944, 174030, 174208, 174210, 174536, 174575, 174592, 174604, 174706,
+			174832, 174837, 174915, 175036, 175112, 175167, 175176, 175204, 2248025,
+			2708722
 		],
-		"refreshedRows": 1474,
+		"refreshedRows": 1698,
 		"skippedRows": [
 			{
 				"recipeId": "smoky-chicken-thighs-and-broccoli",
@@ -112227,6 +112477,11 @@
 				"reason": "hybrid brand/USDA profile"
 			},
 			{
+				"recipeId": "keto-zuppa-toscana",
+				"food": "xanthan",
+				"reason": "brand or composite profile"
+			},
+			{
 				"recipeId": "chicken-posole",
 				"food": "enchilada_sauce",
 				"reason": "brand or composite profile"
@@ -112239,11 +112494,6 @@
 			{
 				"recipeId": "source-sesame-chicken-keto-stir-fry",
 				"food": "ingredient-3",
-				"reason": "brand or composite profile"
-			},
-			{
-				"recipeId": "source-keto-slow-cooker-zesty-ranch-chicken",
-				"food": "ingredient-4",
 				"reason": "brand or composite profile"
 			},
 			{
@@ -112297,8 +112547,18 @@
 				"reason": "brand or composite profile"
 			},
 			{
+				"recipeId": "source-grilled-salmon-kabobs-with-greek-marinade",
+				"food": "ingredient-7",
+				"reason": "brand or composite profile"
+			},
+			{
 				"recipeId": "source-lobster-bisque-low-carb-keto",
 				"food": "ingredient-7",
+				"reason": "brand or composite profile"
+			},
+			{
+				"recipeId": "source-keto-shrimp-and-broccoli-recipe",
+				"food": "ingredient-6",
 				"reason": "brand or composite profile"
 			},
 			{
@@ -112387,7 +112647,7 @@
 				"reason": "brand or composite profile"
 			}
 		],
-		"policy": "Existing reviewed SR Legacy/FNDDS matches and observation sets only; no rematching, new zeros, cooking-retention factors or changes to edible weights. Brand/composite profiles, fortified yeast, assumed macro fields, omega-3 observations and supported publisher macros retained."
+		"policy": "Existing reviewed SR Legacy/FNDDS and explicitly reviewed Branded matches and observation sets only; no rematching, new zeros, cooking-retention factors or changes to edible weights. Brand/composite profiles, fortified yeast, assumed macro fields, omega-3 observations and supported publisher macros retained."
 	},
 	"familyOptions": {
 		"shawarma-chicken-bowls": [

@@ -103,6 +103,12 @@ it("recipes:check reports an edited and a missing assistant download as drift", 
 });
 
 it("every recipe is a meal or a smoothie: 140 meals and 6 smoothies", () => {
+	for (const recipe of data.recipes)
+		assert.equal(
+			Object.hasOwn(recipe, "group"),
+			false,
+			`${recipe.id}: static dietary groups are retired`,
+		);
 	const counts = Object.groupBy(data.recipes, (recipe) => recipe.type);
 	assert.deepEqual(
 		Object.fromEntries(

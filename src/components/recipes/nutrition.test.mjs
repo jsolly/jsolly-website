@@ -8,8 +8,8 @@ import {
 } from "./nutrition.mjs";
 import data from "./nutrition-data.json" with { type: "json" };
 import {
-	familyNutrition,
 	ingredientAmount,
+	sideNutrition,
 	smoothiePortionNutrition,
 } from "./recipe-logic.mjs";
 import recipes from "./recipes.json" with { type: "json" };
@@ -141,7 +141,10 @@ it("macros use observed nonlinear contributions and preserve the separate smooth
 			}
 			close(
 				actual.net_carbs_g,
-				Math.max(0, actual.carbs_g - actual.fiber_g),
+				Math.max(
+					0,
+					actual.carbs_g - actual.fiber_g - (actual.erythritol_g ?? 0),
+				),
 				`${recipe.id}/net carbs`,
 			);
 		}
@@ -206,22 +209,27 @@ it("bone-in pork nutrition retains 80 percent edible yield instead of counting b
 	);
 });
 
-it("family nutrition adds only one diner's measured starch for every supported batch", () => {
+it("side nutrition returns only one diner's canonical portion and measured fat", () => {
 	for (const recipe of recipes.recipes)
 		for (const option of recipe.familyOptions) {
+			const before = structuredClone(recipe);
 			const row = data.familyOptions[recipe.id].find(
 				(item) => item.ingredientId === option.id,
 			);
-			for (const count of [2, 4, 6, 8]) {
-				const base = macroNutrition(recipe, count, ingredientAmount);
-				const actual = familyNutrition(recipe, option.id, count);
-				for (const key of ["kcal", "protein_g", "carbs_g", "fiber_g"])
-					close(
-						actual[key] - base[key],
-						(row.macros[key] * row.grams) / 100,
-						`${recipe.id}/${option.id}/${key}`,
-					);
-			}
+			const actual = sideNutrition(recipe, option.id);
+			for (const key of ["kcal", "protein_g", "carbs_g", "fiber_g"])
+				close(
+					actual[key],
+					(row.macros[key] * row.grams) / 100,
+					`${recipe.id}/${option.id}/${key}`,
+				);
+			close(
+				actual.fat_g,
+				(row.nutrients.fat * row.grams) / 100,
+				`${recipe.id}/${option.id}/fat`,
+			);
+			assert.deepEqual(recipe, before);
+			assert.equal(sideNutrition(recipe, "missing"), null);
 		}
 });
 

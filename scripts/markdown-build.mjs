@@ -16,7 +16,7 @@ import { maintenanceMarkdown } from "../src/content/agent-pages.js";
 const TRAILING_SLASHES = /\/+$/u;
 const COMPLEX = "table, iframe, video, pre";
 const RECIPE_QUERY_NOTE =
-	"This is the canonical four-serving recipe in US measures. Servings, metric measures, family choices and filters are browser controls on the HTML page; query parameters do not change this static Markdown document.";
+	"This is the canonical four-serving recipe in US measures. Servings, metric measures, optional sides and filters are browser controls on the HTML page; query parameters do not change this static Markdown document.";
 
 /** Preserve authored complex HTML, code, destinations and fragment anchors. */
 export function pageMarkdown(html) {

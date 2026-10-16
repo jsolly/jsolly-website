@@ -16,7 +16,11 @@ import {
 	smoothieIngredientChoices,
 } from "./nutrient-filters.mjs";
 import { recordedOmega3 } from "./nutrition.mjs";
-import { ingredientAmount } from "./recipe-logic.mjs";
+import {
+	dietaryClass,
+	displayNutrition,
+	ingredientAmount,
+} from "./recipe-logic.mjs";
 import data from "./recipes.json" with { type: "json" };
 
 it("nutrition filters have usable intersections at all supported serving counts", () => {
@@ -64,12 +68,15 @@ it("protein and carb categories combine with nutrient criteria", () => {
 		).length,
 		0,
 	);
-	const shared = legacyRecipes.filter((r) =>
-		matchesRecipe(r, 4, { protein: ["chicken"], carb: ["shared"] }),
+	const ketoChicken = legacyRecipes.filter((r) =>
+		matchesRecipe(r, 4, { protein: ["chicken"], carb: ["keto"] }),
 	);
-	assert.equal(shared.length, 3);
+	assert.ok(ketoChicken.length > 0);
 	assert(
-		shared.every((r) => r.group === "shared" && r.proteinType === "chicken"),
+		ketoChicken.every(
+			(r) =>
+				displayNutrition(r).net_carbs_g <= 12.5 && r.proteinType === "chicken",
+		),
 	);
 });
 
@@ -127,33 +134,26 @@ it("multi-select uses OR within each filter and AND across filters; saved select
 	assert.deepEqual(normalizeSelection("rice", starchOptions), []);
 });
 
-it("each meal style the library offers selects that group's meals", () => {
-	const meals = legacyRecipes.filter((r) => r.type === "meal");
-	const ids = (style) =>
-		meals
-			.filter((r) => matchesRecipe(r, 4, { carb: [style] }))
-			.map((r) => r.id);
-	assert.deepEqual(ids("shared"), [
-		"shawarma-chicken-bowls",
-		"sheet-pan-chicken-fajitas",
-		"salsa-verde-shredded-chicken",
-		"greek-turkey-patties",
-		"pan-fried-greek-turkey-patties",
-	]);
-	assert.deepEqual(ids("nonketo"), [
-		"tomato-lentil-and-chicken-bake",
-		"harissa-chickpea-and-cauliflower-bowls",
-		"lemon-chicken-potatoes-and-green-beans",
-		"sheet-pan-gnocchi-white-beans-and-broccoli",
-		"chicken-posole",
-	]);
-	assert.deepEqual(ids("keto"), [
-		"lemon-salmon-and-asparagus",
-		"smoky-chicken-thighs-and-broccoli",
-		"pesto-cod-and-zucchini",
-		"spinach-feta-and-hemp-frittata",
-		"keto-zuppa-toscana",
-	]);
+it("binary dietary filters partition every recipe by base net carbohydrates", () => {
+	for (const recipe of data.recipes) {
+		const expected =
+			displayNutrition(recipe).net_carbs_g <= 12.5 ? "keto" : "nonketo";
+		assert.equal(dietaryClass(recipe), expected, recipe.id);
+		for (const servings of [2, 4, 6, 8]) {
+			assert.equal(
+				matchesRecipe(recipe, servings, { carb: [expected] }),
+				true,
+				recipe.id,
+			);
+			assert.equal(
+				matchesRecipe(recipe, servings, {
+					carb: [expected === "keto" ? "nonketo" : "keto"],
+				}),
+				false,
+				recipe.id,
+			);
+		}
+	}
 });
 
 it("appliance inventory honors counts and explicit heat sources, and validates saved counts", () => {
@@ -266,7 +266,7 @@ it("saved library settings restore as saved when every value is still offered", 
 			proteinChoice: ["fish", "turkey"],
 			starchChoice: ["bread"],
 			ingredientChoice: ["hemp"],
-			mealStyle: "shared",
+			mealStyle: "keto",
 			smoothieKetoOnly: true,
 			immuneSupport: true,
 			ironRich: true,
@@ -373,6 +373,6 @@ it("dump and go requires explicit audited data and keeps other filters applied",
 	assert.equal(
 		parseSavedSettings({ filters: { mealStyle: "nonketo" } }, context).filters
 			.mealStyle,
-		"all",
+		"nonketo",
 	);
 });

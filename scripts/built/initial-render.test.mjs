@@ -112,13 +112,17 @@ async function auditPath(path, width, colorScheme) {
 		const page = await context.newPage();
 		const errors = collectErrors(page, { warnings: true });
 		await page.goto(`${site.origin}${path}`, { waitUntil: "commit" });
-		await page.locator("main h1").first().waitFor();
+		await page.locator("main h1").first().waitFor({ state: "attached" });
 		await page.waitForFunction(() =>
 			[...document.querySelectorAll("link")]
 				.filter((link) => link.rel === "stylesheet")
 				.every((link) => link.sheet),
 		);
 		await page.evaluate(() => document.fonts.ready);
+		const preferences = page.locator("[data-preferences-ready]");
+		const preferencesInitiallyVisible = path.startsWith("/recipes/")
+			? await preferences.isVisible()
+			: null;
 		const initial = await firstPaint(page);
 
 		await page.evaluate(() => {
@@ -132,13 +136,23 @@ async function auditPath(path, width, colorScheme) {
 		await page.waitForFunction(
 			() => !document.querySelector("astro-island[ssr]"),
 		);
+		const preferencesHydratedVisible = path.startsWith("/recipes/")
+			? await preferences.isVisible()
+			: null;
 		const hydrated = await firstPaint(page);
 		const controlsReady = await page.evaluate(() =>
 			window.initialRecipeControls.every(
 				(node) => node.isConnected && !node.disabled,
 			),
 		);
-		return { initial, hydrated, controlsReady, errors };
+		return {
+			initial,
+			hydrated,
+			controlsReady,
+			errors,
+			preferencesInitiallyVisible,
+			preferencesHydratedVisible,
+		};
 	} finally {
 		release();
 		await context.close();
@@ -152,10 +166,24 @@ for (const width of [390, 1280]) {
 		}, async () => {
 			for (const path of paths) {
 				// biome-ignore lint/performance/noAwaitInLoops: Limit resource usage while measuring each page independently.
-				const { initial, hydrated, controlsReady, errors } = await auditPath(
-					path,
-					width,
-					colorScheme,
+				const result = await auditPath(path, width, colorScheme);
+				const {
+					initial,
+					hydrated,
+					controlsReady,
+					errors,
+					preferencesInitiallyVisible,
+					preferencesHydratedVisible,
+				} = result;
+				assert.equal(
+					preferencesInitiallyVisible,
+					path.startsWith("/recipes/") ? false : null,
+					`${path}: preference-dependent content waits for settings`,
+				);
+				assert.equal(
+					preferencesHydratedVisible,
+					path.startsWith("/recipes/") ? true : null,
+					`${path}: resolved preferences reveal content`,
 				);
 				assert.equal(
 					initial.categoriesVisible,

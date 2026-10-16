@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { after, before, it } from "node:test";
 import { chromium } from "playwright";
 import {
-	carbStyles,
+	dietaryPreferences,
 	mealStyleDescriptions,
 } from "../../src/components/recipes/constants.mjs";
 import { collectErrors, serveStatic } from "./pages.mjs";
@@ -25,7 +25,7 @@ const RECIPES = new URL(
 const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
 const meals = recipes.filter((recipe) => recipe.type === "meal");
 const mealCount = meals.length;
-const MEAL_STYLES = ["keto", "shared", "all"];
+const MEAL_STYLES = ["keto", "nonketo", "all"];
 // The meals that need both air fryers.
 const AIR_FRYER_MEALS = recipes
 	.filter((recipe) => recipe.appliancesNeeded.includes("Two air fryers"))
@@ -38,7 +38,7 @@ const WIDTHS = [390, 1280];
 const HEIGHT = 900;
 // A wrapping label names a select after its text and its current option.
 const SERVINGS = /^Servings/u;
-const FAMILY_SIDE = /^Family side/u;
+const FAMILY_SIDE = /^Add a side/u;
 const VITAMINS = /^Vitamins & minerals/u;
 const PROTEINS = /^Proteins:/u;
 const CARBS = /^Carbs:/u;
@@ -49,7 +49,7 @@ const EIGHT_SERVINGS_CHICKEN = /3 lb/u;
 const RICE_SIDE = /5.64 oz Cooked rice/u;
 const TWO_SERVINGS_CHICKEN = /11.99 oz/u;
 const SMOOTHIE_YIELD = /up to two servings/u;
-const GLASS_NUTRITION = /Nutrition\s*per 8 oz glass/u;
+const GLASS_NUTRITION = /Nutrition\s*per estimated 8 fl oz \(237 mL\) glass/u;
 const EIGHT_SERVINGS_WATER = /27.05 fl oz Cold water/u;
 const EIGHT_SERVINGS = /8\s+servings/u;
 // Longer than the help popover's 120ms close delay.
@@ -391,6 +391,7 @@ function filtersCheck(width) {
 				styles.push({
 					style,
 					cards: await cards(),
+					ids: await shownIds(),
 					description: await page.locator(".style-filter small").textContent(),
 				});
 			}
@@ -401,7 +402,21 @@ function filtersCheck(width) {
 					cards:
 						style === "all"
 							? mealCount
-							: meals.filter((recipe) => recipe.group === style).length,
+							: meals.filter(
+									(recipe) =>
+										(recipe.nutrition.net_carbs_g <= 12.5
+											? "keto"
+											: "nonketo") === style,
+								).length,
+					ids: meals
+						.filter(
+							(recipe) =>
+								style === "all" ||
+								(recipe.nutrition.net_carbs_g <= 12.5 ? "keto" : "nonketo") ===
+									style,
+						)
+						.map((recipe) => recipe.id)
+						.sort(),
 					description: mealStyleDescriptions[style],
 				})),
 			);
@@ -409,11 +424,7 @@ function filtersCheck(width) {
 				await mealStyle
 					.locator("option")
 					.evaluateAll((options) => options.map((option) => option.value)),
-				[
-					"all",
-					...Object.keys(carbStyles).filter((key) => key !== "nonketo"),
-					"vegetarian",
-				],
+				["all", ...Object.keys(dietaryPreferences)],
 			);
 			await mealStyle.selectOption("vegetarian");
 			assert.deepEqual(

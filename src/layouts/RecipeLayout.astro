@@ -23,13 +23,17 @@ interface Props {
 	description: string;
 	article?: boolean;
 	noindex?: boolean;
+	image?: string;
+	imageAlt?: string;
 }
 
-const { title, description, article = false, noindex = false } = Astro.props;
+const { title, description, article = false, noindex = false, image, imageAlt } = Astro.props;
 ---
 
-<BlogLayout section="recipes" {title} {description} {article} {noindex}>
+<BlogLayout section="recipes" {title} {description} {article} {noindex} {...(image === undefined ? {} : { image })} {...(imageAlt === undefined ? {} : { imageAlt })}>
 	<Fragment slot="head">
+		<link rel="related" type="application/json" href="/recipes/data/recipe-library.json" title="Complete recipe library: ingredients, instructions, nutrition and sources" />
+		<link rel="help" type="text/plain" href="/llms.txt" title="Agent reading guide" />
 		<noscript><link rel="stylesheet" href={noScriptStyles} /></noscript>
 		<link rel="manifest" href={`${PWA_FILES_PATH}manifest.webmanifest`} />
 		<meta name="theme-color" content={PWA_THEME_COLOR} />

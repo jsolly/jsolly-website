@@ -1,9 +1,11 @@
 import assert from "node:assert/strict";
-import { mkdir, readFile } from "node:fs/promises";
+import { mkdir } from "node:fs/promises";
 import { after, before, it } from "node:test";
 import { chromium } from "playwright";
 import { defaultAppliances } from "../../src/components/recipes/constants.mjs";
 import { collectErrors, serveStatic } from "./pages.mjs";
+
+const DOWNLOAD_BUTTON = /^Download (?:Markdown|JSON)$/u;
 
 let site;
 let browser;
@@ -30,13 +32,12 @@ const WEIGHING = /0.78 g/u;
 const ready = (page) =>
 	page.waitForFunction(() => !document.querySelector("astro-island[ssr]"));
 function verifyUnits(width) {
-	it(`units persist across pages, links, dialog, print and downloads at ${width}px`, {
+	it(`units persist across pages, links, dialog and print at ${width}px`, {
 		timeout: 90_000,
 	}, async () => {
 		const context = await browser.newContext({
 			viewport: { width, height: 900 },
 			reducedMotion: "reduce",
-			acceptDownloads: true,
 		});
 		const page = await context.newPage();
 		const errors = collectErrors(page, { warnings: true });
@@ -91,34 +92,16 @@ function verifyUnits(width) {
 				});
 				await page.emulateMedia({ colorScheme: "light" });
 			}
-			const downloaded = page.waitForEvent("download");
-			await page
-				.getByRole("button", { name: "Download JSON", exact: true })
-				.click();
-			const file = await downloaded;
-			const bundle = JSON.parse(await readFile(await file.path(), "utf8"));
-			assert.equal(bundle.settings.units, "grams");
-			assert.equal(bundle.settings.servings, 2);
-			assert.equal(bundle.recipes[0].ingredients[0].quantity, "340 g");
-			assert.equal(Object.hasOwn(bundle, "measurementPolicy"), false);
 			assert.equal(
-				Object.hasOwn(bundle.recipes[0], "measurementPolicy"),
-				false,
+				await page
+					.getByRole("button", { name: "Print recipe", exact: true })
+					.count(),
+				1,
 			);
-			assert.ok(
-				bundle.recipes[0].ingredients.find(
-					(row) => row.name === "Garlic powder",
-				).source,
+			assert.equal(
+				await page.getByRole("button", { name: DOWNLOAD_BUTTON }).count(),
+				0,
 			);
-			const markdownDownload = page.waitForEvent("download");
-			await page
-				.getByRole("button", { name: "Download Markdown", exact: true })
-				.click();
-			const markdownFile = await markdownDownload;
-			const markdown = await readFile(await markdownFile.path(), "utf8");
-			assert.ok(markdown.includes("Grams measures"));
-			assert.ok(markdown.includes("- 340 g Skin-on salmon fillets"));
-			assert.ok(!markdown.includes("weight unavailable"));
 
 			await page.emulateMedia({ media: "print" });
 			assert.match(
@@ -328,7 +311,6 @@ it("individual recipe controls recover corrupt preferences and remain enabled wh
 // USDA broth 174536 is 249 g/cup; white wine 174837 is 29.4 g/fl oz.
 // Water uses the reviewed 1 g/mL cooking convention and NIST 236.5882365 mL/cup.
 const LIQUID_CHOICES = ["chicken broth", "Water", "White wine"];
-const LIQUID_GRAMS = [249 / 4, 236.5882365 / 4, 29.4 * 2];
 const LIQUID_DISPLAYS = {
 	2: { grams: ["31 g", "30 g", "29 g"], metric: "30 mL", us: "⅛ cup" },
 	4: { grams: ["62 g", "59 g", "59 g"], metric: "59 mL", us: "¼ cup" },
@@ -336,16 +318,15 @@ const LIQUID_DISPLAYS = {
 	8: { grams: ["125 g", "118 g", "118 g"], metric: "118 mL", us: "½ cup" },
 };
 
-// biome-ignore-start lint/performance/noAwaitInLoops: each selection and download verifies the same live recipe state before changing it.
+// biome-ignore-start lint/performance/noAwaitInLoops: each selection verifies the same live recipe state before changing it.
 function verifyAlternatives(width) {
-	it(`liquid alternatives survive screen, print and downloads in every mode and serving size at ${width}px`, {
+	it(`liquid alternatives survive screen and print in every mode and serving size at ${width}px`, {
 		timeout: 120_000,
 	}, async () => {
 		const context = await browser.newContext({
 			viewport: { width, height: 900 },
 			serviceWorkers: "block",
 			reducedMotion: "reduce",
-			acceptDownloads: true,
 		});
 		const page = await context.newPage();
 		const errors = collectErrors(page, { warnings: true });
@@ -364,7 +345,6 @@ function verifyAlternatives(width) {
 			const units = page.getByRole("combobox", { name: UNIT_CONTROL });
 			const servings = page.getByRole("combobox", { name: SERVINGS });
 			for (const count of [2, 4, 6, 8]) {
-				// A fresh document resets Chromium's repeated-download limiter.
 				await page.reload();
 				await ready(page);
 				await servings.selectOption(String(count));
@@ -401,64 +381,6 @@ function verifyAlternatives(width) {
 						LIQUID_CHOICES,
 					);
 					await page.emulateMedia({ media: "screen" });
-					const jsonDownload = page.waitForEvent("download");
-					await page
-						.getByRole("button", { name: "Download JSON", exact: true })
-						.click();
-					const bundle = JSON.parse(
-						await readFile(await (await jsonDownload).path(), "utf8"),
-					);
-					assert.equal(bundle.settings.units, mode);
-					assert.equal(bundle.settings.servings, count);
-					const document = bundle.recipes[0];
-					const ingredient = document.ingredients.find(
-						(item) => item.name === LIQUID_CHOICES[0],
-					);
-					const choices = [ingredient, ...ingredient.alternatives];
-					assert.deepEqual(
-						choices.map((choice) => choice.name),
-						LIQUID_CHOICES,
-					);
-					assert.deepEqual(
-						choices.map((choice) => choice.quantity),
-						quantities,
-					);
-					for (const [index, choice] of choices.entries())
-						assert.ok(
-							Math.abs(choice.grams - (LIQUID_GRAMS[index] * count) / 4) < 1e-9,
-						);
-					const cell = document.cookingFlow.rows
-						.flat()
-						.find(
-							(item) =>
-								item.kind === "ingredient" && item.name === LIQUID_CHOICES[0],
-						);
-					assert.deepEqual(
-						cell.alternatives.map((choice) => choice.name),
-						LIQUID_CHOICES.slice(1),
-					);
-					assert.deepEqual(
-						[cell.text, ...cell.alternatives.map((choice) => choice.quantity)],
-						quantities,
-					);
-					const markdownDownload = page.waitForEvent("download");
-					await page
-						.getByRole("button", { name: "Download Markdown", exact: true })
-						.click();
-					const markdown = await readFile(
-						await (await markdownDownload).path(),
-						"utf8",
-					);
-					assert.ok(
-						markdown.includes(
-							`- ${quantities[0]} chicken broth or ${quantities[1]} Water or ${quantities[2]} White wine`,
-						),
-					);
-					assert.ok(
-						markdown.includes(
-							`<strong>${quantities[0]}</strong> chicken broth or <strong>${quantities[1]}</strong> Water or <strong>${quantities[2]}</strong> White wine`,
-						),
-					);
 				}
 			}
 			assert.deepEqual(applicationErrors(errors), []);

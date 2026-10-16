@@ -2,12 +2,13 @@ import MiniSearch from "minisearch";
 import {
 	applianceChoices,
 	BASE_SERVINGS,
-	carbStyles,
+	dietaryLabels,
 	nutritionHighlights,
 	proteins,
 	starchTypes,
 } from "./constants.mjs";
 import { nutrientFilters } from "./nutrient-filters.mjs";
+import { dietaryClass } from "./recipe-logic.mjs";
 
 // Index cooking content, including nested steps and family sides, without
 // exposing internal IDs, image paths or provenance URLs as search terms.
@@ -61,7 +62,7 @@ export function createRecipeSearch(recipes, servings = BASE_SERVINGS) {
 				Object.entries(nutrientFilters(recipe, servings))
 					.filter(([, matches]) => matches)
 					.map(([key]) => nutritionHighlights[key]?.label),
-				carbStyles[recipe.group],
+				dietaryLabels[dietaryClass(recipe)],
 				proteins[recipe.proteinType],
 				recipe.appliancesNeeded.map((name) => applianceChoices[name]),
 				recipe.starches.map((name) => starchTypes[name]),

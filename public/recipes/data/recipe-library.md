@@ -1,6 +1,6 @@
 # Easy Meals recipe library
 
-146 recipes, including household recipes and adaptations from linked publishers. Ingredient quantities use four portions; whole-bird recipes round up to complete batches. Keto bases are shown without family starch; separate measured per-person options accompany shared recipes. Adaptations have not been kitchen-tested.
+146 recipes, including household recipes and adaptations from linked publishers. Ingredient quantities use four portions; whole-bird recipes round up to complete batches. Dietary labels classify the base recipe at no more than 12.5 g net carbs per serving for Keto, otherwise Not keto. Optional measured per-person sides default to none and their nutrition is separate. Adaptations have not been kitchen-tested.
 
 ## Lemon salmon and asparagus
 
@@ -76,9 +76,13 @@ If either basket cannot hold its full batch, use two half-sheet pans at 425°F: 
 
 ### Nutrition per serving
 
-Calories: 468 kcal; protein: 39.0 g; total carbs: 6.1 g; fiber: 2.8 g; net carbs: 3.3 g
+per serving (1/4 of prepared batch)
 
-Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 468 kcal; protein: 39.0 g; fat: 32.2 g; total carbs: 6.1 g; fiber: 2.8 g; net carbs: 3.3 g
+
+Per adult: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Known allergens for these plates: fish. Check product labels and cross-contact.
 
@@ -184,9 +188,13 @@ If baskets cannot hold the batch, use two oven pans at 425°F for about 20–25 
 
 ### Nutrition per serving
 
-Calories: 317 kcal; protein: 37.9 g; total carbs: 9.6 g; fiber: 3.8 g; net carbs: 5.8 g
+per serving (1/4 of prepared batch)
 
-Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 317 kcal; protein: 37.9 g; fat: 14.3 g; total carbs: 9.6 g; fiber: 3.8 g; net carbs: 5.8 g
+
+Per adult: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
 
@@ -288,9 +296,13 @@ Separating wet zucchini keeps cod from steaming in vegetable liquid; pesto stays
 
 ### Nutrition per serving
 
-Calories: 328 kcal; protein: 33.9 g; total carbs: 7.2 g; fiber: 2.3 g; net carbs: 4.9 g
+per serving (1/4 of prepared batch)
 
-Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 328 kcal; protein: 33.9 g; fat: 15.7 g; total carbs: 7.2 g; fiber: 2.3 g; net carbs: 4.9 g
+
+Per adult: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Known allergens for these plates: fish, milk, tree-nuts. Check product labels and cross-contact.
 
@@ -406,9 +418,13 @@ Dry spinach prevents a watery center; feta, hemp, and yeast add savory depth.
 
 ### Nutrition per serving
 
-Calories: 408 kcal; protein: 30.3 g; total carbs: 10.0 g; fiber: 5.0 g; net carbs: 5.0 g
+per serving (1/4 of prepared batch)
 
-Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 408 kcal; protein: 30.3 g; fat: 28.4 g; total carbs: 10.0 g; fiber: 5.0 g; net carbs: 5.0 g
+
+Per adult: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Known allergens for these plates: egg, milk. Check product labels and cross-contact.
 
@@ -522,9 +538,13 @@ Chicken sausage and turkey bacon replace pork, and cauliflower stands in for pot
 
 ### Nutrition per serving
 
-Calories: 232 kcal; protein: 13.5 g; total carbs: 8.0 g; fiber: 1.8 g; net carbs: 6.1 g
+per serving (1/4 of prepared batch)
 
-Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 232 kcal; protein: 13.5 g; fat: 16.8 g; total carbs: 8.0 g; fiber: 1.8 g; net carbs: 6.1 g
+
+Per adult: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -556,7 +576,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Shawarma chicken bowls
 
-4 adult servings · US imperial measures · shared · 14 min active per base batch · 40 min
+4 adult servings · US imperial measures · keto · 14 min active per base batch · 40 min
 
 Shawarma-spiced chicken, cauliflower and lemon yogurt.
 
@@ -600,7 +620,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - 5.01 oz Salad greens — washed, ready to eat
 
-### Family starch options (per non-keto adult)
+### Optional side choices (per diner)
 
 - Cooked rice: 2.82 oz Cooked rice — fully cooked, ready to heat. Heat ready-cooked rice.
 
@@ -646,9 +666,13 @@ Warm spices coat small chicken pieces and cauliflower; cold lemon yogurt balance
 
 ### Nutrition per serving
 
-Calories: 339 kcal; protein: 39.7 g; total carbs: 11.7 g; fiber: 3.8 g; net carbs: 7.9 g
+per serving (1/4 of prepared batch)
 
-Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 339 kcal; protein: 39.7 g; fat: 15.1 g; total carbs: 11.7 g; fiber: 3.8 g; net carbs: 7.9 g
+
+Per adult: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -676,7 +700,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Sheet-pan chicken fajitas
 
-4 adult servings · US imperial measures · shared · 14 min active per base batch · 40 min
+4 adult servings · US imperial measures · keto · 14 min active per base batch · 40 min
 
 Chicken fajitas with roasted peppers and onions.
 
@@ -718,7 +742,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - 2.12 oz Plain strained Greek yogurt — plain, strained. At least 9 g protein and no more than 4 g total carbs per 100 g.
 
-### Family starch options (per non-keto adult)
+### Optional side choices (per diner)
 
 - Corn tortillas: 1.76 oz Corn tortillas — ready to eat; warm according to package. Two 6-inch tortillas totaling about 1.76 oz per non-keto diner; check the package for wheat or gluten cross-contact. Serve alongside the bowl or fill with part of the filling; two small tortillas will not hold the whole meal.
 
@@ -762,9 +786,13 @@ Roasting spaced strips concentrates pepper flavor; lime, avocado, and yogurt rou
 
 ### Nutrition per serving
 
-Calories: 378 kcal; protein: 37.5 g; total carbs: 13.0 g; fiber: 5.9 g; net carbs: 7.1 g
+per serving (1/4 of prepared batch)
 
-Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 378 kcal; protein: 37.5 g; fat: 20.3 g; total carbs: 13.0 g; fiber: 5.9 g; net carbs: 7.1 g
+
+Per adult: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -792,7 +820,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Salsa verde shredded chicken
 
-4 adult servings · US imperial measures · shared · 15 min active per base batch · 45 min
+4 adult servings · US imperial measures · keto · 15 min active per base batch · 45 min
 
 Salsa verde chicken with avocado and cabbage slaw.
 
@@ -826,7 +854,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - 2.12 oz Plain strained Greek yogurt — plain, strained. At least 9 g protein and no more than 4 g total carbs per 100 g.
 
-### Family starch options (per non-keto adult)
+### Optional side choices (per diner)
 
 - Cooked rice: 2.82 oz Cooked rice — fully cooked, ready to heat. Heat ready-cooked rice.
 
@@ -878,9 +906,13 @@ Salsa after pressure cooking keeps its tang and meets the cooker’s need for th
 
 ### Nutrition per serving
 
-Calories: 327 kcal; protein: 38.6 g; total carbs: 13.9 g; fiber: 5.5 g; net carbs: 8.4 g
+per serving (1/4 of prepared batch)
 
-Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 327 kcal; protein: 38.6 g; fat: 13.3 g; total carbs: 13.9 g; fiber: 5.5 g; net carbs: 8.4 g
+
+Per adult: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -916,7 +948,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Greek turkey patties
 
-4 adult servings · US imperial measures · shared · 15 min active per base batch · 40 min
+4 adult servings · US imperial measures · keto · 15 min active per base batch · 40 min
 
 Greek turkey patties with cucumber salad and yogurt.
 
@@ -958,7 +990,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - 0.53 oz Lemon juice — unsweetened
 
-### Family starch options (per non-keto adult)
+### Optional side choices (per diner)
 
 - Pita: 2.12 oz Pita — ready to eat; warm briefly. One ready-to-eat 2.12 oz pita per non-keto diner; warm briefly. Contains wheat; check package. Serve pita alongside both patties and salad.
 
@@ -1004,9 +1036,13 @@ If patties do not fit with gaps, bake on half-sheet pans at 425°F for about 18�
 
 ### Nutrition per serving
 
-Calories: 378 kcal; protein: 39.9 g; total carbs: 7.7 g; fiber: 2.3 g; net carbs: 5.4 g
+per serving (1/4 of prepared batch)
 
-Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 378 kcal; protein: 39.9 g; fat: 21.4 g; total carbs: 7.7 g; fiber: 2.3 g; net carbs: 5.4 g
+
+Per adult: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Known allergens for these plates: egg, milk. Check product labels and cross-contact.
 
@@ -1116,9 +1152,13 @@ A tight foil cover and tomato liquid keep precooked chicken moist while lentils 
 
 ### Nutrition per serving
 
-Calories: 380 kcal; protein: 41.4 g; total carbs: 30.9 g; fiber: 12.6 g; net carbs: 18.2 g
+per serving (1/4 of prepared batch)
 
-Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 380 kcal; protein: 41.4 g; fat: 10.7 g; total carbs: 30.9 g; fiber: 12.6 g; net carbs: 18.2 g
+
+Per adult: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -1226,9 +1266,13 @@ Cumin-roasted cauliflower and soft-centered chickpeas meet a cold lemon-harissa 
 
 ### Nutrition per serving
 
-Calories: 426 kcal; protein: 28.9 g; total carbs: 45.5 g; fiber: 12.1 g; net carbs: 33.5 g
+per serving (1/4 of prepared batch)
 
-Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 426 kcal; protein: 28.9 g; fat: 15.8 g; total carbs: 45.5 g; fiber: 12.1 g; net carbs: 33.5 g
+
+Per adult: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -1348,9 +1392,13 @@ The same lemon, garlic and oregano oil seasons the chicken and both vegetables. 
 
 ### Nutrition per serving
 
-Calories: 423 kcal; protein: 39.6 g; total carbs: 34.9 g; fiber: 6.8 g; net carbs: 28.0 g
+per serving (1/4 of prepared batch)
 
-Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 423 kcal; protein: 39.6 g; fat: 14.2 g; total carbs: 34.9 g; fiber: 6.8 g; net carbs: 28.0 g
+
+Per adult: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
 
@@ -1468,9 +1516,15 @@ Roasted shelf-stable gnocchi stays tender inside; later beans avoid drying, whil
 
 ### Nutrition per serving
 
-Calories: 604 kcal; protein: 26.7 g; total carbs: 81.5 g; fiber: 11.9 g; net carbs: 69.6 g
+per serving (1/4 of prepared batch)
 
-Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 604 kcal; protein: 26.7 g; fat: 20.5 g; total carbs: 81.5 g; fiber: 11.9 g; net carbs: 69.6 g
+
+Per adult: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
+
+Use the same DeLallo shelf-stable product as the macro profile: label reports 0 g total fat per 140 g. Replaces USDA prepared gnocchi 6.33 g per 100 g, which mismatched the brand calories and carbohydrate.
 
 Known allergens for these plates: milk, wheat. Check product labels and cross-contact.
 
@@ -1506,7 +1560,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Pan-fried Greek turkey patties
 
-4 adult servings · US imperial measures · shared · 30 min active per base batch · 40 min
+4 adult servings · US imperial measures · keto · 30 min active per base batch · 40 min
 
 Pan-fried turkey-feta patties with cucumber salad and lemon yogurt.
 
@@ -1548,7 +1602,7 @@ Ingredients are scaled; keep food thickness, spacing, settings and safe endpoint
 
 - 0.53 oz Lemon juice — unsweetened
 
-### Family starch options (per non-keto adult)
+### Optional side choices (per diner)
 
 - Pita: 2.12 oz Pita — ready to eat; warm briefly. One ready-to-eat 2.12 oz pita per non-keto diner; warm briefly. Contains wheat; check package. Serve pita alongside both patties and salad.
 
@@ -1592,9 +1646,13 @@ Ground flax binds the turkey; feta and lemon yogurt keep a lean patty from tasti
 
 ### Nutrition per serving
 
-Calories: 378 kcal; protein: 39.9 g; total carbs: 7.7 g; fiber: 2.3 g; net carbs: 5.4 g
+per serving (1/4 of prepared batch)
 
-Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 378 kcal; protein: 39.9 g; fat: 21.4 g; total carbs: 7.7 g; fiber: 2.3 g; net carbs: 5.4 g
+
+Per adult: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Known allergens for these plates: egg, milk. Check product labels and cross-contact.
 
@@ -1678,11 +1736,15 @@ Greek yogurt gives the smoothie body and a tangy finish.
 
 - Use chilled or frozen fruit for a cold smoothie.
 
-### Nutrition per 8 oz glass
+### Nutrition per 8 fl oz (237 mL) glass
 
-Calories: 158 kcal; protein: 9.4 g; total carbs: 9.8 g; fiber: 4.6 g; net carbs: 5.2 g
+per estimated 8 fl oz (237 mL) glass
 
-This batch makes about 5.4 eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume. Estimated from ingredient mass using approximately 1 g/ml for the blended mixture. Finished volume has not been measured; aeration, blender retention and extra liquid affect yield. Per estimated glass: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 158 kcal; protein: 9.4 g; fat: 10.1 g; total carbs: 9.8 g; fiber: 4.6 g; net carbs: 5.2 g
+
+This batch makes about 5.4 eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume. Estimated from ingredient mass using approximately 1 g/ml for the blended mixture. Finished volume has not been measured; aeration, blender retention and extra liquid affect yield. Per estimated glass: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -1760,11 +1822,15 @@ Greek yogurt gives the smoothie body and a tangy finish.
 
 - Use chilled or frozen fruit for a cold smoothie.
 
-### Nutrition per 8 oz glass
+### Nutrition per 8 fl oz (237 mL) glass
 
-Calories: 159 kcal; protein: 9.7 g; total carbs: 10.8 g; fiber: 4.8 g; net carbs: 6.0 g
+per estimated 8 fl oz (237 mL) glass
 
-This batch makes about 5.2 eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume. Estimated from ingredient mass using approximately 1 g/ml for the blended mixture. Finished volume has not been measured; aeration, blender retention and extra liquid affect yield. Per estimated glass: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 159 kcal; protein: 9.7 g; fat: 9.5 g; total carbs: 10.8 g; fiber: 4.8 g; net carbs: 6.0 g
+
+This batch makes about 5.2 eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume. Estimated from ingredient mass using approximately 1 g/ml for the blended mixture. Finished volume has not been measured; aeration, blender retention and extra liquid affect yield. Per estimated glass: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -1840,11 +1906,15 @@ Greek yogurt gives the smoothie body and a tangy finish.
 
 - Use chilled or frozen fruit for a cold smoothie.
 
-### Nutrition per 8 oz glass
+### Nutrition per 8 fl oz (237 mL) glass
 
-Calories: 117 kcal; protein: 8.1 g; total carbs: 19.1 g; fiber: 2.6 g; net carbs: 16.4 g
+per estimated 8 fl oz (237 mL) glass
 
-This batch makes about 8.5 eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume. Estimated from ingredient mass using approximately 1 g/ml for the blended mixture. Finished volume has not been measured; aeration, blender retention and extra liquid affect yield. Per estimated glass: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 117 kcal; protein: 8.1 g; fat: 1.7 g; total carbs: 19.1 g; fiber: 2.6 g; net carbs: 16.4 g
+
+This batch makes about 8.5 eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume. Estimated from ingredient mass using approximately 1 g/ml for the blended mixture. Finished volume has not been measured; aeration, blender retention and extra liquid affect yield. Per estimated glass: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -1920,11 +1990,15 @@ Greek yogurt gives the smoothie body and a tangy finish.
 
 - Use chilled or frozen fruit for a cold smoothie.
 
-### Nutrition per 8 oz glass
+### Nutrition per 8 fl oz (237 mL) glass
 
-Calories: 168 kcal; protein: 11.2 g; total carbs: 22.5 g; fiber: 3.6 g; net carbs: 18.9 g
+per estimated 8 fl oz (237 mL) glass
 
-This batch makes about 6.4 eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume. Estimated from ingredient mass using approximately 1 g/ml for the blended mixture. Finished volume has not been measured; aeration, blender retention and extra liquid affect yield. Per estimated glass: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 168 kcal; protein: 11.2 g; fat: 4.7 g; total carbs: 22.5 g; fiber: 3.6 g; net carbs: 18.9 g
+
+This batch makes about 6.4 eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume. Estimated from ingredient mass using approximately 1 g/ml for the blended mixture. Finished volume has not been measured; aeration, blender retention and extra liquid affect yield. Per estimated glass: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -2002,11 +2076,15 @@ Greek yogurt supplies a creamy, tangy base; strawberries add fruit flavor and he
 
 - Serve promptly. Ground seeds thicken on standing; blend again with a little extra water if needed.
 
-### Nutrition per 8 oz glass
+### Nutrition per 8 fl oz (237 mL) glass
 
-Calories: 145 kcal; protein: 11.9 g; total carbs: 7.4 g; fiber: 1.4 g; net carbs: 5.9 g
+per estimated 8 fl oz (237 mL) glass
 
-This batch makes about 5.6 eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume. Estimated from ingredient mass using approximately 1 g/ml for the blended mixture. Finished volume has not been measured; aeration, blender retention and extra liquid affect yield. Per estimated glass: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 145 kcal; protein: 11.9 g; fat: 8.5 g; total carbs: 7.4 g; fiber: 1.4 g; net carbs: 5.9 g
+
+This batch makes about 5.6 eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume. Estimated from ingredient mass using approximately 1 g/ml for the blended mixture. Finished volume has not been measured; aeration, blender retention and extra liquid affect yield. Per estimated glass: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -2096,11 +2174,15 @@ Cucumber and lime keep this savory smoothie fresh; yogurt gives body and ground 
 
 - Serve promptly. Ground seeds thicken on standing; blend again with a little extra water if needed.
 
-### Nutrition per 8 oz glass
+### Nutrition per 8 fl oz (237 mL) glass
 
-Calories: 89 kcal; protein: 8.5 g; total carbs: 6.7 g; fiber: 2.1 g; net carbs: 4.6 g
+per estimated 8 fl oz (237 mL) glass
 
-This batch makes about 6.0 eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume. Estimated from ingredient mass using approximately 1 g/ml for the blended mixture. Finished volume has not been measured; aeration, blender retention and extra liquid affect yield. Per estimated glass: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 89 kcal; protein: 8.5 g; fat: 3.7 g; total carbs: 6.7 g; fiber: 2.1 g; net carbs: 4.6 g
+
+This batch makes about 6.0 eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume. Estimated from ingredient mass using approximately 1 g/ml for the blended mixture. Finished volume has not been measured; aeration, blender retention and extra liquid affect yield. Per estimated glass: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -2218,9 +2300,39 @@ Red enchilada sauce gives the broth chile flavor; lime and fresh cabbage balance
 
 ### Nutrition per serving
 
-Calories: 376 kcal; protein: 43.1 g; total carbs: 32.6 g; fiber: 6.7 g; net carbs: 25.9 g
+per serving (1/4 of prepared batch)
 
-Per adult: base includes measured sauces, seeds and sides. Family nutrition adds one selected starch portion. US net carbs = total carbohydrate − fiber. Labels and food variation matter; no guarantee of ketosis.
+Calories: 376 kcal; protein: 43.1 g; fat: 7.6 g; total carbs: 32.6 g; fiber: 6.7 g; net carbs: 25.9 g
+
+Per adult: base includes measured sauces, seeds and sides. Optional side nutrition is separate from the base meal. US net carbs = total carbohydrate − fiber − documented erythritol. Labels and food variation matter; no guarantee of ketosis.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
+
+USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained.
+
+USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained.
+
+USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained.
+
+USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained.
+
+USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained.
+
+Manufacturer label reports 0 g fat per quarter-cup serving; rounded label zero retained, not analytical absence of fat.
+
+USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained.
+
+USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained.
+
+USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained.
+
+USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained.
+
+USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained.
+
+USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained.
+
+USDA total lipid (fat), nutrient 1004, g per 100 g; reviewed existing food identity and edible weight retained.
 
 Known allergens for these plates: none listed; check every product label. Check product labels and cross-contact.
 
@@ -2324,9 +2436,13 @@ Green chilis, cumin and jalapeño season the creamy cheddar sauce.
 
 ### Nutrition per serving
 
-Calories: 423 kcal; protein: 44.4 g; total carbs: 4.7 g; fiber: 0.7 g; net carbs: 4.1 g
+per serving (1/4 of prepared batch)
+
+Calories: 423 kcal; protein: 44.4 g; fat: 24.6 g; total carbs: 4.7 g; fiber: 0.7 g; net carbs: 4.1 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -2448,25 +2564,35 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 438 kcal; protein: 50.9 g; total carbs: 7.3 g; fiber: 2.8 g; net carbs: 4.5 g
+per serving (1/4 of prepared batch)
 
-Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.
+Calories: 318 kcal; protein: 42.1 g; fat: 12.8 g; total carbs: 8.3 g; fiber: 2.8 g; net carbs: 5.5 g
+
+Complete ingredient-based estimates using measured edible weights and reviewed USDA/manufacturer profiles. Brand proxies and rounded-label limitations are recorded in the ingredient assumptions. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
+
+Manufacturer label: 1.5 g total fat per 30 g, converted to 5 g per 100 g. Calories and carbohydrate on rounded label can differ from 4/4/9.
 
 Nutrition assumptions:
 
-- Boneless skinless chicken thighs: model uses Chicken, broilers or fryers, dark meat, thigh, meat only, raw.
+- Boneless skinless chicken thighs: Chicken, broilers or fryers, dark meat, thigh, meat only, raw.
 
-- G Hughes Sugar Free Honey Mustard: model uses G Hughes sugar-free honey mustard: detailed nutrient observations unavailable.
+- G Hughes Sugar Free Honey Mustard: G Hughes honey mustard manufacturer label: 20 kcal, 1.5 g fat, 2 g carbohydrate, 0 g protein/fiber per 30 g; rounded label observations..
 
-- asparagus: model uses Asparagus, raw.
+- asparagus: Asparagus, raw.
 
-- sliced bell pepper: model uses Peppers, sweet, red, raw.
+- sliced bell pepper: Peppers, sweet, red, raw.
 
-- sliced red onion: model uses Onions, raw.
+- sliced red onion: Onions, raw.
 
-- butter: model uses Butter, without salt.
+- butter: Butter, without salt.
 
-- minced garlic: model uses Garlic, raw.
+- minced garlic: Garlic, raw.
+
+- Fine salt: Salt, table.
+
+- Black pepper: Spices, pepper, black.
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -2578,9 +2704,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 501 kcal; protein: 47.2 g; total carbs: 8.1 g; fiber: 1.8 g; net carbs: 6.3 g
+per serving (1/4 of prepared batch)
+
+Calories: 501 kcal; protein: 47.2 g; fat: 30.8 g; total carbs: 8.1 g; fiber: 1.8 g; net carbs: 6.3 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -2720,9 +2850,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 491 kcal; protein: 46.8 g; total carbs: 5.7 g; fiber: 0.8 g; net carbs: 4.8 g
+per serving (1/4 of prepared batch)
+
+Calories: 491 kcal; protein: 46.8 g; fat: 30.6 g; total carbs: 5.7 g; fiber: 0.8 g; net carbs: 4.8 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -2856,9 +2990,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 538 kcal; protein: 40.8 g; total carbs: 13.0 g; fiber: 3.4 g; net carbs: 9.6 g
+per serving (1/4 of prepared batch)
+
+Calories: 538 kcal; protein: 40.8 g; fat: 36.6 g; total carbs: 13.0 g; fiber: 3.4 g; net carbs: 9.6 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -2988,31 +3126,41 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 282 kcal; protein: 40.5 g; total carbs: 2.0 g; fiber: 0.3 g; net carbs: 1.6 g
+per serving (1/4 of prepared batch)
 
-Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.
+Calories: 335 kcal; protein: 41.1 g; fat: 16.4 g; total carbs: 10.3 g; fiber: 0.9 g; net carbs: 3.4 g
+
+Complete ingredient-based estimates using measured edible weights and reviewed USDA/manufacturer profiles. Brand proxies and rounded-label limitations are recorded in the ingredient assumptions. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
+
+Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations.
 
 Nutrition assumptions:
 
-- gluten free soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.
+- gluten free soy sauce: Soy sauce made from soy and wheat (shoyu), low sodium.
 
-- rice vinegar: model uses Vinegar, cider.
+- Mizkan unseasoned rice vinegar: Vinegar, cider.
 
-- brown sugar swerve: model uses Swerve erythritol sweetener: additional nutrients unobserved; publisher macros retained.
+- brown sugar swerve: Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations..
 
-- sesame oil: model uses Oil, sesame, salad or cooking.
+- sesame oil: Oil, sesame, salad or cooking.
 
-- minced garlic: model uses Garlic, raw.
+- minced garlic: Garlic, raw.
 
-- olive oil or sesame oil for frying: model uses Oil, olive, salad or cooking.
+- Olive oil: Oil, olive, salad or cooking.
 
-- chicken: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+- chicken: Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
 
-- medium size zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+- medium size zucchini: Squash, summer, zucchini, includes skin, raw.
 
-- cashews: model uses Nuts, cashew nuts, raw.
+- cashews: Nuts, cashew nuts, raw.
 
-- green onions: model uses Onions, spring or scallions (includes tops and bulb), raw.
+- green onions: Onions, spring or scallions (includes tops and bulb), raw.
+
+- Fine salt: Salt, table.
+
+- Black pepper: Spices, pepper, black.
 
 Known allergens for these plates: sesame, soy, tree nuts. Check product labels and cross-contact.
 
@@ -3108,9 +3256,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 357 kcal; protein: 31.7 g; total carbs: 3.7 g; fiber: 0.7 g; net carbs: 3.0 g
+per serving (1/4 of prepared batch)
+
+Calories: 357 kcal; protein: 31.7 g; fat: 21.5 g; total carbs: 3.7 g; fiber: 0.7 g; net carbs: 3.0 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -3158,7 +3310,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Keto Slow Cooker Zesty Ranch Chicken
 
-4 portions · US imperial measures · unverified · 5 min publisher preparation · 485 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 485 min
 
 Keto Slow Cooker Zesty Ranch Chicken. Original recipe adapted with source quantities and workflow.
 
@@ -3206,21 +3358,27 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 203 kcal; protein: 26.4 g; total carbs: 1.0 g; fiber: 0.5 g; net carbs: 0.5 g
+per serving (1/4 of prepared batch)
 
-Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.
+Calories: 235 kcal; protein: 26.8 g; fat: 11.5 g; total carbs: 4.3 g; fiber: 0.5 g; net carbs: 3.8 g
+
+Complete ingredient-based estimates using measured edible weights and reviewed USDA/manufacturer profiles. Brand proxies and rounded-label limitations are recorded in the ingredient assumptions. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
+
+USDA Our Family dry ranch dressing mix proxy for Hidden Valley dry seasoning; brands differ; rounded label observations.
 
 Nutrition assumptions:
 
-- chicken breast: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+- chicken breast: Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
 
-- butter: model uses Butter, without salt.
+- butter: Butter, without salt.
 
-- cream cheese: model uses Cheese, cream.
+- cream cheese: Cheese, cream.
 
-- Ranch seasoning fiber assumed zero; retained publisher calories, protein and total carbohydrates. Fiber estimated from the remaining measured ingredients.
+- jarred pepperoncini peppers: Peppers, hot pickled, canned.
 
-- jarred pepperoncini peppers: model uses Peppers, hot pickled, canned.
+- Hidden Valley Ranch seasoning mix: USDA Our Family dry ranch dressing mix proxy for Hidden Valley dry seasoning; brands differ; rounded label observations..
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -3318,9 +3476,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 225 kcal; protein: 28.5 g; total carbs: 7.5 g; fiber: 2.5 g; net carbs: 5.0 g
+per serving (1/4 of prepared batch)
+
+Calories: 225 kcal; protein: 28.5 g; fat: 9.0 g; total carbs: 7.5 g; fiber: 2.5 g; net carbs: 5.0 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -3426,9 +3588,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 512 kcal; protein: 48.2 g; total carbs: 11.6 g; fiber: 2.2 g; net carbs: 9.4 g
+per serving (1/4 of prepared batch)
+
+Calories: 512 kcal; protein: 48.2 g; fat: 30.1 g; total carbs: 11.6 g; fiber: 2.2 g; net carbs: 9.4 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -3552,9 +3718,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 409 kcal; protein: 35.1 g; total carbs: 8.6 g; fiber: 1.7 g; net carbs: 6.8 g
+per serving (1/4 of prepared batch)
+
+Calories: 409 kcal; protein: 35.1 g; fat: 26.1 g; total carbs: 8.6 g; fiber: 1.7 g; net carbs: 6.8 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -3680,9 +3850,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 314 kcal; protein: 35.9 g; total carbs: 10.3 g; fiber: 3.2 g; net carbs: 7.1 g
+per serving (1/4 of prepared batch)
+
+Calories: 314 kcal; protein: 35.9 g; fat: 14.4 g; total carbs: 10.3 g; fiber: 3.2 g; net carbs: 7.1 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -3806,9 +3980,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 510 kcal; protein: 28.9 g; total carbs: 7.3 g; fiber: 0.6 g; net carbs: 6.8 g
+per serving (1/4 of prepared batch)
+
+Calories: 510 kcal; protein: 28.9 g; fat: 37.3 g; total carbs: 7.3 g; fiber: 0.6 g; net carbs: 6.8 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -3932,9 +4110,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 402 kcal; protein: 34.8 g; total carbs: 6.3 g; fiber: 0.2 g; net carbs: 6.2 g
+per serving (1/4 of prepared batch)
+
+Calories: 402 kcal; protein: 34.8 g; fat: 25.9 g; total carbs: 6.3 g; fiber: 0.2 g; net carbs: 6.2 g
 
 Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -4050,25 +4232,31 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 328 kcal; protein: 31.4 g; total carbs: 2.9 g; fiber: 0.1 g; net carbs: 2.8 g
+per serving (1/4 of prepared batch)
 
-Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.
+Calories: 329 kcal; protein: 35.7 g; fat: 17.1 g; total carbs: 7.0 g; fiber: 1.1 g; net carbs: 5.9 g
+
+Complete ingredient-based estimates using measured edible weights and reviewed USDA/manufacturer profiles. Brand proxies and rounded-label limitations are recorded in the ingredient assumptions. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
+
+USDA Our Family dry ranch dressing mix proxy for Hidden Valley dry seasoning; brands differ; rounded label observations.
 
 Nutrition assumptions:
 
-- medium zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+- medium zucchini: Squash, summer, zucchini, includes skin, raw.
 
-- chicken: model uses Chicken, broilers or fryers, breast, meat only, cooked, roasted.
+- chicken: Chicken, broilers or fryers, breast, meat only, cooked, roasted.
 
-- bacon: model uses Pork, cured, bacon, pre-sliced, cooked, pan-fried.
+- bacon: Pork, cured, bacon, pre-sliced, cooked, pan-fried.
 
-- cottage cheese: model uses Cheese, cottage, creamed, large or small curd.
+- cottage cheese: Cheese, cottage, creamed, large or small curd.
 
-- Ranch seasoning fiber assumed zero; retained publisher calories, protein and total carbohydrates. Fiber estimated from the remaining measured ingredients.
+- shredded cheddar: Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
 
-- shredded cheddar: model uses Cheese, cheddar (Includes foods for USDA's Food Distribution Program).
+- green onions: Onions, spring or scallions (includes tops and bulb), raw.
 
-- green onions: model uses Onions, spring or scallions (includes tops and bulb), raw.
+- dry ranch seasoning: USDA Our Family dry ranch dressing mix proxy for Hidden Valley dry seasoning; brands differ; rounded label observations..
 
 Known allergens for these plates: milk. Check product labels and cross-contact.
 
@@ -4164,9 +4352,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 450 kcal; protein: 47.0 g; total carbs: 4.5 g; fiber: 1.6 g; net carbs: 3.0 g
+per serving (1/4 of prepared batch)
+
+Calories: 450 kcal; protein: 47.0 g; fat: 26.5 g; total carbs: 4.5 g; fiber: 1.6 g; net carbs: 3.0 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -4222,7 +4414,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Crockpot Shredded Chicken
 
-4 portions · US imperial measures · unverified · 5 min publisher preparation · 485 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 485 min
 
 Crockpot Shredded Chicken. Original recipe adapted with source quantities and workflow.
 
@@ -4276,9 +4468,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 99 kcal; protein: 17.5 g; total carbs: 1.5 g; fiber: 0.3 g; net carbs: 1.2 g
+per serving (1/4 of prepared batch)
+
+Calories: 99 kcal; protein: 17.5 g; fat: 2.1 g; total carbs: 1.5 g; fiber: 0.3 g; net carbs: 1.2 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -4398,9 +4594,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 409 kcal; protein: 33.8 g; total carbs: 8.5 g; fiber: 1.0 g; net carbs: 7.4 g
+per serving (1/4 of prepared batch)
+
+Calories: 409 kcal; protein: 33.8 g; fat: 26.2 g; total carbs: 8.5 g; fiber: 1.0 g; net carbs: 7.4 g
 
 Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -4524,9 +4724,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 536 kcal; protein: 54.1 g; total carbs: 6.5 g; fiber: 3.5 g; net carbs: 3.0 g
+per serving (1/4 of prepared batch)
+
+Calories: 536 kcal; protein: 54.1 g; fat: 31.8 g; total carbs: 6.5 g; fiber: 3.5 g; net carbs: 3.0 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -4642,9 +4846,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 399 kcal; protein: 46.8 g; total carbs: 2.9 g; fiber: 0.3 g; net carbs: 2.5 g
+per serving (1/4 of prepared batch)
+
+Calories: 399 kcal; protein: 46.8 g; fat: 21.3 g; total carbs: 2.9 g; fiber: 0.3 g; net carbs: 2.5 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -4768,9 +4976,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 596 kcal; protein: 43.2 g; total carbs: 7.3 g; fiber: 2.1 g; net carbs: 5.2 g
+per serving (1/4 of prepared batch)
+
+Calories: 596 kcal; protein: 43.2 g; fat: 43.4 g; total carbs: 7.3 g; fiber: 2.1 g; net carbs: 5.2 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -4900,9 +5112,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 421 kcal; protein: 44.3 g; total carbs: 4.1 g; fiber: 0.6 g; net carbs: 3.5 g
+per serving (1/4 of prepared batch)
+
+Calories: 421 kcal; protein: 44.3 g; fat: 24.6 g; total carbs: 4.1 g; fiber: 0.6 g; net carbs: 3.5 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -5018,9 +5234,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 479 kcal; protein: 33.1 g; total carbs: 9.4 g; fiber: 2.5 g; net carbs: 6.9 g
+per serving (1/4 of prepared batch)
+
+Calories: 479 kcal; protein: 33.1 g; fat: 34.2 g; total carbs: 9.4 g; fiber: 2.5 g; net carbs: 6.9 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -5138,9 +5358,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 340 kcal; protein: 43.7 g; total carbs: 5.5 g; fiber: 1.5 g; net carbs: 3.9 g
+per serving (1/4 of prepared batch)
+
+Calories: 340 kcal; protein: 43.7 g; fat: 15.3 g; total carbs: 5.5 g; fiber: 1.5 g; net carbs: 3.9 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -5250,9 +5474,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 319 kcal; protein: 42.9 g; total carbs: 2.9 g; fiber: 0.6 g; net carbs: 2.3 g
+per serving (1/4 of prepared batch)
+
+Calories: 319 kcal; protein: 42.9 g; fat: 14.2 g; total carbs: 2.9 g; fiber: 0.6 g; net carbs: 2.3 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -5360,9 +5588,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 333 kcal; protein: 35.5 g; total carbs: 8.4 g; fiber: 2.2 g; net carbs: 6.1 g
+per serving (1/4 of prepared batch)
+
+Calories: 333 kcal; protein: 35.5 g; fat: 17.7 g; total carbs: 8.4 g; fiber: 2.2 g; net carbs: 6.1 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -5490,31 +5722,45 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 244 kcal; protein: 29.8 g; total carbs: 7.6 g; fiber: 2.9 g; net carbs: 4.7 g
+per serving (1/4 of prepared batch)
 
-Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.
+Calories: 335 kcal; protein: 30.3 g; fat: 20.9 g; total carbs: 10.0 g; fiber: 2.3 g; net carbs: 4.7 g
+
+Complete ingredient-based estimates using measured edible weights and reviewed USDA/manufacturer profiles. Brand proxies and rounded-label limitations are recorded in the ingredient assumptions. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
+
+Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations.
 
 Nutrition assumptions:
 
-- olive oil: model uses Oil, olive, salad or cooking.
+- olive oil: Oil, olive, salad or cooking.
 
-- chicken: model uses Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
+- chicken: Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw.
 
-- green bell pepper: model uses Peppers, sweet, green, raw.
+- green bell pepper: Peppers, sweet, green, raw.
 
-- minced garlic: model uses Garlic, raw.
+- minced garlic: Garlic, raw.
 
-- chicken broth: model uses Soup, chicken broth, ready-to-serve.
+- chicken broth: Soup, chicken broth, ready-to-serve.
 
-- soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.
+- soy sauce: Soy sauce made from soy and wheat (shoyu), low sodium.
 
-- rice vinegar: model uses Vinegar, cider.
+- Mizkan unseasoned rice vinegar: Vinegar, cider.
 
-- sesame oil: model uses Oil, sesame, salad or cooking.
+- sesame oil: Oil, sesame, salad or cooking.
 
-- swerve brown sugar or brown sugar monkfruit: model uses Swerve erythritol sweetener: additional nutrients unobserved; publisher macros retained.
+- Swerve brown sugar substitute: Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations..
 
-- peanut butter: model uses Peanut butter, smooth style, without salt.
+- peanut butter: Peanut butter, smooth style, without salt.
+
+- water: Beverages, water, tap, drinking.
+
+- Green onions: Onions, spring or scallions (includes tops and bulb), raw.
+
+- Almonds: Nuts, almonds.
+
+- Lettuce leaves: Lettuce, green leaf, raw.
 
 Known allergens for these plates: milk, peanuts, sesame, soy, tree nuts, wheat. Check product labels and cross-contact.
 
@@ -5610,9 +5856,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 225 kcal; protein: 20.9 g; total carbs: 8.5 g; fiber: 1.5 g; net carbs: 7.0 g
+per serving (1/4 of prepared batch)
+
+Calories: 225 kcal; protein: 20.9 g; fat: 12.0 g; total carbs: 8.5 g; fiber: 1.5 g; net carbs: 7.0 g
 
 Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -5732,9 +5982,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 493 kcal; protein: 34.8 g; total carbs: 5.9 g; fiber: 0.8 g; net carbs: 5.1 g
+per serving (1/4 of prepared batch)
+
+Calories: 493 kcal; protein: 34.8 g; fat: 36.2 g; total carbs: 5.9 g; fiber: 0.8 g; net carbs: 5.1 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -5792,7 +6046,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Steak and Eggs (keto + low carb)
 
-4 portions · US imperial measures · unverified · 5 min publisher preparation · Not provided
+4 portions · US imperial measures · keto · 5 min publisher preparation · Not provided
 
 Steak and Eggs (keto + low carb). Original recipe adapted with source quantities and workflow.
 
@@ -5846,9 +6100,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 816 kcal; protein: 46.9 g; total carbs: 8.1 g; fiber: 0.0 g; net carbs: 8.1 g
+per serving (1/4 of prepared batch)
+
+Calories: 816 kcal; protein: 46.9 g; fat: 66.3 g; total carbs: 8.1 g; fiber: 0.0 g; net carbs: 8.1 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -5948,9 +6206,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 310 kcal; protein: 38.0 g; total carbs: 6.6 g; fiber: 1.6 g; net carbs: 5.0 g
+per serving (1/4 of prepared batch)
+
+Calories: 310 kcal; protein: 38.0 g; fat: 14.0 g; total carbs: 6.6 g; fiber: 1.6 g; net carbs: 5.0 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -6062,9 +6324,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 359 kcal; protein: 30.7 g; total carbs: 4.6 g; fiber: 0.7 g; net carbs: 3.9 g
+per serving (1/4 of prepared batch)
+
+Calories: 359 kcal; protein: 30.7 g; fat: 23.9 g; total carbs: 4.6 g; fiber: 0.7 g; net carbs: 3.9 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -6192,9 +6458,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 260 kcal; protein: 26.6 g; total carbs: 11.5 g; fiber: 2.7 g; net carbs: 8.8 g
+per serving (1/4 of prepared batch)
+
+Calories: 260 kcal; protein: 26.6 g; fat: 12.3 g; total carbs: 11.5 g; fiber: 2.7 g; net carbs: 8.8 g
 
 Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -6254,7 +6524,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Keto Italian Meatballs
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
 Keto Italian Meatballs. Original recipe adapted with source quantities and workflow.
 
@@ -6310,9 +6580,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 426 kcal; protein: 23.4 g; total carbs: 6.3 g; fiber: 0.0 g; net carbs: 6.2 g
+per serving (1/4 of prepared batch)
+
+Calories: 426 kcal; protein: 23.4 g; fat: 33.5 g; total carbs: 6.3 g; fiber: 0.0 g; net carbs: 6.2 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -6360,7 +6634,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Low Carb Taco Casserole
 
-4 portions · US imperial measures · keto · Preparation time not provided · 20 min
+4 portions · US imperial measures · nonketo · Preparation time not provided · 20 min
 
 Low Carb Taco Casserole. Original recipe adapted with source quantities and workflow.
 
@@ -6416,9 +6690,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 378 kcal; protein: 31.5 g; total carbs: 14.7 g; fiber: 1.2 g; net carbs: 13.5 g
+per serving (1/4 of prepared batch)
+
+Calories: 378 kcal; protein: 31.5 g; fat: 21.1 g; total carbs: 14.7 g; fiber: 1.2 g; net carbs: 13.5 g
 
 Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -6544,9 +6822,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 258 kcal; protein: 22.8 g; total carbs: 5.8 g; fiber: 1.2 g; net carbs: 4.6 g
+per serving (1/4 of prepared batch)
+
+Calories: 258 kcal; protein: 22.8 g; fat: 15.9 g; total carbs: 5.8 g; fiber: 1.2 g; net carbs: 4.6 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -6666,9 +6948,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 384 kcal; protein: 11.5 g; total carbs: 11.3 g; fiber: 2.7 g; net carbs: 8.7 g
+per serving (1/4 of prepared batch)
+
+Calories: 384 kcal; protein: 11.5 g; fat: 33.2 g; total carbs: 11.3 g; fiber: 2.7 g; net carbs: 8.7 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -6776,9 +7062,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 369 kcal; protein: 14.0 g; total carbs: 5.5 g; fiber: 1.3 g; net carbs: 4.3 g
+per serving (1/4 of prepared batch)
+
+Calories: 369 kcal; protein: 14.0 g; fat: 32.3 g; total carbs: 5.5 g; fiber: 1.3 g; net carbs: 4.3 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -6834,7 +7124,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Roasted Brussel Sprouts and Kielbasa
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
 Roasted Brussel Sprouts and Kielbasa. Original recipe adapted with source quantities and workflow.
 
@@ -6884,9 +7174,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 385 kcal; protein: 13.1 g; total carbs: 13.3 g; fiber: 4.3 g; net carbs: 9.0 g
+per serving (1/4 of prepared batch)
+
+Calories: 385 kcal; protein: 13.1 g; fat: 32.3 g; total carbs: 13.3 g; fiber: 4.3 g; net carbs: 9.0 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -6998,9 +7292,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 462 kcal; protein: 41.9 g; total carbs: 9.6 g; fiber: 3.3 g; net carbs: 6.3 g
+per serving (1/4 of prepared batch)
+
+Calories: 462 kcal; protein: 41.9 g; fat: 28.4 g; total carbs: 9.6 g; fiber: 3.3 g; net carbs: 6.3 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -7114,9 +7412,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 433 kcal; protein: 14.7 g; total carbs: 11.5 g; fiber: 2.7 g; net carbs: 8.7 g
+per serving (1/4 of prepared batch)
+
+Calories: 433 kcal; protein: 14.7 g; fat: 37.4 g; total carbs: 11.5 g; fiber: 2.7 g; net carbs: 8.7 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -7218,9 +7520,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 342 kcal; protein: 12.9 g; total carbs: 8.6 g; fiber: 1.8 g; net carbs: 6.8 g
+per serving (1/4 of prepared batch)
+
+Calories: 342 kcal; protein: 12.9 g; fat: 29.0 g; total carbs: 8.6 g; fiber: 1.8 g; net carbs: 6.8 g
 
 Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -7320,9 +7626,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 499 kcal; protein: 22.4 g; total carbs: 16.8 g; fiber: 4.8 g; net carbs: 12.1 g
+per serving (1/4 of prepared batch)
+
+Calories: 499 kcal; protein: 22.4 g; fat: 39.5 g; total carbs: 16.8 g; fiber: 4.8 g; net carbs: 12.1 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -7416,9 +7726,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 137 kcal; protein: 5.1 g; total carbs: 6.3 g; fiber: 2.5 g; net carbs: 3.8 g
+per serving (1/4 of prepared batch)
+
+Calories: 137 kcal; protein: 5.1 g; fat: 10.5 g; total carbs: 6.3 g; fiber: 2.5 g; net carbs: 3.8 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -7532,9 +7846,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 418 kcal; protein: 19.7 g; total carbs: 9.4 g; fiber: 1.5 g; net carbs: 7.9 g
+per serving (1/4 of prepared batch)
+
+Calories: 418 kcal; protein: 19.7 g; fat: 33.8 g; total carbs: 9.4 g; fiber: 1.5 g; net carbs: 7.9 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -7648,9 +7966,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 344 kcal; protein: 16.7 g; total carbs: 12.8 g; fiber: 3.7 g; net carbs: 9.0 g
+per serving (1/4 of prepared batch)
+
+Calories: 344 kcal; protein: 16.7 g; fat: 25.7 g; total carbs: 12.8 g; fiber: 3.7 g; net carbs: 9.0 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -7760,31 +8082,37 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 232 kcal; protein: 16.6 g; total carbs: 6.4 g; fiber: 2.2 g; net carbs: 4.2 g
+per serving (1/4 of prepared batch)
 
-Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.
+Calories: 421 kcal; protein: 39.6 g; fat: 25.6 g; total carbs: 10.1 g; fiber: 2.2 g; net carbs: 4.9 g
+
+Complete ingredient-based estimates using measured edible weights and reviewed USDA/manufacturer profiles. Brand proxies and rounded-label limitations are recorded in the ingredient assumptions. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
+
+Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations.
 
 Nutrition assumptions:
 
-- olive oil: model uses Oil, olive, salad or cooking.
+- olive oil: Oil, olive, salad or cooking.
 
-- Boneless Pork Chops: model uses Pork, fresh, loin, top loin (chops), boneless, separable lean and fat, raw.
+- Boneless Pork Chops: Pork, fresh, loin, top loin (chops), boneless, separable lean and fat, raw.
 
-- gluten free soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.
+- gluten free soy sauce: Soy sauce made from soy and wheat (shoyu), low sodium.
 
-- brown sugar Swerve or Monkfruit: model uses Swerve erythritol sweetener: additional nutrients unobserved; publisher macros retained.
+- Swerve brown sugar substitute: Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations..
 
-- rice vinegar: model uses Vinegar, cider.
+- Mizkan unseasoned rice vinegar: Vinegar, cider.
 
-- sesame oil: model uses Oil, sesame, salad or cooking.
+- sesame oil: Oil, sesame, salad or cooking.
 
-- minced ginger: model uses Ginger root, raw.
+- minced ginger: Ginger root, raw.
 
-- minced garlic: model uses Garlic, raw.
+- minced garlic: Garlic, raw.
 
-- sriracha: model uses Sauce, hot chile, sriracha.
+- sriracha: Sauce, hot chile, sriracha.
 
-- fresh green beans: model uses Beans, snap, green, raw.
+- fresh green beans: Beans, snap, green, raw.
 
 Known allergens for these plates: sesame, soy. Check product labels and cross-contact.
 
@@ -7874,9 +8202,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 177 kcal; protein: 15.7 g; total carbs: 2.8 g; fiber: 0.4 g; net carbs: 2.4 g
+per serving (1/4 of prepared batch)
+
+Calories: 177 kcal; protein: 15.7 g; fat: 11.4 g; total carbs: 2.8 g; fiber: 0.4 g; net carbs: 2.4 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -7994,9 +8326,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 196 kcal; protein: 17.8 g; total carbs: 7.8 g; fiber: 2.2 g; net carbs: 5.6 g
+per serving (1/4 of prepared batch)
+
+Calories: 196 kcal; protein: 17.8 g; fat: 10.8 g; total carbs: 7.8 g; fiber: 2.2 g; net carbs: 5.6 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -8052,7 +8388,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Grilled Salmon Kabobs with Greek Marinade
 
-4 portions · US imperial measures · unverified · 15 min publisher preparation · Not provided
+4 portions · US imperial measures · keto · 15 min publisher preparation · Not provided
 
 Grilled Salmon Kabobs with Greek Marinade. Original recipe adapted with source quantities and workflow.
 
@@ -8130,35 +8466,49 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 371 kcal; protein: 20.2 g; total carbs: 7.2 g; fiber: 1.7 g; net carbs: 5.5 g
+per serving (1/4 of prepared batch)
 
-Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.
+Calories: 371 kcal; protein: 20.2 g; fat: 29.4 g; total carbs: 10.2 g; fiber: 1.7 g; net carbs: 5.5 g
+
+Complete ingredient-based estimates using measured edible weights and reviewed USDA/manufacturer profiles. Brand proxies and rounded-label limitations are recorded in the ingredient assumptions. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
+
+Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations.
 
 Nutrition assumptions:
 
-- Salmon fillets: model uses Fish, salmon, Atlantic, farmed, raw.
+- Salmon fillets: Fish, salmon, Atlantic, farmed, raw.
 
-- large zucchini: model uses Squash, summer, zucchini, includes skin, raw.
+- large zucchini: Squash, summer, zucchini, includes skin, raw.
 
-- red onion: model uses Onions, raw.
+- red onion: Onions, raw.
 
-- Oil: model uses Oil, olive, salad or cooking.
+- Olive oil: Oil, olive, salad or cooking.
 
-- Greek Yogurt: model uses Yogurt, Greek, plain, whole milk.
+- Plain whole-milk Greek yogurt: Yogurt, Greek, plain, whole milk.
 
-- minced garlic: model uses Garlic, raw.
+- minced garlic: Garlic, raw.
 
-- Monkfruit sweetener modeled as a zero-digestible-carbohydrate erythritol blend; sugar-containing blends do not match this estimate.
+- Lemon juice: Lemon juice, raw.
 
-- Lemon juice: model uses Lemon juice, raw.
+- fresh dill: Dill weed, fresh.
 
-- fresh dill: model uses Dill weed, fresh.
+- Oregano: Spices, oregano, dried.
 
-- Oregano: model uses Spices, oregano, dried.
+- salt: Salt, table.
 
-- salt: model uses Salt, table.
+- pepper: Spices, pepper, black.
 
-- pepper: model uses Spices, pepper, black.
+- Olive oil: Oil, olive, salad or cooking.
+
+- fresh dill: Dill weed, fresh.
+
+- salt: Salt, table.
+
+- pepper: Spices, pepper, black.
+
+- brown sugar Monkfruit sweetener: Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations..
 
 Known allergens for these plates: fish, milk. Check product labels and cross-contact.
 
@@ -8258,9 +8608,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 459 kcal; protein: 37.3 g; total carbs: 5.0 g; fiber: 2.5 g; net carbs: 2.6 g
+per serving (1/4 of prepared batch)
+
+Calories: 459 kcal; protein: 37.3 g; fat: 32.1 g; total carbs: 5.0 g; fiber: 2.5 g; net carbs: 2.6 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -8406,9 +8760,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 282 kcal; protein: 17.7 g; total carbs: 9.8 g; fiber: 2.3 g; net carbs: 7.5 g
+per serving (1/4 of prepared batch)
+
+Calories: 282 kcal; protein: 17.7 g; fat: 19.8 g; total carbs: 9.8 g; fiber: 2.3 g; net carbs: 7.5 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -8546,9 +8904,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 296 kcal; protein: 17.8 g; total carbs: 7.9 g; fiber: 1.4 g; net carbs: 6.5 g
+per serving (1/4 of prepared batch)
+
+Calories: 296 kcal; protein: 17.8 g; fat: 18.8 g; total carbs: 7.9 g; fiber: 1.4 g; net carbs: 6.5 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -8676,9 +9038,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 409 kcal; protein: 35.0 g; total carbs: 0.9 g; fiber: 0.3 g; net carbs: 0.6 g
+per serving (1/4 of prepared batch)
+
+Calories: 409 kcal; protein: 35.0 g; fat: 28.7 g; total carbs: 0.9 g; fiber: 0.3 g; net carbs: 0.6 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -8794,31 +9160,37 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 170 kcal; protein: 25.0 g; total carbs: 8.2 g; fiber: 2.1 g; net carbs: 6.1 g
+per serving (1/4 of prepared batch)
 
-Ingredient-based estimates except fields listed in publisherBaselineFields, which retain the publisher baseline plus observed ingredient corrections. Original publisher nutrition is preserved separately.
+Calories: 206 kcal; protein: 18.6 g; fat: 11.6 g; total carbs: 13.3 g; fiber: 2.0 g; net carbs: 5.4 g
+
+Complete ingredient-based estimates using measured edible weights and reviewed USDA/manufacturer profiles. Brand proxies and rounded-label limitations are recorded in the ingredient assumptions. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
+
+Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations.
 
 Nutrition assumptions:
 
-- olive oil: model uses Oil, olive, salad or cooking.
+- olive oil: Oil, olive, salad or cooking.
 
-- large shrimp: model uses Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture).
+- large shrimp: Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture).
 
-- Broccoli florets: model uses Broccoli, raw.
+- Broccoli florets: Broccoli, raw.
 
-- red bell pepper: model uses Peppers, sweet, red, raw.
+- red bell pepper: Peppers, sweet, red, raw.
 
-- soy sauce: model uses Soy sauce made from soy and wheat (shoyu), low sodium.
+- soy sauce: Soy sauce made from soy and wheat (shoyu), low sodium.
 
-- Monkfruit sweetener modeled as a zero-digestible-carbohydrate erythritol blend; sugar-containing blends do not match this estimate.
+- sesame oil: Oil, sesame, salad or cooking.
 
-- sesame oil: model uses Oil, sesame, salad or cooking.
+- Mizkan unseasoned rice vinegar: Vinegar, cider.
 
-- rice vinegar: model uses Vinegar, cider.
+- minced garlic: Garlic, raw.
 
-- minced garlic: model uses Garlic, raw.
+- minced ginger: Ginger root, raw.
 
-- minced ginger: model uses Ginger root, raw.
+- brown sugar monkfruit: Lakanto Brown erythritol/monkfruit label proxy: per 8 g, 8 g total carbohydrate and 8 g erythritol, 0 g fat/protein and 0 kcal. Original source Swerve/unspecified brown monkfruit identity retained separately. Actual Swerve erythritol/allulose blend differs; no allulose mass is inferred. Trace glycerin and label rounding remain limitations..
 
 Known allergens for these plates: crustacean shellfish, sesame, soy, wheat. Check product labels and cross-contact.
 
@@ -8918,9 +9290,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 354 kcal; protein: 32.4 g; total carbs: 8.3 g; fiber: 3.3 g; net carbs: 5.0 g
+per serving (1/4 of prepared batch)
+
+Calories: 354 kcal; protein: 32.4 g; fat: 22.4 g; total carbs: 8.3 g; fiber: 3.3 g; net carbs: 5.0 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -9034,9 +9410,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 188 kcal; protein: 16.2 g; total carbs: 2.8 g; fiber: 0.5 g; net carbs: 2.3 g
+per serving (1/4 of prepared batch)
+
+Calories: 188 kcal; protein: 16.2 g; fat: 12.4 g; total carbs: 2.8 g; fiber: 0.5 g; net carbs: 2.3 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -9092,7 +9472,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Creamy Chicken Breast in Spinach Parmesan Sauce
 
-4 portions · US imperial measures · unverified · 5 min publisher preparation · 25 min
+4 portions · US imperial measures · nonketo · 5 min publisher preparation · 25 min
 
 Creamy Chicken Breast in Spinach Parmesan Sauce, adapted from Christina Cherrier.
 
@@ -9158,9 +9538,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 570 kcal; protein: 38.1 g; total carbs: 19.4 g; fiber: 3.9 g; net carbs: 15.5 g
+per serving (1/4 of prepared batch)
+
+Calories: 570 kcal; protein: 38.1 g; fat: 39.2 g; total carbs: 19.4 g; fiber: 3.9 g; net carbs: 15.5 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -9222,7 +9606,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## One Pan Shrimp and Asparagus
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 20 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 20 min
 
 One Pan Shrimp and Asparagus, adapted from Christina Cherrier.
 
@@ -9292,9 +9676,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 279 kcal; protein: 27.6 g; total carbs: 12.3 g; fiber: 4.2 g; net carbs: 8.1 g
+per serving (1/4 of prepared batch)
+
+Calories: 279 kcal; protein: 27.6 g; fat: 14.1 g; total carbs: 12.3 g; fiber: 4.2 g; net carbs: 8.1 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -9354,7 +9742,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Blackened Shrimp and Asparagus Skillet (20 Minutes)
 
-4 portions · US imperial measures · unverified · 5 min publisher preparation · 20 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 20 min
 
 Blackened Shrimp and Asparagus Skillet, adapted from Christina Cherrier.
 
@@ -9430,9 +9818,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 188 kcal; protein: 19.9 g; total carbs: 11.2 g; fiber: 4.6 g; net carbs: 6.6 g
+per serving (1/4 of prepared batch)
+
+Calories: 188 kcal; protein: 19.9 g; fat: 8.1 g; total carbs: 11.2 g; fiber: 4.6 g; net carbs: 6.6 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -9498,7 +9890,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lemon Garlic Butter Chicken and Green Beans Skillet
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
 Lemon Garlic Butter Chicken and Green Beans Skillet, adapted from Christina Cherrier.
 
@@ -9572,9 +9964,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 295 kcal; protein: 23.8 g; total carbs: 15.8 g; fiber: 5.2 g; net carbs: 10.6 g
+per serving (1/4 of prepared batch)
+
+Calories: 295 kcal; protein: 23.8 g; fat: 16.4 g; total carbs: 15.8 g; fiber: 5.2 g; net carbs: 10.6 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -9636,7 +10032,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Chicken Bites with Lemon Asparagus
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
 Garlic Butter Chicken Bites with Lemon Asparagus, adapted from Christina Cherrier.
 
@@ -9708,9 +10104,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 437 kcal; protein: 37.3 g; total carbs: 9.3 g; fiber: 3.4 g; net carbs: 5.9 g
+per serving (1/4 of prepared batch)
+
+Calories: 437 kcal; protein: 37.3 g; fat: 28.4 g; total carbs: 9.3 g; fiber: 3.4 g; net carbs: 5.9 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -9776,7 +10176,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Creamy Tuscan Salmon Recipe
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · nonketo · 10 min publisher preparation · 30 min
 
 Creamy Tuscan Salmon Recipe, adapted from Christina Cherrier.
 
@@ -9844,9 +10244,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 1117 kcal; protein: 47.4 g; total carbs: 22.6 g; fiber: 4.0 g; net carbs: 18.6 g
+per serving (1/4 of prepared batch)
+
+Calories: 1117 kcal; protein: 47.4 g; fat: 95.1 g; total carbs: 22.6 g; fiber: 4.0 g; net carbs: 18.6 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -9906,7 +10310,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lemon Garlic Steak and Broccoli Skillet
 
-4 portions · US imperial measures · unverified · 5 min publisher preparation · Not provided
+4 portions · US imperial measures · keto · 5 min publisher preparation · Not provided
 
 Lemon Garlic Steak and Broccoli Skillet, adapted from Christina Cherrier.
 
@@ -9978,9 +10382,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 794 kcal; protein: 40.7 g; total carbs: 14.0 g; fiber: 4.5 g; net carbs: 9.5 g
+per serving (1/4 of prepared batch)
+
+Calories: 794 kcal; protein: 40.7 g; fat: 66.2 g; total carbs: 14.0 g; fiber: 4.5 g; net carbs: 9.5 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -10048,7 +10456,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## One-Pan Sausage Veggies
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · nonketo · 10 min publisher preparation · 30 min
 
 One-Pan Sausage Veggies, adapted from Christina Cherrier.
 
@@ -10116,9 +10524,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 859 kcal; protein: 27.5 g; total carbs: 44.4 g; fiber: 12.3 g; net carbs: 32.1 g
+per serving (1/4 of prepared batch)
+
+Calories: 859 kcal; protein: 27.5 g; fat: 65.0 g; total carbs: 44.4 g; fiber: 12.3 g; net carbs: 32.1 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -10182,7 +10594,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Steak Bites with Lemon Zucchini Noodles
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · Not provided
+4 portions · US imperial measures · keto · 10 min publisher preparation · Not provided
 
 Garlic Butter Steak Bites with Lemon Zucchini Noodles, adapted from Christina Cherrier.
 
@@ -10256,9 +10668,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 461 kcal; protein: 32.5 g; total carbs: 9.7 g; fiber: 2.4 g; net carbs: 7.3 g
+per serving (1/4 of prepared batch)
+
+Calories: 461 kcal; protein: 32.5 g; fat: 33.8 g; total carbs: 9.7 g; fiber: 2.4 g; net carbs: 7.3 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -10326,7 +10742,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## 15-Minute Lemon Garlic Butter Steak with Zucchini Noodles
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · Not provided
+4 portions · US imperial measures · keto · 10 min publisher preparation · Not provided
 
 15-Minute Lemon Garlic Butter Steak with Zucchini Noodles, adapted from Christina Cherrier.
 
@@ -10398,9 +10814,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 678 kcal; protein: 41.9 g; total carbs: 11.6 g; fiber: 2.6 g; net carbs: 9.0 g
+per serving (1/4 of prepared batch)
+
+Calories: 678 kcal; protein: 41.9 g; fat: 52.4 g; total carbs: 11.6 g; fiber: 2.6 g; net carbs: 9.0 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -10466,7 +10886,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Shrimp and Broccoli Skillet
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
 Garlic Butter Shrimp and Broccoli Skillet, adapted from Christina Cherrier.
 
@@ -10538,9 +10958,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 305 kcal; protein: 28.7 g; total carbs: 17.3 g; fiber: 5.2 g; net carbs: 12.0 g
+per serving (1/4 of prepared batch)
+
+Calories: 305 kcal; protein: 28.7 g; fat: 14.6 g; total carbs: 17.3 g; fiber: 5.2 g; net carbs: 12.0 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -10604,7 +11028,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Sheet Pan Shrimp Fajitas
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 20 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 20 min
 
 Sheet Pan Shrimp Fajitas, adapted from Christina Cherrier.
 
@@ -10676,9 +11100,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 161 kcal; protein: 16.2 g; total carbs: 5.6 g; fiber: 1.3 g; net carbs: 4.3 g
+per serving (1/4 of prepared batch)
+
+Calories: 161 kcal; protein: 16.2 g; fat: 8.3 g; total carbs: 5.6 g; fiber: 1.3 g; net carbs: 4.3 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -10744,7 +11172,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Cod with Lemon Asparagus Skillet
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
 Garlic Butter Cod with Lemon Asparagus Skillet, adapted from Christina Cherrier.
 
@@ -10808,9 +11236,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 287 kcal; protein: 33.3 g; total carbs: 8.0 g; fiber: 3.0 g; net carbs: 5.0 g
+per serving (1/4 of prepared batch)
+
+Calories: 287 kcal; protein: 33.3 g; fat: 14.0 g; total carbs: 8.0 g; fiber: 3.0 g; net carbs: 5.0 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -10870,7 +11302,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Asado Chicken Breast with Sauteed Lemon Zucchini
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · Not provided
+4 portions · US imperial measures · keto · 10 min publisher preparation · Not provided
 
 Asado Chicken Breast with Sauteed Lemon Zucchini, adapted from Christina Cherrier.
 
@@ -10940,9 +11372,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 599 kcal; protein: 78.8 g; total carbs: 8.3 g; fiber: 2.2 g; net carbs: 6.1 g
+per serving (1/4 of prepared batch)
+
+Calories: 599 kcal; protein: 78.8 g; fat: 26.7 g; total carbs: 8.3 g; fiber: 2.2 g; net carbs: 6.1 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -11014,7 +11450,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Chicken Bites with Zucchini Noodles
 
-4 portions · US imperial measures · unverified · 15 min publisher preparation · Not provided
+4 portions · US imperial measures · keto · 15 min publisher preparation · Not provided
 
 Garlic Butter Chicken Bites with Zucchini Noodles, adapted from Christina Cherrier.
 
@@ -11090,9 +11526,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 401 kcal; protein: 37.2 g; total carbs: 12.2 g; fiber: 3.1 g; net carbs: 9.0 g
+per serving (1/4 of prepared batch)
+
+Calories: 401 kcal; protein: 37.2 g; fat: 23.1 g; total carbs: 12.2 g; fiber: 3.1 g; net carbs: 9.0 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -11170,7 +11610,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lemon Garlic Butter Baked Cod Fillets
 
-4 portions · US imperial measures · unverified · 5 min publisher preparation · 20 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 20 min
 
 Lemon Garlic Butter Baked Cod Fillets, adapted from Christina Cherrier.
 
@@ -11240,9 +11680,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 286 kcal; protein: 30.8 g; total carbs: 2.5 g; fiber: 0.4 g; net carbs: 2.1 g
+per serving (1/4 of prepared batch)
+
+Calories: 286 kcal; protein: 30.8 g; fat: 16.8 g; total carbs: 2.5 g; fiber: 0.4 g; net carbs: 2.1 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -11306,7 +11750,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lemon Garlic Butter Shrimp with Zucchini Noodles
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 20 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 20 min
 
 Lemon Garlic Butter Shrimp with Zucchini Noodles, adapted from Christina Cherrier.
 
@@ -11374,9 +11818,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 256 kcal; protein: 18.4 g; total carbs: 9.4 g; fiber: 2.4 g; net carbs: 7.1 g
+per serving (1/4 of prepared batch)
+
+Calories: 256 kcal; protein: 18.4 g; fat: 16.8 g; total carbs: 9.4 g; fiber: 2.4 g; net carbs: 7.1 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -11434,7 +11882,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Creamy Cajun Shrimp with Sausage
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 25 min
+4 portions · US imperial measures · nonketo · 10 min publisher preparation · 25 min
 
 Creamy Cajun Shrimp with Sausage, adapted from Christina Cherrier.
 
@@ -11504,9 +11952,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 930 kcal; protein: 34.1 g; total carbs: 17.5 g; fiber: 2.3 g; net carbs: 15.2 g
+per serving (1/4 of prepared batch)
+
+Calories: 930 kcal; protein: 34.1 g; fat: 81.6 g; total carbs: 17.5 g; fiber: 2.3 g; net carbs: 15.2 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -11570,7 +12022,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Shrimp with Lemon Parmesan Cauliflower Rice
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 25 min
+4 portions · US imperial measures · nonketo · 10 min publisher preparation · 25 min
 
 Garlic Butter Shrimp with Lemon Parmesan Cauliflower Rice, adapted from Christina Cherrier.
 
@@ -11642,9 +12094,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 345 kcal; protein: 31.0 g; total carbs: 16.9 g; fiber: 3.9 g; net carbs: 13.0 g
+per serving (1/4 of prepared batch)
+
+Calories: 345 kcal; protein: 31.0 g; fat: 17.8 g; total carbs: 16.9 g; fiber: 3.9 g; net carbs: 13.0 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -11710,7 +12166,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Cheesy Garlic Burgers with Lemon Butter Zucchini Noodles
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
 Cheesy Garlic Burgers with Lemon Butter Zucchini Noodles, adapted from Christina Cherrier.
 
@@ -11782,9 +12238,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 489 kcal; protein: 38.0 g; total carbs: 11.1 g; fiber: 2.9 g; net carbs: 8.2 g
+per serving (1/4 of prepared batch)
+
+Calories: 489 kcal; protein: 38.0 g; fat: 32.8 g; total carbs: 11.1 g; fiber: 2.9 g; net carbs: 8.2 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -11852,7 +12312,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Ground Turkey with Cauliflower
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
 Garlic Butter Ground Turkey with Cauliflower, adapted from Christina Cherrier.
 
@@ -11920,9 +12380,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 379 kcal; protein: 24.8 g; total carbs: 9.9 g; fiber: 2.6 g; net carbs: 7.3 g
+per serving (1/4 of prepared batch)
+
+Calories: 379 kcal; protein: 24.8 g; fat: 27.9 g; total carbs: 9.9 g; fiber: 2.6 g; net carbs: 7.3 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -11988,7 +12452,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Chicken with Cauliflower Rice
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
 Garlic Butter Chicken with Cauliflower Rice, adapted from Christina Cherrier.
 
@@ -12062,9 +12526,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 374 kcal; protein: 37.8 g; total carbs: 13.7 g; fiber: 3.9 g; net carbs: 9.8 g
+per serving (1/4 of prepared batch)
+
+Calories: 374 kcal; protein: 37.8 g; fat: 19.2 g; total carbs: 13.7 g; fiber: 3.9 g; net carbs: 9.8 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -12126,7 +12594,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Pork Bites with Lemon Green Beans
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
 Garlic Butter Pork Bites with Lemon Green Beans, adapted from Christina Cherrier.
 
@@ -12188,9 +12656,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 475 kcal; protein: 39.5 g; total carbs: 11.8 g; fiber: 3.9 g; net carbs: 7.8 g
+per serving (1/4 of prepared batch)
+
+Calories: 475 kcal; protein: 39.5 g; fat: 30.5 g; total carbs: 11.8 g; fiber: 3.9 g; net carbs: 7.8 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -12252,7 +12724,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Salmon with Lemon Asparagus
 
-4 portions · US imperial measures · unverified · 5 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 30 min
 
 Garlic Butter Salmon with Lemon Asparagus, adapted from Christina Cherrier.
 
@@ -12316,9 +12788,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 468 kcal; protein: 23.3 g; total carbs: 14.5 g; fiber: 5.5 g; net carbs: 8.9 g
+per serving (1/4 of prepared batch)
+
+Calories: 468 kcal; protein: 23.3 g; fat: 37.1 g; total carbs: 14.5 g; fiber: 5.5 g; net carbs: 8.9 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -12378,7 +12854,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lemon Garlic Butter Salmon with Zucchini Noodles
 
-4 portions · US imperial measures · unverified · 5 min publisher preparation · 20 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 20 min
 
 Lemon Garlic Butter Salmon with Zucchini Noodles, adapted from Christina Cherrier.
 
@@ -12438,9 +12914,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 481 kcal; protein: 38.0 g; total carbs: 9.8 g; fiber: 2.9 g; net carbs: 6.9 g
+per serving (1/4 of prepared batch)
+
+Calories: 481 kcal; protein: 38.0 g; fat: 32.3 g; total carbs: 9.8 g; fiber: 2.9 g; net carbs: 6.9 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -12500,7 +12980,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lemon Garlic Butter Steak with Spinach
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · Not provided
+4 portions · US imperial measures · nonketo · 10 min publisher preparation · Not provided
 
 Lemon Garlic Butter Steak with Spinach, adapted from Christina Cherrier.
 
@@ -12572,9 +13052,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 1679 kcal; protein: 99.6 g; total carbs: 22.6 g; fiber: 7.9 g; net carbs: 14.6 g
+per serving (1/4 of prepared batch)
+
+Calories: 1679 kcal; protein: 99.6 g; fat: 134.8 g; total carbs: 22.6 g; fiber: 7.9 g; net carbs: 14.6 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -12644,7 +13128,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Cowboy Butter Chicken with Zucchini Noodles (15-Minute)
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 25 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 25 min
 
 Cowboy Butter Chicken with Zucchini Noodles, adapted from Christina Cherrier.
 
@@ -12720,9 +13204,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 327 kcal; protein: 36.5 g; total carbs: 9.1 g; fiber: 2.5 g; net carbs: 6.6 g
+per serving (1/4 of prepared batch)
+
+Calories: 327 kcal; protein: 36.5 g; fat: 16.3 g; total carbs: 9.1 g; fiber: 2.5 g; net carbs: 6.6 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -12794,7 +13282,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Creamy Garlic Pesto Chicken
 
-4 portions · US imperial measures · unverified · 15 min publisher preparation · 35 min
+4 portions · US imperial measures · keto · 15 min publisher preparation · 35 min
 
 Creamy Garlic Pesto Chicken, adapted from Christina Cherrier.
 
@@ -12864,9 +13352,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 486 kcal; protein: 39.0 g; total carbs: 14.1 g; fiber: 3.6 g; net carbs: 10.5 g
+per serving (1/4 of prepared batch)
+
+Calories: 486 kcal; protein: 39.0 g; fat: 30.6 g; total carbs: 14.1 g; fiber: 3.6 g; net carbs: 10.5 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -12936,7 +13428,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Herb Butter Chicken Thighs with Asparagus
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
 Garlic Herb Butter Chicken Thighs with Asparagus, adapted from Christina Cherrier.
 
@@ -13006,9 +13498,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 333 kcal; protein: 19.7 g; total carbs: 7.7 g; fiber: 3.2 g; net carbs: 4.5 g
+per serving (1/4 of prepared batch)
+
+Calories: 333 kcal; protein: 19.7 g; fat: 25.6 g; total carbs: 7.7 g; fiber: 3.2 g; net carbs: 4.5 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -13070,7 +13566,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Easy Chicken Fajitas
 
-4 portions · US imperial measures · unverified · 15 min publisher preparation · 25 min
+4 portions · US imperial measures · keto · 15 min publisher preparation · 25 min
 
 Easy Chicken Fajitas, adapted from Christina Cherrier.
 
@@ -13136,9 +13632,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 294 kcal; protein: 37.0 g; total carbs: 10.3 g; fiber: 3.2 g; net carbs: 7.1 g
+per serving (1/4 of prepared batch)
+
+Calories: 294 kcal; protein: 37.0 g; fat: 11.6 g; total carbs: 10.3 g; fiber: 3.2 g; net carbs: 7.1 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -13198,7 +13698,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Easy Cajun Pork Chops with Lemon Garlic Zucchini
 
-4 portions · US imperial measures · unverified · Preparation time not provided · Not provided
+4 portions · US imperial measures · nonketo · Preparation time not provided · Not provided
 
 Easy Cajun Pork Chops with Lemon Garlic Zucchini, adapted from Christina Cherrier.
 
@@ -13264,9 +13764,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 460 kcal; protein: 42.8 g; total carbs: 22.0 g; fiber: 6.8 g; net carbs: 15.2 g
+per serving (1/4 of prepared batch)
+
+Calories: 460 kcal; protein: 42.8 g; fat: 23.8 g; total carbs: 22.0 g; fiber: 6.8 g; net carbs: 15.2 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -13328,7 +13832,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Creamy Fajita Chicken Breasts Skillet
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 25 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 25 min
 
 Creamy Fajita Chicken Breasts Skillet, adapted from Christina Cherrier.
 
@@ -13392,9 +13896,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 561 kcal; protein: 46.4 g; total carbs: 14.9 g; fiber: 3.0 g; net carbs: 11.9 g
+per serving (1/4 of prepared batch)
+
+Calories: 561 kcal; protein: 46.4 g; fat: 34.4 g; total carbs: 14.9 g; fiber: 3.0 g; net carbs: 11.9 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -13454,7 +13962,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Cheesy Turkey Meatballs with Cauliflower Rice
 
-4 portions · US imperial measures · unverified · 15 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 15 min publisher preparation · 30 min
 
 Cheesy Turkey Meatballs with Cauliflower Rice, adapted from Christina Cherrier.
 
@@ -13530,9 +14038,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 656 kcal; protein: 40.1 g; total carbs: 13.3 g; fiber: 2.4 g; net carbs: 10.9 g
+per serving (1/4 of prepared batch)
+
+Calories: 656 kcal; protein: 40.1 g; fat: 50.4 g; total carbs: 13.3 g; fiber: 2.4 g; net carbs: 10.9 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -13600,7 +14112,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Fried Cabbage with Sausage
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · nonketo · 10 min publisher preparation · 30 min
 
 Fried Cabbage with Sausage, adapted from Christina Cherrier.
 
@@ -13666,9 +14178,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 346 kcal; protein: 10.4 g; total carbs: 21.6 g; fiber: 8.0 g; net carbs: 13.6 g
+per serving (1/4 of prepared batch)
+
+Calories: 346 kcal; protein: 10.4 g; fat: 26.2 g; total carbs: 21.6 g; fiber: 8.0 g; net carbs: 13.6 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -13724,7 +14240,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Tomato Spinach Chicken Skillet (Low Carb - Keto)
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 35 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 35 min
 
 Tomato Spinach Chicken Skillet, adapted from Christina Cherrier.
 
@@ -13798,9 +14314,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 426 kcal; protein: 54.1 g; total carbs: 11.3 g; fiber: 3.2 g; net carbs: 8.1 g
+per serving (1/4 of prepared batch)
+
+Calories: 426 kcal; protein: 54.1 g; fat: 17.9 g; total carbs: 11.3 g; fiber: 3.2 g; net carbs: 8.1 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -13856,7 +14376,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Paprika Chicken Thighs with Lemon Zucchini Skillet
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 25 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 25 min
 
 Paprika Chicken Thighs with Lemon Zucchini Skillet, adapted from Christina Cherrier.
 
@@ -13930,9 +14450,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 248 kcal; protein: 22.6 g; total carbs: 9.1 g; fiber: 2.7 g; net carbs: 6.4 g
+per serving (1/4 of prepared batch)
+
+Calories: 248 kcal; protein: 22.6 g; fat: 14.1 g; total carbs: 9.1 g; fiber: 2.7 g; net carbs: 6.4 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -13998,7 +14522,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Sausages and Broccoli Skillet
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
 Garlic Butter Sausages and Broccoli Skillet, adapted from Christina Cherrier.
 
@@ -14074,9 +14598,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 461 kcal; protein: 19.7 g; total carbs: 14.6 g; fiber: 3.7 g; net carbs: 10.9 g
+per serving (1/4 of prepared batch)
+
+Calories: 461 kcal; protein: 19.7 g; fat: 36.8 g; total carbs: 14.6 g; fiber: 3.7 g; net carbs: 10.9 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -14126,7 +14654,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Pork with Lemon Asparagus
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
 Garlic Butter Pork with Lemon Asparagus, adapted from Christina Cherrier.
 
@@ -14210,9 +14738,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 524 kcal; protein: 40.3 g; total carbs: 10.1 g; fiber: 3.9 g; net carbs: 6.2 g
+per serving (1/4 of prepared batch)
+
+Calories: 524 kcal; protein: 40.3 g; fat: 36.5 g; total carbs: 10.1 g; fiber: 3.9 g; net carbs: 6.2 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -14278,7 +14810,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lemon Garlic Butter Chicken and Zucchini Noodles Skillet
 
-4 portions · US imperial measures · unverified · 5 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 30 min
 
 Lemon Garlic Butter Chicken and Zucchini Noodles Skillet, adapted from Christina Cherrier.
 
@@ -14352,9 +14884,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 219 kcal; protein: 18.0 g; total carbs: 10.0 g; fiber: 2.8 g; net carbs: 7.2 g
+per serving (1/4 of prepared batch)
+
+Calories: 219 kcal; protein: 18.0 g; fat: 12.6 g; total carbs: 10.0 g; fiber: 2.8 g; net carbs: 7.2 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -14414,7 +14950,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## 10-Minute Sheet Pan Steak with Lemon Zucchini
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 80 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 80 min
 
 10-Minute Sheet Pan Steak with Lemon Zucchini, adapted from Christina Cherrier.
 
@@ -14486,9 +15022,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 502 kcal; protein: 39.0 g; total carbs: 9.6 g; fiber: 2.2 g; net carbs: 7.4 g
+per serving (1/4 of prepared batch)
+
+Calories: 502 kcal; protein: 39.0 g; fat: 35.3 g; total carbs: 9.6 g; fiber: 2.2 g; net carbs: 7.4 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -14546,7 +15086,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Creamy Garlic Shrimp with Spinach (10-Minute)
 
-4 portions · US imperial measures · unverified · 5 min publisher preparation · 15 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 15 min
 
 Creamy Garlic Shrimp with Spinach, adapted from Christina Cherrier.
 
@@ -14616,9 +15156,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 461 kcal; protein: 26.9 g; total carbs: 10.7 g; fiber: 1.6 g; net carbs: 9.1 g
+per serving (1/4 of prepared batch)
+
+Calories: 461 kcal; protein: 26.9 g; fat: 35.1 g; total carbs: 10.7 g; fiber: 1.6 g; net carbs: 9.1 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -14672,7 +15216,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Lemon Garlic Butter Chicken Tenders Recipe
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
 Lemon Garlic Butter Chicken Tenders Recipe, adapted from Christina Cherrier.
 
@@ -14746,9 +15290,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 403 kcal; protein: 54.1 g; total carbs: 11.8 g; fiber: 3.9 g; net carbs: 7.9 g
+per serving (1/4 of prepared batch)
+
+Calories: 403 kcal; protein: 54.1 g; fat: 15.1 g; total carbs: 11.8 g; fiber: 3.9 g; net carbs: 7.9 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -14806,7 +15354,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Parmesan Chicken Casserole and Cauliflower Steaks
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 65 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 65 min
 
 Parmesan Chicken Casserole and Cauliflower Steaks, adapted from Christina Cherrier.
 
@@ -14880,9 +15428,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 253 kcal; protein: 30.5 g; total carbs: 8.6 g; fiber: 2.7 g; net carbs: 5.9 g
+per serving (1/4 of prepared batch)
+
+Calories: 253 kcal; protein: 30.5 g; fat: 10.8 g; total carbs: 8.6 g; fiber: 2.7 g; net carbs: 5.9 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -14948,7 +15500,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Creamy Ground Beef and Cauliflower Rice Casserole
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
 Creamy Ground Beef and Cauliflower Rice Casserole, adapted from Christina Cherrier.
 
@@ -15026,9 +15578,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 539 kcal; protein: 33.7 g; total carbs: 10.7 g; fiber: 2.3 g; net carbs: 8.4 g
+per serving (1/4 of prepared batch)
+
+Calories: 539 kcal; protein: 33.7 g; fat: 40.5 g; total carbs: 10.7 g; fiber: 2.3 g; net carbs: 8.4 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -15088,7 +15644,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## 15-Minute Broccoli Chicken in Cream Cheese Sundried Tomato Sauce
 
-4 portions · US imperial measures · unverified · 5 min publisher preparation · 15 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 15 min
 
 15-Minute Broccoli Chicken in Cream Cheese Sundried Tomato Sauce, adapted from Christina Cherrier.
 
@@ -15156,9 +15712,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 376 kcal; protein: 32.9 g; total carbs: 9.8 g; fiber: 2.2 g; net carbs: 7.6 g
+per serving (1/4 of prepared batch)
+
+Calories: 376 kcal; protein: 32.9 g; fat: 23.1 g; total carbs: 9.8 g; fiber: 2.2 g; net carbs: 7.6 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -15212,7 +15772,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Chicken Burrito Bowls with Cauliflower
 
-4 portions · US imperial measures · unverified · 5 min publisher preparation · 25 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 25 min
 
 Chicken Burrito Bowls with Cauliflower, adapted from Christina Cherrier.
 
@@ -15286,9 +15846,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 525 kcal; protein: 37.6 g; total carbs: 13.0 g; fiber: 4.9 g; net carbs: 8.1 g
+per serving (1/4 of prepared batch)
+
+Calories: 525 kcal; protein: 37.6 g; fat: 37.3 g; total carbs: 13.0 g; fiber: 4.9 g; net carbs: 8.1 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -15348,7 +15912,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Italian Sausage with Cilantro Lime Cauliflower Rice
 
-4 portions · US imperial measures · unverified · 5 min publisher preparation · 25 min
+4 portions · US imperial measures · nonketo · 5 min publisher preparation · 25 min
 
 Italian Sausage with Cilantro Lime Cauliflower Rice, adapted from Christina Cherrier.
 
@@ -15416,9 +15980,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 551 kcal; protein: 24.8 g; total carbs: 17.2 g; fiber: 3.7 g; net carbs: 13.5 g
+per serving (1/4 of prepared batch)
+
+Calories: 551 kcal; protein: 24.8 g; fat: 43.1 g; total carbs: 17.2 g; fiber: 3.7 g; net carbs: 13.5 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -15470,7 +16038,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Turkey Meatballs with Zucchini Noodles
 
-4 portions · US imperial measures · unverified · 15 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 15 min publisher preparation · 30 min
 
 Garlic Butter Turkey Meatballs with Zucchini Noodles, adapted from Christina Cherrier.
 
@@ -15546,9 +16114,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 378 kcal; protein: 27.1 g; total carbs: 10.3 g; fiber: 2.5 g; net carbs: 7.8 g
+per serving (1/4 of prepared batch)
+
+Calories: 378 kcal; protein: 27.1 g; fat: 26.4 g; total carbs: 10.3 g; fiber: 2.5 g; net carbs: 7.8 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -15608,7 +16180,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## 10-Minute Pizza Zucchini Noodles with Marinara Sauce & Pepperoni
 
-4 portions · US imperial measures · unverified · 2 min publisher preparation · 12 min
+4 portions · US imperial measures · keto · 2 min publisher preparation · 12 min
 
 10-Minute Pizza Zucchini Noodles with Marinara Sauce & Pepperoni, adapted from Christina Cherrier.
 
@@ -15666,9 +16238,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 338 kcal; protein: 13.6 g; total carbs: 10.7 g; fiber: 3.0 g; net carbs: 7.6 g
+per serving (1/4 of prepared batch)
+
+Calories: 338 kcal; protein: 13.6 g; fat: 27.6 g; total carbs: 10.7 g; fiber: 3.0 g; net carbs: 7.6 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -15712,7 +16288,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Egg Roll Bowls with Chicken and Cabbage
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 20 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 20 min
 
 Egg Roll Bowls with Chicken and Cabbage, adapted from Christina Cherrier.
 
@@ -15782,9 +16358,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 282 kcal; protein: 22.7 g; total carbs: 12.7 g; fiber: 3.8 g; net carbs: 8.9 g
+per serving (1/4 of prepared batch)
+
+Calories: 282 kcal; protein: 22.7 g; fat: 16.6 g; total carbs: 12.7 g; fiber: 3.8 g; net carbs: 8.9 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -15846,7 +16426,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Sausages with Lemon Green Beans
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 25 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 25 min
 
 Garlic Butter Sausages with Lemon Green Beans, adapted from Christina Cherrier.
 
@@ -15922,9 +16502,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 457 kcal; protein: 18.6 g; total carbs: 14.9 g; fiber: 3.8 g; net carbs: 11.2 g
+per serving (1/4 of prepared batch)
+
+Calories: 457 kcal; protein: 18.6 g; fat: 36.6 g; total carbs: 14.9 g; fiber: 3.8 g; net carbs: 11.2 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -15974,7 +16558,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Mexican Cauliflower Rice with Cheesy Steak Roll-Ups
 
-4 portions · US imperial measures · unverified · 15 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 15 min publisher preparation · 30 min
 
 Mexican Cauliflower Rice with Cheesy Steak Roll-Ups, adapted from Christina Cherrier.
 
@@ -16058,9 +16642,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 405 kcal; protein: 35.0 g; total carbs: 14.5 g; fiber: 4.9 g; net carbs: 9.6 g
+per serving (1/4 of prepared batch)
+
+Calories: 405 kcal; protein: 35.0 g; fat: 23.9 g; total carbs: 14.5 g; fiber: 4.9 g; net carbs: 9.6 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -16136,7 +16724,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Sausage Taco Cauliflower Rice Skillet
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · nonketo · 10 min publisher preparation · 30 min
 
 Sausage Taco Cauliflower Rice Skillet, adapted from Christina Cherrier.
 
@@ -16204,9 +16792,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 856 kcal; protein: 43.0 g; total carbs: 23.0 g; fiber: 6.7 g; net carbs: 16.3 g
+per serving (1/4 of prepared batch)
+
+Calories: 856 kcal; protein: 43.0 g; fat: 66.1 g; total carbs: 23.0 g; fiber: 6.7 g; net carbs: 16.3 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -16266,7 +16858,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Buttery Garlic Herb Chicken and Lemon Parmesan Cauliflower Rice
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 45 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 45 min
 
 Buttery Garlic Herb Chicken and Lemon Parmesan Cauliflower Rice, adapted from Christina Cherrier.
 
@@ -16352,9 +16944,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 282 kcal; protein: 26.7 g; total carbs: 8.8 g; fiber: 2.2 g; net carbs: 6.6 g
+per serving (1/4 of prepared batch)
+
+Calories: 282 kcal; protein: 26.7 g; fat: 15.7 g; total carbs: 8.8 g; fiber: 2.2 g; net carbs: 6.6 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -16430,7 +17026,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Steak and Green Beans
 
-4 portions · US imperial measures · unverified · 15 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 15 min publisher preparation · 30 min
 
 Garlic Butter Steak and Green Beans, adapted from Christina Cherrier.
 
@@ -16510,9 +17106,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 450 kcal; protein: 39.0 g; total carbs: 16.5 g; fiber: 5.2 g; net carbs: 11.3 g
+per serving (1/4 of prepared batch)
+
+Calories: 450 kcal; protein: 39.0 g; fat: 26.3 g; total carbs: 16.5 g; fiber: 5.2 g; net carbs: 11.3 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -16574,7 +17174,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Taco Chicken Tenders with Lemon Garlic Butter Zucchini Noodles
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
 Taco Chicken Tenders with Lemon Garlic Butter Zucchini Noodles, adapted from Christina Cherrier.
 
@@ -16640,9 +17240,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 433 kcal; protein: 54.1 g; total carbs: 11.5 g; fiber: 3.1 g; net carbs: 8.4 g
+per serving (1/4 of prepared batch)
+
+Calories: 433 kcal; protein: 54.1 g; fat: 18.3 g; total carbs: 11.5 g; fiber: 3.1 g; net carbs: 8.4 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -16694,7 +17298,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Butter Herb Pork Chops with Zucchini
 
-4 portions · US imperial measures · unverified · 5 min publisher preparation · 20 min
+4 portions · US imperial measures · keto · 5 min publisher preparation · 20 min
 
 Garlic Butter Herb Pork Chops with Zucchini, adapted from Veronica Brandy.
 
@@ -16756,9 +17360,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 425 kcal; protein: 42.2 g; total carbs: 7.5 g; fiber: 2.0 g; net carbs: 5.5 g
+per serving (1/4 of prepared batch)
+
+Calories: 425 kcal; protein: 42.2 g; fat: 24.9 g; total carbs: 7.5 g; fiber: 2.0 g; net carbs: 5.5 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -16804,7 +17412,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## One-Pan Lemon Butter Chicken with Asparagus
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · nonketo · 10 min publisher preparation · 30 min
 
 One-Pan Lemon Butter Chicken with Asparagus, adapted from Christina Cherrier.
 
@@ -16872,9 +17480,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 722 kcal; protein: 58.6 g; total carbs: 56.2 g; fiber: 8.7 g; net carbs: 47.5 g
+per serving (1/4 of prepared batch)
+
+Calories: 722 kcal; protein: 58.6 g; fat: 31.6 g; total carbs: 56.2 g; fiber: 8.7 g; net carbs: 47.5 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -16932,7 +17544,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Italian Sausage and Peppers Skillet
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 25 min
+4 portions · US imperial measures · nonketo · 10 min publisher preparation · 25 min
 
 Italian Sausage and Peppers Skillet, adapted from Christina Cherrier.
 
@@ -17012,9 +17624,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 461 kcal; protein: 19.3 g; total carbs: 16.8 g; fiber: 4.1 g; net carbs: 12.8 g
+per serving (1/4 of prepared batch)
+
+Calories: 461 kcal; protein: 19.3 g; fat: 35.7 g; total carbs: 16.8 g; fiber: 4.1 g; net carbs: 12.8 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -17074,7 +17690,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Beef and Cauliflower Rice Burrito Bowl
 
-4 portions · US imperial measures · unverified · 15 min publisher preparation · 35 min
+4 portions · US imperial measures · keto · 15 min publisher preparation · 35 min
 
 Beef and Cauliflower Rice Burrito Bowl, adapted from Christina Cherrier.
 
@@ -17162,9 +17778,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 660 kcal; protein: 42.1 g; total carbs: 21.7 g; fiber: 9.6 g; net carbs: 12.1 g
+per serving (1/4 of prepared batch)
+
+Calories: 660 kcal; protein: 42.1 g; fat: 47.0 g; total carbs: 21.7 g; fiber: 9.6 g; net carbs: 12.1 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -17234,7 +17854,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Stuffed Chicken Breast with Mozzarella and Spinach
 
-4 portions · US imperial measures · unverified · 5 min publisher preparation · 35 min
+4 portions · US imperial measures · nonketo · 5 min publisher preparation · 35 min
 
 Stuffed Chicken Breast with Mozzarella and Spinach, adapted from Christina Cherrier.
 
@@ -17304,9 +17924,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 595 kcal; protein: 54.9 g; total carbs: 21.1 g; fiber: 5.4 g; net carbs: 15.7 g
+per serving (1/4 of prepared batch)
+
+Calories: 595 kcal; protein: 54.9 g; fat: 32.5 g; total carbs: 21.1 g; fiber: 5.4 g; net carbs: 15.7 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -17366,7 +17990,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Sausage, Pepper and Cauliflower Fried Rice
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 20 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 20 min
 
 Sausage, Pepper and Cauliflower Fried Rice, adapted from Christina Cherrier.
 
@@ -17448,9 +18072,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 346 kcal; protein: 9.9 g; total carbs: 12.5 g; fiber: 3.5 g; net carbs: 9.1 g
+per serving (1/4 of prepared batch)
+
+Calories: 346 kcal; protein: 9.9 g; fat: 29.6 g; total carbs: 12.5 g; fiber: 3.5 g; net carbs: 9.1 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -17510,7 +18138,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Creamy Chicken with Bacon and Spinach
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 46 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 46 min
 
 Creamy Chicken with Bacon and Spinach, adapted from Christina Cherrier.
 
@@ -17584,9 +18212,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 648 kcal; protein: 52.0 g; total carbs: 10.9 g; fiber: 2.0 g; net carbs: 8.9 g
+per serving (1/4 of prepared batch)
+
+Calories: 648 kcal; protein: 52.0 g; fat: 43.7 g; total carbs: 10.9 g; fiber: 2.0 g; net carbs: 8.9 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -17646,7 +18278,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Sheet Pan Garlic Butter Chicken and Asparagus
 
-4 portions · US imperial measures · unverified · 15 min publisher preparation · 45 min
+4 portions · US imperial measures · keto · 15 min publisher preparation · 45 min
 
 Sheet Pan Garlic Butter Chicken and Asparagus, adapted from Christina Cherrier.
 
@@ -17714,9 +18346,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 575 kcal; protein: 26.8 g; total carbs: 10.2 g; fiber: 1.9 g; net carbs: 8.3 g
+per serving (1/4 of prepared batch)
+
+Calories: 575 kcal; protein: 26.8 g; fat: 48.1 g; total carbs: 10.2 g; fiber: 1.9 g; net carbs: 8.3 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -17770,7 +18406,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Grilled Bruschetta Chicken
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 20 min
+4 portions · US imperial measures · nonketo · 10 min publisher preparation · 20 min
 
 Grilled Bruschetta Chicken, adapted from Christina Cherrier.
 
@@ -17838,9 +18474,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 320 kcal; protein: 24.8 g; total carbs: 15.6 g; fiber: 2.2 g; net carbs: 13.4 g
+per serving (1/4 of prepared batch)
+
+Calories: 320 kcal; protein: 24.8 g; fat: 17.4 g; total carbs: 15.6 g; fiber: 2.2 g; net carbs: 13.4 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -17896,7 +18536,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 ## Garlic Lemon Chicken Breasts with Green Beans
 
-4 portions · US imperial measures · unverified · 10 min publisher preparation · 30 min
+4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
 Garlic Lemon Chicken Breasts with Green Beans, adapted from Christina Cherrier.
 
@@ -17964,9 +18604,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 450 kcal; protein: 43.5 g; total carbs: 10.1 g; fiber: 3.3 g; net carbs: 6.8 g
+per serving (1/4 of prepared batch)
+
+Calories: 450 kcal; protein: 43.5 g; fat: 26.1 g; total carbs: 10.1 g; fiber: 3.3 g; net carbs: 6.8 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -18066,9 +18710,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 115 kcal; protein: 8.2 g; total carbs: 1.6 g; fiber: 0.5 g; net carbs: 1.1 g
+per serving (1/4 of prepared batch)
+
+Calories: 115 kcal; protein: 8.2 g; fat: 8.5 g; total carbs: 1.6 g; fiber: 0.5 g; net carbs: 1.1 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 
@@ -18186,9 +18834,13 @@ Stages can overlap; endpoints and appliance behavior override the estimate.
 
 ### Nutrition per serving
 
-Calories: 397 kcal; protein: 31.8 g; total carbs: 4.6 g; fiber: 0.3 g; net carbs: 4.3 g
+per serving (1/4 of prepared batch)
+
+Calories: 397 kcal; protein: 31.8 g; fat: 27.5 g; total carbs: 4.6 g; fiber: 0.3 g; net carbs: 4.3 g
 
 Nutrition estimates follow the measured ingredients and recorded edible yields. Original publisher nutrition is preserved separately.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
 
 Nutrition assumptions:
 

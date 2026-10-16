@@ -22,7 +22,7 @@
 	<Button type="button" class={`print-recipe ${className}`} {disabled} onclick={print}><Printer aria-hidden="true" />Print recipe</Button>
 	{#if links}
 		<div class="safari-print-help">
-			<p role="status">To print from this Home Screen app, open the recipe in Safari, then tap Print recipe there. Your servings, units and family side are included in the link. Opening Safari needs an internet connection.</p>
+			<p role="status">To print from this Home Screen app, open the recipe in Safari, then tap Print recipe there. Your servings, units and optional side are included in the link. Opening Safari needs an internet connection.</p>
 			{#if links.safari}<Button variant="outline" href={links.safari}>Open in Safari</Button>{/if}
 			<label for={linkId}>If Safari does not open, copy this recipe link and paste it into Safari:</label>
 			<Input id={linkId} aria-label="Recipe link for Safari" readonly value={links.url} />

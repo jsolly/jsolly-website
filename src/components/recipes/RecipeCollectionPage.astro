@@ -10,9 +10,12 @@ interface Props {
 }
 
 const { collection, title } = Astro.props;
+const description = collection === "meal"
+	? "Browse easy meals by ingredients, appliances and dietary preference, with measured portions, cooking instructions and estimated nutrition."
+	: "Browse fruit and yogurt smoothies with measured ingredients, blender instructions and estimated nutrition per glass.";
 ---
 
-<RecipeLayout {title} description="Find your next meal or smoothie." article>
+<RecipeLayout {title} {description}>
 	<h1>{title}</h1>
 	<RecipeExperience {collection} />
 </RecipeLayout>

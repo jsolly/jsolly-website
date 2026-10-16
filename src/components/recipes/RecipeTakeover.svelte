@@ -5,7 +5,6 @@
 	import DialogDescription from "../../lib/components/ui/dialog-description.svelte";
 	import DialogTitle from "../../lib/components/ui/dialog-title.svelte";
 	import RecipeContent from "./RecipeContent.svelte";
-	import RecipeDownload from "./RecipeDownload.svelte";
 	import RecipePrintButton from "./RecipePrintButton.svelte";
 	import ShareRecipe from "./ShareRecipe.svelte";
 	import UnitControl from "./UnitControl.svelte";
@@ -40,14 +39,16 @@
 		}}
 		onCloseAutoFocus={(event) => event.preventDefault()}
 		><section class="recipe-detail" id={recipe.id} aria-labelledby="recipe-detail-title">
-			<div class="detail-toolbar"><Button variant="ghost" type="button" class="text-button" onclick={() => onBack()}>← Back to recipes</Button><RecipePrintButton {recipe} {settings} class="print-recipe" {onPrint} /></div>
+			<div class="detail-toolbar">
+				<Button variant="ghost" type="button" class="text-button" onclick={() => onBack()}>← Back to recipes</Button>
+				<RecipePrintButton {recipe} {settings} class="print-recipe" {onPrint} />
+			</div>
 			<DialogDescription class="visually-hidden">{recipe.summary}</DialogDescription>
 			<RecipeContent {recipe} {settings} headingLevel={3} {onSideChange}>
 				{#snippet title()}<DialogTitle id="recipe-detail-title" tabindex={-1} bind:ref={heading}>{recipe.title}</DialogTitle>{/snippet}
 				{#snippet controls()}<UnitControl recipeId={recipe.id} units={settings.units} {onUnitsChange} />{/snippet}
 			</RecipeContent>
 			<ShareRecipe {recipe} {settings} />
-			<RecipeDownload recipes={[recipe]} {settings} />
 		</section></DialogContent
 	></DialogRoot
 >

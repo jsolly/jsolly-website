@@ -3,12 +3,14 @@ import { readFile } from "node:fs/promises";
 import it from "node:test";
 import {
 	capacityNote,
-	familyNutrition,
+	dietaryClass,
 	formatIngredient,
 	formatQuantity,
 	ingredientAmount,
+	selectedSide,
 	servingNutrition,
 	shuffleRecipes,
+	sideNutrition,
 	temperature,
 	validateSettings,
 } from "./recipe-logic.mjs";
@@ -46,7 +48,6 @@ const chicken = {
 	id: "chicken",
 	key: "salsa_chicken",
 	title: "Salsa chicken",
-	group: "shared",
 	proteinType: "chicken",
 	vegetarian: false,
 	appliance: "instant-pot",
@@ -123,19 +124,17 @@ it("temperature keeps the source setting and rounds safe endpoints upward", () =
 	assert.equal(temperature(165, "us", true), "165°F");
 });
 
-it("family macros are per serving and base remains intact", () => {
+it("explicit side macros exclude the base and leave it intact", () => {
 	const before = structuredClone(chicken);
-	assert.deepEqual(familyNutrition(chicken, "rice"), {
-		kcal: 566,
-		protein_g: 39,
-		carbs_g: 46,
-		fiber_g: 5,
-		net_carbs_g: 41,
+	assert.deepEqual(sideNutrition(chicken, "rice"), {
+		kcal: 166,
+		fat_g: null,
+		protein_g: 4,
+		carbs_g: 34,
+		fiber_g: 2,
+		net_carbs_g: 32,
 	});
-	assert.deepEqual(
-		familyNutrition(chicken, "unknown"),
-		familyNutrition(chicken, "rice"),
-	);
+	assert.deepEqual(sideNutrition(chicken, "unknown"), null);
 	assert.deepEqual(chicken, before);
 });
 
@@ -175,12 +174,15 @@ it("pressure minimum changes small-batch per-person nutrition, not safe liquid",
 	assert(
 		Math.abs(p.carbs_g - pressure.nutrition.carbs_g - extra * 0.38) < 1e-10,
 	);
-	assert.deepEqual(servingNutrition(pressure, 4), pressure.nutrition);
-	assert.deepEqual(servingNutrition(pressure, 8), pressure.nutrition);
-	assert.deepEqual(
-		familyNutrition(pressure, "bogus", 2),
-		familyNutrition(pressure, pressure.familyOptions[0].id, 2),
-	);
+	assert.deepEqual(servingNutrition(pressure, 4), {
+		...pressure.nutrition,
+		fat_g: 13.30389625,
+	});
+	assert.deepEqual(servingNutrition(pressure, 8), {
+		...pressure.nutrition,
+		fat_g: 13.30389625,
+	});
+	assert.deepEqual(sideNutrition(pressure, "bogus"), null);
 });
 
 it("package counts follow scaled ingredient weights rather than fixed recipe notes", async () => {
@@ -319,4 +321,30 @@ it("smoothie liquid keeps fluid-ounce precision without changing the canonical a
 	assert.equal(formatIngredient(water, 4, "metric"), "400 mL");
 	assert.equal(formatIngredient(water, 4, "grams"), "400 g");
 	assert.equal(water.amount, 400);
+});
+
+it("dietary classification includes 12.5 g and optional sides default to none", () => {
+	const recipe = {
+		...chicken,
+		id: "dietary-fixture",
+		nutrition: { ...nutrition, carbs_g: 15.5, net_carbs_g: 12.5 },
+	};
+	assert.equal(dietaryClass(recipe), "keto");
+	assert.equal(
+		dietaryClass({
+			...recipe,
+			nutrition: {
+				...recipe.nutrition,
+				carbs_g: 15.5001,
+				net_carbs_g: 12.5001,
+			},
+		}),
+		"nonketo",
+	);
+	assert.equal(selectedSide(recipe), undefined);
+	assert.equal(selectedSide(recipe, "stale"), undefined);
+	assert.equal(selectedSide(recipe, ""), undefined);
+	assert.equal(selectedSide(recipe, "rice"), recipe.familyOptions[0]);
+	assert.equal(sideNutrition(recipe), null);
+	assert.equal(dietaryClass(recipe), "keto");
 });

@@ -13,6 +13,9 @@
 		formatQuantity,
 		ingredientAmount,
 		nutritionHeading,
+		nutritionPortionLabel,
+		selectedSide,
+		sideNutrition,
 	totalTimeLabel,
 	} from "./recipe-logic.mjs";
 
@@ -27,8 +30,8 @@
 		onSideChange,
 	} = $props();
 	const sideId = $props.id();
-	const selectedSide = $derived(
-		settings.familyChoice[recipe.id] || recipe.familyOptions[0]?.id || "",
+	const selectedSideId = $derived(
+		settings.familyChoice[recipe.id] || "",
 	);
 	const baseNutrition = $derived(displayNutrition(recipe, settings.servings));
 	const dailyValues = $derived(
@@ -36,11 +39,9 @@
 			(nutrient) => nutrient.amount !== null,
 		),
 	);
-	const side = $derived(
-		recipe.familyOptions.find((option) => option.id === selectedSide) ||
-			recipe.familyOptions[0],
-	);
-	// The family side is a fixed amount per diner, whatever the servings.
+	const side = $derived(selectedSide(recipe, selectedSideId));
+	const sideMacros = $derived(sideNutrition(recipe, selectedSideId));
+	// The optional side is a fixed amount per diner, whatever the servings.
 	const sideAmount = $derived(
 		side && settings.familyDiners > 0 &&
 			ingredientMeasure(side, side.amount * settings.familyDiners, settings.units, formatQuantity).quantity,
@@ -62,22 +63,27 @@
 			<img src={recipe.image.src} srcset={recipe.image.detailSrcset} sizes="(max-width:600px) 320px, (max-width:1000px) 680px, 960px" width={recipe.image.width} height={recipe.image.height} alt={recipe.image.alt} loading="eager" decoding="async" />
 		</figure>
 	{/if}
-	{#if side && settings.familyDiners > 0}
-		<div class="family-box">
+	{#if recipe.familyOptions.length && (!printOnly || side)}
+		<div class="family-box" class:has-side={Boolean(side)}>
 			<label for={sideId}
-				>Family side{#if printOnly}<span>{side.label}</span>{:else}<NativeSelect id={sideId} value={selectedSide} disabled={!interactive} onchange={(event) => onSideChange?.(event.currentTarget.value)}>
+				>Add a side{#if printOnly}<span>{side.label}</span>{:else}<NativeSelect id={sideId} value={selectedSideId} disabled={!interactive} onchange={(event) => onSideChange?.(event.currentTarget.value)}>
+					<option value="">None</option>
 					{#each recipe.familyOptions as option (option.id)}<option value={option.id}>{option.label}</option>{/each}
 				</NativeSelect>{/if}</label
 			>
-			<p>{sideAmount} {side.ingredientName} · serve separately</p>
+			{#if side}
+				<p>{sideAmount} {side.ingredientName} · serve separately</p>
+				<div class="side-nutrition">Side only, per person: {formatNutrition(sideMacros.kcal, "kcal")} · Protein {formatNutrition(sideMacros.protein_g, "g")} · Fat {formatNutrition(sideMacros.fat_g, "g")} · Carbs {formatNutrition(sideMacros.carbs_g, "g")} · Fiber {formatNutrition(sideMacros.fiber_g, "g")} · Net carbs {formatNutrition(sideMacros.net_carbs_g, "g")}. Base nutrition below excludes this side.</div>
+			{/if}
 		</div>
 	{/if}
 	{#key recipe.id}<RecipeFlow {recipe} {settings} {interactive} {printOnly} {headingLevel} />{/key}
-	<section class="nutrition" aria-label={nutritionHeading(recipe)}>
-		<svelte:element this={`h${headingLevel}`}>Nutrition</svelte:element><p class="nutrition-portion">{nutritionHeading(recipe).replace(/^Nutrition /u, "")}</p>
+	<section class="nutrition" aria-label={nutritionHeading(recipe, settings.servings)}>
+		<svelte:element this={`h${headingLevel}`}>Nutrition</svelte:element><p class="nutrition-portion">{nutritionPortionLabel(recipe, settings.servings)}</p>
 		<dl>
 			<div><dt><span aria-hidden="true">🔥</span> Calories</dt><dd>{formatNutrition(baseNutrition.kcal, "kcal")}</dd></div>
 			<div><dt><span aria-hidden="true">💪</span> Protein</dt><dd>{formatNutrition(baseNutrition.protein_g, "g")}</dd></div>
+			<div><dt>Fat</dt><dd>{formatNutrition(baseNutrition.fat_g, "g")}</dd></div>
 			<div><dt>Carbs</dt><dd>{formatNutrition(baseNutrition.carbs_g, "g")}</dd></div>
 			<div><dt>Fiber</dt><dd>{formatNutrition(baseNutrition.fiber_g, "g")}</dd></div>
 			<div><dt>Net carbs <NutritionHelp topic="net-carbs" /></dt><dd>{formatNutrition(baseNutrition.net_carbs_g, "g")}</dd></div>
@@ -186,7 +192,9 @@
 			max-width: 360px;
 		}
 		@media print {
-			.recipe-photo {
+			.recipe-photo,
+			.side-nutrition,
+			.family-box:not(.has-side) {
 				display: none;
 			}
 		}

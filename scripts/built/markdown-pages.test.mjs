@@ -169,8 +169,95 @@ it("Published article Markdown preserves rendered author, timestamps, heading ID
 });
 
 it("Each recipe Markdown contains its instructions and source uncertainty with canonical settings", async () => {
+	const library = JSON.parse(
+		await readFile("dist/recipes/data/recipe-library.json", "utf8"),
+	);
+	assert.equal(library.schemaVersion, 2);
+	const guide = await readFile("dist/llms.txt", "utf8");
+	assert.ok(
+		guide.includes("https://www.jsolly.com/recipes/data/recipe-library.json"),
+	);
+	await Promise.all(
+		[
+			["meals", "meal"],
+			["smoothies", "smoothie"],
+		].map(async ([collection, type]) => {
+			const dom = new JSDOM(
+				await readFile(`dist/recipes/${collection}/index.html`, "utf8"),
+			);
+			try {
+				const hrefs = new Set(
+					[...dom.window.document.querySelectorAll("a.open-button")].map(
+						(link) => link.getAttribute("href"),
+					),
+				);
+				assert.deepEqual(
+					hrefs,
+					new Set(
+						data.recipes
+							.filter((recipe) => recipe.type === type)
+							.map((recipe) => `/recipes/${recipe.id}/`),
+					),
+					`${collection} links every recipe directly to its canonical URL`,
+				);
+			} finally {
+				dom.window.close();
+			}
+		}),
+	);
 	await Promise.all(
 		data.recipes.map(async (recipe) => {
+			const dom = new JSDOM(
+				await readFile(`dist/recipes/${recipe.id}/index.html`, "utf8"),
+			);
+			try {
+				const document = dom.window.document;
+				assert.equal(
+					document
+						// biome-ignore lint/security/noSecrets: HTML metadata selector, not a credential.
+						.querySelector('link[rel="related"][type="application/json"]')
+						?.getAttribute("href"),
+					"/recipes/data/recipe-library.json",
+				);
+				assert.equal(
+					document
+						// biome-ignore lint/security/noSecrets: HTML metadata selector, not a credential.
+						.querySelector('link[rel="alternate"][type="text/markdown"]')
+						?.getAttribute("href"),
+					`/recipes/${recipe.id}.md`,
+				);
+				assert.equal(
+					document
+						.querySelector('meta[property="og:image"]')
+						?.getAttribute("content"),
+					`https://www.jsolly.com${recipe.image.src}`,
+				);
+				assert.equal(
+					document
+						.querySelector('meta[property="og:image:alt"]')
+						?.getAttribute("content"),
+					recipe.image.alt,
+				);
+				assert.equal(
+					document.querySelector("h1")?.textContent.trim(),
+					recipe.title,
+				);
+				assert.equal(
+					document.body.textContent.includes("Download Markdown"),
+					false,
+				);
+				assert.equal(
+					document.body.textContent.includes("Download JSON"),
+					false,
+				);
+				assert.equal(
+					library.recipes.filter((entry) => entry.recipeId === recipe.id)
+						.length,
+					1,
+				);
+			} finally {
+				dom.window.close();
+			}
 			const markdown = await readFile(`dist/recipes/${recipe.id}.md`, "utf8");
 			assert.deepEqual(cookingContentGaps(markdown, recipe), []);
 			assert.ok(markdown.includes(recipe.title), recipe.id);

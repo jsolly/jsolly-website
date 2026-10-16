@@ -5,13 +5,9 @@
 export const BASE_SERVINGS = 4;
 /** Cards appended per scroll or load-more action. */
 export const RECIPE_BATCH_SIZE = 24;
-/** Each recipe group's badge on its page. */
-export const groupBadges = {
-	keto: "Keto",
-	shared: "Shared main",
-	nonketo: "Not Keto",
-	unverified: null,
-};
+/** Labels derived from the base recipe's net carbohydrates per serving. */
+export const dietaryLabels = { keto: "Keto", nonketo: "Not keto" };
+export const KETO_NET_CARBS_MAX = 12.5;
 /** The servings a reader can choose. */
 export const SERVING_CHOICES = [2, 4, 6, 8];
 
@@ -94,27 +90,16 @@ export const proteins = {
 	eggs: "Eggs",
 	mixed: "Mixed meats",
 };
-/** The library's meal styles (recipe groups). */
-export const carbStyles = {
-	keto: "Keto",
-	nonketo: "Not Keto",
-	shared: "Shared Main",
-	unverified: "Nutrition estimated",
-};
+/** Dietary filters classify the base recipe; optional sides remain separate. */
 export const dietaryPreferences = {
-	keto: carbStyles.keto,
-	shared: carbStyles.shared,
-	unverified: carbStyles.unverified,
+	...dietaryLabels,
 	vegetarian: "Vegetarian",
 };
 export const mealStyleDescriptions = {
 	vegetarian: "Meals without meat or fish; eggs and dairy may be included.",
-	all: "Keto meals, higher-carb meals, and shared mains with different sides.",
-	keto: "Low-carb meals without a starchy side.",
-	nonketo: "Meals with over 50g net carbs per four servings.",
-	shared: "One main dish with different sides for keto and non-keto diners.",
-	unverified:
-		"Nutrition uses documented ingredient estimates; keto eligibility has not been verified.",
+	all: "All recipes, with optional sides kept separate.",
+	keto: "Base recipe has at most 12.5 g net carbs per serving; optional sides are separate.",
+	nonketo: "Base recipe has more than 12.5 g net carbs per serving.",
 };
 /** The family starches a library filter offers ("all" and "none" are not choices). */
 export const starchOptions = Object.fromEntries(
@@ -123,7 +108,7 @@ export const starchOptions = Object.fromEntries(
 /**
  * The library's filters before a reader picks any: proteins, starches and
  * smoothie ingredients (arrays of ids), one meal style ("all" or a
- * carbStyles key), and the keto-smoothie and nutrition checks.
+ * dietaryPreferences key), and the keto-smoothie and nutrition checks.
  */
 export const DEFAULT_FILTERS = {
 	proteinChoice: [],

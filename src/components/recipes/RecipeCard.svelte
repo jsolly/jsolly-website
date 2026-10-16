@@ -42,7 +42,7 @@
 				<dd class="appliance-icons">{#each recipe.appliancesNeeded as name (name)}<ApplianceIcon {name} />{/each}</dd>
 			</div>
 		</dl>
-		<div class="card-nutrition"><NutritionPills {recipe} {servings} includeGroup /></div>
+		<div class="card-nutrition"><NutritionPills {recipe} {servings} includeDietary /></div>
 	</div>
 	<div class="card-actions"><Button class="open-button" {href} aria-label={`Open recipe: ${cardTitle}`}>Open recipe <span aria-hidden="true">→</span></Button>{#if onPrint}<RecipePrintButton {recipe} {settings} {onPrint} {disabled} />{/if}</div>
 </article>

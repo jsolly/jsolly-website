@@ -48,6 +48,19 @@ function verifyLibrary(width) {
 			await page.waitForFunction(
 				() => !document.querySelector("astro-island[ssr]"),
 			);
+			assert.equal(
+				await page
+					.locator(".recipe-card a.title-button")
+					.evaluateAll((links) =>
+						links.every(
+							(link) =>
+								link.getAttribute("href") ===
+								`/recipes/${link.dataset.recipeId}/`,
+						),
+					),
+				true,
+				"default hydrated cards retain direct canonical links",
+			);
 			const servings = page.getByRole("combobox", {
 				name: "Servings",
 				exact: true,
@@ -229,9 +242,36 @@ verifyLibrary(1280);
 it("recipe batches load by scroll and button; shuffle shows gray cards and preserves filters", {
 	timeout: 60000,
 }, async () => {
+	// Prove automatic pagination with the real observer first. Keyboard pagination
+	// has its own context: focusing newly added cards scrolls the viewport, which
+	// otherwise lets the observer load another batch before the next key press.
+	const scrolling = await browser.newContext({
+		viewport: { width: 1280, height: 984 },
+		serviceWorkers: "block",
+	});
+	try {
+		const scrollPage = await scrolling.newPage();
+		await scrollPage.goto(`${site.origin}/recipes/meals/`);
+		await scrollPage.waitForFunction(
+			() => !document.querySelector("astro-island[ssr]"),
+		);
+		assert.equal(await scrollPage.locator(".recipe-card").count(), 24);
+		await scrollPage
+			.getByRole("button", { name: "Load more recipes" })
+			.scrollIntoViewIfNeeded();
+		await scrollPage.waitForFunction(
+			() => document.querySelectorAll(".recipe-card").length >= 48,
+		);
+	} finally {
+		await scrolling.close();
+	}
 	const context = await browser.newContext({
 		viewport: { width: 1280, height: 984 },
 		serviceWorkers: "block",
+	});
+	await context.addInitScript(() => {
+		// biome-ignore lint/performance/noDelete: the browser fallback checks property presence with "in".
+		delete window.IntersectionObserver;
 	});
 	const page = await context.newPage();
 	try {
@@ -241,7 +281,8 @@ it("recipe batches load by scroll and button; shuffle shows gray cards and prese
 		);
 		assert.equal(await page.locator(".recipe-card").count(), 24);
 		const more = page.getByRole("button", { name: "Load more recipes" });
-		await more.scrollIntoViewIfNeeded();
+		await more.focus();
+		await page.keyboard.press("Enter");
 		await page.waitForFunction(
 			() => document.querySelectorAll(".recipe-card").length >= 48,
 		);

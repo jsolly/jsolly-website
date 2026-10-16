@@ -23,8 +23,8 @@ It establishes style version `warm-overhead-v1`:
 Read the recipe before generating its image. Show the correct protein, cut,
 vegetables, sauce and preparation. A stuffed breast, shredded chicken, whole
 roast bird and chicken thighs need different compositions. Show only ingredients
-or accompaniments included in the depicted recipe. For shared mains, depict the
-base meal and keep the optional family starch separate.
+or accompaniments included in the depicted recipe. For recipes with optional sides, depict
+the base meal and keep the optional starch separate.
 
 Use the reference image when generating a new illustration. A reusable prompt
 starting point is:
