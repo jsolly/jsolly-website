@@ -10,6 +10,7 @@
 		STORAGE_KEY,
 	} from "./constants.mjs";
 	import LibraryControls from "./LibraryControls.svelte";
+	import NativeRecipeControls from "./NativeRecipeControls.svelte";
 	import {
 		matchesRecipe,
 		nutrientFilters,
@@ -19,6 +20,7 @@
 	import RecipeCard from "./RecipeCard.svelte";
 	import RecipePrint from "./RecipePrint.svelte";
 	import RecipeTakeover from "./RecipeTakeover.svelte";
+	import { browseFilterSettings } from "./recipe-browse.mjs";
 	import { shuffleRecipes, validateSettings } from "./recipe-logic.mjs";
 	import { listVisit } from "./recipe-navigation.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
@@ -71,25 +73,7 @@
 	const collectionHasIron = $derived(
 		collectionRecipes.some((recipe) => nutrientFilters(recipe, servings).iron),
 	);
-	const filterSettings = $derived({
-		protein: collection === "meal" ? filters.proteinChoice : [],
-		carb:
-			collection === "smoothie"
-				? filters.smoothieKetoOnly
-					? ["keto"]
-					: []
-				: ["all", "vegetarian"].includes(filters.mealStyle)
-					? []
-					: [filters.mealStyle],
-		vegetarian: collection === "meal" && filters.mealStyle === "vegetarian",
-		dumpAndGo: collection === "meal" && filters.dumpAndGo,
-		starch: collection === "meal" ? filters.starchChoice : [],
-		ingredients: collection === "smoothie" ? filters.ingredientChoice : [],
-		immune: filters.immuneSupport,
-		iron: filters.ironRich && collectionHasIron,
-		omega: filters.omega3,
-		appliances: appliancesOnHand,
-	});
+	const filterSettings = $derived(browseFilterSettings(recipes, collection, { settings: { filters, servings, appliancesOnHand } }));
 	const searchRecipes = $derived(createRecipeSearch(recipes, servings));
 	const searchedRecipes = $derived(query.trim() ? searchRecipes(query) : recipes);
 	const matchingRecipes = $derived(
@@ -316,8 +300,10 @@
 		bind:appliancesOnHand
 	/>
 
+	<noscript><NativeRecipeControls {collection} {pathname} /></noscript>
+
 	<div class="browse" id="meal-results" data-match-count={visibleRecipes.length} aria-busy={shuffling}>
-		<div class="results-heading"><h2 bind:this={listHeading} tabindex="-1">{collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2><Button variant="outline" type="button" disabled={!hydrated || shuffling || visibleRecipes.length < 2} onclick={shuffleCards}><Shuffle aria-hidden="true" />Shuffle recipes</Button></div>
+		<div class="results-heading"><h2 bind:this={listHeading} tabindex="-1">{collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2><Button class="enhanced-shuffle" variant="outline" type="button" disabled={!hydrated || shuffling || visibleRecipes.length < 2} onclick={shuffleCards}><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button><noscript><Button variant="outline" type="submit" form="recipe-browse-form" name="shuffle" value="1"><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button></noscript></div>
 		<p class="no-results" role="status">{hydrated ? !visibleRecipes.length ? NO_RESULTS : query.trim() ? `${visibleRecipes.length} ${visibleRecipes.length === 1 ? "recipe" : "recipes"} found` : "" : ""}</p>
 		<div class="card-stage">
 		{#if shuffling}<div class="recipe-grid shuffle-skeleton" bind:this={skeleton} aria-hidden="true">{#each [0, 1, 2] as placeholder (placeholder)}<div class="skeleton-card"><div class="skeleton-photo"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div><div class="skeleton-button"></div></div>{/each}</div><span class="visually-hidden" role="status">Shuffling recipes</span>{/if}

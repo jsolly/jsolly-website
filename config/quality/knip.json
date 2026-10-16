@@ -4,7 +4,8 @@
 		"middleware.ts",
 		"src/**/*.test.ts",
 		"src/**/*.test.mjs",
-		"scripts/**/*.mjs"
+		"scripts/**/*.mjs",
+		"api/**/*.mjs"
 	],
 	"ignore": ["legacy/blogthedata/public/**"],
 	"ignoreBinaries": ["uvx"],

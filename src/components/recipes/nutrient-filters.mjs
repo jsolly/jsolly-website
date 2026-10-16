@@ -4,7 +4,6 @@ import {
 	applianceNeeds,
 	DEFAULT_FILTERS,
 	defaultAppliances,
-	dietaryPreferences,
 	proteins,
 	starchOptions,
 } from "./constants.mjs";
@@ -157,11 +156,8 @@ export function parseSavedSettings(saved, { recipes, ingredients }) {
 				filters.ingredientChoice,
 				ingredients,
 			),
-			mealStyle:
-				typeof filters.mealStyle === "string" &&
-				Object.hasOwn(dietaryPreferences, filters.mealStyle)
-					? filters.mealStyle
-					: DEFAULT_FILTERS.mealStyle,
+			mealKetoOnly: flag("mealKetoOnly"),
+			vegetarianOnly: flag("vegetarianOnly"),
 			smoothieKetoOnly: flag("smoothieKetoOnly"),
 			immuneSupport: flag("immuneSupport"),
 			ironRich: flag("ironRich"),

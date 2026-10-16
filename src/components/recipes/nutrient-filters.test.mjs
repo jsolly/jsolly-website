@@ -266,7 +266,8 @@ it("saved library settings restore as saved when every value is still offered", 
 			proteinChoice: ["fish", "turkey"],
 			starchChoice: ["bread"],
 			ingredientChoice: ["hemp"],
-			mealStyle: "keto",
+			mealKetoOnly: true,
+			vegetarianOnly: true,
 			smoothieKetoOnly: true,
 			immuneSupport: true,
 			ironRich: true,
@@ -300,7 +301,8 @@ it("malformed or stale saved library settings restore each key's default", () =>
 					proteinChoice: "fish",
 					starchChoice: { rice: true },
 					ingredientChoice: ["hemp", "gravel"],
-					mealStyle: ["keto"],
+					mealKetoOnly: ["keto"],
+					vegetarianOnly: "true",
 					smoothieKetoOnly: "yes",
 					ironRich: 1,
 				},
@@ -345,10 +347,10 @@ it("vegetarian preference excludes meat and unverified cheeses and survives save
 		false,
 	);
 	const saved = parseSavedSettings(
-		{ filters: { mealStyle: "vegetarian" } },
+		{ filters: { vegetarianOnly: true } },
 		{ recipes: data.recipes, ingredients: {} },
 	);
-	assert.equal(saved.filters.mealStyle, "vegetarian");
+	assert.equal(saved.filters.vegetarianOnly, true);
 });
 
 it("dump and go requires explicit audited data and keeps other filters applied", () => {
@@ -370,9 +372,8 @@ it("dump and go requires explicit audited data and keeps other filters applied",
 		).filters.dumpAndGo,
 		false,
 	);
-	assert.equal(
-		parseSavedSettings({ filters: { mealStyle: "nonketo" } }, context).filters
-			.mealStyle,
-		"nonketo",
+	assert.deepEqual(
+		parseSavedSettings({ filters: { mealStyle: "nonketo" } }, context).filters,
+		DEFAULT_FILTERS,
 	);
 });

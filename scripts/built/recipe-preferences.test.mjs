@@ -30,7 +30,7 @@ function preferenceCase(path, override = true) {
 				JSON.stringify({
 					units: "metric",
 					servings: 8,
-					filters: { mealStyle: "vegetarian" },
+					filters: { vegetarianOnly: true },
 				}),
 			);
 		});
@@ -74,9 +74,9 @@ function preferenceCase(path, override = true) {
 				// biome-ignore lint/nursery/noConditionalExpect: only the saved-only library case owns dietary filters.
 				assert.equal(
 					await page
-						.getByRole("combobox", { name: "Dietary preference" })
-						.inputValue(),
-					"vegetarian",
+						.getByRole("checkbox", { name: "Vegetarian", exact: true })
+						.isChecked(),
+					true,
 				);
 			}
 			assert.deepEqual(errors, []);

@@ -90,8 +90,11 @@ function verifyLibrary(width) {
 					.map((recipe) => recipe.id)
 					.slice(0, 24),
 			);
-			const diet = page.getByRole("combobox", { name: "Dietary preference" });
-			await diet.selectOption("vegetarian");
+			const diet = page.getByRole("checkbox", {
+				name: "Vegetarian",
+				exact: true,
+			});
+			await diet.check();
 			const beforeShuffle = await cardIds();
 			await page.evaluate(() => {
 				let seed = 1;
@@ -100,7 +103,7 @@ function verifyLibrary(width) {
 					return seed / 2 ** 32;
 				};
 			});
-			await page.getByRole("button", { name: "Shuffle recipes" }).click();
+			await page.getByRole("button", { name: "Shuffle meals" }).click();
 			await page.waitForFunction(
 				() =>
 					document.querySelector("#meal-results").getAttribute("aria-busy") ===
@@ -109,8 +112,8 @@ function verifyLibrary(width) {
 			const afterShuffle = await cardIds();
 			assert.notDeepEqual(afterShuffle, beforeShuffle);
 			assert.deepEqual([...afterShuffle].sort(), [...beforeShuffle].sort());
-			assert.equal(await diet.inputValue(), "vegetarian");
-			await diet.selectOption("all");
+			assert.equal(await diet.isChecked(), true);
+			await diet.uncheck();
 			await servings.selectOption("6");
 			await units.selectOption("metric");
 			const search = page.getByRole("searchbox", { name: "Search recipes" });
@@ -353,7 +356,7 @@ it("recipe batches load by scroll and button; shuffle shows gray cards and prese
 			.evaluateAll((links) =>
 				links.map((link) => link.dataset.recipeId).sort(),
 			);
-		await page.getByRole("button", { name: "Shuffle recipes" }).click();
+		await page.getByRole("button", { name: "Shuffle meals" }).click();
 		await page.locator(".shuffle-skeleton").waitFor();
 		assert.equal(
 			await page

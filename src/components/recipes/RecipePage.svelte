@@ -1,5 +1,7 @@
 <script>
+	import Share2 from "@lucide/svelte/icons/share-2";
 	import { onMount } from "svelte";
+	import Button from "../../lib/components/ui/button.svelte";
 	import NativeSelect from "../../lib/components/ui/native-select.svelte";
 	import { BASE_SERVINGS, SERVING_CHOICES } from "./constants.mjs";
 	import RecipeContent from "./RecipeContent.svelte";
@@ -82,11 +84,11 @@
 					{#each SERVING_CHOICES as choice (choice)}<option value={choice}>{choice}</option>{/each}
 				</NativeSelect></label
 			>
-		<UnitControl recipeId={recipe.id} units={settings.units} onUnitsChange={setUnits} disabled={!interactive} />
+		<UnitControl units={settings.units} onUnitsChange={setUnits} disabled={!interactive} />
 			{/snippet}
 		</RecipeContent>
 		<div class="recipe-enhanced"><ShareRecipe {recipe} {settings} disabled={!interactive} /></div>
-		<noscript><div class="share"><a href={`/recipes/${recipe.id}/`}>Share recipe link</a></div></noscript>
+		<noscript><div class="share"><Button variant="outline" href={`/recipes/${recipe.id}/`}><Share2 aria-hidden="true" size={18} />Share recipe link</Button></div></noscript>
 		<p role="status">{message}</p>
 	</section>
 </div>

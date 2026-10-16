@@ -82,5 +82,11 @@
 				}
 			]
 		}
-	]
+	],
+	"functions": {
+		"api/recipe-browse.mjs": {
+			"includeFiles": "dist/recipes/{index.html,meals/index.html,smoothies/index.html}",
+			"maxDuration": 10
+		}
+	}
 }
