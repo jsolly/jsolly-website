@@ -330,7 +330,12 @@ describe(".pages.yml", () => {
 
 		const dir = await mkdtemp(join(tmpdir(), "pages-config-"));
 		try {
-			await copyFile(join(ROOT, "biome.jsonc"), join(dir, "biome.jsonc"));
+			// The authoritative settings become this isolated fixture’s native root,
+			// preserving category glob context and the existing positive/negative controls.
+			await copyFile(
+				join(ROOT, "config/quality/biome.settings.jsonc"),
+				join(dir, "biome.jsonc"),
+			);
 			await mkdir(join(dir, CATEGORIES_DIR), { recursive: true });
 			const saved = cmsJson(category.source);
 			assert.ok(!saved.endsWith("\n"));

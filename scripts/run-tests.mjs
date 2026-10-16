@@ -1,6 +1,6 @@
 // Count-checked node:test runner. Every test suite (`npm test`, `npm run
 // test:built`, the CSP check inside `build` and the smoke-scenario contract) runs through this wrapper, which fails when the number of passing tests
-// differs from the count recorded in scripts/test-counts.json. A test that
+// differs from the count recorded in config/testing/test-counts.json. A test that
 // silently stops running (a narrowed glob, a deleted file, a stray skip) then
 // fails the gate instead of leaving it green, and a commit that adds tests must
 // record them, so a later commit cannot drop them unnoticed. Lower a count only
@@ -12,7 +12,7 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
-const LEDGER = "scripts/test-counts.json";
+const LEDGER = "config/testing/test-counts.json";
 // Top-level TAP summary lines only; nested subtest output is indented.
 const TAP_SUMMARY = /^# (?<key>tests|pass|fail) (?<count>\d+)$/gmu;
 

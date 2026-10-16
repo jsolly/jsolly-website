@@ -1,0 +1,29 @@
+{
+	"extends": ["astro/tsconfigs/strict", "./strict-astro.json"],
+	"include": [
+		"../../.astro/types.d.ts",
+		"../../src/**/*",
+		"../../middleware.ts",
+		"../../astro.config.ts",
+		"../app/astro.ts"
+	],
+	"exclude": [
+		"../../**/node_modules/**",
+		"../../dist/**",
+		"../../.astro",
+		"../../src/**/*.test.ts"
+	],
+	"compilerOptions": {
+		"plugins": [
+			{
+				"name": "@astrojs/ts-plugin"
+			}
+		],
+		"strictNullChecks": true,
+		"skipLibCheck": true,
+		"paths": {
+			"$lib": ["${configDir}/src/lib"],
+			"$lib/*": ["${configDir}/src/lib/*"]
+		}
+	}
+}

@@ -22,7 +22,7 @@
 		"recipes:sync": "node scripts/recipes/sync-assistant-data.mjs",
 		"recipes:check": "node scripts/recipes/sync-assistant-data.mjs --check",
 		"check:md": "bash scripts/lint-md.sh",
-		"check:yaml": "uvx yamllint@1.38.0 -s .",
+		"check:yaml": "uvx yamllint@1.38.0 -c config/quality/yamllint.yaml -s .",
 		"check:fix": "biome check --write --no-errors-on-unmatched --error-on-warnings",
 		"fix": "npm run check:fix && npm run check:ts",
 		"outdated": "npm outdated",

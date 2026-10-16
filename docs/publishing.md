@@ -88,7 +88,7 @@ fields may be dropped on save; their defaults keep the same public meaning.
 
 PagesCMS rewrites a whole category file on each save as
 `JSON.stringify(x, null, 2)` with no final newline. It owns that formatting:
-`biome.jsonc` turns the formatter off for `src/content/blog/categories/**` only,
+`config/quality/biome.settings.jsonc` turns the formatter off for `src/content/blog/categories/**` only,
 with linting still on. Do not reformat those files by hand.
 
 ## Review and publish

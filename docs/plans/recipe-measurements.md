@@ -92,7 +92,7 @@ Add source-derived expected values independent of the resolver. Cover the screen
 
 Run the complete recipe matrix for all 146 recipes at 2, 4, 6 and 8 servings in all three modes. Include every family option, per-person and total family quantities, all supported family-diner counts, optional ingredients and explicit alternatives. Assert numeric mode-appropriate units, no missing quantity, no "weight unavailable", no accidental zero, no duplicate source units in quantity strings, preserved allocation totals and no mutation or rounding drift across repeated switches. Verify pressure minima and whole-batch scaling independently.
 
-Update unit, nutrition, flow, source-data, export, print, built-page and offline tests that currently permit the old fallbacks. Update `scripts/test-counts.json` with changed discovery counts; do not weaken coverage or lower counts without naming retired cases.
+Update unit, nutrition, flow, source-data, export, print, built-page and offline tests that currently permit the old fallbacks. Update `config/testing/test-counts.json` with changed discovery counts; do not weaken coverage or lower counts without naming retired cases.
 
 Replace nutrition tests that assume constant per-serving nutrients for every recipe without a minimum or whole-batch ingredient. Derive expected totals independently from nutrient observations, edible yields and actual ingredient quantities at each serving count. Require every model contribution to resolve to its intended cooking ingredient and test fixed, minimum, whole-batch, split-mixture, family and smoothie calculations across macros, Daily Values, omega-3 and nutrient filters.
 
