@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { after, before, it } from "node:test";
+import { isDeepStrictEqual } from "node:util";
 import { chromium } from "playwright";
 import {
 	categorySlugs,
@@ -113,6 +114,9 @@ async function auditPath(path, width, colorScheme) {
 		const errors = collectErrors(page, { warnings: true });
 		await page.goto(`${site.origin}${path}`, { waitUntil: "commit" });
 		await page.locator("main h1").first().waitFor({ state: "attached" });
+		// A heading may arrive before the rest of a streamed document. Finish
+		// parsing before sampling styles or hydration; deferred scripts stay gated.
+		await page.waitForFunction(() => document.readyState !== "loading");
 		await page.waitForFunction(() =>
 			[...document.querySelectorAll("link")]
 				.filter((link) => link.rel === "stylesheet")
@@ -140,6 +144,28 @@ async function auditPath(path, width, colorScheme) {
 			? await preferences.isVisible()
 			: null;
 		const hydrated = await firstPaint(page);
+		if (!isDeepStrictEqual(initial, hydrated)) {
+			console.error(
+				"First-paint layout diagnostics",
+				JSON.stringify({
+					path,
+					width,
+					colorScheme,
+					errors,
+					...(await page.evaluate(() => ({
+						readyState: document.readyState,
+						scrollY: window.scrollY,
+						notices: [...document.querySelectorAll(".update-notice")].map(
+							(notice) => ({
+								hidden: notice.hidden,
+								display: getComputedStyle(notice).display,
+								text: notice.textContent,
+							}),
+						),
+					}))),
+				}),
+			);
+		}
 		const controlsReady = await page.evaluate(() =>
 			window.initialRecipeControls.every(
 				(node) => node.isConnected && !node.disabled,
@@ -195,6 +221,7 @@ for (const width of [390, 1280]) {
 					false,
 					`${path}: no mobile menu flash`,
 				);
+				assert.deepEqual(errors, [], path);
 				assert.deepEqual(
 					hydrated,
 					initial,
@@ -205,7 +232,6 @@ for (const width of [390, 1280]) {
 					true,
 					`${path}: existing recipe controls become usable in place`,
 				);
-				assert.deepEqual(errors, [], path);
 			}
 		});
 	}
