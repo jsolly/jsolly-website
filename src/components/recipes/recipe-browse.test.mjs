@@ -37,8 +37,10 @@ it("native browse matches hydrated meal protein, starch, style, flags and invent
 	for (const query of [
 		"proteinChoice=fish&proteinChoice=chicken",
 		"starchChoice=rice",
-		"mealStyle=vegetarian",
-		"mealStyle=keto",
+		"vegetarianOnly=1",
+		"mealKetoOnly=1",
+		// biome-ignore lint/security/noSecrets: public dietary filter query
+		"mealKetoOnly=1&vegetarianOnly=1",
 		"dumpAndGo=1",
 		"immuneSupport=1",
 		"ironRich=1",
@@ -57,10 +59,8 @@ it("native browse matches hydrated meal protein, starch, style, flags and invent
 				matchesRecipe(r, servings, {
 					protein: f.proteinChoice,
 					starch: f.starchChoice,
-					vegetarian: f.mealStyle === "vegetarian",
-					carb: ["all", "vegetarian"].includes(f.mealStyle)
-						? []
-						: [f.mealStyle],
+					vegetarian: f.vegetarianOnly,
+					carb: f.mealKetoOnly ? ["keto"] : [],
 					dumpAndGo: f.dumpAndGo,
 					immune: f.immuneSupport,
 					iron: f.ironRich,
@@ -110,7 +110,7 @@ it("native search narrows results and seeded shuffle preserves matches determini
 it("native form restoration roundtrips flags, selections, units, portions and zero appliance counts", () => {
 	const state = parse(
 		// biome-ignore lint/security/noSecrets: public filter query fixture
-		"servings=8&units=grams&proteinChoice=fish&omega3=1&appliance.Oven=0&q=salmon&seed=abc",
+		"mealKetoOnly=1&vegetarianOnly=1&servings=8&units=grams&proteinChoice=fish&omega3=1&appliance.Oven=0&q=salmon&seed=abc",
 	);
 	const params = new URLSearchParams();
 	for (const [name, values] of Object.entries(browseFormValues(state, "meal")))

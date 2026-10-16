@@ -90,31 +90,20 @@ export const proteins = {
 	eggs: "Eggs",
 	mixed: "Mixed meats",
 };
-/** Dietary filters classify the base recipe; optional sides remain separate. */
-export const dietaryPreferences = {
-	...dietaryLabels,
-	vegetarian: "Vegetarian",
-};
-export const mealStyleDescriptions = {
-	vegetarian: "Meals without meat or fish; eggs and dairy may be included.",
-	all: "All recipes, with optional sides kept separate.",
-	keto: "Base recipe has at most 12.5 g net carbs per serving; optional sides are separate.",
-	nonketo: "Base recipe has more than 12.5 g net carbs per serving.",
-};
 /** The family starches a library filter offers ("all" and "none" are not choices). */
 export const starchOptions = Object.fromEntries(
 	Object.entries(starchTypes).filter(([key]) => !["all", "none"].includes(key)),
 );
 /**
  * The library's filters before a reader picks any: proteins, starches and
- * smoothie ingredients (arrays of ids), one meal style ("all" or a
- * dietaryPreferences key), and the keto-smoothie and nutrition checks.
+ * smoothie ingredients (arrays of ids), independent keto and vegetarian meal checks, and the keto-smoothie and nutrition checks.
  */
 export const DEFAULT_FILTERS = {
 	proteinChoice: [],
 	starchChoice: [],
 	ingredientChoice: [],
-	mealStyle: "all",
+	mealKetoOnly: false,
+	vegetarianOnly: false,
 	smoothieKetoOnly: false,
 	immuneSupport: false,
 	ironRich: false,

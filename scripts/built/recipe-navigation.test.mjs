@@ -49,8 +49,9 @@ function verifyNavigation(width) {
 				.getByRole("searchbox", { name: "Search recipes" })
 				.fill("chicken");
 			await page
-				.getByRole("combobox", { name: "Dietary preference" })
-				.selectOption("all");
+				.getByRole("checkbox", { name: "Vegetarian", exact: true })
+				.uncheck();
+			await page.getByRole("checkbox", { name: "Keto", exact: true }).uncheck();
 			await page.getByRole("button", { name: "Shuffle meals" }).click();
 			const ids = () =>
 				page
@@ -92,9 +93,9 @@ function verifyNavigation(width) {
 			);
 			assert.equal(
 				await page
-					.getByRole("combobox", { name: "Dietary preference" })
-					.inputValue(),
-				"all",
+					.getByRole("checkbox", { name: "Vegetarian", exact: true })
+					.isChecked(),
+				false,
 			);
 			assert.deepEqual(await ids(), order);
 			assert.ok(

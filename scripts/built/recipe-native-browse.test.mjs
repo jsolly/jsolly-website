@@ -65,9 +65,12 @@ function nativeBrowseTest(width) {
 			await page
 				.getByRole("searchbox", { name: "Search recipes" })
 				.fill("salmon");
-			await page
-				.getByRole("combobox", { name: "Dietary preference" })
-				.selectOption("all");
+			assert.equal(
+				await page
+					.getByRole("checkbox", { name: "Not keto", exact: true })
+					.count(),
+				0,
+			);
 			await page.getByRole("checkbox", { name: "Fish", exact: true }).check();
 			await page.getByRole("button", { name: "Apply filters" }).click();
 			await page.waitForURL("**/recipes/meals/?**");
@@ -137,6 +140,51 @@ function nativeBrowseTest(width) {
 			await page.getByRole("link", { name: "Reset filters" }).click();
 			await page.waitForURL("**/recipes/meals/");
 			assert.equal(await page.locator(".recipe-card").count(), mealCount);
+			for (const [keto, vegetarian] of [
+				[true, false],
+				[false, true],
+				[true, true],
+				[false, false],
+			]) {
+				// biome-ignore lint/performance/noAwaitInLoops: each form submission must finish before the next filter state
+				await page
+					.getByRole("checkbox", { name: "Keto", exact: true })
+					.setChecked(keto);
+				await page
+					.getByRole("checkbox", { name: "Vegetarian", exact: true })
+					.setChecked(vegetarian);
+				await Promise.all([
+					page.waitForEvent("load"),
+					page.getByRole("button", { name: "Apply filters" }).click(),
+				]);
+				const expected = recipeData.recipes
+					.filter(
+						(recipe) =>
+							recipe.type === "meal" &&
+							(!keto || recipe.nutrition.net_carbs_g <= 12.5) &&
+							(!vegetarian || recipe.vegetarian === true),
+					)
+					.map((recipe) => recipe.id)
+					.sort();
+				assert.deepEqual((await cardIds(page)).sort(), expected);
+				await Promise.all([
+					page.waitForEvent("load"),
+					page.getByRole("button", { name: "Shuffle meals" }).click(),
+				]);
+				assert.deepEqual((await cardIds(page)).sort(), expected);
+				assert.equal(
+					await page
+						.getByRole("checkbox", { name: "Keto", exact: true })
+						.isChecked(),
+					keto,
+				);
+				assert.equal(
+					await page
+						.getByRole("checkbox", { name: "Vegetarian", exact: true })
+						.isChecked(),
+					vegetarian,
+				);
+			}
 			await page.goto(`${server.origin}/recipes/smoothies/`);
 			assert.equal(
 				await page.getByRole("button", { name: "Shuffle smoothies" }).count(),

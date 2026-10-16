@@ -338,7 +338,8 @@ it("unreadable or wrongly shaped saved settings leave the library on its default
 			servings: "lots",
 			filters: {
 				proteinChoice: "fish",
-				mealStyle: ["keto"],
+				mealKetoOnly: ["keto"],
+				vegetarianOnly: "true",
 				starchChoice: { rice: true },
 				ironRich: "yes",
 			},

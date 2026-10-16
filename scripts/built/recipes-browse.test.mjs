@@ -2,10 +2,6 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { after, before, it } from "node:test";
 import { chromium } from "playwright";
-import {
-	dietaryPreferences,
-	mealStyleDescriptions,
-} from "../../src/components/recipes/constants.mjs";
 import { collectErrors, serveStatic } from "./pages.mjs";
 
 // Browsing the built recipe library in Chromium, ported from awesome-blog's
@@ -25,7 +21,6 @@ const RECIPES = new URL(
 const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
 const meals = recipes.filter((recipe) => recipe.type === "meal");
 const mealCount = meals.length;
-const MEAL_STYLES = ["keto", "nonketo", "all"];
 // The meals that need both air fryers.
 const AIR_FRYER_MEALS = recipes
 	.filter((recipe) => recipe.appliancesNeeded.includes("Two air fryers"))
@@ -363,9 +358,6 @@ function filtersCheck(width) {
 				.locator("#meal-results")
 				.getAttribute("data-match-count")
 				.then(Number);
-		const mealStyle = page.getByRole("combobox", {
-			name: "Dietary preference",
-		});
 		const shownIds = async () => {
 			await page.evaluate(async () => {
 				while (document.querySelector(".load-more button")) {
@@ -383,61 +375,36 @@ function filtersCheck(width) {
 		try {
 			await page.goto(`${site.origin}${LANDING}`);
 			await hydrated(page);
-			// Each meal style shows its group's meals and says what it means.
-			const styles = [];
-			for (const style of MEAL_STYLES) {
-				// biome-ignore lint/performance/noAwaitInLoops: one select change at a time
-				await mealStyle.selectOption(style);
-				styles.push({
-					style,
-					cards: await cards(),
-					ids: await shownIds(),
-					description: await page.locator(".style-filter small").textContent(),
-				});
-			}
-			assert.deepEqual(
-				styles,
-				MEAL_STYLES.map((style) => ({
-					style,
-					cards:
-						style === "all"
-							? mealCount
-							: meals.filter(
-									(recipe) =>
-										(recipe.nutrition.net_carbs_g <= 12.5
-											? "keto"
-											: "nonketo") === style,
-								).length,
-					ids: meals
+			assert.equal(await checkbox("Not keto").count(), 0);
+			for (const [keto, vegetarian] of [
+				[true, false],
+				[false, true],
+				[true, true],
+				[false, false],
+			]) {
+				// biome-ignore lint/performance/noAwaitInLoops: exercise each independent filter combination in sequence
+				await checkbox("Keto").setChecked(keto);
+				await checkbox("Vegetarian").setChecked(vegetarian);
+				assert.deepEqual(
+					await shownIds(),
+					meals
 						.filter(
 							(recipe) =>
-								style === "all" ||
-								(recipe.nutrition.net_carbs_g <= 12.5 ? "keto" : "nonketo") ===
-									style,
+								(!keto || recipe.nutrition.net_carbs_g <= 12.5) &&
+								(!vegetarian || recipe.vegetarian === true),
 						)
 						.map((recipe) => recipe.id)
 						.sort(),
-					description: mealStyleDescriptions[style],
-				})),
-			);
-			assert.deepEqual(
-				await mealStyle
-					.locator("option")
-					.evaluateAll((options) => options.map((option) => option.value)),
-				["all", ...Object.keys(dietaryPreferences)],
-			);
-			await mealStyle.selectOption("vegetarian");
-			assert.deepEqual(
-				await shownIds(),
-				meals
-					.filter((recipe) => recipe.vegetarian === true)
-					.map((recipe) => recipe.id)
-					.sort(),
-			);
+				);
+			}
+			await checkbox("Keto").check();
+			await checkbox("Vegetarian").check();
 			await page.reload();
 			await hydrated(page);
-			assert.equal(await mealStyle.inputValue(), "vegetarian");
-			await mealStyle.selectOption("all");
+			assert.equal(await checkbox("Keto").isChecked(), true);
+			assert.equal(await checkbox("Vegetarian").isChecked(), true);
+			await checkbox("Vegetarian").uncheck();
+			await checkbox("Keto").uncheck();
 			// Re-ticking Air fryers brings back its two and their meals.
 			await checkbox("Air fryers").uncheck();
 			const withoutFryers = await shownIds();
@@ -457,13 +424,7 @@ function filtersCheck(width) {
 			await checkbox("Fish").check();
 			await checkbox("Turkey").check();
 			await page.keyboard.press("Escape");
-			// No fish or turkey meal is Not Keto, so that style is unavailable.
-			assert.deepEqual(
-				await mealStyle
-					.locator("option:disabled")
-					.evaluateAll((options) => options.map((option) => option.value)),
-				["vegetarian"],
-			);
+			assert.equal(await checkbox("Vegetarian").isDisabled(), true);
 			await page.getByRole("button", { name: CARBS }).click();
 			assert.equal(
 				await page.getByRole("button", { name: "Clear selections" }).count(),
@@ -494,7 +455,13 @@ function filtersCheck(width) {
 			// With no recipe left, a checked protein can still be unchecked.
 			await page.getByRole("button", { name: PROTEINS }).click();
 			assert.equal(await checkbox("Fish").isDisabled(), false);
-			assert.equal(await checkbox("Vegetarian").count(), 0);
+			assert.equal(
+				await page
+					.getByRole("dialog")
+					.getByRole("checkbox", { name: "Vegetarian", exact: true })
+					.count(),
+				0,
+			);
 			await page.keyboard.press("Escape");
 			const saved = await stored(page);
 			assert.deepEqual(saved.filters.proteinChoice, ["fish", "turkey"]);
@@ -521,11 +488,11 @@ function filtersCheck(width) {
 				0,
 			);
 			assert.equal(await page.getByRole("button", { name: CARBS }).count(), 0);
-			// Smoothies have no meal styles: the select is not offered.
+			// Smoothies keep their own keto filter; meal dietary checks are not offered.
 			assert.equal(
 				await page
-					.getByRole("combobox", {
-						name: "Dietary preference",
+					.getByRole("checkbox", {
+						name: "Vegetarian",
 						includeHidden: true,
 					})
 					.count(),

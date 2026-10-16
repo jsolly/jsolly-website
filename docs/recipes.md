@@ -577,10 +577,9 @@ retirements in Chromium across two origins. Visitors who had the old app
 installed install the new one from `/recipes/`.
 
 The library places search after its settings, next to the results. Dietary
-preference includes Vegetarian using the canonical verified vegetarian flag;
+preferences are independent Keto and Vegetarian checkboxes. Selecting both requires both conditions. Vegetarian uses the canonical verified vegetarian flag;
 meat and unverified cheese recipes are excluded. No current meal is verified
-vegan. Vegetarian and plant-forward are not protein choices. The saved
-`mealStyle` key also stores the vegetarian dietary preference. Carbs clears by
+vegan. Vegetarian and plant-forward are not protein choices. Saved settings and native GET forms use `mealKetoOnly` and `vegetarianOnly` booleans (`=1` in URLs). Older saved `mealStyle` values are ignored, resetting these two checks to unchecked. Carbs clears by
 unticking choices; other multi-choice filters disable Clear selections when empty.
 
 Recipe pages print their on-screen cooking content directly. Card and collection

@@ -47,7 +47,8 @@ function verifyUnits(width) {
 			filters: {
 				proteinChoice: ["fish"],
 				ingredientChoice: ["hemp"],
-				mealStyle: "all",
+				mealKetoOnly: false,
+				vegetarianOnly: false,
 			},
 			appliancesOnHand: defaultAppliances,
 			familyChoice: { "shawarma-chicken-bowls": "pita_one" },

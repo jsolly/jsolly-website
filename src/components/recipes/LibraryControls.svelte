@@ -8,8 +8,6 @@
 		applianceChoices,
 		applianceLimits,
 		defaultAppliances,
-		dietaryPreferences,
-		mealStyleDescriptions,
 		nutritionHighlights,
 		nutritionThresholds,
 		proteins,
@@ -48,8 +46,6 @@
 	];
 	const uid = $props.id();
 	const servingsId = `${uid}-servings`;
-	const mealStyleId = `${uid}-meal-style`;
-	const mealStyleHelpId = `${uid}-meal-style-help`;
 	const controlId = (name) => `${uid}-${name}`;
 	// Unchecking handles zero; a checked appliance offers one up to its limit.
 	const countChoices = (value) =>
@@ -132,18 +128,10 @@
 			{/if}
 		</div>
 		{#if collection === "meal"}
-			<div class="style-filter">
-				<label for={mealStyleId}>Dietary preference</label><NativeSelect
-					id={mealStyleId}
-					aria-describedby={mealStyleHelpId}
-					value={filters.mealStyle}
-					disabled={!hydrated}
-					onchange={(event) => {
-						filters.mealStyle = event.currentTarget.value;
-					}}
-					><option value="all">All meals</option>{#each Object.entries(dietaryPreferences) as [value, label] (value)}<option {value} disabled={choiceUnavailable(filters.mealStyle === value, () => hasMatches({ carb: value === "vegetarian" ? [] : [value], vegetarian: value === "vegetarian" }))}>{label}</option>{/each}</NativeSelect
-				><small id={mealStyleHelpId}>{mealStyleDescriptions[filters.mealStyle]}</small>
-			</div>
+			<fieldset class="dietary-filters"><legend>Dietary preference</legend>
+				<label for={controlId("meal-keto")}><Checkbox id={controlId("meal-keto")} bind:checked={filters.mealKetoOnly} disabled={!hydrated || choiceUnavailable(filters.mealKetoOnly, () => hasMatches({ carb: ["keto"] }))} />Keto</label>
+				<label for={controlId("vegetarian")}><Checkbox id={controlId("vegetarian")} bind:checked={filters.vegetarianOnly} disabled={!hydrated || choiceUnavailable(filters.vegetarianOnly, () => hasMatches({ vegetarian: true }))} />Vegetarian</label>
+			</fieldset>
 		{/if}
 	</div>
 	<fieldset class="inventory">
@@ -261,12 +249,9 @@
 		}
 		/* Each select sits beside its label, so it takes the label's text size
 		   and weight from its row. */
-		.servings-setting,
-		.style-filter {
+		.servings-setting {
 			font-size: 0.86rem;
 			font-weight: 600;
-		}
-		.servings-setting {
 			display: grid;
 			gap: 4px;
 		}
@@ -288,19 +273,12 @@
 		.smoothie-ingredients {
 			grid-column: 1 / -1;
 		}
-		.style-filter {
-			grid-column: 1 / -1;
-			min-height: 104px;
-		}
+		.dietary-filters { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 20px; }
+		.dietary-filters legend { font-size: 0.8rem; font-weight: 650; margin-bottom: 8px; }
+		.dietary-filters label { display: flex; align-items: center; gap: 8px; min-height: 44px; }
 		.smoothie-filters .filter-fields {
 			min-height: 0;
 			height: auto;
-		}
-		.style-filter > label {
-			display: block;
-		}
-		.style-filter :global(select) {
-			margin-top: 6px;
 		}
 		/* This outranks the library's general select rule. */
 		.library-intro .servings-setting :global(select) {

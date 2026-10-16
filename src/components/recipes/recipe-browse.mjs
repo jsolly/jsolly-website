@@ -12,13 +12,15 @@ const COUNT = /^\d{1,2}$/u;
 const SEED = /^[a-zA-Z0-9-]{1,64}$/u;
 const selections = ["proteinChoice", "starchChoice", "ingredientChoice"];
 const flags = [
+	"mealKetoOnly",
+	"vegetarianOnly",
 	"smoothieKetoOnly",
 	"immuneSupport",
 	"ironRich",
 	"omega3",
 	"dumpAndGo",
 ];
-/** GET contract: repeated selection keys; flags=1; mealStyle, servings, units,
+/** GET contract: repeated selection keys; flags=1; servings, units,
  * q (maximum 200 characters), seed (maximum 64 alphanumeric/hyphen characters),
  * appliance.<canonical appliance key>=integer. browse=1 opts into server rendering;
  * shuffle=1 requests a fresh seed from the request handler. */
@@ -27,7 +29,6 @@ export function parseBrowseParams(params, _collection, recipes) {
 		selections.map((key) => [key, params.getAll(key).slice(0, 100)]),
 	);
 	for (const key of flags) filters[key] = params.get(key) === "1";
-	filters.mealStyle = params.get("mealStyle");
 	const appliancesOnHand = Object.fromEntries(
 		Object.keys(applianceChoices).map((key) => {
 			const value = params.get(`appliance.${key}`);
@@ -64,10 +65,10 @@ export function browseFilterSettings(recipes, collection, { settings }) {
 				? filters.smoothieKetoOnly
 					? ["keto"]
 					: []
-				: ["all", "vegetarian"].includes(filters.mealStyle)
-					? []
-					: [filters.mealStyle],
-		vegetarian: collection === "meal" && filters.mealStyle === "vegetarian",
+				: filters.mealKetoOnly
+					? ["keto"]
+					: [],
+		vegetarian: collection === "meal" && filters.vegetarianOnly,
 		dumpAndGo: collection === "meal" && filters.dumpAndGo,
 		starch: collection === "meal" ? filters.starchChoice : [],
 		ingredients: collection === "smoothie" ? filters.ingredientChoice : [],
@@ -111,7 +112,6 @@ export function browseFormValues({ settings, query, seed }, _collection) {
 		seed: [seed],
 		servings: [String(settings.servings)],
 		units: [settings.units],
-		mealStyle: [settings.filters.mealStyle],
 	};
 	for (const key of selections) values[key] = settings.filters[key];
 	for (const key of flags) values[key] = settings.filters[key] ? ["1"] : [];
