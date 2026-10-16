@@ -62,6 +62,8 @@
 	// the filter that picking it applies and its tooltip.
 	const nutritionChecks = $derived(
 		[
+			collection === "meal" && { key: "mealKetoOnly", label: "Keto", applies: { carb: ["keto"] } },
+			collection === "meal" && { key: "vegetarianOnly", label: "Vegetarian", applies: { vegetarian: true } },
 			collection === "meal" && { key: "dumpAndGo", label: "Dump and go", applies: { dumpAndGo: true }, title: "Load the cooker and start; no separate browning or mid-cook additions. Preparation and finishing may still be needed." },
 			collection === "smoothie" && {
 				key: "smoothieKetoOnly",
@@ -127,12 +129,6 @@
 				</div>
 			{/if}
 		</div>
-		{#if collection === "meal"}
-			<fieldset class="dietary-filters"><legend>Dietary preference</legend>
-				<label for={controlId("meal-keto")}><Checkbox id={controlId("meal-keto")} bind:checked={filters.mealKetoOnly} disabled={!hydrated || choiceUnavailable(filters.mealKetoOnly, () => hasMatches({ carb: ["keto"] }))} />Keto</label>
-				<label for={controlId("vegetarian")}><Checkbox id={controlId("vegetarian")} bind:checked={filters.vegetarianOnly} disabled={!hydrated || choiceUnavailable(filters.vegetarianOnly, () => hasMatches({ vegetarian: true }))} />Vegetarian</label>
-			</fieldset>
-		{/if}
 	</div>
 	<fieldset class="inventory">
 		<legend>Appliances on hand</legend>
@@ -273,9 +269,6 @@
 		.smoothie-ingredients {
 			grid-column: 1 / -1;
 		}
-		.dietary-filters { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 20px; }
-		.dietary-filters legend { font-size: 0.8rem; font-weight: 650; margin-bottom: 8px; }
-		.dietary-filters label { display: flex; align-items: center; gap: 8px; min-height: 44px; }
 		.smoothie-filters .filter-fields {
 			min-height: 0;
 			height: auto;

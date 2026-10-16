@@ -15,7 +15,7 @@
 	const shownAppliances = $derived(Object.entries(applianceChoices).filter(([key]) => collectionRecipes.some((recipe) => recipe.appliancesNeeded.includes(key))));
 	const choiceGroups = $derived(collection === "meal" ? [{ name: "proteinChoice", label: "Proteins", options: proteins }, { name: "starchChoice", label: "Carbs", options: starchOptions }] : [{ name: "ingredientChoice", label: "Ingredients", options: ingredients }]);
 	const checks = $derived([
-		...(collection === "meal" ? [["dumpAndGo", "Dump and go"]] : [["smoothieKetoOnly", "Keto Friendly"]]),
+		...(collection === "meal" ? [["mealKetoOnly", "Keto"], ["vegetarianOnly", "Vegetarian"], ["dumpAndGo", "Dump and go"]] : [["smoothieKetoOnly", "Keto Friendly"]]),
 		["immuneSupport", "Immune support"],
 		...(collectionRecipes.some((recipe) => nutrientFilters(recipe, settings.servings).iron) ? [["ironRich", "Iron-rich"]] : []),
 		["omega3", "High in Omega-3s"],
@@ -28,7 +28,6 @@
 	{#each choiceGroups as group (group.name)}
 		<fieldset><legend>{group.label}</legend><div class="choices">{#each Object.entries(group.options) as [value, label] (value)}<label><input type="checkbox" name={group.name} {value} checked={settings.filters[group.name].includes(value)} />{label}</label>{/each}</div></fieldset>
 	{/each}
-	{#if collection === "meal"}<fieldset><legend>Dietary preference</legend><div class="choices"><label><input type="checkbox" name="mealKetoOnly" value="1" checked={settings.filters.mealKetoOnly} />Keto</label><label><input type="checkbox" name="vegetarianOnly" value="1" checked={settings.filters.vegetarianOnly} />Vegetarian</label></div></fieldset>{/if}
 	<fieldset><legend>Appliances on hand</legend><div class="appliances">{#each shownAppliances as [key, label], index (key)}<label for={`native-appliance-${index}`}>{label}<NativeSelect id={`native-appliance-${index}`} name={`appliance.${key}`} value={settings.appliancesOnHand[key]}>{#each Array.from({ length: (applianceLimits[key] ?? 1) + 1 }, (_, count) => count) as count (count)}<option value={count}>{count === 0 ? "None" : count}</option>{/each}</NativeSelect></label>{/each}</div></fieldset>
 	<fieldset><legend>Filters</legend><div class="choices">{#each checks as [key, label] (key)}<label title={nutritionThresholds[key]}><input type="checkbox" name={key} value="1" checked={settings.filters[key]} />{label}</label>{/each}</div></fieldset>
 	<label for="native-recipe-search">Search recipes<Input id="native-recipe-search" name="q" type="search" value={query} maxlength={200} placeholder="Try chicken, garlic, or air fryer" /></label>
