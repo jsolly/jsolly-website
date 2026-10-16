@@ -9,5 +9,8 @@
 	"ignore": ["legacy/blogthedata/public/**"],
 	"ignoreBinaries": ["uvx"],
 	"ignoreDependencies": ["markdownlint-cli2"],
-	"treatConfigHintsAsErrors": true
+	"treatConfigHintsAsErrors": true,
+	"astro": {
+		"config": ["astro.config.ts", "config/app/astro.ts"]
+	}
 }
