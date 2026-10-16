@@ -1,4 +1,4 @@
-import { next } from "@vercel/edge";
+import { next, rewrite } from "@vercel/edge";
 // Written by astro build (routeManifest in astro.config.ts); gitignored, typed by the tracked .d.ts.
 import { markdownRoutes as builtMarkdownRoutes } from "./src/generated/route-manifest.js";
 import {
@@ -6,6 +6,7 @@ import {
 	shouldNegotiate,
 } from "./src/lib/accept-negotiate.js";
 import { agentResponse } from "./src/lib/agent-response.js";
+import { recipeBrowseDestination } from "./src/lib/recipe-browse-route.mjs";
 
 const markdownRoutes = new Map(builtMarkdownRoutes);
 
@@ -15,6 +16,12 @@ export default function middleware(request: Request) {
 
 	const negotiated = agentResponse(request, markdownRoutes);
 	if (negotiated) return negotiated;
+
+	const browse = recipeBrowseDestination(request);
+	if (browse)
+		return rewrite(browse, {
+			headers: { "Cache-Control": "no-store", Vary: "Accept" },
+		});
 
 	const response = next();
 	if (shouldNegotiate(url.pathname, request.method)) {

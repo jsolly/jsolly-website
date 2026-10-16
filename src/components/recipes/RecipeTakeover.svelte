@@ -46,7 +46,7 @@
 			<DialogDescription class="visually-hidden">{recipe.summary}</DialogDescription>
 			<RecipeContent {recipe} {settings} headingLevel={3} {onSideChange}>
 				{#snippet title()}<DialogTitle id="recipe-detail-title" tabindex={-1} bind:ref={heading}>{recipe.title}</DialogTitle>{/snippet}
-				{#snippet controls()}<UnitControl recipeId={recipe.id} units={settings.units} {onUnitsChange} />{/snippet}
+				{#snippet controls()}<UnitControl units={settings.units} {onUnitsChange} />{/snippet}
 			</RecipeContent>
 			<ShareRecipe {recipe} {settings} />
 		</section></DialogContent

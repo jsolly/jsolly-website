@@ -2,6 +2,7 @@ import {
 	markdownSiblingPath,
 	preferredType,
 } from "../../src/lib/accept-negotiate.js";
+import { recipeBrowseDestination } from "../../src/lib/recipe-browse-route.mjs";
 
 // The build prepends CACHE, PREFIX, RELEASE and ASSET_DIGESTS for one snapshot.
 const CLIENTS_KEY = new URL(
@@ -352,7 +353,9 @@ self.addEventListener("fetch", (event) => {
 	if (
 		!["GET", "HEAD"].includes(request.method) ||
 		url.origin !== self.location.origin ||
-		url.pathname === "/release.json"
+		url.pathname === "/release.json" ||
+		(recipeBrowseDestination(request) &&
+			preferredType(request.headers.get("accept")) === "text/html")
 	)
 		return;
 	let key = url.pathname;

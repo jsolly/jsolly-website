@@ -100,7 +100,7 @@ function verifyLibrary(width) {
 					return seed / 2 ** 32;
 				};
 			});
-			await page.getByRole("button", { name: "Shuffle recipes" }).click();
+			await page.getByRole("button", { name: "Shuffle meals" }).click();
 			await page.waitForFunction(
 				() =>
 					document.querySelector("#meal-results").getAttribute("aria-busy") ===
@@ -353,7 +353,7 @@ it("recipe batches load by scroll and button; shuffle shows gray cards and prese
 			.evaluateAll((links) =>
 				links.map((link) => link.dataset.recipeId).sort(),
 			);
-		await page.getByRole("button", { name: "Shuffle recipes" }).click();
+		await page.getByRole("button", { name: "Shuffle meals" }).click();
 		await page.locator(".shuffle-skeleton").waitFor();
 		assert.equal(
 			await page

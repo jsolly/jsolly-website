@@ -8,6 +8,8 @@
    no-script.css. */
 @layer blog-no-script {
 	.recipe-experience .library-controls > :not(.collection-options),
+	.recipe-experience .enhanced-shuffle,
+	.recipe-experience .recipe-print-action,
 	.recipe-experience .action-status,
 	.recipe-experience .print-output {
 		display: none;

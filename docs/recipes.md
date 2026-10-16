@@ -395,11 +395,8 @@ There is no generated article: the pages render straight from `recipes.json`
 
 ## Pages and settings
 
-The information button beside Ingredient units lists the unit modes.
-Without JavaScript, recipe pages
-link to `/recipes/<recipe-id>/assumptions/`, whose Back to recipe link returns
-to that recipe. The generic `/recipes/assumptions/` page remains directly accessible. Recipe browsing
-keeps the mode descriptions off the cooking view. Print recipe uses a filled button with a
+Ingredient units offers US imperial, Metric and Grams only.
+Ingredient and nutrition provenance remains in the canonical data and assistant downloads. There are no public assumptions pages or links. Print recipe uses a filled button with a
 printer icon. Machine-readable formats remain available through metadata and direct URLs.
 
 Search recipes searches the current collection alongside the existing filters.
@@ -432,11 +429,27 @@ scaling, the side choice, the cooking checks and share links
 (`?servings=`, `?units=` and `?starch=<id>:<side>`). Native fallbacks live in `<noscript>`,
 so hydration never replaces a disclosure or cooking check in use. Without
 JavaScript, native ingredient checkboxes and nutrient disclosures still work,
-and the collection pages show only the collection links and the cards.
+and collection pages offer native filter/search forms and card links.
 
-Cards start in canonical source order (search uses relevance order). Shuffle
-recipes randomizes the card order for this visit while preserving all search,
-filter and cooking settings. Reload restores the default order.
+Cards start in canonical source order (search uses relevance order). Shuffle meals
+and Shuffle smoothies randomize card order while preserving the selected filters.
+With JavaScript, the shuffle applies to the current visit and reload restores the
+default order. Without JavaScript, native GET forms submit `browse=1`, search,
+filters and an optional shuffle seed on the collection URL.
+Apply filters reloads results; Shuffle chooses a fresh server seed. Subsequent
+submissions retain that order until shuffled again or reset.
+
+`api/recipe-browse.mjs` reads this deployment's bundled static collection HTML,
+uses the existing recipe filtering/search modules and parses the HTML to select
+and order its existing cards. It exposes native forms and removes only the
+recipe-library island's hydration, so saved browser filters cannot overwrite
+submitted results. Other islands retain their ordinary behavior. Submitted
+views stay native even when JavaScript is later enabled; Reset filters returns
+to the ordinary collection page. Responses are no-store and noindex, with the
+original collection canonical. Markdown negotiation and plain collection URLs
+retain their static representations. The function reads no external service or
+user data and writes no persisted state. This online form flow needs a network
+connection; the offline app keeps its default static snapshot.
 
 Default card links point directly to the canonical recipe URL, keeping every
 recipe discoverable through ordinary internal links. Selected servings, units
@@ -479,7 +492,7 @@ The recipe status is visible while offline, when an update is ready, or when sav
 or applying an update fails. It describes the cached snapshot and reminds readers
 that external links need a connection.
 
-- **Serving.** Precached paths are answered cache-first. GET and HEAD requests
+- **Serving.** Native `browse=1` HTML submissions bypass the worker and require the network, so cached defaults cannot masquerade as filtered results. Precached paths are otherwise answered cache-first. GET and HEAD requests
   for known recipe pages select HTML or Markdown using the shared Accept
   negotiation helper. Explicit `.md` siblings always serve Markdown. HEAD keeps
   the selected status and headers with no body; an unsupported page Accept
@@ -573,13 +586,11 @@ unticking choices; other multi-choice filters disable Clear selections when empt
 Recipe pages print their on-screen cooking content directly. Card and collection
 print packets use the same RecipeContent renderer. Print changes layout and hides
 controls, photos and nutrition information, including nutrition highlights; it adds no separate method, ingredient list, background
-notes or disclaimers. Measurement assumptions remain on their linked page and
-in Markdown/JSON downloads.
+notes or disclaimers. Measurement provenance remains in Markdown/JSON downloads.
 
 Back to meals/smoothies uses the matching same-tab collection history entry
 when available. Collection history restores the scroll position, search and
 shuffle order after hydration; direct recipe links return to the collection top.
-Recipe-specific assumptions fallback pages are noindex and omitted from the sitemap.
 
 Heat-bearing ingredients include short adjustment guidance in their canonical notes,
 shared by cooking views, print and downloads. Blend, canned chili and sausage

@@ -114,6 +114,24 @@ function installCheck(name, viewport) {
 				"1",
 				"first install never reloads",
 			);
+			const nativeBrowse = await page.evaluate(async () => {
+				const response = await fetch(
+					`/recipes/meals/?${new URLSearchParams({ browse: "1", q: "salmon" })}`,
+					{
+						headers: { accept: "text/html" },
+					},
+				);
+				return {
+					html: await response.text(),
+					cache: response.headers.get("cache-control"),
+				};
+			});
+			assert.equal(
+				nativeBrowse.cache,
+				"no-store",
+				"native browsing bypasses the offline cache",
+			);
+			assert.ok(nativeBrowse.html.includes('data-server-browse="true"'));
 			const metadata = await page.evaluate(async (selector) => {
 				const link = document.querySelector(selector);
 				const manifest = await fetch(link.href).then((response) =>

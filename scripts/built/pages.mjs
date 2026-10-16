@@ -8,6 +8,7 @@ import { parseFrontmatter } from "astro/markdown";
 import { globby } from "globby";
 import { JSDOM } from "jsdom";
 import { parseDocument } from "yaml";
+import { recipeBrowseDestination } from "../../src/lib/recipe-browse-route.mjs";
 
 const ROOT = fileURLToPath(new URL("../..", import.meta.url));
 // The built site, relative to the repo root the built suite runs from.
@@ -128,7 +129,29 @@ const CONTENT_TYPES = {
 // { origin, close }.
 export async function serveStatic(root, headers = {}) {
 	const server = createServer(async (request, response) => {
-		const { pathname } = new URL(request.url, "http://localhost");
+		const url = new URL(request.url, "http://localhost");
+		const { pathname } = url;
+		const webRequest = new Request(url, {
+			method: request.method,
+			headers: request.headers,
+		});
+		const browse = recipeBrowseDestination(webRequest);
+		if (browse) {
+			const { browseResponse } = await import("../../api/recipe-browse.mjs");
+			const rendered = await browseResponse(
+				new Request(browse, {
+					method: request.method,
+					headers: request.headers,
+				}),
+				join(root, "recipes"),
+			);
+			const nativeHeaders = new Headers(headers);
+			for (const [name, value] of rendered.headers)
+				nativeHeaders.set(name, value);
+			response.writeHead(rendered.status, Object.fromEntries(nativeHeaders));
+			response.end(Buffer.from(await rendered.arrayBuffer()));
+			return;
+		}
 		// normalize() resolves "..", so the absolute path never leaves root.
 		const relative = normalize(decodeURIComponent(pathname));
 		const file = join(

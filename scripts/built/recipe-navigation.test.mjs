@@ -18,7 +18,7 @@ const hydrate = (page) =>
 	page.waitForFunction(() => !document.querySelector("astro-island[ssr]"));
 const RECIPE = "/recipes/lemon-salmon-and-asparagus/";
 function verifyNavigation(width) {
-	it(`assumptions retain recipe context and Back restores collection history at ${width}px`, {
+	it(`Back restores collection history at ${width}px`, {
 		timeout: 120_000,
 	}, async () => {
 		const context = await browser.newContext({
@@ -31,89 +31,13 @@ function verifyNavigation(width) {
 		try {
 			await page.goto(`${site.origin}${RECIPE}?servings=6&units=metric`);
 			await hydrate(page);
-			const url = page.url();
-			const help = page.getByRole("button", {
-				name: "Measurement assumptions",
-				exact: true,
-			});
-			await help.focus();
-			await page.keyboard.press("Enter");
-			const popover = page.locator(".measurement-assumptions-help");
-			await popover.waitFor();
 			assert.equal(
-				await help.evaluate((node) => node === document.activeElement),
-				true,
-			);
-			assert.equal(
-				await page.locator('[data-slot="dialog-overlay"]').count(),
+				await page
+					.getByRole("button", { name: "Measurement assumptions" })
+					.count(),
 				0,
 			);
-			assert.equal(
-				await popover
-					.getByRole("link", { name: "Measurement assumptions", exact: true })
-					.getAttribute("href"),
-				`${RECIPE}assumptions/`,
-			);
-			await page.keyboard.press("Tab");
-			await page.evaluate(
-				() =>
-					new Promise((resolve) =>
-						requestAnimationFrame(() => requestAnimationFrame(resolve)),
-					),
-			);
-			assert.equal(
-				await popover
-					.getByRole("link")
-					.evaluate((node) => node === document.activeElement),
-				true,
-			);
-			await page.keyboard.press("Tab");
-			const units = page.getByRole("combobox", { name: "Ingredient units" });
-			assert.equal(
-				await units.evaluate((node) => node === document.activeElement),
-				true,
-			);
-			await page.keyboard.press("Escape");
-			assert.equal(
-				await units.evaluate((node) => node === document.activeElement),
-				true,
-			);
-			await help.focus();
-			await page.keyboard.press("Enter");
-			await popover.waitFor();
-			await popover.getByRole("link").focus();
-			assert.equal(page.url(), url);
-			assert.equal(
-				await page
-					.getByRole("combobox", { name: "Servings", exact: true })
-					.inputValue(),
-				"6",
-			);
-			await page.keyboard.press("Escape");
-			await popover.waitFor({ state: "detached" });
-			assert.equal(
-				await help.evaluate((node) => node === document.activeElement),
-				true,
-			);
-			assert.equal(
-				await page
-					.getByRole("combobox", { name: "Ingredient units" })
-					.inputValue(),
-				"metric",
-			);
-			await help.focus();
-			await page.keyboard.press("Enter");
-			await popover.waitFor();
-			const servings = page.getByRole("combobox", {
-				name: "Servings",
-				exact: true,
-			});
-			await page.locator("label.servings").click();
-			await popover.waitFor({ state: "detached" });
-			assert.equal(
-				await servings.evaluate((node) => node === document.activeElement),
-				true,
-			);
+			assert.equal(await page.locator('a[href*="/assumptions/"]').count(), 0);
 			// Direct links go to the top of the collection rather than an old visit.
 			await page
 				.getByRole("link", { name: "Back to meals", exact: false })
@@ -127,13 +51,13 @@ function verifyNavigation(width) {
 			await page
 				.getByRole("combobox", { name: "Dietary preference" })
 				.selectOption("all");
-			await page.getByRole("button", { name: "Shuffle recipes" }).click();
+			await page.getByRole("button", { name: "Shuffle meals" }).click();
 			const ids = () =>
 				page
 					.locator(".recipe-card a.title-button")
 					.evaluateAll((links) => links.map((node) => node.dataset.recipeId));
 			await page
-				.getByRole("button", { name: "Shuffle recipes" })
+				.getByRole("button", { name: "Shuffle meals" })
 				.waitFor({ state: "visible" });
 			await page.waitForFunction(
 				() => !document.querySelector('#meal-results[aria-busy="true"]'),
@@ -176,21 +100,6 @@ function verifyNavigation(width) {
 			assert.ok(
 				Math.abs((await page.evaluate(() => scrollY)) - beforeScroll) <= 2,
 			);
-			// The assumptions popover also works inside the library recipe dialog.
-			await page.goto(`${site.origin}/recipes/#lemon-salmon-and-asparagus`);
-			await hydrate(page);
-			const recipeDialog = page.getByRole("dialog", {
-				name: "Lemon salmon and asparagus",
-				exact: true,
-			});
-			await recipeDialog.waitFor();
-			await recipeDialog
-				.getByRole("button", { name: "Measurement assumptions" })
-				.click();
-			await popover.waitFor();
-			await page.keyboard.press("Escape");
-			await popover.waitFor({ state: "detached" });
-			assert.equal(await recipeDialog.isVisible(), true);
 			// Playwright emits this harness warning when a production worker is intentionally blocked.
 			assert.deepEqual(
 				errors.filter(
@@ -209,24 +118,14 @@ function verifyNavigation(width) {
 		try {
 			const nativePage = await native.newPage();
 			await nativePage.goto(`${site.origin}${RECIPE}`);
-			await nativePage
-				.getByRole("link", { name: "Measurement assumptions", exact: true })
-				.click();
-			await nativePage.waitForURL(`**${RECIPE}assumptions/`);
 			assert.equal(
-				await nativePage.getByRole("heading", { level: 1 }).textContent(),
-				"Measurement assumptions",
-			);
-			assert.equal(
-				await nativePage
-					.getByRole("link", { name: "Back to recipe", exact: false })
-					.getAttribute("href"),
-				RECIPE,
+				await nativePage.locator('a[href*="/assumptions/"]').count(),
+				0,
 			);
 			await nativePage
-				.getByRole("link", { name: "Back to recipe", exact: false })
+				.getByRole("link", { name: "Back to meals", exact: false })
 				.click();
-			await nativePage.waitForURL(`**${RECIPE}`);
+			await nativePage.waitForURL("**/recipes/meals/");
 		} finally {
 			await native.close();
 		}

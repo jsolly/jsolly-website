@@ -379,6 +379,10 @@ function pageChecks({ kind, id, familySides }) {
 					shareLink: await detail
 						.getByRole("link", { name: "Share recipe link" })
 						.getAttribute("href"),
+					shareIcon: await detail
+						.getByRole("link", { name: "Share recipe link" })
+						.locator("svg")
+						.isVisible(),
 					shareButton: await detail
 						.getByRole("button", { name: "Share this recipe" })
 						.count(),
@@ -394,6 +398,7 @@ function pageChecks({ kind, id, familySides }) {
 					detailsOpen: true,
 					familySelect: familySides,
 					shareLink: `/recipes/${id}/`,
+					shareIcon: true,
 					shareButton: 0,
 					printCopyShown: true,
 					methodLink: "https://www.cookingforengineers.com/",
