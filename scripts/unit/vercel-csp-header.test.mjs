@@ -25,7 +25,8 @@ it("Vercel sends exactly the reviewed header policy to every route", async () =>
 				// form-action does not fall back to default-src, so only the header restricts it.
 				["form-action", ["'self'"]],
 				["object-src", ["'none'"]],
-				["frame-ancestors", ["'none'"]],
+				// Same-origin only: blog posts frame their own notebook pages in /blog/notebooks/.
+				["frame-ancestors", ["'self'"]],
 				["upgrade-insecure-requests", []],
 			]),
 		),

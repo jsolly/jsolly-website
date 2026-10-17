@@ -23,4 +23,4 @@ related:
   - create-website-title-generator-python-htmx-django
 ---
 
-<iframe style="height:500px;width:100%;" src="https://nbviewer.org/github/jsolly/Jupyter_Notebooks/blob/main/intro-to-stac.ipynb" title="Notebook: Introduction to the STAC Specification for Geospatial Data"></iframe>
+<iframe style="height:500px;width:100%;" src="/notebooks/intro-to-stac.html" title="Notebook: Introduction to the STAC Specification for Geospatial Data"></iframe>

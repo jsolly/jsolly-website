@@ -11,7 +11,7 @@ const SCHEME_SOURCE = /^[a-z][a-z\d+.-]*:$/iu;
 const SITE_ORIGIN = "https://www.jsolly.com";
 const SCRIPT_TYPES = ["module", "text/javascript", "application/javascript"];
 // BlogLayout's per-page directives (plan §1.13, J6): legacy post images and
-// the YouTube, diagrams.net and nbviewer embeds, on dist/blog/** only.
+// the YouTube, diagrams.net embeds and same-origin notebook frames, on dist/blog/** only.
 // Page paths relative to dist/.
 const BLOG_PAGES = "blog/";
 const BLOG_IMG_SRC = [
@@ -20,9 +20,9 @@ const BLOG_IMG_SRC = [
 	"https://d1d7p8ufhgz4ld.cloudfront.net",
 ];
 const BLOG_FRAME_SRC = [
+	"'self'",
 	"https://www.youtube-nocookie.com",
 	"https://viewer.diagrams.net",
-	"https://nbviewer.org",
 ];
 
 function findMetaPolicy(document) {

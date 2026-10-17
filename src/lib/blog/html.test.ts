@@ -124,6 +124,13 @@ describe("articleHtml", () => {
 		);
 	});
 
+	it("A same-origin notebook embed keeps its relative source", () => {
+		assert.match(
+			articleHtml('<iframe src="/notebooks/stac_landsat.html"></iframe>'),
+			/<iframe src="\/notebooks\/stac_landsat\.html"/u,
+		);
+	});
+
 	it("Every post renders with unique ids, no executable markup and all its h2 and h3 headings", () => {
 		const files = readdirSync(POSTS).filter((name) => name.endsWith(".md"));
 		assert.equal(files.length, 105);
