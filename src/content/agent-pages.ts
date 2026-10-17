@@ -4,6 +4,7 @@ import {
 	ROLE,
 	ROLE_STRATEGY,
 	SHORT_ROLE,
+	SITE_SEARCH_MARKDOWN,
 } from "./constants.js";
 
 const PAGES: Record<string, (origin: string) => string> = {
@@ -26,6 +27,11 @@ export function markdownForPath(
 ): string | undefined {
 	const render = PAGES[pathname];
 	return render?.(origin);
+}
+
+/** Every emitted Markdown body, maintenance and 404 included, ends with the Search section. */
+export function withSiteSearch(body: string): string {
+	return `${body}\n${SITE_SEARCH_MARKDOWN}`;
 }
 
 export function maintenanceMarkdown(origin: string): string {

@@ -1,7 +1,7 @@
 ---
 import SiteShell from "../components/SiteShell.astro";
 import StructuredData from "../components/StructuredData.astro";
-import { ROLE } from "../content/constants.js";
+import { CONTEXT7_SITE_KEY, ROLE } from "../content/constants.js";
 
 interface Props {
 	title: string;
@@ -30,6 +30,7 @@ const llmsTxtURL = new URL("/llms.txt", Astro.site);
 		{noindex && <meta name="robots" content="noindex, nofollow" />}
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="context7-site-verification" content={CONTEXT7_SITE_KEY} />
 		<title>{title}</title>
 		{/* A noindex page (404, 500) answers whatever URL failed, so it names no
 		URL of its own: no canonical, og:url, twitter:url or Markdown sibling. */}

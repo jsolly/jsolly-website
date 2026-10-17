@@ -3,7 +3,9 @@ import {
 	maintenanceMarkdown,
 	markdownForPath,
 	notFoundMarkdown,
+	withSiteSearch,
 } from "../content/agent-pages.js";
+import { SITE_SEARCH_LINK } from "../content/constants.js";
 import {
 	appendVaryAccept,
 	normalizePagePath,
@@ -78,13 +80,14 @@ function markdownBody(
 	if (request.method.toUpperCase() === "HEAD") {
 		return new Response(null, { status, headers });
 	}
-	return new Response(body, { status, headers });
+	return new Response(withSiteSearch(body), { status, headers });
 }
 
 function markdownHeaders(): Headers {
 	const headers = new Headers({
 		"content-type": "text/markdown; charset=utf-8",
 		"cache-control": "public, max-age=0, must-revalidate",
+		link: SITE_SEARCH_LINK,
 	});
 	appendVaryAccept(headers);
 	return headers;

@@ -1,4 +1,5 @@
 import { next, rewrite } from "@vercel/edge";
+import { SITE_SEARCH_LINK } from "./src/content/constants.js";
 // Written by astro build (routeManifest in config/app/astro.ts); gitignored, typed by the tracked .d.ts.
 import { markdownRoutes as builtMarkdownRoutes } from "./src/generated/route-manifest.js";
 import {
@@ -20,12 +21,17 @@ export default function middleware(request: Request) {
 	const browse = recipeBrowseDestination(request);
 	if (browse)
 		return rewrite(browse, {
-			headers: { "Cache-Control": "no-store", Vary: "Accept" },
+			headers: {
+				"Cache-Control": "no-store",
+				Vary: "Accept",
+				Link: SITE_SEARCH_LINK,
+			},
 		});
 
 	const response = next();
 	if (shouldNegotiate(url.pathname, request.method)) {
 		appendVaryAccept(response.headers);
+		response.headers.append("Link", SITE_SEARCH_LINK);
 	}
 	return response;
 }

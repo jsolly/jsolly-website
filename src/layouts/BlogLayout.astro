@@ -6,6 +6,7 @@ import SiteShell from "../components/SiteShell.astro";
 import Button from "../lib/components/ui/button.svelte";
 import "../styles/blog/blog.css";
 import BlogNavigation from "../components/blog/BlogNavigation.svelte";
+import { CONTEXT7_SITE_KEY } from "../content/constants.js";
 import { markdownSiblingPath } from "../lib/accept-negotiate.js";
 import {
 	DEFAULT_IMAGE,
@@ -65,6 +66,7 @@ const isRecipeCollection = ["/recipes/", "/recipes/meals/", "/recipes/smoothies/
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="context7-site-verification" content={CONTEXT7_SITE_KEY} />
 		<title>{title} | John Solly</title>
 		<meta name="description" content={description} />
 		<link rel="canonical" href={canonical} />

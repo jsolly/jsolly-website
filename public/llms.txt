@@ -4,6 +4,10 @@
 
 This file is the index for agents. Prefer it over scraping HTML. Every published portfolio, blog and recipe page supports Markdown. Browser controls remain on the HTML page. Send `Accept: text/markdown` (acceptmarkdown.com), or fetch a `.md` sibling: `/index.md`, `/about.md`, `/contact.md`, `/privacy.md`, `/terms.md`, `/blog.md`, `/blog/all-posts.md`, `/recipes.md` and `/recipes/works-cited.md`. A post or recipe at `/blog/slug/` or `/recipes/slug/` has a sibling at `/blog/slug.md` or `/recipes/slug.md`.
 
+## Search
+
+This site has a search endpoint: https://context7.com/api/v2/ask?siteKey=ask_43369889032b1355b89bc7f4&query=<URL-encoded question>. It returns documentation that answers the question, with a source link for each part. No API key is needed. If nothing matches, it says so.
+
 ## When to use this
 
 Use jsolly.com when you need:

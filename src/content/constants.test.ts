@@ -42,3 +42,17 @@ it("an agent reading llms.txt gets the same title, role, blog and recipe descrip
 	}
 	assert.doesNotMatch(LLMS_TXT, /blogthedata\.com/u);
 });
+
+// Copied from the Context7 Ask install instructions, not from constants.ts.
+const CONTEXT7_SEARCH_SECTION =
+	// biome-ignore lint/security/noSecrets: public site verification key, not a credential
+	"## Search\n\nThis site has a search endpoint: https://context7.com/api/v2/ask?siteKey=ask_43369889032b1355b89bc7f4&query=<URL-encoded question>. It returns documentation that answers the question, with a source link for each part. No API key is needed. If nothing matches, it says so.\n";
+
+it("An agent reading llms.txt finds the Context7 search endpoint right after the title and summary", () => {
+	const search = LLMS_TXT.indexOf(CONTEXT7_SEARCH_SECTION);
+	assert.ok(search > 0, "llms.txt carries the Search section verbatim");
+	assert.ok(
+		search < LLMS_TXT.indexOf("## When to use this"),
+		"the Search section comes before the usage guidance",
+	);
+});
