@@ -227,6 +227,41 @@ export async function stubOffOrigin(context, origin) {
 	return hosts;
 }
 
+// The recipes a browser test opens one by one. Every recipe page is already
+// held to its data in plain Node (recipes-built.test.mjs), so a real browser
+// only needs the shapes the pages branch on: the fewest and most ingredients,
+// the most steps, the first and last smoothie, a variable time, a vegetarian
+// recipe and one that needs two air fryers, topped up with evenly spaced
+// recipes to exactly RECIPE_SMOKE_SIZE so the test-count ledger does not move
+// when the library's data does.
+export const RECIPE_SMOKE_SIZE = 8;
+export function smokeRecipes(recipes) {
+	if (recipes.length < RECIPE_SMOKE_SIZE) {
+		throw new Error("the library is smaller than the recipe smoke sample");
+	}
+	const extreme = (compare) => [...recipes].sort(compare)[0];
+	const picked = new Set(
+		[
+			extreme((a, b) => a.ingredients.length - b.ingredients.length),
+			extreme((a, b) => b.ingredients.length - a.ingredients.length),
+			extreme((a, b) => b.steps.length - a.steps.length),
+			recipes.find((recipe) => recipe.type === "smoothie"),
+			recipes.findLast((recipe) => recipe.type === "smoothie"),
+			recipes.find((recipe) => recipe.timeVariable),
+			recipes.find((recipe) => recipe.vegetarian),
+			recipes.find((recipe) =>
+				recipe.appliancesNeeded.includes("Two air fryers"),
+			),
+		].filter(Boolean),
+	);
+	for (let i = 0; picked.size < RECIPE_SMOKE_SIZE; i += 1) {
+		picked.add(recipes[Math.floor((i * recipes.length) / RECIPE_SMOKE_SIZE)]);
+	}
+	return recipes
+		.filter((recipe) => picked.has(recipe))
+		.slice(0, RECIPE_SMOKE_SIZE);
+}
+
 // Every post as { slug, category, published, related, title, description,
 // feedAuthor, publishedAt, updatedAt }, read from the post frontmatter rather
 // than the build, so a test can hold the built pages to it. Only draft: false

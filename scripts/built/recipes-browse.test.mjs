@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { after, before, describe, it } from "node:test";
 import { chromium } from "playwright";
-import { collectErrors, serveStatic } from "./pages.mjs";
+import { collectErrors, serveStatic, smokeRecipes } from "./pages.mjs";
 
 // Browsing the built recipe library in Chromium, ported from awesome-blog's
 // PWA suite (scripts/recipes/pwa.test.mjs) without its service worker: every
@@ -108,10 +108,10 @@ const normalize = (value) =>
 		typeof item === "string" ? item.replace(SPACES, " ").trim() : item,
 	);
 
-// Give every recipe its own bounded test, so expanding the library does not
-// turn a fixed aggregate timeout into a limit on the number of recipes covered.
-// Each opens fresh contexts at the default settings, so the recipes can run
-// side by side.
+// Each smoke-sample recipe gets its own bounded test (see smokeRecipes in
+// pages.mjs); every recipe's static page is checked against its data in
+// recipes-built.test.mjs. Each opens fresh contexts at the default settings, so
+// the recipes can run side by side.
 function detailParityCheck(recipe, width) {
 	it(`${recipe.id} matches without JavaScript at ${width}px`, {
 		timeout: 30_000,
@@ -985,9 +985,10 @@ for (const width of WIDTHS) {
 	detailsCheck(width);
 	filtersCheck(width);
 	collectionsCheck(width);
-	describe(`every recipe at ${width}px`, {
+	describe(`sampled recipes at ${width}px`, {
 		concurrency: RECIPE_CONCURRENCY,
 	}, () => {
-		for (const recipe of recipes) detailParityCheck(recipe, width);
+		for (const recipe of smokeRecipes(recipes))
+			detailParityCheck(recipe, width);
 	});
 }

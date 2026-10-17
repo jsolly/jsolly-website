@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { after, before, describe, it } from "node:test";
 import { chromium } from "playwright";
-import { collectErrors, serveStatic } from "./pages.mjs";
+import { collectErrors, serveStatic, smokeRecipes } from "./pages.mjs";
 
 // Plan §1.6: blogthedata.com's Easy Meals & Smoothies post now 301s to
 // /recipes/, and browsers carry the #fragment across the redirect. The post
@@ -33,8 +33,9 @@ after(async () => {
 
 const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
 
-// Give every cold link its own bounded test, so expanding the library does not
-// turn a fixed aggregate timeout into a limit on the number of recipes covered.
+// The hash opens a recipe by looking its id up in the library the page already
+// holds, so the browser opens a smoke sample cold, one bounded test each; every
+// recipe's own page is checked against its data in recipes-built.test.mjs.
 function registerRecipeLink(recipe) {
 	it(`old /recipes/#${recipe.id} opens its recipe dialog on the right collection`, {
 		timeout: 30_000,
@@ -90,8 +91,8 @@ function registerRecipeLink(recipe) {
 }
 
 // Each link opens its own context, so the cold loads can run side by side.
-describe("every old recipe link", { concurrency: 4 }, () => {
-	for (const recipe of recipes) registerRecipeLink(recipe);
+describe("old recipe links", { concurrency: 4 }, () => {
+	for (const recipe of smokeRecipes(recipes)) registerRecipeLink(recipe);
 });
 
 function registerFragmentLink(fontDelay) {
