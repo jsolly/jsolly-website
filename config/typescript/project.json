@@ -4,7 +4,6 @@
 		"../../.astro/types.d.ts",
 		"../../src/**/*",
 		"../../middleware.ts",
-		"../../astro.config.ts",
 		"../app/astro.ts"
 	],
 	"exclude": [
@@ -20,10 +19,6 @@
 			}
 		],
 		"strictNullChecks": true,
-		"skipLibCheck": true,
-		"paths": {
-			"$lib": ["${configDir}/src/lib"],
-			"$lib/*": ["${configDir}/src/lib/*"]
-		}
+		"skipLibCheck": true
 	}
 }

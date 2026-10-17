@@ -49,7 +49,7 @@ function routeManifest(): AstroIntegration {
 				await mkdir(new URL(".", output), { recursive: true });
 				await writeFile(
 					output,
-					`// Written by astro build (routeManifest in astro.config.ts). Do not edit.\nexport const routes = ${JSON.stringify(routes, null, "\t")};\n`,
+					`// Written by astro build (routeManifest in config/app/astro.ts). Do not edit.\nexport const routes = ${JSON.stringify(routes, null, "\t")};\n`,
 				);
 			},
 		},

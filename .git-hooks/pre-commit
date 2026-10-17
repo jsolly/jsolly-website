@@ -25,7 +25,7 @@ if [[ "${FLEET_UI_PREVIEW:-0}" == 1 ]]; then
 	echo "✓ preview checks passed — full gate and required ci still needed before ready/merge."
 	exit 0
 fi
-run_step "biome ci"  npx --no-install biome ci . --error-on-warnings
+run_step "biome ci"  npx --no-install biome ci --config-path=config/quality/biome.settings.jsonc . --error-on-warnings
 run_step "yaml lint" npm run check:yaml
 run_step "knip" npm run check:knip
 run_step "legacy redirects" npm run redirects:check   # legacy/blogthedata/vercel.json matches url-map.json

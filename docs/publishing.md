@@ -105,8 +105,9 @@ use a local preview unless John asks for the opt-in `/preview` comment or
 
 ## Content validation
 
-Posts are linted by markdownlint with `src/content/blog/posts/.markdownlint.json`,
-which allows retained HTML, original punctuation, heading order and verbatim code
+Posts are linted by the scoped override in
+`config/quality/.markdownlint-cli2.jsonc`, which allows retained HTML, original
+punctuation, heading order and verbatim code
 whitespace: these are authored content, not repository style errors. Biome does
 not process Markdown. The Astro schemas (`src/lib/blog/schemas.ts`) and the
 built content contracts supply the structural checks: an empty article, a

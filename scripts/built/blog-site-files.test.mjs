@@ -10,12 +10,12 @@ import { exists, publishedPosts, robotsMeta } from "./pages.mjs";
 
 // The site files over the built dist/ (plan B11): the sitemap, robots.txt and
 // what security.txt points at. Expectations come from the built pages' own
-// robots meta and the post frontmatter, never from the astro.config.ts
+// robots meta and the post frontmatter, never from the config/app/astro.ts
 // sitemap options under test, so a /recipes/ page (J12) is expected the
 // moment it is built.
 const DIST = "dist";
 const SITE = "https://www.jsolly.com";
-// The one custom (non-page) sitemap entry, from astro.config.ts customPages.
+// The one custom (non-page) sitemap entry, from config/app/astro.ts customPages.
 const RESUME = `${SITE}/John-Solly-Resume.pdf`;
 
 // The built XML file at `path` under dist/ as a document.

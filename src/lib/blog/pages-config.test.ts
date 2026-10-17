@@ -139,7 +139,14 @@ function biomeCi(cwd: string) {
 	// and the categories override lives in `overrides`, not the ignore file.
 	return spawnSync(
 		BIOME,
-		["ci", ".", "--error-on-warnings", "--vcs-enabled=false", "--colors=off"],
+		[
+			"ci",
+			"--config-path=config/quality/biome.settings.jsonc",
+			".",
+			"--error-on-warnings",
+			"--vcs-enabled=false",
+			"--colors=off",
+		],
 		{ cwd, encoding: "utf8" },
 	);
 }
@@ -330,11 +337,12 @@ describe(".pages.yml", () => {
 
 		const dir = await mkdtemp(join(tmpdir(), "pages-config-"));
 		try {
-			// The authoritative settings become this isolated fixture’s native root,
-			// preserving category glob context and the existing positive/negative controls.
+			// Use the same owner path and explicit selection as the real gate,
+			// preserving category glob context and both formatting controls.
+			await mkdir(join(dir, "config/quality"), { recursive: true });
 			await copyFile(
 				join(ROOT, "config/quality/biome.settings.jsonc"),
-				join(dir, "biome.jsonc"),
+				join(dir, "config/quality/biome.settings.jsonc"),
 			);
 			await mkdir(join(dir, CATEGORIES_DIR), { recursive: true });
 			const saved = cmsJson(category.source);
@@ -342,7 +350,7 @@ describe(".pages.yml", () => {
 			await writeFile(join(dir, CATEGORIES_DIR, category.name), saved);
 			const passed = biomeCi(dir);
 			assert.equal(passed.status, 0, passed.stdout + passed.stderr);
-			// The category file and biome.jsonc itself.
+			// The category file and the canonical settings file itself.
 			assert.match(passed.stdout + passed.stderr, /Checked 2 files\b/u);
 
 			// The same bytes outside the categories override fail formatting, so

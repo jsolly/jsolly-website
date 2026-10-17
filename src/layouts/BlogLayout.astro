@@ -42,7 +42,7 @@ const {
 if (section === "blog") {
 	if (!Astro.csp) {
 		throw new Error(
-			"BlogLayout: Astro.csp is unavailable; enable security.csp in astro.config.ts",
+			"BlogLayout: Astro.csp is unavailable; enable security.csp in config/app/astro.ts",
 		);
 	}
 	Astro.csp.insertDirective(
