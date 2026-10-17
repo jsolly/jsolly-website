@@ -1,5 +1,5 @@
 import { next, rewrite } from "@vercel/edge";
-// Written by astro build (routeManifest in astro.config.ts); gitignored, typed by the tracked .d.ts.
+// Written by astro build (routeManifest in config/app/astro.ts); gitignored, typed by the tracked .d.ts.
 import { markdownRoutes as builtMarkdownRoutes } from "./src/generated/route-manifest.js";
 import {
 	appendVaryAccept,

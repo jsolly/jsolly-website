@@ -138,7 +138,12 @@ export async function createTempCopy(label) {
 		dir,
 		// `astro build` in the copy, without process-html.
 		astroBuild() {
-			return run(dir, process.execPath, [ASTRO_BIN, "build"], "astro build");
+			return run(
+				dir,
+				process.execPath,
+				[ASTRO_BIN, "build", "--config", "config/app/astro.ts"],
+				"astro build --config config/app/astro.ts",
+			);
 		},
 		// `npm run <script>` in the copy.
 		npmRun(script) {

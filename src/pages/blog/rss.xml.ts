@@ -10,7 +10,7 @@ import { legacyFeedIds, rssFeed } from "../../lib/blog/feeds.js";
 // production); astro dev needs it, or it serves the feed as text/plain.
 export const GET: APIRoute = async ({ site }) => {
 	if (!site) {
-		throw new Error("blog/rss.xml: set `site` in astro.config.ts");
+		throw new Error("blog/rss.xml: set `site` in config/app/astro.ts");
 	}
 	const { posts } = await blogContent();
 	return new Response(rssFeed(posts, site, legacyFeedIds(urlMap.rows)), {

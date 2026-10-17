@@ -12,6 +12,9 @@
 	"ignoreDependencies": ["markdownlint-cli2"],
 	"treatConfigHintsAsErrors": true,
 	"astro": {
-		"config": ["astro.config.ts", "config/app/astro.ts"]
+		"config": ["config/app/astro.ts"]
+	},
+	"biome": {
+		"config": ["config/quality/biome.settings.jsonc"]
 	}
 }
