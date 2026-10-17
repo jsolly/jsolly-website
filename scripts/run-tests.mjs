@@ -93,6 +93,12 @@ export function runCounted({
 				"--test-reporter-destination=stdout",
 				"--test-reporter=tap",
 				`--test-reporter-destination=${tapPath}`,
+				...(process.env.TIMING_JUNIT
+					? [
+							"--test-reporter=junit",
+							`--test-reporter-destination=${process.env.TIMING_JUNIT}`,
+						]
+					: []),
 				...patterns,
 			],
 			{ cwd, env: childEnv(), stdio },

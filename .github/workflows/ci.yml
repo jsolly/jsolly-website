@@ -168,9 +168,47 @@ jobs:
         if: steps.verified-tree.outputs.run_full != 'false'
       - run: npx --no-install playwright install --with-deps chromium
         if: steps.verified-tree.outputs.run_full != 'false'
+      - name: Probe runner (throwaway timing branch)
+        run: |
+          echo "nproc=$(nproc)"
+          node -p "'availableParallelism=' + require('node:os').availableParallelism()"
+          cat /sys/fs/cgroup/cpu.max || true
+          free -m
       - name: Run complete repository gate
         run: npm run gate
         if: steps.verified-tree.outputs.run_full != 'false'
+        env:
+          TIMING_JUNIT: ${{ runner.temp }}/built.xml
+      - name: Print built-test timings (throwaway timing branch)
+        if: always()
+        run: |
+          node -e '
+          const fs = require("node:fs");
+          const xml = fs.readFileSync(process.env.RUNNER_TEMP + "/built.xml", "utf8").replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/g, "");
+          const cases = [...xml.matchAll(/<testcase name="([^"]*)" time="([0-9.]+)" classname="[^"]*"(?: file="([^"]*)")?/g)];
+          const files = {};
+          for (const [, name, time, file] of cases) {
+            const key = (file || "?").split("/").pop();
+            files[key] ??= { n: 0, sum: 0, max: 0, maxName: "" };
+            files[key].n++;
+            files[key].sum += Number(time);
+            if (Number(time) > files[key].max) { files[key].max = Number(time); files[key].maxName = name; }
+          }
+          console.log("TIMING cases", cases.length);
+          for (const [f, v] of Object.entries(files).sort((a, b) => b[1].sum - a[1].sum)) {
+            console.log("TIMING file", f, "n=" + v.n, "sum=" + v.sum.toFixed(1) + "s", "slowest=" + v.max.toFixed(1) + "s", v.maxName.slice(0, 70));
+          }
+          const suites = [...xml.matchAll(/<testsuite name="([^"]*)"[^>]*? time="([0-9.]+)"/g)].filter((m) => m[1].endsWith(".mjs"));
+          for (const [, name, time] of suites.sort((a, b) => b[2] - a[2])) console.log("TIMING wall", name.split("/").pop(), Number(time).toFixed(1) + "s");
+          const groups = {};
+          for (const [, name, time] of cases) {
+            const key = name.replace(/^[a-z0-9-]+ matches without JavaScript/, "<recipe> matches without JavaScript").replace(/^old \/recipes\/#[a-z0-9-]+ opens/, "old /recipes/#<id> opens");
+            groups[key] ??= { n: 0, sum: 0 };
+            groups[key].n++;
+            groups[key].sum += Number(time);
+          }
+          for (const [k, v] of Object.entries(groups).sort((a, b) => b[1].sum - a[1].sum).slice(0, 15)) console.log("TIMING group", "n=" + v.n, "sum=" + v.sum.toFixed(1) + "s", k.slice(0, 90));
+          '
       - name: Record validated PR tree
         if: >-
           success() && github.event_name == 'pull_request' &&
