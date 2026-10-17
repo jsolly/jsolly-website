@@ -66,6 +66,14 @@ export default defineConfig({
 	prerenderConflictBehavior: "error",
 
 	integrations: [
+		{
+			name: "jsolly-website-config-watch",
+			hooks: {
+				"astro:config:setup": ({ addWatchFile }) => {
+					addWatchFile(new URL("./astro.ts", import.meta.url));
+				},
+			},
+		},
 		svelte(),
 		sitemap({
 			customPages:
