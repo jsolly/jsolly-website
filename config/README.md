@@ -25,7 +25,8 @@ Relocatable tracked settings have one repository-owned home under `config/<domai
   owns the unchanged fifteen blog rule exceptions in a `src/content/blog/posts/**`
   override; normal engineering-document rules and all ignore scopes remain intact.
 - `testing/test-counts.json` owns the unchanged suite floors. Configuration moves
-  never authorize dropping tests.
+  never authorize dropping tests. Keep a blank line between its entries, so two
+  pull requests that change different suites merge without a conflict.
 - `agents/repository.json` owns the repository identity used by hook trust.
   [Development guidance](../docs/development.md#hook-trust) documents the explicit
   authenticated upgrade for old installed snapshots and refusal of retired owners.
