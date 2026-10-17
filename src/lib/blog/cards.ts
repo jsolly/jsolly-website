@@ -5,6 +5,19 @@ import { categoryHref, postHref } from "./urls.js";
 
 const WHITESPACE = /\s+/u;
 
+const LEADING_WWW = /^www\./u;
+
+// A post's image attribution is free text ("Dalle3") or, on migrated posts,
+// the image's own URL. Returns the link and a short host label for the URL
+// form, so the page shows "Image source: images.example.com" instead of a
+// long address, and null for plain text.
+export function attributionLink(attribution: string) {
+	if (!URL.canParse(attribution)) return null;
+	const url = new URL(attribution);
+	if (url.protocol !== "https:" && url.protocol !== "http:") return null;
+	return { href: url.href, label: url.hostname.replace(LEADING_WWW, "") };
+}
+
 // "January 9, 2023": the calendar date in UTC, so the label never depends on
 // the build machine's time zone.
 export function dateLabel(date: Date) {
