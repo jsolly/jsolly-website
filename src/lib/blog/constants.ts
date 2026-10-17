@@ -24,11 +24,7 @@ export const LEGACY_MEDIA = "https://d1d7p8ufhgz4ld.cloudfront.net/media/";
 
 // The hosts post bodies may embed in an iframe: the sanitizer keeps only these
 // iframes, and BlogLayout allows exactly these in frame-src.
-export const EMBED_HOSTS = [
-	"www.youtube-nocookie.com",
-	"viewer.diagrams.net",
-	"nbviewer.org",
-];
+export const EMBED_HOSTS = ["www.youtube-nocookie.com", "viewer.diagrams.net"];
 
 // The reading speed post cards estimate "min read" from.
 export const WORDS_PER_MINUTE = 238;

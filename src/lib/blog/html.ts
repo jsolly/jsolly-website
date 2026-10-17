@@ -78,6 +78,7 @@ const ARTICLE_SANITIZE: sanitizeHtml.IOptions = {
 	},
 	allowedSchemes: ["https", "http", "mailto"],
 	allowedIframeHostnames: EMBED_HOSTS,
+	allowIframeRelativeUrls: true,
 	allowedStyles: {
 		"*": {
 			width: [ZERO_OR_LENGTH],

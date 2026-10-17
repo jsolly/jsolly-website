@@ -42,8 +42,11 @@ scripts, event handlers and unapproved iframe providers are removed by the
 sanitizer. The card excerpt is optional HTML; without one the card uses the
 description.
 
-Only YouTube, YouTube No-Cookie, diagrams.net and nbviewer frames are allowed,
-by both the sanitizer and the blog pages' `frame-src`. Any other provider needs a
+Only YouTube, YouTube No-Cookie and diagrams.net frames, plus same-origin pages,
+are allowed, by both the sanitizer and the blog pages' `frame-src`. Notebooks
+embedded in posts live in `public/notebooks/` as the `.ipynb` source plus a
+script-free `.html` render (its meta CSP allows `data:` images and inline styles, never scripts; interactive map outputs are replaced with a note) (`jupyter nbconvert --to html --template lab --no-prompt`,
+then strip `<script>` tags), framed as `/notebooks/<name>.html`. Any other provider needs a
 reviewed sanitizer and CSP change. Pages load no runtime CSS or JavaScript from
 third-party CDNs.
 

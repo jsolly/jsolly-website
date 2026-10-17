@@ -162,7 +162,7 @@ Most blog post images are served from Amazon CloudFront and Amazon S3, which may
 
 ## Embedded media
 
-Some blog posts embed YouTube videos using youtube-nocookie.com, diagrams.net diagrams or nbviewer notebooks. An embed loads from that service as it scrolls into view, so the service receives your request, and YouTube may set its own cookies, per Google's privacy policy. Posts without embeds make no such requests.
+Some blog posts embed YouTube videos using youtube-nocookie.com or diagrams.net diagrams. An embed loads from that service as it scrolls into view, so the service receives your request, and YouTube may set its own cookies, per Google's privacy policy. Posts without embeds make no such requests.
 
 ## Recipe settings & offline use
 

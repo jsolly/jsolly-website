@@ -29,7 +29,7 @@ const PAGES = [
 	},
 	{
 		path: "/blog/Planetary-Computer-STAC-Landsat-data/",
-		hosts: ["nbviewer.org", CLOUDFRONT],
+		hosts: [CLOUDFRONT],
 	},
 	{
 		path: "/blog/productivity-flow-chart/",
