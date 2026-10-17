@@ -37,7 +37,7 @@
 	},
 	"devDependencies": {
 		"@astrojs/check": "0.9.10",
-		"@astrojs/markdown-satteri": "0.4.2",
+		"@astrojs/markdown-satteri": "0.4.3",
 		"@astrojs/sitemap": "^3.7.4",
 		"@astrojs/ts-plugin": "^1.10.12",
 		"@aws-sdk/client-ssm": "^3.1149.0",
