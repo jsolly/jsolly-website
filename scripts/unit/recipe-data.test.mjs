@@ -87,9 +87,10 @@ it("recipes:check reports an edited and a missing assistant download as drift", 
 	const dir = await mkdtemp(join(tmpdir(), "recipe-data-"));
 	try {
 		const files = [...generate()];
-		await Promise.all(
-			files.map(([name, content]) => writeFile(join(dir, name), content)),
-		);
+		for (const [name, content] of files) {
+			// biome-ignore lint/performance/noAwaitInLoops: Fixture writes must not outlive failure cleanup.
+			await writeFile(join(dir, name), content);
+		}
 		assert.deepEqual(await drift(dir), [], "fresh output has no drift");
 		const [[jsonName], [markdownName, markdown]] = files;
 		await writeFile(join(dir, markdownName), `${markdown}edited\n`);
@@ -101,13 +102,19 @@ it("recipes:check reports an edited and a missing assistant download as drift", 
 	}
 });
 
-it("every recipe is a meal or a smoothie: 15 meals and 6 smoothies", () => {
+it("every recipe is a meal or a smoothie: 140 meals and 6 smoothies", () => {
+	for (const recipe of data.recipes)
+		assert.equal(
+			Object.hasOwn(recipe, "group"),
+			false,
+			`${recipe.id}: static dietary groups are retired`,
+		);
 	const counts = Object.groupBy(data.recipes, (recipe) => recipe.type);
 	assert.deepEqual(
 		Object.fromEntries(
 			Object.entries(counts).map(([type, recipes]) => [type, recipes.length]),
 		),
-		{ meal: 15, smoothie: 6 },
+		{ meal: 140, smoothie: 6 },
 	);
 });
 

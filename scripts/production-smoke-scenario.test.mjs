@@ -3,9 +3,18 @@ import it from "node:test";
 import { chromium } from "playwright";
 import {
 	productionUrl,
+	serviceWorker,
 	smoke,
 	verifyRelease,
 } from "./production-smoke-scenario.mjs";
+
+it("production smoke opts into the exact recipe worker and scope", () => {
+	assert.deepEqual(serviceWorker, {
+		page: "/recipes/",
+		scope: "/recipes/",
+		script: "/recipes/service-worker.js",
+	});
+});
 
 const STALE_RELEASE = /Canonical site must serve the intended release/u;
 const MENU_NEVER_OPENS = /Timeout[\s\S]*Mobile navigation/u;
@@ -15,11 +24,13 @@ const NOT_XML = /blog\/rss\.xml has its XML feed type/u;
 const NOT_A_FEED = /blog\/rss\.xml serves a feed document/u;
 const NEVER_HYDRATES = /Timeout[\s\S]*data-hydrated=true/u;
 const NO_CARDS = /the recipe library shows recipe cards/u;
-const POST_NOT_HTML = /a post serves HTML when Markdown is asked for/u;
-const POST_VARIES = /a post does not vary on Accept/u;
+const POST_NOT_MARKDOWN = /a post serves Markdown when Markdown is asked for/u;
+const POST_VARIES = /post Markdown varies on Accept/u;
 const ABOUT_DOES_NOT_VARY = /negotiated Markdown varies on Accept/u;
 const POST_MISSING = /a post asked for as Markdown answers/u;
 const ABOUT_NOT_MARKDOWN = /\/about\/ answers Markdown/u;
+const WRONG_MARKDOWN_TITLE =
+	/post Markdown retains the selected article title/u;
 const WRONG_TITLE = /article title matches the selected post/u;
 const OFF_BLOG = /the blog links to a public article/u;
 // Long enough for a loaded CI machine; a test that expects a wait to time
@@ -37,11 +48,11 @@ const SEARCH_URL = `${productionUrl}/blog/search/?searched=Svelte+5+Search%3A+Wh
 // A stand-in for every page the scenario visits, each with only the markup
 // it reads. The menus open with inline scripts, as the hydrated islands do.
 const PORTFOLIO_LINKS =
-	'<a href="/about/" aria-label="About John Solly">About</a><a href="/contact/" aria-label="Contact John Solly">Contact</a><a href="/blog/" aria-label="Blog by John Solly">Blog</a><a href="/recipes/" aria-label="Recipes by John Solly">Recipes</a>';
+	'<a href="/about/" aria-label="About John Solly">About</a><a href="/contact/" aria-label="Contact John Solly">Contact</a><a href="/blog/" aria-label="Blog by John Solly">Blog</a><a href="/recipes/" aria-label="My Recipes">My Recipes</a>';
 const PORTFOLIO_MENU = `<header><button aria-label="Toggle mobile menu" aria-expanded="false" onclick="const menu = document.getElementById('mobile-menu'); menu.hidden = !menu.hidden; this.setAttribute('aria-expanded', String(!menu.hidden))">Menu</button><nav id="mobile-menu" aria-label="Mobile navigation" hidden>${PORTFOLIO_LINKS}</nav></header>`;
-const BLOG_MENU =
+const BLOG_NAVIGATION =
 	// biome-ignore lint/security/noSecrets: stub HTML markup, not credential material.
-	'<header><button aria-label="Menu" onclick="const panel = document.getElementById(\'blog-menu\'); panel.hidden = !panel.hidden">Menu</button><nav id="blog-menu" aria-label="Main navigation" hidden><a href="/blog/all-posts/">All posts</a><form action="/blog/search/" method="get"><label for="site-search">Search</label><input id="site-search" type="search" name="searched"><button type="submit">Search</button></form></nav></header>';
+	'<nav aria-label="Blog navigation"><a href="/blog/all-posts/">All posts</a><form action="/blog/search/" method="get"><label for="site-search">Search posts</label><input id="site-search" type="search" name="searched"><button type="submit">Search</button></form></nav>';
 // A feed URL answered with a page instead of the feed.
 // biome-ignore lint/security/noSecrets: stub HTML markup, not credential material.
 const BLOG_HOME_HTML = "<main><h1>Solly's Blog</h1></main>";
@@ -51,7 +62,7 @@ const postList = (first) =>
 	`<div class="post-list">${first}${postCard("/blog/astro-islands-in-practice/", "Astro Islands in Practice")}</div>`;
 const POST_LIST = postList(postCard(POST, TITLE_HTML));
 const postPage = (title) =>
-	`${BLOG_MENU}<main><article><h1 id="svelte-5-search">${title}<a class="heading-link" href="#svelte-5-search" aria-label="Link to this heading">#</a></h1><div class="article-body post-text"><p>The blog's search runs in the browser over a prebuilt index, so a query never leaves the page.</p><p>Here is what kept it fast as the archive grew, and what did not.</p></div></article></main>`;
+	`${BLOG_NAVIGATION}<main><article><h1 id="svelte-5-search">${title}<a class="heading-link" href="#svelte-5-search" aria-label="Link to this heading">#</a></h1><div class="article-body post-text"><p>The blog's search runs in the browser over a prebuilt index, so a query never leaves the page.</p><p>Here is what kept it fast as the archive grew, and what did not.</p></div></article></main>`;
 const POST_PAGE = postPage(TITLE_HTML);
 const recipeCard = (name) =>
 	`<article class="recipe-card"><h3>${name}</h3></article>`;
@@ -67,9 +78,9 @@ const SITE = {
 	"/": `${PORTFOLIO_MENU}<main><h1>Hi, I'm John Solly.</h1></main>`,
 	"/about/": `${PORTFOLIO_MENU}<main><h1>John Solly</h1></main>`,
 	"/contact/": `${PORTFOLIO_MENU}<main><h1>Contact John</h1></main>`,
-	"/blog/": `${BLOG_MENU}<main><h1>Latest Posts!</h1>${POST_LIST}</main>`,
+	"/blog/": `${BLOG_NAVIGATION}<main><h1>Latest Posts!</h1>${POST_LIST}</main>`,
 	[POST]: POST_PAGE,
-	"/blog/search/": `${BLOG_MENU}<main><h1>You searched for '${TITLE_HTML}'</h1><div role="status"><p>1 result</p></div><div class="post-list">${postCard(POST, TITLE_HTML)}</div></main>`,
+	"/blog/search/": `${BLOG_NAVIGATION}<main><h1>Search posts</h1><div role="status"><p>1 result</p></div><div class="post-list">${postCard(POST, TITLE_HTML)}</div></main>`,
 	"/blog/rss.xml": {
 		type: "application/rss+xml; charset=utf-8",
 		body: `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Solly's Blog</title><item><title>${TITLE_HTML}</title></item></channel></rss>`,
@@ -83,8 +94,7 @@ const SITE = {
 	),
 };
 // What the middleware answers when Markdown is asked for: /about/ has a
-// Markdown variant, a post is HTML only (and, as Vercel does, varies on
-// Accept-Encoding).
+// Markdown variant; published posts also vary on Accept.
 const MARKDOWN = {
 	"/about/": {
 		type: "text/markdown; charset=utf-8",
@@ -92,9 +102,9 @@ const MARKDOWN = {
 		body: "# John Solly\n\nCTO of Enterprise Health at Leidos Digital.\n",
 	},
 	[POST]: {
-		type: "text/html; charset=utf-8",
-		vary: "Accept-Encoding",
-		body: POST_PAGE,
+		type: "text/markdown; charset=utf-8",
+		vary: "Accept-Encoding, Accept",
+		body: `---\ntitle: ${JSON.stringify(TITLE)}\n---\n\n# ${TITLE}\n\nThe blog article.\n`,
 	},
 };
 
@@ -189,7 +199,7 @@ it("an article page with no article body fails the public reading smoke", async 
 	await assert.rejects(
 		runAgainstStubs({
 			pages: {
-				[POST]: `${BLOG_MENU}<main><article><h1>${TITLE_HTML}</h1><div class="article-body post-text"></div></article></main>`,
+				[POST]: `${BLOG_NAVIGATION}<main><article><h1>${TITLE_HTML}</h1><div class="article-body post-text"></div></article></main>`,
 			},
 		}),
 		MISSING_BODY,
@@ -219,7 +229,7 @@ it("a search that does not list the article just read fails", async () => {
 	await assert.rejects(
 		runAgainstStubs({
 			pages: {
-				"/blog/search/": `${BLOG_MENU}<main><h1>You searched for '${TITLE_HTML}'</h1><div role="status"><p>1 result</p></div><div class="post-list">${postCard("/blog/astro-islands-in-practice/", "Astro Islands in Practice")}</div></main>`,
+				"/blog/search/": `${BLOG_NAVIGATION}<main><h1>Search posts</h1><div role="status"><p>1 result</p></div><div class="post-list">${postCard("/blog/astro-islands-in-practice/", "Astro Islands in Practice")}</div></main>`,
 			},
 		}),
 		MISSING_RESULT,
@@ -277,28 +287,28 @@ it("a recipe library with no recipe cards fails", async () => {
 	);
 });
 
-it("a post that answers Markdown fails the HTML-only check", async () => {
-	await assert.rejects(
-		runAgainstStubs({
-			markdown: {
-				[POST]: {
-					type: "text/markdown; charset=utf-8",
-					vary: "Accept",
-					body: `# ${TITLE}\n`,
-				},
-			},
-		}),
-		POST_NOT_HTML,
-	);
-});
-
-it("a post whose HTML varies on Accept fails the HTML-only check", async () => {
+it("a post that answers HTML fails the Markdown check", async () => {
 	await assert.rejects(
 		runAgainstStubs({
 			markdown: {
 				[POST]: {
 					type: "text/html; charset=utf-8",
-					vary: "Accept-Encoding, Accept",
+					vary: "Accept",
+					body: `# ${TITLE}\n`,
+				},
+			},
+		}),
+		POST_NOT_MARKDOWN,
+	);
+});
+
+it("a post whose Markdown omits Vary Accept fails the negotiation check", async () => {
+	await assert.rejects(
+		runAgainstStubs({
+			markdown: {
+				[POST]: {
+					type: "text/markdown; charset=utf-8",
+					vary: "Accept-Encoding",
 					body: POST_PAGE,
 				},
 			},
@@ -362,7 +372,7 @@ it("a first blog card that links off /blog/ fails the public-article check", asy
 	await assert.rejects(
 		runAgainstStubs({
 			pages: {
-				"/blog/": `${BLOG_MENU}<main><h1>Latest Posts!</h1>${postList(postCard("/recipes/lemon-salmon-and-asparagus/", "Lemon Salmon and Asparagus"))}</main>`,
+				"/blog/": `${BLOG_NAVIGATION}<main><h1>Latest Posts!</h1>${postList(postCard("/recipes/lemon-salmon-and-asparagus/", "Lemon Salmon and Asparagus"))}</main>`,
 			},
 		}),
 		OFF_BLOG,
@@ -412,5 +422,19 @@ it("missing or malformed live release identity cannot pass the smoke", async () 
 				}),
 			),
 		),
+	);
+});
+
+it("a Markdown response identifying another article fails even when its body mentions the selected title", async () => {
+	await assert.rejects(
+		runAgainstStubs({
+			markdown: {
+				[POST]: {
+					...MARKDOWN[POST],
+					body: `---\ntitle: Another post\n---\n\n# Another post\n\n${TITLE}\n`,
+				},
+			},
+		}),
+		WRONG_MARKDOWN_TITLE,
 	);
 });

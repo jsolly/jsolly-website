@@ -22,13 +22,25 @@ export const BLOG_DESCRIPTION =
 export const RECIPES_DESCRIPTION =
 	"easy meals and smoothies, with serving scaling and appliance filters";
 
+// Context7 Ask: the site verification key and the agent search endpoint. The
+// head meta tag, the hidden body note, the Markdown and llms.txt sections and
+// the response Link header are all built from these. public/llms.txt cannot
+// import them; constants.test.ts holds it to the install instructions' literal.
+// biome-ignore lint/security/noSecrets: public site verification key, not a credential
+export const CONTEXT7_SITE_KEY = "ask_43369889032b1355b89bc7f4"; // gitleaks:allow
+const SITE_SEARCH_URL = `https://context7.com/api/v2/ask?siteKey=${CONTEXT7_SITE_KEY}`;
+// Plain text: Astro escapes it in HTML; Markdown prints it as written.
+export const SITE_SEARCH_NOTE = `This site has a search endpoint: ${SITE_SEARCH_URL}&query=<URL-encoded question>. It returns documentation that answers the question, with a source link for each part. No API key is needed. If nothing matches, it says so.`;
+export const SITE_SEARCH_MARKDOWN = `## Search\n\n${SITE_SEARCH_NOTE}\n`;
+export const SITE_SEARCH_LINK = `<${SITE_SEARCH_URL}>; rel="search"; type="text/plain"; title="Search jsolly.com"`;
+
 // The portfolio's primary links, rendered by SiteNavigation (desktop and
 // mobile) and the footer.
 export const siteLinks: readonly SiteLink[] = [
 	{ href: "/about/", text: "About", label: "About John Solly" },
 	{ href: "/contact/", text: "Contact", label: "Contact John Solly" },
 	{ href: "/blog/", text: "Blog", label: "Blog by John Solly" },
-	{ href: "/recipes/", text: "Recipes", label: "Recipes by John Solly" },
+	{ href: "/recipes/", text: "My Recipes", label: "My Recipes" },
 	{
 		href: "/John-Solly-Resume.pdf",
 		text: "Resume",

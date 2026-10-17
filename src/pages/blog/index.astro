@@ -1,5 +1,4 @@
 ---
-import AuthorCard from "../../components/blog/AuthorCard.astro";
 import PostCards from "../../components/blog/PostCards.svelte";
 import BlogLayout from "../../layouts/BlogLayout.astro";
 import { cards } from "../../lib/blog/cards.js";
@@ -8,4 +7,6 @@ import { blogContent } from "../../lib/blog/content.js";
 
 const { posts } = await blogContent();
 ---
-<BlogLayout title="Solly's Blog" section="blog"><AuthorCard /><h1>Latest Posts!</h1><PostCards posts={cards(posts)} pageSize={POSTS_PER_BATCH} client:load /></BlogLayout>
+<BlogLayout title="Solly's Blog" section="blog">
+<!-- Preserve the former author-card bookmark target without rendering the card. -->
+<span id="about-author" aria-hidden="true"></span><h1>Latest Posts!</h1><PostCards posts={cards(posts)} pageSize={POSTS_PER_BATCH} client:load /></BlogLayout>

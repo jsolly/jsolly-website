@@ -1,0 +1,33 @@
+---
+import { SITE_SEARCH_NOTE } from "../content/constants.js";
+import "../styles/main.css";
+import "../styles/update-notice.css";
+import noScriptStyles from "../styles/no-script.css?url";
+import Footer from "./Footer.astro";
+import Header from "./Header.astro";
+import Maintenance from "./Maintenance.astro";
+import UpdateNotice from "./UpdateNotice.astro";
+
+interface Props {
+  section?: "portfolio" | "blog" | "recipes";
+  homeLink?: boolean;
+}
+const { section = "portfolio", homeLink = false } = Astro.props;
+const maintenance = process.env.MAINTENANCE_MODE === "true";
+---
+{/* Context7 Ask verification: the search note for agents that read pages as
+text, hidden from people and screen readers. Keep data-context7-ask. It stays
+during maintenance, like the Markdown Search section. Layout.astro and
+BlogLayout.astro each carry the verification meta tag in their own head. */}
+<blockquote data-context7-ask="true" aria-hidden="true" class="sr-only"><h2>Search</h2><p>{SITE_SEARCH_NOTE}</p></blockquote>
+<noscript><link rel="stylesheet" href={noScriptStyles} /></noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <Header />
+  <slot name="navigation" />
+  <main id="main" aria-label="Main content" class:list={["content-section", section !== "portfolio" && "reading-section"]} data-section={section} data-page={Astro.url.pathname}>
+    {maintenance ? <Maintenance /> : <><UpdateNotice /><slot />{homeLink && <nav aria-label="Home navigation"><a href="/" id="home-btn" class="secondary-btn mt-6 inline-block" aria-label="Go to home page">Home</a></nav>}</>}
+  </main>
+  <slot name="section-footer" />
+  <Footer />
+</div>

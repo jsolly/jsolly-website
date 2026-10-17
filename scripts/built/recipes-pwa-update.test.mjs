@@ -1,0 +1,749 @@
+import assert from "node:assert/strict";
+import { join } from "node:path";
+import { it } from "node:test";
+import { collectErrors } from "./pages.mjs";
+import {
+	browser,
+	dataLabel,
+	LANDING,
+	navigateHydrated,
+	OFFLINE,
+	SAVED,
+	SERVINGS,
+	serve,
+	site,
+	snapshotLabel,
+	snapshots,
+	statusText,
+	UNSAVED_CONFIRMATION,
+	VIEWPORTS,
+	waitForBrowserState,
+} from "./recipes-pwa-fixture.mjs";
+
+function updateCheck(name, viewport) {
+	it(`Update and reload activates new recipes with another tab open on ${name}`, {
+		timeout: 90_000,
+	}, async () => {
+		await serve("A");
+		const context = await browser.newContext({ viewport });
+		try {
+			const page = await context.newPage();
+			const other = await context.newPage();
+			await page.clock.install();
+			const errors = collectErrors(page, { warnings: true });
+			const otherErrors = collectErrors(other, { warnings: true });
+			await navigateHydrated(
+				page,
+				`${site.origin}${LANDING}?cooking=1#meal-results`,
+			);
+			await statusText(page, SAVED);
+			await page.waitForFunction(() => navigator.serviceWorker.controller);
+			await page.evaluate(() => {
+				window.firstInstallSentinel = true;
+			});
+			await navigateHydrated(other, `${site.origin}${LANDING}`);
+			await statusText(other, SAVED);
+			await other.waitForFunction(() => navigator.serviceWorker.controller);
+			await other.evaluate(() => {
+				window.cookingSentinel = true;
+			});
+			await page.bringToFront();
+			await serve("B");
+			await page.clock.fastForward(60_000);
+			await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+			await page
+				.getByRole("status")
+				.filter({ hasText: "Update available." })
+				.waitFor();
+			const button = page.getByRole("button", {
+				name: "Update and reload",
+				exact: true,
+			});
+			await button.waitFor({ state: "visible" });
+			await page.getByRole("button", { name: "Later", exact: true }).click();
+			assert.equal(await button.isVisible(), false);
+			await page
+				.getByRole("button", { name: "Show update", exact: true })
+				.click();
+			assert.equal(await button.isVisible(), true);
+			assert.equal(
+				await snapshotLabel(page),
+				"A",
+				"download alone never reloads",
+			);
+			assert.equal(
+				await page.evaluate(() => window.firstInstallSentinel),
+				true,
+			);
+			assert.equal(
+				await page.locator("#site-update-notice").isVisible(),
+				false,
+			);
+			if (process.env.UI_EVIDENCE_DIR) {
+				for (const colorScheme of ["light", "dark"]) {
+					// biome-ignore lint/performance/noAwaitInLoops: capture both themes in the same tab
+					await page.emulateMedia({ colorScheme });
+					await button.scrollIntoViewIfNeeded();
+					await page.screenshot({
+						animations: "disabled",
+						path: join(
+							process.env.UI_EVIDENCE_DIR,
+							`recipe-update-${name}-${colorScheme}.png`,
+						),
+					});
+				}
+			}
+			// The downloaded update can activate offline, without closing either tab.
+			await context.setOffline(true);
+			if (name === "desktop") {
+				await button.focus();
+				await button.press("Enter");
+			} else await button.click();
+			await page.waitForFunction(
+				() =>
+					document.querySelector('meta[name="pwa-test-snapshot"]')?.content ===
+					"B",
+			);
+			await navigateHydrated(page);
+			assert.equal(await dataLabel(page), "B");
+			assert.equal(new URL(page.url()).search, "?cooking=1");
+			assert.equal(new URL(page.url()).hash, "#meal-results");
+			await other
+				.getByRole("status")
+				.filter({ hasText: "Recipes were updated in another tab." })
+				.waitFor();
+			assert.equal(
+				await snapshotLabel(other),
+				"A",
+				"other tab does not reload automatically",
+			);
+			assert.equal(await other.evaluate(() => window.cookingSentinel), true);
+			await other.getByRole("combobox", { name: SERVINGS }).selectOption("2");
+			// Suspension must not lose retained-cache ownership. A-only code is
+			// first requested by the old document after the new worker restarts.
+			const workerSession = await context.newCDPSession(other);
+			await workerSession.send("ServiceWorker.enable");
+			await workerSession.send("ServiceWorker.stopAllWorkers");
+			await workerSession.detach();
+			await other
+				.getByRole("button", { name: "Load saved cooking tool", exact: true })
+				.click();
+			await other
+				.getByRole("button", { name: "Cooking tool A", exact: true })
+				.waitFor();
+			assert.equal(
+				await other.getByRole("combobox", { name: SERVINGS }).inputValue(),
+				"2",
+			);
+			await other
+				.getByRole("button", { name: "Update and reload", exact: true })
+				.click();
+			await other.waitForFunction(
+				() =>
+					document.querySelector('meta[name="pwa-test-snapshot"]')?.content ===
+					"B",
+			);
+			await statusText(other, OFFLINE);
+			assert.equal(
+				await other.locator("#recipe-update-action").isVisible(),
+				false,
+				"no update loop",
+			);
+			await waitForBrowserState(
+				other,
+				async (cache) => {
+					const keys = (await caches.keys()).filter(
+						(key) => key !== "recipe-pages-pwa-ownership",
+					);
+					return keys.length === 1 && keys[0] === cache;
+				},
+				snapshots.B.cache,
+			);
+			assert.deepEqual(errors, []);
+			assert.deepEqual(otherErrors, []);
+		} finally {
+			await context.close();
+		}
+	});
+}
+
+for (const [name, viewport] of VIEWPORTS) updateCheck(name, viewport);
+
+it("A stalled recipe activation restores the button and can be retried", {
+	timeout: 90_000,
+}, async () => {
+	await serve("A");
+	const context = await browser.newContext();
+	try {
+		const page = await context.newPage();
+		await page.clock.install();
+		await navigateHydrated(page, `${site.origin}${LANDING}`);
+		await statusText(page, SAVED);
+		await page.waitForFunction(() => navigator.serviceWorker.controller);
+		await serve("B");
+		await page.clock.fastForward(60_000);
+		await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+		const button = page.getByRole("button", {
+			name: "Update and reload",
+			exact: true,
+		});
+		await button.waitFor({ state: "visible" });
+		// Simulate a worker that never handles the activation message, rather
+		// than replacing the real registration or its downloaded snapshot.
+		await page.evaluate(() => {
+			window.workerPostMessage = ServiceWorker.prototype.postMessage;
+			ServiceWorker.prototype.postMessage = function (...args) {
+				if (args[0]?.type === "ACTIVATE_RECIPE_UPDATE") return;
+				// biome-ignore lint/nursery/noThisOutsideOfClass: preserve the native ServiceWorker receiver while withholding only activation.
+				return window.workerPostMessage.apply(this, args);
+			};
+		});
+		await button.click();
+		assert.equal(await button.isDisabled(), true);
+		await page.clock.fastForward(15_000);
+		await page
+			.getByRole("status")
+			.filter({ hasText: "could not be applied" })
+			.waitFor();
+		assert.equal(await button.isEnabled(), true);
+		assert.equal(await snapshotLabel(page), "A");
+		await page.evaluate(() => {
+			ServiceWorker.prototype.postMessage = window.workerPostMessage;
+		});
+		await button.click();
+		await page.waitForFunction(
+			() =>
+				document.querySelector('meta[name="pwa-test-snapshot"]')?.content ===
+				"B",
+		);
+		assert.equal(await dataLabel(page), "B");
+	} finally {
+		await context.close();
+	}
+});
+
+function cookingGuardCheck(name, viewport) {
+	it(`Recipe update confirms real unsaved cooking checks and preserves cancellation on ${name}`, {
+		timeout: 90_000,
+	}, async () => {
+		await serve("A");
+		const context = await browser.newContext({ viewport });
+		try {
+			const page = await context.newPage();
+			await page.clock.install();
+			await navigateHydrated(
+				page,
+				`${site.origin}/recipes/lemon-salmon-and-asparagus/`,
+			);
+			await statusText(page, SAVED);
+			await page.waitForFunction(() => navigator.serviceWorker.controller);
+			await page
+				.getByRole("combobox", { name: "Ingredient units" })
+				.selectOption("grams");
+			const ingredient = page
+				.locator(
+					".trn-ingredient [role=checkbox]:visible, .mobile-ingredient [role=checkbox]:visible",
+				)
+				.first();
+			await ingredient.click();
+			assert.equal(await ingredient.getAttribute("aria-checked"), "true");
+			await serve("B");
+			await page.clock.fastForward(60_000);
+			await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+			const update = page.getByRole("button", {
+				name: "Update and reload",
+				exact: true,
+			});
+			await update.waitFor({ state: "visible" });
+			const originalRelease = await page
+				.locator("#site-update-notice")
+				.getAttribute("data-release");
+			await update.focus();
+			const dismissed = page.waitForEvent("dialog");
+			const click = update.press("Enter");
+			const dialog = await dismissed;
+			assert.equal(
+				dialog.type(),
+				"confirm",
+				"known unsaved checks require explicit confirmation",
+			);
+			assert.match(dialog.message(), UNSAVED_CONFIRMATION);
+			await dialog.dismiss();
+			await click;
+			assert.equal(
+				await ingredient.getAttribute("aria-checked"),
+				"true",
+				"cancel preserves cooking work",
+			);
+			assert.equal(
+				await page.locator("#site-update-notice").getAttribute("data-release"),
+				originalRelease,
+			);
+			assert.equal(
+				await update.evaluate((node) => node === document.activeElement),
+				true,
+				"cancel preserves keyboard focus",
+			);
+			let reloads = 0;
+			page.on("framenavigated", (frame) => {
+				if (frame === page.mainFrame()) reloads += 1;
+			});
+			const accepted = page.waitForEvent("dialog");
+			const apply = update.press("Enter");
+			await (await accepted).accept();
+			await apply;
+			await page.waitForFunction(
+				(sha) =>
+					document.querySelector("#site-update-notice").dataset.release === sha,
+				"b".repeat(40),
+			);
+			await page.waitForFunction(
+				() => !document.querySelector("astro-island[ssr]"),
+			);
+			assert.equal(reloads, 1, "accepted activation reloads exactly once");
+			assert.equal(
+				await page
+					.getByRole("combobox", { name: "Ingredient units" })
+					.inputValue(),
+				"grams",
+				"saved preferences survive confirmed reload",
+			);
+			assert.equal(
+				await page
+					.locator(".trn-ingredient.checked, .mobile-ingredient.checked")
+					.count(),
+				0,
+			);
+		} finally {
+			await context.close();
+		}
+	});
+}
+
+for (const [name, viewport] of VIEWPORTS) cookingGuardCheck(name, viewport);
+
+it("Recipe Later is release-specific and distinct waiting C restores the update action", {
+	timeout: 90_000,
+}, async () => {
+	await serve("A");
+	const context = await browser.newContext();
+	try {
+		const page = await context.newPage();
+		await navigateHydrated(page, `${site.origin}${LANDING}`);
+		await statusText(page, SAVED);
+		await page.waitForFunction(() => navigator.serviceWorker.controller);
+		await serve("B");
+		await page.evaluate(async () =>
+			(await navigator.serviceWorker.getRegistration()).update(),
+		);
+		const update = page.locator("#recipe-update-button");
+		await update.waitFor({ state: "visible" });
+		await page.getByRole("button", { name: "Later", exact: true }).click();
+		assert.equal(await update.isVisible(), false);
+		assert.equal(
+			await page
+				.locator("#recipe-update-show")
+				.evaluate((node) => node === document.activeElement),
+			true,
+		);
+		await page.evaluate(async () =>
+			(await navigator.serviceWorker.getRegistration()).update(),
+		);
+		assert.equal(
+			await update.isVisible(),
+			false,
+			"same waiting release stays dismissed",
+		);
+		await serve("C");
+		await page.evaluate(async () =>
+			(await navigator.serviceWorker.getRegistration()).update(),
+		);
+		await update.waitFor({ state: "visible" });
+		assert.equal(
+			await snapshotLabel(page),
+			"A",
+			"distinct release announcement does not reload",
+		);
+		await update.click();
+		await page.waitForFunction(
+			() =>
+				document.querySelector('meta[name="pwa-test-snapshot"]')?.content ===
+				"C",
+		);
+		assert.equal(await dataLabel(page), "C");
+	} finally {
+		await context.close();
+	}
+});
+
+it("The last deployed worker/cache layout upgrades with live A clients and preserves their offline resources", {
+	timeout: 90_000,
+}, async () => {
+	await serve("legacy");
+	const context = await browser.newContext();
+	try {
+		const page = await context.newPage();
+		const other = await context.newPage();
+		for (const tab of [page, other]) {
+			// biome-ignore lint/performance/noAwaitInLoops: establish both old controlled clients before publishing B.
+			await navigateHydrated(tab, `${site.origin}${LANDING}`);
+			await tab.waitForFunction(() => navigator.serviceWorker.controller);
+		}
+		assert.ok(
+			(await page.evaluate(() => caches.keys())).includes(
+				snapshots.legacy.cache,
+			),
+		);
+		await serve("B");
+		await page.evaluate(async () =>
+			(await navigator.serviceWorker.getRegistration()).update(),
+		);
+		const update = page.locator("#recipe-update-button");
+		await update.waitFor({ state: "visible" });
+		await update.click();
+		await page.waitForFunction(
+			() =>
+				document.querySelector('meta[name="pwa-test-snapshot"]')?.content ===
+				"B",
+		);
+		await other
+			.getByRole("status")
+			.filter({ hasText: "Recipes were updated in another tab." })
+			.waitFor();
+		await context.setOffline(true);
+		assert.equal(await snapshotLabel(other), "A");
+		assert.equal(
+			await dataLabel(other),
+			"A",
+			"legacy mutable data remains consistent with A document",
+		);
+		await other
+			.getByRole("button", { name: "Load saved cooking tool", exact: true })
+			.click();
+		await other
+			.getByRole("button", { name: "Cooking tool A", exact: true })
+			.waitFor();
+		assert.ok(
+			(await other.evaluate(() => caches.keys())).includes(
+				snapshots.legacy.cache,
+			),
+			"legacy cache remains while old client uses it",
+		);
+		await other
+			.getByRole("button", { name: "Update and reload", exact: true })
+			.click();
+		await other.waitForFunction(
+			() =>
+				document.querySelector('meta[name="pwa-test-snapshot"]')?.content ===
+				"B",
+		);
+		assert.equal(await dataLabel(other), "B");
+	} finally {
+		await context.close();
+	}
+});
+
+it("A and B clients retain their own offline data and lazy assets under active C after worker restart", {
+	timeout: 90_000,
+}, async () => {
+	await serve("A");
+	const context = await browser.newContext();
+	try {
+		const a = await context.newPage();
+		const b = await context.newPage();
+		const current = await context.newPage();
+		for (const page of [a, b, current]) {
+			// biome-ignore lint/performance/noAwaitInLoops: establish A clients before each deployment transition.
+			await navigateHydrated(page, `${site.origin}${LANDING}`);
+			await statusText(page, SAVED);
+			await page.waitForFunction(() => navigator.serviceWorker.controller);
+		}
+		await serve("B");
+		await b.evaluate(async () =>
+			(await navigator.serviceWorker.getRegistration()).update(),
+		);
+		await b.locator("#recipe-update-button").waitFor({ state: "visible" });
+		await b.locator("#recipe-update-button").click();
+		await b.waitForFunction(
+			() =>
+				document.querySelector('meta[name="pwa-test-snapshot"]')?.content ===
+				"B",
+		);
+		await current
+			.locator("#recipe-update-button")
+			.waitFor({ state: "visible" });
+		await current.locator("#recipe-update-button").click();
+		await current.waitForFunction(
+			() =>
+				document.querySelector('meta[name="pwa-test-snapshot"]')?.content ===
+				"B",
+		);
+		await serve("C");
+		await current.evaluate(async () =>
+			(await navigator.serviceWorker.getRegistration()).update(),
+		);
+		await current
+			.locator("#recipe-update-button")
+			.waitFor({ state: "visible" });
+		await current.locator("#recipe-update-button").click();
+		await current.waitForFunction(
+			() =>
+				document.querySelector('meta[name="pwa-test-snapshot"]')?.content ===
+				"C",
+		);
+		await context.setOffline(true);
+		const workerSession = await context.newCDPSession(current);
+		await workerSession.send("ServiceWorker.enable");
+		await workerSession.send("ServiceWorker.stopAllWorkers");
+		await workerSession.detach();
+		for (const [page, label] of [
+			[a, "A"],
+			[b, "B"],
+		]) {
+			// biome-ignore lint/performance/noAwaitInLoops: validate each live historical document against its own release.
+			assert.equal(await snapshotLabel(page), label);
+			assert.equal(await dataLabel(page), label);
+			await page
+				.getByRole("button", { name: "Load saved cooking tool", exact: true })
+				.click();
+			await page
+				.getByRole("button", { name: `Cooking tool ${label}`, exact: true })
+				.waitFor();
+		}
+		assert.ok(
+			(await current.evaluate(() => caches.keys())).includes(snapshots.A.cache),
+		);
+		assert.ok(
+			(await current.evaluate(() => caches.keys())).includes(snapshots.B.cache),
+		);
+		await a.close();
+		await b.locator("#recipe-update-button").click();
+		await b.waitForFunction(
+			() =>
+				document.querySelector('meta[name="pwa-test-snapshot"]')?.content ===
+				"C",
+		);
+		await waitForBrowserState(
+			b,
+			async (cache) => {
+				const keys = (await caches.keys()).filter(
+					(key) => key !== "recipe-pages-pwa-ownership",
+				);
+				return keys.length === 1 && keys[0] === cache;
+			},
+			snapshots.C.cache,
+		);
+		assert.equal(await dataLabel(b), "C");
+	} finally {
+		await context.close();
+	}
+});
+
+it("A failed worker version handshake preserves the confirmed target for explicit retry", {
+	timeout: 90_000,
+}, async () => {
+	await serve("A");
+	const context = await browser.newContext();
+	try {
+		const page = await context.newPage();
+		await page.clock.install();
+		await navigateHydrated(page, `${site.origin}${LANDING}`);
+		await statusText(page, SAVED);
+		await page.waitForFunction(() => navigator.serviceWorker.controller);
+		await serve("B");
+		await page.evaluate(async () =>
+			(await navigator.serviceWorker.getRegistration()).update(),
+		);
+		const update = page.locator("#recipe-update-button");
+		await update.waitFor({ state: "visible" });
+		const activating = await context.newPage();
+		await navigateHydrated(activating, `${site.origin}${LANDING}`);
+		await activating
+			.locator("#recipe-update-button")
+			.waitFor({ state: "visible" });
+		await activating.locator("#recipe-update-button").click();
+		await activating.waitForFunction(
+			() =>
+				document.querySelector('meta[name="pwa-test-snapshot"]')?.content ===
+				"B",
+		);
+		await page
+			.getByRole("status")
+			.filter({ hasText: "Recipes were updated in another tab." })
+			.waitFor();
+		await page.evaluate(() => {
+			window.savedWorkerPost = ServiceWorker.prototype.postMessage;
+			ServiceWorker.prototype.postMessage = function (...args) {
+				if (args[0]?.type === "RECIPE_VERSION") {
+					window.versionDropped = true;
+					return;
+				}
+				// biome-ignore lint/nursery/noThisOutsideOfClass: forward native calls with their original receiver.
+				return window.savedWorkerPost.apply(this, args);
+			};
+		});
+		await page.clock.fastForward(60_000);
+		await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+		await page.waitForFunction(() => window.versionDropped);
+		await page.clock.fastForward(15_001);
+		await page
+			.getByRole("status")
+			.filter({ hasText: "Could not verify the recipe update" })
+			.waitFor();
+		assert.equal(await snapshotLabel(page), "A");
+		assert.equal(await update.isEnabled(), true);
+		await page.evaluate(() => {
+			ServiceWorker.prototype.postMessage = window.savedWorkerPost;
+		});
+		await page.clock.fastForward(35 * 60_000);
+		await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+		await page
+			.getByRole("status")
+			.filter({ hasText: "Recipes were updated in another tab." })
+			.waitFor();
+		assert.equal(
+			await update.isEnabled(),
+			true,
+			"successful re-verification clears the earlier failure for the same B target",
+		);
+		await update.click();
+		await page.waitForFunction(
+			() =>
+				document.querySelector('meta[name="pwa-test-snapshot"]')?.content ===
+				"B",
+		);
+	} finally {
+		await context.close();
+	}
+});
+
+it("An older failed identity check cannot overwrite a newer confirmed worker update", {
+	timeout: 90_000,
+}, async () => {
+	await serve("A");
+	const context = await browser.newContext();
+	try {
+		const page = await context.newPage();
+		await page.clock.install();
+		await navigateHydrated(page, `${site.origin}${LANDING}`);
+		await statusText(page, SAVED);
+		await page.waitForFunction(() => navigator.serviceWorker.controller);
+		await page.evaluate(() => {
+			window.raceWorkerPost = ServiceWorker.prototype.postMessage;
+			ServiceWorker.prototype.postMessage = function (...args) {
+				if (args[0]?.type === "RECIPE_VERSION" && !window.heldVersionPort) {
+					window.heldVersionPort = args[1][0];
+					return;
+				}
+				// biome-ignore lint/nursery/noThisOutsideOfClass: preserve the native worker receiver for subsequent newer checks.
+				return window.raceWorkerPost.apply(this, args);
+			};
+		});
+		await page.clock.fastForward(60_000);
+		await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+		await page.waitForFunction(() => window.heldVersionPort);
+		await serve("B");
+		await page.evaluate(async () =>
+			(await navigator.serviceWorker.getRegistration()).update(),
+		);
+		const update = page.locator("#recipe-update-button");
+		await update.waitFor({ state: "visible" });
+		await page.evaluate(() => {
+			window.heldVersionPort.postMessage({ release: "invalid" });
+		});
+		await page.clock.fastForward(5_001);
+		assert.equal(await update.isEnabled(), true);
+		assert.ok(
+			(await page.locator("#recipe-offline-status").textContent()).includes(
+				"Update available",
+			),
+		);
+		await page.evaluate(() => {
+			ServiceWorker.prototype.postMessage = window.raceWorkerPost;
+		});
+		await update.click();
+		await page.waitForFunction(
+			() =>
+				document.querySelector('meta[name="pwa-test-snapshot"]')?.content ===
+				"B",
+		);
+	} finally {
+		await context.close();
+	}
+});
+
+it("Fresh B HTML under A control still offers explicit activation of waiting B without first-install reload", {
+	timeout: 90_000,
+}, async () => {
+	await serve("A");
+	const context = await browser.newContext();
+	try {
+		const old = await context.newPage();
+		await navigateHydrated(old, `${site.origin}${LANDING}`);
+		await statusText(old, SAVED);
+		await old.waitForFunction(() => navigator.serviceWorker.controller);
+		await serve("B");
+		await old.evaluate(async () =>
+			(await navigator.serviceWorker.getRegistration()).update(),
+		);
+		await old.locator("#recipe-update-button").waitFor({ state: "visible" });
+		const fresh = await context.newPage();
+		await navigateHydrated(fresh, `${site.origin}/recipes/new-release/`);
+		assert.equal(await snapshotLabel(fresh), "B");
+		await fresh.waitForFunction(() => navigator.serviceWorker.controller);
+		await fresh.locator("#recipe-update-button").waitFor({ state: "visible" });
+		let reloads = 0;
+		fresh.on("framenavigated", (frame) => {
+			if (frame === fresh.mainFrame()) reloads += 1;
+		});
+		await fresh.locator("#recipe-update-button").click();
+		await fresh.waitForFunction(
+			() => document.querySelector("#recipe-update-action").hidden,
+		);
+		assert.equal(reloads, 1);
+		assert.equal(await snapshotLabel(fresh), "B");
+		assert.equal(
+			await snapshotLabel(old),
+			"A",
+			"activation never reloads the old tab",
+		);
+	} finally {
+		await context.close();
+	}
+});
+
+it("Reloading A offline rediscovers downloaded waiting B and applies it with another tab open", {
+	timeout: 90_000,
+}, async () => {
+	await serve("A");
+	const context = await browser.newContext();
+	try {
+		const page = await context.newPage();
+		const other = await context.newPage();
+		for (const tab of [page, other]) {
+			// biome-ignore lint/performance/noAwaitInLoops: install A before creating the waiting B snapshot.
+			await navigateHydrated(tab, `${site.origin}${LANDING}`);
+			await statusText(tab, SAVED);
+			await tab.waitForFunction(() => navigator.serviceWorker.controller);
+		}
+		await serve("B");
+		await page.evaluate(async () =>
+			(await navigator.serviceWorker.getRegistration()).update(),
+		);
+		await page.locator("#recipe-update-button").waitFor({ state: "visible" });
+		await context.setOffline(true);
+		await navigateHydrated(page);
+		assert.equal(await snapshotLabel(page), "A");
+		await page.locator("#recipe-update-button").waitFor({ state: "visible" });
+		await page.locator("#recipe-update-button").click();
+		await page.waitForFunction(
+			() =>
+				document.querySelector('meta[name="pwa-test-snapshot"]')?.content ===
+				"B",
+		);
+		assert.equal(await dataLabel(page), "B");
+		assert.equal(await snapshotLabel(other), "A");
+	} finally {
+		await context.close();
+	}
+});

@@ -1,10 +1,11 @@
 <script>
+	import Share2 from "@lucide/svelte/icons/share-2";
 	import Button from "../../lib/components/ui/button.svelte";
 	import { recipeHref } from "./recipe-url.mjs";
 
-	// Shares the recipe link with the reader's servings and family side: the
+	// Shares the recipe link with the reader's servings and optional side: the
 	// share sheet where there is one, else the clipboard, else the link itself.
-	let { recipe, settings } = $props();
+	let { recipe, settings, disabled = false } = $props();
 	let message = $state("");
 	let fallbackUrl = $state("");
 
@@ -19,20 +20,29 @@
 			} catch (error) {
 				if (error instanceof DOMException && error.name === "AbortError")
 					return;
+				if (!(error instanceof DOMException && error.name === "NotAllowedError")) {
+					console.error(`Sharing recipe ${recipe.id} failed.`, error);
+				}
 			}
 		}
-		try {
-			await navigator.clipboard.writeText(url.href);
-			message = "Recipe link copied.";
-		} catch {
-			fallbackUrl = url.href;
-			message = "Copy this recipe link:";
+		if (navigator.clipboard) {
+			try {
+				await navigator.clipboard.writeText(url.href);
+				message = "Recipe link copied.";
+				return;
+			} catch (error) {
+				if (!(error instanceof DOMException && error.name === "NotAllowedError")) {
+					console.error(`Copying recipe ${recipe.id} link failed.`, error);
+				}
+			}
 		}
+		fallbackUrl = url.href;
+		message = "Copy this recipe link:";
 	}
 </script>
 
 <div class="recipe-share">
-	<Button variant="outline" onclick={share}>Share recipe</Button>
+	<Button variant="outline" {disabled} onclick={share}><Share2 aria-hidden="true" size={18} />Share this recipe</Button>
 	<p role="status">{message}{#if fallbackUrl} <a href={fallbackUrl}>{fallbackUrl}</a>{/if}</p>
 </div>
 

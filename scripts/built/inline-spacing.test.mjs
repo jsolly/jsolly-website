@@ -6,7 +6,7 @@ import { JSDOM } from "jsdom";
 // Astro 7's default `compressHTML: "jsx"` applies JSX whitespace rules: a
 // whitespace run holding a line break next to an element is dropped, so source
 // written as "Questions?" on one line and the link on the next renders
-// "Questions?Get in touch". astro.config.ts sets `compressHTML: true`, which
+// "Questions?Get in touch". config/app/astro.ts sets `compressHTML: true`, which
 // keeps that space; this test fails if the setting goes. PINNED holds strings
 // the "jsx" default glued; the scan catches new ones.
 const PAGES = [
@@ -25,7 +25,7 @@ const PINNED = {
 		"Blog — articles about geospatial development",
 		"Recipes — easy meals and smoothies",
 		"Start at https://www.jsolly.com/llms.txt for when-to-use guidance.",
-		"privacy or terms page with Accept: text/markdown (or fetch its .md sibling) to get",
+		"Request a page with Accept: text/markdown (or fetch its .md sibling) to get",
 	],
 	"privacy/index.html": ["policy? Get in touch"],
 	"terms/index.html": ["John Solly — jsolly.com. Questions? Get in touch."],

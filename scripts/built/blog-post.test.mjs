@@ -44,7 +44,7 @@ it("a post's heading link copies its jsolly.com address and announces every copy
 		});
 		const page = await context.newPage();
 		page.setDefaultTimeout(5000);
-		const errors = collectErrors(page, []);
+		const errors = collectErrors(page);
 		await page.goto(`${site.origin}${postHref(SLUG)}`, {
 			waitUntil: "load",
 		});
@@ -97,3 +97,52 @@ it("a post's heading link copies its jsolly.com address and announces every copy
 		await context.close();
 	}
 });
+
+function headingCopyFailureCheck(failure) {
+	it(`heading navigation survives ${failure} clipboard access and reports only unexpected failures`, async () => {
+		const context = await browser.newContext();
+		try {
+			await stubOffOrigin(context, site.origin);
+			await context.addInitScript((scenario) => {
+				Object.defineProperty(navigator, "clipboard", {
+					value:
+						scenario === "unavailable"
+							? undefined
+							: {
+									writeText: () =>
+										Promise.reject(
+											scenario === "permission"
+												? new DOMException("Copy denied", "NotAllowedError")
+												: new Error("Clipboard service failed"),
+										),
+								},
+				});
+			}, failure);
+			const page = await context.newPage();
+			const errors = collectErrors(page);
+			await page.goto(`${site.origin}${postHref(SLUG)}`);
+			await page.waitForFunction(
+				() => !document.querySelector("astro-island[ssr]"),
+			);
+			await page.locator(`h1#${TITLE_ID} .heading-link`).click();
+			await page.waitForURL(`**/#${TITLE_ID}`);
+			assert.equal(
+				await page.locator("#heading-copy-status").textContent(),
+				"",
+			);
+			assert.deepEqual(
+				errors.map((error) => error.split("\n")[0]),
+				failure === "unexpected"
+					? [
+							"Copying blog heading link failed. Error: Clipboard service failed",
+						]
+					: [],
+			);
+		} finally {
+			await context.close();
+		}
+	});
+}
+
+for (const failure of ["unavailable", "permission", "unexpected"])
+	headingCopyFailureCheck(failure);

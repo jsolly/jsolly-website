@@ -13,6 +13,11 @@ export function readRecipeURL(
 			? Number(url.searchParams.get("servings"))
 			: defaults.servings,
 	}).servings;
+	const units = validateSettings({
+		units: url.searchParams.has("units")
+			? url.searchParams.get("units")
+			: defaults.units,
+	}).units;
 	const familyChoice = {};
 	for (const part of (url.searchParams.get("starch") || "").split(",")) {
 		const [id, side] = part.split(":");
@@ -29,16 +34,28 @@ export function readRecipeURL(
 				url.pathname === `/recipes/${recipe.id}/` ||
 				url.hash === `#${recipe.id}`,
 		)?.id || "";
-	return { servings, familyChoice, recipeId };
+	return { servings, units, familyChoice, recipeId };
 }
 
-// The shareable link to a recipe page with the reader's servings and family side.
+// The shareable link to a recipe page with the reader's servings and optional side.
 export function recipeHref(recipe, settings) {
 	const params = new URLSearchParams({
 		servings: String(validateSettings(settings).servings),
+		units: validateSettings(settings).units,
 	});
 	const side = settings.familyChoice?.[recipe.id];
 	if (recipe.familyOptions.some((option) => option.id === side))
 		params.set("starch", `${recipe.id}:${side}`);
 	return `/recipes/${recipe.id}/?${params}`;
+}
+
+// Default browsing links point directly to the canonical page. Shared links
+// still carry explicit defaults so they override a recipient's preferences.
+export function recipeBrowseHref(recipe, settings) {
+	const { servings, units } = validateSettings(settings);
+	const side = settings.familyChoice?.[recipe.id];
+	const hasSide = recipe.familyOptions.some((option) => option.id === side);
+	return servings === BASE_SERVINGS && units === "us" && !hasSide
+		? `/recipes/${recipe.id}/`
+		: recipeHref(recipe, settings);
 }

@@ -52,7 +52,7 @@ export function postLoader(): Loader {
 	};
 }
 
-// A post file's slug and `updated` time. astro.config.ts reads these at
+// A post file's slug and `updated` time. config/app/astro.ts reads these at
 // config load, before the content layer would name the file, so a bad file
 // fails here as "Invalid post <file>: <field>: <problem>".
 async function postLastmod(file: string) {

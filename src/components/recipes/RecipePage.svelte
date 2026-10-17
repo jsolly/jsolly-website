@@ -1,21 +1,26 @@
 <script>
+	import Share2 from "@lucide/svelte/icons/share-2";
 	import { onMount } from "svelte";
 	import Button from "../../lib/components/ui/button.svelte";
 	import NativeSelect from "../../lib/components/ui/native-select.svelte";
-	import { BASE_SERVINGS, groupBadges, SERVING_CHOICES } from "./constants.mjs";
-	import RecipeBody from "./RecipeBody.svelte";
-	import RecipePrint from "./RecipePrint.svelte";
+	import { BASE_SERVINGS, SERVING_CHOICES } from "./constants.mjs";
+	import RecipeContent from "./RecipeContent.svelte";
+	import RecipePrintButton from "./RecipePrintButton.svelte";
 	import { validateSettings } from "./recipe-logic.mjs";
+	import { collectionReturn } from "./recipe-navigation.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
 	import { readRecipeURL } from "./recipe-url.mjs";
 	import ShareRecipe from "./ShareRecipe.svelte";
+	import UnitControl from "./UnitControl.svelte";
+	import { readUnitPreference, replaceUnitURL, writeUnitPreference } from "./unit-preference.mjs";
 
-	// One recipe's page (/recipes/<id>/). The server render is the no-JavaScript
-	// page; on mount it reads ?servings= and ?starch= and turns interactive.
+	// Keep preference-dependent content hidden until URL and saved settings
+	// are resolved. The no-JavaScript stylesheet reveals the static fallback.
 	let { recipe } = $props();
 	const servingsId = $props.id();
 	let interactive = $state(false);
 	let message = $state("");
+	let returnUrl = $state("");
 	let settings = $state({
 		servings: BASE_SERVINGS,
 		units: "us",
@@ -43,11 +48,21 @@
 		};
 	}
 
+	function setUnits(value) {
+		const units = validateSettings({ units: value }).units;
+		settings = { ...settings, units };
+		replaceUnitURL(units);
+		writeUnitPreference(units);
+	}
+
 	onMount(() => {
-		const parsed = readRecipeURL(new URL(window.location.href), [recipe]);
+		returnUrl = collectionReturn(history.state, document.referrer, new URL(location.href), collection);
+		if (returnUrl) history.replaceState({ ...history.state, recipeReturn: returnUrl }, "");
+		const parsed = readRecipeURL(new URL(window.location.href), [recipe], { units: readUnitPreference() });
 		settings = {
 			...settings,
 			servings: parsed.servings,
+			units: parsed.units,
 			familyDiners: parsed.servings,
 			familyChoice: parsed.familyChoice,
 		};
@@ -56,31 +71,26 @@
 	});
 </script>
 
-<div class="recipe-page">
-	<section class="recipe-detail" id={recipe.id}>
+<div class="recipe-page" data-preferences-ready={interactive} aria-busy={!interactive}>
+	<section class="recipe-detail print-document" id={recipe.id}>
 		<div class="toolbar">
-			<a href={`/recipes/${collection}/`}>← Back to {collection}</a>
-			{#if interactive}<Button variant="outline" onclick={print}>Print recipe</Button>{/if}
+			<a href={returnUrl || `/recipes/${collection}/`} onclick={(event) => { if (returnUrl && history.length > 1 && event.button === 0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) { event.preventDefault(); history.back(); } }}>← Back to {returnUrl.startsWith("/recipes/?") || returnUrl === "/recipes/" || returnUrl.startsWith("/recipes/#") ? "recipes" : collection}</a>
+			<RecipePrintButton {recipe} {settings} class="recipe-enhanced" disabled={!interactive} onPrint={print} />
 		</div>
-		<span class="badge">{groupBadges[recipe.group]}</span>
-		<h1>{recipe.title}</h1>
-		<p>{recipe.summary}</p>
-		{#if interactive}
-			<label class="servings" for={servingsId}
-				>Servings<NativeSelect id={servingsId} value={settings.servings} onchange={(event) => setServings(event.currentTarget.value)}>
+		<RecipeContent {recipe} {settings} {interactive} onSideChange={setSide}>
+			{#snippet controls()}
+			<label class="servings recipe-enhanced" for={servingsId}
+				>Servings<NativeSelect id={servingsId} value={settings.servings} disabled={!interactive} onchange={(event) => setServings(event.currentTarget.value)}>
 					{#each SERVING_CHOICES as choice (choice)}<option value={choice}>{choice}</option>{/each}
 				</NativeSelect></label
 			>
-		{/if}
-		<RecipeBody {recipe} {settings} {interactive} headingLevel={2} onSideChange={setSide} />
-		{#if interactive}
-			<ShareRecipe {recipe} {settings} />
-		{:else}
-			<div class="share"><a href={`/recipes/${recipe.id}/`}>Share recipe link</a></div>
-		{/if}
+		<UnitControl units={settings.units} onUnitsChange={setUnits} disabled={!interactive} />
+			{/snippet}
+		</RecipeContent>
+		<div class="recipe-enhanced"><ShareRecipe {recipe} {settings} disabled={!interactive} /></div>
+		<noscript><div class="share"><Button variant="outline" href={`/recipes/${recipe.id}/`}><Share2 aria-hidden="true" size={18} />Share recipe link</Button></div></noscript>
 		<p role="status">{message}</p>
 	</section>
-	<div class="print-output"><RecipePrint recipes={[recipe]} {settings} /></div>
 </div>
 
 <style>
@@ -88,24 +98,13 @@
 	   blog stays last whichever stylesheet the browser reads first. */
 	@layer properties, theme, base, components, utilities, blog, blog-no-script;
 	@layer blog {
-		.print-output {
-			display: none;
-		}
-		@media print {
-			.print-output {
-				display: block;
-			}
-			.recipe-detail {
-				display: none;
-			}
-		}
 		.recipe-detail {
 			background: var(--recipe-paper);
 			color: var(--recipe-ink);
 			border: 1px solid var(--recipe-line);
 			border-radius: 20px;
 			padding: 28px;
-			font: 16px/1.55 var(--font-body);
+			font: 16px/1.4 var(--font-body);
 		}
 		.servings {
 			display: flex;
@@ -127,20 +126,10 @@
 			justify-content: space-between;
 			align-items: center;
 			gap: 12px;
-			margin-bottom: 24px;
+			margin-bottom: 16px;
 		}
 		a {
 			color: var(--recipe-accent);
-		}
-		h1 {
-			font: 600 clamp(2rem, 4vw, 3rem) / 1.13 var(--font-heading);
-		}
-		.badge {
-			display: inline-block;
-			background: var(--recipe-badge);
-			padding: 4px 10px;
-			border-radius: 4px;
-			font-size: 0.75rem;
 		}
 		.share {
 			margin-top: 24px;
@@ -148,6 +137,10 @@
 			padding-top: 16px;
 		}
 		@media (max-width: 600px) {
+			.toolbar {
+				flex-direction: column;
+				align-items: stretch;
+			}
 			.recipe-detail {
 				padding: 18px;
 			}

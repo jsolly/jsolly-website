@@ -1,12 +1,16 @@
 <script>
-	import { onMount, tick, untrack } from "svelte";
+	import Shuffle from "@lucide/svelte/icons/shuffle";
+	import { flushSync, onMount, tick, untrack } from "svelte";
+	import Button from "../../lib/components/ui/button.svelte";
 	import {
 		BASE_SERVINGS,
 		DEFAULT_FILTERS,
 		defaultAppliances,
+		RECIPE_BATCH_SIZE,
 		STORAGE_KEY,
 	} from "./constants.mjs";
 	import LibraryControls from "./LibraryControls.svelte";
+	import NativeRecipeControls from "./NativeRecipeControls.svelte";
 	import {
 		matchesRecipe,
 		nutrientFilters,
@@ -16,22 +20,32 @@
 	import RecipeCard from "./RecipeCard.svelte";
 	import RecipePrint from "./RecipePrint.svelte";
 	import RecipeTakeover from "./RecipeTakeover.svelte";
+	import { browseFilterSettings } from "./recipe-browse.mjs";
 	import { shuffleRecipes, validateSettings } from "./recipe-logic.mjs";
+	import { listVisit } from "./recipe-navigation.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
-	import { readRecipeURL, recipeHref } from "./recipe-url.mjs";
+	import { createRecipeSearch } from "./recipe-search.mjs";
+	import { readRecipeURL, recipeBrowseHref } from "./recipe-url.mjs";
+	import data from "./recipes.json" with { type: "json" };
+	import { replaceUnitURL } from "./unit-preference.mjs";
+
+	const recipes = data.recipes;
 
 	// The recipe library on /recipes/ and the meals and smoothies pages. The
-	// server render lists the collection's recipes in recipes.json order with
+	// server render lists the collection's recipes in the build's order with
 	// every control disabled; on mount it restores the saved settings (J13:
 	// localStorage key recipes-settings-v1), reads a share link or #<recipe-id>,
-	// shuffles the cards and opens a linked recipe in a full-screen dialog.
+	// opens a linked recipe in a full-screen dialog.
 	// `pathname` is the page's path, for the collection links' aria-current.
-	let { recipes, initialCollection = "meal", pathname } = $props();
-	const NO_RESULTS = "No recipes match these appliances and filters.";
+	let { initialCollection = "meal", pathname } = $props();
+	const NO_RESULTS = "No recipes match your search and filters. Try fewer words or adjust the filters.";
+	let query = $state("");
+	let printRecipeId = $state("");
 
 	// The saved settings: servings, the filters, the appliances on hand and
 	// each recipe's family side.
 	let servings = $state(BASE_SERVINGS);
+	let units = $state("us");
 	let filters = $state({ ...DEFAULT_FILTERS });
 	let appliancesOnHand = $state({ ...defaultAppliances });
 	let familyChoice = $state({});
@@ -47,47 +61,70 @@
 	let recipeDialog = $state(null);
 	let lastOpenedId = "";
 	let listHeading = $state(null);
-	// recipes.json order until mount shuffles it, so the server render and
-	// the first client render agree.
-	let results = $state(untrack(() => recipes));
 
 	const smoothieIngredients = $derived(smoothieIngredientChoices(recipes));
 	const collectionRecipes = $derived(
 		recipes.filter((recipe) => recipe.type === collection),
 	);
+	// Discovery order belongs to the cards; print packets keep source order.
+	const recipesById = $derived(new Map(recipes.map((recipe) => [recipe.id, recipe])));
+	let shuffledOrder = $state(null);
+	const shuffledRanks = $derived(shuffledOrder ? new Map(shuffledOrder.map((id, rank) => [id, rank])) : null);
 	const collectionHasIron = $derived(
 		collectionRecipes.some((recipe) => nutrientFilters(recipe, servings).iron),
 	);
-	const filterSettings = $derived({
-		protein: collection === "meal" ? filters.proteinChoice : [],
-		carb:
-			collection === "smoothie"
-				? filters.smoothieKetoOnly
-					? ["keto"]
-					: []
-				: filters.mealStyle === "all"
-					? []
-					: [filters.mealStyle],
-		starch: collection === "meal" ? filters.starchChoice : [],
-		ingredients: collection === "smoothie" ? filters.ingredientChoice : [],
-		immune: filters.immuneSupport,
-		iron: filters.ironRich && collectionHasIron,
-		omega: filters.omega3,
-		appliances: appliancesOnHand,
-	});
-	const eligibleRecipes = $derived(
-		collectionRecipes.filter((recipe) =>
-			matchesRecipe(recipe, servings, filterSettings),
+	const filterSettings = $derived(browseFilterSettings(recipes, collection, { settings: { filters, servings, appliancesOnHand } }));
+	const searchRecipes = $derived(createRecipeSearch(recipes, servings));
+	const searchedRecipes = $derived(query.trim() ? searchRecipes(query) : recipes);
+	const matchingRecipes = $derived(
+		searchedRecipes.filter((recipe) =>
+			recipe.type === collection && matchesRecipe(recipe, servings, filterSettings),
 		),
 	);
-	const visibleRecipes = $derived(
-		results.filter((recipe) => eligibleRecipes.includes(recipe)),
-	);
+	const visibleRecipes = $derived(shuffledRanks ? matchingRecipes.toSorted((a, b) => shuffledRanks.get(a.id) - shuffledRanks.get(b.id)) : matchingRecipes);
+	let page = $state({ key: "", limit: RECIPE_BATCH_SIZE });
+	const browseKey = $derived(JSON.stringify([collection, query, filterSettings, shuffledOrder]));
+	const cardLimit = $derived(page.key === browseKey ? page.limit : RECIPE_BATCH_SIZE);
+	const renderedRecipes = $derived(hydrated ? visibleRecipes.slice(0, cardLimit) : visibleRecipes);
+	let shuffling = $state(false);
+	let skeleton = $state(null);
+	let shuffleAnimation;
+	function loadMore() {
+		page = { key: browseKey, limit: Math.min(recipes.length, cardLimit + RECIPE_BATCH_SIZE) };
+	}
+	async function loadMoreCards() {
+		const firstNewCard = renderedRecipes.length;
+		loadMore();
+		await tick();
+		libraryElement?.querySelectorAll(".recipe-card .title-button")[firstNewCard]?.focus();
+	}
+	function watchMore(node) {
+		if (!("IntersectionObserver" in window)) return;
+		const observer = new IntersectionObserver((entries) => {
+			if (entries.some((entry) => entry.isIntersecting)) loadMore();
+		}, { rootMargin: "300px" });
+		observer.observe(node);
+		return () => observer.disconnect();
+	}
+	async function shuffleCards() {
+		if (shuffling) return;
+		shuffling = true;
+		await tick();
+		try {
+			if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && skeleton) {
+				shuffleAnimation = skeleton.animate([{ opacity: 0.35 }, { opacity: 1 }], { duration: 180, easing: "ease-out" });
+				await shuffleAnimation.finished;
+			}
+			shuffledOrder = shuffleRecipes(recipes).map((recipe) => recipe.id);
+		} catch (error) {
+			if (!(error instanceof DOMException && error.name === "AbortError")) throw error;
+		} finally { shuffling = false; shuffleAnimation = undefined; }
+	}
 	const current = $derived(recipes.find((recipe) => recipe.id === recipeId));
 	// What the cards, the dialog and the print copy show each recipe with.
 	const recipeSettings = $derived({
 		servings,
-		units: "us",
+		units,
 		familyDiners: servings,
 		familyChoice,
 	});
@@ -95,7 +132,8 @@
 		printMode === "auto" ? (current ? "recipe" : "all") : printMode,
 	);
 	const printRecipes = $derived(
-		effectivePrintMode === "recipe" && current ? [current] : collectionRecipes,
+		effectivePrintMode === "recipe" && (printRecipeId || current)
+			? [printRecipeId ? recipesById.get(printRecipeId) : current] : collectionRecipes,
 	);
 
 	function hasMatches(overrides) {
@@ -117,6 +155,11 @@
 				}),
 		);
 		if (!matches) filters = { ...DEFAULT_FILTERS };
+	}
+
+	function setUnits(value) {
+		units = validateSettings({ units: value }).units;
+		replaceUnitURL(units);
 	}
 
 	function setServings(value) {
@@ -154,9 +197,10 @@
 
 	function readURL() {
 		const parsed = readRecipeURL(new URL(window.location.href), recipes, {
-			servings,
+			servings, units,
 		});
 		servings = parsed.servings;
+		units = parsed.units;
 		familyChoice = { ...familyChoice, ...parsed.familyChoice };
 		recipeId = parsed.recipeId;
 	}
@@ -167,10 +211,11 @@
 		let saved = null;
 		try {
 			saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
-		} catch {
-			// Reading remains usable without storage or with a corrupt entry.
+		} catch (error) {
+			// Do not log saved data, which may appear in a JSON parse error.
+			console.error("Recipe settings could not be restored; using defaults.", error instanceof Error ? error.name : "Unknown error");
 		}
-		({ servings, filters, appliancesOnHand, familyChoice } = parseSavedSettings(
+		({ servings, units, filters, appliancesOnHand, familyChoice } = parseSavedSettings(
 			saved,
 			{ recipes, ingredients: smoothieIngredients },
 		));
@@ -179,15 +224,18 @@
 	const printSession = createRecipePrintSession(
 		() => effectivePrintMode,
 		() => {
-			printPrepared = true;
+			// Browser-menu printing snapshots the DOM as beforeprint returns.
+			flushSync(() => { printPrepared = true; });
 		},
 		() => {
 			printPrepared = false;
 			printMode = "auto";
+			printRecipeId = "";
 		},
 	);
 
-	async function print(target) {
+	async function print(target, id = "") {
+		printRecipeId = id;
 		printMode = target;
 		await tick();
 		message = await printSession.print(tick);
@@ -197,8 +245,10 @@
 		restoreSettings();
 		readURL();
 		setCollection(collection);
-		results = shuffleRecipes(recipes);
+		const visit = listVisit(history.state, recipes);
+		if (visit) { query = visit.query; shuffledOrder = visit.order; page = { key: browseKey, limit: visit.limit }; }
 		hydrated = true;
+		if (visit && !recipeId) void tick().then(() => window.scrollTo({ top: visit.scrollY, behavior: "instant" }));
 		if (recipeId) void openRecipe(recipeId);
 		const stopPrint = printSession.listen();
 		const hash = () => {
@@ -206,9 +256,13 @@
 			if (recipes.some((recipe) => recipe.id === id)) void openRecipe(id);
 			else if (recipeId) void backToResults(false);
 		};
+		const saveVisit = () => history.replaceState({ ...history.state, recipeList: { scrollY: window.scrollY, query, limit: cardLimit, order: shuffledOrder ? [...shuffledOrder] : null } }, "");
+		window.addEventListener("pagehide", saveVisit);
 		window.addEventListener("hashchange", hash);
 		return () => {
+			window.removeEventListener("pagehide", saveVisit);
 			window.removeEventListener("hashchange", hash);
+			shuffleAnimation?.cancel();
 			stopPrint();
 		};
 	});
@@ -219,20 +273,23 @@
 		try {
 			localStorage.setItem(
 				STORAGE_KEY,
-				JSON.stringify({ servings, filters, appliancesOnHand, familyChoice }),
+				JSON.stringify({ servings, units, filters, appliancesOnHand, familyChoice }),
 			);
-		} catch {
-			// No persistence required to cook.
+		} catch (error) {
+			console.error("Recipe settings could not be saved; changes apply only to this visit.", error instanceof Error ? error.name : "Unknown error");
 		}
 	});
 </script>
 
-<section class="meal-library" data-hydrated={hydrated} data-print-prepared={printPrepared} bind:this={libraryElement} aria-label="Easy Meals & Smoothies recipe library">
+<section class="meal-library" data-hydrated={hydrated} data-preferences-ready={hydrated} aria-busy={!hydrated} data-print-prepared={printPrepared} bind:this={libraryElement} aria-label="Easy Meals & Smoothies recipe library">
 	<LibraryControls
 		{collection}
+		bind:query
 		{pathname}
 		{hydrated}
 		{servings}
+		{units}
+		onUnitsChange={setUnits}
 		onServingsChange={setServings}
 		{collectionRecipes}
 		{collectionHasIron}
@@ -243,22 +300,27 @@
 		bind:appliancesOnHand
 	/>
 
-	<div class="browse" id="meal-results">
-		<h2 bind:this={listHeading} tabindex="-1">{collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2>
-		<div class="recipe-grid">
-			{#each visibleRecipes as recipe (recipe.id)}
-				<RecipeCard {recipe} {servings} href={recipeHref(recipe, recipeSettings)} />
+	<noscript><NativeRecipeControls {collection} {pathname} /></noscript>
+
+	<div class="browse" id="meal-results" data-match-count={visibleRecipes.length} aria-busy={shuffling}>
+		<div class="results-heading"><h2 bind:this={listHeading} tabindex="-1">{collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2><Button class="enhanced-shuffle" variant="outline" type="button" disabled={!hydrated || shuffling || visibleRecipes.length < 2} onclick={shuffleCards}><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button><noscript><Button variant="outline" type="submit" form="recipe-browse-form" name="shuffle" value="1"><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button></noscript></div>
+		<p class="no-results" role="status">{hydrated ? !visibleRecipes.length ? NO_RESULTS : query.trim() ? `${visibleRecipes.length} ${visibleRecipes.length === 1 ? "recipe" : "recipes"} found` : "" : ""}</p>
+		<div class="card-stage">
+		{#if shuffling}<div class="recipe-grid shuffle-skeleton" bind:this={skeleton} aria-hidden="true">{#each [0, 1, 2] as placeholder (placeholder)}<div class="skeleton-card"><div class="skeleton-photo"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div><div class="skeleton-button"></div></div>{/each}</div><span class="visually-hidden" role="status">Shuffling recipes</span>{/if}
+		<div class="recipe-grid" class:shuffling inert={shuffling}>
+			{#each renderedRecipes as recipe (recipe.id)}
+				<RecipeCard {recipe} servings={recipeSettings.servings} settings={recipeSettings} onPrint={() => print("recipe", recipe.id)} disabled={!hydrated} href={recipeBrowseHref(recipe, recipeSettings)} />
 			{/each}
 		</div>
-		<p class="no-results" role="status">{hydrated && !visibleRecipes.length ? NO_RESULTS : ""}</p>
+		</div>
+		{#if hydrated && renderedRecipes.length < visibleRecipes.length}<div class="load-more" {@attach watchMore}><Button variant="outline" type="button" onclick={loadMoreCards}>Load more recipes</Button><p>{renderedRecipes.length} of {visibleRecipes.length} recipes shown</p></div>{/if}
 	</div>
 
 	{#if current}
-		<RecipeTakeover recipe={current} settings={recipeSettings} onBack={() => backToResults()} onPrint={() => print("recipe")} onSideChange={(value) => setChoice(current.id, value)} bind:heading={detailHeading} bind:dialog={recipeDialog} />
+		<RecipeTakeover recipe={current} settings={recipeSettings} onUnitsChange={setUnits} onBack={() => backToResults()} onPrint={() => print("recipe")} onSideChange={(value) => setChoice(current.id, value)} bind:heading={detailHeading} bind:dialog={recipeDialog} />
 	{/if}
-
 	<p class="action-status" role="status" aria-live="polite">{message}</p>
-	<div class="print-output"><RecipePrint recipes={printRecipes} settings={recipeSettings} /></div>
+	<div class="print-output">{#if printPrepared}<RecipePrint recipes={printRecipes} settings={recipeSettings} />{/if}</div>
 </section>
 
 <style>
@@ -266,6 +328,8 @@
 	   blog stays last whichever stylesheet the browser reads first. */
 	@layer properties, theme, base, components, utilities, blog, blog-no-script;
 	@layer blog {
+		.results-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 0.8rem; }
+		.results-heading :global(h2) { margin: 0; }
 		.meal-library {
 			background: var(--recipe-canvas);
 			border-radius: 16px;
@@ -397,6 +461,21 @@
 			background-image: none;
 			height: auto;
 		}
+		.browse {
+			scroll-margin-top: 1rem;
+		}
+
+		.card-stage { position: relative; }
+		.shuffling { visibility: hidden; opacity: 0; pointer-events: none; }
+		.shuffle-skeleton { position: absolute; inset: 0; overflow: hidden; }
+		.skeleton-card { border: 1px solid var(--recipe-line); border-radius: 16px; padding: 20px; background: var(--recipe-paper); align-self: start; }
+		.skeleton-photo, .skeleton-line, .skeleton-button { background: var(--recipe-soft); border-radius: 8px; }
+		.skeleton-photo { aspect-ratio: 4 / 3; margin-bottom: 24px; }
+		.skeleton-line { height: 24px; margin-bottom: 12px; }
+		.skeleton-line.short { width: 65%; }
+		.skeleton-button { height: 48px; margin-top: 48px; }
+		.load-more { text-align: center; padding: 24px 0; }
+		.load-more p { color: var(--recipe-muted); font-size: .85rem; }
 		.recipe-grid {
 			display: grid;
 			grid-template-columns: repeat(3, minmax(0, 1fr));

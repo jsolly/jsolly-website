@@ -51,7 +51,11 @@ function addHeadingIds(html) {
 
 // The output directory: dist/, or a fixture tree in tests.
 const root = process.argv[2] ?? "./dist";
+if (!(await fs.stat(root)).isDirectory())
+	throw new Error(`HTML postprocessor requires a directory: ${root}`);
 const files = await globby("**/*.html", { cwd: root });
+if (files.length === 0)
+	throw new Error(`HTML postprocessor found no HTML files in ${root}`);
 
 await Promise.all(
 	files.map(async (relative) => {

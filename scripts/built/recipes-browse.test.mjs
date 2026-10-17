@@ -1,11 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { after, before, it } from "node:test";
+import { after, before, describe, it } from "node:test";
 import { chromium } from "playwright";
-import {
-	carbStyles,
-	mealStyleDescriptions,
-} from "../../src/components/recipes/constants.mjs";
 import { collectErrors, serveStatic } from "./pages.mjs";
 
 // Browsing the built recipe library in Chromium, ported from awesome-blog's
@@ -25,7 +21,6 @@ const RECIPES = new URL(
 const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
 const meals = recipes.filter((recipe) => recipe.type === "meal");
 const mealCount = meals.length;
-const MEAL_STYLES = ["keto", "nonketo", "shared", "all"];
 // The meals that need both air fryers.
 const AIR_FRYER_MEALS = recipes
 	.filter((recipe) => recipe.appliancesNeeded.includes("Two air fryers"))
@@ -35,30 +30,33 @@ const smoothieCount = recipes.filter(
 	(recipe) => recipe.type === "smoothie",
 ).length;
 const WIDTHS = [390, 1280];
+// Independent per-recipe pages open side by side in the one browser.
+const RECIPE_CONCURRENCY = 4;
 const HEIGHT = 900;
 // A wrapping label names a select after its text and its current option.
 const SERVINGS = /^Servings/u;
-const FAMILY_SIDE = /^Family side/u;
+const FAMILY_SIDE = /^Add a side/u;
 const VITAMINS = /^Vitamins & minerals/u;
 const PROTEINS = /^Proteins:/u;
 const CARBS = /^Carbs:/u;
 const INGREDIENTS = /^Ingredients:/u;
 const SPACES = /\s+/gu;
-const PITA_SIDE = /480g Pita/u;
-const EIGHT_SERVINGS_CHICKEN = /1360g/u;
-const RICE_SIDE = /160g Cooked rice/u;
-const TWO_SERVINGS_CHICKEN = /340g/u;
-const BEFORE_YOU_START = /Before you start/u;
-const COOK = /Cook/u;
+const PITA_SIDE = /1.06 lb Pita/u;
+const EIGHT_SERVINGS_CHICKEN = /3 lb/u;
+const RICE_SIDE = /5.64 oz Cooked rice/u;
+const TWO_SERVINGS_CHICKEN = /11.99 oz/u;
 const SMOOTHIE_YIELD = /up to two servings/u;
-const GLASS_NUTRITION = /Nutrition per 8 oz glass/u;
-const EIGHT_SERVINGS_WATER = /27 oz Cold water/u;
+const GLASS_NUTRITION = /Nutrition\s*per estimated 8 fl oz \(237 mL\) glass/u;
+const EIGHT_SERVINGS_WATER = /27.05 fl oz Cold water/u;
 const EIGHT_SERVINGS = /8\s+servings/u;
 // Longer than the help popover's 120ms close delay.
 const HELP_CLOSE_WAIT_MS = 400;
+const COOKING_FLOW = /Cooking flow/u;
+const REMOVED_PRINT_SECTIONS =
+	/Before you start|Where your attention goes|First-cook checks/u;
 const LEARN_MORE = "Learn more about Tabular Recipe Notation";
 // biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
-const NATIVE_CHECKBOX = ".trn-ingredient input[type=checkbox]";
+const NATIVE_CHECKBOX = "input[type=checkbox]:visible";
 const SHARED = "/recipes/shawarma-chicken-bowls/";
 
 let site;
@@ -75,6 +73,8 @@ after(async () => {
 });
 
 const hydrated = (page) => page.locator("[data-hydrated=true]").waitFor();
+const recipeReady = (page) =>
+	page.waitForFunction(() => !document.querySelector("astro-island[ssr]"));
 const stored = (page) =>
 	page.evaluate((key) => JSON.parse(localStorage.getItem(key)), STORAGE_KEY);
 
@@ -84,9 +84,96 @@ async function follow(page, link, url) {
 	await hydrated(page);
 }
 
+// What a recipe body shows; the live and no-JavaScript pages must agree on it.
+async function bodyContent(body, width) {
+	return {
+		appliances: await body.locator(".detail-appliances").textContent(),
+		facts: await body.locator(".detail-facts").textContent(),
+		image: await body.locator(".recipe-photo img").getAttribute("src"),
+		flow: await body
+			.locator(
+				width <= 760
+					? ".mobile-prep p, .mobile-ingredient label:visible, .branch-join p"
+					: ".trn-table tr:not(.reset-checks-row)",
+			)
+			.allInnerTexts(),
+		macros: await body.locator(".nutrition>dl dd").allTextContents(),
+		nutrients: await body.locator(".daily-values:visible").allInnerTexts(),
+		family: await body.locator(".family-box p").allTextContents(),
+	};
+}
+
+const normalize = (value) =>
+	JSON.stringify(value, (_key, item) =>
+		typeof item === "string" ? item.replace(SPACES, " ").trim() : item,
+	);
+
+// Give every recipe its own bounded test, so expanding the library does not
+// turn a fixed aggregate timeout into a limit on the number of recipes covered.
+// Each opens fresh contexts at the default settings, so the recipes can run
+// side by side.
+function detailParityCheck(recipe, width) {
+	it(`${recipe.id} matches without JavaScript at ${width}px`, {
+		timeout: 30_000,
+	}, async () => {
+		const viewport = { width, height: HEIGHT };
+		const plain = await browser.newContext({
+			javaScriptEnabled: false,
+			viewport,
+			reducedMotion: "reduce",
+		});
+		const context = await browser.newContext({
+			viewport,
+			reducedMotion: "reduce",
+		});
+		try {
+			const page = await context.newPage();
+			const errors = collectErrors(page, { warnings: true });
+			const staticPage = await plain.newPage();
+			await Promise.all([
+				page.goto(`${site.origin}/recipes/${recipe.id}/`),
+				staticPage.goto(`${site.origin}/recipes/${recipe.id}/`),
+			]);
+			const live = page.locator(".recipe-detail .recipe-body");
+			try {
+				await recipeReady(page);
+			} catch (error) {
+				const state = await page.evaluate(() => {
+					const row = document.querySelector(
+						".recipe-detail .reset-checks-row",
+					);
+					return {
+						rowPresent: Boolean(row),
+						rowDisplay: row ? getComputedStyle(row).display : null,
+						pendingIslands: [
+							...document.querySelectorAll("astro-island[ssr]"),
+						].map((island) => island.getAttribute("component-url")),
+					};
+				});
+				throw new Error(
+					`Recipe ${recipe.id} did not expose cooking checks at ${page.url()}; state: ${JSON.stringify(state)}; browser errors: ${JSON.stringify(errors)}`,
+					{ cause: error },
+				);
+			}
+			await live.getByRole("button", { name: VITAMINS }).click();
+			const staticBody = staticPage.locator(`#${recipe.id} .recipe-body`);
+			await staticBody.locator("summary").filter({ hasText: VITAMINS }).click();
+			assert.equal(
+				normalize(await bodyContent(live, width)),
+				normalize(await bodyContent(staticBody, width)),
+				recipe.id,
+			);
+			assert.deepEqual(errors, []);
+		} finally {
+			await context.close();
+			await plain.close();
+		}
+	});
+}
+
 function detailsCheck(width) {
-	it(`Recipe details match without JavaScript and share their settings at ${width}px`, {
-		timeout: 120_000,
+	it(`Recipe cards and share links keep their settings at ${width}px`, {
+		timeout: 60_000,
 	}, async () => {
 		const viewport = { width, height: HEIGHT };
 		const plain = await browser.newContext({
@@ -121,46 +208,50 @@ function detailsCheck(width) {
 		});
 		const staticPage = await plain.newPage();
 		const page = await context.newPage();
-		const errors = collectErrors(page, ["error", "warning"]);
+		const errors = collectErrors(page, { warnings: true });
 		try {
 			await staticPage.goto(`${site.origin}${LANDING}`);
 			assert.equal(await staticPage.locator(".recipe-card").count(), mealCount);
+			assert.equal(
+				await staticPage
+					.getByRole("navigation", { name: "Breadcrumb" })
+					.count(),
+				0,
+			);
 			assert.equal(await staticPage.locator(".recipe-detail").count(), 0);
-			const bodyContent = async (body) => ({
-				appliances: await body.locator(".detail-appliances").textContent(),
-				facts: await body.locator(".detail-facts").textContent(),
-				image: await body.locator(".recipe-photo img").getAttribute("src"),
-				flow: await body
-					.locator(".trn-table tr:not(.reset-checks-row)")
-					.allTextContents(),
-				macros: await body.locator(".nutrition>dl").textContent(),
-				nutrients: await body.locator(".daily-values").allTextContents(),
-				family: await body.locator(".family-box p").allTextContents(),
-			});
-			const normalize = (value) =>
-				JSON.stringify(value, (_key, item) =>
-					typeof item === "string" ? item.replace(SPACES, " ").trim() : item,
-				);
-			for (const recipe of recipes) {
-				// biome-ignore lint/performance/noAwaitInLoops: one recipe at a time on the two pages
-				await page.goto(`${site.origin}/recipes/${recipe.id}/`);
-				await staticPage.goto(`${site.origin}/recipes/${recipe.id}/`);
-				const live = page.locator(".recipe-detail .recipe-body");
-				await live.locator(".reset-checks-row").waitFor();
-				await live.getByRole("button", { name: VITAMINS }).click();
-				const staticBody = staticPage.locator(`#${recipe.id} .recipe-body`);
-				await staticBody.locator("summary").click();
-				assert.equal(
-					normalize(await bodyContent(live)),
-					normalize(await bodyContent(staticBody)),
-					recipe.id,
+			await page.goto(`${site.origin}${LANDING}`);
+			await hydrated(page);
+			const cardFacts = () =>
+				page.locator(".recipe-card .card-numbers").allTextContents();
+			const initialFacts = await cardFacts();
+			for (const count of ["2", "6", "8", "4"]) {
+				// biome-ignore lint/performance/noAwaitInLoops: exercise successive settings on the same page.
+				await page
+					.getByRole("combobox", { name: SERVINGS })
+					.selectOption(count);
+				assert.deepEqual(
+					await cardFacts(),
+					initialFacts,
+					`Card facts stay per serving at ${count} servings`,
 				);
 			}
+			assert.equal(
+				await page.getByText("Net carbs per serving", { exact: true }).count(),
+				await page.locator(".recipe-card").count(),
+			);
+			assert.equal(
+				await page.locator(".time-number").filter({ hasText: "+" }).count(),
+				0,
+			);
+			assert.equal(
+				await page.getByText("Prep time (publisher)", { exact: true }).count(),
+				0,
+			);
 			await page.goto(
 				`${site.origin}${SHARED}?servings=8&starch=shawarma-chicken-bowls:pita_one`,
 			);
 			const share = page.getByRole("button", {
-				name: "Share recipe",
+				name: "Share this recipe",
 				exact: true,
 			});
 			await share.click();
@@ -185,7 +276,7 @@ function detailsCheck(width) {
 			try {
 				const received = await receiver.newPage();
 				await received.goto(shared.href);
-				await received.locator(".reset-checks-row").waitFor();
+				await recipeReady(received);
 				assert.match(
 					await received.locator(".family-box p").textContent(),
 					PITA_SIDE,
@@ -212,7 +303,7 @@ function detailsCheck(width) {
 			try {
 				const reopened = await fresh.newPage();
 				await reopened.goto(changed.href);
-				await reopened.locator(".reset-checks-row").waitFor();
+				await recipeReady(reopened);
 				assert.match(
 					await reopened.locator(".family-box p").textContent(),
 					RICE_SIDE,
@@ -240,7 +331,10 @@ function detailsCheck(width) {
 			await page.evaluate(() =>
 				Object.defineProperty(navigator, "clipboard", {
 					value: {
-						writeText: () => Promise.reject(new Error("Permission denied")),
+						writeText: () =>
+							Promise.reject(
+								new DOMException("Permission denied", "NotAllowedError"),
+							),
 					},
 				}),
 			);
@@ -254,10 +348,10 @@ function detailsCheck(width) {
 				.click();
 			await page.emulateMedia({ media: "print" });
 			assert.equal(await page.locator(".print-document").isVisible(), true);
-			assert.equal(await page.locator(".recipe-detail").isVisible(), false);
+			assert.equal(await page.locator(".recipe-detail").isVisible(), true);
 			const printed = await page.locator(".print-document").textContent();
-			assert.match(printed, BEFORE_YOU_START);
-			assert.match(printed, COOK);
+			assert.match(printed, COOKING_FLOW);
+			assert.doesNotMatch(printed, REMOVED_PRINT_SECTIONS);
 			const borders = await page
 				.locator(".print-document .trn-table")
 				.evaluate((table) => {
@@ -289,48 +383,61 @@ function filtersCheck(width) {
 			viewport: { width, height: 984 },
 		});
 		const page = await context.newPage();
-		const errors = collectErrors(page, []);
+		const errors = collectErrors(page);
 		const checkbox = (name) =>
 			page.getByRole("checkbox", { name, exact: true });
-		const cards = () => page.locator(".recipe-card").count();
-		const mealStyle = page.getByRole("combobox", { name: "Meal style" });
-		const shownIds = () =>
+		const cards = () =>
 			page
+				.locator("#meal-results")
+				.getAttribute("data-match-count")
+				.then(Number);
+		const shownIds = async () => {
+			await page.evaluate(async () => {
+				while (document.querySelector(".load-more button")) {
+					document.querySelector(".load-more button").click();
+					// biome-ignore lint/performance/noAwaitInLoops: each batch must render before the next load action.
+					await new Promise(requestAnimationFrame);
+				}
+			});
+			return page
 				.locator(".recipe-card a.title-button")
 				.evaluateAll((links) =>
 					links.map((link) => link.dataset.recipeId).sort(),
 				);
+		};
 		try {
 			await page.goto(`${site.origin}${LANDING}`);
 			await hydrated(page);
-			// Each meal style shows its group's meals and says what it means.
-			const styles = [];
-			for (const style of MEAL_STYLES) {
-				// biome-ignore lint/performance/noAwaitInLoops: one select change at a time
-				await mealStyle.selectOption(style);
-				styles.push({
-					style,
-					cards: await cards(),
-					description: await page.locator(".style-filter small").textContent(),
-				});
+			assert.equal(await checkbox("Not keto").count(), 0);
+			for (const [keto, vegetarian] of [
+				[true, false],
+				[false, true],
+				[true, true],
+				[false, false],
+			]) {
+				// biome-ignore lint/performance/noAwaitInLoops: exercise each independent filter combination in sequence
+				await checkbox("Keto").setChecked(keto);
+				await checkbox("Vegetarian").setChecked(vegetarian);
+				assert.deepEqual(
+					await shownIds(),
+					meals
+						.filter(
+							(recipe) =>
+								(!keto || recipe.nutrition.net_carbs_g <= 12.5) &&
+								(!vegetarian || recipe.vegetarian === true),
+						)
+						.map((recipe) => recipe.id)
+						.sort(),
+				);
 			}
-			assert.deepEqual(
-				styles,
-				MEAL_STYLES.map((style) => ({
-					style,
-					cards:
-						style === "all"
-							? mealCount
-							: meals.filter((recipe) => recipe.group === style).length,
-					description: mealStyleDescriptions[style],
-				})),
-			);
-			assert.deepEqual(
-				await mealStyle
-					.locator("option")
-					.evaluateAll((options) => options.map((option) => option.value)),
-				["all", ...Object.keys(carbStyles)],
-			);
+			await checkbox("Keto").check();
+			await checkbox("Vegetarian").check();
+			await page.reload();
+			await hydrated(page);
+			assert.equal(await checkbox("Keto").isChecked(), true);
+			assert.equal(await checkbox("Vegetarian").isChecked(), true);
+			await checkbox("Vegetarian").uncheck();
+			await checkbox("Keto").uncheck();
 			// Re-ticking Air fryers brings back its two and their meals.
 			await checkbox("Air fryers").uncheck();
 			const withoutFryers = await shownIds();
@@ -350,32 +457,44 @@ function filtersCheck(width) {
 			await checkbox("Fish").check();
 			await checkbox("Turkey").check();
 			await page.keyboard.press("Escape");
-			// No fish or turkey meal is Not Keto, so that style is unavailable.
-			assert.deepEqual(
-				await mealStyle
-					.locator("option:disabled")
-					.evaluateAll((options) => options.map((option) => option.value)),
-				["nonketo"],
-			);
+			assert.equal(await checkbox("Vegetarian").isDisabled(), true);
 			await page.getByRole("button", { name: CARBS }).click();
+			assert.equal(
+				await page.getByRole("button", { name: "Clear selections" }).count(),
+				0,
+			);
 			assert.equal(await checkbox("No starch").count(), 0);
 			await checkbox("Bread").check();
 			await page.keyboard.press("Escape");
-			await page
-				.getByRole("combobox", { name: "Pressure cookers count", exact: true })
-				.selectOption("0");
-			await page
-				.getByRole("combobox", { name: "Air fryers count", exact: true })
-				.selectOption("0");
+			await checkbox("Pressure cookers").uncheck();
+			await checkbox("Air fryers").uncheck();
 			await checkbox("Oven").uncheck();
 			await checkbox("Microwave").uncheck();
-			assert.equal(await checkbox("Blender").count(), 0);
-			assert.equal(await checkbox("Pans").isDisabled(), true);
+			// Imported meals may use a blender and pans with an explicit heat source.
+			assert.equal(await checkbox("Blender").count(), 1);
+			assert.equal(await checkbox("Pans").isDisabled(), false);
+			for (const name of [
+				"Blender",
+				"Pans",
+				"Stovetop",
+				"Grill",
+				"Slow cooker",
+				"Waffle iron",
+			]) {
+				// biome-ignore lint/performance/noAwaitInLoops: each checkbox rerenders the appliance controls.
+				await checkbox(name).uncheck();
+			}
 			assert.equal(await cards(), 0);
 			// With no recipe left, a checked protein can still be unchecked.
 			await page.getByRole("button", { name: PROTEINS }).click();
 			assert.equal(await checkbox("Fish").isDisabled(), false);
-			assert.equal(await checkbox("Vegetarian").isDisabled(), true);
+			assert.equal(
+				await page
+					.getByRole("dialog")
+					.getByRole("checkbox", { name: "Vegetarian", exact: true })
+					.count(),
+				0,
+			);
 			await page.keyboard.press("Escape");
 			const saved = await stored(page);
 			assert.deepEqual(saved.filters.proteinChoice, ["fish", "turkey"]);
@@ -385,10 +504,11 @@ function filtersCheck(width) {
 			const reloaded = await stored(page);
 			assert.deepEqual(reloaded.filters, saved.filters);
 			assert.deepEqual(reloaded.appliancesOnHand, saved.appliancesOnHand);
-			assert.equal(await checkbox("Pans").isDisabled(), true);
+			assert.equal(await checkbox("Pans").isDisabled(), false);
 			assert.equal(await cards(), 0);
 			await checkbox("Oven").check();
 			await checkbox("Microwave").check();
+			await checkbox("Blender").check();
 
 			await follow(
 				page,
@@ -401,10 +521,13 @@ function filtersCheck(width) {
 				0,
 			);
 			assert.equal(await page.getByRole("button", { name: CARBS }).count(), 0);
-			// Smoothies have no meal styles: the select is not offered.
+			// Smoothies keep their own keto filter; meal dietary checks are not offered.
 			assert.equal(
 				await page
-					.getByRole("combobox", { name: "Meal style", includeHidden: true })
+					.getByRole("checkbox", {
+						name: "Vegetarian",
+						includeHidden: true,
+					})
 					.count(),
 				0,
 			);
@@ -445,7 +568,7 @@ function filtersCheck(width) {
 					.getByRole("link", { name: "Avocado-lime smoothie", exact: true })
 					.click(),
 			]);
-			await page.locator(".recipe-detail .reset-checks-row").waitFor();
+			await recipeReady(page);
 			await page.getByRole("button", { name: LEARN_MORE, exact: true }).click();
 			await page.locator(".method-dialog").waitFor();
 			await page.keyboard.press("Escape");
@@ -456,9 +579,9 @@ function filtersCheck(width) {
 				page.getByRole("link", { name: "← Back to smoothies", exact: true }),
 				"**/recipes/smoothies/",
 			);
-			await page.goBack();
-			await page.locator(".recipe-detail").waitFor();
 			await page.goForward();
+			await page.locator(".recipe-detail").waitFor();
+			await page.goBack();
 			await hydrated(page);
 			await page.evaluate(
 				(key) =>
@@ -514,6 +637,18 @@ function filtersCheck(width) {
 // moved, so the page moves it when the help appears. Resolves to where focus
 // was after each step.
 async function pointerAndKeyboardHelp({ page, help, popover, heading }) {
+	// The search row can put the title and help in different scroll positions.
+	// Send continuous pointer travel after scrolling so the hover grace area
+	// receives movement out of the trigger, rather than a single teleport.
+	const moveToHeading = async () => {
+		await heading.scrollIntoViewIfNeeded();
+		const target = await heading.boundingBox();
+		await page.mouse.move(
+			target.x + target.width / 2,
+			target.y + target.height / 2,
+			{ steps: 10 },
+		);
+	};
 	const focused = () =>
 		page.evaluate(() => ({
 			onHelp: document.activeElement?.classList.contains("nutrition-info"),
@@ -532,12 +667,12 @@ async function pointerAndKeyboardHelp({ page, help, popover, heading }) {
 	};
 	await help.hover();
 	await popover.waitFor();
-	await heading.hover();
+	await moveToHeading();
 	await popover.waitFor({ state: "detached" });
 	await help.hover();
 	await popover.waitFor();
 	await help.click();
-	await heading.hover();
+	await moveToHeading();
 	await page.waitForTimeout(HELP_CLOSE_WAIT_MS);
 	const clickedStaysOpen = await popover.isVisible();
 	await page.keyboard.press("Escape");
@@ -602,8 +737,8 @@ const DESKTOP_HELP = {
 	movedOnOpen: IMMUNE,
 	movedOnOpenClosed: IMMUNE,
 	opened: ON_HELP,
-	tabbed: IMMUNE,
-	tabbedClosed: IMMUNE,
+	tabbed: { ...IMMUNE, label: "Keto" },
+	tabbedClosed: { ...IMMUNE, label: "Keto" },
 	onTriggerClosed: ON_HELP,
 	clickedInside: { onHelp: false, inPopover: true, label: undefined },
 	clickedInsideClosed: ON_HELP,
@@ -645,8 +780,10 @@ function collectionsCheck(width) {
 			assert.equal(await printAll.isVisible(), false);
 			assert.equal(
 				await page
-					.getByRole("link", { name: "All posts", exact: true })
-					.first()
+					.getByRole("navigation", {
+						name: width === 390 ? "Mobile navigation" : "Primary navigation",
+					})
+					.getByRole("link", { name: "Blog by John Solly", exact: true })
 					.isVisible(),
 				true,
 			);
@@ -666,9 +803,9 @@ function collectionsCheck(width) {
 			await firstCheck.check();
 			assert.equal(await firstCheck.isChecked(), true);
 			await page.locator(".nutrient-disclosure summary").click();
-			await page.locator(".recipe-body .daily-values").waitFor();
+			await page.locator(".recipe-body .daily-values:visible").waitFor();
 			assert.equal(
-				await page.locator(".recipe-body .daily-values").isVisible(),
+				await page.locator(".recipe-body .daily-values:visible").isVisible(),
 				true,
 			);
 			await Promise.all([
@@ -710,10 +847,13 @@ function collectionsCheck(width) {
 				enhanced
 					.locator(".recipe-card")
 					.filter({ hasText: "Lemon salmon and asparagus" })
-					.getByRole("link", { name: "See recipe", exact: true })
+					.getByRole("link", {
+						name: "Open recipe: Lemon salmon and asparagus",
+						exact: true,
+					})
 					.click(),
 			]);
-			await enhanced.locator(".reset-checks-row").waitFor();
+			await recipeReady(enhanced);
 			assert.match(
 				await enhanced.locator(".detail-facts").textContent(),
 				EIGHT_SERVINGS,
@@ -725,8 +865,129 @@ function collectionsCheck(width) {
 	});
 }
 
+function filterFocusCheck(width) {
+	it(`Recipe filters preserve keyboard and outside-control focus at ${width}px`, {
+		timeout: 60_000,
+	}, async () => {
+		const context = await browser.newContext({
+			viewport: { width, height: HEIGHT },
+		});
+		try {
+			const page = await context.newPage();
+			const checkFilter = async (route, label) => {
+				await page.goto(`${site.origin}${route}`);
+				await hydrated(page);
+				const trigger = page.getByRole("button", {
+					name: new RegExp(`^${label}:`, "u"),
+				});
+				const panel = page.getByRole("dialog", { name: `${label} choices` });
+				await page.evaluate(() => {
+					window.filterFocusEscapes = [];
+					let entered = false;
+					document.addEventListener("focusin", (event) => {
+						if (event.target.closest(".multi-options")) entered = true;
+						else if (entered && document.querySelector(".multi-options")) {
+							window.filterFocusEscapes.push(event.target.outerHTML);
+						}
+					});
+				});
+				await trigger.focus();
+				await page.keyboard.press("Enter");
+				await panel.waitFor();
+				await page.waitForFunction(() =>
+					document.activeElement?.closest(".multi-options"),
+				);
+				await page.waitForFunction(() => {
+					const element = document.querySelector(".multi-options");
+					if (!element) return false;
+					const bounds = element.getBoundingClientRect();
+					return bounds.top >= 0 && bounds.bottom <= window.innerHeight;
+				});
+				// Let the delayed FocusScope remount settle before keyboard input.
+				await page.waitForTimeout(350);
+				assert.deepEqual(
+					await page.evaluate(() => window.filterFocusEscapes),
+					[],
+					`${label}: remount never moves focus out of the open panel`,
+				);
+				const option = panel.getByRole("checkbox").first();
+				assert.equal(
+					await option.evaluate(
+						(element) => element === document.activeElement,
+					),
+					true,
+					`${label}: the open panel retains keyboard focus after remount`,
+				);
+				const emptySummary = await trigger.textContent();
+				await page.keyboard.press("Space");
+				assert.equal(await option.getAttribute("aria-checked"), "true");
+				assert.notEqual(await trigger.textContent(), emptySummary);
+				await page.keyboard.press("Escape");
+				await panel.waitFor({ state: "detached" });
+				assert.equal(
+					await trigger.evaluate(
+						(element) => element === document.activeElement,
+					),
+					true,
+					`${label}: Escape returns to the trigger`,
+				);
+				await trigger.click();
+				await panel.waitFor();
+				const servings = page.getByRole("combobox", { name: SERVINGS });
+				await servings.click();
+				await panel.waitFor({ state: "detached" });
+				assert.equal(
+					await servings.evaluate(
+						(element) => element === document.activeElement,
+					),
+					true,
+					`${label}: clicking Servings keeps its focus`,
+				);
+				await page.keyboard.press("Escape");
+				await trigger.click();
+				await panel.waitFor();
+				// biome-ignore lint/security/noSecrets: CSS selector, not a credential.
+				await panel.locator("button:not([disabled])").last().focus();
+				await page.keyboard.press("Tab");
+				assert.equal(
+					await page.evaluate(() =>
+						Boolean(document.activeElement?.closest(".multi-options")),
+					),
+					false,
+					`${label}: Tab can leave the nonmodal filter`,
+				);
+				// Catch autofocus that steals focus back on a later frame or remount.
+				await page.waitForTimeout(350);
+				assert.equal(
+					await page.evaluate(() =>
+						Boolean(document.activeElement?.closest(".multi-options")),
+					),
+					false,
+					`${label}: autofocus does not reclaim focus after Tab`,
+				);
+			};
+			for (const [route, label] of [
+				["/recipes/meals/", "Proteins"],
+				["/recipes/meals/", "Carbs"],
+				["/recipes/smoothies/", "Ingredients"],
+			]) {
+				// biome-ignore lint/performance/noAwaitInLoops: scenarios reuse one page in order.
+				await checkFilter(route, label);
+			}
+		} finally {
+			await context.close();
+		}
+	});
+}
+
 for (const width of WIDTHS) {
+	filterFocusCheck(width);
 	detailsCheck(width);
 	filtersCheck(width);
 	collectionsCheck(width);
+	describe(`every recipe at ${width}px`, {
+		concurrency: RECIPE_CONCURRENCY,
+	}, () => {
+		for (const recipe of recipes) detailParityCheck(recipe, width);
+	});
 }

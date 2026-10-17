@@ -1,8 +1,83 @@
 import { BASE_SERVINGS } from "./constants.mjs";
 import data from "./nutrition-data.json" with { type: "json" };
-import { smoothieGlassesPerBatch } from "./recipe-logic.mjs";
 
 const dailyNutrients = data.nutrients;
+const MACROS = ["kcal", "protein_g", "carbs_g", "fiber_g", "erythritol_g"];
+
+function contributionFactor(recipe, row, servings, scaledAmount) {
+	const ingredient = recipe.ingredients.find(
+		(item) => item.id === row.ingredientId,
+	);
+	if (
+		!ingredient ||
+		!Number.isFinite(ingredient.amount) ||
+		ingredient.amount <= 0
+	)
+		throw new Error(
+			`Invalid nutrition ingredient link: ${recipe.id}/${row.ingredientId}`,
+		);
+	return scaledAmount(ingredient, servings) / ingredient.amount;
+}
+
+function glassesPerBatch(recipe) {
+	if (!Number.isFinite(recipe.estimatedYieldMl) || recipe.estimatedYieldMl <= 0)
+		throw new Error(`Missing smoothie yield: ${recipe.id}`);
+	return recipe.estimatedYieldMl / (8 * 29.5735295625);
+}
+
+/** Total fat follows the same measured ingredient model as energy and macros. */
+function fatNutrition(recipe, servings, scaledAmount, model = data) {
+	const rows = model.recipes[recipe.id] || [];
+	if (!rows.length || rows.some((row) => !Number.isFinite(row.nutrients.fat)))
+		return null;
+	return (
+		rows.reduce(
+			(total, row) =>
+				total +
+				((row.nutrients.fat * row.grams) / 100) *
+					contributionFactor(recipe, row, servings, scaledAmount),
+			0,
+		) / servings
+	);
+}
+
+// Four-serving estimates are reconciled from the model at migration/refresh time.
+// Only nonlinear ingredients change a per-serving estimate when the batch changes.
+export function macroNutrition(recipe, servings, scaledAmount) {
+	const result = { ...recipe.nutrition };
+	result.fat_g = fatNutrition(recipe, servings, scaledAmount);
+	for (const row of data.recipes[recipe.id] || []) {
+		const adjustment =
+			contributionFactor(recipe, row, servings, scaledAmount) -
+			servings / BASE_SERVINGS;
+		if (Math.abs(adjustment) < 1e-12) continue;
+		for (const key of MACROS) {
+			if (!Number.isFinite(result[key])) continue;
+			const amount = row.macros?.[key] ?? (key === "erythritol_g" ? 0 : null);
+			result[key] = Number.isFinite(amount)
+				? result[key] + (((amount * row.grams) / 100) * adjustment) / servings
+				: null;
+		}
+	}
+	result.net_carbs_g =
+		Number.isFinite(result.carbs_g) && Number.isFinite(result.fiber_g)
+			? Math.max(
+					0,
+					result.carbs_g - result.fiber_g - (result.erythritol_g ?? 0),
+				)
+			: null;
+	return result;
+}
+
+/** A selected family starch is one additional diner portion, never batch-scaled. */
+export function familyFat(recipe, choiceId) {
+	const row = data.familyOptions?.[recipe.id]?.find(
+		(item) => item.ingredientId === choiceId,
+	);
+	return Number.isFinite(row?.nutrients.fat)
+		? (row.nutrients.fat * row.grams) / 100
+		: null;
+}
 export function dailyNutrition(recipe, servings, scaledAmount) {
 	const rows = data.recipes[recipe.id] || [];
 	return dailyNutrients.map((nutrient) => {
@@ -13,21 +88,19 @@ export function dailyNutrition(recipe, servings, scaledAmount) {
 				observed = false;
 				continue;
 			}
-			const ingredient = recipe.ingredients.find((i) => i.id === row.food);
-			const factor =
-				ingredient?.scale === "minimum"
-					? scaledAmount(ingredient, servings) / ingredient.amount
-					: servings / BASE_SERVINGS;
+			const factor = contributionFactor(recipe, row, servings, scaledAmount);
 			total +=
 				(((row.nutrients[nutrient.key] * row.grams) / 100) * factor) / servings;
 		}
+		if (nutrient.key === "fat" && observed)
+			total = fatNutrition(recipe, servings, scaledAmount);
 		if (recipe.type === "smoothie") {
 			if (
 				!Number.isFinite(recipe.estimatedYieldMl) ||
 				recipe.estimatedYieldMl <= 0
 			)
 				observed = false;
-			else total *= BASE_SERVINGS / smoothieGlassesPerBatch(recipe);
+			else total *= BASE_SERVINGS / glassesPerBatch(recipe);
 		}
 		return {
 			...nutrient,
@@ -38,6 +111,7 @@ export function dailyNutrition(recipe, servings, scaledAmount) {
 		};
 	});
 }
+/** @param {number | null} value */
 export function nutrientAmount(value) {
 	if (value === null) return "—";
 	if (value === 0) return "0";
@@ -51,16 +125,12 @@ export function nutrientAmount(value) {
 export function recordedOmega3(recipe, servings, scaledAmount) {
 	let total = 0;
 	for (const row of data.recipes[recipe.id] || []) {
-		const ingredient = recipe.ingredients.find((i) => i.id === row.food);
-		const factor =
-			ingredient?.scale === "minimum"
-				? scaledAmount(ingredient, servings) / ingredient.amount
-				: servings / BASE_SERVINGS;
+		const factor = contributionFactor(recipe, row, servings, scaledAmount);
 		total +=
 			((((row.omega3RecordedGramsPer100g || 0) * row.grams) / 100) * factor) /
 			servings;
 	}
 	return recipe.type === "smoothie"
-		? (total * BASE_SERVINGS) / smoothieGlassesPerBatch(recipe)
+		? (total * BASE_SERVINGS) / glassesPerBatch(recipe)
 		: total;
 }

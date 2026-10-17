@@ -23,4 +23,4 @@ related:
   - create-website-title-generator-python-htmx-django
 ---
 
-<iframe style="height:500px;width:100%;" src="https://nbviewer.org/github/jsolly/Jupyter_Notebooks/blob/main/stac_landsat.ipynb" title="Notebook: Exploring Geospatial Data With the pystac_client Library and STAC"></iframe>
+<iframe style="height:500px;width:100%;" src="/notebooks/stac_landsat.html" title="Notebook: Exploring Geospatial Data With the pystac_client Library and STAC"></iframe>

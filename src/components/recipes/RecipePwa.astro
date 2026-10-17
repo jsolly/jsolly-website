@@ -2,13 +2,23 @@
 // The recipe app's status line, which recipe-pwa-client.mjs keeps current
 // while it installs and updates the service worker. RecipeLayout renders it
 // on every recipe page, with the app's manifest and icons in the head. The
-// aside is visible offline and hidden online.
+// aside is visible offline or when an update needs attention. Preview builds omit the status
+// element so the client never registers a cache-first offline worker there.
+import Button from "../../lib/components/ui/button.svelte";
+
+const isPreview = import.meta.env.VERCEL_ENV === "preview";
 ---
 
-<aside class="recipe-pwa" hidden>
+{!isPreview && <aside class="recipe-pwa update-notice" hidden aria-label="Recipe app status">
 	<p id="recipe-offline-status" role="status">Save recipes to your home screen. On iPhone or iPad, open in Safari and choose Share → Add to Home Screen. Other browsers offer Install or Add to Home Screen in their menu.</p>
+	<div id="recipe-update-action" hidden>
+		<p>Reloading resets unsaved cooking progress in this tab. Other tabs stay open.</p>
+		<Button id="recipe-update-button">Update and reload</Button>
+		<Button id="recipe-update-later" variant="outline">Later</Button>
+	</div>
+	<div id="recipe-update-reopen" hidden><Button id="recipe-update-show" variant="outline">Show update</Button></div>
 	<p>Recipe tools and illustrations work offline once saved. External source links and other blog pages need a connection.</p>
-</aside>
+</aside>}
 <script>
 	import "./recipe-pwa-client.mjs";
 </script>

@@ -8,6 +8,7 @@ import { parseFrontmatter } from "astro/markdown";
 import { globby } from "globby";
 import { JSDOM } from "jsdom";
 import { parseDocument } from "yaml";
+import { recipeBrowseDestination } from "../../src/lib/recipe-browse-route.mjs";
 
 const ROOT = fileURLToPath(new URL("../..", import.meta.url));
 // The built site, relative to the repo root the built suite runs from.
@@ -57,9 +58,16 @@ export function distFileFor(pathname) {
 	return path === "" || path.endsWith("/") ? `${path}index.html` : path;
 }
 
+// Static notebook renders copied from public/notebooks/: framed by blog posts
+// but not site pages, so they carry none of the shell the page suites check.
+export const NOTEBOOK_RENDERS = "notebooks/**/*.html";
+
 // Every built HTML page under `root`, as { file (relative to root), html }.
 export async function readBuiltPages(root = DIST) {
-	const files = await globby("**/*.html", { cwd: root });
+	const files = await globby("**/*.html", {
+		cwd: root,
+		ignore: [NOTEBOOK_RENDERS],
+	});
 	return Promise.all(
 		files
 			.sort((a, b) => a.localeCompare(b, "en"))
@@ -128,7 +136,29 @@ const CONTENT_TYPES = {
 // { origin, close }.
 export async function serveStatic(root, headers = {}) {
 	const server = createServer(async (request, response) => {
-		const { pathname } = new URL(request.url, "http://localhost");
+		const url = new URL(request.url, "http://localhost");
+		const { pathname } = url;
+		const webRequest = new Request(url, {
+			method: request.method,
+			headers: request.headers,
+		});
+		const browse = recipeBrowseDestination(webRequest);
+		if (browse) {
+			const { browseResponse } = await import("../../api/recipe-browse.mjs");
+			const rendered = await browseResponse(
+				new Request(browse, {
+					method: request.method,
+					headers: request.headers,
+				}),
+				join(root, "recipes"),
+			);
+			const nativeHeaders = new Headers(headers);
+			for (const [name, value] of rendered.headers)
+				nativeHeaders.set(name, value);
+			response.writeHead(rendered.status, Object.fromEntries(nativeHeaders));
+			response.end(Buffer.from(await rendered.arrayBuffer()));
+			return;
+		}
 		// normalize() resolves "..", so the absolute path never leaves root.
 		const relative = normalize(decodeURIComponent(pathname));
 		const file = join(
@@ -161,12 +191,16 @@ export async function serveStatic(root, headers = {}) {
 	};
 }
 
-// Collects what `page` logs to the console with one of `types`, and every
-// uncaught page error, into the array it returns, which grows as they happen.
-export function collectErrors(page, types = ["error"]) {
+// Collects console errors and uncaught page errors. Warnings can be included
+// when a scenario also requires a warning-free console. Errors are always collected.
+export function collectErrors(page, { warnings = false } = {}) {
 	const errors = [];
 	page.on("console", (message) => {
-		if (types.includes(message.type())) errors.push(message.text());
+		if (
+			message.type() === "error" ||
+			(warnings && message.type() === "warning")
+		)
+			errors.push(message.text());
 	});
 	page.on("pageerror", (error) => errors.push(String(error)));
 	return errors;

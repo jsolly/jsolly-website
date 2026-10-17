@@ -1,13 +1,15 @@
 /* Match the existing portfolio palette; keep its authored theme authoritative. */
 @theme inline {
 	--color-primary: var(--color-primary-900);
-	--color-primary-foreground: #fff;
+	--color-primary-foreground: var(--color-card);
 	--color-foreground: var(--color-text-primary);
+	--color-popover: var(--color-card);
+	--color-popover-foreground: var(--color-text-primary);
 	--color-secondary: var(--color-primary-100);
 	--color-secondary-foreground: var(--color-text-primary);
 	--color-muted: var(--color-primary-100);
 	--color-muted-foreground: var(--color-text-muted);
-	--color-input: var(--color-primary-300);
+	--color-input: var(--color-primary-500);
 	--color-ring: var(--color-blue-500);
 	--color-destructive: #b91c1c;
 	--radius-lg: 12px;

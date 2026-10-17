@@ -10,8 +10,8 @@ import { DIST, exists } from "./pages.mjs";
 // old blogthedata.com deep link survives only if the page its path redirects
 // to carries the same id. legacy/blogthedata/fragment-ids.json records the ids
 // each old page offered (generated from the frozen source build at C0);
-// url-map.json says where each old page now lives. A destination the port has
-// not built yet is skipped and counted, so the check grows as routes land.
+// url-map.json says where each old page now lives. Every destination must
+// exist now that the migration is complete.
 const SITE = "https://www.jsolly.com";
 const OFF_SITE = "https://www.blogthedata.com/e/";
 const FRAGMENTS = new URL(
@@ -45,7 +45,7 @@ function destination(rows, old) {
 // Compares the recorded fragment ids (`pages`, old path to ids) with the
 // built pages under `distRoot`, following the url-map.json `rows`. Returns the
 // old pages without a single jsolly.com redirect, the old deep links whose
-// target id is missing, and how many pages and ids were checked or skipped.
+// target id is missing, the missing destination pages, and how many pages and ids were checked.
 async function compareFragments(pages, rows, distRoot) {
 	const mapped = Object.keys(pages).map((old) => destination(rows, old));
 	const unmapped = mapped.filter((page) => page.problem);
@@ -84,7 +84,7 @@ async function compareFragments(pages, rows, distRoot) {
 		unmapped,
 		missing,
 		landed: landed.length,
-		skipped: built.length - landed.length,
+		missingPages: built.filter((page) => !page.landed).map((page) => page.path),
 		ids: landed.reduce((sum, { old }) => sum + pages[old].length, 0),
 	};
 }
@@ -97,15 +97,10 @@ async function fixtureComparison() {
 	try {
 		const page = (ids) =>
 			`<!doctype html><main>${ids.map((id) => `<h2 id="${id}">${id}</h2>`).join("")}</main>`;
-		await Promise.all(
-			[
-				["new-a", page(["kept"])],
-				["new-b", page(["one", "two"])],
-			].map(async ([dir, html]) => {
-				await mkdir(join(root, dir));
-				await writeFile(join(root, dir, "index.html"), html);
-			}),
-		);
+		await mkdir(join(root, "new-a"));
+		await writeFile(join(root, "new-a/index.html"), page(["kept"]));
+		await mkdir(join(root, "new-b"));
+		await writeFile(join(root, "new-b/index.html"), page(["one", "two"]));
 		const redirect = (source, path) => ({
 			source,
 			action: "redirect-301",
@@ -144,7 +139,7 @@ it("every old blogthedata.com fragment id still exists on the page its URL now r
 			],
 			missing: ["/a/#lost -> /new-a/#lost"],
 			landed: 2,
-			skipped: 1,
+			missingPages: ["/new-c/"],
 			ids: 4,
 		},
 		"the comparison reports exactly the lost id on a fixture dist",
@@ -164,9 +159,12 @@ it("every old blogthedata.com fragment id still exists on the page its URL now r
 		[],
 		"each old page with fragment ids redirects to one jsolly.com page in url-map.json",
 	);
-	t.diagnostic(
-		`checked ${result.ids} ids on ${result.landed} landed pages; skipped ${result.skipped} of ${result.landed + result.skipped} old pages whose destination is not built yet`,
+	assert.deepEqual(
+		result.missingPages,
+		[],
+		"every legacy fragment destination exists in the completed migration",
 	);
+	t.diagnostic(`checked ${result.ids} ids on ${result.landed} pages`);
 	assert.deepEqual(
 		result.missing,
 		[],

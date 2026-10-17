@@ -18,7 +18,6 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { recipe } = Astro.props;
 ---
 
-<RecipeLayout title={recipe.title} description={recipe.summary} article>
-	<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/blog/">Home</a><span aria-hidden="true">/</span><a href="/recipes/">Easy Meals &amp; Smoothies</a></nav>
+<RecipeLayout title={recipe.title} description={recipe.summary} image={recipe.image.src} imageAlt={recipe.image.alt} article>
 	<RecipePage {recipe} client:load />
 </RecipeLayout>

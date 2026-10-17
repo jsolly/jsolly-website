@@ -1,9 +1,26 @@
 // Pure calculations for the meal library. Recipe ingredient amounts are for
 // BASE_SERVINGS (four) adults.
-import { BASE_SERVINGS, SERVING_CHOICES } from "./constants.mjs";
+import {
+	BASE_SERVINGS,
+	KETO_NET_CARBS_MAX,
+	SERVING_CHOICES,
+} from "./constants.mjs";
+import {
+	ingredientGrams,
+	ingredientMeasure,
+	unitPreference,
+} from "./ingredient-units.mjs";
+import { familyFat, macroNutrition } from "./nutrition.mjs";
 
 const SERVINGS = new Set(SERVING_CHOICES);
-const NUTRIENTS = ["kcal", "protein_g", "carbs_g", "fiber_g", "net_carbs_g"];
+const NUTRIENTS = [
+	"kcal",
+	"protein_g",
+	"fat_g",
+	"carbs_g",
+	"fiber_g",
+	"net_carbs_g",
+];
 
 const finite = (value) => typeof value === "number" && Number.isFinite(value);
 
@@ -14,7 +31,7 @@ export function validateSettings(settings = {}) {
 	const familyDiners = Number.isInteger(Number(settings?.familyDiners))
 		? Math.max(0, Math.min(servings, Number(settings.familyDiners)))
 		: 0;
-	const units = settings?.units === "metric" ? "metric" : "us";
+	const units = unitPreference(settings?.units);
 	return { servings, familyDiners, units };
 }
 
@@ -59,61 +76,31 @@ export function formatQuantity(value) {
 
 /** Minimum seasonings retain their baseline amount for smaller batches. */
 export function ingredientAmount(ingredient, servings) {
-	const amount = Number(ingredient?.amount);
+	const amount = ingredient?.amount;
 	if (!Number.isFinite(amount)) return NaN;
 	const validServings = validateSettings({ servings }).servings;
 	if (ingredient.scale === "fixed") return amount;
+	if (ingredient.scale === "whole-batch")
+		return amount * Math.ceil(validServings / BASE_SERVINGS);
 	const scaled = (amount * validServings) / BASE_SERVINGS;
 	return ingredient.scale === "minimum" ? Math.max(amount, scaled) : scaled;
 }
 
-/** US measures come from typed source quantities, never a generic g-to-cup ratio. */
-export function formatIngredient(
-	ingredient,
-	servings,
-	units = "metric",
-	{ wholeOunces = false } = {},
-) {
-	const amount = ingredientAmount(ingredient, servings);
-	if (!Number.isFinite(amount)) return "—";
-	if (amount === 0) return "to taste";
-	const grams =
-		ingredient.unit === "g" ? amount : amount * ingredient.gramsPerUnit;
-	if (Number.isFinite(grams) && grams >= 1) return `${Math.round(grams)}g`;
-	const hasUS =
-		(units === "us" || ingredient.displayMeasure === "spoon") &&
-		finite(ingredient?.us?.amount) &&
-		ingredient.us.unit;
-	const displayAmount =
-		hasUS && ingredient.amount
-			? (ingredient.us.amount * amount) / ingredient.amount
-			: amount;
-	let unit = hasUS ? ingredient.us.unit : ingredient.unit;
-	let shown = displayAmount;
-	if (units === "us" && !hasUS && unit === "g") {
-		shown = amount / 28.349523125;
-		unit = "oz";
-	}
-	if (units === "us" && !hasUS && unit === "ml") {
-		shown = amount / 29.5735295625;
-		unit = "fl oz";
-	}
-	// Typed source measures can land just below a decimal half after rescaling.
-	const roundedOunces = wholeOunces
-		? Math.round(shown)
-		: Math.round((shown + Number.EPSILON * Math.abs(shown)) * 10) / 10;
-	const quantity =
-		unit === "oz" || unit === "fl oz"
-			? String(roundedOunces)
-			: formatQuantity(shown);
-	return `${quantity}${unit ? ` ${unit === "fl oz" ? "oz" : unit}` : ""}`;
+/** Scale once from the canonical amount, then format the selected measure. */
+export function formatIngredient(ingredient, servings, units = "metric") {
+	return ingredientMeasure(
+		ingredient,
+		ingredientAmount(ingredient, servings),
+		units,
+		formatQuantity,
+	).quantity;
 }
 
 /** Safe endpoints round upward; appliance settings round to the nearest 5°C. */
 export function temperature(fahrenheit, units = "us", safety = false) {
 	if (!finite(fahrenheit)) return "—";
 	const original = `${formatQuantity(fahrenheit)}°F`;
-	if (units !== "metric") return original;
+	if (units === "us") return original;
 	const celsius = ((fahrenheit - 32) * 5) / 9;
 	const shown = safety
 		? Math.ceil(celsius - 1e-10)
@@ -121,7 +108,7 @@ export function temperature(fahrenheit, units = "us", safety = false) {
 	return `${shown}°C (${original})`;
 }
 
-/** Shuffle a copy once per visit, preserving the canonical recipe collection. */
+/** Shuffle a copy, preserving the canonical recipe collection. */
 export function shuffleRecipes(recipes, random = Math.random) {
 	const result = [...recipes];
 	for (let i = result.length - 1; i > 0; i--) {
@@ -133,21 +120,11 @@ export function shuffleRecipes(recipes, random = Math.random) {
 
 export function servingNutrition(recipe, servings = BASE_SERVINGS) {
 	const count = validateSettings({ servings }).servings;
-	const result = { ...recipe.nutrition };
-	for (const ingredient of recipe.ingredients ?? []) {
-		if (!ingredient.nutritionBatch || !ingredient.amount) continue;
-		const actual = ingredientAmount(ingredient, count) / ingredient.amount;
-		for (const key of NUTRIENTS)
-			result[key] +=
-				(Number(ingredient.nutritionBatch[key] ?? 0) *
-					(actual - count / BASE_SERVINGS)) /
-				count;
-	}
-	return result;
+	return macroNutrition(recipe, count, ingredientAmount);
 }
 
 /** Smoothie volumes are explicit estimates, separate from the canonical per-recipe-portion macros. */
-export function smoothieGlassesPerBatch(recipe, fluidOunces = 8) {
+function smoothieGlassesPerBatch(recipe, fluidOunces = 8) {
 	if (recipe.type !== "smoothie" || !finite(fluidOunces) || fluidOunces <= 0)
 		throw new Error("A smoothie and positive glass size are required.");
 	if (!finite(recipe.estimatedYieldMl) || recipe.estimatedYieldMl <= 0)
@@ -156,10 +133,17 @@ export function smoothieGlassesPerBatch(recipe, fluidOunces = 8) {
 }
 export function smoothiePortionNutrition(recipe, fluidOunces = 8) {
 	const glassesPerBatch = smoothieGlassesPerBatch(recipe, fluidOunces);
+	const nutrition = servingNutrition(recipe);
+	const nutrients =
+		nutrition.erythritol_g === undefined
+			? NUTRIENTS
+			: [...NUTRIENTS, "erythritol_g"];
 	return Object.fromEntries(
-		NUTRIENTS.map((key) => [
+		nutrients.map((key) => [
 			key,
-			(recipe.nutrition[key] * BASE_SERVINGS) / glassesPerBatch,
+			finite(nutrition[key])
+				? (nutrition[key] * BASE_SERVINGS) / glassesPerBatch
+				: null,
 		]),
 	);
 }
@@ -168,10 +152,28 @@ export function displayNutrition(recipe, servings = BASE_SERVINGS) {
 		? smoothiePortionNutrition(recipe)
 		: servingNutrition(recipe, servings);
 }
+/** Classification always uses the base meal's four-serving portion or smoothie glass. */
+export function dietaryClass(recipe) {
+	const netCarbs = displayNutrition(recipe).net_carbs_g;
+	if (!finite(netCarbs))
+		throw new Error(`${recipe.id}: net carbohydrate estimate is required`);
+	return netCarbs <= KETO_NET_CARBS_MAX ? "keto" : "nonketo";
+}
+
+/** Optional sides are selected explicitly; missing or stale choices mean no side. */
+export function selectedSide(recipe, choiceId) {
+	return recipe.familyOptions?.find((option) => option.id === choiceId);
+}
+
 export function nutritionHeading(recipe) {
 	return recipe.type === "smoothie"
-		? "Nutrition per 8 oz glass"
+		? "Nutrition per 8 fl oz (237 mL) glass"
 		: "Nutrition per serving";
+}
+export function nutritionPortionLabel(recipe, servings = BASE_SERVINGS) {
+	return recipe.type === "smoothie"
+		? "per estimated 8 fl oz (237 mL) glass"
+		: `per serving (1/${validateSettings({ servings }).servings} of prepared batch)`;
 }
 export function smoothieYieldNote(recipe, servings = BASE_SERVINGS) {
 	const glasses =
@@ -181,20 +183,12 @@ export function smoothieYieldNote(recipe, servings = BASE_SERVINGS) {
 	return `This batch makes about ${glasses.toFixed(1)} eight-fluid-ounce glasses. Yield is estimated; added liquid and blending affect actual volume.`;
 }
 
-/** A family's serving receives one chosen starch; the keto base stays untouched. */
-export function familyNutrition(recipe, choiceId, servings = BASE_SERVINGS) {
-	const option =
-		recipe?.group === "shared"
-			? (recipe.familyOptions ?? []).find((item) => item.id === choiceId) ||
-				recipe.familyOptions?.[0]
-			: undefined;
-	return Object.fromEntries(
-		NUTRIENTS.map((key) => [
-			key,
-			Number(recipe ? servingNutrition(recipe, servings)[key] : 0) +
-				Number(option?.nutrition?.[key] ?? 0),
-		]),
-	);
+/** One explicitly chosen side portion, independently of the base meal or diner count. */
+export function sideNutrition(recipe, choiceId) {
+	const option = selectedSide(recipe, choiceId);
+	return option
+		? { ...option.nutrition, fat_g: familyFat(recipe, option.id) }
+		: null;
 }
 
 export function capacityNote(servings) {
@@ -209,11 +203,27 @@ export function capacityNote(servings) {
 /** Package counts are shopping estimates; recipe weights remain the measured target. */
 export function purchaseNote(ingredient, servings = BASE_SERVINGS) {
 	const pack = ingredient?.package;
-	const amount = ingredientAmount(ingredient, servings);
-	if (!pack || !finite(pack.grams) || pack.grams <= 0 || !finite(amount))
-		return "";
+	if (!pack || !finite(pack.grams) || pack.grams <= 0) return "";
+	const amount = ingredientGrams(
+		ingredient,
+		ingredientAmount(ingredient, servings),
+	);
 	const count = Math.ceil(amount / pack.grams - 1e-10);
 	return pack.drained
 		? `About ${count} × ${pack.label}, assuming ~${pack.grams} g drained per can; check actual yield.`
 		: `Buy ${count} × ${pack.label}; measure out the required weight.`;
+}
+
+/** Use the upper end of the documented elapsed-time estimate; absent times stay absent. */
+export function totalTimeLabel(recipe, servings = BASE_SERVINGS) {
+	if (!finite(recipe.totalMin) || !finite(recipe.totalMax))
+		return "Not provided";
+	return `${recipe.totalMax} min${servings > BASE_SERVINGS ? " / base batch" : ""}`;
+}
+
+/** Preserve absent source nutrition on screen, in print and in exports. */
+export function formatNutrition(value, unit = "", decimals = 0) {
+	return finite(value)
+		? `${value.toFixed(decimals)}${unit ? ` ${unit}` : ""}`
+		: "Not provided";
 }

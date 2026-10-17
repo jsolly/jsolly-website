@@ -3,23 +3,16 @@
 
 /** Recipe ingredient amounts and timings are written for this many adults. */
 export const BASE_SERVINGS = 4;
-/** Each recipe group's badge on its page. */
-export const groupBadges = {
-	keto: "Keto",
-	shared: "Shared main",
-	nonketo: "Not Keto",
-};
-/** Each recipe group's label in the printed copy. */
-export const printGroupLabels = {
-	keto: "Keto",
-	shared: "Keto main + family starch",
-	nonketo: "Not Keto",
-};
+/** Cards appended per scroll or load-more action. */
+export const RECIPE_BATCH_SIZE = 24;
+/** Labels derived from the base recipe's net carbohydrates per serving. */
+export const dietaryLabels = { keto: "Keto", nonketo: "Not keto" };
+export const KETO_NET_CARBS_MAX = 12.5;
 /** The servings a reader can choose. */
 export const SERVING_CHOICES = [2, 4, 6, 8];
 
 export const recipeDisclaimer =
-	"These newly designed recipes have not been cooked, tasted or stopwatch-tested. Nutrition is an ingredient estimate, not laboratory analysis. Sources support safety, labels or comparable methods; they do not validate this exact recipe.";
+	"These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.";
 // Meal leftovers guidance; smoothies carry their own.
 export const mealLeftovers =
 	"Refrigerate in shallow containers within two hours, or one hour above 90°F. Use within 3–4 days or freeze; reheat to 165°F. Keep cold greens and yogurt separate.";
@@ -36,34 +29,6 @@ export const starchTypes = {
 	none: "No starch",
 	fruit: "Fruit",
 };
-export const recipeStarches = {
-	"lemon-salmon-and-asparagus": ["none"],
-	"smoky-chicken-thighs-and-broccoli": ["none"],
-	"pesto-cod-and-zucchini": ["none"],
-	"spinach-feta-and-hemp-frittata": ["none"],
-	"shawarma-chicken-bowls": ["rice", "bread"],
-	"sheet-pan-chicken-fajitas": ["tortillas"],
-	"salsa-verde-shredded-chicken": ["rice"],
-	"greek-turkey-patties": ["bread"],
-	"pan-fried-greek-turkey-patties": ["bread"],
-	"keto-zuppa-toscana": ["none"],
-	"avocado-lime-smoothie": ["none"],
-	"strawberry-avocado-smoothie": ["fruit"],
-	"strawberry-hemp-smoothie": ["fruit"],
-	"cucumber-spinach-lime-smoothie": ["none"],
-	"strawberry-banana-smoothie": ["fruit"],
-	"banana-flax-smoothie": ["fruit"],
-	"chicken-posole": ["legumes"],
-	"tomato-lentil-and-chicken-bake": ["legumes"],
-	"harissa-chickpea-and-cauliflower-bowls": ["legumes"],
-	"lemon-chicken-potatoes-and-green-beans": ["potatoes"],
-	"sheet-pan-gnocchi-white-beans-and-broccoli": [
-		"pasta",
-		"potatoes",
-		"legumes",
-	],
-};
-
 export const applianceChoices = {
 	"Instant Pot": "Pressure cookers",
 	Oven: "Oven",
@@ -71,6 +36,10 @@ export const applianceChoices = {
 	Microwave: "Microwave",
 	"Two air fryers": "Air fryers",
 	Blender: "Blender",
+	Stovetop: "Stovetop",
+	Grill: "Grill",
+	"Slow cooker": "Slow cooker",
+	"Waffle iron": "Waffle iron",
 };
 export const defaultAppliances = {
 	"Instant Pot": 1,
@@ -79,14 +48,17 @@ export const defaultAppliances = {
 	Microwave: 1,
 	"Two air fryers": 2,
 	Blender: 1,
+	Stovetop: 1,
+	Grill: 1,
+	"Slow cooker": 1,
+	"Waffle iron": 1,
 };
 // The appliances a reader counts rather than ticks, with the most they can
 // have on hand; every other appliance is on hand (1) or not (0).
 export const applianceLimits = { "Instant Pot": 2, "Two air fryers": 2 };
 // How many of an appliance a recipe that needs it uses (otherwise one).
 export const applianceNeeds = { "Two air fryers": 2 };
-// An appliance usable only with another on hand: pans go in the oven.
-export const applianceDependencies = { Pans: "Oven" };
+// Pans may be used on a stovetop, grill or oven; recipes name their heat source.
 
 /** The recipe library's landing page; the recipe app's id, start URL and scope. */
 export const RECIPES_PATH = "/recipes/";
@@ -111,20 +83,12 @@ export const proteins = {
 	chicken: "Chicken",
 	fish: "Fish",
 	turkey: "Turkey",
-	vegetarian: "Vegetarian",
-	"plant-forward": "Plant-forward",
-};
-/** The library's meal styles (recipe groups). */
-export const carbStyles = {
-	keto: "Keto",
-	nonketo: "Not Keto",
-	shared: "Shared Main",
-};
-export const mealStyleDescriptions = {
-	all: "Keto meals, higher-carb meals, and shared mains with different sides.",
-	keto: "Low-carb meals without a starchy side.",
-	nonketo: "Meals with over 50g net carbs per four servings.",
-	shared: "One main dish with different sides for keto and non-keto diners.",
+	beef: "Beef",
+	pork: "Pork",
+	shrimp: "Shrimp",
+	seafood: "Other seafood",
+	eggs: "Eggs",
+	mixed: "Mixed meats",
 };
 /** The family starches a library filter offers ("all" and "none" are not choices). */
 export const starchOptions = Object.fromEntries(
@@ -132,18 +96,19 @@ export const starchOptions = Object.fromEntries(
 );
 /**
  * The library's filters before a reader picks any: proteins, starches and
- * smoothie ingredients (arrays of ids), one meal style ("all" or a
- * carbStyles key), and the keto-smoothie and nutrition checks.
+ * smoothie ingredients (arrays of ids), independent keto and vegetarian meal checks, and the keto-smoothie and nutrition checks.
  */
 export const DEFAULT_FILTERS = {
 	proteinChoice: [],
 	starchChoice: [],
 	ingredientChoice: [],
-	mealStyle: "all",
+	mealKetoOnly: false,
+	vegetarianOnly: false,
 	smoothieKetoOnly: false,
 	immuneSupport: false,
 	ironRich: false,
 	omega3: false,
+	dumpAndGo: false,
 };
 /** Each nutrition filter's threshold, as the nutrition help states it. */
 export const nutritionThresholds = {
@@ -152,4 +117,14 @@ export const nutritionThresholds = {
 		"at least 20% Daily Value in two or more of vitamins A, C, D, zinc and selenium per serving.",
 	omega3:
 		"at least 0.5 g of recorded ALA, EPA, and DHA per meal serving or 8 oz smoothie glass. Missing nutrient observations are excluded. This is a recipe filter threshold, not a Daily Value.",
+};
+
+/** Shared labels and explanations for nutrition filters and recipe highlights. */
+export const nutritionHighlights = {
+	immune: {
+		label: "Immune support",
+		description: nutritionThresholds.immuneSupport,
+	},
+	iron: { label: "Iron-rich", description: nutritionThresholds.ironRich },
+	omega: { label: "High in Omega-3s", description: nutritionThresholds.omega3 },
 };

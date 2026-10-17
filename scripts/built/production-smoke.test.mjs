@@ -50,20 +50,29 @@ const lowerCaseKeys = (headers) =>
 // headers and the middleware's (its Vary). Resolves to a Response.
 async function vercel(url, { method = "GET", accept = "*/*" } = {}) {
 	methods.add(method);
-	const { pathname, search } = new URL(url);
+	const { pathname } = new URL(url);
 	const { redirect, headers: configured } = routePath(routes, pathname);
 	if (redirect)
 		throw new Error(`${pathname} redirects to ${redirect.location}`);
 	const routed = middleware(new Request(url, { method, headers: { accept } }));
-	const { "x-middleware-next": passThrough, ...fromMiddleware } =
-		Object.fromEntries(routed.headers);
-	if (!passThrough) {
+	const {
+		"x-middleware-next": passThrough,
+		"x-middleware-rewrite": rewrite,
+		...fromMiddleware
+	} = Object.fromEntries(routed.headers);
+	if (!passThrough && !rewrite) {
 		return new Response(await routed.arrayBuffer(), {
 			status: routed.status,
 			headers: { ...lowerCaseKeys(configured), ...fromMiddleware },
 		});
 	}
-	const file = await fetch(`${site.origin}${pathname}${search}`, { method });
+	const destination = rewrite ? new URL(rewrite) : new URL(url);
+	if (destination.origin !== new URL(url).origin)
+		throw new Error("middleware rewrites must stay same-origin");
+	const file = await fetch(
+		`${site.origin}${destination.pathname}${destination.search}`,
+		{ method },
+	);
 	return new Response(await file.arrayBuffer(), {
 		status: file.status,
 		headers: {

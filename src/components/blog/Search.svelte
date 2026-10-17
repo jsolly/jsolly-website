@@ -10,9 +10,9 @@
 	let { posts }: { posts: Card[] } = $props();
 	// How long typing must pause before the status line announces a new count.
 	const ANNOUNCE_DELAY_MS = 400;
+	// Bound the request and response body so a stalled index exposes retry.
+	const INDEX_TIMEOUT_MS = 15_000;
 	const cardsBySlug = $derived(new Map(posts.map((post) => [post.slug, post])));
-	// The query this page was opened with (?searched=), which the heading names.
-	let submitted = $state("");
 	// The search box, which filters the results as the reader types.
 	let query = $state("");
 	// The status line's result count (null: no query, so the hint), trailing
@@ -58,7 +58,9 @@
 	async function loadIndex() {
 		searchState = { kind: "loading" };
 		try {
-			const response = await fetch("/blog/search-index.json");
+			const response = await fetch("/blog/search-index.json", {
+				signal: AbortSignal.timeout(INDEX_TIMEOUT_MS),
+			});
 			if (!response.ok) throw new Error(`Search index HTTP ${response.status}`);
 			searchState = {
 				kind: "ready",
@@ -78,13 +80,12 @@
 	}
 
 	onMount(() => {
-		submitted = new URLSearchParams(window.location.search).get("searched") ?? "";
-		query = submitted;
+		query = new URLSearchParams(window.location.search).get("searched") ?? "";
 		void loadIndex();
 	});
 </script>
 
-<h1>{submitted ? `You searched for '${submitted}'` : "Search posts"}</h1>
+<h1>Search posts</h1>
 <search aria-label="Search articles">
 	<form action="/blog/search/" method="get" class="search-form search-page-form">
 		<label for="article-search">Search articles</label>

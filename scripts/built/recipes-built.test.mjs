@@ -31,10 +31,25 @@ it("recipe route shares complete recipe bodies without JavaScript and retains fi
 		{ headings: 1, hero: 0, hydrated: "false", openRecipes: 0 },
 		"the /recipes/ landing",
 	);
+	assert.ok(
+		Buffer.byteLength(
+			await readFile(join(DIST, "recipes/index.html"), "utf8"),
+		) < 2_000_000,
+		"the recipe landing HTML fits Googlebot’s 2 MB fetch budget",
+	);
 	const collections = await Promise.all(
 		Object.entries(COLLECTIONS).map(async ([collection, type]) => {
 			const expected = recipes.filter((recipe) => recipe.type === type);
+			const html = await readFile(
+				join(DIST, "recipes", collection, "index.html"),
+				"utf8",
+			);
+			assert.ok(
+				Buffer.byteLength(html) < 2_000_000,
+				`${collection} HTML fits Googlebot's 2 MB fetch budget`,
+			);
 			const counts = await readBuilt(`recipes/${collection}`, (document) => ({
+				printMeals: document.querySelectorAll(".print-meal").length,
 				cards: document.querySelectorAll(".recipe-card").length,
 				linked: expected.filter(
 					(recipe) =>
@@ -50,6 +65,7 @@ it("recipe route shares complete recipe bodies without JavaScript and retains fi
 		collections,
 		collections.map(({ collection, expected }) => ({
 			collection,
+			printMeals: 0,
 			cards: expected,
 			linked: expected,
 			expected,

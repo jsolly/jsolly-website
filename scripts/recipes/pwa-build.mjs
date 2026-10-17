@@ -8,8 +8,8 @@
 // media, the manifest and icons, and the two assistant downloads) and every
 // file those pages load (scripts, styles, fonts, images, the favicon and the
 // no-JavaScript stylesheets inside <noscript>). A changed snapshot gets a new
-// cache name, and the new worker waits until every recipe tab closes, so new
-// HTML never mixes with an older bundle mid-recipe.
+// cache name. The new worker waits for an explicit Update and reload request
+// or until every recipe tab closes. Only the requesting tab reloads immediately.
 //
 // A maintenance build (MAINTENANCE_MODE=true) writes no worker: installed
 // workers then get a 404 on their update check, which leaves them and their
@@ -23,6 +23,7 @@ import { realpathSync } from "node:fs";
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { build } from "esbuild";
 import { globby } from "globby";
 import { JSDOM } from "jsdom";
 import {
@@ -42,7 +43,7 @@ const BASE = "https://recipe.invalid";
 // The elements whose src or href a page loads.
 const PAGE_RESOURCES =
 	// biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
-	'[src], link[rel="stylesheet"], link[rel="modulepreload"], link[rel="manifest"], link[rel="apple-touch-icon"], link[rel="icon"]';
+	'[src], link[rel="stylesheet"], link[rel="alternate"][type="text/markdown"], link[rel="modulepreload"], link[rel="manifest"], link[rel="apple-touch-icon"], link[rel="icon"]';
 // Files a script or stylesheet names: quoted script, style and font paths
 // (the minifier quotes some strings with backticks) and CSS url()s.
 const QUOTED_ASSET = /["'`](?<path>[^"'`\s]+\.(?:js|css|woff2?))["'`]/gu;
@@ -157,18 +158,34 @@ export async function buildRecipePwa(root) {
 		files,
 	);
 	const assets = [...files.keys()].sort();
+	const bundled = await build({
+		entryPoints: [fileURLToPath(WORKER_SOURCE)],
+		bundle: true,
+		write: false,
+		platform: "browser",
+		format: "iife",
+	});
+	const workerCode = bundled.outputFiles[0].text;
 	const hash = createHash("sha256");
+	// A changed negotiation/cache policy is a new snapshot too.
+	hash.update(workerCode);
 	for (const path of assets) hash.update(path).update(files.get(path));
 	const cache = `${CACHE_PREFIX}${hash.digest("hex").slice(0, 20)}`;
+	const digests = assets.map((path) => [
+		path,
+		{
+			sha256: createHash("sha256").update(files.get(path)).digest("hex"),
+			size: files.get(path).byteLength,
+		},
+	]);
 	const constants = [
 		`const CACHE = ${JSON.stringify(cache)};`,
+		`const RELEASE = ${JSON.stringify(JSON.parse(await readFile(join(root, "release.json"), "utf8")).sha)};`,
 		`const PREFIX = ${JSON.stringify(CACHE_PREFIX)};`,
-		`const ASSETS = new Set(${JSON.stringify(assets)});`,
+		`const ASSET_DIGESTS = new Map(${JSON.stringify(digests)});`,
+		"const ASSETS = new Set(ASSET_DIGESTS.keys());",
 	].join("\n");
-	await writeFile(
-		join(root, PWA_WORKER_PATH),
-		`${constants}\n${await readFile(WORKER_SOURCE, "utf8")}`,
-	);
+	await writeFile(join(root, PWA_WORKER_PATH), `${constants}\n${workerCode}`);
 	return { cache, urls: assets };
 }
 

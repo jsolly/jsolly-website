@@ -4,6 +4,7 @@ import {
 	ROLE,
 	ROLE_STRATEGY,
 	SHORT_ROLE,
+	SITE_SEARCH_MARKDOWN,
 } from "./constants.js";
 
 const PAGES: Record<string, (origin: string) => string> = {
@@ -14,15 +15,11 @@ const PAGES: Record<string, (origin: string) => string> = {
 	"/terms": termsMarkdown,
 };
 
-// Markdown negotiation (PA3, J11): only these pages have a Markdown variant
-// and a .md sibling; real /blog/ and /recipes/ routes return HTML.
+// These portfolio variants are rendered inline; blog and recipe variants are
+// generated from the published build and served from static siblings.
 export const MARKDOWN_PATHS = Object.keys(PAGES);
-const pageNames = MARKDOWN_PATHS.map((path) =>
-	path === "/" ? "home" : path.slice(1),
-);
-// "home, about, contact, privacy or terms"
-export const MARKDOWN_PAGES = `${pageNames.slice(0, -1).join(", ")} or ${pageNames.at(-1)}`;
-export const HTML_ONLY_PAGES = "blog and recipe pages are HTML only";
+export const MARKDOWN_GUIDANCE =
+	"Every published portfolio, blog and recipe page supports Markdown. Browser controls remain on the HTML page.";
 
 export function markdownForPath(
 	pathname: string,
@@ -30,6 +27,11 @@ export function markdownForPath(
 ): string | undefined {
 	const render = PAGES[pathname];
 	return render?.(origin);
+}
+
+/** Every emitted Markdown body, maintenance and 404 included, ends with the Search section. */
+export function withSiteSearch(body: string): string {
+	return `${body}\n${SITE_SEARCH_MARKDOWN}`;
 }
 
 export function maintenanceMarkdown(origin: string): string {
@@ -82,7 +84,7 @@ I spent most of my career building spatial systems — at Esri, startups, and fe
 
 ### For agents
 
-Start at [${origin}/llms.txt](${origin}/llms.txt) for when-to-use guidance and links. Send \`Accept: text/markdown\` on the ${MARKDOWN_PAGES} page URL (or fetch its \`.md\` sibling) to skip the HTML chrome; ${HTML_ONLY_PAGES}.
+Start at [${origin}/llms.txt](${origin}/llms.txt) for when-to-use guidance and links. Send \`Accept: text/markdown\` on a page URL (or fetch its \`.md\` sibling) to skip the HTML chrome. ${MARKDOWN_GUIDANCE}
 
 ## Testimonials
 
@@ -160,7 +162,7 @@ Most blog post images are served from Amazon CloudFront and Amazon S3, which may
 
 ## Embedded media
 
-Some blog posts embed YouTube videos using youtube-nocookie.com, diagrams.net diagrams or nbviewer notebooks. An embed loads from that service as it scrolls into view, so the service receives your request, and YouTube may set its own cookies, per Google's privacy policy. Posts without embeds make no such requests.
+Some blog posts embed YouTube videos using youtube-nocookie.com or diagrams.net diagrams. An embed loads from that service as it scrolls into view, so the service receives your request, and YouTube may set its own cookies, per Google's privacy policy. Posts without embeds make no such requests.
 
 ## Recipe settings & offline use
 

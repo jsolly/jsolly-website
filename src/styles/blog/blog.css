@@ -7,68 +7,39 @@
    lower to higher specificity; none moved past a rule of equal specificity
    setting the same property, so the cascade is unchanged. */
 @layer blog {
-	:root {
-		font-family: var(--font-body);
-		color: var(--text);
-		background: var(--background);
-		line-height: 1.65;
-		font-size: 17px;
-	}
-	* {
+	:where(.reading-section) * {
 		box-sizing: border-box;
 	}
-	body {
-		margin: 0;
-	}
-	a {
+	:where(.reading-section) a:not([data-slot]) {
 		color: var(--blue);
 		text-underline-offset: 0.18em;
 	}
-	a:hover {
+	:where(.reading-section) a:hover {
 		text-decoration-thickness: 2px;
 	}
-	img {
+	:where(.reading-section) img {
 		max-width: 100%;
 		height: auto;
 	}
-	h1,
-	h2,
-	h3 {
-		font-family: var(--font-heading);
-		color: var(--heading);
-		font-weight: 600;
-		line-height: 1.25;
-		letter-spacing: -0.025em;
-	}
-	h1 {
-		font-size: 2rem;
-		margin: 1.2rem 0;
-	}
-	h2 {
-		font-size: 1.35rem;
-	}
-	p {
-		margin: 0.65rem 0 1rem;
-	}
-	button,
-	input {
+	:where(.reading-section) button:not([data-slot]),
+	:where(.reading-section) input:not([data-slot]) {
 		font: inherit;
 	}
-	button,
-	input,
-	select,
-	a,
-	summary {
+	:where(.reading-section) button:not([data-slot]),
+	:where(.reading-section) input:not([data-slot]),
+	:where(.reading-section) select,
+	:where(.reading-section) a,
+	:where(.reading-section) summary {
 		transition:
 			color var(--motion-fast) ease,
 			background-color var(--motion-fast) ease,
 			border-color var(--motion-fast) ease,
 			box-shadow var(--motion-fast) ease;
 	}
-	button:hover:not(:disabled) {
+	:where(.reading-section) button:not([data-slot]):hover:not(:disabled) {
 		filter: brightness(1.08);
 	}
-	button {
+	:where(.reading-section) button:not([data-slot]) {
 		background: var(--button);
 		color: var(--button-text);
 		border: 1px solid transparent;
@@ -81,16 +52,16 @@
 			border-color var(--motion-fast) ease;
 	}
 	/* Weight keeps prose links identifiable without a resting underline. */
-	main p a,
-	main li a,
-	main td a,
-	main dd a {
+	:where(.reading-section) p a,
+	:where(.reading-section) li a,
+	:where(.reading-section) td a,
+	:where(.reading-section) dd a {
 		font-weight: 600;
 	}
-	button:disabled {
+	:where(.reading-section) button:not([data-slot]):disabled {
 		cursor: default;
 	}
-	input {
+	:where(.reading-section) input:not([data-slot]) {
 		min-width: 0;
 		border: 1px solid var(--input-border);
 		border-radius: 10px;
@@ -98,107 +69,11 @@
 		background: var(--paper);
 		color: inherit;
 	}
-	:focus-visible {
-		outline: 3px solid #cf7700;
+	:where(.reading-section) :focus-visible {
+		outline: 3px solid var(--color-primary-500);
 		outline-offset: 3px;
 	}
-	.site-header {
-		background: var(--background);
-		color: var(--heading);
-	}
-	.header-inner {
-		max-width: 1280px;
-		margin: auto;
-		padding: 1rem 2rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 1.7rem;
-	}
-	.brand {
-		display: flex;
-		align-items: center;
-		gap: 0.6rem;
-		font-weight: 600;
-		color: var(--heading);
-		white-space: nowrap;
-		text-decoration: none;
-	}
-	.brand img {
-		width: 36px;
-	}
-	.header-inner nav {
-		display: flex;
-		gap: 1.2rem;
-		align-items: center;
-		margin-left: 0;
-	}
-	.menu-toggle {
-		display: none;
-		align-items: center;
-		justify-content: center;
-		min-width: 44px;
-		min-height: 44px;
-		padding: 0.5rem;
-	}
-	.category-menu {
-		position: relative;
-	}
-	.category-menu summary {
-		cursor: pointer;
-		white-space: nowrap;
-		padding: 0.4rem 0;
-		list-style: none;
-	}
-	.category-menu summary::-webkit-details-marker {
-		display: none;
-	}
-	.category-options {
-		position: absolute;
-		right: 0;
-		top: 100%;
-		z-index: 10;
-		width: 250px;
-		padding: 0.5rem;
-		background: var(--paper);
-		border: 1px solid var(--border);
-		border-radius: 12px;
-		box-shadow: 0 8px 24px #0004;
-	}
-	.category-options a {
-		display: flex;
-		justify-content: space-between;
-		gap: 1rem;
-		padding: 0.55rem 0.75rem;
-		border-radius: 3px;
-	}
-	.category-options a:hover,
-	.category-options a[aria-current="page"] {
-		background: var(--hover);
-	}
-	.category-options span {
-		font-size: 0.8rem;
-		color: var(--muted);
-	}
-	.search-form {
-		display: flex;
-		gap: 0.4rem;
-	}
-	.search-form input {
-		width: 190px;
-	}
-	.search-form button {
-		white-space: nowrap;
-	}
-	.page-layout {
-		max-width: 868px;
-		margin: 1.5rem auto 4rem;
-		padding: 0 1.5rem;
-	}
-	.page-layout main {
-		min-width: 0;
-	}
-	.post-card {
+	:where(.reading-section) .post-card {
 		border: 1px solid var(--border);
 		border-radius: 12px;
 		box-shadow: var(--shadow-soft);
@@ -208,108 +83,93 @@
 		grid-template-columns: 31% minmax(0, 1fr);
 		margin-bottom: 1.3rem;
 	}
-	.card-copy {
+	:where(.reading-section) .card-copy {
 		padding: 1.2rem 1.4rem;
 	}
 	/* Card titles are h2 in a list and h3 under a post's "Related posts". */
-	.post-card :is(h2, h3) {
+	:where(.reading-section) .post-card :is(h2, h3) {
 		margin: 0.1rem 0 0.6rem;
 		font-size: 1.35rem;
 	}
-	.post-card-link {
+	:where(.reading-section) .post-card-link {
 		text-decoration: none;
 	}
-	.card-image {
+	:where(.reading-section) .card-image {
 		display: block;
 		align-self: start;
 	}
-	.card-image img {
+	:where(.reading-section) .card-image img {
 		display: block;
 		width: 100%;
 		aspect-ratio: 1.1;
 		object-fit: cover;
 	}
-	.card-copy > p:last-child {
+	:where(.reading-section) .card-copy > p:last-child {
 		font-size: 0.93rem;
 		margin-bottom: 0;
 	}
-	.post-meta {
+	:where(.reading-section) .post-meta {
 		font-size: 0.75rem;
 		color: var(--muted);
 		margin: 0.2rem 0;
 	}
-	.pagination {
+	:where(.reading-section) .pagination {
 		display: flex;
 		justify-content: center;
 		gap: 1.3rem;
 		align-items: center;
 		margin: 1.8rem 0;
 	}
-	.site-footer {
-		text-align: center;
-		border-top: 1px solid var(--border);
-		padding: 2rem 1rem;
-	}
-	.site-footer nav {
-		display: flex;
-		gap: 1.2rem;
-		justify-content: center;
-		flex-wrap: wrap;
-	}
-	.site-footer p {
-		font-size: 0.8rem;
-		color: var(--muted);
-	}
-	.breadcrumbs {
+	:where(.reading-section) .breadcrumbs {
 		display: flex;
 		align-items: center;
 		gap: 0.35rem;
 		font-size: 0.85rem;
 		margin-bottom: 1rem;
 	}
-	.article-hero {
+	:where(.reading-section) .article-hero {
 		width: 100%;
 		max-height: 450px;
 		object-fit: contain;
 		background: var(--paper);
 		border-radius: 4px;
 	}
-	.article-body {
+	:where(.reading-section) .article-body {
 		overflow-wrap: anywhere;
 		line-height: 1.8;
 	}
-	.article-body h2,
-	.article-body h3 {
+	:where(.reading-section) .article-body h2,
+	:where(.reading-section) .article-body h3 {
 		scroll-margin-top: 1rem;
 		margin: 2rem 0 0.8rem;
 	}
-	.article-body img {
+	:where(.reading-section) .article-body img {
 		display: block;
 		max-height: 800px;
 		object-fit: contain;
 		margin: auto;
 	}
-	.article-body figure {
+	:where(.reading-section) .article-body figure {
 		margin: 1.2rem 0;
 	}
-	.article-body figcaption {
+	:where(.reading-section) .article-body figcaption {
 		color: var(--muted);
 		text-align: center;
 		font-size: 0.8rem;
 	}
-	.article-body table {
+	:where(.reading-section) .article-body table {
 		border-collapse: collapse;
 		display: block;
 		max-width: 100%;
 		overflow: auto;
 		font-size: 0.9rem;
 	}
-	.article-body th,
-	.article-body td {
+	:where(.reading-section) .article-body th,
+	:where(.reading-section) .article-body td {
 		border: 1px solid #aaa;
 		padding: 0.5rem;
 	}
-	.article-body pre {
+	:where(.reading-section) .article-body pre {
 		background: #171d29;
 		color: #e5edf7;
 		padding: 1rem;
@@ -319,72 +179,61 @@
 		line-height: 1.6;
 		font-size: 0.8rem;
 	}
-	.article-body code {
+	:where(.reading-section) .article-body code {
 		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
 	}
-	.article-body :not(pre) > code {
+	:where(.reading-section) .article-body :not(pre) > code {
 		background: #e4e8ee;
 		padding: 0.1rem 0.2rem;
 		border-radius: 3px;
 		font-size: 0.87em;
 	}
-	.article-body iframe {
+	:where(.reading-section) .article-body iframe {
 		width: 100%;
 		min-height: 400px;
 		border: 0;
 	}
-	.article-body blockquote {
+	:where(.reading-section) .article-body blockquote {
 		border-left: 4px solid var(--blue);
 		padding: 0.1rem 1rem;
 		margin: 1rem 0;
 	}
-	.heading-link {
+	:where(.reading-section) .heading-link {
 		font-size: 0.75em;
 		margin-left: 0.5rem;
 		text-decoration: none;
 	}
-	.article-actions {
+	:where(.reading-section) .article-actions {
 		display: flex;
 		gap: 0.6rem;
 		align-items: center;
 		flex-wrap: wrap;
 		margin: 1.5rem 0;
 	}
-	.article-actions a,
-	.article-actions button {
+	:where(.reading-section) .article-actions a,
+	:where(.reading-section) .article-actions button {
 		font-size: 0.85rem;
 	}
-	.search-page-form {
+	:where(.reading-section) .search-page-form {
 		display: block;
 	}
-	.search-page-form > div {
+	:where(.reading-section) .search-page-form > div {
 		display: flex;
 		gap: 0.5rem;
 	}
-	.search-page-form input {
+	:where(.reading-section) .search-page-form input {
 		width: 100%;
 	}
-	.search-page-form label {
+	:where(.reading-section) .search-page-form label {
 		display: block;
 		margin-bottom: 0.5rem;
 	}
-	.search-result {
+	:where(.reading-section) .search-result {
 		border-bottom: 1px solid var(--border);
 		padding: 0.8rem 0;
 	}
-	.search-result h2 {
+	:where(.reading-section) .search-result h2 {
 		margin: 0.5rem 0;
-	}
-	.skip-link {
-		position: absolute;
-		left: 1rem;
-		top: -100px;
-		background: var(--paper);
-		padding: 0.5rem;
-		z-index: 100;
-	}
-	.skip-link:focus {
-		top: 1rem;
 	}
 	.visually-hidden {
 		position: absolute;
@@ -397,148 +246,76 @@
 		white-space: nowrap;
 		border: 0;
 	}
-	@media (max-width: 1000px) {
-		.header-inner {
-			gap: 1rem;
-			padding: 1rem;
-		}
-		.header-inner nav {
-			gap: 0.8rem;
-		}
-		.search-form input {
-			width: 190px;
-		}
-	}
-	@media (max-width: 900px) {
-		.header-inner {
-			flex-wrap: wrap;
-			row-gap: 0;
-		}
-		.brand {
-			flex: 1;
-		}
-		.menu-toggle {
-			display: flex;
-		}
-		.header-inner nav {
-			width: 100%;
-			display: flex;
-			flex-wrap: wrap;
-			margin: 0;
-			min-height: 0;
-			overflow: clip;
-			overflow-clip-margin: 6px;
-			padding-top: 1rem;
-		}
-		.category-menu {
-			width: 100%;
-		}
-		.category-options {
-			position: static;
-			width: 100%;
-			box-shadow: none;
-		}
-		.header-inner nav > .search-form {
-			width: 100%;
-			order: -1;
-		}
-		.header-inner nav > .search-form input {
-			width: 100%;
-			flex: 1;
-		}
-	}
 	@media (max-width: 760px) {
-		.page-layout {
-			display: block;
-			margin-top: 1.3rem;
-			padding: 0 1rem;
-		}
-		.post-card {
+		:where(.reading-section) .post-card {
 			grid-template-columns: 1fr;
 		}
-		.card-image img {
+		:where(.reading-section) .card-image img {
 			height: 180px;
 			aspect-ratio: auto;
 			object-fit: cover;
 		}
-		.card-copy {
+		:where(.reading-section) .card-copy {
 			padding: 1rem;
 		}
-		.article-body iframe {
+		:where(.reading-section) .article-body iframe {
 			min-height: 240px;
-		}
-		h1 {
-			font-size: 1.7rem;
-		}
-		.site-footer nav {
-			gap: 0.8rem;
 		}
 	}
 	@media (prefers-color-scheme: dark) {
-		.article-body :not(pre) > code {
+		:where(.reading-section) .article-body :not(pre) > code {
 			background: #333;
 		}
 	}
 	@media print {
-		.site-header,
-		.site-footer,
-		.article-actions,
-		.heading-link,
-		.related-posts,
-		.about-card {
+		:where(.reading-section) .article-actions,
+		:where(.reading-section) .heading-link,
+		:where(.reading-section) .related-posts,
+		:where(.reading-section) .about-card {
 			/* biome-ignore lint/complexity/noImportantStyles: print output must hide the site chrome even over inline style attributes and higher-specificity component rules */
 			display: none !important;
 		}
-		.page-layout {
-			display: block;
-			margin: 0;
-			padding: 0;
-		}
-		body {
-			background: white;
-			color: black;
-		}
-		.article-body pre {
+		:where(.reading-section) .article-body pre {
 			white-space: pre-wrap;
 			color: black;
 			background: #eee;
 		}
 		/* After the screen and dark-mode code rules, so it wins by order. */
-		.article-body :not(pre) > code {
+		:where(.reading-section) .article-body :not(pre) > code {
 			background: #eee;
 			color: #000;
 		}
-		.article-hero {
+		:where(.reading-section) .article-hero {
 			max-height: 260px;
 		}
-		a {
+		:where(.reading-section) a:not([data-slot]) {
 			color: inherit;
 		}
 	}
 
-	.load-more {
+	:where(.reading-section) .load-more {
 		text-align: center;
 		margin: 1.8rem 0;
 		min-height: 100px;
 	}
-	.load-more p {
+	:where(.reading-section) .load-more p {
 		color: var(--muted);
 		font-size: 0.85rem;
 	}
 
-	.about-card {
+	:where(.reading-section) .about-card {
 		background: var(--paper);
 		border-radius: 12px;
 		box-shadow: var(--shadow-soft);
 		padding: 1.5rem;
 		margin-bottom: 2.5rem;
 	}
-	.profile-header {
+	:where(.reading-section) .profile-header {
 		display: flex;
 		align-items: center;
 		gap: 1.5rem;
 	}
-	.profile-photo {
+	:where(.reading-section) .profile-photo {
 		display: block;
 		width: 192px;
 		height: 192px;
@@ -547,23 +324,23 @@
 		object-position: center 35%;
 		flex-shrink: 0;
 	}
-	.profile-identity h2 {
+	:where(.reading-section) .profile-identity h2 {
 		font-size: 1.35rem;
 		font-weight: 700;
 		margin: 0 0 0.2rem;
 	}
-	.profile-role {
+	:where(.reading-section) .profile-role {
 		margin: 0;
 		font-size: 0.95rem;
 		letter-spacing: 0.02em;
 	}
-	.social-links {
+	:where(.reading-section) .social-links {
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
 		margin-top: 0.55rem;
 	}
-	.social-links a {
+	:where(.reading-section) .social-links a {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -577,59 +354,55 @@
 			opacity 300ms cubic-bezier(0.4, 0, 0.2, 1),
 			transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
 	}
-	.social-links a:is(:hover, :focus-visible) {
+	:where(.reading-section) .social-links a:is(:hover, :focus-visible) {
 		opacity: 1;
 		transform: scale(1.1);
 	}
-	.social-links img {
+	:where(.reading-section) .social-links img {
 		width: 24px;
 		height: 24px;
 	}
-	.about-content {
+	:where(.reading-section) .about-content {
 		margin-top: 1rem;
 		font-size: 1.08rem;
 		line-height: 1.6;
 	}
-	.about-content p:last-child {
+	:where(.reading-section) .about-content p:last-child {
 		margin-bottom: 0;
 	}
-	.header-inner nav a[href^="https://"]::after {
-		content: "↗";
-		margin-left: 0.15em;
-	}
 	@media (max-width: 760px) {
-		.about-card {
+		:where(.reading-section) .about-card {
 			padding: 1.25rem;
 		}
-		.profile-header {
+		:where(.reading-section) .profile-header {
 			flex-direction: column;
 			gap: 1rem;
 			align-items: center;
 			text-align: center;
 		}
-		.profile-photo {
+		:where(.reading-section) .profile-photo {
 			width: 160px;
 			height: 160px;
 		}
-		.social-links {
+		:where(.reading-section) .social-links {
 			justify-content: center;
 		}
-		.about-content {
+		:where(.reading-section) .about-content {
 			font-size: 1rem;
 		}
 	}
 	@media print {
-		.social-links a {
+		:where(.reading-section) .social-links a {
 			transform: none;
 		}
 	}
 
-	.post-details {
+	:where(.reading-section) .post-details {
 		margin-top: 1.5rem;
 		padding-top: 1rem;
 		border-top: 1px solid var(--border);
 	}
-	.article-actions a {
+	:where(.reading-section) .article-actions a:not([data-slot]) {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -642,120 +415,83 @@
 		text-decoration: none;
 		font-weight: 600;
 	}
-	.article-actions a:hover {
+	:where(.reading-section) .article-actions a:not([data-slot]):hover {
 		background: var(--hover);
 		border-color: var(--input-border);
 	}
-	.action-label {
+	:where(.reading-section) .action-label {
 		font-size: 0.8rem;
 		color: var(--muted);
 		margin-right: 0.2rem;
 	}
-
-	.header-inner nav a {
-		color: var(--text);
-		text-decoration: none;
-	}
-	.post-card :is(h2, h3) a {
+	:where(.reading-section) .post-card :is(h2, h3) a {
 		color: var(--heading);
 	}
 
-	.site-footer nav a {
-		color: var(--muted);
-	}
-	.site-footer nav a:is(:hover, :focus-visible) {
-		color: var(--heading);
-	}
-
-	.share-actions .action-button {
-		width: 44px;
-		padding: 0.5rem;
-	}
-	.share-actions img {
+	:where(.reading-section) .share-actions img {
 		display: block;
 		width: 22px;
 		height: 22px;
 	}
 	@media (prefers-color-scheme: dark) {
-		.social-links img,
-		.share-actions img {
+		:where(.reading-section) .social-links img,
+		:where(.reading-section) .share-actions img {
 			filter: invert(1);
 		}
 	}
 	/* Rendered CKEditor media still uses these content classes after conversion. */
-	#main,
-	.article-body,
-	main > article {
+	:where(.reading-section) .article-body,
+	:where(.reading-section) > article {
 		min-width: 0;
 	}
-	.article-body iframe[style] {
+	:where(.reading-section) .article-body iframe[style] {
 		min-height: 0;
 	}
-	.article-body figure.image-style-side {
+	:where(.reading-section) .article-body figure.image-style-side {
 		float: right;
 		margin-left: 1.5rem;
 		max-width: 50%;
 	}
-	.article-body::after {
+	:where(.reading-section) .article-body::after {
 		content: "";
 		display: block;
 		clear: both;
 	}
-	.article-body figure.table {
+	:where(.reading-section) .article-body figure.table {
 		max-width: 100%;
 		overflow-x: auto;
 	}
-	.article-body figure.table > table {
+	:where(.reading-section) .article-body figure.table > table {
 		display: table;
 	}
 	@media (max-width: 760px) {
-		.article-body figure.image-style-side {
+		:where(.reading-section) .article-body figure.image-style-side {
 			float: none;
 			margin: 1rem 0;
 			max-width: 100%;
 		}
 	}
 	@media print {
-		.article-body figure.table {
+		:where(.reading-section) .article-body figure.table {
 			overflow: visible;
 		}
 	}
-	.navigation-panel {
-		display: contents;
-	}
-	.menu-line {
-		transform-origin: 12px 12px;
-		transition:
-			transform var(--motion-panel) var(--motion-ease),
-			opacity var(--motion-fast) ease;
-	}
-	.menu-toggle[aria-expanded="true"] .top {
-		transform: translateY(6px) rotate(45deg);
-		transform-origin: 12px 6px;
-	}
-	.menu-toggle[aria-expanded="true"] .middle {
-		opacity: 0;
-	}
-	.menu-toggle[aria-expanded="true"] .bottom {
-		transform: translateY(-6px) rotate(-45deg);
-		transform-origin: 12px 18px;
-	}
 	/* Native disclosures retain their keyboard and no-JavaScript behavior. */
 	@supports selector(::details-content) {
-		details::details-content {
+		:where(.reading-section) details::details-content {
 			opacity: 0;
 			transition:
 				opacity var(--motion-panel) ease,
 				content-visibility var(--motion-panel) allow-discrete;
 		}
-		details[open]::details-content {
+		:where(.reading-section) details[open]::details-content {
 			opacity: 1;
 		}
 		@supports (interpolate-size: allow-keywords) {
-			details {
+			:where(.reading-section) details {
 				interpolate-size: allow-keywords;
 			}
-			details::details-content {
+			:where(.reading-section) details::details-content {
 				block-size: 0;
 				overflow: clip;
 				transition:
@@ -763,59 +499,17 @@
 					opacity var(--motion-panel) ease,
 					content-visibility var(--motion-panel) allow-discrete;
 			}
-			details[open]::details-content {
+			:where(.reading-section) details[open]::details-content {
 				block-size: auto;
 			}
 			/* The desktop category dropdown is positioned outside the disclosure box. */
-			.category-menu::details-content {
-				block-size: auto;
-				overflow: visible;
-			}
-			@media (max-width: 900px) {
-				.category-menu::details-content {
-					block-size: 0;
-					overflow: clip;
-				}
-				.category-menu[open]::details-content {
-					block-size: auto;
-				}
-			}
-		}
-	}
-	@media (max-width: 900px) {
-		.navigation-panel {
-			display: grid;
-			grid-template-rows: 1fr;
-			width: 100%;
-			order: 3;
-			opacity: 1;
-			visibility: visible;
-			transition:
-				grid-template-rows var(--motion-panel) var(--motion-ease),
-				opacity var(--motion-fast) ease,
-				visibility 0s;
-		}
-		.navigation-panel nav {
-			transition: padding-top var(--motion-panel) var(--motion-ease);
-		}
-		.navigation-panel.collapsed nav {
-			padding-top: 0;
-		}
-		.navigation-panel.collapsed {
-			grid-template-rows: 0fr;
-			opacity: 0;
-			visibility: hidden;
-			transition:
-				grid-template-rows var(--motion-panel) var(--motion-ease),
-				opacity var(--motion-fast) ease,
-				visibility 0s var(--motion-panel);
 		}
 	}
 	@media (prefers-reduced-motion: reduce) {
-		*,
-		*::before,
-		*::after,
-		details::details-content {
+		:where(.reading-section) *,
+		:where(.reading-section) *::before,
+		:where(.reading-section) *::after,
+		:where(.reading-section) details::details-content {
 			/* biome-ignore-start lint/complexity/noImportantStyles: reduced motion must override every transition and animation, including higher-specificity rules and inline styles */
 			transition-duration: 0s !important;
 			animation-duration: 0s !important;
@@ -825,14 +519,13 @@
 		}
 	}
 	@media print {
-		details::details-content {
+		:where(.reading-section) details::details-content {
 			transition: none;
 		}
 	}
 
 	/* Match the portfolio: a transparent underline fades in on hover or focus. */
-	a:not(.card-image, .brand, .heading-link, .action-button, .social-link),
-	.text-button {
+	:where(.reading-section) .text-button {
 		text-decoration: underline 2px transparent;
 		text-underline-offset: 4px;
 		text-decoration-skip-ink: none;
@@ -841,16 +534,11 @@
 			color var(--motion-fast) ease,
 			background-color var(--motion-fast) ease;
 	}
-	a:not(.card-image, .brand, .heading-link, .action-button, .social-link):is(
-		:hover,
-		:focus-visible
-	),
-	.text-button:is(:hover, :focus-visible) {
+	:where(.reading-section) .text-button:is(:hover, :focus-visible) {
 		text-decoration-color: currentColor;
 	}
 	@media print {
-		a:not(.card-image, .brand, .heading-link, .action-button, .social-link),
-		.text-button {
+		:where(.reading-section) .text-button {
 			text-decoration-color: currentColor;
 		}
 	}
@@ -870,33 +558,11 @@
 			transform: translateY(-3px);
 		}
 	}
-	.load-more .load-more-button {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		border: 2px solid var(--heading);
-		border-radius: 2rem;
-		padding: 1rem 2rem;
-		color: var(--heading);
-		background: transparent;
-		font-size: 1.2rem;
-		font-weight: 600;
-		text-decoration: none;
-		min-height: 64px;
-		transition:
-			background-color 240ms ease,
-			color 240ms ease;
-	}
-	.load-more .load-more-button:is(:hover, :focus-visible) {
-		background: var(--heading);
-		color: var(--paper);
-		text-decoration: none;
-	}
-	.load-more-button.paused {
+	:where(.reading-section) .load-more-button.paused {
 		animation: load-more-bounce 1.8s ease-in-out 2;
 	}
 	@media (prefers-reduced-motion: reduce) {
-		.load-more-button.paused {
+		:where(.reading-section) .load-more-button.paused {
 			animation: none;
 		}
 	}

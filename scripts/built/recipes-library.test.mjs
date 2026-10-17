@@ -23,7 +23,7 @@ const RECIPES = new URL(
 const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
 const smoothies = recipes.filter((recipe) => recipe.type === "smoothie");
 const meals = recipes.filter((recipe) => recipe.type === "meal");
-const FAMILY_SIDE = /^Family side/u;
+const FAMILY_SIDE = /^Add a side/u;
 const SERVINGS = /^Servings/u;
 const PITA = "pita_one";
 const SHAWARMA = "shawarma-chicken-bowls";
@@ -50,7 +50,7 @@ async function openPage({ initScript, arg } = {}) {
 	});
 	if (initScript) await context.addInitScript(initScript, arg);
 	const page = await context.newPage();
-	const errors = collectErrors(page, []);
+	const errors = collectErrors(page);
 	return { page, errors, close: () => context.close() };
 }
 
@@ -92,6 +92,11 @@ it("the library prints the open recipe from its dialog or the whole collection, 
 			(recipe) => recipe.id === "shawarma-chicken-bowls",
 		);
 		await goHydrated(page, `/recipes/#${shawarma.id}`);
+		assert.deepEqual(
+			await printedTitles(page),
+			[],
+			"print packets are not rendered while browsing",
+		);
 		const takeover = page.locator(".recipe-takeover");
 		await takeover.waitFor();
 		await takeover.getByRole("button", { name: "Print recipe" }).click();
@@ -111,16 +116,23 @@ it("the library prints the open recipe from its dialog or the whole collection, 
 		const afterPrint = {
 			prepared: await library.getAttribute("data-print-prepared"),
 			mode: await printMode(),
+			titles: await printedTitles(page),
 		};
 		// The browser's own Print command with the dialog closed prints the
 		// whole collection.
 		await page.keyboard.press("Escape");
 		await takeover.waitFor({ state: "detached" });
-		await page.evaluate(() => window.dispatchEvent(new Event("beforeprint")));
-		const menuPrint = {
-			titles: await printedTitles(page),
-			mode: await printMode(),
-		};
+		const menuPrint = await page.evaluate(() => {
+			window.dispatchEvent(new Event("beforeprint"));
+			// The browser snapshots printing before queued DOM updates run.
+			return {
+				titles: Array.from(
+					document.querySelectorAll(".print-output .print-meal"),
+					(article) => article.getAttribute("aria-label"),
+				),
+				mode: document.documentElement.getAttribute("data-recipe-print"),
+			};
+		});
 		await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
 
 		await goHydrated(page, "/recipes/smoothies/");
@@ -148,7 +160,8 @@ it("the library prints the open recipe from its dialog or the whole collection, 
 						document.documentElement.getAttribute("data-recipe-print"),
 					),
 				},
-				errors: [...errors, ...failing.errors],
+				errors,
+				failureErrors: failing.errors.map((error) => error.split("\n")[0]),
 			},
 			{
 				recipePrint: {
@@ -156,7 +169,7 @@ it("the library prints the open recipe from its dialog or the whole collection, 
 					copyShown: true,
 					takeoverHidden: true,
 				},
-				afterPrint: { prepared: "false", mode: null },
+				afterPrint: { prepared: "false", mode: null, titles: [] },
 				menuPrint: { titles: meals.map((recipe) => recipe.title), mode: "all" },
 				collectionPrint: {
 					titles: smoothies.map((recipe) => recipe.title),
@@ -165,6 +178,7 @@ it("the library prints the open recipe from its dialog or the whole collection, 
 				},
 				failure: { status: PRINT_FAILED, mode: null },
 				errors: [],
+				failureErrors: ["Recipe printing failed: Error: printing blocked"],
 			},
 		);
 	} finally {
@@ -278,7 +292,9 @@ it("saved filters that no smoothie meets are cleared on the smoothies page, so i
 		);
 		assert.deepEqual(
 			{
-				cards: await page.locator(".recipe-card").count(),
+				cards: Number(
+					await page.locator("#meal-results").getAttribute("data-match-count"),
+				),
 				filters: saved.filters,
 				errors,
 			},
@@ -322,7 +338,8 @@ it("unreadable or wrongly shaped saved settings leave the library on its default
 			servings: "lots",
 			filters: {
 				proteinChoice: "fish",
-				mealStyle: ["keto"],
+				mealKetoOnly: ["keto"],
+				vegetarianOnly: "true",
 				starchChoice: { rice: true },
 				ironRich: "yes",
 			},
@@ -342,8 +359,18 @@ it("unreadable or wrongly shaped saved settings leave the library on its default
 		});
 		try {
 			await goHydrated(page, "/recipes/meals/");
+			assert.deepEqual(
+				errors,
+				saved === "{not json"
+					? [
+							"Recipe settings could not be restored; using defaults. SyntaxError",
+						]
+					: [],
+			);
 			results.push({
-				cards: await page.locator(".recipe-card").count(),
+				cards: Number(
+					await page.locator("#meal-results").getAttribute("data-match-count"),
+				),
 				servings: await page
 					.getByRole("combobox", { name: SERVINGS })
 					.inputValue(),
@@ -351,7 +378,6 @@ it("unreadable or wrongly shaped saved settings leave the library on its default
 					(key) => JSON.parse(localStorage.getItem(key)),
 					STORAGE_KEY,
 				),
-				errors,
 			});
 		} finally {
 			await close();
@@ -362,20 +388,57 @@ it("unreadable or wrongly shaped saved settings leave the library on its default
 		servings: "4",
 		resaved: {
 			servings: 4,
+			units: "us",
 			filters: DEFAULT_FILTERS,
 			appliancesOnHand: defaultAppliances,
 			familyChoice: {},
 		},
-		errors: [],
 	};
 	assert.deepEqual(results, [defaults, defaults]);
 });
 
-it("a saved family side its recipe no longer offers falls back to the recipe's first side everywhere", {
+for (const operation of ["getItem", "setItem"]) {
+	it(`a failed settings ${operation} is logged without saved data and cooking controls remain usable`, async () => {
+		const { page, errors, close } = await openPage({
+			initScript: (method) => {
+				Storage.prototype[method] = () => {
+					throw new DOMException("private saved data", "SecurityError");
+				};
+			},
+			arg: operation,
+		});
+		try {
+			await goHydrated(page, "/recipes/meals/");
+			const servings = page.getByRole("combobox", { name: SERVINGS });
+			assert.equal(await servings.inputValue(), "4");
+			await servings.selectOption("6");
+			assert.equal(await servings.inputValue(), "6");
+			assert.ok((await page.locator(".recipe-card").count()) > 0);
+			assert.ok(
+				errors.some((text) =>
+					text.includes(
+						operation === "getItem"
+							? "could not be restored"
+							: "could not be saved",
+					),
+				),
+			);
+			assert.ok(
+				errors.every(
+					(text) =>
+						text.endsWith("SecurityError") &&
+						!text.includes("private saved data"),
+				),
+			);
+		} finally {
+			await close();
+		}
+	});
+}
+
+it("a saved optional side its recipe no longer offers defaults to none everywhere", {
 	timeout: 60_000,
 }, async () => {
-	const shawarma = recipes.find((recipe) => recipe.id === SHAWARMA);
-	const [first] = shawarma.familyOptions;
 	const { page, errors, close } = await openPage({
 		initScript: ([key, saved]) => {
 			if (!sessionStorage.getItem("seeded")) {
@@ -397,13 +460,11 @@ it("a saved family side its recipe no longer offers falls back to the recipe's f
 				side: await takeover
 					.getByRole("combobox", { name: FAMILY_SIDE })
 					.inputValue(),
-				sideShown: (
-					await takeover.locator(".family-box p").first().textContent()
-				).includes(first.label),
+				sideShown: await takeover.locator(".family-box p").count(),
 				cardStarch: new URL(cardHref, site.origin).searchParams.get("starch"),
 				errors,
 			},
-			{ side: first.id, sideShown: true, cardStarch: null, errors: [] },
+			{ side: "", sideShown: 0, cardStarch: null, errors: [] },
 		);
 	} finally {
 		await close();
@@ -431,7 +492,7 @@ it("Share recipe in the library dialog shares its servings and family side, and 
 		await takeover
 			.getByRole("combobox", { name: FAMILY_SIDE })
 			.selectOption(PITA);
-		await takeover.getByRole("button", { name: "Share recipe" }).click();
+		await takeover.getByRole("button", { name: "Share this recipe" }).click();
 		const shared = new URL(await page.evaluate(() => window.sharedRecipe.url));
 		await page.keyboard.press("Escape");
 		await takeover.waitFor({ state: "detached" });

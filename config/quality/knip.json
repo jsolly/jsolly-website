@@ -1,0 +1,20 @@
+{
+	"$schema": "https://unpkg.com/knip@6/schema.json",
+	"entry": [
+		"middleware.ts",
+		"src/**/*.test.ts",
+		"src/**/*.test.mjs",
+		"scripts/**/*.mjs",
+		"api/**/*.mjs"
+	],
+	"ignore": ["legacy/blogthedata/public/**"],
+	"ignoreBinaries": ["uvx"],
+	"ignoreDependencies": ["markdownlint-cli2"],
+	"treatConfigHintsAsErrors": true,
+	"astro": {
+		"config": ["config/app/astro.ts"]
+	},
+	"biome": {
+		"config": ["config/quality/biome.settings.jsonc"]
+	}
+}

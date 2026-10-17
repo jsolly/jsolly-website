@@ -16,18 +16,25 @@ import {
 	PWA_THEME_COLOR,
 } from "../components/recipes/constants.mjs";
 import RecipePwa from "../components/recipes/RecipePwa.astro";
+import noScriptStyles from "../styles/recipes/page-no-script.css?url";
 
 interface Props {
 	title: string;
 	description: string;
 	article?: boolean;
+	noindex?: boolean;
+	image?: string;
+	imageAlt?: string;
 }
 
-const { title, description, article = false } = Astro.props;
+const { title, description, article = false, noindex = false, image, imageAlt } = Astro.props;
 ---
 
-<BlogLayout section="recipes" {title} {description} {article}>
+<BlogLayout section="recipes" {title} {description} {article} {noindex} {...(image === undefined ? {} : { image })} {...(imageAlt === undefined ? {} : { imageAlt })}>
 	<Fragment slot="head">
+		<link rel="related" type="application/json" href="/recipes/data/recipe-library.json" title="Complete recipe library: ingredients, instructions, nutrition and sources" />
+		<link rel="help" type="text/plain" href="/llms.txt" title="Agent reading guide" />
+		<noscript><link rel="stylesheet" href={noScriptStyles} /></noscript>
 		<link rel="manifest" href={`${PWA_FILES_PATH}manifest.webmanifest`} />
 		<meta name="theme-color" content={PWA_THEME_COLOR} />
 		<link rel="apple-touch-icon" href={`${PWA_FILES_PATH}icon-180.png`} />

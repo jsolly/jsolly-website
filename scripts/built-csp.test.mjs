@@ -1,8 +1,11 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import it from "node:test";
+import { globby } from "globby";
 import { JSDOM } from "jsdom";
-import { readBuiltPages } from "./built/pages.mjs";
+import { NOTEBOOK_RENDERS, readBuiltPages } from "./built/pages.mjs";
 import { parseDirectives, readHeaderPolicy } from "./csp.mjs";
 
 const WHITESPACE = /\s+/u;
@@ -11,7 +14,7 @@ const SCHEME_SOURCE = /^[a-z][a-z\d+.-]*:$/iu;
 const SITE_ORIGIN = "https://www.jsolly.com";
 const SCRIPT_TYPES = ["module", "text/javascript", "application/javascript"];
 // BlogLayout's per-page directives (plan §1.13, J6): legacy post images and
-// the YouTube, diagrams.net and nbviewer embeds, on dist/blog/** only.
+// the YouTube, diagrams.net embeds and same-origin notebook frames, on dist/blog/** only.
 // Page paths relative to dist/.
 const BLOG_PAGES = "blog/";
 const BLOG_IMG_SRC = [
@@ -20,9 +23,9 @@ const BLOG_IMG_SRC = [
 	"https://d1d7p8ufhgz4ld.cloudfront.net",
 ];
 const BLOG_FRAME_SRC = [
+	"'self'",
 	"https://www.youtube-nocookie.com",
 	"https://viewer.diagrams.net",
-	"https://nbviewer.org",
 ];
 
 function findMetaPolicy(document) {
@@ -159,6 +162,35 @@ it("blog pages, and only blog pages, allow CloudFront post images and the three 
 					? { "img-src": BLOG_IMG_SRC, "frame-src": BLOG_FRAME_SRC }
 					: { "img-src": null, "frame-src": null },
 				`${file}: the meta widens img-src and frame-src on blog pages only`,
+			);
+		} finally {
+			dom.window.close();
+		}
+	}
+});
+
+it("static notebook renders ship no scripts and restrict themselves to their own images", async () => {
+	const files = await globby(NOTEBOOK_RENDERS, { cwd: "dist" });
+	assert.ok(files.length > 0, "built notebook renders are required");
+	for (const file of files) {
+		// biome-ignore lint/performance/noAwaitInLoops: bounded build pages are read sequentially.
+		const html = await readFile(join("dist", file), "utf8");
+		const dom = new JSDOM(html);
+		try {
+			assert.equal(
+				dom.window.document.querySelectorAll("script").length,
+				0,
+				`${file}: a notebook render runs no scripts`,
+			);
+			const meta = findMetaPolicy(dom.window.document);
+			assert.ok(meta, `${file}: policy is in the head`);
+			const directives = parseDirectives(meta.getAttribute("content"));
+			assert.deepEqual(directives.get("script-src"), ["'none'"], file);
+			assert.deepEqual(directives.get("img-src"), ["'self'", "data:"], file);
+			assert.deepEqual(
+				directives.get("style-src"),
+				["'self'", "'unsafe-inline'"],
+				file,
 			);
 		} finally {
 			dom.window.close();

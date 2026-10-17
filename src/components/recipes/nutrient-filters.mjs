@@ -1,17 +1,18 @@
 import {
 	applianceChoices,
-	applianceDependencies,
 	applianceLimits,
 	applianceNeeds,
-	carbStyles,
 	DEFAULT_FILTERS,
 	defaultAppliances,
 	proteins,
-	recipeStarches,
 	starchOptions,
 } from "./constants.mjs";
 import { dailyNutrition, recordedOmega3 } from "./nutrition.mjs";
-import { ingredientAmount, validateSettings } from "./recipe-logic.mjs";
+import {
+	dietaryClass,
+	ingredientAmount,
+	validateSettings,
+} from "./recipe-logic.mjs";
 
 const immuneNutrients = new Set([
 	"vitamin_a",
@@ -86,10 +87,7 @@ export function availableAppliances(value) {
 }
 export function hasAppliances(recipe, inventory) {
 	return recipe.appliancesNeeded.every(
-		(key) =>
-			(inventory[key] || 0) >= (applianceNeeds[key] ?? 1) &&
-			(!applianceDependencies[key] ||
-				inventory[applianceDependencies[key]] > 0),
+		(key) => (inventory[key] || 0) >= (applianceNeeds[key] ?? 1),
 	);
 }
 export function matchesRecipe(
@@ -97,6 +95,8 @@ export function matchesRecipe(
 	servings,
 	{
 		protein = [],
+		vegetarian = false,
+		dumpAndGo = false,
 		carb = [],
 		starch = [],
 		immune = false,
@@ -114,9 +114,10 @@ export function matchesRecipe(
 			)) &&
 		hasAppliances(recipe, appliances) &&
 		selectedMatches(protein, recipe.proteinType) &&
-		selectedMatches(carb, recipe.group) &&
-		(!starch.length ||
-			starch.some((type) => recipeStarches[recipe.id]?.includes(type))) &&
+		(!vegetarian || recipe.vegetarian === true) &&
+		(!dumpAndGo || recipe.dumpAndGo === true) &&
+		selectedMatches(carb, dietaryClass(recipe)) &&
+		(!starch.length || starch.some((type) => recipe.starches.includes(type))) &&
 		(!immune || flags.immune) &&
 		(!iron || flags.iron) &&
 		(!omega || flags.omega)
@@ -146,6 +147,7 @@ export function parseSavedSettings(saved, { recipes, ingredients }) {
 	const flag = (key) => filters[key] === true;
 	return {
 		servings: validateSettings({ servings: settings.servings }).servings,
+		units: validateSettings({ units: settings.units }).units,
 		filters: {
 			...DEFAULT_FILTERS,
 			proteinChoice: normalizeSelection(filters.proteinChoice, proteins),
@@ -154,15 +156,13 @@ export function parseSavedSettings(saved, { recipes, ingredients }) {
 				filters.ingredientChoice,
 				ingredients,
 			),
-			mealStyle:
-				typeof filters.mealStyle === "string" &&
-				Object.hasOwn(carbStyles, filters.mealStyle)
-					? filters.mealStyle
-					: DEFAULT_FILTERS.mealStyle,
+			mealKetoOnly: flag("mealKetoOnly"),
+			vegetarianOnly: flag("vegetarianOnly"),
 			smoothieKetoOnly: flag("smoothieKetoOnly"),
 			immuneSupport: flag("immuneSupport"),
 			ironRich: flag("ironRich"),
 			omega3: flag("omega3"),
+			dumpAndGo: flag("dumpAndGo"),
 		},
 		appliancesOnHand: availableAppliances(settings.appliancesOnHand),
 		familyChoice,

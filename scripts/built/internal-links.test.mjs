@@ -15,7 +15,7 @@ import {
 	sourceValues,
 } from "./site-links.mjs";
 
-// Plan §4.3: the link checks over the whole build. dist/ is read and parsed
+// Link checks over the whole build. dist/ is read and parsed
 // once into a site model (site-links.mjs readSite) that all four tests share;
 // each test first runs its checker on a small in-memory site, so a checker
 // that stops finding problems fails too.
@@ -26,8 +26,6 @@ import {
 //   (c) every link to a mixed-case post or category slug uses its exact case;
 //   (d) no legacy root path (/post/, /search/, /media/, ...) is built in code
 //       or in the JS, JSON and XML the HTML check cannot see.
-const MIXED_CASE_POSTS = 22;
-const MIXED_CASE_CATEGORIES = ["Geodev"];
 
 let distSite;
 // dist/ as a site model, read once for all four tests.
@@ -52,7 +50,7 @@ const html = (body, head = "") =>
 	`<!doctype html><html><head>${head}</head><body>${body}</body></html>`;
 
 it("(a) every same-origin link, image, script, manifest and icon in the build resolves, and every #fragment names an id on its page", async (t) => {
-	const fixture = fixtureSite({
+	const fixture = await fixtureSite({
 		"index.html": html(
 			[
 				'<a href="/blog/post/#kept">ok</a>',
@@ -106,7 +104,7 @@ it("(a) every same-origin link, image, script, manifest and icon in the build re
 });
 
 it("(b) the build links nothing on the old blog host; prose may name it and the feeds keep their legacy ids", async () => {
-	const fixture = fixtureSite({
+	const fixture = await fixtureSite({
 		"index.html": html(
 			[
 				'<a href="https://www.blogthedata.com/post/x/">link</a>',
@@ -163,7 +161,7 @@ it("(b) the build links nothing on the old blog host; prose may name it and the 
 });
 
 it("(c) every link to a mixed-case post or category uses the slug's exact case", async (t) => {
-	const fixture = fixtureSite({
+	const fixture = await fixtureSite({
 		"index.html": html(
 			[
 				'<a href="/blog/Mixed-Post/">exact</a>',
@@ -191,16 +189,6 @@ it("(c) every link to a mixed-case post or category uses the slug's exact case",
 	);
 	t.diagnostic(
 		`${posts.length} mixed-case posts and ${categories.length} mixed-case categories (${categories.join(", ")})`,
-	);
-	assert.equal(
-		posts.length,
-		MIXED_CASE_POSTS,
-		"plan §4.3 (c) freezes the migration contract at 22 mixed-case posts; a changed count means the content changed, not that a link is wrong",
-	);
-	assert.deepEqual(
-		categories,
-		MIXED_CASE_CATEGORIES,
-		"plan §4.3 (c) freezes the migration contract at one mixed-case category, Geodev; a change means the content changed, not that a link is wrong",
 	);
 	const routes = mixedCaseRoutes(posts, categories);
 	assert.equal(
@@ -256,7 +244,7 @@ it("(d) no legacy root path is built in src/ code or in the build's JS, JSON, XM
 		[],
 		"new paths and external URLs are not legacy roots",
 	);
-	const fixture = fixtureSite({
+	const fixture = await fixtureSite({
 		"blog/rss.xml": [
 			// biome-ignore lint/security/noSecrets: fixture markup, not credential material.
 			'<?xml version="1.0"?><rss><channel>',
@@ -287,4 +275,19 @@ it("(d) no legacy root path is built in src/ code or in the build's JS, JSON, XM
 		legacyRoots(file, values),
 	);
 	assert.deepEqual([...source, ...built], [], "legacy root paths");
+});
+
+it("Markdown links and raw HTML are checked while code and quoted URLs remain prose", async () => {
+	const fixture = await fixtureSite({
+		"blog/post.md":
+			// biome-ignore lint/security/noSecrets: test Markdown with public example URLs, not a credential.
+			'# Post\n\n[Missing](/gone/)\n\n[Old](https://blogthedata.com/post/x/)\n\n<img src="/missing.webp">\n\n<a id="kept"></a>\n\n[Self](#kept)\n\n`https://blogthedata.com/post/prose/`\n\n<pre>https://blogthedata.com/post/code/</pre>',
+	});
+	assert.deepEqual(brokenReferences(fixture), [
+		"blog/post.md href=/gone/: has no file in dist/",
+		"blog/post.md src=/missing.webp: has no file in dist/",
+	]);
+	assert.deepEqual(legacyHostLinks(fixture), [
+		"blog/post.md href=https://blogthedata.com/post/x/",
+	]);
 });

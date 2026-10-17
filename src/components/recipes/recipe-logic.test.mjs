@@ -3,25 +3,29 @@ import { readFile } from "node:fs/promises";
 import it from "node:test";
 import {
 	capacityNote,
-	familyNutrition,
+	dietaryClass,
 	formatIngredient,
 	formatQuantity,
 	ingredientAmount,
+	selectedSide,
 	servingNutrition,
 	shuffleRecipes,
+	sideNutrition,
 	temperature,
 	validateSettings,
 } from "./recipe-logic.mjs";
 
+const WEIGHED = /g/u;
+const IMPERIAL_MEASURE = /tsp|g|oz/u;
 const EXTRA_BATCHES = /extra pan or basket batches/u;
 const PRESSURE_MINIMUM = /do not shorten a pressure minimum/u;
 const ABOUT_ONE_CAN = /About 1 ×/u;
 const ABOUT_FOUR_CANS = /About 4 ×/u;
 const BUY_TWO = /Buy 2 ×/u;
-const GRAMS = /g$/u;
 const MICROWAVE = /microwave/iu;
 const YIELD = /yield/u;
 const POSITIVE_GLASS = /positive glass/u;
+const BAD_MEASUREMENT = /amount must be finite and positive/u;
 
 const ingredient = (id, name, amount, unit, state = "raw", extra = {}) => ({
 	id,
@@ -44,7 +48,6 @@ const chicken = {
 	id: "chicken",
 	key: "salsa_chicken",
 	title: "Salsa chicken",
-	group: "shared",
 	proteinType: "chicken",
 	vegetarian: false,
 	appliance: "instant-pot",
@@ -59,9 +62,11 @@ const chicken = {
 			us: { amount: 1.75, unit: "lb" },
 		}),
 		ingredient("lime", "lime juice", 30, "ml", "juiced", {
+			weightRef: "usda-168156",
 			us: { amount: 2, unit: "tbsp" },
 		}),
 		ingredient("salt", "salt", 1, "tsp", "dry", {
+			weightRef: "usda-173468",
 			category: "pantry",
 			scale: "minimum",
 			us: { amount: 1, unit: "tsp" },
@@ -93,21 +98,22 @@ it("familiar fractions, typed US measures, and seasoning rules survive serving c
 	assert.equal(formatQuantity(1.5), "1 ½");
 	assert.equal(formatQuantity(0.3333), "⅓");
 	assert.equal(formatQuantity(37.5), "37.5");
-	assert.equal(formatIngredient(chicken.ingredients[1], 2, "us"), "1 tbsp");
-	assert.equal(formatIngredient(chicken.ingredients[1], 2, "metric"), "15 ml");
-	assert.equal(formatIngredient(chicken.ingredients[0], 8, "us"), "1600g");
+	assert.equal(formatIngredient(chicken.ingredients[1], 2, "us"), "0.51 fl oz");
+	assert.equal(formatIngredient(chicken.ingredients[1], 2, "metric"), "15 mL");
+	assert.equal(formatIngredient(chicken.ingredients[0], 8, "us"), "3.53 lb");
 	assert.equal(ingredientAmount(chicken.ingredients[2], 2), 1);
 	assert.equal(formatIngredient(chicken.ingredients[2], 2, "us"), "1 tsp");
 	assert.equal(ingredientAmount(chicken.ingredients[2], 8), 2);
 	const fixedEgg = ingredient("egg", "beaten egg", 1, "count", "beaten", {
 		scale: "fixed",
+		weightRef: "usda-171287",
 	});
 	assert.equal(ingredientAmount(fixedEgg, 8), 1);
 	const linearEgg = { ...fixedEgg, scale: "linear" };
-	assert.equal(formatIngredient(linearEgg, 2), "½ count");
-	assert.equal(
-		formatIngredient(ingredient("pepper", "black pepper", 0, "tsp"), 8),
-		"to taste",
+	assert.equal(formatIngredient(linearEgg, 2), "25 g");
+	assert.throws(
+		() => formatIngredient(ingredient("pepper", "black pepper", 0, "tsp"), 8),
+		BAD_MEASUREMENT,
 	);
 });
 
@@ -118,19 +124,17 @@ it("temperature keeps the source setting and rounds safe endpoints upward", () =
 	assert.equal(temperature(165, "us", true), "165°F");
 });
 
-it("family macros are per serving and base remains intact", () => {
+it("explicit side macros exclude the base and leave it intact", () => {
 	const before = structuredClone(chicken);
-	assert.deepEqual(familyNutrition(chicken, "rice"), {
-		kcal: 566,
-		protein_g: 39,
-		carbs_g: 46,
-		fiber_g: 5,
-		net_carbs_g: 41,
+	assert.deepEqual(sideNutrition(chicken, "rice"), {
+		kcal: 166,
+		fat_g: null,
+		protein_g: 4,
+		carbs_g: 34,
+		fiber_g: 2,
+		net_carbs_g: 32,
 	});
-	assert.deepEqual(
-		familyNutrition(chicken, "unknown"),
-		familyNutrition(chicken, "rice"),
-	);
+	assert.deepEqual(sideNutrition(chicken, "unknown"), null);
 	assert.deepEqual(chicken, before);
 });
 
@@ -161,15 +165,24 @@ it("pressure minimum changes small-batch per-person nutrition, not safe liquid",
 	).recipes;
 	const pressure = data.find((r) => r.key === "salsa_chicken");
 	const p = servingNutrition(pressure, 2);
-	assert(Math.abs(p.kcal - pressure.nutrition.kcal - 6.5625) < 1e-10);
-	assert(Math.abs(p.protein_g - pressure.nutrition.protein_g - 1.275) < 1e-10);
-	assert(Math.abs(p.carbs_g - pressure.nutrition.carbs_g - 0.35625) < 1e-10);
-	assert.deepEqual(servingNutrition(pressure, 4), pressure.nutrition);
-	assert.deepEqual(servingNutrition(pressure, 8), pressure.nutrition);
-	assert.deepEqual(
-		familyNutrition(pressure, "bogus", 2),
-		familyNutrition(pressure, pressure.familyOptions[0].id, 2),
+	// USDA broth is 240 g per US cup; minimum 375 mL contributes a fixed batch.
+	const extra = (375 * 240) / 236.5882365 / 400;
+	assert(Math.abs(p.kcal - pressure.nutrition.kcal - extra * 7) < 1e-10);
+	assert(
+		Math.abs(p.protein_g - pressure.nutrition.protein_g - extra * 1.36) < 1e-10,
 	);
+	assert(
+		Math.abs(p.carbs_g - pressure.nutrition.carbs_g - extra * 0.38) < 1e-10,
+	);
+	assert.deepEqual(servingNutrition(pressure, 4), {
+		...pressure.nutrition,
+		fat_g: 13.30389625,
+	});
+	assert.deepEqual(servingNutrition(pressure, 8), {
+		...pressure.nutrition,
+		fat_g: 13.30389625,
+	});
+	assert.deepEqual(sideNutrition(pressure, "bogus"), null);
 });
 
 it("package counts follow scaled ingredient weights rather than fixed recipe notes", async () => {
@@ -192,31 +205,23 @@ it("package counts follow scaled ingredient weights rather than fixed recipe not
 	assert.match(purchaseNote(gnocchi, 8), BUY_TWO);
 });
 
-it("small finishing amounts use spoons in both modes without changing nutrition weights", async () => {
+it("finishing amounts use sourced grams in weighing mode and retain spoons in US mode", async () => {
 	const data = JSON.parse(
 		await readFile(new URL("./recipes.json", import.meta.url), "utf8"),
 	).recipes;
 	for (const r of data)
 		for (const i of r.ingredients.filter(
 			(item) => item.displayMeasure === "spoon",
-		)) {
+		))
 			for (const count of [2, 4, 6, 8]) {
-				assert.equal(
-					formatIngredient(i, count, "metric"),
-					formatIngredient(i, count, "us"),
-				);
-				// A spoon measure of a gram or more still shows grams.
-				assert.ok(
-					ingredientAmount(i, count) < 1 ||
-						GRAMS.test(formatIngredient(i, count, "metric")),
-					`${i.id} at ${count} servings`,
-				);
+				assert.match(formatIngredient(i, count, "grams"), WEIGHED);
+				assert.match(formatIngredient(i, count, "us"), IMPERIAL_MEASURE);
 			}
-		}
-	const salmon = data.find((r) => r.key === "salmon");
-	const zest = salmon.ingredients.find((i) => i.id === "lemon_zest");
+	const zest = data
+		.find((r) => r.key === "salmon")
+		.ingredients.find((i) => i.id === "lemon_zest");
 	assert.equal(zest.amount, 2);
-	assert.equal(formatIngredient(zest, 2, "metric"), "1g");
+	assert.equal(formatIngredient(zest, 2, "metric"), "1 g");
 });
 
 it("appliance card requirements include the microwaves specified by recipe equipment", async () => {
@@ -260,16 +265,16 @@ it("gram threshold preserves subgram source measures", () => {
 		displayMeasure: "spoon",
 		us: { amount: 0.5, unit: "tsp" },
 	});
-	assert.equal(formatIngredient(i, 4, "us"), "1g");
-	assert.equal(formatIngredient(i, 2, "us"), "¼ tsp");
+	assert.equal(formatIngredient(i, 4, "us"), "0.04 oz");
+	assert.equal(formatIngredient(i, 2, "us"), "0.02 oz");
 });
 
 it("display rounds gram amounts without changing scaling weights", () => {
 	const i = ingredient("paprika", "paprika", 2.3, "g");
 	for (const count of [2, 4, 6, 8])
 		assert.equal(
-			formatIngredient(i, count, "us"),
-			`${Math.round((2.3 * count) / 4)}g`,
+			formatIngredient(i, count, "grams"),
+			`${Number(((2.3 * count) / 4).toFixed(1))} g`,
 		);
 	assert.ok(Math.abs(ingredientAmount(i, 6) - 3.45) < 1e-10);
 });
@@ -302,17 +307,44 @@ it("smoothie nutrition uses explicit estimated fluid yield, independent of batch
 	);
 	assert.throws(() => smoothiePortionNutrition(smoothie, 0), POSITIVE_GLASS);
 });
-it("whole-ounce smoothie display keeps canonical quantities intact", () => {
-	const water = { id: "water", amount: 400, unit: "ml", scale: "linear" };
-	assert.equal(formatIngredient(water, 4, "us"), "13.5 oz");
-	assert.equal(
-		formatIngredient(water, 4, "us", { wholeOunces: true }),
-		"14 oz",
-	);
-	assert.equal(formatIngredient(water, 2, "us", { wholeOunces: true }), "7 oz");
-	assert.equal(
-		formatIngredient(water, 4, "metric", { wholeOunces: true }),
-		"400 ml",
-	);
+it("smoothie liquid keeps fluid-ounce precision without changing the canonical amount", () => {
+	const water = {
+		id: "water",
+		name: "Cold water",
+		weightRef: "water",
+		amount: 400,
+		unit: "ml",
+		scale: "linear",
+	};
+	assert.equal(formatIngredient(water, 4, "us"), "13.53 fl oz");
+	assert.equal(formatIngredient(water, 2, "us"), "6.76 fl oz");
+	assert.equal(formatIngredient(water, 4, "metric"), "400 mL");
+	assert.equal(formatIngredient(water, 4, "grams"), "400 g");
 	assert.equal(water.amount, 400);
+});
+
+it("dietary classification includes 12.5 g and optional sides default to none", () => {
+	const recipe = {
+		...chicken,
+		id: "dietary-fixture",
+		nutrition: { ...nutrition, carbs_g: 15.5, net_carbs_g: 12.5 },
+	};
+	assert.equal(dietaryClass(recipe), "keto");
+	assert.equal(
+		dietaryClass({
+			...recipe,
+			nutrition: {
+				...recipe.nutrition,
+				carbs_g: 15.5001,
+				net_carbs_g: 12.5001,
+			},
+		}),
+		"nonketo",
+	);
+	assert.equal(selectedSide(recipe), undefined);
+	assert.equal(selectedSide(recipe, "stale"), undefined);
+	assert.equal(selectedSide(recipe, ""), undefined);
+	assert.equal(selectedSide(recipe, "rice"), recipe.familyOptions[0]);
+	assert.equal(sideNutrition(recipe), null);
+	assert.equal(dietaryClass(recipe), "keto");
 });

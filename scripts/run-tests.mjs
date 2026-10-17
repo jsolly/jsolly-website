@@ -1,18 +1,18 @@
 // Count-checked node:test runner. Every test suite (`npm test`, `npm run
 // test:built`, the CSP check inside `build` and the smoke-scenario contract) runs through this wrapper, which fails when the number of passing tests
-// differs from the count recorded in scripts/test-counts.json. A test that
+// differs from the count recorded in config/testing/test-counts.json. A test that
 // silently stops running (a narrowed glob, a deleted file, a stray skip) then
 // fails the gate instead of leaving it green, and a commit that adds tests must
 // record them, so a later commit cannot drop them unnoticed. Lower a count only
 // in a commit that names each dropped test.
 import { spawnSync } from "node:child_process";
 import { mkdtempSync, readFileSync, realpathSync, rmSync } from "node:fs";
-import { tmpdir } from "node:os";
+import { availableParallelism, tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
-const LEDGER = "scripts/test-counts.json";
+const LEDGER = "config/testing/test-counts.json";
 // Top-level TAP summary lines only; nested subtest output is indented.
 const TAP_SUMMARY = /^# (?<key>tests|pass|fail) (?<count>\d+)$/gmu;
 
@@ -33,13 +33,15 @@ const SUITES = {
 	// Post-build tests against dist/ that run outside `build` (browser tests need
 	// Playwright, which the Vercel build does not have); see `csp` below.
 	// The same TS loader as unit, so a test can import src/lib helpers.
+	// Files run side by side: each serves dist/ on its own port and writes only
+	// to temporary directories and temp-copy.mjs copies.
 	built: {
 		flags: [
 			"--import",
 			"./scripts/register-ts-from-js.mjs",
 			"--experimental-strip-types",
 			"--test",
-			"--test-concurrency=1",
+			`--test-concurrency=${availableParallelism()}`,
 		],
 		patterns: ["scripts/built/*.test.mjs"],
 	},

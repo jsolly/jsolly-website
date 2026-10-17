@@ -114,7 +114,7 @@ it("a reader arriving with ?searched=django sees that query and published django
 	try {
 		const { page, errors } = await openSearch(context, "?searched=django");
 		const django = await results(page);
-		assert.equal(await heading(page), "You searched for 'django'");
+		assert.equal(await heading(page), "Search posts");
 		const searchbox = page.getByRole("searchbox", { name: "Search articles" });
 		assert.equal(await searchbox.inputValue(), "django");
 		assert.deepEqual(listing(django), LISTED, "django");
@@ -136,7 +136,7 @@ it("a reader arriving with ?searched=django sees that query and published django
 			.getByRole("status")
 			.getByText(countLine(typed.length), { exact: true })
 			.waitFor();
-		assert.equal(await heading(page), "You searched for 'django'");
+		assert.equal(await heading(page), "Search posts");
 
 		await Promise.all([
 			page.waitForURL(
@@ -150,7 +150,7 @@ it("a reader arriving with ?searched=django sees that query and published django
 			() => !document.querySelector("astro-island[ssr]"),
 		);
 		const htmx = await results(page);
-		assert.equal(await heading(page), "You searched for 'htmx'");
+		assert.equal(await heading(page), "Search posts");
 		assert.deepEqual(listing(htmx), LISTED, "htmx");
 		assert.match(htmx.firstTitle, HTMX, "a title match ranks first");
 		assert.deepEqual(errors, []);
@@ -164,7 +164,7 @@ it("a reader whose query matches nothing is told so with no cards", async () => 
 	try {
 		const { page, errors } = await openSearch(context, "?searched=zzzznomatch");
 		const none = await results(page);
-		assert.equal(await heading(page), "You searched for 'zzzznomatch'");
+		assert.equal(await heading(page), "Search posts");
 		assert.equal(none.count, "0 results");
 		assert.deepEqual(none.hrefs, []);
 		assert.equal(await page.getByText(NO_MATCH, { exact: true }).count(), 1);
@@ -250,6 +250,65 @@ it("a reader whose search index fails to load is told so, can browse the archive
 			),
 			`the failure is logged (console errors: ${consoleErrors.join(" | ")})`,
 		);
+		assert.deepEqual(errors, []);
+	} finally {
+		await context.close();
+	}
+});
+
+it("a stalled search index reaches its deadline, logs failure, and can be retried", async () => {
+	const context = await browser.newContext();
+	try {
+		// Trigger the browser's abort signal explicitly, without a wall-clock sleep.
+		await context.addInitScript(() => {
+			AbortSignal.timeout = (milliseconds) => {
+				window.indexTimeoutMs = milliseconds;
+				window.indexDeadline = new AbortController();
+				return window.indexDeadline.signal;
+			};
+		});
+		let requests = 0;
+		let started;
+		const firstRequest = new Promise((resolve) => {
+			started = resolve;
+		});
+		await context.route(`${site.origin}${INDEX}`, (route) => {
+			requests += 1;
+			if (requests === 1) {
+				started();
+				return;
+			}
+			return route.continue();
+		});
+		const { page, errors, consoleErrors } = await openSearch(
+			context,
+			"?searched=django",
+		);
+		await firstRequest;
+		assert.equal(
+			await page.getByRole("status").getAttribute("aria-busy"),
+			"true",
+		);
+		assert.equal(await page.evaluate(() => window.indexTimeoutMs), 15_000);
+		await page.evaluate(() =>
+			window.indexDeadline.abort(
+				new DOMException("Search index deadline exceeded", "TimeoutError"),
+			),
+		);
+		await page.getByText("Search couldn't load.").waitFor();
+		assert.equal(
+			await page.getByRole("status").getAttribute("aria-busy"),
+			null,
+		);
+		assert.equal(await page.locator(".post-card").count(), 0);
+		assert.ok(
+			consoleErrors.some((text) =>
+				text.includes("Search index failed to load"),
+			),
+		);
+		await page.getByRole("button", { name: "Try again" }).click();
+		assert.deepEqual(listing(await results(page)), LISTED);
+		assert.equal(requests, 2);
 		assert.deepEqual(errors, []);
 	} finally {
 		await context.close();
