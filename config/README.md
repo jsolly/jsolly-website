@@ -12,7 +12,7 @@ Relocatable tracked settings have one repository-owned home under `config/<domai
 - `typescript/project.json` and `strict-astro.json` own compiler and scope policy.
   Use native `tsconfig.json` for commands and discovery. Astro's project loader
   and the recipe PWA's esbuild calls discover this root file. It also owns the
-  sole `$lib` alias map: root-relative targets support pinned shadcn-svelte 1.3.0,
+  sole `$lib` alias map: root-relative targets support pinned shadcn-svelte 1.7.0,
   whose parser rejects `${configDir}`. Canonical policy does not duplicate aliases.
 - `quality/biome.settings.jsonc` owns rules, globs and category formatting.
   Every Biome command selects this file explicitly from the repository root.
