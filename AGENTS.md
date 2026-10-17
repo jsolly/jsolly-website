@@ -256,8 +256,9 @@ register executable hooks. See [development and release](docs/development.md).
 
 ## Configuration
 
-Relocatable tracked settings live under `config/<domain>/`, with one owner per
-setting and minimal native adapters. See [configuration guidance](config/README.md)
+Move optional root-level settings under `config/<domain>/` or their existing owner.
+Keep already nested configuration with its component; test configuration may live
+under `tests/`. Give each setting one owner and keep minimal native adapters. See [configuration guidance](config/README.md)
 for native exceptions, scopes and verification. This repository owns them.
 
 ## Repository ownership
