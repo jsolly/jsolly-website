@@ -3,7 +3,7 @@ import type { InferGetStaticPropsType } from "astro";
 import AuthorCard from "../../components/blog/AuthorCard.astro";
 import PostCards from "../../components/blog/PostCards.svelte";
 import BlogLayout from "../../layouts/BlogLayout.astro";
-import { cards, dateLabel } from "../../lib/blog/cards.js";
+import { attributionLink, cards, dateLabel } from "../../lib/blog/cards.js";
 import { blogContent } from "../../lib/blog/content.js";
 import {
 	articleHtml,
@@ -63,6 +63,7 @@ const SHARE_TARGETS = [
 const { post, related } = Astro.props;
 const { data, html, categoryName } = post;
 const image = imageUrl(data.image);
+const attribution = attributionLink(data.imageAttribution);
 const url = new URL(postHref(data.slug), Astro.site).href;
 const categoryPage = categoryHref(data.category);
 const titleId = headingId(data.title);
@@ -88,7 +89,7 @@ const structured = JSON.stringify({
 	<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/blog/">Home</a><span aria-hidden="true">/</span><a href={categoryPage}>{categoryName}</a></nav>
 	<article>
 		<h1 id={titleId}>{data.title}<a class="heading-link" href={`#${titleId}`} aria-label={headingLinkLabel(data.title)}>#</a></h1>
-		<figure><img class="article-hero" src={image} alt={data.imageAlt} width={data.imageWidth ?? undefined} height={data.imageHeight ?? undefined} fetchpriority="high" />{data.imageAttribution && <figcaption>{data.imageAttribution}</figcaption>}</figure>
+		<figure><img class="article-hero" src={image} alt={data.imageAlt} width={data.imageWidth ?? undefined} height={data.imageHeight ?? undefined} fetchpriority="high" />{data.imageAttribution && <figcaption>{attribution ? <>Image source: <a href={attribution.href} rel="noopener noreferrer">{attribution.label}</a></> : data.imageAttribution}</figcaption>}</figure>
 		<!-- biome-ignore lint/nursery/noAstroSetHtmlDirective: articleHtml returns sanitize-html output (src/lib/blog/html.ts) -->
 		<div class="article-body post-text" set:html={articleHtml(html)} />
 		<footer class="post-details">

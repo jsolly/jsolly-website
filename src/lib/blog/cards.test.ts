@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { cards } from "./cards.js";
+import { attributionLink, cards } from "./cards.js";
 import { postSchema } from "./schemas.js";
 import type { CardPost } from "./types.js";
 
@@ -140,5 +140,28 @@ describe("blog post cards", () => {
 			[withExcerpt, withoutExcerpt].map((card) => card.description),
 			[FRONTMATTER.description, FRONTMATTER.description],
 		);
+	});
+});
+
+describe("attributionLink", () => {
+	it("shortens a URL attribution to a link labelled with its host", () => {
+		assert.deepEqual(
+			attributionLink(
+				"https://www.planetarycomputer.microsoft.com/api/data/v1/item/preview.png?collection=landsat-8-c2-l2",
+			),
+			{
+				href: "https://www.planetarycomputer.microsoft.com/api/data/v1/item/preview.png?collection=landsat-8-c2-l2",
+				label: "planetarycomputer.microsoft.com",
+			},
+		);
+	});
+
+	it("leaves a plain-text credit alone", () => {
+		assert.equal(attributionLink("Dalle3"), null);
+	});
+
+	it("never links a non-web scheme", () => {
+		assert.equal(attributionLink("javascript:alert(1)"), null);
+		assert.equal(attributionLink("data:text/plain,hello"), null);
 	});
 });
