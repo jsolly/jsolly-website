@@ -5,7 +5,12 @@ import { after, before, it } from "node:test";
 import { globby } from "globby";
 import { chromium } from "playwright";
 import { JOB_TITLE } from "../../src/content/constants.js";
-import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
+import {
+	collectErrors,
+	NOTEBOOK_RENDERS,
+	serveStatic,
+	stubOffOrigin,
+} from "./pages.mjs";
 import { createTempCopy, requireSuccess } from "./temp-copy.mjs";
 
 // What process-html.mjs must leave alone for the portfolio's islands to
@@ -73,7 +78,10 @@ function kindOf(data) {
 
 // Every page's comments, split into hydration markers and everything else.
 async function pageComments(dist) {
-	const files = await globby("**/*.html", { cwd: dist });
+	const files = await globby("**/*.html", {
+		cwd: dist,
+		ignore: [NOTEBOOK_RENDERS],
+	});
 	const pages = await Promise.all(
 		files.map(async (file) => {
 			const html = await fs.readFile(join(dist, file), "utf8");
