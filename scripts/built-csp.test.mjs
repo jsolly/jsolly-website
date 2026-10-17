@@ -187,6 +187,11 @@ it("static notebook renders ship no scripts and restrict themselves to their own
 			const directives = parseDirectives(meta.getAttribute("content"));
 			assert.deepEqual(directives.get("script-src"), ["'none'"], file);
 			assert.deepEqual(directives.get("img-src"), ["'self'", "data:"], file);
+			assert.deepEqual(
+				directives.get("style-src"),
+				["'self'", "'unsafe-inline'"],
+				file,
+			);
 		} finally {
 			dom.window.close();
 		}
