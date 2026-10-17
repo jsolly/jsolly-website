@@ -24,6 +24,14 @@ const ROUTES = new Map(
 // The blog moved on-site; no portfolio Markdown may still send readers there.
 const OLD_BLOG_HOST = /blogthedata\.com/u;
 
+// Copied from the Context7 Ask install instructions, not from constants.ts.
+const SEARCH_SECTION =
+	// biome-ignore lint/security/noSecrets: public site verification key, not a credential
+	"## Search\n\nThis site has a search endpoint: https://context7.com/api/v2/ask?siteKey=ask_43369889032b1355b89bc7f4&query=<URL-encoded question>. It returns documentation that answers the question, with a source link for each part. No API key is needed. If nothing matches, it says so.\n";
+const SEARCH_LINK =
+	// biome-ignore lint/security/noSecrets: public site verification key, not a credential
+	'<https://context7.com/api/v2/ask?siteKey=ask_43369889032b1355b89bc7f4>; rel="search"; type="text/plain"; title="Search jsolly.com"';
+
 describe("preferredType", () => {
 	it("defaults to HTML when Accept is missing", () => {
 		assert.equal(preferredType(null), "text/html");
@@ -345,6 +353,7 @@ describe("route-aware exemptions", () => {
 		assert.ok(response);
 		assert.equal(response.headers.get("x-middleware-next"), "1");
 		assert.match(response.headers.get("content-type") ?? "", /text\/markdown/u);
+		assert.equal(response.headers.get("link"), SEARCH_LINK);
 	});
 
 	it("never serves direct Markdown for POST and sends empty HEAD 406", async () => {
@@ -461,6 +470,57 @@ describe("route-aware exemptions", () => {
 			"/recipes/nope/",
 		]) {
 			assert.equal(shouldNegotiate(path, "GET"), true, path);
+		}
+	});
+});
+
+describe("Context7 search discovery", () => {
+	const origin = "https://www.jsolly.com";
+
+	it("An agent fetching /about/ or a missing page as Markdown gets the Search section last and the search Link header", async () => {
+		for (const [path, status] of [
+			["/about/", 200],
+			["/no-such-page", 404],
+		] as const) {
+			const res = agentResponse(
+				new Request(`${origin}${path}`, {
+					headers: { accept: "text/markdown" },
+				}),
+				ROUTES,
+			);
+			assert.ok(res);
+			assert.equal(res.status, status);
+			assert.equal(res.headers.get("link"), SEARCH_LINK);
+			// biome-ignore lint/performance/noAwaitInLoops: two requests checked in turn.
+			const body = await res.text();
+			assert.ok(
+				body.endsWith(`\n\n${SEARCH_SECTION}`),
+				`${path} ends with Search`,
+			);
+			assert.equal(
+				body.split("This site has a search endpoint").length,
+				2,
+				`${path} offers the search endpoint exactly once`,
+			);
+		}
+	});
+
+	it("An agent asking for a recipe's Markdown by GET or HEAD is rewritten to its static sibling with the search Link header", () => {
+		for (const method of ["GET", "HEAD"]) {
+			const res = agentResponse(
+				new Request(`${origin}/recipes/chicken-posole/`, {
+					method,
+					headers: { accept: "text/markdown" },
+				}),
+				ROUTES,
+			);
+			assert.ok(res);
+			assert.equal(
+				res.headers.get("x-middleware-rewrite"),
+				`${origin}/recipes/chicken-posole.md`,
+				method,
+			);
+			assert.equal(res.headers.get("link"), SEARCH_LINK, method);
 		}
 	});
 });

@@ -4,6 +4,7 @@ import { join } from "node:path";
 import it from "node:test";
 import { parseFrontmatter } from "astro/markdown";
 import { JSDOM } from "jsdom";
+import middleware from "../../middleware.js";
 import { cookingText } from "../../src/components/recipes/cooking-quantities.mjs";
 import { formatIngredient } from "../../src/components/recipes/recipe-logic.mjs";
 import data from "../../src/components/recipes/recipes.json" with {
@@ -11,7 +12,7 @@ import data from "../../src/components/recipes/recipes.json" with {
 };
 import { markdownRoutes, routes } from "../../src/generated/route-manifest.js";
 import { pageMarkdown } from "../markdown-build.mjs";
-import { allPosts, distFiles } from "./pages.mjs";
+import { allPosts, distFiles, readBuiltPages } from "./pages.mjs";
 
 const MISSING_CANONICAL = /canonical URL/u;
 const INGREDIENT_SECTION = /## Ingredients\n(?<body>[\s\S]*?)(?=\n## |$)/u;
@@ -312,4 +313,103 @@ it("Generated recipe fidelity rejects omitted ingredients, steps and safety inst
 			[],
 			"omitted cooking content must fail fidelity",
 		);
+});
+
+// Copied from the Context7 Ask install instructions, not from constants.ts.
+const SEARCH_SECTION =
+	// biome-ignore lint/security/noSecrets: public site verification key, not a credential
+	"## Search\n\nThis site has a search endpoint: https://context7.com/api/v2/ask?siteKey=ask_43369889032b1355b89bc7f4&query=<URL-encoded question>. It returns documentation that answers the question, with a source link for each part. No API key is needed. If nothing matches, it says so.\n";
+// The install instructions' own grep patterns for the verification checks.
+const VERIFICATION_TAG = /<meta name="context7-site-verification"[^>]*>/u;
+const SEARCH_NOTE = /This site has a search endpoint[^<]*/u;
+
+it("Context7 finds its verification tag and hidden search note on every built page, and every Markdown sibling ends with Search", async () => {
+	const pages = await readBuiltPages();
+	assert.ok(pages.length > 0);
+	for (const { file, html } of pages) {
+		assert.equal(
+			html.match(VERIFICATION_TAG)?.[0],
+			// biome-ignore lint/security/noSecrets: public site verification key, not a credential
+			'<meta name="context7-site-verification" content="ask_43369889032b1355b89bc7f4">',
+			`${file} carries the verification tag`,
+		);
+		assert.equal(
+			html.match(SEARCH_NOTE)?.[0],
+			// biome-ignore lint/security/noSecrets: public site verification key, not a credential
+			"This site has a search endpoint: https://context7.com/api/v2/ask?siteKey=ask_43369889032b1355b89bc7f4&amp;query=&lt;URL-encoded question&gt;. It returns documentation that answers the question, with a source link for each part. No API key is needed. If nothing matches, it says so.",
+			`${file} carries the search note`,
+		);
+		const dom = new JSDOM(html);
+		try {
+			const note = dom.window.document.querySelector("[data-context7-ask]");
+			assert.equal(note?.getAttribute("aria-hidden"), "true", file);
+			assert.ok(note?.classList.contains("sr-only"), `${file} hides the note`);
+			assert.equal(
+				dom.window.document.body.firstElementChild,
+				note,
+				`${file} opens its body with the note`,
+			);
+		} finally {
+			dom.window.close();
+		}
+	}
+	for (const [key, file] of markdownRoutes) {
+		// biome-ignore lint/performance/noAwaitInLoops: bounded build pages are read sequentially.
+		const markdown = await readFile(join("dist", file), "utf8");
+		assert.ok(
+			markdown.endsWith(`\n\n${SEARCH_SECTION}`),
+			`${key} ends with Search`,
+		);
+		assert.equal(
+			markdown.split("This site has a search endpoint").length,
+			2,
+			`${key} offers the search endpoint exactly once`,
+		);
+	}
+});
+
+const SEARCH_LINK =
+	// biome-ignore lint/security/noSecrets: public site verification key, not a credential
+	'<https://context7.com/api/v2/ask?siteKey=ask_43369889032b1355b89bc7f4>; rel="search"; type="text/plain"; title="Search jsolly.com"';
+
+// A no-JavaScript recipe search submission, which the middleware rewrites to the browse function.
+// biome-ignore lint/security/noSecrets: a recipe search URL, not a credential
+const NATIVE_RECIPE_SEARCH = "/recipes/meals/?browse=1&q=salmon";
+
+it("A browser or crawler fetching an HTML page or a no-JavaScript recipe search gets the search Link header, and static files and 406s do not", () => {
+	const answer = (path, accept = "text/html", method = "GET") =>
+		middleware(
+			new Request(`https://www.jsolly.com${path}`, {
+				method,
+				headers: { accept },
+			}),
+		);
+	for (const path of [
+		"/about/",
+		"/blog/",
+		"/recipes/greek-turkey-patties/",
+		NATIVE_RECIPE_SEARCH,
+	]) {
+		assert.equal(answer(path).headers.get("link"), SEARCH_LINK, path);
+	}
+	assert.ok(
+		answer(NATIVE_RECIPE_SEARCH).headers.get("x-middleware-rewrite"),
+		"the no-JavaScript search is the browse rewrite",
+	);
+	for (const path of ["/llms.txt", "/favicon.ico", "/blog/rss.xml"]) {
+		assert.equal(answer(path).headers.get("link"), null, path);
+	}
+	assert.equal(
+		answer("/about/", "text/html", "HEAD").headers.get("link"),
+		SEARCH_LINK,
+		"a crawler's HEAD probe sees the search Link",
+	);
+	assert.equal(
+		answer("/about/", "text/html", "POST").headers.get("link"),
+		null,
+		"a POST is not a page response",
+	);
+	const rejected = answer("/about/", "application/json");
+	assert.equal(rejected.status, 406);
+	assert.equal(rejected.headers.get("link"), null);
 });

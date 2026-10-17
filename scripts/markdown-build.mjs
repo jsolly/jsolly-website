@@ -11,7 +11,10 @@ import {
 	recipeDocument,
 } from "../src/components/recipes/recipe-export.mjs";
 import data from "../src/components/recipes/recipes.json" with { type: "json" };
-import { maintenanceMarkdown } from "../src/content/agent-pages.js";
+import {
+	maintenanceMarkdown,
+	withSiteSearch,
+} from "../src/content/agent-pages.js";
 
 const TRAILING_SLASHES = /\/+$/u;
 const COMPLEX = "table, iframe, video, pre";
@@ -138,7 +141,7 @@ export async function buildMarkdown(root, manifestPath) {
 					"\nSearch, pagination and recipe filters run in the HTML page's browser controls. This static representation describes the default page; query parameters do not run those controls.\n";
 			}
 		}
-		await writeFile(join(root, sibling), body, { flag: "wx" });
+		await writeFile(join(root, sibling), withSiteSearch(body), { flag: "wx" });
 		pairs.push([route.replace(TRAILING_SLASHES, ""), sibling]);
 	}
 	await writeFile(
