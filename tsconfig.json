@@ -1,9 +1,16 @@
 {
-	"extends": "./config/typescript/project.json",
+	"extends": "./config/typescript/tsconfig.json",
 	"compilerOptions": {
 		"paths": {
 			"$lib": ["./src/lib"],
 			"$lib/*": ["./src/lib/*"]
 		}
-	}
+	},
+	"include": [
+		".astro/types.d.ts",
+		"src/**/*",
+		"middleware.ts",
+		"config/app/astro.ts"
+	],
+	"exclude": ["**/node_modules/**", "dist/**", ".astro", "src/**/*.test.ts"]
 }
