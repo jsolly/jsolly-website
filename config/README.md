@@ -6,6 +6,9 @@ Relocatable tracked settings have one repository-owned home under `config/<domai
   Every Astro command selects it with `--config config/app/astro.ts`, including
   the isolated builds used by content and hydration tests. Its post-loader import
   and repository URL are rebased; route output stays anchored to `config.root`.
+  Its watch registration reloads Astro configuration when this physical owner
+  changes. Verify an actual setting change and restoration in the running dev
+  server; successful initial startup alone does not prove reload behavior.
 - `typescript/project.json` and `strict-astro.json` own compiler and scope policy.
   Use native `tsconfig.json` for commands and discovery. Astro's project loader
   and the recipe PWA's esbuild calls discover this root file. It also owns the
