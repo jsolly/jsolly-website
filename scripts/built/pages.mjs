@@ -58,9 +58,16 @@ export function distFileFor(pathname) {
 	return path === "" || path.endsWith("/") ? `${path}index.html` : path;
 }
 
+// Static notebook renders copied from public/notebooks/: framed by blog posts
+// but not site pages, so they carry none of the shell the page suites check.
+export const NOTEBOOK_RENDERS = "notebooks/**/*.html";
+
 // Every built HTML page under `root`, as { file (relative to root), html }.
 export async function readBuiltPages(root = DIST) {
-	const files = await globby("**/*.html", { cwd: root });
+	const files = await globby("**/*.html", {
+		cwd: root,
+		ignore: [NOTEBOOK_RENDERS],
+	});
 	return Promise.all(
 		files
 			.sort((a, b) => a.localeCompare(b, "en"))

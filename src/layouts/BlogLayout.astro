@@ -38,7 +38,7 @@ const {
 } = Astro.props;
 
 // Post bodies load legacy images from CloudFront (J6) and embed YouTube,
-// diagrams.net and nbviewer frames; only blog pages widen the Astro meta
+// diagrams.net frames and same-origin notebook pages; only blog pages widen the Astro meta
 // policy, and a build without CSP must fail rather than ship without it.
 if (section === "blog") {
 	if (!Astro.csp) {
@@ -50,7 +50,7 @@ if (section === "blog") {
 		`img-src 'self' data: ${new URL(LEGACY_MEDIA).origin}`,
 	);
 	Astro.csp.insertDirective(
-		`frame-src ${EMBED_HOSTS.map((host) => `https://${host}`).join(" ")}`,
+		`frame-src 'self' ${EMBED_HOSTS.map((host) => `https://${host}`).join(" ")}`,
 	);
 }
 

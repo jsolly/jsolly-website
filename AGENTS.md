@@ -271,7 +271,7 @@ and a separate verified PR in each affected repository.
 
 Astro `security.csp` emits per-page hashes for the island bootstrap and owns
 `default-src`/`script-src`. Vercel keeps the other resource restrictions and
-`frame-ancestors` in its response header. Do not add a conflicting header
+`frame-ancestors` in its response header. `frame-ancestors 'self'` lets blog posts frame the static notebook pages in `public/notebooks/`. Do not add a conflicting header
 `script-src` or `default-src`, or allow arbitrary inline scripts. Verify built
 pages with both policies; Astro dev/preview alone does not apply Vercel headers.
 
