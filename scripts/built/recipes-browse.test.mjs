@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { after, before, it } from "node:test";
+import { after, before, describe, it } from "node:test";
 import { chromium } from "playwright";
 import { collectErrors, serveStatic } from "./pages.mjs";
 
@@ -30,6 +30,8 @@ const smoothieCount = recipes.filter(
 	(recipe) => recipe.type === "smoothie",
 ).length;
 const WIDTHS = [390, 1280];
+// Independent per-recipe pages open side by side in the one browser.
+const RECIPE_CONCURRENCY = 4;
 const HEIGHT = 900;
 // A wrapping label names a select after its text and its current option.
 const SERVINGS = /^Servings/u;
@@ -82,9 +84,96 @@ async function follow(page, link, url) {
 	await hydrated(page);
 }
 
+// What a recipe body shows; the live and no-JavaScript pages must agree on it.
+async function bodyContent(body, width) {
+	return {
+		appliances: await body.locator(".detail-appliances").textContent(),
+		facts: await body.locator(".detail-facts").textContent(),
+		image: await body.locator(".recipe-photo img").getAttribute("src"),
+		flow: await body
+			.locator(
+				width <= 760
+					? ".mobile-prep p, .mobile-ingredient label:visible, .branch-join p"
+					: ".trn-table tr:not(.reset-checks-row)",
+			)
+			.allInnerTexts(),
+		macros: await body.locator(".nutrition>dl dd").allTextContents(),
+		nutrients: await body.locator(".daily-values:visible").allInnerTexts(),
+		family: await body.locator(".family-box p").allTextContents(),
+	};
+}
+
+const normalize = (value) =>
+	JSON.stringify(value, (_key, item) =>
+		typeof item === "string" ? item.replace(SPACES, " ").trim() : item,
+	);
+
+// Give every recipe its own bounded test, so expanding the library does not
+// turn a fixed aggregate timeout into a limit on the number of recipes covered.
+// Each opens fresh contexts at the default settings, so the recipes can run
+// side by side.
+function detailParityCheck(recipe, width) {
+	it(`${recipe.id} matches without JavaScript at ${width}px`, {
+		timeout: 30_000,
+	}, async () => {
+		const viewport = { width, height: HEIGHT };
+		const plain = await browser.newContext({
+			javaScriptEnabled: false,
+			viewport,
+			reducedMotion: "reduce",
+		});
+		const context = await browser.newContext({
+			viewport,
+			reducedMotion: "reduce",
+		});
+		try {
+			const page = await context.newPage();
+			const errors = collectErrors(page, { warnings: true });
+			const staticPage = await plain.newPage();
+			await Promise.all([
+				page.goto(`${site.origin}/recipes/${recipe.id}/`),
+				staticPage.goto(`${site.origin}/recipes/${recipe.id}/`),
+			]);
+			const live = page.locator(".recipe-detail .recipe-body");
+			try {
+				await recipeReady(page);
+			} catch (error) {
+				const state = await page.evaluate(() => {
+					const row = document.querySelector(
+						".recipe-detail .reset-checks-row",
+					);
+					return {
+						rowPresent: Boolean(row),
+						rowDisplay: row ? getComputedStyle(row).display : null,
+						pendingIslands: [
+							...document.querySelectorAll("astro-island[ssr]"),
+						].map((island) => island.getAttribute("component-url")),
+					};
+				});
+				throw new Error(
+					`Recipe ${recipe.id} did not expose cooking checks at ${page.url()}; state: ${JSON.stringify(state)}; browser errors: ${JSON.stringify(errors)}`,
+					{ cause: error },
+				);
+			}
+			await live.getByRole("button", { name: VITAMINS }).click();
+			const staticBody = staticPage.locator(`#${recipe.id} .recipe-body`);
+			await staticBody.locator("summary").filter({ hasText: VITAMINS }).click();
+			assert.equal(
+				normalize(await bodyContent(live, width)),
+				normalize(await bodyContent(staticBody, width)),
+				recipe.id,
+			);
+			assert.deepEqual(errors, []);
+		} finally {
+			await context.close();
+			await plain.close();
+		}
+	});
+}
+
 function detailsCheck(width) {
-	it(`Recipe details match without JavaScript and share their settings at ${width}px`, {
-		timeout: 120_000,
+	it(`Recipe cards and share links keep their settings at ${width}px`, {
+		timeout: 60_000,
 	}, async () => {
 		const viewport = { width, height: HEIGHT };
 		const plain = await browser.newContext({
@@ -130,25 +219,6 @@ function detailsCheck(width) {
 				0,
 			);
 			assert.equal(await staticPage.locator(".recipe-detail").count(), 0);
-			const bodyContent = async (body) => ({
-				appliances: await body.locator(".detail-appliances").textContent(),
-				facts: await body.locator(".detail-facts").textContent(),
-				image: await body.locator(".recipe-photo img").getAttribute("src"),
-				flow: await body
-					.locator(
-						width <= 760
-							? ".mobile-prep p, .mobile-ingredient label:visible, .branch-join p"
-							: ".trn-table tr:not(.reset-checks-row)",
-					)
-					.allInnerTexts(),
-				macros: await body.locator(".nutrition>dl dd").allTextContents(),
-				nutrients: await body.locator(".daily-values:visible").allInnerTexts(),
-				family: await body.locator(".family-box p").allTextContents(),
-			});
-			const normalize = (value) =>
-				JSON.stringify(value, (_key, item) =>
-					typeof item === "string" ? item.replace(SPACES, " ").trim() : item,
-				);
 			await page.goto(`${site.origin}${LANDING}`);
 			await hydrated(page);
 			const cardFacts = () =>
@@ -177,43 +247,6 @@ function detailsCheck(width) {
 				await page.getByText("Prep time (publisher)", { exact: true }).count(),
 				0,
 			);
-			for (const recipe of recipes) {
-				// biome-ignore lint/performance/noAwaitInLoops: one recipe at a time on the two pages
-				await page.goto(`${site.origin}/recipes/${recipe.id}/`);
-				await staticPage.goto(`${site.origin}/recipes/${recipe.id}/`);
-				const live = page.locator(".recipe-detail .recipe-body");
-				try {
-					await recipeReady(page);
-				} catch (error) {
-					const state = await page.evaluate(() => {
-						const row = document.querySelector(
-							".recipe-detail .reset-checks-row",
-						);
-						return {
-							rowPresent: Boolean(row),
-							rowDisplay: row ? getComputedStyle(row).display : null,
-							pendingIslands: [
-								...document.querySelectorAll("astro-island[ssr]"),
-							].map((island) => island.getAttribute("component-url")),
-						};
-					});
-					throw new Error(
-						`Recipe ${recipe.id} did not expose cooking checks at ${page.url()}; state: ${JSON.stringify(state)}; browser errors: ${JSON.stringify(errors)}`,
-						{ cause: error },
-					);
-				}
-				await live.getByRole("button", { name: VITAMINS }).click();
-				const staticBody = staticPage.locator(`#${recipe.id} .recipe-body`);
-				await staticBody
-					.locator("summary")
-					.filter({ hasText: VITAMINS })
-					.click();
-				assert.equal(
-					normalize(await bodyContent(live)),
-					normalize(await bodyContent(staticBody)),
-					recipe.id,
-				);
-			}
 			await page.goto(
 				`${site.origin}${SHARED}?servings=8&starch=shawarma-chicken-bowls:pita_one`,
 			);
@@ -952,4 +985,9 @@ for (const width of WIDTHS) {
 	detailsCheck(width);
 	filtersCheck(width);
 	collectionsCheck(width);
+	describe(`every recipe at ${width}px`, {
+		concurrency: RECIPE_CONCURRENCY,
+	}, () => {
+		for (const recipe of recipes) detailParityCheck(recipe, width);
+	});
 }

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { after, before, it } from "node:test";
+import { after, before, describe, it } from "node:test";
 import { chromium } from "playwright";
 import { collectErrors, serveStatic } from "./pages.mjs";
 
@@ -89,7 +89,10 @@ function registerRecipeLink(recipe) {
 	});
 }
 
-for (const recipe of recipes) registerRecipeLink(recipe);
+// Each link opens its own context, so the cold loads can run side by side.
+describe("every old recipe link", { concurrency: 4 }, () => {
+	for (const recipe of recipes) registerRecipeLink(recipe);
+});
 
 function registerFragmentLink(fontDelay) {
 	it(`old /recipes/#meal-results lands on the cards without a recipe dialog (font delay ${fontDelay}ms)`, {
