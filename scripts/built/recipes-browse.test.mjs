@@ -1,12 +1,12 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { after, before, describe, it } from "node:test";
+import { after, before, it } from "node:test";
 import { chromium } from "playwright";
-import { collectErrors, serveStatic, smokeRecipes } from "./pages.mjs";
+import { collectErrors, serveStatic } from "./pages.mjs";
 
 // Browsing the built recipe library in Chromium, ported from awesome-blog's
-// PWA suite (scripts/recipes/pwa.test.mjs) without its service worker: every
-// recipe page with and without JavaScript and its share link, the Easy Meals
+// PWA suite (scripts/recipes/pwa.test.mjs) without its service worker: a meal
+// and a smoothie page with and without JavaScript, share links, the Easy Meals
 // filters and their saved settings (J13: localStorage recipes-settings-v1),
 // and the meals and smoothies pages without JavaScript plus the nutrition
 // help popover. Each runs at a phone and a desktop width.
@@ -30,8 +30,6 @@ const smoothieCount = recipes.filter(
 	(recipe) => recipe.type === "smoothie",
 ).length;
 const WIDTHS = [390, 1280];
-// Independent per-recipe pages open side by side in the one browser.
-const RECIPE_CONCURRENCY = 4;
 const HEIGHT = 900;
 // A wrapping label names a select after its text and its current option.
 const SERVINGS = /^Servings/u;
@@ -108,10 +106,9 @@ const normalize = (value) =>
 		typeof item === "string" ? item.replace(SPACES, " ").trim() : item,
 	);
 
-// Each smoke-sample recipe gets its own bounded test (see smokeRecipes in
-// pages.mjs); every recipe's static page is checked against its data in
-// recipes-built.test.mjs. Each opens fresh contexts at the default settings, so
-// the recipes can run side by side.
+// Recipes are content, not code: a meal and a smoothie prove the hydrated page
+// matches the page without JavaScript, and recipes-built.test.mjs holds every
+// recipe's static page to its data without a browser.
 function detailParityCheck(recipe, width) {
 	it(`${recipe.id} matches without JavaScript at ${width}px`, {
 		timeout: 30_000,
@@ -985,10 +982,10 @@ for (const width of WIDTHS) {
 	detailsCheck(width);
 	filtersCheck(width);
 	collectionsCheck(width);
-	describe(`sampled recipes at ${width}px`, {
-		concurrency: RECIPE_CONCURRENCY,
-	}, () => {
-		for (const recipe of smokeRecipes(recipes))
-			detailParityCheck(recipe, width);
-	});
+	for (const type of ["meal", "smoothie"]) {
+		detailParityCheck(
+			recipes.find((recipe) => recipe.type === type),
+			width,
+		);
+	}
 }

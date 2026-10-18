@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { after, before, describe, it } from "node:test";
+import { after, before, it } from "node:test";
 import { chromium } from "playwright";
-import { collectErrors, serveStatic, smokeRecipes } from "./pages.mjs";
+import { collectErrors, serveStatic } from "./pages.mjs";
 
 // Plan §1.6: blogthedata.com's Easy Meals & Smoothies post now 301s to
 // /recipes/, and browsers carry the #fragment across the redirect. The post
@@ -34,8 +34,9 @@ after(async () => {
 const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
 
 // The hash opens a recipe by looking its id up in the library the page already
-// holds, so the browser opens a smoke sample cold, one bounded test each; every
-// recipe's own page is checked against its data in recipes-built.test.mjs.
+// holds, so a meal and a smoothie prove the lookup and the collection it lands
+// on; every recipe's own page is checked against its data in
+// recipes-built.test.mjs.
 function registerRecipeLink(recipe) {
 	it(`old /recipes/#${recipe.id} opens its recipe dialog on the right collection`, {
 		timeout: 30_000,
@@ -90,10 +91,9 @@ function registerRecipeLink(recipe) {
 	});
 }
 
-// Each link opens its own context, so the cold loads can run side by side.
-describe("old recipe links", { concurrency: 4 }, () => {
-	for (const recipe of smokeRecipes(recipes)) registerRecipeLink(recipe);
-});
+for (const type of ["meal", "smoothie"]) {
+	registerRecipeLink(recipes.find((recipe) => recipe.type === type));
+}
 
 function registerFragmentLink(fontDelay) {
 	it(`old /recipes/#meal-results lands on the cards without a recipe dialog (font delay ${fontDelay}ms)`, {
