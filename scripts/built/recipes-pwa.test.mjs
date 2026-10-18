@@ -143,12 +143,52 @@ function installCheck(name, viewport) {
 			await page
 				.getByRole("combobox", { name: "Ingredient units" })
 				.selectOption("grams");
+			await page.addInitScript(() => {
+				if (location.pathname !== "/recipes/saved/") return;
+				const postMessage = ServiceWorker.prototype.postMessage;
+				ServiceWorker.prototype.postMessage = new Proxy(postMessage, {
+					apply(target, worker, args) {
+						if (args[0]?.type !== "LIST_SAVED_RECIPES")
+							return Reflect.apply(target, worker, args);
+						// Hold the real storage read at a deterministic boundary: Astro
+						// hydration does not wait for the asynchronous saved collection.
+						window.releaseSavedList = () => {
+							ServiceWorker.prototype.postMessage = postMessage;
+							Reflect.apply(target, worker, args);
+						};
+					},
+				});
+			});
 			await context.setOffline(true);
 			await navigateHydrated(page, `${site.origin}/recipes/saved/`);
 			await page.locator(".meal-library[data-hydrated=true]").waitFor();
+			await page.waitForFunction(
+				() => typeof window.releaseSavedList === "function",
+			);
 			assert.equal(
 				await page.locator(".recipe-card").count(),
-				2,
+				0,
+				"hydration can finish before the saved registry responds",
+			);
+			await page.evaluate(() => window.releaseSavedList());
+			const savedIds = ["lemon-salmon-and-asparagus", "shawarma-chicken-bowls"];
+			await page.waitForFunction((expected) => {
+				const actual = [
+					...document.querySelectorAll(".recipe-card a.title-button"),
+				]
+					.map((link) => link.dataset.recipeId)
+					.sort((a, b) => a.localeCompare(b));
+				return JSON.stringify(actual) === JSON.stringify(expected);
+			}, savedIds);
+			assert.deepEqual(
+				await page
+					.locator(".recipe-card a.title-button")
+					.evaluateAll((links) =>
+						links
+							.map((link) => link.dataset.recipeId)
+							.sort((a, b) => a.localeCompare(b)),
+					),
+				savedIds,
 				"offline view includes only the two opened recipes",
 			);
 			assert.equal(

@@ -623,6 +623,9 @@ self.addEventListener("fetch", (event) => {
 		!["GET", "HEAD"].includes(request.method) ||
 		url.origin !== self.location.origin ||
 		url.pathname === "/release.json" ||
+		// Dynamic browse responses are never offline assets. Owning their fetch
+		// events would let a slow backend keep this worker alive during an update.
+		url.pathname === "/api/recipe-browse/" ||
 		(recipeBrowseDestination(request) &&
 			preferredType(request.headers.get("accept")) === "text/html")
 	)

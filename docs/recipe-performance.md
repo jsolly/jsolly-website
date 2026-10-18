@@ -57,13 +57,13 @@ The compressed local candidate clears the numeric targets, but this is not a
 like-for-like deployed comparison. Repeat five runs on the exact deployed release
 before claiming a verified production improvement.
 
-After the final history cancellation and Forward settings fixes, a separate fresh,
-worker-enabled 390 × 844 browser context measured startup with worker
-`recipe-pages-pwa-33cd4ae6f758821bcee6`:
+After the history and worker update fixes, a separate fresh, worker-enabled
+390 × 844 browser context measured startup with worker
+`recipe-pages-pwa-6c7978d5517475843ef8`:
 
-- Six mounted cards and 161,021 decoded HTML bytes.
-- 99,623 gzip bytes across unique initial JavaScript resources, worker included.
-- 762,526 estimated cold transferred bytes, including duplicate page and worker
+- Six mounted cards and 161,020 decoded HTML bytes.
+- 99,622 gzip bytes across unique initial JavaScript resources, worker included.
+- 762,524 estimated cold transferred bytes, including duplicate page and worker
   installation requests; subsequent summary requests were excluded.
 - The largest of all 25 meal and smoothie summary pages was 1,597 gzip bytes.
 
@@ -77,3 +77,8 @@ through search, native images, intent prefetch, Data Saver, loaded-card printing
 and opened-only saving. Offline update, restart and quota tests use isolated
 release snapshots. Run the full repository gate from the repository root with
 `npm run gate`; no individual benchmark replaces it.
+
+A pending online browse response is excluded from worker fetch handling so it
+cannot delay worker activation. A regression holds a real successful response
+open and verifies the replacement worker activates before the response is
+released; existing rollback and offline snapshot checks remain in place.

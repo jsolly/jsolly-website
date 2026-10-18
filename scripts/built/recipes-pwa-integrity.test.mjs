@@ -149,6 +149,92 @@ it("Rollback reuses validated live A cache without overwriting it with mismatche
 	}
 });
 
+it("A pending browse API response cannot delay explicit recipe worker activation", {
+	timeout: 90_000,
+}, async () => {
+	await serve("A");
+	const context = await browser.newContext();
+	const held = Promise.withResolvers();
+	const observed = Promise.withResolvers();
+	let routeFinished;
+	let responseDelivered = false;
+	try {
+		const page = await context.newPage();
+		await navigateHydrated(page, `${site.origin}${LANDING}`);
+		await statusText(page, SAVED);
+		await page.waitForFunction(() => navigator.serviceWorker.controller);
+		await context.route(
+			(url) =>
+				url.pathname === "/api/recipe-browse/" &&
+				url.searchParams.has("activation-probe"),
+			(route) => {
+				routeFinished = (async () => {
+					const response = await route.fetch();
+					observed.resolve({
+						response,
+						worker: route.request().serviceWorker(),
+					});
+					await held.promise;
+					await route.fulfill({ response });
+					responseDelivered = true;
+				})().catch((error) => {
+					observed.reject(error);
+					throw error;
+				});
+				return routeFinished;
+			},
+		);
+		await page.evaluate(() => {
+			// Start a real request from the controlled document without awaiting it.
+			// Navigation may cancel it, but must not depend on receiving its response.
+			void fetch(
+				`/api/recipe-browse/?path=%2Frecipes%2Fmeals%2F&browse=1&activation-probe=1&release=${"a".repeat(40)}`,
+				{
+					headers: { Accept: "application/json" },
+				},
+			).catch(() => {
+				// Reloading intentionally cancels the requesting document.
+			});
+		});
+		const { response, worker } = await observed.promise;
+		assert.equal(
+			response.status(),
+			200,
+			"the held response is a real successful browse response",
+		);
+		assert.equal((await response.json()).release, "a".repeat(40));
+		assert.equal(
+			worker,
+			null,
+			"dynamic browse requests are owned by the document, not the offline worker",
+		);
+		await serve("B");
+		await page.evaluate(async () =>
+			(await navigator.serviceWorker.getRegistration()).update(),
+		);
+		await page.locator("#recipe-update-button").waitFor({ state: "visible" });
+		await page.locator("#recipe-update-button").click();
+		await page.waitForFunction(
+			() =>
+				document.querySelector('meta[name="pwa-test-snapshot"]')?.content ===
+				"B",
+		);
+		assert.equal(
+			responseDelivered,
+			false,
+			"B activates and reloads before the pending API response is released",
+		);
+		assert.equal(await dataLabel(page), "B");
+	} finally {
+		held.resolve();
+		try {
+			await routeFinished;
+		} finally {
+			await context.close();
+		}
+	}
+});
+
 it("A waiting rollback snapshot survives retirement of its last historical client and applies offline", {
 	timeout: 90_000,
 }, async () => {
