@@ -7,9 +7,7 @@ import { cookText } from "../../src/components/recipes/display-units.mjs";
 import nutritionData from "../../src/components/recipes/nutrition-data.json" with {
 	type: "json",
 };
-import recipeData from "../../src/components/recipes/recipes.json" with {
-	type: "json",
-};
+import recipeData from "../../src/components/recipes/recipe-data.server.mjs";
 import { collectErrors, serveStatic } from "./pages.mjs";
 
 const PRINT_ONLY_COPY =
@@ -1001,6 +999,9 @@ it("screen, page printing and card packets use identical cooking copy", {
 				await page
 					.getByRole("combobox", { name: "Ingredient units" })
 					.selectOption("metric");
+				await page
+					.getByRole("searchbox", { name: "Search recipes" })
+					.fill(recipeData.recipes.find((recipe) => recipe.id === id).title);
 				const card = page
 					.locator(".recipe-card")
 					.filter({ has: page.locator(`[data-recipe-id="${id}"]`) });

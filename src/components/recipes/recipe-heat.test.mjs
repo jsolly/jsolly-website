@@ -1,13 +1,11 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
 import it from "node:test";
 import { JSDOM } from "jsdom";
+import data from "./recipe-data.server.mjs";
 import { documentMarkdown, recipeDocument } from "./recipe-export.mjs";
 import { flowGrid, gridHtml } from "./trn-logic.mjs";
 
-const { recipes } = JSON.parse(
-	readFileSync(new URL("./recipes.json", import.meta.url), "utf8"),
-);
+const { recipes } = data;
 const HEAT =
 	/cayenne|jalape|sriracha|hot sauce|chipotle|chili|chilli|harissa|cajun|taco (?:seasoning|spice)|pepperoncini|enchilada|rotel|andouille|spicy|^(?:crushed )?red pepper(?: flakes)?$/iu;
 const ADJUSTMENT = /less heat|more heat/u;

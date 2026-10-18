@@ -5,14 +5,12 @@ import { SERVING_CHOICES } from "../../src/components/recipes/constants.mjs";
 import data from "../../src/components/recipes/nutrition-data.json" with {
 	type: "json",
 };
+import recipes from "../../src/components/recipes/recipe-data.server.mjs";
 import {
 	displayNutrition,
 	ingredientAmount,
 	nutritionPortionLabel,
 } from "../../src/components/recipes/recipe-logic.mjs";
-import recipes from "../../src/components/recipes/recipes.json" with {
-	type: "json",
-};
 
 /** USDA food-specific energy, fiber, alcohol and label rounding do not equal universal 4/4/9. */
 export function energyAudit(nutrition) {

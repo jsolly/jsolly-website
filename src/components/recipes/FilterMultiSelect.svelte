@@ -2,8 +2,8 @@
 	import Button from "../../lib/components/ui/button.svelte";
 	import Checkbox from "../../lib/components/ui/checkbox.svelte";
 	import PopoverRoot from "../../lib/components/ui/popover.svelte";
-	import PopoverContent from "../../lib/components/ui/popover-content.svelte";
 	import PopoverTrigger from "../../lib/components/ui/popover-trigger.svelte";
+	import PopoverContent from "./DeferredPopoverContent.svelte";
 	import { choiceUnavailable } from "./nutrient-filters.mjs";
 
 	// One of the library's multi-choice filters: a trigger summarising the
@@ -58,7 +58,7 @@
 		<PopoverTrigger bind:ref={trigger} class="multi-trigger" aria-label={`${label}: ${summary}`} {disabled}>
 			<span>{summary}</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m4 6 4 4 4-4" /></svg>
 		</PopoverTrigger>
-		<PopoverContent bind:ref={content} trapFocus={false} onOpenAutoFocus={enterFocus} onCloseAutoFocus={restoreFocus} class="multi-options" portalProps={{ disabled: true }} side="bottom" sideOffset={6} collisionPadding={16} role="dialog" aria-label={`${label} choices`}>
+		<PopoverContent {open} bind:ref={content} trapFocus={false} onOpenAutoFocus={enterFocus} onCloseAutoFocus={restoreFocus} class="multi-options" portalProps={{ disabled: true }} side="bottom" sideOffset={6} collisionPadding={16} role="dialog" aria-label={`${label} choices`}>
 			{#each Object.entries(options) as [value, text] (value)}
 				<label for={`${uid}-${value}`}
 					><Checkbox

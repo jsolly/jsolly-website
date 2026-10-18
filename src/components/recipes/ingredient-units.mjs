@@ -1,5 +1,3 @@
-import weights from "./ingredient-weights.json" with { type: "json" };
-
 export const UNIT_LABELS = {
 	grams: "Grams",
 	us: "US imperial",
@@ -14,7 +12,6 @@ const VOLUME_ML = {
 	tbsp: 14.78676478125,
 	cup: 236.5882365,
 };
-const references = new Map(weights.references.map((ref) => [ref.id, ref]));
 const positive = (value) => Number.isFinite(value) && value > 0;
 
 function invalid(ingredient, reason) {
@@ -37,10 +34,8 @@ function measureNumber(value, decimals = value >= 10 ? 0 : value >= 1 ? 1 : 2) {
 
 /** Explicit cooking references only. Display prose never determines food identity. */
 export function ingredientWeight(ingredient) {
-	const ref = ingredient.weightRef
-		? references.get(ingredient.weightRef)
-		: null;
-	if (ingredient.weightRef && !ref)
+	const ref = ingredient.weightRef ? ingredient.weightReference : null;
+	if (ingredient.weightRef && (!ref || ref.id !== ingredient.weightRef))
 		invalid(ingredient, `unknown weightRef ${ingredient.weightRef}`);
 	const mass = MASS_GRAMS[ingredient.unit];
 	if (mass)

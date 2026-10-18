@@ -142,7 +142,10 @@ export async function serveStatic(root, headers = {}) {
 			method: request.method,
 			headers: request.headers,
 		});
-		const browse = recipeBrowseDestination(webRequest);
+		const browse =
+			pathname === "/api/recipe-browse/"
+				? url
+				: recipeBrowseDestination(webRequest);
 		if (browse) {
 			const { browseResponse } = await import("../../api/recipe-browse.mjs");
 			const rendered = await browseResponse(

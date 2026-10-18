@@ -5,6 +5,7 @@
 	import NativeSelect from "../../lib/components/ui/native-select.svelte";
 	import { BASE_SERVINGS, SERVING_CHOICES } from "./constants.mjs";
 	import RecipeContent from "./RecipeContent.svelte";
+	import RecipeOfflineStatus from "./RecipeOfflineStatus.svelte";
 	import RecipePrintButton from "./RecipePrintButton.svelte";
 	import { validateSettings } from "./recipe-logic.mjs";
 	import { collectionReturn } from "./recipe-navigation.mjs";
@@ -67,15 +68,21 @@
 			familyChoice: parsed.familyChoice,
 		};
 		interactive = true;
-		return printSession.listen();
+		const stopPrint = printSession.listen();
+		// Reloaded dialog URLs render a standalone page. Back can traverse an
+		// earlier same-document collection entry, which needs its collection DOM.
+		const restoreCollection = () => { if (location.pathname !== `/recipes/${recipe.id}/`) location.reload(); };
+		window.addEventListener("popstate", restoreCollection);
+		return () => { stopPrint(); window.removeEventListener("popstate", restoreCollection); };
 	});
 </script>
 
 <div class="recipe-page" data-preferences-ready={interactive} aria-busy={!interactive}>
 	<section class="recipe-detail print-document" id={recipe.id}>
 		<div class="toolbar">
-			<a href={returnUrl || `/recipes/${collection}/`} onclick={(event) => { if (returnUrl && history.length > 1 && event.button === 0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) { event.preventDefault(); history.back(); } }}>← Back to {returnUrl.startsWith("/recipes/?") || returnUrl === "/recipes/" || returnUrl.startsWith("/recipes/#") ? "recipes" : collection}</a>
+			<a href={returnUrl || `/recipes/${collection}/`} onclick={(event) => { if (returnUrl && history.length > 1 && event.button === 0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) { event.preventDefault(); history.back(); } }}>← Back to {returnUrl.startsWith("/recipes/saved/") ? "saved recipes" : returnUrl.startsWith("/recipes/?") || returnUrl === "/recipes/" || returnUrl.startsWith("/recipes/#") ? "recipes" : collection}</a>
 			<RecipePrintButton {recipe} {settings} class="recipe-enhanced" disabled={!interactive} onPrint={print} />
+			<RecipeOfflineStatus {recipe} />
 		</div>
 		<RecipeContent {recipe} {settings} {interactive} onSideChange={setSide}>
 			{#snippet controls()}

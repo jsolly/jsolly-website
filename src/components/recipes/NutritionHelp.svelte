@@ -1,8 +1,8 @@
 <script>
 	import PopoverRoot from "../../lib/components/ui/popover.svelte";
-	import PopoverContent from "../../lib/components/ui/popover-content.svelte";
 	import PopoverTrigger from "../../lib/components/ui/popover-trigger.svelte";
 	import { nutritionThresholds } from "./constants.mjs";
+	import PopoverContent from "./DeferredPopoverContent.svelte";
 
 	// The nutrition filters' thresholds. A mouse opens it by hovering (bits-ui
 	// leaves touch to the tap); a click, tap or Enter toggles it. It renders
@@ -15,6 +15,7 @@
 	const CLOSE_DELAY_MS = 120;
 	const uid = $props.id();
 	const contentId = `${uid}-content`;
+	let open = $state(false);
 	let trigger = $state(null);
 	let content = $state(null);
 
@@ -30,9 +31,9 @@
 	}
 </script>
 
-<PopoverRoot
+<PopoverRoot bind:open
 	><PopoverTrigger bind:ref={trigger} class={topic === "net-carbs" ? "nutrition-info recipe-enhanced" : "nutrition-info"} aria-label={topic === "net-carbs" ? "What are net carbs?" : "About nutrition filters"} aria-describedby={contentId} openOnHover openDelay={OPEN_DELAY_MS} closeDelay={CLOSE_DELAY_MS}>ⓘ</PopoverTrigger
-	><PopoverContent bind:ref={content} id={contentId} class="nutrition-help" portalProps={{ disabled: true }} sideOffset={4} trapFocus={false} onOpenAutoFocus={(event) => event.preventDefault()} onCloseAutoFocus={restoreFocus}
+	><PopoverContent {open} bind:ref={content} id={contentId} class="nutrition-help" portalProps={{ disabled: true }} sideOffset={4} trapFocus={false} onOpenAutoFocus={(event) => event.preventDefault()} onCloseAutoFocus={restoreFocus}
 		>{#if topic === "net-carbs"}<strong>Net carbs</strong><p>Total carbohydrates minus fiber and recorded erythritol. For example, 12 g of total carbs minus 4 g of fiber gives 8 g of net carbs when no erythritol is present.</p>{:else}<strong>Nutrition filters</strong>
 		<p><strong>Iron-rich:</strong> {nutritionThresholds.ironRich}</p>
 		<p><strong>Immune support:</strong> {nutritionThresholds.immuneSupport}</p>

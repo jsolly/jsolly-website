@@ -2,6 +2,7 @@
 import assert from "node:assert/strict";
 import { after, before, it } from "node:test";
 import { chromium } from "playwright";
+import recipeData from "../../src/components/recipes/recipe-data.server.mjs";
 import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
 
 const DOWNLOAD_BUTTON = /^Download (?:Markdown|JSON)$/u;
@@ -72,9 +73,13 @@ function registerPillTest(width) {
 			for (const [id, collection, expected, group] of CASES) {
 				await page.goto(`${site.origin}${collection}`);
 				await hydrated(page);
+				await page
+					.getByRole("searchbox", { name: "Search recipes" })
+					.fill(recipeData.recipes.find((recipe) => recipe.id === id).title);
 				const card = page.locator(
 					`.recipe-card:has(a[data-recipe-id="${id}"])`,
 				);
+				await card.waitFor();
 				assert.deepEqual(
 					await pills(card),
 					[...group, ...expected],

@@ -7,7 +7,7 @@ import {
 	validateRecipeImage,
 	webpDimensions,
 } from "../../../scripts/recipes/image-contract.mjs";
-import data from "./recipes.json" with { type: "json" };
+import data from "./recipe-data.server.mjs";
 
 const recipes = data.recipes;
 const publicRoot = fileURLToPath(new URL("../../../public/", import.meta.url));

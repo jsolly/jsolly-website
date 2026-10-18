@@ -135,6 +135,7 @@ export function shouldNegotiate(pathname: string, method: string): boolean {
 	const verb = method.toUpperCase();
 	if (verb !== "GET" && verb !== "HEAD") return false;
 	if (
+		pathname.startsWith("/api/") ||
 		pathname.startsWith("/_astro/") ||
 		pathname.startsWith("/favicons/") ||
 		pathname.startsWith("/images/") ||

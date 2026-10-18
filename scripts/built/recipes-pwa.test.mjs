@@ -4,7 +4,6 @@ import { join } from "node:path";
 import { it } from "node:test";
 import { collectErrors, readBuilt } from "./pages.mjs";
 import {
-	BLOG_CHROME,
 	browser,
 	controlled,
 	DATA_FILES,
@@ -21,7 +20,6 @@ import {
 	SCOPE,
 	SERVINGS,
 	SHARED_RECIPE,
-	SMOOTHIES,
 	serve,
 	site,
 	snapshotLabel,
@@ -33,117 +31,97 @@ import {
 	waitForBrowserState,
 } from "./recipes-pwa-fixture.mjs";
 
+function saveVisited(page, id) {
+	return page.evaluate(
+		(recipeId) =>
+			new Promise((resolve, reject) => {
+				const channel = new MessageChannel();
+				const timer = setTimeout(
+					() => reject(new Error("Save timed out")),
+					30_000,
+				);
+				channel.port1.onmessage = ({ data }) => {
+					clearTimeout(timer);
+					channel.port1.close();
+					if (data.saved) resolve();
+					else reject(new Error(data.error));
+				};
+				navigator.serviceWorker.controller.postMessage(
+					{ type: "SAVE_RECIPE", id: recipeId, release: "a".repeat(40) },
+					[channel.port2],
+				);
+			}),
+		id,
+	);
+}
 function installCheck(name, viewport) {
-	it(`Recipe PWA installs and cooking tools work offline on ${name}`, {
+	it(`Recipe PWA installs and visited cooking tools work offline on ${name}`, {
 		timeout: 90_000,
 	}, async () => {
 		await serve("A");
 		const { urls } = snapshots.A;
-		for (const label of ["A", "B"]) {
-			const { worker, rebuilt } = snapshots[label];
+		for (const label of ["A", "B"])
 			assert.equal(
-				rebuilt,
-				worker,
-				`${label}: a rebuild writes the same worker`,
+				snapshots[label].rebuilt,
+				snapshots[label].worker,
+				`${label}: deterministic worker`,
 			);
-		}
-		assert.deepEqual(urls, [...urls].sort(), "the precache list is sorted");
-		// The snapshot: every recipe page, the two assistant downloads and the
-		// files the pages load, and no page outside /recipes/.
-		for (const page of RECIPE_PAGES) {
-			assert.ok(urls.includes(page), `the snapshot holds ${page}`);
-		}
-		assert.deepEqual(
-			urls.filter((url) => url.startsWith("/recipes/data/")),
-			DATA_FILES,
-		);
-		assert.deepEqual(
-			urls.filter(
+		assert.deepEqual(urls, [...urls].sort());
+		assert.ok(urls.includes(LANDING));
+		assert.ok(urls.includes("/recipes/saved/"));
+		assert.ok(
+			!urls.some(
 				(url) =>
-					!(
-						url.startsWith("/recipes/") ||
-						url.startsWith("/_astro/") ||
-						url === "/favicon.ico" ||
-						url === "/recipes.md" ||
-						BLOG_CHROME.test(url)
-					),
+					url.startsWith("/recipes/media/") ||
+					url.startsWith("/recipes/data/packs/"),
 			),
-			[],
-			"precached paths outside /recipes/, the build output and the blog chrome",
 		);
-		assert.equal(urls.includes(WORKER), false, "the worker is not precached");
-		// The no-JavaScript stylesheets every recipe page loads inside <noscript>
-		// work offline too.
-		const fallbackStyles = new Set(
-			(
-				await Promise.all(
-					RECIPE_PAGES.map((path) =>
-						readBuilt(path, (document) =>
-							[
-								...document.querySelectorAll("noscript link[rel=stylesheet]"),
-							].map((link) => link.getAttribute("href")),
-						),
-					),
-				)
-			).flat(),
-		);
-		assert.ok(fallbackStyles.size > 0, "recipe pages have noscript styles");
-		for (const href of fallbackStyles) {
+		for (const path of RECIPE_PAGES.filter(
+			(page) => ![LANDING, "/recipes/saved/"].includes(page),
+		))
 			assert.ok(
-				urls.includes(href),
-				`Offline snapshot includes no-JavaScript stylesheet ${href}`,
+				!urls.includes(path),
+				`${path} is not installed without a visit`,
 			);
-		}
-
+		assert.equal(urls.includes(WORKER), false);
+		const fallbackStyles = await readBuilt(LANDING, (document) =>
+			[...document.querySelectorAll("noscript link[rel=stylesheet]")].map(
+				(link) => link.getAttribute("href"),
+			),
+		);
+		assert.ok(fallbackStyles.length > 0);
+		for (const href of fallbackStyles) assert.ok(urls.includes(href));
 		const context = await browser.newContext({ viewport });
-		const page = await context.newPage();
-		const errors = collectErrors(page, { warnings: true });
 		try {
-			await page.addInitScript(() => {
+			const page = await context.newPage();
+			await page.addInitScript(() =>
 				sessionStorage.setItem(
 					"pwaNavigations",
 					String(Number(sessionStorage.getItem("pwaNavigations") ?? 0) + 1),
-				);
-			});
+				),
+			);
 			await navigateHydrated(page, `${site.origin}${LANDING}`);
 			await statusText(page, SAVED);
-			assert.equal(await page.locator(".recipe-pwa").isVisible(), false);
 			await page.waitForFunction(() => navigator.serviceWorker.controller);
 			assert.equal(
 				await page.evaluate(() => sessionStorage.getItem("pwaNavigations")),
 				"1",
-				"first install never reloads",
+				"first install does not reload",
 			);
-			const nativeBrowse = await page.evaluate(async () => {
-				const response = await fetch(
-					`/recipes/meals/?${new URLSearchParams({ browse: "1", q: "salmon" })}`,
-					{
-						headers: { accept: "text/html" },
-					},
-				);
-				return {
-					html: await response.text(),
-					cache: response.headers.get("cache-control"),
-				};
-			});
-			assert.equal(
-				nativeBrowse.cache,
-				"no-store",
-				"native browsing bypasses the offline cache",
-			);
-			assert.ok(nativeBrowse.html.includes('data-server-browse="true"'));
 			const metadata = await page.evaluate(async (selector) => {
-				const link = document.querySelector(selector);
-				const manifest = await fetch(link.href).then((response) =>
-					response.json(),
-				);
-				const { scope, active } =
-					await navigator.serviceWorker.getRegistration();
-				return { manifest, scope, script: active.scriptURL };
+				const manifest = await (
+					await fetch(document.querySelector(selector).href)
+				).json();
+				const registration = await navigator.serviceWorker.getRegistration();
+				return {
+					manifest,
+					scope: registration.scope,
+					script: registration.active.scriptURL,
+				};
 			}, MANIFEST_LINK);
 			assert.equal(metadata.manifest.id, SCOPE);
-			assert.equal(metadata.manifest.start_url, SCOPE);
 			assert.equal(metadata.manifest.scope, SCOPE);
+			assert.equal(metadata.manifest.start_url, SCOPE);
 			assert.equal(metadata.manifest.display, "standalone");
 			assert.equal(metadata.scope, `${site.origin}${SCOPE}`);
 			assert.equal(metadata.script, `${site.origin}${WORKER}`);
@@ -153,14 +131,26 @@ function installCheck(name, viewport) {
 					metadata.manifest.icons.map(({ src }) => src),
 				),
 				[200, 200],
-				"the manifest icons",
 			);
-
+			for (const id of [
+				"lemon-salmon-and-asparagus",
+				"shawarma-chicken-bowls",
+			]) {
+				// biome-ignore lint/performance/noAwaitInLoops: each explicit visit must complete its own atomic save.
+				await navigateHydrated(page, `${site.origin}/recipes/${id}/`);
+				await saveVisited(page, id);
+			}
 			await page
 				.getByRole("combobox", { name: "Ingredient units" })
 				.selectOption("grams");
 			await context.setOffline(true);
-			await navigateHydrated(page);
+			await navigateHydrated(page, `${site.origin}/recipes/saved/`);
+			await page.locator(".meal-library[data-hydrated=true]").waitFor();
+			assert.equal(
+				await page.locator(".recipe-card").count(),
+				2,
+				"offline view includes only the two opened recipes",
+			);
 			assert.equal(
 				await page
 					.getByRole("combobox", { name: "Ingredient units" })
@@ -168,79 +158,52 @@ function installCheck(name, viewport) {
 				"grams",
 			);
 			await statusText(page, OFFLINE);
-			await page.locator(".recipe-pwa").waitFor({ state: "visible" });
-			await page.getByRole("combobox", { name: SERVINGS }).selectOption("2");
-			await page
-				.locator(".recipe-card")
-				.filter({ hasText: "Lemon salmon and asparagus" })
-				.getByRole("link", { name: "Open recipe: Lemon salmon and asparagus" })
-				.click();
-			await page.locator(".recipe-detail .reset-checks:visible").waitFor();
-			assert.ok((await page.locator(".recipe-detail .trn-table").count()) > 0);
-			await page.waitForFunction(() =>
-				[...document.querySelectorAll(".recipe-detail img")].every(
-					(image) => image.complete && image.naturalWidth > 0,
-				),
-			);
-			assert.deepEqual(
-				await statuses(page, DATA_FILES),
-				[200, 200],
-				"the assistant downloads offline",
-			);
-			// Changing the recipe URL's query or fragment still opens the cached app.
-			await navigateHydrated(
-				page,
-				`${site.origin}${LANDING}?cooking=1#meal-results`,
-			);
-			const servings = page.getByRole("combobox", { name: SERVINGS });
-			await servings.waitFor();
-			assert.equal(await servings.inputValue(), "2");
-			// A shared recipe link opens offline with its settings, and its
-			// notation dialog still opens.
 			await navigateHydrated(page, `${site.origin}${SHARED_RECIPE}`);
 			await page.locator(".recipe-detail .reset-checks:visible").waitFor();
 			assert.equal(
 				await page.getByRole("combobox", { name: SERVINGS }).inputValue(),
 				"8",
 			);
+			assert.ok(await page.locator(".recipe-detail .trn-table").count());
+			await page.waitForFunction(() =>
+				[...document.querySelectorAll(".recipe-detail img")].every(
+					(image) => image.complete && image.naturalWidth > 0,
+				),
+			);
 			await page.getByRole("button", { name: LEARN_MORE, exact: true }).click();
 			await page.locator(".method-dialog").waitFor();
 			await page
 				.getByRole("button", { name: "Close and continue recipe" })
 				.click();
-			await page
-				.getByRole("combobox", { name: "Ingredient units" })
-				.selectOption("metric");
-			// So does a collection page.
-			await navigateHydrated(page, `${site.origin}/recipes/smoothies/`);
-			await page.locator("[data-hydrated=true]").waitFor();
-			assert.equal(await page.locator(".recipe-card").count(), SMOOTHIES);
-			assert.equal(
-				await page
-					.getByRole("combobox", { name: "Ingredient units" })
-					.inputValue(),
-				"metric",
-			);
-			assert.deepEqual(errors, []);
-			// The worker answers for its snapshot only: a blog page is not in it.
-			// (The failed request logs a console error, so this comes last.)
-			assert.equal(
-				await page.evaluate(() =>
-					fetch("/blog/").then(
-						() => "answered",
-						() => "failed",
+			const failed = await page.evaluate(() =>
+				Promise.all(
+					[
+						"/blog/",
+						`/recipes/meals/?${new URLSearchParams({ browse: "1", q: "salmon" })}`,
+					].map((path) =>
+						fetch(path).then(
+							() => false,
+							() => true,
+						),
 					),
 				),
-				"failed",
-				"/blog/ offline from a recipe page",
 			);
-
+			assert.deepEqual(
+				failed,
+				[true, true],
+				"external pages and native form submissions need a connection",
+			);
+			await navigateHydrated(page, `${site.origin}/recipes/smoothies/`);
+			assert.equal(
+				new URL(page.url()).pathname,
+				"/recipes/saved/",
+				"unsaved collection navigations show saved recipes offline",
+			);
 			await context.setOffline(false);
-			await page.locator(".recipe-pwa").waitFor({ state: "hidden" });
 			for (const path of ["/blog/", "/about/"]) {
-				// biome-ignore lint/performance/noAwaitInLoops: one page at a time in the one tab
+				// biome-ignore lint/performance/noAwaitInLoops: verify each navigation's scope independently.
 				await navigateHydrated(page, `${site.origin}${path}`);
-				assert.equal(await controlled(page), false, `${path} is controlled`);
+				assert.equal(await controlled(page), false);
 			}
 		} finally {
 			await context.close();
@@ -304,10 +267,8 @@ it("An installed worker serves offline HTML when the cached request has a differ
 		await page.locator(".meal-library[data-hydrated=true]").waitFor();
 		const servings = page.getByRole("combobox", { name: SERVINGS });
 		await servings.selectOption("2");
-		await page
-			.getByText("Net carbs per serving", { exact: true })
-			.first()
-			.waitFor();
+		assert.equal(await page.locator(".recipe-card").count(), 0);
+		assert.equal(await page.getByRole("alert").count(), 0);
 		assert.equal(await servings.inputValue(), "2");
 		assert.deepEqual(await statuses(page, DATA_FILES), [200, 200]);
 	} finally {
@@ -341,7 +302,7 @@ it("Distinct snapshot update waits for both tabs, then serves new recipes offlin
 		});
 		await tabs[0]
 			.locator("#recipe-offline-status")
-			.filter({ hasText: "Updated recipes are downloaded" })
+			.filter({ hasText: "The updated app is ready" })
 			.waitFor({ state: "visible" });
 		await context.setOffline(true);
 		for (const page of tabs) {
@@ -375,8 +336,7 @@ it("Distinct snapshot update waits for both tabs, then serves new recipes offlin
 				return (
 					registration?.active?.state === "activated" &&
 					!registration.waiting &&
-					keys.length === 1 &&
-					keys[0] === cache
+					keys.includes(cache)
 				);
 			},
 			snapshots.B.cache,
@@ -390,7 +350,7 @@ it("Distinct snapshot update waits for both tabs, then serves new recipes offlin
 					(key) => key !== "recipe-pages-pwa-ownership",
 				),
 			),
-			[snapshots.B.cache],
+			[snapshots.A.cache, snapshots.B.cache],
 		);
 		await reopened.getByRole("combobox", { name: SERVINGS }).selectOption("6");
 	} finally {
@@ -517,8 +477,13 @@ it("Offline page requests select separate HTML and Markdown representations and 
 		await navigateHydrated(page, `${site.origin}${LANDING}`);
 		await statusText(page, SAVED);
 		await page.waitForFunction(() => navigator.serviceWorker.controller);
+		await navigateHydrated(
+			page,
+			`${site.origin}/recipes/lemon-salmon-and-asparagus/`,
+		);
+		await saveVisited(page, "lemon-salmon-and-asparagus");
 		await context.setOffline(true);
-		const results = await page.evaluate(() => {
+		const results = await page.evaluate((markerPath) => {
 			return Promise.all(
 				[
 					["/recipes/", "text/html", "GET"],
@@ -532,7 +497,7 @@ it("Offline page requests select separate HTML and Markdown representations and 
 						"text/markdown",
 						"GET",
 					],
-					["/recipes/data/recipe-library.md", "application/json", "GET"],
+					[markerPath, "application/json", "GET"],
 				].map(async ([path, accept, method]) => {
 					const response = await fetch(path, { method, headers: { accept } });
 					return {
@@ -543,7 +508,7 @@ it("Offline page requests select separate HTML and Markdown representations and 
 					};
 				}),
 			);
-		});
+		}, DATA_FILES[1]);
 		for (const [index, type] of [
 			[0, "text/html"],
 			[1, "text/markdown"],
@@ -586,15 +551,12 @@ it("Offline page requests select separate HTML and Markdown representations and 
 		assert.equal(
 			results[7].status,
 			200,
-			"assistant data is static even for a rejected page Accept",
+			"static marker accepts a rejected page Accept",
 		);
 		assert.equal(
 			results[7].body,
-			await readFile(
-				join(snapshots.A.directory, "recipes/data/recipe-library.md"),
-				"utf8",
-			),
-			"static assistant download retains its exact built body",
+			await readFile(join(snapshots.A.directory, DATA_FILES[1]), "utf8"),
+			"static marker retains its exact built body",
 		);
 	} finally {
 		await context.close();

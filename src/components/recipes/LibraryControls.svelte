@@ -1,5 +1,4 @@
 <script>
-	import Button from "../../lib/components/ui/button.svelte";
 	import Checkbox from "../../lib/components/ui/checkbox.svelte";
 	import Input from "../../lib/components/ui/input.svelte";
 	import NativeSelect from "../../lib/components/ui/native-select.svelte";
@@ -20,11 +19,13 @@
 	import UnitControl from "./UnitControl.svelte";
 
 	// The recipe library's controls: the collection links, servings, the
-	// filters, the appliances on hand, the nutrition filters and Print all.
+	// filters, the appliances on hand, the nutrition filters.
 	// Every control is disabled until the library hydrates. `filters` is the
 	// library's DEFAULT_FILTERS-shaped filter state.
 	let {
 		collection,
+		saved = false,
+		onCollectionChange,
 		query = $bindable(""),
 		pathname,
 		hydrated,
@@ -32,11 +33,10 @@
 		onServingsChange,
 		units,
 		onUnitsChange,
-		collectionRecipes,
+		shownApplianceKeys,
 		collectionHasIron,
 		smoothieIngredients,
 		hasMatches,
-		onPrintAll,
 		filters = $bindable(),
 		appliancesOnHand = $bindable(),
 	} = $props();
@@ -53,9 +53,7 @@
 
 	const shownAppliances = $derived(
 		Object.entries(applianceChoices).filter(([value]) =>
-			collectionRecipes.some((recipe) =>
-				recipe.appliancesNeeded.includes(value),
-			),
+			shownApplianceKeys.includes(value),
 		),
 	);
 	// The nutrition checks the collection offers: each filter's key, label,
@@ -107,7 +105,7 @@
 
 <div class="library-controls">
 	<nav class="collection-options" aria-label="Recipe type"
-		>{#each COLLECTION_LINKS as link (link.href)}<a href={link.href} aria-current={current(link)}>{link.label}</a>{/each}</nav
+		>{#each COLLECTION_LINKS as link (link.href)}<a href={saved ? `/recipes/saved/?collection=${link.collection}` : link.href} aria-current={current(link)} onclick={(event) => { if (saved) { event.preventDefault(); onCollectionChange(link.collection); } }}>{link.label}</a>{/each}</nav
 	>
 	<div class="library-intro">
 		<div class="servings-setting">
@@ -184,7 +182,6 @@
 			{#each Object.entries(nutritionThresholds) as [key, threshold] (key)}<p id={controlId(`${key}-threshold`)}>{threshold}</p>{/each}
 		</div>
 	</fieldset>
-	<Button variant="outline" type="button" class="print-all" disabled={!hydrated} onclick={onPrintAll}>{collection === "smoothie" ? "Print all smoothies" : "Print all meals"}</Button>
 	<div class="recipe-search">
 		<label for={`${uid}-search`}>Search recipes</label>
 		<Input id={`${uid}-search`} type="search" bind:value={query} disabled={!hydrated} placeholder="Try chicken, garlic, or air fryer" aria-describedby={`${uid}-search-help`} />
@@ -381,19 +378,6 @@
 			gap: 8px;
 			min-height: 44px;
 		}
-		/* The attribute outranks the library's `button { font: inherit }`. */
-		.library-controls :global([data-slot="button"].print-all) {
-			align-self: end;
-			justify-self: end;
-			grid-column: 2;
-			grid-row: 5;
-			border: 1px solid var(--recipe-input-border);
-			background: transparent;
-			color: var(--recipe-ink);
-			border-radius: 8px;
-			padding: 8px 12px;
-			font-size: 0.8rem;
-		}
 		@media (max-width: 600px) {
 			.library-controls {
 				padding: 14px;
@@ -407,11 +391,6 @@
 				grid-template-columns: 1fr;
 				min-height: 164px;
 				align-content: start;
-			}
-			.library-controls :global([data-slot="button"].print-all) {
-				grid-column: 1 / -1;
-				grid-row: 6;
-				justify-self: end;
 			}
 			.library-intro > .servings-setting {
 				grid-column: 1;

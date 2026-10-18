@@ -1,13 +1,11 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
 import it from "node:test";
 import { ingredientGrams } from "./ingredient-units.mjs";
+import data from "./recipe-data.server.mjs";
 import { ingredientAmount } from "./recipe-logic.mjs";
 import { flowGrid, gridHtml, validateFlow } from "./trn-logic.mjs";
 
-const { recipes } = JSON.parse(
-	readFileSync(new URL("./recipes.json", import.meta.url), "utf8"),
-);
+const { recipes } = data;
 const SPRAY = /spray/iu;
 const MEASURED_SPRAY = /cooking spray/iu;
 const UNALLOCATED = /Unallocated/u;

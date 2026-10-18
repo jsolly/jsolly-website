@@ -87,6 +87,26 @@ describe("shouldNegotiate", () => {
 	});
 });
 
+it("API routes own JSON and Markdown negotiation independently of page responses", () => {
+	for (const path of [
+		"/api/recipe-browse",
+		"/api/recipe-browse/",
+		"/api/other.md",
+	]) {
+		assert.equal(shouldNegotiate(path, "GET"), false);
+		for (const accept of ["application/json", "text/markdown"]) {
+			assert.equal(
+				agentResponse(
+					new Request(`https://www.jsolly.com${path}`, { headers: { accept } }),
+					ROUTES,
+				),
+				null,
+			);
+		}
+	}
+	assert.equal(shouldNegotiate("/apiculture/", "GET"), true);
+});
+
 describe("path helpers", () => {
 	it("normalizes trailing slashes and .md siblings", () => {
 		assert.equal(normalizePagePath("/"), "/");

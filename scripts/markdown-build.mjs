@@ -6,11 +6,11 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { escapeAttribute } from "entities";
 import { JSDOM } from "jsdom";
 import TurndownService from "turndown";
+import data from "../src/components/recipes/recipe-data.server.mjs";
 import {
 	documentMarkdown,
 	recipeDocument,
 } from "../src/components/recipes/recipe-export.mjs";
-import data from "../src/components/recipes/recipes.json" with { type: "json" };
 import {
 	maintenanceMarkdown,
 	withSiteSearch,

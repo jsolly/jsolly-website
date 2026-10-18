@@ -11,7 +11,7 @@ it("native browse rewrites only explicit collection GET/HEAD submissions and ove
 					{ method },
 				),
 			);
-			assert.equal(result?.pathname, "/api/recipe-browse");
+			assert.equal(result?.pathname, "/api/recipe-browse/");
 			assert.equal(result?.searchParams.get("path"), path);
 			assert.equal(result?.searchParams.get("q"), "fish");
 		}
@@ -22,7 +22,7 @@ it("native browse rewrites only explicit collection GET/HEAD submissions and ove
 		"/recipes/meals.md?browse=1",
 		"/recipes/data/recipe-library.json?browse=1",
 		"/recipes/fish/?browse=1",
-		"/api/recipe-browse?browse=1",
+		"/api/recipe-browse/?browse=1",
 	])
 		assert.equal(
 			recipeBrowseDestination(new Request(`https://example.test${path}`)),

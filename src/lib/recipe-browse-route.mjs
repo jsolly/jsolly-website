@@ -13,7 +13,7 @@ export function recipeBrowseDestination(request) {
 		url.searchParams.get("browse") !== "1"
 	)
 		return null;
-	const destination = new URL("/api/recipe-browse", url);
+	const destination = new URL("/api/recipe-browse/", url);
 	destination.search = url.search;
 	destination.searchParams.set("path", url.pathname);
 	return destination;

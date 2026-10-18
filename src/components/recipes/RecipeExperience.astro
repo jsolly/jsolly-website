@@ -1,18 +1,22 @@
 ---
-// The recipe library island with its no-JavaScript fallback styles, on
-// /recipes/ and the meals and smoothies pages. `collection` picks the cards
-// shown first; the shared module supplies all recipes, so a #<recipe-id> link opens
-// any recipe, smoothies included (plan §1.6).
-
+import { buildReleaseSha } from "../../lib/build-release";
 import noScriptStyles from "../../styles/recipes/recipes-no-script.css?url";
+import RecipeCard from "./RecipeCard.svelte";
 import RecipeLibrary from "./RecipeLibrary.svelte";
+import { parseBrowseParams } from "./recipe-browse.mjs";
+import { writeBrowseFragments } from "./recipe-browse-fragments.server.mjs";
+import data from "./recipe-data.server.mjs";
+import { createBrowsePage } from "./recipe-summary.mjs";
 
-interface Props {
-	collection?: "meal" | "smoothie";
-}
-
-const { collection = "meal" } = Astro.props;
+interface Props { collection?: "meal" | "smoothie"; saved?: boolean; }
+const { collection = "meal", saved = false } = Astro.props;
+const release = buildReleaseSha();
+const state = parseBrowseParams(new URLSearchParams(), collection, data.recipes);
+const initial = createBrowsePage(saved ? [] : data.recipes, collection, state, release);
+// Saved pages still offer collection-wide control labels before their local records load.
+if (saved) initial.filterChoices = createBrowsePage(data.recipes, collection, state, release).filterChoices;
+const recipeIndex = data.recipes.map(({id,type,familyOptions}) => ({ id, type, familyOptions: familyOptions.map(({id: sideId}: {id: string}) => ({id: sideId})) }));
+if (import.meta.env.PROD && process.env.MAINTENANCE_MODE !== "true" && !saved) await writeBrowseFragments(RecipeCard, data.recipes, collection, release);
 ---
-
 <noscript><link rel="stylesheet" href={noScriptStyles} /></noscript>
-<div class="recipe-experience"><RecipeLibrary initialCollection={collection} pathname={Astro.url.pathname} client:load /></div>
+<div class="recipe-experience"><RecipeLibrary initialCollection={collection} pathname={Astro.url.pathname} {initial} {recipeIndex} {saved} client:load /></div>

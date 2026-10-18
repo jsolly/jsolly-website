@@ -11,9 +11,7 @@ import {
 	PWA_THEME_COLOR,
 	RECIPES_PATH,
 } from "../../src/components/recipes/constants.mjs";
-import data from "../../src/components/recipes/recipes.json" with {
-	type: "json",
-};
+import data from "../../src/components/recipes/recipe-data.server.mjs";
 import { drift, generate } from "../recipes/sync-assistant-data.mjs";
 
 const PUBLIC = fileURLToPath(new URL("../../public", import.meta.url));

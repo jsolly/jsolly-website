@@ -10,13 +10,11 @@ import {
 import weights from "../../src/components/recipes/ingredient-weights.json" with {
 	type: "json",
 };
+import data from "../../src/components/recipes/recipe-data.server.mjs";
 import {
 	formatQuantity,
 	ingredientAmount,
 } from "../../src/components/recipes/recipe-logic.mjs";
-import data from "../../src/components/recipes/recipes.json" with {
-	type: "json",
-};
 
 const BAD_DISPLAY =
 	/unavailable|unspecified|to taste|NaN|Infinity|undefined|~|\(/u;
@@ -189,7 +187,9 @@ export function unitAudit() {
 				},
 				weight,
 				provenance,
-				alternatives: ingredient.alternatives || [],
+				alternatives: (ingredient.alternatives || []).map(
+					({ weightReference: _reference, ...alternative }) => alternative,
+				),
 				displays: displays(ingredient, ingredient.amount),
 				scaling,
 			};

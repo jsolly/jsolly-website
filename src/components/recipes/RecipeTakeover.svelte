@@ -5,6 +5,7 @@
 	import DialogDescription from "../../lib/components/ui/dialog-description.svelte";
 	import DialogTitle from "../../lib/components/ui/dialog-title.svelte";
 	import RecipeContent from "./RecipeContent.svelte";
+	import RecipeOfflineStatus from "./RecipeOfflineStatus.svelte";
 	import RecipePrintButton from "./RecipePrintButton.svelte";
 	import ShareRecipe from "./ShareRecipe.svelte";
 	import UnitControl from "./UnitControl.svelte";
@@ -42,6 +43,7 @@
 			<div class="detail-toolbar">
 				<Button variant="ghost" type="button" class="text-button" onclick={() => onBack()}>← Back to recipes</Button>
 				<RecipePrintButton {recipe} {settings} class="print-recipe" {onPrint} />
+			<RecipeOfflineStatus {recipe} />
 			</div>
 			<DialogDescription class="visually-hidden">{recipe.summary}</DialogDescription>
 			<RecipeContent {recipe} {settings} headingLevel={3} {onSideChange}>

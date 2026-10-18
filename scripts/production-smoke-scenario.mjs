@@ -11,12 +11,62 @@ import { parseFrontmatter } from "astro/markdown";
 // 5. the RSS and Atom feeds with their XML Content-Types;
 // 6. the post asked for as Markdown answers Markdown with Vary: Accept (J11);
 // 7. the mobile menu's Recipes link, and the /recipes/ library hydrating.
-// A separate fresh context then verifies the recipe worker's activation and page control.
+// A separate fresh context verifies worker control, opened-only saving and offline reopening.
 export const serviceWorker = {
 	page: "/recipes/",
 	scope: "/recipes/",
 	script: "/recipes/service-worker.js",
 };
+
+/** Fresh worker context: summaries do not save cooking documents; opening one does. */
+export async function verifyRecipeWorker(page) {
+	const savedIds = () =>
+		page.evaluate(
+			() =>
+				new Promise((resolve, reject) => {
+					const channel = new MessageChannel();
+					const timer = setTimeout(() => {
+						channel.port1.close();
+						reject(new Error("Saved recipe registry did not respond"));
+					}, 10000);
+					channel.port1.onmessage = ({ data }) => {
+						clearTimeout(timer);
+						channel.port1.close();
+						if (data.error) reject(new Error(data.error));
+						else resolve(data.recipes.map((recipe) => recipe.id));
+					};
+					navigator.serviceWorker.controller.postMessage(
+						{ type: "LIST_SAVED_RECIPES" },
+						[channel.port2],
+					);
+				}),
+		);
+	await page.locator('.meal-library[data-hydrated="true"]').waitFor();
+	assert.deepEqual(
+		await savedIds(),
+		[],
+		"browsing summaries saves no full recipes",
+	);
+	const card = page.locator(".recipe-card .title-button").first();
+	const id = await card.getAttribute("data-recipe-id");
+	await card.click();
+	await page.locator(".recipe-detail").waitFor();
+	await page
+		.getByText("Available offline", { exact: true })
+		.waitFor({ timeout: 60000 });
+	assert.deepEqual(await savedIds(), [id], "only the opened recipe is saved");
+	await page.context().setOffline(true);
+	try {
+		await page.goto(new URL("/recipes/saved/", page.url()).href, {
+			waitUntil: "domcontentloaded",
+		});
+		await page.locator(`.recipe-card [data-recipe-id="${id}"]`).click();
+		await page.locator(".recipe-detail").waitFor();
+	} finally {
+		await page.context().setOffline(false);
+	}
+	return { savedRecipe: id, savedCount: 1, reopenedOffline: true };
+}
 
 const FULL_SHA = /^[a-f0-9]{40}$/u;
 

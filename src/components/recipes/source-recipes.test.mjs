@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import it from "node:test";
 import { matchesRecipe } from "./nutrient-filters.mjs";
 import nutritionData from "./nutrition-data.json" with { type: "json" };
+import data from "./recipe-data.server.mjs";
 import { documentMarkdown, recipeDocument } from "./recipe-export.mjs";
 import {
 	dietaryClass,
@@ -11,7 +12,6 @@ import {
 	ingredientAmount,
 	totalTimeLabel,
 } from "./recipe-logic.mjs";
-import data from "./recipes.json" with { type: "json" };
 
 const NUTRITION_ASSUMPTIONS = /Nutrition assumptions:/u;
 const MISSING_PREP = /Preparation time not provided/u;

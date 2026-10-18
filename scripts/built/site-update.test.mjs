@@ -15,7 +15,6 @@ import { chromium } from "playwright";
 import { collectErrors, serveStatic } from "./pages.mjs";
 
 const ROUTES = ["/", "/blog/", "/recipes/"];
-const RELEASE_ATTRIBUTE = /data-release="[a-f0-9]{40}"/u;
 const NEXT_SHA = "b".repeat(40);
 const THIRD_SHA = "c".repeat(40);
 let fixture;
@@ -33,6 +32,9 @@ before(async () => {
 	served = join(fixture, "served");
 	await cp("dist", join(fixture, "A"), { recursive: true });
 	await cp("dist", join(fixture, "B"), { recursive: true });
+	const originalSha = JSON.parse(
+		await readFile(join(fixture, "A", "release.json"), "utf8"),
+	).sha;
 	await Promise.all(
 		ROUTES.map(async (route) => {
 			const file = join(fixture, "B", route, "index.html");
@@ -40,10 +42,7 @@ before(async () => {
 			// its release endpoint. It must not offer the same update after reload.
 			await writeFile(
 				file,
-				(await readFile(file, "utf8")).replace(
-					RELEASE_ATTRIBUTE,
-					`data-release="${NEXT_SHA}"`,
-				),
+				(await readFile(file, "utf8")).replaceAll(originalSha, NEXT_SHA),
 			);
 		}),
 	);
@@ -57,10 +56,7 @@ before(async () => {
 			const file = join(fixture, "C", route, "index.html");
 			await writeFile(
 				file,
-				(await readFile(file, "utf8")).replace(
-					RELEASE_ATTRIBUTE,
-					`data-release="${THIRD_SHA}"`,
-				),
+				(await readFile(file, "utf8")).replaceAll(NEXT_SHA, THIRD_SHA),
 			);
 		}),
 	);
@@ -86,6 +82,10 @@ function updateCheck(route) {
 		try {
 			const page = await context.newPage();
 			const errors = collectErrors(page);
+			const conflicts = [];
+			page.on("response", (response) => {
+				if (response.status() === 409) conflicts.push(response.url());
+			});
 			await page.clock.install();
 			await page.goto(`${site.origin}${route}`);
 			await page.waitForFunction(
@@ -111,14 +111,37 @@ function updateCheck(route) {
 				assert.equal(await notice.isVisible(), false);
 				await page.unroute("**/release.json");
 			}
-			await context.setOffline(true);
+			// This contract tests connectivity-gated release polling. Keep transport
+			// available for unrelated lazy UI assets; PWA tests cover real disconnection.
+			let offlineReleaseRequests = 0;
+			const countRelease = (request) => {
+				if (new URL(request.url()).pathname === "/release.json")
+					offlineReleaseRequests++;
+			};
+			page.on("request", countRelease);
+			await page.evaluate(() => {
+				Object.defineProperty(navigator, "onLine", {
+					configurable: true,
+					get: () => false,
+				});
+				window.dispatchEvent(new Event("offline"));
+			});
 			await page.clock.fastForward(5 * 60_000);
+			assert.equal(
+				offlineReleaseRequests,
+				0,
+				"offline status prevents release polling",
+			);
+			page.off("request", countRelease);
 			assert.equal(
 				await notice.isVisible(),
 				false,
 				"offline is not a release change",
 			);
-			await context.setOffline(false);
+			await page.evaluate(() => {
+				Reflect.deleteProperty(navigator, "onLine");
+				window.dispatchEvent(new Event("online"));
+			});
 			await serve("B");
 			await checkNow(page);
 			await notice.waitFor({ state: "visible" });
@@ -172,7 +195,21 @@ function updateCheck(route) {
 				false,
 				"new release has no reload loop",
 			);
-			assert.deepEqual(errors, []);
+			// An A recipe tab can finish a background browse against deployment B.
+			// Verify the explicit release conflict rather than hiding its diagnostic.
+			for (const value of conflicts) {
+				const url = new URL(value);
+				assert.equal(route, "/recipes/");
+				assert.equal(url.pathname, "/api/recipe-browse/");
+				assert.equal(url.searchParams.get("release"), original);
+			}
+			assert.deepEqual(
+				errors,
+				conflicts.map(
+					() =>
+						"Failed to load resource: the server responded with a status of 409 (Conflict)",
+				),
+			);
 		} finally {
 			await context.close();
 		}

@@ -1,5 +1,5 @@
-import { parse, serialize } from "parse5";
-import { browseFormValues, filterBrowseRecipes } from "./recipe-browse.mjs";
+import { parse, parseFragment, serialize } from "parse5";
+import { browseFormValues, paginateBrowseRecipes } from "./recipe-browse.mjs";
 import { recipeBrowseHref } from "./recipe-url.mjs";
 
 const SPACE_RE = /\s+/u;
@@ -23,7 +23,7 @@ function text(node, value) {
 }
 
 /** Transform only the native library, keeping the build's own cards, head and CSP. */
-export function renderBrowseHTML(html, recipes, collection, state) {
+export function renderBrowseHTML(html, recipes, collection, state, fragments) {
 	const document = parse(html, { scriptingEnabled: false });
 	const nodes = descendants(document);
 	const library = nodes.find((node) => hasClass(node, "meal-library"));
@@ -107,21 +107,34 @@ export function renderBrowseHTML(html, recipes, collection, state) {
 			} else setAttr(node, "value", selected[0] || "");
 		}
 	}
-	const matches = filterBrowseRecipes(recipes, collection, state);
-	const cards = new Map(
-		grid.childNodes
-			.filter((node) => hasClass(node, "recipe-card"))
-			.map((node) => {
-				const link = descendants(node).find((child) =>
-					attr(child, "data-recipe-id"),
-				);
-				return [attr(link || {}, "data-recipe-id"), node];
-			}),
-	);
-	const orderedCards = matches.map((recipe) => {
-		const card = cards.get(recipe.id);
+	const result = paginateBrowseRecipes(recipes, collection, state);
+	const orderedCards = result.recipes.map((recipe) => {
+		const fragment = fragments[recipe.id];
+		const card =
+			fragment &&
+			parseFragment(fragment, { scriptingEnabled: false }).childNodes.find(
+				(node) => hasClass(node, "recipe-card"),
+			);
 		if (!card)
 			throw new Error(`Recipe browse template is missing card ${recipe.id}.`);
+		for (const node of descendants(card)) {
+			if (
+				node.tagName === "noscript" ||
+				hasClass(node, "deferred-card-image")
+			) {
+				const parent = node.parentNode;
+				replaceChildren(
+					parent,
+					parent.childNodes.flatMap((child) =>
+						child === node
+							? node.tagName === "noscript"
+								? node.childNodes
+								: []
+							: [child],
+					),
+				);
+			}
+		}
 		for (const link of descendants(card).filter(
 			(node) =>
 				node.tagName === "a" &&
@@ -135,16 +148,49 @@ export function renderBrowseHTML(html, recipes, collection, state) {
 	const browse = descendants(library).find(
 		(node) => attr(node, "id") === "meal-results",
 	);
-	setAttr(browse, "data-match-count", matches.length);
+	setAttr(browse, "data-match-count", result.total);
+	setAttr(browse, "data-page", result.page);
 	const status = descendants(library).find((node) =>
 		hasClass(node, "no-results"),
 	);
 	text(
 		status,
-		matches.length
-			? `${matches.length} ${matches.length === 1 ? "recipe" : "recipes"} found`
+		result.total
+			? `${result.total} ${result.total === 1 ? "recipe" : "recipes"} found`
 			: "No recipes match your search and filters. Try fewer words or adjust the filters.",
 	);
+	for (const node of descendants(library).filter(
+		(candidate) =>
+			hasClass(candidate, "recipe-pagination") ||
+			hasClass(candidate, "load-more"),
+	)) {
+		const parent = node.parentNode;
+		replaceChildren(
+			parent,
+			parent.childNodes.filter((child) => child !== node),
+		);
+	}
+	const href = (page) => {
+		const params = new URLSearchParams();
+		for (const [name, selected] of Object.entries(values))
+			for (const value of selected) params.append(name, value);
+		params.set("page", String(page));
+		return `${attr(form, "action") || (collection === "meal" ? "/recipes/meals/" : "/recipes/smoothies/")}?${params}`;
+	};
+	const pagination = parseFragment(
+		'<nav class="recipe-pagination" aria-label="Recipe pages"></nav>',
+	).childNodes.at(0);
+	for (const [page, label] of [
+		[result.page > 1 ? result.page - 1 : null, "Previous recipes"],
+		[result.nextPage, "Next recipes"],
+	]) {
+		if (page === null) continue;
+		const link = parseFragment("<a></a>").childNodes.at(0);
+		setAttr(link, "href", href(page));
+		text(link, label);
+		replaceChildren(pagination, [...pagination.childNodes, link]);
+	}
+	replaceChildren(grid.parentNode, [...grid.parentNode.childNodes, pagination]);
 	// Filters are discovery variants, never separate search-index pages.
 	for (const meta of nodes.filter(
 		(node) => node.tagName === "meta" && attr(node, "name") === "robots",

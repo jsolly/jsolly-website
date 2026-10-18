@@ -24,7 +24,7 @@ import { serveStatic } from "./pages.mjs";
 // readiness, while a maintenance deploy (no worker) leaves the installed app
 // as it was. The server serves one fixed directory whose contents a test
 // swaps between copies of dist/ with their own worker: A and B differ in a
-// marker on /recipes/ and in the recipe data, "broken" is B with a precached
+// marker on /recipes/ and in tiny static test markers, "broken" is B with a precached
 // icon missing, so its install fails, and "maintenance" is A without its
 // worker, as a maintenance build ships (plan §1.6). Every response carries
 // Vary: Accept. The worker uses explicit Accept keys for each representation.
@@ -37,9 +37,10 @@ const LANDING = "/recipes/";
 // constants.mjs says.
 const SCOPE = "/recipes/";
 const WORKER = "/recipes/service-worker.js";
+// Tiny mutable fixtures exercise release verification without caching assistant exports.
 const DATA_FILES = [
-	"/recipes/data/recipe-library.json",
-	"/recipes/data/recipe-library.md",
+	"/recipes/data/pwa-test-marker.json",
+	"/recipes/data/pwa-test-marker.md",
 ];
 const MISSING_FILE = "recipes/pwa/icon-512.png";
 // The blog chrome the recipe pages show: the header logo and the author card.
@@ -58,6 +59,7 @@ const RECIPE_PAGES = [
 	LANDING,
 	"/recipes/meals/",
 	"/recipes/smoothies/",
+	"/recipes/saved/",
 	...recipes.map(({ id }) => `/recipes/${id}/`),
 ];
 const SERVINGS = /^Servings/u;
@@ -69,7 +71,7 @@ const SMOOTHIES = recipes.filter(({ type }) => type === "smoothie").length;
 // RecipePwa's status line before any worker reports.
 const INSTRUCTIONS =
 	"Save recipes to your home screen. On iPhone or iPad, open in Safari and choose Share → Add to Home Screen. Other browsers offer Install or Add to Home Screen in their menu.";
-const SAVED = "Recipes saved for offline use.";
+const SAVED = "Opened recipes can be saved for offline use.";
 const OFFLINE = "You are offline.";
 const VIEWPORTS = [
 	["desktop", { width: 1280, height: 900 }],
@@ -84,13 +86,16 @@ let browser;
 const snapshots = {};
 let served;
 
-// Copies dist/ to `label`, marks its landing page and recipe data with the
+// Copies dist/ to `label`, marks its landing page and dedicated static files with the
 // label, and writes its worker twice: `worker` and `rebuilt` are the two
 // results, which must match.
 async function snapshot(label) {
 	const directory = join(fixture, label);
 	await cp(DIST, directory, { recursive: true });
 	const release = label.toLowerCase().repeat(40);
+	const builtRelease = JSON.parse(
+		await readFile(join(directory, "release.json"), "utf8"),
+	).sha;
 	await writeFile(
 		join(directory, "release.json"),
 		JSON.stringify({ sha: release }),
@@ -100,12 +105,24 @@ async function snapshot(label) {
 			const file = join(directory, route, "index.html");
 			await writeFile(
 				file,
-				(await readFile(file, "utf8")).replace(
-					RELEASE_ATTRIBUTE,
-					`data-release="${release}"`,
-				),
+				(await readFile(file, "utf8"))
+					.replaceAll(builtRelease, release)
+					.replace(RELEASE_ATTRIBUTE, `data-release="${release}"`),
 			);
 		}),
+	);
+	await Promise.all(
+		recipes.map(async ({ id }) => {
+			const file = join(directory, `recipes/data/packs/${id}.json`);
+			const pack = JSON.parse(await readFile(file, "utf8"));
+			await writeFile(file, JSON.stringify({ ...pack, releaseId: release }));
+		}),
+	);
+	// Saved-view UI is deferred on a fresh install but must update independently
+	// of already saved recipe A when release B changes the UI bundle.
+	await writeFile(
+		join(directory, `_astro/recipe-summary.pwa-${label}.js`),
+		`export const label = "Saved view ${label}";`,
 	);
 	// Real distinct frontend bundles: A's deferred module is absent from B.
 	await writeFile(
@@ -122,7 +139,7 @@ async function snapshot(label) {
 		(await readFile(landing, "utf8"))
 			.replace(
 				"</head>",
-				`<meta name="pwa-test-snapshot" content="${label}"><script type="module" src="/_astro/pwa-entry-${label}.js"></script></head>`,
+				`<meta name="pwa-test-snapshot" content="${label}"><link rel="modulepreload" href="/_astro/pwa-deferred-${label}.js">${DATA_FILES.map((path) => `<link rel="alternate" type="text/markdown" href="${path}">`).join("")}<script type="module" src="/_astro/pwa-entry-${label}.js"></script></head>`,
 			)
 			.replace(
 				"</body>",
@@ -135,10 +152,25 @@ async function snapshot(label) {
 			join(directory, "recipes/new-release/index.html"),
 			await readFile(landing),
 		);
+		const pack = JSON.parse(
+			await readFile(
+				join(directory, `recipes/data/packs/${recipes[0].id}.json`),
+				"utf8",
+			),
+		);
+		await writeFile(
+			join(directory, "recipes/data/packs/new-release.json"),
+			JSON.stringify({
+				...pack,
+				recipe: { ...pack.recipe, id: "new-release" },
+			}),
+		);
 	}
-	const dataFile = join(directory, DATA_FILES[0]);
-	const data = JSON.parse(await readFile(dataFile, "utf8"));
-	await writeFile(dataFile, JSON.stringify({ ...data, testSnapshot: label }));
+	await writeFile(
+		join(directory, DATA_FILES[0]),
+		JSON.stringify({ testSnapshot: label }),
+	);
+	await writeFile(join(directory, DATA_FILES[1]), `# Snapshot ${label}\n`);
 	const built = await buildRecipePwa(directory);
 	const worker = await readFile(join(directory, WORKER), "utf8");
 	await buildRecipePwa(directory);
@@ -276,6 +308,19 @@ const noUpdateWaiting = (page) =>
 			(await navigator.serviceWorker.getRegistration()).waiting === null,
 	);
 
+// A debugger attached to a recipe tab resets its offline emulation on detach
+// or reload. Stop the workers from an unrelated temporary target instead.
+async function stopRecipeWorkers(context) {
+	const observer = await context.newPage();
+	try {
+		const session = await context.newCDPSession(observer);
+		await session.send("ServiceWorker.enable");
+		await session.send("ServiceWorker.stopAllWorkers");
+	} finally {
+		await observer.close();
+	}
+}
+
 // SSR controls exist before their saved/query settings and handlers are ready.
 async function navigateHydrated(page, url) {
 	if (url) await page.goto(url);
@@ -310,6 +355,7 @@ export {
 	snapshots,
 	statuses,
 	statusText,
+	stopRecipeWorkers,
 	UNSAVED_CONFIRMATION,
 	VIEWPORTS,
 	WORKER,

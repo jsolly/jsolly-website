@@ -8,7 +8,11 @@ import { chromium } from "playwright";
 import middleware from "../../middleware.js";
 import { rootVercelRoutes, routePath } from "../blogthedata-redirects.mjs";
 import { runSmoke } from "../production-smoke.mjs";
-import { productionUrl, smoke } from "../production-smoke-scenario.mjs";
+import {
+	productionUrl,
+	smoke,
+	verifyRecipeWorker,
+} from "../production-smoke-scenario.mjs";
 import { serveStatic, stubOffOrigin } from "./pages.mjs";
 
 // The production smoke scenario over the real built pages, run by the fleet
@@ -20,6 +24,7 @@ import { serveStatic, stubOffOrigin } from "./pages.mjs";
 // with vercel.json's headers (the feeds' XML types, the header CSP), and
 // every other host by stubOffOrigin. The smoke suite's stub pages check the
 // scenario's logic; this checks it against the markup the site ships.
+const JSON_TYPE = /^application\/json/u;
 const POST_PATH = /^\/blog\/[^/]+\/$/u;
 const DIST = fileURLToPath(new URL("../../dist/", import.meta.url));
 const routes = rootVercelRoutes();
@@ -71,7 +76,7 @@ async function vercel(url, { method = "GET", accept = "*/*" } = {}) {
 		throw new Error("middleware rewrites must stay same-origin");
 	const file = await fetch(
 		`${site.origin}${destination.pathname}${destination.search}`,
-		{ method },
+		{ method, headers: { accept } },
 	);
 	return new Response(await file.arrayBuffer(), {
 		status: file.status,
@@ -198,4 +203,55 @@ it("The production smoke passes on the built site under the runner's failure rul
 		process.chdir(cwd);
 		await rm(workDir, { recursive: true, force: true });
 	}
+});
+
+it("The worker smoke proves summaries save nothing and an opened recipe reopens offline", {
+	timeout: 90000,
+}, async () => {
+	const context = await browser.newContext({ serviceWorkers: "allow" });
+	try {
+		const page = await context.newPage();
+		const errors = [];
+		page.on("pageerror", (error) => errors.push(error.message));
+		await page.goto(`${site.origin}/recipes/`);
+		await page.evaluate(async () => {
+			await navigator.serviceWorker.ready;
+		});
+		await page.reload();
+		await page.waitForFunction(() =>
+			Boolean(navigator.serviceWorker.controller),
+		);
+		const evidence = await verifyRecipeWorker(page);
+		assert.equal(evidence.savedCount, 1);
+		assert.equal(evidence.reopenedOffline, true);
+		assert.deepEqual(errors, []);
+	} finally {
+		await context.close();
+	}
+});
+
+it("JSON summary pagination passes the deployed middleware boundary", async () => {
+	const release = JSON.parse(
+		await readFile(join(DIST, "release.json"), "utf8"),
+	).sha;
+	const url = new URL("/api/recipe-browse/", productionUrl);
+	url.search = new URLSearchParams({
+		path: "/recipes/meals/",
+		release,
+	}).toString();
+	const first = await vercel(url.href, { accept: "application/json" });
+	assert.equal(first.status, 200);
+	assert.match(first.headers.get("content-type"), JSON_TYPE);
+	const result = await first.json();
+	assert.equal(result.release, release);
+	assert.equal(result.cards.length, 6);
+	url.searchParams.set("page", String(result.nextPage));
+	const next = await vercel(url.href, { accept: "application/json" });
+	assert.equal(next.status, 200);
+	const second = await next.json();
+	assert.equal(second.cards.length, 6);
+	assert.equal(
+		new Set([...result.cards, ...second.cards].map((card) => card.id)).size,
+		12,
+	);
 });

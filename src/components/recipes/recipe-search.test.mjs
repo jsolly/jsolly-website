@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { it } from "node:test";
+import data from "./recipe-data.server.mjs";
 import { createRecipeSearch } from "./recipe-search.mjs";
-import data from "./recipes.json" with { type: "json" };
 
 const search = createRecipeSearch(data.recipes);
 const ids = (query) => search(query).map((recipe) => recipe.id);

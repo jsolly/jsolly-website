@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import it from "node:test";
 import { cookingText } from "./cooking-quantities.mjs";
+import { ingredientWithContext } from "./recipe-data.server.mjs";
 
 const recipe = {
 	id: "cooking-example",
@@ -14,7 +15,7 @@ const recipe = {
 			weightRef: "fajita-packet",
 			scale: "linear",
 		},
-	],
+	].map(ingredientWithContext),
 };
 const BAD_REFERENCE = /Unknown cooking quantity: cooking-example\/missing/u;
 const BAD_TEMPLATE = /Invalid cooking quantity: cooking-example/u;

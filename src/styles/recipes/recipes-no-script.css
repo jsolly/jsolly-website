@@ -7,6 +7,9 @@
    layer beats the library's blog-layer rules. Ported from awesome-blog
    no-script.css. */
 @layer blog-no-script {
+	.recipe-card .deferred-card-image {
+		display: none;
+	}
 	.recipe-experience .library-controls > :not(.collection-options),
 	.recipe-experience .enhanced-shuffle,
 	.recipe-experience .recipe-print-action,

@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import it from "node:test";
 import { ingredientGrams } from "./ingredient-units.mjs";
 import weights from "./ingredient-weights.json" with { type: "json" };
-import data from "./recipes.json" with { type: "json" };
+import data from "./recipe-data.server.mjs";
 
 const references = new Map(
 	weights.references.map((reference) => [reference.id, reference]),
