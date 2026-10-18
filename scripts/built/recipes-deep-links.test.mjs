@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { after, before, describe, it } from "node:test";
+import { after, before, it } from "node:test";
 import { chromium } from "playwright";
 import { collectErrors, serveStatic } from "./pages.mjs";
 
@@ -33,8 +33,10 @@ after(async () => {
 
 const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
 
-// Give every cold link its own bounded test, so expanding the library does not
-// turn a fixed aggregate timeout into a limit on the number of recipes covered.
+// The hash opens a recipe by looking its id up in the library the page already
+// holds, so a meal and a smoothie prove the lookup and the collection it lands
+// on; every recipe's own page is checked against its data in
+// recipes-built.test.mjs.
 function registerRecipeLink(recipe) {
 	it(`old /recipes/#${recipe.id} opens its recipe dialog on the right collection`, {
 		timeout: 30_000,
@@ -89,10 +91,9 @@ function registerRecipeLink(recipe) {
 	});
 }
 
-// Each link opens its own context, so the cold loads can run side by side.
-describe("every old recipe link", { concurrency: 4 }, () => {
-	for (const recipe of recipes) registerRecipeLink(recipe);
-});
+for (const type of ["meal", "smoothie"]) {
+	registerRecipeLink(recipes.find((recipe) => recipe.type === type));
+}
 
 function registerFragmentLink(fontDelay) {
 	it(`old /recipes/#meal-results lands on the cards without a recipe dialog (font delay ${fontDelay}ms)`, {
