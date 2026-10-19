@@ -527,7 +527,11 @@ production output with `npm run build && npm run preview`. The built PWA suites
 exercise installation, atomic saves, release mismatches, browser restart,
 negotiated representations, update confirmation and maintenance behavior.
 Production smoke separately verifies worker activation at `/recipes/` and
-control after reload; that check does not substitute for saved-recipe tests.
+control after reload, then saves one opened recipe and reopens it offline. The
+smoke records cancellations of summary GET requests already in flight at its
+explicit reload or offline step as verification observations. HTTP errors,
+unexpected network failures and offline cooking-resource failures still fail
+smoke. That check does not substitute for the broader saved-recipe tests.
 
 When saved recipes exist, an app update also verifies its own deferred saved-view
 search, filter, dialog and print code in a separate cache. Empty installations

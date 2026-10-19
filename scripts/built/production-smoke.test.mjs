@@ -1,9 +1,12 @@
 import assert from "node:assert/strict";
-import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { execFile } from "node:child_process";
+import { cp, mkdtemp, readFile, rm } from "node:fs/promises";
+import { createServer } from "node:https";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { after, before, it } from "node:test";
 import { fileURLToPath } from "node:url";
+import { promisify } from "node:util";
 import { chromium } from "playwright";
 import middleware from "../../middleware.js";
 import { rootVercelRoutes, routePath } from "../blogthedata-redirects.mjs";
@@ -229,6 +232,352 @@ it("The worker smoke proves summaries save nothing and an opened recipe reopens 
 		await context.close();
 	}
 });
+
+for (const variant of [
+	{
+		title:
+			"The runner waits for activation, reloads during pending pagination, and proves saved-only offline use",
+		scope: "/recipes/",
+		script: "/recipes/service-worker.js",
+		valid: true,
+	},
+	{
+		title:
+			"The runner rejects a ready worker with the wrong scope before reload",
+		scope: "/",
+		script: "/recipes/service-worker.js",
+		valid: false,
+		failure: "registration",
+	},
+	{
+		title:
+			"The runner rejects a ready worker with the wrong script before reload",
+		scope: "/recipes/",
+		script: "/recipes/wrong-worker.js",
+		valid: false,
+		failure: "registration",
+	},
+	{
+		title:
+			"The runner still rejects summary cancellations before an explicit offline transition",
+		scope: "/recipes/",
+		script: "/recipes/service-worker.js",
+		valid: false,
+		failure: "online-summary",
+	},
+	{
+		title:
+			"The runner still rejects missing cooking images during offline verification",
+		scope: "/recipes/",
+		script: "/recipes/service-worker.js",
+		valid: false,
+		failure: "offline-image",
+	},
+]) {
+	it(variant.title, {
+		timeout: 90000,
+	}, async () => {
+		const workDir = await mkdtemp(join(tmpdir(), "production-smoke-worker-"));
+		const cwd = process.cwd();
+		const summaryStarted = Promise.withResolvers();
+		const releaseSummary = Promise.withResolvers();
+		// Preserve rejection for the worker handler while avoiding an unhandled
+		// rejection if fixture setup fails before the worker asks for its script.
+		void summaryStarted.promise.catch(() => {
+			// The handler records and propagates the original error.
+		});
+		const pending = new Set();
+		const fixtureErrors = [];
+		const events = [];
+		let summaryDelivered = false;
+		let reloads = 0;
+		let localBrowser;
+		let server;
+		try {
+			await promisify(execFile)("openssl", [
+				"req",
+				"-x509",
+				"-newkey",
+				"rsa:2048",
+				"-nodes",
+				"-keyout",
+				join(workDir, "key.pem"),
+				"-out",
+				join(workDir, "cert.pem"),
+				"-days",
+				"1",
+				"-subj",
+				"/CN=localhost",
+			]);
+			server = createServer({
+				key: await readFile(join(workDir, "key.pem")),
+				cert: await readFile(join(workDir, "cert.pem")),
+			});
+			await new Promise((resolveListen, reject) => {
+				server.once("error", reject);
+				server.listen(0, "127.0.0.1", resolveListen);
+			});
+			const origin = `https://localhost:${server.address().port}`;
+			server.on("request", (incoming, outgoing) => {
+				const operation = (async () => {
+					const url = new URL(incoming.url, origin);
+					const response = await vercel(url.href, {
+						method: incoming.method,
+						accept: incoming.headers.accept,
+					});
+					assert.equal(response.status, 200, url.pathname);
+					const body = Buffer.from(await response.arrayBuffer());
+					if (url.pathname === "/api/recipe-browse/") {
+						events.push("summary-held");
+						summaryStarted.resolve();
+						await releaseSummary.promise;
+						summaryDelivered = true;
+					}
+					if (url.pathname === "/recipes/service-worker.js") {
+						// Installation cannot finish until the page's real background
+						// request is held. This makes premature reload observable.
+						await summaryStarted.promise;
+						events.push("worker-sent");
+					}
+					outgoing.writeHead(
+						response.status,
+						Object.fromEntries(response.headers),
+					);
+					outgoing.end(body);
+				})().catch((error) => {
+					summaryStarted.reject(error);
+					fixtureErrors.push(error);
+					outgoing.destroy(error);
+				});
+				pending.add(operation);
+				void operation.finally(() => pending.delete(operation));
+			});
+			localBrowser = await chromium.launch({
+				args: ["--ignore-certificate-errors"],
+			});
+			process.chdir(workDir);
+			const releaseSha = JSON.parse(
+				await readFile(join(DIST, "release.json"), "utf8"),
+			).sha;
+			const receipt = await runSmoke({
+				scenario: {
+					productionUrl: `${origin}/`,
+					// The ordinary scenario is covered above. Exercise the actual
+					// runner's fresh worker context and saved-only proof here.
+					smoke: async () => {
+						// The ordinary scenario has its own actual-runner case above.
+					},
+					serviceWorker: {
+						page: "/recipes/",
+						scope: variant.scope,
+						script: variant.script,
+					},
+					verifyRecipeWorker: async (page, transitions) => {
+						const failed =
+							variant.failure === "online-summary"
+								? page.waitForEvent("requestfailed", {
+										predicate: (browserRequest) =>
+											new URL(browserRequest.url()).pathname ===
+											"/api/recipe-browse/",
+									})
+								: null;
+						await page.waitForRequest(
+							(browserRequest) =>
+								new URL(browserRequest.url()).pathname ===
+								"/api/recipe-browse/",
+						);
+						await failed;
+						const evidence = await verifyRecipeWorker(page, transitions);
+						if (variant.failure === "offline-image") {
+							const image = await page
+								.locator(".recipe-detail img")
+								.first()
+								.getAttribute("src");
+							await page.evaluate(async () => {
+								await Promise.all(
+									(await caches.keys()).map(async (name) => {
+										const cache = await caches.open(name);
+										await Promise.all(
+											(await cache.keys())
+												.filter((cachedRequest) =>
+													new URL(cachedRequest.url).pathname.startsWith(
+														"/recipes/media/",
+													),
+												)
+												.map((cachedRequest) => cache.delete(cachedRequest)),
+										);
+									}),
+								);
+							});
+							transitions.beforeOffline();
+							await page.context().setOffline(true);
+							try {
+								const imageFailed = page.waitForEvent("requestfailed", {
+									predicate: (browserRequest) =>
+										new URL(browserRequest.url()).pathname === image,
+								});
+								await page.evaluate(async (path) => {
+									await fetch(path).catch(() => null);
+								}, image);
+								await imageFailed;
+							} finally {
+								await page.context().setOffline(false);
+							}
+						}
+						return evidence;
+					},
+				},
+				env: {
+					PRODUCTION_SMOKE_REQUEST_ID: "built-worker-readiness",
+					PRODUCTION_SMOKE_RELEASE_SHA: releaseSha,
+				},
+				fetcher,
+				readinessMs: 0,
+				launch: async () => ({
+					close: () => localBrowser.close(),
+					async newContext(options) {
+						const context = await localBrowser.newContext({
+							...options,
+							ignoreHTTPSErrors: true,
+						});
+						await stubOffOrigin(context, origin);
+						if (options.serviceWorkers === "allow") {
+							if (variant.failure === "online-summary") {
+								let requests = 0;
+								await context.route(
+									(url) => url.pathname === "/api/recipe-browse/",
+									(route) => {
+										requests++;
+										return requests === 2
+											? route.abort("aborted")
+											: route.continue();
+									},
+								);
+							}
+							const newPage = context.newPage.bind(context);
+							context.newPage = async () => {
+								const page = await newPage();
+								const reload = page.reload.bind(page);
+								page.reload = async (settings) => {
+									const state = await page.evaluate(async () => {
+										const registration =
+											await navigator.serviceWorker.getRegistration();
+										return {
+											state: registration?.active?.state,
+											controlled: Boolean(navigator.serviceWorker.controller),
+										};
+									});
+									assert.deepEqual(
+										state,
+										{ state: "activated", controlled: true },
+										"reload must follow actual activation",
+									);
+									assert.deepEqual(events, ["summary-held", "worker-sent"]);
+									assert.equal(
+										summaryDelivered,
+										false,
+										"pagination remains pending at reload",
+									);
+									reloads++;
+									return reload(settings);
+								};
+								return page;
+							};
+						}
+						return context;
+					},
+				}),
+			});
+			if (receipt.success !== variant.valid) {
+				const failureDir = await mkdtemp(
+					join(tmpdir(), "production-smoke-worker-failure-"),
+				);
+				await cp(join(workDir, "production-smoke-artifacts"), failureDir, {
+					recursive: true,
+				});
+				process.stderr.write(`Worker smoke failure artifacts: ${failureDir}\n`);
+			}
+			assert.equal(
+				receipt.success,
+				variant.valid,
+				JSON.stringify(receipt, null, 2),
+			);
+			const expectedError =
+				variant.failure === "registration"
+					? "Unexpected service worker registration"
+					: variant.failure === "online-summary"
+						? "/api/recipe-browse/"
+						: "/recipes/media/";
+			assert.equal(
+				receipt.errors.length === 0,
+				variant.valid,
+				JSON.stringify(receipt),
+			);
+			assert.equal(
+				receipt.errors.some((error) => error.includes(expectedError)),
+				!variant.valid,
+				JSON.stringify(receipt),
+			);
+			assert.ok(
+				receipt.errors.every(
+					(error) =>
+						error.includes(expectedError) ||
+						error === "Error: Browser diagnostics failed" ||
+						(variant.failure === "offline-image" &&
+							error.startsWith("console: Failed to load resource")),
+				),
+				JSON.stringify(receipt),
+			);
+			assert.equal(reloads, variant.failure === "registration" ? 0 : 1);
+			const cancellations = receipt.observations.filter(
+				({ source, phase }) =>
+					source === "verification-cancellation" && phase === "offline",
+			);
+			assert.equal(
+				cancellations.length > 0,
+				variant.valid || variant.failure === "offline-image",
+				JSON.stringify(receipt),
+			);
+
+			const evidence = receipt.observations.find(
+				({ source }) => source === "service-worker",
+			);
+			assert.deepEqual(
+				evidence && {
+					state: evidence.state,
+					controlled: evidence.controlled,
+					savedCount: evidence.savedCount,
+					reopenedOffline: evidence.reopenedOffline,
+				},
+				variant.failure !== "registration"
+					? {
+							state: "activated",
+							controlled: true,
+							savedCount: 1,
+							reopenedOffline: true,
+						}
+					: undefined,
+			);
+		} finally {
+			process.chdir(cwd);
+			summaryStarted.resolve();
+			releaseSummary.resolve();
+			try {
+				await localBrowser?.close();
+			} finally {
+				try {
+					await Promise.all(pending);
+					server?.closeAllConnections();
+					if (server?.listening)
+						await new Promise((resolveClose) => server.close(resolveClose));
+				} finally {
+					await rm(workDir, { recursive: true, force: true });
+				}
+			}
+		}
+		assert.deepEqual(fixtureErrors, []);
+	});
+}
 
 it("JSON summary pagination passes the deployed middleware boundary", async () => {
 	const release = JSON.parse(
