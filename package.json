@@ -42,7 +42,7 @@
 		"@astrojs/ts-plugin": "^1.10.12",
 		"@aws-sdk/client-ssm": "^3.1149.0",
 		"@aws-sdk/client-sts": "^3.1149.0",
-		"@biomejs/biome": "2.5.14",
+		"@biomejs/biome": "2.5.15",
 		"@fontsource/inter": "^5.3.0",
 		"@fontsource/poppins": "^5.3.0",
 		"@internationalized/date": "^3.12.4",
