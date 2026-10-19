@@ -58,6 +58,21 @@ export async function runSmoke({
 	};
 	const watchPage = (target) => {
 		const origin = new URL(scenario.productionUrl).origin;
+		const pendingSummaries = new Set();
+		const expectedCancellations = new Map();
+		target.on("request", (request) => {
+			const url = new URL(request.url());
+			if (
+				url.origin === origin &&
+				url.pathname === "/api/recipe-browse/" &&
+				request.method() === "GET"
+			)
+				pendingSummaries.add(request);
+		});
+		target.on("requestfinished", (request) => {
+			pendingSummaries.delete(request);
+			expectedCancellations.delete(request);
+		});
 		target.setDefaultTimeout(15000);
 		target.on("console", (message) => {
 			if (message.type() === "error") {
@@ -66,12 +81,25 @@ export async function runSmoke({
 		});
 		target.on("pageerror", (error) => recordError(`pageerror: ${error}`));
 		target.on("requestfailed", (request) => {
+			const phase = expectedCancellations.get(request);
+			pendingSummaries.delete(request);
+			expectedCancellations.delete(request);
 			if (new URL(request.url()).origin !== origin) {
 				return;
 			}
 			diagnostics.push(
 				(async () => {
 					const failure = request.failure()?.errorText;
+					if (phase && failure === "net::ERR_ABORTED") {
+						receipt.observations.push({
+							url: request.url(),
+							method: request.method(),
+							source: "verification-cancellation",
+							phase,
+							failure,
+						});
+						return;
+					}
 					if (request.method() === "HEAD" && failure === "net::ERR_ABORTED") {
 						// Chromium can abort a HEAD body after receiving its successful headers.
 						const response = await request.response();
@@ -112,6 +140,12 @@ export async function runSmoke({
 				});
 			}
 		});
+		// Only requests already in flight at this explicit verification step
+		// can qualify; later requests and every other failure stay diagnostic.
+		return (phase) => {
+			for (const request of pendingSummaries)
+				expectedCancellations.set(request, phase);
+		};
 	};
 	try {
 		if (!REQUEST_ID.test(receipt.requestId ?? "")) {
@@ -198,7 +232,7 @@ export async function runSmoke({
 						sources: true,
 					});
 					workerPage = await workerContext.newPage();
-					watchPage(workerPage);
+					const prepareRecipeTransition = watchPage(workerPage);
 					const workerResponse = await workerPage.goto(urls.page, {
 						waitUntil: "domcontentloaded",
 					});
@@ -208,20 +242,27 @@ export async function runSmoke({
 						{ url: workerResponse.url(), status: workerResponse.status() },
 						urls.page,
 					);
+					// Await the browser's readiness promise explicitly: an async polling
+					// predicate is a truthy Promise before its result is available.
+					await workerPage.evaluate(async ({ scope, script }) => {
+						const registration = await navigator.serviceWorker.ready;
+						if (
+							registration.scope !== scope ||
+							registration.active?.scriptURL !== script
+						) {
+							throw new Error("Unexpected service worker registration");
+						}
+					}, urls);
 					await workerPage.waitForFunction(
-						async ({ scope, script }) => {
-							const registration =
-								await navigator.serviceWorker.getRegistration();
-							return (
-								registration?.scope === scope &&
-								registration.active?.state === "activated" &&
-								registration.active.scriptURL === script
-							);
-						},
+						({ script }) =>
+							navigator.serviceWorker.controller?.scriptURL === script &&
+							navigator.serviceWorker.controller.state === "activated",
 						urls,
 						{ timeout: behaviorMs },
 					);
-					await workerPage.waitForLoadState("networkidle");
+					// Background pagination may keep a healthy page continuously busy.
+					await workerPage.waitForLoadState("load");
+					prepareRecipeTransition("reload");
 					await workerPage.reload({ waitUntil: "domcontentloaded" });
 					await workerPage.waitForFunction(
 						({ script }) =>
@@ -233,7 +274,9 @@ export async function runSmoke({
 						throw new Error("Worker page redirected");
 					const savedRecipeEvidence =
 						typeof scenario.verifyRecipeWorker === "function"
-							? await scenario.verifyRecipeWorker(workerPage)
+							? await scenario.verifyRecipeWorker(workerPage, {
+									beforeOffline: () => prepareRecipeTransition("offline"),
+								})
 							: {};
 					receipt.observations.push({
 						...savedRecipeEvidence,

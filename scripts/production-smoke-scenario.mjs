@@ -19,7 +19,7 @@ export const serviceWorker = {
 };
 
 /** Fresh worker context: summaries do not save cooking documents; opening one does. */
-export async function verifyRecipeWorker(page) {
+export async function verifyRecipeWorker(page, { beforeOffline } = {}) {
 	const savedIds = () =>
 		page.evaluate(
 			() =>
@@ -55,6 +55,7 @@ export async function verifyRecipeWorker(page) {
 		.getByText("Available offline", { exact: true })
 		.waitFor({ timeout: 60000 });
 	assert.deepEqual(await savedIds(), [id], "only the opened recipe is saved");
+	await beforeOffline?.();
 	await page.context().setOffline(true);
 	try {
 		await page.goto(new URL("/recipes/saved/", page.url()).href, {

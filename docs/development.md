@@ -4,7 +4,10 @@ This repository owns its gate, setup, CI and deployment scripts. A separate
 configuration repository, private package or global skill installation is not
 required. Templates used during migration are examples, not an enforced upstream.
 
-Prerequisites: Git, Bash >= 5 and Python >= 3.11. Install mise on non-Linux hosts;
+Prerequisites: Git, Bash >= 5, Python >= 3.11 and OpenSSL. The built smoke test
+uses OpenSSL to generate a temporary localhost certificate for its real HTTPS
+service-worker fixture; the certificate is deleted after the test. Install mise
+on non-Linux hosts;
 fresh Linux setup provisions a pinned, checksum-verified public mise binary in
 `/usr/local/bin`, using noninteractive sudo only when needed. The repository's `.mise.toml`
 and `.nvmrc` own its tool pins. On a reviewed fresh `origin/main` checkout run:
