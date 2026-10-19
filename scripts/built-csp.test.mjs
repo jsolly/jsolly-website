@@ -2,9 +2,9 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import it from "node:test";
 import { globby } from "globby";
 import { JSDOM } from "jsdom";
+import { it } from "vitest";
 import { NOTEBOOK_RENDERS, readBuiltPages } from "./built/pages.mjs";
 import { parseDirectives, readHeaderPolicy } from "./csp.mjs";
 

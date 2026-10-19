@@ -10,10 +10,10 @@ import {
 } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { after, before } from "node:test";
 import { fileURLToPath } from "node:url";
 import { build } from "esbuild";
 import { chromium } from "playwright";
+import { afterAll as after, beforeAll as before } from "vitest";
 import { buildRecipePwa } from "../recipes/pwa-build.mjs";
 import { serveStatic } from "./pages.mjs";
 

@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import it from "node:test";
 import { JSDOM } from "jsdom";
+import { it } from "vitest";
 import { publishedPosts, readBuilt } from "./pages.mjs";
 
 // The RSS and Atom feeds over the built dist/. The first test is ported from

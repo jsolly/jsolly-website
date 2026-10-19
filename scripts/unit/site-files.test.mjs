@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import it from "node:test";
+import { it } from "vitest";
 import {
 	fieldLines,
 	fieldValues,

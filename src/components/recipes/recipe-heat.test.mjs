@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
-import it from "node:test";
 import { JSDOM } from "jsdom";
+import { it } from "vitest";
 import data from "./recipe-data.server.mjs";
 import { documentMarkdown, recipeDocument } from "./recipe-export.mjs";
 import { flowGrid, gridHtml } from "./trn-logic.mjs";

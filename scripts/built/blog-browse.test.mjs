@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { join } from "node:path";
-import { after, before, it } from "node:test";
 import { chromium } from "playwright";
+import { afterAll as after, beforeAll as before, it } from "vitest";
 import { categoryHref, postHref } from "../../src/lib/blog/urls.js";
 import {
 	categorySlugs,

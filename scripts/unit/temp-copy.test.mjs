@@ -1,12 +1,12 @@
 import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import { dirname } from "node:path";
-import it from "node:test";
 import { setImmediate } from "node:timers/promises";
+import { it, vi } from "vitest";
 import { createTempCopy } from "../built/temp-copy.mjs";
 
 for (const operation of ["cp", "symlink"]) {
-	it(`a failed temporary ${operation} waits for in-flight work before removing its directory`, async (t) => {
+	it(`a failed temporary ${operation} waits for in-flight work before removing its directory`, async () => {
 		const mkdir = fs.mkdir.bind(fs);
 		const mkdtemp = fs.mkdtemp.bind(fs);
 		const remove = fs.rm.bind(fs);
@@ -21,17 +21,17 @@ for (const operation of ["cp", "symlink"]) {
 
 		// Keep the real helper's file discovery and cleanup, but only the held
 		// operation writes. This isolates failure ownership from the full build.
-		t.mock.method(fs, "mkdtemp", async (...args) => {
+		vi.spyOn(fs, "mkdtemp").mockImplementation(async (...args) => {
 			dir = await mkdtemp(...args);
 			return dir;
 		});
-		t.mock.method(fs, "mkdir", () => Promise.resolve());
-		t.mock.method(fs, "cp", () => Promise.resolve());
-		t.mock.method(fs, "rm", (...args) => {
+		vi.spyOn(fs, "mkdir").mockImplementation(() => Promise.resolve());
+		vi.spyOn(fs, "cp").mockImplementation(() => Promise.resolve());
+		vi.spyOn(fs, "rm").mockImplementation((...args) => {
 			events.push("cleanup");
 			return remove(...args);
 		});
-		t.mock.method(fs, operation, async (_source, target) => {
+		vi.spyOn(fs, operation).mockImplementation(async (_source, target) => {
 			calls += 1;
 			if (calls === 1) throw failure;
 			if (calls !== 2) return;

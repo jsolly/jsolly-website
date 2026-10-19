@@ -1,33 +1,37 @@
 import assert from "node:assert/strict";
-import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { mkdtempSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import it from "node:test";
+import { it } from "vitest";
 import { parseSummary, runCounted } from "../run-tests.mjs";
 
 const BELOW_LEDGER = /2 of 3 tests passed, below the 3 recorded/u;
 const ABOVE_LEDGER = /Set "fixture" to 2 in this commit/u;
-const NO_SUMMARY = /no test summary/u;
-const EXITED = /node --test exited with 1/u;
+const NO_SUMMARY = /Vitest exited with 1/u;
+const EXITED = /Vitest exited with 1/u;
 
-const FIXTURE = `import it from "node:test";
+const FIXTURE = `import { it } from "vitest";
 it("first", () => {});
 it("second", () => {});
-it("skipped", { skip: true }, () => {});
+it.skip("skipped", () => {});
 `;
 
 it("a pass count that differs from the ledger fails the suite", () => {
 	const dir = mkdtempSync(join(tmpdir(), "run-tests-fixture-"));
 	try {
+		symlinkSync(
+			new URL("../../node_modules", import.meta.url),
+			join(dir, "node_modules"),
+			"dir",
+		);
 		writeFileSync(join(dir, "fixture.test.mjs"), FIXTURE);
 		writeFileSync(
 			join(dir, "failing.test.mjs"),
-			'import it from "node:test";\nit("fails", () => { throw new Error("x"); });\n',
+			'import { it } from "vitest";\nit("fails", () => { throw new Error("x"); });\n',
 		);
 		writeFileSync(join(dir, "plain.mjs"), "");
 		const suite = {
 			label: "fixture",
-			flags: ["--test"],
 			patterns: ["fixture.test.mjs"],
 			cwd: dir,
 			stdio: "ignore",
@@ -58,7 +62,6 @@ it("a pass count that differs from the ledger fails the suite", () => {
 
 		const unsummarized = runCounted({
 			...suite,
-			flags: [],
 			patterns: ["plain.mjs"],
 			expected: 0,
 		});
@@ -67,11 +70,16 @@ it("a pass count that differs from the ledger fails the suite", () => {
 
 		assert.deepEqual(
 			parseSummary(
-				"# Subtest: s\n    # tests 9\n# out of band\n# tests 4\n# pass 3\n# fail 1\n# tests 2\n# pass 2\n# fail 0\n",
+				JSON.stringify({
+					numTotalTests: 3,
+					numPassedTests: 2,
+					numFailedTests: 1,
+				}),
 			),
-			{ tests: 2, pass: 2, fail: 0 },
-			"only unindented summary lines count, and the last one wins",
+			{ tests: 3, pass: 2, fail: 1 },
 		);
+		assert.deepEqual(parseSummary("{}"), {}, "a missing summary fails closed");
+		assert.throws(() => parseSummary("not JSON"));
 	} finally {
 		rmSync(dir, { recursive: true, force: true });
 	}

@@ -1,125 +1,92 @@
-// Count-checked node:test runner. Every test suite (`npm test`, `npm run
-// test:built`, the CSP check inside `build` and the smoke-scenario contract) runs through this wrapper, which fails when the number of passing tests
-// differs from the count recorded in config/testing/test-counts.json. A test that
-// silently stops running (a narrowed glob, a deleted file, a stray skip) then
-// fails the gate instead of leaving it green, and a commit that adds tests must
-// record them, so a later commit cannot drop them unnoticed. Lower a count only
-// in a commit that names each dropped test.
+// Count-checked Vitest entrypoint. The passing-test ledger preserves discovery
+// across unit, built, CSP and smoke suites, including skipped-test detection.
 import { spawnSync } from "node:child_process";
 import { mkdtempSync, readFileSync, realpathSync, rmSync } from "node:fs";
-import { availableParallelism, tmpdir } from "node:os";
+import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const LEDGER = "config/testing/test-counts.json";
-// Top-level TAP summary lines only; nested subtest output is indented.
-const TAP_SUMMARY = /^# (?<key>tests|pass|fail) (?<count>\d+)$/gmu;
+const SUITES = new Set([
+	"unit",
+	"built",
+	"csp",
+	"smoke",
+	"production",
+	"workflow",
+]);
 
-const SUITES = {
-	unit: {
-		flags: [
-			"--import",
-			"./scripts/register-ts-from-js.mjs",
-			"--experimental-strip-types",
-			"--test",
-		],
-		patterns: [
-			"src/**/*.test.ts",
-			"src/**/*.test.mjs",
-			"scripts/unit/*.test.mjs",
-		],
-	},
-	// Post-build tests against dist/ that run outside `build` (browser tests need
-	// Playwright, which the Vercel build does not have); see `csp` below.
-	// The same TS loader as unit, so a test can import src/lib helpers.
-	// Files run side by side: each serves dist/ on its own port and writes only
-	// to temporary directories and temp-copy.mjs copies.
-	built: {
-		flags: [
-			"--import",
-			"./scripts/register-ts-from-js.mjs",
-			"--experimental-strip-types",
-			"--test",
-			`--test-concurrency=${availableParallelism()}`,
-		],
-		patterns: ["scripts/built/*.test.mjs"],
-	},
-	// Runs inside `build` (and so on Vercel), right after process-html.
-	csp: {
-		flags: ["--test"],
-		patterns: ["scripts/built-csp.test.mjs"],
-	},
-	smoke: {
-		flags: ["--test"],
-		patterns: ["scripts/production-smoke-scenario.test.mjs"],
-	},
-};
-
-// The last summary wins: a test's own stdout reaches TAP as `# ...` diagnostics
-// before the runner prints its final summary.
-export function parseSummary(tap) {
-	const summary = {};
-	for (const match of tap.matchAll(TAP_SUMMARY)) {
-		summary[match.groups.key] = Number(match.groups.count);
-	}
-	return summary;
-}
-
-// A wrapper started from inside a node:test file must not hand the runner's
-// child marker to its own `node --test`, or that run reports to the outer runner.
-function childEnv() {
-	return Object.fromEntries(
-		Object.entries(process.env).filter(([key]) => key !== "NODE_TEST_CONTEXT"),
-	);
+export function parseSummary(report) {
+	const parsed = JSON.parse(report);
+	if (
+		![parsed.numTotalTests, parsed.numPassedTests, parsed.numFailedTests].every(
+			Number.isInteger,
+		)
+	)
+		return {};
+	return {
+		tests: parsed.numTotalTests,
+		pass: parsed.numPassedTests,
+		fail: parsed.numFailedTests,
+	};
 }
 
 export function runCounted({
 	label,
-	flags,
-	patterns,
+	patterns = [],
 	expected,
 	cwd = ROOT,
 	stdio = "inherit",
 }) {
 	const reportDir = mkdtempSync(join(tmpdir(), "run-tests-"));
-	const tapPath = join(reportDir, "report.tap");
+	const reportPath = join(reportDir, "report.json");
 	try {
 		const child = spawnSync(
 			process.execPath,
 			[
-				...flags,
-				"--test-reporter=spec",
-				"--test-reporter-destination=stdout",
-				"--test-reporter=tap",
-				`--test-reporter-destination=${tapPath}`,
+				join(ROOT, "node_modules/vitest/vitest.mjs"),
+				"run",
+				"--config",
+				join(ROOT, "config/testing/vitest.config.mjs"),
+				"--root",
+				cwd,
+				"--reporter=default",
+				"--reporter=json",
+				`--outputFile.json=${reportPath}`,
 				...patterns,
 			],
-			{ cwd, env: childEnv(), stdio },
+			{ cwd, env: { ...process.env, TEST_SUITE: label }, stdio },
 		);
 		if (child.error) {
 			return {
 				ok: false,
-				message: `✗ ${label}: could not start node --test: ${child.error.message}`,
+				message: `✗ ${label}: could not start Vitest: ${child.error.message}`,
 			};
 		}
 		if (child.status !== 0) {
 			return {
 				ok: false,
-				message: `✗ ${label}: node --test exited with ${child.status ?? child.signal}.`,
+				message: `✗ ${label}: Vitest exited with ${child.status ?? child.signal}.`,
 			};
 		}
-		let tap = "";
+		let report = "";
 		try {
-			tap = readFileSync(tapPath, "utf8");
+			report = readFileSync(reportPath, "utf8");
 		} catch {
 			// A missing report fails below as a missing summary.
 		}
-		const { tests, pass, fail } = parseSummary(tap);
+		let summary = {};
+		try {
+			summary = parseSummary(report);
+		} catch {
+			/* malformed reports fail closed below */
+		}
+		const { tests, pass, fail } = summary;
 		if (tests === undefined || pass === undefined || fail === undefined) {
 			return {
 				ok: false,
-				message: `✗ ${label}: node --test printed no test summary, so the count cannot be checked.`,
+				message: `✗ ${label}: Vitest printed no test summary, so the count cannot be checked.`,
 			};
 		}
 		if (fail > 0) {
@@ -150,12 +117,10 @@ export function runCounted({
 }
 
 function main(suiteName) {
-	const suite = Object.hasOwn(SUITES, suiteName)
-		? SUITES[suiteName]
-		: undefined;
+	const suite = SUITES.has(suiteName);
 	if (!suite) {
 		console.error(
-			`usage: node scripts/run-tests.mjs <${Object.keys(SUITES).join("|")}>`,
+			`usage: node scripts/run-tests.mjs <${[...SUITES].join("|")}>`,
 		);
 		return 2;
 	}
@@ -167,7 +132,7 @@ function main(suiteName) {
 		);
 		return 1;
 	}
-	const result = runCounted({ label: suiteName, ...suite, expected });
+	const result = runCounted({ label: suiteName, expected });
 	if (result.ok) {
 		console.log(result.message);
 		return 0;

@@ -4,10 +4,10 @@ import { cp, mkdtemp, readFile, rm } from "node:fs/promises";
 import { createServer } from "node:https";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { after, before, it } from "node:test";
 import { fileURLToPath } from "node:url";
 import { promisify } from "node:util";
 import { chromium } from "playwright";
+import { afterAll as after, beforeAll as before, it } from "vitest";
 import middleware from "../../middleware.js";
 import { rootVercelRoutes, routePath } from "../blogthedata-redirects.mjs";
 import { runSmoke } from "../production-smoke.mjs";
@@ -291,6 +291,7 @@ for (const variant of [
 		const events = [];
 		let summaryDelivered = false;
 		let reloads = 0;
+		let workerBrowseReady;
 		let localBrowser;
 		let server;
 		try {
@@ -373,20 +374,7 @@ for (const variant of [
 						script: variant.script,
 					},
 					verifyRecipeWorker: async (page, transitions) => {
-						const failed =
-							variant.failure === "online-summary"
-								? page.waitForEvent("requestfailed", {
-										predicate: (browserRequest) =>
-											new URL(browserRequest.url()).pathname ===
-											"/api/recipe-browse/",
-									})
-								: null;
-						await page.waitForRequest(
-							(browserRequest) =>
-								new URL(browserRequest.url()).pathname ===
-								"/api/recipe-browse/",
-						);
-						await failed;
+						await workerBrowseReady;
 						const evidence = await verifyRecipeWorker(page, transitions);
 						if (variant.failure === "offline-image") {
 							const image = await page
@@ -479,6 +467,31 @@ for (const variant of [
 										"pagination remains pending at reload",
 									);
 									reloads++;
+									// Observe the next page before reload can start its summary.
+									// The runner can otherwise reach verification after it failed.
+									let summaryRequest;
+									workerBrowseReady = Promise.all([
+										page.waitForRequest((browserRequest) => {
+											if (
+												new URL(browserRequest.url()).pathname !==
+												"/api/recipe-browse/"
+											)
+												return false;
+											summaryRequest = browserRequest;
+											return true;
+										}),
+										variant.failure === "online-summary"
+											? page.waitForEvent("requestfailed", {
+													predicate: (browserRequest) =>
+														browserRequest === summaryRequest,
+												})
+											: null,
+									]);
+									// Preserve rejection for verification without an unhandled
+									// rejection if navigation itself fails first.
+									void workerBrowseReady.catch(() => {
+										// Verification still awaits the original rejected promise.
+									});
 									return reload(settings);
 								};
 								return page;

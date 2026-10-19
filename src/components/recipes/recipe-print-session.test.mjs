@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
-import { afterEach, beforeEach, it } from "node:test";
 import { JSDOM } from "jsdom";
+import { afterEach, beforeEach, it, vi } from "vitest";
 import { PRINT_FAILED } from "./constants.mjs";
 import { createRecipePrintSession } from "./recipe-print-session.mjs";
 
@@ -61,9 +61,9 @@ it("a page with no earlier print mode has none again once printing ends, even wh
 	);
 });
 
-it("Print opens the browser's print dialog in print mode once the island settles, and when the browser cannot print it restores the page and reports why", async (t) => {
+it("Print opens the browser's print dialog in print mode once the island settles, and when the browser cannot print it restores the page and reports why", async () => {
 	const errors = [];
-	t.mock.method(console, "error", (...args) => errors.push(args));
+	vi.spyOn(console, "error").mockImplementation((...args) => errors.push(args));
 	const steps = [];
 	const session = createRecipePrintSession(
 		() => "all",
@@ -75,7 +75,7 @@ it("Print opens the browser's print dialog in print mode once the island settles
 		steps.push("settled");
 		return Promise.resolve();
 	});
-	session.restore();
+	void session.restore();
 	window.print = () => {
 		throw new Error("printing blocked");
 	};
@@ -102,9 +102,11 @@ it("Print opens the browser's print dialog in print mode once the island settles
 });
 
 for (const failure of ["prepare", "settle"]) {
-	it(`a ${failure} failure restores the prior print mode, reports the cause and permits a later print`, async (t) => {
+	it(`a ${failure} failure restores the prior print mode, reports the cause and permits a later print`, async () => {
 		const errors = [];
-		t.mock.method(console, "error", (...args) => errors.push(args));
+		vi.spyOn(console, "error").mockImplementation((...args) =>
+			errors.push(args),
+		);
 		document.documentElement.setAttribute("data-recipe-print", "library");
 		let preparations = 0;
 		let restores = 0;

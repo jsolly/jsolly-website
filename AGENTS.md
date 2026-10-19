@@ -32,7 +32,7 @@ The blog and recipes migrated from blogthedata.com. The [source repository](http
 
 ## Stack
 
-Astro 7 with Svelte 5 islands, TypeScript and Node pinned in `.nvmrc`; Tailwind CSS 4 (via `@tailwindcss/vite`) and shadcn-svelte parts on bits-ui; Biome 2 for lint and format; `@astrojs/sitemap`; Inter and Poppins via `@fontsource`. The blog renders Markdown with the satteri processor and Prism, sanitizes article HTML with `sanitize-html` and searches with MiniSearch. Tests use `node:test`, jsdom and Playwright (Chromium). Vercel hosts the static output plus `middleware.ts`; PagesCMS edits the blog content.
+Astro 7 with Svelte 5 islands, TypeScript and Node pinned in `.nvmrc`; Tailwind CSS 4 (via `@tailwindcss/vite`) and shadcn-svelte parts on bits-ui; Biome 2 for lint and format; `@astrojs/sitemap`; Inter and Poppins via `@fontsource`. The blog renders Markdown with the satteri processor and Prism, sanitizes article HTML with `sanitize-html` and searches with MiniSearch. Tests use Vitest, pytest, jsdom and Playwright (Chromium). Vercel hosts the static output plus `middleware.ts`; PagesCMS edits the blog content.
 
 ## Frontend stack
 
@@ -83,19 +83,28 @@ npm run recipes:check       # fail when public/recipes/data differs from what re
 
 ## Tests
 
-Every suite runs through `scripts/run-tests.mjs`: `unit` (`npm test`: `src/**/*.test.{ts,mjs}` and `scripts/unit/*.test.mjs`), `built` (`npm run test:built`: `scripts/built/*.test.mjs`), `csp` (the end of `npm run build`: `scripts/built-csp.test.mjs`) and `smoke` (`npm run smoke:scenario-contract`: `scripts/production-smoke-scenario.test.mjs`). It fails a suite when its passing-test count differs from `config/testing/test-counts.json`. Update the count in the commit that adds tests; lower it only in a commit that names each dropped test.
+Every JavaScript suite runs through `scripts/run-tests.mjs`: `unit` (`npm test`: `src/**/*.test.{ts,mjs}` and `scripts/unit/*.test.mjs`), `built` (`npm run test:built`: `scripts/built/*.test.mjs`), `csp` (the end of `npm run build`: `scripts/built-csp.test.mjs`) and `smoke` (`npm run smoke:scenario-contract`: `scripts/production-smoke-scenario.test.mjs`). It fails a suite when its passing-test count differs from `config/testing/test-counts.json`. Update the count in the commit that adds tests; lower it only in a commit that names each dropped test.
 
 - Built tests read `dist/` through `scripts/built/pages.mjs` (shared readers, a static server, and stand-ins for every off-origin request, the CloudFront post images and embed frames included). No test reaches the network.
 - A built test that needs its own build uses a `scripts/built/temp-copy.mjs` copy of the working tree, never the real tree; that file's header describes the isolation.
 - Browser tests wait for `!document.querySelector("astro-island[ssr]")` before interacting.
 - Expectations come from the post frontmatter, `recipes.json` and `legacy/blogthedata/url-map.json`, never from the code under test.
 
-Test discovery belongs to `scripts/run-tests.mjs`; suite counts belong only to `config/testing/test-counts.json`. Read the test files for their current cases rather than copying titles or content counts into this guide.
+JavaScript test discovery belongs to `config/testing/vitest.config.mjs`; suite counts belong only to `config/testing/test-counts.json`. Read the test files for their current cases rather than copying titles or content counts into this guide.
 
 - Unit tests live beside the pure modules in `src/` and under `scripts/unit/`.
 - Built-output and browser tests live under `scripts/built/`. They cover portfolio, blog, recipes, maintenance, legacy redirects, links, fragments, hydration and release identity.
 - CSP tests live in `scripts/built-csp.test.mjs` and `scripts/built/csp-browser.test.mjs`.
 - Production scenario contracts live in `scripts/production-smoke-scenario.test.mjs`; the built-site smoke is `scripts/built/production-smoke.test.mjs`.
+
+The `production` suite wraps the unchanged acceptance scenario and diagnostic helper
+in `scripts/production-acceptance.test.mjs`, invoked by `npm run smoke:production`.
+
+Python hook/bootstrap tests use `npm run test:python`, pinned to pytest 9.1.1
+through uvx. `config/testing/pytest.ini` discovers `scripts/test-*.py`.
+Playwright remains the browser automation library; Vitest orchestrates browser tests.
+The two shell workflow contract fixtures run under the counted Vitest `workflow`
+suite through `npm run check:actions`. Their shell assertions stay intact.
 
 ## Worktrees
 

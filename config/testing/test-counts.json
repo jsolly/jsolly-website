@@ -5,5 +5,9 @@
 
 	"csp": 4,
 
-	"smoke": 20
+	"smoke": 20,
+
+	"production": 1,
+
+	"workflow": 2
 }

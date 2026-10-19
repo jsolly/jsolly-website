@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { it } from "node:test";
 import { chromium } from "playwright";
+import { it } from "vitest";
 import {
 	collectErrors,
 	readBuiltPages,

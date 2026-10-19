@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import it from "node:test";
+import { it } from "vitest";
 import { ingredientGrams } from "./ingredient-units.mjs";
 import data from "./recipe-data.server.mjs";
 import { ingredientAmount } from "./recipe-logic.mjs";

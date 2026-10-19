@@ -3,8 +3,8 @@ import { spawn } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { createServer } from "node:http";
 import { extname, join } from "node:path";
-import it from "node:test";
 import { fileURLToPath } from "node:url";
+import { it } from "vitest";
 import { FEEDS } from "../../src/lib/blog/constants.js";
 import {
 	compileRoutes,

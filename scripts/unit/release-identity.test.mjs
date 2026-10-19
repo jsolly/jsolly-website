@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
-import { it } from "node:test";
+import { it } from "vitest";
 import { GET } from "../../src/pages/release.json.ts";
 
 const INVALID_BUILD_SHA = /Build requires a full git release SHA/u;

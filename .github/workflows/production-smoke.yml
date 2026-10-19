@@ -57,7 +57,7 @@ jobs:
       - run: npm ci
       - run: npx --no-install playwright install --with-deps chromium
       - run: npm run smoke:scenario-contract
-      - run: node scripts/production-smoke.mjs
+      - run: npm run smoke:production
       - uses: actions/upload-artifact@v7
         if: always()
         with:

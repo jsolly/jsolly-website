@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import it from "node:test";
 import { JSDOM } from "jsdom";
+import { it, vi } from "vitest";
 import { unitAudit } from "../../../scripts/recipes/audit-units.mjs";
 import {
 	ingredientGrams,
@@ -474,9 +474,9 @@ it("the committed audit enumerates all source and family rows with current conve
 	);
 });
 
-it("corrupt preferences recover on write while denied storage remains reported without blocking the choice", (t) => {
+it("corrupt preferences recover on write while denied storage remains reported without blocking the choice", () => {
 	const errors = [];
-	t.mock.method(console, "error", (...args) => {
+	vi.spyOn(console, "error").mockImplementation((...args) => {
 		errors.push(args.join(" "));
 	});
 	let saved = "{broken";

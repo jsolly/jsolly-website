@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { test as it } from "node:test";
+import { it } from "vitest";
 import { refreshModels } from "../recipes/refresh-nutrition.mjs";
 
 const source = "https://fdc.nal.usda.gov/food-details/123/nutrients";

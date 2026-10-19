@@ -1,7 +1,7 @@
 // biome-ignore-all lint/performance/noAwaitInLoops: Each case navigates the same browser page sequentially.
 import assert from "node:assert/strict";
-import { after, before, it } from "node:test";
 import { chromium } from "playwright";
+import { afterAll as after, beforeAll as before, it } from "vitest";
 import recipeData from "../../src/components/recipes/recipe-data.server.mjs";
 import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
 

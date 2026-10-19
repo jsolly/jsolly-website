@@ -2,8 +2,8 @@ import assert from "node:assert/strict";
 import { mkdtemp, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { it } from "node:test";
 import { chromium } from "playwright";
+import { it } from "vitest";
 import {
 	browser,
 	navigateHydrated,
@@ -329,9 +329,9 @@ it("Saved recipe survives a shell update and closing every recipe tab without mi
 		);
 		await context.setOffline(true);
 		assert.equal(
+			// Keep native import inside the browser; Vite must not rewrite it for Node.
 			await oldView.evaluate(
-				async (path) => (await import(path)).label,
-				"/_astro/recipe-summary.pwa-A.js",
+				'import("/_astro/recipe-summary.pwa-A.js").then((module) => module.label)',
 			),
 			"Saved view A",
 		);
@@ -339,8 +339,7 @@ it("Saved recipe survives a shell update and closing every recipe tab without mi
 		await page.locator(".recipe-card").first().waitFor();
 		assert.equal(
 			await page.evaluate(
-				async (path) => (await import(path)).label,
-				"/_astro/recipe-summary.pwa-B.js",
+				'import("/_astro/recipe-summary.pwa-B.js").then((module) => module.label)',
 			),
 			"Saved view B",
 		);
@@ -486,8 +485,7 @@ it("A quota-exhausted save reports failure and preserves the previous complete s
 		await stopRecipeWorkers(context);
 		assert.equal(
 			await page.evaluate(
-				async (path) => (await import(path)).label,
-				"/_astro/recipe-summary.pwa-A.js",
+				'import("/_astro/recipe-summary.pwa-A.js").then((module) => module.label)',
 			),
 			"Saved view A",
 		);

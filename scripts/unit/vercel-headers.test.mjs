@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import it from "node:test";
+import { it } from "vitest";
 import { PWA_WORKER_PATH } from "../../src/components/recipes/constants.mjs";
 import { FEEDS } from "../../src/lib/blog/constants.js";
 import { rootVercelRoutes, routePath } from "../blogthedata-redirects.mjs";

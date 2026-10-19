@@ -2,8 +2,8 @@ import assert from "node:assert/strict";
 import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { describe, it } from "node:test";
 import { pathToFileURL } from "node:url";
+import { describe, it } from "vitest";
 import { parsePost, postLastmods, postLoader } from "./post-loader.js";
 import { postSchema } from "./schemas.js";
 

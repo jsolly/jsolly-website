@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
-import { after, before, it } from "node:test";
 import { isDeepStrictEqual } from "node:util";
 import { chromium } from "playwright";
+import { afterAll as after, beforeAll as before, it } from "vitest";
 import {
 	categorySlugs,
 	collectErrors,

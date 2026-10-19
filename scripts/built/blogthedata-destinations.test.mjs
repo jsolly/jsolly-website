@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import it from "node:test";
+import { it } from "vitest";
 import { readLegacyJson } from "../blogthedata-redirects.mjs";
 import { destinationsPlan } from "../verify-blogthedata-cutover.mjs";
 import { DIST, distFileFor, distFiles } from "./pages.mjs";
@@ -17,7 +17,7 @@ function missingDestinations(paths, files) {
 	return paths.filter((path) => !files.has(distFileFor(path)));
 }
 
-it("every blogthedata.com redirect destination exists in the build", async (t) => {
+it("every blogthedata.com redirect destination exists in the build", async () => {
 	assert.deepEqual(
 		missingDestinations(
 			["/blog/kept/", "/blog/gone/", "/blog/rss.xml", "/blog/atom.xml"],
@@ -40,7 +40,7 @@ it("every blogthedata.com redirect destination exists in the build", async (t) =
 	).destinations.map((probe) => probe.path);
 	assert.ok(paths.length > 0, "url-map.json has redirect destinations");
 	const missing = missingDestinations(paths, files);
-	t.diagnostic(
+	console.info(
 		`${paths.length - missing.length}/${paths.length} distinct redirect destinations exist in dist/`,
 	);
 	assert.deepEqual(missing, [], "redirect destinations missing from dist/");

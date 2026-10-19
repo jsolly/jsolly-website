@@ -12,8 +12,8 @@ import {
 } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { describe, it } from "node:test";
 import { fileURLToPath } from "node:url";
+import { describe, it } from "vitest";
 import { parseDocument } from "yaml";
 import { z } from "zod";
 import {

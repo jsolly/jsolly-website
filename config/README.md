@@ -31,6 +31,9 @@ under `tests/`. Each setting has one repository-owned home:
   explicitly by the YAML command and root-anchored Markdown helper. The latter
   owns the unchanged fifteen blog rule exceptions in a `src/content/blog/posts/**`
   override; normal engineering-document rules and all ignore scopes remain intact.
+- `testing/vitest.config.mjs` owns JavaScript suite discovery and isolation;
+  `scripts/run-tests.mjs` selects the suite and checks Vitest JSON results against
+  the ledger. `testing/pytest.ini` owns Python hook/bootstrap discovery.
 - `testing/test-counts.json` owns the counted suite floors. Configuration moves
   never authorize dropping tests. Keep a blank line between its entries, so two
   pull requests that change different suites merge without a conflict.

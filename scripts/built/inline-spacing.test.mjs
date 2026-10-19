@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import it from "node:test";
 import { JSDOM } from "jsdom";
+import { it } from "vitest";
 
 // Astro 7's default `compressHTML: "jsx"` applies JSX whitespace rules: a
 // whitespace run holding a line break next to an element is dropped, so source

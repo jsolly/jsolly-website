@@ -11,6 +11,7 @@
 	"ignoreBinaries": ["uvx"],
 	"ignoreDependencies": ["markdownlint-cli2"],
 	"treatConfigHintsAsErrors": true,
+	"vitest": { "config": ["config/testing/vitest.config.mjs"] },
 	"astro": {
 		"config": ["config/app/astro.ts"]
 	},

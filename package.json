@@ -16,6 +16,7 @@
 		"check:ts": "astro check --config config/app/astro.ts --minimumSeverity error --minimumFailingSeverity error && svelte-check --tsconfig ./tsconfig.json --threshold error",
 		"check:knip": "knip --config config/quality/knip.json --no-progress",
 		"test": "node scripts/run-tests.mjs unit",
+		"test:python": "uvx --from pytest==9.1.1 pytest -c config/testing/pytest.ini",
 		"test:built": "node scripts/run-tests.mjs built",
 		"redirects:write": "node scripts/blogthedata-redirects.mjs --write",
 		"redirects:check": "node scripts/blogthedata-redirects.mjs --check",
@@ -27,9 +28,9 @@
 		"fix": "npm run check:fix && npm run check:ts",
 		"outdated": "npm outdated",
 		"update": "npx --yes npm-check-updates -u && npm install",
-		"check:actions": "bash scripts/check-actions.sh && bash scripts/vercel-preview-comment-contract.sh && bash scripts/vercel-preview-workflow-contract.sh",
+		"check:actions": "bash scripts/check-actions.sh && node scripts/run-tests.mjs workflow",
 		"gate": "FLEET_UI_PREVIEW=0 FLEET_DOC_FAST=0 bash .git-hooks/pre-commit",
-		"smoke:production": "node scripts/production-smoke.mjs",
+		"smoke:production": "node scripts/run-tests.mjs production",
 		"smoke:scenario-contract": "node scripts/run-tests.mjs smoke",
 		"recipes:usda": "node scripts/recipes/usda.mjs",
 		"check:preview": "npx --no-install biome ci --config-path=config/quality/biome.settings.jsonc . --error-on-warnings && npm run check:ts && npm test",
@@ -67,6 +68,7 @@
 		"turndown": "7.2.4",
 		"typescript": "^6.0.3",
 		"vercel": "^63.1.2",
+		"vitest": "5.0.5",
 		"yaml": "2.9.1"
 	},
 	"overrides": {

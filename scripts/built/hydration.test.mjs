@@ -1,9 +1,9 @@
 import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import { dirname, join } from "node:path";
-import { after, before, it } from "node:test";
 import { globby } from "globby";
 import { chromium } from "playwright";
+import { afterAll as after, beforeAll as before, it } from "vitest";
 import { JOB_TITLE } from "../../src/content/constants.js";
 import {
 	collectErrors,
@@ -262,12 +262,12 @@ const sameSet = (a, b) => a.size === b.size && [...a].every((x) => b.has(x));
 // Opens path on the shipped and the unprocessed build. The report is what
 // both kinds of page must show: island modules held until the snapshot, no
 // page errors, server-rendered nodes, and the unprocessed build's reuse.
-async function compareReuse(path, t, stable) {
+async function compareReuse(path, stable) {
 	const [shipped, baseline] = await Promise.all([
 		nodeReuse(sites.shipped, path, stable),
 		nodeReuse(sites.baseline, path, stable),
 	]);
-	t.diagnostic(
+	console.info(
 		`${path}: shipped reuses ${shipped.reused}/${shipped.total}, unprocessed build ${baseline.reused}/${baseline.total}`,
 	);
 	const builds = [shipped, baseline];
@@ -293,8 +293,8 @@ async function compareReuse(path, t, stable) {
 }
 
 for (const path of FULL_REUSE_PAGES) {
-	it(`a visitor opening ${path} gets its islands hydrated in place`, async (t) => {
-		const { shipped, report, expected } = await compareReuse(path, t);
+	it(`a visitor opening ${path} gets its islands hydrated in place`, async () => {
+		const { shipped, report, expected } = await compareReuse(path);
 		assert.deepEqual(
 			report,
 			expected,
@@ -309,8 +309,8 @@ for (const path of FULL_REUSE_PAGES) {
 }
 
 for (const { path, stable } of PARITY_PAGES) {
-	it(`a visitor opening ${path} gets its islands hydrated as the unprocessed build hydrates them, keeping its stable UI`, async (t) => {
-		const { shipped, report, expected } = await compareReuse(path, t, stable);
+	it(`a visitor opening ${path} gets its islands hydrated as the unprocessed build hydrates them, keeping its stable UI`, async () => {
+		const { shipped, report, expected } = await compareReuse(path, stable);
 		assert.deepEqual(
 			report,
 			expected,
@@ -333,6 +333,7 @@ it("a phone blog visitor uses shared navigation and the hydrated category disclo
 		viewport: { width: 390, height: 844 },
 	});
 	try {
+		await stubOffOrigin(context, sites.shipped.origin);
 		const page = await context.newPage();
 		const errors = collectErrors(page);
 		await page.goto(`${sites.shipped.origin}/blog/works-cited/`);
@@ -382,7 +383,6 @@ it("a phone blog visitor uses shared navigation and the hydrated category disclo
 		);
 		await toggle.click();
 		await category.waitFor({ state: "hidden" });
-		await stubOffOrigin(context, sites.shipped.origin);
 		await page.goto(
 			`${sites.shipped.origin}/blog/Planetary-Computer-STAC-Landsat-data/`,
 		);
@@ -403,6 +403,7 @@ it("a desktop blog visitor reaches the archive through the section toolbar and s
 		viewport: { width: 1280, height: 800 },
 	});
 	try {
+		await stubOffOrigin(context, sites.shipped.origin);
 		const page = await context.newPage();
 		const errors = collectErrors(page);
 		await page.goto(`${sites.shipped.origin}/blog/works-cited/`);
@@ -440,6 +441,7 @@ it("a phone visitor without JavaScript can use shared links, categories and GET 
 		javaScriptEnabled: false,
 	});
 	try {
+		await stubOffOrigin(context, sites.shipped.origin);
 		const page = await context.newPage();
 		await page.goto(`${sites.shipped.origin}/blog/works-cited/`);
 		assert.equal(
@@ -505,6 +507,7 @@ it("A visitor on / reaches the on-site blog and recipes in the same tab and gets
 		viewport: { width: 390, height: 844 },
 	});
 	try {
+		await stubOffOrigin(context, sites.shipped.origin);
 		const page = await context.newPage();
 		const errors = collectErrors(page);
 		await page.goto(`${sites.shipped.origin}/`);

@@ -1,7 +1,7 @@
-// Canonical source: dotagents/templates/github/production-smoke.mjs
+// Production acceptance helper. Vitest owns orchestration; this module retains
+// release readiness, browser behavior, cleanup and diagnostic artifacts.
 import { mkdir, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
-import { pathToFileURL } from "node:url";
 
 const RELEASE_SHA = /^[0-9a-f]{40}$/u;
 const REQUEST_ID = /^[a-zA-Z0-9_-]{1,100}$/u;
@@ -342,23 +342,4 @@ export async function runSmoke({
 		);
 	}
 	return receipt;
-}
-if (
-	process.argv[1] &&
-	import.meta.url === pathToFileURL(resolve(process.argv[1])).href
-) {
-	try {
-		const scenario = await import(
-			pathToFileURL(resolve("scripts/production-smoke-scenario.mjs")).href
-		);
-		const receipt = await runSmoke({ scenario });
-		process.stdout.write(`${JSON.stringify(receipt, null, 2)}\n`);
-		// biome-ignore lint/suspicious/noUnnecessaryConditions: asynchronous cleanup can add diagnostics after the successful branch.
-		if (!receipt.success) {
-			process.exitCode = 1;
-		}
-	} catch (error) {
-		process.stderr.write(`${error}\n`);
-		process.exitCode = 1;
-	}
 }

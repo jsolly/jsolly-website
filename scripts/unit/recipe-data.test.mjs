@@ -3,8 +3,8 @@ import { existsSync } from "node:fs";
 import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import it from "node:test";
 import { fileURLToPath } from "node:url";
+import { it } from "vitest";
 import {
 	PWA_FILES_PATH,
 	PWA_NAME,

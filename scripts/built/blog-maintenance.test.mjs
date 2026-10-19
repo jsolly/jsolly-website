@@ -1,9 +1,9 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { after, before, it } from "node:test";
 import { pathToFileURL } from "node:url";
 import { JSDOM } from "jsdom";
+import { afterAll as after, beforeAll as before, it } from "vitest";
 import { agentResponse } from "../../src/lib/agent-response.js";
 import { exists, readBuiltPages, stylesheets } from "./pages.mjs";
 import { createTempCopy, requireSuccess } from "./temp-copy.mjs";

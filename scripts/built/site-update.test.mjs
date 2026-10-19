@@ -10,9 +10,9 @@ import {
 } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { after, before, it } from "node:test";
 import { chromium } from "playwright";
-import { collectErrors, serveStatic } from "./pages.mjs";
+import { afterAll as after, beforeAll as before, it } from "vitest";
+import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
 
 const ROUTES = ["/", "/blog/", "/recipes/"];
 const NEXT_SHA = "b".repeat(40);
@@ -80,6 +80,7 @@ function updateCheck(route) {
 		await serve("A");
 		const context = await browser.newContext({ serviceWorkers: "block" });
 		try {
+			await stubOffOrigin(context, site.origin);
 			const page = await context.newPage();
 			const errors = collectErrors(page);
 			const conflicts = [];

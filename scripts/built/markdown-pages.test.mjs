@@ -1,9 +1,9 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import it from "node:test";
 import { parseFrontmatter } from "astro/markdown";
 import { JSDOM } from "jsdom";
+import { it } from "vitest";
 import middleware from "../../middleware.js";
 import { cookingText } from "../../src/components/recipes/cooking-quantities.mjs";
 import data from "../../src/components/recipes/recipe-data.server.mjs";

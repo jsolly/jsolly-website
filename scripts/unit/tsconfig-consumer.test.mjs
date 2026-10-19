@@ -11,8 +11,8 @@ import {
 import { createRequire } from "node:module";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
-import it from "node:test";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { it } from "vitest";
 
 const ROOT = fileURLToPath(new URL("../..", import.meta.url));
 const require = createRequire(new URL("../../package.json", import.meta.url));

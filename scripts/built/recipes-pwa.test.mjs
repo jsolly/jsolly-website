@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { it } from "node:test";
+import { it } from "vitest";
 import { collectErrors, readBuilt } from "./pages.mjs";
 import {
 	browser,

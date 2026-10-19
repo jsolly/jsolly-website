@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import it from "node:test";
 import { JSDOM } from "jsdom";
+import { it } from "vitest";
 import { DIST, publishedPosts } from "./pages.mjs";
 
 // Layout.astro: a noindex page (404, 500) answers whatever URL failed, so it

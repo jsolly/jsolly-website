@@ -11,8 +11,8 @@ import {
 import { createServer } from "node:http";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import it from "node:test";
 import { setTimeout as wait } from "node:timers/promises";
+import { it } from "vitest";
 import {
 	fetchTransport,
 	vercelCurlTransport,

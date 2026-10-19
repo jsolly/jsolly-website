@@ -1,10 +1,10 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
-import it from "node:test";
 import { fileURLToPath } from "node:url";
 import { globby } from "globby";
 import { JSDOM } from "jsdom";
+import { it } from "vitest";
 import { exists, stylesheets } from "./pages.mjs";
 
 const ROOT = fileURLToPath(new URL("../..", import.meta.url));

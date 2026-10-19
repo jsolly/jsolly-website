@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readdirSync, readFileSync } from "node:fs";
-import { describe, it } from "node:test";
 import { parseFrontmatter } from "astro/markdown";
+import { describe, it } from "vitest";
 import { articleHtml, headingId, plainText } from "./html.js";
 import { parsePost } from "./post-loader.js";
 import { postSchema } from "./schemas.js";

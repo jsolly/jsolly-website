@@ -84,6 +84,10 @@ async function linkModules(dir) {
 
 // Runs `file args` in `dir` without colour; see Commands above.
 function run(dir, file, args, command) {
+	const env = { ...process.env };
+	// Vitest exports Vite's test-mode flags into the worker environment. A
+	// child Astro build must compute its own production flags instead.
+	for (const key of ["DEV", "PROD", "MODE"]) delete env[key];
 	const result = spawnSync(file, args, {
 		cwd: dir,
 		encoding: "utf8",
@@ -91,7 +95,10 @@ function run(dir, file, args, command) {
 		// Copies deliberately omit .git. Supply their source commit explicitly,
 		// as CI and Vercel do, so static release identity can still be built.
 		env: {
-			...process.env,
+			...env,
+			// Vitest sets NODE_ENV=test. These isolated builds must reproduce the
+			// production output built by the gate, including release notices.
+			NODE_ENV: "production",
 			GITHUB_SHA:
 				process.env.GITHUB_SHA ||
 				execFileSync("git", ["rev-parse", "HEAD"], {
