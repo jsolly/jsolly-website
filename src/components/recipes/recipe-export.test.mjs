@@ -1,16 +1,14 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
 import it from "node:test";
 import nutritionData from "./nutrition-data.json" with { type: "json" };
+import data from "./recipe-data.server.mjs";
 import {
 	documentMarkdown,
 	recipeBundle,
 	recipeDocument,
 } from "./recipe-export.mjs";
 
-const { recipes } = JSON.parse(
-	readFileSync(new URL("./recipes.json", import.meta.url), "utf8"),
-);
+const { recipes } = data;
 const BROTH = /broth/iu;
 const SAFE_POULTRY_METRIC = /74°C \(165°F\)/u;
 const EXTRA_BATCHES = /extra pan or basket batches/u;

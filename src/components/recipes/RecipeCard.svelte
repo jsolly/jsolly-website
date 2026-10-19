@@ -13,7 +13,7 @@
 	// One recipe's card in the library grid: its group, photo, title, active
 	// time, net carbs per serving and appliances. `href` is the
 	// recipe page with the reader's servings and family side.
-	let { recipe, href, servings = BASE_SERVINGS, settings, onPrint, disabled = false } = $props();
+	let { recipe, href, servings = BASE_SERVINGS, settings, onPrint, disabled = false, onPrefetch } = $props();
 	// Diet labels live with the other highlights; retain canonical source titles.
 	const cardTitle = $derived(recipe.title
 		.replace(/\(\s*(?:(?:keto|low[ -]carb)\s*(?:\+|-)?\s*)+\)/giu, "")
@@ -21,11 +21,38 @@
 		.replace(/\s*\(family favorite\)/giu, "")
 		.replace(/\s+/gu, " ").trim()
 		.replace(/^./u, (letter) => letter.toUpperCase()));
-	const netCarbs = $derived(recipe.type === "smoothie" ? smoothiePortionNutrition(recipe).net_carbs_g : servingNutrition(recipe, BASE_SERVINGS).net_carbs_g);
+	const netCarbs = $derived("netCarbs" in recipe ? recipe.netCarbs : recipe.type === "smoothie" ? smoothiePortionNutrition(recipe).net_carbs_g : servingNutrition(recipe, BASE_SERVINGS).net_carbs_g);
+
+	const SLOW_CONNECTION = /^(?:slow-2g|2g|3g)$/u;
+	function deferImage(node) {
+		if (!("IntersectionObserver" in window)) { node.src = recipe.image.cardSrc; node.srcset = recipe.image.cardSrcset; return; }
+		const src = recipe.image.cardSrc, srcset = recipe.image.cardSrcset;
+		node.removeAttribute("src"); node.removeAttribute("srcset");
+		const observer = new IntersectionObserver((entries) => {
+			if (!entries.some((entry) => entry.isIntersecting)) return;
+			if (srcset) node.setAttribute("srcset", srcset);
+			if (src) node.setAttribute("src", src);
+			observer.disconnect();
+		}, { rootMargin: "300px" });
+		observer.observe(node);
+		return () => observer.disconnect();
+	}
+	function intentPrefetch(node) {
+		if (!onPrefetch) return;
+		let timer;
+		const allowed = () => !navigator.connection?.saveData && !SLOW_CONNECTION.test(navigator.connection?.effectiveType || "");
+		const schedule = () => { clearTimeout(timer); if (allowed()) timer = setTimeout(() => onPrefetch(recipe.id), 150); };
+		const pointer = () => { if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) schedule(); };
+		const clear = () => clearTimeout(timer);
+		node.addEventListener("pointerenter", pointer); node.addEventListener("pointerleave", clear);
+		node.addEventListener("focusin", schedule); node.addEventListener("focusout", clear);
+		return () => { clear(); node.removeEventListener("pointerenter", pointer); node.removeEventListener("pointerleave", clear); node.removeEventListener("focusin", schedule); node.removeEventListener("focusout", clear); };
+	}
 </script>
 
-<article class="recipe-card">
-	{#if recipe.image}<figure class="card-photo"><img src={recipe.image.cardSrc} srcset={recipe.image.cardSrcset} sizes="(max-width:600px) 340px, (max-width:1000px) 420px, 360px" width={recipe.image.width} height={recipe.image.height} alt={recipe.image.alt} loading="lazy" decoding="async" /></figure>{/if}
+<article class="recipe-card" {@attach intentPrefetch}>
+
+	{#if recipe.image}<figure class="card-photo"><img class="deferred-card-image" {@attach deferImage} sizes="(max-width:600px) 340px, (max-width:1000px) 420px, 360px" width={recipe.image.width} height={recipe.image.height} alt={recipe.image.alt} loading="lazy" decoding="async" /><noscript><img src={recipe.image.cardSrc} srcset={recipe.image.cardSrcset} sizes="(max-width:600px) 340px, (max-width:1000px) 420px, 360px" width={recipe.image.width} height={recipe.image.height} alt={recipe.image.alt} loading="lazy" decoding="async" /></noscript></figure>{/if}
 	<h3><a class="title-button" data-recipe-id={recipe.id} {href}>{cardTitle}</a></h3>
 	<div class="card-details">
 		<dl class="card-numbers">
@@ -42,7 +69,7 @@
 				<dd class="appliance-icons">{#each recipe.appliancesNeeded as name (name)}<ApplianceIcon {name} />{/each}</dd>
 			</div>
 		</dl>
-		<div class="card-nutrition"><NutritionPills {recipe} {servings} includeDietary /></div>
+		<div class="card-nutrition"><NutritionPills {recipe} {servings} includeDietary flags={recipe.nutritionPills ? Object.fromEntries(recipe.nutritionPills.map((pill) => [pill.key, true])) : undefined} dietary={recipe.dietaryPills?.[0]?.key} /></div>
 	</div>
 	<div class="card-actions"><Button class="open-button" {href} aria-label={`Open recipe: ${cardTitle}`}>Open recipe <span aria-hidden="true">→</span></Button>{#if onPrint}<RecipePrintButton {recipe} {settings} {onPrint} {disabled} />{/if}</div>
 </article>

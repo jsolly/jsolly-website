@@ -2,22 +2,16 @@
 	import Button from "../../lib/components/ui/button.svelte";
 	import Input from "../../lib/components/ui/input.svelte";
 	import NativeSelect from "../../lib/components/ui/native-select.svelte";
-	import { applianceChoices, applianceLimits, nutritionThresholds, proteins, starchOptions } from "./constants.mjs";
-	import { nutrientFilters, parseSavedSettings, smoothieIngredientChoices } from "./nutrient-filters.mjs";
-	// biome-ignore lint/correctness/useJsonImportAttributes: Vite loads JSON; Svelte MCP parser requires a plain import
-	import recipeData from "./recipes.json";
+	import { applianceChoices, applianceLimits, BASE_SERVINGS, DEFAULT_FILTERS, defaultAppliances, nutritionThresholds, proteins, starchOptions } from "./constants.mjs";
 
-	const recipes = recipeData.recipes;
-
-	let { collection, pathname, settings = parseSavedSettings({}, { recipes, ingredients: smoothieIngredientChoices(recipes) }), query = "", seed = "" } = $props();
-	const ingredients = smoothieIngredientChoices(recipes);
-	const collectionRecipes = $derived(recipes.filter((recipe) => recipe.type === collection));
-	const shownAppliances = $derived(Object.entries(applianceChoices).filter(([key]) => collectionRecipes.some((recipe) => recipe.appliancesNeeded.includes(key))));
+	let { collection, pathname, metadata, settings = { servings: BASE_SERVINGS, units: "us", filters: DEFAULT_FILTERS, appliancesOnHand: defaultAppliances }, query = "", seed = "" } = $props();
+	const ingredients = $derived(metadata.smoothieIngredients);
+	const shownAppliances = $derived(Object.entries(applianceChoices).filter(([key]) => metadata.shownAppliances.includes(key)));
 	const choiceGroups = $derived(collection === "meal" ? [{ name: "proteinChoice", label: "Proteins", options: proteins }, { name: "starchChoice", label: "Carbs", options: starchOptions }] : [{ name: "ingredientChoice", label: "Ingredients", options: ingredients }]);
 	const checks = $derived([
 		...(collection === "meal" ? [["mealKetoOnly", "Keto"], ["vegetarianOnly", "Vegetarian"], ["dumpAndGo", "Dump and go"]] : [["smoothieKetoOnly", "Keto Friendly"]]),
 		["immuneSupport", "Immune support"],
-		...(collectionRecipes.some((recipe) => nutrientFilters(recipe, settings.servings).iron) ? [["ironRich", "Iron-rich"]] : []),
+		...(metadata.collectionHasIron ? [["ironRich", "Iron-rich"]] : []),
 		["omega3", "High in Omega-3s"],
 	]);
 </script>

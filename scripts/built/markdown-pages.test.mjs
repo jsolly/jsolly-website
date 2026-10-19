@@ -6,10 +6,8 @@ import { parseFrontmatter } from "astro/markdown";
 import { JSDOM } from "jsdom";
 import middleware from "../../middleware.js";
 import { cookingText } from "../../src/components/recipes/cooking-quantities.mjs";
+import data from "../../src/components/recipes/recipe-data.server.mjs";
 import { formatIngredient } from "../../src/components/recipes/recipe-logic.mjs";
-import data from "../../src/components/recipes/recipes.json" with {
-	type: "json",
-};
 import { markdownRoutes, routes } from "../../src/generated/route-manifest.js";
 import { pageMarkdown } from "../markdown-build.mjs";
 import { allPosts, distFiles, readBuiltPages } from "./pages.mjs";
@@ -197,9 +195,10 @@ it("Each recipe Markdown contains its instructions and source uncertainty with c
 					new Set(
 						data.recipes
 							.filter((recipe) => recipe.type === type)
+							.slice(0, 6)
 							.map((recipe) => `/recipes/${recipe.id}/`),
 					),
-					`${collection} links every recipe directly to its canonical URL`,
+					`${collection} links its first six recipes directly to canonical URLs`,
 				);
 			} finally {
 				dom.window.close();

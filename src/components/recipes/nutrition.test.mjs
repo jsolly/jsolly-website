@@ -7,12 +7,12 @@ import {
 	recordedOmega3,
 } from "./nutrition.mjs";
 import data from "./nutrition-data.json" with { type: "json" };
+import recipes from "./recipe-data.server.mjs";
 import {
 	ingredientAmount,
 	sideNutrition,
 	smoothiePortionNutrition,
 } from "./recipe-logic.mjs";
-import recipes from "./recipes.json" with { type: "json" };
 
 // Edible four-portion batch contribution per diner. These expected ratios come
 // from the cooking rules, independently of ingredientAmount and nutrient code.

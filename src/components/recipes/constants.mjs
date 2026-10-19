@@ -4,7 +4,7 @@
 /** Recipe ingredient amounts and timings are written for this many adults. */
 export const BASE_SERVINGS = 4;
 /** Cards appended per scroll or load-more action. */
-export const RECIPE_BATCH_SIZE = 24;
+export const RECIPE_BATCH_SIZE = 6;
 /** Labels derived from the base recipe's net carbohydrates per serving. */
 export const dietaryLabels = { keto: "Keto", nonketo: "Not keto" };
 export const KETO_NET_CARBS_MAX = 12.5;

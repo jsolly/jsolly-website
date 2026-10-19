@@ -231,7 +231,12 @@ export async function runSmoke({
 					);
 					if (workerPage.url() !== urls.page)
 						throw new Error("Worker page redirected");
+					const savedRecipeEvidence =
+						typeof scenario.verifyRecipeWorker === "function"
+							? await scenario.verifyRecipeWorker(workerPage)
+							: {};
 					receipt.observations.push({
+						...savedRecipeEvidence,
 						url: urls.page,
 						status: workerResponse.status(),
 						source: "service-worker",
@@ -305,7 +310,7 @@ if (
 		);
 		const receipt = await runSmoke({ scenario });
 		process.stdout.write(`${JSON.stringify(receipt, null, 2)}\n`);
-		// biome-ignore lint/suspicious/noUnnecessaryConditions: asynchronous diagnostics can invalidate the receipt during cleanup.
+		// biome-ignore lint/suspicious/noUnnecessaryConditions: asynchronous cleanup can add diagnostics after the successful branch.
 		if (!receipt.success) {
 			process.exitCode = 1;
 		}

@@ -42,7 +42,7 @@ function message() {
 		return "Could not verify the recipe update. Saved recipes remain available. Try Update and reload again.";
 	if (availableRelease)
 		return state.waiting
-			? "Update available. Updated recipes are downloaded and ready to use."
+			? "Update available. The updated app is ready. Your saved recipes stay available."
 			: "Recipes were updated in another tab. Reload when you are ready.";
 	if (!state.active)
 		return state.failed
@@ -53,8 +53,8 @@ function message() {
 	if (state.checkFailed)
 		return "Could not check for recipe updates. Saved recipes remain available. Reconnect and try again.";
 	return state.online
-		? `Recipes saved for offline use. ${instructions}`
-		: "You are offline. Saved recipes, scaling and grocery lists are available. External links need a connection.";
+		? `Opened recipes can be saved for offline use. ${instructions}`
+		: "You are offline. Open Saved recipes to find recipes available on this device. External links need a connection.";
 }
 function render() {
 	const text = message();
@@ -244,6 +244,7 @@ async function register() {
 	// Readiness belongs to the loaded document, including an offline reload;
 	// online polling must not delay releasing this client's previous snapshot.
 	ready();
+
 	observeInstaller();
 	registration.addEventListener("updatefound", observeInstaller);
 	render();

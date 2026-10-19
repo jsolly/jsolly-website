@@ -1,7 +1,5 @@
 import { BASE_SERVINGS } from "./constants.mjs";
-import data from "./nutrition-data.json" with { type: "json" };
 
-const dailyNutrients = data.nutrients;
 const MACROS = ["kcal", "protein_g", "carbs_g", "fiber_g", "erythritol_g"];
 
 function contributionFactor(recipe, row, servings, scaledAmount) {
@@ -26,8 +24,8 @@ function glassesPerBatch(recipe) {
 }
 
 /** Total fat follows the same measured ingredient model as energy and macros. */
-function fatNutrition(recipe, servings, scaledAmount, model = data) {
-	const rows = model.recipes[recipe.id] || [];
+function fatNutrition(recipe, servings, scaledAmount) {
+	const rows = recipe.calculation?.rows || [];
 	if (!rows.length || rows.some((row) => !Number.isFinite(row.nutrients.fat)))
 		return null;
 	return (
@@ -46,7 +44,7 @@ function fatNutrition(recipe, servings, scaledAmount, model = data) {
 export function macroNutrition(recipe, servings, scaledAmount) {
 	const result = { ...recipe.nutrition };
 	result.fat_g = fatNutrition(recipe, servings, scaledAmount);
-	for (const row of data.recipes[recipe.id] || []) {
+	for (const row of recipe.calculation?.rows || []) {
 		const adjustment =
 			contributionFactor(recipe, row, servings, scaledAmount) -
 			servings / BASE_SERVINGS;
@@ -71,7 +69,7 @@ export function macroNutrition(recipe, servings, scaledAmount) {
 
 /** A selected family starch is one additional diner portion, never batch-scaled. */
 export function familyFat(recipe, choiceId) {
-	const row = data.familyOptions?.[recipe.id]?.find(
+	const row = recipe.calculation?.familyRows?.find(
 		(item) => item.ingredientId === choiceId,
 	);
 	return Number.isFinite(row?.nutrients.fat)
@@ -79,8 +77,8 @@ export function familyFat(recipe, choiceId) {
 		: null;
 }
 export function dailyNutrition(recipe, servings, scaledAmount) {
-	const rows = data.recipes[recipe.id] || [];
-	return dailyNutrients.map((nutrient) => {
+	const rows = recipe.calculation?.rows || [];
+	return (recipe.calculation?.nutrients ?? []).map((nutrient) => {
 		let total = 0,
 			observed = rows.length > 0;
 		for (const row of rows) {
@@ -124,7 +122,7 @@ export function nutrientAmount(value) {
 // Count recorded omega-3 observations only; unobserved fatty acids cannot qualify a recipe.
 export function recordedOmega3(recipe, servings, scaledAmount) {
 	let total = 0;
-	for (const row of data.recipes[recipe.id] || []) {
+	for (const row of recipe.calculation?.rows || []) {
 		const factor = contributionFactor(recipe, row, servings, scaledAmount);
 		total +=
 			((((row.omega3RecordedGramsPer100g || 0) * row.grams) / 100) * factor) /

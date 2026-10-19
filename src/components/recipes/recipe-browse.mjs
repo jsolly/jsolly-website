@@ -5,9 +5,11 @@ import {
 	parseSavedSettings,
 	smoothieIngredientChoices,
 } from "./nutrient-filters.mjs";
-import { shuffleRecipes } from "./recipe-logic.mjs";
+import { orderRecipeIds } from "./recipe-order.mjs";
 import { createRecipeSearch } from "./recipe-search.mjs";
 
+const BROWSE_PAGE_SIZE = 6;
+const PAGE = /^[1-9]\d{0,8}$/u;
 const COUNT = /^\d{1,2}$/u;
 const SEED = /^[a-zA-Z0-9-]{1,64}$/u;
 const selections = ["proteinChoice", "starchChoice", "ingredientChoice"];
@@ -52,6 +54,7 @@ export function parseBrowseParams(params, _collection, recipes) {
 		settings,
 		query: (params.get("q") ?? "").slice(0, 200),
 		seed: SEED.test(seed) ? seed : "",
+		page: PAGE.test(params.get("page") ?? "") ? Number(params.get("page")) : 1,
 	};
 }
 
@@ -95,13 +98,13 @@ export function filterBrowseRecipes(recipes, collection, state) {
 			matchesRecipe(recipe, state.settings.servings, filters),
 	);
 	if (!state.seed) return matches;
-	let hash = 2166136261;
-	for (const character of state.seed)
-		hash = Math.imul(hash ^ character.charCodeAt(0), 16777619) >>> 0;
-	return shuffleRecipes(matches, () => {
-		hash = (Math.imul(hash, 1664525) + 1013904223) >>> 0;
-		return hash / 4294967296;
-	});
+	const ranks = new Map(
+		orderRecipeIds(
+			recipes.map((recipe) => recipe.id),
+			state.seed,
+		).map((id, index) => [id, index]),
+	);
+	return matches.sort((a, b) => ranks.get(a.id) - ranks.get(b.id));
 }
 
 /** Selected values for server-side native form restoration after a GET. */
@@ -118,4 +121,23 @@ export function browseFormValues({ settings, query, seed }, _collection) {
 	for (const key of Object.keys(applianceChoices))
 		values[`appliance.${key}`] = [String(settings.appliancesOnHand[key])];
 	return values;
+}
+
+/** Clamp a requested page after filtering, including an empty result set. */
+export function paginateBrowseRecipes(recipes, collection, state) {
+	const matches = filterBrowseRecipes(recipes, collection, state);
+	const total = matches.length;
+	const page = Math.min(
+		Math.max(1, state.page || 1),
+		Math.max(1, Math.ceil(total / BROWSE_PAGE_SIZE)),
+	);
+	return {
+		recipes: matches.slice(
+			(page - 1) * BROWSE_PAGE_SIZE,
+			page * BROWSE_PAGE_SIZE,
+		),
+		total,
+		page,
+		nextPage: page * BROWSE_PAGE_SIZE < total ? page + 1 : null,
+	};
 }

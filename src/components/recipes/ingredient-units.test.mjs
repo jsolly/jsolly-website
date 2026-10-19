@@ -10,6 +10,7 @@ import {
 	unitPreference,
 } from "./ingredient-units.mjs";
 import weights from "./ingredient-weights.json" with { type: "json" };
+import data from "./recipe-data.server.mjs";
 import { documentMarkdown, recipeDocument } from "./recipe-export.mjs";
 import {
 	formatIngredient,
@@ -17,7 +18,6 @@ import {
 	ingredientAmount,
 } from "./recipe-logic.mjs";
 import { readRecipeURL, recipeHref } from "./recipe-url.mjs";
-import data from "./recipes.json" with { type: "json" };
 import { flowGrid, gridHtml } from "./trn-logic.mjs";
 import { readUnitPreference, writeUnitPreference } from "./unit-preference.mjs";
 
@@ -39,6 +39,15 @@ const ingredient = (amount, unit, extra = {}) => ({
 	unit,
 	scale: "linear",
 	...extra,
+	weightReference: weights.references.find(
+		(reference) => reference.id === extra.weightRef,
+	),
+	alternatives: extra.alternatives?.map((choice) => ({
+		...choice,
+		weightReference: weights.references.find(
+			(reference) => reference.id === choice.weightRef,
+		),
+	})),
 });
 
 it("mass conversions preserve dimensions, positive tiny quantities and unrounded amounts", () => {

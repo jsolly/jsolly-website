@@ -4,9 +4,7 @@ import { after, before, it } from "node:test";
 import { JSDOM } from "jsdom";
 import { chromium } from "playwright";
 import { browseResponse } from "../../api/recipe-browse.mjs";
-import recipeData from "../../src/components/recipes/recipes.json" with {
-	type: "json",
-};
+import recipeData from "../../src/components/recipes/recipe-data.server.mjs";
 import { collectErrors, serveStatic } from "./pages.mjs";
 
 const mealCount = recipeData.recipes.filter(
@@ -45,10 +43,32 @@ const CANONICAL = 'link[rel="canonical"]';
 // biome-ignore lint/security/noSecrets: public shuffle state form field selector
 const SHUFFLE_SEED_FIELD = 'input[name="seed"]';
 const NO_MATCHES = /No recipes match/u;
-const cardIds = (page) =>
-	page
-		.locator(".recipe-card .title-button")
-		.evaluateAll((links) => links.map((link) => link.dataset.recipeId));
+async function cardIds(page) {
+	const start = new URL(page.url());
+	if (start.searchParams.get("shuffle") === "1") {
+		start.searchParams.delete("shuffle");
+		start.searchParams.set(
+			"seed",
+			await page.locator(SHUFFLE_SEED_FIELD).inputValue(),
+		);
+	}
+	const ids = [];
+	let hasNext;
+	do {
+		ids.push(
+			// biome-ignore lint/performance/noAwaitInLoops: each native page must load before its next link can be followed
+			...(await page
+				.locator(".recipe-card .title-button")
+				.evaluateAll((links) => links.map((link) => link.dataset.recipeId))),
+		);
+		const next = page.getByRole("link", { name: "Next recipes", exact: true });
+		hasNext = (await next.count()) > 0;
+		if (!hasNext) break;
+		await Promise.all([page.waitForEvent("load"), next.click()]);
+	} while (hasNext);
+	if (page.url() !== start.href) await page.goto(start.href);
+	return ids;
+}
 
 function nativeBrowseTest(width) {
 	it(`native filters, search and repeated shuffle survive full-page reloads without JS at ${width}px`, async () => {
@@ -61,7 +81,10 @@ function nativeBrowseTest(width) {
 		const errors = collectErrors(page, { warnings: true });
 		try {
 			await page.goto(`${server.origin}/recipes/meals/`);
-			assert.equal(await page.locator(".recipe-card").count(), mealCount);
+			assert.equal(
+				await page.locator(".recipe-card").count(),
+				Math.min(6, mealCount),
+			);
 			await page
 				.getByRole("searchbox", { name: "Search recipes" })
 				.fill("salmon");
@@ -139,7 +162,10 @@ function nativeBrowseTest(width) {
 
 			await page.getByRole("link", { name: "Reset filters" }).click();
 			await page.waitForURL("**/recipes/meals/");
-			assert.equal(await page.locator(".recipe-card").count(), mealCount);
+			assert.equal(
+				await page.locator(".recipe-card").count(),
+				Math.min(6, mealCount),
+			);
 			for (const [keto, vegetarian] of [
 				[true, false],
 				[false, true],
@@ -226,7 +252,7 @@ it("native rendering retains canonical and CSP script bytes, escapes hostile tex
 		await readFile("dist/recipes/meals/index.html", "utf8"),
 	);
 	const request = new Request(
-		`https://example.test/api/recipe-browse?${new URLSearchParams({ path: "/recipes/meals/", browse: "1", q: HOSTILE_QUERY })}`,
+		`https://example.test/api/recipe-browse/?${new URLSearchParams({ path: "/recipes/meals/", browse: "1", q: HOSTILE_QUERY })}`,
 		{ headers: { accept: "text/html" } },
 	);
 	const response = await browseResponse(request);
@@ -309,7 +335,7 @@ it("native browse rejects invalid routes, methods and non-HTML and gives HEAD no
 		].map(async ([path, options, status]) => {
 			const response = await browseResponse(
 				new Request(
-					`https://example.test/api/recipe-browse?path=${encodeURIComponent(path)}`,
+					`https://example.test/api/recipe-browse/?path=${encodeURIComponent(path)}`,
 					options,
 				),
 			);
@@ -317,9 +343,12 @@ it("native browse rejects invalid routes, methods and non-HTML and gives HEAD no
 		}),
 	);
 	const head = await browseResponse(
-		new Request("https://example.test/api/recipe-browse?path=/recipes/meals/", {
-			method: "HEAD",
-		}),
+		new Request(
+			"https://example.test/api/recipe-browse/?path=/recipes/meals/",
+			{
+				method: "HEAD",
+			},
+		),
 	);
 	assert.equal(head.status, 200);
 	assert.equal(await head.text(), "");

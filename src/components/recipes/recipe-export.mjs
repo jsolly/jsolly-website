@@ -6,7 +6,6 @@ import {
 import { cookingText } from "./cooking-quantities.mjs";
 import { ingredientMeasure, UNIT_LABELS } from "./ingredient-units.mjs";
 import { dailyNutrition } from "./nutrition.mjs";
-import nutritionData from "./nutrition-data.json" with { type: "json" };
 import {
 	capacityNote,
 	dietaryClass,
@@ -133,12 +132,12 @@ export function recipeDocument(recipe, settings = {}) {
 				"Ingredient total fat observations at measured edible weights; no calorie residual inference.",
 			fatSources: [
 				...new Set(
-					(nutritionData.recipes[recipe.id] ?? []).map(
+					(recipe.calculation?.rows ?? []).map(
 						(row) => row.nutrientSources?.fat ?? row.source,
 					),
 				),
 			],
-			fatAssumptions: (nutritionData.recipes[recipe.id] ?? [])
+			fatAssumptions: (recipe.calculation?.rows ?? [])
 				.filter((row) => row.fatReview)
 				.map((row) => ({ ingredientId: row.ingredientId, ...row.fatReview })),
 		},

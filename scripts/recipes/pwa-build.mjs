@@ -3,13 +3,8 @@
 // `npm run build` after process-html.mjs, so the snapshot covers the HTML as
 // served.
 //
-// The worker (scripts/recipes/service-worker.js) precaches one complete built
-// snapshot: every file under dist/recipes/ (the recipe pages, the recipe
-// media, the manifest and icons, and the two assistant downloads) and every
-// file those pages load (scripts, styles, fonts, images, the favicon and the
-// no-JavaScript stylesheets inside <noscript>). A changed snapshot gets a new
-// cache name. The new worker waits for an explicit Update and reload request
-// or until every recipe tab closes. Only the requesting tab reloads immediately.
+// Installation downloads only the app shell. Individual opened recipes get
+// release-bound manifests for atomic, verified offline saves at runtime.
 //
 // A maintenance build (MAINTENANCE_MODE=true) writes no worker: installed
 // workers then get a 404 on their update check, which leaves them and their
@@ -20,7 +15,7 @@
 //   node scripts/recipes/pwa-build.mjs [dist]
 import { createHash } from "node:crypto";
 import { realpathSync } from "node:fs";
-import { readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { build } from "esbuild";
@@ -33,8 +28,9 @@ import {
 } from "../../src/components/recipes/constants.mjs";
 
 const WORKER_SOURCE = new URL("service-worker.js", import.meta.url);
-// Every recipe app cache name starts with this; the worker deletes older ones.
+// Release shell names share a prefix; complete historical shells remain read-only.
 const CACHE_PREFIX = "recipe-pages-pwa-";
+const SHELL_PAGES = new Set(["/recipes/", "/recipes/saved/"]);
 const MANIFEST = `${PWA_FILES_PATH}manifest.webmanifest`;
 // biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
 const MANIFEST_LINK = 'link[rel="manifest"]';
@@ -47,7 +43,10 @@ const PAGE_RESOURCES =
 // Files a script or stylesheet names: quoted script, style and font paths
 // (the minifier quotes some strings with backticks) and CSS url()s.
 const QUOTED_ASSET = /["'`](?<path>[^"'`\s]+\.(?:js|css|woff2?))["'`]/gu;
+const STATIC_IMPORT =
+	/\b(?:import|export)\s*(?:[^;"'`()]*?\bfrom\s*)?["'`](?<path>[^"'`\s]+\.js)["'`]/gu;
 const CSS_URL = /url\(["']?(?<path>[^\s)"']+)["']?\)/gu;
+const FONT_FILE = /\.[^/.]+\.woff2?$/u;
 const WHITESPACE = /\s+/u;
 const SCRIPT_OR_STYLE = /\.(?:js|css)$/u;
 const INDEX_FILE = /(?<=^|\/)index\.html$/u;
@@ -87,18 +86,21 @@ function pageReferences(html, page) {
 }
 
 // The URLs the script or stylesheet at `path` names, as [value, base] pairs.
-function fileReferences(contents, path) {
+function fileReferences(contents, path, dynamic = true) {
 	if (!SCRIPT_OR_STYLE.test(path)) return [];
 	const source = contents.toString();
-	return [...source.matchAll(QUOTED_ASSET), ...source.matchAll(CSS_URL)].map(
-		(match) => [match.groups.path, path],
-	);
+	return [
+		...source.matchAll(dynamic ? QUOTED_ASSET : STATIC_IMPORT),
+		...source.matchAll(CSS_URL),
+	].map((match) => [match.groups.path, path]);
 }
 
 // The same-origin path `value` names from `base`, or null for another origin
 // or a URL with a query (neither is part of the snapshot).
 function sitePath(value, base) {
-	const url = new URL(value, `${BASE}${base}`);
+	// Vite preload dependency tables use build-root paths without a leading slash.
+	const reference = value.startsWith("_astro/") ? `/${value}` : value;
+	const url = new URL(reference, `${BASE}${base}`);
 	return url.origin === BASE && !url.search ? url.pathname : null;
 }
 
@@ -109,20 +111,39 @@ const fileOf = (root, path) =>
 // the files those name, until nothing new turns up. The worker is never part
 // of its own snapshot: the client script names it, and a copied build may
 // already hold an older one.
-async function collect(root, references, files) {
+async function collect(root, references, files, dynamic = true) {
 	const paths = [
 		...new Set(references.map(([value, base]) => sitePath(value, base))),
 	].filter((path) => path && path !== PWA_WORKER_PATH && !files.has(path));
 	if (paths.length === 0) return;
+	// Browsers capable of this service worker support WOFF2. Do not download
+	// a second fallback encoding when the exact font has a WOFF2 resource.
+	const modernFonts = new Set(
+		[...paths, ...files.keys()]
+			.filter((path) => path.endsWith(".woff2"))
+			.map((path) => path.replace(FONT_FILE, "")),
+	);
+	const selected = paths.filter(
+		(path) =>
+			!path.endsWith(".woff") || !modernFonts.has(path.replace(FONT_FILE, "")),
+	);
 	const read = await Promise.all(
-		paths.map(async (path) => [path, await readFile(fileOf(root, path))]),
+		selected.map(async (path) => [path, await readFile(fileOf(root, path))]),
 	);
 	for (const [path, contents] of read) files.set(path, contents);
 	await collect(
 		root,
-		read.flatMap(([path, contents]) => fileReferences(contents, path)),
+		read.flatMap(([path, contents]) => fileReferences(contents, path, dynamic)),
 		files,
+		dynamic,
 	);
+}
+
+function digest(contents) {
+	return {
+		sha256: createHash("sha256").update(contents).digest("hex"),
+		size: contents.byteLength,
+	};
 }
 
 /**
@@ -132,9 +153,9 @@ async function collect(root, references, files) {
  */
 export async function buildRecipePwa(root) {
 	// Every file under /recipes/, a page (…/index.html) as its /…/ path.
-	const local = (await globby("**/*", { cwd: join(root, RECIPES_PATH) })).map(
-		(file) => `${RECIPES_PATH}${file.replace(INDEX_FILE, "")}`,
-	);
+	const local = (await globby("**/*", { cwd: join(root, RECIPES_PATH) }))
+		.map((file) => `${RECIPES_PATH}${file.replace(INDEX_FILE, "")}`)
+		.sort((a, b) => a.localeCompare(b));
 	const pages = await Promise.all(
 		local
 			.filter((path) => path.endsWith("/"))
@@ -148,19 +169,116 @@ export async function buildRecipePwa(root) {
 			`pwa-build: ${RECIPES_PATH} links no ${MANIFEST}; RecipeLayout should add it.`,
 		);
 	}
-	const files = new Map();
+	const shell = new Map();
+	await collect(
+		root,
+		pages
+			.filter(({ page }) => SHELL_PAGES.has(page))
+			.flatMap(({ page, references }) => [
+				[page, "/"],
+				...references.filter(
+					([value]) =>
+						!value.startsWith("/recipes/media/") &&
+						value !== "/blog/media/default.webp",
+				),
+			]),
+		shell,
+		false,
+	);
+	// Icons are named by the manifest JSON, not an HTML resource attribute.
+	await collect(
+		root,
+		local
+			.filter((path) => path.startsWith(PWA_FILES_PATH))
+			.map((path) => [path, "/"]),
+		shell,
+		false,
+	);
+	const offlineApi = await globby("_astro/recipe-offline.*.js", { cwd: root });
+	await collect(
+		root,
+		offlineApi.map((path) => [`/${path}`, "/"]),
+		shell,
+		false,
+	);
+	const savedTools = new Map();
+	const summaryModules = await globby("_astro/recipe-summary.*.js", {
+		cwd: root,
+	});
+	// Saving includes the shell's deferred controls, dialog and print tools.
+	// The install graph above remains static-only. Following the saved graph
+	// here also covers future lazy controls without naming generated chunks.
 	await collect(
 		root,
 		[
-			...local.map((path) => [path, "/"]),
-			...pages.flatMap(({ references }) => references),
+			...[...shell.keys()]
+				.filter((path) => path.endsWith(".js"))
+				.map((path) => [path, "/"]),
+			...summaryModules.map((path) => [`/${path}`, "/"]),
 		],
-		files,
+		savedTools,
+		true,
 	);
-	const assets = [...files.keys()].sort();
+	const release = JSON.parse(
+		await readFile(join(root, "release.json"), "utf8"),
+	).sha;
+	const recipeManifests = {};
+	await mkdir(join(root, "recipes/data/offline"), { recursive: true });
+	const savedViewContents = Buffer.from(
+		JSON.stringify({
+			schemaVersion: 1,
+			release,
+			assets: [...savedTools.keys()]
+				.filter((path) => !shell.has(path))
+				.sort((a, b) => a.localeCompare(b))
+				.map((path) => [path, digest(savedTools.get(path))]),
+		}),
+	);
+	const savedViewPath = "/recipes/data/offline/_saved-view.json";
+	await writeFile(fileOf(root, savedViewPath), savedViewContents);
+	const savedViewManifest = {
+		path: savedViewPath,
+		...digest(savedViewContents),
+	};
+	for (const { page, references } of pages) {
+		const id = page.slice(RECIPES_PATH.length, -1);
+		if (!id || ["meals", "smoothies", "saved"].includes(id)) continue;
+		const packPath = `/recipes/data/packs/${id}.json`;
+		const recipeFiles = new Map(savedTools);
+		const image = references.find(([value]) =>
+			value.startsWith("/recipes/media/"),
+		)?.[0];
+		const chosen = references.filter(
+			([value]) => !value.startsWith("/recipes/media/") || value === image,
+		);
+		// biome-ignore lint/performance/noAwaitInLoops: bound memory while collecting one independent recipe bundle.
+		await collect(root, [[page, "/"], [packPath, "/"], ...chosen], recipeFiles);
+		const manifest = {
+			schemaVersion: 1,
+			id,
+			release,
+			image,
+			imagePaths: [
+				...new Set(
+					references
+						.filter(([value]) => value.startsWith("/recipes/media/"))
+						.map(([value]) => value),
+				),
+			],
+			assets: [...recipeFiles.keys()]
+				.sort()
+				.map((resource) => [resource, digest(recipeFiles.get(resource))]),
+		};
+		const contents = Buffer.from(JSON.stringify(manifest));
+		const path = `/recipes/data/offline/${id}.json`;
+		await writeFile(fileOf(root, path), contents);
+		recipeManifests[id] = { path, ...digest(contents) };
+	}
+	const assets = [...shell.keys()].sort();
 	const bundled = await build({
 		entryPoints: [fileURLToPath(WORKER_SOURCE)],
 		bundle: true,
+		minify: true,
 		write: false,
 		platform: "browser",
 		format: "iife",
@@ -169,21 +287,18 @@ export async function buildRecipePwa(root) {
 	const hash = createHash("sha256");
 	// A changed negotiation/cache policy is a new snapshot too.
 	hash.update(workerCode);
-	for (const path of assets) hash.update(path).update(files.get(path));
+	hash.update(JSON.stringify({ assets, recipeManifests, savedViewManifest }));
+	for (const path of assets) hash.update(path).update(shell.get(path));
 	const cache = `${CACHE_PREFIX}${hash.digest("hex").slice(0, 20)}`;
-	const digests = assets.map((path) => [
-		path,
-		{
-			sha256: createHash("sha256").update(files.get(path)).digest("hex"),
-			size: files.get(path).byteLength,
-		},
-	]);
+	const digests = assets.map((path) => [path, digest(shell.get(path))]);
 	const constants = [
 		`const CACHE = ${JSON.stringify(cache)};`,
-		`const RELEASE = ${JSON.stringify(JSON.parse(await readFile(join(root, "release.json"), "utf8")).sha)};`,
+		`const RELEASE = ${JSON.stringify(release)};`,
 		`const PREFIX = ${JSON.stringify(CACHE_PREFIX)};`,
 		`const ASSET_DIGESTS = new Map(${JSON.stringify(digests)});`,
-		"const ASSETS = new Set(ASSET_DIGESTS.keys());",
+		`const ASSETS = new Set(${JSON.stringify(assets)});`,
+		`const RECIPE_MANIFESTS = ${JSON.stringify(recipeManifests)};`,
+		`const SAVED_VIEW_MANIFEST = ${JSON.stringify(savedViewManifest)};`,
 	].join("\n");
 	await writeFile(join(root, PWA_WORKER_PATH), `${constants}\n${workerCode}`);
 	return { cache, urls: assets };

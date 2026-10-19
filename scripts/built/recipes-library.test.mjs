@@ -1,5 +1,4 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
 import { after, before, it } from "node:test";
 import { chromium } from "playwright";
 import {
@@ -9,6 +8,7 @@ import {
 	STORAGE_KEY,
 } from "../../src/components/recipes/constants.mjs";
 import { matchesRecipe } from "../../src/components/recipes/nutrient-filters.mjs";
+import recipeData from "../../src/components/recipes/recipe-data.server.mjs";
 import { collectErrors, serveStatic } from "./pages.mjs";
 
 // The hydrated recipe library in Chromium: printing from the recipe dialog
@@ -16,11 +16,8 @@ import { collectErrors, serveStatic } from "./pages.mjs";
 // saved settings (J13: localStorage recipes-settings-v1) when they no longer
 // fit the collection, hold a family side, or are not valid at all.
 const DIST = "dist";
-const RECIPES = new URL(
-	"../../src/components/recipes/recipes.json",
-	import.meta.url,
-);
-const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
+
+const { recipes } = recipeData;
 const smoothies = recipes.filter((recipe) => recipe.type === "smoothie");
 const meals = recipes.filter((recipe) => recipe.type === "meal");
 const FAMILY_SIDE = /^Add a side/u;
@@ -57,6 +54,11 @@ async function openPage({ initScript, arg } = {}) {
 async function goHydrated(page, path) {
 	await page.goto(`${site.origin}${path}`);
 	await page.locator("[data-hydrated=true]").waitFor();
+	await page.waitForFunction(
+		() =>
+			document.querySelector("#meal-results").getAttribute("aria-busy") ===
+			"false",
+	);
 }
 
 // The titles of the recipes in the library's print copy.
@@ -80,106 +82,118 @@ function printFails() {
 	};
 }
 
-it("the library prints the open recipe from its dialog or the whole collection, and says when the browser cannot print", {
+it("single-recipe printing loads its detail while browser-menu printing keeps only loaded cards", {
 	timeout: 60_000,
 }, async () => {
 	const { page, errors, close } = await openPage({
 		initScript: printFiresBeforePrint,
 	});
 	const failing = await openPage({ initScript: printFails });
+	const packs = [];
+	page.on("request", (request) => {
+		if (request.url().includes("/recipes/data/packs/"))
+			packs.push(request.url());
+	});
 	try {
-		const shawarma = recipes.find(
-			(recipe) => recipe.id === "shawarma-chicken-bowls",
-		);
+		const shawarma = recipes.find((recipe) => recipe.id === SHAWARMA);
 		await goHydrated(page, `/recipes/#${shawarma.id}`);
 		assert.deepEqual(
 			await printedTitles(page),
 			[],
-			"print packets are not rendered while browsing",
+			"no hidden print packet while browsing",
 		);
 		const takeover = page.locator(".recipe-takeover");
 		await takeover.waitFor();
 		await takeover.getByRole("button", { name: "Print recipe" }).click();
 		await page.emulateMedia({ media: "print" });
-		const recipePrint = {
-			titles: await printedTitles(page),
-			copyShown: await page.locator(".print-output").isVisible(),
-			takeoverHidden: await takeover.isHidden(),
-		};
+		assert.deepEqual(await printedTitles(page), [shawarma.title]);
+		assert.equal(await page.locator(".print-output").isVisible(), true);
+		assert.equal(await takeover.isHidden(), true);
 		await page.emulateMedia({ media: "screen" });
 		await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
-		const library = page.locator(".meal-library");
-		const printMode = () =>
-			page.evaluate(() =>
+		assert.equal(
+			await page.locator(".meal-library").getAttribute("data-print-prepared"),
+			"false",
+		);
+		assert.equal(
+			await page.evaluate(() =>
 				document.documentElement.getAttribute("data-recipe-print"),
-			);
-		const afterPrint = {
-			prepared: await library.getAttribute("data-print-prepared"),
-			mode: await printMode(),
-			titles: await printedTitles(page),
-		};
-		// The browser's own Print command with the dialog closed prints the
-		// whole collection.
+			),
+			null,
+		);
+		assert.deepEqual(await printedTitles(page), []);
 		await page.keyboard.press("Escape");
 		await takeover.waitFor({ state: "detached" });
-		const menuPrint = await page.evaluate(() => {
-			window.dispatchEvent(new Event("beforeprint"));
-			// The browser snapshots printing before queued DOM updates run.
-			return {
-				titles: Array.from(
-					document.querySelectorAll(".print-output .print-meal"),
-					(article) => article.getAttribute("aria-label"),
-				),
-				mode: document.documentElement.getAttribute("data-recipe-print"),
-			};
-		});
-		await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
-
-		await goHydrated(page, "/recipes/smoothies/");
-		await page.getByRole("button", { name: "Print all smoothies" }).click();
+		const ids = () =>
+			page
+				.locator(".recipe-card .title-button")
+				.evaluateAll((links) => links.map((link) => link.dataset.recipeId));
+		const loaded = await ids();
+		assert.equal(loaded.length, 6);
+		const requestsBeforeMenu = packs.length;
+		await page.evaluate(() => window.dispatchEvent(new Event("beforeprint")));
 		await page.emulateMedia({ media: "print" });
-		const collectionPrint = {
-			titles: await printedTitles(page),
-			copyShown: await page.locator(".print-output").isVisible(),
-			gridHidden: await page.locator(".recipe-grid").isHidden(),
-		};
+		assert.deepEqual(await ids(), loaded);
+		assert.equal(await page.locator(".recipe-grid").isVisible(), true);
+		assert.equal(
+			await page.locator(".recipe-card:visible").count(),
+			loaded.length,
+		);
+		assert.deepEqual(
+			await printedTitles(page),
+			[],
+			"browser-menu printing does not download full recipes",
+		);
+		assert.equal(packs.length, requestsBeforeMenu);
+		assert.equal(
+			await page
+				.getByRole("button", { name: "Print all meals", includeHidden: true })
+				.count(),
+			0,
+		);
+		await page.emulateMedia({ media: "screen" });
+		await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
+		await goHydrated(page, "/recipes/smoothies/");
+		const smoothieIds = await ids();
+		await page.evaluate(() => window.dispatchEvent(new Event("beforeprint")));
+		await page.emulateMedia({ media: "print" });
+		assert.deepEqual(await ids(), smoothieIds);
+		assert.equal(
+			await page.locator(".recipe-card:visible").count(),
+			smoothies.length,
+		);
+		assert.deepEqual(await printedTitles(page), []);
+		assert.equal(
+			await page
+				.getByRole("button", {
+					name: "Print all smoothies",
+					includeHidden: true,
+				})
+				.count(),
+			0,
+		);
 
 		await goHydrated(failing.page, "/recipes/meals/");
-		await failing.page.getByRole("button", { name: "Print all meals" }).click();
-		const status = failing.page.locator(".action-status");
-		await status.filter({ hasText: PRINT_FAILED }).waitFor();
+		await failing.page
+			.locator(".recipe-card")
+			.first()
+			.getByRole("button", { name: "Print recipe", exact: true })
+			.click();
+		await failing.page
+			.locator(".action-status")
+			.filter({ hasText: PRINT_FAILED })
+			.waitFor();
+		assert.equal(
+			await failing.page.evaluate(() =>
+				document.documentElement.getAttribute("data-recipe-print"),
+			),
+			null,
+		);
+		assert.deepEqual(await printedTitles(failing.page), []);
+		assert.deepEqual(errors, []);
 		assert.deepEqual(
-			{
-				recipePrint,
-				afterPrint,
-				menuPrint,
-				collectionPrint,
-				failure: {
-					status: await status.textContent(),
-					mode: await failing.page.evaluate(() =>
-						document.documentElement.getAttribute("data-recipe-print"),
-					),
-				},
-				errors,
-				failureErrors: failing.errors.map((error) => error.split("\n")[0]),
-			},
-			{
-				recipePrint: {
-					titles: [shawarma.title],
-					copyShown: true,
-					takeoverHidden: true,
-				},
-				afterPrint: { prepared: "false", mode: null, titles: [] },
-				menuPrint: { titles: meals.map((recipe) => recipe.title), mode: "all" },
-				collectionPrint: {
-					titles: smoothies.map((recipe) => recipe.title),
-					copyShown: true,
-					gridHidden: true,
-				},
-				failure: { status: PRINT_FAILED, mode: null },
-				errors: [],
-				failureErrors: ["Recipe printing failed: Error: printing blocked"],
-			},
+			failing.errors.map((error) => error.split("\n")[0]),
+			["Recipe printing failed: Error: printing blocked"],
 		);
 	} finally {
 		await close();
@@ -516,6 +530,60 @@ it("Share recipe in the library dialog shares its servings and family side, and 
 			{ shared: query(shared), card: query(card), errors },
 			{ shared: expected, card: expected, errors: [] },
 		);
+	} finally {
+		await close();
+	}
+});
+
+it("a cross-collection hash opens one recipe, browser-menu printing prepares it, and Back restores its collection and focus", {
+	timeout: 30_000,
+}, async () => {
+	const { page, errors, close } = await openPage();
+	const recipe = smoothies.find(
+		(entry) => entry.id === "strawberry-banana-smoothie",
+	);
+	try {
+		await goHydrated(page, `/recipes/meals/#${recipe.id}`);
+		const takeover = page.locator(".recipe-takeover");
+		await takeover.waitFor();
+		assert.deepEqual(await printedTitles(page), []);
+		const atSnapshot = await page.evaluate(() => {
+			window.dispatchEvent(new Event("beforeprint"));
+			return [...document.querySelectorAll(".print-output .print-meal")].map(
+				(article) => article.getAttribute("aria-label"),
+			);
+		});
+		assert.deepEqual(
+			atSnapshot,
+			[recipe.title],
+			"browser-menu printing can synchronously prepare the already-open recipe",
+		);
+		await page.emulateMedia({ media: "print" });
+		assert.equal(await page.locator(".print-output").isVisible(), true);
+		assert.equal(await takeover.isHidden(), true);
+		await page.emulateMedia({ media: "screen" });
+		await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
+		await takeover.getByRole("button", { name: "← Back to recipes" }).click();
+		await takeover.waitFor({ state: "detached" });
+		await page.waitForFunction(
+			() =>
+				document.querySelector("#meal-results").getAttribute("aria-busy") ===
+				"false",
+		);
+		assert.deepEqual(
+			await page
+				.locator(".recipe-card .title-button")
+				.evaluateAll((links) => links.map((link) => link.dataset.recipeId)),
+			smoothies.map((entry) => entry.id),
+		);
+		assert.equal(
+			await page
+				.locator(`[data-recipe-id="${recipe.id}"]`)
+				.evaluate((link) => link === document.activeElement),
+			true,
+		);
+		assert.deepEqual(await printedTitles(page), []);
+		assert.deepEqual(errors, []);
 	} finally {
 		await close();
 	}

@@ -1,7 +1,7 @@
 ---
 import type { InferGetStaticPropsType } from "astro";
 import RecipePage from "../../components/recipes/RecipePage.svelte";
-import data from "../../components/recipes/recipes.json" with { type: "json" };
+import data from "../../components/recipes/recipe-data.server.mjs";
 import RecipeLayout from "../../layouts/RecipeLayout.astro";
 
 // One page per recipe at /recipes/<id>/, the same path as on blogthedata.com.

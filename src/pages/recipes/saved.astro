@@ -1,0 +1,10 @@
+---
+import RecipeExperience from "../../components/recipes/RecipeExperience.astro";
+import RecipeLayout from "../../layouts/RecipeLayout.astro";
+---
+<RecipeLayout title="Saved recipes" description="Recipes you opened and saved for offline cooking on this device." noindex>
+	<h1>Saved recipes</h1>
+	<p>Only recipes saved on this device appear here. Open a recipe while connected to save it for offline cooking.</p>
+	<noscript><p>Enable JavaScript to view the recipes saved on this device.</p></noscript>
+	<RecipeExperience saved={true} />
+</RecipeLayout>

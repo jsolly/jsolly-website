@@ -20,7 +20,6 @@ const RECIPES = new URL(
 );
 const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
 const meals = recipes.filter((recipe) => recipe.type === "meal");
-const mealCount = meals.length;
 // The meals that need both air fryers.
 const AIR_FRYER_MEALS = recipes
 	.filter((recipe) => recipe.appliancesNeeded.includes("Two air fryers"))
@@ -208,7 +207,7 @@ function detailsCheck(width) {
 		const errors = collectErrors(page, { warnings: true });
 		try {
 			await staticPage.goto(`${site.origin}${LANDING}`);
-			assert.equal(await staticPage.locator(".recipe-card").count(), mealCount);
+			assert.equal(await staticPage.locator(".recipe-card").count(), 6);
 			assert.equal(
 				await staticPage
 					.getByRole("navigation", { name: "Breadcrumb" })
@@ -383,19 +382,33 @@ function filtersCheck(width) {
 		const errors = collectErrors(page);
 		const checkbox = (name) =>
 			page.getByRole("checkbox", { name, exact: true });
-		const cards = () =>
-			page
+		const cards = async () => {
+			await page.waitForFunction(
+				() =>
+					document.querySelector("#meal-results").getAttribute("aria-busy") ===
+					"false",
+			);
+			return page
 				.locator("#meal-results")
 				.getAttribute("data-match-count")
 				.then(Number);
+		};
 		const shownIds = async () => {
-			await page.evaluate(async () => {
-				while (document.querySelector(".load-more button")) {
-					document.querySelector(".load-more button").click();
-					// biome-ignore lint/performance/noAwaitInLoops: each batch must render before the next load action.
-					await new Promise(requestAnimationFrame);
-				}
-			});
+			await page.waitForFunction(
+				() =>
+					document.querySelector("#meal-results").getAttribute("aria-busy") ===
+					"false",
+			);
+			const more = page.getByRole("button", { name: "Load more recipes" });
+			// biome-ignore lint/performance/noAwaitInLoops: each page depends on the prior page response and its rendered load-more control.
+			while (await more.count()) {
+				const prior = await page.locator(".recipe-card").count();
+				await more.click();
+				await page.waitForFunction(
+					(count) => document.querySelectorAll(".recipe-card").length > count,
+					prior,
+				);
+			}
 			return page
 				.locator(".recipe-card a.title-button")
 				.evaluateAll((links) =>
@@ -554,31 +567,37 @@ function filtersCheck(width) {
 			);
 			assert.equal((await stored(page)).filters.smoothieKetoOnly, true);
 			assert.equal(await cards(), 4);
-			await page.waitForFunction(() =>
-				[...document.querySelectorAll(".recipe-card img")].every(
-					(image) => image.complete && image.naturalWidth > 0,
-				),
+			const avocado = page.getByRole("link", {
+				name: "Avocado-lime smoothie",
+				exact: true,
+			});
+			await avocado.scrollIntoViewIfNeeded();
+			await page.waitForFunction(() => {
+				const image = document
+					.querySelector('[data-recipe-id="avocado-lime-smoothie"]')
+					.closest(".recipe-card")
+					.querySelector("img");
+				return image.complete && image.naturalWidth > 0;
+			});
+			await avocado.click();
+			await page.locator(".recipe-takeover").waitFor();
+			assert.equal(
+				new URL(page.url()).pathname,
+				"/recipes/avocado-lime-smoothie/",
 			);
-			await Promise.all([
-				page.waitForURL("**/recipes/avocado-lime-smoothie/**"),
-				page
-					.getByRole("link", { name: "Avocado-lime smoothie", exact: true })
-					.click(),
-			]);
-			await recipeReady(page);
 			await page.getByRole("button", { name: LEARN_MORE, exact: true }).click();
 			await page.locator(".method-dialog").waitFor();
 			await page.keyboard.press("Escape");
 			await page.locator(".method-dialog").waitFor({ state: "detached" });
 			assert.equal(await page.locator(".recipe-detail").isVisible(), true);
-			await follow(
-				page,
-				page.getByRole("link", { name: "← Back to smoothies", exact: true }),
-				"**/recipes/smoothies/",
-			);
+			await page
+				.getByRole("button", { name: "← Back to recipes", exact: true })
+				.click();
+			await page.locator(".recipe-takeover").waitFor({ state: "detached" });
 			await page.goForward();
-			await page.locator(".recipe-detail").waitFor();
+			await page.locator(".recipe-takeover").waitFor();
 			await page.goBack();
+			await page.locator(".recipe-takeover").waitFor({ state: "detached" });
 			await hydrated(page);
 			await page.evaluate(
 				(key) =>
@@ -758,7 +777,7 @@ function collectionsCheck(width) {
 		try {
 			const page = await plain.newPage();
 			await page.goto(`${site.origin}/recipes/meals/`);
-			assert.equal(await page.locator(".recipe-card").count(), mealCount);
+			assert.equal(await page.locator(".recipe-card").count(), 6);
 			assert.equal(await page.locator(".recipe-detail").count(), 0);
 			// The controls need JavaScript, so recipes-no-script.css hides them
 			// (hidden controls are counted with includeHidden).
@@ -773,8 +792,16 @@ function collectionsCheck(width) {
 				exact: true,
 				includeHidden: true,
 			});
-			assert.equal(await printAll.count(), 1);
-			assert.equal(await printAll.isVisible(), false);
+			assert.equal(await printAll.count(), 0);
+			const next = page
+				.getByRole("navigation", { name: "Recipe pages" })
+				.getByRole("link", { name: "Next recipes" });
+			assert.equal(await next.isVisible(), true);
+			assert.equal(
+				await next.getAttribute("href"),
+				// biome-ignore lint/security/noSecrets: public collection pagination URL, not a credential.
+				"/recipes/meals/?browse=1&page=2",
+			);
 			assert.equal(
 				await page
 					.getByRole("navigation", {
@@ -839,18 +866,20 @@ function collectionsCheck(width) {
 			await enhanced
 				.getByRole("combobox", { name: SERVINGS })
 				.selectOption("8");
-			await Promise.all([
-				enhanced.waitForURL("**/recipes/lemon-salmon-and-asparagus/**"),
-				enhanced
-					.locator(".recipe-card")
-					.filter({ hasText: "Lemon salmon and asparagus" })
-					.getByRole("link", {
-						name: "Open recipe: Lemon salmon and asparagus",
-						exact: true,
-					})
-					.click(),
-			]);
-			await recipeReady(enhanced);
+			await enhanced
+				.locator(".recipe-card")
+				.filter({ hasText: "Lemon salmon and asparagus" })
+				.getByRole("link", {
+					name: "Open recipe: Lemon salmon and asparagus",
+					exact: true,
+				})
+				.click();
+			await enhanced.locator(".recipe-takeover").waitFor();
+			assert.equal(
+				new URL(enhanced.url()).pathname,
+				"/recipes/lemon-salmon-and-asparagus/",
+			);
+			assert.equal(new URL(enhanced.url()).searchParams.get("servings"), "8");
 			assert.match(
 				await enhanced.locator(".detail-facts").textContent(),
 				EIGHT_SERVINGS,

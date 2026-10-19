@@ -349,7 +349,13 @@ async function main() {
 		"../../src/components/recipes/ingredient-units.mjs"
 	);
 	const result = reconcileNutrition(nutrition, recipes, {
-		gramsForIngredient: ingredientGrams,
+		gramsForIngredient: (ingredient) =>
+			ingredientGrams({
+				...ingredient,
+				weightReference: registry.references.find(
+					(reference) => reference.id === ingredient.weightRef,
+				),
+			}),
 		replacementProfile: (ingredient) => {
 			const reference = registry.references.find(
 				(item) => item.id === ingredient.weightRef,

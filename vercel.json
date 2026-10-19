@@ -85,7 +85,7 @@
 	],
 	"functions": {
 		"api/recipe-browse.mjs": {
-			"includeFiles": "dist/recipes/{index.html,meals/index.html,smoothies/index.html}",
+			"includeFiles": "{dist/release.json,dist/recipes/index.html,dist/recipes/meals/index.html,dist/recipes/smoothies/index.html,.recipe-browse/*.json}",
 			"maxDuration": 10
 		}
 	}

@@ -4,6 +4,7 @@ const COLLECTION_PATHS = new Set([
 	"/recipes/",
 	"/recipes/meals/",
 	"/recipes/smoothies/",
+	"/recipes/saved/",
 ]);
 
 // Browser history owns return points, so unrelated visits and tabs cannot reuse
@@ -21,6 +22,7 @@ export function collectionReturn(state, referrer, currentUrl, collection) {
 			url.origin === currentUrl.origin &&
 			COLLECTION_PATHS.has(url.pathname) &&
 			(url.pathname === "/recipes/" ||
+				url.pathname === "/recipes/saved/" ||
 				url.pathname === `/recipes/${collection}/`)
 		) {
 			return `${url.pathname}${url.search}${url.hash}`;

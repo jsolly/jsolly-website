@@ -82,7 +82,7 @@ export default defineConfig({
 					: ["https://www.jsolly.com/John-Solly-Resume.pdf"],
 			filter: (page) => {
 				const path = new URL(page).pathname;
-				return path !== SITEMAP_EXCLUDED;
+				return path !== SITEMAP_EXCLUDED && path !== "/recipes/saved/";
 			},
 			// A post's lastmod is its frontmatter `updated`; no other page has one.
 			serialize: (item) => {

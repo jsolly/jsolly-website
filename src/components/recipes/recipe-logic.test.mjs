@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
 import it from "node:test";
+import recipeData, { ingredientWithContext } from "./recipe-data.server.mjs";
 import {
 	capacityNote,
 	dietaryClass,
@@ -27,16 +27,17 @@ const YIELD = /yield/u;
 const POSITIVE_GLASS = /positive glass/u;
 const BAD_MEASUREMENT = /amount must be finite and positive/u;
 
-const ingredient = (id, name, amount, unit, state = "raw", extra = {}) => ({
-	id,
-	name,
-	amount,
-	unit,
-	state,
-	category: "produce",
-	scale: "linear",
-	...extra,
-});
+const ingredient = (id, name, amount, unit, state = "raw", extra = {}) =>
+	ingredientWithContext({
+		id,
+		name,
+		amount,
+		unit,
+		state,
+		category: "produce",
+		scale: "linear",
+		...extra,
+	});
 const nutrition = {
 	kcal: 400,
 	protein_g: 35,
@@ -159,10 +160,8 @@ it("invalid settings fail to a safe four-serving settings and capacity messaging
 	assert.match(capacityNote(2), PRESSURE_MINIMUM);
 });
 
-it("pressure minimum changes small-batch per-person nutrition, not safe liquid", async () => {
-	const data = JSON.parse(
-		await readFile(new URL("./recipes.json", import.meta.url), "utf8"),
-	).recipes;
+it("pressure minimum changes small-batch per-person nutrition, not safe liquid", () => {
+	const data = recipeData.recipes;
 	const pressure = data.find((r) => r.key === "salsa_chicken");
 	const p = servingNutrition(pressure, 2);
 	// USDA broth is 240 g per US cup; minimum 375 mL contributes a fixed batch.
@@ -187,9 +186,7 @@ it("pressure minimum changes small-batch per-person nutrition, not safe liquid",
 
 it("package counts follow scaled ingredient weights rather than fixed recipe notes", async () => {
 	const { purchaseNote } = await import("./recipe-logic.mjs");
-	const data = JSON.parse(
-		await readFile(new URL("./recipes.json", import.meta.url), "utf8"),
-	).recipes;
+	const data = recipeData.recipes;
 	const chickpea = data
 		.find((r) => r.key === "chickpea")
 		.ingredients.find((i) => i.id === "chickpeas_canned");
@@ -205,10 +202,8 @@ it("package counts follow scaled ingredient weights rather than fixed recipe not
 	assert.match(purchaseNote(gnocchi, 8), BUY_TWO);
 });
 
-it("finishing amounts use sourced grams in weighing mode and retain spoons in US mode", async () => {
-	const data = JSON.parse(
-		await readFile(new URL("./recipes.json", import.meta.url), "utf8"),
-	).recipes;
+it("finishing amounts use sourced grams in weighing mode and retain spoons in US mode", () => {
+	const data = recipeData.recipes;
 	for (const r of data)
 		for (const i of r.ingredients.filter(
 			(item) => item.displayMeasure === "spoon",
@@ -224,10 +219,8 @@ it("finishing amounts use sourced grams in weighing mode and retain spoons in US
 	assert.equal(formatIngredient(zest, 2, "metric"), "1 g");
 });
 
-it("appliance card requirements include the microwaves specified by recipe equipment", async () => {
-	const data = JSON.parse(
-		await readFile(new URL("./recipes.json", import.meta.url), "utf8"),
-	).recipes;
+it("appliance card requirements include the microwaves specified by recipe equipment", () => {
+	const data = recipeData.recipes;
 	for (const recipe of data) {
 		assert.ok(recipe.appliancesNeeded.length > 0);
 		assert.equal(
@@ -308,14 +301,14 @@ it("smoothie nutrition uses explicit estimated fluid yield, independent of batch
 	assert.throws(() => smoothiePortionNutrition(smoothie, 0), POSITIVE_GLASS);
 });
 it("smoothie liquid keeps fluid-ounce precision without changing the canonical amount", () => {
-	const water = {
+	const water = ingredientWithContext({
 		id: "water",
 		name: "Cold water",
 		weightRef: "water",
 		amount: 400,
 		unit: "ml",
 		scale: "linear",
-	};
+	});
 	assert.equal(formatIngredient(water, 4, "us"), "13.53 fl oz");
 	assert.equal(formatIngredient(water, 2, "us"), "6.76 fl oz");
 	assert.equal(formatIngredient(water, 4, "metric"), "400 mL");

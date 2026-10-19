@@ -17,7 +17,8 @@ const isPreview = import.meta.env.VERCEL_ENV === "preview";
 		<Button id="recipe-update-later" variant="outline">Later</Button>
 	</div>
 	<div id="recipe-update-reopen" hidden><Button id="recipe-update-show" variant="outline">Show update</Button></div>
-	<p>Recipe tools and illustrations work offline once saved. External source links and other blog pages need a connection.</p>
+	<p>Opening a recipe saves its cooking tools and illustration on this device. External source links and other blog pages need a connection.</p>
+	<p><a href="/recipes/saved/">Saved recipes</a></p>
 </aside>}
 <script>
 	import "./recipe-pwa-client.mjs";

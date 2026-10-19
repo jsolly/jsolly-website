@@ -401,12 +401,10 @@ printer icon. Machine-readable formats remain available through metadata and dir
 
 Search recipes searches the current collection alongside the existing filters.
 Names and ingredients rank highest; equipment, cooking instructions, family
-sides and nutrition highlights are searchable too. MiniSearch runs locally
-with accent-insensitive matching, prefixes and limited typo tolerance. Clearing
-search restores the current card order. Queries are not saved.
+sides and nutrition highlights are searchable too. Online search runs on the browse server over the entire collection, with accent-insensitive matching, prefixes and limited typo tolerance. Offline search covers saved recipes only. Clearing search restores the current seeded order. Queries are not saved as preferences.
 
 Each library card has a Print recipe action using the current servings, units
-and optional side. It prints only that recipe without opening the detail dialog.
+and optional side. It loads and prints only that recipe without opening the detail dialog. Individual printing also requests an offline save when the worker is available.
 
 On iPhone and iPad Home Screen apps, **Print recipe** offers **Open in Safari**
 instead of calling the installed app's unreliable print API. The link opens the
@@ -415,13 +413,18 @@ optional side; tap **Print recipe** again in Safari. A selectable HTTPS link is
 also shown for manual copy/paste if the Safari application scheme is unavailable.
 Safari needs a network connection and, on a protected Preview, its own authorized
 session. Browser tabs and Mac Dock apps retain their existing print flow.
-This handoff covers individual recipe pages, library cards and the library's recipe dialog;
-**Print all meals/smoothies** retains the existing browser printing flow.
+This handoff covers individual recipe pages, library cards and the library's recipe dialog. There is no whole-collection print action.
 The direct iOS application handoff needs real-device verification; Chromium
 standalone emulation verifies detection, link settings and browser restoration,
 not iOS print-sheet presentation.
 
-The library renders its print packet when printing starts, including browser-menu printing, and removes it when printing ends. If preparing the packet or opening the print dialog fails, it restores the previous print mode, shows a failure message and logs the cause in the browser console. Browsing pages share bundled recipe data instead of embedding the full dataset in each page’s island props; the server-rendered collection cards still work without JavaScript.
+The library loads an individual recipe and its print renderer on explicit printing or opening. Browser-menu printing while a recipe is open prints that recipe; on a collection it prints only the currently rendered cards. It removes prepared print content when printing ends and restores prior print state after failures.
+
+Performance budgets and local measurement settings are recorded in [recipe-performance.md](recipe-performance.md).
+
+Collection pages server-render six summaries and hydrate the same six. Additional summary batches load ahead of scrolling; spare connection time fetches remaining summaries without mounting them or loading their images. Hidden tabs, Data Saver and slow connections pause speculative summary work. Images load within 300 px of the viewport. A brief desktop hover or keyboard focus prefetches the selected recipe pack; opening reuses that download. Hover does not mark a recipe saved offline.
+
+Per-recipe packs under `/recipes/data/packs/<id>.json` carry the selected recipe, calculation references and release identity. Browser calculation modules import no complete nutrition or ingredient-weight registry. Standalone pages embed only their own calculation context. Full assistant downloads remain deliberate links and are excluded from automatic offline caching.
 
 Each recipe page server-renders one recipe body at four servings with the
 no optional side. While JavaScript resolves saved and URL settings, the enhanced recipe body remains hidden; then JavaScript enables
@@ -431,25 +434,11 @@ so hydration never replaces a disclosure or cooking check in use. Without
 JavaScript, native ingredient checkboxes and nutrient disclosures still work,
 and collection pages offer native filter/search forms and card links.
 
-Cards start in canonical source order (search uses relevance order). Shuffle meals
-and Shuffle smoothies randomize card order while preserving the selected filters.
-With JavaScript, the shuffle applies to the current visit and reload restores the
-default order. Without JavaScript, native GET forms submit `browse=1`, search,
-filters and an optional shuffle seed on the collection URL.
-Apply filters reloads results; Shuffle chooses a fresh server seed. Subsequent
-submissions retain that order until shuffled again or reset.
+Cards start in canonical source order; search uses relevance order. Shuffle is available before all summaries arrive: the server orders matching recipe IDs with a fresh seed and returns six summaries. Later batches retain that seed. The seed orders the full ID set, so search and filter subsets keep their relative order. Once all matching summaries are downloaded, shuffle runs locally with the same ordering algorithm and a fresh seed. Filters persist and successful shuffle returns to the results heading. History restores the visit's order, rendered cards and scroll position. Offline shuffle uses saved recipes only.
 
-`api/recipe-browse.mjs` reads this deployment's bundled static collection HTML,
-uses the existing recipe filtering/search modules and parses the HTML to select
-and order its existing cards. It exposes native forms and removes only the
-recipe-library island's hydration, so saved browser filters cannot overwrite
-submitted results. Other islands retain their ordinary behavior. Submitted
-views stay native even when JavaScript is later enabled; Reset filters returns
-to the ordinary collection page. Responses are no-store and noindex, with the
-original collection canonical. Markdown negotiation and plain collection URLs
-retain their static representations. The function reads no external service or
-user data and writes no persisted state. This online form flow needs a network
-connection; the offline app keeps its default static snapshot.
+Without JavaScript, GET forms submit `browse=1`, search, filters and the optional seed. Apply filters reloads the first page; native Next/Previous links preserve selections and the generated seed without repeating `shuffle=1`. Responses are no-store and noindex with the original collection canonical. Plain collection URLs and Markdown negotiation retain their static representations.
+
+`api/recipe-browse.mjs` serves six-card JSON batches or native HTML from this deployment. Native responses use private build-time card fragments in `.recipe-browse/`, never a full collection embedded in the initial HTML. Search and filter calculations use the full canonical library on the server. The `/api/` namespace handles its own response format outside HTML/Markdown page negotiation. JSON requests carry the expected release and receive 409 if deployment identity changes; maintenance and rendering failures return 503. Failed requests retain existing cards and offer Retry.
 
 Default card links point directly to the canonical recipe URL, keeping every
 recipe discoverable through ordinary internal links. Selected servings, units
@@ -465,97 +454,86 @@ reset.
 
 ## Offline recipe app
 
-Every page under `/recipes/` is also an installable app: `public/recipes/pwa/`
-holds the manifest (`id`, `start_url` and `scope` all `/recipes/`) and the
-icons, and `RecipeLayout` links them. Safari users choose Share → Add to Home
-Screen; supported desktop and Android browsers offer installation in their menu.
+Every page under `/recipes/` is installable. The manifest and icons live in
+`public/recipes/pwa/`; Safari uses Share → Add to Home Screen, and supported
+browsers offer Install or Add to Home Screen in their menu.
 
-There is one service worker, `/recipes/service-worker.js`, registered by
-`recipe-pwa-client.mjs` with scope `/recipes/`, so it can never control the
-portfolio or the blog. `scripts/recipes/pwa-build.mjs` writes it in
-`npm run build`, after `process-html.mjs` and `markdown-build.mjs`, so the snapshot holds the HTML and Markdown as
-served. It precaches one complete snapshot: every file under `dist/recipes/`
-(the pages, the media, the manifest and icons, the two downloads) and every
-file those pages load (scripts, styles, fonts, images, the favicon and the
-`<noscript>` stylesheets). The cache name hashes the snapshot and bundled worker
-policy, so changing a precached file or its serving logic gives a new snapshot.
-The generated worker carries each file's SHA-256 body digest and expected decoded
-byte count, and validates both before installation can complete. Downloads and
-cache validation run at most eight files at once, with a 15-second limit per file.
-An oversized stream stops when it exceeds that file's build size; a failed batch
-aborts and settles its remaining requests before cleanup or retry. A deployment changing during the
-batch cannot silently mix old HTML with newer data or assets: mismatches fail the
-install and preserve the active snapshot. A rollback reuses an already-active
-matching cache only after validation, without overwriting its live clients' data.
+`/recipes/service-worker.js` controls only `/recipes/`. The production build
+writes it after HTML and Markdown generation. Installation saves the landing
+page, the Saved recipes page, their static scripts and styles, fonts, app icons,
+and the small saved-registry helper. It does not download individual recipes,
+recipe illustrations, detail packs, or the complete assistant exports.
 
-The recipe status is visible while offline, when an update is ready, or when saving
-or applying an update fails. It describes the cached snapshot and reminds readers
-that external links need a connection.
+The worker carries only a digest and byte count for each small per-recipe
+integrity manifest under `/recipes/data/offline/`. The manifest downloads and
+validates when that recipe is saved, so installation never transfers the full
+library resource lists. Saved-search and deferred dialog/print code travel with
+individual recipe bundles. Fonts use WOFF2 without a duplicate WOFF fallback.
 
-- **Serving.** Native `browse=1` HTML submissions bypass the worker and require the network, so cached defaults cannot masquerade as filtered results. Precached paths are otherwise answered cache-first. GET and HEAD requests
-  for known recipe pages select HTML or Markdown using the shared Accept
-  negotiation helper. Explicit `.md` siblings always serve Markdown. HEAD keeps
-  the selected status and headers with no body; an unsupported page Accept
-  returns 406 with `Vary: Accept`. Query controls do not change canonical
-  four-serving Markdown. Static assistant downloads retain their own bodies and
-  MIME types regardless of the page Accept header. Other blog pages and external
-  recipe sources need a connection.
-- **Representation keys.** Install and lookup use the same explicit Accept
-  keys: HTML for `/…/` pages, Markdown for `.md` files, and `*/*` for other
-  assets. Cache lookup respects Vary; it never uses `ignoreVary`. The root
-  `/recipes.md` sibling is precached for controlled recipe clients, but it lies
-  outside the `/recipes/` scope: opening that URL directly does not give it an
-  offline service-worker controller.
-- **Updates.** A new snapshot downloads on a connected visit or a throttled visible, online
-  check on focus, reconnection or the five-minute timer. An **Update available**
-  notice offers **Update and reload**, which activates the downloaded worker and
-  reloads the requesting tab after the new worker controls it. The ready snapshot
-  can be applied offline. Other open recipe tabs retain their cooking view and show
-  a notice with the same button to reload when ready. **Later** collapses the
-  actions; **Show update** reopens them. A distinct release restores the notice.
-  Actual unsaved cooking checks require confirmation; cancelling preserves them
-  and focus. Reload resets those checks in that tab; saved preferences and URL
-  settings survive. Without a click,
-  the worker still waits until every recipe tab and app window closes. First install
-  never reloads. Before activation and after control changes, a bounded
-  MessageChannel handshake verifies the intended full release SHA. Activation
-  requests are release-specific and accepted only from recipe WindowClients.
-  A newer candidate requires a fresh choice. Previous snapshots retain per-client
-  ownership for deferred assets and mutable downloads while older recipe documents
-  stay open, including across worker restarts. Persisted activation generations
-  retain the correct predecessor through rollbacks independently of cache creation
-  order. The separate `recipe-pages-pwa-ownership` cache records active and waiting
-  snapshot ownership across worker restarts. Short browser locks protect those
-  records and retirement; downloads run outside the lock. A waiting rollback
-  snapshot stays owned even when its last historical document closes. Snapshots
-  retire only after no live document, active worker or waiting candidate needs
-  them and a current-release client reports readiness. A failed download keeps the
-  previous snapshot; a failed activation reports a retryable error rather than
-  leaving a disabled button indefinitely. Existing clients from before this notice
-  was introduced need one close-and-reopen cycle to receive its code.
-- **Maintenance builds.** A `MAINTENANCE_MODE=true` build writes no worker, and
-  RecipeLayout links no app manifest. An installed worker's update check then gets
-  a 404, which leaves it and its cache as they were, so offline cooking keeps
-  working through the maintenance window instead of precaching the maintenance
-  page. Any other build whose `/recipes/` page links no manifest fails.
-- **Headers.** `vercel.json` serves the worker with `Cache-Control: no-cache`, so
-  update checks always reach the network. `/release.json` has `Cache-Control:
-  no-store` and is excluded from worker responses.
+Opening a recipe, including a direct canonical page visit, or individually
+printing one requests an offline save. Rendering, hovering and scrolling cards
+do not save recipes. Each save downloads a release-specific bundle containing
+canonical HTML and Markdown, its detail pack, the full cooking-runtime dependency
+closure and one illustration. Responsive image requests use that saved cooking
+illustration offline. Each response must match its built SHA-256 digest and
+byte count. Downloads have bounded concurrency, body size and duration.
+Only after every file validates does one registry write expose the recipe as
+saved. A failed or interrupted save preserves the previous saved version and
+never exposes a partial replacement.
 
-The worker exists only in a production build: the client does nothing under
-`astro dev`. Verify offline behaviour with `npm run build && npm run preview`, or
-through `scripts/built/recipes-pwa.test.mjs`, which covers install, offline use,
-updates, failed downloads, negotiated offline representations, a maintenance
-deploy and hydration with service workers blocked. Maintenance builds replace
-new Markdown backing files with maintenance text; live direct and negotiated
-Markdown requests return 503 while an already installed cooking snapshot stays
-available offline.
+The saved registry and immutable recipe bundles have a separate lifetime from
+the installed app shell. They survive closing every tab, worker restarts,
+browser restarts and shell updates, subject to browser storage eviction.
+Listing saved recipes checks that every bundle resource remains present.
+`/recipes/saved/` is noindex and excluded from the sitemap. Its search, filters
+and shuffle use only saved recipes on that device. An unsaved offline recipe or
+collection navigation goes to this saved view. External source links and other
+blog pages still need a connection.
 
-Production smoke first verifies the exact release and ordinary page behavior
-with service workers blocked. It then uses a separate fresh browser context to
-verify that `/recipes/service-worker.js` activates at scope `/recipes/` and
-controls the recipe page after reload. Its receipt records activation and
-control; this does not replace installed-app offline verification.
+Connected canonical recipe navigation loads the current page and can save its
+new version. Offline navigation uses the last complete saved version. The worker
+persists the resulting document's bundle ownership so its deferred scripts,
+styles and detail pack stay on that release, even after the worker restarts.
+A saved recipe from an older release opens its own canonical document rather
+than mixing its data with the new shell's cooking renderer. Complete legacy
+library caches and prior shell caches remain read-only; they are never copied
+into the saved registry, mass-refreshed, or implicitly presented as saved recipes.
+
+GET and HEAD requests negotiate cached HTML and Markdown with the shared Accept
+helper. Explicit `.md` paths keep Markdown semantics, and unsupported page
+representations return 406 with `Vary: Accept`. Cache keys use explicit Accept
+headers and respect Vary. Native `browse=1` submissions require the network;
+the complete assistant downloads are online resources. `/release.json` is never
+served by the worker. The root `/recipes.md` sibling is available to controlled
+clients but lies outside the worker's navigation scope.
+
+A connected visit or throttled online focus/reconnection check can download an
+updated shell. **Update and reload** activates that verified release and reloads
+only the requesting tab. Other tabs retain their cooking view until they choose
+to reload. **Later** collapses the notice. Unsaved cooking checks require
+confirmation, and cancellation preserves checks and focus. A bounded handshake
+verifies the intended full release SHA before and after activation. A different
+candidate requires a fresh choice. First installation never reloads the page.
+The waiting worker can also activate when every recipe tab closes. Saved recipe
+bundles are not refreshed as part of shell installation or activation.
+
+Maintenance builds write no worker and link no manifest. An installed worker's
+update check receives a 404 and preserves offline cooking. Any other build whose
+landing page lacks the manifest fails. Worker responses use `Cache-Control:
+no-cache`, while `/release.json` uses `no-store`.
+
+The worker does not register in development or preview deployments. Verify
+production output with `npm run build && npm run preview`. The built PWA suites
+exercise installation, atomic saves, release mismatches, browser restart,
+negotiated representations, update confirmation and maintenance behavior.
+Production smoke separately verifies worker activation at `/recipes/` and
+control after reload; that check does not substitute for saved-recipe tests.
+
+When saved recipes exist, an app update also verifies its own deferred saved-view
+search, filter, dialog and print code in a separate cache. Empty installations
+skip that download. This updates the browsing tools without refreshing saved
+recipe data, pages or images. Opening an older saved recipe navigates to its
+canonical cached page so its cooking data and runtime stay on the same release.
 
 ## Old-host kill-switch
 
@@ -582,7 +560,7 @@ meat and unverified cheese recipes are excluded. No current meal is verified
 vegan. Vegetarian and plant-forward are not protein choices. Saved settings and native GET forms use `mealKetoOnly` and `vegetarianOnly` booleans (`=1` in URLs). Older saved `mealStyle` values are ignored, resetting these two checks to unchecked. Carbs clears by
 unticking choices; other multi-choice filters disable Clear selections when empty.
 
-Recipe pages print their on-screen cooking content directly. Card and collection
+Recipe pages print their on-screen cooking content directly. Individual card
 print packets use the same RecipeContent renderer. Print changes layout and hides
 controls, photos and nutrition information, including nutrition highlights; it adds no separate method, ingredient list, background
 notes or disclaimers. Measurement provenance remains in Markdown/JSON downloads.

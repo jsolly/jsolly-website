@@ -11,13 +11,11 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { BASE_SERVINGS } from "../../src/components/recipes/constants.mjs";
+import data from "../../src/components/recipes/recipe-data.server.mjs";
 import {
 	documentMarkdown,
 	recipeBundle,
 } from "../../src/components/recipes/recipe-export.mjs";
-import data from "../../src/components/recipes/recipes.json" with {
-	type: "json",
-};
 
 const OUT_DIR = fileURLToPath(
 	new URL("../../public/recipes/data/", import.meta.url),

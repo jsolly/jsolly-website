@@ -3,14 +3,12 @@ import it from "node:test";
 import nutrition from "../../src/components/recipes/nutrition-data.json" with {
 	type: "json",
 };
+import recipes from "../../src/components/recipes/recipe-data.server.mjs";
 import {
 	documentMarkdown,
 	recipeDocument,
 } from "../../src/components/recipes/recipe-export.mjs";
 import { nutritionPortionLabel } from "../../src/components/recipes/recipe-logic.mjs";
-import recipes from "../../src/components/recipes/recipes.json" with {
-	type: "json",
-};
 import {
 	auditNutrition,
 	energyAudit,

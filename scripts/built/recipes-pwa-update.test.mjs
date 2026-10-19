@@ -15,6 +15,7 @@ import {
 	snapshotLabel,
 	snapshots,
 	statusText,
+	stopRecipeWorkers,
 	UNSAVED_CONFIRMATION,
 	VIEWPORTS,
 	waitForBrowserState,
@@ -32,6 +33,15 @@ function updateCheck(name, viewport) {
 			await page.clock.install();
 			const errors = collectErrors(page, { warnings: true });
 			const otherErrors = collectErrors(other, { warnings: true });
+			const conflicts = new Map([
+				[page, []],
+				[other, []],
+			]);
+			for (const tab of [page, other])
+				tab.on("response", (response) => {
+					if (response.status() === 409)
+						conflicts.get(tab).push(response.url());
+				});
 			await navigateHydrated(
 				page,
 				`${site.origin}${LANDING}?cooking=1#meal-results`,
@@ -55,10 +65,7 @@ function updateCheck(name, viewport) {
 				.getByRole("status")
 				.filter({ hasText: "Update available." })
 				.waitFor();
-			const button = page.getByRole("button", {
-				name: "Update and reload",
-				exact: true,
-			});
+			const button = page.locator("#recipe-update-button");
 			await button.waitFor({ state: "visible" });
 			await page.getByRole("button", { name: "Later", exact: true }).click();
 			assert.equal(await button.isVisible(), false);
@@ -95,15 +102,71 @@ function updateCheck(name, viewport) {
 			}
 			// The downloaded update can activate offline, without closing either tab.
 			await context.setOffline(true);
+			await Promise.all(
+				[page, other].map((tab) =>
+					tab.waitForFunction(
+						() =>
+							!navigator.onLine &&
+							document.querySelector(".results-heading h2")?.textContent ===
+								"Saved recipes",
+					),
+				),
+			);
+			await page.evaluate(() => {
+				window.activationEvents = [];
+				for (const type of ["click", "keydown"])
+					document.addEventListener(
+						type,
+						(event) =>
+							window.activationEvents.push({
+								type,
+								key: event.key,
+								target: event.target.id,
+							}),
+						true,
+					);
+			});
 			if (name === "desktop") {
 				await button.focus();
 				await button.press("Enter");
 			} else await button.click();
-			await page.waitForFunction(
-				() =>
-					document.querySelector('meta[name="pwa-test-snapshot"]')?.content ===
-					"B",
-			);
+			try {
+				await page.waitForFunction(
+					() =>
+						document.querySelector('meta[name="pwa-test-snapshot"]')
+							?.content === "B",
+				);
+			} catch (error) {
+				error.message += `\nActivation diagnostics: ${JSON.stringify(
+					await page.evaluate(async () => {
+						const registration =
+							await navigator.serviceWorker.getRegistration();
+						return {
+							events: window.activationEvents,
+							status: document.querySelector("#recipe-offline-status")
+								?.textContent,
+							disabled: document.querySelector("#recipe-update-button")
+								?.disabled,
+							focus: {
+								tag: document.activeElement?.tagName,
+								id: document.activeElement?.id,
+							},
+							waiting: registration?.waiting?.state,
+							active: registration?.active?.state,
+							controller: navigator.serviceWorker.controller?.state,
+							dirty: [...document.querySelectorAll("form input, form textarea")]
+								.filter((input) => input.value !== input.defaultValue)
+								.map((input) => ({
+									name: input.name,
+									type: input.type,
+									value: input.value,
+									initial: input.defaultValue,
+								})),
+						};
+					}),
+				)}`;
+				throw error;
+			}
 			await navigateHydrated(page);
 			assert.equal(await dataLabel(page), "B");
 			assert.equal(new URL(page.url()).search, "?cooking=1");
@@ -121,10 +184,7 @@ function updateCheck(name, viewport) {
 			await other.getByRole("combobox", { name: SERVINGS }).selectOption("2");
 			// Suspension must not lose retained-cache ownership. A-only code is
 			// first requested by the old document after the new worker restarts.
-			const workerSession = await context.newCDPSession(other);
-			await workerSession.send("ServiceWorker.enable");
-			await workerSession.send("ServiceWorker.stopAllWorkers");
-			await workerSession.detach();
+			await stopRecipeWorkers(context);
 			await other
 				.getByRole("button", { name: "Load saved cooking tool", exact: true })
 				.click();
@@ -135,9 +195,7 @@ function updateCheck(name, viewport) {
 				await other.getByRole("combobox", { name: SERVINGS }).inputValue(),
 				"2",
 			);
-			await other
-				.getByRole("button", { name: "Update and reload", exact: true })
-				.click();
+			await other.locator("#recipe-update-button").click();
 			await other.waitForFunction(
 				() =>
 					document.querySelector('meta[name="pwa-test-snapshot"]')?.content ===
@@ -155,12 +213,28 @@ function updateCheck(name, viewport) {
 					const keys = (await caches.keys()).filter(
 						(key) => key !== "recipe-pages-pwa-ownership",
 					);
-					return keys.length === 1 && keys[0] === cache;
+					return keys.includes(cache);
 				},
 				snapshots.B.cache,
 			);
-			assert.deepEqual(errors, []);
-			assert.deepEqual(otherErrors, []);
+			// A still-open document's background browse request may reach B's API.
+			// Its explicit 409 is handled by the update UI; Chromium also reports
+			// that HTTP response on the console. Every other diagnostic fails.
+			for (const value of [...conflicts.values()].flat()) {
+				const url = new URL(value);
+				assert.equal(url.pathname, "/api/recipe-browse/");
+				assert.equal(url.searchParams.get("release"), "a".repeat(40));
+			}
+			const diagnostic =
+				"Failed to load resource: the server responded with a status of 409 (Conflict)";
+			assert.deepEqual(
+				errors,
+				conflicts.get(page).map(() => diagnostic),
+			);
+			assert.deepEqual(
+				otherErrors,
+				conflicts.get(other).map(() => diagnostic),
+			);
 		} finally {
 			await context.close();
 		}
@@ -183,10 +257,7 @@ it("A stalled recipe activation restores the button and can be retried", {
 		await serve("B");
 		await page.clock.fastForward(60_000);
 		await page.evaluate(() => window.dispatchEvent(new Event("focus")));
-		const button = page.getByRole("button", {
-			name: "Update and reload",
-			exact: true,
-		});
+		const button = page.locator("#recipe-update-button");
 		await button.waitFor({ state: "visible" });
 		// Simulate a worker that never handles the activation message, rather
 		// than replacing the real registration or its downloaded snapshot.
@@ -250,10 +321,7 @@ function cookingGuardCheck(name, viewport) {
 			await serve("B");
 			await page.clock.fastForward(60_000);
 			await page.evaluate(() => window.dispatchEvent(new Event("focus")));
-			const update = page.getByRole("button", {
-				name: "Update and reload",
-				exact: true,
-			});
+			const update = page.locator("#recipe-update-button");
 			await update.waitFor({ state: "visible" });
 			const originalRelease = await page
 				.locator("#site-update-notice")
@@ -394,6 +462,19 @@ it("The last deployed worker/cache layout upgrades with live A clients and prese
 				snapshots.legacy.cache,
 			),
 		);
+		const legacyRecipe = "/recipes/lemon-salmon-and-asparagus/";
+		const oldRecipeBody = await page.evaluate(
+			async ({ cache, path }) => {
+				const request = new Request(new URL(path, location.origin), {
+					headers: { accept: "text/html" },
+				});
+				const response = await fetch(request);
+				const body = await response.clone().text();
+				await (await caches.open(cache)).put(request, response);
+				return body;
+			},
+			{ cache: snapshots.legacy.cache, path: legacyRecipe },
+		);
 		await serve("B");
 		await page.evaluate(async () =>
 			(await navigator.serviceWorker.getRegistration()).update(),
@@ -429,15 +510,44 @@ it("The last deployed worker/cache layout upgrades with live A clients and prese
 			),
 			"legacy cache remains while old client uses it",
 		);
-		await other
-			.getByRole("button", { name: "Update and reload", exact: true })
-			.click();
+		await other.locator("#recipe-update-button").click();
 		await other.waitForFunction(
 			() =>
 				document.querySelector('meta[name="pwa-test-snapshot"]')?.content ===
 				"B",
 		);
 		assert.equal(await dataLabel(other), "B");
+		const legacyAfter = await other.evaluate(
+			async ({ cache, path }) => {
+				const request = new Request(new URL(path, location.origin), {
+					headers: { accept: "text/html" },
+				});
+				const response = await (await caches.open(cache)).match(request);
+				const channel = new MessageChannel();
+				const listed = new Promise((resolve) => {
+					channel.port1.onmessage = ({ data }) => {
+						channel.port1.close();
+						resolve(data.recipes);
+					};
+				});
+				navigator.serviceWorker.controller.postMessage(
+					{ type: "LIST_SAVED_RECIPES" },
+					[channel.port2],
+				);
+				return { body: await response.text(), saved: await listed };
+			},
+			{ cache: snapshots.legacy.cache, path: legacyRecipe },
+		);
+		assert.equal(
+			legacyAfter.body,
+			oldRecipeBody,
+			"legacy recipe bytes remain read-only after migration",
+		);
+		assert.deepEqual(
+			legacyAfter.saved,
+			[],
+			"legacy complete-cache entries never become implicit saved recipes",
+		);
 	} finally {
 		await context.close();
 	}
@@ -492,10 +602,7 @@ it("A and B clients retain their own offline data and lazy assets under active C
 				"C",
 		);
 		await context.setOffline(true);
-		const workerSession = await context.newCDPSession(current);
-		await workerSession.send("ServiceWorker.enable");
-		await workerSession.send("ServiceWorker.stopAllWorkers");
-		await workerSession.detach();
+		await stopRecipeWorkers(context);
 		for (const [page, label] of [
 			[a, "A"],
 			[b, "B"],
@@ -529,7 +636,7 @@ it("A and B clients retain their own offline data and lazy assets under active C
 				const keys = (await caches.keys()).filter(
 					(key) => key !== "recipe-pages-pwa-ownership",
 				);
-				return keys.length === 1 && keys[0] === cache;
+				return keys.includes(cache);
 			},
 			snapshots.C.cache,
 		);

@@ -66,16 +66,42 @@ function verifyNavigation(width) {
 			await page
 				.getByRole("button", { name: "Load more recipes", exact: true })
 				.click();
-			const link = page.locator(".recipe-card a.title-button").nth(28);
+			const link = page.locator(".recipe-card a.title-button").nth(7);
 			await link.scrollIntoViewIfNeeded();
 			const order = await ids();
-			assert.ok(order.length > 24);
+			assert.ok(order.length > 6);
 			const beforeScroll = await page.evaluate(() => scrollY);
 			assert.ok(beforeScroll > 500);
-			const source = page.url();
+			// Legacy collection fragments must not cancel canonical Forward navigation.
+			await page.evaluate(() =>
+				history.replaceState(history.state, "", "#meal-results"),
+			);
+			let source = page.url();
+			const destination = await link.getAttribute("href");
 			await link.click();
-			await hydrate(page);
+			await page.waitForURL(new URL(destination, site.origin).href);
+			await page.locator(".recipe-takeover").waitFor();
+			await page.goBack();
+			await page.waitForURL(source);
+			await page.locator(".recipe-takeover").waitFor({ state: "detached" });
+			assert.deepEqual(await ids(), order);
 			await page
+				.getByRole("combobox", { name: "Ingredient units" })
+				.selectOption("grams");
+			source = page.url();
+			await page.goForward();
+			await page.waitForURL(new URL(destination, site.origin).href);
+			await page.locator(".recipe-takeover").waitFor();
+			await hydrate(page);
+			assert.equal(
+				await page
+					.locator(".recipe-takeover")
+					.getByRole("combobox", { name: "Ingredient units" })
+					.inputValue(),
+				new URL(destination, site.origin).searchParams.get("units") || "us",
+			);
+			await page
+				.locator(".recipe-takeover")
 				.getByRole("combobox", { name: "Ingredient units" })
 				.selectOption("grams");
 			await page.reload();

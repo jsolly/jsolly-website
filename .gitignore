@@ -1,5 +1,6 @@
 # build output
 dist/
+.recipe-browse/
 
 # local env / secrets (never commit)
 .env

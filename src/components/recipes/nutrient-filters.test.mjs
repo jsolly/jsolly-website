@@ -16,12 +16,12 @@ import {
 	smoothieIngredientChoices,
 } from "./nutrient-filters.mjs";
 import { recordedOmega3 } from "./nutrition.mjs";
+import data from "./recipe-data.server.mjs";
 import {
 	dietaryClass,
 	displayNutrition,
 	ingredientAmount,
 } from "./recipe-logic.mjs";
-import data from "./recipes.json" with { type: "json" };
 
 it("nutrition filters have usable intersections at all supported serving counts", () => {
 	for (const servings of [2, 4, 6, 8])
@@ -250,7 +250,10 @@ it("omega filter includes the 0.5 g boundary and excludes lower or unobserved qu
 		false,
 	);
 	assert.equal(
-		nutrientFilters({ ...boundary, id: "unobserved-omega-fixture" }, 4).omega,
+		nutrientFilters(
+			{ ...boundary, id: "unobserved-omega-fixture", calculation: undefined },
+			4,
+		).omega,
 		false,
 	);
 });
