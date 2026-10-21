@@ -1,11 +1,11 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { relative, resolve } from "node:path";
-import it from "node:test";
 import { fileURLToPath } from "node:url";
 import { compile } from "@tailwindcss/node";
 import { Scanner } from "@tailwindcss/oxide";
 import { globby } from "globby";
+import { it } from "vitest";
 
 const ROOT = fileURLToPath(new URL("../..", import.meta.url));
 const STYLESHEET = resolve(ROOT, "src/styles/main.css");

@@ -10,7 +10,7 @@ import {
 } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import it from "node:test";
+import { it } from "vitest";
 
 const MISSING_TOOL =
 	/node_modules\/\.bin\/markdownlint-cli2 not found.*npm ci/u;

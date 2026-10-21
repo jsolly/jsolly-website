@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { after, before, it } from "node:test";
 import { JSDOM } from "jsdom";
 import { chromium } from "playwright";
+import { afterAll as after, beforeAll as before, it } from "vitest";
 import { browseResponse } from "../../api/recipe-browse.mjs";
 import recipeData from "../../src/components/recipes/recipe-data.server.mjs";
 import { collectErrors, serveStatic } from "./pages.mjs";

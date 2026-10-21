@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import { readFile } from "node:fs/promises";
-import { it } from "node:test";
+import { it } from "vitest";
 
 const FULL_SHA = /^[a-f0-9]{40}$/u;
 

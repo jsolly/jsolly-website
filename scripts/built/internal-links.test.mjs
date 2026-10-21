@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { extname } from "node:path";
-import it from "node:test";
+import { it } from "vitest";
 import { categorySlugs, DIST, publishedPosts } from "./pages.mjs";
 import {
 	brokenReferences,
@@ -49,7 +49,7 @@ function fixtureSite(files) {
 const html = (body, head = "") =>
 	`<!doctype html><html><head>${head}</head><body>${body}</body></html>`;
 
-it("(a) every same-origin link, image, script, manifest and icon in the build resolves, and every #fragment names an id on its page", async (t) => {
+it("(a) every same-origin link, image, script, manifest and icon in the build resolves, and every #fragment names an id on its page", async () => {
 	const fixture = await fixtureSite({
 		"index.html": html(
 			[
@@ -97,7 +97,7 @@ it("(a) every same-origin link, image, script, manifest and icon in the build re
 			0,
 		) +
 		[...site.manifests.values()].reduce((sum, list) => sum + list.length, 0);
-	t.diagnostic(
+	console.info(
 		`${count} references on ${site.pages.size} pages and ${site.manifests.size} manifests`,
 	);
 	assert.deepEqual(brokenReferences(site), [], "broken same-origin references");
@@ -160,7 +160,7 @@ it("(b) the build links nothing on the old blog host; prose may name it and the 
 	);
 });
 
-it("(c) every link to a mixed-case post or category uses the slug's exact case", async (t) => {
+it("(c) every link to a mixed-case post or category uses the slug's exact case", async () => {
 	const fixture = await fixtureSite({
 		"index.html": html(
 			[
@@ -187,7 +187,7 @@ it("(c) every link to a mixed-case post or category uses the slug's exact case",
 	const categories = (await categorySlugs()).filter(
 		(slug) => slug !== slug.toLowerCase(),
 	);
-	t.diagnostic(
+	console.info(
 		`${posts.length} mixed-case posts and ${categories.length} mixed-case categories (${categories.join(", ")})`,
 	);
 	const routes = mixedCaseRoutes(posts, categories);

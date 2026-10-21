@@ -1,9 +1,9 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
-import it from "node:test";
 import { globby } from "globby";
 import { JSDOM } from "jsdom";
+import { it } from "vitest";
 import { postHref } from "../../src/lib/blog/urls.js";
 import { fieldLines, fieldValues } from "../site-files.mjs";
 import { exists, publishedPosts, robotsMeta } from "./pages.mjs";

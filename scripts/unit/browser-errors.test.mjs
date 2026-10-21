@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { EventEmitter } from "node:events";
-import it from "node:test";
+import { it } from "vitest";
 import { collectErrors } from "../built/pages.mjs";
 
 it("browser checks always observe console and page errors, with optional warnings", () => {

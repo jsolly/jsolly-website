@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import it from "node:test";
+import { it } from "vitest";
 import { recipeBrowseDestination } from "./recipe-browse-route.mjs";
 
 it("native browse rewrites only explicit collection GET/HEAD submissions and overwrites supplied path", () => {

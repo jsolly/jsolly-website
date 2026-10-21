@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import it from "node:test";
+import { it } from "vitest";
 import { cookingText } from "./cooking-quantities.mjs";
 import { ingredientWithContext } from "./recipe-data.server.mjs";
 

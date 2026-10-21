@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { mkdir } from "node:fs/promises";
-import { after, before, it } from "node:test";
 import { chromium } from "playwright";
+import { afterAll as after, beforeAll as before, it } from "vitest";
 import { defaultAppliances } from "../../src/components/recipes/constants.mjs";
 import { collectErrors, serveStatic } from "./pages.mjs";
 

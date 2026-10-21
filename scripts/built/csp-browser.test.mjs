@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
-import { after, before, it } from "node:test";
 import { chromium } from "playwright";
+import { afterAll as after, beforeAll as before, it } from "vitest";
 import { readHeaderPolicy } from "../csp.mjs";
 import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
 

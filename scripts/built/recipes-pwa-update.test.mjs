@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { join } from "node:path";
-import { it } from "node:test";
+import { it } from "vitest";
 import { collectErrors } from "./pages.mjs";
 import {
 	browser,

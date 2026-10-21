@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import it from "node:test";
+import { it } from "vitest";
 import { loadUsdaKey, lookup } from "../recipes/usda.mjs";
 
 const CREDENTIAL_ERROR = /Cannot read the USDA SecureString/u;

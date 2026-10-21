@@ -1,8 +1,8 @@
 // biome-ignore-all lint/performance/noAwaitInLoops: browser scenarios and screenshots intentionally operate on the same page sequentially.
 import assert from "node:assert/strict";
 import { mkdir } from "node:fs/promises";
-import { after, before, it } from "node:test";
 import { chromium } from "playwright";
+import { afterAll as after, beforeAll as before, it } from "vitest";
 import { collectErrors, serveStatic } from "./pages.mjs";
 
 let site;

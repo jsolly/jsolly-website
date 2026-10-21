@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { it } from "node:test";
+import { it } from "vitest";
 import { markdownSiblingPath } from "../lib/accept-negotiate.js";
 import { MARKDOWN_GUIDANCE, MARKDOWN_PATHS } from "./agent-pages.js";
 import {

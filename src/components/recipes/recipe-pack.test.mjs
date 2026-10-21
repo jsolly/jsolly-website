@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import it from "node:test";
+import { it } from "vitest";
 import data from "./recipe-data.server.mjs";
 import { recipeDocument } from "./recipe-export.mjs";
 import { loadRecipePack, recipeFromPack } from "./recipe-pack.mjs";

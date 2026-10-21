@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
-import it from "node:test";
 import { globby } from "globby";
+import { it } from "vitest";
 import { routeManifest } from "./pages.mjs";
 
 const INDEX_SUFFIX = /index\.html$/u;

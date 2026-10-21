@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
-import { describe, it } from "node:test";
 import { JSDOM } from "jsdom";
+import { describe, it } from "vitest";
 import { atomFeed, legacyFeedIds, rssFeed } from "./feeds.js";
 import type { FeedPost, LegacyRow } from "./types.js";
 

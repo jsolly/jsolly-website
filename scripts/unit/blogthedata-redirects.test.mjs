@@ -10,9 +10,9 @@ import {
 } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import it from "node:test";
 import { fileURLToPath } from "node:url";
 import { sourceToRegex } from "@vercel/routing-utils";
+import { it } from "vitest";
 import {
 	compileRoutes,
 	isPageRow,

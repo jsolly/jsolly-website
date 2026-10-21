@@ -1,8 +1,8 @@
 // biome-ignore-all lint/performance/noAwaitInLoops: ordered browser interactions on one page.
 import assert from "node:assert/strict";
 import { mkdir } from "node:fs/promises";
-import { after, before, it } from "node:test";
 import { chromium } from "playwright";
+import { afterAll as after, beforeAll as before, it } from "vitest";
 import data from "../../src/components/recipes/recipe-data.server.mjs";
 import { collectErrors, serveStatic } from "./pages.mjs";
 

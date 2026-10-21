@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
-import it from "node:test";
 import { chromium } from "playwright";
+import { it } from "vitest";
 import {
 	productionUrl,
 	serviceWorker,

@@ -2,8 +2,8 @@ import assert from "node:assert/strict";
 import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import it from "node:test";
 import { JSDOM } from "jsdom";
+import { it } from "vitest";
 import { DIST, exists } from "./pages.mjs";
 
 // Plan §2.3 Fragments, §4.6: browsers re-apply a #fragment across a 301, so an
@@ -129,7 +129,7 @@ async function fixtureComparison() {
 	}
 }
 
-it("every old blogthedata.com fragment id still exists on the page its URL now redirects to", async (t) => {
+it("every old blogthedata.com fragment id still exists on the page its URL now redirects to", async () => {
 	assert.deepEqual(
 		await fixtureComparison(),
 		{
@@ -164,7 +164,7 @@ it("every old blogthedata.com fragment id still exists on the page its URL now r
 		[],
 		"every legacy fragment destination exists in the completed migration",
 	);
-	t.diagnostic(`checked ${result.ids} ids on ${result.landed} pages`);
+	console.info(`checked ${result.ids} ids on ${result.landed} pages`);
 	assert.deepEqual(
 		result.missing,
 		[],

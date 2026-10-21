@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import it from "node:test";
+import { it } from "vitest";
 import nutrition from "../../src/components/recipes/nutrition-data.json" with {
 	type: "json",
 };

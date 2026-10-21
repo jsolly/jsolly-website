@@ -1,7 +1,7 @@
 // biome-ignore-all lint/performance/noAwaitInLoops: sequential browser scenarios keep worker contexts isolated.
 import assert from "node:assert/strict";
-import { after, before, it } from "node:test";
 import { chromium } from "playwright";
+import { afterAll as after, beforeAll as before, it } from "vitest";
 import { collectErrors, serveStatic } from "./pages.mjs";
 
 const RAW_IMAGE = /<img\s/u;

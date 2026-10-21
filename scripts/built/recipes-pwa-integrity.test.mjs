@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { it } from "node:test";
+import { it } from "vitest";
 import {
 	browser,
 	dataLabel,
@@ -82,6 +82,12 @@ it("Rollback reuses validated live A cache without overwriting it with mismatche
 				document.querySelector('meta[name="pwa-test-snapshot"]')?.content ===
 				"B",
 		);
+		// A parsed B marker precedes hydration and the worker client readiness
+		// handshake. Complete that transition before publishing rollback A.
+		await moving.waitForFunction(
+			() => !document.querySelector("astro-island[ssr]"),
+		);
+		await statusText(moving, SAVED);
 		assert.equal(await dataLabel(old), "A");
 		assert.ok(
 			(await old.evaluate(() => caches.keys())).includes(snapshots.A.cache),
@@ -89,6 +95,14 @@ it("Rollback reuses validated live A cache without overwriting it with mismatche
 		await serve("rollback");
 		await moving.evaluate(async () =>
 			(await navigator.serviceWorker.getRegistration()).update(),
+		);
+		// The button can retain a previously confirmed target during refresh.
+		// Click only after the intended rollback identity is confirmed.
+		await moving.waitForFunction(
+			(release) =>
+				document.querySelector("#recipe-offline-status")?.dataset.target ===
+				release,
+			"a".repeat(40),
 		);
 		await moving.locator("#recipe-update-button").waitFor({ state: "visible" });
 		assert.equal(
@@ -112,6 +126,13 @@ it("Rollback reuses validated live A cache without overwriting it with mismatche
 		await serve("C");
 		await moving.evaluate(async () =>
 			(await navigator.serviceWorker.getRegistration()).update(),
+		);
+		// Visibility can precede the identity handshake and retain an old target.
+		await moving.waitForFunction(
+			(release) =>
+				document.querySelector("#recipe-offline-status")?.dataset.target ===
+				release,
+			"c".repeat(40),
 		);
 		await moving.locator("#recipe-update-button").waitFor({ state: "visible" });
 		await moving.locator("#recipe-update-button").click();

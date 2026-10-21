@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { after, before, it } from "node:test";
 import { chromium } from "playwright";
+import { afterAll as after, beforeAll as before, it } from "vitest";
 import { collectErrors, serveStatic } from "./pages.mjs";
 
 // Browsing the built recipe library in Chromium, ported from awesome-blog's
@@ -403,7 +403,19 @@ function filtersCheck(width) {
 			// biome-ignore lint/performance/noAwaitInLoops: each page depends on the prior page response and its rendered load-more control.
 			while (await more.count()) {
 				const prior = await page.locator(".recipe-card").count();
-				await more.click();
+				const button = await more.elementHandle();
+				if (!button) continue;
+				try {
+					await button.click();
+				} catch (error) {
+					// Scrolling can trigger automatic pagination and remove this exact
+					// button. Do not retry a different batch's control; still require
+					// the same card-growth proof below, and retain all other failures.
+					if (!error.message.includes("Element is not attached to the DOM"))
+						throw error;
+				} finally {
+					await button.dispose();
+				}
 				await page.waitForFunction(
 					(count) => document.querySelectorAll(".recipe-card").length > count,
 					prior,

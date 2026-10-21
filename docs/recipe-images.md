@@ -97,7 +97,7 @@ metadata. Existing vector placeholders must be replaced, not exempted.
 Run from `/Users/johnsolly/code/jsolly-website`:
 
 ```bash
-node --test src/components/recipes/recipe-images.test.mjs
+npx --no-install vitest run --config config/testing/vitest.config.mjs src/components/recipes/recipe-images.test.mjs
 ```
 
 The test is also included by `npm test`. It does not replace visual

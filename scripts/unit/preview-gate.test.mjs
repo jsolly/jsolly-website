@@ -12,14 +12,14 @@ import {
 } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
-import it from "node:test";
 import { promisify } from "node:util";
+import { it } from "vitest";
 
 const run = promisify(exec);
 const project = process.cwd();
 async function fixture(t) {
 	const temp = await mkdtemp(path.join(os.tmpdir(), "preview-gate-"));
-	t.after(() => rm(temp, { recursive: true, force: true }));
+	t.onTestFinished(() => rm(temp, { recursive: true, force: true }));
 	const root = path.join(temp, "repo");
 	const bin = path.join(temp, "bin");
 	await mkdir(path.join(root, ".git-hooks"), { recursive: true });
@@ -147,6 +147,6 @@ it("full gate disables preview mode and retains build/browser steps", async (t) 
 	const calls = await f.calls();
 	assert.ok(calls.includes("npm run build\n"));
 	assert.ok(calls.includes("npm run test:built\n"));
-	assert.ok(calls.includes("trust-fixtures\n"));
+	assert.ok(calls.includes("npm run test:python\n"));
 	assert.ok(!calls.includes("npm run check:preview"));
 });
