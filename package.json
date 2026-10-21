@@ -62,7 +62,7 @@
 		"markdownlint-cli2": "^0.23.3",
 		"parse5": "8.0.1",
 		"playwright": "1.63.0",
-		"sanitize-html": "2.18.0",
+		"sanitize-html": "2.18.1",
 		"svelte-check": "4.7.6",
 		"tailwindcss": "^4.3.3",
 		"turndown": "7.2.4",
