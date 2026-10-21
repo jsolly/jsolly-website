@@ -100,3 +100,16 @@ Use the supported cloud subreaper for process-cleanup checks. In this executor,
 all 276 unit tests and all 20 browser smoke contracts passed without changes to
 their assertions. The recipe-browse and website-update focused run passed all
 19 tests. A complete green gate remains required before publication.
+
+## Merge review
+
+The first PR CI run passed 209 of 210 built tests. The rollback case timed out
+waiting for C after clicking the update button. Independent review found that
+the C transition still waited only for button visibility, while the earlier
+rollback transition waited for its confirmed target. The C transition now also
+waits for the intended release identity before clicking. Assertions and deadlines
+remain unchanged.
+
+The original rollback case passed locally, including a diagnostic run with a
+500 ms worker-identity message delay. Those runs did not reproduce the CI timeout
+or prove its precise cause. The added wait removes the identified ordering gap.

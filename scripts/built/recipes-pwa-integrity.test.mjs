@@ -127,6 +127,13 @@ it("Rollback reuses validated live A cache without overwriting it with mismatche
 		await moving.evaluate(async () =>
 			(await navigator.serviceWorker.getRegistration()).update(),
 		);
+		// Visibility can precede the identity handshake and retain an old target.
+		await moving.waitForFunction(
+			(release) =>
+				document.querySelector("#recipe-offline-status")?.dataset.target ===
+				release,
+			"c".repeat(40),
+		);
 		await moving.locator("#recipe-update-button").waitFor({ state: "visible" });
 		await moving.locator("#recipe-update-button").click();
 		await moving.waitForFunction(
