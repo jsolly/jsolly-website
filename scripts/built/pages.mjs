@@ -7,6 +7,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { parseFrontmatter } from "astro/markdown";
 import { globby } from "globby";
 import { JSDOM } from "jsdom";
+import { parse } from "parse5";
 import { parseDocument } from "yaml";
 import { recipeBrowseDestination } from "../../src/lib/recipe-browse-route.mjs";
 
@@ -96,15 +97,31 @@ export async function readBuilt(path, read, root = DIST) {
 
 // The robots meta content of the built page at `path` (as readBuilt takes
 // it), or null when the page has none.
-export function robotsMeta(path, root = DIST) {
-	return readBuilt(
-		path,
-		(document) =>
-			[...document.querySelectorAll("meta")].find(
-				(meta) => meta.name === "robots",
-			)?.content ?? null,
-		root,
+export async function robotsMeta(path, root = DIST) {
+	const document = parse(
+		await readFile(join(root, path, "index.html"), "utf8"),
+		{
+			scriptingEnabled: false,
+		},
 	);
+	// Document selectors exclude template.content. Inspect only actual tree children.
+	function findRobots(node) {
+		for (const child of node.childNodes ?? []) {
+			if (
+				child.tagName === "meta" &&
+				child.namespaceURI === "http://www.w3.org/1999/xhtml" &&
+				child.attrs.some(
+					(attr) => attr.name === "name" && attr.value === "robots",
+				)
+			) {
+				return child.attrs.find((attr) => attr.name === "content")?.value ?? "";
+			}
+			const content = findRobots(child);
+			if (content !== null) return content;
+		}
+		return null;
+	}
+	return findRobots(document);
 }
 
 // The stylesheets a built page loads with JavaScript on (not its <noscript>).

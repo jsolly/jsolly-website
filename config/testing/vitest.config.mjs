@@ -13,6 +13,9 @@ export default defineConfig({
 	test: {
 		include: suites[process.env.TEST_SUITE ?? "unit"] ?? ["**/*.test.mjs"],
 		pool: "forks",
+		// Browser files own isolated contexts and spend time awaiting browser I/O.
+		// Keep the built suite at seven workers on CI and local machines alike.
+		maxWorkers: process.env.TEST_SUITE === "built" ? 7 : undefined,
 		// Each file owns its browser, server and mutable globals. Tests within
 		// a file stay sequential, and hooks retain node:test's declaration order.
 		sequence: { hooks: "list" },

@@ -416,13 +416,17 @@ it("A stalled recipe activation restores the button and can be retried", {
 		await page.evaluate(() => {
 			window.workerPostMessage = ServiceWorker.prototype.postMessage;
 			ServiceWorker.prototype.postMessage = function (...args) {
-				if (args[0]?.type === "ACTIVATE_RECIPE_UPDATE") return;
+				if (args[0]?.type === "ACTIVATE_RECIPE_UPDATE") {
+					window.activationWithheld = true;
+					return;
+				}
 				// biome-ignore lint/nursery/noThisOutsideOfClass: preserve the native ServiceWorker receiver while withholding only activation.
 				return window.workerPostMessage.apply(this, args);
 			};
 		});
 		await button.click();
 		assert.equal(await button.isDisabled(), true);
+		await page.waitForFunction(() => window.activationWithheld);
 		await page.clock.fastForward(15_000);
 		await page
 			.getByRole("status")
