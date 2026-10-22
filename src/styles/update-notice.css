@@ -1,4 +1,5 @@
-@layer components {
+@layer properties, theme, base, components, utilities, blog, blog-no-script;
+@layer blog {
 	.update-notice {
 		margin-block: 1rem;
 		padding: 1rem;
@@ -6,9 +7,31 @@
 		border-radius: 0.75rem;
 		background: var(--color-card);
 		color: var(--color-text-primary);
+		font-size: 0.9375rem;
+		line-height: 1.5;
 	}
 	.update-notice p {
 		margin-block: 0 0.75rem;
+	}
+	.update-notice > :last-child {
+		margin-bottom: 0;
+	}
+	.update-notice [role="status"] {
+		font-weight: 600;
+	}
+	.update-notice-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-block: 1rem;
+	}
+	.update-notice [data-slot="button"] {
+		min-height: 44px;
+		padding-inline: 1rem;
+	}
+	.update-notice .update-notice-help {
+		color: var(--color-text-secondary);
+		font-size: 0.875rem;
 	}
 	@media print {
 		.update-notice {
