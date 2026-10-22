@@ -71,10 +71,9 @@ const printedTitles = (page) =>
 
 // Prints by firing beforeprint, as a browser's print dialog does.
 function printFiresBeforePrint() {
-	window.__recipePrintCalls = 0;
 	window.print = () => {
 		window.dispatchEvent(new Event("beforeprint"));
-		window.__recipePrintCalls++;
+		document.documentElement.setAttribute("data-test-print-requested", "true");
 	};
 }
 
@@ -107,7 +106,9 @@ it("single-recipe printing loads its detail while browser-menu printing keeps on
 		const takeover = page.locator(".recipe-takeover");
 		await takeover.waitFor();
 		await takeover.getByRole("button", { name: "Print recipe" }).click();
-		await page.waitForFunction(() => window.__recipePrintCalls === 1);
+		await page
+			.locator("[data-test-print-requested=true]")
+			.waitFor({ state: "attached" });
 		await page.emulateMedia({ media: "print" });
 		assert.deepEqual(await printedTitles(page), [shawarma.title]);
 		assert.equal(await page.locator(".print-output").isVisible(), true);

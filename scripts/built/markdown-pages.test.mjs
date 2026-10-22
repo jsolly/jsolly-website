@@ -52,9 +52,10 @@ function cookingContentGaps(markdown, recipe) {
 			`${recipe.id} retains cooking step ${index + 1} and its endpoints`,
 		);
 	const safety =
-		recipe.type === "smoothie"
+		recipe.safety ||
+		(recipe.type === "smoothie"
 			? "Wash fresh produce and use a clean blender. Keep yogurt and finished smoothies chilled."
-			: "Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.";
+			: "Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.");
 	check(cooking.includes(safety), `${recipe.id} retains safety instructions`);
 	for (const limit of recipe.limitations)
 		check(

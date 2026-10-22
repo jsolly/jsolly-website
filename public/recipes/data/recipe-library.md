@@ -1,6 +1,6 @@
 # Easy Meals recipe library
 
-146 recipes, including household recipes and adaptations from linked publishers. Ingredient quantities use four portions; whole-bird recipes round up to complete batches. Dietary labels classify the base recipe at no more than 12.5 g net carbs per serving for Keto, otherwise Not keto. Optional measured per-person sides default to none and their nutrition is separate. Adaptations have not been kitchen-tested.
+147 recipes, including household recipes and adaptations from linked publishers. Ingredient quantities use four portions; whole-bird recipes round up to complete batches. Dietary labels classify the base recipe at no more than 12.5 g net carbs per serving for Keto, otherwise Not keto. Optional measured per-person sides default to none and their nutrition is separate. Adaptations have not been kitchen-tested.
 
 ## Lemon salmon and asparagus
 
@@ -18899,5 +18899,133 @@ Refrigerate in shallow containers within two hours, or one hour above 90°F. Use
 - [FoodSafety.gov: safe minimum internal temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
 
 - [USDA SR Legacy nutrient records (April 2018 release)](https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip)
+
+These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.
+
+---
+
+## Carrot cake
+
+4 portions · US imperial measures · nonketo · 10 min publisher preparation · 80 min
+
+A small carrot cake with pineapple, coconut, pecans and cream cheese frosting. Dessert, four slices per cake.
+
+No scheduled mid-bake addition; test doneness, cool completely, then frost.
+
+The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.
+
+Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.
+
+### Cooking flow (Tabular Recipe Notation)
+
+<div class="trn-scroll" tabindex="0" role="region" aria-label="Carrot cake cooking flow, scroll horizontally"><table class="trn-table"><tbody><tr><td colspan="3" class="trn-prep">Heat oven to 350°F. Prepare a 6-inch round pan with cookware spray and a parchment base.</td></tr><tr><td colspan="3" class="trn-prep">Make one complete cake for 2 or 4 portions, two cakes for 6 or 8. Divide batter equally between identical pans; never deepen one pan. Timing is per oven batch.</td></tr><tr><td colspan="3" class="trn-prep">Wash and peel carrots. Keep egg and flour off ready-to-eat surfaces. Do not taste raw batter.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅓ cup</strong> Unsweetened cinnamon applesauce<small class="trn-state-detail">as purchased</small></th><td rowspan="13" colspan="1" class="trn-operation">Mix applesauce, sugar and egg; fold in dry ingredients, then carrots, coconut, pecans, cake vanilla and undrained pineapple. Then: Bake 35–40 minutes; a tester through the center must come out clean. Rest 10 minutes in the pan, then unmold and cool completely on a rack.</td><td rowspan="17" colspan="1" class="trn-operation">Spread frosting over the fully cooled cake. Refrigerate promptly; divide the finished cakes into the selected number of portions.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Granulated sugar<small class="trn-state-detail">as purchased</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 count</strong> Egg<small class="trn-state-essential">raw, without shell; beaten · Use a small egg; weigh beaten egg for consistent batches.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> All-purpose flour<small class="trn-state-detail">spooned and leveled</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Baking soda<small class="trn-state-detail">as purchased</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ tsp</strong> Double-acting baking powder<small class="trn-state-detail">as purchased</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>⅛ tsp</strong> Fine salt<small class="trn-state-detail">as purchased</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Ground cinnamon<small class="trn-state-detail">ground</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Carrots<small class="trn-state-detail">peeled and grated</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Sweetened shredded coconut<small class="trn-state-detail">dried, sweetened</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Pecans<small class="trn-state-detail">chopped · Included in this version.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Vanilla extract for cake<small class="trn-state-detail">as purchased</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ cup</strong> Crushed pineapple in juice<small class="trn-state-essential">undrained · Include the juice.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>1 tbsp</strong> Unsalted butter<small class="trn-state-detail">softened</small></th><td rowspan="4" colspan="1" class="trn-operation">Beat softened butter and cream cheese, then frosting vanilla and powdered sugar, until smooth.</td></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>2 oz</strong> Cream cheese<small class="trn-state-detail">full-fat, softened · Use a product with vegetarian-compatible ingredients.</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>¼ tsp</strong> Vanilla extract for frosting<small class="trn-state-detail">as purchased</small></th></tr><tr><th scope="row" colspan="1" class="trn-ingredient"><strong>½ cup</strong> Powdered sugar<small class="trn-state-detail">unsifted · Sift after measuring.</small></th></tr></tbody></table></div>
+
+### Ingredients
+
+- ⅓ cup Unsweetened cinnamon applesauce — as purchased
+
+- ½ cup Granulated sugar — as purchased
+
+- 1 count Egg — raw, without shell; beaten. Use a small egg; weigh beaten egg for consistent batches.
+
+- ½ cup All-purpose flour — spooned and leveled
+
+- ¼ tsp Baking soda — as purchased
+
+- ½ tsp Double-acting baking powder — as purchased
+
+- ⅛ tsp Fine salt — as purchased
+
+- ¼ tsp Ground cinnamon — ground
+
+- ½ cup Carrots — peeled and grated
+
+- ¼ cup Sweetened shredded coconut — dried, sweetened
+
+- ¼ cup Pecans — chopped. Included in this version.
+
+- ¼ tsp Vanilla extract for cake — as purchased
+
+- ¼ cup Crushed pineapple in juice — undrained. Include the juice.
+
+- 1 tbsp Unsalted butter — softened
+
+- 2 oz Cream cheese — full-fat, softened. Use a product with vegetarian-compatible ingredients.
+
+- ¼ tsp Vanilla extract for frosting — as purchased
+
+- ½ cup Powdered sugar — unsifted. Sift after measuring.
+
+### Equipment
+
+- 6-inch round cake pan; two matching pans for 6 or 8 portions
+
+- Parchment, mixing bowls, mixer and cooling rack
+
+### Cook
+
+Keep raw egg and flour separate from frosting and serving tools. Do not taste uncooked batter. Refrigerate the frosted cake promptly.
+
+1. **Mix.** Mix applesauce, sugar and egg; fold in dry ingredients, then carrots, coconut, pecans, cake vanilla and undrained pineapple.
+
+2. **Bake and cool.** Bake 35–40 minutes; a tester through the center must come out clean. Rest 10 minutes in the pan, then unmold and cool completely on a rack.
+
+3. **Frost.** Beat softened butter and cream cheese, then frosting vanilla and powdered sugar, until smooth. Spread frosting over the fully cooled cake. Refrigerate promptly; divide the finished cakes into the selected number of portions.
+
+### Attention timeline
+
+- Prepare: 10 min. Mix and fill prepared pans.
+
+- Bake: 35–40 min. Test the center; time alone is insufficient.
+
+- Cool and frost: At least 30 min. Wait until completely cool. Cooling may take longer.
+
+Stages can overlap; endpoints and appliance behavior override the estimate.
+
+### Flavor and capacity
+
+Carrot and pineapple keep the crumb moist; cream cheese frosting balances the sweetness.
+
+- Keep pan dimensions fixed when changing portions.
+
+Bake additional cakes in successive oven batches if matching pans do not fit.
+
+### Nutrition per serving
+
+per serving (1/4 of prepared batch)
+
+Calories: 403 kcal; protein: 4.7 g; fat: 15.9 g; total carbs: 62.9 g; fiber: 2.2 g; net carbs: 60.7 g
+
+Ingredient-based estimates for one quarter of a complete cake, including pecans and frosting. Generic foods and reviewed portion weights differ from publisher nutrition.
+
+Fat estimate: Ingredient total fat observations at measured edible weights; no calorie residual inference.
+
+Nutrition assumptions:
+
+- Generic USDA foods estimate all measured ingredients with no cooking-retention adjustment. Brands, moisture loss and frosting left in the bowl vary.
+
+- Unsweetened generic applesauce is a proxy for unsweetened cinnamon applesauce. Coconut is sweetened shredded; pineapple includes juice; pecans are included.
+
+- One small egg is 38 g edible; flour is 125 g per cup and powdered sugar is 120 g per unsifted cup. These cooking weights are reviewed assumptions, not publisher gram measurements.
+
+Known allergens for these plates: wheat, eggs, milk, tree nuts. Check product labels and cross-contact.
+
+### First-cook checks and limits
+
+- This adaptation has not been kitchen-tested. Cooling, pan material and oven capacity affect elapsed time.
+
+- Check packaged ingredients for allergens and vegetarian suitability. Optional unmeasured garnish is omitted.
+
+- Vegetarian eligibility is unverified until the cream cheese product ingredients are checked.
+
+### Leftovers
+
+Keep frosted cake covered in the refrigerator. Do not reheat the frosting.
+
+### Sources
+
+- [Adapted from Zona House, Zona Cooks: Mini Carrot Cake](https://zonacooks.com/carrot-cake/)
+
+- [USDA SR Legacy ingredient records](https://fdc.nal.usda.gov/download-datasets/)
 
 These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.

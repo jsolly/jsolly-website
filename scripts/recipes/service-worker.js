@@ -386,6 +386,18 @@ async function savedViewResponse(shell, key) {
 self.addEventListener("install", (event) => {
 	event.waitUntil(
 		(async () => {
+			// Returning from fetch still starts a stopped worker. Route the live API
+			// directly to the network so it cannot restart a worker being replaced.
+			if (typeof event.addRoutes === "function")
+				await event.addRoutes({
+					condition: {
+						urlPattern: new URLPattern({
+							pathname: "/api/recipe-browse/",
+							baseURL: self.location.origin,
+						}),
+					},
+					source: "network",
+				});
 			const token = crypto.randomUUID();
 			let reuse = false;
 			await ownershipLock(async () => {
