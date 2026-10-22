@@ -305,6 +305,15 @@ and the build-time `csp` suite checks every built `<img>` and `<source srcset>` 
 
 On the recipe pages it also waits for the recipe service worker to control the page at scope `/recipes/`, and it checks that every other page has no service worker registered.
 
+**Vercel Toolbar on Previews.** `src/lib/csp-policy.ts` owns the toolbar's
+`vercel.live`, Pusher and Vercel asset hosts. Builds with `VERCEL_ENV=preview` add
+them to the Astro meta, and on Preview deployments `middleware.ts` sends the
+`vercel.json` header policy with them added to `img-src`, `style-src` and
+`font-src`. Production builds and responses keep the reviewed policies unchanged.
+`src/lib/csp-policy.test.ts` pins both sides; the built `csp` suite accepts the
+Preview meta only under `VERCEL_ENV=preview`, and `scripts/built/recipes-preview.test.mjs`
+runs a full Preview build through it.
+
 Astro lists every inline script hash of the build in each page's meta policy,
 so an inline `<script>` on a blog page also adds its hash to the portfolio pages.
 

@@ -1,7 +1,8 @@
 // A throwaway copy of the working tree for built tests that need their own
 // build (today: the unprocessed baseline in hydration.test.mjs, the
-// maintenance build in blog-maintenance.test.mjs and the PagesCMS-shaped posts
-// in blog-content-contracts.test.mjs). The real tree, its dist/ and its Astro
+// maintenance build in blog-maintenance.test.mjs, the PagesCMS-shaped posts
+// in blog-content-contracts.test.mjs and the Preview build in
+// recipes-preview.test.mjs). The real tree, its dist/ and its Astro
 // data store are never touched.
 //
 // - Files: the `git ls-files -co --exclude-standard` set, so gitignored output
@@ -16,6 +17,7 @@
 //   (CI=true makes Astro colour its error text) and return { command, status,
 //   output }, the output being stdout then stderr with any escape codes
 //   stripped, so tests can match error messages the same way locally and on CI.
+//   npmRun() also takes extra environment variables, set as Vercel sets them.
 import { execFileSync, spawnSync } from "node:child_process";
 import fs from "node:fs/promises";
 import { tmpdir } from "node:os";
@@ -83,7 +85,7 @@ async function linkModules(dir) {
 }
 
 // Runs `file args` in `dir` without colour; see Commands above.
-function run(dir, file, args, command) {
+function run(dir, file, args, command, extraEnv = {}) {
 	const env = { ...process.env };
 	// Vitest exports Vite's test-mode flags into the worker environment. A
 	// child Astro build must compute its own production flags instead.
@@ -107,6 +109,7 @@ function run(dir, file, args, command) {
 				}).trim(),
 			NO_COLOR: "1",
 			FORCE_COLOR: "0",
+			...extraEnv,
 		},
 	});
 	if (result.error) {
@@ -152,9 +155,9 @@ export async function createTempCopy(label) {
 				"astro build --config config/app/astro.ts",
 			);
 		},
-		// `npm run <script>` in the copy.
-		npmRun(script) {
-			return run(dir, "npm", ["run", script], `npm run ${script}`);
+		// `npm run <script>` in the copy, with any extra environment variables.
+		npmRun(script, env = {}) {
+			return run(dir, "npm", ["run", script], `npm run ${script}`, env);
 		},
 		// `node <script>` in the copy, the script relative to its root.
 		node(script) {

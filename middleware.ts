@@ -7,9 +7,16 @@ import {
 	shouldNegotiate,
 } from "./src/lib/accept-negotiate.js";
 import { agentResponse } from "./src/lib/agent-response.js";
+import { previewResponseHeaders } from "./src/lib/csp-policy.js";
 import { recipeBrowseDestination } from "./src/lib/recipe-browse-route.mjs";
+import vercelConfig from "./vercel.json" with { type: "json" };
 
 const markdownRoutes = new Map(builtMarkdownRoutes);
+// Preview deployments widen the header CSP for the Vercel Toolbar; empty in production.
+const previewHeaders = previewResponseHeaders(
+	process.env.VERCEL_ENV,
+	vercelConfig,
+);
 
 /** Same URL serves HTML or Markdown based on Accept, with Vary keeping CDN variants apart. */
 export default function middleware(request: Request) {
@@ -25,10 +32,11 @@ export default function middleware(request: Request) {
 				"Cache-Control": "no-store",
 				Vary: "Accept",
 				Link: SITE_SEARCH_LINK,
+				...previewHeaders,
 			},
 		});
 
-	const response = next();
+	const response = next({ headers: previewHeaders });
 	if (shouldNegotiate(url.pathname, request.method)) {
 		appendVaryAccept(response.headers);
 		response.headers.append("Link", SITE_SEARCH_LINK);

@@ -1,8 +1,11 @@
 import assert from "node:assert/strict";
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+import { JSDOM } from "jsdom";
 import { chromium } from "playwright";
-import { it } from "vitest";
+import { afterAll, beforeAll, it } from "vitest";
+import { VERCEL_TOOLBAR_SOURCES } from "../../src/lib/csp-policy.js";
+import { parseDirectives } from "../csp.mjs";
 import {
 	collectErrors,
 	readBuiltPages,
@@ -11,14 +14,52 @@ import {
 } from "./pages.mjs";
 import { createTempCopy, requireSuccess } from "./temp-copy.mjs";
 
+// Vercel runs the whole `npm run build`, csp suite included, with
+// VERCEL_ENV=preview in the environment for Preview deployments. The gate
+// builds production only, so this build is the one that proves a Preview build
+// passes the csp suite.
+let copy;
+let dist;
+
+beforeAll(async () => {
+	copy = await createTempCopy("preview");
+	requireSuccess(copy.npmRun("build", { VERCEL_ENV: "preview" }));
+	dist = join(copy.dir, "dist");
+});
+
+afterAll(async () => {
+	await copy?.remove();
+});
+
+it("Preview pages let the Vercel Toolbar through their meta policy", async () => {
+	const pages = await readBuiltPages(dist);
+	assert.ok(pages.length > 0, "built HTML is required");
+	for (const { file, html } of pages) {
+		const dom = new JSDOM(html);
+		try {
+			const meta = dom.window.document.head.querySelector(
+				'meta[http-equiv="content-security-policy"]',
+			);
+			assert.ok(meta, `${file}: policy is in the head`);
+			const directives = parseDirectives(meta.getAttribute("content"));
+			for (const [name, sources] of Object.entries(VERCEL_TOOLBAR_SOURCES)) {
+				for (const source of sources) {
+					assert.ok(
+						directives.get(name)?.includes(source),
+						`${file}: ${name} allows ${source}`,
+					);
+				}
+			}
+		} finally {
+			dom.window.close();
+		}
+	}
+});
+
 it("Preview recipe pages reload without installing an offline snapshot", async () => {
-	const copy = await createTempCopy("recipe-preview");
 	let site;
 	let browser;
 	try {
-		await writeFile(join(copy.dir, ".env"), "VERCEL_ENV=preview\n");
-		requireSuccess(copy.astroBuild());
-		const dist = join(copy.dir, "dist");
 		const pages = (await readBuiltPages(dist)).filter(({ file }) =>
 			file.startsWith("recipes/"),
 		);
@@ -79,6 +120,5 @@ it("Preview recipe pages reload without installing an offline snapshot", async (
 	} finally {
 		await browser?.close();
 		await site?.close();
-		await copy.remove();
 	}
 });
