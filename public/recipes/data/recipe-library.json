@@ -128190,6 +128190,912 @@
         "caption": "AI-generated illustration; appearance and portions are approximate.",
         "styleVersion": "warm-overhead-v1"
       }
+    },
+    {
+      "dailyNutrition": [
+        {
+          "key": "fat",
+          "label": "Total fat",
+          "unit": "g",
+          "dailyValue": 78,
+          "usdaId": 1004,
+          "amount": 15.851693715458334,
+          "percent": 20
+        },
+        {
+          "key": "saturated_fat",
+          "label": "Saturated fat",
+          "unit": "g",
+          "dailyValue": 20,
+          "usdaId": 1258,
+          "amount": 7.236356346294792,
+          "percent": 36
+        },
+        {
+          "key": "cholesterol",
+          "label": "Cholesterol",
+          "unit": "mg",
+          "dailyValue": 300,
+          "usdaId": 1253,
+          "amount": 57.289009178125,
+          "percent": 19
+        },
+        {
+          "key": "sodium",
+          "label": "Sodium",
+          "unit": "mg",
+          "dailyValue": 2300,
+          "usdaId": 1093,
+          "amount": 296.8750429729167,
+          "percent": 13
+        },
+        {
+          "key": "vitamin_a",
+          "label": "Vitamin A",
+          "unit": "mcg RAE",
+          "dailyValue": 900,
+          "usdaId": 1106,
+          "amount": 198.6960989458333,
+          "percent": 22
+        },
+        {
+          "key": "vitamin_c",
+          "label": "Vitamin C",
+          "unit": "mg",
+          "dailyValue": 90,
+          "usdaId": 1162,
+          "amount": 2.6148208333333334,
+          "percent": 3
+        },
+        {
+          "key": "vitamin_d",
+          "label": "Vitamin D",
+          "unit": "mcg",
+          "dailyValue": 20,
+          "usdaId": 1114,
+          "amount": 0.19,
+          "percent": 1
+        },
+        {
+          "key": "vitamin_e",
+          "label": "Vitamin E",
+          "unit": "mg",
+          "dailyValue": 15,
+          "usdaId": 1109,
+          "amount": 0.5866037827708332,
+          "percent": 4
+        },
+        {
+          "key": "vitamin_k",
+          "label": "Vitamin K",
+          "unit": "mcg",
+          "dailyValue": 120,
+          "usdaId": 1185,
+          "amount": 2.891474159479167,
+          "percent": 2
+        },
+        {
+          "key": "thiamin",
+          "label": "Thiamin (B1)",
+          "unit": "mg",
+          "dailyValue": 1.2,
+          "usdaId": 1165,
+          "amount": 0.20589786182604167,
+          "percent": 17
+        },
+        {
+          "key": "riboflavin",
+          "label": "Riboflavin (B2)",
+          "unit": "mg",
+          "dailyValue": 1.3,
+          "usdaId": 1166,
+          "amount": 0.18962745159375002,
+          "percent": 15
+        },
+        {
+          "key": "niacin",
+          "label": "Niacin (B3)",
+          "unit": "mg",
+          "dailyValue": 16,
+          "usdaId": 1167,
+          "amount": 1.2519039080218748,
+          "percent": 8
+        },
+        {
+          "key": "vitamin_b6",
+          "label": "Vitamin B6",
+          "unit": "mg",
+          "dailyValue": 1.7,
+          "usdaId": 1175,
+          "amount": 0.097501991475,
+          "percent": 6
+        },
+        {
+          "key": "folate",
+          "label": "Folate",
+          "unit": "mcg DFE",
+          "dailyValue": 400,
+          "usdaId": 1190,
+          "amount": 57.290103540625005,
+          "percent": 14
+        },
+        {
+          "key": "vitamin_b12",
+          "label": "Vitamin B12",
+          "unit": "mcg",
+          "dailyValue": 2.4,
+          "usdaId": 1178,
+          "amount": 0.1217694754375,
+          "percent": 5
+        },
+        {
+          "key": "pantothenic_acid",
+          "label": "Pantothenic acid (B5)",
+          "unit": "mg",
+          "dailyValue": 5,
+          "usdaId": 1170,
+          "amount": 0.4542213089447916,
+          "percent": 9
+        },
+        {
+          "key": "choline",
+          "label": "Choline",
+          "unit": "mg",
+          "dailyValue": 550,
+          "usdaId": 1180,
+          "amount": null,
+          "percent": null
+        },
+        {
+          "key": "calcium",
+          "label": "Calcium",
+          "unit": "mg",
+          "dailyValue": 1300,
+          "usdaId": 1087,
+          "amount": 71.35347704895834,
+          "percent": 5
+        },
+        {
+          "key": "iron",
+          "label": "Iron",
+          "unit": "mg",
+          "dailyValue": 18,
+          "usdaId": 1089,
+          "amount": 1.4227339043854164,
+          "percent": 8
+        },
+        {
+          "key": "magnesium",
+          "label": "Magnesium",
+          "unit": "mg",
+          "dailyValue": 420,
+          "usdaId": 1090,
+          "amount": 21.829978540625003,
+          "percent": 5
+        },
+        {
+          "key": "phosphorus",
+          "label": "Phosphorus",
+          "unit": "mg",
+          "dailyValue": 1250,
+          "usdaId": 1091,
+          "amount": 96.29066153854167,
+          "percent": 8
+        },
+        {
+          "key": "potassium",
+          "label": "Potassium",
+          "unit": "mg",
+          "dailyValue": 4700,
+          "usdaId": 1092,
+          "amount": 177.35110192916667,
+          "percent": 4
+        },
+        {
+          "key": "zinc",
+          "label": "Zinc",
+          "unit": "mg",
+          "dailyValue": 11,
+          "usdaId": 1095,
+          "amount": 0.7828463078124998,
+          "percent": 7
+        },
+        {
+          "key": "copper",
+          "label": "Copper",
+          "unit": "mg",
+          "dailyValue": 0.9,
+          "usdaId": 1098,
+          "amount": 0.16130645708125002,
+          "percent": 18
+        },
+        {
+          "key": "manganese",
+          "label": "Manganese",
+          "unit": "mg",
+          "dailyValue": 2.3,
+          "usdaId": 1101,
+          "amount": 0.7919875571052084,
+          "percent": 34
+        },
+        {
+          "key": "selenium",
+          "label": "Selenium",
+          "unit": "mcg",
+          "dailyValue": 55,
+          "usdaId": 1103,
+          "amount": 11.081416994375001,
+          "percent": 20
+        }
+      ],
+      "recipeId": "carrot-cake",
+      "type": "meal",
+      "title": "Carrot cake",
+      "dietaryClassification": "nonketo",
+      "servings": 4,
+      "units": "us",
+      "sideDiners": 0,
+      "cookingFlow": {
+        "notation": "Tabular Recipe Notation (TRN)",
+        "prep": [
+          "Heat oven to 350°F. Prepare a 6-inch round pan with cookware spray and a parchment base.",
+          "Make one complete cake for 2 or 4 portions, two cakes for 6 or 8. Divide batter equally between identical pans; never deepen one pan. Timing is per oven batch.",
+          "Wash and peel carrots. Keep egg and flour off ready-to-eat surfaces. Do not taste raw batter."
+        ],
+        "columns": 3,
+        "rows": [
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "⅓ cup",
+              "name": "Unsweetened cinnamon applesauce",
+              "state": "as purchased",
+              "essentialState": false
+            },
+            {
+              "kind": "operation",
+              "col": 1,
+              "colspan": 1,
+              "rowspan": 13,
+              "text": "Mix applesauce, sugar and egg; fold in dry ingredients, then carrots, coconut, pecans, cake vanilla and undrained pineapple. Then: Bake 35–40 minutes; a tester through the center must come out clean. Rest 10 minutes in the pan, then unmold and cool completely on a rack."
+            },
+            {
+              "kind": "operation",
+              "col": 2,
+              "colspan": 1,
+              "rowspan": 17,
+              "text": "Spread frosting over the fully cooled cake. Refrigerate promptly; divide the finished cakes into the selected number of portions."
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "½ cup",
+              "name": "Granulated sugar",
+              "state": "as purchased",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "1 count",
+              "name": "Egg",
+              "state": "raw, without shell; beaten · Use a small egg; weigh beaten egg for consistent batches.",
+              "essentialState": true
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "½ cup",
+              "name": "All-purpose flour",
+              "state": "spooned and leveled",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "¼ tsp",
+              "name": "Baking soda",
+              "state": "as purchased",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "½ tsp",
+              "name": "Double-acting baking powder",
+              "state": "as purchased",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "⅛ tsp",
+              "name": "Fine salt",
+              "state": "as purchased",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "¼ tsp",
+              "name": "Ground cinnamon",
+              "state": "ground",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "½ cup",
+              "name": "Carrots",
+              "state": "peeled and grated",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "¼ cup",
+              "name": "Sweetened shredded coconut",
+              "state": "dried, sweetened",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "¼ cup",
+              "name": "Pecans",
+              "state": "chopped · Included in this version.",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "¼ tsp",
+              "name": "Vanilla extract for cake",
+              "state": "as purchased",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "¼ cup",
+              "name": "Crushed pineapple in juice",
+              "state": "undrained · Include the juice.",
+              "essentialState": true
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "1 tbsp",
+              "name": "Unsalted butter",
+              "state": "softened",
+              "essentialState": false
+            },
+            {
+              "kind": "operation",
+              "col": 1,
+              "colspan": 1,
+              "rowspan": 4,
+              "text": "Beat softened butter and cream cheese, then frosting vanilla and powdered sugar, until smooth."
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "2 oz",
+              "name": "Cream cheese",
+              "state": "full-fat, softened · Use a product with vegetarian-compatible ingredients.",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "¼ tsp",
+              "name": "Vanilla extract for frosting",
+              "state": "as purchased",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "½ cup",
+              "name": "Powdered sugar",
+              "state": "unsifted · Sift after measuring.",
+              "essentialState": false
+            }
+          ]
+        ]
+      },
+      "summary": "A small carrot cake with pineapple, coconut, pecans and cream cheese frosting. Dessert, four slices per cake.",
+      "activeMinutes": 10,
+      "portionLabel": "portions",
+      "timeBasis": "publisher preparation",
+      "sourceRecipe": {
+        "url": "https://zonacooks.com/carrot-cake/",
+        "author": "Zona House",
+        "originalServings": 4,
+        "scaleToFour": 1,
+        "nutritionBasis": "Ingredient-based estimates for one quarter of a complete cake, including pecans and frosting. Generic foods and reviewed portion weights differ from publisher nutrition.",
+        "sourceNutrition": {
+          "kcal": 414,
+          "protein_g": 5,
+          "carbs_g": 62,
+          "fiber_g": 3,
+          "fat_g": 18
+        },
+        "nutritionEstimate": {
+          "method": "Measured edible grams times USDA nutrients per 100 g, divided by four; all ingredients counted, no retention adjustment. Whole-cake scaling preserves pan geometry.",
+          "estimatedMacroFields": [
+            "kcal",
+            "protein_g",
+            "carbs_g",
+            "fiber_g",
+            "net_carbs_g"
+          ],
+          "publisherBaselineFields": [],
+          "ingredientSnapshot": [
+            {
+              "id": "applesauce",
+              "name": "Unsweetened cinnamon applesauce",
+              "amount": 0.3333333333333333,
+              "unit": "cup",
+              "state": "as purchased"
+            },
+            {
+              "id": "sugar",
+              "name": "Granulated sugar",
+              "amount": 0.5,
+              "unit": "cup",
+              "state": "as purchased"
+            },
+            {
+              "id": "egg",
+              "name": "Egg",
+              "amount": 1,
+              "unit": "count",
+              "state": "raw, without shell; beaten"
+            },
+            {
+              "id": "flour",
+              "name": "All-purpose flour",
+              "amount": 0.5,
+              "unit": "cup",
+              "state": "spooned and leveled"
+            },
+            {
+              "id": "baking_soda",
+              "name": "Baking soda",
+              "amount": 0.25,
+              "unit": "tsp",
+              "state": "as purchased"
+            },
+            {
+              "id": "baking_powder",
+              "name": "Double-acting baking powder",
+              "amount": 0.5,
+              "unit": "tsp",
+              "state": "as purchased"
+            },
+            {
+              "id": "salt",
+              "name": "Fine salt",
+              "amount": 0.125,
+              "unit": "tsp",
+              "state": "as purchased"
+            },
+            {
+              "id": "cinnamon",
+              "name": "Ground cinnamon",
+              "amount": 0.25,
+              "unit": "tsp",
+              "state": "ground"
+            },
+            {
+              "id": "carrot",
+              "name": "Carrots",
+              "amount": 0.5,
+              "unit": "cup",
+              "state": "peeled and grated"
+            },
+            {
+              "id": "coconut",
+              "name": "Sweetened shredded coconut",
+              "amount": 0.25,
+              "unit": "cup",
+              "state": "dried, sweetened"
+            },
+            {
+              "id": "pecans",
+              "name": "Pecans",
+              "amount": 0.25,
+              "unit": "cup",
+              "state": "chopped"
+            },
+            {
+              "id": "cake_vanilla",
+              "name": "Vanilla extract for cake",
+              "amount": 0.25,
+              "unit": "tsp",
+              "state": "as purchased"
+            },
+            {
+              "id": "pineapple",
+              "name": "Crushed pineapple in juice",
+              "amount": 0.25,
+              "unit": "cup",
+              "state": "undrained"
+            },
+            {
+              "id": "butter",
+              "name": "Unsalted butter",
+              "amount": 1,
+              "unit": "tbsp",
+              "state": "softened"
+            },
+            {
+              "id": "cream_cheese",
+              "name": "Cream cheese",
+              "amount": 2,
+              "unit": "oz",
+              "state": "full-fat, softened"
+            },
+            {
+              "id": "frosting_vanilla",
+              "name": "Vanilla extract for frosting",
+              "amount": 0.25,
+              "unit": "tsp",
+              "state": "as purchased"
+            },
+            {
+              "id": "powdered_sugar",
+              "name": "Powdered sugar",
+              "amount": 0.5,
+              "unit": "cup",
+              "state": "unsifted"
+            }
+          ],
+          "assumptions": [
+            "Generic USDA foods estimate all measured ingredients with no cooking-retention adjustment. Brands, moisture loss and frosting left in the bowl vary.",
+            "Unsweetened generic applesauce is a proxy for unsweetened cinnamon applesauce. Coconut is sweetened shredded; pineapple includes juice; pecans are included.",
+            "One small egg is 38 g edible; flour is 125 g per cup and powdered sugar is 120 g per unsifted cup. These cooking weights are reviewed assumptions, not publisher gram measurements."
+          ]
+        }
+      },
+      "totalTime": "80 min",
+      "attentionSummary": "No scheduled mid-bake addition; test doneness, cool completely, then frost.",
+      "capacity": "The listed pan and basket capacity, cook times, and thermometer endpoint are for four servings.",
+      "timingNote": "Ingredients are scaled; keep food thickness, spacing, settings and safe endpoints fixed. Timings assume the four-serving batch and specified shortcuts. More food can require additional batches.",
+      "equipment": [
+        "6-inch round cake pan; two matching pans for 6 or 8 portions",
+        "Parchment, mixing bowls, mixer and cooling rack"
+      ],
+      "ingredients": [
+        {
+          "quantity": "⅓ cup",
+          "status": "volume",
+          "grams": 81.33333333333333,
+          "source": "https://fdc.nal.usda.gov/food-details/171695/nutrients",
+          "name": "Unsweetened cinnamon applesauce",
+          "state": "as purchased",
+          "note": ""
+        },
+        {
+          "quantity": "½ cup",
+          "status": "volume",
+          "grams": 100,
+          "source": "https://fdc.nal.usda.gov/food-details/169655/nutrients",
+          "name": "Granulated sugar",
+          "state": "as purchased",
+          "note": ""
+        },
+        {
+          "quantity": "1 count",
+          "status": "portion",
+          "grams": 38,
+          "source": "https://fdc.nal.usda.gov/food-details/171287/nutrients",
+          "name": "Egg",
+          "state": "raw, without shell; beaten",
+          "note": "Use a small egg; weigh beaten egg for consistent batches."
+        },
+        {
+          "quantity": "½ cup",
+          "status": "volume",
+          "grams": 62.5,
+          "source": "https://fdc.nal.usda.gov/food-details/168936/nutrients",
+          "name": "All-purpose flour",
+          "state": "spooned and leveled",
+          "note": ""
+        },
+        {
+          "quantity": "¼ tsp",
+          "status": "volume",
+          "grams": 1.15,
+          "source": "https://fdc.nal.usda.gov/food-details/175040/nutrients",
+          "name": "Baking soda",
+          "state": "as purchased",
+          "note": ""
+        },
+        {
+          "quantity": "½ tsp",
+          "status": "volume",
+          "grams": 2.3,
+          "source": "https://fdc.nal.usda.gov/food-details/172803/nutrients",
+          "name": "Double-acting baking powder",
+          "state": "as purchased",
+          "note": ""
+        },
+        {
+          "quantity": "⅛ tsp",
+          "status": "volume",
+          "grams": 0.75,
+          "source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
+          "name": "Fine salt",
+          "state": "as purchased",
+          "note": ""
+        },
+        {
+          "quantity": "¼ tsp",
+          "status": "volume",
+          "grams": 0.65,
+          "source": "https://fdc.nal.usda.gov/food-details/171320/nutrients",
+          "name": "Ground cinnamon",
+          "state": "ground",
+          "note": ""
+        },
+        {
+          "quantity": "½ cup",
+          "status": "volume",
+          "grams": 55,
+          "source": "https://fdc.nal.usda.gov/food-details/170393/nutrients",
+          "name": "Carrots",
+          "state": "peeled and grated",
+          "note": ""
+        },
+        {
+          "quantity": "¼ cup",
+          "status": "volume",
+          "grams": 23.25,
+          "source": "https://fdc.nal.usda.gov/food-details/168586/nutrients",
+          "name": "Sweetened shredded coconut",
+          "state": "dried, sweetened",
+          "note": ""
+        },
+        {
+          "quantity": "¼ cup",
+          "status": "volume",
+          "grams": 27.25,
+          "source": "https://fdc.nal.usda.gov/food-details/170182/nutrients",
+          "name": "Pecans",
+          "state": "chopped",
+          "note": "Included in this version."
+        },
+        {
+          "quantity": "¼ tsp",
+          "status": "volume",
+          "grams": 1.05,
+          "source": "https://fdc.nal.usda.gov/food-details/173471/nutrients",
+          "name": "Vanilla extract for cake",
+          "state": "as purchased",
+          "note": ""
+        },
+        {
+          "quantity": "¼ cup",
+          "status": "volume",
+          "grams": 62.25,
+          "source": "https://fdc.nal.usda.gov/food-details/169126/nutrients",
+          "name": "Crushed pineapple in juice",
+          "state": "undrained",
+          "note": "Include the juice."
+        },
+        {
+          "quantity": "1 tbsp",
+          "status": "volume",
+          "grams": 14.2,
+          "source": "https://fdc.nal.usda.gov/food-details/173430/nutrients",
+          "name": "Unsalted butter",
+          "state": "softened",
+          "note": ""
+        },
+        {
+          "quantity": "2 oz",
+          "status": "mass",
+          "grams": 56.69904625,
+          "source": "https://www.nist.gov/pml/special-publication-811",
+          "name": "Cream cheese",
+          "state": "full-fat, softened",
+          "note": "Use a product with vegetarian-compatible ingredients."
+        },
+        {
+          "quantity": "¼ tsp",
+          "status": "volume",
+          "grams": 1.05,
+          "source": "https://fdc.nal.usda.gov/food-details/173471/nutrients",
+          "name": "Vanilla extract for frosting",
+          "state": "as purchased",
+          "note": ""
+        },
+        {
+          "quantity": "½ cup",
+          "status": "volume",
+          "grams": 60,
+          "source": "https://fdc.nal.usda.gov/food-details/169656/nutrients",
+          "name": "Powdered sugar",
+          "state": "unsifted",
+          "note": "Sift after measuring."
+        }
+      ],
+      "sideIngredient": null,
+      "sideOptions": [],
+      "steps": [
+        {
+          "title": "Mix",
+          "text": "Mix applesauce, sugar and egg; fold in dry ingredients, then carrots, coconut, pecans, cake vanilla and undrained pineapple."
+        },
+        {
+          "title": "Bake and cool",
+          "text": "Bake 35–40 minutes; a tester through the center must come out clean. Rest 10 minutes in the pan, then unmold and cool completely on a rack."
+        },
+        {
+          "title": "Frost",
+          "text": "Beat softened butter and cream cheese, then frosting vanilla and powdered sugar, until smooth. Spread frosting over the fully cooled cake. Refrigerate promptly; divide the finished cakes into the selected number of portions."
+        }
+      ],
+      "timeline": [
+        {
+          "phase": "Prepare",
+          "duration": "10 min",
+          "attention": "Mix and fill prepared pans."
+        },
+        {
+          "phase": "Bake",
+          "duration": "35–40 min",
+          "attention": "Test the center; time alone is insufficient."
+        },
+        {
+          "phase": "Cool and frost",
+          "duration": "At least 30 min",
+          "attention": "Wait until completely cool. Cooling may take longer."
+        }
+      ],
+      "tips": [
+        "Keep pan dimensions fixed when changing portions."
+      ],
+      "fallback": "Bake additional cakes in successive oven batches if matching pans do not fit.",
+      "limitations": [
+        "This adaptation has not been kitchen-tested. Cooling, pan material and oven capacity affect elapsed time.",
+        "Check packaged ingredients for allergens and vegetarian suitability. Optional unmeasured garnish is omitted.",
+        "Vegetarian eligibility is unverified until the cream cheese product ingredients are checked."
+      ],
+      "sources": [
+        {
+          "title": "Adapted from Zona House, Zona Cooks: Mini Carrot Cake",
+          "url": "https://zonacooks.com/carrot-cake/"
+        },
+        {
+          "title": "USDA SR Legacy ingredient records",
+          "url": "https://fdc.nal.usda.gov/download-datasets/"
+        }
+      ],
+      "nutrition": {
+        "kcal": 402.55329046875,
+        "protein_g": 4.735894502760417,
+        "carbs_g": 62.86072100491666,
+        "fiber_g": 2.158041666666666,
+        "net_carbs_g": 60.70267933824999,
+        "fat_g": 15.851693715458334
+      },
+      "nutritionHeading": "Nutrition per serving",
+      "nutritionPortionLabel": "per serving (1/4 of prepared batch)",
+      "nutritionModel": {
+        "fatBasis": "Ingredient total fat observations at measured edible weights; no calorie residual inference.",
+        "fatSources": [
+          "https://fdc.nal.usda.gov/food-details/171695/nutrients",
+          "https://fdc.nal.usda.gov/food-details/169655/nutrients",
+          "https://fdc.nal.usda.gov/food-details/171287/nutrients",
+          "https://fdc.nal.usda.gov/food-details/168936/nutrients",
+          "https://fdc.nal.usda.gov/food-details/175040/nutrients",
+          "https://fdc.nal.usda.gov/food-details/172803/nutrients",
+          "https://fdc.nal.usda.gov/food-details/173468/nutrients",
+          "https://fdc.nal.usda.gov/food-details/171320/nutrients",
+          "https://fdc.nal.usda.gov/food-details/170393/nutrients",
+          "https://fdc.nal.usda.gov/food-details/168586/nutrients",
+          "https://fdc.nal.usda.gov/food-details/170182/nutrients",
+          "https://fdc.nal.usda.gov/food-details/173471/nutrients",
+          "https://fdc.nal.usda.gov/food-details/169126/nutrients",
+          "https://fdc.nal.usda.gov/food-details/173430/nutrients",
+          "https://fdc.nal.usda.gov/food-details/173418/nutrients",
+          "https://fdc.nal.usda.gov/food-details/169656/nutrients"
+        ],
+        "fatAssumptions": []
+      },
+      "sideNutritionPerDiner": null,
+      "nutritionNote": "Ingredient-based estimates for one quarter of a complete cake, including pecans and frosting. Generic foods and reviewed portion weights differ from publisher nutrition.",
+      "allergens": [
+        "wheat",
+        "eggs",
+        "milk",
+        "tree nuts"
+      ],
+      "flavorRationale": "Carrot and pineapple keep the crumb moist; cream cheese frosting balances the sweetness.",
+      "disclaimer": "These recipes include household adaptations and recipes adapted from the linked publishers. The adaptations have not been kitchen-tested. Nutrition provenance and source limitations are listed with each recipe; missing nutrition stays unreported.",
+      "leftovers": "Keep frosted cake covered in the refrigerator. Do not reheat the frosting.",
+      "safety": "Keep raw egg and flour separate from frosting and serving tools. Do not taste uncooked batter. Refrigerate the frosted cake promptly.",
+      "image": {
+        "src": "/recipes/media/carrot-cake-960.webp",
+        "width": 960,
+        "height": 720,
+        "cardSrc": "/recipes/media/carrot-cake-480.webp",
+        "cardSrcset": "/recipes/media/carrot-cake-480.webp 480w, /recipes/media/carrot-cake-960.webp 960w",
+        "detailSrcset": "/recipes/media/carrot-cake-480.webp 480w, /recipes/media/carrot-cake-960.webp 960w, /recipes/media/carrot-cake-1440.webp 1440w",
+        "alt": "Illustration of carrot cake with pineapple, coconut and pecans in the crumb and cream cheese frosting.",
+        "caption": "AI-generated illustration; appearance and portions are approximate.",
+        "styleVersion": "warm-overhead-v1"
+      }
     }
   ]
 }

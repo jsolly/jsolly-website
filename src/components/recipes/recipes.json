@@ -110151,6 +110151,803 @@
 				"fiber_g": 1,
 				"net_carbs_g": 3
 			}
+		},
+		{
+			"id": "carrot-cake",
+			"key": "carrot_cake",
+			"title": "Carrot cake",
+			"proteinType": "eggs",
+			"vegetarian": false,
+			"appliance": "oven",
+			"appliancesNeeded": [
+				"Oven"
+			],
+			"type": "meal",
+			"activeMinutes": 10,
+			"totalMin": 75,
+			"totalMax": 80,
+			"timeVariable": true,
+			"summary": "A small carrot cake with pineapple, coconut, pecans and cream cheese frosting. Dessert, four slices per cake.",
+			"allergens": [
+				"wheat",
+				"eggs",
+				"milk",
+				"tree nuts"
+			],
+			"boosters": [],
+			"starches": [
+				"bread",
+				"fruit"
+			],
+			"ingredients": [
+				{
+					"id": "applesauce",
+					"name": "Unsweetened cinnamon applesauce",
+					"state": "as purchased",
+					"amount": 0.3333333333333333,
+					"unit": "cup",
+					"category": "pantry",
+					"note": "",
+					"scale": "whole-batch",
+					"batchServings": 4,
+					"weightRef": "usda-171695",
+					"sourceIngredientId": "applesauce",
+					"measurementProvenance": {
+						"original": {
+							"name": "Unsweetened cinnamon applesauce",
+							"state": "as purchased",
+							"amount": 0.3333333333333333,
+							"unit": "cup",
+							"note": ""
+						},
+						"sourceIngredientId": "applesauce",
+						"reviewedOn": "2026-10-22",
+						"massBasis": "edible",
+						"decision": "Retain published quantity with explicit USDA cooking weight. "
+					}
+				},
+				{
+					"id": "sugar",
+					"name": "Granulated sugar",
+					"state": "as purchased",
+					"amount": 0.5,
+					"unit": "cup",
+					"category": "pantry",
+					"note": "",
+					"scale": "whole-batch",
+					"batchServings": 4,
+					"weightRef": "usda-169655",
+					"sourceIngredientId": "sugar",
+					"measurementProvenance": {
+						"original": {
+							"name": "Granulated sugar",
+							"state": "as purchased",
+							"amount": 0.5,
+							"unit": "cup",
+							"note": ""
+						},
+						"sourceIngredientId": "sugar",
+						"reviewedOn": "2026-10-22",
+						"massBasis": "edible",
+						"decision": "Retain published quantity with explicit USDA cooking weight. "
+					}
+				},
+				{
+					"id": "egg",
+					"name": "Egg",
+					"state": "raw, without shell; beaten",
+					"amount": 1,
+					"unit": "count",
+					"category": "pantry",
+					"note": "Use a small egg; weigh beaten egg for consistent batches.",
+					"scale": "whole-batch",
+					"batchServings": 4,
+					"weightRef": "usda-171287-small",
+					"sourceIngredientId": "egg",
+					"measurementProvenance": {
+						"original": {
+							"name": "Egg",
+							"state": "raw, without shell; beaten",
+							"amount": 1,
+							"unit": "count",
+							"note": "Use a small egg; weigh beaten egg for consistent batches."
+						},
+						"sourceIngredientId": "egg",
+						"reviewedOn": "2026-10-22",
+						"massBasis": "edible",
+						"decision": "Retain published quantity with explicit USDA cooking weight. "
+					}
+				},
+				{
+					"id": "flour",
+					"name": "All-purpose flour",
+					"state": "spooned and leveled",
+					"amount": 0.5,
+					"unit": "cup",
+					"category": "pantry",
+					"note": "",
+					"scale": "whole-batch",
+					"batchServings": 4,
+					"weightRef": "usda-168936",
+					"sourceIngredientId": "flour",
+					"measurementProvenance": {
+						"original": {
+							"name": "All-purpose flour",
+							"state": "spooned and leveled",
+							"amount": 0.5,
+							"unit": "cup",
+							"note": ""
+						},
+						"sourceIngredientId": "flour",
+						"reviewedOn": "2026-10-22",
+						"massBasis": "edible",
+						"decision": "Retain published quantity with explicit USDA cooking weight. "
+					}
+				},
+				{
+					"id": "baking_soda",
+					"name": "Baking soda",
+					"state": "as purchased",
+					"amount": 0.25,
+					"unit": "tsp",
+					"category": "pantry",
+					"note": "",
+					"scale": "whole-batch",
+					"batchServings": 4,
+					"weightRef": "usda-175040",
+					"sourceIngredientId": "baking_soda",
+					"measurementProvenance": {
+						"original": {
+							"name": "Baking soda",
+							"state": "as purchased",
+							"amount": 0.25,
+							"unit": "tsp",
+							"note": ""
+						},
+						"sourceIngredientId": "baking_soda",
+						"reviewedOn": "2026-10-22",
+						"massBasis": "edible",
+						"decision": "Retain published quantity with explicit USDA cooking weight. "
+					}
+				},
+				{
+					"id": "baking_powder",
+					"name": "Double-acting baking powder",
+					"state": "as purchased",
+					"amount": 0.5,
+					"unit": "tsp",
+					"category": "pantry",
+					"note": "",
+					"scale": "whole-batch",
+					"batchServings": 4,
+					"weightRef": "usda-172803",
+					"sourceIngredientId": "baking_powder",
+					"measurementProvenance": {
+						"original": {
+							"name": "Double-acting baking powder",
+							"state": "as purchased",
+							"amount": 0.5,
+							"unit": "tsp",
+							"note": ""
+						},
+						"sourceIngredientId": "baking_powder",
+						"reviewedOn": "2026-10-22",
+						"massBasis": "edible",
+						"decision": "Retain published quantity with explicit USDA cooking weight. "
+					}
+				},
+				{
+					"id": "salt",
+					"name": "Fine salt",
+					"state": "as purchased",
+					"amount": 0.125,
+					"unit": "tsp",
+					"category": "pantry",
+					"note": "",
+					"scale": "whole-batch",
+					"batchServings": 4,
+					"weightRef": "usda-173468",
+					"sourceIngredientId": "salt",
+					"measurementProvenance": {
+						"original": {
+							"name": "Fine salt",
+							"state": "as purchased",
+							"amount": 0.125,
+							"unit": "tsp",
+							"note": ""
+						},
+						"sourceIngredientId": "salt",
+						"reviewedOn": "2026-10-22",
+						"massBasis": "edible",
+						"decision": "Retain published quantity with explicit USDA cooking weight. "
+					}
+				},
+				{
+					"id": "cinnamon",
+					"name": "Ground cinnamon",
+					"state": "ground",
+					"amount": 0.25,
+					"unit": "tsp",
+					"category": "pantry",
+					"note": "",
+					"scale": "whole-batch",
+					"batchServings": 4,
+					"weightRef": "usda-171320",
+					"sourceIngredientId": "cinnamon",
+					"measurementProvenance": {
+						"original": {
+							"name": "Ground cinnamon",
+							"state": "ground",
+							"amount": 0.25,
+							"unit": "tsp",
+							"note": ""
+						},
+						"sourceIngredientId": "cinnamon",
+						"reviewedOn": "2026-10-22",
+						"massBasis": "edible",
+						"decision": "Retain published quantity with explicit USDA cooking weight. "
+					}
+				},
+				{
+					"id": "carrot",
+					"name": "Carrots",
+					"state": "peeled and grated",
+					"amount": 0.5,
+					"unit": "cup",
+					"category": "produce",
+					"note": "",
+					"scale": "whole-batch",
+					"batchServings": 4,
+					"weightRef": "usda-170393-grated",
+					"sourceIngredientId": "carrot",
+					"measurementProvenance": {
+						"original": {
+							"name": "Carrots",
+							"state": "peeled and grated",
+							"amount": 0.5,
+							"unit": "cup",
+							"note": ""
+						},
+						"sourceIngredientId": "carrot",
+						"reviewedOn": "2026-10-22",
+						"massBasis": "edible",
+						"decision": "Retain published quantity with explicit USDA cooking weight. "
+					}
+				},
+				{
+					"id": "coconut",
+					"name": "Sweetened shredded coconut",
+					"state": "dried, sweetened",
+					"amount": 0.25,
+					"unit": "cup",
+					"category": "pantry",
+					"note": "",
+					"scale": "whole-batch",
+					"batchServings": 4,
+					"weightRef": "usda-168586",
+					"sourceIngredientId": "coconut",
+					"measurementProvenance": {
+						"original": {
+							"name": "Sweetened shredded coconut",
+							"state": "dried, sweetened",
+							"amount": 0.25,
+							"unit": "cup",
+							"note": ""
+						},
+						"sourceIngredientId": "coconut",
+						"reviewedOn": "2026-10-22",
+						"massBasis": "edible",
+						"decision": "Retain published quantity with explicit USDA cooking weight. "
+					}
+				},
+				{
+					"id": "pecans",
+					"name": "Pecans",
+					"state": "chopped",
+					"amount": 0.25,
+					"unit": "cup",
+					"category": "pantry",
+					"note": "Included in this version.",
+					"scale": "whole-batch",
+					"batchServings": 4,
+					"weightRef": "usda-170182-chopped",
+					"sourceIngredientId": "pecans",
+					"measurementProvenance": {
+						"original": {
+							"name": "Pecans",
+							"state": "chopped",
+							"amount": 0.25,
+							"unit": "cup",
+							"note": "Included in this version."
+						},
+						"sourceIngredientId": "pecans",
+						"reviewedOn": "2026-10-22",
+						"massBasis": "edible",
+						"decision": "Retain published quantity with explicit USDA cooking weight. Include the optional measured pecans; omit unmeasured garnish."
+					}
+				},
+				{
+					"id": "cake_vanilla",
+					"name": "Vanilla extract for cake",
+					"state": "as purchased",
+					"amount": 0.25,
+					"unit": "tsp",
+					"category": "pantry",
+					"note": "",
+					"scale": "whole-batch",
+					"batchServings": 4,
+					"weightRef": "usda-173471",
+					"sourceIngredientId": "cake_vanilla",
+					"measurementProvenance": {
+						"original": {
+							"name": "Vanilla extract for cake",
+							"state": "as purchased",
+							"amount": 0.25,
+							"unit": "tsp",
+							"note": ""
+						},
+						"sourceIngredientId": "cake_vanilla",
+						"reviewedOn": "2026-10-22",
+						"massBasis": "edible",
+						"decision": "Retain published quantity with explicit USDA cooking weight. "
+					}
+				},
+				{
+					"id": "pineapple",
+					"name": "Crushed pineapple in juice",
+					"state": "undrained",
+					"amount": 0.25,
+					"unit": "cup",
+					"category": "produce",
+					"note": "Include the juice.",
+					"scale": "whole-batch",
+					"batchServings": 4,
+					"weightRef": "usda-169126-undrained",
+					"sourceIngredientId": "pineapple",
+					"measurementProvenance": {
+						"original": {
+							"name": "Crushed pineapple in juice",
+							"state": "undrained",
+							"amount": 0.25,
+							"unit": "cup",
+							"note": "Include the juice."
+						},
+						"sourceIngredientId": "pineapple",
+						"reviewedOn": "2026-10-22",
+						"massBasis": "edible",
+						"decision": "Retain published quantity with explicit USDA cooking weight. "
+					}
+				},
+				{
+					"id": "butter",
+					"name": "Unsalted butter",
+					"state": "softened",
+					"amount": 1,
+					"unit": "tbsp",
+					"category": "pantry",
+					"note": "",
+					"scale": "whole-batch",
+					"batchServings": 4,
+					"weightRef": "usda-173430",
+					"sourceIngredientId": "butter",
+					"measurementProvenance": {
+						"original": {
+							"name": "Unsalted butter",
+							"state": "softened",
+							"amount": 1,
+							"unit": "tbsp",
+							"note": ""
+						},
+						"sourceIngredientId": "butter",
+						"reviewedOn": "2026-10-22",
+						"massBasis": "edible",
+						"decision": "Retain published quantity with explicit USDA cooking weight. "
+					}
+				},
+				{
+					"id": "cream_cheese",
+					"name": "Cream cheese",
+					"state": "full-fat, softened",
+					"amount": 2,
+					"unit": "oz",
+					"category": "pantry",
+					"note": "Use a product with vegetarian-compatible ingredients.",
+					"scale": "whole-batch",
+					"batchServings": 4,
+					"weightRef": "usda-173418",
+					"sourceIngredientId": "cream_cheese",
+					"measurementProvenance": {
+						"original": {
+							"name": "Cream cheese",
+							"state": "full-fat, softened",
+							"amount": 2,
+							"unit": "oz",
+							"note": "Use a product with vegetarian-compatible ingredients."
+						},
+						"sourceIngredientId": "cream_cheese",
+						"reviewedOn": "2026-10-22",
+						"massBasis": "edible",
+						"decision": "Retain published quantity with explicit USDA cooking weight. "
+					}
+				},
+				{
+					"id": "frosting_vanilla",
+					"name": "Vanilla extract for frosting",
+					"state": "as purchased",
+					"amount": 0.25,
+					"unit": "tsp",
+					"category": "pantry",
+					"note": "",
+					"scale": "whole-batch",
+					"batchServings": 4,
+					"weightRef": "usda-173471",
+					"sourceIngredientId": "frosting_vanilla",
+					"measurementProvenance": {
+						"original": {
+							"name": "Vanilla extract for frosting",
+							"state": "as purchased",
+							"amount": 0.25,
+							"unit": "tsp",
+							"note": ""
+						},
+						"sourceIngredientId": "frosting_vanilla",
+						"reviewedOn": "2026-10-22",
+						"massBasis": "edible",
+						"decision": "Retain published quantity with explicit USDA cooking weight. "
+					}
+				},
+				{
+					"id": "powdered_sugar",
+					"name": "Powdered sugar",
+					"state": "unsifted",
+					"amount": 0.5,
+					"unit": "cup",
+					"category": "pantry",
+					"note": "Sift after measuring.",
+					"scale": "whole-batch",
+					"batchServings": 4,
+					"weightRef": "usda-169656-unsifted",
+					"sourceIngredientId": "powdered_sugar",
+					"measurementProvenance": {
+						"original": {
+							"name": "Powdered sugar",
+							"state": "unsifted",
+							"amount": 0.5,
+							"unit": "cup",
+							"note": "Sift after measuring."
+						},
+						"sourceIngredientId": "powdered_sugar",
+						"reviewedOn": "2026-10-22",
+						"massBasis": "edible",
+						"decision": "Retain published quantity with explicit USDA cooking weight. "
+					}
+				}
+			],
+			"steps": [
+				{
+					"title": "Mix",
+					"text": "Mix applesauce, sugar and egg; fold in dry ingredients, then carrots, coconut, pecans, cake vanilla and undrained pineapple."
+				},
+				{
+					"title": "Bake and cool",
+					"text": "Bake 35–40 minutes; a tester through the center must come out clean. Rest 10 minutes in the pan, then unmold and cool completely on a rack."
+				},
+				{
+					"title": "Frost",
+					"text": "Beat softened butter and cream cheese, then frosting vanilla and powdered sugar, until smooth. Spread frosting over the fully cooled cake. Refrigerate promptly; divide the finished cakes into the selected number of portions."
+				}
+			],
+			"equipment": [
+				"6-inch round cake pan; two matching pans for 6 or 8 portions",
+				"Parchment, mixing bowls, mixer and cooling rack"
+			],
+			"timeline": [
+				{
+					"phase": "Prepare",
+					"duration": "10 min",
+					"attention": "Mix and fill prepared pans."
+				},
+				{
+					"phase": "Bake",
+					"duration": "35–40 min",
+					"attention": "Test the center; time alone is insufficient."
+				},
+				{
+					"phase": "Cool and frost",
+					"duration": "At least 30 min",
+					"attention": "Wait until completely cool. Cooling may take longer."
+				}
+			],
+			"tips": [
+				"Keep pan dimensions fixed when changing portions."
+			],
+			"fallback": "Bake additional cakes in successive oven batches if matching pans do not fit.",
+			"limitations": [
+				"This adaptation has not been kitchen-tested. Cooling, pan material and oven capacity affect elapsed time.",
+				"Check packaged ingredients for allergens and vegetarian suitability. Optional unmeasured garnish is omitted.",
+				"Vegetarian eligibility is unverified until the cream cheese product ingredients are checked."
+			],
+			"sources": [
+				{
+					"title": "Adapted from Zona House, Zona Cooks: Mini Carrot Cake",
+					"url": "https://zonacooks.com/carrot-cake/"
+				},
+				{
+					"title": "USDA SR Legacy ingredient records",
+					"url": "https://fdc.nal.usda.gov/download-datasets/"
+				}
+			],
+			"nutrition": {
+				"kcal": 402.55329046875,
+				"protein_g": 4.735894502760417,
+				"carbs_g": 62.86072100491666,
+				"fiber_g": 2.158041666666666,
+				"net_carbs_g": 60.70267933824999
+			},
+			"familyOptions": [],
+			"attentionSummary": "No scheduled mid-bake addition; test doneness, cool completely, then frost.",
+			"flavorRationale": "Carrot and pineapple keep the crumb moist; cream cheese frosting balances the sweetness.",
+			"midCookActions": 0,
+			"dumpAndGo": false,
+			"leftovers": "Keep frosted cake covered in the refrigerator. Do not reheat the frosting.",
+			"safety": "Keep raw egg and flour separate from frosting and serving tools. Do not taste uncooked batter. Refrigerate the frosted cake promptly.",
+			"sourceRecipe": {
+				"url": "https://zonacooks.com/carrot-cake/",
+				"author": "Zona House",
+				"originalServings": 4,
+				"scaleToFour": 1,
+				"nutritionBasis": "Ingredient-based estimates for one quarter of a complete cake, including pecans and frosting. Generic foods and reviewed portion weights differ from publisher nutrition.",
+				"sourceNutrition": {
+					"kcal": 414,
+					"protein_g": 5,
+					"carbs_g": 62,
+					"fiber_g": 3,
+					"fat_g": 18
+				},
+				"nutritionEstimate": {
+					"method": "Measured edible grams times USDA nutrients per 100 g, divided by four; all ingredients counted, no retention adjustment. Whole-cake scaling preserves pan geometry.",
+					"estimatedMacroFields": [
+						"kcal",
+						"protein_g",
+						"carbs_g",
+						"fiber_g",
+						"net_carbs_g"
+					],
+					"publisherBaselineFields": [],
+					"ingredientSnapshot": [
+						{
+							"id": "applesauce",
+							"name": "Unsweetened cinnamon applesauce",
+							"amount": 0.3333333333333333,
+							"unit": "cup",
+							"state": "as purchased"
+						},
+						{
+							"id": "sugar",
+							"name": "Granulated sugar",
+							"amount": 0.5,
+							"unit": "cup",
+							"state": "as purchased"
+						},
+						{
+							"id": "egg",
+							"name": "Egg",
+							"amount": 1,
+							"unit": "count",
+							"state": "raw, without shell; beaten"
+						},
+						{
+							"id": "flour",
+							"name": "All-purpose flour",
+							"amount": 0.5,
+							"unit": "cup",
+							"state": "spooned and leveled"
+						},
+						{
+							"id": "baking_soda",
+							"name": "Baking soda",
+							"amount": 0.25,
+							"unit": "tsp",
+							"state": "as purchased"
+						},
+						{
+							"id": "baking_powder",
+							"name": "Double-acting baking powder",
+							"amount": 0.5,
+							"unit": "tsp",
+							"state": "as purchased"
+						},
+						{
+							"id": "salt",
+							"name": "Fine salt",
+							"amount": 0.125,
+							"unit": "tsp",
+							"state": "as purchased"
+						},
+						{
+							"id": "cinnamon",
+							"name": "Ground cinnamon",
+							"amount": 0.25,
+							"unit": "tsp",
+							"state": "ground"
+						},
+						{
+							"id": "carrot",
+							"name": "Carrots",
+							"amount": 0.5,
+							"unit": "cup",
+							"state": "peeled and grated"
+						},
+						{
+							"id": "coconut",
+							"name": "Sweetened shredded coconut",
+							"amount": 0.25,
+							"unit": "cup",
+							"state": "dried, sweetened"
+						},
+						{
+							"id": "pecans",
+							"name": "Pecans",
+							"amount": 0.25,
+							"unit": "cup",
+							"state": "chopped"
+						},
+						{
+							"id": "cake_vanilla",
+							"name": "Vanilla extract for cake",
+							"amount": 0.25,
+							"unit": "tsp",
+							"state": "as purchased"
+						},
+						{
+							"id": "pineapple",
+							"name": "Crushed pineapple in juice",
+							"amount": 0.25,
+							"unit": "cup",
+							"state": "undrained"
+						},
+						{
+							"id": "butter",
+							"name": "Unsalted butter",
+							"amount": 1,
+							"unit": "tbsp",
+							"state": "softened"
+						},
+						{
+							"id": "cream_cheese",
+							"name": "Cream cheese",
+							"amount": 2,
+							"unit": "oz",
+							"state": "full-fat, softened"
+						},
+						{
+							"id": "frosting_vanilla",
+							"name": "Vanilla extract for frosting",
+							"amount": 0.25,
+							"unit": "tsp",
+							"state": "as purchased"
+						},
+						{
+							"id": "powdered_sugar",
+							"name": "Powdered sugar",
+							"amount": 0.5,
+							"unit": "cup",
+							"state": "unsifted"
+						}
+					],
+					"assumptions": [
+						"Generic USDA foods estimate all measured ingredients with no cooking-retention adjustment. Brands, moisture loss and frosting left in the bowl vary.",
+						"Unsweetened generic applesauce is a proxy for unsweetened cinnamon applesauce. Coconut is sweetened shredded; pineapple includes juice; pecans are included.",
+						"One small egg is 38 g edible; flour is 125 g per cup and powdered sugar is 120 g per unsifted cup. These cooking weights are reviewed assumptions, not publisher gram measurements."
+					]
+				}
+			},
+			"flow": {
+				"prep": [
+					"Heat oven to 350°F. Prepare a 6-inch round pan with cookware spray and a parchment base.",
+					"Make one complete cake for 2 or 4 portions, two cakes for 6 or 8. Divide batter equally between identical pans; never deepen one pan. Timing is per oven batch.",
+					"Wash and peel carrots. Keep egg and flour off ready-to-eat surfaces. Do not taste raw batter."
+				],
+				"root": {
+					"action": "Spread frosting over the fully cooled cake. Refrigerate promptly; divide the finished cakes into the selected number of portions.",
+					"children": [
+						{
+							"action": "Bake 35–40 minutes; a tester through the center must come out clean. Rest 10 minutes in the pan, then unmold and cool completely on a rack.",
+							"children": [
+								{
+									"action": "Mix applesauce, sugar and egg; fold in dry ingredients, then carrots, coconut, pecans, cake vanilla and undrained pineapple.",
+									"children": [
+										{
+											"ingredientId": "applesauce",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "sugar",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "egg",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "flour",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "baking_soda",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "baking_powder",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "salt",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "cinnamon",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "carrot",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "coconut",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "pecans",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "cake_vanilla",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "pineapple",
+											"fraction": 1
+										}
+									]
+								}
+							]
+						},
+						{
+							"action": "Beat softened butter and cream cheese, then frosting vanilla and powdered sugar, until smooth.",
+							"children": [
+								{
+									"ingredientId": "butter",
+									"fraction": 1
+								},
+								{
+									"ingredientId": "cream_cheese",
+									"fraction": 1
+								},
+								{
+									"ingredientId": "frosting_vanilla",
+									"fraction": 1
+								},
+								{
+									"ingredientId": "powdered_sugar",
+									"fraction": 1
+								}
+							]
+						}
+					]
+				}
+			},
+			"image": {
+				"src": "/recipes/media/carrot-cake-960.webp",
+				"width": 960,
+				"height": 720,
+				"cardSrc": "/recipes/media/carrot-cake-480.webp",
+				"cardSrcset": "/recipes/media/carrot-cake-480.webp 480w, /recipes/media/carrot-cake-960.webp 960w",
+				"detailSrcset": "/recipes/media/carrot-cake-480.webp 480w, /recipes/media/carrot-cake-960.webp 960w, /recipes/media/carrot-cake-1440.webp 1440w",
+				"alt": "Illustration of carrot cake with pineapple, coconut and pecans in the crumb and cream cheese frosting.",
+				"caption": "AI-generated illustration; appearance and portions are approximate.",
+				"styleVersion": "warm-overhead-v1"
+			}
 		}
 	],
 	"measurementMigration": "reviewed-measurements-2026-10-15"

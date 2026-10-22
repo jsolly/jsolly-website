@@ -35,14 +35,14 @@ changes still require `npm run gate`. The full gate always disables preview mode
 
 ## Data contract
 
-The canonical data is `src/components/recipes/recipes.json` (140 meals and 6
+The canonical data is `src/components/recipes/recipes.json` (141 non-smoothie recipes and 6
 smoothies, pinned by `scripts/unit/recipe-data.test.mjs`) and `src/components/recipes/nutrition-data.json` (the
 Daily Value nutrients and each recipe's per-ingredient nutrient rows). Recipe
 ids are stable: each is a page slug (`/recipes/<id>/`) and a fragment id
 (`/recipes/#<id>` opens it in the library dialog), and old links use both.
 Images are files under `public/recipes/media/`, referenced as `/recipes/media/...`.
 
-The 125 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Unmeasured cooking spray used only to prepare cookware belongs in flow preparation directions, including any optional use or device-manual conditions, rather than ingredient rows. Measured oil-or-spray alternatives remain ingredients. Every food ingredient has a positive measured quantity. Missing and to-taste source amounts have reviewed measured defaults, with the original source retained in measurement provenance. Missing nutrition and times display as "Not provided". The 72 recipes that previously lacked complete macros now carry labeled nutrition estimates used by the same base-recipe dietary classification. Every publisher adaptation has an ingredient nutrient model. Missing nutrient observations do not qualify for nutrient filters. Prep time is distinguished from household active time. The browser keeps concise source attribution and cooking instructions; provenance and nutrition assumptions remain in canonical data and assistant downloads. Cooking guidance from source limitations belongs in the flow. Mobile renders the same ingredient allocation tree vertically, preserving branch joins and shared cooking checks; desktop and print retain the table.
+The 126 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Unmeasured cooking spray used only to prepare cookware belongs in flow preparation directions, including any optional use or device-manual conditions, rather than ingredient rows. Measured oil-or-spray alternatives remain ingredients. Every food ingredient has a positive measured quantity. Missing and to-taste source amounts have reviewed measured defaults, with the original source retained in measurement provenance. Missing nutrition and times display as "Not provided". The 72 recipes that previously lacked complete macros now carry labeled nutrition estimates used by the same base-recipe dietary classification. Every publisher adaptation has an ingredient nutrient model. Missing nutrient observations do not qualify for nutrient filters. Prep time is distinguished from household active time. The browser keeps concise source attribution and cooking instructions; provenance and nutrition assumptions remain in canonical data and assistant downloads. Cooking guidance from source limitations belongs in the flow. Mobile renders the same ingredient allocation tree vertically, preserving branch joins and shared cooking checks; desktop and print retain the table.
 
 Every recipe has a first-party illustration under the [image contract](recipe-images.md), with illustration provenance retained in its image metadata and downloads.
 
@@ -154,7 +154,7 @@ reviewing the method and the nutrition.
 
 ### Nutrition estimates
 
-All 146 recipes have calories, protein, total fat, total carbohydrate, fiber and net carbohydrate.
+All 147 recipes have calories, protein, total fat, total carbohydrate, fiber and net carbohydrate.
 Total fat appears with the main macros and in Markdown and JSON downloads. Meals
 identify a serving as one fraction of the selected prepared batch; smoothies
 identify an estimated 8 fl oz (237 mL) glass. A meal fraction is not a measured
@@ -507,6 +507,12 @@ the complete assistant downloads are online resources. `/release.json` is never
 served by the worker. The root `/recipes.md` sibling is available to controlled
 clients but lies outside the worker's navigation scope.
 
+The browse API at `/api/recipe-browse/` always uses the network. Browsers with
+`InstallEvent.addRoutes` route it there before starting the worker, so background
+summary requests cannot restart an outgoing worker during explicit activation.
+Other browsers retain the fetch-handler bypass. These rules take effect after
+the worker containing them activates; they cannot change an older active worker.
+
 A connected visit or throttled online focus/reconnection check can download an
 updated shell. **Update and reload** activates that verified release and reloads
 only the requesting tab. Other tabs retain their cooking view until they choose
@@ -582,3 +588,18 @@ Dump and go identifies recipes that load the cooker and start without separate
 browning or mid-cook additions. Preparation and finishing can still be needed.
 The flag is explicitly reviewed recipe metadata, not inferred from elapsed time
 or a zero mid-cook action count.
+
+### Carrot cake
+
+`carrot-cake` is a dessert listed with the non-smoothie collection. It adapts
+[Zona House's Mini Carrot Cake](https://zonacooks.com/carrot-cake/).
+It includes the measured pecans and omits unmeasured garnish. Ingredient weights
+and nutrition source observations are recorded in
+`recipes-evidence/carrot-cake-2026-10-22.json`. Generic applesauce models the
+cinnamon-flavored product; brands and unobserved spice remain limitations.
+
+All ingredients use whole-cake scaling: one complete 6-inch cake for 2 or 4
+portions, two matching cakes for 6 or 8. Pan depth and baking time stay fixed;
+extra oven batches and cooling can extend total time. Two portions are larger
+than the default four slices. The adaptation has not been kitchen-tested.
+Recipe-owned storage and safety guidance keeps the frosted dessert chilled.

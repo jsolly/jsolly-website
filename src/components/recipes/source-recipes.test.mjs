@@ -42,7 +42,7 @@ it("source metadata exports accept reactive proxies and retain resolved publishe
 
 it("publisher adaptations retain their IDs, attribution and nutrition provenance in JSON downloads", () => {
 	const adapted = data.recipes.filter((r) => r.sourceRecipe);
-	assert.equal(adapted.length, 125);
+	assert.equal(adapted.length, 126);
 	// The source gives 32 ounces of bone-in chops; model 80% edible weight, not pounds.
 	const porkRows =
 		nutritionData.recipes[
@@ -53,7 +53,7 @@ it("publisher adaptations retain their IDs, attribution and nutrition provenance
 			porkRows.find((row) => row.food === "ingredient-1").grams - 725.747792,
 		) < 0.000001,
 	);
-	assert.equal(new Set(data.recipes.map((r) => r.id)).size, 146);
+	assert.equal(new Set(data.recipes.map((r) => r.id)).size, 147);
 	for (const recipe of adapted) {
 		const document = JSON.parse(JSON.stringify(recipeDocument(recipe)));
 		assert.deepEqual(document.sourceRecipe, recipe.sourceRecipe, recipe.id);
@@ -84,12 +84,12 @@ it("every recipe has macros and publisher estimates retain ingredient evidence w
 		);
 	}
 	const adapted = data.recipes.filter((recipe) => recipe.sourceRecipe);
-	assert.equal(adapted.length, 125);
+	assert.equal(adapted.length, 126);
 	assert.equal(
 		adapted.filter(
 			(recipe) =>
-				recipe.sourceRecipe.preMeasurementNutritionEstimate.estimatedMacroFields
-					.length,
+				recipe.sourceRecipe.preMeasurementNutritionEstimate
+					?.estimatedMacroFields?.length,
 		).length,
 		72,
 	);

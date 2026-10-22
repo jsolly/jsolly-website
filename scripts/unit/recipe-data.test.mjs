@@ -100,7 +100,7 @@ it("recipes:check reports an edited and a missing assistant download as drift", 
 	}
 });
 
-it("every recipe is a meal or a smoothie: 140 meals and 6 smoothies", () => {
+it("every recipe is a meal or a smoothie: 141 meals and 6 smoothies", () => {
 	for (const recipe of data.recipes)
 		assert.equal(
 			Object.hasOwn(recipe, "group"),
@@ -112,7 +112,7 @@ it("every recipe is a meal or a smoothie: 140 meals and 6 smoothies", () => {
 		Object.fromEntries(
 			Object.entries(counts).map(([type, recipes]) => [type, recipes.length]),
 		),
-		{ meal: 140, smoothie: 6 },
+		{ meal: 141, smoothie: 6 },
 	);
 });
 
