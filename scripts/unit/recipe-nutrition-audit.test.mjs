@@ -19,7 +19,7 @@ const FAT_GRAMS = /fat: [\d.]+ g/u;
 
 it("every recipe has traceable fat and reviewed calorie agreement for every supported portion", () => {
 	const audit = auditNutrition();
-	assert.equal(audit.recipeCount, 146);
+	assert.equal(audit.recipeCount, 147);
 	assert.equal(
 		audit.ingredientCount,
 		recipes.recipes.reduce((sum, recipe) => sum + recipe.ingredients.length, 0),

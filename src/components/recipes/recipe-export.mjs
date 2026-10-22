@@ -152,13 +152,16 @@ export function recipeDocument(recipe, settings = {}) {
 		flavorRationale: recipe.flavorRationale,
 		disclaimer: recipeDisclaimer,
 		leftovers: text(
-			smoothie
-				? "Serve chilled immediately for best texture; refrigerate any remainder promptly."
-				: mealLeftovers,
+			recipe.leftovers ??
+				(smoothie
+					? "Serve chilled immediately for best texture; refrigerate any remainder promptly."
+					: mealLeftovers),
 		),
-		safety: smoothie
-			? "Wash fresh produce and use a clean blender. Keep yogurt and finished smoothies chilled."
-			: "Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test.",
+		safety:
+			recipe.safety ||
+			(smoothie
+				? "Wash fresh produce and use a clean blender. Keep yogurt and finished smoothies chilled."
+				: "Prepare cold sides first. Keep raw-poultry tools separate; use clean serving utensils. Probe more than one thick piece. A timer is not a doneness test."),
 		image: recipe.image ? { ...recipe.image } : null,
 	};
 }

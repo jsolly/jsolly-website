@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
+import { cp, mkdtemp, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { it } from "vitest";
-import { collectErrors } from "./pages.mjs";
+import { collectErrors, serveStatic } from "./pages.mjs";
 import {
 	browser,
 	dataLabel,
@@ -20,6 +22,156 @@ import {
 	VIEWPORTS,
 	waitForBrowserState,
 } from "./recipes-pwa-fixture.mjs";
+
+const FETCH_FAILED = /Failed to fetch/u;
+
+it("Live browse JSON never restarts a stopped recipe worker", {
+	timeout: 30_000,
+}, async () => {
+	await serve("A");
+	const context = await browser.newContext();
+	try {
+		const page = await context.newPage();
+		await navigateHydrated(page, `${site.origin}${LANDING}`);
+		await statusText(page, SAVED);
+		await page.waitForFunction(() => navigator.serviceWorker.controller);
+		// An inert controlled document isolates the request from background browse
+		// batches and automatic update checks in the real app document.
+		await context.route("**/recipes/cold-worker-probe/", (route) =>
+			route.fulfill({ contentType: "text/html", body: "<!doctype html>" }),
+		);
+		await page.goto(`${site.origin}/recipes/cold-worker-probe/`);
+		assert.equal(
+			await page.evaluate(() => navigator.serviceWorker.controller?.scriptURL),
+			`${site.origin}/recipes/service-worker.js`,
+		);
+		const browse = () =>
+			page.evaluate(async () => {
+				const response = await fetch(
+					`/api/recipe-browse/?path=%2Frecipes%2Fmeals%2F&browse=1&release=${"a".repeat(40)}`,
+					{ headers: { Accept: "application/json" } },
+				);
+				return { status: response.status, body: await response.json() };
+			});
+		// Establish offline behavior before attaching the protocol observer or
+		// stopping workers, which can interfere with emulation changes in Chromium.
+		await context.setOffline(true);
+		await assert.rejects(browse(), FETCH_FAILED);
+		await context.setOffline(false);
+		const session = await context.newCDPSession(page);
+		const active = Promise.withResolvers();
+		const stopped = Promise.withResolvers();
+		const wakes = [];
+		let versionId;
+		let runningStatus;
+		session.on("ServiceWorker.workerVersionUpdated", ({ versions }) => {
+			for (const version of versions) {
+				if (
+					version.scriptURL === `${site.origin}/recipes/service-worker.js` &&
+					version.status === "activated"
+				) {
+					versionId = version.versionId;
+					active.resolve();
+				}
+				if (version.versionId !== versionId) continue;
+				runningStatus = version.runningStatus;
+				if (version.runningStatus === "stopped") stopped.resolve();
+				else wakes.push(version.runningStatus);
+			}
+		});
+		await session.send("ServiceWorker.enable");
+		await active.promise;
+		await session.send("ServiceWorker.stopAllWorkers");
+		await stopped.promise;
+		wakes.length = 0;
+		const online = await browse();
+		assert.equal(online.status, 200);
+		assert.equal(online.body.release, "a".repeat(40));
+		assert.equal(runningStatus, "stopped");
+		assert.deepEqual(wakes, [], "online browsing does not restart worker A");
+		await serve("B");
+		assert.deepEqual(await browse(), {
+			status: 409,
+			body: {
+				error: "Recipes have updated. Reload the collection to continue.",
+				release: "b".repeat(40),
+			},
+		});
+		assert.equal(runningStatus, "stopped");
+		assert.deepEqual(
+			wakes,
+			[],
+			"a stale client reaches the live B API directly",
+		);
+		await session.detach();
+	} finally {
+		await context.close();
+	}
+});
+
+it("Recipe workers still install when static routing is unavailable", {
+	timeout: 30_000,
+}, async () => {
+	const directory = await mkdtemp(join(tmpdir(), "recipe-no-static-routing-"));
+	let local;
+	let context;
+	try {
+		await cp(snapshots.A.directory, directory, { recursive: true });
+		await writeFile(
+			join(directory, "recipes/service-worker.js"),
+			`Object.defineProperty(InstallEvent.prototype, "addRoutes", { value: undefined });
+self.addEventListener("message", event => {
+	if (event.data?.type === "TEST_STATIC_ROUTING")
+		event.ports[0].postMessage(typeof InstallEvent.prototype.addRoutes);
+});
+${snapshots.A.worker}`,
+		);
+		local = await serveStatic(directory);
+		context = await browser.newContext();
+		const page = await context.newPage();
+		const errors = collectErrors(page);
+		await navigateHydrated(page, `${local.origin}${LANDING}`);
+		await statusText(page, SAVED);
+		await page.waitForFunction(() => navigator.serviceWorker.controller);
+		assert.equal(
+			await page.evaluate(
+				() =>
+					new Promise((resolve) => {
+						const channel = new MessageChannel();
+						channel.port1.onmessage = ({ data }) => {
+							channel.port1.close();
+							resolve(data);
+						};
+						navigator.serviceWorker.controller.postMessage(
+							{ type: "TEST_STATIC_ROUTING" },
+							[channel.port2],
+						);
+					}),
+			),
+			"undefined",
+		);
+		assert.deepEqual(
+			await page.evaluate(async () => {
+				const response = await fetch(
+					`/api/recipe-browse/?path=%2Frecipes%2Fmeals%2F&browse=1&release=${"a".repeat(40)}`,
+					{ headers: { Accept: "application/json" } },
+				);
+				return {
+					status: response.status,
+					release: (await response.json()).release,
+				};
+			}),
+			{ status: 200, release: "a".repeat(40) },
+		);
+		await context.setOffline(true);
+		assert.equal(await dataLabel(page), "A");
+		assert.deepEqual(errors, []);
+	} finally {
+		await context?.close();
+		await local?.close();
+		await rm(directory, { recursive: true, force: true });
+	}
+});
 
 function updateCheck(name, viewport) {
 	it(`Update and reload activates new recipes with another tab open on ${name}`, {

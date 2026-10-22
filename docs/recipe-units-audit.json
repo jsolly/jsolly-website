@@ -1,9 +1,9 @@
 {
-	"recipeCount": 146,
-	"ingredientCount": 1736,
+	"recipeCount": 147,
+	"ingredientCount": 1753,
 	"alternativeCount": 109,
-	"sourceIdentityCount": 1680,
-	"sourceIdentitySha256": "f670105d5e3f41d9ba467a7ef8c7a17db56307fee5efa41fecacba64aaf7b669",
+	"sourceIdentityCount": 1697,
+	"sourceIdentitySha256": "4befa7a0bc9a46184cdb1014042555433d3db029e5ca7f0fd921c420d5c56b62",
 	"rows": [
 		{
 			"recipe": "lemon-salmon-and-asparagus",
@@ -251785,6 +251785,2303 @@
 						"status": "mass",
 						"grams": 15,
 						"source": "https://fdc.nal.usda.gov/food-details/170005/nutrients"
+					}
+				}
+			}
+		},
+		{
+			"recipe": "carrot-cake",
+			"family": false,
+			"ingredient": "applesauce",
+			"name": "Unsweetened cinnamon applesauce",
+			"canonical": {
+				"amount": 0.3333333333333333,
+				"unit": "cup",
+				"state": "as purchased",
+				"grams": 81.33333333333333
+			},
+			"weight": {
+				"gramsPerUnit": 244,
+				"source": "https://fdc.nal.usda.gov/food-details/171695/nutrients",
+				"description": "Applesauce, canned, unsweetened, without added ascorbic acid (Includes foods for USDA's Food Distribution Program)",
+				"kind": "mass",
+				"referenceId": "usda-171695"
+			},
+			"provenance": {
+				"original": {
+					"name": "Unsweetened cinnamon applesauce",
+					"state": "as purchased",
+					"amount": 0.3333333333333333,
+					"unit": "cup",
+					"note": ""
+				},
+				"sourceIngredientId": "applesauce",
+				"reviewedOn": "2026-10-22",
+				"massBasis": "edible",
+				"decision": "Retain published quantity with explicit USDA cooking weight. "
+			},
+			"alternatives": [],
+			"displays": {
+				"grams": {
+					"quantity": "81 g",
+					"status": "mass",
+					"grams": 81.33333333333333,
+					"source": "https://fdc.nal.usda.gov/food-details/171695/nutrients"
+				},
+				"us": {
+					"quantity": "⅓ cup",
+					"status": "volume",
+					"grams": 81.33333333333333,
+					"source": "https://fdc.nal.usda.gov/food-details/171695/nutrients"
+				},
+				"metric": {
+					"quantity": "81 g",
+					"status": "mass",
+					"grams": 81.33333333333333,
+					"source": "https://fdc.nal.usda.gov/food-details/171695/nutrients"
+				}
+			},
+			"scaling": {
+				"2": {
+					"grams": {
+						"quantity": "81 g",
+						"status": "mass",
+						"grams": 81.33333333333333,
+						"source": "https://fdc.nal.usda.gov/food-details/171695/nutrients"
+					},
+					"us": {
+						"quantity": "⅓ cup",
+						"status": "volume",
+						"grams": 81.33333333333333,
+						"source": "https://fdc.nal.usda.gov/food-details/171695/nutrients"
+					},
+					"metric": {
+						"quantity": "81 g",
+						"status": "mass",
+						"grams": 81.33333333333333,
+						"source": "https://fdc.nal.usda.gov/food-details/171695/nutrients"
+					}
+				},
+				"4": {
+					"grams": {
+						"quantity": "81 g",
+						"status": "mass",
+						"grams": 81.33333333333333,
+						"source": "https://fdc.nal.usda.gov/food-details/171695/nutrients"
+					},
+					"us": {
+						"quantity": "⅓ cup",
+						"status": "volume",
+						"grams": 81.33333333333333,
+						"source": "https://fdc.nal.usda.gov/food-details/171695/nutrients"
+					},
+					"metric": {
+						"quantity": "81 g",
+						"status": "mass",
+						"grams": 81.33333333333333,
+						"source": "https://fdc.nal.usda.gov/food-details/171695/nutrients"
+					}
+				},
+				"6": {
+					"grams": {
+						"quantity": "163 g",
+						"status": "mass",
+						"grams": 162.66666666666666,
+						"source": "https://fdc.nal.usda.gov/food-details/171695/nutrients"
+					},
+					"us": {
+						"quantity": "⅔ cup",
+						"status": "volume",
+						"grams": 162.66666666666666,
+						"source": "https://fdc.nal.usda.gov/food-details/171695/nutrients"
+					},
+					"metric": {
+						"quantity": "163 g",
+						"status": "mass",
+						"grams": 162.66666666666666,
+						"source": "https://fdc.nal.usda.gov/food-details/171695/nutrients"
+					}
+				},
+				"8": {
+					"grams": {
+						"quantity": "163 g",
+						"status": "mass",
+						"grams": 162.66666666666666,
+						"source": "https://fdc.nal.usda.gov/food-details/171695/nutrients"
+					},
+					"us": {
+						"quantity": "⅔ cup",
+						"status": "volume",
+						"grams": 162.66666666666666,
+						"source": "https://fdc.nal.usda.gov/food-details/171695/nutrients"
+					},
+					"metric": {
+						"quantity": "163 g",
+						"status": "mass",
+						"grams": 162.66666666666666,
+						"source": "https://fdc.nal.usda.gov/food-details/171695/nutrients"
+					}
+				}
+			}
+		},
+		{
+			"recipe": "carrot-cake",
+			"family": false,
+			"ingredient": "sugar",
+			"name": "Granulated sugar",
+			"canonical": {
+				"amount": 0.5,
+				"unit": "cup",
+				"state": "as purchased",
+				"grams": 100
+			},
+			"weight": {
+				"gramsPerUnit": 200,
+				"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients",
+				"description": "Sugars, granulated",
+				"kind": "mass",
+				"referenceId": "usda-169655"
+			},
+			"provenance": {
+				"original": {
+					"name": "Granulated sugar",
+					"state": "as purchased",
+					"amount": 0.5,
+					"unit": "cup",
+					"note": ""
+				},
+				"sourceIngredientId": "sugar",
+				"reviewedOn": "2026-10-22",
+				"massBasis": "edible",
+				"decision": "Retain published quantity with explicit USDA cooking weight. "
+			},
+			"alternatives": [],
+			"displays": {
+				"grams": {
+					"quantity": "100 g",
+					"status": "mass",
+					"grams": 100,
+					"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients"
+				},
+				"us": {
+					"quantity": "½ cup",
+					"status": "volume",
+					"grams": 100,
+					"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients"
+				},
+				"metric": {
+					"quantity": "100 g",
+					"status": "mass",
+					"grams": 100,
+					"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients"
+				}
+			},
+			"scaling": {
+				"2": {
+					"grams": {
+						"quantity": "100 g",
+						"status": "mass",
+						"grams": 100,
+						"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients"
+					},
+					"us": {
+						"quantity": "½ cup",
+						"status": "volume",
+						"grams": 100,
+						"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients"
+					},
+					"metric": {
+						"quantity": "100 g",
+						"status": "mass",
+						"grams": 100,
+						"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients"
+					}
+				},
+				"4": {
+					"grams": {
+						"quantity": "100 g",
+						"status": "mass",
+						"grams": 100,
+						"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients"
+					},
+					"us": {
+						"quantity": "½ cup",
+						"status": "volume",
+						"grams": 100,
+						"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients"
+					},
+					"metric": {
+						"quantity": "100 g",
+						"status": "mass",
+						"grams": 100,
+						"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients"
+					}
+				},
+				"6": {
+					"grams": {
+						"quantity": "200 g",
+						"status": "mass",
+						"grams": 200,
+						"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients"
+					},
+					"us": {
+						"quantity": "1 cup",
+						"status": "volume",
+						"grams": 200,
+						"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients"
+					},
+					"metric": {
+						"quantity": "200 g",
+						"status": "mass",
+						"grams": 200,
+						"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients"
+					}
+				},
+				"8": {
+					"grams": {
+						"quantity": "200 g",
+						"status": "mass",
+						"grams": 200,
+						"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients"
+					},
+					"us": {
+						"quantity": "1 cup",
+						"status": "volume",
+						"grams": 200,
+						"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients"
+					},
+					"metric": {
+						"quantity": "200 g",
+						"status": "mass",
+						"grams": 200,
+						"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients"
+					}
+				}
+			}
+		},
+		{
+			"recipe": "carrot-cake",
+			"family": false,
+			"ingredient": "egg",
+			"name": "Egg",
+			"canonical": {
+				"amount": 1,
+				"unit": "count",
+				"state": "raw, without shell; beaten",
+				"grams": 38
+			},
+			"weight": {
+				"gramsPerUnit": 38,
+				"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients",
+				"description": "Egg, whole, raw, fresh",
+				"kind": "mass",
+				"referenceId": "usda-171287-small"
+			},
+			"provenance": {
+				"original": {
+					"name": "Egg",
+					"state": "raw, without shell; beaten",
+					"amount": 1,
+					"unit": "count",
+					"note": "Use a small egg; weigh beaten egg for consistent batches."
+				},
+				"sourceIngredientId": "egg",
+				"reviewedOn": "2026-10-22",
+				"massBasis": "edible",
+				"decision": "Retain published quantity with explicit USDA cooking weight. "
+			},
+			"alternatives": [],
+			"displays": {
+				"grams": {
+					"quantity": "38 g",
+					"status": "mass",
+					"grams": 38,
+					"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients"
+				},
+				"us": {
+					"quantity": "1 count",
+					"status": "portion",
+					"grams": 38,
+					"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients"
+				},
+				"metric": {
+					"quantity": "38 g",
+					"status": "mass",
+					"grams": 38,
+					"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients"
+				}
+			},
+			"scaling": {
+				"2": {
+					"grams": {
+						"quantity": "38 g",
+						"status": "mass",
+						"grams": 38,
+						"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients"
+					},
+					"us": {
+						"quantity": "1 count",
+						"status": "portion",
+						"grams": 38,
+						"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients"
+					},
+					"metric": {
+						"quantity": "38 g",
+						"status": "mass",
+						"grams": 38,
+						"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients"
+					}
+				},
+				"4": {
+					"grams": {
+						"quantity": "38 g",
+						"status": "mass",
+						"grams": 38,
+						"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients"
+					},
+					"us": {
+						"quantity": "1 count",
+						"status": "portion",
+						"grams": 38,
+						"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients"
+					},
+					"metric": {
+						"quantity": "38 g",
+						"status": "mass",
+						"grams": 38,
+						"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients"
+					}
+				},
+				"6": {
+					"grams": {
+						"quantity": "76 g",
+						"status": "mass",
+						"grams": 76,
+						"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients"
+					},
+					"us": {
+						"quantity": "2 count",
+						"status": "portion",
+						"grams": 76,
+						"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients"
+					},
+					"metric": {
+						"quantity": "76 g",
+						"status": "mass",
+						"grams": 76,
+						"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients"
+					}
+				},
+				"8": {
+					"grams": {
+						"quantity": "76 g",
+						"status": "mass",
+						"grams": 76,
+						"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients"
+					},
+					"us": {
+						"quantity": "2 count",
+						"status": "portion",
+						"grams": 76,
+						"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients"
+					},
+					"metric": {
+						"quantity": "76 g",
+						"status": "mass",
+						"grams": 76,
+						"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients"
+					}
+				}
+			}
+		},
+		{
+			"recipe": "carrot-cake",
+			"family": false,
+			"ingredient": "flour",
+			"name": "All-purpose flour",
+			"canonical": {
+				"amount": 0.5,
+				"unit": "cup",
+				"state": "spooned and leveled",
+				"grams": 62.5
+			},
+			"weight": {
+				"gramsPerUnit": 125,
+				"source": "https://fdc.nal.usda.gov/food-details/168936/nutrients",
+				"description": "Wheat flour, white, all-purpose, enriched, unbleached",
+				"kind": "mass",
+				"referenceId": "usda-168936"
+			},
+			"provenance": {
+				"original": {
+					"name": "All-purpose flour",
+					"state": "spooned and leveled",
+					"amount": 0.5,
+					"unit": "cup",
+					"note": ""
+				},
+				"sourceIngredientId": "flour",
+				"reviewedOn": "2026-10-22",
+				"massBasis": "edible",
+				"decision": "Retain published quantity with explicit USDA cooking weight. "
+			},
+			"alternatives": [],
+			"displays": {
+				"grams": {
+					"quantity": "63 g",
+					"status": "mass",
+					"grams": 62.5,
+					"source": "https://fdc.nal.usda.gov/food-details/168936/nutrients"
+				},
+				"us": {
+					"quantity": "½ cup",
+					"status": "volume",
+					"grams": 62.5,
+					"source": "https://fdc.nal.usda.gov/food-details/168936/nutrients"
+				},
+				"metric": {
+					"quantity": "63 g",
+					"status": "mass",
+					"grams": 62.5,
+					"source": "https://fdc.nal.usda.gov/food-details/168936/nutrients"
+				}
+			},
+			"scaling": {
+				"2": {
+					"grams": {
+						"quantity": "63 g",
+						"status": "mass",
+						"grams": 62.5,
+						"source": "https://fdc.nal.usda.gov/food-details/168936/nutrients"
+					},
+					"us": {
+						"quantity": "½ cup",
+						"status": "volume",
+						"grams": 62.5,
+						"source": "https://fdc.nal.usda.gov/food-details/168936/nutrients"
+					},
+					"metric": {
+						"quantity": "63 g",
+						"status": "mass",
+						"grams": 62.5,
+						"source": "https://fdc.nal.usda.gov/food-details/168936/nutrients"
+					}
+				},
+				"4": {
+					"grams": {
+						"quantity": "63 g",
+						"status": "mass",
+						"grams": 62.5,
+						"source": "https://fdc.nal.usda.gov/food-details/168936/nutrients"
+					},
+					"us": {
+						"quantity": "½ cup",
+						"status": "volume",
+						"grams": 62.5,
+						"source": "https://fdc.nal.usda.gov/food-details/168936/nutrients"
+					},
+					"metric": {
+						"quantity": "63 g",
+						"status": "mass",
+						"grams": 62.5,
+						"source": "https://fdc.nal.usda.gov/food-details/168936/nutrients"
+					}
+				},
+				"6": {
+					"grams": {
+						"quantity": "125 g",
+						"status": "mass",
+						"grams": 125,
+						"source": "https://fdc.nal.usda.gov/food-details/168936/nutrients"
+					},
+					"us": {
+						"quantity": "1 cup",
+						"status": "volume",
+						"grams": 125,
+						"source": "https://fdc.nal.usda.gov/food-details/168936/nutrients"
+					},
+					"metric": {
+						"quantity": "125 g",
+						"status": "mass",
+						"grams": 125,
+						"source": "https://fdc.nal.usda.gov/food-details/168936/nutrients"
+					}
+				},
+				"8": {
+					"grams": {
+						"quantity": "125 g",
+						"status": "mass",
+						"grams": 125,
+						"source": "https://fdc.nal.usda.gov/food-details/168936/nutrients"
+					},
+					"us": {
+						"quantity": "1 cup",
+						"status": "volume",
+						"grams": 125,
+						"source": "https://fdc.nal.usda.gov/food-details/168936/nutrients"
+					},
+					"metric": {
+						"quantity": "125 g",
+						"status": "mass",
+						"grams": 125,
+						"source": "https://fdc.nal.usda.gov/food-details/168936/nutrients"
+					}
+				}
+			}
+		},
+		{
+			"recipe": "carrot-cake",
+			"family": false,
+			"ingredient": "baking_soda",
+			"name": "Baking soda",
+			"canonical": {
+				"amount": 0.25,
+				"unit": "tsp",
+				"state": "as purchased",
+				"grams": 1.15
+			},
+			"weight": {
+				"gramsPerUnit": 4.6,
+				"source": "https://fdc.nal.usda.gov/food-details/175040/nutrients",
+				"description": "Leavening agents, baking soda",
+				"kind": "mass",
+				"referenceId": "usda-175040"
+			},
+			"provenance": {
+				"original": {
+					"name": "Baking soda",
+					"state": "as purchased",
+					"amount": 0.25,
+					"unit": "tsp",
+					"note": ""
+				},
+				"sourceIngredientId": "baking_soda",
+				"reviewedOn": "2026-10-22",
+				"massBasis": "edible",
+				"decision": "Retain published quantity with explicit USDA cooking weight. "
+			},
+			"alternatives": [],
+			"displays": {
+				"grams": {
+					"quantity": "1.1 g",
+					"status": "mass",
+					"grams": 1.15,
+					"source": "https://fdc.nal.usda.gov/food-details/175040/nutrients"
+				},
+				"us": {
+					"quantity": "¼ tsp",
+					"status": "volume",
+					"grams": 1.15,
+					"source": "https://fdc.nal.usda.gov/food-details/175040/nutrients"
+				},
+				"metric": {
+					"quantity": "1.1 g",
+					"status": "mass",
+					"grams": 1.15,
+					"source": "https://fdc.nal.usda.gov/food-details/175040/nutrients"
+				}
+			},
+			"scaling": {
+				"2": {
+					"grams": {
+						"quantity": "1.1 g",
+						"status": "mass",
+						"grams": 1.15,
+						"source": "https://fdc.nal.usda.gov/food-details/175040/nutrients"
+					},
+					"us": {
+						"quantity": "¼ tsp",
+						"status": "volume",
+						"grams": 1.15,
+						"source": "https://fdc.nal.usda.gov/food-details/175040/nutrients"
+					},
+					"metric": {
+						"quantity": "1.1 g",
+						"status": "mass",
+						"grams": 1.15,
+						"source": "https://fdc.nal.usda.gov/food-details/175040/nutrients"
+					}
+				},
+				"4": {
+					"grams": {
+						"quantity": "1.1 g",
+						"status": "mass",
+						"grams": 1.15,
+						"source": "https://fdc.nal.usda.gov/food-details/175040/nutrients"
+					},
+					"us": {
+						"quantity": "¼ tsp",
+						"status": "volume",
+						"grams": 1.15,
+						"source": "https://fdc.nal.usda.gov/food-details/175040/nutrients"
+					},
+					"metric": {
+						"quantity": "1.1 g",
+						"status": "mass",
+						"grams": 1.15,
+						"source": "https://fdc.nal.usda.gov/food-details/175040/nutrients"
+					}
+				},
+				"6": {
+					"grams": {
+						"quantity": "2.3 g",
+						"status": "mass",
+						"grams": 2.3,
+						"source": "https://fdc.nal.usda.gov/food-details/175040/nutrients"
+					},
+					"us": {
+						"quantity": "½ tsp",
+						"status": "volume",
+						"grams": 2.3,
+						"source": "https://fdc.nal.usda.gov/food-details/175040/nutrients"
+					},
+					"metric": {
+						"quantity": "2.3 g",
+						"status": "mass",
+						"grams": 2.3,
+						"source": "https://fdc.nal.usda.gov/food-details/175040/nutrients"
+					}
+				},
+				"8": {
+					"grams": {
+						"quantity": "2.3 g",
+						"status": "mass",
+						"grams": 2.3,
+						"source": "https://fdc.nal.usda.gov/food-details/175040/nutrients"
+					},
+					"us": {
+						"quantity": "½ tsp",
+						"status": "volume",
+						"grams": 2.3,
+						"source": "https://fdc.nal.usda.gov/food-details/175040/nutrients"
+					},
+					"metric": {
+						"quantity": "2.3 g",
+						"status": "mass",
+						"grams": 2.3,
+						"source": "https://fdc.nal.usda.gov/food-details/175040/nutrients"
+					}
+				}
+			}
+		},
+		{
+			"recipe": "carrot-cake",
+			"family": false,
+			"ingredient": "baking_powder",
+			"name": "Double-acting baking powder",
+			"canonical": {
+				"amount": 0.5,
+				"unit": "tsp",
+				"state": "as purchased",
+				"grams": 2.3
+			},
+			"weight": {
+				"gramsPerUnit": 4.6,
+				"source": "https://fdc.nal.usda.gov/food-details/172803/nutrients",
+				"description": "Leavening agents, baking powder, double-acting, sodium aluminum sulfate",
+				"kind": "mass",
+				"referenceId": "usda-172803"
+			},
+			"provenance": {
+				"original": {
+					"name": "Double-acting baking powder",
+					"state": "as purchased",
+					"amount": 0.5,
+					"unit": "tsp",
+					"note": ""
+				},
+				"sourceIngredientId": "baking_powder",
+				"reviewedOn": "2026-10-22",
+				"massBasis": "edible",
+				"decision": "Retain published quantity with explicit USDA cooking weight. "
+			},
+			"alternatives": [],
+			"displays": {
+				"grams": {
+					"quantity": "2.3 g",
+					"status": "mass",
+					"grams": 2.3,
+					"source": "https://fdc.nal.usda.gov/food-details/172803/nutrients"
+				},
+				"us": {
+					"quantity": "½ tsp",
+					"status": "volume",
+					"grams": 2.3,
+					"source": "https://fdc.nal.usda.gov/food-details/172803/nutrients"
+				},
+				"metric": {
+					"quantity": "2.3 g",
+					"status": "mass",
+					"grams": 2.3,
+					"source": "https://fdc.nal.usda.gov/food-details/172803/nutrients"
+				}
+			},
+			"scaling": {
+				"2": {
+					"grams": {
+						"quantity": "2.3 g",
+						"status": "mass",
+						"grams": 2.3,
+						"source": "https://fdc.nal.usda.gov/food-details/172803/nutrients"
+					},
+					"us": {
+						"quantity": "½ tsp",
+						"status": "volume",
+						"grams": 2.3,
+						"source": "https://fdc.nal.usda.gov/food-details/172803/nutrients"
+					},
+					"metric": {
+						"quantity": "2.3 g",
+						"status": "mass",
+						"grams": 2.3,
+						"source": "https://fdc.nal.usda.gov/food-details/172803/nutrients"
+					}
+				},
+				"4": {
+					"grams": {
+						"quantity": "2.3 g",
+						"status": "mass",
+						"grams": 2.3,
+						"source": "https://fdc.nal.usda.gov/food-details/172803/nutrients"
+					},
+					"us": {
+						"quantity": "½ tsp",
+						"status": "volume",
+						"grams": 2.3,
+						"source": "https://fdc.nal.usda.gov/food-details/172803/nutrients"
+					},
+					"metric": {
+						"quantity": "2.3 g",
+						"status": "mass",
+						"grams": 2.3,
+						"source": "https://fdc.nal.usda.gov/food-details/172803/nutrients"
+					}
+				},
+				"6": {
+					"grams": {
+						"quantity": "4.6 g",
+						"status": "mass",
+						"grams": 4.6,
+						"source": "https://fdc.nal.usda.gov/food-details/172803/nutrients"
+					},
+					"us": {
+						"quantity": "1 tsp",
+						"status": "volume",
+						"grams": 4.6,
+						"source": "https://fdc.nal.usda.gov/food-details/172803/nutrients"
+					},
+					"metric": {
+						"quantity": "4.6 g",
+						"status": "mass",
+						"grams": 4.6,
+						"source": "https://fdc.nal.usda.gov/food-details/172803/nutrients"
+					}
+				},
+				"8": {
+					"grams": {
+						"quantity": "4.6 g",
+						"status": "mass",
+						"grams": 4.6,
+						"source": "https://fdc.nal.usda.gov/food-details/172803/nutrients"
+					},
+					"us": {
+						"quantity": "1 tsp",
+						"status": "volume",
+						"grams": 4.6,
+						"source": "https://fdc.nal.usda.gov/food-details/172803/nutrients"
+					},
+					"metric": {
+						"quantity": "4.6 g",
+						"status": "mass",
+						"grams": 4.6,
+						"source": "https://fdc.nal.usda.gov/food-details/172803/nutrients"
+					}
+				}
+			}
+		},
+		{
+			"recipe": "carrot-cake",
+			"family": false,
+			"ingredient": "salt",
+			"name": "Fine salt",
+			"canonical": {
+				"amount": 0.125,
+				"unit": "tsp",
+				"state": "as purchased",
+				"grams": 0.75
+			},
+			"weight": {
+				"gramsPerUnit": 6,
+				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
+				"description": "Salt, table",
+				"kind": "mass",
+				"referenceId": "usda-173468"
+			},
+			"provenance": {
+				"original": {
+					"name": "Fine salt",
+					"state": "as purchased",
+					"amount": 0.125,
+					"unit": "tsp",
+					"note": ""
+				},
+				"sourceIngredientId": "salt",
+				"reviewedOn": "2026-10-22",
+				"massBasis": "edible",
+				"decision": "Retain published quantity with explicit USDA cooking weight. "
+			},
+			"alternatives": [],
+			"displays": {
+				"grams": {
+					"quantity": "0.75 g",
+					"status": "mass",
+					"grams": 0.75,
+					"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients"
+				},
+				"us": {
+					"quantity": "⅛ tsp",
+					"status": "volume",
+					"grams": 0.75,
+					"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients"
+				},
+				"metric": {
+					"quantity": "0.75 g",
+					"status": "mass",
+					"grams": 0.75,
+					"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients"
+				}
+			},
+			"scaling": {
+				"2": {
+					"grams": {
+						"quantity": "0.75 g",
+						"status": "mass",
+						"grams": 0.75,
+						"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients"
+					},
+					"us": {
+						"quantity": "⅛ tsp",
+						"status": "volume",
+						"grams": 0.75,
+						"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients"
+					},
+					"metric": {
+						"quantity": "0.75 g",
+						"status": "mass",
+						"grams": 0.75,
+						"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients"
+					}
+				},
+				"4": {
+					"grams": {
+						"quantity": "0.75 g",
+						"status": "mass",
+						"grams": 0.75,
+						"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients"
+					},
+					"us": {
+						"quantity": "⅛ tsp",
+						"status": "volume",
+						"grams": 0.75,
+						"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients"
+					},
+					"metric": {
+						"quantity": "0.75 g",
+						"status": "mass",
+						"grams": 0.75,
+						"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients"
+					}
+				},
+				"6": {
+					"grams": {
+						"quantity": "1.5 g",
+						"status": "mass",
+						"grams": 1.5,
+						"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients"
+					},
+					"us": {
+						"quantity": "¼ tsp",
+						"status": "volume",
+						"grams": 1.5,
+						"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients"
+					},
+					"metric": {
+						"quantity": "1.5 g",
+						"status": "mass",
+						"grams": 1.5,
+						"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients"
+					}
+				},
+				"8": {
+					"grams": {
+						"quantity": "1.5 g",
+						"status": "mass",
+						"grams": 1.5,
+						"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients"
+					},
+					"us": {
+						"quantity": "¼ tsp",
+						"status": "volume",
+						"grams": 1.5,
+						"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients"
+					},
+					"metric": {
+						"quantity": "1.5 g",
+						"status": "mass",
+						"grams": 1.5,
+						"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients"
+					}
+				}
+			}
+		},
+		{
+			"recipe": "carrot-cake",
+			"family": false,
+			"ingredient": "cinnamon",
+			"name": "Ground cinnamon",
+			"canonical": {
+				"amount": 0.25,
+				"unit": "tsp",
+				"state": "ground",
+				"grams": 0.65
+			},
+			"weight": {
+				"gramsPerUnit": 2.6,
+				"source": "https://fdc.nal.usda.gov/food-details/171320/nutrients",
+				"description": "Spices, cinnamon, ground",
+				"kind": "mass",
+				"referenceId": "usda-171320"
+			},
+			"provenance": {
+				"original": {
+					"name": "Ground cinnamon",
+					"state": "ground",
+					"amount": 0.25,
+					"unit": "tsp",
+					"note": ""
+				},
+				"sourceIngredientId": "cinnamon",
+				"reviewedOn": "2026-10-22",
+				"massBasis": "edible",
+				"decision": "Retain published quantity with explicit USDA cooking weight. "
+			},
+			"alternatives": [],
+			"displays": {
+				"grams": {
+					"quantity": "0.65 g",
+					"status": "mass",
+					"grams": 0.65,
+					"source": "https://fdc.nal.usda.gov/food-details/171320/nutrients"
+				},
+				"us": {
+					"quantity": "¼ tsp",
+					"status": "volume",
+					"grams": 0.65,
+					"source": "https://fdc.nal.usda.gov/food-details/171320/nutrients"
+				},
+				"metric": {
+					"quantity": "0.65 g",
+					"status": "mass",
+					"grams": 0.65,
+					"source": "https://fdc.nal.usda.gov/food-details/171320/nutrients"
+				}
+			},
+			"scaling": {
+				"2": {
+					"grams": {
+						"quantity": "0.65 g",
+						"status": "mass",
+						"grams": 0.65,
+						"source": "https://fdc.nal.usda.gov/food-details/171320/nutrients"
+					},
+					"us": {
+						"quantity": "¼ tsp",
+						"status": "volume",
+						"grams": 0.65,
+						"source": "https://fdc.nal.usda.gov/food-details/171320/nutrients"
+					},
+					"metric": {
+						"quantity": "0.65 g",
+						"status": "mass",
+						"grams": 0.65,
+						"source": "https://fdc.nal.usda.gov/food-details/171320/nutrients"
+					}
+				},
+				"4": {
+					"grams": {
+						"quantity": "0.65 g",
+						"status": "mass",
+						"grams": 0.65,
+						"source": "https://fdc.nal.usda.gov/food-details/171320/nutrients"
+					},
+					"us": {
+						"quantity": "¼ tsp",
+						"status": "volume",
+						"grams": 0.65,
+						"source": "https://fdc.nal.usda.gov/food-details/171320/nutrients"
+					},
+					"metric": {
+						"quantity": "0.65 g",
+						"status": "mass",
+						"grams": 0.65,
+						"source": "https://fdc.nal.usda.gov/food-details/171320/nutrients"
+					}
+				},
+				"6": {
+					"grams": {
+						"quantity": "1.3 g",
+						"status": "mass",
+						"grams": 1.3,
+						"source": "https://fdc.nal.usda.gov/food-details/171320/nutrients"
+					},
+					"us": {
+						"quantity": "½ tsp",
+						"status": "volume",
+						"grams": 1.3,
+						"source": "https://fdc.nal.usda.gov/food-details/171320/nutrients"
+					},
+					"metric": {
+						"quantity": "1.3 g",
+						"status": "mass",
+						"grams": 1.3,
+						"source": "https://fdc.nal.usda.gov/food-details/171320/nutrients"
+					}
+				},
+				"8": {
+					"grams": {
+						"quantity": "1.3 g",
+						"status": "mass",
+						"grams": 1.3,
+						"source": "https://fdc.nal.usda.gov/food-details/171320/nutrients"
+					},
+					"us": {
+						"quantity": "½ tsp",
+						"status": "volume",
+						"grams": 1.3,
+						"source": "https://fdc.nal.usda.gov/food-details/171320/nutrients"
+					},
+					"metric": {
+						"quantity": "1.3 g",
+						"status": "mass",
+						"grams": 1.3,
+						"source": "https://fdc.nal.usda.gov/food-details/171320/nutrients"
+					}
+				}
+			}
+		},
+		{
+			"recipe": "carrot-cake",
+			"family": false,
+			"ingredient": "carrot",
+			"name": "Carrots",
+			"canonical": {
+				"amount": 0.5,
+				"unit": "cup",
+				"state": "peeled and grated",
+				"grams": 55
+			},
+			"weight": {
+				"gramsPerUnit": 110,
+				"source": "https://fdc.nal.usda.gov/food-details/170393/nutrients",
+				"description": "Carrots, raw",
+				"kind": "mass",
+				"referenceId": "usda-170393-grated"
+			},
+			"provenance": {
+				"original": {
+					"name": "Carrots",
+					"state": "peeled and grated",
+					"amount": 0.5,
+					"unit": "cup",
+					"note": ""
+				},
+				"sourceIngredientId": "carrot",
+				"reviewedOn": "2026-10-22",
+				"massBasis": "edible",
+				"decision": "Retain published quantity with explicit USDA cooking weight. "
+			},
+			"alternatives": [],
+			"displays": {
+				"grams": {
+					"quantity": "55 g",
+					"status": "mass",
+					"grams": 55,
+					"source": "https://fdc.nal.usda.gov/food-details/170393/nutrients"
+				},
+				"us": {
+					"quantity": "½ cup",
+					"status": "volume",
+					"grams": 55,
+					"source": "https://fdc.nal.usda.gov/food-details/170393/nutrients"
+				},
+				"metric": {
+					"quantity": "55 g",
+					"status": "mass",
+					"grams": 55,
+					"source": "https://fdc.nal.usda.gov/food-details/170393/nutrients"
+				}
+			},
+			"scaling": {
+				"2": {
+					"grams": {
+						"quantity": "55 g",
+						"status": "mass",
+						"grams": 55,
+						"source": "https://fdc.nal.usda.gov/food-details/170393/nutrients"
+					},
+					"us": {
+						"quantity": "½ cup",
+						"status": "volume",
+						"grams": 55,
+						"source": "https://fdc.nal.usda.gov/food-details/170393/nutrients"
+					},
+					"metric": {
+						"quantity": "55 g",
+						"status": "mass",
+						"grams": 55,
+						"source": "https://fdc.nal.usda.gov/food-details/170393/nutrients"
+					}
+				},
+				"4": {
+					"grams": {
+						"quantity": "55 g",
+						"status": "mass",
+						"grams": 55,
+						"source": "https://fdc.nal.usda.gov/food-details/170393/nutrients"
+					},
+					"us": {
+						"quantity": "½ cup",
+						"status": "volume",
+						"grams": 55,
+						"source": "https://fdc.nal.usda.gov/food-details/170393/nutrients"
+					},
+					"metric": {
+						"quantity": "55 g",
+						"status": "mass",
+						"grams": 55,
+						"source": "https://fdc.nal.usda.gov/food-details/170393/nutrients"
+					}
+				},
+				"6": {
+					"grams": {
+						"quantity": "110 g",
+						"status": "mass",
+						"grams": 110,
+						"source": "https://fdc.nal.usda.gov/food-details/170393/nutrients"
+					},
+					"us": {
+						"quantity": "1 cup",
+						"status": "volume",
+						"grams": 110,
+						"source": "https://fdc.nal.usda.gov/food-details/170393/nutrients"
+					},
+					"metric": {
+						"quantity": "110 g",
+						"status": "mass",
+						"grams": 110,
+						"source": "https://fdc.nal.usda.gov/food-details/170393/nutrients"
+					}
+				},
+				"8": {
+					"grams": {
+						"quantity": "110 g",
+						"status": "mass",
+						"grams": 110,
+						"source": "https://fdc.nal.usda.gov/food-details/170393/nutrients"
+					},
+					"us": {
+						"quantity": "1 cup",
+						"status": "volume",
+						"grams": 110,
+						"source": "https://fdc.nal.usda.gov/food-details/170393/nutrients"
+					},
+					"metric": {
+						"quantity": "110 g",
+						"status": "mass",
+						"grams": 110,
+						"source": "https://fdc.nal.usda.gov/food-details/170393/nutrients"
+					}
+				}
+			}
+		},
+		{
+			"recipe": "carrot-cake",
+			"family": false,
+			"ingredient": "coconut",
+			"name": "Sweetened shredded coconut",
+			"canonical": {
+				"amount": 0.25,
+				"unit": "cup",
+				"state": "dried, sweetened",
+				"grams": 23.25
+			},
+			"weight": {
+				"gramsPerUnit": 93,
+				"source": "https://fdc.nal.usda.gov/food-details/168586/nutrients",
+				"description": "Nuts, coconut meat, dried (desiccated), sweetened, shredded",
+				"kind": "mass",
+				"referenceId": "usda-168586"
+			},
+			"provenance": {
+				"original": {
+					"name": "Sweetened shredded coconut",
+					"state": "dried, sweetened",
+					"amount": 0.25,
+					"unit": "cup",
+					"note": ""
+				},
+				"sourceIngredientId": "coconut",
+				"reviewedOn": "2026-10-22",
+				"massBasis": "edible",
+				"decision": "Retain published quantity with explicit USDA cooking weight. "
+			},
+			"alternatives": [],
+			"displays": {
+				"grams": {
+					"quantity": "23 g",
+					"status": "mass",
+					"grams": 23.25,
+					"source": "https://fdc.nal.usda.gov/food-details/168586/nutrients"
+				},
+				"us": {
+					"quantity": "¼ cup",
+					"status": "volume",
+					"grams": 23.25,
+					"source": "https://fdc.nal.usda.gov/food-details/168586/nutrients"
+				},
+				"metric": {
+					"quantity": "23 g",
+					"status": "mass",
+					"grams": 23.25,
+					"source": "https://fdc.nal.usda.gov/food-details/168586/nutrients"
+				}
+			},
+			"scaling": {
+				"2": {
+					"grams": {
+						"quantity": "23 g",
+						"status": "mass",
+						"grams": 23.25,
+						"source": "https://fdc.nal.usda.gov/food-details/168586/nutrients"
+					},
+					"us": {
+						"quantity": "¼ cup",
+						"status": "volume",
+						"grams": 23.25,
+						"source": "https://fdc.nal.usda.gov/food-details/168586/nutrients"
+					},
+					"metric": {
+						"quantity": "23 g",
+						"status": "mass",
+						"grams": 23.25,
+						"source": "https://fdc.nal.usda.gov/food-details/168586/nutrients"
+					}
+				},
+				"4": {
+					"grams": {
+						"quantity": "23 g",
+						"status": "mass",
+						"grams": 23.25,
+						"source": "https://fdc.nal.usda.gov/food-details/168586/nutrients"
+					},
+					"us": {
+						"quantity": "¼ cup",
+						"status": "volume",
+						"grams": 23.25,
+						"source": "https://fdc.nal.usda.gov/food-details/168586/nutrients"
+					},
+					"metric": {
+						"quantity": "23 g",
+						"status": "mass",
+						"grams": 23.25,
+						"source": "https://fdc.nal.usda.gov/food-details/168586/nutrients"
+					}
+				},
+				"6": {
+					"grams": {
+						"quantity": "47 g",
+						"status": "mass",
+						"grams": 46.5,
+						"source": "https://fdc.nal.usda.gov/food-details/168586/nutrients"
+					},
+					"us": {
+						"quantity": "½ cup",
+						"status": "volume",
+						"grams": 46.5,
+						"source": "https://fdc.nal.usda.gov/food-details/168586/nutrients"
+					},
+					"metric": {
+						"quantity": "47 g",
+						"status": "mass",
+						"grams": 46.5,
+						"source": "https://fdc.nal.usda.gov/food-details/168586/nutrients"
+					}
+				},
+				"8": {
+					"grams": {
+						"quantity": "47 g",
+						"status": "mass",
+						"grams": 46.5,
+						"source": "https://fdc.nal.usda.gov/food-details/168586/nutrients"
+					},
+					"us": {
+						"quantity": "½ cup",
+						"status": "volume",
+						"grams": 46.5,
+						"source": "https://fdc.nal.usda.gov/food-details/168586/nutrients"
+					},
+					"metric": {
+						"quantity": "47 g",
+						"status": "mass",
+						"grams": 46.5,
+						"source": "https://fdc.nal.usda.gov/food-details/168586/nutrients"
+					}
+				}
+			}
+		},
+		{
+			"recipe": "carrot-cake",
+			"family": false,
+			"ingredient": "pecans",
+			"name": "Pecans",
+			"canonical": {
+				"amount": 0.25,
+				"unit": "cup",
+				"state": "chopped",
+				"grams": 27.25
+			},
+			"weight": {
+				"gramsPerUnit": 109,
+				"source": "https://fdc.nal.usda.gov/food-details/170182/nutrients",
+				"description": "Nuts, pecans",
+				"kind": "mass",
+				"referenceId": "usda-170182-chopped"
+			},
+			"provenance": {
+				"original": {
+					"name": "Pecans",
+					"state": "chopped",
+					"amount": 0.25,
+					"unit": "cup",
+					"note": "Included in this version."
+				},
+				"sourceIngredientId": "pecans",
+				"reviewedOn": "2026-10-22",
+				"massBasis": "edible",
+				"decision": "Retain published quantity with explicit USDA cooking weight. Include the optional measured pecans; omit unmeasured garnish."
+			},
+			"alternatives": [],
+			"displays": {
+				"grams": {
+					"quantity": "27 g",
+					"status": "mass",
+					"grams": 27.25,
+					"source": "https://fdc.nal.usda.gov/food-details/170182/nutrients"
+				},
+				"us": {
+					"quantity": "¼ cup",
+					"status": "volume",
+					"grams": 27.25,
+					"source": "https://fdc.nal.usda.gov/food-details/170182/nutrients"
+				},
+				"metric": {
+					"quantity": "27 g",
+					"status": "mass",
+					"grams": 27.25,
+					"source": "https://fdc.nal.usda.gov/food-details/170182/nutrients"
+				}
+			},
+			"scaling": {
+				"2": {
+					"grams": {
+						"quantity": "27 g",
+						"status": "mass",
+						"grams": 27.25,
+						"source": "https://fdc.nal.usda.gov/food-details/170182/nutrients"
+					},
+					"us": {
+						"quantity": "¼ cup",
+						"status": "volume",
+						"grams": 27.25,
+						"source": "https://fdc.nal.usda.gov/food-details/170182/nutrients"
+					},
+					"metric": {
+						"quantity": "27 g",
+						"status": "mass",
+						"grams": 27.25,
+						"source": "https://fdc.nal.usda.gov/food-details/170182/nutrients"
+					}
+				},
+				"4": {
+					"grams": {
+						"quantity": "27 g",
+						"status": "mass",
+						"grams": 27.25,
+						"source": "https://fdc.nal.usda.gov/food-details/170182/nutrients"
+					},
+					"us": {
+						"quantity": "¼ cup",
+						"status": "volume",
+						"grams": 27.25,
+						"source": "https://fdc.nal.usda.gov/food-details/170182/nutrients"
+					},
+					"metric": {
+						"quantity": "27 g",
+						"status": "mass",
+						"grams": 27.25,
+						"source": "https://fdc.nal.usda.gov/food-details/170182/nutrients"
+					}
+				},
+				"6": {
+					"grams": {
+						"quantity": "55 g",
+						"status": "mass",
+						"grams": 54.5,
+						"source": "https://fdc.nal.usda.gov/food-details/170182/nutrients"
+					},
+					"us": {
+						"quantity": "½ cup",
+						"status": "volume",
+						"grams": 54.5,
+						"source": "https://fdc.nal.usda.gov/food-details/170182/nutrients"
+					},
+					"metric": {
+						"quantity": "55 g",
+						"status": "mass",
+						"grams": 54.5,
+						"source": "https://fdc.nal.usda.gov/food-details/170182/nutrients"
+					}
+				},
+				"8": {
+					"grams": {
+						"quantity": "55 g",
+						"status": "mass",
+						"grams": 54.5,
+						"source": "https://fdc.nal.usda.gov/food-details/170182/nutrients"
+					},
+					"us": {
+						"quantity": "½ cup",
+						"status": "volume",
+						"grams": 54.5,
+						"source": "https://fdc.nal.usda.gov/food-details/170182/nutrients"
+					},
+					"metric": {
+						"quantity": "55 g",
+						"status": "mass",
+						"grams": 54.5,
+						"source": "https://fdc.nal.usda.gov/food-details/170182/nutrients"
+					}
+				}
+			}
+		},
+		{
+			"recipe": "carrot-cake",
+			"family": false,
+			"ingredient": "cake_vanilla",
+			"name": "Vanilla extract for cake",
+			"canonical": {
+				"amount": 0.25,
+				"unit": "tsp",
+				"state": "as purchased",
+				"grams": 1.05
+			},
+			"weight": {
+				"gramsPerUnit": 4.2,
+				"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients",
+				"description": "Vanilla extract",
+				"kind": "liquid",
+				"referenceId": "usda-173471",
+				"gramsPerMl": 0.8521133720864436
+			},
+			"provenance": {
+				"original": {
+					"name": "Vanilla extract for cake",
+					"state": "as purchased",
+					"amount": 0.25,
+					"unit": "tsp",
+					"note": ""
+				},
+				"sourceIngredientId": "cake_vanilla",
+				"reviewedOn": "2026-10-22",
+				"massBasis": "edible",
+				"decision": "Retain published quantity with explicit USDA cooking weight. "
+			},
+			"alternatives": [],
+			"displays": {
+				"grams": {
+					"quantity": "1.1 g",
+					"status": "mass",
+					"grams": 1.05,
+					"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+				},
+				"us": {
+					"quantity": "¼ tsp",
+					"status": "volume",
+					"grams": 1.05,
+					"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+				},
+				"metric": {
+					"quantity": "1.2 mL",
+					"status": "volume",
+					"grams": 1.05,
+					"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+				}
+			},
+			"scaling": {
+				"2": {
+					"grams": {
+						"quantity": "1.1 g",
+						"status": "mass",
+						"grams": 1.05,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					},
+					"us": {
+						"quantity": "¼ tsp",
+						"status": "volume",
+						"grams": 1.05,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					},
+					"metric": {
+						"quantity": "1.2 mL",
+						"status": "volume",
+						"grams": 1.05,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					}
+				},
+				"4": {
+					"grams": {
+						"quantity": "1.1 g",
+						"status": "mass",
+						"grams": 1.05,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					},
+					"us": {
+						"quantity": "¼ tsp",
+						"status": "volume",
+						"grams": 1.05,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					},
+					"metric": {
+						"quantity": "1.2 mL",
+						"status": "volume",
+						"grams": 1.05,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					}
+				},
+				"6": {
+					"grams": {
+						"quantity": "2.1 g",
+						"status": "mass",
+						"grams": 2.1,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					},
+					"us": {
+						"quantity": "½ tsp",
+						"status": "volume",
+						"grams": 2.1,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					},
+					"metric": {
+						"quantity": "2.5 mL",
+						"status": "volume",
+						"grams": 2.1,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					}
+				},
+				"8": {
+					"grams": {
+						"quantity": "2.1 g",
+						"status": "mass",
+						"grams": 2.1,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					},
+					"us": {
+						"quantity": "½ tsp",
+						"status": "volume",
+						"grams": 2.1,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					},
+					"metric": {
+						"quantity": "2.5 mL",
+						"status": "volume",
+						"grams": 2.1,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					}
+				}
+			}
+		},
+		{
+			"recipe": "carrot-cake",
+			"family": false,
+			"ingredient": "pineapple",
+			"name": "Crushed pineapple in juice",
+			"canonical": {
+				"amount": 0.25,
+				"unit": "cup",
+				"state": "undrained",
+				"grams": 62.25
+			},
+			"weight": {
+				"gramsPerUnit": 249,
+				"source": "https://fdc.nal.usda.gov/food-details/169126/nutrients",
+				"description": "Pineapple, canned, juice pack, solids and liquids",
+				"kind": "mass",
+				"referenceId": "usda-169126-undrained"
+			},
+			"provenance": {
+				"original": {
+					"name": "Crushed pineapple in juice",
+					"state": "undrained",
+					"amount": 0.25,
+					"unit": "cup",
+					"note": "Include the juice."
+				},
+				"sourceIngredientId": "pineapple",
+				"reviewedOn": "2026-10-22",
+				"massBasis": "edible",
+				"decision": "Retain published quantity with explicit USDA cooking weight. "
+			},
+			"alternatives": [],
+			"displays": {
+				"grams": {
+					"quantity": "62 g",
+					"status": "mass",
+					"grams": 62.25,
+					"source": "https://fdc.nal.usda.gov/food-details/169126/nutrients"
+				},
+				"us": {
+					"quantity": "¼ cup",
+					"status": "volume",
+					"grams": 62.25,
+					"source": "https://fdc.nal.usda.gov/food-details/169126/nutrients"
+				},
+				"metric": {
+					"quantity": "62 g",
+					"status": "mass",
+					"grams": 62.25,
+					"source": "https://fdc.nal.usda.gov/food-details/169126/nutrients"
+				}
+			},
+			"scaling": {
+				"2": {
+					"grams": {
+						"quantity": "62 g",
+						"status": "mass",
+						"grams": 62.25,
+						"source": "https://fdc.nal.usda.gov/food-details/169126/nutrients"
+					},
+					"us": {
+						"quantity": "¼ cup",
+						"status": "volume",
+						"grams": 62.25,
+						"source": "https://fdc.nal.usda.gov/food-details/169126/nutrients"
+					},
+					"metric": {
+						"quantity": "62 g",
+						"status": "mass",
+						"grams": 62.25,
+						"source": "https://fdc.nal.usda.gov/food-details/169126/nutrients"
+					}
+				},
+				"4": {
+					"grams": {
+						"quantity": "62 g",
+						"status": "mass",
+						"grams": 62.25,
+						"source": "https://fdc.nal.usda.gov/food-details/169126/nutrients"
+					},
+					"us": {
+						"quantity": "¼ cup",
+						"status": "volume",
+						"grams": 62.25,
+						"source": "https://fdc.nal.usda.gov/food-details/169126/nutrients"
+					},
+					"metric": {
+						"quantity": "62 g",
+						"status": "mass",
+						"grams": 62.25,
+						"source": "https://fdc.nal.usda.gov/food-details/169126/nutrients"
+					}
+				},
+				"6": {
+					"grams": {
+						"quantity": "125 g",
+						"status": "mass",
+						"grams": 124.5,
+						"source": "https://fdc.nal.usda.gov/food-details/169126/nutrients"
+					},
+					"us": {
+						"quantity": "½ cup",
+						"status": "volume",
+						"grams": 124.5,
+						"source": "https://fdc.nal.usda.gov/food-details/169126/nutrients"
+					},
+					"metric": {
+						"quantity": "125 g",
+						"status": "mass",
+						"grams": 124.5,
+						"source": "https://fdc.nal.usda.gov/food-details/169126/nutrients"
+					}
+				},
+				"8": {
+					"grams": {
+						"quantity": "125 g",
+						"status": "mass",
+						"grams": 124.5,
+						"source": "https://fdc.nal.usda.gov/food-details/169126/nutrients"
+					},
+					"us": {
+						"quantity": "½ cup",
+						"status": "volume",
+						"grams": 124.5,
+						"source": "https://fdc.nal.usda.gov/food-details/169126/nutrients"
+					},
+					"metric": {
+						"quantity": "125 g",
+						"status": "mass",
+						"grams": 124.5,
+						"source": "https://fdc.nal.usda.gov/food-details/169126/nutrients"
+					}
+				}
+			}
+		},
+		{
+			"recipe": "carrot-cake",
+			"family": false,
+			"ingredient": "butter",
+			"name": "Unsalted butter",
+			"canonical": {
+				"amount": 1,
+				"unit": "tbsp",
+				"state": "softened",
+				"grams": 14.2
+			},
+			"weight": {
+				"gramsPerUnit": 14.2,
+				"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients",
+				"description": "Butter, without salt",
+				"kind": "mass",
+				"referenceId": "usda-173430"
+			},
+			"provenance": {
+				"original": {
+					"name": "Unsalted butter",
+					"state": "softened",
+					"amount": 1,
+					"unit": "tbsp",
+					"note": ""
+				},
+				"sourceIngredientId": "butter",
+				"reviewedOn": "2026-10-22",
+				"massBasis": "edible",
+				"decision": "Retain published quantity with explicit USDA cooking weight. "
+			},
+			"alternatives": [],
+			"displays": {
+				"grams": {
+					"quantity": "14 g",
+					"status": "mass",
+					"grams": 14.2,
+					"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
+				},
+				"us": {
+					"quantity": "1 tbsp",
+					"status": "volume",
+					"grams": 14.2,
+					"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
+				},
+				"metric": {
+					"quantity": "14 g",
+					"status": "mass",
+					"grams": 14.2,
+					"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
+				}
+			},
+			"scaling": {
+				"2": {
+					"grams": {
+						"quantity": "14 g",
+						"status": "mass",
+						"grams": 14.2,
+						"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
+					},
+					"us": {
+						"quantity": "1 tbsp",
+						"status": "volume",
+						"grams": 14.2,
+						"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
+					},
+					"metric": {
+						"quantity": "14 g",
+						"status": "mass",
+						"grams": 14.2,
+						"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
+					}
+				},
+				"4": {
+					"grams": {
+						"quantity": "14 g",
+						"status": "mass",
+						"grams": 14.2,
+						"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
+					},
+					"us": {
+						"quantity": "1 tbsp",
+						"status": "volume",
+						"grams": 14.2,
+						"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
+					},
+					"metric": {
+						"quantity": "14 g",
+						"status": "mass",
+						"grams": 14.2,
+						"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
+					}
+				},
+				"6": {
+					"grams": {
+						"quantity": "28 g",
+						"status": "mass",
+						"grams": 28.4,
+						"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
+					},
+					"us": {
+						"quantity": "2 tbsp",
+						"status": "volume",
+						"grams": 28.4,
+						"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
+					},
+					"metric": {
+						"quantity": "28 g",
+						"status": "mass",
+						"grams": 28.4,
+						"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
+					}
+				},
+				"8": {
+					"grams": {
+						"quantity": "28 g",
+						"status": "mass",
+						"grams": 28.4,
+						"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
+					},
+					"us": {
+						"quantity": "2 tbsp",
+						"status": "volume",
+						"grams": 28.4,
+						"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
+					},
+					"metric": {
+						"quantity": "28 g",
+						"status": "mass",
+						"grams": 28.4,
+						"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
+					}
+				}
+			}
+		},
+		{
+			"recipe": "carrot-cake",
+			"family": false,
+			"ingredient": "cream_cheese",
+			"name": "Cream cheese",
+			"canonical": {
+				"amount": 2,
+				"unit": "oz",
+				"state": "full-fat, softened",
+				"grams": 56.69904625
+			},
+			"weight": {
+				"gramsPerUnit": 28.349523125,
+				"source": "https://www.nist.gov/pml/special-publication-811",
+				"kind": "mass",
+				"referenceId": "usda-173418",
+				"referenceSource": "https://fdc.nal.usda.gov/food-details/173418/nutrients"
+			},
+			"provenance": {
+				"original": {
+					"name": "Cream cheese",
+					"state": "full-fat, softened",
+					"amount": 2,
+					"unit": "oz",
+					"note": "Use a product with vegetarian-compatible ingredients."
+				},
+				"sourceIngredientId": "cream_cheese",
+				"reviewedOn": "2026-10-22",
+				"massBasis": "edible",
+				"decision": "Retain published quantity with explicit USDA cooking weight. "
+			},
+			"alternatives": [],
+			"displays": {
+				"grams": {
+					"quantity": "57 g",
+					"status": "mass",
+					"grams": 56.69904625,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"us": {
+					"quantity": "2 oz",
+					"status": "mass",
+					"grams": 56.69904625,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"metric": {
+					"quantity": "57 g",
+					"status": "mass",
+					"grams": 56.69904625,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				}
+			},
+			"scaling": {
+				"2": {
+					"grams": {
+						"quantity": "57 g",
+						"status": "mass",
+						"grams": 56.69904625,
+						"source": "https://www.nist.gov/pml/special-publication-811"
+					},
+					"us": {
+						"quantity": "2 oz",
+						"status": "mass",
+						"grams": 56.69904625,
+						"source": "https://www.nist.gov/pml/special-publication-811"
+					},
+					"metric": {
+						"quantity": "57 g",
+						"status": "mass",
+						"grams": 56.69904625,
+						"source": "https://www.nist.gov/pml/special-publication-811"
+					}
+				},
+				"4": {
+					"grams": {
+						"quantity": "57 g",
+						"status": "mass",
+						"grams": 56.69904625,
+						"source": "https://www.nist.gov/pml/special-publication-811"
+					},
+					"us": {
+						"quantity": "2 oz",
+						"status": "mass",
+						"grams": 56.69904625,
+						"source": "https://www.nist.gov/pml/special-publication-811"
+					},
+					"metric": {
+						"quantity": "57 g",
+						"status": "mass",
+						"grams": 56.69904625,
+						"source": "https://www.nist.gov/pml/special-publication-811"
+					}
+				},
+				"6": {
+					"grams": {
+						"quantity": "113 g",
+						"status": "mass",
+						"grams": 113.3980925,
+						"source": "https://www.nist.gov/pml/special-publication-811"
+					},
+					"us": {
+						"quantity": "4 oz",
+						"status": "mass",
+						"grams": 113.3980925,
+						"source": "https://www.nist.gov/pml/special-publication-811"
+					},
+					"metric": {
+						"quantity": "113 g",
+						"status": "mass",
+						"grams": 113.3980925,
+						"source": "https://www.nist.gov/pml/special-publication-811"
+					}
+				},
+				"8": {
+					"grams": {
+						"quantity": "113 g",
+						"status": "mass",
+						"grams": 113.3980925,
+						"source": "https://www.nist.gov/pml/special-publication-811"
+					},
+					"us": {
+						"quantity": "4 oz",
+						"status": "mass",
+						"grams": 113.3980925,
+						"source": "https://www.nist.gov/pml/special-publication-811"
+					},
+					"metric": {
+						"quantity": "113 g",
+						"status": "mass",
+						"grams": 113.3980925,
+						"source": "https://www.nist.gov/pml/special-publication-811"
+					}
+				}
+			}
+		},
+		{
+			"recipe": "carrot-cake",
+			"family": false,
+			"ingredient": "frosting_vanilla",
+			"name": "Vanilla extract for frosting",
+			"canonical": {
+				"amount": 0.25,
+				"unit": "tsp",
+				"state": "as purchased",
+				"grams": 1.05
+			},
+			"weight": {
+				"gramsPerUnit": 4.2,
+				"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients",
+				"description": "Vanilla extract",
+				"kind": "liquid",
+				"referenceId": "usda-173471",
+				"gramsPerMl": 0.8521133720864436
+			},
+			"provenance": {
+				"original": {
+					"name": "Vanilla extract for frosting",
+					"state": "as purchased",
+					"amount": 0.25,
+					"unit": "tsp",
+					"note": ""
+				},
+				"sourceIngredientId": "frosting_vanilla",
+				"reviewedOn": "2026-10-22",
+				"massBasis": "edible",
+				"decision": "Retain published quantity with explicit USDA cooking weight. "
+			},
+			"alternatives": [],
+			"displays": {
+				"grams": {
+					"quantity": "1.1 g",
+					"status": "mass",
+					"grams": 1.05,
+					"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+				},
+				"us": {
+					"quantity": "¼ tsp",
+					"status": "volume",
+					"grams": 1.05,
+					"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+				},
+				"metric": {
+					"quantity": "1.2 mL",
+					"status": "volume",
+					"grams": 1.05,
+					"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+				}
+			},
+			"scaling": {
+				"2": {
+					"grams": {
+						"quantity": "1.1 g",
+						"status": "mass",
+						"grams": 1.05,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					},
+					"us": {
+						"quantity": "¼ tsp",
+						"status": "volume",
+						"grams": 1.05,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					},
+					"metric": {
+						"quantity": "1.2 mL",
+						"status": "volume",
+						"grams": 1.05,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					}
+				},
+				"4": {
+					"grams": {
+						"quantity": "1.1 g",
+						"status": "mass",
+						"grams": 1.05,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					},
+					"us": {
+						"quantity": "¼ tsp",
+						"status": "volume",
+						"grams": 1.05,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					},
+					"metric": {
+						"quantity": "1.2 mL",
+						"status": "volume",
+						"grams": 1.05,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					}
+				},
+				"6": {
+					"grams": {
+						"quantity": "2.1 g",
+						"status": "mass",
+						"grams": 2.1,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					},
+					"us": {
+						"quantity": "½ tsp",
+						"status": "volume",
+						"grams": 2.1,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					},
+					"metric": {
+						"quantity": "2.5 mL",
+						"status": "volume",
+						"grams": 2.1,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					}
+				},
+				"8": {
+					"grams": {
+						"quantity": "2.1 g",
+						"status": "mass",
+						"grams": 2.1,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					},
+					"us": {
+						"quantity": "½ tsp",
+						"status": "volume",
+						"grams": 2.1,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					},
+					"metric": {
+						"quantity": "2.5 mL",
+						"status": "volume",
+						"grams": 2.1,
+						"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+					}
+				}
+			}
+		},
+		{
+			"recipe": "carrot-cake",
+			"family": false,
+			"ingredient": "powdered_sugar",
+			"name": "Powdered sugar",
+			"canonical": {
+				"amount": 0.5,
+				"unit": "cup",
+				"state": "unsifted",
+				"grams": 60
+			},
+			"weight": {
+				"gramsPerUnit": 120,
+				"source": "https://fdc.nal.usda.gov/food-details/169656/nutrients",
+				"description": "Sugars, powdered",
+				"kind": "mass",
+				"referenceId": "usda-169656-unsifted"
+			},
+			"provenance": {
+				"original": {
+					"name": "Powdered sugar",
+					"state": "unsifted",
+					"amount": 0.5,
+					"unit": "cup",
+					"note": "Sift after measuring."
+				},
+				"sourceIngredientId": "powdered_sugar",
+				"reviewedOn": "2026-10-22",
+				"massBasis": "edible",
+				"decision": "Retain published quantity with explicit USDA cooking weight. "
+			},
+			"alternatives": [],
+			"displays": {
+				"grams": {
+					"quantity": "60 g",
+					"status": "mass",
+					"grams": 60,
+					"source": "https://fdc.nal.usda.gov/food-details/169656/nutrients"
+				},
+				"us": {
+					"quantity": "½ cup",
+					"status": "volume",
+					"grams": 60,
+					"source": "https://fdc.nal.usda.gov/food-details/169656/nutrients"
+				},
+				"metric": {
+					"quantity": "60 g",
+					"status": "mass",
+					"grams": 60,
+					"source": "https://fdc.nal.usda.gov/food-details/169656/nutrients"
+				}
+			},
+			"scaling": {
+				"2": {
+					"grams": {
+						"quantity": "60 g",
+						"status": "mass",
+						"grams": 60,
+						"source": "https://fdc.nal.usda.gov/food-details/169656/nutrients"
+					},
+					"us": {
+						"quantity": "½ cup",
+						"status": "volume",
+						"grams": 60,
+						"source": "https://fdc.nal.usda.gov/food-details/169656/nutrients"
+					},
+					"metric": {
+						"quantity": "60 g",
+						"status": "mass",
+						"grams": 60,
+						"source": "https://fdc.nal.usda.gov/food-details/169656/nutrients"
+					}
+				},
+				"4": {
+					"grams": {
+						"quantity": "60 g",
+						"status": "mass",
+						"grams": 60,
+						"source": "https://fdc.nal.usda.gov/food-details/169656/nutrients"
+					},
+					"us": {
+						"quantity": "½ cup",
+						"status": "volume",
+						"grams": 60,
+						"source": "https://fdc.nal.usda.gov/food-details/169656/nutrients"
+					},
+					"metric": {
+						"quantity": "60 g",
+						"status": "mass",
+						"grams": 60,
+						"source": "https://fdc.nal.usda.gov/food-details/169656/nutrients"
+					}
+				},
+				"6": {
+					"grams": {
+						"quantity": "120 g",
+						"status": "mass",
+						"grams": 120,
+						"source": "https://fdc.nal.usda.gov/food-details/169656/nutrients"
+					},
+					"us": {
+						"quantity": "1 cup",
+						"status": "volume",
+						"grams": 120,
+						"source": "https://fdc.nal.usda.gov/food-details/169656/nutrients"
+					},
+					"metric": {
+						"quantity": "120 g",
+						"status": "mass",
+						"grams": 120,
+						"source": "https://fdc.nal.usda.gov/food-details/169656/nutrients"
+					}
+				},
+				"8": {
+					"grams": {
+						"quantity": "120 g",
+						"status": "mass",
+						"grams": 120,
+						"source": "https://fdc.nal.usda.gov/food-details/169656/nutrients"
+					},
+					"us": {
+						"quantity": "1 cup",
+						"status": "volume",
+						"grams": 120,
+						"source": "https://fdc.nal.usda.gov/food-details/169656/nutrients"
+					},
+					"metric": {
+						"quantity": "120 g",
+						"status": "mass",
+						"grams": 120,
+						"source": "https://fdc.nal.usda.gov/food-details/169656/nutrients"
 					}
 				}
 			}

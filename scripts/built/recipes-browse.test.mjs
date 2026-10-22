@@ -20,11 +20,6 @@ const RECIPES = new URL(
 );
 const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
 const meals = recipes.filter((recipe) => recipe.type === "meal");
-// The meals that need both air fryers.
-const AIR_FRYER_MEALS = recipes
-	.filter((recipe) => recipe.appliancesNeeded.includes("Two air fryers"))
-	.map((recipe) => recipe.id)
-	.sort();
 const smoothieCount = recipes.filter(
 	(recipe) => recipe.type === "smoothie",
 ).length;
@@ -51,6 +46,8 @@ const HELP_CLOSE_WAIT_MS = 400;
 const COOKING_FLOW = /Cooking flow/u;
 const REMOVED_PRINT_SECTIONS =
 	/Before you start|Where your attention goes|First-cook checks/u;
+// This exact diagnostic comes from Playwright, not the application.
+const WORKER_BLOCK_NOTICE = "Service Worker registration blocked by Playwright";
 const LEARN_MORE = "Learn more about Tabular Recipe Notation";
 // biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
 const NATIVE_CHECKBOX = "input[type=checkbox]:visible";
@@ -114,11 +111,13 @@ function detailParityCheck(recipe, width) {
 	}, async () => {
 		const viewport = { width, height: HEIGHT };
 		const plain = await browser.newContext({
+			serviceWorkers: "block",
 			javaScriptEnabled: false,
 			viewport,
 			reducedMotion: "reduce",
 		});
 		const context = await browser.newContext({
+			serviceWorkers: "block",
 			viewport,
 			reducedMotion: "reduce",
 		});
@@ -159,7 +158,10 @@ function detailParityCheck(recipe, width) {
 				normalize(await bodyContent(staticBody, width)),
 				recipe.id,
 			);
-			assert.deepEqual(errors, []);
+			assert.deepEqual(
+				errors.filter((message) => message !== WORKER_BLOCK_NOTICE),
+				[],
+			);
 		} finally {
 			await context.close();
 			await plain.close();
@@ -173,11 +175,13 @@ function detailsCheck(width) {
 	}, async () => {
 		const viewport = { width, height: HEIGHT };
 		const plain = await browser.newContext({
+			serviceWorkers: "block",
 			javaScriptEnabled: false,
 			viewport,
 			reducedMotion: "reduce",
 		});
 		const context = await browser.newContext({
+			serviceWorkers: "block",
 			viewport,
 			reducedMotion: "reduce",
 		});
@@ -268,7 +272,10 @@ function detailsCheck(width) {
 					starch: "shawarma-chicken-bowls:pita_one",
 				},
 			);
-			const receiver = await browser.newContext({ viewport });
+			const receiver = await browser.newContext({
+				serviceWorkers: "block",
+				viewport,
+			});
 			try {
 				const received = await receiver.newPage();
 				await received.goto(shared.href);
@@ -295,7 +302,10 @@ function detailsCheck(width) {
 			const changed = new URL(
 				await page.evaluate(() => window.sharedRecipe.url),
 			);
-			const fresh = await browser.newContext({ viewport });
+			const fresh = await browser.newContext({
+				serviceWorkers: "block",
+				viewport,
+			});
 			try {
 				const reopened = await fresh.newPage();
 				await reopened.goto(changed.href);
@@ -363,7 +373,10 @@ function detailsCheck(width) {
 				borders.every((border) => Number.parseFloat(border) > 0),
 				`printed flow table borders: ${borders.join(" ")}`,
 			);
-			assert.deepEqual(errors, []);
+			assert.deepEqual(
+				errors.filter((message) => message !== WORKER_BLOCK_NOTICE),
+				[],
+			);
 		} finally {
 			await context.close();
 			await plain.close();
@@ -376,6 +389,7 @@ function filtersCheck(width) {
 		timeout: 120_000,
 	}, async () => {
 		const context = await browser.newContext({
+			serviceWorkers: "block",
 			viewport: { width, height: 984 },
 		});
 		const page = await context.newPage();
@@ -393,39 +407,31 @@ function filtersCheck(width) {
 				.getAttribute("data-match-count")
 				.then(Number);
 		};
-		const shownIds = async () => {
-			await page.waitForFunction(
-				() =>
-					document.querySelector("#meal-results").getAttribute("aria-busy") ===
-					"false",
-			);
-			const more = page.getByRole("button", { name: "Load more recipes" });
-			// biome-ignore lint/performance/noAwaitInLoops: each page depends on the prior page response and its rendered load-more control.
-			while (await more.count()) {
-				const prior = await page.locator(".recipe-card").count();
-				const button = await more.elementHandle();
-				if (!button) continue;
-				try {
-					await button.click();
-				} catch (error) {
-					// Scrolling can trigger automatic pagination and remove this exact
-					// button. Do not retry a different batch's control; still require
-					// the same card-growth proof below, and retain all other failures.
-					if (!error.message.includes("Element is not attached to the DOM"))
-						throw error;
-				} finally {
-					await button.dispose();
-				}
-				await page.waitForFunction(
-					(count) => document.querySelectorAll(".recipe-card").length > count,
-					prior,
+		// Browse API/native pagination suites compare complete result sets. This UI
+		// scenario checks control wiring, total count and every mounted card without
+		// mounting the entire library again for each filter combination.
+		const expectCards = async (expected) => {
+			await page.waitForFunction((total) => {
+				const results = document.querySelector("#meal-results");
+				return (
+					results.getAttribute("aria-busy") === "false" &&
+					Number(results.getAttribute("data-match-count")) === total
 				);
-			}
-			return page
+			}, expected.length);
+			const shown = await page
 				.locator(".recipe-card a.title-button")
 				.evaluateAll((links) =>
 					links.map((link) => link.dataset.recipeId).sort(),
 				);
+			assert.ok(shown.length >= Math.min(6, expected.length));
+			assert.ok(shown.length <= expected.length);
+			assert.deepEqual(
+				shown,
+				expected
+					.slice(0, shown.length)
+					.map((recipe) => recipe.id)
+					.sort(),
+			);
 		};
 		try {
 			await page.goto(`${site.origin}${LANDING}`);
@@ -440,16 +446,12 @@ function filtersCheck(width) {
 				// biome-ignore lint/performance/noAwaitInLoops: exercise each independent filter combination in sequence
 				await checkbox("Keto").setChecked(keto);
 				await checkbox("Vegetarian").setChecked(vegetarian);
-				assert.deepEqual(
-					await shownIds(),
-					meals
-						.filter(
-							(recipe) =>
-								(!keto || recipe.nutrition.net_carbs_g <= 12.5) &&
-								(!vegetarian || recipe.vegetarian === true),
-						)
-						.map((recipe) => recipe.id)
-						.sort(),
+				await expectCards(
+					meals.filter(
+						(recipe) =>
+							(!keto || recipe.nutrition.net_carbs_g <= 12.5) &&
+							(!vegetarian || recipe.vegetarian === true),
+					),
 				);
 			}
 			await checkbox("Keto").check();
@@ -462,18 +464,18 @@ function filtersCheck(width) {
 			await checkbox("Keto").uncheck();
 			// Re-ticking Air fryers brings back its two and their meals.
 			await checkbox("Air fryers").uncheck();
-			const withoutFryers = await shownIds();
+			await expectCards(
+				meals.filter(
+					(recipe) => !recipe.appliancesNeeded.includes("Two air fryers"),
+				),
+			);
 			await checkbox("Air fryers").check();
-			const withFryers = await shownIds();
-			assert.deepEqual(
-				{
-					hidden: AIR_FRYER_MEALS.filter((id) => withoutFryers.includes(id)),
-					back: AIR_FRYER_MEALS.filter((id) => withFryers.includes(id)),
-					count: await page
-						.getByRole("combobox", { name: "Air fryers count", exact: true })
-						.inputValue(),
-				},
-				{ hidden: [], back: AIR_FRYER_MEALS, count: "2" },
+			await expectCards(meals);
+			assert.equal(
+				await page
+					.getByRole("combobox", { name: "Air fryers count", exact: true })
+					.inputValue(),
+				"2",
 			);
 			await page.getByRole("button", { name: PROTEINS }).click();
 			await checkbox("Fish").check();
@@ -648,7 +650,10 @@ function filtersCheck(width) {
 			assert.equal(await cards(), smoothieCount);
 			assert.equal((await stored(page)).filters.ironRich, true);
 			assert.equal(await checkbox("Iron-rich").count(), 0);
-			assert.deepEqual(errors, []);
+			assert.deepEqual(
+				errors.filter((message) => message !== WORKER_BLOCK_NOTICE),
+				[],
+			);
 		} finally {
 			await context.close();
 		}
@@ -778,10 +783,12 @@ function collectionsCheck(width) {
 		timeout: 60_000,
 	}, async () => {
 		const plain = await browser.newContext({
+			serviceWorkers: "block",
 			javaScriptEnabled: false,
 			viewport: { width, height: HEIGHT },
 		});
 		const live = await browser.newContext({
+			serviceWorkers: "block",
 			viewport: { width, height: HEIGHT },
 			hasTouch: width === 390,
 			isMobile: width === 390,
@@ -908,6 +915,7 @@ function filterFocusCheck(width) {
 		timeout: 60_000,
 	}, async () => {
 		const context = await browser.newContext({
+			serviceWorkers: "block",
 			viewport: { width, height: HEIGHT },
 		});
 		try {
