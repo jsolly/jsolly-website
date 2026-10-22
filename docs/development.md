@@ -28,6 +28,46 @@ Use the repository's README and AGENTS.md for its build, test and deployment
 commands. A missing prerequisite is a failed setup; report it rather than claiming
 that the gate ran. No setup command deploys the application or infrastructure.
 
+## Test file timings
+
+CI enables `TEST_FILE_TIMINGS=1` for the complete gate. Each Vitest file emits
+one `TIMING` JSON row with its suite, relative path, state and `wall_ms`.
+The interval starts when the worker queues the file for collection and ends
+after its tests and `afterAll` hooks. It includes imports and hooks, excludes
+worker startup and environment preparation, and is not summed testcase time.
+`collect_ms` and `tests_hooks_ms` expose Vitest's corresponding diagnostics.
+Parallel file durations overlap; do not add them to estimate the gate duration.
+The `test-file-timings` artifact retains JSONL rows and the checkout SHA/tree,
+even when validation fails. Each runner writes its own file, including CSP
+runs nested inside built tests. The gate suppresses successful step output,
+so the artifact is the durable record.
+
+To collect the same evidence locally from the repository root:
+
+```bash
+TEST_FILE_TIMINGS=1 TEST_FILE_TIMINGS_DIR=/tmp/jsolly-test-timings mise exec -- npm run gate
+```
+
+The directory accumulates reports across runs; use a fresh directory for each
+comparison. Without `TEST_FILE_TIMINGS_DIR`, rows go only to stdout, useful for
+direct suite commands. The optional reporter leaves the exact passing-test ledger
+and failure checks unchanged. Preserve the artifacts before retiring a probe branch.
+
+The recipe browser suites separate control behavior from content enumeration.
+Filter/navigation cases check independently expected totals, the initial batch,
+and a later filtered batch at phone and desktop widths. Complete recipe partitions
+and pagination stay in the module/API suites; dedicated browser cases retain
+scrolling, button pagination and focus/recovery. The filter/navigation suite blocks
+service workers; offline/install/update suites exercise real workers separately.
+
+The CSP suite parses each built page once into immutable facts, retaining its
+separate policy, script-byte/order and image checks. Maintenance and CMS fixture
+builds each run the same suite against their own output. PWA snapshot rebuild
+checks belong to the install suite; other PWA files still build isolated snapshots.
+Smoke contract cases share a browser process and retain a fresh context per case.
+The update suite also checks that live API requests leave a stopped worker asleep
+and that workers still install and serve offline data without static routing.
+
 ## Hook trust
 
 The dispatcher lives in this clone's Git common directory, shared only by its

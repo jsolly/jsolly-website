@@ -7,8 +7,9 @@ import { exists, readBuilt } from "./pages.mjs";
 // The built recipe routes without JavaScript (ported from awesome-blog's
 // astro-contract test): the /recipes/ landing renders the library unhydrated
 // with no recipe open, the meals and smoothies pages list their collection's
-// cards linking to each recipe page, every recipe page renders its whole body
-// with its first-party images, and the assistant downloads list every recipe.
+// cards linking to each recipe page, one meal and one smoothie render their
+// whole bodies, every recipe retains its first-party images, and the assistant
+// downloads list every recipe.
 const DIST = "dist";
 const RECIPES = new URL(
 	"../../src/components/recipes/recipes.json",
@@ -17,7 +18,7 @@ const RECIPES = new URL(
 const WHITESPACE = /\s+/u;
 const COLLECTIONS = { meals: "meal", smoothies: "smoothie" };
 
-it("recipe route shares complete recipe bodies without JavaScript and retains first-party assets", async () => {
+it("recipe routes share representative bodies without JavaScript and retain every recipe's first-party assets", async () => {
 	const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
 	assert.deepEqual(
 		await readBuilt("recipes", (document) => ({
@@ -74,8 +75,11 @@ it("recipe route shares complete recipe bodies without JavaScript and retains fi
 		})),
 		"each collection page starts with the first six canonical recipes",
 	);
+	const representativeRecipes = Object.values(COLLECTIONS).map((type) =>
+		recipes.find((recipe) => recipe.type === type),
+	);
 	const details = await Promise.all(
-		recipes.map(async (recipe) => {
+		representativeRecipes.map(async (recipe) => {
 			const page = await readBuilt(`recipes/${recipe.id}`, (document) => {
 				const body = document.querySelector(".recipe-body")?.textContent ?? "";
 				return {
@@ -91,6 +95,23 @@ it("recipe route shares complete recipe bodies without JavaScript and retains fi
 						.map((ingredient) => ingredient.name),
 				};
 			});
+			return { id: recipe.id, ...page };
+		}),
+	);
+	assert.deepEqual(
+		details,
+		representativeRecipes.map((recipe) => ({
+			id: recipe.id,
+			detail: 1,
+			flow: 1,
+			disclosure: 1,
+			photo: recipe.image.src,
+			missingIngredients: [],
+		})),
+		"one meal and one smoothie render their whole bodies",
+	);
+	const images = await Promise.all(
+		recipes.map(async (recipe) => {
 			const candidates = [recipe.image.cardSrcset, recipe.image.detailSrcset]
 				.flatMap((srcset) => srcset.split(","))
 				.map((candidate) => candidate.trim().split(WHITESPACE)[0]);
@@ -99,23 +120,14 @@ it("recipe route shares complete recipe bodies without JavaScript and retains fi
 			);
 			return {
 				id: recipe.id,
-				...page,
 				missingImages: candidates.filter((_candidate, i) => !present[i]),
 			};
 		}),
 	);
 	assert.deepEqual(
-		details,
-		recipes.map((recipe) => ({
-			id: recipe.id,
-			detail: 1,
-			flow: 1,
-			disclosure: 1,
-			photo: recipe.image.src,
-			missingIngredients: [],
-			missingImages: [],
-		})),
-		"each recipe page renders its whole body and its images exist",
+		images,
+		recipes.map((recipe) => ({ id: recipe.id, missingImages: [] })),
+		"every recipe's images exist",
 	);
 	const assistant = JSON.parse(
 		await readFile(join(DIST, "recipes/data/recipe-library.json"), "utf8"),

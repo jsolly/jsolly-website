@@ -169,8 +169,22 @@ jobs:
       - run: npx --no-install playwright install --with-deps chromium
         if: steps.verified-tree.outputs.run_full != 'false'
       - name: Run complete repository gate
-        run: npm run gate
         if: steps.verified-tree.outputs.run_full != 'false'
+        env:
+          TEST_FILE_TIMINGS: "1"
+          TEST_FILE_TIMINGS_DIR: ${{ runner.temp }}/test-file-timings
+        run: |
+          mkdir -p "$TEST_FILE_TIMINGS_DIR"
+          echo "checkout=$(git rev-parse HEAD) tree=$(git rev-parse 'HEAD^{tree}')" | tee "$TEST_FILE_TIMINGS_DIR/source.txt"
+          npm run gate
+      - name: Preserve test file timings
+        if: always() && steps.verified-tree.outputs.run_full != 'false'
+        uses: actions/upload-artifact@v7
+        with:
+          name: test-file-timings-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/test-file-timings
+          if-no-files-found: warn
+          retention-days: 14
       - name: Record validated PR tree
         if: >-
           success() && github.event_name == 'pull_request' &&

@@ -1,7 +1,16 @@
 import assert from "node:assert/strict";
-import { mkdtempSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
+import {
+	mkdtempSync,
+	readdirSync,
+	readFileSync,
+	rmSync,
+	symlinkSync,
+	writeFileSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { it } from "vitest";
 import { parseSummary, runCounted } from "../run-tests.mjs";
 
@@ -9,6 +18,8 @@ const BELOW_LEDGER = /2 of 3 tests passed, below the 3 recorded/u;
 const ABOVE_LEDGER = /Set "fixture" to 2 in this commit/u;
 const NO_SUMMARY = /Vitest exited with 1/u;
 const EXITED = /Vitest exited with 1/u;
+const DELAY_MS = 80;
+const JITTER_MS = 20;
 
 const FIXTURE = `import { it } from "vitest";
 it("first", () => {});
@@ -39,6 +50,68 @@ it("a pass count that differs from the ledger fails the suite", () => {
 
 		const matching = runCounted({ ...suite, expected: 2 });
 		assert.ok(matching.ok, matching.message);
+
+		writeFileSync(
+			join(dir, "timed.test.mjs"),
+			`import { beforeAll, afterAll, it } from "vitest";
+const delay = () => new Promise(resolve => setTimeout(resolve, ${DELAY_MS}));
+await delay();
+beforeAll(delay);
+afterAll(delay);
+it("empty test", () => {});
+`,
+		);
+		const output = execFileSync(
+			process.execPath,
+			[
+				fileURLToPath(
+					new URL("../../node_modules/vitest/vitest.mjs", import.meta.url),
+				),
+				"run",
+				"--config",
+				fileURLToPath(
+					new URL("../../config/testing/vitest.config.mjs", import.meta.url),
+				),
+				"--root",
+				dir,
+				"--reporter",
+				fileURLToPath(new URL("../test-file-timings.mjs", import.meta.url)),
+				"timed.test.mjs",
+			],
+			{
+				cwd: dir,
+				env: {
+					...process.env,
+					TEST_SUITE: "fixture",
+					TEST_FILE_TIMINGS_DIR: join(dir, "timings"),
+				},
+				encoding: "utf8",
+			},
+		);
+		const rows = output
+			.split("\n")
+			.filter((line) => line.startsWith("TIMING "));
+		assert.equal(rows.length, 1, output);
+		const timing = JSON.parse(rows[0].slice("TIMING ".length));
+		assert.equal(timing.file, "timed.test.mjs");
+		assert.equal(timing.suite, "fixture");
+		const files = readdirSync(join(dir, "timings"));
+		assert.equal(files.length, 1);
+		assert.deepEqual(
+			JSON.parse(readFileSync(join(dir, "timings", files[0]), "utf8")),
+			timing,
+		);
+		assert.equal(timing.state, "passed");
+		// Allow timer rounding without accepting a missing import or hook phase.
+		assert.ok(timing.collect_ms >= DELAY_MS - JITTER_MS, "imports are timed");
+		assert.ok(
+			timing.wall_ms >= 3 * DELAY_MS - JITTER_MS,
+			"wall time includes imports and both hooks",
+		);
+		assert.ok(
+			timing.tests_hooks_ms >= 2 * DELAY_MS - JITTER_MS,
+			"both hooks count despite empty tests",
+		);
 
 		const below = runCounted({ ...suite, expected: 3 });
 		assert.equal(

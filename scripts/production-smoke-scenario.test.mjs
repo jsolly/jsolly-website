@@ -1,20 +1,12 @@
 import assert from "node:assert/strict";
 import { chromium } from "playwright";
-import { it } from "vitest";
+import { afterAll, beforeAll, it } from "vitest";
 import {
 	productionUrl,
 	serviceWorker,
 	smoke,
 	verifyRelease,
 } from "./production-smoke-scenario.mjs";
-
-it("production smoke opts into the exact recipe worker and scope", () => {
-	assert.deepEqual(serviceWorker, {
-		page: "/recipes/",
-		scope: "/recipes/",
-		script: "/recipes/service-worker.js",
-	});
-});
 
 const STALE_RELEASE = /Canonical site must serve the intended release/u;
 const MENU_NEVER_OPENS = /Timeout[\s\S]*Mobile navigation/u;
@@ -37,6 +29,22 @@ const OFF_BLOG = /the blog links to a public article/u;
 // out passes a shorter one.
 const STUB_TIMEOUT_MS = 5000;
 const SHORT_TIMEOUT_MS = 1000;
+
+let browser;
+beforeAll(async () => {
+	browser = await chromium.launch();
+});
+afterAll(async () => {
+	await browser?.close();
+});
+
+it("production smoke opts into the exact recipe worker and scope", () => {
+	assert.deepEqual(serviceWorker, {
+		page: "/recipes/",
+		scope: "/recipes/",
+		script: "/recipes/service-worker.js",
+	});
+});
 
 // One real-shaped post: its title holds an apostrophe, a colon and an
 // ampersand, as published titles do.
@@ -150,9 +158,8 @@ async function runAgainstStubs({
 	timeout = STUB_TIMEOUT_MS,
 } = {}) {
 	const site = { ...SITE, ...pages };
-	const browser = await chromium.launch();
+	const context = await browser.newContext();
 	try {
-		const context = await browser.newContext();
 		const methods = new Set();
 		await context.route("**/*", (route) => {
 			const request = route.request();
@@ -179,7 +186,7 @@ async function runAgainstStubs({
 		});
 		return { methods, checked, requested };
 	} finally {
-		await browser.close();
+		await context.close();
 	}
 }
 

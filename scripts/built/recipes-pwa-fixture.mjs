@@ -86,9 +86,8 @@ let browser;
 const snapshots = {};
 let served;
 
-// Copies dist/ to `label`, marks its landing page and dedicated static files with the
-// label, and writes its worker twice: `worker` and `rebuilt` are the two
-// results, which must match.
+// Copies dist/ to `label`, marks its landing page and dedicated static files,
+// and builds its real worker. The install suite owns rebuild determinism checks.
 async function snapshot(label) {
 	const directory = join(fixture, label);
 	await cp(DIST, directory, { recursive: true });
@@ -173,9 +172,7 @@ async function snapshot(label) {
 	await writeFile(join(directory, DATA_FILES[1]), `# Snapshot ${label}\n`);
 	const built = await buildRecipePwa(directory);
 	const worker = await readFile(join(directory, WORKER), "utf8");
-	await buildRecipePwa(directory);
-	const rebuilt = await readFile(join(directory, WORKER), "utf8");
-	return { directory, ...built, worker, rebuilt };
+	return { directory, ...built, worker };
 }
 
 before(async () => {

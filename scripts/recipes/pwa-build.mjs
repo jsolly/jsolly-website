@@ -20,7 +20,7 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { build } from "esbuild";
 import { globby } from "globby";
-import { JSDOM } from "jsdom";
+import { parse } from "parse5";
 import {
 	PWA_FILES_PATH,
 	PWA_WORKER_PATH,
@@ -32,14 +32,15 @@ const WORKER_SOURCE = new URL("service-worker.js", import.meta.url);
 const CACHE_PREFIX = "recipe-pages-pwa-";
 const SHELL_PAGES = new Set(["/recipes/", "/recipes/saved/"]);
 const MANIFEST = `${PWA_FILES_PATH}manifest.webmanifest`;
-// biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
-const MANIFEST_LINK = 'link[rel="manifest"]';
 // Any origin works: it only resolves relative URLs to same-site paths.
 const BASE = "https://recipe.invalid";
-// The elements whose src or href a page loads.
-const PAGE_RESOURCES =
-	// biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
-	'[src], link[rel="stylesheet"], link[rel="alternate"][type="text/markdown"], link[rel="modulepreload"], link[rel="manifest"], link[rel="apple-touch-icon"], link[rel="icon"]';
+const LINK_RESOURCES = new Set([
+	"stylesheet",
+	"modulepreload",
+	"manifest",
+	"apple-touch-icon",
+	"icon",
+]);
 // Files a script or stylesheet names: quoted script, style and font paths
 // (the minifier quotes some strings with backticks) and CSS url()s.
 const QUOTED_ASSET = /["'`](?<path>[^"'`\s]+\.(?:js|css|woff2?))["'`]/gu;
@@ -54,35 +55,57 @@ const INDEX_FILE = /(?<=^|\/)index\.html$/u;
 // The URLs the page at `page` loads, as [value, base] pairs, and whether it
 // links the recipe app's manifest.
 function pageReferences(html, page) {
-	// jsdom runs no scripts, so <noscript> holds parsed elements: the offline
-	// copy keeps the no-JavaScript stylesheets too.
-	const { window } = new JSDOM(html);
-	try {
-		const { document } = window;
-		const values = [];
-		for (const element of document.querySelectorAll(PAGE_RESOURCES)) {
-			values.push(element.getAttribute("src") ?? element.getAttribute("href"));
-		}
-		for (const element of document.querySelectorAll("[srcset]")) {
-			for (const candidate of element.getAttribute("srcset").split(",")) {
-				values.push(candidate.trim().split(WHITESPACE)[0]);
+	// Match the no-script HTML parse used previously by jsdom, including the
+	// fallback stylesheets inside <noscript>, without creating browser windows.
+	const resources = [];
+	const srcsets = [];
+	const islands = [];
+	let linksApp = false;
+	function visit(node) {
+		if (node.tagName) {
+			const attributes = Object.fromEntries(
+				node.attrs.map(({ name, value, prefix }) => [
+					prefix ? `${prefix}:${name}` : name,
+					value,
+				]),
+			);
+			const rel = attributes.rel?.toLowerCase();
+			const resourceLink =
+				node.tagName === "link" &&
+				(LINK_RESOURCES.has(rel) ||
+					(rel === "alternate" &&
+						attributes.type?.toLowerCase() === "text/markdown"));
+			if (attributes.src !== undefined || resourceLink) {
+				resources.push(attributes.src ?? attributes.href);
+			}
+			if (attributes.srcset !== undefined) {
+				for (const candidate of attributes.srcset.split(",")) {
+					srcsets.push(candidate.trim().split(WHITESPACE)[0]);
+				}
+			}
+			if (node.tagName === "astro-island") {
+				islands.push(attributes["component-url"], attributes["renderer-url"]);
+			}
+			if (
+				node.tagName === "link" &&
+				rel === "manifest" &&
+				attributes.href === MANIFEST
+			) {
+				linksApp = true;
 			}
 		}
-		for (const island of document.querySelectorAll("astro-island")) {
-			values.push(
-				island.getAttribute("component-url"),
-				island.getAttribute("renderer-url"),
-			);
-		}
-		return {
-			references: values.filter(Boolean).map((value) => [value, page]),
-			linksApp: [...document.querySelectorAll(MANIFEST_LINK)].some(
-				(link) => link.getAttribute("href") === MANIFEST,
-			),
-		};
-	} finally {
-		window.close();
+		// Template contents are inert and live outside childNodes.
+		for (const child of node.childNodes ?? []) visit(child);
 	}
+	visit(parse(html, { scriptingEnabled: false }));
+	return {
+		// Preserve the src/href, srcset, then island ordering: the first image
+		// reference selects the recipe's saved illustration.
+		references: [...resources, ...srcsets, ...islands]
+			.filter(Boolean)
+			.map((value) => [value, page]),
+		linksApp,
+	};
 }
 
 // The URLs the script or stylesheet at `path` names, as [value, base] pairs.
