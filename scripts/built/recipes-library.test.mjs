@@ -73,6 +73,7 @@ const printedTitles = (page) =>
 function printFiresBeforePrint() {
 	window.print = () => {
 		window.dispatchEvent(new Event("beforeprint"));
+		document.documentElement.setAttribute("data-test-print-requested", "true");
 	};
 }
 
@@ -105,6 +106,9 @@ it("single-recipe printing loads its detail while browser-menu printing keeps on
 		const takeover = page.locator(".recipe-takeover");
 		await takeover.waitFor();
 		await takeover.getByRole("button", { name: "Print recipe" }).click();
+		await page
+			.locator("[data-test-print-requested=true]")
+			.waitFor({ state: "attached" });
 		await page.emulateMedia({ media: "print" });
 		assert.deepEqual(await printedTitles(page), [shawarma.title]);
 		assert.equal(await page.locator(".print-output").isVisible(), true);

@@ -507,6 +507,12 @@ the complete assistant downloads are online resources. `/release.json` is never
 served by the worker. The root `/recipes.md` sibling is available to controlled
 clients but lies outside the worker's navigation scope.
 
+The browse API at `/api/recipe-browse/` always uses the network. Browsers with
+`InstallEvent.addRoutes` route it there before starting the worker, so background
+summary requests cannot restart an outgoing worker during explicit activation.
+Other browsers retain the fetch-handler bypass. These rules take effect after
+the worker containing them activates; they cannot change an older active worker.
+
 A connected visit or throttled online focus/reconnection check can download an
 updated shell. **Update and reload** activates that verified release and reloads
 only the requesting tab. Other tabs retain their cooking view until they choose

@@ -281,6 +281,7 @@ for (const variant of [
 		const cwd = process.cwd();
 		const summaryStarted = Promise.withResolvers();
 		const releaseSummary = Promise.withResolvers();
+		const cancellationHeld = Promise.withResolvers();
 		// Preserve rejection for the worker handler while avoiding an unhandled
 		// rejection if fixture setup fails before the worker asks for its script.
 		void summaryStarted.promise.catch(() => {
@@ -322,6 +323,16 @@ for (const variant of [
 			server.on("request", (incoming, outgoing) => {
 				const operation = (async () => {
 					const url = new URL(incoming.url, origin);
+					if (
+						url.pathname === "/api/recipe-browse/" &&
+						url.searchParams.has("smoke-cancellation")
+					) {
+						cancellationHeld.resolve();
+						await releaseSummary.promise;
+						outgoing.writeHead(200, { "Content-Type": "application/json" });
+						outgoing.end("{}");
+						return;
+					}
 					const response = await vercel(url.href, {
 						method: incoming.method,
 						accept: incoming.headers.accept,
@@ -376,6 +387,39 @@ for (const variant of [
 					verifyRecipeWorker: async (page, transitions) => {
 						await workerBrowseReady;
 						const evidence = await verifyRecipeWorker(page, transitions);
+						if (variant.valid || variant.failure === "offline-image") {
+							// Prove cancellation classification with a request we own,
+							// rather than depending on background pagination timing.
+							const summaryRequest = page.waitForRequest(
+								(browserRequest) =>
+									browserRequest.url() ===
+									`${origin}/api/recipe-browse/?smoke-cancellation=1`,
+							);
+							await page.evaluate(() => {
+								globalThis.smokeSummaryAbort = new AbortController();
+								void fetch("/api/recipe-browse/?smoke-cancellation=1", {
+									signal: globalThis.smokeSummaryAbort.signal,
+								}).catch(() => {
+									// The fixture deliberately aborts this held request below.
+								});
+							});
+							const heldRequest = await summaryRequest;
+							await cancellationHeld.promise;
+							const cancelled = page.waitForEvent("requestfailed", {
+								predicate: (browserRequest) => browserRequest === heldRequest,
+							});
+							transitions.beforeOffline();
+							await page.context().setOffline(true);
+							try {
+								await page.evaluate(() => {
+									globalThis.smokeSummaryAbort.abort();
+									globalThis.smokeSummaryAbort = undefined;
+								});
+								await cancelled;
+							} finally {
+								await page.context().setOffline(false);
+							}
+						}
 						if (variant.failure === "offline-image") {
 							const image = await page
 								.locator(".recipe-detail img")
@@ -543,8 +587,10 @@ for (const variant of [
 			);
 			assert.equal(reloads, variant.failure === "registration" ? 0 : 1);
 			const cancellations = receipt.observations.filter(
-				({ source, phase }) =>
-					source === "verification-cancellation" && phase === "offline",
+				({ source, phase, url }) =>
+					source === "verification-cancellation" &&
+					phase === "offline" &&
+					url === `${origin}/api/recipe-browse/?smoke-cancellation=1`,
 			);
 			assert.equal(
 				cancellations.length > 0,
