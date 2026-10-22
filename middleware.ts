@@ -9,7 +9,8 @@ import {
 import { agentResponse } from "./src/lib/agent-response.js";
 import { previewResponseHeaders } from "./src/lib/csp-policy.js";
 import { recipeBrowseDestination } from "./src/lib/recipe-browse-route.mjs";
-import vercelConfig from "./vercel.json" with { type: "json" };
+// biome-ignore lint/correctness/useJsonImportAttributes: Vercel's middleware bundler rejects import attributes (scripts/unit/middleware-bundle.test.mjs).
+import vercelConfig from "./vercel.json";
 
 const markdownRoutes = new Map(builtMarkdownRoutes);
 // Preview deployments widen the header CSP for the Vercel Toolbar; empty in production.
