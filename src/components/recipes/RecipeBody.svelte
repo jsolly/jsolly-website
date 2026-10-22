@@ -192,7 +192,18 @@
 			max-width: 360px;
 		}
 		@media print {
-			.recipe-photo,
+			.recipe-photo {
+				width: 70mm;
+				max-width: 100%;
+				margin: 3mm 0;
+				break-inside: avoid;
+			}
+			.recipe-photo img {
+				max-height: 45mm;
+				object-fit: contain;
+				object-position: left center;
+				border-radius: 0;
+			}
 			.side-nutrition,
 			.family-box:not(.has-side) {
 				display: none;
