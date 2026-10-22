@@ -128,6 +128,8 @@ it("single-recipe printing loads its detail while browser-menu printing keeps on
 			null,
 		);
 		assert.deepEqual(await printedTitles(page), []);
+		// Closing the dialog must not turn the lingering pointer into card-prefetch intent.
+		await page.mouse.move(0, 0);
 		await page.keyboard.press("Escape");
 		await takeover.waitFor({ state: "detached" });
 		const ids = () =>
