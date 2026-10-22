@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { JSDOM } from "jsdom";
 import { it, vi } from "vitest";
@@ -417,10 +418,23 @@ it("lettuce-wrap liquid choices preserve independent source weights in JSON, Mar
 
 it("the migration retains every original ingredient identity, including split mixture components", () => {
 	const audit = JSON.parse(unitAudit());
-	assert.equal(audit.recipeCount, 146);
-	assert.equal(audit.sourceIdentityCount, 1680);
+	assert.equal(audit.recipeCount, 147);
+	assert.equal(audit.sourceIdentityCount, 1697);
+	const migratedIdentities = [
+		...new Set(
+			audit.rows
+				.filter((row) => row.recipe !== "carrot-cake")
+				.map(
+					(row) =>
+						`${row.recipe}/${row.family ? "family" : "ingredient"}/${row.provenance.sourceIngredientId}`,
+				),
+		),
+	].sort();
+	assert.equal(migratedIdentities.length, 1680);
 	assert.equal(
-		audit.sourceIdentitySha256,
+		createHash("sha256")
+			.update(JSON.stringify(migratedIdentities))
+			.digest("hex"),
 		// biome-ignore lint/security/noSecrets: SHA256 of the pre-migration ingredient identities.
 		"f670105d5e3f41d9ba467a7ef8c7a17db56307fee5efa41fecacba64aaf7b669",
 	);

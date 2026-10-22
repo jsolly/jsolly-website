@@ -112413,6 +112413,1093 @@
 					"state": ""
 				}
 			}
+		],
+		"carrot-cake": [
+			{
+				"food": "applesauce",
+				"ingredientId": "applesauce",
+				"fdcId": 171695,
+				"description": "Applesauce, canned, unsweetened, without added ascorbic acid (Includes foods for USDA's Food Distribution Program)",
+				"grams": 81.33333333333333,
+				"source": "https://fdc.nal.usda.gov/food-details/171695/nutrients",
+				"macroSource": "https://fdc.nal.usda.gov/food-details/171695/nutrients",
+				"nutrients": {
+					"fat": 0.1,
+					"saturated_fat": 0.008,
+					"cholesterol": 0.0,
+					"sodium": 2.0,
+					"vitamin_a": 1.0,
+					"vitamin_c": 1.0,
+					"vitamin_d": 0.0,
+					"vitamin_e": 0.16,
+					"vitamin_k": 0.5,
+					"thiamin": 0.026,
+					"riboflavin": 0.03,
+					"niacin": 0.084,
+					"vitamin_b6": 0.027,
+					"folate": 3.0,
+					"vitamin_b12": 0.0,
+					"pantothenic_acid": 0.041,
+					"choline": 2.2,
+					"calcium": 4.0,
+					"iron": 0.23,
+					"magnesium": 3.0,
+					"phosphorus": 5.0,
+					"potassium": 74.0,
+					"zinc": 0.03,
+					"copper": 0.027,
+					"manganese": 0.025,
+					"selenium": 0.3
+				},
+				"macros": {
+					"kcal": 42.0,
+					"protein_g": 0.17,
+					"carbs_g": 11.27,
+					"fiber_g": 1.1
+				},
+				"assumedMacroFields": [],
+				"ingredientSnapshot": {
+					"name": "Unsweetened cinnamon applesauce",
+					"amount": 0.3333333333333333,
+					"unit": "cup",
+					"state": "as purchased"
+				},
+				"measurementReconciliation": {
+					"edibleFraction": 1,
+					"basis": "edible cooking mass",
+					"cookingGrams": 81.33333333333333
+				},
+				"measurementBaseline": {
+					"grams": 81.33333333333333,
+					"macros": {
+						"kcal": 42.0,
+						"protein_g": 0.17,
+						"carbs_g": 11.27,
+						"fiber_g": 1.1
+					}
+				}
+			},
+			{
+				"food": "sugar",
+				"ingredientId": "sugar",
+				"fdcId": 169655,
+				"description": "Sugars, granulated",
+				"grams": 100.0,
+				"source": "https://fdc.nal.usda.gov/food-details/169655/nutrients",
+				"macroSource": "https://fdc.nal.usda.gov/food-details/169655/nutrients",
+				"nutrients": {
+					"fat": 0.0,
+					"saturated_fat": 0.0,
+					"cholesterol": 0.0,
+					"sodium": 1.0,
+					"vitamin_a": 0.0,
+					"vitamin_c": 0.0,
+					"vitamin_d": 0.0,
+					"vitamin_e": 0.0,
+					"vitamin_k": 0.0,
+					"thiamin": 0.0,
+					"riboflavin": 0.019,
+					"niacin": 0.0,
+					"vitamin_b6": 0.0,
+					"folate": 0.0,
+					"vitamin_b12": 0.0,
+					"pantothenic_acid": 0.0,
+					"choline": 0.0,
+					"calcium": 1.0,
+					"iron": 0.05,
+					"magnesium": 0.0,
+					"phosphorus": 0.0,
+					"potassium": 2.0,
+					"zinc": 0.01,
+					"copper": 0.007,
+					"manganese": 0.004,
+					"selenium": 0.6
+				},
+				"macros": {
+					"kcal": 387.0,
+					"protein_g": 0.0,
+					"carbs_g": 99.98,
+					"fiber_g": 0.0
+				},
+				"assumedMacroFields": [],
+				"ingredientSnapshot": {
+					"name": "Granulated sugar",
+					"amount": 0.5,
+					"unit": "cup",
+					"state": "as purchased"
+				},
+				"measurementReconciliation": {
+					"edibleFraction": 1,
+					"basis": "edible cooking mass",
+					"cookingGrams": 100.0
+				},
+				"measurementBaseline": {
+					"grams": 100.0,
+					"macros": {
+						"kcal": 387.0,
+						"protein_g": 0.0,
+						"carbs_g": 99.98,
+						"fiber_g": 0.0
+					}
+				}
+			},
+			{
+				"food": "egg",
+				"ingredientId": "egg",
+				"fdcId": 171287,
+				"description": "Egg, whole, raw, fresh",
+				"grams": 38,
+				"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients",
+				"macroSource": "https://fdc.nal.usda.gov/food-details/171287/nutrients",
+				"nutrients": {
+					"fat": 9.51,
+					"saturated_fat": 3.126,
+					"cholesterol": 372.0,
+					"sodium": 142.0,
+					"vitamin_a": 160.0,
+					"vitamin_c": 0.0,
+					"vitamin_d": 2.0,
+					"vitamin_e": 1.05,
+					"vitamin_k": 0.3,
+					"thiamin": 0.04,
+					"riboflavin": 0.457,
+					"niacin": 0.075,
+					"vitamin_b6": 0.17,
+					"folate": 47.0,
+					"vitamin_b12": 0.89,
+					"pantothenic_acid": 1.533,
+					"choline": 293.8,
+					"calcium": 56.0,
+					"iron": 1.75,
+					"magnesium": 12.0,
+					"phosphorus": 198.0,
+					"potassium": 138.0,
+					"zinc": 1.29,
+					"copper": 0.072,
+					"manganese": 0.028,
+					"selenium": 30.7
+				},
+				"macros": {
+					"kcal": 143.0,
+					"protein_g": 12.56,
+					"carbs_g": 0.72,
+					"fiber_g": 0.0
+				},
+				"assumedMacroFields": [],
+				"ingredientSnapshot": {
+					"name": "Egg",
+					"amount": 1,
+					"unit": "count",
+					"state": "raw, without shell; beaten"
+				},
+				"measurementReconciliation": {
+					"edibleFraction": 1,
+					"basis": "edible cooking mass",
+					"cookingGrams": 38
+				},
+				"measurementBaseline": {
+					"grams": 38,
+					"macros": {
+						"kcal": 143.0,
+						"protein_g": 12.56,
+						"carbs_g": 0.72,
+						"fiber_g": 0.0
+					}
+				}
+			},
+			{
+				"food": "flour",
+				"ingredientId": "flour",
+				"fdcId": 168936,
+				"description": "Wheat flour, white, all-purpose, enriched, unbleached",
+				"grams": 62.5,
+				"source": "https://fdc.nal.usda.gov/food-details/168936/nutrients",
+				"macroSource": "https://fdc.nal.usda.gov/food-details/168936/nutrients",
+				"nutrients": {
+					"fat": 0.98,
+					"saturated_fat": 0.155,
+					"cholesterol": 0.0,
+					"sodium": 2.0,
+					"vitamin_a": 0.0,
+					"vitamin_c": 0.0,
+					"vitamin_d": 0.0,
+					"vitamin_e": 0.23,
+					"vitamin_k": 0.3,
+					"thiamin": 0.785,
+					"riboflavin": 0.494,
+					"niacin": 5.904,
+					"vitamin_b6": 0.044,
+					"folate": 291.0,
+					"vitamin_b12": 0.0,
+					"pantothenic_acid": 0.438,
+					"calcium": 15.0,
+					"iron": 4.64,
+					"magnesium": 22.0,
+					"phosphorus": 108.0,
+					"potassium": 107.0,
+					"zinc": 0.7,
+					"copper": 0.144,
+					"manganese": 0.682,
+					"selenium": 33.9
+				},
+				"macros": {
+					"kcal": 364.0,
+					"protein_g": 10.33,
+					"carbs_g": 76.31,
+					"fiber_g": 2.7
+				},
+				"assumedMacroFields": [],
+				"ingredientSnapshot": {
+					"name": "All-purpose flour",
+					"amount": 0.5,
+					"unit": "cup",
+					"state": "spooned and leveled"
+				},
+				"measurementReconciliation": {
+					"edibleFraction": 1,
+					"basis": "edible cooking mass",
+					"cookingGrams": 62.5
+				},
+				"measurementBaseline": {
+					"grams": 62.5,
+					"macros": {
+						"kcal": 364.0,
+						"protein_g": 10.33,
+						"carbs_g": 76.31,
+						"fiber_g": 2.7
+					}
+				}
+			},
+			{
+				"food": "baking_soda",
+				"ingredientId": "baking_soda",
+				"fdcId": 175040,
+				"description": "Leavening agents, baking soda",
+				"grams": 1.15,
+				"source": "https://fdc.nal.usda.gov/food-details/175040/nutrients",
+				"macroSource": "https://fdc.nal.usda.gov/food-details/175040/nutrients",
+				"nutrients": {
+					"fat": 0.0,
+					"saturated_fat": 0.0,
+					"cholesterol": 0.0,
+					"sodium": 27360.0,
+					"vitamin_a": 0.0,
+					"vitamin_c": 0.0,
+					"vitamin_d": 0.0,
+					"vitamin_e": 0.0,
+					"vitamin_k": 0.0,
+					"thiamin": 0.0,
+					"riboflavin": 0.0,
+					"niacin": 0.0,
+					"vitamin_b6": 0.0,
+					"folate": 0.0,
+					"vitamin_b12": 0.0,
+					"pantothenic_acid": 0.0,
+					"choline": 0.0,
+					"calcium": 0.0,
+					"iron": 0.0,
+					"magnesium": 0.0,
+					"phosphorus": 0.0,
+					"potassium": 0.0,
+					"zinc": 0.0,
+					"copper": 0.0,
+					"manganese": 0.0,
+					"selenium": 0.2
+				},
+				"macros": {
+					"kcal": 0.0,
+					"protein_g": 0.0,
+					"carbs_g": 0.0,
+					"fiber_g": 0.0
+				},
+				"assumedMacroFields": [],
+				"ingredientSnapshot": {
+					"name": "Baking soda",
+					"amount": 0.25,
+					"unit": "tsp",
+					"state": "as purchased"
+				},
+				"measurementReconciliation": {
+					"edibleFraction": 1,
+					"basis": "edible cooking mass",
+					"cookingGrams": 1.15
+				},
+				"measurementBaseline": {
+					"grams": 1.15,
+					"macros": {
+						"kcal": 0.0,
+						"protein_g": 0.0,
+						"carbs_g": 0.0,
+						"fiber_g": 0.0
+					}
+				}
+			},
+			{
+				"food": "baking_powder",
+				"ingredientId": "baking_powder",
+				"fdcId": 172803,
+				"description": "Leavening agents, baking powder, double-acting, sodium aluminum sulfate",
+				"grams": 2.3,
+				"source": "https://fdc.nal.usda.gov/food-details/172803/nutrients",
+				"macroSource": "https://fdc.nal.usda.gov/food-details/172803/nutrients",
+				"nutrients": {
+					"fat": 0.0,
+					"saturated_fat": 0.0,
+					"cholesterol": 0.0,
+					"sodium": 10600.0,
+					"vitamin_a": 0.0,
+					"vitamin_c": 0.0,
+					"vitamin_d": 0.0,
+					"vitamin_e": 0.0,
+					"vitamin_k": 0.0,
+					"thiamin": 0.0,
+					"riboflavin": 0.0,
+					"niacin": 0.0,
+					"vitamin_b6": 0.0,
+					"folate": 0.0,
+					"vitamin_b12": 0.0,
+					"pantothenic_acid": 0.0,
+					"choline": 0.0,
+					"calcium": 5876.0,
+					"iron": 11.02,
+					"magnesium": 27.0,
+					"phosphorus": 2191.0,
+					"potassium": 20.0,
+					"zinc": 0.01,
+					"copper": 0.01,
+					"manganese": 0.011,
+					"selenium": 0.2
+				},
+				"macros": {
+					"kcal": 53.0,
+					"protein_g": 0.0,
+					"carbs_g": 27.7,
+					"fiber_g": 0.2
+				},
+				"assumedMacroFields": [],
+				"ingredientSnapshot": {
+					"name": "Double-acting baking powder",
+					"amount": 0.5,
+					"unit": "tsp",
+					"state": "as purchased"
+				},
+				"measurementReconciliation": {
+					"edibleFraction": 1,
+					"basis": "edible cooking mass",
+					"cookingGrams": 2.3
+				},
+				"measurementBaseline": {
+					"grams": 2.3,
+					"macros": {
+						"kcal": 53.0,
+						"protein_g": 0.0,
+						"carbs_g": 27.7,
+						"fiber_g": 0.2
+					}
+				}
+			},
+			{
+				"food": "salt",
+				"ingredientId": "salt",
+				"fdcId": 173468,
+				"description": "Salt, table",
+				"grams": 0.75,
+				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
+				"macroSource": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
+				"nutrients": {
+					"fat": 0.0,
+					"saturated_fat": 0.0,
+					"cholesterol": 0.0,
+					"sodium": 38758.0,
+					"vitamin_a": 0.0,
+					"vitamin_c": 0.0,
+					"vitamin_d": 0.0,
+					"vitamin_e": 0.0,
+					"vitamin_k": 0.0,
+					"thiamin": 0.0,
+					"riboflavin": 0.0,
+					"niacin": 0.0,
+					"vitamin_b6": 0.0,
+					"folate": 0.0,
+					"vitamin_b12": 0.0,
+					"pantothenic_acid": 0.0,
+					"choline": 0.0,
+					"calcium": 24.0,
+					"iron": 0.33,
+					"magnesium": 1.0,
+					"phosphorus": 0.0,
+					"potassium": 8.0,
+					"zinc": 0.1,
+					"copper": 0.03,
+					"manganese": 0.1,
+					"selenium": 0.1
+				},
+				"macros": {
+					"kcal": 0.0,
+					"protein_g": 0.0,
+					"carbs_g": 0.0,
+					"fiber_g": 0.0
+				},
+				"assumedMacroFields": [],
+				"ingredientSnapshot": {
+					"name": "Fine salt",
+					"amount": 0.125,
+					"unit": "tsp",
+					"state": "as purchased"
+				},
+				"measurementReconciliation": {
+					"edibleFraction": 1,
+					"basis": "edible cooking mass",
+					"cookingGrams": 0.75
+				},
+				"measurementBaseline": {
+					"grams": 0.75,
+					"macros": {
+						"kcal": 0.0,
+						"protein_g": 0.0,
+						"carbs_g": 0.0,
+						"fiber_g": 0.0
+					}
+				}
+			},
+			{
+				"food": "cinnamon",
+				"ingredientId": "cinnamon",
+				"fdcId": 171320,
+				"description": "Spices, cinnamon, ground",
+				"grams": 0.65,
+				"source": "https://fdc.nal.usda.gov/food-details/171320/nutrients",
+				"macroSource": "https://fdc.nal.usda.gov/food-details/171320/nutrients",
+				"nutrients": {
+					"fat": 1.24,
+					"saturated_fat": 0.345,
+					"cholesterol": 0.0,
+					"sodium": 10.0,
+					"vitamin_a": 15.0,
+					"vitamin_c": 3.8,
+					"vitamin_d": 0.0,
+					"vitamin_e": 2.32,
+					"vitamin_k": 31.2,
+					"thiamin": 0.022,
+					"riboflavin": 0.041,
+					"niacin": 1.332,
+					"vitamin_b6": 0.158,
+					"folate": 6.0,
+					"vitamin_b12": 0.0,
+					"pantothenic_acid": 0.358,
+					"choline": 11.0,
+					"calcium": 1002.0,
+					"iron": 8.32,
+					"magnesium": 60.0,
+					"phosphorus": 64.0,
+					"potassium": 431.0,
+					"zinc": 1.83,
+					"copper": 0.339,
+					"manganese": 17.466,
+					"selenium": 3.1
+				},
+				"macros": {
+					"kcal": 247.0,
+					"protein_g": 3.99,
+					"carbs_g": 80.59,
+					"fiber_g": 53.1
+				},
+				"assumedMacroFields": [],
+				"ingredientSnapshot": {
+					"name": "Ground cinnamon",
+					"amount": 0.25,
+					"unit": "tsp",
+					"state": "ground"
+				},
+				"measurementReconciliation": {
+					"edibleFraction": 1,
+					"basis": "edible cooking mass",
+					"cookingGrams": 0.65
+				},
+				"measurementBaseline": {
+					"grams": 0.65,
+					"macros": {
+						"kcal": 247.0,
+						"protein_g": 3.99,
+						"carbs_g": 80.59,
+						"fiber_g": 53.1
+					}
+				}
+			},
+			{
+				"food": "carrot",
+				"ingredientId": "carrot",
+				"fdcId": 170393,
+				"description": "Carrots, raw",
+				"grams": 55.0,
+				"source": "https://fdc.nal.usda.gov/food-details/170393/nutrients",
+				"macroSource": "https://fdc.nal.usda.gov/food-details/170393/nutrients",
+				"nutrients": {
+					"fat": 0.24,
+					"saturated_fat": 0.032,
+					"cholesterol": 0.0,
+					"sodium": 69.0,
+					"vitamin_a": 835.0,
+					"vitamin_c": 5.9,
+					"vitamin_d": 0.0,
+					"vitamin_e": 0.66,
+					"vitamin_k": 13.2,
+					"thiamin": 0.066,
+					"riboflavin": 0.058,
+					"niacin": 0.983,
+					"vitamin_b6": 0.138,
+					"folate": 19.0,
+					"vitamin_b12": 0.0,
+					"pantothenic_acid": 0.273,
+					"choline": 8.8,
+					"calcium": 33.0,
+					"iron": 0.3,
+					"magnesium": 12.0,
+					"phosphorus": 35.0,
+					"potassium": 320.0,
+					"zinc": 0.24,
+					"copper": 0.045,
+					"manganese": 0.143,
+					"selenium": 0.1
+				},
+				"macros": {
+					"kcal": 41.0,
+					"protein_g": 0.93,
+					"carbs_g": 9.58,
+					"fiber_g": 2.8
+				},
+				"assumedMacroFields": [],
+				"ingredientSnapshot": {
+					"name": "Carrots",
+					"amount": 0.5,
+					"unit": "cup",
+					"state": "peeled and grated"
+				},
+				"measurementReconciliation": {
+					"edibleFraction": 1,
+					"basis": "edible cooking mass",
+					"cookingGrams": 55.0
+				},
+				"measurementBaseline": {
+					"grams": 55.0,
+					"macros": {
+						"kcal": 41.0,
+						"protein_g": 0.93,
+						"carbs_g": 9.58,
+						"fiber_g": 2.8
+					}
+				}
+			},
+			{
+				"food": "coconut",
+				"ingredientId": "coconut",
+				"fdcId": 168586,
+				"description": "Nuts, coconut meat, dried (desiccated), sweetened, shredded",
+				"grams": 23.25,
+				"source": "https://fdc.nal.usda.gov/food-details/168586/nutrients",
+				"macroSource": "https://fdc.nal.usda.gov/food-details/168586/nutrients",
+				"nutrients": {
+					"fat": 35.49,
+					"saturated_fat": 31.468,
+					"cholesterol": 0.0,
+					"sodium": 262.0,
+					"vitamin_a": 0.0,
+					"vitamin_c": 0.7,
+					"vitamin_d": 0.0,
+					"vitamin_e": 0.39,
+					"vitamin_k": 0.3,
+					"thiamin": 0.031,
+					"riboflavin": 0.02,
+					"niacin": 0.474,
+					"vitamin_b6": 0.271,
+					"folate": 8.0,
+					"vitamin_b12": 0.0,
+					"pantothenic_acid": 0.722,
+					"choline": 19.3,
+					"calcium": 15.0,
+					"iron": 1.92,
+					"magnesium": 50.0,
+					"phosphorus": 107.0,
+					"potassium": 337.0,
+					"zinc": 1.82,
+					"copper": 0.313,
+					"manganese": 2.475,
+					"selenium": 16.7
+				},
+				"macros": {
+					"kcal": 501.0,
+					"protein_g": 2.88,
+					"carbs_g": 47.67,
+					"fiber_g": 4.5
+				},
+				"assumedMacroFields": [],
+				"ingredientSnapshot": {
+					"name": "Sweetened shredded coconut",
+					"amount": 0.25,
+					"unit": "cup",
+					"state": "dried, sweetened"
+				},
+				"measurementReconciliation": {
+					"edibleFraction": 1,
+					"basis": "edible cooking mass",
+					"cookingGrams": 23.25
+				},
+				"measurementBaseline": {
+					"grams": 23.25,
+					"macros": {
+						"kcal": 501.0,
+						"protein_g": 2.88,
+						"carbs_g": 47.67,
+						"fiber_g": 4.5
+					}
+				}
+			},
+			{
+				"food": "pecans",
+				"ingredientId": "pecans",
+				"fdcId": 170182,
+				"description": "Nuts, pecans",
+				"grams": 27.25,
+				"source": "https://fdc.nal.usda.gov/food-details/170182/nutrients",
+				"macroSource": "https://fdc.nal.usda.gov/food-details/170182/nutrients",
+				"nutrients": {
+					"fat": 71.97,
+					"saturated_fat": 6.18,
+					"cholesterol": 0.0,
+					"sodium": 0.0,
+					"vitamin_a": 3.0,
+					"vitamin_c": 1.1,
+					"vitamin_d": 0.0,
+					"vitamin_e": 1.4,
+					"vitamin_k": 3.5,
+					"thiamin": 0.66,
+					"riboflavin": 0.13,
+					"niacin": 1.167,
+					"vitamin_b6": 0.21,
+					"folate": 22.0,
+					"vitamin_b12": 0.0,
+					"pantothenic_acid": 0.863,
+					"choline": 40.5,
+					"calcium": 70.0,
+					"iron": 2.53,
+					"magnesium": 121.0,
+					"phosphorus": 277.0,
+					"potassium": 410.0,
+					"zinc": 4.53,
+					"copper": 1.2,
+					"manganese": 4.5,
+					"selenium": 3.8
+				},
+				"macros": {
+					"kcal": 691.0,
+					"protein_g": 9.17,
+					"carbs_g": 13.86,
+					"fiber_g": 9.6
+				},
+				"assumedMacroFields": [],
+				"ingredientSnapshot": {
+					"name": "Pecans",
+					"amount": 0.25,
+					"unit": "cup",
+					"state": "chopped"
+				},
+				"measurementReconciliation": {
+					"edibleFraction": 1,
+					"basis": "edible cooking mass",
+					"cookingGrams": 27.25
+				},
+				"measurementBaseline": {
+					"grams": 27.25,
+					"macros": {
+						"kcal": 691.0,
+						"protein_g": 9.17,
+						"carbs_g": 13.86,
+						"fiber_g": 9.6
+					}
+				}
+			},
+			{
+				"food": "cake_vanilla",
+				"ingredientId": "cake_vanilla",
+				"fdcId": 173471,
+				"description": "Vanilla extract",
+				"grams": 1.05,
+				"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients",
+				"macroSource": "https://fdc.nal.usda.gov/food-details/173471/nutrients",
+				"nutrients": {
+					"fat": 0.06,
+					"saturated_fat": 0.01,
+					"cholesterol": 0.0,
+					"sodium": 9.0,
+					"vitamin_a": 0.0,
+					"vitamin_c": 0.0,
+					"vitamin_d": 0.0,
+					"vitamin_e": 0.0,
+					"vitamin_k": 0.0,
+					"thiamin": 0.011,
+					"riboflavin": 0.095,
+					"niacin": 0.425,
+					"vitamin_b6": 0.026,
+					"folate": 0.0,
+					"vitamin_b12": 0.0,
+					"pantothenic_acid": 0.035,
+					"calcium": 11.0,
+					"iron": 0.12,
+					"magnesium": 12.0,
+					"phosphorus": 6.0,
+					"potassium": 148.0,
+					"zinc": 0.11,
+					"copper": 0.072,
+					"manganese": 0.23,
+					"selenium": 0.0
+				},
+				"macros": {
+					"kcal": 288.0,
+					"protein_g": 0.06,
+					"carbs_g": 12.65,
+					"fiber_g": 0.0
+				},
+				"assumedMacroFields": [],
+				"ingredientSnapshot": {
+					"name": "Vanilla extract for cake",
+					"amount": 0.25,
+					"unit": "tsp",
+					"state": "as purchased"
+				},
+				"measurementReconciliation": {
+					"edibleFraction": 1,
+					"basis": "edible cooking mass",
+					"cookingGrams": 1.05
+				},
+				"measurementBaseline": {
+					"grams": 1.05,
+					"macros": {
+						"kcal": 288.0,
+						"protein_g": 0.06,
+						"carbs_g": 12.65,
+						"fiber_g": 0.0
+					}
+				}
+			},
+			{
+				"food": "pineapple",
+				"ingredientId": "pineapple",
+				"fdcId": 169126,
+				"description": "Pineapple, canned, juice pack, solids and liquids",
+				"grams": 62.25,
+				"source": "https://fdc.nal.usda.gov/food-details/169126/nutrients",
+				"macroSource": "https://fdc.nal.usda.gov/food-details/169126/nutrients",
+				"nutrients": {
+					"fat": 0.08,
+					"saturated_fat": 0.006,
+					"cholesterol": 0.0,
+					"sodium": 1.0,
+					"vitamin_a": 2.0,
+					"vitamin_c": 9.5,
+					"vitamin_d": 0.0,
+					"vitamin_e": 0.01,
+					"vitamin_k": 0.3,
+					"thiamin": 0.095,
+					"riboflavin": 0.019,
+					"niacin": 0.284,
+					"vitamin_b6": 0.074,
+					"folate": 5.0,
+					"vitamin_b12": 0.0,
+					"pantothenic_acid": 0.1,
+					"choline": 4.8,
+					"calcium": 14.0,
+					"iron": 0.28,
+					"magnesium": 14.0,
+					"phosphorus": 6.0,
+					"potassium": 122.0,
+					"zinc": 0.1,
+					"copper": 0.086,
+					"manganese": 1.121,
+					"selenium": 0.4
+				},
+				"macros": {
+					"kcal": 60.0,
+					"protein_g": 0.42,
+					"carbs_g": 15.7,
+					"fiber_g": 0.8
+				},
+				"assumedMacroFields": [],
+				"ingredientSnapshot": {
+					"name": "Crushed pineapple in juice",
+					"amount": 0.25,
+					"unit": "cup",
+					"state": "undrained"
+				},
+				"measurementReconciliation": {
+					"edibleFraction": 1,
+					"basis": "edible cooking mass",
+					"cookingGrams": 62.25
+				},
+				"measurementBaseline": {
+					"grams": 62.25,
+					"macros": {
+						"kcal": 60.0,
+						"protein_g": 0.42,
+						"carbs_g": 15.7,
+						"fiber_g": 0.8
+					}
+				}
+			},
+			{
+				"food": "butter",
+				"ingredientId": "butter",
+				"fdcId": 173430,
+				"description": "Butter, without salt",
+				"grams": 14.2,
+				"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients",
+				"macroSource": "https://fdc.nal.usda.gov/food-details/173430/nutrients",
+				"nutrients": {
+					"fat": 81.11,
+					"saturated_fat": 50.489,
+					"cholesterol": 215.0,
+					"sodium": 11.0,
+					"vitamin_a": 684.0,
+					"vitamin_c": 0.0,
+					"vitamin_d": 0.0,
+					"vitamin_e": 2.32,
+					"vitamin_k": 7.0,
+					"thiamin": 0.005,
+					"riboflavin": 0.034,
+					"niacin": 0.042,
+					"vitamin_b6": 0.003,
+					"folate": 3.0,
+					"vitamin_b12": 0.17,
+					"pantothenic_acid": 0.11,
+					"choline": 18.8,
+					"calcium": 24.0,
+					"iron": 0.02,
+					"magnesium": 2.0,
+					"phosphorus": 24.0,
+					"potassium": 24.0,
+					"zinc": 0.09,
+					"copper": 0.016,
+					"manganese": 0.004,
+					"selenium": 1.0
+				},
+				"macros": {
+					"kcal": 717.0,
+					"protein_g": 0.85,
+					"carbs_g": 0.06,
+					"fiber_g": 0.0
+				},
+				"assumedMacroFields": [],
+				"ingredientSnapshot": {
+					"name": "Unsalted butter",
+					"amount": 1,
+					"unit": "tbsp",
+					"state": "softened"
+				},
+				"measurementReconciliation": {
+					"edibleFraction": 1,
+					"basis": "edible cooking mass",
+					"cookingGrams": 14.2
+				},
+				"measurementBaseline": {
+					"grams": 14.2,
+					"macros": {
+						"kcal": 717.0,
+						"protein_g": 0.85,
+						"carbs_g": 0.06,
+						"fiber_g": 0.0
+					}
+				}
+			},
+			{
+				"food": "cream_cheese",
+				"ingredientId": "cream_cheese",
+				"fdcId": 173418,
+				"description": "Cheese, cream",
+				"grams": 56.69904625,
+				"source": "https://fdc.nal.usda.gov/food-details/173418/nutrients",
+				"macroSource": "https://fdc.nal.usda.gov/food-details/173418/nutrients",
+				"nutrients": {
+					"fat": 34.44,
+					"saturated_fat": 20.213,
+					"cholesterol": 101.0,
+					"sodium": 314.0,
+					"vitamin_a": 308.0,
+					"vitamin_c": 0.0,
+					"vitamin_d": 0.0,
+					"vitamin_e": 0.86,
+					"vitamin_k": 2.1,
+					"thiamin": 0.023,
+					"riboflavin": 0.23,
+					"niacin": 0.091,
+					"vitamin_b6": 0.056,
+					"folate": 9.0,
+					"vitamin_b12": 0.22,
+					"pantothenic_acid": 0.517,
+					"choline": 26.8,
+					"calcium": 97.0,
+					"iron": 0.11,
+					"magnesium": 9.0,
+					"phosphorus": 107.0,
+					"potassium": 132.0,
+					"zinc": 0.5,
+					"copper": 0.018,
+					"manganese": 0.011,
+					"selenium": 8.6
+				},
+				"macros": {
+					"kcal": 350.0,
+					"protein_g": 6.15,
+					"carbs_g": 5.52,
+					"fiber_g": 0.0
+				},
+				"assumedMacroFields": [],
+				"ingredientSnapshot": {
+					"name": "Cream cheese",
+					"amount": 2,
+					"unit": "oz",
+					"state": "full-fat, softened"
+				},
+				"measurementReconciliation": {
+					"edibleFraction": 1,
+					"basis": "edible cooking mass",
+					"cookingGrams": 56.69904625
+				},
+				"measurementBaseline": {
+					"grams": 56.69904625,
+					"macros": {
+						"kcal": 350.0,
+						"protein_g": 6.15,
+						"carbs_g": 5.52,
+						"fiber_g": 0.0
+					}
+				}
+			},
+			{
+				"food": "frosting_vanilla",
+				"ingredientId": "frosting_vanilla",
+				"fdcId": 173471,
+				"description": "Vanilla extract",
+				"grams": 1.05,
+				"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients",
+				"macroSource": "https://fdc.nal.usda.gov/food-details/173471/nutrients",
+				"nutrients": {
+					"fat": 0.06,
+					"saturated_fat": 0.01,
+					"cholesterol": 0.0,
+					"sodium": 9.0,
+					"vitamin_a": 0.0,
+					"vitamin_c": 0.0,
+					"vitamin_d": 0.0,
+					"vitamin_e": 0.0,
+					"vitamin_k": 0.0,
+					"thiamin": 0.011,
+					"riboflavin": 0.095,
+					"niacin": 0.425,
+					"vitamin_b6": 0.026,
+					"folate": 0.0,
+					"vitamin_b12": 0.0,
+					"pantothenic_acid": 0.035,
+					"calcium": 11.0,
+					"iron": 0.12,
+					"magnesium": 12.0,
+					"phosphorus": 6.0,
+					"potassium": 148.0,
+					"zinc": 0.11,
+					"copper": 0.072,
+					"manganese": 0.23,
+					"selenium": 0.0
+				},
+				"macros": {
+					"kcal": 288.0,
+					"protein_g": 0.06,
+					"carbs_g": 12.65,
+					"fiber_g": 0.0
+				},
+				"assumedMacroFields": [],
+				"ingredientSnapshot": {
+					"name": "Vanilla extract for frosting",
+					"amount": 0.25,
+					"unit": "tsp",
+					"state": "as purchased"
+				},
+				"measurementReconciliation": {
+					"edibleFraction": 1,
+					"basis": "edible cooking mass",
+					"cookingGrams": 1.05
+				},
+				"measurementBaseline": {
+					"grams": 1.05,
+					"macros": {
+						"kcal": 288.0,
+						"protein_g": 0.06,
+						"carbs_g": 12.65,
+						"fiber_g": 0.0
+					}
+				}
+			},
+			{
+				"food": "powdered_sugar",
+				"ingredientId": "powdered_sugar",
+				"fdcId": 169656,
+				"description": "Sugars, powdered",
+				"grams": 60.0,
+				"source": "https://fdc.nal.usda.gov/food-details/169656/nutrients",
+				"macroSource": "https://fdc.nal.usda.gov/food-details/169656/nutrients",
+				"nutrients": {
+					"fat": 0.0,
+					"saturated_fat": 0.0,
+					"cholesterol": 0.0,
+					"sodium": 2.0,
+					"vitamin_a": 0.0,
+					"vitamin_c": 0.0,
+					"vitamin_d": 0.0,
+					"vitamin_e": 0.0,
+					"vitamin_k": 0.0,
+					"thiamin": 0.0,
+					"riboflavin": 0.019,
+					"niacin": 0.0,
+					"vitamin_b6": 0.0,
+					"folate": 0.0,
+					"vitamin_b12": 0.0,
+					"pantothenic_acid": 0.0,
+					"choline": 0.0,
+					"calcium": 1.0,
+					"iron": 0.06,
+					"magnesium": 0.0,
+					"phosphorus": 0.0,
+					"potassium": 2.0,
+					"zinc": 0.01,
+					"copper": 0.007,
+					"manganese": 0.004,
+					"selenium": 0.6
+				},
+				"macros": {
+					"kcal": 389.0,
+					"protein_g": 0.0,
+					"carbs_g": 99.77,
+					"fiber_g": 0.0
+				},
+				"assumedMacroFields": [],
+				"ingredientSnapshot": {
+					"name": "Powdered sugar",
+					"amount": 0.5,
+					"unit": "cup",
+					"state": "unsifted"
+				},
+				"measurementReconciliation": {
+					"edibleFraction": 1,
+					"basis": "edible cooking mass",
+					"cookingGrams": 60.0
+				},
+				"measurementBaseline": {
+					"grams": 60.0,
+					"macros": {
+						"kcal": 389.0,
+						"protein_g": 0.0,
+						"carbs_g": 99.77,
+						"fiber_g": 0.0
+					}
+				}
+			}
 		]
 	},
 	"sourceArchive": {

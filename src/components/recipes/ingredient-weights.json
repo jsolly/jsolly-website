@@ -3998,6 +3998,249 @@
 			},
 			"volumeInterpolationUnit": "tbsp",
 			"nutritionFdcId": 173431
+		},
+		{
+			"id": "usda-171695",
+			"kind": "mass",
+			"description": "Applesauce, canned, unsweetened, without added ascorbic acid (Includes foods for USDA's Food Distribution Program)",
+			"state": "as purchased",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171695/nutrients",
+			"fdcId": 171695,
+			"measures": {
+				"cup": {
+					"amount": 1,
+					"grams": 244,
+					"portion": "cup"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-22",
+				"retrieved": "2026-10-22",
+				"decision": "Use the named SR Legacy portion observation for this preparation; edible and cooking weights coincide.",
+				"evidence": "https://fdc.nal.usda.gov/food-details/171695/nutrients"
+			}
+		},
+		{
+			"id": "usda-171287-small",
+			"kind": "mass",
+			"description": "Egg, whole, raw, fresh",
+			"state": "raw, without shell; beaten",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients",
+			"fdcId": 171287,
+			"measures": {
+				"count": {
+					"amount": 1,
+					"grams": 38,
+					"portion": "small"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-22",
+				"retrieved": "2026-10-22",
+				"decision": "Use the named SR Legacy portion observation for this preparation; edible and cooking weights coincide.",
+				"evidence": "https://fdc.nal.usda.gov/food-details/171287/nutrients"
+			}
+		},
+		{
+			"id": "usda-168936",
+			"kind": "mass",
+			"description": "Wheat flour, white, all-purpose, enriched, unbleached",
+			"state": "spooned and leveled",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/168936/nutrients",
+			"fdcId": 168936,
+			"measures": {
+				"cup": {
+					"amount": 1,
+					"grams": 125,
+					"portion": "cup"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-22",
+				"retrieved": "2026-10-22",
+				"decision": "Use the named SR Legacy portion observation for this preparation; edible and cooking weights coincide.",
+				"evidence": "https://fdc.nal.usda.gov/food-details/168936/nutrients"
+			}
+		},
+		{
+			"id": "usda-175040",
+			"kind": "mass",
+			"description": "Leavening agents, baking soda",
+			"state": "as purchased",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/175040/nutrients",
+			"fdcId": 175040,
+			"measures": {
+				"tsp": {
+					"amount": 1,
+					"grams": 4.6,
+					"portion": "tsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-22",
+				"retrieved": "2026-10-22",
+				"decision": "Use the named SR Legacy portion observation for this preparation; edible and cooking weights coincide.",
+				"evidence": "https://fdc.nal.usda.gov/food-details/175040/nutrients"
+			}
+		},
+		{
+			"id": "usda-172803",
+			"kind": "mass",
+			"description": "Leavening agents, baking powder, double-acting, sodium aluminum sulfate",
+			"state": "as purchased",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/172803/nutrients",
+			"fdcId": 172803,
+			"measures": {
+				"tsp": {
+					"amount": 1,
+					"grams": 4.6,
+					"portion": "tsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-22",
+				"retrieved": "2026-10-22",
+				"decision": "Use the named SR Legacy portion observation for this preparation; edible and cooking weights coincide.",
+				"evidence": "https://fdc.nal.usda.gov/food-details/172803/nutrients"
+			}
+		},
+		{
+			"id": "usda-170393-grated",
+			"kind": "mass",
+			"description": "Carrots, raw",
+			"state": "peeled and grated",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170393/nutrients",
+			"fdcId": 170393,
+			"measures": {
+				"cup": {
+					"amount": 1,
+					"grams": 110,
+					"portion": "cup grated"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-22",
+				"retrieved": "2026-10-22",
+				"decision": "Use the named SR Legacy portion observation for this preparation; edible and cooking weights coincide.",
+				"evidence": "https://fdc.nal.usda.gov/food-details/170393/nutrients"
+			}
+		},
+		{
+			"id": "usda-168586",
+			"kind": "mass",
+			"description": "Nuts, coconut meat, dried (desiccated), sweetened, shredded",
+			"state": "dried, sweetened",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/168586/nutrients",
+			"fdcId": 168586,
+			"measures": {
+				"cup": {
+					"amount": 1,
+					"grams": 93,
+					"portion": "cup, shredded"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-22",
+				"retrieved": "2026-10-22",
+				"decision": "Use the named SR Legacy portion observation for this preparation; edible and cooking weights coincide.",
+				"evidence": "https://fdc.nal.usda.gov/food-details/168586/nutrients"
+			}
+		},
+		{
+			"id": "usda-170182-chopped",
+			"kind": "mass",
+			"description": "Nuts, pecans",
+			"state": "chopped",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/170182/nutrients",
+			"fdcId": 170182,
+			"measures": {
+				"cup": {
+					"amount": 1,
+					"grams": 109,
+					"portion": "cup, chopped"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-22",
+				"retrieved": "2026-10-22",
+				"decision": "Use the named SR Legacy portion observation for this preparation; edible and cooking weights coincide.",
+				"evidence": "https://fdc.nal.usda.gov/food-details/170182/nutrients"
+			}
+		},
+		{
+			"id": "usda-173471",
+			"kind": "liquid",
+			"description": "Vanilla extract",
+			"state": "as purchased",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/173471/nutrients",
+			"fdcId": 173471,
+			"measures": {
+				"tsp": {
+					"amount": 1,
+					"grams": 4.2,
+					"portion": "tsp"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-22",
+				"retrieved": "2026-10-22",
+				"decision": "Use the named SR Legacy portion observation for this preparation; edible and cooking weights coincide.",
+				"evidence": "https://fdc.nal.usda.gov/food-details/173471/nutrients"
+			},
+			"gramsPerMl": 0.8521133720864436
+		},
+		{
+			"id": "usda-169126-undrained",
+			"kind": "mass",
+			"description": "Pineapple, canned, juice pack, solids and liquids",
+			"state": "undrained",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/169126/nutrients",
+			"fdcId": 169126,
+			"measures": {
+				"cup": {
+					"amount": 1,
+					"grams": 249,
+					"portion": "cup, crushed, sliced, or chunks"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-22",
+				"retrieved": "2026-10-22",
+				"decision": "Use the named SR Legacy portion observation for this preparation; edible and cooking weights coincide.",
+				"evidence": "https://fdc.nal.usda.gov/food-details/169126/nutrients"
+			}
+		},
+		{
+			"id": "usda-169656-unsifted",
+			"kind": "mass",
+			"description": "Sugars, powdered",
+			"state": "unsifted",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/169656/nutrients",
+			"fdcId": 169656,
+			"measures": {
+				"cup": {
+					"amount": 1,
+					"grams": 120,
+					"portion": "cup unsifted"
+				}
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-22",
+				"retrieved": "2026-10-22",
+				"decision": "Use the named SR Legacy portion observation for this preparation; edible and cooking weights coincide.",
+				"evidence": "https://fdc.nal.usda.gov/food-details/169656/nutrients"
+			}
 		}
 	]
 }
