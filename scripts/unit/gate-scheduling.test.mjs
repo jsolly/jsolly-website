@@ -323,17 +323,6 @@ for (const detached of [false, true]) {
 	});
 }
 
-it("cancellation also awaits Playwright's real detached Chromium process", async (t) => {
-	const playwright = new URL(
-		"../../node_modules/playwright/index.mjs",
-		import.meta.url,
-	).href;
-	await cancelAndConfirm(
-		t,
-		`import {chromium} from ${JSON.stringify(playwright)}; import fs from 'node:fs'; const server=await chromium.launchServer({headless:true}); fs.writeFileSync('descendant',String(server.process().pid)); setInterval(()=>{},1000)`,
-	);
-});
-
 it("failed command cleanup awaits its already-orphaned detached child", async (t) => {
 	const f = await fixture(t);
 	// The parent records the child PID then dies immediately. No ancestry polling
@@ -441,4 +430,50 @@ it("successful commands also leave no detached descendants when the scheduler se
 		!row || row[1].startsWith("Z"),
 		`successful child ${pid} survived settlement`,
 	);
+});
+
+it("abort during successful final cleanup cannot report a green scheduler", async (t) => {
+	const f = await fixture(t);
+	const controller = new AbortController();
+	const child =
+		// biome-ignore lint/security/noSecrets: Executable shutdown-race fixture, no credentials.
+		"const fs=require('node:fs');process.on('SIGTERM',()=>fs.writeFileSync('stopping','yes'));fs.writeFileSync('child-ready','yes');setInterval(()=>{},1000)";
+	const code = `import {spawn} from 'node:child_process'; import fs from 'node:fs/promises'; import {setTimeout} from 'node:timers/promises'; const child=spawn(process.execPath,['-e',${JSON.stringify(child)}],{detached:true,stdio:'ignore'});for(let n=0;;n++){try{await fs.stat('child-ready');break;}catch(e){if(e.code!=='ENOENT')throw e;}if(n>500)throw Error('child missing');await setTimeout(10);}child.unref();`;
+	const running = runChains(
+		[
+			{
+				name: "cleanup-race",
+				cwd: f.dir,
+				commands: [command("cleanup race", code)],
+			},
+		],
+		f.dir,
+		{ signal: controller.signal },
+	);
+	let failure;
+	running.catch((error) => {
+		failure = error;
+	});
+	try {
+		let stopping = false;
+		for (let n = 0; n < 500; n++) {
+			if (failure) throw failure;
+			try {
+				await fs.stat(join(f.dir, "stopping"));
+				stopping = true;
+				break;
+			} catch (error) {
+				if (error.code !== "ENOENT") throw error;
+			}
+			await delay(10);
+		}
+		assert.ok(stopping, "final cleanup has begun");
+		controller.abort();
+		await assert.rejects(running, CANCELLED);
+	} finally {
+		controller.abort();
+		await running.catch(() => {
+			/* Settle all owned processes before fixture removal. */
+		});
+	}
 });

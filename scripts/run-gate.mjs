@@ -217,8 +217,7 @@ export async function runGate(root) {
 			options,
 		);
 		for (const phase of work) {
-			if (phase.name === "unit" || phase.name === "smoke")
-				phase.ready = browserReady;
+			if (phase.name === "smoke") phase.ready = browserReady;
 		}
 		work.push({
 			name: "built",

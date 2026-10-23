@@ -178,7 +178,7 @@ fs.appendFileSync(process.env.RECEIPT, "npx " + args.join(" ") + "\\n");
 async function main() {
 	if (!args.includes("playwright")) return;
 	if (process.env.FAIL_BROWSER === "1") process.exit(43);
-	for(let n=0; !fs.existsSync(process.env.RECEIPT + ".build"); n++) {
+	for(let n=0; !fs.existsSync(process.env.RECEIPT + ".build") || !fs.existsSync(process.env.RECEIPT + ".unit"); n++) {
 		if(n>500) throw Error("browser setup did not overlap build");
 		await setTimeout(10);
 	}
@@ -194,7 +194,8 @@ const fs = require("node:fs");
 const command = process.argv.slice(2).join(" ");
 fs.appendFileSync(process.env.RECEIPT, "npm " + command + "\\n");
 if (command === "run build") fs.writeFileSync(process.env.RECEIPT + ".build", "built");
-if (["test", "run smoke:scenario-contract", "run test:built"].includes(command) && !fs.existsSync(process.env.RECEIPT + ".browser")) {
+if (command === "test") fs.writeFileSync(process.env.RECEIPT + ".unit", "tested");
+if (["run smoke:scenario-contract", "run test:built"].includes(command) && !fs.existsSync(process.env.RECEIPT + ".browser")) {
 	console.error("browser-dependent check started before installation");
 	process.exitCode=41;
 }
@@ -233,7 +234,7 @@ it("failed CI browser setup fails the full gate without starting browser-depende
 	);
 	const calls = await f.calls();
 	assert.ok(calls.includes("npm run build\n"));
-	assert.ok(!calls.includes("npm test\n"));
+	assert.ok(calls.includes("npm test\n"));
 	assert.ok(!calls.includes("npm run smoke:scenario-contract\n"));
 	assert.ok(!calls.includes("npm run test:built\n"));
 });

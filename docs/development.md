@@ -31,7 +31,8 @@ that the gate ran. No setup command deploys the application or infrastructure.
 ## Test file timings
 
 CI runs one `ci` job on the Ubuntu 24.04 ARM runner. Built test files
-use four isolated fork workers; cases within a file remain sequential. Measure the
+use four isolated fork workers; pure unit tests use two workers to leave CPU for
+types and build. Cases within a built file remain sequential. Measure the
 whole job as well as the gate when comparing runner or scheduling changes.
 
 CI sets `NODE_COMPILE_CACHE` to a fresh runner-temporary directory for the complete
@@ -50,10 +51,11 @@ bytes and mutable dependency caches. The scheduler rejects changes to HEAD, the
 index or nonignored source files during validation. All commands and counted suites
 must pass; failures retain diagnostics under the printed `jsolly-gate-*` directory.
 In CI, `JSOLLY_INSTALL_BROWSER=1` runs the same headless-shell and full OS
-installation command alongside static checks, types and the build. Unit tests,
-smoke contracts and built browser tests wait for installation to succeed; built
+installation command alongside static checks, pure unit tests, types and build.
+Smoke contracts and built browser tests wait for installation to succeed; built
 tests also wait for the complete build and CSP suite. Installation failures fail
-the gate. Local gates use the browser already provisioned by repository setup.
+the gate. The real Chromium process-cleanup regression belongs to the built suite;
+the unit suite retains detached-process and shutdown-race coverage. Local gates use the browser already provisioned by repository setup.
 The preview shortcut and gate bootstrap remain unchanged. `gate/gate-lib.sh` is
 unchanged. No previous test results are reused.
 
