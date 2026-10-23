@@ -141,6 +141,12 @@ its separate checkout. Symlinks, path escapes and source/dependency overlays fai
 Each job owns its dependencies, browser fixtures and mutable caches.
 
 Both built shards retain four fork workers and every existing scenario/deadline.
+The CI-only Vitest sequencer assigns all discovered files to the least-loaded
+shard by measured file cost, then starts expensive files first. Cost hints in
+`config/testing/built-file-costs.json` come from the initial four-job hosted run;
+they affect scheduling only. New files receive a default cost and remain included.
+The manifest and source ledger still determine complete coverage. Local full-gate
+ordering remains Vitest's normal duration ordering.
 The final `ci` job executes even when dependencies fail or cancel. It requires
 successful preparation and both shards, matching identities, disjoint file sets
 whose union exactly equals discovery, and actual passing assertions matching the

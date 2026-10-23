@@ -102,9 +102,9 @@ jobs:
           path: |
             ${{ runner.temp }}/node-compile-cache
             node_modules/.vite/vitest/**/results.json
-          key: ci-runtime-v3-prepare-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ci-runtime-v4-prepare-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
-            ci-runtime-v3-prepare-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-
+            ci-runtime-v4-prepare-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-
       - name: Run repository preparation
         if: steps.verified-tree.outputs.run_full != 'false'
         env:
@@ -177,9 +177,9 @@ jobs:
           path: |
             ${{ runner.temp }}/node-compile-cache
             node_modules/.vite/vitest/**/results.json
-          key: ci-runtime-v3-built-${{ matrix.shard }}-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ci-runtime-v4-built-${{ matrix.shard }}-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
-            ci-runtime-v3-built-${{ matrix.shard }}-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-
+            ci-runtime-v4-built-${{ matrix.shard }}-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-
       - uses: actions/download-artifact@v8
         with:
           name: ci-build-${{ github.run_attempt }}

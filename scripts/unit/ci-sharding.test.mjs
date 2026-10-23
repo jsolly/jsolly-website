@@ -334,3 +334,105 @@ it("protected tree preparation requires the required ci proof from the latest su
 		);
 	}
 });
+
+it("cost-based shards retain every discovered and new file independently of discovery order", async () => {
+	const { default: Sequencer } = await import("../ci-built-sequencer.mjs");
+	const root = process.cwd();
+	const discovered = JSON.parse(
+		execFileSync(
+			process.execPath,
+			[
+				"node_modules/vitest/vitest.mjs",
+				"list",
+				"--config",
+				"config/testing/vitest.config.mjs",
+				"--filesOnly",
+				"--json",
+			],
+			{ env: { ...process.env, TEST_SUITE: "built" }, encoding: "utf8" },
+		),
+	);
+	const files = [
+		...discovered.map(({ file }) => ({ moduleId: file })),
+		{ moduleId: join(root, "scripts/built/new-scenario.test.mjs") },
+	];
+	const first = new Sequencer({
+		config: { root, shard: { index: 1, count: 2 } },
+	});
+	const second = new Sequencer({
+		config: { root, shard: { index: 2, count: 2 } },
+	});
+	const a = first.shard(files),
+		b = second.shard(files);
+	assert.deepEqual(first.shard([...files].reverse()), a);
+	assert.deepEqual(second.shard([...files].reverse()), b);
+	assert.equal(new Set([...a, ...b]).size, files.length);
+	assert.deepEqual(
+		[...a, ...b]
+			.map((f) => f.moduleId)
+			.sort((left, right) => left.localeCompare(right)),
+		files
+			.map((f) => f.moduleId)
+			.sort((left, right) => left.localeCompare(right)),
+	);
+	assert.ok(a.length > 0 && b.length > 0);
+	assert.ok(
+		Math.abs(
+			a.reduce((sum, f) => sum + first.cost(f), 0) -
+				b.reduce((sum, f) => sum + first.cost(f), 0),
+		) <= Math.max(...files.map((f) => first.cost(f))),
+	);
+});
+
+it("the pinned Vitest runner executes complete disjoint real fixture shards", (t) => {
+	const f = fixture(t);
+	const built = join(f.root, "scripts/built");
+	fs.mkdirSync(built, { recursive: true });
+	fs.mkdirSync(join(f.root, "node_modules"));
+	// Share only the installed package, leaving fixture-owned mutable caches.
+	fs.symlinkSync(
+		join(process.cwd(), "node_modules/vitest"),
+		join(f.root, "node_modules/vitest"),
+		"dir",
+	);
+	const expected = ["one", "two", "three", "four"].map((name) =>
+		join(built, `${name}.test.mjs`),
+	);
+	for (const file of expected)
+		fs.writeFileSync(
+			file,
+			`import {it} from 'vitest'; it('fixture executes', () => {});`,
+		);
+	// Vitest list --filesOnly ignores sharding. Execute tiny owned fixtures to
+	// exercise the real runner/sequencer API instead of accepting discovery alone.
+	const lists = [1, 2].map((shard) => {
+		const output = join(f.directory, `report-${shard}.json`);
+		execFileSync(
+			process.execPath,
+			[
+				join(process.cwd(), "node_modules/vitest/vitest.mjs"),
+				"run",
+				"--config",
+				join(process.cwd(), "config/testing/ci-built.config.mjs"),
+				"--root",
+				f.root,
+				`--shard=${shard}/2`,
+				"--reporter=json",
+				`--outputFile=${output}`,
+			],
+			{
+				cwd: f.root,
+				env: { ...process.env, TEST_SUITE: "built" },
+				stdio: "pipe",
+			},
+		);
+		const result = JSON.parse(fs.readFileSync(output, "utf8"));
+		assert.equal(result.numPassedTests, 2);
+		return result.testResults.map((row) => row.name);
+	});
+	assert.deepEqual(
+		lists.flat().sort((left, right) => left.localeCompare(right)),
+		expected.sort((left, right) => left.localeCompare(right)),
+	);
+	assert.equal(new Set(lists.flat()).size, expected.length);
+});

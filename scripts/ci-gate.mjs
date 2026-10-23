@@ -22,8 +22,8 @@ const ledger = () =>
 	JSON.parse(
 		fs.readFileSync(join(ROOT, "config/testing/test-counts.json"), "utf8"),
 	).built;
-const run = (args) =>
-	spawnSync(process.execPath, [vitest, ...args, "--config", config], {
+const run = (args, configPath = config) =>
+	spawnSync(process.execPath, [vitest, ...args, "--config", configPath], {
 		cwd: ROOT,
 		env: { ...process.env, TEST_SUITE: "built" },
 		stdio: "inherit",
@@ -135,16 +135,19 @@ async function main(mode, argument) {
 			process.env.CI_REPORT_DIR ??
 			join(process.env.RUNNER_TEMP, `ci-report-${argument}`);
 		const reportPath = join(logs, "vitest.json");
-		const child = run([
-			"run",
-			`--shard=${argument}/2`,
-			"--reporter=default",
-			"--reporter=json",
-			`--outputFile.json=${reportPath}`,
-			...(process.env.TEST_FILE_TIMINGS === "1"
-				? ["--reporter", join(ROOT, "scripts/test-file-timings.mjs")]
-				: []),
-		]);
+		const child = run(
+			[
+				"run",
+				`--shard=${argument}/2`,
+				"--reporter=default",
+				"--reporter=json",
+				`--outputFile.json=${reportPath}`,
+				...(process.env.TEST_FILE_TIMINGS === "1"
+					? ["--reporter", join(ROOT, "scripts/test-file-timings.mjs")]
+					: []),
+			],
+			join(ROOT, "config/testing/ci-built.config.mjs"),
+		);
 		const result = JSON.parse(fs.readFileSync(reportPath, "utf8"));
 		fs.writeFileSync(
 			join(logs, "report.json"),
