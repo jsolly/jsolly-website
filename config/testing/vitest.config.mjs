@@ -13,9 +13,9 @@ export default defineConfig({
 	test: {
 		include: suites[process.env.TEST_SUITE ?? "unit"] ?? ["**/*.test.mjs"],
 		pool: "forks",
-		// Browser files own isolated processes and deployment fixtures. Four workers
-		// reduce CPU contention while retaining every case and fixture.
-		maxWorkers: process.env.TEST_SUITE === "built" ? 4 : undefined,
+		// Each browser file owns Node, Chromium and isolated deployment fixtures.
+		// Limit concurrent files to leave CPU capacity for their browser processes.
+		maxWorkers: process.env.TEST_SUITE === "built" ? 2 : undefined,
 		// Built files own mutable deployment fixtures, so their cases stay sequential.
 		// Smoke contracts share only the browser; every case owns its context and stubs.
 		sequence: { hooks: "list", concurrent: process.env.TEST_SUITE === "smoke" },

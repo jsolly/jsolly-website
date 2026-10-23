@@ -105,6 +105,7 @@ jobs:
         env:
           TEST_FILE_TIMINGS: "1"
           TEST_FILE_TIMINGS_DIR: ${{ runner.temp }}/test-file-timings
+          NODE_COMPILE_CACHE: ${{ runner.temp }}/node-compile-cache
         run: |
           mkdir -p "$TEST_FILE_TIMINGS_DIR"
           echo "checkout=$(git rev-parse HEAD) tree=$(git rev-parse 'HEAD^{tree}')" | tee "$TEST_FILE_TIMINGS_DIR/source.txt"
