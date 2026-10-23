@@ -23,6 +23,7 @@ import {
 	VIEWPORTS,
 	waitForBrowserState,
 } from "./recipes-pwa-fixture.mjs";
+import { assertUpdateNoticeLayout } from "./update-notice-layout.mjs";
 
 setupRecipePwaFixture(["legacy"]);
 
@@ -241,10 +242,11 @@ function updateCheck(name, viewport) {
 				await page.locator("#site-update-notice").isVisible(),
 				false,
 			);
-			if (process.env.UI_EVIDENCE_DIR) {
-				for (const colorScheme of ["light", "dark"]) {
-					// biome-ignore lint/performance/noAwaitInLoops: capture both themes in the same tab
-					await page.emulateMedia({ colorScheme });
+			for (const colorScheme of ["light", "dark"]) {
+				// biome-ignore lint/performance/noAwaitInLoops: Check both themes in the same tab.
+				await page.emulateMedia({ colorScheme });
+				await assertUpdateNoticeLayout(page.locator(".recipe-pwa"));
+				if (process.env.UI_EVIDENCE_DIR) {
 					await button.scrollIntoViewIfNeeded();
 					await page.screenshot({
 						animations: "disabled",

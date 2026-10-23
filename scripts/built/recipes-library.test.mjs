@@ -10,6 +10,7 @@ import {
 import { matchesRecipe } from "../../src/components/recipes/nutrient-filters.mjs";
 import recipeData from "../../src/components/recipes/recipe-data.server.mjs";
 import { collectErrors, serveStatic } from "./pages.mjs";
+import { assertPrintImage } from "./recipe-print-image.mjs";
 
 // The hydrated recipe library in Chromium: printing from the recipe dialog
 // and the collection, the dialog's place in the browser history, and the
@@ -113,6 +114,7 @@ it("single-recipe printing loads its detail while browser-menu printing keeps on
 		assert.deepEqual(await printedTitles(page), [shawarma.title]);
 		assert.equal(await page.locator(".print-output").isVisible(), true);
 		assert.equal(await takeover.isHidden(), true);
+		await assertPrintImage(page.locator(".print-output .recipe-photo img"));
 		await page.emulateMedia({ media: "screen" });
 		await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
 		assert.equal(
@@ -126,6 +128,8 @@ it("single-recipe printing loads its detail while browser-menu printing keeps on
 			null,
 		);
 		assert.deepEqual(await printedTitles(page), []);
+		// Closing the dialog must not turn the lingering pointer into card-prefetch intent.
+		await page.mouse.move(0, 0);
 		await page.keyboard.press("Escape");
 		await takeover.waitFor({ state: "detached" });
 		const ids = () =>

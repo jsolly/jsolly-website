@@ -126,11 +126,27 @@ export async function robotsMeta(path, root = DIST) {
 
 // The stylesheets a built page loads with JavaScript on (not its <noscript>).
 export function stylesheets(html) {
-	return readHtml(html, (document) =>
-		[...document.querySelectorAll("link")]
-			.filter((link) => link.rel === "stylesheet" && !link.closest("noscript"))
-			.map((link) => link.getAttribute("href")),
-	);
+	const hrefs = [];
+	function visit(node) {
+		if (node.tagName === "noscript") return;
+		if (
+			node.tagName === "link" &&
+			node.namespaceURI === "http://www.w3.org/1999/xhtml" &&
+			node.attrs.some(
+				(attribute) =>
+					attribute.name === "rel" && attribute.value === "stylesheet",
+			)
+		) {
+			hrefs.push(
+				node.attrs.find((attribute) => attribute.name === "href")?.value ??
+					null,
+			);
+		}
+		// DOM selectors do not enter template.content.
+		for (const child of node.childNodes ?? []) visit(child);
+	}
+	visit(parse(html, { scriptingEnabled: false }));
+	return hrefs;
 }
 
 const CONTENT_TYPES = {

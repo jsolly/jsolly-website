@@ -166,7 +166,7 @@ jobs:
           enable-cache: false
       - run: npm ci
         if: steps.verified-tree.outputs.run_full != 'false'
-      - run: npx --no-install playwright install --with-deps chromium
+      - run: npx --no-install playwright install --with-deps --only-shell chromium
         if: steps.verified-tree.outputs.run_full != 'false'
       - name: Run complete repository gate
         if: steps.verified-tree.outputs.run_full != 'false'

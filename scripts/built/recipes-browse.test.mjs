@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { collectErrors, serveStatic } from "./pages.mjs";
+import { assertPrintImage } from "./recipe-print-image.mjs";
 
 // Browsing the built recipe library in Chromium, ported from awesome-blog's
 // PWA suite (scripts/recipes/pwa.test.mjs) without its service worker: a meal
@@ -355,6 +356,7 @@ function detailsCheck(width) {
 			await page.emulateMedia({ media: "print" });
 			assert.equal(await page.locator(".print-document").isVisible(), true);
 			assert.equal(await page.locator(".recipe-detail").isVisible(), true);
+			await assertPrintImage(page.locator(".print-document .recipe-photo img"));
 			const printed = await page.locator(".print-document").textContent();
 			assert.match(printed, COOKING_FLOW);
 			assert.doesNotMatch(printed, REMOVED_PRINT_SECTIONS);
@@ -506,8 +508,15 @@ function filtersCheck(width) {
 			await checkbox("Fish").check();
 			await checkbox("Turkey").check();
 			await page.keyboard.press("Escape");
+			// The closing protein panel retains its Clear button during its exit animation.
+			await page
+				.getByRole("dialog", { name: "Proteins choices", exact: true })
+				.waitFor({ state: "detached" });
 			assert.equal(await checkbox("Vegetarian").isDisabled(), true);
 			await page.getByRole("button", { name: CARBS }).click();
+			await page
+				.getByRole("dialog", { name: "Carbs choices", exact: true })
+				.waitFor({ state: "visible" });
 			assert.equal(
 				await page.getByRole("button", { name: "Clear selections" }).count(),
 				0,

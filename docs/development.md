@@ -31,7 +31,7 @@ that the gate ran. No setup command deploys the application or infrastructure.
 ## Test file timings
 
 CI runs one `ci` job on the standard Ubuntu 24.04 ARM runner. Built test files
-use seven isolated workers; cases within a file remain sequential. Measure the
+use four isolated workers; cases within a file remain sequential. Measure the
 whole job as well as the gate when comparing runner or scheduling changes.
 
 CI enables `TEST_FILE_TIMINGS=1` for the complete gate. Each Vitest file emits
@@ -63,6 +63,9 @@ and a later filtered batch at phone and desktop widths. Complete recipe partitio
 and pagination stay in the module/API suites; dedicated browser cases retain
 scrolling, button pagination and focus/recovery. The filter/navigation suite blocks
 service workers; offline/install/update suites exercise real workers separately.
+
+CI installs the pinned Chromium headless shell used by every browser test, plus
+its OS dependencies. It omits the unused headed Chromium download.
 
 The CSP suite parses each built page once into immutable facts, retaining its
 separate policy, script-byte/order and image checks. Maintenance and CMS fixture
