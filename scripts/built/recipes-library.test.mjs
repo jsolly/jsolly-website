@@ -10,6 +10,7 @@ import {
 import { matchesRecipe } from "../../src/components/recipes/nutrient-filters.mjs";
 import recipeData from "../../src/components/recipes/recipe-data.server.mjs";
 import { collectErrors, serveStatic } from "./pages.mjs";
+import { assertPrintImage } from "./recipe-print-image.mjs";
 
 // The hydrated recipe library in Chromium: printing from a card and the
 // collection, and the saved settings (J13: localStorage recipes-settings-v1)
@@ -133,6 +134,7 @@ it("card printing loads only that recipe's detail while browser-menu printing ke
 		);
 		assert.equal(await page.locator(".print-output").isVisible(), true);
 		assert.equal(await page.locator(".recipe-grid").isVisible(), false);
+		await assertPrintImage(page.locator(".print-output .recipe-photo img"));
 		await page.emulateMedia({ media: "screen" });
 		await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
 		assert.equal(

@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { collectErrors, serveStatic } from "./pages.mjs";
+import { assertPrintImage } from "./recipe-print-image.mjs";
 
 // Browsing the built recipe library in Chromium, ported from awesome-blog's
 // PWA suite (scripts/recipes/pwa.test.mjs) without its service worker: a meal
@@ -355,6 +356,7 @@ function detailsCheck(width) {
 			await page.emulateMedia({ media: "print" });
 			assert.equal(await page.locator(".print-document").isVisible(), true);
 			assert.equal(await page.locator(".recipe-detail").isVisible(), true);
+			await assertPrintImage(page.locator(".print-document .recipe-photo img"));
 			const printed = await page.locator(".print-document").textContent();
 			assert.match(printed, COOKING_FLOW);
 			assert.doesNotMatch(printed, REMOVED_PRINT_SECTIONS);

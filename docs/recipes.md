@@ -580,8 +580,8 @@ unticking choices; other multi-choice filters disable Clear selections when empt
 
 Recipe pages print their on-screen cooking content directly. Individual card
 print packets use the same RecipeContent renderer. Print changes layout and hides
-controls, photos and nutrition information, including nutrition highlights; it adds no separate method, ingredient list, background
-notes or disclaimers. Measurement provenance remains in Markdown/JSON downloads.
+controls and nutrition information, including nutrition highlights; it adds no separate method, ingredient list, background
+notes or disclaimers. Illustrations remain visible at up to 70 mm wide and 45 mm high. Measurement provenance remains in Markdown/JSON downloads.
 
 Back to meals/smoothies uses the matching same-tab collection history entry
 when available. Collection history restores the scroll position, search and

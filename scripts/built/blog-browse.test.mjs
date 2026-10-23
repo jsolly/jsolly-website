@@ -96,15 +96,55 @@ async function navigate(page, path = "/blog/") {
 }
 
 async function countIs(page, count) {
-	await page.waitForFunction(
-		(expected) => document.querySelectorAll(".post-card").length === expected,
-		count,
-	);
+	try {
+		await page.waitForFunction(
+			(expected) => document.querySelectorAll(".post-card").length === expected,
+			count,
+		);
+	} catch (error) {
+		console.error("Blog card count did not settle", {
+			expected: count,
+			...(await page.evaluate(() => ({
+				actual: document.querySelectorAll(".post-card").length,
+				focus: document.activeElement?.className,
+				scrollY,
+				loadMoreTop: document
+					.querySelector(".load-more")
+					?.getBoundingClientRect().top,
+				fonts: document.fonts.status,
+			}))),
+		});
+		throw error;
+	}
 }
 
 async function appendByScrolling(page, count) {
 	await page.locator(".load-more").scrollIntoViewIfNeeded();
+	await loadMoreVisibility(page, false);
 	await countIs(page, count);
+}
+
+// Let the real observer deliver the previous scroll before issuing another
+// input. A rendered batch alone does not mean its async observer callback ended.
+async function loadMoreVisibility(page, intersecting) {
+	const observerHandle = await page
+		.locator(".load-more")
+		.evaluateHandle((node, expected) => {
+			const observer = new IntersectionObserver((entries) => {
+				if (entries.some((entry) => entry.isIntersecting === expected)) {
+					observer.complete = true;
+					observer.disconnect();
+				}
+			});
+			observer.observe(node);
+			return observer;
+		}, intersecting);
+	try {
+		await page.waitForFunction((value) => value.complete, observerHandle);
+	} finally {
+		await observerHandle.evaluate((value) => value.disconnect());
+		await observerHandle.dispose();
+	}
 }
 
 // Deliver the guard's input explicitly, then let Svelte's DOM updates flush
@@ -148,7 +188,9 @@ it("Scrolling pauses, keyboard loading resumes, and returning preserves the load
 		await countIs(page, 12);
 		assert.equal(await page.locator(".load-more-button.paused").count(), 1);
 		await loadMore(page).focus();
+		await loadMoreVisibility(page, true);
 		await page.keyboard.press("Enter");
+		await loadMoreVisibility(page, false);
 		await countIs(page, 15);
 		await page.waitForFunction(
 			() =>

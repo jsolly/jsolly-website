@@ -13,6 +13,7 @@ import { join } from "node:path";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
+import { assertUpdateNoticeLayout } from "./update-notice-layout.mjs";
 
 const ROUTES = ["/", "/blog/", "/recipes/"];
 const NEXT_SHA = "b".repeat(40);
@@ -160,17 +161,18 @@ function updateCheck(route) {
 				.getByRole("button", { name: "Show update", exact: true })
 				.click();
 			assert.equal(await page.locator("#site-update-button").isVisible(), true);
-			if (process.env.UI_EVIDENCE_DIR) {
-				for (const [width, height] of [
-					[1280, 900],
-					[390, 844],
-				]) {
-					// biome-ignore lint/performance/noAwaitInLoops: capture both widths on the affected route.
-					await page.setViewportSize({ width, height });
-					for (const colorScheme of ["light", "dark"]) {
-						// biome-ignore lint/performance/noAwaitInLoops: capture each theme in the same page.
-						await page.emulateMedia({ colorScheme });
-						await notice.scrollIntoViewIfNeeded();
+			for (const [width, height] of [
+				[1280, 900],
+				[390, 844],
+			]) {
+				// biome-ignore lint/performance/noAwaitInLoops: capture both widths on the affected route.
+				await page.setViewportSize({ width, height });
+				for (const colorScheme of ["light", "dark"]) {
+					// biome-ignore lint/performance/noAwaitInLoops: capture each theme in the same page.
+					await page.emulateMedia({ colorScheme });
+					await assertUpdateNoticeLayout(notice);
+					await notice.scrollIntoViewIfNeeded();
+					if (process.env.UI_EVIDENCE_DIR)
 						await page.screenshot({
 							animations: "disabled",
 							path: join(
@@ -178,7 +180,6 @@ function updateCheck(route) {
 								`site-update-${route.replaceAll("/", "") || "portfolio"}-${width}-${colorScheme}.png`,
 							),
 						});
-					}
 				}
 			}
 			await page
