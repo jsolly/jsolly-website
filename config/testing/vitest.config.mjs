@@ -13,11 +13,11 @@ export default defineConfig({
 	test: {
 		include: suites[process.env.TEST_SUITE ?? "unit"] ?? ["**/*.test.mjs"],
 		pool: "forks",
-		// Browser files own isolated processes and deployment fixtures. Four workers
-		// reduce CPU contention while retaining every case and fixture.
+		// Browser files own isolated processes and deployment fixtures. Three workers
+		// limit competing Chromium/Node processes while retaining every case and fixture.
 		maxWorkers:
 			process.env.TEST_SUITE === "built"
-				? 4
+				? 3
 				: process.env.TEST_SUITE === "unit"
 					? 2
 					: undefined,
