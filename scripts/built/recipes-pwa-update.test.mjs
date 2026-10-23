@@ -13,6 +13,7 @@ import {
 	SAVED,
 	SERVINGS,
 	serve,
+	setupRecipePwaFixture,
 	site,
 	snapshotLabel,
 	snapshots,
@@ -22,6 +23,8 @@ import {
 	VIEWPORTS,
 	waitForBrowserState,
 } from "./recipes-pwa-fixture.mjs";
+
+setupRecipePwaFixture(["legacy"]);
 
 const FETCH_FAILED = /Failed to fetch/u;
 

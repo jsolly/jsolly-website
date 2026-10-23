@@ -30,6 +30,10 @@ that the gate ran. No setup command deploys the application or infrastructure.
 
 ## Test file timings
 
+CI runs one `ci` job on the standard Ubuntu 24.04 x64 runner. Built test files
+use seven isolated workers; cases within a file remain sequential. Measure the
+whole job as well as the gate when comparing runner or scheduling changes.
+
 CI enables `TEST_FILE_TIMINGS=1` for the complete gate. Each Vitest file emits
 one `TIMING` JSON row with its suite, relative path, state and `wall_ms`.
 The interval starts when the worker queues the file for collection and ends
@@ -63,7 +67,9 @@ service workers; offline/install/update suites exercise real workers separately.
 The CSP suite parses each built page once into immutable facts, retaining its
 separate policy, script-byte/order and image checks. Maintenance and CMS fixture
 builds each run the same suite against their own output. PWA snapshot rebuild
-checks belong to the install suite; other PWA files still build isolated snapshots.
+checks belong to the install suite; every PWA file still builds real isolated
+A/B/C snapshots. Each file calls `setupRecipePwaFixture` with the additional
+deployment variants its cases use; unused full-site copies are not prepared.
 Smoke contract cases share a browser process and retain a fresh context per case.
 The update suite also checks that live API requests leave a stopped worker asleep
 and that workers still install and serve offline data without static routing.

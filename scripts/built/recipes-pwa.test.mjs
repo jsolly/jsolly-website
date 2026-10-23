@@ -22,6 +22,7 @@ import {
 	SERVINGS,
 	SHARED_RECIPE,
 	serve,
+	setupRecipePwaFixture,
 	site,
 	snapshotLabel,
 	snapshots,
@@ -31,6 +32,8 @@ import {
 	WORKER,
 	waitForBrowserState,
 } from "./recipes-pwa-fixture.mjs";
+
+setupRecipePwaFixture(["broken", "maintenance"]);
 
 // Rebuilding unchanged A and B must preserve the actual generated worker.
 // These build-time checks run once here; update/integrity files need only

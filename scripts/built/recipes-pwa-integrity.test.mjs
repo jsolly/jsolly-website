@@ -7,12 +7,15 @@ import {
 	navigateHydrated,
 	SAVED,
 	serve,
+	setupRecipePwaFixture,
 	site,
 	snapshotLabel,
 	snapshots,
 	statusText,
 	waitForBrowserState,
 } from "./recipes-pwa-fixture.mjs";
+
+setupRecipePwaFixture(["mixed", "rollback", "oversized"]);
 
 it("A complete HTTP200 mixed deployment fails installation, preserves A offline and retries repaired B", {
 	timeout: 90_000,

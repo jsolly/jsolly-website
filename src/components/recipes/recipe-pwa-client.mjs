@@ -7,6 +7,7 @@ import {
 	watchConnectedUpdates,
 } from "../../lib/website-update.mjs";
 import { PWA_WORKER_PATH, RECIPES_PATH } from "./constants.mjs";
+import { withRecipeActivation } from "./recipe-browse-coordination.mjs";
 
 const status = document.querySelector("#recipe-offline-status");
 const action = document.querySelector("#recipe-update-action");
@@ -299,31 +300,35 @@ if (status) {
 		problem = "";
 		render();
 		try {
-			const current =
-				await navigator.serviceWorker.getRegistration(RECIPES_PATH);
-			if (
-				!current ||
-				current.scope !== new URL(RECIPES_PATH, location.origin).href
-			)
-				throw new Error("Recipe registration disappeared");
-			const worker = current.waiting ?? navigator.serviceWorker.controller;
-			const release = await version(worker);
-			if (release !== availableRelease) {
-				availableRelease = release === loadedRelease ? null : release;
-				problem =
-					"A different recipe update is now available. Choose Update and reload again when ready.";
-				return;
-			}
-			if (current.waiting === worker) {
-				if (worker.state !== "installed")
-					throw new Error("Recipe update is not fully installed");
-				await activateAndWait(worker, release);
-			} else if (
-				navigator.serviceWorker.controller !== worker ||
-				worker.state !== "activated"
-			)
-				throw new Error("Recipe controller changed");
-			reloadForUpdate("recipes", loadedRelease, release);
+			const activatedRelease = await withRecipeActivation(async () => {
+				const current =
+					await navigator.serviceWorker.getRegistration(RECIPES_PATH);
+				if (
+					!current ||
+					current.scope !== new URL(RECIPES_PATH, location.origin).href
+				)
+					throw new Error("Recipe registration disappeared");
+				const worker = current.waiting ?? navigator.serviceWorker.controller;
+				const release = await version(worker);
+				if (release !== availableRelease) {
+					availableRelease = release === loadedRelease ? null : release;
+					problem =
+						"A different recipe update is now available. Choose Update and reload again when ready.";
+					return null;
+				}
+				if (current.waiting === worker) {
+					if (worker.state !== "installed")
+						throw new Error("Recipe update is not fully installed");
+					await activateAndWait(worker, release);
+				} else if (
+					navigator.serviceWorker.controller !== worker ||
+					worker.state !== "activated"
+				)
+					throw new Error("Recipe controller changed");
+				return release;
+			});
+			if (activatedRelease)
+				reloadForUpdate("recipes", loadedRelease, activatedRelease);
 		} catch (error) {
 			problem =
 				"The recipe update could not be applied. Try Update and reload again.";
