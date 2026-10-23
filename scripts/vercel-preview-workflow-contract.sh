@@ -6,6 +6,8 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 WORKFLOW="$ROOT/.github/workflows/vercel-preview.yml"
+RESOLVER="$ROOT/scripts/vercel-preview-resolve.sh"
+DEPLOY="$ROOT/scripts/vercel-preview-deploy.sh"
 
 fail() {
 	echo "✗ $*" >&2
@@ -17,22 +19,25 @@ fail() {
 require() {
 	local needle="$1"
 	local label="$2"
-	if ! grep -F -- "$needle" "$WORKFLOW" >/dev/null; then
+	local source="${3:-$WORKFLOW}"
+	if ! grep -F -- "$needle" "$source" >/dev/null; then
 		fail "Vercel Preview workflow must ${label}: ${needle}"
 	fi
 }
 
-require '--build-env "VERCEL_GIT_COMMIT_SHA=${HEAD_SHA}"' 'pass the PR SHA as a Vite build env'
-require '--meta "githubDeployment=1"' 'mark the CLI deploy as a GitHub deployment'
-require '--meta "githubCommitSha=${HEAD_SHA}"' 'attach the PR SHA as GitHub commit metadata'
-require 'jq -r '"'"'.head.sha'"'"'' 'resolve the Preview SHA from the PR head, not github.sha'
+require 'run: bash scripts/vercel-preview-resolve.sh' 'execute the resolver from the trusted default-branch checkout'
+require 'run: bash "$GITHUB_WORKSPACE/tooling/scripts/vercel-preview-deploy.sh"' 'execute deployment tooling from the trusted checkout outside PR sources'
+require '--build-env "VERCEL_GIT_COMMIT_SHA=${HEAD_SHA}"' 'pass the PR SHA as a Vite build env' "$DEPLOY"
+require '--meta "githubDeployment=1"' 'mark the CLI deploy as a GitHub deployment' "$DEPLOY"
+require '--meta "githubCommitSha=${HEAD_SHA}"' 'attach the PR SHA as GitHub commit metadata' "$DEPLOY"
+require 'jq -r '"'"'.head.sha'"'"'' 'resolve the Preview SHA from the PR head, not github.sha' "$RESOLVER"
 require 'ref: ${{ needs.resolve.outputs.head_sha }}' 'check out the resolved PR head SHA'
-require 'printf '"'"'%s'"'"' "$COMMENT_BODY" | bash scripts/vercel-preview-comment.sh' 'pipe comments through the exact /preview matcher'
+require 'printf '"'"'%s'"'"' "$COMMENT_BODY" | bash scripts/vercel-preview-comment.sh' 'pipe comments through the exact /preview matcher' "$RESOLVER"
 require 'github.event.comment.author_association == '"'"'OWNER'"'"'' 'restrict comment deploys to owner/member/collaborator'
-require 'head_repo" != "$REPO"' 'refuse fork PR heads'
+require 'head_repo" != "$REPO"' 'refuse fork PR heads' "$RESOLVER"
 require 'persist-credentials: false' 'do not persist the Actions token on checkout'
-require 'cd "$RUNNER_TEMP" && unset GH_TOKEN && export NPM_CONFIG_CACHE="$RUNNER_TEMP/npm-cache" &&' 'run the CLI from outside the PR tree without GH_TOKEN and with a fresh npm cache'
-require 'npx --yes vercel@59.20.0 deploy --yes --archive=tgz --cwd "$SOURCE_DIR"' 'upload only PR sources with the pinned CLI from outside the PR tree'
+require 'cd "$RUNNER_TEMP" && unset GH_TOKEN && export NPM_CONFIG_CACHE="$RUNNER_TEMP/npm-cache" &&' 'run the CLI from outside the PR tree without GH_TOKEN and with a fresh npm cache' "$DEPLOY"
+require 'npx --yes vercel@59.20.0 deploy --yes --archive=tgz --cwd "$SOURCE_DIR"' 'upload only PR sources with the pinned CLI from outside the PR tree' "$DEPLOY"
 require 'SOURCE_DIR: ${{ github.workspace }}/source' 'keep the PR source directory separate from trusted workflow tooling'
 require 'working-directory: ${{ runner.temp }}' 'start the credential-bearing deploy shell outside the PR tree'
 require 'node-version-file: tooling/.nvmrc' 'select Node from trusted workflow tooling'
@@ -41,13 +46,13 @@ require 'cancel-in-progress: false' 'not cancel an in-flight /preview when a lat
 require "github.event.pull_request.head.repo.full_name == github.repository" 'run label deploys only for same-repo PR heads'
 require "contains(github.event.pull_request.labels.*.name, 'preview')" 'gate push redeploys on the preview label'
 require "(github.event.action != 'labeled' || github.event.label.name == 'preview')" 'ignore unrelated labels on a preview PR'
-require "git -C \"\$SOURCE_DIR\" ls-files --cached --others -- ':(glob)**/vercel.ts' ':(glob)**/vercel.mts'" 'refuse PR source configs that the CLI would execute with VERCEL_TOKEN'
+require "git -C \"\$SOURCE_DIR\" ls-files --cached --others -- ':(glob)**/vercel.ts' ':(glob)**/vercel.mts'" 'refuse PR source configs that the CLI would execute with VERCEL_TOKEN' "$DEPLOY"
 require "if: \${{ needs.resolve.outputs.skip == 'false' }}" 'deploy only after the resolve job accepts the event'
 require 'package-manager-cache: false' 'not restore a PR-written npm cache into the token-holding job'
-require 'if [[ "$current_sha" != "$HEAD_SHA" ]]; then' 'stand down for a newer head on every trigger'
-require 'npx --yes vercel@59.20.0 alias set "$preview_url" "$preview_alias" --scope jsollys-projects' 'assign a stable project/PR alias with the pinned isolated CLI'
-require 'preview_alias="pr-${PR_NUMBER}-${VERCEL_PROJECT_ID#prj_}.vercel.app"' 'scope the stable Preview alias to the full project ID and PR number'
-require 'PR closed or moved during the build; leaving its Preview URL unchanged.' 'recheck the head after building before changing the alias'
+require 'if [[ "$current_sha" != "$HEAD_SHA" ]]; then' 'stand down for a newer head on every trigger' "$DEPLOY"
+require 'npx --yes vercel@59.20.0 alias set "$preview_url" "$preview_alias" --scope jsollys-projects' 'assign a stable project/PR alias with the pinned isolated CLI' "$DEPLOY"
+require 'preview_alias="pr-${PR_NUMBER}-${VERCEL_PROJECT_ID#prj_}.vercel.app"' 'scope the stable Preview alias to the full project ID and PR number' "$DEPLOY"
+require 'PR closed or moved during the build; leaving its Preview URL unchanged.' 'recheck the head after building before changing the alias' "$DEPLOY"
 # Tokens may appear only in the named API/deployment steps, never in setup or
 # checkout. The template's fixed indentation keeps this guard dependency-free.
 awk '

@@ -86,9 +86,8 @@ let browser;
 const snapshots = {};
 let served;
 
-// Copies dist/ to `label`, marks its landing page and dedicated static files with the
-// label, and writes its worker twice: `worker` and `rebuilt` are the two
-// results, which must match.
+// Copies dist/ to `label`, marks its landing page and dedicated static files,
+// and builds its real worker. The install suite owns rebuild determinism checks.
 async function snapshot(label) {
 	const directory = join(fixture, label);
 	await cp(DIST, directory, { recursive: true });
@@ -173,94 +172,123 @@ async function snapshot(label) {
 	await writeFile(join(directory, DATA_FILES[1]), `# Snapshot ${label}\n`);
 	const built = await buildRecipePwa(directory);
 	const worker = await readFile(join(directory, WORKER), "utf8");
-	await buildRecipePwa(directory);
-	const rebuilt = await readFile(join(directory, WORKER), "utf8");
-	return { directory, ...built, worker, rebuilt };
+	return { directory, ...built, worker };
 }
 
-before(async () => {
-	fixture = await mkdtemp(join(tmpdir(), "recipe-pwa-test-"));
-	snapshots.A = await snapshot("A");
-	snapshots.B = await snapshot("B");
-	snapshots.C = await snapshot("C");
-	// Frozen deployed worker source from 7ba3b818e40043f67858d5e70e9b8866e079aaea,
-	// scripts/recipes/service-worker.js. Keep its lack of message handshakes
-	// and client metadata intact. New-client A HTML represents the first reopen
-	// needed by users whose original old document has no update detector.
-	const legacy = join(fixture, "legacy");
-	await cp(snapshots.A.directory, legacy, { recursive: true });
-	const legacyCache = "recipe-pages-pwa-legacy-7ba3b81";
-	const legacySource = await readFile(
-		new URL("fixtures/recipe-worker-7ba3b81.txt", import.meta.url),
-		"utf8",
-	);
-	const legacyBundle = await build({
-		stdin: {
-			contents: legacySource,
-			resolveDir: fileURLToPath(new URL("../recipes/", import.meta.url)),
-			sourcefile: "service-worker.js",
-		},
-		bundle: true,
-		write: false,
-		platform: "browser",
-		format: "iife",
-	});
-	await writeFile(
-		join(legacy, WORKER),
-		`const CACHE = ${JSON.stringify(legacyCache)};\nconst PREFIX = "recipe-pages-pwa-";\nconst ASSETS = new Set(${JSON.stringify(snapshots.A.urls)});\n${legacyBundle.outputFiles[0].text}`,
-	);
-	snapshots.legacy = { ...snapshots.A, directory: legacy, cache: legacyCache };
-	const broken = join(fixture, "broken");
-	await cp(snapshots.B.directory, broken, { recursive: true });
-	await rm(join(broken, MISSING_FILE));
-	snapshots.broken = { ...snapshots.B, directory: broken };
-	// Complete HTTP200 bodies from a different deployment must not be accepted
-	// merely because each fetch succeeded. Preserve the generated worker bytes.
-	for (const [label, original] of [
-		["mixed", "B"],
-		["rollback", "A"],
-	]) {
-		const directory = join(fixture, label);
-		// biome-ignore lint/performance/noAwaitInLoops: each isolated deployment copy has its own immutable worker/cache identity.
-		await cp(snapshots[original].directory, directory, { recursive: true });
-		await writeFile(
-			join(directory, DATA_FILES[0]),
-			await readFile(join(snapshots.C.directory, DATA_FILES[0])),
-		);
-		snapshots[label] = { ...snapshots[original], directory };
+// Each file builds real A/B/C independently. It prepares only the additional
+// deployments its scenarios use, so unused variants do not copy the full site.
+function setupRecipePwaFixture(variants = []) {
+	const extras = new Set(variants);
+	for (const label of extras) {
+		if (
+			![
+				"legacy",
+				"broken",
+				"mixed",
+				"rollback",
+				"oversized",
+				"maintenance",
+			].includes(label)
+		)
+			throw new Error(`Unknown recipe PWA fixture variant: ${label}`);
 	}
+	before(async () => {
+		fixture = await mkdtemp(join(tmpdir(), "recipe-pwa-test-"));
+		snapshots.A = await snapshot("A");
+		snapshots.B = await snapshot("B");
+		snapshots.C = await snapshot("C");
+		if (extras.has("legacy")) {
+			// Frozen deployed worker source from 7ba3b818e40043f67858d5e70e9b8866e079aaea,
+			// scripts/recipes/service-worker.js. Keep its lack of message handshakes
+			// and client metadata intact. New-client A HTML represents the first reopen
+			// needed by users whose original old document has no update detector.
+			const legacy = join(fixture, "legacy");
+			await cp(snapshots.A.directory, legacy, { recursive: true });
+			const legacyCache = "recipe-pages-pwa-legacy-7ba3b81";
+			const legacySource = await readFile(
+				new URL("fixtures/recipe-worker-7ba3b81.txt", import.meta.url),
+				"utf8",
+			);
+			const legacyBundle = await build({
+				stdin: {
+					contents: legacySource,
+					resolveDir: fileURLToPath(new URL("../recipes/", import.meta.url)),
+					sourcefile: "service-worker.js",
+				},
+				bundle: true,
+				write: false,
+				platform: "browser",
+				format: "iife",
+			});
+			await writeFile(
+				join(legacy, WORKER),
+				`const CACHE = ${JSON.stringify(legacyCache)};\nconst PREFIX = "recipe-pages-pwa-";\nconst ASSETS = new Set(${JSON.stringify(snapshots.A.urls)});\n${legacyBundle.outputFiles[0].text}`,
+			);
+			snapshots.legacy = {
+				...snapshots.A,
+				directory: legacy,
+				cache: legacyCache,
+			};
+		}
+		if (extras.has("broken")) {
+			const broken = join(fixture, "broken");
+			await cp(snapshots.B.directory, broken, { recursive: true });
+			await rm(join(broken, MISSING_FILE));
+			snapshots.broken = { ...snapshots.B, directory: broken };
+		}
+		// Complete HTTP200 bodies from a different deployment must not be accepted
+		// merely because each fetch succeeded. Preserve the generated worker bytes.
+		for (const [label, original] of [
+			["mixed", "B"],
+			["rollback", "A"],
+		]) {
+			if (!extras.has(label)) continue;
+			const directory = join(fixture, label);
+			// biome-ignore lint/performance/noAwaitInLoops: each isolated deployment copy has its own immutable worker/cache identity.
+			await cp(snapshots[original].directory, directory, { recursive: true });
+			await writeFile(
+				join(directory, DATA_FILES[0]),
+				await readFile(join(snapshots.C.directory, DATA_FILES[0])),
+			);
+			snapshots[label] = { ...snapshots[original], directory };
+		}
 
-	const oversized = join(fixture, "oversized");
-	await cp(snapshots.B.directory, oversized, { recursive: true });
-	const oversizedData = JSON.parse(
-		await readFile(join(oversized, DATA_FILES[0]), "utf8"),
-	);
-	await writeFile(
-		join(oversized, DATA_FILES[0]),
-		JSON.stringify({
-			...oversizedData,
-			unexpectedPadding: "x".repeat(1024 * 1024),
-		}),
-	);
-	snapshots.oversized = { ...snapshots.B, directory: oversized };
-	const maintenance = join(fixture, "maintenance");
-	await cp(snapshots.A.directory, maintenance, { recursive: true });
-	await rm(join(maintenance, WORKER));
-	snapshots.maintenance = { ...snapshots.A, directory: maintenance };
-	served = join(fixture, "served");
-	await serve("A");
-	site = await serveStatic(served, {
-		Vary: "Accept",
-		"Cache-Control": "no-store",
+		if (extras.has("oversized")) {
+			const oversized = join(fixture, "oversized");
+			await cp(snapshots.B.directory, oversized, { recursive: true });
+			const oversizedData = JSON.parse(
+				await readFile(join(oversized, DATA_FILES[0]), "utf8"),
+			);
+			await writeFile(
+				join(oversized, DATA_FILES[0]),
+				JSON.stringify({
+					...oversizedData,
+					unexpectedPadding: "x".repeat(1024 * 1024),
+				}),
+			);
+			snapshots.oversized = { ...snapshots.B, directory: oversized };
+		}
+		if (extras.has("maintenance")) {
+			const maintenance = join(fixture, "maintenance");
+			await cp(snapshots.A.directory, maintenance, { recursive: true });
+			await rm(join(maintenance, WORKER));
+			snapshots.maintenance = { ...snapshots.A, directory: maintenance };
+		}
+		served = join(fixture, "served");
+		await serve("A");
+		site = await serveStatic(served, {
+			Vary: "Accept",
+			"Cache-Control": "no-store",
+		});
+		browser = await chromium.launch();
 	});
-	browser = await chromium.launch();
-});
 
-after(async () => {
-	await browser?.close();
-	await site?.close();
-	if (fixture) await rm(fixture, { recursive: true, force: true });
-});
+	after(async () => {
+		await browser?.close();
+		await site?.close();
+		if (fixture) await rm(fixture, { recursive: true, force: true });
+	});
+}
 
 // Points the served directory at snapshot `label`'s files. Renaming a fresh
 // link over the old one swaps them in one step, so no request ever sees a
@@ -350,6 +378,7 @@ export {
 	SHARED_RECIPE,
 	SMOOTHIES,
 	serve,
+	setupRecipePwaFixture,
 	site,
 	snapshotLabel,
 	snapshots,

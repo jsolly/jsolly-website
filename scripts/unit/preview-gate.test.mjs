@@ -24,6 +24,15 @@ async function fixture(t) {
 	const bin = path.join(temp, "bin");
 	await mkdir(path.join(root, ".git-hooks"), { recursive: true });
 	await mkdir(path.join(root, "scripts"));
+	await mkdir(path.join(root, "node_modules"));
+	await Promise.all(
+		["run-gate.mjs", "gate-snapshot.mjs", "gate-processes.mjs"].map((name) =>
+			copyFile(
+				path.join(project, "scripts", name),
+				path.join(root, "scripts", name),
+			),
+		),
+	);
 	await mkdir(path.join(root, "src/components"), { recursive: true });
 	await mkdir(bin);
 	await copyFile(
@@ -62,7 +71,10 @@ async function fixture(t) {
 	const env = Object.fromEntries(
 		Object.entries(process.env).filter(
 			([key]) =>
-				!key.startsWith("GIT_") && !key.startsWith("FLEET_") && key !== "CI",
+				!key.startsWith("GIT_") &&
+				!key.startsWith("FLEET_") &&
+				key !== "CI" &&
+				key !== "JSOLLY_INSTALL_BROWSER",
 		),
 	);
 	Object.assign(env, {
@@ -92,6 +104,9 @@ async function fixture(t) {
 		"gate/gate-lib.sh",
 		"scripts/repo-python.sh",
 		"scripts/ui-preview-scope.mjs",
+		"scripts/run-gate.mjs",
+		"scripts/gate-snapshot.mjs",
+		"scripts/gate-processes.mjs",
 		"src/components/Example.svelte",
 	);
 	await git("-c", "core.hooksPath=/dev/null", "commit", "-m", "fixture");
@@ -105,7 +120,7 @@ async function fixture(t) {
 			cwd: root,
 			env: { ...env, ...overrides },
 		});
-	return { root, hook, calls: () => readFile(receipt, "utf8") };
+	return { root, bin, hook, calls: () => readFile(receipt, "utf8") };
 }
 
 it("preview hook runs bootstrap and quick checks, without the full build/browser suite", async (t) => {
@@ -149,4 +164,77 @@ it("full gate disables preview mode and retains build/browser steps", async (t) 
 	assert.ok(calls.includes("npm run test:built\n"));
 	assert.ok(calls.includes("npm run test:python\n"));
 	assert.ok(!calls.includes("npm run check:preview"));
+});
+
+async function browserSetupFixture(t) {
+	const f = await fixture(t);
+	await writeFile(
+		path.join(f.bin, "npx"),
+		`#!/usr/bin/env node
+const fs = require("node:fs");
+const {setTimeout} = require("node:timers/promises");
+const args = process.argv.slice(2);
+fs.appendFileSync(process.env.RECEIPT, "npx " + args.join(" ") + "\\n");
+async function main() {
+	if (!args.includes("playwright")) return;
+	if (process.env.FAIL_BROWSER === "1") process.exit(43);
+	for(let n=0; !fs.existsSync(process.env.RECEIPT + ".build") || !fs.existsSync(process.env.RECEIPT + ".unit"); n++) {
+		if(n>500) throw Error("browser setup did not overlap build");
+		await setTimeout(10);
+	}
+	fs.writeFileSync(process.env.RECEIPT + ".browser", "ready");
+}
+main().catch(error => { console.error(error.message); process.exitCode=1; });
+`,
+	);
+	await writeFile(
+		path.join(f.bin, "npm"),
+		`#!/usr/bin/env node
+const fs = require("node:fs");
+const command = process.argv.slice(2).join(" ");
+fs.appendFileSync(process.env.RECEIPT, "npm " + command + "\\n");
+if (command === "run build") fs.writeFileSync(process.env.RECEIPT + ".build", "built");
+if (command === "test") fs.writeFileSync(process.env.RECEIPT + ".unit", "tested");
+if (["run smoke:scenario-contract", "run test:built"].includes(command) && !fs.existsSync(process.env.RECEIPT + ".browser")) {
+	console.error("browser-dependent check started before installation");
+	process.exitCode=41;
+}
+`,
+	);
+	return f;
+}
+
+it("CI browser setup overlaps build and gates every browser-dependent suite", async (t) => {
+	const f = await browserSetupFixture(t);
+	const result = await f.hook({
+		FLEET_UI_PREVIEW: "0",
+		JSOLLY_INSTALL_BROWSER: "1",
+	});
+	assert.ok(result.stdout.includes("pre-commit gate passed"));
+	const calls = await f.calls();
+	assert.ok(
+		calls.includes(
+			"npx --no-install playwright install --with-deps --only-shell chromium\n",
+		),
+	);
+	assert.ok(calls.includes("npm test\n"));
+	assert.ok(calls.includes("npm run smoke:scenario-contract\n"));
+	assert.ok(calls.includes("npm run test:built\n"));
+});
+
+it("failed CI browser setup fails the full gate without starting browser-dependent suites", async (t) => {
+	const f = await browserSetupFixture(t);
+	await assert.rejects(
+		f.hook({
+			FLEET_UI_PREVIEW: "0",
+			JSOLLY_INSTALL_BROWSER: "1",
+			FAIL_BROWSER: "1",
+		}),
+		(error) => error.code === 43,
+	);
+	const calls = await f.calls();
+	assert.ok(calls.includes("npm run build\n"));
+	assert.ok(calls.includes("npm test\n"));
+	assert.ok(!calls.includes("npm run smoke:scenario-contract\n"));
+	assert.ok(!calls.includes("npm run test:built\n"));
 });

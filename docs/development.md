@@ -28,6 +28,101 @@ Use the repository's README and AGENTS.md for its build, test and deployment
 commands. A missing prerequisite is a failed setup; report it rather than claiming
 that the gate ran. No setup command deploys the application or infrastructure.
 
+## Test file timings
+
+CI runs one `ci` job on the Ubuntu 24.04 ARM runner. Built test files
+use four isolated fork workers; pure unit tests use two workers to leave CPU for
+types and build. Cases within a built file remain sequential. Measure the
+whole job as well as the gate when comparing runner or scheduling changes.
+
+CI restores Node compilation caches and Vitest's file-duration metadata for the
+same OS, architecture, Node major and dependency lock. Executable bytecode needs
+a trusted producer: restoration and saving run only on `main` or same-repository
+PRs authored by the repository owner. Other runs execute the complete gate with
+fresh local caches. Node recompiles stale or corrupt entries; those checks do not
+authenticate executable cache data.
+Vitest uses previous durations only to order files, running every test again.
+Each successful run saves a new cache snapshot. Cold runs still run the full gate.
+
+Build and built-test commands use separate directories below `NODE_COMPILE_CACHE`.
+Private validation trees keep their caches in their own scratch directories.
+The gate collects functional test results and counts, not V8 coverage profiles.
+Disable compilation caching when separately collecting V8 coverage, as Node
+documents reduced profiling precision for cached functions.
+
+The full gate runs build → CSP → built tests in the original checkout. Its
+`dist/`, `.recipe-browse/` and generated route manifest remain available to local
+preview and deployment consumers. Static checks, types, unit/Python fixtures and
+smoke contracts each run in a private validation tree while that build chain runs.
+Each copy has independent Git metadata, the effective staged index, working-source
+bytes and mutable dependency caches. The scheduler rejects changes to HEAD, the
+index or nonignored source files during validation. All commands and counted suites
+must pass; failures retain diagnostics under the printed `jsolly-gate-*` directory.
+In CI, `JSOLLY_INSTALL_BROWSER=1` runs the same headless-shell and full OS
+installation command alongside static checks, pure unit tests, types and build.
+Smoke contracts and built browser tests wait for installation to succeed; built
+tests also wait for the complete build and CSP suite. Installation failures fail
+the gate. The real Chromium process-cleanup regression belongs to the built suite;
+the unit suite retains detached-process and shutdown-race coverage. Local gates use the browser already provisioned by repository setup.
+The preview shortcut and gate bootstrap remain unchanged. `gate/gate-lib.sh` is
+unchanged. No previous passing result is accepted as current test evidence.
+
+Static link and Markdown checks read HTML through parse5 instead of allocating
+browser-like DOM windows. They preserve document recovery, base URLs, inert
+templates, noscript descendants, namespaces and decoded attribute values. XML
+feeds still use an XML parser. Browser scenarios retain Chromium.
+
+CI enables `TEST_FILE_TIMINGS=1` for the complete gate. Each Vitest file emits
+one `TIMING` JSON row with its suite, relative path, state and `wall_ms`.
+The interval starts when the worker queues the file for collection and ends
+after its tests and `afterAll` hooks. It includes imports and hooks, excludes
+worker startup and environment preparation, and is not summed testcase time.
+`collect_ms` and `tests_hooks_ms` expose Vitest's corresponding diagnostics.
+Parallel file durations overlap; do not add them to estimate the gate duration.
+The `test-file-timings` artifact retains JSONL rows and the checkout SHA/tree,
+even when validation fails. Each runner writes its own file, including CSP
+runs nested inside built tests. The gate suppresses successful step output,
+so the artifact is the durable record.
+
+To collect the same evidence locally from the repository root:
+
+```bash
+TEST_FILE_TIMINGS=1 TEST_FILE_TIMINGS_DIR=/tmp/jsolly-test-timings mise exec -- npm run gate
+```
+
+The directory accumulates reports across runs; use a fresh directory for each
+comparison. Without `TEST_FILE_TIMINGS_DIR`, rows go only to stdout, useful for
+direct suite commands. The optional reporter leaves the exact passing-test ledger
+and failure checks unchanged. Preserve the artifacts before retiring a probe branch.
+
+The recipe browser suites separate control behavior from content enumeration.
+Filter/navigation cases check independently expected totals, the initial batch,
+and a later filtered batch at phone and desktop widths. Complete recipe partitions
+and pagination stay in the module/API suites; dedicated browser cases retain
+scrolling, button pagination and focus/recovery. The filter/navigation suite blocks
+service workers; offline/install/update suites exercise real workers separately.
+
+The shared built-test server loads DOM and frontmatter parsers only when a
+caller requests those readers. Browser-only files do not initialize unused
+DOM windows or blog parser dependencies; the readers and assertions stay intact.
+
+CI installs the pinned Chromium headless shell used by every browser test, plus
+its OS dependencies. It omits the unused headed Chromium download.
+
+The CSP suite parses each built page once into immutable facts, retaining its
+separate policy, script-byte/order and image checks. Maintenance and CMS fixture
+builds each run the same suite against their own output. PWA snapshot rebuild
+checks belong to the install suite; every PWA file still builds real isolated
+A/B/C snapshots. Each file calls `setupRecipePwaFixture` with the additional
+deployment variants its cases use; unused full-site copies are not prepared.
+Smoke contract cases run concurrently in one browser process, with Vitest's
+five-case limit and a fresh context and private stubs per case. Built cases
+remain sequential within each file.
+PWA builds reuse immutable asset bytes and digests within one invocation. Each
+rebuild reads fresh bytes, and every test file retains its independent A/B/C builds.
+The update suite also checks that live API requests leave a stopped worker asleep
+and that workers still install and serve offline data without static routing.
+
 ## Hook trust
 
 The dispatcher lives in this clone's Git common directory, shared only by its
@@ -143,3 +238,15 @@ assets/data, user-work confirmation, accessibility at both viewports/themes,
 dismissal/C, metadata failures, request ordering, lifecycle races, retry recovery,
 polling cleanup, rollback/scope isolation, and prior-client migration. Authentication
 is absent on this public site. Do not infer full coverage from a fresh B visit.
+
+Large workflow shell bodies live in `scripts/ci-secrets-scan.sh`,
+`scripts/vercel-preview-resolve.sh` and `scripts/vercel-preview-deploy.sh`.
+The pinned ShellCheck checks these files directly, and actionlint retains every
+workflow and remaining inline-script check. This avoids the pinned release's
+[macOS stdin deadlock](https://github.com/rhysd/actionlint/issues/650).
+Preview tooling still executes from the trusted default-branch checkout.
+
+Knip's Vercel dependency exception belongs to the John-only `vercel-curl`
+transport in `scripts/verify-blogthedata-cutover.mjs`, which resolves
+`node_modules/.bin/vercel` dynamically. Preview deployment uses its own isolated
+pinned CLI, and agents never run the cutover verifier's Vercel transport.

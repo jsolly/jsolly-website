@@ -104,8 +104,8 @@ const normalize = (value) =>
 	);
 
 // Recipes are content, not code: a meal and a smoothie prove the hydrated page
-// matches the page without JavaScript, and recipes-built.test.mjs holds every
-// recipe's static page to its data without a browser.
+// matches the page without JavaScript. recipes-built.test.mjs checks representative
+// static bodies and every recipe image without a browser.
 function detailParityCheck(recipe, width) {
 	it(`${recipe.id} matches without JavaScript at ${width}px`, {
 		timeout: 30_000,
@@ -448,13 +448,38 @@ function filtersCheck(width) {
 				// biome-ignore lint/performance/noAwaitInLoops: exercise each independent filter combination in sequence
 				await checkbox("Keto").setChecked(keto);
 				await checkbox("Vegetarian").setChecked(vegetarian);
-				await expectCards(
-					meals.filter(
-						(recipe) =>
-							(!keto || recipe.nutrition.net_carbs_g <= 12.5) &&
-							(!vegetarian || recipe.vegetarian === true),
-					),
+				const expected = meals.filter(
+					(recipe) =>
+						(!keto || recipe.nutrition.net_carbs_g <= 12.5) &&
+						(!vegetarian || recipe.vegetarian === true),
 				);
+				await expectCards(expected);
+				if (keto && !vegetarian) {
+					// The second Keto batch differs from the unfiltered batch. Keep
+					// this browser boundary: later requests must retain the filter.
+					const expectedIds = expected.slice(0, 12).map(({ id }) => id);
+					// biome-ignore lint/nursery/noConditionalExpect: this parameterized branch proves the Keto second page differs from an unfiltered page.
+					assert.notDeepEqual(
+						expectedIds,
+						meals.slice(0, 12).map(({ id }) => id),
+					);
+					await page
+						.getByRole("button", { name: "Load more recipes", exact: true })
+						.scrollIntoViewIfNeeded();
+					await page.waitForFunction(
+						() => document.querySelectorAll(".recipe-card").length >= 12,
+					);
+					// biome-ignore lint/nursery/noConditionalExpect: the Keto scenario exercises filtered pagination at both viewports.
+					assert.deepEqual(
+						await page
+							.locator(".recipe-card a.title-button")
+							.evaluateAll((links) =>
+								links.slice(0, 12).map((link) => link.dataset.recipeId),
+							),
+						expectedIds,
+					);
+					await page.evaluate(() => window.scrollTo(0, 0));
+				}
 			}
 			await checkbox("Keto").check();
 			await checkbox("Vegetarian").check();
@@ -464,7 +489,7 @@ function filtersCheck(width) {
 			assert.equal(await checkbox("Vegetarian").isChecked(), true);
 			await checkbox("Vegetarian").uncheck();
 			await checkbox("Keto").uncheck();
-			// Re-ticking Air fryers brings back its two and their meals.
+			// Re-ticking Air fryers restores the complete matching meal count.
 			await checkbox("Air fryers").uncheck();
 			await expectCards(
 				meals.filter(
@@ -483,8 +508,15 @@ function filtersCheck(width) {
 			await checkbox("Fish").check();
 			await checkbox("Turkey").check();
 			await page.keyboard.press("Escape");
+			// The closing protein panel retains its Clear button during its exit animation.
+			await page
+				.getByRole("dialog", { name: "Proteins choices", exact: true })
+				.waitFor({ state: "detached" });
 			assert.equal(await checkbox("Vegetarian").isDisabled(), true);
 			await page.getByRole("button", { name: CARBS }).click();
+			await page
+				.getByRole("dialog", { name: "Carbs choices", exact: true })
+				.waitFor({ state: "visible" });
 			assert.equal(
 				await page.getByRole("button", { name: "Clear selections" }).count(),
 				0,

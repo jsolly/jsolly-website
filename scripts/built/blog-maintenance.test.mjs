@@ -2,9 +2,9 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
-import { JSDOM } from "jsdom";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { agentResponse } from "../../src/lib/agent-response.js";
+import { maintenanceHtmlFacts } from "./maintenance-html.mjs";
 import { exists, readBuiltPages, stylesheets } from "./pages.mjs";
 import { createTempCopy, requireSuccess } from "./temp-copy.mjs";
 
@@ -14,14 +14,11 @@ import { createTempCopy, requireSuccess } from "./temp-copy.mjs";
 // worker, so installed recipe apps keep their offline copy instead of
 // precaching the notice (plan §1.6), and no recipe page offers the app. The
 // build runs in a temp copy, so the real dist/ stays the normal build.
-const WHITESPACE = /\s+/gu;
 const MAINTENANCE_HEADING = "Under Maintenance";
 // Text only the works-cited page body carries.
 const POST_TEXT = "I freaking love MDN";
 const BLOG_PAGE = "blog/works-cited/index.html";
 const RECIPE_WORKER = "recipes/service-worker.js";
-// biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
-const MANIFEST_LINK = 'link[rel="manifest"]';
 // Copied from the Context7 Ask install instructions: maintenance keeps the
 // search discovery and the verification the rest of the site carries.
 const SEARCH_SECTION =
@@ -33,8 +30,6 @@ const SEARCH_LINK =
 const VERIFICATION_TAG =
 	// biome-ignore lint/security/noSecrets: public site verification key, not a credential
 	'<meta name="context7-site-verification" content="ask_43369889032b1355b89bc7f4">';
-// JSON-LD: a post page's head slot carries its BlogPosting.
-const STRUCTURED_DATA = 'script[type="application/ld+json"]';
 // Maintenance.astro's own utilities: the icon badge and icon sizes, the
 // centred column and the badge colour. Without them the notice is unstyled
 // and the icon fills the column.
@@ -67,28 +62,12 @@ before(async () => {
 		})),
 	);
 	workerBuilt = await exists(join(dist, RECIPE_WORKER));
-	pages = (await readBuiltPages(dist)).map(({ file, html }) => {
-		const dom = new JSDOM(html);
-		try {
-			const main = dom.window.document.querySelector("main");
-			return {
-				file,
-				html,
-				stylesheets: stylesheets(html),
-				main: main?.textContent.replace(WHITESPACE, " ").trim() ?? null,
-				manifest: dom.window.document
-					.querySelector(MANIFEST_LINK)
-					?.getAttribute("href"),
-				blogPostings: [
-					...dom.window.document.querySelectorAll(STRUCTURED_DATA),
-				].filter(
-					(script) => JSON.parse(script.textContent)["@type"] === "BlogPosting",
-				).length,
-			};
-		} finally {
-			dom.window.close();
-		}
-	});
+	pages = (await readBuiltPages(dist)).map(({ file, html }) => ({
+		file,
+		html,
+		stylesheets: stylesheets(html),
+		...maintenanceHtmlFacts(html),
+	}));
 	const blog = pages.find(({ file }) => file === BLOG_PAGE);
 	blogCss = blog
 		? (

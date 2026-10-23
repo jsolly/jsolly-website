@@ -513,6 +513,15 @@ summary requests cannot restart an outgoing worker during explicit activation.
 Other browsers retain the fetch-handler bypass. These rules take effect after
 the worker containing them activates; they cannot change an older active worker.
 
+Current recipe tabs also coordinate browsing and explicit activation with one
+origin-wide Web Lock. Browse transactions share the lock until their response
+bodies finish; activation takes it exclusively, rechecks the waiting worker's
+identity, and holds it until the intended controller is verified. Queued browsing
+uses its existing abort signal, and failures release the lock. This protects a
+current tab under a historical worker without changing the historical cache.
+Already-open older frontend versions cannot join this coordination; the frozen
+7ba3b81 frontend used local recipe data and made no browse API requests.
+
 A connected visit or throttled online focus/reconnection check can download an
 updated shell. **Update and reload** activates that verified release and reloads
 only the requesting tab. Other tabs retain their cooking view until they choose

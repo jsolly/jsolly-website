@@ -9,7 +9,7 @@
 	],
 	"ignore": ["legacy/blogthedata/public/**"],
 	"ignoreBinaries": ["uvx"],
-	"ignoreDependencies": ["markdownlint-cli2"],
+	"ignoreDependencies": ["markdownlint-cli2", "vercel"],
 	"treatConfigHintsAsErrors": true,
 	"vitest": { "config": ["config/testing/vitest.config.mjs"] },
 	"astro": {

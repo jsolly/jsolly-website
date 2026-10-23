@@ -182,9 +182,12 @@ function updateCheck(route) {
 						});
 				}
 			}
-			await page
-				.getByRole("button", { name: "Update and reload", exact: true })
-				.click();
+			await Promise.all([
+				page.waitForEvent("load"),
+				page
+					.getByRole("button", { name: "Update and reload", exact: true })
+					.click(),
+			]);
 			await page.waitForFunction(
 				(sha) =>
 					document.querySelector("#site-update-notice")?.dataset.release ===
@@ -309,7 +312,7 @@ it("Update click revalidates unavailable or changed targets and recovers without
 			true,
 			"changed B target requires another explicit click",
 		);
-		await update.click();
+		await Promise.all([page.waitForEvent("load"), update.click()]);
 		await page.waitForFunction(
 			(sha) =>
 				document.querySelector("#site-update-notice").dataset.release === sha,
@@ -338,7 +341,7 @@ it("Stale HTML after explicit reload offers recovery and never loops automatical
 		page.on("framenavigated", (frame) => {
 			if (frame === page.mainFrame()) navigations += 1;
 		});
-		await update.click();
+		await Promise.all([page.waitForEvent("load"), update.click()]);
 		await page.waitForFunction(
 			() =>
 				!window.loadedSentinel && !document.querySelector("astro-island[ssr]"),
@@ -351,7 +354,7 @@ it("Stale HTML after explicit reload offers recovery and never loops automatical
 			"stale intermediary cannot cause automatic reloads",
 		);
 		await serve("B");
-		await update.click();
+		await Promise.all([page.waitForEvent("load"), update.click()]);
 		await page.waitForFunction(
 			(sha) =>
 				document.querySelector("#site-update-notice").dataset.release === sha,

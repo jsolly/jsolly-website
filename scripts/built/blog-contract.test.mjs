@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { it } from "vitest";
+import { beforeAll as before, it } from "vitest";
 import { categoryHref, postHref } from "../../src/lib/blog/urls.js";
 import {
 	allPosts,
@@ -54,6 +54,40 @@ function article(document) {
 		media: Boolean(body?.querySelector("iframe, img")),
 	};
 }
+
+// All three contracts inspect the same immutable built post pages. Read each
+// document once and retain only the facts; readBuilt closes every DOM window.
+let postPages;
+before(async () => {
+	const published = await publishedPosts();
+	postPages = await Promise.all(
+		published.map((post) =>
+			readBuilt(postHref(post.slug), (document) => ({
+				slug: post.slug,
+				...article(document),
+				related: [
+					...document.querySelectorAll(".related-posts h3 > a.post-card-link"),
+				].map((link) => link.getAttribute("href")),
+				jsonLd: [
+					...document.querySelectorAll('script[type="application/ld+json"]'),
+				].map((script) => JSON.parse(script.textContent)),
+				share: [...document.querySelectorAll(".share-actions a")].map(
+					(link) => {
+						const target = new URL(link.getAttribute("href"));
+						return {
+							host: target.host,
+							pathname: target.pathname,
+							url: target.searchParams.get("url"),
+						};
+					},
+				),
+				breadcrumb: [...document.querySelectorAll(".breadcrumbs a")].map(
+					(link) => link.getAttribute("href"),
+				),
+			})),
+		),
+	);
+});
 
 // The snapshot holds no drafts, so the draft half of "exactly when published"
 // is held by blog-content-contracts.test.mjs, which builds a real draft in a
@@ -158,14 +192,12 @@ it("every legacy post and category URL leads to a built page, and each post is b
 	);
 	assert.equal(index.length, published.length, "search entries");
 	// Readable on its page, and findable by its text unless it is only media.
-	const unreadable = await Promise.all(
-		published.map(async (post) => {
-			const { text, media } = await readBuilt(postHref(post.slug), article);
-			return (text || media) && (indexed.get(post.slug).text || media)
-				? []
-				: [postHref(post.slug)];
-		}),
-	);
+	const unreadable = published.map((post) => {
+		const { text, media } = postPages.find((page) => page.slug === post.slug);
+		return (text || media) && (indexed.get(post.slug).text || media)
+			? []
+			: [postHref(post.slug)];
+	});
 	assert.deepEqual(
 		unreadable.flat(),
 		[],
@@ -184,44 +216,13 @@ it("related cards render the selected published associations", async () => {
 		expected.some((post) => post.related.length > 0),
 		"at least one post has published related posts",
 	);
-	const actual = await Promise.all(
-		published.map(async (post) => ({
-			slug: post.slug,
-			related: await readBuilt(postHref(post.slug), (document) =>
-				[
-					...document.querySelectorAll(".related-posts h3 > a.post-card-link"),
-				].map((link) => link.getAttribute("href")),
-			),
-		})),
-	);
+	const actual = postPages.map(({ slug, related }) => ({ slug, related }));
 	assert.deepEqual(actual, expected, "related cards per post");
 });
 
 it("every post page names its jsolly.com URL in its JSON-LD and share links and links its built category", async () => {
 	const published = await publishedPosts();
-	const pages = await Promise.all(
-		published.map((post) =>
-			readBuilt(postHref(post.slug), (document) => ({
-				slug: post.slug,
-				jsonLd: [
-					...document.querySelectorAll('script[type="application/ld+json"]'),
-				].map((script) => JSON.parse(script.textContent)),
-				share: [...document.querySelectorAll(".share-actions a")].map(
-					(link) => {
-						const target = new URL(link.getAttribute("href"));
-						return {
-							host: target.host,
-							pathname: target.pathname,
-							url: target.searchParams.get("url"),
-						};
-					},
-				),
-				breadcrumb: [...document.querySelectorAll(".breadcrumbs a")].map(
-					(link) => link.getAttribute("href"),
-				),
-			})),
-		),
-	);
+	const pages = postPages;
 	assert.deepEqual(
 		pages.map(({ slug, jsonLd, share, breadcrumb }) => ({
 			slug,

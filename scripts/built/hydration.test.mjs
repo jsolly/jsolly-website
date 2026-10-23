@@ -21,7 +21,7 @@ import { createTempCopy, requireSuccess } from "./temp-copy.mjs";
 // Node identity across hydration: the island's component and renderer modules
 // are held at the network until the page has kept a reference to every element
 // inside a server-rendered island, so the snapshot is strictly pre-hydration.
-// Once released and hydrated, with the network idle, the page counts how many
+// Once released, hydrated and preferences-ready, the page counts how many
 // are still connected. An island that re-renders instead of hydrating discards
 // all of them. The shipped dist/ must reuse exactly what the unprocessed build
 // reuses, and every island on the pages below must reuse every node.
@@ -158,9 +158,9 @@ async function nodeReuse({ root, origin }, path, stable = ":not(*)") {
 	const released = new Promise((resolveRelease) => {
 		release = resolveRelease;
 	});
-	const context = await browser.newContext();
+	const context = await browser.newContext({ serviceWorkers: "block" });
 	try {
-		// Blog post card images live on CloudFront; networkidle must not wait on it.
+		// Keep hydration checks independent of external post images.
 		await stubOffOrigin(context, origin);
 		await context.route(
 			(url) => held.has(url.pathname),
@@ -186,10 +186,13 @@ async function nodeReuse({ root, origin }, path, stable = ":not(*)") {
 			};
 		}, stable);
 		release();
+		// Recipe summaries continue loading after hydration. Observe the actual
+		// hydration/preferences boundary rather than global network quiescence.
 		await page.waitForFunction(
-			() => !document.querySelector("astro-island[ssr]"),
+			() =>
+				!document.querySelector("astro-island[ssr]") &&
+				!document.querySelector('[data-preferences-ready="false"]'),
 		);
-		await page.waitForLoadState("networkidle");
 		const { reused, stableReused } = await page.evaluate(() => ({
 			reused: window.__ssrIslandNodes.filter((node) => node.isConnected).length,
 			stableReused: window.__stableNodes.filter((node) => node.isConnected)
