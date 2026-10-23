@@ -71,7 +71,8 @@ async function cardIds(page) {
 }
 
 function nativeBrowseTest(width) {
-	it(`native filters, search and repeated shuffle survive full-page reloads without JS at ${width}px`, async () => {
+	// Each viewport owns its context and reads the same immutable build.
+	it.concurrent(`native filters, search and repeated shuffle survive full-page reloads without JS at ${width}px`, async () => {
 		const context = await browser.newContext({
 			javaScriptEnabled: false,
 			viewport: { width, height: 900 },

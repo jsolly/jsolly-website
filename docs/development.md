@@ -32,7 +32,8 @@ that the gate ran. No setup command deploys the application or infrastructure.
 
 CI runs one `ci` job on the Ubuntu 24.04 ARM runner. Built test files
 use four isolated fork workers; pure unit tests use two workers to leave CPU for
-types and build. Cases within a built file remain sequential. Measure the
+types and build. Built cases stay sequential except the independent context
+checks described below. Measure the
 whole job as well as the gate when comparing runner or scheduling changes.
 
 CI sets `NODE_COMPILE_CACHE` to a fresh runner-temporary directory for the complete
@@ -58,6 +59,11 @@ the gate. The real Chromium process-cleanup regression belongs to the built suit
 the unit suite retains detached-process and shutdown-race coverage. Local gates use the browser already provisioned by repository setup.
 The preview shortcut and gate bootstrap remain unchanged. `gate/gate-lib.sh` is
 unchanged. No previous test results are reused.
+
+Native-browse viewport checks and first-paint viewport/theme checks opt into
+concurrency because each case owns its browser context and reads immutable build
+files. At most two such cases run per built worker. Deployment, worker-update
+and other mutable fixtures stay sequential, with their existing deadlines.
 
 Static link and Markdown checks read HTML through parse5 instead of allocating
 browser-like DOM windows. They preserve document recovery, base URLs, inert
