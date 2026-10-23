@@ -96,7 +96,9 @@ export async function runChains(
 					const log = join(logs, `${name}.log`);
 					const childEnv = privateTree ? privateEnvironment(env) : { ...env };
 					if (env.NODE_COMPILE_CACHE)
-						childEnv.NODE_COMPILE_CACHE = join(logs, "node-cache", name);
+						childEnv.NODE_COMPILE_CACHE = privateTree
+							? join(logs, "node-cache", name)
+							: join(env.NODE_COMPILE_CACHE, name);
 					for (const [label, command, ...args] of commands) {
 						if (cancelled) throw new Error("Gate cancelled");
 						console.log(`• ${label}`);

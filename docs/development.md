@@ -32,16 +32,23 @@ that the gate ran. No setup command deploys the application or infrastructure.
 
 CI runs one `ci` job on the Ubuntu 24.04 ARM runner. Built test files
 use four isolated fork workers; pure unit tests use two workers to leave CPU for
-types and build. Built cases stay sequential except the independent context
-checks described below. Measure the
+types and build. Cases within a built file remain sequential. Measure the
 whole job as well as the gate when comparing runner or scheduling changes.
 
-CI sets `NODE_COMPILE_CACHE` to a fresh runner-temporary directory for the complete
-gate and its child processes. Node reuses compiled modules within that run; no
-cache crosses runs, and changed sources are compiled again. The gate collects
-functional test results and counts, not V8 coverage profiles. Disable this cache
-when separately collecting V8 coverage, as Node documents reduced profiling
-precision for cached functions.
+CI restores Node compilation caches and Vitest's file-duration metadata for the
+same OS, architecture, Node major and dependency lock. Executable bytecode needs
+a trusted producer: restoration and saving run only on `main` or same-repository
+PRs authored by the repository owner. Other runs execute the complete gate with
+fresh local caches. Node recompiles stale or corrupt entries; those checks do not
+authenticate executable cache data.
+Vitest uses previous durations only to order files, running every test again.
+Each successful run saves a new cache snapshot. Cold runs still run the full gate.
+
+Build and built-test commands use separate directories below `NODE_COMPILE_CACHE`.
+Private validation trees keep their caches in their own scratch directories.
+The gate collects functional test results and counts, not V8 coverage profiles.
+Disable compilation caching when separately collecting V8 coverage, as Node
+documents reduced profiling precision for cached functions.
 
 The full gate runs build → CSP → built tests in the original checkout. Its
 `dist/`, `.recipe-browse/` and generated route manifest remain available to local
@@ -58,12 +65,7 @@ tests also wait for the complete build and CSP suite. Installation failures fail
 the gate. The real Chromium process-cleanup regression belongs to the built suite;
 the unit suite retains detached-process and shutdown-race coverage. Local gates use the browser already provisioned by repository setup.
 The preview shortcut and gate bootstrap remain unchanged. `gate/gate-lib.sh` is
-unchanged. No previous test results are reused.
-
-Native-browse viewport checks and first-paint viewport/theme checks opt into
-concurrency because each case owns its browser context and reads immutable build
-files. At most two such cases run per built worker. Deployment, worker-update
-and other mutable fixtures stay sequential, with their existing deadlines.
+unchanged. No previous passing result is accepted as current test evidence.
 
 Static link and Markdown checks read HTML through parse5 instead of allocating
 browser-like DOM windows. They preserve document recovery, base URLs, inert

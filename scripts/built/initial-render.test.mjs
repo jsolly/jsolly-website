@@ -187,8 +187,7 @@ async function auditPath(path, width, colorScheme) {
 
 for (const width of [390, 1280]) {
 	for (const colorScheme of ["light", "dark"]) {
-		// Layout and hydration state live only in the context created by auditPath.
-		it.concurrent(`styled first paint stays stable through hydration at ${width}px in ${colorScheme} mode`, {
+		it(`styled first paint stays stable through hydration at ${width}px in ${colorScheme} mode`, {
 			timeout: 120_000,
 		}, async () => {
 			for (const path of paths) {

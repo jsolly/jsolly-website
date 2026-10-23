@@ -21,10 +21,8 @@ export default defineConfig({
 				: process.env.TEST_SUITE === "unit"
 					? 2
 					: undefined,
-		// Built cases stay sequential unless a file explicitly opts independent
-		// browser contexts into concurrency; at most two such cases run per worker.
+		// Built files own mutable deployment fixtures, so their cases stay sequential.
 		// Smoke contracts share only the browser; every case owns its context and stubs.
-		maxConcurrency: process.env.TEST_SUITE === "built" ? 2 : undefined,
 		sequence: { hooks: "list", concurrent: process.env.TEST_SUITE === "smoke" },
 		restoreMocks: true,
 		// node:test had no default deadline. Browser cases retain their explicit

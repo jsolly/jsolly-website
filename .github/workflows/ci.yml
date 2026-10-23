@@ -98,6 +98,23 @@ jobs:
           enable-cache: false
       - run: npm ci
         if: steps.verified-tree.outputs.run_full != 'false'
+      # Compiled bytecode requires a trusted producer; checksum validation
+      # detects staleness/corruption, not a malicious cache from an earlier PR commit.
+      - name: Restore compilation and test-order metadata
+        if: >-
+          steps.verified-tree.outputs.run_full != 'false' &&
+          (github.ref == 'refs/heads/main' ||
+          (github.event_name == 'pull_request' &&
+          github.event.pull_request.head.repo.full_name == github.repository &&
+          github.event.pull_request.user.login == github.repository_owner))
+        uses: actions/cache@v5
+        with:
+          path: |
+            ${{ runner.temp }}/node-compile-cache
+            node_modules/.vite/vitest/**/results.json
+          key: ci-runtime-v2-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ci-runtime-v2-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-
       - name: Run complete repository gate
         if: steps.verified-tree.outputs.run_full != 'false'
         env:
