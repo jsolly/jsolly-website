@@ -61,7 +61,7 @@ async function uniformPillText(page, root) {
 }
 
 function registerPillTest(width) {
-	it(`Nutrition pills match recipe eligibility across cards, dialogs and pages (${width}px)`, async () => {
+	it(`Nutrition pills match recipe eligibility across cards and pages (${width}px)`, async () => {
 		const context = await browser.newContext({
 			viewport: { width, height: 900 },
 			serviceWorkers: "block",
@@ -87,22 +87,6 @@ function registerPillTest(width) {
 				);
 				assert.equal(await card.locator(".card-top").count(), 0);
 				await uniformPillText(page, card);
-				await page.goto(`${site.origin}${collection}#${id}`);
-				await hydrated(page);
-				const dialog = page.getByRole("dialog");
-				await dialog.waitFor();
-				assert.deepEqual(await pills(dialog), expected, `${id} dialog`);
-				await uniformPillText(page, dialog);
-				assert.equal(
-					await dialog
-						.getByRole("button", { name: "Print recipe", exact: true })
-						.count(),
-					1,
-				);
-				assert.equal(
-					await dialog.getByRole("button", { name: DOWNLOAD_BUTTON }).count(),
-					0,
-				);
 				await page.goto(`${site.origin}/recipes/${id}/`);
 				await hydrated(page);
 				assert.deepEqual(
@@ -111,6 +95,17 @@ function registerPillTest(width) {
 					`${id} page`,
 				);
 				await uniformPillText(page, page.locator(".recipe-detail"));
+				assert.equal(
+					await page
+						.locator(".recipe-detail")
+						.getByRole("button", { name: "Print recipe", exact: true })
+						.count(),
+					1,
+				);
+				assert.equal(
+					await page.getByRole("button", { name: DOWNLOAD_BUTTON }).count(),
+					0,
+				);
 				assert.equal(
 					await page.evaluate(
 						() => document.documentElement.scrollWidth <= innerWidth,

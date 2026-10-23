@@ -32,7 +32,7 @@ const WEIGHING = /0.78 g/u;
 const ready = (page) =>
 	page.waitForFunction(() => !document.querySelector("astro-island[ssr]"));
 function verifyUnits(width) {
-	it(`units persist across pages, links, dialog and print at ${width}px`, {
+	it(`units persist across pages, links, a legacy redirect and print at ${width}px`, {
 		timeout: 90_000,
 	}, async () => {
 		const context = await browser.newContext({
@@ -134,24 +134,29 @@ function verifyUnits(width) {
 				new URL(href, site.origin).searchParams.get("units"),
 				"grams",
 			);
+			// A legacy library link redirects to the page with the link's units
+			// and the saved servings, where the units can still be switched.
 			await page.goto(
 				`${site.origin}/recipes/?units=metric#lemon-salmon-and-asparagus`,
+				{ waitUntil: "commit" },
+			);
+			await page.waitForURL(
+				(url) => url.pathname === "/recipes/lemon-salmon-and-asparagus/",
 			);
 			await ready(page);
-			const dialog = page.getByRole("dialog");
-			await dialog.waitFor();
-			assert.equal(
-				await dialog.getByRole("combobox", { name: UNIT_CONTROL }).inputValue(),
-				"metric",
+			const redirected = new URL(page.url()).searchParams;
+			assert.deepEqual(
+				{
+					servings: redirected.get("servings"),
+					units: redirected.get("units"),
+					shown: await units.inputValue(),
+				},
+				{ servings: "8", units: "metric", shown: "metric" },
 			);
-			await dialog
-				.getByRole("combobox", { name: UNIT_CONTROL })
-				.selectOption("grams");
-			assert.match(
-				await dialog.locator(".trn-table").textContent(),
-				LARGE_GRAMS,
-			);
-			await page.keyboard.press("Escape");
+			await units.selectOption("grams");
+			assert.match(await flow.textContent(), LARGE_GRAMS);
+			await page.goto(`${site.origin}/recipes/meals/`);
+			await ready(page);
 			assert.equal(
 				await page.getByRole("combobox", { name: UNIT_CONTROL }).inputValue(),
 				"grams",
@@ -277,7 +282,7 @@ it("individual recipe controls recover corrupt preferences and remain enabled wh
 			"grams",
 		);
 		assert.deepEqual(errors, [
-			"Recipe units could not be restored; using US imperial. SyntaxError",
+			"Recipe preferences could not be restored; using US imperial and no side. SyntaxError",
 			"Malformed recipe settings were discarded while saving units. SyntaxError",
 		]);
 		await context.addInitScript(() => {
@@ -301,7 +306,7 @@ it("individual recipe controls recover corrupt preferences and remain enabled wh
 			"metric",
 		);
 		assert.deepEqual(errors.slice(2), [
-			"Recipe units could not be restored; using US imperial. SecurityError",
+			"Recipe preferences could not be restored; using US imperial and no side. SecurityError",
 			"Recipe units could not be saved; changes apply only to this visit. SecurityError",
 		]);
 	} finally {

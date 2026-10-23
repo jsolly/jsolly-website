@@ -275,6 +275,7 @@ export async function runSmoke({
 					const savedRecipeEvidence =
 						typeof scenario.verifyRecipeWorker === "function"
 							? await scenario.verifyRecipeWorker(workerPage, {
+									beforeOpen: () => prepareRecipeTransition("open"),
 									beforeOffline: () => prepareRecipeTransition("offline"),
 								})
 							: {};

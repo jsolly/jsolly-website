@@ -205,7 +205,7 @@ export async function buildRecipePwa(root) {
 	const summaryModules = await globby("_astro/recipe-summary.*.js", {
 		cwd: root,
 	});
-	// Saving includes the shell's deferred controls, dialog and print tools.
+	// Saving includes the shell's deferred controls and print tools.
 	// The install graph above remains static-only. Following the saved graph
 	// here also covers future lazy controls without naming generated chunks.
 	await collect(

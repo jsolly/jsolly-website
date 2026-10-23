@@ -7,8 +7,10 @@ import { collectErrors, serveStatic } from "./pages.mjs";
 // Plan §1.6: blogthedata.com's Easy Meals & Smoothies post now 301s to
 // /recipes/, and browsers carry the #fragment across the redirect. The post
 // rendered the whole library, so each #<recipe-id> (smoothies included)
-// opened that recipe, and #meal-results jumped to the cards. Each link is
-// opened cold, as a redirect lands it, not as an in-page hash change.
+// opened that recipe, and #meal-results jumped to the cards. Recipes now render
+// only on their own pages, so to accommodate those legacy links a #<recipe-id>
+// replaces the library entry with /recipes/<recipe-id>/. Each link is opened
+// cold, as a redirect lands it, not as an in-page hash change.
 const DIST = "dist";
 const LANDING = "/recipes/";
 const RECIPES = new URL(
@@ -16,7 +18,7 @@ const RECIPES = new URL(
 	import.meta.url,
 );
 const FONT_URL = /\.woff2?$/u;
-const COLLECTION_LINKS = { meal: "Meals", smoothie: "Smoothies" };
+const COLLECTIONS = { meal: "meals", smoothie: "smoothies" };
 
 let site;
 let browser;
@@ -33,12 +35,11 @@ after(async () => {
 
 const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
 
-// The hash opens a recipe by looking its id up in the library the page already
-// holds, so a meal and a smoothie prove the lookup and the collection it lands
-// on; every recipe's own page is checked against its data in
-// recipes-built.test.mjs.
-function registerRecipeLink(recipe) {
-	it(`old /recipes/#${recipe.id} opens its recipe dialog on the right collection`, {
+// The redirect looks the hash up in the library the page already holds, so a
+// meal and a smoothie prove the lookup and the collection Back returns to;
+// every recipe's own page is checked against its data in recipes-built.test.mjs.
+function registerRecipeLink(recipe, landing = LANDING) {
+	it(`old ${landing}#${recipe.id} replaces itself with the recipe page, whose Back goes to its collection`, {
 		timeout: 30_000,
 	}, async () => {
 		const context = await browser.newContext({
@@ -46,45 +47,52 @@ function registerRecipeLink(recipe) {
 		});
 		const page = await context.newPage();
 		const errors = collectErrors(page);
+		const recipePage = `${site.origin}/recipes/${recipe.id}/`;
+		const collectionPage = `${site.origin}/recipes/${COLLECTIONS[recipe.type]}/`;
 		try {
-			await page.goto(`${site.origin}${LANDING}#${recipe.id}`);
-			const section = page.locator(`.recipe-takeover section#${recipe.id}`);
+			// An earlier off-library entry: Back through history would leave.
+			await page.goto(`${site.origin}/about/`);
+			const entries = await page.evaluate(() => history.length);
+			await page.goto(`${site.origin}${landing}#${recipe.id}`, {
+				waitUntil: "commit",
+			});
+			await page.waitForURL(recipePage);
+			const section = page.locator(`.recipe-page section#${recipe.id}`);
 			await section.waitFor();
+			await page.waitForFunction(
+				() => !document.querySelector("astro-island[ssr]"),
+			);
+			await page.locator("[data-preferences-ready=true]").waitFor();
 			assert.equal(
-				await section.getByRole("heading", { level: 2 }).textContent(),
+				await section.getByRole("heading", { level: 1 }).textContent(),
 				recipe.title,
 			);
-			assert.equal(await page.getByRole("dialog").isVisible(), true);
+			const historyLength = await page.evaluate(() => history.length);
+			const back = page.getByRole("link", {
+				name: `← Back to ${COLLECTIONS[recipe.type]}`,
+				exact: true,
+			});
 			assert.equal(
-				await page.locator(".recipe-takeover").evaluate((dialog) => {
-					const { top, left, height } = dialog.getBoundingClientRect();
-					return top === 0 && left === 0 && height === window.innerHeight;
-				}),
-				true,
+				await back.getAttribute("href"),
+				`/recipes/${COLLECTIONS[recipe.type]}/`,
 			);
-			assert.equal(
-				await page
-					.getByRole("link", {
-						name: COLLECTION_LINKS[recipe.type],
-						exact: true,
-						includeHidden: true,
-					})
-					.getAttribute("aria-current"),
-				"true",
+			// A reload keeps the page's link-following Back.
+			await page.reload();
+			await page.locator("[data-preferences-ready=true]").waitFor();
+			await back.click();
+			await page.waitForURL(collectionPage);
+			await page.locator("[data-hydrated=true]").waitFor();
+			assert.deepEqual(
+				{
+					historyLength,
+					marker: await page.evaluate(() =>
+						sessionStorage.getItem("recipes-legacy-redirect"),
+					),
+					errors,
+				},
+				// The recipe page replaced the #<recipe-id> entry.
+				{ historyLength: entries + 1, marker: null, errors: [] },
 			);
-			assert.equal(
-				await page
-					.getByRole("link", {
-						name: COLLECTION_LINKS[
-							recipe.type === "meal" ? "smoothie" : "meal"
-						],
-						exact: true,
-						includeHidden: true,
-					})
-					.getAttribute("aria-current"),
-				null,
-			);
-			assert.deepEqual(errors, []);
 		} finally {
 			await context.close();
 		}
@@ -94,9 +102,15 @@ function registerRecipeLink(recipe) {
 for (const type of ["meal", "smoothie"]) {
 	registerRecipeLink(recipes.find((recipe) => recipe.type === type));
 }
+// A smoothie linked from the meals collection still lands on the smoothie page,
+// and its Back goes to smoothies, not meals.
+registerRecipeLink(
+	recipes.find((recipe) => recipe.type === "smoothie"),
+	"/recipes/meals/",
+);
 
 function registerFragmentLink(fontDelay) {
-	it(`old /recipes/#meal-results lands on the cards without a recipe dialog (font delay ${fontDelay}ms)`, {
+	it(`old /recipes/#meal-results lands on the cards without leaving the library (font delay ${fontDelay}ms)`, {
 		timeout: 30_000,
 	}, async () => {
 		const context = await browser.newContext({
@@ -119,12 +133,12 @@ function registerFragmentLink(fontDelay) {
 				return {
 					target: target?.id,
 					inView: top >= 0 && top < window.innerHeight,
-					dialogs: document.querySelectorAll(".recipe-takeover").length,
+					path: location.pathname,
 				};
 			});
 			assert.deepEqual(
 				position,
-				{ target: "meal-results", inView: true, dialogs: 0 },
+				{ target: "meal-results", inView: true, path: LANDING },
 				JSON.stringify(
 					await page.evaluate(() => ({
 						top: document.querySelector(":target")?.getBoundingClientRect().top,

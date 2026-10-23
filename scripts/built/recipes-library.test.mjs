@@ -11,10 +11,10 @@ import { matchesRecipe } from "../../src/components/recipes/nutrient-filters.mjs
 import recipeData from "../../src/components/recipes/recipe-data.server.mjs";
 import { collectErrors, serveStatic } from "./pages.mjs";
 
-// The hydrated recipe library in Chromium: printing from the recipe dialog
-// and the collection, the dialog's place in the browser history, and the
-// saved settings (J13: localStorage recipes-settings-v1) when they no longer
-// fit the collection, hold a family side, or are not valid at all.
+// The hydrated recipe library in Chromium: printing from a card and the
+// collection, and the saved settings (J13: localStorage recipes-settings-v1)
+// when they no longer fit the collection, hold a family side (picked on a
+// recipe page, which shares the record), or are not valid at all.
 const DIST = "dist";
 
 const { recipes } = recipeData;
@@ -51,6 +51,15 @@ async function openPage({ initScript, arg } = {}) {
 	return { page, errors, close: () => context.close() };
 }
 
+// Opens a recipe page and waits for its saved and URL settings.
+async function goRecipe(page, path) {
+	await page.goto(`${site.origin}${path}`);
+	await page.waitForFunction(
+		() => !document.querySelector("astro-island[ssr]"),
+	);
+	await page.locator(".recipe-page[data-preferences-ready=true]").waitFor();
+}
+
 async function goHydrated(page, path) {
 	await page.goto(`${site.origin}${path}`);
 	await page.locator("[data-hydrated=true]").waitFor();
@@ -83,7 +92,7 @@ function printFails() {
 	};
 }
 
-it("single-recipe printing loads its detail while browser-menu printing keeps only loaded cards", {
+it("card printing loads only that recipe's detail while browser-menu printing keeps only loaded cards", {
 	timeout: 60_000,
 }, async () => {
 	const { page, errors, close } = await openPage({
@@ -96,23 +105,34 @@ it("single-recipe printing loads its detail while browser-menu printing keeps on
 			packs.push(request.url());
 	});
 	try {
-		const shawarma = recipes.find((recipe) => recipe.id === SHAWARMA);
-		await goHydrated(page, `/recipes/#${shawarma.id}`);
+		await goHydrated(page, "/recipes/");
 		assert.deepEqual(
 			await printedTitles(page),
 			[],
 			"no hidden print packet while browsing",
 		);
-		const takeover = page.locator(".recipe-takeover");
-		await takeover.waitFor();
-		await takeover.getByRole("button", { name: "Print recipe" }).click();
+		// The first card, so printing scrolls nothing and loads no more cards.
+		const first = page.locator(".recipe-card").first();
+		const firstId = await first
+			.locator(".title-button")
+			.getAttribute("data-recipe-id");
+		await first
+			.getByRole("button", { name: "Print recipe", exact: true })
+			.click();
 		await page
 			.locator("[data-test-print-requested=true]")
 			.waitFor({ state: "attached" });
 		await page.emulateMedia({ media: "print" });
-		assert.deepEqual(await printedTitles(page), [shawarma.title]);
+		assert.deepEqual(await printedTitles(page), [
+			recipes.find((recipe) => recipe.id === firstId).title,
+		]);
+		assert.deepEqual(
+			packs.map((url) => new URL(url).pathname),
+			[`/recipes/data/packs/${firstId}.json`],
+			"card printing downloads only that recipe's pack",
+		);
 		assert.equal(await page.locator(".print-output").isVisible(), true);
-		assert.equal(await takeover.isHidden(), true);
+		assert.equal(await page.locator(".recipe-grid").isVisible(), false);
 		await page.emulateMedia({ media: "screen" });
 		await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
 		assert.equal(
@@ -126,8 +146,6 @@ it("single-recipe printing loads its detail while browser-menu printing keeps on
 			null,
 		);
 		assert.deepEqual(await printedTitles(page), []);
-		await page.keyboard.press("Escape");
-		await takeover.waitFor({ state: "detached" });
 		const ids = () =>
 			page
 				.locator(".recipe-card .title-button")
@@ -205,66 +223,6 @@ it("single-recipe printing loads its detail while browser-menu printing keeps on
 	}
 });
 
-it("the recipe dialog follows the browser history: Back to recipes returns to its card, Back reopens it, Back again closes it, and a new #<recipe-id> swaps the recipe", {
-	timeout: 60_000,
-}, async () => {
-	const { page, errors, close } = await openPage();
-	const section = (id) => page.locator(`.recipe-takeover section#${id}`);
-	const takeover = page.locator(".recipe-takeover");
-	const setHash = (hash) =>
-		page.evaluate((value) => {
-			window.location.hash = value;
-		}, hash);
-	try {
-		await goHydrated(page, "/recipes/");
-		await page.evaluate(() => {
-			window.__sameDocument = true;
-		});
-		await setHash("#strawberry-banana-smoothie");
-		await section("strawberry-banana-smoothie").waitFor();
-		await page.getByRole("button", { name: "← Back to recipes" }).click();
-		await takeover.waitFor({ state: "detached" });
-		const back = await page.evaluate(() => ({
-			hash: window.location.hash,
-			focused: document.activeElement?.matches(
-				'a.title-button[data-recipe-id="strawberry-banana-smoothie"]',
-			),
-		}));
-		await page.goBack();
-		await section("strawberry-banana-smoothie").waitFor();
-		const reopenedHash = await page.evaluate(() => window.location.hash);
-		await page.goBack();
-		await takeover.waitFor({ state: "detached" });
-		const closedHash = await page.evaluate(() => window.location.hash);
-		await setHash("#avocado-lime-smoothie");
-		await section("avocado-lime-smoothie").waitFor();
-		await setHash("#banana-flax-smoothie");
-		await section("banana-flax-smoothie").waitFor();
-		assert.deepEqual(
-			{
-				back,
-				reopenedHash,
-				closedHash,
-				shown: await takeover
-					.locator("section.recipe-detail")
-					.evaluateAll((sections) => sections.map((element) => element.id)),
-				sameDocument: await page.evaluate(() => window.__sameDocument),
-				errors,
-			},
-			{
-				back: { hash: "#meal-results", focused: true },
-				reopenedHash: "#strawberry-banana-smoothie",
-				closedHash: "",
-				shown: ["banana-flax-smoothie"],
-				sameDocument: true,
-				errors: [],
-			},
-		);
-	} finally {
-		await close();
-	}
-});
-
 it("saved filters that no smoothie meets are cleared on the smoothies page, so its cards still show", {
 	timeout: 60_000,
 }, async () => {
@@ -323,23 +281,86 @@ it("saved filters that no smoothie meets are cleared on the smoothies page, so i
 	}
 });
 
-it("a family side picked in the recipe dialog is still picked after a reload", {
+it("a family side picked on a recipe page is saved with the library's settings, kept after a reload or a units change and carried by its card link", {
 	timeout: 60_000,
 }, async () => {
-	const { page, errors, close } = await openPage();
+	const { page, errors, close } = await openPage({
+		initScript: ([key, saved]) => {
+			if (!sessionStorage.getItem("seeded")) {
+				localStorage.setItem(key, JSON.stringify(saved));
+				sessionStorage.setItem("seeded", "1");
+			}
+		},
+		arg: [STORAGE_KEY, { servings: 6, familyChoice: { other: "rice" } }],
+	});
+	const side = () => page.getByRole("combobox", { name: FAMILY_SIDE });
 	try {
-		await goHydrated(page, "/recipes/#shawarma-chicken-bowls");
-		const side = () =>
-			page
-				.locator(".recipe-takeover")
-				.getByRole("combobox", { name: FAMILY_SIDE });
+		await goRecipe(page, `/recipes/${SHAWARMA}/`);
+		assert.equal(await side().inputValue(), "");
 		await side().selectOption(PITA);
+		const picked = {
+			starch: new URL(page.url()).searchParams.get("starch"),
+			saved: await page.evaluate(
+				(key) => JSON.parse(localStorage.getItem(key)),
+				STORAGE_KEY,
+			),
+		};
 		await page.reload();
-		await page.locator("[data-hydrated=true]").waitFor();
-		await page.locator(".recipe-takeover").waitFor();
+		await page.locator(".recipe-page[data-preferences-ready=true]").waitFor();
+		const reloaded = await side().inputValue();
+		// A plain link uses the saved side; a link carrying settings decides it.
+		await goRecipe(page, `/recipes/${SHAWARMA}/`);
+		const plain = await side().inputValue();
+		// A units change then reload keeps the saved side.
+		await page
+			.getByRole("combobox", { name: "Ingredient units" })
+			.selectOption("grams");
+		await page.reload();
+		await page.locator(".recipe-page[data-preferences-ready=true]").waitFor();
+		const query = new URL(page.url()).searchParams;
+		const afterUnits = {
+			side: await side().inputValue(),
+			units: query.get("units"),
+			starch: query.get("starch"),
+		};
+		await goRecipe(page, `/recipes/${SHAWARMA}/?servings=4&units=us`);
+		const explicit = await side().inputValue();
+		await goHydrated(page, "/recipes/");
+		const card = new URL(
+			await page
+				.locator(`a.title-button[data-recipe-id="${SHAWARMA}"]`)
+				.getAttribute("href"),
+			site.origin,
+		);
 		assert.deepEqual(
-			{ side: await side().inputValue(), errors },
-			{ side: PITA, errors: [] },
+			{
+				picked,
+				reloaded,
+				plain,
+				afterUnits,
+				explicit,
+				cardStarch: card.searchParams.get("starch"),
+				errors,
+			},
+			{
+				picked: {
+					starch: `${SHAWARMA}:${PITA}`,
+					saved: {
+						servings: 6,
+						familyChoice: { other: "rice", [SHAWARMA]: PITA },
+					},
+				},
+				reloaded: PITA,
+				plain: PITA,
+				afterUnits: {
+					side: PITA,
+					units: "grams",
+					starch: `${SHAWARMA}:${PITA}`,
+				},
+				explicit: "",
+				cardStarch: `${SHAWARMA}:${PITA}`,
+				errors: [],
+			},
 		);
 	} finally {
 		await close();
@@ -467,18 +488,21 @@ it("a saved optional side its recipe no longer offers defaults to none everywher
 		arg: [STORAGE_KEY, { familyChoice: { [SHAWARMA]: "naan" } }],
 	});
 	try {
-		await goHydrated(page, `/recipes/#${SHAWARMA}`);
-		const takeover = page.locator(".recipe-takeover");
-		await takeover.waitFor();
+		await goRecipe(page, `/recipes/${SHAWARMA}/`);
+		const detail = page.locator(".recipe-detail");
+		const onPage = {
+			side: await detail
+				.getByRole("combobox", { name: FAMILY_SIDE })
+				.inputValue(),
+			sideShown: await detail.locator(".family-box p").count(),
+		};
+		await goHydrated(page, "/recipes/");
 		const cardHref = await page
 			.locator(`a.title-button[data-recipe-id="${SHAWARMA}"]`)
 			.getAttribute("href");
 		assert.deepEqual(
 			{
-				side: await takeover
-					.getByRole("combobox", { name: FAMILY_SIDE })
-					.inputValue(),
-				sideShown: await takeover.locator(".family-box p").count(),
+				...onPage,
 				cardStarch: new URL(cardHref, site.origin).searchParams.get("starch"),
 				errors,
 			},
@@ -489,7 +513,7 @@ it("a saved optional side its recipe no longer offers defaults to none everywher
 	}
 });
 
-it("Share recipe in the library dialog shares its servings and family side, and the card links carry them after it closes", {
+it("Share recipe on a recipe page shares its servings and family side, and the library card links carry them", {
 	timeout: 60_000,
 }, async () => {
 	const { page, errors, close } = await openPage({
@@ -504,16 +528,11 @@ it("Share recipe in the library dialog shares its servings and family side, and 
 		},
 	});
 	try {
-		await goHydrated(page, `/recipes/?servings=8#${SHAWARMA}`);
-		const takeover = page.locator(".recipe-takeover");
-		await takeover.waitFor();
-		await takeover
-			.getByRole("combobox", { name: FAMILY_SIDE })
-			.selectOption(PITA);
-		await takeover.getByRole("button", { name: "Share this recipe" }).click();
+		await goRecipe(page, `/recipes/${SHAWARMA}/?servings=8`);
+		await page.getByRole("combobox", { name: FAMILY_SIDE }).selectOption(PITA);
+		await page.getByRole("button", { name: "Share this recipe" }).click();
 		const shared = new URL(await page.evaluate(() => window.sharedRecipe.url));
-		await page.keyboard.press("Escape");
-		await takeover.waitFor({ state: "detached" });
+		await goHydrated(page, "/recipes/?servings=8");
 		const card = new URL(
 			await page
 				.locator(`a.title-button[data-recipe-id="${SHAWARMA}"]`)
@@ -534,60 +553,6 @@ it("Share recipe in the library dialog shares its servings and family side, and 
 			{ shared: query(shared), card: query(card), errors },
 			{ shared: expected, card: expected, errors: [] },
 		);
-	} finally {
-		await close();
-	}
-});
-
-it("a cross-collection hash opens one recipe, browser-menu printing prepares it, and Back restores its collection and focus", {
-	timeout: 30_000,
-}, async () => {
-	const { page, errors, close } = await openPage();
-	const recipe = smoothies.find(
-		(entry) => entry.id === "strawberry-banana-smoothie",
-	);
-	try {
-		await goHydrated(page, `/recipes/meals/#${recipe.id}`);
-		const takeover = page.locator(".recipe-takeover");
-		await takeover.waitFor();
-		assert.deepEqual(await printedTitles(page), []);
-		const atSnapshot = await page.evaluate(() => {
-			window.dispatchEvent(new Event("beforeprint"));
-			return [...document.querySelectorAll(".print-output .print-meal")].map(
-				(article) => article.getAttribute("aria-label"),
-			);
-		});
-		assert.deepEqual(
-			atSnapshot,
-			[recipe.title],
-			"browser-menu printing can synchronously prepare the already-open recipe",
-		);
-		await page.emulateMedia({ media: "print" });
-		assert.equal(await page.locator(".print-output").isVisible(), true);
-		assert.equal(await takeover.isHidden(), true);
-		await page.emulateMedia({ media: "screen" });
-		await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
-		await takeover.getByRole("button", { name: "← Back to recipes" }).click();
-		await takeover.waitFor({ state: "detached" });
-		await page.waitForFunction(
-			() =>
-				document.querySelector("#meal-results").getAttribute("aria-busy") ===
-				"false",
-		);
-		assert.deepEqual(
-			await page
-				.locator(".recipe-card .title-button")
-				.evaluateAll((links) => links.map((link) => link.dataset.recipeId)),
-			smoothies.map((entry) => entry.id),
-		);
-		assert.equal(
-			await page
-				.locator(`[data-recipe-id="${recipe.id}"]`)
-				.evaluate((link) => link === document.activeElement),
-			true,
-		);
-		assert.deepEqual(await printedTitles(page), []);
-		assert.deepEqual(errors, []);
 	} finally {
 		await close();
 	}

@@ -52,13 +52,16 @@ const PAGES = [
 		prepare: openMethodDialog,
 	},
 	// The library with its filter and nutrition help popovers open (floating-ui
-	// positions them with inline styles), and the landing with an old
-	// #<recipe-id> link opening the recipe dialog.
+	// positions them with inline styles), the landing page, and an old
+	// blogthedata.com #<recipe-id> link, which the landing replaces with that
+	// recipe's page; the checks then run on the page it lands on.
 	{ path: "/recipes/meals/", hosts: [], prepare: openLibraryPopovers },
+	{ path: "/recipes/", hosts: [], prepare: waitForLibrary },
 	{
 		path: "/recipes/#lemon-salmon-and-asparagus",
+		redirect: "/recipes/lemon-salmon-and-asparagus/",
 		hosts: [],
-		prepare: waitForRecipeDialog,
+		prepare: waitForRecipeDetail,
 	},
 ];
 const PROTEINS = /^Proteins:/u;
@@ -108,8 +111,12 @@ async function openLibraryPopovers(page) {
 	await page.locator(".nutrition-help").waitFor();
 }
 
-async function waitForRecipeDialog(page) {
-	await page.locator(".recipe-takeover").waitFor();
+async function waitForLibrary(page) {
+	await page.locator("[data-hydrated=true]").waitFor();
+}
+
+async function waitForRecipeDetail(page) {
+	await page.locator(".recipe-detail").waitFor();
 }
 
 // Resolves once `hosts` (a growing Set) holds every `expected` host, or after
@@ -129,13 +136,13 @@ function hostsRequested(hosts, expected) {
 	});
 }
 
-// Opens `path` and switches every lazy image and iframe to eager so each
-// loads, then waits until every island has hydrated, every image has settled
+// Opens `path` (following its client-side replacement to `redirect`, when
+// given) and switches every lazy image and iframe to eager so each loads, then waits until every island has hydrated, every image has settled
 // and each `expected` host has been requested; `prepare(page)`, when given,
 // runs after the switch and before those waits. Returns the
 // response's CSP header, the page's meta policies, the violations, the
 // off-origin hosts it requested and the page errors.
-async function visit(path, expected, prepare) {
+async function visit(path, expected, prepare, redirect) {
 	const context = await browser.newContext({
 		viewport: { width: 1280, height: 800 },
 	});
@@ -154,9 +161,21 @@ async function visit(path, expected, prepare) {
 	page.setDefaultTimeout(WAIT_MS);
 	const errors = collectErrors(page);
 	try {
-		const response = await page.goto(`${site.origin}${path}`, {
-			waitUntil: "load",
+		const target = redirect && `${site.origin}${redirect}`;
+		const redirected =
+			target &&
+			page.waitForResponse(
+				(candidate) =>
+					candidate.url() === target &&
+					candidate.request().resourceType() === "document",
+			);
+		let response = await page.goto(`${site.origin}${path}`, {
+			waitUntil: redirect ? "commit" : "load",
 		});
+		if (redirected) {
+			response = await redirected;
+			await page.waitForURL(target, { waitUntil: "load" });
+		}
 		await page.evaluate(() => {
 			for (const element of document.querySelectorAll("img, iframe")) {
 				element.loading = "eager";
@@ -192,14 +211,14 @@ async function visit(path, expected, prepare) {
 	}
 }
 
-it("blog posts with embeds, the blog home, a blog search, /about/, a recipe page with its dialog open and the recipe library with its popovers or a linked recipe open load under the vercel.json header and their meta policy without a violation, recipe pages with their service worker active", {
+it("blog posts with embeds, the blog home, a blog search, /about/, a recipe page with its notation dialog open, the recipe library with its popovers, the recipe landing and a legacy recipe link's redirected page load under the vercel.json header and their meta policy without a violation, recipe pages with their service worker active", {
 	timeout: 120_000,
 }, async () => {
 	// One page at a time keeps each page's requests its own.
 	const results = await PAGES.reduce(
-		async (previous, { path, hosts, prepare }) => [
+		async (previous, { path, hosts, prepare, redirect }) => [
 			...(await previous),
-			{ path, hosts, ...(await visit(path, hosts, prepare)) },
+			{ path, hosts, ...(await visit(path, hosts, prepare, redirect)) },
 		],
 		Promise.resolve([]),
 	);

@@ -594,24 +594,25 @@ function filtersCheck(width) {
 				return image.complete && image.naturalWidth > 0;
 			});
 			await avocado.click();
-			await page.locator(".recipe-takeover").waitFor();
-			assert.equal(
-				new URL(page.url()).pathname,
-				"/recipes/avocado-lime-smoothie/",
-			);
+			await page.waitForURL(`${site.origin}/recipes/avocado-lime-smoothie/`);
+			await recipeReady(page);
 			await page.getByRole("button", { name: LEARN_MORE, exact: true }).click();
 			await page.locator(".method-dialog").waitFor();
 			await page.keyboard.press("Escape");
 			await page.locator(".method-dialog").waitFor({ state: "detached" });
 			assert.equal(await page.locator(".recipe-detail").isVisible(), true);
+			const smoothiesPage = (url) => url.pathname === "/recipes/smoothies/";
 			await page
-				.getByRole("button", { name: "← Back to recipes", exact: true })
+				.getByRole("link", { name: "← Back to smoothies", exact: true })
 				.click();
-			await page.locator(".recipe-takeover").waitFor({ state: "detached" });
+			await page.waitForURL(smoothiesPage);
+			await hydrated(page);
+			assert.equal(await cards(), 4);
 			await page.goForward();
-			await page.locator(".recipe-takeover").waitFor();
+			await page.waitForURL(`${site.origin}/recipes/avocado-lime-smoothie/`);
+			await recipeReady(page);
 			await page.goBack();
-			await page.locator(".recipe-takeover").waitFor({ state: "detached" });
+			await page.waitForURL(smoothiesPage);
 			await hydrated(page);
 			await page.evaluate(
 				(key) =>
@@ -621,12 +622,22 @@ function filtersCheck(width) {
 					),
 				STORAGE_KEY,
 			);
+			// A legacy #<recipe-id> link replaces itself with the recipe page,
+			// carrying the saved servings, before the library saves anything.
 			await page.goto(
 				`${site.origin}${LANDING}?deep-link=1#strawberry-banana-smoothie`,
+				{ waitUntil: "commit" },
 			);
-			const takeover = page.locator(".recipe-takeover");
-			await takeover.waitFor();
-			const opened = await takeover.textContent();
+			await page.waitForURL(
+				`${site.origin}/recipes/strawberry-banana-smoothie/?servings=8&units=us`,
+			);
+			await recipeReady(page);
+			assert.deepEqual(await stored(page), {
+				filters: { ironRich: true },
+				servings: 8,
+			});
+			const detail = page.locator(".recipe-detail");
+			const opened = await detail.textContent();
 			assert.match(opened, SMOOTHIE_YIELD);
 			assert.match(opened, GLASS_NUTRITION);
 			await page.getByRole("button", { name: VITAMINS }).click();
@@ -637,16 +648,16 @@ function filtersCheck(width) {
 					.count(),
 				0,
 			);
-			assert.equal(
-				await page.locator(".recipe-takeover .reset-checks-row").count(),
-				1,
-			);
+			assert.equal(await detail.locator(".reset-checks-row").count(), 1);
 			assert.match(
-				await page.locator(".recipe-takeover .trn-table").textContent(),
+				await detail.locator(".trn-table").textContent(),
 				EIGHT_SERVINGS_WATER,
 			);
-			await page.keyboard.press("Escape");
-			await takeover.waitFor({ state: "detached" });
+			await page
+				.getByRole("link", { name: "← Back to smoothies", exact: true })
+				.click();
+			await page.waitForURL(smoothiesPage);
+			await hydrated(page);
 			assert.equal(await cards(), smoothieCount);
 			assert.equal((await stored(page)).filters.ironRich, true);
 			assert.equal(await checkbox("Iron-rich").count(), 0);
@@ -893,11 +904,10 @@ function collectionsCheck(width) {
 					exact: true,
 				})
 				.click();
-			await enhanced.locator(".recipe-takeover").waitFor();
-			assert.equal(
-				new URL(enhanced.url()).pathname,
-				"/recipes/lemon-salmon-and-asparagus/",
+			await enhanced.waitForURL(
+				(url) => url.pathname === "/recipes/lemon-salmon-and-asparagus/",
 			);
+			await recipeReady(enhanced);
 			assert.equal(new URL(enhanced.url()).searchParams.get("servings"), "8");
 			assert.match(
 				await enhanced.locator(".detail-facts").textContent(),

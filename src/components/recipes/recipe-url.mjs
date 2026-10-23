@@ -59,3 +59,19 @@ export function recipeBrowseHref(recipe, settings) {
 		? `/recipes/${recipe.id}/`
 		: recipeHref(recipe, settings);
 }
+
+// A recipe page's own URL after a units or side change: units always, the
+// selected side as ?starch=, and servings only when not the default. Keeping
+// every explicit choice in the URL means a reload restores all of them.
+export function recipePageURL(url, recipe, settings) {
+	const next = new URL(url);
+	const { servings, units } = validateSettings(settings);
+	if (servings === BASE_SERVINGS) next.searchParams.delete("servings");
+	else next.searchParams.set("servings", String(servings));
+	next.searchParams.set("units", units);
+	const side = settings.familyChoice?.[recipe.id];
+	if (recipe.familyOptions.some((option) => option.id === side))
+		next.searchParams.set("starch", `${recipe.id}:${side}`);
+	else next.searchParams.delete("starch");
+	return next;
+}

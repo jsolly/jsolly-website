@@ -1,6 +1,11 @@
 import assert from "node:assert/strict";
 import { it } from "vitest";
-import { readRecipeURL, recipeBrowseHref, recipeHref } from "./recipe-url.mjs";
+import {
+	readRecipeURL,
+	recipeBrowseHref,
+	recipeHref,
+	recipePageURL,
+} from "./recipe-url.mjs";
 
 const SITE = "https://www.jsolly.com";
 // Two recipes in the recipes.json shape recipe-url reads: one with family
@@ -117,5 +122,38 @@ it("default browsing links use canonical paths while selected and shared setting
 	assert.equal(
 		recipeHref(patties, { servings: 4, units: "us" }),
 		"/recipes/greek-turkey-patties/?servings=4&units=us",
+	);
+});
+
+it("a recipe page's URL keeps units, the selected side and non-default servings after a change", () => {
+	const path = `/recipes/${patties.id}/`;
+	const page = (search, settings) =>
+		Object.fromEntries(
+			recipePageURL(new URL(`${path}${search}`, SITE), patties, settings)
+				.searchParams,
+		);
+	assert.deepEqual(
+		page("", {
+			servings: 4,
+			units: "grams",
+			familyChoice: { [patties.id]: "pita_one" },
+		}),
+		{ units: "grams", starch: `${patties.id}:pita_one` },
+	);
+	assert.deepEqual(
+		page(`?servings=4&units=us&starch=${patties.id}:bun_one`, {
+			servings: 6,
+			units: "metric",
+			familyChoice: {},
+		}),
+		{ servings: "6", units: "metric" },
+	);
+	assert.deepEqual(
+		page("?servings=8", {
+			servings: 4,
+			units: "us",
+			familyChoice: { [patties.id]: "naan" },
+		}),
+		{ units: "us" },
 	);
 });

@@ -8,12 +8,12 @@
 	import RecipeOfflineStatus from "./RecipeOfflineStatus.svelte";
 	import RecipePrintButton from "./RecipePrintButton.svelte";
 	import { validateSettings } from "./recipe-logic.mjs";
-	import { collectionReturn } from "./recipe-navigation.mjs";
+	import { collectionReturn, takeLegacyRedirect } from "./recipe-navigation.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
-	import { readRecipeURL } from "./recipe-url.mjs";
+	import { readRecipeURL, recipePageURL } from "./recipe-url.mjs";
 	import ShareRecipe from "./ShareRecipe.svelte";
 	import UnitControl from "./UnitControl.svelte";
-	import { readUnitPreference, replaceUnitURL, writeUnitPreference } from "./unit-preference.mjs";
+	import { readRecipePreferences, writeSidePreference, writeUnitPreference } from "./unit-preference.mjs";
 
 	// Keep preference-dependent content hidden until URL and saved settings
 	// are resolved. The no-JavaScript stylesheet reveals the static fallback.
@@ -37,6 +37,11 @@
 		message = await printSession.print();
 	}
 
+	// An explicit choice replaces the link's old overrides before a reload.
+	function replacePageURL() {
+		history.replaceState(history.state, "", recipePageURL(new URL(location.href), recipe, settings));
+	}
+
 	function setServings(value) {
 		const { servings } = validateSettings({ servings: Number(value) });
 		settings = { ...settings, servings, familyDiners: servings };
@@ -47,40 +52,48 @@
 			...settings,
 			familyChoice: { ...settings.familyChoice, [recipe.id]: value },
 		};
+		replacePageURL();
+		writeSidePreference(recipe, value);
 	}
 
 	function setUnits(value) {
 		const units = validateSettings({ units: value }).units;
 		settings = { ...settings, units };
-		replaceUnitURL(units);
+		replacePageURL();
 		writeUnitPreference(units);
 	}
 
 	onMount(() => {
-		returnUrl = collectionReturn(history.state, document.referrer, new URL(location.href), collection);
-		if (returnUrl) history.replaceState({ ...history.state, recipeReturn: returnUrl }, "");
-		const parsed = readRecipeURL(new URL(window.location.href), [recipe], { units: readUnitPreference() });
+		// A legacy /recipes/#<id> redirect replaced the collection entry, so Back
+		// follows its collection link rather than history, which would leave the site.
+		const legacy = history.state?.recipeLegacyRedirect === true || takeLegacyRedirect(recipe.id);
+		if (legacy) history.replaceState({ ...history.state, recipeLegacyRedirect: true }, "");
+		else {
+			returnUrl = collectionReturn(history.state, document.referrer, new URL(location.href), collection);
+			if (returnUrl) history.replaceState({ ...history.state, recipeReturn: returnUrl }, "");
+		}
+		const url = new URL(window.location.href);
+		const saved = readRecipePreferences(recipe);
+		const parsed = readRecipeURL(url, [recipe], { units: saved.units });
+		// Links carrying settings (shares, non-default cards) decide the side;
+		// a plain link uses the side saved on this device.
+		const explicit = ["servings", "units", "starch"].some((key) => url.searchParams.has(key));
 		settings = {
 			...settings,
 			servings: parsed.servings,
 			units: parsed.units,
 			familyDiners: parsed.servings,
-			familyChoice: parsed.familyChoice,
+			familyChoice: explicit || !saved.side ? parsed.familyChoice : { [recipe.id]: saved.side },
 		};
 		interactive = true;
-		const stopPrint = printSession.listen();
-		// Reloaded dialog URLs render a standalone page. Back can traverse an
-		// earlier same-document collection entry, which needs its collection DOM.
-		const restoreCollection = () => { if (location.pathname !== `/recipes/${recipe.id}/`) location.reload(); };
-		window.addEventListener("popstate", restoreCollection);
-		return () => { stopPrint(); window.removeEventListener("popstate", restoreCollection); };
+		return printSession.listen();
 	});
 </script>
 
 <div class="recipe-page" data-preferences-ready={interactive} aria-busy={!interactive}>
 	<section class="recipe-detail print-document" id={recipe.id}>
 		<div class="toolbar">
-			<a href={returnUrl || `/recipes/${collection}/`} onclick={(event) => { if (returnUrl && history.length > 1 && event.button === 0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) { event.preventDefault(); history.back(); } }}>← Back to {returnUrl.startsWith("/recipes/saved/") ? "saved recipes" : returnUrl.startsWith("/recipes/?") || returnUrl === "/recipes/" || returnUrl.startsWith("/recipes/#") ? "recipes" : collection}</a>
+			<a href={returnUrl || `/recipes/${collection}/`} onclick={(event) => { if (returnUrl && history.length > 1 && event.button === 0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) { event.preventDefault(); history.back(); } }}>← Back to {returnUrl.startsWith("/recipes/saved/") ? "saved recipes" : returnUrl.startsWith("/recipes/?") || returnUrl === "/recipes/" ? "recipes" : collection}</a>
 			<RecipePrintButton {recipe} {settings} class="recipe-enhanced" disabled={!interactive} onPrint={print} />
 			<RecipeOfflineStatus {recipe} />
 		</div>

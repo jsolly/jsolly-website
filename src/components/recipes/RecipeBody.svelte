@@ -20,13 +20,12 @@
 	} from "./recipe-logic.mjs";
 
 	// A recipe's appliances, facts, photo, family side, cooking flow and
-	// nutrition, shared by the recipe page and the library's recipe dialog.
+	// nutrition, shared by the recipe page and printed card packets.
 	let {
 		recipe,
 		settings,
 		interactive = true,
 		printOnly = false,
-		headingLevel = 3,
 		onSideChange,
 	} = $props();
 	const sideId = $props.id();
@@ -77,9 +76,9 @@
 			{/if}
 		</div>
 	{/if}
-	{#key recipe.id}<RecipeFlow {recipe} {settings} {interactive} {printOnly} {headingLevel} />{/key}
+	{#key recipe.id}<RecipeFlow {recipe} {settings} {interactive} {printOnly} />{/key}
 	<section class="nutrition" aria-label={nutritionHeading(recipe, settings.servings)}>
-		<svelte:element this={`h${headingLevel}`}>Nutrition</svelte:element><p class="nutrition-portion">{nutritionPortionLabel(recipe, settings.servings)}</p>
+		<h2>Nutrition</h2><p class="nutrition-portion">{nutritionPortionLabel(recipe, settings.servings)}</p>
 		<dl>
 			<div><dt><span aria-hidden="true">🔥</span> Calories</dt><dd>{formatNutrition(baseNutrition.kcal, "kcal")}</dd></div>
 			<div><dt><span aria-hidden="true">💪</span> Protein</dt><dd>{formatNutrition(baseNutrition.protein_g, "g")}</dd></div>
@@ -88,7 +87,7 @@
 			<div><dt>Fiber</dt><dd>{formatNutrition(baseNutrition.fiber_g, "g")}</dd></div>
 			<div><dt>Net carbs <NutritionHelp topic="net-carbs" /></dt><dd>{formatNutrition(baseNutrition.net_carbs_g, "g")}</dd></div>
 		</dl>
-		{#key recipe.id}<NutrientDisclosure nutrients={dailyValues} {interactive} {printOnly} headingLevel={headingLevel + 1} />{/key}
+		{#key recipe.id}<NutrientDisclosure nutrients={dailyValues} {interactive} {printOnly} />{/key}
 	</section>
 </div>
 

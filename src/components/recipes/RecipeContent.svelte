@@ -5,18 +5,18 @@
 	import RecipeBody from "./RecipeBody.svelte";
 	import { dietaryClass } from "./recipe-logic.mjs";
 
-	// One cooking document for pages, dialogs and printed card/collection packets.
-	let { recipe, settings, interactive = true, printOnly = false, headingLevel = 2, onSideChange, title, controls } = $props();
+	// One cooking document for recipe pages and printed card packets.
+	let { recipe, settings, interactive = true, printOnly = false, onSideChange, controls } = $props();
 </script>
 
 <div class="recipe-content">
 	<span class="badge">{dietaryLabels[dietaryClass(recipe)]}</span>
-	{#if title}{@render title()}{:else}<h1 class="print-title">{recipe.title}</h1>{/if}
+	<h1 class="print-title">{recipe.title}</h1>
 	<NutritionPills {recipe} servings={settings.servings} />
 	<p class="detail-summary">{recipe.summary}</p>
 	<RecipeAttribution {recipe} />
 	{#if controls}{@render controls()}{/if}
-	<RecipeBody {recipe} {settings} {interactive} {printOnly} {headingLevel} {onSideChange} />
+	<RecipeBody {recipe} {settings} {interactive} {printOnly} {onSideChange} />
 </div>
 
 <style>

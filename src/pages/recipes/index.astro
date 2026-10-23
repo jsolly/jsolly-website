@@ -7,8 +7,9 @@ import { headingLinkLabel } from "../../lib/blog/html.js";
 // The recipe library's landing page, where blogthedata.com's Easy Meals &
 // Smoothies post now 301s (RCP-001). It renders the library as that post did:
 // every recipe, meals first. The h1, #meal-results and the author card's
-// h2#about-author keep the post's fragment ids, and each recipe's #<id> opens
-// it in the library dialog (plan §1.6).
+// h2#about-author keep the post's fragment ids. To accommodate legacy
+// blogthedata.com links, each recipe's #<id> redirects to that recipe's page
+// (plan §1.6).
 const TITLE = "Easy Meals & Smoothies";
 const TITLE_ID = "easy-meals--smoothies";
 const DESCRIPTION =

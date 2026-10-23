@@ -171,7 +171,11 @@ function verifyLibrary(width) {
 				await page.locator(".print-output").textContent(),
 				SIX_SERVINGS,
 			);
-			assert.equal(await page.getByRole("dialog").count(), 0);
+			assert.equal(
+				await page.evaluate(() => location.pathname),
+				"/recipes/",
+				"card printing stays on the library",
+			);
 			await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
 			await page.waitForFunction(
 				() => !document.querySelector(".print-output .print-meal"),
@@ -757,12 +761,20 @@ it("a superseded slow search cannot replace current results and Retry preserves 
 	}
 });
 
-it("fine-pointer hover and keyboard focus share detail downloads while Data Saver pauses speculative work", {
+it("hovering or focusing a card downloads no pack, card Print downloads exactly one, card links navigate, and Data Saver pauses speculative work", {
 	timeout: 30_000,
 }, async () => {
 	const context = await browser.newContext({
 		viewport: { width: 1280, height: 900 },
 		serviceWorkers: "block",
+	});
+	await context.addInitScript(() => {
+		window.printedTitles = [];
+		window.print = () => {
+			window.printedTitles.push(
+				document.querySelector(".print-output .print-title")?.textContent,
+			);
+		};
 	});
 	const page = await context.newPage();
 	const errors = collectErrors(page);
@@ -771,15 +783,11 @@ it("fine-pointer hover and keyboard focus share detail downloads while Data Save
 		const path = new URL(request.url()).pathname;
 		if (path.startsWith("/recipes/data/packs/")) packs.push(path);
 	});
+	const title = (id) => data.recipes.find((recipe) => recipe.id === id).title;
 	try {
+		await page.clock.install();
 		await page.goto(`${site.origin}/recipes/meals/`);
 		await page.locator("[data-hydrated=true]").waitFor();
-		assert.equal(
-			await page.evaluate(
-				() => matchMedia("(hover: hover) and (pointer: fine)").matches,
-			),
-			true,
-		);
 		const cards = page.locator(".recipe-card");
 		const firstId = await cards
 			.nth(0)
@@ -789,43 +797,40 @@ it("fine-pointer hover and keyboard focus share detail downloads while Data Save
 			.nth(1)
 			.locator(".title-button")
 			.getAttribute("data-recipe-id");
-		await cards.nth(0).dispatchEvent("pointerenter");
-		await cards.nth(0).dispatchEvent("pointerleave");
-		const focusedPack = page.waitForResponse(
-			(response) =>
-				new URL(response.url()).pathname ===
-				`/recipes/data/packs/${secondId}.json`,
-		);
-		await cards.nth(1).locator(".title-button").focus();
-		await focusedPack;
-		assert.equal(
-			packs.includes(`/recipes/data/packs/${firstId}.json`),
-			false,
-			"transient hover is cancelled",
-		);
-		await cards.nth(1).locator(".title-button").click();
-		await page.locator(".recipe-takeover").waitFor();
-		assert.equal(
-			packs.filter((path) => path === `/recipes/data/packs/${secondId}.json`)
-				.length,
-			1,
-			"focus and open reuse the same pack",
-		);
-		await page.keyboard.press("Escape");
-		await page.locator(".recipe-takeover").waitFor({ state: "detached" });
-		const hoveredPack = page.waitForResponse(
-			(response) =>
-				new URL(response.url()).pathname ===
-				`/recipes/data/packs/${firstId}.json`,
-		);
 		await cards.nth(0).hover();
-		await hoveredPack;
+		await cards.nth(1).locator(".title-button").focus();
+		await page.clock.runFor(1000);
+		assert.deepEqual(packs, [], "hover and focus download no recipe pack");
+		await cards
+			.nth(1)
+			.getByRole("button", { name: "Print recipe", exact: true })
+			.click();
+		await page.waitForFunction(() => window.printedTitles.length === 1);
+		await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
+		await cards
+			.nth(1)
+			.getByRole("button", { name: "Print recipe", exact: true })
+			.click();
+		await page.waitForFunction(() => window.printedTitles.length === 2);
+		assert.deepEqual(
+			{
+				printed: await page.evaluate(() => window.printedTitles),
+				packs,
+			},
+			{
+				printed: [title(secondId), title(secondId)],
+				packs: [`/recipes/data/packs/${secondId}.json`],
+			},
+			"card Print downloads its pack once and reuses it",
+		);
+		await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
 		await cards.nth(0).locator(".title-button").click();
-		await page.locator(".recipe-takeover").waitFor();
-		assert.equal(
-			packs.filter((path) => path === `/recipes/data/packs/${firstId}.json`)
-				.length,
-			1,
+		await page.waitForURL(`${site.origin}/recipes/${firstId}/`);
+		await page.locator(".recipe-detail").waitFor();
+		assert.deepEqual(
+			packs,
+			[`/recipes/data/packs/${secondId}.json`],
+			"following a card link downloads no pack",
 		);
 		assert.deepEqual(errors, []);
 	} finally {
@@ -865,19 +870,20 @@ it("fine-pointer hover and keyboard focus share detail downloads while Data Save
 		assert.deepEqual(
 			speculative,
 			[],
-			"Data Saver starts neither intent prefetch nor summary trickle",
+			"Data Saver starts no summary trickle, and hover or focus downloads nothing",
 		);
-		const explicit = saving.waitForResponse((response) =>
-			new URL(response.url()).pathname.startsWith("/recipes/data/packs/"),
-		);
-		await saving.locator(".recipe-card .title-button").first().click();
-		await explicit;
-		await saving.locator(".recipe-takeover").waitFor();
-		assert.equal(
-			speculative.filter((path) => path.startsWith("/recipes/data/packs/"))
-				.length,
-			1,
-			"an explicit open still works with Data Saver",
+		const link = saving.locator(".recipe-card .title-button").first();
+		const id = await link.getAttribute("data-recipe-id");
+		await link.click();
+		await saving.waitForURL(`${site.origin}/recipes/${id}/`);
+		await saving
+			.locator(`.recipe-page section#${id}`)
+			.getByRole("heading", { level: 1, name: title(id) })
+			.waitFor();
+		assert.deepEqual(
+			speculative,
+			[],
+			"opening a recipe with Data Saver navigates to its page without speculative downloads",
 		);
 		assert.deepEqual(saverErrors, []);
 	} finally {

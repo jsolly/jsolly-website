@@ -27,27 +27,10 @@ export function recipeFromPack(pack, id, releaseId) {
 	return pack.recipe;
 }
 
-function waitForPack(promise, signal) {
-	if (!signal) return promise;
-	if (signal.aborted) return Promise.reject(signal.reason);
-	return new Promise((resolve, reject) => {
-		const abort = () => reject(signal.reason);
-		signal.addEventListener("abort", abort, { once: true });
-		promise
-			.then(resolve, reject)
-			.finally(() => signal.removeEventListener("abort", abort));
-	});
-}
-
-/** Hover and open share a request; cancelling one consumer does not cancel another. */
-export function loadRecipePack(
-	id,
-	releaseId,
-	{ signal, fetcher = fetch } = {},
-) {
+/** Repeated card prints of one recipe share a request; a failed download is not cached. */
+export function loadRecipePack(id, releaseId, { fetcher = fetch } = {}) {
 	if (!RECIPE_ID.test(id) || !RELEASE_ID.test(releaseId))
 		return Promise.reject(new Error("Invalid recipe download identity."));
-	if (signal?.aborted) return Promise.reject(signal.reason);
 	const key = `${releaseId}/${id}`;
 	let pending = packs.get(key);
 	if (!pending) {
@@ -68,5 +51,5 @@ export function loadRecipePack(
 			if (packs.get(key) === pending) packs.delete(key);
 		});
 	}
-	return waitForPack(pending, signal);
+	return pending;
 }

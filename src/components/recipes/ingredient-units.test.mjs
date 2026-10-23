@@ -20,7 +20,11 @@ import {
 } from "./recipe-logic.mjs";
 import { readRecipeURL, recipeHref } from "./recipe-url.mjs";
 import { flowGrid, gridHtml } from "./trn-logic.mjs";
-import { readUnitPreference, writeUnitPreference } from "./unit-preference.mjs";
+import {
+	readRecipePreferences,
+	writeSidePreference,
+	writeUnitPreference,
+} from "./unit-preference.mjs";
 
 const NO_OBSERVATION = /no fl oz observation/u;
 const BAD_AMOUNT =
@@ -457,6 +461,10 @@ it("unit links override a saved preference and round-trip every valid mode", () 
 	assert.equal(unitPreference(["metric"]), "us");
 	assert.equal(unitPreference("__proto__"), "us");
 });
+const SIDE_RECIPE = {
+	id: "bowl",
+	familyOptions: [{ id: "rice" }, { id: "pita" }],
+};
 it("individual-page unit preference updates preserve every unrelated saved field", () => {
 	const prior = {
 		servings: 8,
@@ -473,10 +481,46 @@ it("individual-page unit preference updates preserve every unrelated saved field
 	};
 	writeUnitPreference("grams", () => storage);
 	assert.equal(
-		readUnitPreference(() => storage),
+		readRecipePreferences(SIDE_RECIPE, () => storage).units,
 		"grams",
 	);
 	assert.deepEqual(JSON.parse(saved), { ...prior, units: "grams" });
+});
+it("individual-page side preferences share the library's familyChoice record and keep other fields", () => {
+	const prior = {
+		units: "metric",
+		familyChoice: { otherRecipe: "rice", bowl: "naan" },
+	};
+	let saved = JSON.stringify(prior);
+	const storage = {
+		getItem: () => saved,
+		setItem: (_key, value) => {
+			saved = value;
+		},
+	};
+	const getStorage = () => storage;
+	assert.deepEqual(
+		readRecipePreferences(SIDE_RECIPE, getStorage),
+		{ units: "metric", side: "" },
+		"a side the recipe no longer offers reads as none",
+	);
+	writeSidePreference(SIDE_RECIPE, "pita", getStorage);
+	assert.deepEqual(JSON.parse(saved), {
+		units: "metric",
+		familyChoice: { otherRecipe: "rice", bowl: "pita" },
+	});
+	assert.deepEqual(readRecipePreferences(SIDE_RECIPE, getStorage), {
+		units: "metric",
+		side: "pita",
+	});
+	writeSidePreference(SIDE_RECIPE, "", getStorage);
+	assert.deepEqual(JSON.parse(saved), {
+		units: "metric",
+		familyChoice: { otherRecipe: "rice" },
+	});
+	saved = JSON.stringify({ familyChoice: ["pita"] });
+	writeSidePreference(SIDE_RECIPE, "rice", getStorage);
+	assert.deepEqual(JSON.parse(saved), { familyChoice: { bowl: "rice" } });
 });
 it("the committed audit enumerates all source and family rows with current conversion evidence", async () => {
 	assert.equal(
@@ -500,18 +544,26 @@ it("corrupt preferences recover on write while denied storage remains reported w
 			saved = value;
 		},
 	});
-	assert.equal(readUnitPreference(getStorage), "us");
+	assert.deepEqual(readRecipePreferences(SIDE_RECIPE, getStorage), {
+		units: "us",
+		side: "",
+	});
 	writeUnitPreference("grams", getStorage);
 	assert.deepEqual(JSON.parse(saved), { units: "grams" });
 	const denied = () => {
 		throw new DOMException("denied", "SecurityError");
 	};
-	assert.equal(readUnitPreference(denied), "us");
+	assert.deepEqual(readRecipePreferences(SIDE_RECIPE, denied), {
+		units: "us",
+		side: "",
+	});
 	writeUnitPreference("metric", denied);
+	writeSidePreference(SIDE_RECIPE, "rice", denied);
 	assert.deepEqual(errors, [
-		"Recipe units could not be restored; using US imperial. SyntaxError",
+		"Recipe preferences could not be restored; using US imperial and no side. SyntaxError",
 		"Malformed recipe settings were discarded while saving units. SyntaxError",
-		"Recipe units could not be restored; using US imperial. SecurityError",
+		"Recipe preferences could not be restored; using US imperial and no side. SecurityError",
 		"Recipe units could not be saved; changes apply only to this visit. SecurityError",
+		"Recipe side could not be saved; changes apply only to this visit. SecurityError",
 	]);
 });

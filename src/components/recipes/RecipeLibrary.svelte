@@ -8,6 +8,7 @@
 	import { parseSavedSettings } from "./nutrient-filters.mjs";
 	import RecipeCard from "./RecipeCard.svelte";
 	import { validateSettings } from "./recipe-logic.mjs";
+	import { clearLegacyRedirect, markLegacyRedirect } from "./recipe-navigation.mjs";
 	import { orderRecipeIds } from "./recipe-order.mjs";
 	import { loadRecipePack } from "./recipe-pack.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
@@ -32,26 +33,19 @@
 	let loading = $state(false);
 	let failure = $state("");
 	let releaseMismatch = $state(false);
-	let current = $state.raw(null);
-	let RecipeTakeover = $state.raw(null);
 	let RecipePrint = $state.raw(null);
 	let printRecipe = $state.raw(null);
 	let printPrepared = $state(false);
 	let libraryElement = $state(null);
-	let detailHeading = $state(null);
-	let recipeDialog = $state(null);
 	let listHeading = $state(null);
 	let message = $state("");
 	let shuffling = $state(false);
-	let detailLoading = $state(false);
-	let lastOpenedId = "";
-	let legacyHashOwned = false;
 	let pendingSavedVisit;
+	let openedId = "";
 	let savedRecords = [];
 	let unsupportedSavedRecords = $state.raw([]);
 	let savedGeneration = 0;
 	let generation = 0;
-	let detailGeneration = 0;
 	let requestedKey = "";
 	let controller;
 	let pending;
@@ -139,7 +133,7 @@
 			if (pendingSavedVisit) {
 				const visit = pendingSavedVisit; pendingSavedVisit = null;
 				visibleLimit = Math.min(cards.length, Math.max(RECIPE_BATCH_SIZE, visit.limit || RECIPE_BATCH_SIZE));
-				await tick(); window.scrollTo({ top: visit.scrollY || 0, behavior: "instant" });
+				await tick(); restoreVisitPosition(visit);
 			}
 		} catch { if (own === savedGeneration) failure = "Saved recipes could not be read. Retry when storage is available."; }
 	}
@@ -225,15 +219,11 @@
 	}
 	function setUnits(value) { units = validateSettings({ units: value }).units; replaceUnitURL(units); }
 	function setServings(value) { servings = validateSettings({ servings: Number(value) }).servings; }
-	function prefetchRecipe(id) {
-		if (savedMode || current?.id === id || detailLoading) return;
-		void loadRecipePack(id, initial.release).catch(() => { /* Speculation is optional; opening retries and reports errors. */ });
-	}
 	async function saveOpened(recipe) {
 		if (!("serviceWorker" in navigator) || !document.querySelector("#recipe-offline-status")) return;
 		try {
 			if (!await navigator.serviceWorker.getRegistration("/recipes/")) return; const { saveRecipeOffline } = await import("./recipe-offline.mjs"); await saveRecipeOffline(recipe.id, initial.release); }
-		catch { message = "This recipe is open, but could not be saved offline. Retry by opening it again."; }
+		catch { message = "This recipe was prepared for printing, but could not be saved offline. Retry by printing or opening it again."; }
 	}
 	function getDetail(id) {
 		if (savedMode) {
@@ -243,40 +233,10 @@
 		}
 		return loadRecipePack(id, initial.release);
 	}
-	async function openRecipe(id, updateURL, href) {
-		const record = savedRecords.find((item) => item.id === id);
-		if (savedMode && record && record.release !== initial.release) { window.location.assign(recipeBrowseHref(record.recipe, recipeSettings)); return; }
-		const returnUrl = `${location.pathname}${location.search}${location.hash}`;
-		const own = ++detailGeneration;
-		detailLoading = true; clearTimeout(backgroundTimer); message = "Loading recipe…";
-		try {
-			const [recipe, module, printModule] = await Promise.all([getDetail(id), import("./RecipeTakeover.svelte"), import("./RecipePrint.svelte")]);
-			if (own !== detailGeneration || stopped) return;
-			RecipeTakeover = module.default; RecipePrint = printModule.default; if (collection !== recipe.type) { allowFilterReset = true; collection = recipe.type; } current = recipe; lastOpenedId = id; message = "";
-			if (updateURL) {
-				legacyHashOwned = false;
-				history.pushState({ ...history.state, recipeDialog: id, recipeReturn: returnUrl }, "", href || recipeBrowseHref(recipe, recipeSettings));
-			}
-			await tick(); detailHeading?.focus({ preventScroll: true }); if (recipeDialog) recipeDialog.scrollTop = 0;
-			} catch (error) { if (own === detailGeneration) message = error.message; }
-		finally { if (own === detailGeneration) { detailLoading = false; scheduleBackground(); } }
-	}
-	async function backToResults(updateURL = true) {
-		const owned = history.state?.recipeDialog === current?.id && Boolean(history.state?.recipeReturn);
-		detailGeneration++; current = null; detailLoading = false; message = ""; scheduleBackground();
-		if (updateURL) {
-			if (owned) history.back();
-			else if (legacyHashOwned) history.pushState(history.state, "", "#meal-results");
-			else history.replaceState(history.state, "", `${pathname}${location.search}#meal-results`);
-		}
-		await tick();
-		const trigger = libraryElement?.querySelector(`[data-recipe-id="${lastOpenedId}"]`);
-		(trigger || listHeading)?.focus({ preventScroll: true });
-	}
 	const printSession = createRecipePrintSession(() => "recipe", () => {
-		if (printRecipe || current) flushSync(() => { printPrepared = true; });
+		if (printRecipe) flushSync(() => { printPrepared = true; });
 	}, () => { printPrepared = false; printRecipe = null; });
-	async function print(id = current?.id) {
+	async function print(id) {
 		const record = savedRecords.find((item) => item.id === id);
 		if (savedMode && record && record.release !== initial.release) { window.location.assign(recipeBrowseHref(record.recipe, recipeSettings)); return; }
 		message = "Loading recipe for printing…";
@@ -287,18 +247,25 @@
 			await tick(); message = await printSession.print(tick);
 		} catch (error) { message = error.message; }
 	}
-	function interceptRecipe(event) {
-		if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-		const anchor = event.target.closest("a[href]");
-		if (!anchor || anchor.target || anchor.hasAttribute("download")) return;
+	// Card links navigate normally; recording the visit at click time, as well as
+	// on pagehide, lets Back restore the order, search and scroll position.
+	function rememberVisit(event) {
+		const anchor = event.target.closest?.("a[href]");
+		if (!anchor) return;
 		const url = new URL(anchor.href, location.href);
 		const match = RECIPE_PATH.exec(url.pathname);
-		if (url.origin !== location.origin || !match || !recipeIndex.some((recipe) => recipe.id === match.groups.id)) return;
-		if (savedMode && unsupportedSavedRecords.some((record) => record.id === match.groups.id)) return;
-		event.preventDefault(); saveVisit(); void openRecipe(match.groups.id, true, `${url.pathname}${url.search}${url.hash}`);
+		if (url.origin !== location.origin || !match) return;
+		openedId = match.groups.id; saveVisit();
+	}
+	// Back returns to the saved scroll position with focus on the recipe left from.
+	function restoreVisitPosition(visit) {
+		window.scrollTo({ top: visit.scrollY || 0, behavior: "instant" });
+		if (typeof visit.openedId !== "string" || !visit.openedId) return;
+		const link = [...(libraryElement?.querySelectorAll(".recipe-card a.title-button") ?? [])].find((element) => element.dataset.recipeId === visit.openedId);
+		link?.focus({ preventScroll: true });
 	}
 	function saveVisit() {
-		const visit = JSON.parse(JSON.stringify({ query, summaries, result, seed, limit: visibleLimit, scrollY: window.scrollY, collection, savedMode }));
+		const visit = JSON.parse(JSON.stringify({ query, summaries, result, seed, limit: visibleLimit, scrollY: window.scrollY, collection, savedMode, openedId }));
 		history.replaceState({ ...history.state, recipeList: visit }, "");
 	}
 	onMount(() => {
@@ -311,6 +278,17 @@
 		const url = new URL(window.location.href);
 		const parsed = readRecipeURL(url, recipeIndex, { servings, units });
 		servings = parsed.servings; units = parsed.units; familyChoice = { ...familyChoice, ...parsed.familyChoice };
+		// Old blogthedata.com posts link to /recipes/#<recipe-id>, which the
+		// redirect host carries here. This redirect exists only to accommodate
+		// those legacy links: recipes render on their own pages, so the entry is
+		// replaced before any browsing request, listener or settings write starts.
+		const legacyRecipe = recipeIndex.find((recipe) => recipe.id === parsed.recipeId);
+		if (legacyRecipe) {
+			markLegacyRedirect(legacyRecipe.id);
+			location.replace(recipeBrowseHref(legacyRecipe, { servings, units, familyChoice }));
+			return;
+		}
+		clearLegacyRedirect();
 		if (savedMode && url.searchParams.get("collection") === "smoothie") collection = "smoothie";
 		const visit = history.state?.recipeList;
 		if (visit?.savedMode === savedMode && visit?.result?.release === initial.release && Array.isArray(visit.summaries) && ["meal", "smoothie"].includes(visit.collection)) {
@@ -320,26 +298,18 @@
 				result = visit.result; summaries = visit.summaries;
 				visibleLimit = Math.max(RECIPE_BATCH_SIZE, visit.limit || RECIPE_BATCH_SIZE);
 				requestedKey = browseKey;
-				void tick().then(() => window.scrollTo({ top: visit.scrollY || 0, behavior: "instant" }));
+				void tick().then(() => restoreVisitPosition(visit));
 			}
 		} else if (!savedMode && JSON.stringify([collection, query, servings, filters, appliancesOnHand, savedMode]) === JSON.stringify([initialCollection, "", BASE_SERVINGS, DEFAULT_FILTERS, defaultAppliances, false])) requestedKey = browseKey;
 		hydrated = true;
 		const stopPrint = printSession.listen();
-		libraryElement.addEventListener("click", interceptRecipe);
-		const hash = () => { if (recipeIndex.some((recipe) => location.pathname === `/recipes/${recipe.id}/`)) return; const id = window.location.hash.slice(1); if (recipeIndex.some((recipe) => recipe.id === id)) { legacyHashOwned = true; void openRecipe(id, false); } else if (current || detailLoading) void backToResults(false); };
-		const pop = () => { const id = history.state?.recipeDialog; if (recipeIndex.some((recipe) => recipe.id === id)) {
-			const restored = readRecipeURL(new URL(location.href), recipeIndex, { servings: BASE_SERVINGS, units: "us" });
-			servings = restored.servings; units = restored.units;
-			const choices = { ...familyChoice }; delete choices[id]; familyChoice = { ...choices, ...restored.familyChoice };
-			void openRecipe(id, false);
-		} else if ((current || detailLoading) && !recipeIndex.some((recipe) => recipe.id === location.hash.slice(1))) void backToResults(false); };
-		if (parsed.recipeId) void openRecipe(parsed.recipeId, false);
+		libraryElement.addEventListener("click", rememberVisit);
 		const resume = () => { const nextSaved = saved || !navigator.onLine; if (nextSaved && !savedMode) { summaries = []; result = { ...result, cards: [], total: 0, nextPage: null }; } savedMode = nextSaved; scheduleBackground(); };
-		window.addEventListener("pagehide", saveVisit); window.addEventListener("hashchange", hash); window.addEventListener("popstate", pop);
+		window.addEventListener("pagehide", saveVisit);
 		document.addEventListener("visibilitychange", resume); window.addEventListener("online", resume); window.addEventListener("offline", resume);
 		navigator.connection?.addEventListener("change", resume);
 		scheduleBackground();
-		return () => { stopped = true; generation++; detailGeneration++; savedGeneration++; controller?.abort(); clearTimeout(backgroundTimer); stopPrint(); libraryElement?.removeEventListener("click", interceptRecipe); window.removeEventListener("pagehide", saveVisit); window.removeEventListener("hashchange", hash); window.removeEventListener("popstate", pop); document.removeEventListener("visibilitychange", resume); window.removeEventListener("online", resume); window.removeEventListener("offline", resume); navigator.connection?.removeEventListener("change", resume); };
+		return () => { stopped = true; generation++; savedGeneration++; controller?.abort(); clearTimeout(backgroundTimer); stopPrint(); libraryElement?.removeEventListener("click", rememberVisit); window.removeEventListener("pagehide", saveVisit); document.removeEventListener("visibilitychange", resume); window.removeEventListener("online", resume); window.removeEventListener("offline", resume); navigator.connection?.removeEventListener("change", resume); };
 	});
 	$effect(() => {
 		const key = browseKey;
@@ -361,16 +331,15 @@
 		<div class="results-heading"><h2 bind:this={listHeading} tabindex="-1">{savedMode ? "Saved recipes" : collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2><Button class="enhanced-shuffle" variant="outline" type="button" disabled={!hydrated || shuffling || result.total < 2} onclick={shuffleCards}><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button>{#if !saved}<noscript><Button variant="outline" type="submit" form="recipe-browse-form" name="shuffle" value="1"><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button></noscript>{/if}</div>
 		<p class="no-results" role="status">{!result.total ? savedMode ? "No saved recipes match. Open a recipe online to save it for offline use." : "No recipes match your search and filters. Try fewer words or adjust the filters." : query.trim() ? `${result.total} recipes found` : ""}</p>
 		<div class="recipe-grid">
-			{#each renderedRecipes as recipe (recipe.id)}<RecipeCard {recipe} servings={recipeSettings.servings} settings={recipeSettings} onPrint={() => print(recipe.id)} onPrefetch={prefetchRecipe} disabled={!hydrated || detailLoading} href={recipeBrowseHref(recipe, recipeSettings)} />{/each}
+			{#each renderedRecipes as recipe (recipe.id)}<RecipeCard {recipe} servings={recipeSettings.servings} settings={recipeSettings} onPrint={() => print(recipe.id)} disabled={!hydrated} href={recipeBrowseHref(recipe, recipeSettings)} />{/each}
 		</div>
 		{#if unsupportedSavedRecords.length}<ul>{#each unsupportedSavedRecords as record (record.id)}<li><a href={`/recipes/${record.id}/`}>{record.recipe?.title || record.id}</a> - saved with another version; open its saved page to cook.</li>{/each}</ul>{/if}
 		{#if hydrated && hasMore}<div class="load-more" {@attach watchMore}><Button variant="outline" type="button" aria-busy={loading} onclick={() => loadMore(true)}>Load more recipes</Button><p>{renderedRecipes.length} of {result.total} recipes shown</p></div>{/if}
 		{#if !savedMode && initial.nextPage}<noscript><nav class="recipe-pagination" aria-label="Recipe pages"><a href={`${pathname}?browse=1&page=2`}>Next recipes</a></nav></noscript>{/if}
 		{#if failure}<p role="alert">{failure}</p>{#if releaseMismatch}<Button variant="outline" onclick={updateLibrary}>Check for update</Button>{:else}<Button variant="outline" onclick={retryBrowse}>Retry</Button>{/if}{/if}
 	</div>
-	{#if current && RecipeTakeover}<RecipeTakeover recipe={current} settings={recipeSettings} onUnitsChange={setUnits} onBack={() => backToResults()} onPrint={() => print()} onSideChange={(value) => { familyChoice = { ...familyChoice, [current.id]: value }; }} bind:heading={detailHeading} bind:dialog={recipeDialog} />{/if}
 	<p class="action-status" role="status" aria-live="polite">{message}</p>
-	<div class="print-output">{#if printPrepared && RecipePrint}<RecipePrint recipe={printRecipe || current} settings={recipeSettings} />{/if}</div>
+	<div class="print-output">{#if printPrepared && RecipePrint}<RecipePrint recipe={printRecipe} settings={recipeSettings} />{/if}</div>
 </section>
 <style>
 	/* Every recipe stylesheet declares the full order (as the blog sheets do), so
@@ -530,9 +499,6 @@
 		.print-output {
 			display: none;
 		}
-		:global([data-slot="dialog-overlay"]) {
-			background: #0008;
-		}
 		@container (max-width: 1000px) {
 			.recipe-grid {
 				grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -582,9 +548,6 @@
 			.meal-library:not([data-print-prepared="true"]) > :global(.library-controls),
 			.meal-library:not([data-print-prepared="true"]) .results-heading,
 			.meal-library:not([data-print-prepared="true"]) .load-more { display: none; }
-			:global([data-slot="dialog-overlay"]) {
-				display: none;
-			}
 			.meal-library[data-print-prepared="true"] > .print-output { display: block; }
 		}
 	}
