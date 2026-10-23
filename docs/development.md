@@ -30,7 +30,7 @@ that the gate ran. No setup command deploys the application or infrastructure.
 
 ## Test file timings
 
-CI runs one `ci` job on the standard Ubuntu 24.04 x64 runner. Built test files
+CI runs one `ci` job on the standard Ubuntu 24.04 ARM runner. Built test files
 use seven isolated workers; cases within a file remain sequential. Measure the
 whole job as well as the gate when comparing runner or scheduling changes.
 
@@ -70,7 +70,9 @@ builds each run the same suite against their own output. PWA snapshot rebuild
 checks belong to the install suite; every PWA file still builds real isolated
 A/B/C snapshots. Each file calls `setupRecipePwaFixture` with the additional
 deployment variants its cases use; unused full-site copies are not prepared.
-Smoke contract cases share a browser process and retain a fresh context per case.
+Smoke contract cases run concurrently in one browser process, with Vitest's
+five-case limit and a fresh context and private stubs per case. Built cases
+remain sequential within each file.
 The update suite also checks that live API requests leave a stopped worker asleep
 and that workers still install and serve offline data without static routing.
 

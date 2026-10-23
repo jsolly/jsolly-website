@@ -962,9 +962,12 @@ it("Fresh B HTML under A control still offers explicit activation of waiting B w
 		fresh.on("framenavigated", (frame) => {
 			if (frame === fresh.mainFrame()) reloads += 1;
 		});
-		await fresh.locator("#recipe-update-button").click();
+		await Promise.all([
+			fresh.waitForEvent("load"),
+			fresh.locator("#recipe-update-button").click(),
+		]);
 		await fresh.waitForFunction(
-			() => document.querySelector("#recipe-update-action").hidden,
+			() => document.querySelector("#recipe-update-action")?.hidden === true,
 		);
 		assert.equal(reloads, 1);
 		assert.equal(await snapshotLabel(fresh), "B");

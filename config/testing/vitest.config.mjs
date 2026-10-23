@@ -16,9 +16,9 @@ export default defineConfig({
 		// Browser files own isolated contexts and spend time awaiting browser I/O.
 		// Keep the built suite at seven workers on CI and local machines alike.
 		maxWorkers: process.env.TEST_SUITE === "built" ? 7 : undefined,
-		// Each file owns its browser, server and mutable globals. Tests within
-		// a file stay sequential, and hooks retain node:test's declaration order.
-		sequence: { hooks: "list" },
+		// Built files own mutable deployment fixtures, so their cases stay sequential.
+		// Smoke contracts share only the browser; every case owns its context and stubs.
+		sequence: { hooks: "list", concurrent: process.env.TEST_SUITE === "smoke" },
 		restoreMocks: true,
 		// node:test had no default deadline. Browser cases retain their explicit
 		// deadlines; build fixtures and hooks can legitimately take longer.
