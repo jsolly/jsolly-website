@@ -30,10 +30,7 @@ that the gate ran. No setup command deploys the application or infrastructure.
 
 ## Test file timings
 
-CI runs one `ci` job on the standard macOS 15 ARM runner. The secrets-scan
-step installs Bash 5 through the runner's Homebrew before invoking the unchanged
-range scan, selecting and verifying Gitleaks' pinned host archive. No application
-dependency installation runs before that scan. Built test files
+CI runs one `ci` job on the Ubuntu 24.04 ARM runner. Built test files
 use four isolated fork workers; pure unit tests use two workers to leave CPU for
 types and build. Cases within a built file remain sequential. Measure the
 whole job as well as the gate when comparing runner or scheduling changes.
