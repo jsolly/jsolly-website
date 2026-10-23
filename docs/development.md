@@ -59,6 +59,11 @@ the unit suite retains detached-process and shutdown-race coverage. Local gates 
 The preview shortcut and gate bootstrap remain unchanged. `gate/gate-lib.sh` is
 unchanged. No previous test results are reused.
 
+Static link and Markdown checks read HTML through parse5 instead of allocating
+browser-like DOM windows. They preserve document recovery, base URLs, inert
+templates, noscript descendants, namespaces and decoded attribute values. XML
+feeds still use an XML parser. Browser scenarios retain Chromium.
+
 CI enables `TEST_FILE_TIMINGS=1` for the complete gate. Each Vitest file emits
 one `TIMING` JSON row with its suite, relative path, state and `wall_ms`.
 The interval starts when the worker queues the file for collection and ends

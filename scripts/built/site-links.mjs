@@ -13,6 +13,7 @@ import { setImmediate as yieldToEventLoop } from "node:timers/promises";
 import { createSatteriMarkdownProcessor } from "@astrojs/markdown-satteri";
 import { globby } from "globby";
 import { JSDOM } from "jsdom";
+import { parse } from "parse5";
 import { MARKDOWN_PATHS } from "../../src/content/agent-pages.js";
 import { markdownSiblingPath } from "../../src/lib/accept-negotiate.js";
 import { JSOLLY_ORIGIN, readLegacyJson } from "../blogthedata-redirects.mjs";
@@ -64,8 +65,8 @@ const LEGACY_FEED_ID = "https://www.blogthedata.com/atom/";
 const INDEX_HTML = /(?:^|\/)index\.html$/u;
 const WHITESPACE = /\s+/u;
 const ABSOLUTE_HTTP = /^https?:\/\//u;
-// biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
-const MANIFEST_LINKS = "link[rel~=manifest]";
+const HTML_NAMESPACE = "http://www.w3.org/1999/xhtml";
+const HTML_WHITESPACE = /[\t\n\f\r ]+/u;
 
 // A URL on one of the old blog's hosts, with a scheme or protocol-relative.
 function legacyUrlPattern(hosts) {
@@ -105,72 +106,84 @@ function srcsetUrls(value) {
 		.filter(Boolean);
 }
 
-// Every URL reference an element carries, as { attribute, raw }.
-function elementReferences(element) {
-	const references = [];
-	for (const name of URL_ATTRIBUTES) {
-		const raw = element.getAttribute(name);
-		if (raw !== null) references.push({ attribute: name, raw });
-	}
-	const srcset = element.getAttribute("srcset");
-	if (srcset !== null) {
-		for (const raw of srcsetUrls(srcset)) {
-			references.push({ attribute: "srcset", raw });
-		}
-	}
-	if (element.localName === "object" && element.hasAttribute("data")) {
-		references.push({ attribute: "data", raw: element.getAttribute("data") });
-	}
-	// og:image, og:url, twitter:image and the like.
-	const content =
-		element.localName === "meta" && element.getAttribute("content");
-	if (content && ABSOLUTE_HTTP.test(content)) {
-		references.push({ attribute: "content", raw: content });
-	}
-	return references;
-}
+// HTML facts use the parsed document tree, excluding inert template contents.
+// Keep XML below on an XML parser; HTML recovery rules do not apply to feeds.
+const attributeName = (attribute) =>
+	attribute.prefix ? `${attribute.prefix}:${attribute.name}` : attribute.name;
 
-// One HTML page: its ids (and a[name] anchors, which fragments also reach),
-// its references, and the other attribute values and script bodies (JSON-LD,
-// island props) that could carry a URL.
 function readPage(file, markup) {
 	const url = pageUrl(file);
-	const dom = new JSDOM(markup, { url: url.href });
-	try {
-		const { document } = dom.window;
-		const ids = new Set();
-		const references = [];
-		const values = [];
-		for (const element of document.querySelectorAll("*")) {
-			if (element.id) ids.add(element.id);
-			if (element.localName === "a" && element.name) ids.add(element.name);
-			const own = elementReferences(element);
-			for (const reference of own) {
-				references.push({ ...reference, base: document.baseURI });
-			}
-			const referenced = new Set(own.map(({ attribute }) => attribute));
-			for (const attribute of element.attributes) {
-				if (
-					referenced.has(attribute.name) ||
-					PROSE_ATTRIBUTES.has(attribute.name)
-				) {
-					continue;
-				}
-				values.push(
-					`${element.localName}[${attribute.name}]: ${attribute.value}`,
-				);
-			}
-			if (element.localName === "script" && element.textContent) {
-				values.push(`script: ${element.textContent}`);
-			}
-		}
-		const manifests = [...document.querySelectorAll(MANIFEST_LINKS)].map(
-			(link) => new URL(link.getAttribute("href"), document.baseURI).href,
-		);
-		return { file, url, ids, references, values, manifests };
-	} finally {
-		dom.window.close();
+	const nodes = [];
+	function visit(n) {
+		if (n.tagName) nodes.push(n);
+		for (const c of n.childNodes ?? []) visit(c);
 	}
+	visit(parse(markup, { scriptingEnabled: false }));
+	const attr = (n, k) =>
+		n.attrs.find((a) => attributeName(a) === k)?.value ?? null;
+	const firstBase = nodes.find(
+		(n) =>
+			n.namespaceURI === HTML_NAMESPACE &&
+			n.tagName === "base" &&
+			attr(n, "href") !== null,
+	);
+	let base = url.href;
+	if (firstBase) {
+		try {
+			const u = new URL(attr(firstBase, "href"), url);
+			if (!["data:", "javascript:"].includes(u.protocol)) base = u.href;
+		} catch {
+			// Invalid base URLs leave the document URL as its fallback base.
+		}
+	}
+	const ids = new Set(),
+		references = [],
+		values = [],
+		manifests = [];
+	function text(n) {
+		return n.nodeName === "#text"
+			? n.value
+			: (n.childNodes ?? []).map(text).join("");
+	}
+	for (const n of nodes) {
+		const own = [];
+		const id = attr(n, "id");
+		if (id) ids.add(id);
+		const anchor = attr(n, "name");
+		if (n.namespaceURI === HTML_NAMESPACE && n.tagName === "a" && anchor)
+			ids.add(anchor);
+		for (const k of URL_ATTRIBUTES) {
+			const raw = attr(n, k);
+			if (raw !== null) own.push({ attribute: k, raw });
+		}
+		const srcset = attr(n, "srcset");
+		if (srcset !== null)
+			for (const raw of srcsetUrls(srcset))
+				own.push({ attribute: "srcset", raw });
+		if (n.tagName === "object" && attr(n, "data") !== null)
+			own.push({ attribute: "data", raw: attr(n, "data") });
+		const content = n.tagName === "meta" && attr(n, "content");
+		if (content && ABSOLUTE_HTTP.test(content))
+			own.push({ attribute: "content", raw: content });
+		references.push(...own.map((r) => ({ ...r, base })));
+		const referenced = new Set(own.map((r) => r.attribute));
+		for (const a of n.attrs) {
+			const k = attributeName(a);
+			if (!referenced.has(k) && !PROSE_ATTRIBUTES.has(k))
+				values.push(`${n.tagName}[${k}]: ${a.value}`);
+		}
+		if (n.tagName === "script" && text(n)) values.push(`script: ${text(n)}`);
+		const rel = attr(n, "rel");
+		if (
+			n.tagName === "link" &&
+			rel !== null &&
+			(n.namespaceURI === HTML_NAMESPACE ? rel.toLowerCase() : rel)
+				.split(HTML_WHITESPACE)
+				.includes("manifest")
+		)
+			manifests.push(new URL(attr(n, "href"), base).href);
+	}
+	return { file, url, ids, references, values, manifests };
 }
 
 // A web app manifest's own references, resolved against its URL.
@@ -271,7 +284,7 @@ export async function buildSite(entries) {
 		const extension = extname(file);
 		if (extension === ".html" || extension === ".md") {
 			// Render and parse one page at a time. Parallel Markdown renders retain
-			// every syntax tree, while jsdom cleanup waits for the event loop.
+			// every syntax tree, rather than retaining every syntax tree until the suite ends.
 			const markup =
 				// biome-ignore lint/performance/noAwaitInLoops: Sequential rendering bounds syntax-tree memory on the CI runner.
 				extension === ".md" ? (await markdown.render(text)).code : text;
