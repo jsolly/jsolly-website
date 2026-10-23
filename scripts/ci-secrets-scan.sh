@@ -2,11 +2,19 @@
 ((BASH_VERSINFO[0] >= 5)) || { echo "✗ $0 requires Bash >= 5, not $BASH_VERSION. Fix: brew install bash; open a fresh shell and rerun repository setup." >&2; exit 1; }
 set -eo pipefail
 
+case "$(uname -s):$(uname -m)" in
+  Linux:aarch64|Linux:arm64)
+    platform=linux_arm64 digest=574a6d52573c61173add7ddb5e3cc68c0e82cb0735818a1eeb9a0a2de1643fbc ;;
+  Darwin:arm64)
+    platform=darwin_arm64 digest=90d13686937ac7429b97a3acbf1e1d0ce90d92ae2d0cf46a690bd8ae5230bea0 ;;
+  *) echo "Unsupported CI secrets-scan host: $(uname -s):$(uname -m)" >&2; exit 1 ;;
+esac
 tmp=$(mktemp -d)
+trap 'rm -rf "$tmp"' EXIT
 curl --fail --location --silent --show-error \
-  https://github.com/gitleaks/gitleaks/releases/download/v8.24.2/gitleaks_8.24.2_linux_arm64.tar.gz \
+  "https://github.com/gitleaks/gitleaks/releases/download/v8.24.2/gitleaks_8.24.2_$platform.tar.gz" \
   --output "$tmp/gitleaks.tar.gz"
-echo "574a6d52573c61173add7ddb5e3cc68c0e82cb0735818a1eeb9a0a2de1643fbc  $tmp/gitleaks.tar.gz" | sha256sum --check
+echo "$digest  $tmp/gitleaks.tar.gz" | shasum -a 256 --check
 tar -xzf "$tmp/gitleaks.tar.gz" -C "$tmp"
 sudo install -m 755 "$tmp/gitleaks" /usr/local/bin/gitleaks
 if [[ "$GITHUB_REF" != refs/heads/main ]]; then
