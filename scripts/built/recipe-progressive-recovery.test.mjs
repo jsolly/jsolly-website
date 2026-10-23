@@ -277,15 +277,19 @@ it("Shuffle supersedes a pending filter refresh and retains the selected filter"
 	const downloaded = new Promise((resolve) => {
 		complete = resolve;
 	});
-	page.on("response", async (response) => {
+	const initialResponse = async (response) => {
 		if (
 			new URL(response.url()).pathname !== "/api/recipe-browse/" ||
 			!response.ok()
 		)
 			return;
 		const result = await response.json();
-		if (!result.nextPage) complete();
-	});
+		if (!result.nextPage) {
+			page.off("response", initialResponse);
+			complete();
+		}
+	};
+	page.on("response", initialResponse);
 	let release;
 	const held = new Promise((resolve) => {
 		release = resolve;
@@ -344,6 +348,7 @@ it("Shuffle supersedes a pending filter refresh and retains the selected filter"
 			0,
 		);
 	} finally {
+		page.off("response", initialResponse);
 		release();
 		await context.close();
 	}

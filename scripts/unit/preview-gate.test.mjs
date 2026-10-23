@@ -120,7 +120,7 @@ async function fixture(t) {
 			cwd: root,
 			env: { ...env, ...overrides },
 		});
-	return { root, bin, hook, calls: () => readFile(receipt, "utf8") };
+	return { root, bin, hook, env, calls: () => readFile(receipt, "utf8") };
 }
 
 it("preview hook runs bootstrap and quick checks, without the full build/browser suite", async (t) => {
@@ -237,4 +237,78 @@ it("failed CI browser setup fails the full gate without starting browser-depende
 	assert.ok(calls.includes("npm test\n"));
 	assert.ok(!calls.includes("npm run smoke:scenario-contract\n"));
 	assert.ok(!calls.includes("npm run test:built\n"));
+});
+
+async function preparationFixture(t) {
+	const f = await browserSetupFixture(t);
+	const probe = path.join(f.root, "scripts/preparation-probe.mjs");
+	await writeFile(
+		probe,
+		`import {runPreparation} from './run-gate.mjs'; await runPreparation(new URL('..', import.meta.url).pathname);`,
+	);
+	return {
+		...f,
+		prepare: (overrides) =>
+			run(process.execPath, [probe], {
+				cwd: f.root,
+				env: { ...f.env, JSOLLY_INSTALL_BROWSER: "1", ...overrides },
+			}),
+	};
+}
+
+it("CI preparation retains independent checks and browser readiness without accepting built coverage", async (t) => {
+	const f = await preparationFixture(t);
+	await f.prepare();
+	const calls = await f.calls();
+	assert.ok(calls.includes("npm run build\n"));
+	assert.ok(calls.includes("npm test\n"));
+	assert.ok(calls.includes("npm run test:python\n"));
+	assert.ok(calls.includes("npm run smoke:scenario-contract\n"));
+	assert.ok(!calls.includes("npm run test:built\n"));
+});
+
+it("CI preparation fails browser provisioning without starting smoke contracts", async (t) => {
+	const f = await preparationFixture(t);
+	await assert.rejects(f.prepare({ FAIL_BROWSER: "1" }));
+	assert.ok(!(await f.calls()).includes("npm run smoke:scenario-contract\n"));
+});
+
+it("CI preparation rejects source mutation after all private checks settle", async (t) => {
+	const f = await preparationFixture(t);
+	const npm = path.join(f.bin, "npm");
+	await writeFile(
+		npm,
+		(await readFile(npm, "utf8")) +
+			`\nif(command === "run build")fs.appendFileSync("src/components/Example.svelte", "changed");\n`,
+	);
+	await assert.rejects(f.prepare(), (error) =>
+		error.stderr.includes("changed"),
+	);
+});
+
+it("CI preparation shell refuses runtime-check failures before executing its partial scheduler", async (t) => {
+	const f = await fixture(t);
+	await copyFile(
+		path.join(project, "scripts/ci-prepare.sh"),
+		path.join(f.root, "scripts/ci-prepare.sh"),
+	);
+	await writeFile(
+		path.join(f.root, "scripts/ci-gate.mjs"),
+		"throw Error('scheduler must not start');",
+	);
+	for (const failing of ["gate_check_bash_floor", "gate_require_node"]) {
+		// biome-ignore lint/performance/noAwaitInLoops: Each runtime failure replaces the same isolated shell fixture.
+		await writeFile(
+			path.join(f.root, "gate/gate-lib.sh"),
+			`run_step() { shift; "$@"; }\ngate_check_bash_floor() { :; }\ngate_require_node() { :; }\n${failing}() { return 23; }\n`,
+		);
+		await assert.rejects(
+			run("bash", [path.join(f.root, "scripts/ci-prepare.sh")], {
+				cwd: f.root,
+				env: f.env,
+			}),
+			(error) =>
+				error.code === 23 && !error.stderr.includes("scheduler must not start"),
+		);
+	}
 });

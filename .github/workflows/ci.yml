@@ -41,21 +41,7 @@ permissions:
   pull-requests: read
 
 jobs:
-  # Dependabot PRs skip until a provenanced optimize-workspaces drain applies
-  # `ow-ci`. Only that `labeled` event runs CI, so a later Dependabot push
-  # defers again until the drain re-kicks the new head. Deferred jobs use
-  # name `ci-deferred` so a skipped required `ci` check cannot look green.
-  ci:
-    name: >-
-      ${{ ((github.event_name != 'pull_request' ||
-      (github.event.action != 'labeled' && github.event.pull_request.user.login != 'dependabot[bot]') ||
-      (github.event.action == 'labeled' && github.event.label.name == 'ow-ci')) &&
-      !(github.event_name == 'pull_request' &&
-      github.event.pull_request.draft &&
-      github.event.pull_request.head.repo.full_name == github.repository &&
-      github.event.pull_request.user.type == 'User' &&
-      github.event.pull_request.user.login != 'dependabot[bot]' &&
-      contains(github.event.pull_request.labels.*.name, 'preview'))) && 'ci' || 'ci-deferred' }}
+  prepare:
     if: >-
       ((github.event_name != 'pull_request' ||
       (github.event.action != 'labeled' && github.event.pull_request.user.login != 'dependabot[bot]') ||
@@ -67,11 +53,15 @@ jobs:
       github.event.pull_request.user.login != 'dependabot[bot]' &&
       contains(github.event.pull_request.labels.*.name, 'preview')))
     runs-on: ubuntu-24.04-arm
+    outputs:
+      tree: ${{ steps.verified-tree.outputs.tree }}
+      run_full: ${{ steps.verified-tree.outputs.run_full || 'true' }}
     steps:
       # Keep full history: Secrets scan (range) below scans a commit range, not just the checked-out tree.
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
+          persist-credentials: false
       # Nothing but the checkout runs before the scan: an earlier step could rewrite the git config,
       # PATH, or environment the scan reads history with.
       - name: Secrets scan (range)
@@ -87,7 +77,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: bash scripts/ci-verified-tree.sh
       - uses: actions/setup-node@v6
-        if: steps.verified-tree.outputs.run_full != 'false'
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -112,10 +101,10 @@ jobs:
           path: |
             ${{ runner.temp }}/node-compile-cache
             node_modules/.vite/vitest/**/results.json
-          key: ci-runtime-v2-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ci-runtime-v5-prepare-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
-            ci-runtime-v2-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-
-      - name: Run complete repository gate
+            ci-runtime-v5-prepare-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-
+      - name: Run repository preparation
         if: steps.verified-tree.outputs.run_full != 'false'
         env:
           JSOLLY_INSTALL_BROWSER: "1"
@@ -125,22 +114,187 @@ jobs:
         run: |
           mkdir -p "$TEST_FILE_TIMINGS_DIR"
           echo "checkout=$(git rev-parse HEAD) tree=$(git rev-parse 'HEAD^{tree}')" | tee "$TEST_FILE_TIMINGS_DIR/source.txt"
-          npm run gate
+          bash scripts/ci-prepare.sh
       - name: Preserve test file timings
         if: always() && steps.verified-tree.outputs.run_full != 'false'
         uses: actions/upload-artifact@v7
         with:
-          name: test-file-timings-${{ github.run_attempt }}
+          name: test-file-timings-prepare-${{ github.run_attempt }}
           path: ${{ runner.temp }}/test-file-timings
           if-no-files-found: warn
           retention-days: 14
-      - name: Record validated PR tree
-        if: >-
-          success() && github.event_name == 'pull_request' &&
-          steps.verified-tree.outputs.tree != ''
+      - name: Preserve immutable build output
+        if: success() && steps.verified-tree.outputs.run_full != 'false'
         uses: actions/upload-artifact@v7
         with:
-          name: ci-tree-v1-${{ github.job }}-${{ steps.verified-tree.outputs.tree }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/ci-tree-${{ github.job }}.txt
+          name: ci-build-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/ci-build/manifest.json
+            ${{ runner.temp }}/ci-build/build.json.gz
+          if-no-files-found: error
+          retention-days: 1
+          compression-level: 0
+      - name: Preserve coverage manifest
+        if: success() && steps.verified-tree.outputs.run_full != 'false'
+        uses: actions/upload-artifact@v7
+        with:
+          name: ci-manifest-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ci-build/manifest.json
+          if-no-files-found: error
+          retention-days: 1
+      - name: Record authoritative preparation decision
+        env:
+          RUN_FULL: ${{ steps.verified-tree.outputs.run_full || 'true' }}
+        run: node scripts/ci-gate.mjs record-preparation "$RUN_FULL"
+      - name: Preserve preparation decision
+        uses: actions/upload-artifact@v7
+        with:
+          name: ci-preparation-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ci-build/preparation.json
+          if-no-files-found: error
+          retention-days: 1
+
+  built:
+    if: >-
+      ((github.event_name != 'pull_request' ||
+      (github.event.action != 'labeled' && github.event.pull_request.user.login != 'dependabot[bot]') ||
+      (github.event.action == 'labeled' && github.event.label.name == 'ow-ci')) &&
+      !(github.event_name == 'pull_request' &&
+      github.event.pull_request.draft &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.user.type == 'User' &&
+      github.event.pull_request.user.login != 'dependabot[bot]' &&
+      contains(github.event.pull_request.labels.*.name, 'preview')))
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2]
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Secrets scan (range)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/ci-secrets-scan.sh
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Restore compilation and test-order metadata
+        if: >-
+          github.ref == 'refs/heads/main' ||
+          (github.event_name == 'pull_request' &&
+          github.event.pull_request.head.repo.full_name == github.repository &&
+          github.event.pull_request.user.login == github.repository_owner)
+        uses: actions/cache@v5
+        with:
+          path: |
+            ${{ runner.temp }}/node-compile-cache
+            node_modules/.vite/vitest/**/results.json
+          key: ci-runtime-v5-built-${{ matrix.shard }}-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ci-runtime-v5-built-${{ matrix.shard }}-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-
+      - run: npx --no-install playwright install --with-deps --only-shell chromium
+      - name: Await successful preparation from this attempt
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/wait-ci-preparation.mjs
+      - uses: actions/download-artifact@v8
+        with:
+          name: ci-preparation-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ci-build
+      - name: Verify authoritative preparation decision
+        id: preparation
+        run: node scripts/ci-gate.mjs select-preparation
+      - uses: actions/download-artifact@v8
+        if: steps.preparation.outputs.run_full == 'true'
+        with:
+          name: ci-build-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ci-build
+      - name: Run built shard
+        if: steps.preparation.outputs.run_full == 'true'
+        env:
+          SHARD: ${{ matrix.shard }}
+          TEST_FILE_TIMINGS: "1"
+          TEST_FILE_TIMINGS_DIR: ${{ runner.temp }}/test-file-timings
+          NODE_COMPILE_CACHE: ${{ runner.temp }}/node-compile-cache
+        run: node scripts/ci-gate.mjs shard "$SHARD"
+      - name: Preserve shard evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: ci-built-${{ matrix.shard }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ci-report-${{ matrix.shard }}
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Preserve test file timings
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: test-file-timings-built-${{ matrix.shard }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/test-file-timings
+          if-no-files-found: warn
+          retention-days: 14
+
+  ci:
+    name: >-
+      ${{ ((github.event_name != 'pull_request' ||
+      (github.event.action != 'labeled' && github.event.pull_request.user.login != 'dependabot[bot]') ||
+      (github.event.action == 'labeled' && github.event.label.name == 'ow-ci')) &&
+      !(github.event_name == 'pull_request' &&
+      github.event.pull_request.draft &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.user.type == 'User' &&
+      github.event.pull_request.user.login != 'dependabot[bot]' &&
+      contains(github.event.pull_request.labels.*.name, 'preview'))) && 'ci' || 'ci-deferred' }}
+    if: >-
+      always() && ((github.event_name != 'pull_request' ||
+      (github.event.action != 'labeled' && github.event.pull_request.user.login != 'dependabot[bot]') ||
+      (github.event.action == 'labeled' && github.event.label.name == 'ow-ci')) &&
+      !(github.event_name == 'pull_request' &&
+      github.event.pull_request.draft &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.user.type == 'User' &&
+      github.event.pull_request.user.login != 'dependabot[bot]' &&
+      contains(github.event.pull_request.labels.*.name, 'preview')))
+    needs: [prepare, built]
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Secrets scan (range)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/ci-secrets-scan.sh
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          package-manager-cache: false
+      - uses: actions/download-artifact@v8
+        if: needs.prepare.outputs.run_full != 'false' && needs.prepare.result == 'success' && needs.built.result == 'success'
+        with:
+          name: ci-manifest-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ci-build
+      - uses: actions/download-artifact@v8
+        if: needs.prepare.outputs.run_full != 'false' && needs.prepare.result == 'success' && needs.built.result == 'success'
+        with:
+          pattern: ci-built-*-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ci-reports
+      - name: Validate complete coverage or protected tree reuse
+        env:
+          CI_NEEDS: ${{ toJSON(needs) }}
+        run: node scripts/ci-gate.mjs aggregate
+      - name: Record validated PR tree
+        if: success() && github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v7
+        with:
+          name: ci-tree-v1-ci-${{ needs.prepare.outputs.tree }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ci-tree-ci.txt
           if-no-files-found: error
           retention-days: 7
