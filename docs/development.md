@@ -30,10 +30,10 @@ that the gate ran. No setup command deploys the application or infrastructure.
 
 ## Test file timings
 
-CI runs one `ci` job on the Ubuntu 24.04 ARM runner. Built test files
-use four isolated fork workers; pure unit tests use two workers to leave CPU for
+CI runs preparation, two built shards and the required aggregate `ci` on
+Ubuntu 24.04 ARM runners. Built test files use four isolated fork workers per shard; pure unit tests use two workers to leave CPU for
 types and build. Cases within a built file remain sequential. Measure the
-whole job as well as the gate when comparing runner or scheduling changes.
+whole workflow as well as each job and the local gate when comparing scheduling changes.
 
 CI restores Node compilation caches and Vitest's file-duration metadata for the
 same OS, architecture, Node major and dependency lock. Executable bytecode needs
@@ -79,7 +79,8 @@ after its tests and `afterAll` hooks. It includes imports and hooks, excludes
 worker startup and environment preparation, and is not summed testcase time.
 `collect_ms` and `tests_hooks_ms` expose Vitest's corresponding diagnostics.
 Parallel file durations overlap; do not add them to estimate the gate duration.
-The `test-file-timings` artifact retains JSONL rows and the checkout SHA/tree,
+The `test-file-timings-prepare` and per-shard timing artifacts retain JSONL rows;
+preparation also records the checkout SHA/tree,
 even when validation fails. Each runner writes its own file, including CSP
 runs nested inside built tests. The gate suppresses successful step output,
 so the artifact is the durable record.
@@ -122,6 +123,38 @@ PWA builds reuse immutable asset bytes and digests within one invocation. Each
 rebuild reads fresh bytes, and every test file retains its independent A/B/C builds.
 The update suite also checks that live API requests leave a stopped worker asleep
 and that workers still install and serve offline data without static routing.
+
+## Hosted preparation and built shards
+
+Local `npm run gate` still runs every check and the entire counted built suite.
+Hosted CI runs four jobs: preparation, two built-test shards, and the required
+`ci` check. Preparation uses the same isolated scheduler for static checks,
+types, units, Python fixtures, smoke contracts and build/CSP. Its shell enforces
+the same Bash and Node checks. Chromium readiness still gates smoke contracts,
+and the source/index fingerprint must stay unchanged.
+
+Preparation records Vitest's complete built-file discovery and the source ledger.
+It transfers only generated `dist/`, `.recipe-browse/` and the route manifest in
+a compressed JSON bundle with source SHA/tree, run/attempt and file digests. Each
+shard verifies that identity and every byte before restoring generated files into
+its separate checkout. Symlinks, path escapes and source/dependency overlays fail.
+Each job owns its dependencies, browser fixtures and mutable caches.
+
+Both built shards retain four fork workers and every existing scenario/deadline.
+The final `ci` job executes even when dependencies fail or cancel. It requires
+successful preparation and both shards, matching identities, disjoint file sets
+whose union exactly equals discovery, and actual passing assertions matching the
+single built-suite ledger. Skipped, todo, missing, extra and duplicate evidence
+fail. Only this successful aggregate publishes the protected `ci-tree-v1-ci`
+proof. Deferrals retain `ci-deferred`; main reuse requires the existing protected
+identical-tree proof and explicitly names reused validation. No ruleset changes.
+
+Measure the complete workflow through all jobs, not the aggregate's short runtime.
+Report initial and restored-cache full runs separately, including runner wait.
+Rerun the whole workflow, starting at preparation. A built-only retry cannot
+consume an earlier attempt's bundle because every handoff is attempt-bound.
+Compilation/order cache keys are separate for preparation and each built shard;
+the existing main/owner-only producer trust rule applies to every cache.
 
 ## Hook trust
 

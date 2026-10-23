@@ -226,8 +226,18 @@ it("the recipe dialog follows the browser history: Back to recipes returns to it
 		});
 		await setHash("#strawberry-banana-smoothie");
 		await section("strawberry-banana-smoothie").waitFor();
+		// This history case expects focus on the existing return card. Pending
+		// collection loading has its own heading-fallback case below.
+		await page
+			.locator('a.title-button[data-recipe-id="strawberry-banana-smoothie"]')
+			.waitFor({ state: "attached" });
 		await page.getByRole("button", { name: "← Back to recipes" }).click();
 		await takeover.waitFor({ state: "detached" });
+		await page.waitForFunction(() =>
+			document.activeElement?.matches(
+				'a.title-button[data-recipe-id="strawberry-banana-smoothie"]',
+			),
+		);
 		const back = await page.evaluate(() => ({
 			hash: window.location.hash,
 			focused: document.activeElement?.matches(
@@ -593,6 +603,65 @@ it("a cross-collection hash opens one recipe, browser-menu printing prepares it,
 		assert.deepEqual(await printedTitles(page), []);
 		assert.deepEqual(errors, []);
 	} finally {
+		await close();
+	}
+});
+
+it("Back from a legacy recipe focuses the results heading while its card batch is pending", {
+	timeout: 30_000,
+}, async () => {
+	const { page, errors, close } = await openPage();
+	let release;
+	const held = new Promise((resolve) => {
+		release = resolve;
+	});
+	let started;
+	const waiting = new Promise((resolve) => {
+		started = resolve;
+	});
+	try {
+		await goHydrated(page, "/recipes/");
+		await page.route("**/api/recipe-browse/?**", async (route) => {
+			const query = new URL(route.request().url()).searchParams;
+			if (
+				query.get("path") === "/recipes/smoothies/" &&
+				query.get("page") === "1"
+			) {
+				started();
+				await held;
+			}
+			await route.continue();
+		});
+		await page.evaluate(() => {
+			location.hash = "#strawberry-banana-smoothie";
+		});
+		await page
+			.locator(".recipe-takeover section#strawberry-banana-smoothie")
+			.waitFor();
+		await waiting;
+		const card = page.locator(
+			'a.title-button[data-recipe-id="strawberry-banana-smoothie"]',
+		);
+		assert.equal(await card.count(), 0);
+		await page.getByRole("button", { name: "← Back to recipes" }).click();
+		await page.locator(".recipe-takeover").waitFor({ state: "detached" });
+		await page.waitForFunction(
+			() =>
+				document.activeElement === document.querySelector("#meal-results h2"),
+		);
+		assert.equal(await page.evaluate(() => location.hash), "#meal-results");
+		release();
+		await card.waitFor({ state: "attached" });
+		assert.equal(
+			await page
+				.locator("#meal-results h2")
+				.evaluate((node) => node === document.activeElement),
+			true,
+		);
+		assert.deepEqual(errors, []);
+	} finally {
+		release();
+		await page.unrouteAll({ behavior: "wait" });
 		await close();
 	}
 });

@@ -82,6 +82,7 @@ unpack actionlint "$actionlint_digest" \
 # ShellCheck starts (rhysd/actionlint#650). Check their extracted files directly;
 # actionlint still checks every workflow and every remaining inline script.
 "$SHELLCHECK" --norc --shell bash \
-  scripts/ci-secrets-scan.sh scripts/vercel-preview-resolve.sh scripts/vercel-preview-deploy.sh
+  scripts/ci-secrets-scan.sh scripts/ci-prepare.sh scripts/ci-verified-tree.sh \
+  scripts/vercel-preview-resolve.sh scripts/vercel-preview-deploy.sh
 # No file arguments: actionlint lints every .yml and .yaml workflow under .github/workflows.
 "$work/actionlint/actionlint" -shellcheck "$SHELLCHECK" -pyflakes=

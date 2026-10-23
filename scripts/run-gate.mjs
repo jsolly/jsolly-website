@@ -164,7 +164,7 @@ export async function runChains(
 	if (signal?.aborted) throw new Error("Gate cancelled");
 }
 
-export async function runGate(root) {
+async function runValidation(root, built) {
 	const source = await snapshot(root);
 	const scratch = await fs.mkdtemp(join(tmpdir(), "jsolly-gate-"));
 	const controller = new AbortController();
@@ -221,12 +221,13 @@ export async function runGate(root) {
 		for (const phase of work) {
 			if (phase.name === "smoke") phase.ready = browserReady;
 		}
-		work.push({
-			name: "built",
-			cwd: root,
-			commands: [buildCommands[1]],
-			ready: Promise.all([browserReady, buildReady]),
-		});
+		if (built)
+			work.push({
+				name: "built",
+				cwd: root,
+				commands: [buildCommands[1]],
+				ready: Promise.all([browserReady, buildReady]),
+			});
 		const checks = runChains(work, scratch, options);
 		const results = await Promise.allSettled([
 			browserReady,
@@ -247,6 +248,16 @@ export async function runGate(root) {
 		// leave dist/, .recipe-browse/ and generated route/types in their normal owner.
 		if (passed) await fs.rm(scratch, { recursive: true, force: true });
 	}
+}
+
+// Only this explicit CI entrypoint omits the built phase. The ordinary gate
+// has no argument or environment shortcut that can accept partial validation.
+export async function runPreparation(root) {
+	await runValidation(root, false);
+}
+
+export async function runGate(root) {
+	await runValidation(root, true);
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

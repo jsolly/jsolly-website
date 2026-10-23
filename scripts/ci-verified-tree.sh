@@ -8,7 +8,7 @@ set -euo pipefail
 tree=$(git rev-parse 'HEAD^{tree}')
 [[ "$tree" =~ ^[0-9a-f]{40}$ ]]
 printf 'tree=%s\n' "$tree" >> "$GITHUB_OUTPUT"
-printf '%s\n' "$tree" > "$RUNNER_TEMP/ci-tree-$GITHUB_JOB.txt"
+printf '%s\n' "$tree" > "$RUNNER_TEMP/ci-tree-ci.txt"
 
 verified_run() {
   [[ "$GITHUB_EVENT_NAME" == push ]] || return 1
@@ -42,7 +42,7 @@ verified_run() {
   run_id=$(jq -er '.id' <<< "$candidate") || return 1
   attempt=$(jq -er '.run_attempt' <<< "$candidate") || return 1
   [[ "$run_id" =~ ^[0-9]+$ && "$attempt" =~ ^[1-9][0-9]*$ ]] || return 1
-  expected="ci-tree-v1-$GITHUB_JOB-$tree-$attempt"
+  expected="ci-tree-v1-ci-$tree-$attempt"
   artifacts=$(gh api "repos/$repo/actions/runs/$run_id/artifacts?per_page=100") || return 1
   jq -e --arg name "$expected" '
     [.artifacts[] | select(.name == $name and .expired == false)] | length == 1
