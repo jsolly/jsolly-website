@@ -77,7 +77,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: bash scripts/ci-verified-tree.sh
       - uses: actions/setup-node@v6
-        if: steps.verified-tree.outputs.run_full != 'false'
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -102,9 +101,9 @@ jobs:
           path: |
             ${{ runner.temp }}/node-compile-cache
             node_modules/.vite/vitest/**/results.json
-          key: ci-runtime-v4-prepare-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ci-runtime-v5-prepare-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
-            ci-runtime-v4-prepare-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-
+            ci-runtime-v5-prepare-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-
       - name: Run repository preparation
         if: steps.verified-tree.outputs.run_full != 'false'
         env:
@@ -143,10 +142,29 @@ jobs:
           path: ${{ runner.temp }}/ci-build/manifest.json
           if-no-files-found: error
           retention-days: 1
+      - name: Record authoritative preparation decision
+        env:
+          RUN_FULL: ${{ steps.verified-tree.outputs.run_full || 'true' }}
+        run: node scripts/ci-gate.mjs record-preparation "$RUN_FULL"
+      - name: Preserve preparation decision
+        uses: actions/upload-artifact@v7
+        with:
+          name: ci-preparation-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ci-build/preparation.json
+          if-no-files-found: error
+          retention-days: 1
 
   built:
-    needs: prepare
-    if: needs.prepare.result == 'success' && needs.prepare.outputs.run_full != 'false'
+    if: >-
+      ((github.event_name != 'pull_request' ||
+      (github.event.action != 'labeled' && github.event.pull_request.user.login != 'dependabot[bot]') ||
+      (github.event.action == 'labeled' && github.event.label.name == 'ow-ci')) &&
+      !(github.event_name == 'pull_request' &&
+      github.event.pull_request.draft &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.user.type == 'User' &&
+      github.event.pull_request.user.login != 'dependabot[bot]' &&
+      contains(github.event.pull_request.labels.*.name, 'preview')))
     strategy:
       fail-fast: false
       matrix:
@@ -177,15 +195,28 @@ jobs:
           path: |
             ${{ runner.temp }}/node-compile-cache
             node_modules/.vite/vitest/**/results.json
-          key: ci-runtime-v4-built-${{ matrix.shard }}-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ci-runtime-v5-built-${{ matrix.shard }}-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
-            ci-runtime-v4-built-${{ matrix.shard }}-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-
+            ci-runtime-v5-built-${{ matrix.shard }}-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-
+      - run: npx --no-install playwright install --with-deps --only-shell chromium
+      - name: Await successful preparation from this attempt
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/wait-ci-preparation.mjs
       - uses: actions/download-artifact@v8
+        with:
+          name: ci-preparation-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ci-build
+      - name: Verify authoritative preparation decision
+        id: preparation
+        run: node scripts/ci-gate.mjs select-preparation
+      - uses: actions/download-artifact@v8
+        if: steps.preparation.outputs.run_full == 'true'
         with:
           name: ci-build-${{ github.run_attempt }}
           path: ${{ runner.temp }}/ci-build
-      - run: npx --no-install playwright install --with-deps --only-shell chromium
       - name: Run built shard
+        if: steps.preparation.outputs.run_full == 'true'
         env:
           SHARD: ${{ matrix.shard }}
           TEST_FILE_TIMINGS: "1"

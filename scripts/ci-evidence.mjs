@@ -45,6 +45,26 @@ export function identity(root, env = process.env) {
 	return result;
 }
 
+// Preparation is the only owner of the full/reuse choice. Consumers must bind
+// that choice to their exact checkout and current workflow attempt.
+export function verifyPreparation(result, expected, env = process.env) {
+	assert.deepEqual(
+		result.identity,
+		expected,
+		"Wrong preparation SHA/tree/run/attempt",
+	);
+	assert.ok(
+		["full", "reuse"].includes(result.mode),
+		"Invalid preparation mode",
+	);
+	if (result.mode === "reuse")
+		assert.ok(
+			env.GITHUB_EVENT_NAME === "push" && env.GITHUB_REF === "refs/heads/main",
+			"Unproven PR reuse",
+		);
+	return result.mode;
+}
+
 export function verifyManifest(manifest, expected) {
 	assert.deepEqual(manifest.identity, expected, "Wrong SHA/tree/run/attempt");
 	assert.ok(

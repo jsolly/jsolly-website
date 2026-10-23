@@ -10,6 +10,7 @@ import {
 	identity,
 	relativeReport,
 	restoreBundle,
+	verifyPreparation,
 	writeBundle,
 } from "./ci-evidence.mjs";
 import { assertUnchanged, snapshot } from "./gate-snapshot.mjs";
@@ -42,8 +43,8 @@ export function validationMode(needs, env) {
 		);
 		assert.equal(
 			needs.built.result,
-			"skipped",
-			"Unexpected jobs in protected reuse",
+			"success",
+			"Built jobs failed to verify preparation in protected reuse",
 		);
 		return "reuse";
 	}
@@ -65,7 +66,31 @@ async function main(mode, argument) {
 	const directory =
 		process.env.CI_BUILD_DIR ?? join(process.env.RUNNER_TEMP, "ci-build");
 	assert.ok(directory, "CI_BUILD_DIR required");
-	if (mode === "prepare") {
+	if (mode === "record-preparation") {
+		assert.ok(
+			["true", "false"].includes(argument),
+			"Missing preparation decision",
+		);
+		const result = {
+			identity: id,
+			mode: argument === "true" ? "full" : "reuse",
+		};
+		verifyPreparation(result, id);
+		fs.mkdirSync(directory, { recursive: true });
+		fs.writeFileSync(
+			join(directory, "preparation.json"),
+			JSON.stringify(result),
+		);
+	} else if (mode === "select-preparation") {
+		const result = JSON.parse(
+			fs.readFileSync(join(directory, "preparation.json"), "utf8"),
+		);
+		const selected = verifyPreparation(result, id);
+		fs.appendFileSync(
+			process.env.GITHUB_OUTPUT,
+			`run_full=${selected === "full"}\n`,
+		);
+	} else if (mode === "prepare") {
 		const source = await snapshot(ROOT);
 		await runPreparation(ROOT);
 		fs.mkdirSync(directory, { recursive: true });

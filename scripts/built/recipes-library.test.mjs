@@ -41,8 +41,9 @@ after(async () => {
 
 // A fresh 1280px context; `initScript` runs before the page's own scripts.
 // Resolves to { page, errors, close }.
-async function openPage({ initScript, arg } = {}) {
+async function openPage({ initScript, arg, serviceWorkers = "allow" } = {}) {
 	const context = await browser.newContext({
+		serviceWorkers,
 		viewport: { width: 1280, height: 900 },
 		reducedMotion: "reduce",
 	});
@@ -609,8 +610,13 @@ it("a cross-collection hash opens one recipe, browser-menu printing prepares it,
 
 it("Back from a legacy recipe focuses the results heading while its card batch is pending", {
 	timeout: 30_000,
-}, async () => {
-	const { page, errors, close } = await openPage();
+}, async (t) => {
+	// This fixture owns API interception; worker lifecycle has separate coverage.
+	const { page, errors, close } = await openPage({ serviceWorkers: "block" });
+	let stage = "initial hydration";
+	t.onTestFailed(() =>
+		console.error(`Held browse fixture failed during ${stage}`),
+	);
 	let release;
 	const held = new Promise((resolve) => {
 		release = resolve;
@@ -632,24 +638,29 @@ it("Back from a legacy recipe focuses the results heading while its card batch i
 			}
 			await route.continue();
 		});
+		stage = "opening legacy recipe";
 		await page.evaluate(() => {
 			location.hash = "#strawberry-banana-smoothie";
 		});
 		await page
 			.locator(".recipe-takeover section#strawberry-banana-smoothie")
 			.waitFor();
+		stage = "waiting for intercepted batch";
 		await waiting;
 		const card = page.locator(
 			'a.title-button[data-recipe-id="strawberry-banana-smoothie"]',
 		);
 		assert.equal(await card.count(), 0);
+		stage = "closing recipe dialog";
 		await page.getByRole("button", { name: "← Back to recipes" }).click();
 		await page.locator(".recipe-takeover").waitFor({ state: "detached" });
+		stage = "heading focus before response";
 		await page.waitForFunction(
 			() =>
 				document.activeElement === document.querySelector("#meal-results h2"),
 		);
 		assert.equal(await page.evaluate(() => location.hash), "#meal-results");
+		stage = "loading released card batch";
 		release();
 		await card.waitFor({ state: "attached" });
 		assert.equal(

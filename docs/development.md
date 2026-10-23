@@ -140,6 +140,15 @@ shard verifies that identity and every byte before restoring generated files int
 its separate checkout. Symlinks, path escapes and source/dependency overlays fail.
 Each job owns its dependencies, browser fixtures and mutable caches.
 
+Shard runners provision their separate dependencies and the same Chromium/OS
+support while preparation runs. A bounded read-only API waiter requires the unique
+successful preparation job from this run/attempt, using the event head SHA (which
+can differ from the PR merge checkout). Each runner then verifies preparation's
+single authoritative full/reuse result against its checkout SHA/tree/run/attempt.
+The existing artifact verifier remains the build-output boundary. A failed,
+cancelled, skipped, ambiguous or stale preparation never starts tests. Protected
+main reuse skips validation steps inside successful jobs that verified that result.
+
 Both built shards retain four fork workers and every existing scenario/deadline.
 The CI-only Vitest sequencer assigns all discovered files to the least-loaded
 shard by measured file cost, then starts expensive files first. Cost hints in
@@ -157,8 +166,9 @@ identical-tree proof and explicitly names reused validation. No ruleset changes.
 
 Measure the complete workflow through all jobs, not the aggregate's short runtime.
 Report initial and restored-cache full runs separately, including runner wait.
-Rerun the whole workflow, starting at preparation. A built-only retry cannot
-consume an earlier attempt's bundle because every handoff is attempt-bound.
+Use **Re-run all jobs** for the whole workflow. Preparation-only or built-only
+retries cannot produce a complete current-attempt result because every handoff
+is attempt-bound.
 Compilation/order cache keys are separate for preparation and each built shard;
 the existing main/owner-only producer trust rule applies to every cache.
 

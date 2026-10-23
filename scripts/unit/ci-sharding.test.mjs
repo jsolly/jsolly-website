@@ -7,7 +7,12 @@ import { join } from "node:path";
 import { gunzipSync, gzipSync } from "node:zlib";
 import { it } from "vitest";
 import { parse } from "yaml";
-import { aggregate, restoreBundle, writeBundle } from "../ci-evidence.mjs";
+import {
+	aggregate,
+	restoreBundle,
+	verifyPreparation,
+	writeBundle,
+} from "../ci-evidence.mjs";
 import { validationMode } from "../ci-gate.mjs";
 
 const id = {
@@ -138,7 +143,7 @@ it("requires successful jobs and restricts protected reuse to main pushes", () =
 		}
 	const reuse = {
 		prepare: { result: "success", outputs: { run_full: "false" } },
-		built: { result: "skipped" },
+		built: { result: "success" },
 	};
 	assert.throws(() =>
 		validationMode(reuse, {
@@ -192,6 +197,8 @@ it("runs the actual aggregate workflow condition after failures while keeping de
 		},
 	};
 	assert.deepEqual(workflow.jobs.ci.needs, ["prepare", "built"]);
+	assert.equal(workflow.jobs.built.needs, undefined);
+	assert.equal(evaluate(workflow.jobs.built.if, github, {}), true);
 	assert.equal(
 		evaluate(workflow.jobs.ci.if, github, {
 			prepare: { result: "failure" },
@@ -212,6 +219,7 @@ it("runs the actual aggregate workflow condition after failures while keeping de
 		assert.equal(evaluate(workflow.jobs.ci.if, changed, {}), false);
 		assert.equal(evaluate(workflow.jobs.ci.name, changed, {}), "ci-deferred");
 		assert.equal(evaluate(workflow.jobs.prepare.if, changed, {}), false);
+		assert.equal(evaluate(workflow.jobs.built.if, changed, {}), false);
 	}
 });
 it("roundtrips only generated build bytes and replaces stale generated output", (t) => {
@@ -435,4 +443,45 @@ it("the pinned Vitest runner executes complete disjoint real fixture shards", (t
 		expected.sort((left, right) => left.localeCompare(right)),
 	);
 	assert.equal(new Set(lists.flat()).size, expected.length);
+});
+
+it("preparation owns the authoritative full or reuse decision and binds consumers to checkout and attempt", () => {
+	const env = { GITHUB_EVENT_NAME: "push", GITHUB_REF: "refs/heads/main" };
+	for (const mode of ["full", "reuse"])
+		assert.equal(verifyPreparation({ identity: id, mode }, id, env), mode);
+	for (const field of ["sha", "tree", "run", "attempt"])
+		assert.throws(() =>
+			verifyPreparation(
+				{ identity: { ...id, [field]: "stale" }, mode: "full" },
+				id,
+				env,
+			),
+		);
+	assert.throws(() =>
+		verifyPreparation({ identity: id, mode: "unknown" }, id, env),
+	);
+	assert.throws(() =>
+		verifyPreparation({ identity: id, mode: "reuse" }, id, {
+			GITHUB_EVENT_NAME: "pull_request",
+			GITHUB_REF: "refs/pull/163/merge",
+		}),
+	);
+	// Shards have no independent proof decision: both paths consume this record.
+	const workflow = parse(fs.readFileSync(".github/workflows/ci.yml", "utf8"));
+	assert.ok(
+		!workflow.jobs.built.steps.some((step) =>
+			step.run?.includes("ci-verified-tree.sh"),
+		),
+	);
+	const select = workflow.jobs.built.steps.findIndex(
+		(step) => step.id === "preparation",
+	);
+	const execute = workflow.jobs.built.steps.findIndex(
+		(step) => step.name === "Run built shard",
+	);
+	assert.ok(select > 0 && execute > select);
+	assert.equal(
+		workflow.jobs.built.steps[execute].if,
+		"steps.preparation.outputs.run_full == 'true'",
+	);
 });
