@@ -30,7 +30,7 @@ that the gate ran. No setup command deploys the application or infrastructure.
 
 ## Test file timings
 
-CI runs one `ci` job on the standard Ubuntu 24.04 x64 runner. Built test files
+CI runs one `ci` job on the Ubuntu 24.04 ARM runner. Built test files
 use four isolated fork workers; cases within a file remain sequential. Measure the
 whole job as well as the gate when comparing runner or scheduling changes.
 
@@ -40,6 +40,17 @@ cache crosses runs, and changed sources are compiled again. The gate collects
 functional test results and counts, not V8 coverage profiles. Disable this cache
 when separately collecting V8 coverage, as Node documents reduced profiling
 precision for cached functions.
+
+The full gate runs build → CSP → built tests in the original checkout. Its
+`dist/`, `.recipe-browse/` and generated route manifest remain available to local
+preview and deployment consumers. Static checks, types, unit/Python fixtures and
+smoke contracts each run in a private validation tree while that build chain runs.
+Each copy has independent Git metadata, the effective staged index, working-source
+bytes and mutable dependency caches. The scheduler rejects changes to HEAD, the
+index or nonignored source files during validation. All commands and counted suites
+must pass; failures retain diagnostics under the printed `jsolly-gate-*` directory.
+The preview shortcut and gate bootstrap remain unchanged. `gate/gate-lib.sh` is
+unchanged. No previous test results are reused.
 
 CI enables `TEST_FILE_TIMINGS=1` for the complete gate. Each Vitest file emits
 one `TIMING` JSON row with its suite, relative path, state and `wall_ms`.

@@ -24,6 +24,15 @@ async function fixture(t) {
 	const bin = path.join(temp, "bin");
 	await mkdir(path.join(root, ".git-hooks"), { recursive: true });
 	await mkdir(path.join(root, "scripts"));
+	await mkdir(path.join(root, "node_modules"));
+	await Promise.all(
+		["run-gate.mjs", "gate-snapshot.mjs", "gate-processes.mjs"].map((name) =>
+			copyFile(
+				path.join(project, "scripts", name),
+				path.join(root, "scripts", name),
+			),
+		),
+	);
 	await mkdir(path.join(root, "src/components"), { recursive: true });
 	await mkdir(bin);
 	await copyFile(
@@ -92,6 +101,9 @@ async function fixture(t) {
 		"gate/gate-lib.sh",
 		"scripts/repo-python.sh",
 		"scripts/ui-preview-scope.mjs",
+		"scripts/run-gate.mjs",
+		"scripts/gate-snapshot.mjs",
+		"scripts/gate-processes.mjs",
 		"src/components/Example.svelte",
 	);
 	await git("-c", "core.hooksPath=/dev/null", "commit", "-m", "fixture");
