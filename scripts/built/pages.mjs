@@ -4,11 +4,8 @@ import { access, readFile } from "node:fs/promises";
 import { createServer } from "node:http";
 import { extname, join, normalize } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { parseFrontmatter } from "astro/markdown";
 import { globby } from "globby";
-import { JSDOM } from "jsdom";
 import { parse } from "parse5";
-import { parseDocument } from "yaml";
 import { recipeBrowseDestination } from "../../src/lib/recipe-browse-route.mjs";
 
 const ROOT = fileURLToPath(new URL("../..", import.meta.url));
@@ -80,7 +77,8 @@ export async function readBuiltPages(root = DIST) {
 }
 
 // Parses `html` and returns `read(document)`, closing the DOM afterwards.
-function readHtml(html, read) {
+async function readHtml(html, read) {
+	const { JSDOM } = await import("jsdom");
 	const dom = new JSDOM(html);
 	try {
 		return read(dom.window.document);
@@ -269,6 +267,10 @@ export async function stubOffOrigin(context, origin) {
 // publishes (`published`); the schema defaults draft to true. publishedAt and
 // updatedAt are the frontmatter timestamps as Dates.
 export async function allPosts() {
+	const [{ parseFrontmatter }, { parseDocument }] = await Promise.all([
+		import("astro/markdown"),
+		import("yaml"),
+	]);
 	const files = await globby("*.md", { cwd: POSTS });
 	return Promise.all(
 		files.map(async (file) => {

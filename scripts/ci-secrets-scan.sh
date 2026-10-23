@@ -4,9 +4,9 @@ set -eo pipefail
 
 tmp=$(mktemp -d)
 curl --fail --location --silent --show-error \
-  https://github.com/gitleaks/gitleaks/releases/download/v8.24.2/gitleaks_8.24.2_linux_arm64.tar.gz \
+  https://github.com/gitleaks/gitleaks/releases/download/v8.24.2/gitleaks_8.24.2_linux_x64.tar.gz \
   --output "$tmp/gitleaks.tar.gz"
-echo "574a6d52573c61173add7ddb5e3cc68c0e82cb0735818a1eeb9a0a2de1643fbc  $tmp/gitleaks.tar.gz" | sha256sum --check
+echo "fa0500f6b7e41d28791ebc680f5dd9899cd42b58629218a5f041efa899151a8e  $tmp/gitleaks.tar.gz" | sha256sum --check
 tar -xzf "$tmp/gitleaks.tar.gz" -C "$tmp"
 sudo install -m 755 "$tmp/gitleaks" /usr/local/bin/gitleaks
 if [[ "$GITHUB_REF" != refs/heads/main ]]; then

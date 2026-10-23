@@ -30,7 +30,7 @@ that the gate ran. No setup command deploys the application or infrastructure.
 
 ## Test file timings
 
-CI runs one `ci` job on the standard Ubuntu 24.04 ARM runner. Built test files
+CI runs one `ci` job on the standard Ubuntu 24.04 x64 runner. Built test files
 use four isolated fork workers; cases within a file remain sequential. Measure the
 whole job as well as the gate when comparing runner or scheduling changes.
 
@@ -70,6 +70,10 @@ and a later filtered batch at phone and desktop widths. Complete recipe partitio
 and pagination stay in the module/API suites; dedicated browser cases retain
 scrolling, button pagination and focus/recovery. The filter/navigation suite blocks
 service workers; offline/install/update suites exercise real workers separately.
+
+The shared built-test server loads DOM and frontmatter parsers only when a
+caller requests those readers. Browser-only files do not initialize unused
+DOM windows or blog parser dependencies; the readers and assertions stay intact.
 
 CI installs the pinned Chromium headless shell used by every browser test, plus
 its OS dependencies. It omits the unused headed Chromium download.
