@@ -76,6 +76,8 @@ deployment variants its cases use; unused full-site copies are not prepared.
 Smoke contract cases run concurrently in one browser process, with Vitest's
 five-case limit and a fresh context and private stubs per case. Built cases
 remain sequential within each file.
+PWA builds reuse immutable asset bytes and digests within one invocation. Each
+rebuild reads fresh bytes, and every test file retains its independent A/B/C builds.
 The update suite also checks that live API requests leave a stopped worker asleep
 and that workers still install and serve offline data without static routing.
 
@@ -194,3 +196,15 @@ assets/data, user-work confirmation, accessibility at both viewports/themes,
 dismissal/C, metadata failures, request ordering, lifecycle races, retry recovery,
 polling cleanup, rollback/scope isolation, and prior-client migration. Authentication
 is absent on this public site. Do not infer full coverage from a fresh B visit.
+
+Large workflow shell bodies live in `scripts/ci-secrets-scan.sh`,
+`scripts/vercel-preview-resolve.sh` and `scripts/vercel-preview-deploy.sh`.
+The pinned ShellCheck checks these files directly, and actionlint retains every
+workflow and remaining inline-script check. This avoids the pinned release's
+[macOS stdin deadlock](https://github.com/rhysd/actionlint/issues/650).
+Preview tooling still executes from the trusted default-branch checkout.
+
+Knip's Vercel dependency exception belongs to the John-only `vercel-curl`
+transport in `scripts/verify-blogthedata-cutover.mjs`, which resolves
+`node_modules/.bin/vercel` dynamically. Preview deployment uses its own isolated
+pinned CLI, and agents never run the cutover verifier's Vercel transport.

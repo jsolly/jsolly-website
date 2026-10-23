@@ -134,7 +134,7 @@ const fileOf = (root, path) =>
 // the files those name, until nothing new turns up. The worker is never part
 // of its own snapshot: the client script names it, and a copied build may
 // already hold an older one.
-async function collect(root, references, files, dynamic = true) {
+async function collect(root, references, files, readContents, dynamic = true) {
 	const paths = [
 		...new Set(references.map(([value, base]) => sitePath(value, base))),
 	].filter((path) => path && path !== PWA_WORKER_PATH && !files.has(path));
@@ -151,13 +151,17 @@ async function collect(root, references, files, dynamic = true) {
 			!path.endsWith(".woff") || !modernFonts.has(path.replace(FONT_FILE, "")),
 	);
 	const read = await Promise.all(
-		selected.map(async (path) => [path, await readFile(fileOf(root, path))]),
+		selected.map(async (path) => [
+			path,
+			await readContents(fileOf(root, path)),
+		]),
 	);
 	for (const [path, contents] of read) files.set(path, contents);
 	await collect(
 		root,
 		read.flatMap(([path, contents]) => fileReferences(contents, path, dynamic)),
 		files,
+		readContents,
 		dynamic,
 	);
 }
@@ -175,6 +179,18 @@ function digest(contents) {
  * it precaches. Throws when the landing page links no recipe app manifest.
  */
 export async function buildRecipePwa(root) {
+	// A build reads one immutable output tree. Reuse bytes and digests within
+	// this invocation; every rebuild starts fresh, including the same root.
+	const fileContents = new Map();
+	const digests = new WeakMap();
+	function readContents(path) {
+		if (!fileContents.has(path)) fileContents.set(path, readFile(path));
+		return fileContents.get(path);
+	}
+	function describe(bytes) {
+		if (!digests.has(bytes)) digests.set(bytes, digest(bytes));
+		return digests.get(bytes);
+	}
 	// Every file under /recipes/, a page (…/index.html) as its /…/ path.
 	const local = (await globby("**/*", { cwd: join(root, RECIPES_PATH) }))
 		.map((file) => `${RECIPES_PATH}${file.replace(INDEX_FILE, "")}`)
@@ -184,7 +200,10 @@ export async function buildRecipePwa(root) {
 			.filter((path) => path.endsWith("/"))
 			.map(async (page) => ({
 				page,
-				...pageReferences(await readFile(fileOf(root, page), "utf8"), page),
+				...pageReferences(
+					(await readContents(fileOf(root, page))).toString("utf8"),
+					page,
+				),
 			})),
 	);
 	if (!pages.find(({ page }) => page === RECIPES_PATH)?.linksApp) {
@@ -206,6 +225,7 @@ export async function buildRecipePwa(root) {
 				),
 			]),
 		shell,
+		readContents,
 		false,
 	);
 	// Icons are named by the manifest JSON, not an HTML resource attribute.
@@ -215,6 +235,7 @@ export async function buildRecipePwa(root) {
 			.filter((path) => path.startsWith(PWA_FILES_PATH))
 			.map((path) => [path, "/"]),
 		shell,
+		readContents,
 		false,
 	);
 	const offlineApi = await globby("_astro/recipe-offline.*.js", { cwd: root });
@@ -222,6 +243,7 @@ export async function buildRecipePwa(root) {
 		root,
 		offlineApi.map((path) => [`/${path}`, "/"]),
 		shell,
+		readContents,
 		false,
 	);
 	const savedTools = new Map();
@@ -240,6 +262,7 @@ export async function buildRecipePwa(root) {
 			...summaryModules.map((path) => [`/${path}`, "/"]),
 		],
 		savedTools,
+		readContents,
 		true,
 	);
 	const release = JSON.parse(
@@ -254,14 +277,14 @@ export async function buildRecipePwa(root) {
 			assets: [...savedTools.keys()]
 				.filter((path) => !shell.has(path))
 				.sort((a, b) => a.localeCompare(b))
-				.map((path) => [path, digest(savedTools.get(path))]),
+				.map((path) => [path, describe(savedTools.get(path))]),
 		}),
 	);
 	const savedViewPath = "/recipes/data/offline/_saved-view.json";
 	await writeFile(fileOf(root, savedViewPath), savedViewContents);
 	const savedViewManifest = {
 		path: savedViewPath,
-		...digest(savedViewContents),
+		...describe(savedViewContents),
 	};
 	for (const { page, references } of pages) {
 		const id = page.slice(RECIPES_PATH.length, -1);
@@ -274,8 +297,13 @@ export async function buildRecipePwa(root) {
 		const chosen = references.filter(
 			([value]) => !value.startsWith("/recipes/media/") || value === image,
 		);
-		// biome-ignore lint/performance/noAwaitInLoops: bound memory while collecting one independent recipe bundle.
-		await collect(root, [[page, "/"], [packPath, "/"], ...chosen], recipeFiles);
+		// biome-ignore lint/performance/noAwaitInLoops: collect each independent recipe graph before serializing its manifest.
+		await collect(
+			root,
+			[[page, "/"], [packPath, "/"], ...chosen],
+			recipeFiles,
+			readContents,
+		);
 		const manifest = {
 			schemaVersion: 1,
 			id,
@@ -290,12 +318,12 @@ export async function buildRecipePwa(root) {
 			],
 			assets: [...recipeFiles.keys()]
 				.sort()
-				.map((resource) => [resource, digest(recipeFiles.get(resource))]),
+				.map((resource) => [resource, describe(recipeFiles.get(resource))]),
 		};
 		const contents = Buffer.from(JSON.stringify(manifest));
 		const path = `/recipes/data/offline/${id}.json`;
 		await writeFile(fileOf(root, path), contents);
-		recipeManifests[id] = { path, ...digest(contents) };
+		recipeManifests[id] = { path, ...describe(contents) };
 	}
 	const assets = [...shell.keys()].sort();
 	const bundled = await build({
@@ -313,12 +341,12 @@ export async function buildRecipePwa(root) {
 	hash.update(JSON.stringify({ assets, recipeManifests, savedViewManifest }));
 	for (const path of assets) hash.update(path).update(shell.get(path));
 	const cache = `${CACHE_PREFIX}${hash.digest("hex").slice(0, 20)}`;
-	const digests = assets.map((path) => [path, digest(shell.get(path))]);
+	const shellDigests = assets.map((path) => [path, describe(shell.get(path))]);
 	const constants = [
 		`const CACHE = ${JSON.stringify(cache)};`,
 		`const RELEASE = ${JSON.stringify(release)};`,
 		`const PREFIX = ${JSON.stringify(CACHE_PREFIX)};`,
-		`const ASSET_DIGESTS = new Map(${JSON.stringify(digests)});`,
+		`const ASSET_DIGESTS = new Map(${JSON.stringify(shellDigests)});`,
 		`const ASSETS = new Set(${JSON.stringify(assets)});`,
 		`const RECIPE_MANIFESTS = ${JSON.stringify(recipeManifests)};`,
 		`const SAVED_VIEW_MANIFEST = ${JSON.stringify(savedViewManifest)};`,

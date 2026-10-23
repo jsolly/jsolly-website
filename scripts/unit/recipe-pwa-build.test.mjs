@@ -106,3 +106,59 @@ it("worker manifests retain no-script, responsive and island resources without c
 		rmSync(root, { recursive: true, force: true });
 	}
 });
+
+it("each PWA rebuild refreshes shared asset digests while recipe graphs remain independent", async () => {
+	const root = mkdtempSync(join(tmpdir(), "recipe-pwa-rebuild-"));
+	const release = "a".repeat(40);
+	const files = {
+		"release.json": JSON.stringify({ sha: release }),
+		"recipes/index.html":
+			'<link rel="manifest" href="/recipes/pwa/manifest.webmanifest">',
+		"recipes/pwa/manifest.webmanifest": "{}",
+		"shared.css": "body { color: black; }",
+		"one.js": 'export const recipe = "one";',
+		"two.js": 'export const recipe = "two";',
+	};
+	for (const id of ["one", "two"]) {
+		files[`recipes/${id}/index.html`] =
+			`<link rel="stylesheet" href="/shared.css"><script src="/${id}.js"></script>`;
+		files[`recipes/data/packs/${id}.json`] = JSON.stringify({
+			releaseId: release,
+			recipe: { id },
+		});
+	}
+	const manifest = (id) =>
+		JSON.parse(
+			readFileSync(join(root, `recipes/data/offline/${id}.json`), "utf8"),
+		);
+	try {
+		for (const [file, bytes] of Object.entries(files)) {
+			mkdirSync(dirname(join(root, file)), { recursive: true });
+			writeFileSync(join(root, file), bytes);
+		}
+		const first = await buildRecipePwa(root);
+		const original = manifest("one").assets.find(
+			([path]) => path === "/shared.css",
+		)[1];
+		writeFileSync(join(root, "shared.css"), "body { color: rebeccapurple; }");
+		const second = await buildRecipePwa(root);
+		assert.notEqual(first.cache, second.cache);
+		for (const [id, other] of [
+			["one", "two"],
+			["two", "one"],
+		]) {
+			const assets = new Map(manifest(id).assets);
+			assert.notDeepEqual(assets.get("/shared.css"), original);
+			assert.ok(assets.has(`/${id}.js`));
+			assert.equal(assets.has(`/${other}.js`), false);
+		}
+		assert.deepEqual(
+			new Map(manifest("one").assets).get("/shared.css"),
+			new Map(manifest("two").assets).get("/shared.css"),
+		);
+		rmSync(join(root, "shared.css"));
+		await assert.rejects(buildRecipePwa(root), { code: "ENOENT" });
+	} finally {
+		rmSync(root, { recursive: true, force: true });
+	}
+});
