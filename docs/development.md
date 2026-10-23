@@ -49,6 +49,11 @@ Each copy has independent Git metadata, the effective staged index, working-sour
 bytes and mutable dependency caches. The scheduler rejects changes to HEAD, the
 index or nonignored source files during validation. All commands and counted suites
 must pass; failures retain diagnostics under the printed `jsolly-gate-*` directory.
+In CI, `JSOLLY_INSTALL_BROWSER=1` runs the same headless-shell and full OS
+installation command alongside static checks, types and the build. Unit tests,
+smoke contracts and built browser tests wait for installation to succeed; built
+tests also wait for the complete build and CSP suite. Installation failures fail
+the gate. Local gates use the browser already provisioned by repository setup.
 The preview shortcut and gate bootstrap remain unchanged. `gate/gate-lib.sh` is
 unchanged. No previous test results are reused.
 

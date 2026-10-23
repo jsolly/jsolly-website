@@ -91,7 +91,8 @@ export async function runChains(
 	try {
 		const results = await Promise.all(
 			work
-				.map(async ({ name, cwd, commands, privateTree }) => {
+				.map(async ({ name, cwd, commands, privateTree, ready }) => {
+					await ready;
 					const log = join(logs, `${name}.log`);
 					const childEnv = privateTree ? privateEnvironment(env) : { ...env };
 					if (env.NODE_COMPILE_CACHE)
@@ -180,9 +181,59 @@ export async function runGate(root) {
 			);
 			work.push({ ...chain, cwd, privateTree: true });
 		}
-		work.push({ name: "build", cwd: root, commands: buildCommands });
 		await assertUnchanged(root, source);
-		await runChains(work, scratch, { signal: controller.signal });
+		const options = { signal: controller.signal };
+		const installMode = process.env.JSOLLY_INSTALL_BROWSER;
+		if (![undefined, "0", "1"].includes(installMode))
+			throw new Error("JSOLLY_INSTALL_BROWSER must be 1, 0 or unset.");
+		const browserReady =
+			installMode === "1"
+				? runChains(
+						[
+							{
+								name: "browser-install",
+								cwd: root,
+								commands: [
+									[
+										"browser installation",
+										"npx",
+										"--no-install",
+										"playwright",
+										"install",
+										"--with-deps",
+										"--only-shell",
+										"chromium",
+									],
+								],
+							},
+						],
+						scratch,
+						options,
+					)
+				: Promise.resolve();
+		const buildReady = runChains(
+			[{ name: "build", cwd: root, commands: [buildCommands[0]] }],
+			scratch,
+			options,
+		);
+		for (const phase of work) {
+			if (phase.name === "unit" || phase.name === "smoke")
+				phase.ready = browserReady;
+		}
+		work.push({
+			name: "built",
+			cwd: root,
+			commands: [buildCommands[1]],
+			ready: Promise.all([browserReady, buildReady]),
+		});
+		const checks = runChains(work, scratch, options);
+		const results = await Promise.allSettled([
+			browserReady,
+			buildReady,
+			checks,
+		]);
+		const failure = results.find((result) => result.status === "rejected");
+		if (failure) throw failure.reason;
 		await assertUnchanged(root, source);
 		passed = true;
 	} catch (error) {
