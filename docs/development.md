@@ -31,8 +31,7 @@ that the gate ran. No setup command deploys the application or infrastructure.
 ## Test file timings
 
 CI runs one `ci` job on the standard Ubuntu 24.04 ARM runner. Built test files
-use two isolated fork workers, leaving CPU capacity for their Chromium processes;
-cases within a file remain sequential. Measure the
+use four isolated fork workers; cases within a file remain sequential. Measure the
 whole job as well as the gate when comparing runner or scheduling changes.
 
 CI sets `NODE_COMPILE_CACHE` to a fresh runner-temporary directory for the complete
