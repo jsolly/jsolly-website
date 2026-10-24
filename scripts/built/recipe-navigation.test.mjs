@@ -72,61 +72,84 @@ function verifyNavigation(width) {
 			assert.ok(order.length > 6);
 			const beforeScroll = await page.evaluate(() => scrollY);
 			assert.ok(beforeScroll > 500);
-			// Legacy collection fragments must not cancel canonical Forward navigation.
+			// A legacy collection fragment does not change card navigation.
 			await page.evaluate(() =>
 				history.replaceState(history.state, "", "#meal-results"),
 			);
-			let source = page.url();
+			const source = page.url();
 			const destination = await link.getAttribute("href");
 			await link.click();
 			await page.waitForURL(new URL(destination, site.origin).href);
-			await page.locator(".recipe-takeover").waitFor();
+			await hydrate(page);
+			await page.locator(".recipe-detail").waitFor();
 			await page.goBack();
 			await page.waitForURL(source);
-			await page.locator(".recipe-takeover").waitFor({ state: "detached" });
-			assert.deepEqual(await ids(), order);
+			await hydrate(page);
+			// Back focuses the card link the visit left from, without scrolling.
+			const opened = order[7];
+			const restored = async () => {
+				await page.waitForFunction(
+					(id) =>
+						document.activeElement?.matches(".recipe-card a.title-button") &&
+						document.activeElement.dataset.recipeId === id,
+					opened,
+				);
+				return {
+					focused: await page.evaluate(
+						() => document.activeElement?.dataset.recipeId,
+					),
+					...(await listState()),
+				};
+			};
+			const listState = async () => ({
+				search: await page
+					.getByRole("searchbox", { name: "Search recipes" })
+					.inputValue(),
+				vegetarian: await page
+					.getByRole("checkbox", { name: "Vegetarian", exact: true })
+					.isChecked(),
+				order: await ids(),
+			});
+			const expected = {
+				focused: opened,
+				search: "chicken",
+				vegetarian: false,
+				order,
+			};
+			assert.deepEqual(await restored(), expected);
+			assert.ok(
+				Math.abs((await page.evaluate(() => scrollY)) - beforeScroll) <= 2,
+			);
+			// Card links carry a changed setting; the visit is saved at the click.
 			await page
 				.getByRole("combobox", { name: "Ingredient units" })
 				.selectOption("grams");
-			source = page.url();
-			await page.goForward();
-			await page.waitForURL(new URL(destination, site.origin).href);
-			await page.locator(".recipe-takeover").waitFor();
+			const changed = page.url();
+			await link.scrollIntoViewIfNeeded();
+			const leftAt = await page.evaluate(() => scrollY);
+			const gramsLink = await link.getAttribute("href");
+			assert.equal(
+				new URL(gramsLink, site.origin).searchParams.get("units"),
+				"grams",
+			);
+			await link.click();
+			await page.waitForURL(new URL(gramsLink, site.origin).href);
 			await hydrate(page);
 			assert.equal(
 				await page
-					.locator(".recipe-takeover")
 					.getByRole("combobox", { name: "Ingredient units" })
 					.inputValue(),
-				new URL(destination, site.origin).searchParams.get("units") || "us",
+				"grams",
 			);
-			await page
-				.locator(".recipe-takeover")
-				.getByRole("combobox", { name: "Ingredient units" })
-				.selectOption("grams");
 			await page.reload();
 			await hydrate(page);
 			await page
 				.getByRole("link", { name: "Back to meals", exact: false })
 				.click();
-			await page.waitForURL(source);
+			await page.waitForURL(changed);
 			await hydrate(page);
-			assert.equal(
-				await page
-					.getByRole("searchbox", { name: "Search recipes" })
-					.inputValue(),
-				"chicken",
-			);
-			assert.equal(
-				await page
-					.getByRole("checkbox", { name: "Vegetarian", exact: true })
-					.isChecked(),
-				false,
-			);
-			assert.deepEqual(await ids(), order);
-			assert.ok(
-				Math.abs((await page.evaluate(() => scrollY)) - beforeScroll) <= 2,
-			);
+			assert.deepEqual(await restored(), expected);
+			assert.ok(Math.abs((await page.evaluate(() => scrollY)) - leftAt) <= 2);
 			// Playwright emits this harness warning when a production worker is intentionally blocked.
 			assert.deepEqual(
 				errors.filter(

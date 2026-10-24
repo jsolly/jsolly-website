@@ -407,6 +407,7 @@ it("Saved recipe and its cooking dependencies survive a browser restart", {
 				exact: true,
 			})
 			.click();
+		await reopened.waitForURL((url) => url.pathname === `/recipes/${ID}/`);
 		await reopened.locator(".recipe-detail .reset-checks:visible").waitFor();
 		await navigateHydrated(reopened, `${site.origin}/recipes/${ID}/`);
 		assert.equal(

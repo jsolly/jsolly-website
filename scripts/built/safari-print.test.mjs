@@ -23,7 +23,7 @@ const ORIGIN = "https://recipe-preview.example.test";
 const recipeId = "shawarma-chicken-bowls";
 
 function verifySafariPrint(width) {
-	it(`Home Screen recipe printing hands settings to a browser from page and dialog at ${width}px`, {
+	it(`Home Screen recipe printing hands settings to a browser from page and card at ${width}px`, {
 		timeout: 60_000,
 	}, async () => {
 		const context = await browser.newContext({
@@ -67,14 +67,7 @@ function verifySafariPrint(width) {
 			await page
 				.getByRole("combobox", { name: FAMILY_SIDE })
 				.selectOption("pita_one");
-			for (const view of ["page", "dialog", "card"]) {
-				if (view === "dialog") {
-					await page.goto(
-						`${ORIGIN}/recipes/?servings=6&units=metric&starch=${recipeId}:pita_one#${recipeId}`,
-					);
-					await ready(page);
-					await page.getByRole("dialog").waitFor();
-				}
+			for (const view of ["page", "card"]) {
 				if (view === "card") {
 					await page.goto(
 						`${ORIGIN}/recipes/?servings=6&units=metric&starch=${recipeId}:pita_one`,
@@ -86,9 +79,7 @@ function verifySafariPrint(width) {
 						? page
 								.locator(".recipe-card")
 								.filter({ has: page.locator(`[data-recipe-id="${recipeId}"]`) })
-						: view === "dialog"
-							? page.getByRole("dialog")
-							: page;
+						: page;
 				await action
 					.getByRole("button", { name: "Print recipe", exact: true })
 					.click();

@@ -12,7 +12,7 @@
 
 	// The recipe's Tabular Recipe Notation table. Interactive, each ingredient
 	// row has a check to tick as it goes in; the printed copy has plain boxes.
-	let { recipe, settings, interactive = true, printOnly = false, headingLevel = 3 } = $props();
+	let { recipe, settings, interactive = true, printOnly = false } = $props();
 	const uid = $props.id();
 	const headingId = `${uid}-heading`;
 	const helpId = `${uid}-help`;
@@ -67,7 +67,7 @@
 {/snippet}
 
 <section class="trn-view">
-	<div class="flow-toolbar"><svelte:element this={`h${headingLevel}`} id={headingId} class="flow-heading">{recipe.type === "smoothie" ? "Preparation flow" : "Cooking flow"}</svelte:element></div>
+	<div class="flow-toolbar"><h2 id={headingId} class="flow-heading">{recipe.type === "smoothie" ? "Preparation flow" : "Cooking flow"}</h2></div>
 	<p class="trn-help" id={helpId}><span class="desktop-help">Read left to right. Each merged cell acts on the ingredient rows feeding into it. Parallel branches stay separate until plating.</span><span class="mobile-help">Read top to bottom. Ingredients feed into the action below their branch. Follow each branch until it joins the next action.</span></p>
 	{#if !printOnly}<section class="mobile-flow" aria-labelledby={headingId}>
 		<div class="mobile-prep" hidden={preparation.length === 0}>{#each preparation as text, i (i)}<p>{text}</p>{/each}</div>
@@ -222,11 +222,6 @@
 			flex-wrap: wrap;
 			margin-bottom: 10px;
 		}
-		/* Only the library dialog's h3 flow heading loses its margin, as in SRC;
-		   the recipe page's h2 keeps the blog heading spacing (live parity). */
-		h3.flow-heading {
-			margin: 0;
-		}
 		:global(.reset-checks) {
 			font-size: 0.8rem;
 			border: 1px solid var(--recipe-line);
@@ -344,10 +339,6 @@
 			.trn-view {
 				margin: 10pt 0;
 				break-inside: avoid;
-			}
-			h3.flow-heading {
-				font: 700 12pt/1.2 Georgia, serif;
-				margin: 6pt 0;
 			}
 			.trn-frame {
 				overflow: visible;

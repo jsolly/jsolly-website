@@ -6,7 +6,7 @@
 
 	// The vitamins and minerals behind a disclosure, highest daily value first;
 	// the trigger previews the top three. Without JavaScript it is a <details>.
-	let { nutrients, interactive = true, printOnly = false, headingLevel = 4 } = $props();
+	let { nutrients, interactive = true, printOnly = false } = $props();
 	const visibleNutrients = $derived(
 		nutrients
 			.filter((nutrient) => nutrient.percent !== 0)
@@ -29,14 +29,14 @@
 	</dl>
 {/snippet}
 {#if printOnly}
-	<div class="nutrient-disclosure"><svelte:element this={`h${headingLevel}`} class="nutrient-heading">Vitamins &amp; minerals<small>{preview}</small></svelte:element></div>
+	<div class="nutrient-disclosure"><h3 class="nutrient-heading">Vitamins &amp; minerals<small>{preview}</small></h3></div>
 {:else}
 	<CollapsibleRoot class="nutrient-disclosure recipe-enhanced" disabled={!interactive}>
-		<svelte:element this={`h${headingLevel}`} class="nutrient-heading"
+		<h3 class="nutrient-heading"
 			><CollapsibleTrigger class="nutrient-trigger">
 				<span>Vitamins &amp; minerals<small>{preview}</small></span>
 				<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg>
-			</CollapsibleTrigger></svelte:element
+			</CollapsibleTrigger></h3
 		>
 		<CollapsibleContent class="nutrient-content">
 			<div class="nutrient-content-inner">{@render stats()}</div>

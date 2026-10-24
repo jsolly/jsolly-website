@@ -7,6 +7,7 @@ import tailwindcss from "@tailwindcss/vite";
 import type { AstroIntegration } from "astro";
 import { defineConfig } from "astro/config";
 import { postLastmods } from "../../src/lib/blog/post-loader.js";
+import { astroCsp } from "../../src/lib/csp-policy.js";
 
 // Astro builds these as dist/404.html and dist/500.html; they are not routes.
 const ERROR_ROUTES = new Set(["/404/", "/500/"]);
@@ -109,10 +110,8 @@ export default defineConfig({
 
 	// Astro hashes its generated island bootstrap in each built page.
 	security: {
-		csp: {
-			directives: ["default-src 'self'"],
-			styleDirective: { resources: ["'self'", "'unsafe-inline'"] },
-		},
+		// Preview builds also allow the Vercel Toolbar (src/lib/csp-policy.ts).
+		csp: astroCsp(process.env.VERCEL_ENV),
 	},
 
 	vite: {

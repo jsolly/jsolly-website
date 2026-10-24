@@ -51,7 +51,7 @@ article printing, share actions and back navigation use installed Button control
 the heading-link copy script retains stable article fragments. Without JavaScript,
 the archive link replaces load-more and the shared mobile navigation stays visible.
 
-New blog and recipe controls use shadcn-svelte. The recipe pages already use shadcn-svelte's bits-ui parts (`dialog*`, `collapsible*`, `checkbox`, `native-select`, `popover*` in `src/lib/components/ui/`). Native `<details>`, checkboxes and a share link are the server-rendered no-JavaScript fallback. The recipe library enhances controls with JavaScript. Without it, native GET forms submit filters, search and shuffle to the Node browse function through the collection URL. Plain visits render six summaries; submitted results use native controls and no-store responses. Summary batches load ahead of scrolling, while full recipes and calculation references load on intent. Offline browsing uses explicitly opened or individually printed saved recipes.
+New blog and recipe controls use shadcn-svelte. The recipe pages already use shadcn-svelte's bits-ui parts (`dialog*`, `collapsible*`, `checkbox`, `native-select`, `popover*` in `src/lib/components/ui/`). Native `<details>`, checkboxes and a share link are the server-rendered no-JavaScript fallback. The recipe library enhances controls with JavaScript. Without it, native GET forms submit filters, search and shuffle to the Node browse function through the collection URL. Plain visits render six summaries; submitted results use native controls and no-store responses. Summary batches load ahead of scrolling; a card's full recipe and calculation references load only when it is printed, and recipe pages embed their own. Offline browsing uses explicitly opened or individually printed saved recipes.
 
 The personal `/shadcn-svelte` skill is optional. Preserve focus behavior and
 follow Local UI verification below.
@@ -148,7 +148,7 @@ and trusted hooks in a fresh worktree. No `.worktreeinclude` is needed: the only
 Read [docs/recipes.md](docs/recipes.md) before changing recipe data, assistant downloads, settings or the offline app. It owns their formats, cooking and nutrition limitations, regeneration steps, install/update behavior and legacy-worker operations.
 
 - `src/pages/recipes/` owns the landing, collection and individual recipe routes. `RecipeLayout.astro` supplies the recipe stylesheet and app head tags through BlogLayout.
-- `src/components/recipes/` holds the canonical JSON, pure modules with adjacent tests, and Svelte controls. `RecipeExperience.astro` supplies six initial summaries, private server card fragments, the collection island and no-JavaScript pagination; `RecipePage.svelte` supplies individual pages; `RecipeTakeover.svelte` supplies the library dialog.
+- `src/components/recipes/` holds the canonical JSON, pure modules with adjacent tests, and Svelte controls. `RecipeExperience.astro` supplies six initial summaries, private server card fragments, the collection island and no-JavaScript pagination; `RecipePage.svelte` supplies individual pages, the only recipe view besides card print packets; library cards navigate to them.
 - `src/styles/recipes/` holds the recipe and no-JavaScript styles. `RecipeContent.svelte` shares screen and print cooking content; recipe pages print their existing DOM. `recipe-export.mjs` builds the Markdown and JSON assistant downloads.
 - Every ingredient has a positive measured amount and an explicit cooking weight basis. `ingredient-units.mjs` resolves grams, Metric and US imperial through reviewed `weightRef` identities; invalid or unresolved measurements fail validation. `cooking-quantities.mjs` resolves identified instruction amounts. Keep the required pressure-liquid mL volume in cooking preparation in every mode. Developer evidence stays out of conversion copy in cooking views and downloads.
 - `scripts/recipes/` holds assistant-data generation and the service-worker build. The manifest and icons are under `public/recipes/pwa/`; illustrations are under `public/recipes/media/`.
@@ -167,7 +167,7 @@ Read [docs/recipes.md](docs/recipes.md) before changing recipe data, assistant d
 
 These hold for every change. Where a test enforces one, it is named; the rest are policy that review checks.
 
-- **The heading-fragment algorithm is frozen.** Blog heading ids come from `headingId` in `src/lib/blog/html.ts`, the old blog's h1–h3 algorithm; old links and `legacy/blogthedata/fragment-ids.json` depend on its output. Do not change it, and keep a heading's text when its fragment must stay stable. Blog and recipe pages are excluded from `process-html.mjs`'s id pass (`scripts/unit/process-html-ids.test.mjs`). Recipe pages get no generated ids: on `/recipes/`, the h1's `#easy-meals--smoothies`, the card wrapper's `#meal-results` and the author card's `#about-author` are hand-written legacy-fragment ids from the old post (`scripts/built/legacy-fragments.test.mjs`); each recipe's section id (on its page and in the library dialog) is its recipe id; RecipeTakeover's `recipe-detail-title` exists only for `aria-labelledby`.
+- **The heading-fragment algorithm is frozen.** Blog heading ids come from `headingId` in `src/lib/blog/html.ts`, the old blog's h1–h3 algorithm; old links and `legacy/blogthedata/fragment-ids.json` depend on its output. Do not change it, and keep a heading's text when its fragment must stay stable. Blog and recipe pages are excluded from `process-html.mjs`'s id pass (`scripts/unit/process-html-ids.test.mjs`). Recipe pages get no generated ids: on `/recipes/`, the h1's `#easy-meals--smoothies`, the card wrapper's `#meal-results` and the author card's `#about-author` are hand-written legacy-fragment ids from the old post (`scripts/built/legacy-fragments.test.mjs`); each recipe's section id on its page is its recipe id. To accommodate legacy blogthedata.com links, `/recipes/#<recipe-id>` redirects client-side (`location.replace`) to `/recipes/<recipe-id>/` with the saved settings, and that page's Back then follows its collection link (`scripts/built/recipes-deep-links.test.mjs`).
 - **Slugs are case-sensitive and stable.** Post, category and recipe slugs are URLs that old redirects, feeds and links point at; never rename or re-case one. `scripts/built/internal-links.test.mjs` (c) checks that every link uses the exact case and that no two routes differ only in case. The completed migration no longer freezes post or category counts; exact-case link checks remain.
 - **PagesCMS owns its formats** (`docs/publishing.md`). `published` and `updated` are ISO 8601 strings with seconds and an explicit offset, string fields rather than date controls, parsed with the YAML core schema; date-only or offset-less values fail the build (`blog-content-contracts`). The body stays PagesCMS's Markdown code editor: no WYSIWYG editor without a verified complex-article roundtrip (tables, code, embeds); policy. `settings.content.merge: true` keeps unmanaged frontmatter (`legacyId`, `legacyImage`, `legacyAuthorId`). PagesCMS writes category JSON as `JSON.stringify(x, null, 2)` with no final newline, so `config/quality/biome.settings.jsonc` turns the formatter off for `src/content/blog/categories/**` only, linting kept on (`pages-config.test.ts`); never reformat those files.
 - **CloudFront is a runtime dependency (J6).** Legacy post images load from the retained `blogthedata` S3 bucket through CloudFront `https://d1d7p8ufhgz4ld.cloudfront.net` (`LEGACY_MEDIA`). The bucket and distribution must outlive any AWS cleanup until those images are rehosted same-origin. The CSP allows exactly that host (Content Security Policy below).
@@ -301,9 +301,19 @@ and the build-time `csp` suite checks every built `<img>` and `<source srcset>` 
 - `/about/`;
 - a recipe page, `/recipes/greek-turkey-patties/`, with its notation dialog opened (its island scripts and same-origin images, plus the bits-ui dialog's inline styles under `style-src 'unsafe-inline'`);
 - `/recipes/meals/` with a filter and the nutrition help popovers opened;
-- `/recipes/#lemon-salmon-and-asparagus` with the library's recipe dialog open.
+- the `/recipes/` landing page;
+- the legacy link `/recipes/#lemon-salmon-and-asparagus`, through its client-side redirect to that recipe's page.
 
 On the recipe pages it also waits for the recipe service worker to control the page at scope `/recipes/`, and it checks that every other page has no service worker registered.
+
+**Vercel Toolbar on Previews.** `src/lib/csp-policy.ts` owns the toolbar's
+`vercel.live`, Pusher and Vercel asset hosts. Builds with `VERCEL_ENV=preview` add
+them to the Astro meta, and on Preview deployments `middleware.ts` sends the
+`vercel.json` header policy with them added to `img-src`, `style-src` and
+`font-src`. Production builds and responses keep the reviewed policies unchanged.
+`src/lib/csp-policy.test.ts` pins both sides; the built `csp` suite accepts the
+Preview meta only under `VERCEL_ENV=preview`, and `scripts/built/recipes-preview.test.mjs`
+runs a full Preview build through it.
 
 Astro lists every inline script hash of the build in each page's meta policy,
 so an inline `<script>` on a blog page also adds its hash to the portfolio pages.

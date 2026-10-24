@@ -1,6 +1,12 @@
 import assert from "node:assert/strict";
-import { it } from "vitest";
-import { collectionReturn, listVisit } from "./recipe-navigation.mjs";
+import { it, vi } from "vitest";
+import {
+	clearLegacyRedirect,
+	collectionReturn,
+	listVisit,
+	markLegacyRedirect,
+	takeLegacyRedirect,
+} from "./recipe-navigation.mjs";
 
 const current = new URL(
 	// biome-ignore lint/security/noSecrets: synthetic recipe URL, not a credential.
@@ -106,4 +112,72 @@ it("saved recipe pages return to their saved collection and selected type", () =
 		),
 		"/recipes/saved/",
 	);
+});
+
+it("a legacy redirect mark is consumed once, only by the recipe it names, and storage failures are logged", () => {
+	const values = new Map();
+	const storage = {
+		getItem: (key) => values.get(key) ?? null,
+		setItem: (key, value) => values.set(key, value),
+		removeItem: (key) => values.delete(key),
+	};
+	markLegacyRedirect("salmon", () => storage);
+	assert.equal(
+		takeLegacyRedirect("frittata", () => storage),
+		false,
+	);
+	assert.equal(
+		takeLegacyRedirect("salmon", () => storage),
+		true,
+	);
+	assert.equal(
+		takeLegacyRedirect("salmon", () => storage),
+		false,
+	);
+	const errors = [];
+	vi.spyOn(console, "error").mockImplementation((...args) => {
+		errors.push(args.join(" "));
+	});
+	try {
+		const denied = () => {
+			throw new DOMException("denied", "SecurityError");
+		};
+		markLegacyRedirect("salmon", denied);
+		assert.equal(takeLegacyRedirect("salmon", denied), false);
+		assert.deepEqual(errors, [
+			"The legacy recipe link could not be recorded; Back may leave the site. SecurityError",
+			"The legacy recipe link could not be read; Back uses browser history. SecurityError",
+		]);
+	} finally {
+		vi.restoreAllMocks();
+	}
+});
+
+it("an ordinary library visit clears a stale legacy redirect mark and logs a storage failure", () => {
+	const values = new Map();
+	const storage = {
+		getItem: (key) => values.get(key) ?? null,
+		setItem: (key, value) => values.set(key, value),
+		removeItem: (key) => values.delete(key),
+	};
+	markLegacyRedirect("salmon", () => storage);
+	clearLegacyRedirect(() => storage);
+	assert.equal(
+		takeLegacyRedirect("salmon", () => storage),
+		false,
+	);
+	const errors = [];
+	vi.spyOn(console, "error").mockImplementation((...args) => {
+		errors.push(args.join(" "));
+	});
+	try {
+		clearLegacyRedirect(() => {
+			throw new DOMException("denied", "SecurityError");
+		});
+		assert.deepEqual(errors, [
+			"A stale legacy recipe link could not be cleared; a later Back may follow its collection link. SecurityError",
+		]);
+	} finally {
+		vi.restoreAllMocks();
+	}
 });

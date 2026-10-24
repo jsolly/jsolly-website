@@ -53,7 +53,7 @@ it("detail downloads reject a mismatched release, wrong recipe, and missing calc
 	);
 });
 
-it("prefetch and open share one request while a cancelled consumer cannot cancel the other", async () => {
+it("repeated prints of one recipe share one request and reuse the downloaded pack", async () => {
 	const recipe = data.recipes[1];
 	let finish;
 	let calls = 0;
@@ -63,16 +63,13 @@ it("prefetch and open share one request while a cancelled consumer cannot cancel
 			finish = () => resolve(Response.json(payload(recipe)));
 		});
 	};
-	const controller = new AbortController();
-	const prefetched = loadRecipePack(recipe.id, RELEASE, { fetcher });
-	const cancelled = loadRecipePack(recipe.id, RELEASE, {
-		signal: controller.signal,
-		fetcher,
-	});
-	controller.abort();
-	await assert.rejects(cancelled, { name: "AbortError" });
+	const first = loadRecipePack(recipe.id, RELEASE, { fetcher });
+	const second = loadRecipePack(recipe.id, RELEASE, { fetcher });
 	finish();
-	assert.equal((await prefetched).id, recipe.id);
+	assert.deepEqual(
+		[(await first).id, (await second).id],
+		[recipe.id, recipe.id],
+	);
 	assert.equal(
 		(await loadRecipePack(recipe.id, RELEASE, { fetcher })).id,
 		recipe.id,

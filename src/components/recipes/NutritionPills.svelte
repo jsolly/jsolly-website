@@ -41,11 +41,11 @@
 			font-weight: 600;
 			line-height: 1.4;
 		}
-		.nutrition-pills li[data-nutrient="immune"] { background: #e3edda; border-color: #c4d6b7; }
+		.nutrition-pills li[data-nutrient="immune"] { background: #fde6cf; border-color: #f0c08f; }
 		.nutrition-pills li[data-nutrient="iron"] { background: #e2e5e9; border-color: #bcc2cc; }
 		.nutrition-pills li[data-nutrient="omega"] { background: #dcecf5; border-color: #b0cfdf; }
 		@media (prefers-color-scheme: dark) {
-			.nutrition-pills li[data-nutrient="immune"] { background: #2d4228; border-color: #526b47; }
+			.nutrition-pills li[data-nutrient="immune"] { background: #4a2f1c; border-color: #8c5a33; }
 			.nutrition-pills li[data-nutrient="iron"] { background: #363d47; border-color: #606b7a; }
 			.nutrition-pills li[data-nutrient="omega"] { background: #243f50; border-color: #476a80; }
 		}

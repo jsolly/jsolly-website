@@ -1,7 +1,8 @@
 # Recipe browsing performance
 
 Collection pages start with six card summaries. Further summaries and images load
-separately; full recipe data loads on an explicit open or individual print.
+separately; full recipe data loads only on a card's individual print, and opening
+a card navigates to its recipe page.
 Background summary downloads do not add cards to the document.
 
 ## Budgets
@@ -73,7 +74,7 @@ Vercel wire bytes. Lighthouse navigation, startup transfer, background summary
 traffic and worker installation are separate evidence streams.
 
 The browser regressions cover pending-background scroll demand, stable shuffle
-through search, native images, intent prefetch, Data Saver, loaded-card printing,
+through search, native images, no download on hover or focus, Data Saver, loaded-card printing,
 and opened-only saving. Offline update, restart and quota tests use isolated
 release snapshots. Run the full repository gate from the repository root with
 `npm run gate`; no individual benchmark replaces it.

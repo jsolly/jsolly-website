@@ -5,6 +5,7 @@ import { join } from "node:path";
 import { globby } from "globby";
 import { parse } from "parse5";
 import { beforeAll, it } from "vitest";
+import { VERCEL_TOOLBAR_SOURCES } from "../src/lib/csp-policy.js";
 import { NOTEBOOK_RENDERS, readBuiltPages } from "./built/pages.mjs";
 import { parseDirectives, readHeaderPolicy } from "./csp.mjs";
 
@@ -28,6 +29,16 @@ const BLOG_FRAME_SRC = [
 	"https://www.youtube-nocookie.com",
 	"https://viewer.diagrams.net",
 ];
+// Vercel builds Preview deployments with VERCEL_ENV=preview, whose meta also
+// allows the Vercel Toolbar on every page (src/lib/csp-policy.ts).
+const PREVIEW = process.env.VERCEL_ENV === "preview";
+
+function expectedSources(base, directive) {
+	const sources = PREVIEW
+		? [...base, ...VERCEL_TOOLBAR_SOURCES[directive]]
+		: base;
+	return sources.length ? [...new Set(sources)].toSorted() : null;
+}
 
 // Walk the parsed document tree, not template.content, just as document-level
 // DOM selectors do. parse5 has already repaired malformed HTML and head order.
@@ -190,14 +201,17 @@ it("blog pages, and only blog pages, allow CloudFront post images and the three 
 	for (const { file, hasPolicy, policy } of pages) {
 		assert.ok(hasPolicy, `${file}: policy is in the head`);
 		const directives = parseDirectives(policy);
+		const blog = file.startsWith(BLOG_PAGES);
+		const self = PREVIEW ? ["'self'"] : [];
 		assert.deepEqual(
 			{
-				"img-src": directives.get("img-src") ?? null,
-				"frame-src": directives.get("frame-src") ?? null,
+				"img-src": directives.get("img-src")?.toSorted() ?? null,
+				"frame-src": directives.get("frame-src")?.toSorted() ?? null,
 			},
-			file.startsWith(BLOG_PAGES)
-				? { "img-src": BLOG_IMG_SRC, "frame-src": BLOG_FRAME_SRC }
-				: { "img-src": null, "frame-src": null },
+			{
+				"img-src": expectedSources(blog ? BLOG_IMG_SRC : self, "img-src"),
+				"frame-src": expectedSources(blog ? BLOG_FRAME_SRC : self, "frame-src"),
+			},
 			`${file}: the meta widens img-src and frame-src on blog pages only`,
 		);
 	}

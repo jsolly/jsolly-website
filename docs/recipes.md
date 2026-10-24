@@ -38,8 +38,11 @@ changes still require `npm run gate`. The full gate always disables preview mode
 The canonical data is `src/components/recipes/recipes.json` (141 non-smoothie recipes and 6
 smoothies, pinned by `scripts/unit/recipe-data.test.mjs`) and `src/components/recipes/nutrition-data.json` (the
 Daily Value nutrients and each recipe's per-ingredient nutrient rows). Recipe
-ids are stable: each is a page slug (`/recipes/<id>/`) and a fragment id
-(`/recipes/#<id>` opens it in the library dialog), and old links use both.
+ids are stable: each is a page slug (`/recipes/<id>/`) and a legacy fragment id.
+Old blogthedata.com links use both. To accommodate those legacy links,
+`/recipes/#<id>` (on any collection page) redirects client-side to the recipe's
+page with the reader's saved servings, units and side; the library does not
+render recipes itself.
 Images are files under `public/recipes/media/`, referenced as `/recipes/media/...`.
 
 The 126 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Unmeasured cooking spray used only to prepare cookware belongs in flow preparation directions, including any optional use or device-manual conditions, rather than ingredient rows. Measured oil-or-spray alternatives remain ingredients. Every food ingredient has a positive measured quantity. Missing and to-taste source amounts have reviewed measured defaults, with the original source retained in measurement provenance. Missing nutrition and times display as "Not provided". The 72 recipes that previously lacked complete macros now carry labeled nutrition estimates used by the same base-recipe dietary classification. Every publisher adaptation has an ingredient nutrient model. Missing nutrient observations do not qualify for nutrient filters. Prep time is distinguished from household active time. The browser keeps concise source attribution and cooking instructions; provenance and nutrition assumptions remain in canonical data and assistant downloads. Cooking guidance from source limitations belongs in the flow. Mobile renders the same ingredient allocation tree vertically, preserving branch joins and shared cooking checks; desktop and print retain the table.
@@ -89,8 +92,8 @@ stopwatch testing is claimed.
 
 ### Ingredient units
 
-Choose **Grams**, **US imperial** or **Metric** on a recipe, in the library or in
-its recipe dialog. The choice persists under the existing settings key. A shared
+Choose **Grams**, **US imperial** or **Metric** on a recipe page or in the
+library. The choice persists under the existing settings key. A shared
 link carries `?units=grams|us|metric`; an explicit URL choice takes priority over
 the saved preference. Old links and saved settings default to US imperial.
 US imperial means US customary cups and spoons, not British Imperial volumes.
@@ -209,7 +212,7 @@ failed to recognize some main ingredients. The site uses the traceable ingredien
 models above instead.
 
 Qualifying recipes show Immune support, Iron-rich and High in Omega-3s pills on
-library cards, in the recipe dialog and on individual pages. Pills use the same
+library cards and on individual pages. Pills use the same
 nutrient eligibility checks and selected serving count as the library filters.
 Recipes with missing observations do not gain a pill from those observations.
 
@@ -404,7 +407,7 @@ Names and ingredients rank highest; equipment, cooking instructions, family
 sides and nutrition highlights are searchable too. Online search runs on the browse server over the entire collection, with accent-insensitive matching, prefixes and limited typo tolerance. Offline search covers saved recipes only. Clearing search restores the current seeded order. Queries are not saved as preferences.
 
 Each library card has a Print recipe action using the current servings, units
-and optional side. It loads and prints only that recipe without opening the detail dialog. Individual printing also requests an offline save when the worker is available.
+and optional side. It loads and prints only that recipe without leaving the library. Individual printing also requests an offline save when the worker is available.
 
 On iPhone and iPad Home Screen apps, **Print recipe** offers **Open in Safari**
 instead of calling the installed app's unreliable print API. The link opens the
@@ -413,16 +416,16 @@ optional side; tap **Print recipe** again in Safari. A selectable HTTPS link is
 also shown for manual copy/paste if the Safari application scheme is unavailable.
 Safari needs a network connection and, on a protected Preview, its own authorized
 session. Browser tabs and Mac Dock apps retain their existing print flow.
-This handoff covers individual recipe pages, library cards and the library's recipe dialog. There is no whole-collection print action.
+This handoff covers individual recipe pages and library cards. There is no whole-collection print action.
 The direct iOS application handoff needs real-device verification; Chromium
 standalone emulation verifies detection, link settings and browser restoration,
 not iOS print-sheet presentation.
 
-The library loads an individual recipe and its print renderer on explicit printing or opening. Browser-menu printing while a recipe is open prints that recipe; on a collection it prints only the currently rendered cards. It removes prepared print content when printing ends and restores prior print state after failures.
+The library loads an individual recipe and its print renderer only on a card's Print recipe. Browser-menu printing on a collection prints only the currently rendered cards. It removes prepared print content when printing ends and restores prior print state after failures.
 
 Performance budgets and local measurement settings are recorded in [recipe-performance.md](recipe-performance.md).
 
-Collection pages server-render six summaries and hydrate the same six. Additional summary batches load ahead of scrolling; spare connection time fetches remaining summaries without mounting them or loading their images. Hidden tabs, Data Saver and slow connections pause speculative summary work. Images load within 300 px of the viewport. A brief desktop hover or keyboard focus prefetches the selected recipe pack; opening reuses that download. Hover does not mark a recipe saved offline.
+Collection pages server-render six summaries and hydrate the same six. Additional summary batches load ahead of scrolling; spare connection time fetches remaining summaries without mounting them or loading their images. Hidden tabs, Data Saver and slow connections pause speculative summary work. Images load within 300 px of the viewport. Hovering or focusing a card downloads nothing; a recipe pack loads only when its card's Print recipe is chosen, and repeated prints reuse that download.
 
 Per-recipe packs under `/recipes/data/packs/<id>.json` carry the selected recipe, calculation references and release identity. Browser calculation modules import no complete nutrition or ingredient-weight registry. Standalone pages embed only their own calculation context. Full assistant downloads remain deliberate links and are excluded from automatic offline caching.
 
@@ -441,7 +444,8 @@ Without JavaScript, GET forms submit `browse=1`, search, filters and the optiona
 `api/recipe-browse.mjs` serves six-card JSON batches or native HTML from this deployment. Native responses use private build-time card fragments in `.recipe-browse/`, never a full collection embedded in the initial HTML. Search and filter calculations use the full canonical library on the server. The `/api/` namespace handles its own response format outside HTML/Markdown page negotiation. JSON requests carry the expected release and receive 409 if deployment identity changes; maintenance and rendering failures return 503. Failed requests retain existing cards and offer Retry.
 
 Default card links point directly to the canonical recipe URL, keeping every
-recipe discoverable through ordinary internal links. Selected servings, units
+recipe discoverable through ordinary internal links. Selecting a card navigates
+to that page; there is no in-library recipe view. Selected servings, units
 and sides travel in the card URL when they differ from the defaults. Share and
 Safari print handoff links always carry explicit settings so the recipient's
 saved preferences cannot change the shared recipe.
@@ -450,7 +454,10 @@ The library saves `{ servings, units, filters, appliancesOnHand, familyChoice }`
 `localStorage` under `recipes-settings-v1` (J13). The old blogthedata.com key is
 on another origin and is not read, so preferences reset once for returning
 visitors. Every saved key is validated on load; anything that no longer fits is
-reset.
+reset. Recipe pages read and update the same record: a units or side choice on a
+page is saved there and replaces that page URL's `?units=` or `?starch=`. A
+page link without `servings`, `units` or `starch` uses the saved side; a link
+carrying any of them (shares, non-default card links) decides the side itself.
 
 ## Offline recipe app
 
@@ -467,11 +474,11 @@ recipe illustrations, detail packs, or the complete assistant exports.
 The worker carries only a digest and byte count for each small per-recipe
 integrity manifest under `/recipes/data/offline/`. The manifest downloads and
 validates when that recipe is saved, so installation never transfers the full
-library resource lists. Saved-search and deferred dialog/print code travel with
+library resource lists. Saved-search and deferred print code travel with
 individual recipe bundles. Fonts use WOFF2 without a duplicate WOFF fallback.
 
-Opening a recipe, including a direct canonical page visit, or individually
-printing one requests an offline save. Rendering, hovering and scrolling cards
+Opening a recipe page (from a card or directly) or individually printing one
+from a card requests an offline save. Rendering, hovering and scrolling cards
 do not save recipes. Each save downloads a release-specific bundle containing
 canonical HTML and Markdown, its detail pack, the full cooking-runtime dependency
 closure and one illustration. Responsive image requests use that saved cooking
@@ -544,12 +551,13 @@ negotiated representations, update confirmation and maintenance behavior.
 Production smoke separately verifies worker activation at `/recipes/` and
 control after reload, then saves one opened recipe and reopens it offline. The
 smoke records cancellations of summary GET requests already in flight at its
-explicit reload or offline step as verification observations. HTTP errors,
+explicit reload, card navigation or offline step as verification observations,
+and waits for rendered card images before following a card link. HTTP errors,
 unexpected network failures and offline cooking-resource failures still fail
 smoke. That check does not substitute for the broader saved-recipe tests.
 
 When saved recipes exist, an app update also verifies its own deferred saved-view
-search, filter, dialog and print code in a separate cache. Empty installations
+search, filter and print code in a separate cache. Empty installations
 skip that download. This updates the browsing tools without refreshing saved
 recipe data, pages or images. Opening an older saved recipe navigates to its
 canonical cached page so its cooking data and runtime stay on the same release.
@@ -587,6 +595,9 @@ notes or disclaimers. Illustrations remain visible at up to 70 mm wide and 45 mm
 Back to meals/smoothies uses the matching same-tab collection history entry
 when available. Collection history restores the scroll position, search and
 shuffle order after hydration; direct recipe links return to the collection top.
+After a legacy `/recipes/#<id>` redirect, which replaced the collection's
+history entry, Back follows the recipe's collection link instead of history, so
+it never leaves the site (a session marker set just before the redirect).
 
 Heat-bearing ingredients include short adjustment guidance in their canonical notes,
 shared by cooking views, print and downloads. Blend, canned chili and sausage

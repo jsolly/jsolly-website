@@ -18,8 +18,36 @@ export const serviceWorker = {
 	script: "/recipes/service-worker.js",
 };
 
-/** Fresh worker context: summaries do not save cooking documents; opening one does. */
-export async function verifyRecipeWorker(page, { beforeOffline } = {}) {
+// Card links navigate to the recipe page, which cancels anything still
+// loading. Scrolling first and waiting two frames lets any batch the scroll
+// asks for start before the runner marks in-flight summaries; the rendered
+// card images must finish, since image loads are never marked. The results
+// region's aria-busy is no idle signal: background pagination can keep a
+// healthy library busy throughout (the built smoke fixture holds every batch).
+async function settleBeforeCardClick(page, card) {
+	await card.scrollIntoViewIfNeeded();
+	await page.evaluate(
+		() =>
+			new Promise((resolve) =>
+				requestAnimationFrame(() => requestAnimationFrame(resolve)),
+			),
+	);
+	await page.waitForFunction(() =>
+		[...document.querySelectorAll(".recipe-card img[src]")].every(
+			(image) => image.complete,
+		),
+	);
+}
+
+/**
+ * Fresh worker context: summaries do not save cooking documents; opening one
+ * does. `beforeOpen` and `beforeOffline` let the runner mark summary requests
+ * that the card navigation or the offline switch cancels.
+ */
+export async function verifyRecipeWorker(
+	page,
+	{ beforeOpen, beforeOffline } = {},
+) {
 	const savedIds = () =>
 		page.evaluate(
 			() =>
@@ -49,7 +77,11 @@ export async function verifyRecipeWorker(page, { beforeOffline } = {}) {
 	);
 	const card = page.locator(".recipe-card .title-button").first();
 	const id = await card.getAttribute("data-recipe-id");
+	const recipePage = (url) => url.pathname === `/recipes/${id}/`;
+	await settleBeforeCardClick(page, card);
+	await beforeOpen?.();
 	await card.click();
+	await page.waitForURL(recipePage);
 	await page.locator(".recipe-detail").waitFor();
 	await page
 		.getByText("Available offline", { exact: true })
@@ -61,7 +93,11 @@ export async function verifyRecipeWorker(page, { beforeOffline } = {}) {
 		await page.goto(new URL("/recipes/saved/", page.url()).href, {
 			waitUntil: "domcontentloaded",
 		});
-		await page.locator(`.recipe-card [data-recipe-id="${id}"]`).click();
+		const savedCard = page.locator(`.recipe-card [data-recipe-id="${id}"]`);
+		await savedCard.waitFor();
+		await settleBeforeCardClick(page, savedCard);
+		await savedCard.click();
+		await page.waitForURL(recipePage);
 		await page.locator(".recipe-detail").waitFor();
 	} finally {
 		await page.context().setOffline(false);
