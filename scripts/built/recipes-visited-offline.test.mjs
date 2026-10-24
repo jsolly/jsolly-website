@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdtemp, rm } from "node:fs/promises";
+import { mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { chromium } from "playwright";
@@ -28,6 +28,15 @@ const ID = "lemon-salmon-and-asparagus";
 const OTHER = "shawarma-chicken-bowls";
 const RELEASE_A = "a".repeat(40);
 const RELEASE_B = "b".repeat(40);
+const archivedRecipes = JSON.parse(
+	await readFile(
+		new URL(
+			"../../docs/recipes-archive/keto-2026-10-23/recipes.json",
+			import.meta.url,
+		),
+		"utf8",
+	),
+).recipes;
 function message(page, data) {
 	return page.evaluate(
 		(value) =>
@@ -57,6 +66,155 @@ async function openAndSave(page, id, release = RELEASE_A) {
 	const result = await message(page, { type: "SAVE_RECIPE", id, release });
 	if (result.saved !== true) throw new Error(result.error);
 }
+
+it("Retired saved recipes still negotiate HTML, Markdown and unsupported Accept offline", {
+	timeout: 90_000,
+}, async () => {
+	await serve("A");
+	const context = await browser.newContext();
+	try {
+		const page = await context.newPage();
+		await install(page);
+		await openAndSave(page, ID);
+		await navigateHydrated(page, `${site.origin}/recipes/`);
+		const recipe = archivedRecipes.find(({ id }) => id === "carrot-cake");
+		const original = await page.evaluate(
+			async ({ recipe: savedRecipe, release }) => {
+				const id = savedRecipe.id;
+				const paths = [
+					`/recipes/${id}/`,
+					`/recipes/${id}.md`,
+					`/recipes/data/packs/${id}.json`,
+				];
+				const html =
+					// biome-ignore lint/security/noSecrets: synthetic archived recipe HTML, not a credential.
+					"<html><body><main><h1>Archived carrot cake</h1><p>Legacy cooking record.</p></main></body></html>";
+				const markdown =
+					"# Archived carrot cake\n\nLegacy ingredients and method.\n";
+				const cache = `recipe-saved-v1-${release}-${id}-fixture`;
+				const store = await caches.open(cache);
+				await Promise.all(
+					[
+						[paths[0], "text/html", html],
+						[paths[1], "text/markdown", markdown],
+						[
+							paths[2],
+							"application/json",
+							JSON.stringify({
+								schemaVersion: 1,
+								releaseId: release,
+								recipe: savedRecipe,
+							}),
+						],
+					].map(([path, type, body]) =>
+						store.put(
+							new Request(new URL(path, location.origin), {
+								headers: {
+									accept: path.endsWith("/")
+										? "text/html"
+										: path.endsWith(".md")
+											? "text/markdown"
+											: "*/*",
+								},
+							}),
+							new Response(body, {
+								headers: { "content-type": type, vary: "Accept" },
+							}),
+						),
+					),
+				);
+				const registry = await caches.open("recipe-saved-registry-v1");
+				const registryKey = new URL(
+					"/recipes/__saved_recipes__",
+					location.origin,
+				).href;
+				const saved = await (await registry.match(registryKey)).json();
+				saved.recipes[id] = { id, release, cache, savedAt: Date.now(), paths };
+				await registry.put(registryKey, Response.json(saved));
+				return { html, markdown, cache, id };
+			},
+			{ recipe, release: RELEASE_B },
+		);
+		assert.deepEqual(
+			(await message(page, { type: "LIST_SAVED_RECIPES" })).recipes.map(
+				({ id }) => id,
+			),
+			[ID, recipe.id],
+		);
+		await context.setOffline(true);
+		const results = await page.evaluate(
+			async (id) =>
+				Promise.all(
+					[
+						[`/recipes/${id}/`, "text/html", "GET"],
+						[`/recipes/${id}/`, "text/markdown", "GET"],
+						[`/recipes/${id}.md`, "text/html", "GET"],
+						[`/recipes/${id}/`, "text/markdown", "HEAD"],
+						[`/recipes/${id}/`, "application/json", "GET"],
+						[`/recipes/${id}/`, "application/json", "HEAD"],
+					].map(async ([path, accept, method]) => {
+						const response = await fetch(path, { method, headers: { accept } });
+						return {
+							status: response.status,
+							type: response.headers.get("content-type"),
+							vary: response.headers.get("vary"),
+							body: await response.text(),
+						};
+					}),
+				),
+			recipe.id,
+		);
+		assert.equal(results[0].status, 200);
+		assert.equal(results[0].type, "text/html");
+		assert.ok(results[0].body.includes("<html>"));
+		assert.ok(results[0].body.includes("saved recipe from an earlier version"));
+		for (const result of [results[1], results[2]]) {
+			assert.equal(result.status, 200);
+			assert.equal(result.type, "text/markdown");
+			assert.ok(result.body.includes(original.markdown));
+			assert.ok(!result.body.includes("<html>"));
+			assert.equal(result.vary, "Accept");
+		}
+		assert.equal(results[1].body, results[2].body);
+		assert.equal(results[3].status, 200);
+		assert.equal(results[3].type, "text/markdown");
+		assert.equal(results[3].body, "");
+		for (const result of [results[4], results[5]]) {
+			assert.equal(result.status, 406);
+			assert.equal(result.vary, "Accept");
+		}
+		assert.equal(results[5].body, "");
+		const stored = await page.evaluate(async ({ cache, id }) => {
+			const store = await caches.open(cache);
+			return Promise.all(
+				[
+					[`/recipes/${id}/`, "text/html"],
+					[`/recipes/${id}.md`, "text/markdown"],
+				].map(async ([path, accept]) =>
+					(
+						await store.match(
+							new Request(new URL(path, location.origin), {
+								headers: { accept },
+							}),
+						)
+					).text(),
+				),
+			);
+		}, original);
+		assert.deepEqual(stored, [original.html, original.markdown]);
+		await navigateHydrated(page, `${site.origin}/recipes/saved/`);
+		await page
+			.locator(`.recipe-card .title-button[data-recipe-id="${ID}"]`)
+			.waitFor();
+		assert.equal(
+			await page.locator(".recipe-card").count(),
+			1,
+			"the retired saved record remains stored but outside keto browsing",
+		);
+	} finally {
+		await context.close();
+	}
+});
 
 it("Visited-only installation stores no individual recipe, pack or illustration", {
 	timeout: 90_000,

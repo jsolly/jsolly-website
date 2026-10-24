@@ -4,6 +4,7 @@ import { readFile } from "node:fs/promises";
 import { JSDOM } from "jsdom";
 import { it, vi } from "vitest";
 import { unitAudit } from "../../../scripts/recipes/audit-units.mjs";
+import { archivedRecipes } from "./archived-recipes.test-data.mjs";
 import {
 	ingredientGrams,
 	ingredientMeasure,
@@ -22,6 +23,7 @@ import { readRecipeURL, recipeHref } from "./recipe-url.mjs";
 import { flowGrid, gridHtml } from "./trn-logic.mjs";
 import {
 	readRecipePreferences,
+	writeRecipePreferences,
 	writeSidePreference,
 	writeUnitPreference,
 } from "./unit-preference.mjs";
@@ -420,18 +422,24 @@ it("lettuce-wrap liquid choices preserve independent source weights in JSON, Mar
 		}
 });
 
-it("the migration retains every original ingredient identity, including split mixture components", () => {
+it("the archive preserves original measurement identities while the current audit covers every published ingredient", () => {
 	const audit = JSON.parse(unitAudit());
-	assert.equal(audit.recipeCount, 147);
-	assert.equal(audit.sourceIdentityCount, 1697);
+	assert.equal(audit.recipeCount, 140);
+	assert.equal(archivedRecipes.length, 147);
 	const migratedIdentities = [
 		...new Set(
-			audit.rows
-				.filter((row) => row.recipe !== "carrot-cake")
-				.map(
-					(row) =>
-						`${row.recipe}/${row.family ? "family" : "ingredient"}/${row.provenance.sourceIngredientId}`,
-				),
+			archivedRecipes
+				.filter((recipe) => recipe.id !== "carrot-cake")
+				.flatMap((recipe) => [
+					...recipe.ingredients.map(
+						(item) =>
+							`${recipe.id}/ingredient/${item.measurementProvenance.sourceIngredientId}`,
+					),
+					...recipe.familyOptions.map(
+						(item) =>
+							`${recipe.id}/family/${item.measurementProvenance.sourceIngredientId}`,
+					),
+				]),
 		),
 	].sort();
 	assert.equal(migratedIdentities.length, 1680);
@@ -443,6 +451,14 @@ it("the migration retains every original ingredient identity, including split mi
 		"f670105d5e3f41d9ba467a7ef8c7a17db56307fee5efa41fecacba64aaf7b669",
 	);
 	assert.ok(audit.ingredientCount >= audit.sourceIdentityCount);
+	assert.equal(
+		audit.ingredientCount,
+		data.recipes.reduce(
+			(total, recipe) =>
+				total + recipe.ingredients.length + recipe.familyOptions.length,
+			0,
+		),
+	);
 });
 
 it("unit links override a saved preference and round-trip every valid mode", () => {
@@ -465,10 +481,16 @@ const SIDE_RECIPE = {
 	id: "bowl",
 	familyOptions: [{ id: "rice" }, { id: "pita" }],
 };
-it("individual-page unit preference updates preserve every unrelated saved field", () => {
+it("individual-page unit preference updates retire keto switches and preserve every unrelated saved field", () => {
 	const prior = {
 		servings: 8,
-		filters: { ingredientChoice: ["hemp"], proteinChoice: ["fish"] },
+		familyDiners: 2,
+		filters: {
+			ingredientChoice: ["hemp"],
+			proteinChoice: ["fish"],
+			mealKetoOnly: true,
+			smoothieKetoOnly: true,
+		},
 		familyChoice: { otherRecipe: "rice" },
 		appliancesOnHand: { Oven: 2 },
 	};
@@ -484,7 +506,11 @@ it("individual-page unit preference updates preserve every unrelated saved field
 		readRecipePreferences(SIDE_RECIPE, () => storage).units,
 		"grams",
 	);
-	assert.deepEqual(JSON.parse(saved), { ...prior, units: "grams" });
+	assert.deepEqual(JSON.parse(saved), {
+		...prior,
+		units: "grams",
+		filters: { ingredientChoice: ["hemp"], proteinChoice: ["fish"] },
+	});
 });
 it("individual-page side preferences share the library's familyChoice record and keep other fields", () => {
 	const prior = {
@@ -501,7 +527,7 @@ it("individual-page side preferences share the library's familyChoice record and
 	const getStorage = () => storage;
 	assert.deepEqual(
 		readRecipePreferences(SIDE_RECIPE, getStorage),
-		{ units: "metric", side: "" },
+		{ units: "metric", side: "", servings: 4, familyDiners: 0 },
 		"a side the recipe no longer offers reads as none",
 	);
 	writeSidePreference(SIDE_RECIPE, "pita", getStorage);
@@ -512,6 +538,8 @@ it("individual-page side preferences share the library's familyChoice record and
 	assert.deepEqual(readRecipePreferences(SIDE_RECIPE, getStorage), {
 		units: "metric",
 		side: "pita",
+		servings: 4,
+		familyDiners: 4,
 	});
 	writeSidePreference(SIDE_RECIPE, "", getStorage);
 	assert.deepEqual(JSON.parse(saved), {
@@ -521,14 +549,67 @@ it("individual-page side preferences share the library's familyChoice record and
 	saved = JSON.stringify({ familyChoice: ["pita"] });
 	writeSidePreference(SIDE_RECIPE, "rice", getStorage);
 	assert.deepEqual(JSON.parse(saved), { familyChoice: { bowl: "rice" } });
+
+	saved = JSON.stringify({
+		servings: 8,
+		units: "metric",
+		filters: {
+			proteinChoice: ["fish"],
+			mealKetoOnly: true,
+			smoothieKetoOnly: true,
+		},
+		familyChoice: { otherRecipe: "rice", bowl: "rice" },
+		appliancesOnHand: { Oven: 2 },
+	});
+	const sharedMeal = {
+		servings: 4,
+		units: "grams",
+		familyDiners: 2,
+		familyChoice: { bowl: "pita" },
+	};
+	assert.equal(
+		writeRecipePreferences(SIDE_RECIPE, sharedMeal, getStorage),
+		true,
+	);
+	assert.deepEqual(JSON.parse(saved), {
+		servings: 4,
+		units: "grams",
+		familyDiners: 2,
+		filters: { proteinChoice: ["fish"] },
+		familyChoice: { otherRecipe: "rice", bowl: "pita" },
+		appliancesOnHand: { Oven: 2 },
+	});
+	assert.deepEqual(readRecipePreferences(SIDE_RECIPE, getStorage), {
+		units: "grams",
+		side: "pita",
+		servings: 4,
+		familyDiners: 2,
+	});
+	assert.equal(
+		writeRecipePreferences(
+			SIDE_RECIPE,
+			{ ...sharedMeal, familyDiners: 0, familyChoice: {} },
+			getStorage,
+		),
+		true,
+	);
+	assert.deepEqual(JSON.parse(saved).familyChoice, { otherRecipe: "rice" });
+	assert.deepEqual(readRecipePreferences(SIDE_RECIPE, getStorage), {
+		units: "grams",
+		side: "",
+		servings: 4,
+		familyDiners: 0,
+	});
 });
 it("the committed audit enumerates all source and family rows with current conversion evidence", async () => {
+	const committed = await readFile(
+		new URL("../../../docs/recipe-units-audit.json", import.meta.url),
+		"utf8",
+	);
 	assert.equal(
-		await readFile(
-			new URL("../../../docs/recipe-units-audit.json", import.meta.url),
-			"utf8",
-		),
-		unitAudit(),
+		committed === unitAudit(),
+		true,
+		"Stale recipe unit audit. Run node scripts/recipes/audit-units.mjs --write.",
 	);
 });
 
@@ -547,6 +628,8 @@ it("corrupt preferences recover on write while denied storage remains reported w
 	assert.deepEqual(readRecipePreferences(SIDE_RECIPE, getStorage), {
 		units: "us",
 		side: "",
+		servings: 4,
+		familyDiners: 0,
 	});
 	writeUnitPreference("grams", getStorage);
 	assert.deepEqual(JSON.parse(saved), { units: "grams" });
@@ -556,14 +639,30 @@ it("corrupt preferences recover on write while denied storage remains reported w
 	assert.deepEqual(readRecipePreferences(SIDE_RECIPE, denied), {
 		units: "us",
 		side: "",
+		servings: 4,
+		familyDiners: 0,
 	});
 	writeUnitPreference("metric", denied);
 	writeSidePreference(SIDE_RECIPE, "rice", denied);
+	assert.equal(
+		writeRecipePreferences(
+			SIDE_RECIPE,
+			{
+				units: "metric",
+				servings: 4,
+				familyDiners: 2,
+				familyChoice: { bowl: "rice" },
+			},
+			denied,
+		),
+		false,
+	);
 	assert.deepEqual(errors, [
 		"Recipe preferences could not be restored; using US imperial and no side. SyntaxError",
 		"Malformed recipe settings were discarded while saving units. SyntaxError",
 		"Recipe preferences could not be restored; using US imperial and no side. SecurityError",
 		"Recipe units could not be saved; changes apply only to this visit. SecurityError",
 		"Recipe side could not be saved; changes apply only to this visit. SecurityError",
+		"Recipe preferences could not be saved; changes apply only to this visit. SecurityError",
 	]);
 });

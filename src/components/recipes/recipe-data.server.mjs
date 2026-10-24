@@ -1,6 +1,7 @@
 // Canonical registries are server/build inputs. Browser recipes carry only their own context.
 import weights from "./ingredient-weights.json" with { type: "json" };
 import nutrition from "./nutrition-data.json" with { type: "json" };
+import { requirePublishedRecipe } from "./recipe-publication.mjs";
 import canonical from "./recipes.json" with { type: "json" };
 
 const references = new Map(
@@ -25,7 +26,7 @@ export function ingredientWithContext(ingredient) {
 }
 
 function recipeWithContext(recipe) {
-	return {
+	return requirePublishedRecipe({
 		...recipe,
 		ingredients: recipe.ingredients.map(ingredientWithContext),
 		familyOptions: recipe.familyOptions.map(ingredientWithContext),
@@ -34,7 +35,7 @@ function recipeWithContext(recipe) {
 			rows: nutrition.recipes[recipe.id] ?? [],
 			familyRows: nutrition.familyOptions[recipe.id] ?? [],
 		},
-	};
+	});
 }
 
 export default {

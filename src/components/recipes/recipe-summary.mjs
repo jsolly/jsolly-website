@@ -88,8 +88,6 @@ export function browseFilterChoices(recipes, collection, state) {
 			smoothieIngredients,
 		),
 		flags: {
-			mealKetoOnly: hasMatches({ carb: ["keto"] }),
-			smoothieKetoOnly: hasMatches({ carb: ["keto"] }),
 			vegetarianOnly: hasMatches({ vegetarian: true }),
 			dumpAndGo: hasMatches({ dumpAndGo: true }),
 			immuneSupport: hasMatches({ immune: true }),

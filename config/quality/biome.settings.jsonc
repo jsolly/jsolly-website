@@ -309,6 +309,12 @@
 	},
 	"overrides": [
 		{
+			// Frozen pre-keto source registries retain their original bytes.
+			// They remain parsed and linted, but are never reformatted.
+			"includes": ["docs/recipes-archive/**/*.json"],
+			"formatter": { "enabled": false }
+		},
+		{
 			// These large data files use the migration/audit JSON.stringify layout.
 			// Keep both formatting and lint checks without collapsing small arrays.
 			"includes": [

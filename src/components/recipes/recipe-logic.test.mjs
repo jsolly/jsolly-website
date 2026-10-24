@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { it } from "vitest";
+import { archivedRecipes } from "./archived-recipes.test-data.mjs";
 import recipeData, { ingredientWithContext } from "./recipe-data.server.mjs";
 import {
 	capacityNote,
@@ -187,7 +188,7 @@ it("pressure minimum changes small-batch per-person nutrition, not safe liquid",
 it("package counts follow scaled ingredient weights rather than fixed recipe notes", async () => {
 	const { purchaseNote } = await import("./recipe-logic.mjs");
 	const data = recipeData.recipes;
-	const chickpea = data
+	const chickpea = archivedRecipes
 		.find((r) => r.key === "chickpea")
 		.ingredients.find((i) => i.id === "chickpeas_canned");
 	assert.match(purchaseNote(chickpea, 2), ABOUT_ONE_CAN);
@@ -196,7 +197,7 @@ it("package counts follow scaled ingredient weights rather than fixed recipe not
 		.find((r) => r.key === "frittata")
 		.ingredients.find((i) => i.id === "spinach_frozen");
 	assert.match(purchaseNote(spinach, 8), BUY_TWO);
-	const gnocchi = data
+	const gnocchi = archivedRecipes
 		.find((r) => r.key === "gnocchi")
 		.ingredients.find((i) => i.id === "shelf_stable_gnocchi");
 	assert.match(purchaseNote(gnocchi, 8), BUY_TWO);

@@ -33,7 +33,7 @@ const paths = [
 	"/recipes/meals/",
 	"/recipes/smoothies/",
 	"/recipes/greek-turkey-patties/",
-	"/recipes/banana-flax-smoothie/",
+	"/recipes/cucumber-spinach-lime-smoothie/",
 ];
 before(async () => {
 	browser = await chromium.launch();

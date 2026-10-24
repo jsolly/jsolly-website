@@ -676,7 +676,7 @@ it("Offline page requests select separate HTML and Markdown representations and 
 		assert.equal(results[0].status, 200);
 		assert.ok(results[0].body.includes("<html"));
 		assert.equal(results[1].status, 200);
-		assert.ok(results[1].body.includes("Easy Meals"));
+		assert.ok(results[1].body.includes("Keto meals & smoothies"));
 		assert.ok(!results[1].body.includes("<html"));
 		assert.equal(results[2].body, "");
 		assert.equal(results[3].status, 406);

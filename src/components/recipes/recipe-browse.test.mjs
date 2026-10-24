@@ -61,7 +61,6 @@ it("native browse matches hydrated meal protein, starch, style, flags and invent
 					protein: f.proteinChoice,
 					starch: f.starchChoice,
 					vegetarian: f.vegetarianOnly,
-					carb: f.mealKetoOnly ? ["keto"] : [],
 					dumpAndGo: f.dumpAndGo,
 					immune: f.immuneSupport,
 					iron: f.ironRich,
@@ -77,7 +76,7 @@ it("native browse matches hydrated meal protein, starch, style, flags and invent
 	}
 });
 
-it("native smoothie ingredients use OR and collection-specific keto filters", () => {
+it("native smoothie ingredients use OR and ignore retired keto filter parameters", () => {
 	const choices = Object.keys(smoothieIngredientChoices(recipes)).slice(0, 2);
 	const state = parse(
 		`ingredientChoice=${choices[0]}&ingredientChoice=${choices[1]}&smoothieKetoOnly=1&proteinChoice=fish`,
@@ -85,8 +84,7 @@ it("native smoothie ingredients use OR and collection-specific keto filters", ()
 	);
 	const expected = recipes.filter(
 		(r) =>
-			r.type === "smoothie" &&
-			matchesRecipe(r, 4, { ingredients: choices, carb: ["keto"] }),
+			r.type === "smoothie" && matchesRecipe(r, 4, { ingredients: choices }),
 	);
 	assert.deepEqual(filterBrowseRecipes(recipes, "smoothie", state), expected);
 });
@@ -119,6 +117,8 @@ it("native form restoration roundtrips flags, selections, units, portions and ze
 	assert.deepEqual(parseBrowseParams(params, "meal", recipes), state);
 	assert.equal(params.get("appliance.Oven"), "0");
 	assert.equal(params.get("browse"), "1");
+	assert.equal(params.has("mealKetoOnly"), false);
+	assert.equal(params.has("smoothieKetoOnly"), false);
 });
 
 it("browse pagination uses six cards, clamps invalid and empty pages, and preserves seeded order", () => {

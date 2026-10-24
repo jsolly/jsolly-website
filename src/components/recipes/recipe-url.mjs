@@ -1,8 +1,9 @@
 import { BASE_SERVINGS } from "./constants.mjs";
 import { validateSettings } from "./recipe-logic.mjs";
 
-// Reads a recipe link's settings: ?servings=, ?starch=<id>:<side>[,…] and the
-// recipe it names (its /recipes/<id>/ page or a #<id> hash).
+// Reads a recipe link's settings and target (its /recipes/<id>/ page or
+// #<id> hash). Explicit settings override the addressed recipe's saved side,
+// including older shares that represent None by omitting starch.
 export function readRecipeURL(
 	url,
 	recipes,
@@ -18,23 +19,44 @@ export function readRecipeURL(
 			? url.searchParams.get("units")
 			: defaults.units,
 	}).units;
-	const familyChoice = {};
-	for (const part of (url.searchParams.get("starch") || "").split(",")) {
-		const [id, side] = part.split(":");
-		if (
-			recipes
-				.find((recipe) => recipe.id === id)
-				?.familyOptions.some((option) => option.id === side)
-		)
-			familyChoice[id] = side;
-	}
 	const recipeId =
 		recipes.find(
 			(recipe) =>
 				url.pathname === `/recipes/${recipe.id}/` ||
 				url.hash === `#${recipe.id}`,
 		)?.id || "";
-	return { servings, units, familyChoice, recipeId };
+	const offered = (id, side) =>
+		recipes
+			.find((recipe) => recipe.id === id)
+			?.familyOptions.some((option) => option.id === side);
+	const explicitSettings = ["servings", "units", "starch", "sideDiners"].some(
+		(key) => url.searchParams.has(key),
+	);
+	const familyChoice = Object.fromEntries(
+		Object.entries(defaults.familyChoice || {}).filter(
+			([id, side]) =>
+				offered(id, side) && !(explicitSettings && id === recipeId),
+		),
+	);
+	let explicitSide = false;
+	for (const part of (url.searchParams.get("starch") || "").split(",")) {
+		const [id, side] = part.split(":");
+		if (offered(id, side)) {
+			familyChoice[id] = side;
+			explicitSide = true;
+		}
+	}
+	// Old links selected a side for every diner. New shared links carry an
+	// explicit count, while an ordinary visit can retain the saved preference.
+	const familyDiners = validateSettings({
+		servings,
+		familyDiners: url.searchParams.has("sideDiners")
+			? url.searchParams.get("sideDiners")
+			: explicitSide
+				? servings
+				: defaults.familyDiners,
+	}).familyDiners;
+	return { servings, units, familyDiners, familyChoice, recipeId };
 }
 
 // The shareable link to a recipe page with the reader's servings and optional side.
@@ -42,10 +64,22 @@ export function recipeHref(recipe, settings) {
 	const params = new URLSearchParams({
 		servings: String(validateSettings(settings).servings),
 		units: validateSettings(settings).units,
+		starch: "",
 	});
 	const side = settings.familyChoice?.[recipe.id];
-	if (recipe.familyOptions.some((option) => option.id === side))
+	if (recipe.familyOptions.some((option) => option.id === side)) {
 		params.set("starch", `${recipe.id}:${side}`);
+		params.set(
+			"sideDiners",
+			String(
+				validateSettings({
+					...settings,
+					familyDiners:
+						settings.familyDiners ?? settings.servings ?? BASE_SERVINGS,
+				}).familyDiners,
+			),
+		);
+	}
 	return `/recipes/${recipe.id}/?${params}`;
 }
 
@@ -60,18 +94,13 @@ export function recipeBrowseHref(recipe, settings) {
 		: recipeHref(recipe, settings);
 }
 
-// A recipe page's own URL after a servings, units or side change: units always, the
-// selected side as ?starch=, and servings only when not the default. Keeping
-// every explicit choice in the URL means a reload restores all of them.
+// Keep explicit choices in the current URL so reloads retain the visible recipe.
 export function recipePageURL(url, recipe, settings) {
 	const next = new URL(url);
-	const { servings, units } = validateSettings(settings);
-	if (servings === BASE_SERVINGS) next.searchParams.delete("servings");
-	else next.searchParams.set("servings", String(servings));
-	next.searchParams.set("units", units);
-	const side = settings.familyChoice?.[recipe.id];
-	if (recipe.familyOptions.some((option) => option.id === side))
-		next.searchParams.set("starch", `${recipe.id}:${side}`);
-	else next.searchParams.delete("starch");
+	for (const key of ["servings", "units", "starch", "sideDiners"])
+		next.searchParams.delete(key);
+	const selected = new URL(recipeHref(recipe, settings), next);
+	for (const [key, value] of selected.searchParams)
+		next.searchParams.set(key, value);
 	return next;
 }

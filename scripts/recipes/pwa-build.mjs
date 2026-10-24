@@ -26,6 +26,7 @@ import {
 	PWA_WORKER_PATH,
 	RECIPES_PATH,
 } from "../../src/components/recipes/constants.mjs";
+import { retiredRecipePath } from "../../src/components/recipes/recipe-publication.mjs";
 
 const WORKER_SOURCE = new URL("service-worker.js", import.meta.url);
 // Release shell names share a prefix; complete historical shells remain read-only.
@@ -288,7 +289,12 @@ export async function buildRecipePwa(root) {
 	};
 	for (const { page, references } of pages) {
 		const id = page.slice(RECIPES_PATH.length, -1);
-		if (!id || ["meals", "smoothies", "saved"].includes(id)) continue;
+		if (
+			!id ||
+			["meals", "smoothies", "saved"].includes(id) ||
+			retiredRecipePath(id)
+		)
+			continue;
 		const packPath = `/recipes/data/packs/${id}.json`;
 		const recipeFiles = new Map(savedTools);
 		const image = references.find(([value]) =>

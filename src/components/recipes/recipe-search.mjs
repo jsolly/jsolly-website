@@ -43,6 +43,7 @@ export function createRecipeSearch(recipes, servings = BASE_SERVINGS) {
 			ingredients: text(recipe.ingredients),
 			details: text([
 				recipe.summary,
+				recipe.sharedTable,
 				recipe.steps,
 				recipe.equipment,
 				recipe.timeline,

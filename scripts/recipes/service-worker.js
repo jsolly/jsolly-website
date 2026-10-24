@@ -1,3 +1,4 @@
+import { savedVersionResponse } from "../../src/components/recipes/saved-version-notice.mjs";
 import {
 	markdownSiblingPath,
 	preferredType,
@@ -626,7 +627,7 @@ async function savedResponse(event, key) {
 			// Canonical-URL recovery above does not require a storage write.
 		}
 	}
-	return response;
+	return savedVersionResponse(response, record.release, RELEASE, key);
 }
 self.addEventListener("fetch", (event) => {
 	const { request } = event;
@@ -646,7 +647,9 @@ self.addEventListener("fetch", (event) => {
 	const recipeId = key.match(RECIPE_PAGE)?.groups.id;
 	if (
 		key.endsWith("/") &&
-		(ASSETS.has(key) || Object.hasOwn(RECIPE_MANIFESTS, recipeId ?? ""))
+		// Saved recipe URLs outlive the current release's publication manifests.
+		// Negotiate their canonical URL shape before resolving network or storage.
+		(ASSETS.has(key) || recipeId)
 	) {
 		const chosen = preferredType(request.headers.get("accept"));
 		if (chosen === null) {

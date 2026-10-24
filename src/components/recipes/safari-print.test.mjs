@@ -49,6 +49,7 @@ it("Safari and copyable links preserve recipe settings on the current Preview or
 			const settings = {
 				servings,
 				units,
+				familyDiners: Math.min(2, servings),
 				familyChoice: { [recipe.id]: "pita_one" },
 			};
 			const links = safariPrintLinks(
@@ -74,6 +75,6 @@ it("local HTTP testing retains a copyable link without offering an invalid Safar
 	assert.equal(
 		links.url,
 		// biome-ignore lint/security/noSecrets: public recipe URL fixture.
-		"http://localhost:4321/recipes/greek-turkey-patties/?servings=6&units=metric",
+		"http://localhost:4321/recipes/greek-turkey-patties/?servings=6&units=metric&starch=",
 	);
 });

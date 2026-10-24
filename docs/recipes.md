@@ -1,9 +1,10 @@
 # Recipes
 
-The recipe library lives under `/recipes/`: the landing page `/recipes/`, the
-collection pages `/recipes/meals/` and `/recipes/smoothies/`, and one page per
-recipe at `/recipes/<recipe-id>/`. It comes from blogthedata.com's Easy Meals &
-Smoothies post, which redirects to `/recipes/` through the legacy host.
+The Keto meals & smoothies library lives under `/recipes/`: the landing page
+`/recipes/`, the collection pages `/recipes/meals/` and `/recipes/smoothies/`, and
+one canonical page per recipe at `/recipes/<recipe-id>/`. It comes from
+blogthedata.com's Easy Meals & Smoothies post, which redirects to `/recipes/`
+through the legacy host.
 The code map, test layout and
 invariants are in `AGENTS.md`; this file covers the data, the pipeline, the
 offline app and the old host's kill-switch.
@@ -35,8 +36,8 @@ changes still require `npm run gate`. The full gate always disables preview mode
 
 ## Data contract
 
-The canonical data is `src/components/recipes/recipes.json` (141 non-smoothie recipes and 6
-smoothies, pinned by `scripts/unit/recipe-data.test.mjs`) and `src/components/recipes/nutrition-data.json` (the
+The canonical data is `src/components/recipes/recipes.json` (136 keto meals and 4
+keto smoothies, pinned by `scripts/unit/recipe-data.test.mjs`) and `src/components/recipes/nutrition-data.json` (the
 Daily Value nutrients and each recipe's per-ingredient nutrient rows). Recipe
 ids are stable: each is a page slug (`/recipes/<id>/`) and a legacy fragment id.
 Old blogthedata.com links use both. To accommodate those legacy links,
@@ -45,7 +46,7 @@ page with the reader's saved servings, units and side; the library does not
 render recipes itself.
 Images are files under `public/recipes/media/`, referenced as `/recipes/media/...`.
 
-The 126 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Unmeasured cooking spray used only to prepare cookware belongs in flow preparation directions, including any optional use or device-manual conditions, rather than ingredient rows. Measured oil-or-spray alternatives remain ingredients. Every food ingredient has a positive measured quantity. Missing and to-taste source amounts have reviewed measured defaults, with the original source retained in measurement provenance. Missing nutrition and times display as "Not provided". The 72 recipes that previously lacked complete macros now carry labeled nutrition estimates used by the same base-recipe dietary classification. Every publisher adaptation has an ingredient nutrient model. Missing nutrient observations do not qualify for nutrient filters. Prep time is distinguished from household active time. The browser keeps concise source attribution and cooking instructions; provenance and nutrition assumptions remain in canonical data and assistant downloads. Cooking guidance from source limitations belongs in the flow. Mobile renders the same ingredient allocation tree vertically, preserving branch joins and shared cooking checks; desktop and print retain the table.
+The 124 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Unmeasured cooking spray used only to prepare cookware belongs in flow preparation directions, including any optional use or device-manual conditions, rather than ingredient rows. Measured oil-or-spray alternatives remain ingredients. Every food ingredient has a positive measured quantity. Missing and to-taste source amounts have reviewed measured defaults, with the original source retained in measurement provenance. Missing nutrition and times display as "Not provided". The 71 retained recipes that previously lacked complete macros now carry labeled nutrition estimates used by the same base-recipe dietary classification. Every publisher adaptation has an ingredient nutrient model. Missing nutrient observations do not qualify for nutrient filters. Prep time is distinguished from household active time. The browser keeps concise source attribution and cooking instructions; provenance and nutrition assumptions remain in canonical data and assistant downloads. Cooking guidance from source limitations belongs in the flow. Mobile renders the same ingredient allocation tree vertically, preserving branch joins and shared cooking checks; desktop and print retain the table.
 
 Every recipe has a first-party illustration under the [image contract](recipe-images.md), with illustration provenance retained in its image metadata and downloads.
 
@@ -82,13 +83,57 @@ macros are retained separately. The display rounds. Library cards always show th
 four-serving model (or per 8 fl oz smoothie glass), independent of batch size.
 Recipe time summaries use the upper end of a recorded range without a plus sign;
 capacity and cooking endpoint notes still apply. `servingNutrition` adjusts fixed minimums for smaller batches.
-Optional side nutrition is displayed separately per person; base nutrition and dietary classification exclude the side. Keto means at most 12.5 g net carbohydrates per base serving (four-serving meal model or 8 fl oz smoothie glass); every other recipe is Not keto. The filter, card and recipe use this same derived classification, independent of selected batch size. Extended nutrition (`nutrition.mjs`) covers 23 vitamins,
+Optional side nutrition is displayed separately per person; base nutrition and dietary classification exclude the side. Every published recipe has at most 12.5 g net carbohydrates per base serving, using the four-serving meal model or estimated 8 fl oz smoothie glass. The data boundary rejects non-keto recipes and missing shared-table guidance. Cards and cooking pages use the same derived classification, independent of selected batch size. Keto is the collection's default, so neither collection has a keto filter. Extended nutrition (`nutrition.mjs`) covers 23 vitamins,
 minerals and choline plus total fat, saturated fat and cholesterol, against FDA
 Daily Values, using USDA profiles on the same ingredient weights as the macro
 model. Values apply no cooking-retention factors. A nutrient total with a missing
 ingredient observation is omitted from the display. These are product
 estimates, not a medical nutrition prescription, and no cooking, tasting or
 stopwatch testing is claimed.
+
+### Keto collection and shared tables
+
+The collection contains 140 recipes, including keto fried calamari and 15 reviewed
+adaptations. The eight excluded original recipes have noindex HTML and Markdown
+retirement notices at their existing URLs. Their IDs are in
+`src/components/recipes/retired-recipes.json`; original recipe, nutrient and weight
+registries are frozen under `docs/recipes-archive/keto-2026-10-23/`. Retired IDs
+are excluded from collection results, exports, packs, sitemap and new offline
+manifests. Legacy recipe fragments use the same client-side navigation as
+published recipes, replacing the collection URL with the canonical retirement
+page.
+
+`sharedTable` supplies a recipe-specific serving suggestion on each canonical
+recipe page and in its print view, Markdown document and JSON export. Card print
+packets use the same cooking renderer. These suggestions are searchable and
+travel with offline saves. Carby additions stay in separate
+serving dishes or individual portions. Smoothies pour the keto glasses before
+higher-carbohydrate additions are blended into the remaining mixture. Optional
+extras are outside the recorded base nutrition.
+
+Measured `familyOptions` retain separate per-diner nutrition. Their selected
+`familyDiners` count can differ from total servings and ranges from zero to the
+selected batch size. Quantities scale only to diners choosing that side. Side
+instructions come from the option's own note, including separately roasted
+potatoes and optional balsamic glaze. A selected side with zero diners prepares
+none. Recipe-page controls update the saved preferences and current URL. Links
+use `sideDiners` for the count, separate from `servings` for the base batch.
+Shared links carry explicit settings including `starch=` for None so recipients'
+preferences cannot change the meal. Ordinary recipe visits can restore validated
+saved side choices and their diner count.
+
+Older immutable offline bundles keep their original cooking data. Saved browsing
+uses each bundle's actual original nutrition and hides retired or non-keto
+records without deleting them. Direct older saved documents display a version
+notice and keep HTML and Markdown negotiation, including unsupported-Accept 406s.
+A shell update never relabels an old non-keto bundle or refreshes its ingredients.
+
+`node scripts/recipes/migrate-keto-collection.mjs` reproduces the migration from
+the frozen baseline and reviewed calamari source data. Original publisher
+nutrition remains in provenance. Ingredient models, measured changes, food-state
+matches and conservative counted-oil/coating assumptions describe the current
+adaptations. Recipe-specific safety endpoints distinguish whole pork cuts,
+ground meat, sausage and seafood. The adaptations have not been kitchen-tested.
 
 ### Ingredient units
 
@@ -157,7 +202,7 @@ reviewing the method and the nutrition.
 
 ### Nutrition estimates
 
-All 147 recipes have calories, protein, total fat, total carbohydrate, fiber and net carbohydrate.
+All 140 published recipes have calories, protein, total fat, total carbohydrate, fiber and net carbohydrate.
 Total fat appears with the main macros and in Markdown and JSON downloads. Meals
 identify a serving as one fraction of the selected prepared batch; smoothies
 identify an estimated 8 fl oz (237 mL) glass. A meal fraction is not a measured
@@ -218,7 +263,7 @@ Recipes with missing observations do not gain a pill from those observations.
 
 ### Fat and calorie audit
 
-`node scripts/recipes/audit-nutrition.mjs` reads all 146 recipes and every supported
+`node scripts/recipes/audit-nutrition.mjs` reads all 140 published recipes and every supported
 serving count. Its JSON report includes ingredient coverage, fat sources, serving
 units, displayed macros and the difference from general Atwater energy,
 4 kcal/g protein + 4 kcal/g total carbohydrate + 9 kcal/g fat. A difference over
@@ -406,13 +451,13 @@ Search recipes searches the current collection alongside the existing filters.
 Names and ingredients rank highest; equipment, cooking instructions, family
 sides and nutrition highlights are searchable too. Online search runs on the browse server over the entire collection, with accent-insensitive matching, prefixes and limited typo tolerance. Offline search covers saved recipes only. Clearing search restores the current seeded order. Queries are not saved as preferences.
 
-Each library card has a Print recipe action using the current servings, units
-and optional side. It loads and prints only that recipe without leaving the library. Individual printing also requests an offline save when the worker is available.
+Each library card has a Print recipe action using the current servings, units,
+optional side and side-diner count. It loads and prints only that recipe without leaving the library. Individual printing also requests an offline save when the worker is available.
 
 On iPhone and iPad Home Screen apps, **Print recipe** offers **Open in Safari**
 instead of calling the installed app's unreliable print API. The link opens the
-individual recipe on the current host with the selected servings, units and
-optional side; tap **Print recipe** again in Safari. A selectable HTTPS link is
+individual recipe on the current host with the selected servings, units,
+optional side and side-diner count; tap **Print recipe** again in Safari. A selectable HTTPS link is
 also shown for manual copy/paste if the Safari application scheme is unavailable.
 Safari needs a network connection and, on a protected Preview, its own authorized
 session. Browser tabs and Mac Dock apps retain their existing print flow.
@@ -429,10 +474,10 @@ Collection pages server-render six summaries and hydrate the same six. Additiona
 
 Per-recipe packs under `/recipes/data/packs/<id>.json` carry the selected recipe, calculation references and release identity. Browser calculation modules import no complete nutrition or ingredient-weight registry. Standalone pages embed only their own calculation context. Full assistant downloads remain deliberate links and are excluded from automatic offline caching.
 
-Each recipe page server-renders one recipe body at four servings with the
+Each recipe page server-renders one recipe body at four servings with
 no optional side. While JavaScript resolves saved and URL settings, the enhanced recipe body remains hidden; then JavaScript enables
-scaling, the side choice, the cooking checks and share links
-(`?servings=`, `?units=` and `?starch=<id>:<side>`). Native fallbacks live in `<noscript>`,
+scaling, the side choice and diner count, the cooking checks and share links
+(`?servings=`, `?units=`, `?starch=<id>:<side>` and `?sideDiners=`). Native fallbacks live in `<noscript>`,
 so hydration never replaces a disclosure or cooking check in use. Without
 JavaScript, native ingredient checkboxes and nutrient disclosures still work,
 and collection pages offer native filter/search forms and card links.
@@ -445,22 +490,20 @@ Without JavaScript, GET forms submit `browse=1`, search, filters and the optiona
 
 Default card links point directly to the canonical recipe URL, keeping every
 recipe discoverable through ordinary internal links. Selecting a card navigates
-to that page; there is no in-library recipe view. Selected servings, units
-and sides travel in the card URL when they differ from the defaults. Share and
+to that page; there is no in-library recipe view. Selected servings, units,
+sides and their diner count travel in the card URL when they differ from the defaults. Share and
 Safari print handoff links always carry explicit settings so the recipient's
 saved preferences cannot change the shared recipe.
 
-The library saves `{ servings, units, filters, appliancesOnHand, familyChoice }` in
+The library saves `{ servings, units, filters, appliancesOnHand, familyChoice, familyDiners }` in
 `localStorage` under `recipes-settings-v1` (J13). The old blogthedata.com key is
 on another origin and is not read, so preferences reset once for returning
 visitors. Every saved key is validated on load; anything that no longer fits is
-reset. Recipe pages read and update the same record: a units or side choice on a
-page is saved there and replaces that page URL's `?units=` or `?starch=`. A
-servings choice is not saved but rewrites the page URL the same way
-(`?servings=` when not the default, `?units=` always, and the selected side
-as `?starch=`, removed when there is none), so a reload keeps it without
-changing other recipes. A page link without `servings`, `units` or `starch` uses the saved side; a link
-carrying any of them (shares, non-default card links) decides the side itself.
+reset. Recipe pages read and update the same record. Servings, units, side and
+side-diner changes on a page are saved there and replace the matching URL
+settings. A page link without `servings`, `units`, `starch` or `sideDiners` uses
+the saved side and count. A link carrying explicit recipe settings, such as a share or non-default
+card link, decides the side itself.
 
 ## Offline recipe app
 
@@ -584,10 +627,13 @@ cached recipe pages. `scripts/built/blogthedata-killswitch.test.mjs` proves both
 retirements in Chromium across two origins. Visitors who had the old app
 installed install the new one from `/recipes/`.
 
-The library places search after its settings, next to the results. Dietary
-preferences are independent Keto and Vegetarian checkboxes. Selecting both requires both conditions. Vegetarian uses the canonical verified vegetarian flag;
-meat and unverified cheese recipes are excluded. No current meal is verified
-vegan. Vegetarian and plant-forward are not protein choices. Saved settings and native GET forms use `mealKetoOnly` and `vegetarianOnly` booleans (`=1` in URLs). Older saved `mealStyle` values are ignored, resetting these two checks to unchecked. Carbs clears by
+The library places search after its settings, next to the results. Every recipe
+is keto. Vegetarian uses the canonical verified vegetarian flag, excluding meat
+and unverified cheese recipes. No current meal is verified vegan. Vegetarian and
+plant-forward are not protein choices. Saved settings and native GET forms use
+`vegetarianOnly` as a boolean (`=1` in URLs). The retired `mealKetoOnly`,
+`smoothieKetoOnly` and `mealStyle` values are ignored. Saving preferences removes
+the retired keto keys without discarding unrelated filters. Carbs clears by
 unticking choices; other multi-choice filters disable Clear selections when empty.
 
 Recipe pages print their on-screen cooking content directly. Individual card
@@ -612,9 +658,9 @@ browning or mid-cook additions. Preparation and finishing can still be needed.
 The flag is explicitly reviewed recipe metadata, not inferred from elapsed time
 or a zero mid-cook action count.
 
-### Carrot cake
+### Archived carrot cake
 
-`carrot-cake` is a dessert listed with the non-smoothie collection. It adapts
+`carrot-cake` is excluded from the keto collection. Its original record adapts
 [Zona House's Mini Carrot Cake](https://zonacooks.com/carrot-cake/).
 It includes the measured pecans and omits unmeasured garnish. Ingredient weights
 and nutrition source observations are recorded in

@@ -42,7 +42,7 @@ it("source metadata exports accept reactive proxies and retain resolved publishe
 
 it("publisher adaptations retain their IDs, attribution and nutrition provenance in JSON downloads", () => {
 	const adapted = data.recipes.filter((r) => r.sourceRecipe);
-	assert.equal(adapted.length, 126);
+	assert.equal(adapted.length, 124);
 	// The source gives 32 ounces of bone-in chops; model 80% edible weight, not pounds.
 	const porkRows =
 		nutritionData.recipes[
@@ -53,7 +53,7 @@ it("publisher adaptations retain their IDs, attribution and nutrition provenance
 			porkRows.find((row) => row.food === "ingredient-1").grams - 725.747792,
 		) < 0.000001,
 	);
-	assert.equal(new Set(data.recipes.map((r) => r.id)).size, 147);
+	assert.equal(new Set(data.recipes.map((r) => r.id)).size, 140);
 	for (const recipe of adapted) {
 		const document = JSON.parse(JSON.stringify(recipeDocument(recipe)));
 		assert.deepEqual(document.sourceRecipe, recipe.sourceRecipe, recipe.id);
@@ -84,14 +84,14 @@ it("every recipe has macros and publisher estimates retain ingredient evidence w
 		);
 	}
 	const adapted = data.recipes.filter((recipe) => recipe.sourceRecipe);
-	assert.equal(adapted.length, 126);
+	assert.equal(adapted.length, 124);
 	assert.equal(
 		adapted.filter(
 			(recipe) =>
 				recipe.sourceRecipe.preMeasurementNutritionEstimate
 					?.estimatedMacroFields?.length,
 		).length,
-		72,
+		71,
 	);
 	for (const recipe of adapted) {
 		const estimate = recipe.sourceRecipe.nutritionEstimate;
@@ -210,7 +210,7 @@ it("missing publisher times stay absent in exported cooking documents", () => {
 	}
 });
 
-it("expanded protein, meal style and starch filters use the canonical recipe fields", () => {
+it("protein and starch filters use canonical fields while retired carb filters are ignored", () => {
 	const imported = data.recipes.filter((recipe) => recipe.sourceRecipe);
 	for (const value of new Set(imported.map((recipe) => recipe.proteinType))) {
 		assert.deepEqual(
@@ -227,14 +227,7 @@ it("expanded protein, meal style and starch filters use the canonical recipe fie
 			imported
 				.filter((recipe) => matchesRecipe(recipe, 4, { carb: [value] }))
 				.map((recipe) => recipe.id),
-			imported
-				.filter(
-					(recipe) =>
-						(displayNutrition(recipe).net_carbs_g <= 12.5
-							? "keto"
-							: "nonketo") === value,
-				)
-				.map((recipe) => recipe.id),
+			imported.map((recipe) => recipe.id),
 		);
 	}
 	for (const starch of new Set(imported.flatMap((recipe) => recipe.starches))) {

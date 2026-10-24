@@ -166,16 +166,18 @@ function nativeBrowseTest(width) {
 				await page.locator(".recipe-card").count(),
 				Math.min(6, mealCount),
 			);
-			for (const [keto, vegetarian] of [
-				[true, false],
-				[false, true],
-				[true, true],
-				[false, false],
-			]) {
-				// biome-ignore lint/performance/noAwaitInLoops: each form submission must finish before the next filter state
-				await page
-					.getByRole("checkbox", { name: "Keto", exact: true })
-					.setChecked(keto);
+			for (const vegetarian of [true, false]) {
+				const legacy = new URL(page.url());
+				legacy.searchParams.set("browse", "1");
+				legacy.searchParams.set("mealKetoOnly", vegetarian ? "1" : "0");
+				// biome-ignore lint/performance/noAwaitInLoops: verify stale native links before each form submission.
+				await page.goto(legacy.href);
+				assert.equal(
+					await page
+						.getByRole("checkbox", { name: "Keto", exact: true })
+						.count(),
+					0,
+				);
 				await page
 					.getByRole("checkbox", { name: "Vegetarian", exact: true })
 					.setChecked(vegetarian);
@@ -187,12 +189,15 @@ function nativeBrowseTest(width) {
 					.filter(
 						(recipe) =>
 							recipe.type === "meal" &&
-							(!keto || recipe.nutrition.net_carbs_g <= 12.5) &&
 							(!vegetarian || recipe.vegetarian === true),
 					)
 					.map((recipe) => recipe.id)
 					.sort();
 				assert.deepEqual((await cardIds(page)).sort(), expected);
+				assert.equal(
+					new URL(page.url()).searchParams.has("mealKetoOnly"),
+					false,
+				);
 				await Promise.all([
 					page.waitForEvent("load"),
 					page.getByRole("button", { name: "Shuffle meals" }).click(),
@@ -201,8 +206,8 @@ function nativeBrowseTest(width) {
 				assert.equal(
 					await page
 						.getByRole("checkbox", { name: "Keto", exact: true })
-						.isChecked(),
-					keto,
+						.count(),
+					0,
 				);
 				assert.equal(
 					await page
@@ -216,18 +221,25 @@ function nativeBrowseTest(width) {
 				await page.getByRole("button", { name: "Shuffle smoothies" }).count(),
 				1,
 			);
-			await page
-				.getByRole("checkbox", { name: "Keto Friendly", exact: true })
-				.check();
+			assert.equal(
+				await page
+					.getByRole("checkbox", { name: "Keto Friendly", exact: true })
+					.count(),
+				0,
+			);
+			assert.equal(ketoSmoothieIds.length, 4);
+			assert.deepEqual((await cardIds(page)).sort(), ketoSmoothieIds);
+			await page.goto(
+				`${server.origin}/recipes/smoothies/?browse=1&smoothieKetoOnly=1`,
+			);
+			assert.deepEqual((await cardIds(page)).sort(), ketoSmoothieIds);
 			await Promise.all([
 				page.waitForEvent("load"),
 				page.getByRole("button", { name: "Apply filters" }).click(),
 			]);
 			assert.equal(
-				await page
-					.getByRole("checkbox", { name: "Keto Friendly", exact: true })
-					.isChecked(),
-				true,
+				new URL(page.url()).searchParams.has("smoothieKetoOnly"),
+				false,
 			);
 			assert.deepEqual((await cardIds(page)).sort(), ketoSmoothieIds);
 			await page

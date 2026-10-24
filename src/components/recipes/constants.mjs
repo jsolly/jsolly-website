@@ -71,7 +71,7 @@ export const PWA_FILES_PATH = "/recipes/pwa/";
  * RecipeLayout head tags; public/recipes/pwa/manifest.webmanifest repeats
  * them (scripts/unit/recipe-data.test.mjs checks they agree).
  */
-export const PWA_NAME = "Easy Meals";
+export const PWA_NAME = "Keto meals & smoothies";
 export const PWA_THEME_COLOR = "#183e2b";
 
 /** localStorage key for the library's saved settings (merge-plan J13). */
@@ -96,15 +96,13 @@ export const starchOptions = Object.fromEntries(
 );
 /**
  * The library's filters before a reader picks any: proteins, starches and
- * smoothie ingredients (arrays of ids), independent keto and vegetarian meal checks, and the keto-smoothie and nutrition checks.
+ * smoothie ingredients (arrays of ids), vegetarian meals and nutrition checks.
  */
 export const DEFAULT_FILTERS = {
 	proteinChoice: [],
 	starchChoice: [],
 	ingredientChoice: [],
-	mealKetoOnly: false,
 	vegetarianOnly: false,
-	smoothieKetoOnly: false,
 	immuneSupport: false,
 	ironRich: false,
 	omega3: false,

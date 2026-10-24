@@ -1,10 +1,10 @@
 import assert from "node:assert/strict";
 import { it } from "vitest";
-import data from "./recipe-data.server.mjs";
+import { archivedRecipes } from "./archived-recipes.test-data.mjs";
 import { documentMarkdown, recipeDocument } from "./recipe-export.mjs";
 
-it("carrot cake keeps complete pan batches, edible egg weights and cold frosting guidance", () => {
-	const cake = data.recipes.find((recipe) => recipe.id === "carrot-cake");
+it("archived carrot cake retains complete pan batches, edible egg weights and cold frosting guidance", () => {
+	const cake = archivedRecipes.find((recipe) => recipe.id === "carrot-cake");
 	// Zona Cooks specifies one small egg and one 6-inch pan for four slices.
 	// USDA's small egg observation is 38 g edible, excluding shell.
 	for (const [servings, eggGrams] of [

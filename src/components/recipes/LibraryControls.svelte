@@ -41,8 +41,8 @@
 		appliancesOnHand = $bindable(),
 	} = $props();
 	const COLLECTION_LINKS = [
-		{ collection: "meal", href: "/recipes/meals/", label: "Meals" },
-		{ collection: "smoothie", href: "/recipes/smoothies/", label: "Smoothies" },
+		{ collection: "meal", href: "/recipes/meals/", label: "Keto meals" },
+		{ collection: "smoothie", href: "/recipes/smoothies/", label: "Keto smoothies" },
 	];
 	const uid = $props.id();
 	const servingsId = `${uid}-servings`;
@@ -60,14 +60,8 @@
 	// the filter that picking it applies and its tooltip.
 	const nutritionChecks = $derived(
 		[
-			collection === "meal" && { key: "mealKetoOnly", label: "Keto", applies: { carb: ["keto"] } },
 			collection === "meal" && { key: "vegetarianOnly", label: "Vegetarian", applies: { vegetarian: true } },
 			collection === "meal" && { key: "dumpAndGo", label: "Dump and go", applies: { dumpAndGo: true }, title: "Load the cooker and start; no separate browning or mid-cook additions. Preparation and finishing may still be needed." },
-			collection === "smoothie" && {
-				key: "smoothieKetoOnly",
-				label: "Keto Friendly",
-				applies: { carb: ["keto"] },
-			},
 			{
 				key: "immuneSupport",
 				label: nutritionHighlights.immune.label,

@@ -25,7 +25,7 @@ const SETTINGS = { servings: BASE_SERVINGS, units: "us", familyDiners: 0 };
 // File name -> content for every generated download.
 export function generate(recipes = data.recipes) {
 	const bundle = recipeBundle(recipes, SETTINGS);
-	const intro = `# Easy Meals recipe library\n\n${recipes.length} recipes, including household recipes and adaptations from linked publishers. Ingredient quantities use four portions; whole-bird recipes round up to complete batches. Dietary labels classify the base recipe at no more than 12.5 g net carbs per serving for Keto, otherwise Not keto. Optional measured per-person sides default to none and their nutrition is separate. Adaptations have not been kitchen-tested.\n\n`;
+	const intro = `# Keto meals & smoothies recipe library\n\n${recipes.length} keto recipes, including household recipes and adaptations from linked publishers. Ingredient quantities use four portions; whole-bird recipes round up to complete batches. Every base meal serving or estimated 8 fl oz smoothie glass has no more than 12.5 g net carbs. Each recipe includes shared-table serving ideas. Optional measured per-person sides default to none and their nutrition is separate. Adaptations have not been kitchen-tested.\n\n`;
 	return new Map([
 		["recipe-library.json", `${JSON.stringify(bundle, null, 2)}\n`],
 		[

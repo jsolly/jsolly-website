@@ -11,6 +11,10 @@ import {
 	documentMarkdown,
 	recipeDocument,
 } from "../src/components/recipes/recipe-export.mjs";
+import { retirementMarkdown } from "../src/components/recipes/recipe-publication.mjs";
+import retiredRecipes from "../src/components/recipes/retired-recipes.json" with {
+	type: "json",
+};
 import {
 	maintenanceMarkdown,
 	withSiteSearch,
@@ -118,6 +122,9 @@ export async function buildMarkdown(root, manifestPath) {
 	const recipes = new Map(
 		data.recipes.map((recipe) => [`/recipes/${recipe.id}/`, recipe]),
 	);
+	const retired = new Map(
+		retiredRecipes.map((recipe) => [`/recipes/${recipe.id}/`, recipe]),
+	);
 	for (const route of routes.filter(
 		(path) => path.startsWith("/blog/") || path.startsWith("/recipes/"),
 	)) {
@@ -134,6 +141,8 @@ export async function buildMarkdown(root, manifestPath) {
 				? `<figure><img src="${escapeAttribute(new URL(image.src, "https://www.jsolly.com").href)}" alt="${escapeAttribute(image.alt)}"><figcaption>${escapeAttribute(image.caption)}</figcaption></figure>\n\n`
 				: "";
 			body = `<a id="${escapeAttribute(recipe.id)}"></a>\n\n${illustration}${documentMarkdown(recipeDocument(recipe))}\nCanonical page: https://www.jsolly.com${route}\n\n${RECIPE_QUERY_NOTE}\n`;
+		} else if (retired.has(route)) {
+			body = retirementMarkdown(retired.get(route));
 		} else {
 			body = pageMarkdown(html);
 			if (route === "/blog/search/" || route.startsWith("/recipes/")) {
