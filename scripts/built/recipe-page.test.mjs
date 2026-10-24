@@ -644,7 +644,11 @@ it("a reader who picks 8 servings and the bun side gets the scaled recipe, a sha
 			0,
 		);
 		await detail.getByRole("combobox", { name: SERVINGS }).selectOption("8");
-		assert.equal(new URL(page.url()).search, "?servings=8&units=us&starch=");
+		assert.deepEqual(Object.fromEntries(new URL(page.url()).searchParams), {
+			servings: "8",
+			units: "us",
+			starch: "",
+		});
 		await page.reload();
 		await page.waitForFunction(
 			() => !document.querySelector("astro-island[ssr]"),
