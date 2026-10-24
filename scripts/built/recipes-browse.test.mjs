@@ -833,8 +833,19 @@ async function pointerAndKeyboardHelp({ page, help, popover, heading }) {
 	await openFromKeyboard();
 	const opened = await focused();
 	await page.keyboard.press("Tab");
-	const tabbed = await focused();
-	const tabbedClosed = await close();
+	// Tab from the help reaches the Proteins choice that leads the filters.
+	const tabbed = {
+		...(await focused()),
+		control: await page.evaluate(() =>
+			document.activeElement?.getAttribute("aria-label"),
+		),
+	};
+	const tabbedClosed = {
+		...(await close()),
+		control: await page.evaluate(() =>
+			document.activeElement?.getAttribute("aria-label"),
+		),
+	};
 	await openFromKeyboard();
 	const onTriggerClosed = await close();
 	await openFromKeyboard();
@@ -875,8 +886,12 @@ const DESKTOP_HELP = {
 	movedOnOpen: IMMUNE,
 	movedOnOpenClosed: IMMUNE,
 	opened: ON_HELP,
-	tabbed: { ...IMMUNE, label: "Vegetarian" },
-	tabbedClosed: { ...IMMUNE, label: "Vegetarian" },
+	tabbed: { ...IMMUNE, label: undefined, control: "Proteins: All proteins" },
+	tabbedClosed: {
+		...IMMUNE,
+		label: undefined,
+		control: "Proteins: All proteins",
+	},
 	onTriggerClosed: ON_HELP,
 	clickedInside: { onHelp: false, inPopover: true, label: undefined },
 	clickedInsideClosed: ON_HELP,

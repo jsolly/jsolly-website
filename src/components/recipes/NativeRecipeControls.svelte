@@ -19,11 +19,12 @@
 <form id="recipe-browse-form" class="native-recipe-controls" method="get" action={pathname}>
 	<input type="hidden" name="browse" value="1" />
 	<input type="hidden" name="seed" value={seed} />
-	{#each choiceGroups as group (group.name)}
-		<fieldset><legend>{group.label}</legend><div class="choices">{#each Object.entries(group.options) as [value, label] (value)}<label><input type="checkbox" name={group.name} {value} checked={settings.filters[group.name].includes(value)} />{label}</label>{/each}</div></fieldset>
-	{/each}
 	<fieldset><legend>Appliances on hand</legend><div class="appliances">{#each shownAppliances as [key, label], index (key)}<label for={`native-appliance-${index}`}>{label}<NativeSelect id={`native-appliance-${index}`} name={`appliance.${key}`} value={settings.appliancesOnHand[key]}>{#each Array.from({ length: (applianceLimits[key] ?? 1) + 1 }, (_, count) => count) as count (count)}<option value={count}>{count === 0 ? "None" : count}</option>{/each}</NativeSelect></label>{/each}</div></fieldset>
-	<fieldset><legend>Filters</legend><div class="choices">{#each checks as [key, label] (key)}<label title={nutritionThresholds[key]}><input type="checkbox" name={key} value="1" checked={settings.filters[key]} />{label}</label>{/each}</div></fieldset>
+	<fieldset class="filters"><legend>Filters</legend>
+		{#each choiceGroups as group (group.name)}
+			<fieldset><legend>{group.label}</legend><div class="choices">{#each Object.entries(group.options) as [value, label] (value)}<label><input type="checkbox" name={group.name} {value} checked={settings.filters[group.name].includes(value)} />{label}</label>{/each}</div></fieldset>
+		{/each}
+		<div class="choices">{#each checks as [key, label] (key)}<label title={nutritionThresholds[key]}><input type="checkbox" name={key} value="1" checked={settings.filters[key]} />{label}</label>{/each}</div></fieldset>
 	<label for="native-recipe-search">Search recipes<Input id="native-recipe-search" name="q" type="search" value={query} maxlength={200} placeholder="Try chicken, garlic, or air fryer" /></label>
 	<p>Search names, ingredients, equipment and cooking details. Apply filters to reload the results.</p>
 	<div class="actions"><Button type="submit">Apply filters</Button><a href={pathname}>Reset filters</a></div>
@@ -35,6 +36,8 @@
 		.native-recipe-controls { display: grid; gap: 16px; padding: 18px; margin-bottom: 24px; border: 1px solid var(--recipe-line); border-radius: 12px; background: var(--recipe-paper); color: var(--recipe-ink); }
 		fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
 		legend { font-weight: 650; margin-bottom: 8px; }
+		.filters { display: grid; gap: 12px; }
+		.filters fieldset legend { font-weight: 600; font-size: 0.86rem; }
 		.appliances { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px; }
 		label { display: grid; gap: 6px; min-width: 0; }
 		.choices { display: flex; flex-wrap: wrap; gap: 4px 20px; }

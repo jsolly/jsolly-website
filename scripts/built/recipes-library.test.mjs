@@ -25,6 +25,7 @@ const meals = recipes.filter((recipe) => recipe.type === "meal");
 const FAMILY_SIDE = /^Add a side/u;
 const SIDE_DINERS = "People having this side";
 const SERVINGS = /^Servings/u;
+const PROTEINS = /^Proteins:/u;
 const PITA = "pita_one";
 const SHAWARMA = "shawarma-chicken-bowls";
 
@@ -661,6 +662,98 @@ it("a reader who marks a recipe made sees the date on its page and, in another o
 			},
 			{ date: 0, stored: {}, errors: [] },
 		);
+	} finally {
+		await close();
+	}
+});
+
+it("chips under the results heading show the active filters and search, remove one at a time keeping focus, and Clear all leaves appliances alone", async () => {
+	const { page, errors, close } = await openPage();
+	try {
+		await goHydrated(page, "/recipes/meals/");
+		const chips = page.locator(".active-filters li button");
+		assert.equal(await chips.count(), 0);
+		const ovenBefore = await page
+			.getByRole("checkbox", { name: "Oven" })
+			.isChecked();
+		await page.getByRole("checkbox", { name: "Oven" }).uncheck();
+
+		await page.getByRole("button", { name: PROTEINS }).click();
+		await page
+			.getByRole("dialog", { name: "Proteins choices" })
+			.getByRole("checkbox", { name: "Chicken", exact: true })
+			.check();
+		await page.keyboard.press("Escape");
+		await page.getByRole("checkbox", { name: "Dump and go" }).check();
+		await page
+			.getByRole("searchbox", { name: "Search recipes" })
+			.fill("garlic");
+		await page
+			.getByRole("button", { name: "Remove search: “garlic”" })
+			.waitFor();
+		assert.deepEqual(
+			{
+				list: await page
+					.getByRole("list", { name: "Active filters and search" })
+					.count(),
+				chips: await chips.allTextContents(),
+				names: await chips.evaluateAll((buttons) =>
+					buttons.map((button) => button.getAttribute("aria-label")),
+				),
+			},
+			{
+				list: 1,
+				chips: ["Chicken", "Dump and go", "“garlic”"],
+				names: [
+					"Remove filter: Chicken",
+					"Remove filter: Dump and go",
+					"Remove search: “garlic”",
+				],
+			},
+		);
+
+		await chips.first().click();
+		assert.deepEqual(
+			{
+				chips: await chips.allTextContents(),
+				focused: await page.evaluate(() =>
+					document.activeElement?.getAttribute("aria-label"),
+				),
+				proteins: await page
+					.getByRole("button", { name: PROTEINS })
+					.getAttribute("aria-label"),
+			},
+			{
+				chips: ["Dump and go", "“garlic”"],
+				focused: "Remove filter: Dump and go",
+				proteins: "Proteins: All proteins",
+			},
+		);
+
+		await page.getByRole("button", { name: "Clear all" }).click();
+		assert.deepEqual(
+			{
+				chips: await chips.count(),
+				dumpAndGo: await page
+					.getByRole("checkbox", { name: "Dump and go" })
+					.isChecked(),
+				search: await page
+					.getByRole("searchbox", { name: "Search recipes" })
+					.inputValue(),
+				oven: await page.getByRole("checkbox", { name: "Oven" }).isChecked(),
+				focused: await page.evaluate(() => document.activeElement?.textContent),
+				errors,
+			},
+			{
+				chips: 0,
+				dumpAndGo: false,
+				search: "",
+				oven: false,
+				focused: "Find your meal",
+				errors: [],
+			},
+		);
+		assert.equal(ovenBefore, true);
 	} finally {
 		await close();
 	}

@@ -451,6 +451,16 @@ Search recipes searches the current collection alongside the existing filters.
 Names and ingredients rank highest; equipment, cooking instructions, family
 sides and nutrition highlights are searchable too. Online search runs on the browse server over the entire collection, with accent-insensitive matching, prefixes and limited typo tolerance. Offline search covers saved recipes only. Clearing search restores the current seeded order. Queries are not saved as preferences.
 
+The library's **Filters** section holds the protein and carb choices (ingredients
+on smoothies) above the nutrition checks; appliances on hand sit above it as the
+reader's kitchen, not a filter. Because filters persist, the interactive library
+shows each active filter and the search as a removable chip under the results
+heading (`active-filters.mjs`), with **Clear all**, which removes every shown
+chip. Chips count only filters the browse applies, so meal choices kept while
+viewing smoothies stay saved, and appliances are never cleared. Removing a chip keeps keyboard focus on the
+chip in its place, or the results heading when none remain. Without
+JavaScript, the native form's Reset filters link clears the URL instead.
+
 Each library card has a Print recipe action using the current servings, units,
 optional side and side-diner count. It loads and prints only that recipe without leaving the library. Individual printing also requests an offline save when the worker is available.
 

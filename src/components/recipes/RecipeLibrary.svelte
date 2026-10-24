@@ -1,7 +1,9 @@
 <script>
 	import Shuffle from "@lucide/svelte/icons/shuffle";
+	import X from "@lucide/svelte/icons/x";
 	import { flushSync, onMount, tick, untrack } from "svelte";
 	import Button from "../../lib/components/ui/button.svelte";
+	import { activeFilters, withoutFilter, withoutFilters } from "./active-filters.mjs";
 	import { BASE_SERVINGS, DEFAULT_FILTERS, defaultAppliances, RECIPE_BATCH_SIZE, STORAGE_KEY } from "./constants.mjs";
 	import LibraryControls from "./LibraryControls.svelte";
 	import NativeRecipeControls from "./NativeRecipeControls.svelte";
@@ -67,6 +69,8 @@
 	const renderedRecipes = $derived(summaries.slice(0, visibleLimit));
 	const smoothieIngredients = $derived(result.filterChoices.smoothieIngredients);
 	const hasMore = $derived(visibleLimit < result.total);
+	// The filters and search narrowing these results, shown as removable chips.
+	const chips = $derived(activeFilters(filters, query, { collection, hasIron: result.filterChoices.collectionHasIron, ingredientLabels: smoothieIngredients }));
 
 	function params(page = 1, shuffle = false) {
 		const values = new URLSearchParams({ path: collection === "smoothie" ? "/recipes/smoothies/" : "/recipes/meals/", browse: "1", page: String(page), servings: String(servings), units, q: query, seed, release: initial.release });
@@ -226,6 +230,21 @@
 			message = "The update could not be checked. Reconnect and choose Check for update to retry.";
 		}
 	}
+	// Removing a chip moves focus to the chip now in its place, or to the
+	// results heading when none remain, so keyboard focus is never lost.
+	async function removeChip(chip, index) {
+		if (chip.key === "query") query = "";
+		else filters = withoutFilter(filters, chip);
+		await tick();
+		const remaining = libraryElement?.querySelectorAll(".active-filters li button") ?? [];
+		(remaining[Math.min(index, remaining.length - 1)] ?? listHeading)?.focus();
+	}
+	async function clearChips() {
+		filters = withoutFilters(filters, chips);
+		query = "";
+		await tick();
+		listHeading?.focus();
+	}
 	function setUnits(value) { units = validateSettings({ units: value }).units; replaceUnitURL(units); }
 	function setServings(value) { ({ servings, familyDiners } = validateSettings({ servings: Number(value), familyDiners })); }
 	async function saveOpened(recipe) {
@@ -345,6 +364,7 @@
 	{#if !saved}<noscript><NativeRecipeControls {collection} {pathname} metadata={result.filterChoices} /></noscript>{/if}
 	<div class="browse" id="meal-results" data-match-count={result.total} aria-busy={shuffling || loading}>
 		<div class="results-heading"><h2 bind:this={listHeading} tabindex="-1">{savedMode ? "Saved recipes" : collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2><Button class="enhanced-shuffle" variant="outline" type="button" disabled={!hydrated || shuffling || result.total < 2} onclick={shuffleCards}><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button>{#if !saved}<noscript><Button variant="outline" type="submit" form="recipe-browse-form" name="shuffle" value="1"><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button></noscript>{/if}</div>
+		{#if hydrated && chips.length}<div class="active-filters"><ul aria-label="Active filters and search">{#each chips as chip, index (`${chip.key}:${chip.value ?? ""}`)}<li><Button variant="outline" size="sm" type="button" aria-label={`Remove ${chip.key === "query" ? "search" : "filter"}: ${chip.label}`} onclick={() => removeChip(chip, index)}>{chip.label}<X aria-hidden="true" /></Button></li>{/each}</ul><Button variant="ghost" size="sm" type="button" onclick={clearChips}>Clear all</Button></div>{/if}
 		<p class="no-results" role="status">{!result.total ? savedMode ? "No saved recipes match. Open a recipe online to save it for offline use." : "No recipes match your search and filters. Try fewer words or adjust the filters." : query.trim() ? `${result.total} recipes found` : ""}</p>
 		<div class="recipe-grid">
 			{#each renderedRecipes as recipe (recipe.id)}<RecipeCard {recipe} madeOn={madeDateFor(made, recipe.id)} servings={recipeSettings.servings} settings={recipeSettings} onPrint={() => print(recipe.id)} disabled={!hydrated} href={recipeBrowseHref(recipe, recipeSettings)} />{/each}
@@ -364,6 +384,10 @@
 	@layer blog {
 		.results-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 0.8rem; }
 		.results-heading :global(h2) { margin: 0; }
+		.active-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 0.8rem; }
+		/* .meal-library outranks the library's general list indent. */
+		.meal-library .active-filters ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+		.active-filters :global(button) { min-height: 36px; gap: 6px; font-size: 0.86rem; }
 		.meal-library {
 			background: var(--recipe-canvas);
 			border-radius: 16px;
