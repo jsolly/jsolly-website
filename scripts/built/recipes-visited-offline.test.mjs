@@ -9,11 +9,14 @@ import {
 	navigateHydrated,
 	SAVED,
 	serve,
+	setupRecipePwaFixture,
 	site,
 	snapshots,
 	statusText,
 	stopRecipeWorkers,
 } from "./recipes-pwa-fixture.mjs";
+
+setupRecipePwaFixture();
 
 const ASSISTANT_EXPORTS = [
 	"/recipes/data/recipe-library.json",

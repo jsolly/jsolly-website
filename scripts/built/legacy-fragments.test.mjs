@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { JSDOM } from "jsdom";
+import { parse } from "parse5";
 import { it } from "vitest";
 import { DIST, exists } from "./pages.mjs";
 
@@ -64,19 +64,19 @@ async function compareFragments(pages, rows, distRoot) {
 	const missing = (
 		await Promise.all(
 			landed.map(async ({ old, path, file }) => {
-				const dom = new JSDOM(await readFile(file, "utf8"));
-				try {
-					const present = new Set(
-						[...dom.window.document.querySelectorAll("[id]")].map(
-							(element) => element.id,
-						),
+				const present = new Set();
+				function visit(node) {
+					const id = node.attrs?.find(
+						(attr) => !attr.prefix && attr.name === "id",
 					);
-					return pages[old]
-						.filter((id) => !present.has(id))
-						.map((id) => `${old}#${id} -> ${path}#${id}`);
-				} finally {
-					dom.window.close();
+					if (id) present.add(id.value);
+					// Template content is outside document selectors; noscript is parsed.
+					for (const child of node.childNodes ?? []) visit(child);
 				}
+				visit(parse(await readFile(file, "utf8"), { scriptingEnabled: false }));
+				return pages[old]
+					.filter((id) => !present.has(id))
+					.map((id) => `${old}#${id} -> ${path}#${id}`);
 			}),
 		)
 	).flat();
@@ -96,7 +96,7 @@ async function fixtureComparison() {
 	const root = await mkdtemp(join(tmpdir(), "legacy-fragments-"));
 	try {
 		const page = (ids) =>
-			`<!doctype html><main>${ids.map((id) => `<h2 id="${id}">${id}</h2>`).join("")}</main>`;
+			`<!doctype html><template><h2 id="lost">Inert</h2></template><main>${ids.map((id) => (id === "one" ? `<noscript><h2 id="${id}">${id}</h2></noscript>` : `<h2 id="${id}">${id}</h2>`)).join("")}</main>`;
 		await mkdir(join(root, "new-a"));
 		await writeFile(join(root, "new-a/index.html"), page(["kept"]));
 		await mkdir(join(root, "new-b"));

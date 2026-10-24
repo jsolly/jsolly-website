@@ -2,7 +2,6 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { parseFrontmatter } from "astro/markdown";
-import { JSDOM } from "jsdom";
 import { it } from "vitest";
 import middleware from "../../middleware.js";
 import { cookingText } from "../../src/components/recipes/cooking-quantities.mjs";
@@ -10,6 +9,7 @@ import data from "../../src/components/recipes/recipe-data.server.mjs";
 import { formatIngredient } from "../../src/components/recipes/recipe-logic.mjs";
 import { markdownRoutes, routes } from "../../src/generated/route-manifest.js";
 import { pageMarkdown } from "../markdown-build.mjs";
+import { markdownHtmlFacts } from "./markdown-html.mjs";
 import { allPosts, distFiles, readBuiltPages } from "./pages.mjs";
 
 const MISSING_CANONICAL = /canonical URL/u;
@@ -130,40 +130,25 @@ it("Published article Markdown preserves rendered author, timestamps, heading ID
 					frontmatter.canonical,
 					`https://www.jsolly.com/blog/${post.slug}/`,
 				);
-				const dom = new JSDOM(
+				const facts = markdownHtmlFacts(
 					await readFile(join("dist/blog", post.slug, "index.html"), "utf8"),
 				);
-				try {
-					const document = dom.window.document;
-					const structured = [
-						...document.querySelectorAll('script[type="application/ld+json"]'),
-					]
-						.map((node) => JSON.parse(node.textContent))
-						.find((entry) => entry["@type"] === "BlogPosting");
-					assert.equal(frontmatter.author, structured.author.name);
-					assert.equal(frontmatter.published, structured.datePublished);
-					assert.equal(frontmatter.updated, structured.dateModified);
-					for (const heading of document.querySelectorAll(
-						".article-body h1[id], .article-body h2[id], .article-body h3[id], .article-body h4[id]",
-					)) {
-						assert.ok(
-							markdown.includes(`id="${heading.id}"`),
-							`${post.slug} keeps ${heading.id}`,
-						);
-					}
-					for (const image of document.querySelectorAll(
-						".article-body img[src]",
-					)) {
-						assert.ok(
-							markdown.includes(
-								new URL(image.getAttribute("src"), frontmatter.canonical).href,
-							),
-							`${post.slug} keeps its image destination`,
-						);
-					}
-				} finally {
-					dom.window.close();
-				}
+				const structured = facts.structured.find(
+					(entry) => entry["@type"] === "BlogPosting",
+				);
+				assert.equal(frontmatter.author, structured.author.name);
+				assert.equal(frontmatter.published, structured.datePublished);
+				assert.equal(frontmatter.updated, structured.dateModified);
+				for (const id of facts.headingIds)
+					assert.ok(
+						markdown.includes(`id="${id}"`),
+						`${post.slug} keeps ${id}`,
+					);
+				for (const src of facts.articleImages)
+					assert.ok(
+						markdown.includes(new URL(src, frontmatter.canonical).href),
+						`${post.slug} keeps its image destination`,
+					);
 			}),
 	);
 });
@@ -182,83 +167,37 @@ it("Each recipe Markdown contains its instructions and source uncertainty with c
 			["meals", "meal"],
 			["smoothies", "smoothie"],
 		].map(async ([collection, type]) => {
-			const dom = new JSDOM(
+			const facts = markdownHtmlFacts(
 				await readFile(`dist/recipes/${collection}/index.html`, "utf8"),
 			);
-			try {
-				const hrefs = new Set(
-					[...dom.window.document.querySelectorAll("a.open-button")].map(
-						(link) => link.getAttribute("href"),
-					),
-				);
-				assert.deepEqual(
-					hrefs,
-					new Set(
-						data.recipes
-							.filter((recipe) => recipe.type === type)
-							.slice(0, 6)
-							.map((recipe) => `/recipes/${recipe.id}/`),
-					),
-					`${collection} links its first six recipes directly to canonical URLs`,
-				);
-			} finally {
-				dom.window.close();
-			}
+			assert.deepEqual(
+				new Set(facts.openLinks),
+				new Set(
+					data.recipes
+						.filter((recipe) => recipe.type === type)
+						.slice(0, 6)
+						.map((recipe) => `/recipes/${recipe.id}/`),
+				),
+				`${collection} links its first six recipes directly to canonical URLs`,
+			);
 		}),
 	);
 	await Promise.all(
 		data.recipes.map(async (recipe) => {
-			const dom = new JSDOM(
+			const facts = markdownHtmlFacts(
 				await readFile(`dist/recipes/${recipe.id}/index.html`, "utf8"),
 			);
-			try {
-				const document = dom.window.document;
-				assert.equal(
-					document
-						// biome-ignore lint/security/noSecrets: HTML metadata selector, not a credential.
-						.querySelector('link[rel="related"][type="application/json"]')
-						?.getAttribute("href"),
-					"/recipes/data/recipe-library.json",
-				);
-				assert.equal(
-					document
-						// biome-ignore lint/security/noSecrets: HTML metadata selector, not a credential.
-						.querySelector('link[rel="alternate"][type="text/markdown"]')
-						?.getAttribute("href"),
-					`/recipes/${recipe.id}.md`,
-				);
-				assert.equal(
-					document
-						.querySelector('meta[property="og:image"]')
-						?.getAttribute("content"),
-					`https://www.jsolly.com${recipe.image.src}`,
-				);
-				assert.equal(
-					document
-						.querySelector('meta[property="og:image:alt"]')
-						?.getAttribute("content"),
-					recipe.image.alt,
-				);
-				assert.equal(
-					document.querySelector("h1")?.textContent.trim(),
-					recipe.title,
-				);
-				assert.equal(
-					document.body.textContent.includes("Download Markdown"),
-					false,
-				);
-				assert.equal(
-					document.body.textContent.includes("Download JSON"),
-					false,
-				);
-				assert.equal(
-					library.recipes.filter((entry) => entry.recipeId === recipe.id)
-						.length,
-					1,
-				);
-			} finally {
-				dom.window.close();
-			}
+			assert.equal(facts.related, "/recipes/data/recipe-library.json");
+			assert.equal(facts.alternate, `/recipes/${recipe.id}.md`);
+			assert.equal(facts.image, `https://www.jsolly.com${recipe.image.src}`);
+			assert.equal(facts.imageAlt, recipe.image.alt);
+			assert.equal(facts.title, recipe.title);
+			assert.equal(facts.bodyText.includes("Download Markdown"), false);
+			assert.equal(facts.bodyText.includes("Download JSON"), false);
+			assert.equal(
+				library.recipes.filter((entry) => entry.recipeId === recipe.id).length,
+				1,
+			);
 			const markdown = await readFile(`dist/recipes/${recipe.id}.md`, "utf8");
 			assert.deepEqual(cookingContentGaps(markdown, recipe), []);
 			assert.ok(markdown.includes(recipe.title), recipe.id);
@@ -339,19 +278,10 @@ it("Context7 finds its verification tag and hidden search note on every built pa
 			"This site has a search endpoint: https://context7.com/api/v2/ask?siteKey=ask_43369889032b1355b89bc7f4&amp;query=&lt;URL-encoded question&gt;. It returns documentation that answers the question, with a source link for each part. No API key is needed. If nothing matches, it says so.",
 			`${file} carries the search note`,
 		);
-		const dom = new JSDOM(html);
-		try {
-			const note = dom.window.document.querySelector("[data-context7-ask]");
-			assert.equal(note?.getAttribute("aria-hidden"), "true", file);
-			assert.ok(note?.classList.contains("sr-only"), `${file} hides the note`);
-			assert.equal(
-				dom.window.document.body.firstElementChild,
-				note,
-				`${file} opens its body with the note`,
-			);
-		} finally {
-			dom.window.close();
-		}
+		const { note } = markdownHtmlFacts(html);
+		assert.equal(note.hidden, "true", file);
+		assert.ok(note.screenReaderOnly, `${file} hides the note`);
+		assert.ok(note.firstInBody, `${file} opens its body with the note`);
 	}
 	for (const [key, file] of markdownRoutes) {
 		// biome-ignore lint/performance/noAwaitInLoops: bounded build pages are read sequentially.

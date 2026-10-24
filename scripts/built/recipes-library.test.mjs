@@ -41,8 +41,9 @@ after(async () => {
 
 // A fresh 1280px context; `initScript` runs before the page's own scripts.
 // Resolves to { page, errors, close }.
-async function openPage({ initScript, arg } = {}) {
+async function openPage({ initScript, arg, serviceWorkers = "allow" } = {}) {
 	const context = await browser.newContext({
+		serviceWorkers,
 		viewport: { width: 1280, height: 900 },
 		reducedMotion: "reduce",
 	});

@@ -4,10 +4,8 @@ import { access, readFile } from "node:fs/promises";
 import { createServer } from "node:http";
 import { extname, join, normalize } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { parseFrontmatter } from "astro/markdown";
 import { globby } from "globby";
-import { JSDOM } from "jsdom";
-import { parseDocument } from "yaml";
+import { parse } from "parse5";
 import { recipeBrowseDestination } from "../../src/lib/recipe-browse-route.mjs";
 
 const ROOT = fileURLToPath(new URL("../..", import.meta.url));
@@ -79,7 +77,8 @@ export async function readBuiltPages(root = DIST) {
 }
 
 // Parses `html` and returns `read(document)`, closing the DOM afterwards.
-function readHtml(html, read) {
+async function readHtml(html, read) {
+	const { JSDOM } = await import("jsdom");
 	const dom = new JSDOM(html);
 	try {
 		return read(dom.window.document);
@@ -96,24 +95,56 @@ export async function readBuilt(path, read, root = DIST) {
 
 // The robots meta content of the built page at `path` (as readBuilt takes
 // it), or null when the page has none.
-export function robotsMeta(path, root = DIST) {
-	return readBuilt(
-		path,
-		(document) =>
-			[...document.querySelectorAll("meta")].find(
-				(meta) => meta.name === "robots",
-			)?.content ?? null,
-		root,
+export async function robotsMeta(path, root = DIST) {
+	const document = parse(
+		await readFile(join(root, path, "index.html"), "utf8"),
+		{
+			scriptingEnabled: false,
+		},
 	);
+	// Document selectors exclude template.content. Inspect only actual tree children.
+	function findRobots(node) {
+		for (const child of node.childNodes ?? []) {
+			if (
+				child.tagName === "meta" &&
+				child.namespaceURI === "http://www.w3.org/1999/xhtml" &&
+				child.attrs.some(
+					(attr) => attr.name === "name" && attr.value === "robots",
+				)
+			) {
+				return child.attrs.find((attr) => attr.name === "content")?.value ?? "";
+			}
+			const content = findRobots(child);
+			if (content !== null) return content;
+		}
+		return null;
+	}
+	return findRobots(document);
 }
 
 // The stylesheets a built page loads with JavaScript on (not its <noscript>).
 export function stylesheets(html) {
-	return readHtml(html, (document) =>
-		[...document.querySelectorAll("link")]
-			.filter((link) => link.rel === "stylesheet" && !link.closest("noscript"))
-			.map((link) => link.getAttribute("href")),
-	);
+	const hrefs = [];
+	function visit(node) {
+		if (node.tagName === "noscript") return;
+		if (
+			node.tagName === "link" &&
+			node.namespaceURI === "http://www.w3.org/1999/xhtml" &&
+			node.attrs.some(
+				(attribute) =>
+					attribute.name === "rel" && attribute.value === "stylesheet",
+			)
+		) {
+			hrefs.push(
+				node.attrs.find((attribute) => attribute.name === "href")?.value ??
+					null,
+			);
+		}
+		// DOM selectors do not enter template.content.
+		for (const child of node.childNodes ?? []) visit(child);
+	}
+	visit(parse(html, { scriptingEnabled: false }));
+	return hrefs;
 }
 
 const CONTENT_TYPES = {
@@ -236,6 +267,10 @@ export async function stubOffOrigin(context, origin) {
 // publishes (`published`); the schema defaults draft to true. publishedAt and
 // updatedAt are the frontmatter timestamps as Dates.
 export async function allPosts() {
+	const [{ parseFrontmatter }, { parseDocument }] = await Promise.all([
+		import("astro/markdown"),
+		import("yaml"),
+	]);
 	const files = await globby("*.md", { cwd: POSTS });
 	return Promise.all(
 		files.map(async (file) => {

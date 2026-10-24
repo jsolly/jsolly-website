@@ -7,6 +7,7 @@
 	import NativeRecipeControls from "./NativeRecipeControls.svelte";
 	import { parseSavedSettings } from "./nutrient-filters.mjs";
 	import RecipeCard from "./RecipeCard.svelte";
+	import { withRecipeBrowse } from "./recipe-browse-coordination.mjs";
 	import { validateSettings } from "./recipe-logic.mjs";
 	import { clearLegacyRedirect, markLegacyRedirect } from "./recipe-navigation.mjs";
 	import { orderRecipeIds } from "./recipe-order.mjs";
@@ -89,10 +90,13 @@
 		loading = true;
 		pending = (async () => {
 			try {
-				const response = await fetch(`/api/recipe-browse/?${params(page, shuffle)}`, { headers: { Accept: "application/json" }, signal: AbortSignal.any([signal, AbortSignal.timeout(15000)]), priority: replace ? "high" : "low" });
-				if (response.status === 409) { if (own === generation) releaseMismatch = true; throw new Error("A newer recipe library is available. Update and reload to continue."); }
-				if (!response.ok) throw new Error("Recipes could not be loaded. Your current results are still here.");
-				const next = await response.json();
+				const requestSignal = AbortSignal.any([signal, AbortSignal.timeout(15000)]);
+				const next = await withRecipeBrowse(requestSignal, async () => {
+					const response = await fetch(`/api/recipe-browse/?${params(page, shuffle)}`, { headers: { Accept: "application/json" }, signal: requestSignal, priority: replace ? "high" : "low" });
+					if (response.status === 409) { await response.text(); if (own === generation) releaseMismatch = true; throw new Error("A newer recipe library is available. Update and reload to continue."); }
+					if (!response.ok) { await response.text(); throw new Error("Recipes could not be loaded. Your current results are still here."); }
+					return response.json();
+				});
 				if (own !== generation || stopped) return;
 				if (next.release !== initial.release) { releaseMismatch = true; throw new Error("A newer recipe library is available. Update and reload to continue."); }
 				if (replace && allowFilterReset) {

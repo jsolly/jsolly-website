@@ -291,3 +291,58 @@ it("Markdown links and raw HTML are checked while code and quoted URLs remain pr
 		"blog/post.md href=https://blogthedata.com/post/x/",
 	]);
 });
+
+it("HTML links use the first valid document base and retain the fallback when that first base is invalid", async () => {
+	for (const [base, expected] of [
+		['<base href="/target/">', "https://www.jsolly.com/target/"],
+		['<base href="http://["><base href="/target/">', "https://www.jsolly.com/"],
+		[
+			'<base href="data:text/plain,ignored"><base href="/target/">',
+			"https://www.jsolly.com/",
+		],
+		['<template><base href="/target/"></template>', "https://www.jsolly.com/"],
+	]) {
+		// biome-ignore lint/performance/noAwaitInLoops: Small parser fixtures stay isolated and sequential.
+		const site = await fixtureSite({
+			"index.html": html('<a href="item/">Item</a>', base),
+		});
+		assert.equal(
+			site.pages
+				.get("index.html")
+				.references.find((entry) => entry.raw === "item/").base,
+			expected,
+		);
+	}
+});
+
+it("HTML link facts exclude templates, include noscript and preserve SVG references without treating SVG names as anchors", async () => {
+	const site = await fixtureSite({
+		"index.html": html(
+			'<template><a id="inert" href="/inert/">Inert</a></template><noscript><a id="fallback" href="/missing/">Fallback</a></noscript><svg><a id="svg-id" name="not-an-anchor" xlink:href="/missing.svg"></a></svg>',
+		),
+	});
+	assert.deepEqual(
+		[...site.pages.get("index.html").ids],
+		["fallback", "svg-id"],
+	);
+	assert.deepEqual(brokenReferences(site), [
+		"index.html href=/missing/: has no file in dist/",
+		"index.html xlink:href=/missing.svg: has no file in dist/",
+	]);
+});
+
+it("HTML recovery, decoded attributes and manifest relation tokens retain link validation", async () => {
+	const site = await fixtureSite({
+		"index.html": html(
+			// biome-ignore lint/security/noSecrets: HTML recovery fixture, not credential material.
+			'<table><a id="foster" href="#foster">Kept</a><tr><td><img src="/a&amp;b.webp"></table>',
+			'<link rel="alternate MANIFEST" href="/app.webmanifest">',
+		),
+		"a&b.webp": null,
+		"app.webmanifest": '{"icons":[{"src":"/missing.png"}]}',
+	});
+	assert.deepEqual([...site.pages.get("index.html").ids], ["foster"]);
+	assert.deepEqual(brokenReferences(site), [
+		"app.webmanifest manifest=/missing.png: has no file in dist/",
+	]);
+});

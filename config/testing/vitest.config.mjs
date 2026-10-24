@@ -13,9 +13,17 @@ export default defineConfig({
 	test: {
 		include: suites[process.env.TEST_SUITE ?? "unit"] ?? ["**/*.test.mjs"],
 		pool: "forks",
-		// Each file owns its browser, server and mutable globals. Tests within
-		// a file stay sequential, and hooks retain node:test's declaration order.
-		sequence: { hooks: "list" },
+		// Browser files own isolated processes and deployment fixtures. Four workers
+		// reduce CPU contention while retaining every case and fixture.
+		maxWorkers:
+			process.env.TEST_SUITE === "built"
+				? 4
+				: process.env.TEST_SUITE === "unit"
+					? 2
+					: undefined,
+		// Built files own mutable deployment fixtures, so their cases stay sequential.
+		// Smoke contracts share only the browser; every case owns its context and stubs.
+		sequence: { hooks: "list", concurrent: process.env.TEST_SUITE === "smoke" },
 		restoreMocks: true,
 		// node:test had no default deadline. Browser cases retain their explicit
 		// deadlines; build fixtures and hooks can legitimately take longer.

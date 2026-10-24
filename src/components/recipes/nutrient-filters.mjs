@@ -106,18 +106,24 @@ export function matchesRecipe(
 		appliances = defaultAppliances,
 	} = {},
 ) {
+	if (
+		!(
+			(!ingredients.length ||
+				recipe.ingredients.some((ingredient) =>
+					ingredients.includes(ingredient.id),
+				)) &&
+			hasAppliances(recipe, appliances) &&
+			selectedMatches(protein, recipe.proteinType) &&
+			(!vegetarian || recipe.vegetarian === true) &&
+			(!dumpAndGo || recipe.dumpAndGo === true) &&
+			(!carb.length || selectedMatches(carb, dietaryClass(recipe))) &&
+			(!starch.length || starch.some((type) => recipe.starches.includes(type)))
+		)
+	)
+		return false;
+	if (!(immune || iron || omega)) return true;
 	const flags = nutrientFilters(recipe, servings);
 	return (
-		(!ingredients.length ||
-			recipe.ingredients.some((ingredient) =>
-				ingredients.includes(ingredient.id),
-			)) &&
-		hasAppliances(recipe, appliances) &&
-		selectedMatches(protein, recipe.proteinType) &&
-		(!vegetarian || recipe.vegetarian === true) &&
-		(!dumpAndGo || recipe.dumpAndGo === true) &&
-		selectedMatches(carb, dietaryClass(recipe)) &&
-		(!starch.length || starch.some((type) => recipe.starches.includes(type))) &&
 		(!immune || flags.immune) &&
 		(!iron || flags.iron) &&
 		(!omega || flags.omega)

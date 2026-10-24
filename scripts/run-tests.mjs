@@ -53,6 +53,9 @@ export function runCounted({
 				cwd,
 				"--reporter=default",
 				"--reporter=json",
+				...(process.env.TEST_FILE_TIMINGS === "1"
+					? ["--reporter", join(ROOT, "scripts/test-file-timings.mjs")]
+					: []),
 				`--outputFile.json=${reportPath}`,
 				...patterns,
 			],

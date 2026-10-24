@@ -1,7 +1,8 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { it } from "vitest";
+import { beforeAll, it } from "vitest";
+import { buildRecipePwa } from "../recipes/pwa-build.mjs";
 import { collectErrors, readBuilt } from "./pages.mjs";
 import {
 	browser,
@@ -21,6 +22,7 @@ import {
 	SERVINGS,
 	SHARED_RECIPE,
 	serve,
+	setupRecipePwaFixture,
 	site,
 	snapshotLabel,
 	snapshots,
@@ -30,6 +32,24 @@ import {
 	WORKER,
 	waitForBrowserState,
 } from "./recipes-pwa-fixture.mjs";
+
+setupRecipePwaFixture(["broken", "maintenance"]);
+
+// Rebuilding unchanged A and B must preserve the actual generated worker.
+// These build-time checks run once here; update/integrity files need only
+// their independently generated snapshots, not duplicate determinism work.
+const rebuiltWorkers = new Map();
+beforeAll(async () => {
+	for (const label of ["A", "B"]) {
+		const snapshot = snapshots[label];
+		// biome-ignore lint/performance/noAwaitInLoops: each snapshot owns its build outputs.
+		await buildRecipePwa(snapshot.directory);
+		rebuiltWorkers.set(
+			label,
+			await readFile(join(snapshot.directory, WORKER), "utf8"),
+		);
+	}
+});
 
 function saveVisited(page, id) {
 	return page.evaluate(
@@ -58,14 +78,14 @@ function installCheck(name, viewport) {
 	it(`Recipe PWA installs and visited cooking tools work offline on ${name}`, {
 		timeout: 90_000,
 	}, async () => {
-		await serve("A");
-		const { urls } = snapshots.A;
 		for (const label of ["A", "B"])
 			assert.equal(
-				snapshots[label].rebuilt,
+				rebuiltWorkers.get(label),
 				snapshots[label].worker,
 				`${label}: deterministic worker`,
 			);
+		await serve("A");
+		const { urls } = snapshots.A;
 		assert.deepEqual(urls, [...urls].sort());
 		assert.ok(urls.includes(LANDING));
 		assert.ok(urls.includes("/recipes/saved/"));
@@ -324,6 +344,18 @@ it("Distinct snapshot update waits for both tabs, then serves new recipes offlin
 	const context = await browser.newContext();
 	try {
 		const tabs = [await context.newPage(), await context.newPage()];
+		const observations = tabs.map((page) => {
+			const errors = collectErrors(page, { warnings: true });
+			const failedRequests = [];
+			page.on("requestfailed", (request) => {
+				failedRequests.push({
+					url: request.url(),
+					type: request.resourceType(),
+					error: request.failure()?.errorText,
+				});
+			});
+			return { errors, failedRequests };
+		});
 		for (const page of tabs) {
 			// biome-ignore lint/performance/noAwaitInLoops: the tabs open in turn
 			await navigateHydrated(page, `${site.origin}${LANDING}`);
@@ -340,10 +372,80 @@ it("Distinct snapshot update waits for both tabs, then serves new recipes offlin
 		await tabs[0].evaluate(async () => {
 			await (await navigator.serviceWorker.getRegistration()).update();
 		});
-		await tabs[0]
-			.locator("#recipe-offline-status")
-			.filter({ hasText: "The updated app is ready" })
-			.waitFor({ state: "visible" });
+		try {
+			await tabs[0]
+				.locator("#recipe-offline-status")
+				.filter({ hasText: "The updated app is ready" })
+				.waitFor({ state: "visible" });
+		} catch (error) {
+			let diagnosticTimer;
+			let details;
+			try {
+				const capture = Promise.all(
+					tabs.map(async (page, index) => ({
+						...observations[index],
+						...(await page.evaluate(async () => {
+							const registration =
+								await navigator.serviceWorker.getRegistration();
+							const worker = (value) =>
+								value
+									? { state: value.state, scriptURL: value.scriptURL }
+									: null;
+							const status = document.querySelector("#recipe-offline-status");
+							const cachedIdentities = await Promise.all(
+								(await caches.keys()).map(async (cache) => {
+									const [identity, ownership] = await Promise.all([
+										caches.match("/recipes/__snapshot_identity__", {
+											cacheName: cache,
+										}),
+										caches.match("/recipes/__snapshot_owners__", {
+											cacheName: cache,
+										}),
+									]);
+									return {
+										cache,
+										identity: identity ? await identity.json() : null,
+										ownership: ownership ? await ownership.json() : null,
+									};
+								}),
+							);
+							return {
+								url: location.href,
+								status: status?.textContent,
+								statusHidden: status?.closest(".recipe-pwa")?.hidden,
+								targetRelease: status?.dataset.target,
+								loadedRelease: document.querySelector("#site-update-notice")
+									?.dataset.release,
+								installing: worker(registration?.installing),
+								waiting: worker(registration?.waiting),
+								active: worker(registration?.active),
+								controller: worker(navigator.serviceWorker.controller),
+								cachedIdentities: cachedIdentities.filter(
+									(entry) => entry.identity || entry.ownership,
+								),
+							};
+						})),
+					})),
+				);
+				const diagnostics = await Promise.race([
+					capture,
+					new Promise((_, reject) => {
+						diagnosticTimer = setTimeout(
+							() => reject(new Error("capture exceeded its 2000ms budget")),
+							2000,
+						);
+					}),
+				]);
+				details = `Recipe update readiness diagnostics: ${JSON.stringify(diagnostics)}`;
+			} catch (diagnosticError) {
+				details = `Recipe update readiness diagnostics failed: ${diagnosticError.message}`;
+			} finally {
+				clearTimeout(diagnosticTimer);
+			}
+			error.message += `\n${details}`;
+			error.stack += `\n${details}`;
+			throw error;
+		}
 		await context.setOffline(true);
 		for (const page of tabs) {
 			// biome-ignore lint/performance/noAwaitInLoops: the tabs reload in turn
