@@ -645,6 +645,19 @@ it("a reader who picks 8 servings and the bun side gets the scaled recipe, a sha
 		);
 		await detail.getByRole("combobox", { name: SERVINGS }).selectOption("8");
 		assert.equal(new URL(page.url()).search, "?servings=8&units=us");
+		await page.reload();
+		await page.waitForFunction(
+			() => !document.querySelector("astro-island[ssr]"),
+		);
+		assert.deepEqual(
+			{
+				servings: await detail
+					.getByRole("combobox", { name: SERVINGS })
+					.inputValue(),
+				side: await sideSelect.inputValue(),
+			},
+			{ servings: "8", side: "" },
+		);
 		const baseBeforeSide = await detail
 			.locator(".nutrition > dl dd")
 			.allTextContents();

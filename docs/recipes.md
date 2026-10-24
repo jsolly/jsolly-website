@@ -456,7 +456,10 @@ on another origin and is not read, so preferences reset once for returning
 visitors. Every saved key is validated on load; anything that no longer fits is
 reset. Recipe pages read and update the same record: a units or side choice on a
 page is saved there and replaces that page URL's `?units=` or `?starch=`. A
-page link without `servings`, `units` or `starch` uses the saved side; a link
+servings choice is not saved but rewrites the page URL the same way
+(`?servings=` when not the default, `?units=` always, and the selected side
+as `?starch=`, removed when there is none), so a reload keeps it without
+changing other recipes. A page link without `servings`, `units` or `starch` uses the saved side; a link
 carrying any of them (shares, non-default card links) decides the side itself.
 
 ## Offline recipe app

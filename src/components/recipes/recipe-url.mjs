@@ -60,7 +60,7 @@ export function recipeBrowseHref(recipe, settings) {
 		: recipeHref(recipe, settings);
 }
 
-// A recipe page's own URL after a units or side change: units always, the
+// A recipe page's own URL after a servings, units or side change: units always, the
 // selected side as ?starch=, and servings only when not the default. Keeping
 // every explicit choice in the URL means a reload restores all of them.
 export function recipePageURL(url, recipe, settings) {
