@@ -631,10 +631,13 @@ it("when the browser cannot open printing, Print recipe says so and leaves the p
 	}
 });
 
-it("a reader who picks 8 servings and the bun side gets the scaled recipe, a share link with both, and both after a reload", async () => {
-	const { page, errors, close } = await openHydrated(PAGE, {
-		initScript: blockSharing,
-	});
+it("a reader who opens a six-serving link, picks 8 servings and the bun side gets the scaled recipe, a share link with both, and both after a reload", async () => {
+	// The link's servings differ from the pick, so a reload keeps 8 only when
+	// the pick rewrote the URL.
+	const { page, errors, close } = await openHydrated(
+		`${PAGE}?servings=6&units=us`,
+		{ initScript: blockSharing },
+	);
 	try {
 		const detail = page.locator(".recipe-detail");
 		const sideSelect = detail.getByRole("combobox", { name: FAMILY_SIDE });
