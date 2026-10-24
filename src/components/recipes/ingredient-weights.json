@@ -4241,6 +4241,29 @@
 				"decision": "Use the named SR Legacy portion observation for this preparation; edible and cooking weights coincide.",
 				"evidence": "https://fdc.nal.usda.gov/food-details/169656/nutrients"
 			}
+		},
+		{
+			"id": "usda-174223",
+			"kind": "mass",
+			"description": "Mollusks, squid, mixed species, raw",
+			"state": "raw cleaned edible squid tubes",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/174223/nutrients",
+			"measures": {
+				"oz": {
+					"amount": 1,
+					"grams": 28.35,
+					"portion": "Raw squid, ounce boneless; USDA food_portion row93968"
+				}
+			},
+			"fdcId": 174223,
+			"provenance": {
+				"reviewedOn": "2026-10-23",
+				"retrieved": "2026-10-23",
+				"decision": "Use cleaned raw edible tube mass for the squid; direct gram and NIST mass conversion remains canonical. The USDA ounce observation documents the food state and portion.",
+				"evidence": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+				"archiveSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
+			}
 		}
 	]
 }

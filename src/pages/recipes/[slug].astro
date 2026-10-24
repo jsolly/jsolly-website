@@ -2,22 +2,47 @@
 import type { InferGetStaticPropsType } from "astro";
 import RecipePage from "../../components/recipes/RecipePage.svelte";
 import data from "../../components/recipes/recipe-data.server.mjs";
+import retiredRecipes from "../../components/recipes/retired-recipes.json" with { type: "json" };
 import RecipeLayout from "../../layouts/RecipeLayout.astro";
 
 // One page per recipe at /recipes/<id>/, the same path as on blogthedata.com.
 // Its section id is the recipe id, so old /recipes/<id>/#<id> links still land.
 export function getStaticPaths() {
-	return data.recipes.map((entry) => ({
-		params: { slug: entry.id },
-		props: { recipe: entry },
-	}));
+	return [
+		...data.recipes.map((item) => ({
+			params: { slug: item.id },
+			props: { kind: "recipe" as const, recipe: item },
+		})),
+		...retiredRecipes.map((item) => ({
+			params: { slug: item.id },
+			props: { kind: "retired" as const, retired: item },
+		})),
+	];
 }
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { recipe } = Astro.props;
+const entry = Astro.props;
+const recipe = entry.kind === "recipe" ? entry.recipe : null;
+const retired = entry.kind === "retired" ? entry.retired : null;
+const collection = retired?.type === "smoothie" ? "smoothies" : "meals";
+const replacement = retired?.replacementId
+	? data.recipes.find(({ id }) => id === retired.replacementId)
+	: null;
 ---
 
-<RecipeLayout title={recipe.title} description={recipe.summary} image={recipe.image.src} imageAlt={recipe.image.alt} article>
-	<RecipePage {recipe} client:load />
-</RecipeLayout>
+{recipe ? (
+	<RecipeLayout title={recipe.title} description={recipe.summary} image={recipe.image.src} imageAlt={recipe.image.alt} article>
+		<RecipePage {recipe} client:load />
+	</RecipeLayout>
+) : retired && (
+	<RecipeLayout title={retired.title} description="This original recipe is outside the keto collection. Browse keto alternatives." noindex>
+		<article id={retired.id}>
+			<h1>{retired.title}</h1>
+			<p>This recipe is no longer in the keto collection because its original version exceeds the collection's carbohydrate limit.</p>
+			<p>Choose a keto recipe from the links below.</p>
+			{replacement && <p>Try a keto alternative: <a href={`/recipes/${replacement.id}/`}>{replacement.title}</a>.</p>}
+			<p><a href={`/recipes/${collection}/`}>Browse keto {collection}</a></p>
+		</article>
+	</RecipeLayout>
+)}

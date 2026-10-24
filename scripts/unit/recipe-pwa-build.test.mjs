@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import {
+	existsSync,
 	mkdirSync,
 	mkdtempSync,
 	readFileSync,
@@ -32,6 +33,8 @@ it("worker manifests retain no-script, responsive and island resources without c
 <template><img src="/missing-template.svg"><astro-island component-url="/missing-template.js"></astro-island></template>
 <a href="/not-a-resource/">Navigation</a></body></html>`,
 		"recipes/index.md": "# Recipes\n",
+		"recipes/carrot-cake/index.html": "<h1>Carrot cake retirement notice</h1>",
+		"recipes/carrot-cake.md": "# Carrot cake retirement notice\n",
 		"recipes/test-recipe/index.html": `<!doctype html><html><body>
 <img src="/recipes/media/photo.svg" srcset="/recipes/media/small.svg 1x, /recipes/media/large.svg 2x">
 <astro-island component-url="/_astro/component.js" renderer-url="/_astro/renderer.js"></astro-island>
@@ -83,6 +86,11 @@ it("worker manifests retain no-script, responsive and island resources without c
 		]);
 		const recipe = JSON.parse(
 			readFileSync(join(root, "recipes/data/offline/test-recipe.json"), "utf8"),
+		);
+		assert.equal(
+			existsSync(join(root, "recipes/data/offline/carrot-cake.json")),
+			false,
+			"retirement notices need neither a detail pack nor a new saved-recipe manifest",
 		);
 		assert.equal(recipe.image, "/recipes/media/photo.svg");
 		assert.deepEqual(recipe.imagePaths, [

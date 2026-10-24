@@ -51,7 +51,10 @@ function verifyNavigation(width) {
 			await page
 				.getByRole("checkbox", { name: "Vegetarian", exact: true })
 				.uncheck();
-			await page.getByRole("checkbox", { name: "Keto", exact: true }).uncheck();
+			assert.equal(
+				await page.getByRole("checkbox", { name: "Keto", exact: true }).count(),
+				0,
+			);
 			await page.getByRole("button", { name: "Shuffle meals" }).click();
 			const ids = () =>
 				page

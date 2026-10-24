@@ -13,7 +13,7 @@
 	import { readRecipeURL, recipePageURL } from "./recipe-url.mjs";
 	import ShareRecipe from "./ShareRecipe.svelte";
 	import UnitControl from "./UnitControl.svelte";
-	import { readRecipePreferences, writeSidePreference, writeUnitPreference } from "./unit-preference.mjs";
+	import { readRecipePreferences, writeRecipePreferences } from "./unit-preference.mjs";
 
 	// Keep preference-dependent content hidden until URL and saved settings
 	// are resolved. The no-JavaScript stylesheet reveals the static fallback.
@@ -25,7 +25,7 @@
 	let settings = $state({
 		servings: BASE_SERVINGS,
 		units: "us",
-		familyDiners: BASE_SERVINGS,
+		familyDiners: 0,
 		familyChoice: {},
 	});
 	const collection = $derived(
@@ -42,25 +42,37 @@
 		history.replaceState(history.state, "", recipePageURL(new URL(location.href), recipe, settings));
 	}
 
+	function persistPreferences() {
+		if (!writeRecipePreferences(recipe, settings)) message = "Preferences apply to this visit but could not be saved.";
+	}
+
 	function setServings(value) {
-		const { servings } = validateSettings({ servings: Number(value) });
-		settings = { ...settings, servings, familyDiners: servings };
+		settings = { ...settings, ...validateSettings({ ...settings, servings: Number(value) }) };
+		replacePageURL();
+		persistPreferences();
 	}
 
 	function setSide(value) {
 		settings = {
 			...settings,
+			familyDiners: value && !settings.familyDiners ? 1 : settings.familyDiners,
 			familyChoice: { ...settings.familyChoice, [recipe.id]: value },
 		};
 		replacePageURL();
-		writeSidePreference(recipe, value);
+		persistPreferences();
+	}
+
+	function setSideDiners(value) {
+		settings = { ...settings, familyDiners: validateSettings({ ...settings, familyDiners: value }).familyDiners };
+		replacePageURL();
+		persistPreferences();
 	}
 
 	function setUnits(value) {
 		const units = validateSettings({ units: value }).units;
 		settings = { ...settings, units };
 		replacePageURL();
-		writeUnitPreference(units);
+		persistPreferences();
 	}
 
 	onMount(() => {
@@ -74,16 +86,18 @@
 		}
 		const url = new URL(window.location.href);
 		const saved = readRecipePreferences(recipe);
-		const parsed = readRecipeURL(url, [recipe], { units: saved.units });
-		// Links carrying settings (shares, non-default cards) decide the side;
-		// a plain link uses the side saved on this device.
-		const explicit = ["servings", "units", "starch"].some((key) => url.searchParams.has(key));
+		const parsed = readRecipeURL(url, [recipe], {
+			servings: saved.servings,
+			units: saved.units,
+			familyDiners: saved.familyDiners,
+			familyChoice: saved.side ? { [recipe.id]: saved.side } : {},
+		});
 		settings = {
 			...settings,
 			servings: parsed.servings,
 			units: parsed.units,
-			familyDiners: parsed.servings,
-			familyChoice: explicit || !saved.side ? parsed.familyChoice : { [recipe.id]: saved.side },
+			familyDiners: parsed.familyDiners,
+			familyChoice: parsed.familyChoice,
 		};
 		interactive = true;
 		return printSession.listen();
@@ -97,7 +111,7 @@
 			<RecipePrintButton {recipe} {settings} class="recipe-enhanced" disabled={!interactive} onPrint={print} />
 			<RecipeOfflineStatus {recipe} />
 		</div>
-		<RecipeContent {recipe} {settings} {interactive} onSideChange={setSide}>
+		<RecipeContent {recipe} {settings} {interactive} onSideChange={setSide} onSideDinersChange={setSideDiners}>
 			{#snippet controls()}
 			<label class="servings recipe-enhanced" for={servingsId}
 				>Servings<NativeSelect id={servingsId} value={settings.servings} disabled={!interactive} onchange={(event) => setServings(event.currentTarget.value)}>

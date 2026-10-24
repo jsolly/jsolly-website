@@ -23,4 +23,4 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { category, posts } = Astro.props;
 ---
-<BlogLayout title={category.data.name} description={category.data.description} section="blog"><h1>{category.data.name}</h1><p>{category.data.description}</p>{category.data.slug === "resources" && <p><a href="/recipes/">Recipes</a> — easy meals and smoothies with cooking tools.</p>}{posts.length ? <PostCards posts={posts} pageSize={POSTS_PER_BATCH} client:load /> : <p>No posts in this category yet.</p>}</BlogLayout>
+<BlogLayout title={category.data.name} description={category.data.description} section="blog"><h1>{category.data.name}</h1><p>{category.data.description}</p>{category.data.slug === "resources" && <p><a href="/recipes/">Keto meals &amp; smoothies</a> with cooking tools and ideas for a shared table.</p>}{posts.length ? <PostCards posts={posts} pageSize={POSTS_PER_BATCH} client:load /> : <p>No posts in this category yet.</p>}</BlogLayout>

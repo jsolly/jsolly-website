@@ -42,10 +42,14 @@ it("assistant/print document preserves safe pressure liquid, recalculated macros
 	);
 	assert.equal(d.sideDiners, 1);
 	assert.ok(
-		d.cookingFlow.prep.some((step) => step.includes("Warm the optional side")),
+		d.cookingFlow.prep.some((step) => step.includes("Heat ready-cooked rice.")),
 	);
 	assert(d.sideIngredient);
 	assert.equal(d.steps.length, r.steps.length);
+	assert.equal(d.sharedTable, r.sharedTable);
+	assert.ok(
+		documentMarkdown(d).includes(`## For a shared table\n\n${r.sharedTable}`),
+	);
 	assert.match(
 		documentMarkdown(recipeDocument(r, { servings: 2, units: "metric" })),
 		SAFE_POULTRY_METRIC,
@@ -153,6 +157,30 @@ it("exports keep optional side choices, food states, allergies, limits and tiny 
 				document.image,
 		),
 	);
+	for (const [id, instruction] of [
+		[
+			"lemon-chicken-potatoes-and-green-beans",
+			"Roast separately on a lined tray",
+		],
+		["source-grilled-bruschetta-chicken", "Simmer separately for 5–8 minutes"],
+	]) {
+		const meal = recipes.find((recipe) => recipe.id === id);
+		const selected = recipeDocument(meal, {
+			servings: 4,
+			familyDiners: 2,
+			familyChoice: { [id]: meal.familyOptions[0].id },
+		});
+		assert.equal(selected.sideDiners, 2);
+		assert.ok(
+			selected.cookingFlow.prep.some((step) => step.includes(instruction)),
+		);
+		assert.ok(
+			selected.cookingFlow.prep.every(
+				(step) => !step.includes("Warm the optional side per package"),
+			),
+		);
+		assert.deepEqual(selected.nutrition, recipeDocument(meal).nutrition);
+	}
 });
 
 it("new keto smoothies scale ingredients and keep cold preparation in exports", () => {

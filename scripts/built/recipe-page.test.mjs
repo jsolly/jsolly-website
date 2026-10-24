@@ -32,7 +32,7 @@ const KINDS = [
 		id: "lemon-salmon-and-asparagus",
 		familySides: false,
 	},
-	{ kind: "a smoothie", id: "strawberry-banana-smoothie", familySides: false },
+	{ kind: "a smoothie", id: "strawberry-avocado-smoothie", familySides: false },
 ];
 // biome-ignore lint/security/noSecrets: a CSS selector, not credential material.
 const NATIVE_CHECKBOX = 'input[type="checkbox"]';
@@ -150,7 +150,7 @@ it("mobile flow preserves ordered operations, allocation leaves and cooking chec
 		for (const id of [
 			"source-15-minute-broccoli-chicken-in-cream-cheese-sundried-tomato-sauce",
 			"lemon-salmon-and-asparagus",
-			"strawberry-banana-smoothie",
+			"strawberry-avocado-smoothie",
 		]) {
 			const recipe = recipeData.recipes.find(
 				(candidate) => candidate.id === id,
@@ -650,6 +650,9 @@ it("a reader who picks 8 servings and the bun side gets the scaled recipe and a 
 		await detail
 			.getByRole("combobox", { name: FAMILY_SIDE })
 			.selectOption(SIDE);
+		await detail
+			.getByRole("combobox", { name: "People having this side", exact: true })
+			.selectOption("8");
 		const selected = recipeData.recipes
 			.find((recipe) => recipe.id === RECIPE)
 			.familyOptions.find((option) => option.id === SIDE);
@@ -681,9 +684,9 @@ it("a reader who picks 8 servings and the bun side gets the scaled recipe and a 
 			{
 				facts:
 					"15 min active time / base batch 8 servings 40 min / base batch ready in",
-				sideLine: "12.7 oz Bun · serve separately",
+				sideLine: "12.7 oz Bun · for 8 people · serve separately",
 				cucumber: "1.32 lb",
-				link: `${site.origin}${PAGE}?servings=8&units=us&starch=greek-turkey-patties%3Abun_one`,
+				link: `${site.origin}${PAGE}?servings=8&units=us&starch=greek-turkey-patties%3Abun_one&sideDiners=8`,
 				errors: [],
 			},
 		);
@@ -732,7 +735,7 @@ it("a shared link with ?servings=6 and a family side opens the recipe at six ser
 				side: SIDE,
 				facts:
 					"15 min active time / base batch 6 servings 40 min / base batch ready in",
-				sideLine: "9.52 oz Bun · serve separately",
+				sideLine: "9.52 oz Bun · for 6 people · serve separately",
 				errors: [],
 			},
 		);
@@ -759,7 +762,7 @@ it("where the browser can neither share nor copy, Share recipe announces and sho
 			},
 			{
 				statusBefore: 1,
-				link: `${site.origin}${PAGE}?servings=4&units=us`,
+				link: `${site.origin}${PAGE}?servings=4&units=us&starch=`,
 				errors: [],
 			},
 		);
@@ -822,7 +825,7 @@ function recipeShareFailureCheck({ failure, result, diagnostic }) {
 			assert.equal(
 				manualLink
 					? status
-							.replace(`${site.origin}${PAGE}?servings=4&units=us`, "")
+							.replace(`${site.origin}${PAGE}?servings=4&units=us&starch=`, "")
 							.trim()
 					: status,
 				result,
@@ -835,7 +838,7 @@ function recipeShareFailureCheck({ failure, result, diagnostic }) {
 				await share
 					.getByRole("link")
 					.evaluateAll((links) => links.map((link) => link.href)),
-				manualLink ? [`${site.origin}${PAGE}?servings=4&units=us`] : [],
+				manualLink ? [`${site.origin}${PAGE}?servings=4&units=us&starch=`] : [],
 			);
 			const expectedDiagnostic =
 				failure === "share-unexpected"
@@ -933,7 +936,7 @@ it("screen, page printing and card packets use identical cooking copy", {
 			for (const id of [
 				"lemon-salmon-and-asparagus",
 				RECIPE,
-				"strawberry-banana-smoothie",
+				"strawberry-avocado-smoothie",
 			]) {
 				await page.goto(
 					`${site.origin}/recipes/${id}/?servings=6&units=metric`,

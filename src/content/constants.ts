@@ -20,7 +20,7 @@ export const ROLE_STRATEGY = `lead technology strategy for ${UNIT} at ${EMPLOYER
 export const BLOG_DESCRIPTION =
 	"articles about geospatial development, web development, AI and productivity";
 export const RECIPES_DESCRIPTION =
-	"easy meals and smoothies, with serving scaling and appliance filters";
+	"keto meals and smoothies, with serving scaling, appliance filters and shared-table options";
 
 // Context7 Ask: the site verification key and the agent search endpoint. The
 // head meta tag, the hidden body note, the Markdown and llms.txt sections and

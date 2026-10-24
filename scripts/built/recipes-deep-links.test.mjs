@@ -19,6 +19,7 @@ const RECIPES = new URL(
 );
 const FONT_URL = /\.woff2?$/u;
 const COLLECTIONS = { meal: "meals", smoothie: "smoothies" };
+const FAMILY_SIDE = /^Add a side/u;
 
 let site;
 let browser;
@@ -35,10 +36,74 @@ after(async () => {
 
 const { recipes } = JSON.parse(await readFile(RECIPES, "utf8"));
 
+// Exercise explicit defaults against a different saved side in the meal case.
+async function verifySharedNone(page, errors, recipe, landing) {
+	await page.evaluate(
+		({ id, side }) => {
+			localStorage.setItem(
+				"recipes-settings-v1",
+				JSON.stringify({
+					servings: 6,
+					units: "metric",
+					familyDiners: 2,
+					familyChoice: { [id]: side },
+				}),
+			);
+		},
+		{ id: recipe.id, side: recipe.familyOptions[0].id },
+	);
+	await page.goto(
+		`${site.origin}${landing}?servings=4&units=us&starch=&sideDiners=0#${recipe.id}`,
+		{ waitUntil: "commit" },
+	);
+	await page.waitForURL((url) => url.pathname === `/recipes/${recipe.id}/`);
+	await page.locator("[data-preferences-ready=true]").waitFor();
+	const redirected = new URL(page.url()).searchParams;
+	await page.reload();
+	await page.locator("[data-preferences-ready=true]").waitFor();
+	// biome-ignore lint/suspicious/noMisplacedAssertion: Called by the meal's existing legacy-link browser test.
+	assert.deepEqual(
+		{
+			servings: redirected.get("servings"),
+			units: redirected.get("units"),
+			explicitSide: redirected.has("starch"),
+			side: redirected.get("starch"),
+			shownSide: await page
+				.getByRole("combobox", { name: FAMILY_SIDE })
+				.inputValue(),
+			shownServings: await page
+				.getByRole("combobox", { name: "Servings", exact: true })
+				.inputValue(),
+			shownUnits: await page
+				.getByRole("combobox", { name: "Ingredient units", exact: true })
+				.inputValue(),
+			sideDinerControls: await page
+				.getByRole("combobox", { name: "People having this side", exact: true })
+				.count(),
+			errors,
+		},
+		{
+			servings: "4",
+			units: "us",
+			explicitSide: true,
+			side: "",
+			shownSide: "",
+			shownServings: "4",
+			shownUnits: "us",
+			sideDinerControls: 0,
+			errors: [],
+		},
+	);
+}
+
 // The redirect looks the hash up in the library the page already holds, so a
 // meal and a smoothie prove the lookup and the collection Back returns to;
 // every recipe's own page is checked against its data in recipes-built.test.mjs.
-function registerRecipeLink(recipe, landing = LANDING) {
+function registerRecipeLink(
+	recipe,
+	landing = LANDING,
+	afterReturn = async () => undefined,
+) {
 	it(`old ${landing}#${recipe.id} replaces itself with the recipe page, whose Back goes to its collection`, {
 		timeout: 30_000,
 	}, async () => {
@@ -93,6 +158,7 @@ function registerRecipeLink(recipe, landing = LANDING) {
 				// The recipe page replaced the #<recipe-id> entry.
 				{ historyLength: entries + 1, marker: null, errors: [] },
 			);
+			await afterReturn(page, errors, recipe, landing);
 		} finally {
 			await context.close();
 		}
@@ -100,7 +166,15 @@ function registerRecipeLink(recipe, landing = LANDING) {
 }
 
 for (const type of ["meal", "smoothie"]) {
-	registerRecipeLink(recipes.find((recipe) => recipe.type === type));
+	registerRecipeLink(
+		recipes.find(
+			(recipe) =>
+				recipe.type === type &&
+				(type === "smoothie" || recipe.familyOptions.length > 0),
+		),
+		LANDING,
+		type === "meal" ? verifySharedNone : undefined,
+	);
 }
 // A smoothie linked from the meals collection still lands on the smoothie page,
 // and its Back goes to smoothies, not meals.

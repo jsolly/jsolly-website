@@ -22,6 +22,7 @@ const { recipes } = recipeData;
 const smoothies = recipes.filter((recipe) => recipe.type === "smoothie");
 const meals = recipes.filter((recipe) => recipe.type === "meal");
 const FAMILY_SIDE = /^Add a side/u;
+const SIDE_DINERS = "People having this side";
 const SERVINGS = /^Servings/u;
 const PITA = "pita_one";
 const SHAWARMA = "shawarma-chicken-bowls";
@@ -301,8 +302,10 @@ it("a family side picked on a recipe page is saved with the library's settings, 
 		await goRecipe(page, `/recipes/${SHAWARMA}/`);
 		assert.equal(await side().inputValue(), "");
 		await side().selectOption(PITA);
+		await page.getByRole("combobox", { name: SIDE_DINERS }).selectOption("2");
 		const picked = {
 			starch: new URL(page.url()).searchParams.get("starch"),
+			sideDiners: new URL(page.url()).searchParams.get("sideDiners"),
 			saved: await page.evaluate(
 				(key) => JSON.parse(localStorage.getItem(key)),
 				STORAGE_KEY,
@@ -325,6 +328,7 @@ it("a family side picked on a recipe page is saved with the library's settings, 
 			side: await side().inputValue(),
 			units: query.get("units"),
 			starch: query.get("starch"),
+			sideDiners: query.get("sideDiners"),
 		};
 		await goRecipe(page, `/recipes/${SHAWARMA}/?servings=4&units=us`);
 		const explicit = await side().inputValue();
@@ -343,13 +347,17 @@ it("a family side picked on a recipe page is saved with the library's settings, 
 				afterUnits,
 				explicit,
 				cardStarch: card.searchParams.get("starch"),
+				cardSideDiners: card.searchParams.get("sideDiners"),
 				errors,
 			},
 			{
 				picked: {
 					starch: `${SHAWARMA}:${PITA}`,
+					sideDiners: "2",
 					saved: {
 						servings: 6,
+						units: "us",
+						familyDiners: 2,
 						familyChoice: { other: "rice", [SHAWARMA]: PITA },
 					},
 				},
@@ -359,9 +367,11 @@ it("a family side picked on a recipe page is saved with the library's settings, 
 					side: PITA,
 					units: "grams",
 					starch: `${SHAWARMA}:${PITA}`,
+					sideDiners: "2",
 				},
 				explicit: "",
 				cardStarch: `${SHAWARMA}:${PITA}`,
+				cardSideDiners: "2",
 				errors: [],
 			},
 		);
@@ -431,6 +441,7 @@ it("unreadable or wrongly shaped saved settings leave the library on its default
 		resaved: {
 			servings: 4,
 			units: "us",
+			familyDiners: 0,
 			filters: DEFAULT_FILTERS,
 			appliancesOnHand: defaultAppliances,
 			familyChoice: {},
@@ -533,6 +544,7 @@ it("Share recipe on a recipe page shares its servings and family side, and the l
 	try {
 		await goRecipe(page, `/recipes/${SHAWARMA}/?servings=8`);
 		await page.getByRole("combobox", { name: FAMILY_SIDE }).selectOption(PITA);
+		await page.getByRole("combobox", { name: SIDE_DINERS }).selectOption("2");
 		await page.getByRole("button", { name: "Share this recipe" }).click();
 		const shared = new URL(await page.evaluate(() => window.sharedRecipe.url));
 		await goHydrated(page, "/recipes/?servings=8");
@@ -546,11 +558,13 @@ it("Share recipe on a recipe page shares its servings and family side, and the l
 			path: url.pathname,
 			servings: url.searchParams.get("servings"),
 			starch: url.searchParams.get("starch"),
+			sideDiners: url.searchParams.get("sideDiners"),
 		});
 		const expected = {
 			path: `/recipes/${SHAWARMA}/`,
 			servings: "8",
 			starch: `${SHAWARMA}:${PITA}`,
+			sideDiners: "2",
 		};
 		assert.deepEqual(
 			{ shared: query(shared), card: query(card), errors },

@@ -28,6 +28,14 @@ it("recipe search covers ingredients, equipment labels, cooking steps and family
 	assert.ok(ids("skin down").includes("lemon-salmon-and-asparagus"));
 	assert.ok(ids("pita").includes("shawarma-chicken-bowls"));
 	assert.ok(ids("omega").includes("lemon-salmon-and-asparagus"));
+	const sharedTable = {
+		...data.recipes[0],
+		sharedTable: "Offer pumpernickel separately.",
+	};
+	assert.equal(
+		createRecipeSearch([sharedTable])("pumpernickel")[0].id,
+		sharedTable.id,
+	);
 });
 
 it("recipe search ranks names first, requires every word and handles empty or unmatched queries", () => {

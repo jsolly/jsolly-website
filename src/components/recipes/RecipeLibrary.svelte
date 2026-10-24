@@ -13,7 +13,8 @@
 	import { orderRecipeIds } from "./recipe-order.mjs";
 	import { loadRecipePack } from "./recipe-pack.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
-	import { readRecipeURL, recipeBrowseHref } from "./recipe-url.mjs";
+	import { retiredRecipePath } from "./recipe-publication.mjs";
+	import { readRecipeURL, recipeBrowseHref, recipeHref } from "./recipe-url.mjs";
 	import { replaceUnitURL } from "./unit-preference.mjs";
 
 	let { initialCollection = "meal", pathname, initial, recipeIndex, saved = false } = $props();
@@ -29,6 +30,7 @@
 	let filters = $state({ ...DEFAULT_FILTERS });
 	let appliancesOnHand = $state({ ...defaultAppliances });
 	let familyChoice = $state({});
+	let familyDiners = $state(0);
 	let seed = $state("");
 	let expanding;
 	let loading = $state(false);
@@ -56,7 +58,7 @@
 	let allowFilterReset = true;
 	const SLOW_CONNECTION = /^(?:slow-2g|2g|3g)$/u;
 	const RECIPE_PATH = /^\/recipes\/(?<id>[^/]+)\/$/u;
-	const recipeSettings = $derived({ servings, units, familyDiners: servings, familyChoice });
+	const recipeSettings = $derived({ servings, units, familyDiners, familyChoice });
 	const state = $derived({ settings: { ...recipeSettings, filters, appliancesOnHand }, query, seed });
 	const browseKey = $derived(JSON.stringify([collection, query, servings, filters, appliancesOnHand, savedMode]));
 	const renderedRecipes = $derived(summaries.slice(0, visibleLimit));
@@ -205,7 +207,7 @@
 			const changed = [...new Set([...before, ...after])].find((item) => before.includes(item) !== after.includes(item));
 			return !changed || choices[key]?.[changed] !== false;
 		}
-		const flags = { carb: collection === "meal" ? "mealKetoOnly" : "smoothieKetoOnly", vegetarian: "vegetarianOnly", dumpAndGo: "dumpAndGo", immune: "immuneSupport", iron: "ironRich", omega: "omega3" };
+		const flags = { vegetarian: "vegetarianOnly", dumpAndGo: "dumpAndGo", immune: "immuneSupport", iron: "ironRich", omega: "omega3" };
 		return Object.entries(flags).every(([name, key]) => !overrides[name] || choices.flags[key] !== false);
 	}
 	async function updateLibrary() {
@@ -222,7 +224,7 @@
 		}
 	}
 	function setUnits(value) { units = validateSettings({ units: value }).units; replaceUnitURL(units); }
-	function setServings(value) { servings = validateSettings({ servings: Number(value) }).servings; }
+	function setServings(value) { ({ servings, familyDiners } = validateSettings({ servings: Number(value), familyDiners })); }
 	async function saveOpened(recipe) {
 		if (!("serviceWorker" in navigator) || !document.querySelector("#recipe-offline-status")) return;
 		try {
@@ -276,20 +278,24 @@
 		let stored;
 		try { stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null"); }
 		catch (error) { console.error("Recipe settings could not be restored; using defaults.", error instanceof Error ? error.name : "Unknown error"); message = "Saved preferences could not be read; using defaults."; }
-		({ servings, units, filters, appliancesOnHand, familyChoice } = parseSavedSettings(stored, { recipes: recipeIndex, ingredients: smoothieIngredients }));
+		({ servings, units, familyDiners, filters, appliancesOnHand, familyChoice } = parseSavedSettings(stored, { recipes: recipeIndex, ingredients: smoothieIngredients }));
 		savedMode = saved || !navigator.onLine;
 		if (savedMode) { summaries = []; result = { ...initial, cards: [], total: 0, nextPage: null }; }
 		const url = new URL(window.location.href);
-		const parsed = readRecipeURL(url, recipeIndex, { servings, units });
-		servings = parsed.servings; units = parsed.units; familyChoice = { ...familyChoice, ...parsed.familyChoice };
+		const parsed = readRecipeURL(url, recipeIndex, { servings, units, familyDiners, familyChoice });
+		servings = parsed.servings; units = parsed.units; familyDiners = parsed.familyDiners; familyChoice = parsed.familyChoice;
 		// Old blogthedata.com posts link to /recipes/#<recipe-id>, which the
 		// redirect host carries here. This redirect exists only to accommodate
 		// those legacy links: recipes render on their own pages, so the entry is
 		// replaced before any browsing request, listener or settings write starts.
+		const retiredPath = retiredRecipePath(url.hash.slice(1));
+		if (retiredPath) { location.replace(retiredPath); return; }
 		const legacyRecipe = recipeIndex.find((recipe) => recipe.id === parsed.recipeId);
 		if (legacyRecipe) {
 			markLegacyRedirect(legacyRecipe.id);
-			location.replace(recipeBrowseHref(legacyRecipe, { servings, units, familyChoice }));
+			const settings = { servings, units, familyDiners, familyChoice };
+			const explicit = ["servings", "units", "starch", "sideDiners"].some((key) => url.searchParams.has(key));
+			location.replace(explicit ? recipeHref(legacyRecipe, settings) : recipeBrowseHref(legacyRecipe, settings));
 			return;
 		}
 		clearLegacyRedirect();
@@ -322,12 +328,12 @@
 	});
 	$effect(() => {
 		if (!hydrated) return;
-		const settings = JSON.stringify({ servings, units, filters, appliancesOnHand, familyChoice });
+		const settings = JSON.stringify({ servings, units, familyDiners, filters, appliancesOnHand, familyChoice });
 		try { localStorage.setItem(STORAGE_KEY, settings); } catch (error) { console.error("Recipe settings could not be saved; changes apply only to this visit.", error instanceof Error ? error.name : "Unknown error"); message = "Preferences apply to this visit but could not be saved."; }
 	});
 </script>
 
-<section class="meal-library" data-hydrated={hydrated} data-preferences-ready={hydrated} aria-busy={!hydrated} data-print-prepared={printPrepared} bind:this={libraryElement} aria-label={savedMode ? "Saved recipes" : "Easy Meals & Smoothies recipe library"}>
+<section class="meal-library" data-hydrated={hydrated} data-preferences-ready={hydrated} aria-busy={!hydrated} data-print-prepared={printPrepared} bind:this={libraryElement} aria-label={savedMode ? "Saved recipes" : "Keto meals & smoothies recipe library"}>
 	{#if saved}<p>Saved recipes are available offline. Search, filters and shuffle use this saved collection.</p>{:else}<p><a href="/recipes/saved/">Saved recipes</a></p>{/if}
 	<LibraryControls {collection} saved={savedMode} onCollectionChange={(value) => { collection = value; }} bind:query {pathname} {hydrated} {servings} {units} onUnitsChange={setUnits} onServingsChange={setServings} shownApplianceKeys={result.filterChoices.shownAppliances} collectionHasIron={result.filterChoices.collectionHasIron} {smoothieIngredients} {hasMatches} bind:filters bind:appliancesOnHand />
 	{#if !saved}<noscript><NativeRecipeControls {collection} {pathname} metadata={result.filterChoices} /></noscript>{/if}

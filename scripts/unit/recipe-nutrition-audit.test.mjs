@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { it } from "vitest";
+import { archivedNutrition } from "../../src/components/recipes/archived-recipes.test-data.mjs";
 import nutrition from "../../src/components/recipes/nutrition-data.json" with {
 	type: "json",
 };
@@ -19,7 +20,7 @@ const FAT_GRAMS = /fat: [\d.]+ g/u;
 
 it("every recipe has traceable fat and reviewed calorie agreement for every supported portion", () => {
 	const audit = auditNutrition();
-	assert.equal(audit.recipeCount, 147);
+	assert.equal(audit.recipeCount, 140);
 	assert.equal(
 		audit.ingredientCount,
 		recipes.recipes.reduce((sum, recipe) => sum + recipe.ingredients.length, 0),
@@ -36,7 +37,8 @@ it("every recipe has traceable fat and reviewed calorie agreement for every supp
 			);
 		}
 	}
-	const gnocchi = nutrition.recipes[
+	// Preserve the independent branded-fat regression on the retired source model.
+	const gnocchi = archivedNutrition.recipes[
 		"sheet-pan-gnocchi-white-beans-and-broccoli"
 	].find((row) => row.food === "gnocchi");
 	assert.equal(gnocchi.nutrients.fat, 0);

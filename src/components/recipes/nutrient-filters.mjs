@@ -8,11 +8,7 @@ import {
 	starchOptions,
 } from "./constants.mjs";
 import { dailyNutrition, recordedOmega3 } from "./nutrition.mjs";
-import {
-	dietaryClass,
-	ingredientAmount,
-	validateSettings,
-} from "./recipe-logic.mjs";
+import { ingredientAmount, validateSettings } from "./recipe-logic.mjs";
 
 const immuneNutrients = new Set([
 	"vitamin_a",
@@ -97,7 +93,6 @@ export function matchesRecipe(
 		protein = [],
 		vegetarian = false,
 		dumpAndGo = false,
-		carb = [],
 		starch = [],
 		immune = false,
 		iron = false,
@@ -116,7 +111,6 @@ export function matchesRecipe(
 			selectedMatches(protein, recipe.proteinType) &&
 			(!vegetarian || recipe.vegetarian === true) &&
 			(!dumpAndGo || recipe.dumpAndGo === true) &&
-			(!carb.length || selectedMatches(carb, dietaryClass(recipe))) &&
 			(!starch.length || starch.some((type) => recipe.starches.includes(type)))
 		)
 	)
@@ -151,8 +145,14 @@ export function parseSavedSettings(saved, { recipes, ingredients }) {
 			)
 		: {};
 	const flag = (key) => filters[key] === true;
+	const servings = validateSettings({ servings: settings.servings }).servings;
+	const familyDiners =
+		settings.familyDiners === undefined && Object.keys(familyChoice).length
+			? servings
+			: settings.familyDiners;
 	return {
-		servings: validateSettings({ servings: settings.servings }).servings,
+		servings,
+		familyDiners: validateSettings({ servings, familyDiners }).familyDiners,
 		units: validateSettings({ units: settings.units }).units,
 		filters: {
 			...DEFAULT_FILTERS,
@@ -162,9 +162,7 @@ export function parseSavedSettings(saved, { recipes, ingredients }) {
 				filters.ingredientChoice,
 				ingredients,
 			),
-			mealKetoOnly: flag("mealKetoOnly"),
 			vegetarianOnly: flag("vegetarianOnly"),
-			smoothieKetoOnly: flag("smoothieKetoOnly"),
 			immuneSupport: flag("immuneSupport"),
 			ironRich: flag("ironRich"),
 			omega3: flag("omega3"),

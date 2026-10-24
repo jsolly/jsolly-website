@@ -44,10 +44,10 @@ function verifyUnits(width) {
 		const prior = {
 			servings: 8,
 			units: "us",
+			familyDiners: 8,
 			filters: {
 				proteinChoice: ["fish"],
 				ingredientChoice: ["hemp"],
-				mealKetoOnly: false,
 				vegetarianOnly: false,
 			},
 			appliancesOnHand: defaultAppliances,
@@ -81,7 +81,12 @@ function verifyUnits(width) {
 			const afterUnits = await page.evaluate(() =>
 				JSON.parse(localStorage.getItem("recipes-settings-v1")),
 			);
-			assert.deepEqual(afterUnits, { ...prior, units: "grams" });
+			assert.deepEqual(afterUnits, {
+				...prior,
+				servings: 2,
+				units: "grams",
+				familyDiners: 2,
+			});
 			if (process.env.UI_EVIDENCE_DIR) {
 				await mkdir(process.env.UI_EVIDENCE_DIR, { recursive: true });
 				await page.screenshot({
@@ -115,6 +120,9 @@ function verifyUnits(width) {
 			await units.selectOption("us");
 			assert.match(await flow.textContent(), IMPERIAL);
 			await units.selectOption("grams");
+			// Standalone controls now persist servings as well as units. Restore
+			// eight before checking the same large batch after the legacy redirect.
+			await page.getByRole("combobox", { name: SERVINGS }).selectOption("8");
 			await page.goto(`${site.origin}/recipes/meals/`);
 			await ready(page);
 			assert.equal(
@@ -127,6 +135,8 @@ function verifyUnits(width) {
 			assert.deepEqual(restored.filters.proteinChoice, ["fish"]);
 			assert.deepEqual(restored.filters.ingredientChoice, ["hemp"]);
 			assert.deepEqual(restored.familyChoice, prior.familyChoice);
+			assert.equal(restored.servings, 8);
+			assert.equal(restored.familyDiners, 2);
 			const href = await page
 				.locator('[data-recipe-id="lemon-salmon-and-asparagus"]')
 				.getAttribute("href");
@@ -266,6 +276,10 @@ it("individual recipe controls recover corrupt preferences and remain enabled wh
 		);
 		await page.reload();
 		await ready(page);
+		assert.equal(
+			await page.getByRole("combobox", { name: UNIT_CONTROL }).inputValue(),
+			"us",
+		);
 		await page
 			.getByRole("combobox", { name: UNIT_CONTROL })
 			.selectOption("grams");
@@ -273,7 +287,7 @@ it("individual recipe controls recover corrupt preferences and remain enabled wh
 			await page.evaluate(() =>
 				JSON.parse(localStorage.getItem("recipes-settings-v1")),
 			),
-			{ units: "grams" },
+			{ units: "grams", servings: 4, familyDiners: 0, familyChoice: {} },
 		);
 		await page.reload();
 		await ready(page);
@@ -281,10 +295,17 @@ it("individual recipe controls recover corrupt preferences and remain enabled wh
 			await page.getByRole("combobox", { name: UNIT_CONTROL }).inputValue(),
 			"grams",
 		);
+		assert.deepEqual(
+			await page.evaluate(() =>
+				JSON.parse(localStorage.getItem("recipes-settings-v1")),
+			),
+			{ units: "grams", servings: 4, familyDiners: 0, familyChoice: {} },
+		);
 		assert.deepEqual(errors, [
 			"Recipe preferences could not be restored; using US imperial and no side. SyntaxError",
-			"Malformed recipe settings were discarded while saving units. SyntaxError",
+			"Malformed recipe settings were discarded while saving preferences. SyntaxError",
 		]);
+		const errorsBeforeDeniedStorage = errors.length;
 		await context.addInitScript(() => {
 			Object.defineProperty(window, "localStorage", {
 				get() {
@@ -305,9 +326,14 @@ it("individual recipe controls recover corrupt preferences and remain enabled wh
 			await page.getByRole("combobox", { name: UNIT_CONTROL }).inputValue(),
 			"metric",
 		);
-		assert.deepEqual(errors.slice(2), [
+		await page
+			.getByText("Preferences apply to this visit but could not be saved.", {
+				exact: true,
+			})
+			.waitFor();
+		assert.deepEqual(errors.slice(errorsBeforeDeniedStorage), [
 			"Recipe preferences could not be restored; using US imperial and no side. SecurityError",
-			"Recipe units could not be saved; changes apply only to this visit. SecurityError",
+			"Recipe preferences could not be saved; changes apply only to this visit. SecurityError",
 		]);
 	} finally {
 		await context.close();

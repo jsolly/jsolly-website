@@ -9,7 +9,7 @@
 	const shownAppliances = $derived(Object.entries(applianceChoices).filter(([key]) => metadata.shownAppliances.includes(key)));
 	const choiceGroups = $derived(collection === "meal" ? [{ name: "proteinChoice", label: "Proteins", options: proteins }, { name: "starchChoice", label: "Carbs", options: starchOptions }] : [{ name: "ingredientChoice", label: "Ingredients", options: ingredients }]);
 	const checks = $derived([
-		...(collection === "meal" ? [["mealKetoOnly", "Keto"], ["vegetarianOnly", "Vegetarian"], ["dumpAndGo", "Dump and go"]] : [["smoothieKetoOnly", "Keto Friendly"]]),
+		...(collection === "meal" ? [["vegetarianOnly", "Vegetarian"], ["dumpAndGo", "Dump and go"]] : []),
 		["immuneSupport", "Immune support"],
 		...(metadata.collectionHasIron ? [["ironRich", "Iron-rich"]] : []),
 		["omega3", "High in Omega-3s"],

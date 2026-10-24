@@ -21,6 +21,7 @@ const SIX_SERVINGS = /6 servings/su;
 const PROTEINS = /^Proteins:/u;
 const OPEN_RECIPE = /^Open recipe:/u;
 const SMOOTHIE = /smoothie/iu;
+const TURKEY = /Turkey/u;
 
 function verifyLibrary(width) {
 	it(`recipe search, aligned settings and individual card printing at ${width}px`, {
@@ -64,6 +65,7 @@ function verifyLibrary(width) {
 				exact: true,
 			});
 			const units = page.getByRole("combobox", { name: "Ingredient units" });
+			const search = page.getByRole("searchbox", { name: "Search recipes" });
 			const a = await servings.boundingBox();
 			const b = await units.boundingBox();
 			const wrapper = await page
@@ -93,14 +95,45 @@ function verifyLibrary(width) {
 				exact: true,
 			});
 			await diet.check();
+			const vegetarianIds = data.recipes
+				.filter(
+					(recipe) => recipe.type === "meal" && recipe.vegetarian === true,
+				)
+				.map((recipe) => recipe.id);
+			await page.waitForFunction(
+				(total) =>
+					document.querySelector("#meal-results").getAttribute("aria-busy") ===
+						"false" &&
+					Number(
+						document
+							.querySelector("#meal-results")
+							.getAttribute("data-match-count"),
+					) === total,
+				vegetarianIds.length,
+			);
+			assert.deepEqual(await cardIds(), vegetarianIds);
+			assert.equal(
+				await page.getByRole("button", { name: "Shuffle meals" }).isDisabled(),
+				vegetarianIds.length < 2,
+			);
+			await diet.uncheck();
+			await page.getByRole("button", { name: PROTEINS }).click();
+			await page.getByRole("checkbox", { name: "Turkey", exact: true }).check();
+			await page.keyboard.press("Escape");
+			await search.fill("greek turkey patties");
 			await page.waitForFunction(
 				() =>
 					document.querySelector("#meal-results").getAttribute("aria-busy") ===
-					"false",
+						"false" &&
+					Number(
+						document
+							.querySelector("#meal-results")
+							.getAttribute("data-match-count"),
+					) === 2,
 			);
 			const beforeShuffle = await cardIds();
 			await page.evaluate(() => {
-				// Fixed seed reverses this two-recipe vegetarian fixture.
+				// Fixed seed reverses the two Greek turkey-patty recipes.
 				Object.defineProperty(crypto, "randomUUID", { value: () => "0" });
 			});
 			await page.getByRole("button", { name: "Shuffle meals" }).click();
@@ -112,11 +145,18 @@ function verifyLibrary(width) {
 			const afterShuffle = await cardIds();
 			assert.notDeepEqual(afterShuffle, beforeShuffle);
 			assert.deepEqual([...afterShuffle].sort(), [...beforeShuffle].sort());
-			assert.equal(await diet.isChecked(), true);
-			await diet.uncheck();
+			assert.match(
+				await page.getByRole("button", { name: PROTEINS }).textContent(),
+				TURKEY,
+			);
+			assert.equal(await search.inputValue(), "greek turkey patties");
+			await page.getByRole("button", { name: PROTEINS }).click();
+			await page
+				.getByRole("checkbox", { name: "Turkey", exact: true })
+				.uncheck();
+			await page.keyboard.press("Escape");
 			await servings.selectOption("6");
 			await units.selectOption("metric");
-			const search = page.getByRole("searchbox", { name: "Search recipes" });
 			const fullSearch = page.waitForResponse((response) => {
 				const url = new URL(response.url());
 				return (
@@ -222,7 +262,9 @@ function verifyLibrary(width) {
 					.evaluateAll((links) => links.map((link) => link.dataset.recipeId)),
 				fishOrder,
 			);
-			await page.getByRole("link", { name: "Smoothies", exact: true }).click();
+			await page
+				.getByRole("link", { name: "Keto smoothies", exact: true })
+				.click();
 			await page.waitForFunction(
 				() => !document.querySelector("astro-island[ssr]"),
 			);

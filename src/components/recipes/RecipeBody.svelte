@@ -27,8 +27,10 @@
 		interactive = true,
 		printOnly = false,
 		onSideChange,
+		onSideDinersChange,
 	} = $props();
 	const sideId = $props.id();
+	const sideDinersId = `${sideId}-diners`;
 	const selectedSideId = $derived(
 		settings.familyChoice[recipe.id] || "",
 	);
@@ -63,7 +65,7 @@
 		</figure>
 	{/if}
 	{#if recipe.familyOptions.length && (!printOnly || side)}
-		<div class="family-box" class:has-side={Boolean(side)}>
+		<div class="family-box" class:has-side={Boolean(side && settings.familyDiners > 0)}>
 			<label for={sideId}
 				>Add a side{#if printOnly}<span>{side.label}</span>{:else}<NativeSelect id={sideId} value={selectedSideId} disabled={!interactive} onchange={(event) => onSideChange?.(event.currentTarget.value)}>
 					<option value="">None</option>
@@ -71,12 +73,16 @@
 				</NativeSelect>{/if}</label
 			>
 			{#if side}
-				<p>{sideAmount} {side.ingredientName} · serve separately</p>
+				{#if !printOnly}<label class="side-diners recipe-enhanced" for={sideDinersId}>People having this side<NativeSelect id={sideDinersId} value={settings.familyDiners} disabled={!interactive} onchange={(event) => onSideDinersChange?.(Number(event.currentTarget.value))}>
+					{#each Array.from({ length: settings.servings + 1 }, (_, count) => count) as count (count)}<option value={count}>{count}</option>{/each}
+				</NativeSelect></label>{/if}
+				{#if settings.familyDiners > 0}<p>{sideAmount} {side.ingredientName} · for {settings.familyDiners} {settings.familyDiners === 1 ? "person" : "people"} · serve separately</p>{:else}<p>No side prepared.</p>{/if}
 				<div class="side-nutrition">Side only, per person: {formatNutrition(sideMacros.kcal, "kcal")} · Protein {formatNutrition(sideMacros.protein_g, "g")} · Fat {formatNutrition(sideMacros.fat_g, "g")} · Carbs {formatNutrition(sideMacros.carbs_g, "g")} · Fiber {formatNutrition(sideMacros.fiber_g, "g")} · Net carbs {formatNutrition(sideMacros.net_carbs_g, "g")}. Base nutrition below excludes this side.</div>
 			{/if}
 		</div>
 	{/if}
 	{#key recipe.id}<RecipeFlow {recipe} {settings} {interactive} {printOnly} />{/key}
+	{#if recipe.sharedTable}<section class="shared-table" aria-label="For a shared table"><h2>For a shared table</h2><p>{recipe.sharedTable}</p></section>{/if}
 	<section class="nutrition" aria-label={nutritionHeading(recipe, settings.servings)}>
 		<h2>Nutrition</h2><p class="nutrition-portion">{nutritionPortionLabel(recipe, settings.servings)}</p>
 		<dl>
@@ -139,6 +145,17 @@
 		}
 		.family-box p {
 			font-size: 0.9rem;
+		}
+		.side-diners {
+			display: grid;
+			gap: 4px;
+			margin-top: 12px;
+		}
+		.shared-table {
+			margin-top: 20px;
+		}
+		.shared-table p {
+			margin: 8px 0;
 		}
 		.family-box :global(select) {
 			/* Muted ink keeps the control's boundary at 3:1 or more. */

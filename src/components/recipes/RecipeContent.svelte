@@ -6,7 +6,7 @@
 	import { dietaryClass } from "./recipe-logic.mjs";
 
 	// One cooking document for recipe pages and printed card packets.
-	let { recipe, settings, interactive = true, printOnly = false, onSideChange, controls } = $props();
+	let { recipe, settings, interactive = true, printOnly = false, onSideChange, onSideDinersChange, controls } = $props();
 </script>
 
 <div class="recipe-content">
@@ -16,7 +16,7 @@
 	<p class="detail-summary">{recipe.summary}</p>
 	<RecipeAttribution {recipe} />
 	{#if controls}{@render controls()}{/if}
-	<RecipeBody {recipe} {settings} {interactive} {printOnly} {onSideChange} />
+	<RecipeBody {recipe} {settings} {interactive} {printOnly} {onSideChange} {onSideDinersChange} />
 </div>
 
 <style>

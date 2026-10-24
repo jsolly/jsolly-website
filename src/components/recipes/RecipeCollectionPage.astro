@@ -11,8 +11,8 @@ interface Props {
 
 const { collection, title } = Astro.props;
 const description = collection === "meal"
-	? "Browse easy meals by ingredients, appliances and dietary preference, with measured portions, cooking instructions and estimated nutrition."
-	: "Browse fruit and yogurt smoothies with measured ingredients, blender instructions and estimated nutrition per glass.";
+	? "Browse keto meals by ingredients and appliances, with measured portions, cooking instructions, estimated nutrition and serving ideas for a shared table."
+	: "Browse keto smoothies with measured ingredients, blender instructions, estimated nutrition per glass and separate additions for other diners.";
 ---
 
 <RecipeLayout {title} {description}>
