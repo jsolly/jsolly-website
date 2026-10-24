@@ -76,6 +76,8 @@ export const PWA_THEME_COLOR = "#183e2b";
 
 /** localStorage key for the library's saved settings (merge-plan J13). */
 export const STORAGE_KEY = "recipes-settings-v1";
+/** localStorage key for the recipes a reader marked made, on this device only. */
+export const MADE_STORAGE_KEY = "recipes-made-v1";
 export const PRINT_FAILED =
 	"Printing could not open. Use your browser’s Print command.";
 /** The library's protein filter choices. */

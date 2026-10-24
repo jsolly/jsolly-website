@@ -9,6 +9,7 @@
 	import RecipeCard from "./RecipeCard.svelte";
 	import { withRecipeBrowse } from "./recipe-browse-coordination.mjs";
 	import { validateSettings } from "./recipe-logic.mjs";
+	import { madeDateFor, readMadeRecipes, watchMadeRecipes } from "./recipe-made.mjs";
 	import { clearLegacyRedirect, markLegacyRedirect } from "./recipe-navigation.mjs";
 	import { orderRecipeIds } from "./recipe-order.mjs";
 	import { loadRecipePack } from "./recipe-pack.mjs";
@@ -31,6 +32,8 @@
 	let appliancesOnHand = $state({ ...defaultAppliances });
 	let familyChoice = $state({});
 	let familyDiners = $state(0);
+	// Recipe id → the local date the reader last made it (recipe-made.mjs).
+	let made = $state.raw({});
 	let seed = $state("");
 	let expanding;
 	let loading = $state(false);
@@ -299,6 +302,9 @@
 			return;
 		}
 		clearLegacyRedirect();
+		const refreshMade = () => { made = readMadeRecipes(); };
+		refreshMade();
+		const stopWatchingMade = watchMadeRecipes(refreshMade);
 		if (savedMode && url.searchParams.get("collection") === "smoothie") collection = "smoothie";
 		const visit = history.state?.recipeList;
 		if (visit?.savedMode === savedMode && visit?.result?.release === initial.release && Array.isArray(visit.summaries) && ["meal", "smoothie"].includes(visit.collection)) {
@@ -319,7 +325,7 @@
 		document.addEventListener("visibilitychange", resume); window.addEventListener("online", resume); window.addEventListener("offline", resume);
 		navigator.connection?.addEventListener("change", resume);
 		scheduleBackground();
-		return () => { stopped = true; generation++; savedGeneration++; controller?.abort(); clearTimeout(backgroundTimer); stopPrint(); libraryElement?.removeEventListener("click", rememberVisit); window.removeEventListener("pagehide", saveVisit); document.removeEventListener("visibilitychange", resume); window.removeEventListener("online", resume); window.removeEventListener("offline", resume); navigator.connection?.removeEventListener("change", resume); };
+		return () => { stopped = true; generation++; savedGeneration++; controller?.abort(); clearTimeout(backgroundTimer); stopPrint(); libraryElement?.removeEventListener("click", rememberVisit); window.removeEventListener("pagehide", saveVisit); stopWatchingMade(); document.removeEventListener("visibilitychange", resume); window.removeEventListener("online", resume); window.removeEventListener("offline", resume); navigator.connection?.removeEventListener("change", resume); };
 	});
 	$effect(() => {
 		const key = browseKey;
@@ -341,7 +347,7 @@
 		<div class="results-heading"><h2 bind:this={listHeading} tabindex="-1">{savedMode ? "Saved recipes" : collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2><Button class="enhanced-shuffle" variant="outline" type="button" disabled={!hydrated || shuffling || result.total < 2} onclick={shuffleCards}><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button>{#if !saved}<noscript><Button variant="outline" type="submit" form="recipe-browse-form" name="shuffle" value="1"><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button></noscript>{/if}</div>
 		<p class="no-results" role="status">{!result.total ? savedMode ? "No saved recipes match. Open a recipe online to save it for offline use." : "No recipes match your search and filters. Try fewer words or adjust the filters." : query.trim() ? `${result.total} recipes found` : ""}</p>
 		<div class="recipe-grid">
-			{#each renderedRecipes as recipe (recipe.id)}<RecipeCard {recipe} servings={recipeSettings.servings} settings={recipeSettings} onPrint={() => print(recipe.id)} disabled={!hydrated} href={recipeBrowseHref(recipe, recipeSettings)} />{/each}
+			{#each renderedRecipes as recipe (recipe.id)}<RecipeCard {recipe} madeOn={madeDateFor(made, recipe.id)} servings={recipeSettings.servings} settings={recipeSettings} onPrint={() => print(recipe.id)} disabled={!hydrated} href={recipeBrowseHref(recipe, recipeSettings)} />{/each}
 		</div>
 		{#if unsupportedSavedRecords.length}<ul>{#each unsupportedSavedRecords as record (record.id)}<li><a href={`/recipes/${record.id}/`}>{record.recipe?.title || record.id}</a> - saved with another version; open its saved page to cook.</li>{/each}</ul>{/if}
 		{#if hydrated && hasMore}<div class="load-more" {@attach watchMore}><Button variant="outline" type="button" aria-busy={loading} onclick={() => loadMore(true)}>Load more recipes</Button><p>{renderedRecipes.length} of {result.total} recipes shown</p></div>{/if}

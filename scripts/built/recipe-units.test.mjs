@@ -333,6 +333,7 @@ it("individual recipe controls recover corrupt preferences and remain enabled wh
 			.waitFor();
 		assert.deepEqual(errors.slice(errorsBeforeDeniedStorage), [
 			"Recipe preferences could not be restored; using US imperial and no side. SecurityError",
+			"Made recipes could not be restored; showing none as made. SecurityError",
 			"Recipe preferences could not be saved; changes apply only to this visit. SecurityError",
 		]);
 	} finally {

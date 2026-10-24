@@ -4,6 +4,7 @@ import { afterAll as after, beforeAll as before, it } from "vitest";
 import {
 	DEFAULT_FILTERS,
 	defaultAppliances,
+	MADE_STORAGE_KEY,
 	PRINT_FAILED,
 	STORAGE_KEY,
 } from "../../src/components/recipes/constants.mjs";
@@ -569,6 +570,96 @@ it("Share recipe on a recipe page shares its servings and family side, and the l
 		assert.deepEqual(
 			{ shared: query(shared), card: query(card), errors },
 			{ shared: expected, card: expected, errors: [] },
+		);
+	} finally {
+		await close();
+	}
+});
+
+it("a reader who marks a recipe made sees the date on its page and, in another open tab, on its library card, can mark it made again later, and can clear it", async () => {
+	const { page, errors, close } = await openPage();
+	try {
+		await page.clock.setFixedTime(new Date(2026, 9, 24, 12));
+		await goHydrated(page, "/recipes/meals/");
+		const id = await page
+			.locator(".recipe-card a.title-button")
+			.first()
+			.getAttribute("data-recipe-id");
+		assert.ok(
+			meals.some((recipe) => recipe.id === id),
+			id,
+		);
+		const badges = page.locator(".made-badge");
+		assert.equal(await badges.count(), 0);
+
+		// The recipe opens in a second tab while the library stays open.
+		const tab = await page.context().newPage();
+		const tabErrors = collectErrors(tab);
+		await tab.clock.setFixedTime(new Date(2026, 9, 24, 12));
+		await goRecipe(tab, `/recipes/${id}/`);
+		const made = tab.getByRole("checkbox", { name: "I made this" });
+		const again = tab.getByRole("button", { name: "Made it today" });
+		assert.equal(await made.isChecked(), false);
+		await made.check();
+		const stored = () =>
+			tab.evaluate(
+				(key) => JSON.parse(localStorage.getItem(key) || "null"),
+				MADE_STORAGE_KEY,
+			);
+		await badges.waitFor();
+		assert.deepEqual(
+			{
+				date: await tab.locator(".made-date").textContent(),
+				again: await again.count(),
+				stored: await stored(),
+				badges: await badges.allTextContents(),
+				badgeCard: await page
+					.locator(".recipe-card")
+					.filter({ has: page.locator(`a[data-recipe-id="${id}"]`) })
+					.locator(".made-badge")
+					.count(),
+			},
+			{
+				date: "Last made Oct 24, 2026",
+				again: 0,
+				stored: { [id]: "2026-10-24" },
+				badges: ["Made Oct 24, 2026"],
+				badgeCard: 1,
+			},
+		);
+		await tab.emulateMedia({ media: "print" });
+		assert.equal(await tab.locator(".made").isVisible(), false);
+		await tab.emulateMedia({ media: "screen" });
+
+		// Six days later the mark survives a reload and can move to today.
+		await tab.clock.setFixedTime(new Date(2026, 9, 30, 12));
+		await tab.reload();
+		await tab.locator(".recipe-page[data-preferences-ready=true]").waitFor();
+		assert.equal(await made.isChecked(), true);
+		await again.click();
+		await page.getByText("Made Oct 30, 2026").waitFor();
+		assert.deepEqual(
+			{
+				date: await tab.locator(".made-date").textContent(),
+				again: await again.count(),
+				stored: await stored(),
+			},
+			{
+				date: "Last made Oct 30, 2026",
+				again: 0,
+				stored: { [id]: "2026-10-30" },
+			},
+		);
+
+		await made.uncheck();
+		await badges.waitFor({ state: "detached" });
+		assert.deepEqual(
+			{
+				date: await tab.locator(".made-date").count(),
+				stored: await stored(),
+				errors: [...errors, ...tabErrors],
+			},
+			{ date: 0, stored: {}, errors: [] },
 		);
 	} finally {
 		await close();
