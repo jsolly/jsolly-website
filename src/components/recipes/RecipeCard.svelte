@@ -45,7 +45,7 @@
 
 	{#if recipe.image}<figure class="card-photo"><img class="deferred-card-image" {@attach deferImage} sizes="(max-width:600px) 340px, (max-width:1000px) 420px, 360px" width={recipe.image.width} height={recipe.image.height} alt={recipe.image.alt} loading="lazy" decoding="async" /><noscript><img src={recipe.image.cardSrc} srcset={recipe.image.cardSrcset} sizes="(max-width:600px) 340px, (max-width:1000px) 420px, 360px" width={recipe.image.width} height={recipe.image.height} alt={recipe.image.alt} loading="lazy" decoding="async" /></noscript></figure>{/if}
 	<h3><a class="title-button" data-recipe-id={recipe.id} {href}>{cardTitle}</a></h3>
-	{#if madeOn}<p class="made-badge"><span class="made-check" aria-hidden="true"><Check size={15} strokeWidth={3} /></span>Made it!</p>{/if}
+	{#if madeOn}<p class="made-badge"><span class="made-check" aria-hidden="true"><Check size={10} strokeWidth={3.5} /></span>Made it!</p>{/if}
 	<div class="card-details">
 		<dl class="card-numbers">
 			<div class="card-metric">
@@ -109,27 +109,27 @@
 		/* A sticker pinned over the card's top-right corner, tilted. */
 		.made-badge {
 			position: absolute;
-			top: -10px;
-			right: -8px;
+			top: -7px;
+			right: -6px;
 			z-index: 1;
 			display: inline-flex;
 			align-items: center;
-			gap: 7px;
+			gap: 5px;
 			margin: 0;
-			padding: 5px 14px 5px 6px;
+			padding: 3px 9px 3px 4px;
 			border: 1px solid color-mix(in oklch, var(--recipe-made) 35%, transparent);
 			border-radius: 999px;
 			background: var(--recipe-badge);
 			color: var(--recipe-made);
-			font: italic 700 1rem / 1 var(--font-heading);
+			font: italic 700 0.72rem / 1 var(--font-heading);
 			transform: rotate(10deg);
-			box-shadow: 0 4px 10px rgb(0 0 0 / 0.14);
+			box-shadow: 0 2px 6px rgb(0 0 0 / 0.14);
 		}
 		.made-check {
 			display: grid;
 			place-items: center;
-			width: 24px;
-			height: 24px;
+			width: 16px;
+			height: 16px;
 			border-radius: 50%;
 			background: var(--recipe-made);
 			color: var(--recipe-badge);
