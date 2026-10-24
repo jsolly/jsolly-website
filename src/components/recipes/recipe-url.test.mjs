@@ -27,6 +27,7 @@ it("a shared recipe link restores its servings, family side and recipe", () => {
 		{
 			servings: 6,
 			units: "us",
+			familyDiners: 6,
 			familyChoice: { "greek-turkey-patties": "bun_one" },
 			recipeId: "greek-turkey-patties",
 		},
@@ -34,6 +35,7 @@ it("a shared recipe link restores its servings, family side and recipe", () => {
 	assert.deepEqual(read("/recipes/#spinach-feta-and-hemp-frittata"), {
 		servings: 4,
 		units: "us",
+		familyDiners: 0,
 		familyChoice: {},
 		recipeId: "spinach-feta-and-hemp-frittata",
 	});
@@ -45,11 +47,18 @@ it("a link with unsupported servings, unknown sides or no recipe falls back to t
 			// biome-ignore lint/security/noSecrets: a recipe share URL fixture, not credential material.
 			"/recipes/?servings=5&starch=greek-turkey-patties:rice_half_cup,nope:bun_one,spinach-feta-and-hemp-frittata:pita_one,broken",
 		),
-		{ servings: 4, units: "us", familyChoice: {}, recipeId: "" },
+		{
+			servings: 4,
+			units: "us",
+			familyDiners: 0,
+			familyChoice: {},
+			recipeId: "",
+		},
 	);
 	assert.deepEqual(read("/recipes/?servings=lots"), {
 		servings: 4,
 		units: "us",
+		familyDiners: 0,
 		familyChoice: {},
 		recipeId: "",
 	});
@@ -69,7 +78,7 @@ it("a recipe's share link carries its servings and only a family side the recipe
 			familyChoice: { "greek-turkey-patties": "pita_one" },
 		}),
 		// biome-ignore lint/security/noSecrets: a recipe share URL fixture, not credential material.
-		"/recipes/greek-turkey-patties/?servings=6&units=us&starch=greek-turkey-patties%3Apita_one",
+		"/recipes/greek-turkey-patties/?servings=6&units=us&starch=greek-turkey-patties%3Apita_one&sideDiners=6",
 	);
 	assert.equal(
 		recipeHref(patties, {
@@ -77,11 +86,13 @@ it("a recipe's share link carries its servings and only a family side the recipe
 			units: "us",
 			familyChoice: { "greek-turkey-patties": "rice_half_cup" },
 		}),
-		"/recipes/greek-turkey-patties/?servings=4&units=us",
+		// biome-ignore lint/security/noSecrets: public recipe settings URL, not credential material.
+		"/recipes/greek-turkey-patties/?servings=4&units=us&starch=",
 	);
 	assert.equal(
 		recipeHref(frittata, { servings: 2 }),
-		"/recipes/spinach-feta-and-hemp-frittata/?servings=2&units=us",
+		// biome-ignore lint/security/noSecrets: public recipe settings URL, not credential material.
+		"/recipes/spinach-feta-and-hemp-frittata/?servings=2&units=us&starch=",
 	);
 });
 
@@ -94,9 +105,35 @@ it("a share link reads back as the settings it was made from", () => {
 	assert.deepEqual(read(recipeHref(patties, settings)), {
 		servings: 8,
 		units: "us",
+		familyDiners: 8,
 		familyChoice: { "greek-turkey-patties": "bun_one" },
 		recipeId: "greek-turkey-patties",
 	});
+});
+
+it("shared sides retain an independent diner count and clamp it to the meal size", () => {
+	const settings = {
+		servings: 4,
+		units: "us",
+		familyDiners: 2,
+		familyChoice: { [patties.id]: "pita_one" },
+	};
+	const restored = read(recipeHref(patties, settings));
+	assert.equal(restored.servings, 4);
+	assert.equal(restored.familyDiners, 2);
+	assert.deepEqual(restored.familyChoice, settings.familyChoice);
+	assert.equal(
+		read("/recipes/greek-turkey-patties/?servings=4&sideDiners=8").familyDiners,
+		4,
+	);
+	assert.equal(
+		read("/recipes/greek-turkey-patties/?sideDiners=invalid").familyDiners,
+		0,
+	);
+	assert.equal(
+		read("/recipes/greek-turkey-patties/?sideDiners=0").familyDiners,
+		0,
+	);
 });
 
 it("default browsing links use canonical paths while selected and shared settings remain explicit", () => {
@@ -121,11 +158,12 @@ it("default browsing links use canonical paths while selected and shared setting
 	}
 	assert.equal(
 		recipeHref(patties, { servings: 4, units: "us" }),
-		"/recipes/greek-turkey-patties/?servings=4&units=us",
+		// biome-ignore lint/security/noSecrets: public recipe settings URL, not credential material.
+		"/recipes/greek-turkey-patties/?servings=4&units=us&starch=",
 	);
 });
 
-it("a recipe page's URL keeps units, the selected side and non-default servings after a change", () => {
+it("a recipe page's URL keeps units, the selected side and servings after a change", () => {
 	const path = `/recipes/${patties.id}/`;
 	const page = (search, settings) =>
 		Object.fromEntries(
@@ -138,7 +176,12 @@ it("a recipe page's URL keeps units, the selected side and non-default servings 
 			units: "grams",
 			familyChoice: { [patties.id]: "pita_one" },
 		}),
-		{ units: "grams", starch: `${patties.id}:pita_one` },
+		{
+			servings: "4",
+			units: "grams",
+			starch: `${patties.id}:pita_one`,
+			sideDiners: "4",
+		},
 	);
 	assert.deepEqual(
 		page(`?servings=4&units=us&starch=${patties.id}:bun_one`, {
@@ -146,7 +189,7 @@ it("a recipe page's URL keeps units, the selected side and non-default servings 
 			units: "metric",
 			familyChoice: {},
 		}),
-		{ servings: "6", units: "metric" },
+		{ servings: "6", units: "metric", starch: "" },
 	);
 	assert.deepEqual(
 		page("?servings=8", {
@@ -154,6 +197,74 @@ it("a recipe page's URL keeps units, the selected side and non-default servings 
 			units: "us",
 			familyChoice: { [patties.id]: "naan" },
 		}),
-		{ units: "us" },
+		{ servings: "4", units: "us", starch: "" },
 	);
+	assert.equal(
+		readRecipeURL(
+			recipePageURL(new URL(path, SITE), patties, { servings: 4 }),
+			recipes,
+			{ servings: 8 },
+		).servings,
+		4,
+		"an explicit four-serving choice survives even if saved preferences retain eight",
+	);
+});
+
+it("ordinary links restore saved sides while an explicit None clears only the named recipe", () => {
+	const other = { ...patties, id: "other-meal" };
+	const context = [...recipes, other];
+	const saved = {
+		servings: 4,
+		units: "us",
+		familyDiners: 2,
+		familyChoice: {
+			[patties.id]: "pita_one",
+			[other.id]: "bun_one",
+			[frittata.id]: "stale",
+			removed: "pita_one",
+		},
+	};
+	const original = structuredClone(saved);
+	const ordinary = readRecipeURL(
+		new URL(recipeBrowseHref(patties, {}), SITE),
+		context,
+		saved,
+	);
+	assert.equal(ordinary.familyDiners, 2);
+	assert.deepEqual(ordinary.familyChoice, {
+		[patties.id]: "pita_one",
+		[other.id]: "bun_one",
+	});
+	const sharedNone = recipeHref(patties, { servings: 4, units: "us" });
+	assert.equal(new URL(sharedNone, SITE).searchParams.has("starch"), true);
+	assert.deepEqual(
+		readRecipeURL(new URL(sharedNone, SITE), context, saved).familyChoice,
+		{ [other.id]: "bun_one" },
+	);
+	assert.deepEqual(
+		readRecipeURL(
+			new URL(`/recipes/${patties.id}/?servings=4&units=us`, SITE),
+			context,
+			saved,
+		).familyChoice,
+		{ [other.id]: "bun_one" },
+		"older explicit shares without starch still mean no side",
+	);
+	const invalid = new URL(
+		`/recipes/${patties.id}/?starch=${patties.id}:stale`,
+		SITE,
+	);
+	assert.deepEqual(readRecipeURL(invalid, context, saved).familyChoice, {
+		[other.id]: "bun_one",
+	});
+	const selected = recipeHref(patties, {
+		servings: 4,
+		units: "us",
+		familyDiners: 1,
+		familyChoice: { [patties.id]: "bun_one" },
+	});
+	const restored = readRecipeURL(new URL(selected, SITE), context, saved);
+	assert.equal(restored.familyDiners, 1);
+	assert.equal(restored.familyChoice[patties.id], "bun_one");
+	assert.deepEqual(saved, original);
 });

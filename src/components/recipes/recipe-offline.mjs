@@ -1,5 +1,7 @@
 // These APIs run only on explicit recipe opens or individual print requests.
 // They never save a recipe while rendering a card, scrolling or hovering it.
+import { isKetoSavedRecipe } from "./recipe-publication.mjs";
+
 async function request(message) {
 	if (!("serviceWorker" in navigator))
 		throw new Error("Offline storage is unavailable in this browser.");
@@ -56,5 +58,7 @@ export async function saveRecipeOffline(
 	return result;
 }
 export async function listSavedRecipes() {
-	return (await request({ type: "LIST_SAVED_RECIPES" })).recipes;
+	return (await request({ type: "LIST_SAVED_RECIPES" })).recipes.filter(
+		isKetoSavedRecipe,
+	);
 }

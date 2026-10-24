@@ -82,6 +82,7 @@ export function recipeDocument(recipe, settings = {}) {
 			rows: grid.rows.map((r) => r.cells),
 		},
 		summary: recipe.summary,
+		sharedTable: text(recipe.sharedTable),
 		activeMinutes: recipe.activeMinutes,
 		portionLabel: recipe.sourceRecipe ? "portions" : "adult servings",
 		timeBasis: recipe.sourceRecipe
@@ -206,6 +207,8 @@ export function documentMarkdown(d, headingLevel = 1) {
 		"## Cook",
 		d.safety,
 		...d.steps.map((s, i) => `${i + 1}. **${s.title}.** ${s.text}`),
+		"## For a shared table",
+		d.sharedTable,
 		"## Attention timeline",
 		...d.timeline.map((e) => `- ${e.phase}: ${e.duration}. ${e.attention}`),
 		"Stages can overlap; endpoints and appliance behavior override the estimate.",

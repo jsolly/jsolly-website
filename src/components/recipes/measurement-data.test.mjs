@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { it } from "vitest";
+import { archivedRecipes } from "./archived-recipes.test-data.mjs";
 import { ingredientGrams } from "./ingredient-units.mjs";
 import weights from "./ingredient-weights.json" with { type: "json" };
 import data from "./recipe-data.server.mjs";
@@ -11,9 +12,53 @@ const MASS = new Set(["g", "oz", "lb"]);
 const BUTTER = /\bbutter\b/iu;
 const NUT_BUTTER = /peanut|almond|cashew/iu;
 const BUTTER_FOOD = /^Butter,/u;
+const REVIEWED_MASS_CHANGES = new Map([
+	[
+		"lemon-chicken-potatoes-and-green-beans/ingredient/olive_oil",
+		{
+			amount: 13.5,
+			unit: "g",
+			sourceId: "olive_oil",
+			evidence: "Halve the original oil, herbs and zest",
+		},
+	],
+	[
+		"lemon-chicken-potatoes-and-green-beans/ingredient/lemon_zest",
+		{
+			amount: 1,
+			unit: "g",
+			sourceId: "lemon_zest",
+			evidence: "Halve the original oil, herbs and zest",
+		},
+	],
+	[
+		"lemon-chicken-potatoes-and-green-beans/family/plain_roasted_potatoes",
+		{
+			amount: 567 / 4,
+			unit: "g",
+			sourceId: "baby_potatoes",
+			evidence: "Move all potatoes to an explicitly selected per-diner side",
+		},
+	],
+	[
+		"source-low-carb-taco-casserole/ingredient/ingredient-6",
+		{
+			amount: 10,
+			unit: "g",
+			sourceId: "ingredient-6",
+			evidence: "Taco seasoning: 1 oz to 10 g",
+		},
+	],
+	[
+		"source-creamy-tuscan-salmon-recipe/ingredient/ingredient-7",
+		{ amount: 60, unit: "g", sourceId: "ingredient-7", evidence: "oz to 60 g" },
+	],
+]);
 
-it("reviewed mass quantities retain their original measured food amount", () => {
-	for (const recipe of data.recipes)
+it("measurement migration preserves mass while later keto changes retain independently reviewed archive evidence", () => {
+	// The measurement migration did not change measured food amounts. Later recipe
+	// adaptations have a separate review and keep the complete original registries.
+	for (const recipe of archivedRecipes)
 		for (const ingredient of [...recipe.ingredients, ...recipe.familyOptions]) {
 			const original = ingredient.measurementProvenance.original;
 			if (!MASS.has(original.unit) || !(original.amount > 0)) continue;
@@ -28,6 +73,60 @@ it("reviewed mass quantities retain their original measured food amount", () => 
 				`${recipe.id}/${ingredient.id}`,
 			);
 		}
+	const reviewed = new Set();
+	for (const recipe of data.recipes)
+		for (const [kind, ingredients] of [
+			["ingredient", recipe.ingredients],
+			["family", recipe.familyOptions],
+		])
+			for (const ingredient of ingredients) {
+				const original = ingredient.measurementProvenance.original;
+				if (!MASS.has(original.unit) || !(original.amount > 0)) continue;
+				const identity = `${recipe.id}/${kind}/${ingredient.id}`;
+				const change = REVIEWED_MASS_CHANGES.get(identity);
+				assert.deepEqual(
+					{ amount: ingredient.amount, unit: ingredient.unit },
+					change
+						? { amount: change.amount, unit: change.unit }
+						: { amount: original.amount, unit: original.unit },
+					identity,
+				);
+				if (!change) continue;
+				reviewed.add(identity);
+				const archive = archivedRecipes.find((item) => item.id === recipe.id);
+				const source = archive.ingredients.find(
+					(item) => item.id === change.sourceId,
+				);
+				assert.deepEqual(
+					{ amount: original.amount, unit: original.unit },
+					{
+						amount: source.measurementProvenance.original.amount,
+						unit: source.measurementProvenance.original.unit,
+					},
+					identity,
+				);
+				assert.equal(recipe.ketoAdaptation.reviewedOn, "2026-10-23", identity);
+				assert.equal(
+					recipe.ketoAdaptation.archive,
+					"docs/recipes-archive/keto-2026-10-23/recipes.json",
+					identity,
+				);
+				assert.deepEqual(
+					recipe.ketoAdaptation.originalNutrition,
+					archive.nutrition,
+					identity,
+				);
+				assert.ok(
+					recipe.ketoAdaptation.changes.some((note) =>
+						note.includes(change.evidence),
+					),
+					identity,
+				);
+			}
+	assert.deepEqual(
+		[...reviewed].sort(),
+		[...REVIEWED_MASS_CHANGES.keys()].sort(),
+	);
 });
 
 it("salted and unsalted butter cooking portions use butter observations", () => {

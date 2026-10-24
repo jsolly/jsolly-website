@@ -1,10 +1,23 @@
 // biome-ignore-all lint/performance/noAwaitInLoops: sequential browser scenarios keep worker contexts isolated.
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { collectErrors, serveStatic } from "./pages.mjs";
 
 const RAW_IMAGE = /<img\s/u;
+const PROTEINS = /^Proteins:/u;
+const { recipes } = JSON.parse(
+	await readFile(
+		new URL("../../src/components/recipes/recipes.json", import.meta.url),
+		"utf8",
+	),
+);
+const fishIds = new Set(
+	recipes
+		.filter((recipe) => recipe.proteinType === "fish")
+		.map((recipe) => recipe.id),
+);
 let site;
 let browser;
 before(async () => {
@@ -301,7 +314,7 @@ it("Shuffle supersedes a pending filter refresh and retains the selected filter"
 	await page.route("**/api/recipe-browse/?**", async (route) => {
 		const url = new URL(route.request().url());
 		if (
-			url.searchParams.get("mealKetoOnly") === "1" &&
+			url.searchParams.getAll("proteinChoice").includes("fish") &&
 			!url.searchParams.has("shuffle") &&
 			url.searchParams.get("page") === "1"
 		) {
@@ -314,7 +327,13 @@ it("Shuffle supersedes a pending filter refresh and retains the selected filter"
 		await page.goto(`${site.origin}/recipes/meals/`);
 		await page.locator("[data-hydrated=true]").waitFor();
 		await downloaded;
-		await page.getByRole("checkbox", { name: "Keto", exact: true }).check();
+		assert.equal(
+			await page.getByRole("checkbox", { name: "Keto", exact: true }).count(),
+			0,
+		);
+		await page.getByRole("button", { name: PROTEINS }).click();
+		await page.getByRole("checkbox", { name: "Fish", exact: true }).check();
+		await page.keyboard.press("Escape");
 		await filtering;
 		const shuffled = page.waitForResponse(
 			(response) => new URL(response.url()).searchParams.get("shuffle") === "1",
@@ -334,11 +353,21 @@ it("Shuffle supersedes a pending filter refresh and retains the selected filter"
 			await ids(page),
 			result.cards.map((card) => card.id),
 		);
+		await page.getByRole("button", { name: PROTEINS }).click();
 		assert.equal(
 			await page
-				.getByRole("checkbox", { name: "Keto", exact: true })
+				.getByRole("checkbox", { name: "Fish", exact: true })
 				.isChecked(),
 			true,
+		);
+		await page.keyboard.press("Escape");
+		assert.ok(
+			result.cards.every(
+				(card) =>
+					fishIds.has(card.id) &&
+					Number.isFinite(card.netCarbs) &&
+					card.netCarbs <= 12.5,
+			),
 		);
 		assert.equal(
 			await page

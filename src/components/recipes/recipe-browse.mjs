@@ -14,9 +14,7 @@ const COUNT = /^\d{1,2}$/u;
 const SEED = /^[a-zA-Z0-9-]{1,64}$/u;
 const selections = ["proteinChoice", "starchChoice", "ingredientChoice"];
 const flags = [
-	"mealKetoOnly",
 	"vegetarianOnly",
-	"smoothieKetoOnly",
 	"immuneSupport",
 	"ironRich",
 	"omega3",
@@ -63,14 +61,6 @@ export function browseFilterSettings(recipes, collection, { settings }) {
 	const { filters, servings, appliancesOnHand } = settings;
 	return {
 		protein: collection === "meal" ? filters.proteinChoice : [],
-		carb:
-			collection === "smoothie"
-				? filters.smoothieKetoOnly
-					? ["keto"]
-					: []
-				: filters.mealKetoOnly
-					? ["keto"]
-					: [],
 		vegetarian: collection === "meal" && filters.vegetarianOnly,
 		dumpAndGo: collection === "meal" && filters.dumpAndGo,
 		starch: collection === "meal" ? filters.starchChoice : [],

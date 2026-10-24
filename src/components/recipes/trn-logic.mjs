@@ -162,7 +162,8 @@ export function flowGrid(recipe, settings = {}) {
 	const side =
 		option && familyDiners > 0
 			? [
-					"Warm the optional side per package near the end of cooking; serve separately.",
+					option.note ||
+						"Prepare the optional side separately and add it only to the plates that request it.",
 				]
 			: [];
 	const pressure = recipe.ingredients

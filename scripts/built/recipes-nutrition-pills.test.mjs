@@ -15,10 +15,10 @@ const CASES = [
 		["Keto"],
 	],
 	[
-		"tomato-lentil-and-chicken-bake",
+		"smoky-chicken-thighs-and-broccoli",
 		"/recipes/",
-		["Immune support", "Iron-rich"],
-		["Not keto"],
+		["Immune support"],
+		["Keto"],
 	],
 	["pesto-cod-and-zucchini", "/recipes/", ["High in Omega-3s"], ["Keto"]],
 	[

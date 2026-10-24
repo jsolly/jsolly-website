@@ -23,7 +23,7 @@ const PINNED = {
 	"index.html": [
 		"Resume (PDF)",
 		"Blog — articles about geospatial development",
-		"Recipes — easy meals and smoothies",
+		"Recipes — keto meals and smoothies",
 		"Start at https://www.jsolly.com/llms.txt for when-to-use guidance.",
 		"Request a page with Accept: text/markdown (or fetch its .md sibling) to get",
 	],

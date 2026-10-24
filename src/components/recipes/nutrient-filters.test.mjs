@@ -17,11 +17,7 @@ import {
 } from "./nutrient-filters.mjs";
 import { recordedOmega3 } from "./nutrition.mjs";
 import data from "./recipe-data.server.mjs";
-import {
-	dietaryClass,
-	displayNutrition,
-	ingredientAmount,
-} from "./recipe-logic.mjs";
+import { displayNutrition, ingredientAmount } from "./recipe-logic.mjs";
 
 it("nutrition filters have usable intersections at all supported serving counts", () => {
 	for (const servings of [2, 4, 6, 8])
@@ -35,12 +31,6 @@ it("nutrition filters have usable intersections at all supported serving counts"
 				// Any active filter must also exclude something.
 				assert(!(immune || iron) || matches.length < data.recipes.length);
 			}
-	const lentils = data.recipes.find((r) => r.key === "lentil_bake");
-	assert.deepEqual(nutrientFilters(lentils, 4), {
-		immune: true,
-		iron: true,
-		omega: false,
-	});
 	const cod = data.recipes.find((r) => r.key === "cod");
 	assert.deepEqual(nutrientFilters(cod, 4), {
 		immune: false,
@@ -56,7 +46,7 @@ it("nutrition filters have usable intersections at all supported serving counts"
 
 const legacyRecipes = data.recipes.filter((recipe) => !recipe.sourceRecipe);
 
-it("protein and carb categories combine with nutrient criteria", () => {
+it("protein categories combine with nutrient criteria", () => {
 	const fish = legacyRecipes.filter((r) =>
 		matchesRecipe(r, 4, { protein: ["fish"] }),
 	);
@@ -69,7 +59,7 @@ it("protein and carb categories combine with nutrient criteria", () => {
 		0,
 	);
 	const ketoChicken = legacyRecipes.filter((r) =>
-		matchesRecipe(r, 4, { protein: ["chicken"], carb: ["keto"] }),
+		matchesRecipe(r, 4, { protein: ["chicken"] }),
 	);
 	assert.ok(ketoChicken.length > 0);
 	assert(
@@ -107,17 +97,15 @@ it("starch categories cover every recipe and include main ingredients and family
 		"salsa-verde-shredded-chicken",
 		"shawarma-chicken-bowls",
 	]);
-	assert.deepEqual(ids("pasta"), [
-		"sheet-pan-gnocchi-white-beans-and-broccoli",
-	]);
-	assert.equal(ids("none").length, 7);
+	assert.deepEqual(ids("pasta"), []);
+	assert.ok(ids("none").length > 0);
 	assert.equal(ids("bread").length, 3);
 });
 
 it("multi-select uses OR within each filter and AND across filters; saved selections normalize", () => {
 	const matches = (filters) =>
 		legacyRecipes.filter((r) => matchesRecipe(r, 4, filters));
-	assert.equal(matches({ starch: ["rice", "pasta"] }).length, 3);
+	assert.equal(matches({ starch: ["rice", "pasta"] }).length, 2);
 	assert.equal(matches({ protein: ["fish", "turkey"] }).length, 4);
 	assert.equal(
 		matches({ protein: ["fish", "chicken"], starch: ["rice"] }).length,
@@ -134,26 +122,22 @@ it("multi-select uses OR within each filter and AND across filters; saved select
 	assert.deepEqual(normalizeSelection("rice", starchOptions), []);
 });
 
-it("binary dietary filters partition every recipe by base net carbohydrates", () => {
+it("retired dietary filters do not change current recipe matches", () => {
 	for (const recipe of data.recipes) {
-		const expected =
-			displayNutrition(recipe).net_carbs_g <= 12.5 ? "keto" : "nonketo";
-		assert.equal(dietaryClass(recipe), expected, recipe.id);
 		for (const servings of [2, 4, 6, 8]) {
 			assert.equal(
-				matchesRecipe(recipe, servings, { carb: [expected] }),
+				matchesRecipe(recipe, servings, { carb: ["nonketo"] }),
 				true,
-				recipe.id,
-			);
-			assert.equal(
-				matchesRecipe(recipe, servings, {
-					carb: [expected === "keto" ? "nonketo" : "keto"],
-				}),
-				false,
 				recipe.id,
 			);
 		}
 	}
+	const saved = parseSavedSettings(
+		{ filters: { mealKetoOnly: true, smoothieKetoOnly: true } },
+		{ recipes: data.recipes, ingredients: {} },
+	);
+	assert.equal(Object.hasOwn(saved.filters, "mealKetoOnly"), false);
+	assert.equal(Object.hasOwn(saved.filters, "smoothieKetoOnly"), false);
 });
 
 it("appliance inventory honors counts and explicit heat sources, and validates saved counts", () => {
@@ -169,7 +153,7 @@ it("appliance inventory honors counts and explicit heat sources, and validates s
 	assert.equal(availableAppliances({ "Instant Pot": 8 })["Instant Pot"], 2);
 	assert.equal(availableAppliances({ Oven: 0 }).Oven, 0);
 	assert.deepEqual(availableAppliances(null), defaultAppliances);
-	assert.equal(data.recipes.filter((r) => r.type === "smoothie").length, 6);
+	assert.equal(data.recipes.filter((r) => r.type === "smoothie").length, 4);
 	assert(
 		data.recipes
 			.filter((r) => r.type === "smoothie")
@@ -197,14 +181,16 @@ it("smoothie ingredient filters use actual ingredients and exclude shared bases"
 		["strawberry-hemp-smoothie", "cucumber-spinach-lime-smoothie"],
 	);
 	assert.deepEqual(
-		smoothies.filter((r) =>
-			matchesRecipe(r, 4, { ingredients: ["hemp"], carb: ["nonketo"] }),
-		),
-		[],
+		smoothies
+			.filter((r) =>
+				matchesRecipe(r, 4, { ingredients: ["hemp"], carb: ["nonketo"] }),
+			)
+			.map((r) => r.id),
+		["strawberry-hemp-smoothie"],
 	);
 	assert.equal(
 		smoothies.filter((r) => matchesRecipe(r, 4, { ingredients: [] })).length,
-		6,
+		4,
 	);
 });
 
@@ -223,11 +209,25 @@ it("omega filter uses recorded quantities on meal and smoothie portion bases", (
 		"source-salmon-with-jalapen-o-lime-butter-keto-low-carb",
 		"source-keto-parmesan-tilapia-and-asparagus-for-one",
 		"source-creamy-tuscan-salmon-recipe",
-		"source-creamy-cajun-shrimp-with-sausage",
 		"source-garlic-butter-salmon-with-lemon-asparagus",
 		"source-lemon-garlic-butter-salmon-with-zucchini-noodles",
 		"source-creamy-garlic-pesto-chicken",
+		"source-easy-cajun-pork-chops-with-lemon-garlic-zucchini",
+		"keto-fried-calamari",
 	]);
+	// USDA172336 records 9.137 g ALA per 100 g canola oil. The recipe's measured
+	// two tablespoons weigh 28 g and alone exceed 0.5 g in one quarter batch.
+	const pork = data.recipes.find(
+		(recipe) =>
+			recipe.id === "source-easy-cajun-pork-chops-with-lemon-garlic-zucchini",
+	);
+	const canola = pork.calculation.rows.find(
+		(row) => row.ingredientId === "ingredient-4",
+	);
+	assert.equal(canola.fdcId, 172336);
+	assert.equal(canola.grams, 28);
+	assert.equal(canola.omega3RecordedGramsPer100g, 9.137);
+	assert.ok((28 * 9.137) / 400 >= 0.5);
 	for (const n of [2, 6, 8])
 		assert.deepEqual(
 			data.recipes
@@ -264,14 +264,13 @@ const context = { recipes: data.recipes, ingredients };
 it("saved library settings restore as saved when every value is still offered", () => {
 	const saved = {
 		servings: 8,
+		familyDiners: 2,
 		units: "metric",
 		filters: {
 			proteinChoice: ["fish", "turkey"],
 			starchChoice: ["bread"],
 			ingredientChoice: ["hemp"],
-			mealKetoOnly: true,
 			vegetarianOnly: true,
-			smoothieKetoOnly: true,
 			immuneSupport: true,
 			ironRich: true,
 			omega3: true,
@@ -284,11 +283,22 @@ it("saved library settings restore as saved when every value is still offered", 
 		parseSavedSettings(JSON.parse(JSON.stringify(saved)), context),
 		saved,
 	);
+	const legacy = { ...saved, familyDiners: undefined };
+	assert.equal(parseSavedSettings(legacy, context).familyDiners, 8);
+	assert.equal(
+		parseSavedSettings({ ...saved, familyDiners: 0 }, context).familyDiners,
+		0,
+	);
+	assert.equal(
+		parseSavedSettings({ ...saved, familyDiners: 99 }, context).familyDiners,
+		8,
+	);
 });
 
 it("malformed or stale saved library settings restore each key's default", () => {
 	const defaults = {
 		servings: 4,
+		familyDiners: 0,
 		units: "us",
 		filters: DEFAULT_FILTERS,
 		appliancesOnHand: defaultAppliances,
@@ -342,7 +352,6 @@ it("vegetarian preference excludes meat and unverified cheeses and survives save
 			recipe.type === "meal" && matchesRecipe(recipe, 4, { vegetarian: true }),
 	);
 	assert.deepEqual(matches.map((recipe) => recipe.id).sort(), [
-		"harissa-chickpea-and-cauliflower-bowls",
 		"source-basic-keto-chaffle-recipe",
 	]);
 	assert.equal(

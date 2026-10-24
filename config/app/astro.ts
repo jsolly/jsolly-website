@@ -6,6 +6,9 @@ import svelte from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
 import type { AstroIntegration } from "astro";
 import { defineConfig } from "astro/config";
+import retiredRecipes from "../../src/components/recipes/retired-recipes.json" with {
+	type: "json",
+};
 import { postLastmods } from "../../src/lib/blog/post-loader.js";
 import { astroCsp } from "../../src/lib/csp-policy.js";
 
@@ -14,7 +17,11 @@ const ERROR_ROUTES = new Set(["/404/", "/500/"]);
 const EDGE_SLASHES = /^\/+|\/+$/gu;
 // Exclude noindex search.
 // The integration already drops the 404 and 500 pages.
-const SITEMAP_EXCLUDED = "/blog/search/";
+const SITEMAP_EXCLUDED = new Set([
+	"/blog/search/",
+	"/recipes/saved/",
+	...retiredRecipes.map(({ id }) => `/recipes/${id}/`),
+]);
 // Read once at config load, outside @astrojs/sitemap's serialize, whose
 // try/catch would swallow a throw and leave the build green without a sitemap.
 const POST_LASTMODS = await postLastmods(
@@ -83,7 +90,7 @@ export default defineConfig({
 					: ["https://www.jsolly.com/John-Solly-Resume.pdf"],
 			filter: (page) => {
 				const path = new URL(page).pathname;
-				return path !== SITEMAP_EXCLUDED && path !== "/recipes/saved/";
+				return !SITEMAP_EXCLUDED.has(path);
 			},
 			// A post's lastmod is its frontmatter `updated`; no other page has one.
 			serialize: (item) => {

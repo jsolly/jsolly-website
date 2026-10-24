@@ -1,8 +1,8 @@
 {
 	"id": "/recipes/",
-	"name": "Easy Meals",
-	"short_name": "Easy Meals",
-	"description": "Meals and smoothies with serving scaling and appliance filters, available offline.",
+	"name": "Keto meals & smoothies",
+	"short_name": "Keto meals & smoothies",
+	"description": "Keto meals and smoothies with measured portions, appliance filters and shared-table options, available offline.",
 	"start_url": "/recipes/",
 	"scope": "/recipes/",
 	"display": "standalone",

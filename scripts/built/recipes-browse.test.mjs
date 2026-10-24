@@ -7,7 +7,7 @@ import { assertPrintImage } from "./recipe-print-image.mjs";
 
 // Browsing the built recipe library in Chromium, ported from awesome-blog's
 // PWA suite (scripts/recipes/pwa.test.mjs) without its service worker: a meal
-// and a smoothie page with and without JavaScript, share links, the Easy Meals
+// and a smoothie page with and without JavaScript, share links, the keto recipe library
 // filters and their saved settings (J13: localStorage recipes-settings-v1),
 // and the meals and smoothies pages without JavaScript plus the nutrition
 // help popover. Each runs at a phone and a desktop width.
@@ -31,6 +31,7 @@ const SERVINGS = /^Servings/u;
 const FAMILY_SIDE = /^Add a side/u;
 const VITAMINS = /^Vitamins & minerals/u;
 const PROTEINS = /^Proteins:/u;
+const KETO_LANDING_HEADING = /^Keto meals & smoothies/u;
 const CARBS = /^Carbs:/u;
 const INGREDIENTS = /^Ingredients:/u;
 const SPACES = /\s+/gu;
@@ -95,6 +96,7 @@ async function bodyContent(body, width) {
 		macros: await body.locator(".nutrition>dl dd").allTextContents(),
 		nutrients: await body.locator(".daily-values:visible").allInnerTexts(),
 		family: await body.locator(".family-box p").allTextContents(),
+		sharedTable: await body.locator(".shared-table p").allTextContents(),
 	};
 }
 
@@ -152,6 +154,10 @@ function detailParityCheck(recipe, width) {
 				);
 			}
 			await live.getByRole("button", { name: VITAMINS }).click();
+			assert.equal(
+				await live.locator(".shared-table p").textContent(),
+				recipe.sharedTable,
+			);
 			const staticBody = staticPage.locator(`#${recipe.id} .recipe-body`);
 			await staticBody.locator("summary").filter({ hasText: VITAMINS }).click();
 			assert.equal(
@@ -249,7 +255,7 @@ function detailsCheck(width) {
 				0,
 			);
 			await page.goto(
-				`${site.origin}${SHARED}?servings=8&starch=shawarma-chicken-bowls:pita_one`,
+				`${site.origin}${SHARED}?servings=8&starch=shawarma-chicken-bowls:pita_one&sideDiners=8`,
 			);
 			const share = page.getByRole("button", {
 				name: "Share this recipe",
@@ -329,6 +335,9 @@ function detailsCheck(width) {
 			await page
 				.getByRole("combobox", { name: FAMILY_SIDE })
 				.selectOption("pita_one");
+			await page
+				.getByRole("combobox", { name: "People having this side" })
+				.selectOption("8");
 			await page.evaluate(() =>
 				Object.defineProperty(navigator, "share", { value: undefined }),
 			);
@@ -387,13 +396,22 @@ function detailsCheck(width) {
 }
 
 function filtersCheck(width) {
-	it(`Easy Meals preserves filters and recipe navigation at ${width}px`, {
+	it(`Keto recipes preserve filters and recipe navigation at ${width}px`, {
 		timeout: 120_000,
 	}, async () => {
 		const context = await browser.newContext({
 			serviceWorkers: "block",
 			viewport: { width, height: 984 },
 		});
+		await context.addInitScript((key) => {
+			if (!localStorage.getItem(key))
+				localStorage.setItem(
+					key,
+					JSON.stringify({
+						filters: { mealKetoOnly: true, smoothieKetoOnly: true },
+					}),
+				);
+		}, STORAGE_KEY);
 		const page = await context.newPage();
 		const errors = collectErrors(page);
 		const checkbox = (name) =>
@@ -436,59 +454,98 @@ function filtersCheck(width) {
 			);
 		};
 		try {
-			await page.goto(`${site.origin}${LANDING}`);
+			await page.goto(
+				`${site.origin}${LANDING}?mealKetoOnly=1&smoothieKetoOnly=1`,
+			);
 			await hydrated(page);
-			assert.equal(await checkbox("Not keto").count(), 0);
-			for (const [keto, vegetarian] of [
-				[true, false],
-				[false, true],
-				[true, true],
-				[false, false],
-			]) {
-				// biome-ignore lint/performance/noAwaitInLoops: exercise each independent filter combination in sequence
-				await checkbox("Keto").setChecked(keto);
-				await checkbox("Vegetarian").setChecked(vegetarian);
-				const expected = meals.filter(
-					(recipe) =>
-						(!keto || recipe.nutrition.net_carbs_g <= 12.5) &&
-						(!vegetarian || recipe.vegetarian === true),
+			assert.equal(
+				await page.getByRole("heading", { name: KETO_LANDING_HEADING }).count(),
+				1,
+			);
+			assert.deepEqual(
+				await Promise.all(
+					["Keto", "Not keto", "Keto Friendly"].map((name) =>
+						checkbox(name).count(),
+					),
+				),
+				[0, 0, 0],
+			);
+			assert.ok(
+				recipes.every((recipe) => {
+					const net =
+						recipe.nutrition.carbs_g -
+						recipe.nutrition.fiber_g -
+						(recipe.nutrition.erythritol_g ?? 0);
+					return recipe.type === "smoothie"
+						? (Math.max(0, net) * 4 * 8 * 29.5735295625) /
+								recipe.estimatedYieldMl <=
+								12.5
+						: Math.max(0, net) <= 12.5;
+				}),
+				"every published base recipe satisfies the existing keto limit",
+			);
+			await page.waitForFunction((key) => {
+				const saved = JSON.parse(localStorage.getItem(key));
+				return (
+					saved &&
+					!Object.hasOwn(saved.filters, "mealKetoOnly") &&
+					!Object.hasOwn(saved.filters, "smoothieKetoOnly")
 				);
-				await expectCards(expected);
-				if (keto && !vegetarian) {
-					// The second Keto batch differs from the unfiltered batch. Keep
-					// this browser boundary: later requests must retain the filter.
-					const expectedIds = expected.slice(0, 12).map(({ id }) => id);
-					// biome-ignore lint/nursery/noConditionalExpect: this parameterized branch proves the Keto second page differs from an unfiltered page.
-					assert.notDeepEqual(
-						expectedIds,
-						meals.slice(0, 12).map(({ id }) => id),
-					);
-					await page
-						.getByRole("button", { name: "Load more recipes", exact: true })
-						.scrollIntoViewIfNeeded();
-					await page.waitForFunction(
-						() => document.querySelectorAll(".recipe-card").length >= 12,
-					);
-					// biome-ignore lint/nursery/noConditionalExpect: the Keto scenario exercises filtered pagination at both viewports.
-					assert.deepEqual(
-						await page
-							.locator(".recipe-card a.title-button")
-							.evaluateAll((links) =>
-								links.slice(0, 12).map((link) => link.dataset.recipeId),
-							),
-						expectedIds,
-					);
-					await page.evaluate(() => window.scrollTo(0, 0));
-				}
+			}, STORAGE_KEY);
+			for (const vegetarian of [true, false]) {
+				// biome-ignore lint/performance/noAwaitInLoops: exercise each independent filter state in sequence.
+				await checkbox("Vegetarian").setChecked(vegetarian);
+				await expectCards(
+					meals.filter((recipe) => !vegetarian || recipe.vegetarian === true),
+				);
 			}
-			await checkbox("Keto").check();
+			// Keep main's filtered second-batch browser boundary with a supported
+			// protein filter: later requests must retain the Chicken selection.
+			await page.getByRole("button", { name: PROTEINS }).click();
+			await checkbox("Chicken").check();
+			await page.keyboard.press("Escape");
+			const chickenMeals = meals.filter(
+				(recipe) => recipe.proteinType === "chicken",
+			);
+			await expectCards(chickenMeals);
+			const expectedIds = chickenMeals.slice(0, 12).map(({ id }) => id);
+			assert.equal(expectedIds.length, 12);
+			assert.notDeepEqual(
+				expectedIds,
+				meals.slice(0, 12).map(({ id }) => id),
+			);
+			await page
+				.getByRole("button", { name: "Load more recipes", exact: true })
+				.scrollIntoViewIfNeeded();
+			await page.waitForFunction(
+				() => document.querySelectorAll(".recipe-card").length >= 12,
+			);
+			assert.deepEqual(
+				await page
+					.locator(".recipe-card a.title-button")
+					.evaluateAll((links) =>
+						links.slice(0, 12).map((link) => link.dataset.recipeId),
+					),
+				expectedIds,
+			);
+			await page.evaluate(() => window.scrollTo(0, 0));
+			await page.getByRole("button", { name: PROTEINS }).click();
+			await checkbox("Chicken").uncheck();
+			await page.keyboard.press("Escape");
+			await expectCards(meals);
 			await checkbox("Vegetarian").check();
 			await page.reload();
 			await hydrated(page);
-			assert.equal(await checkbox("Keto").isChecked(), true);
 			assert.equal(await checkbox("Vegetarian").isChecked(), true);
+			assert.equal(
+				Object.hasOwn((await stored(page)).filters, "mealKetoOnly"),
+				false,
+			);
+			assert.equal(
+				Object.hasOwn((await stored(page)).filters, "smoothieKetoOnly"),
+				false,
+			);
 			await checkbox("Vegetarian").uncheck();
-			await checkbox("Keto").uncheck();
 			// Re-ticking Air fryers restores the complete matching meal count.
 			await checkbox("Air fryers").uncheck();
 			await expectCards(
@@ -570,7 +627,7 @@ function filtersCheck(width) {
 
 			await follow(
 				page,
-				page.getByRole("link", { name: "Smoothies", exact: true }),
+				page.getByRole("link", { name: "Keto smoothies", exact: true }),
 				"**/recipes/smoothies/",
 			);
 			assert.equal(await cards(), smoothieCount);
@@ -579,7 +636,7 @@ function filtersCheck(width) {
 				0,
 			);
 			assert.equal(await page.getByRole("button", { name: CARBS }).count(), 0);
-			// Smoothies keep their own keto filter; meal dietary checks are not offered.
+			// Both collections are keto; meal-only dietary checks are not offered here.
 			assert.equal(
 				await page
 					.getByRole("checkbox", {
@@ -603,18 +660,21 @@ function filtersCheck(width) {
 				.getByRole("button", { name: "Clear selections", exact: true })
 				.click();
 			await page.keyboard.press("Escape");
-			await checkbox("Keto Friendly").check();
-			assert.equal(await cards(), 4);
+			assert.equal(await checkbox("Keto Friendly").count(), 0);
+			assert.equal(await cards(), smoothieCount);
 			await page.reload();
 			await hydrated(page);
 			assert.equal(
 				await page
-					.getByRole("link", { name: "Smoothies", exact: true })
+					.getByRole("link", { name: "Keto smoothies", exact: true })
 					.getAttribute("aria-current"),
 				"page",
 			);
-			assert.equal((await stored(page)).filters.smoothieKetoOnly, true);
-			assert.equal(await cards(), 4);
+			assert.equal(
+				Object.hasOwn((await stored(page)).filters, "smoothieKetoOnly"),
+				false,
+			);
+			assert.equal(await cards(), smoothieCount);
 			const avocado = page.getByRole("link", {
 				name: "Avocado-lime smoothie",
 				exact: true,
@@ -659,11 +719,11 @@ function filtersCheck(width) {
 			// A legacy #<recipe-id> link replaces itself with the recipe page,
 			// carrying the saved servings, before the library saves anything.
 			await page.goto(
-				`${site.origin}${LANDING}?deep-link=1#strawberry-banana-smoothie`,
+				`${site.origin}${LANDING}?deep-link=1#strawberry-avocado-smoothie`,
 				{ waitUntil: "commit" },
 			);
 			await page.waitForURL(
-				`${site.origin}/recipes/strawberry-banana-smoothie/?servings=8&units=us`,
+				`${site.origin}/recipes/strawberry-avocado-smoothie/?servings=8&units=us&starch=`,
 			);
 			await recipeReady(page);
 			assert.deepEqual(await stored(page), {
@@ -815,8 +875,8 @@ const DESKTOP_HELP = {
 	movedOnOpen: IMMUNE,
 	movedOnOpenClosed: IMMUNE,
 	opened: ON_HELP,
-	tabbed: { ...IMMUNE, label: "Keto" },
-	tabbedClosed: { ...IMMUNE, label: "Keto" },
+	tabbed: { ...IMMUNE, label: "Vegetarian" },
+	tabbedClosed: { ...IMMUNE, label: "Vegetarian" },
 	onTriggerClosed: ON_HELP,
 	clickedInside: { onHelp: false, inPopover: true, label: undefined },
 	clickedInsideClosed: ON_HELP,
@@ -877,7 +937,7 @@ function collectionsCheck(width) {
 			);
 			await Promise.all([
 				page.waitForURL("**/recipes/smoothies/"),
-				page.getByRole("link", { name: "Smoothies", exact: true }).click(),
+				page.getByRole("link", { name: "Keto smoothies", exact: true }).click(),
 			]);
 			assert.equal(await page.locator(".recipe-card").count(), smoothieCount);
 			await Promise.all([
@@ -913,7 +973,7 @@ function collectionsCheck(width) {
 			});
 			const popover = enhanced.locator(".nutrition-help");
 			const heading = enhanced.getByRole("heading", {
-				name: "Meals",
+				name: "Keto meals",
 				exact: true,
 			});
 			const desktop = width === 1280;

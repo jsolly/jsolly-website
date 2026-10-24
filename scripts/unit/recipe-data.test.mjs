@@ -58,7 +58,7 @@ it("the public Markdown library has one title, one ## section per recipe in orde
 		.map((line) => HEADING.exec(line).groups);
 	assert.deepEqual(
 		headings.filter(({ marks }) => marks === "#").map(({ text }) => text),
-		["Easy Meals recipe library"],
+		["Keto meals & smoothies recipe library"],
 	);
 	assert.deepEqual(
 		headings.filter(({ marks }) => marks === "##").map(({ text }) => text),
@@ -100,7 +100,7 @@ it("recipes:check reports an edited and a missing assistant download as drift", 
 	}
 });
 
-it("every recipe is a meal or a smoothie: 141 meals and 6 smoothies", () => {
+it("the published keto collection has 136 meals and 4 smoothies", () => {
 	for (const recipe of data.recipes)
 		assert.equal(
 			Object.hasOwn(recipe, "group"),
@@ -112,7 +112,7 @@ it("every recipe is a meal or a smoothie: 141 meals and 6 smoothies", () => {
 		Object.fromEntries(
 			Object.entries(counts).map(([type, recipes]) => [type, recipes.length]),
 		),
-		{ meal: 141, smoothie: 6 },
+		{ meal: 136, smoothie: 4 },
 	);
 });
 

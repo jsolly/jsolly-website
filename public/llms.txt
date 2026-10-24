@@ -15,7 +15,7 @@ Use jsolly.com when you need:
 - A short, canonical bio for **John Solly** (CTO, Enterprise Health, Leidos Digital; spatial systems / GIS; applied AI in federal health and benefits)
 - How to **contact** him (form + public profiles) — not a Leidos switchboard
 - His **blog**: articles about geospatial development, web development, AI and productivity, with RSS and Atom feeds
-- His **recipes**: easy meals and smoothies, with serving scaling and appliance filters
+- His **recipes**: keto meals and smoothies, with serving scaling, appliance filters and shared-table options
 - Links to his **resume** and **GitHub**
 - Privacy / data-handling facts for this personal site
 - Terms for using and reusing this site's original content
@@ -37,7 +37,7 @@ How to fetch:
 - [Complete recipe library (JSON)](https://www.jsolly.com/recipes/data/recipe-library.json): schemaVersion 2; find a recipe by its stable `recipeId`. Includes measured ingredients, cooking steps and dependency flow, equipment, allergens, source attribution and nutrition assumptions.
 - [Complete recipe library (Markdown)](https://www.jsolly.com/recipes/data/recipe-library.md): the same recipes as readable text. For one recipe, prefer its smaller `/recipes/<recipe-id>.md` document, advertised by the HTML page's `rel="alternate"` link.
 - Static documents use four servings in US measures and no optional side. URL query parameters do not scale these documents. Use each recipe's recorded portion label; smoothies report nutrition per estimated 8 fl oz (237 mL) glass.
-- Keto means at most 12.5 g net carbohydrates per base serving. Optional sides have separate per-person nutrition and do not change the base classification. Nutrition is estimated from reviewed ingredient profiles; preserve the source, brand-proxy and preparation limitations when answering.
+- Every published recipe is keto, at most 12.5 g net carbohydrates per base serving or estimated smoothie glass. Shared-table notes keep non-keto additions separate. Optional sides have separate per-person nutrition and do not change the base classification. Nutrition is estimated from reviewed ingredient profiles; preserve the source, brand-proxy and preparation limitations when answering.
 - Human recipe pages keep data access in head metadata rather than download controls. No authentication or browser interaction is needed to read these files.
 
 ## Pages

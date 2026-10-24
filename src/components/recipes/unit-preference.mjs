@@ -1,33 +1,55 @@
-import { STORAGE_KEY } from "./constants.mjs";
+import { BASE_SERVINGS, STORAGE_KEY } from "./constants.mjs";
 import { unitPreference } from "./ingredient-units.mjs";
+import { validateSettings } from "./recipe-logic.mjs";
+
+/** Retire obsolete switches without pruning unrelated collection preferences. */
+function currentRecipePreferences(value) {
+	const settings =
+		value && typeof value === "object" && !Array.isArray(value) ? value : {};
+	if (
+		!settings.filters ||
+		typeof settings.filters !== "object" ||
+		Array.isArray(settings.filters)
+	)
+		return settings;
+	const filters = Object.fromEntries(
+		Object.entries(settings.filters).filter(
+			([key]) => !["mealKetoOnly", "smoothieKetoOnly"].includes(key),
+		),
+	);
+	return { ...settings, filters };
+}
 
 const offersSide = (recipe, side) =>
 	recipe.familyOptions.some((option) => option.id === side);
 
-/**
- * A recipe page's saved units and that recipe's optional side ("" for none),
- * read from the library's settings record. Invalid or stale values default.
- */
+/** Read the page's validated settings from the shared library preference record. */
 export function readRecipePreferences(recipe, getStorage = () => localStorage) {
 	try {
-		const saved = JSON.parse(getStorage().getItem(STORAGE_KEY) || "null");
-		const choices = saved?.familyChoice;
-		const side =
-			choices &&
-			typeof choices === "object" &&
-			Object.hasOwn(choices, recipe.id)
-				? choices[recipe.id]
-				: "";
+		const saved = currentRecipePreferences(
+			JSON.parse(getStorage().getItem(STORAGE_KEY) || "null"),
+		);
+		const choice = saved.familyChoice?.[recipe.id];
+		const side = offersSide(recipe, choice) ? choice : "";
+		const settings = validateSettings({
+			...saved,
+			familyDiners:
+				saved.familyDiners === undefined && side
+					? (saved.servings ?? BASE_SERVINGS)
+					: saved.familyDiners,
+		});
 		return {
-			units: unitPreference(saved?.units),
-			side: offersSide(recipe, side) ? side : "",
+			units: settings.units,
+			side,
+			servings: settings.servings,
+			familyDiners: settings.familyDiners,
 		};
 	} catch (error) {
 		console.error(
 			"Recipe preferences could not be restored; using US imperial and no side.",
 			error instanceof Error ? error.name : "Unknown error",
 		);
-		return { units: "us", side: "" };
+		return { units: "us", side: "", servings: BASE_SERVINGS, familyDiners: 0 };
 	}
 }
 // Updates the library's saved settings (STORAGE_KEY) in place, keeping every
@@ -45,14 +67,15 @@ function updateSavedSettings(change, label, getStorage) {
 				error instanceof Error ? error.name : "Unknown error",
 			);
 		}
-		const prior =
-			saved && typeof saved === "object" && !Array.isArray(saved) ? saved : {};
+		const prior = currentRecipePreferences(saved);
 		storage.setItem(STORAGE_KEY, JSON.stringify(change(prior)));
+		return true;
 	} catch (error) {
 		console.error(
 			`Recipe ${label} could not be saved; changes apply only to this visit.`,
 			error instanceof Error ? error.name : "Unknown error",
 		);
+		return false;
 	}
 }
 export function writeUnitPreference(units, getStorage = () => localStorage) {
@@ -82,6 +105,30 @@ export function writeSidePreference(
 			return { ...prior, familyChoice: choices };
 		},
 		"side",
+		getStorage,
+	);
+}
+
+/** Save the current page atomically while retaining every other recipe's side. */
+export function writeRecipePreferences(
+	recipe,
+	settings,
+	getStorage = () => localStorage,
+) {
+	return updateSavedSettings(
+		(prior) => {
+			const choices =
+				prior.familyChoice &&
+				typeof prior.familyChoice === "object" &&
+				!Array.isArray(prior.familyChoice)
+					? { ...prior.familyChoice }
+					: {};
+			const side = settings.familyChoice?.[recipe.id];
+			if (offersSide(recipe, side)) choices[recipe.id] = side;
+			else delete choices[recipe.id];
+			return { ...prior, ...validateSettings(settings), familyChoice: choices };
+		},
+		"preferences",
 		getStorage,
 	);
 }
