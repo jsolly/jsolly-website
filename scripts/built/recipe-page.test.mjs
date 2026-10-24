@@ -631,10 +631,13 @@ it("when the browser cannot open printing, Print recipe says so and leaves the p
 	}
 });
 
-it("a reader who picks 8 servings and the bun side gets the scaled recipe and a share link with both", async () => {
-	const { page, errors, close } = await openHydrated(PAGE, {
-		initScript: blockSharing,
-	});
+it("a reader who opens a six-serving link, picks 8 servings and the bun side gets the scaled recipe, a share link with both, and both after a reload", async () => {
+	// The link's servings differ from the pick, so a reload keeps 8 only when
+	// the pick rewrote the URL.
+	const { page, errors, close } = await openHydrated(
+		`${PAGE}?servings=6&units=us`,
+		{ initScript: blockSharing },
+	);
 	try {
 		const detail = page.locator(".recipe-detail");
 		const sideSelect = detail.getByRole("combobox", { name: FAMILY_SIDE });
@@ -644,6 +647,24 @@ it("a reader who picks 8 servings and the bun side gets the scaled recipe and a 
 			0,
 		);
 		await detail.getByRole("combobox", { name: SERVINGS }).selectOption("8");
+		assert.deepEqual(Object.fromEntries(new URL(page.url()).searchParams), {
+			servings: "8",
+			units: "us",
+			starch: "",
+		});
+		await page.reload();
+		await page.waitForFunction(
+			() => !document.querySelector("astro-island[ssr]"),
+		);
+		assert.deepEqual(
+			{
+				servings: await detail
+					.getByRole("combobox", { name: SERVINGS })
+					.inputValue(),
+				side: await sideSelect.inputValue(),
+			},
+			{ servings: "8", side: "" },
+		);
 		const baseBeforeSide = await detail
 			.locator(".nutrition > dl dd")
 			.allTextContents();
@@ -689,6 +710,19 @@ it("a reader who picks 8 servings and the bun side gets the scaled recipe and a 
 				link: `${site.origin}${PAGE}?servings=8&units=us&starch=greek-turkey-patties%3Abun_one&sideDiners=8`,
 				errors: [],
 			},
+		);
+		await page.reload();
+		await page.waitForFunction(
+			() => !document.querySelector("astro-island[ssr]"),
+		);
+		assert.deepEqual(
+			{
+				servings: await detail
+					.getByRole("combobox", { name: SERVINGS })
+					.inputValue(),
+				side: await sideSelect.inputValue(),
+			},
+			{ servings: "8", side: SIDE },
 		);
 		await page.emulateMedia({ media: "print" });
 		assert.equal(await detail.locator(".family-box").isVisible(), true);

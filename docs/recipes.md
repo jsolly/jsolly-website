@@ -499,10 +499,10 @@ The library saves `{ servings, units, filters, appliancesOnHand, familyChoice, f
 `localStorage` under `recipes-settings-v1` (J13). The old blogthedata.com key is
 on another origin and is not read, so preferences reset once for returning
 visitors. Every saved key is validated on load; anything that no longer fits is
-reset. Recipe pages read and update the same record. Units, side and side-diner
-changes on a page are saved there and replace the matching URL settings. A page
-link without `servings`, `units`, `starch` or `sideDiners` uses the saved side and
-count. A link carrying explicit recipe settings, such as a share or non-default
+reset. Recipe pages read and update the same record. Servings, units, side and
+side-diner changes on a page are saved there and replace the matching URL
+settings. A page link without `servings`, `units`, `starch` or `sideDiners` uses
+the saved side and count. A link carrying explicit recipe settings, such as a share or non-default
 card link, decides the side itself.
 
 ## Offline recipe app
