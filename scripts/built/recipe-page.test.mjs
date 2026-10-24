@@ -631,7 +631,7 @@ it("when the browser cannot open printing, Print recipe says so and leaves the p
 	}
 });
 
-it("a reader who picks 8 servings and the bun side gets the scaled recipe and a share link with both", async () => {
+it("a reader who picks 8 servings and the bun side gets the scaled recipe, a share link with both, and both after a reload", async () => {
 	const { page, errors, close } = await openHydrated(PAGE, {
 		initScript: blockSharing,
 	});
@@ -644,6 +644,7 @@ it("a reader who picks 8 servings and the bun side gets the scaled recipe and a 
 			0,
 		);
 		await detail.getByRole("combobox", { name: SERVINGS }).selectOption("8");
+		assert.equal(new URL(page.url()).search, "?servings=8&units=us");
 		const baseBeforeSide = await detail
 			.locator(".nutrition > dl dd")
 			.allTextContents();
@@ -686,6 +687,19 @@ it("a reader who picks 8 servings and the bun side gets the scaled recipe and a 
 				link: `${site.origin}${PAGE}?servings=8&units=us&starch=greek-turkey-patties%3Abun_one`,
 				errors: [],
 			},
+		);
+		await page.reload();
+		await page.waitForFunction(
+			() => !document.querySelector("astro-island[ssr]"),
+		);
+		assert.deepEqual(
+			{
+				servings: await detail
+					.getByRole("combobox", { name: SERVINGS })
+					.inputValue(),
+				side: await sideSelect.inputValue(),
+			},
+			{ servings: "8", side: SIDE },
 		);
 		await page.emulateMedia({ media: "print" });
 		assert.equal(await detail.locator(".family-box").isVisible(), true);

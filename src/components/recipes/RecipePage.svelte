@@ -45,6 +45,7 @@
 	function setServings(value) {
 		const { servings } = validateSettings({ servings: Number(value) });
 		settings = { ...settings, servings, familyDiners: servings };
+		replacePageURL();
 	}
 
 	function setSide(value) {
