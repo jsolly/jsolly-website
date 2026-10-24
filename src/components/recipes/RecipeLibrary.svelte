@@ -266,7 +266,7 @@
 		window.scrollTo({ top: visit.scrollY || 0, behavior: "instant" });
 		if (typeof visit.openedId !== "string" || !visit.openedId) return;
 		const link = [...(libraryElement?.querySelectorAll(".recipe-card a.title-button") ?? [])].find((element) => element.dataset.recipeId === visit.openedId);
-		link?.focus({ preventScroll: true });
+		(link ?? listHeading)?.focus({ preventScroll: true });
 	}
 	function saveVisit() {
 		const visit = JSON.parse(JSON.stringify({ query, summaries, result, seed, limit: visibleLimit, scrollY: window.scrollY, collection, savedMode, openedId }));
