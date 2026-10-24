@@ -509,7 +509,7 @@ A reader can tick **I made this** on a recipe page. It records the local date in
 `localStorage` under `recipes-made-v1`, a separate record mapping recipe ids to
 `YYYY-MM-DD` (`recipe-made.mjs`); unticking removes that recipe. The page shows
 the last-made date and a **Made it today** button once that date is in the past,
-and cards in the interactive library show a "Made" badge (server-rendered
+and cards in the interactive library show a green-check "Made it!" badge (server-rendered
 browse results do not). Both pages re-read the record when another tab changes
 it, Back restores the page, or the tab becomes visible again. The mark stays on
 that browser only: it does not sync between devices, and clearing site data

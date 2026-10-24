@@ -623,7 +623,7 @@ it("a reader who marks a recipe made sees the date on its page and, in another o
 				date: "Last made Oct 24, 2026",
 				again: 0,
 				stored: { [id]: "2026-10-24" },
-				badges: ["Made Oct 24, 2026"],
+				badges: ["Made it!"],
 				badgeCard: 1,
 			},
 		);
@@ -637,7 +637,6 @@ it("a reader who marks a recipe made sees the date on its page and, in another o
 		await tab.locator(".recipe-page[data-preferences-ready=true]").waitFor();
 		assert.equal(await made.isChecked(), true);
 		await again.click();
-		await page.getByText("Made Oct 30, 2026").waitFor();
 		assert.deepEqual(
 			{
 				date: await tab.locator(".made-date").textContent(),
@@ -650,6 +649,7 @@ it("a reader who marks a recipe made sees the date on its page and, in another o
 				stored: { [id]: "2026-10-30" },
 			},
 		);
+		assert.deepEqual(await badges.allTextContents(), ["Made it!"]);
 
 		await made.uncheck();
 		await badges.waitFor({ state: "detached" });
