@@ -282,7 +282,7 @@ it("Context7 finds its verification tag and hidden search note on every built pa
 		assert.equal(note.hidden, "true", file);
 		assert.ok(note.screenReaderOnly, `${file} hides the note`);
 		assert.ok(note.firstInBody, `${file} opens its body with the note`);
-		assert.equal(noteHeading, null, `${file} keeps the note label unheaded`);
+		assert.equal(noteHeading, null, `${file} keeps the note unheaded`);
 		assert.equal(firstHeading, "h1", `${file} opens its headings with its h1`);
 	}
 	for (const [key, file] of markdownRoutes) {

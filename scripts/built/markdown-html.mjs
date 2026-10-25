@@ -59,9 +59,11 @@ export function markdownHtmlFacts(html) {
 	const note = elements.find(
 		(node) => attribute(node, "data-context7-ask") !== null,
 	);
-	function inNote(node) {
-		for (let parent = node.parentNode; parent; parent = parent.parentNode)
-			if (parent === note) return true;
+	// Counts the note itself, unlike inArticle above: a note element that is a
+	// heading takes the first-heading slot exactly like a heading in its label.
+	function atOrInNote(node) {
+		for (let current = node; current; current = current.parentNode)
+			if (current === note) return true;
 		return false;
 	}
 	return {
@@ -102,11 +104,11 @@ export function markdownHtmlFacts(html) {
 		firstHeading:
 			elements.find((node) => OUTLINE_HEADINGS.has(node.tagName))?.tagName ??
 			null,
-		// The note opens the body, so a heading inside it would take that slot
-		// even at h1, where firstHeading alone still reads "h1".
+		// The note opens the body, so a heading it contains or is would take that
+		// slot even at h1, where firstHeading alone still reads "h1".
 		noteHeading:
 			elements.find(
-				(node) => OUTLINE_HEADINGS.has(node.tagName) && inNote(node),
+				(node) => OUTLINE_HEADINGS.has(node.tagName) && atOrInNote(node),
 			)?.tagName ?? null,
 		bodyText: text(body ?? {}),
 		note: {

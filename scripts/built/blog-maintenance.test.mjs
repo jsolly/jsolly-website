@@ -5,6 +5,7 @@ import { pathToFileURL } from "node:url";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { agentResponse } from "../../src/lib/agent-response.js";
 import { maintenanceHtmlFacts } from "./maintenance-html.mjs";
+import { markdownHtmlFacts } from "./markdown-html.mjs";
 import { exists, readBuiltPages, stylesheets } from "./pages.mjs";
 import { createTempCopy, requireSuccess } from "./temp-copy.mjs";
 
@@ -62,12 +63,18 @@ before(async () => {
 		})),
 	);
 	workerBuilt = await exists(join(dist, RECIPE_WORKER));
-	pages = (await readBuiltPages(dist)).map(({ file, html }) => ({
-		file,
-		html,
-		stylesheets: stylesheets(html),
-		...maintenanceHtmlFacts(html),
-	}));
+	pages = (await readBuiltPages(dist)).map(({ file, html }) => {
+		const { firstHeading, noteHeading, note } = markdownHtmlFacts(html);
+		return {
+			file,
+			html,
+			stylesheets: stylesheets(html),
+			...maintenanceHtmlFacts(html),
+			firstHeading,
+			noteHeading,
+			note,
+		};
+	});
 	const blog = pages.find(({ file }) => file === BLOG_PAGE);
 	blogCss = blog
 		? (
@@ -135,7 +142,7 @@ it("Maintenance hides every generated Markdown body and answers direct or negoti
 	}
 });
 
-it("a maintenance build shows only the maintenance notice on every page, blog pages included, and ships no recipe service worker", () => {
+it("a maintenance build shows only the maintenance notice on every page, blog pages included, keeps the hidden note and opens every page's headings with the notice's own h1, and ships no recipe service worker", () => {
 	assert.ok(
 		pages.some(({ file }) => file === BLOG_PAGE),
 		"the maintenance build includes the blog pages",
@@ -168,6 +175,29 @@ it("a maintenance build shows only the maintenance notice on every page, blog pa
 			.map(({ file }) => file),
 		[],
 		"maintenance pages missing the Context7 verification tag or note",
+	);
+	// AGENTS.md keeps the tag and note "maintenance included", and its Invariants
+	// hold for every change, so the note stays hidden and first in the body here
+	// and the notice's own h1 still opens the outline.
+	assert.deepEqual(
+		pages
+			.filter(
+				({ note }) =>
+					note.hidden !== "true" || !note.screenReaderOnly || !note.firstInBody,
+			)
+			.map(({ file }) => file),
+		[],
+		"maintenance pages whose hidden note is exposed or displaced",
+	);
+	assert.deepEqual(
+		pages
+			.filter(
+				({ firstHeading, noteHeading }) =>
+					noteHeading !== null || firstHeading !== "h1",
+			)
+			.map(({ file }) => file),
+		[],
+		"maintenance pages whose own h1 is not the document's first heading",
 	);
 	assert.deepEqual(
 		NOTICE_SELECTORS.filter((selector) => !blogCss.includes(selector)),
