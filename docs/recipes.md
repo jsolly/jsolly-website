@@ -394,6 +394,74 @@ The shared role's USDA permission applies across repos using that role. It becom
 available only after John's manual shared-infra deployment and key provisioning.
 No Vercel secret or site runtime access is needed.
 
+#### Recover a local AWS lookup
+
+Use the helper's failure category before retrying. It reports AWS identity
+verification and USDA parameter retrieval separately, without printing provider
+messages, causes, credentials or parameter values.
+
+If the SDK loses a configuration error while trying credential providers, the
+helper checks only the selected isolated local config after failure. It uses
+the SDK parser, reads shared credentials from `/dev/null`, and never inspects SSO
+caches. Missing selected/source profiles or the referenced SSO session produce
+a configuration diagnostic. Valid definitions do not prove authentication;
+unexplained provider failures stay ambiguous. Other approved cloud config paths
+retain the standard credential chain.
+
+- For a configuration failure, check the selected config and profile first.
+  Local agent SSO uses `AWS_CONFIG_FILE="$HOME/.aws/agent-config"`,
+  `AWS_PROFILE=agent-readonly` and `AWS_SHARED_CREDENTIALS_FILE=/dev/null`.
+  The chain is `agent-readonly` → `agent-readonly-sso` → SSO session `agent`.
+  John's ordinary terminal can select a different config that lacks these profiles.
+  Never fall back to a personal or default profile.
+- For connectivity failures, check DNS, TLS and network reachability.
+- For permission denials, check the existing permission for the named operation.
+  Login does not repair grants. This helper never changes permissions.
+- For an unexpected identity, stop. The helper requests no parameter until the
+  approved `agent-readonly` role in account `730335616323` is verified.
+- For unknown failures, an invalid cache or a generic refresh failure, do not
+  infer session expiry. Diagnose the approved credential provider without
+  printing its state or deleting caches.
+
+An explicit SSO-provider expiry report means authentication credentials expired.
+It can also follow a failed refresh, so check connectivity before renewal.
+If the isolated local session needs renewal, John runs this in his own terminal,
+from any cwd:
+
+```bash
+env -u AWS_ACCESS_KEY_ID -u AWS_SECRET_ACCESS_KEY -u AWS_SESSION_TOKEN -u AWS_SECURITY_TOKEN -u AWS_DEFAULT_PROFILE AWS_CONFIG_FILE="$HOME/.aws/agent-config" AWS_SHARED_CREDENTIALS_FILE=/dev/null AWS_PROFILE=agent-readonly aws sso login --sso-session agent --no-browser
+```
+
+Open the printed URL in private Chrome on the same Mac. Sign in as
+`agent@jsolly.com`. `--no-browser` prevents automatic browser opening; it does
+not remove human authentication. Verify the direct SSO identity from any cwd:
+
+```bash
+env -u AWS_ACCESS_KEY_ID -u AWS_SECRET_ACCESS_KEY -u AWS_SESSION_TOKEN -u AWS_SECURITY_TOKEN -u AWS_DEFAULT_PROFILE AWS_CONFIG_FILE="$HOME/.aws/agent-config" AWS_SHARED_CREDENTIALS_FILE=/dev/null AWS_PROFILE=agent-readonly aws sts get-caller-identity --profile agent-readonly-sso --query Arn --output text
+```
+
+Expect account `730335616323`, an `AgentReadOnly` SSO assumed role and the session
+suffix `/agent@jsolly.com`. Stop on another identity. Retry maintenance only after
+verification. This identity check does not retrieve the USDA key. Cloud callers
+use their existing approved authentication path, not these local SSO commands.
+
+The [SSO token provider](https://docs.aws.amazon.com/sdkref/latest/guide/feature-sso-credentials.html)
+refreshes tokens within the allowed login session. Human reauthentication is
+required after that session can no longer renew. The configured
+[interactive duration](https://docs.aws.amazon.com/singlesignon/latest/userguide/user-interactive-sessions.html)
+is separate from the permission-set role-credential lifetime. Neither a cache
+timestamp nor a successful role call proves remaining interactive-session time.
+Do not assume a week-long duration. Duration changes apply only to new sessions.
+See [AWS session considerations](https://docs.aws.amazon.com/singlesignon/latest/userguide/user-session-duration-prereqs-considerations.html).
+
+The offline USDA tests inject identity, parameter and HTTP boundaries. Temporary
+synthetic config fixtures also exercise the installed SDK's missing-profile and
+missing-session paths with metadata disabled. They cover
+failure classification, redaction, stopping before secret access and a later
+successful invocation after simulated provider renewal. They do not authenticate
+or prove live human recovery. They never use real AWS config or caches. No key
+read is needed merely to diagnose login.
+
 ### Evidence
 
 The original recipe formulas, the USDA records, the label evidence, the review
