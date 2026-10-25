@@ -816,7 +816,8 @@ async function pointerAndKeyboardHelp({ page, help, popover, heading }) {
 	await page.keyboard.press("Escape");
 	await popover.waitFor({ state: "detached" });
 	await page.evaluate(() => {
-		// The control after the help, focused as soon as the help appears.
+		// A later filter control, focused as soon as the help appears (a quick
+		// move elsewhere that the opening help must not take back).
 		const next = [...document.querySelectorAll("label")]
 			.find((label) => label.textContent.trim() === "Immune support")
 			.querySelector("button, input");
@@ -886,9 +887,15 @@ const DESKTOP_HELP = {
 	movedOnOpen: IMMUNE,
 	movedOnOpenClosed: IMMUNE,
 	opened: ON_HELP,
-	tabbed: { ...IMMUNE, label: undefined, control: "Proteins: All proteins" },
+	tabbed: {
+		onHelp: false,
+		inPopover: false,
+		label: undefined,
+		control: "Proteins: All proteins",
+	},
 	tabbedClosed: {
-		...IMMUNE,
+		onHelp: false,
+		inPopover: false,
 		label: undefined,
 		control: "Proteins: All proteins",
 	},

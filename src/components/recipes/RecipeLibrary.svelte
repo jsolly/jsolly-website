@@ -387,7 +387,6 @@
 		.active-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 0.8rem; }
 		/* .meal-library outranks the library's general list indent. */
 		.meal-library .active-filters ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
-		.active-filters :global(button) { min-height: 36px; gap: 6px; font-size: 0.86rem; }
 		.meal-library {
 			background: var(--recipe-canvas);
 			border-radius: 16px;
@@ -412,6 +411,8 @@
 		.meal-library :global(button) {
 			cursor: pointer;
 		}
+		/* Chips are compact; this follows and outranks the library's button sizing. */
+		.meal-library .active-filters :global(button) { min-height: 36px; gap: 6px; font-size: 0.86rem; }
 		.meal-library :global(button:disabled) {
 			cursor: default;
 			opacity: 0.7;

@@ -14,6 +14,7 @@ const filters = {
 	ingredientChoice: ["spinach"],
 	vegetarianOnly: true,
 	dumpAndGo: true,
+	immuneSupport: true,
 	ironRich: true,
 	omega3: true,
 };
@@ -31,6 +32,7 @@ it("meal chips list proteins, carbs, then checked filters and the search, in the
 		{ key: "starchChoice", value: "rice", label: "Rice" },
 		{ key: "vegetarianOnly", label: "Vegetarian" },
 		{ key: "dumpAndGo", label: "Dump and go" },
+		{ key: "immuneSupport", label: "Immune support" },
 		{ key: "ironRich", label: "Iron-rich" },
 		{ key: "omega3", label: "High in Omega-3s" },
 		{ key: "query", label: "“garlic”" },
@@ -41,6 +43,7 @@ it("meal chips list proteins, carbs, then checked filters and the search, in the
 it("smoothie chips list ingredients and the applied shared checks, never meal-only filters or Iron-rich without iron-rich smoothies", () => {
 	assert.deepEqual(activeFilters(filters, "", smoothies), [
 		{ key: "ingredientChoice", value: "spinach", label: "Baby spinach" },
+		{ key: "immuneSupport", label: "Immune support" },
 		{ key: "omega3", label: "High in Omega-3s" },
 	]);
 });
@@ -59,7 +62,7 @@ it("removing a chip drops only its choice, and removing every shown chip keeps f
 	assert.deepEqual(filters.proteinChoice, ["chicken", "fish"]);
 	assert.deepEqual(
 		withoutFilters(filters, activeFilters(filters, "garlic", smoothies)),
-		{ ...filters, ingredientChoice: [], omega3: false },
+		{ ...filters, ingredientChoice: [], immuneSupport: false, omega3: false },
 	);
 	assert.deepEqual(withoutFilters(filters, activeFilters(filters, "", meals)), {
 		...DEFAULT_FILTERS,

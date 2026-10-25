@@ -4,7 +4,6 @@ import { afterAll as after, beforeAll as before, it } from "vitest";
 import {
 	DEFAULT_FILTERS,
 	defaultAppliances,
-	MADE_STORAGE_KEY,
 	PRINT_FAILED,
 	STORAGE_KEY,
 } from "../../src/components/recipes/constants.mjs";
@@ -605,7 +604,7 @@ it("a reader who marks a recipe made sees the date on its page and, in another o
 		const stored = () =>
 			tab.evaluate(
 				(key) => JSON.parse(localStorage.getItem(key) || "null"),
-				MADE_STORAGE_KEY,
+				"recipes-made-v1",
 			);
 		await badges.waitFor();
 		assert.deepEqual(
@@ -632,35 +631,75 @@ it("a reader who marks a recipe made sees the date on its page and, in another o
 		assert.equal(await tab.locator(".made").isVisible(), false);
 		await tab.emulateMedia({ media: "screen" });
 
-		// Six days later the mark survives a reload and can move to today.
+		// Six days later, returning to the open page offers "Made it today"
+		// without a reload, and the mark survives one.
 		await tab.clock.setFixedTime(new Date(2026, 9, 30, 12));
+		await tab.evaluate(() =>
+			document.dispatchEvent(new Event("visibilitychange")),
+		);
+		await again.waitFor();
 		await tab.reload();
 		await tab.locator(".recipe-page[data-preferences-ready=true]").waitFor();
 		assert.equal(await made.isChecked(), true);
-		await again.click();
+		await again.focus();
+		await tab.keyboard.press("Enter");
+		const status = tab.locator(".made [role=status]");
+		const confirmed = status.filter({
+			hasText: "Marked made today, Oct 30, 2026.",
+		});
+		await confirmed.waitFor();
+		// Returning to the tab the same day keeps the confirmation.
+		await tab.evaluate(() =>
+			document.dispatchEvent(new Event("visibilitychange")),
+		);
 		assert.deepEqual(
 			{
+				status: await status.textContent(),
 				date: await tab.locator(".made-date").textContent(),
 				again: await again.count(),
+				focusedOnMade: await made.evaluate(
+					(box) => box === document.activeElement,
+				),
 				stored: await stored(),
 			},
 			{
+				status: "Marked made today, Oct 30, 2026.",
 				date: "Last made Oct 30, 2026",
 				again: 0,
+				focusedOnMade: true,
 				stored: { [id]: "2026-10-30" },
 			},
 		);
 		assert.deepEqual(await badges.allTextContents(), ["Made it!"]);
 
+		// When the library tab saves an earlier date, the recipe tab drops the
+		// confirmation that no longer describes its mark.
+		await page.evaluate(
+			([key, saved]) => localStorage.setItem(key, JSON.stringify(saved)),
+			["recipes-made-v1", { [id]: "2026-10-24" }],
+		);
+		await again.waitFor();
+		assert.deepEqual(
+			{
+				status: await status.textContent(),
+				checked: await made.isChecked(),
+				date: await tab.locator(".made-date").textContent(),
+			},
+			{ status: "", checked: true, date: "Last made Oct 24, 2026" },
+		);
+		await again.click();
+		await confirmed.waitFor();
+
 		await made.uncheck();
 		await badges.waitFor({ state: "detached" });
 		assert.deepEqual(
 			{
+				status: await status.textContent(),
 				date: await tab.locator(".made-date").count(),
 				stored: await stored(),
 				errors: [...errors, ...tabErrors],
 			},
-			{ date: 0, stored: {}, errors: [] },
+			{ status: "", date: 0, stored: {}, errors: [] },
 		);
 	} finally {
 		await close();
@@ -729,7 +768,31 @@ it("chips under the results heading show the active filters and search, remove o
 				proteins: "Proteins: All proteins",
 			},
 		);
+		const focusedName = () =>
+			page.evaluate(() => document.activeElement?.getAttribute("aria-label"));
+		// Removing the last chip focuses the new last one; removing the only one
+		// returns focus to the results heading.
+		await chips.last().click();
+		assert.deepEqual(
+			{ chips: await chips.allTextContents(), focused: await focusedName() },
+			{ chips: ["Dump and go"], focused: "Remove filter: Dump and go" },
+		);
+		await chips.first().click();
+		assert.deepEqual(
+			{
+				chips: await chips.count(),
+				focused: await page.evaluate(() => document.activeElement?.textContent),
+			},
+			{ chips: 0, focused: "Find your meal" },
+		);
 
+		await page.getByRole("checkbox", { name: "Dump and go" }).check();
+		await page
+			.getByRole("searchbox", { name: "Search recipes" })
+			.fill("garlic");
+		await page
+			.getByRole("button", { name: "Remove search: “garlic”" })
+			.waitFor();
 		await page.getByRole("button", { name: "Clear all" }).click();
 		assert.deepEqual(
 			{
