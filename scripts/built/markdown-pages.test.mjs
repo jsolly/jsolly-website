@@ -262,7 +262,7 @@ const SEARCH_SECTION =
 const VERIFICATION_TAG = /<meta name="context7-site-verification"[^>]*>/u;
 const SEARCH_NOTE = /This site has a search endpoint[^<]*/u;
 
-it("Context7 finds its verification tag and hidden search note on every built page, and every Markdown sibling ends with Search", async () => {
+it("Context7 finds its verification tag and hidden search note on every built page, each page opens its headings with its own h1, and every Markdown sibling ends with Search", async () => {
 	const pages = await readBuiltPages();
 	assert.ok(pages.length > 0);
 	for (const { file, html } of pages) {
@@ -278,10 +278,12 @@ it("Context7 finds its verification tag and hidden search note on every built pa
 			"This site has a search endpoint: https://context7.com/api/v2/ask?siteKey=ask_43369889032b1355b89bc7f4&amp;query=&lt;URL-encoded question&gt;. It returns documentation that answers the question, with a source link for each part. No API key is needed. If nothing matches, it says so.",
 			`${file} carries the search note`,
 		);
-		const { note } = markdownHtmlFacts(html);
+		const { note, firstHeading, noteHeading } = markdownHtmlFacts(html);
 		assert.equal(note.hidden, "true", file);
 		assert.ok(note.screenReaderOnly, `${file} hides the note`);
 		assert.ok(note.firstInBody, `${file} opens its body with the note`);
+		assert.equal(noteHeading, null, `${file} keeps the note label unheaded`);
+		assert.equal(firstHeading, "h1", `${file} opens its headings with its h1`);
 	}
 	for (const [key, file] of markdownRoutes) {
 		// biome-ignore lint/performance/noAwaitInLoops: bounded build pages are read sequentially.

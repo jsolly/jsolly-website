@@ -5,6 +5,9 @@ import { parse } from "parse5";
 const HTML = "http://www.w3.org/1999/xhtml";
 const SPACE = /[\t\n\f\r ]+/u;
 const HEADINGS = new Set(["h1", "h2", "h3", "h4"]);
+// Every HTML heading level, deliberately independent of HEADINGS above: the
+// outline must fail on a stray h5 or h6 even if the id levels ever narrow.
+const OUTLINE_HEADINGS = new Set(["h1", "h2", "h3", "h4", "h5", "h6"]);
 const attribute = (node, name) =>
 	node?.attrs?.find((entry) => !entry.prefix && entry.name === name)?.value ??
 	null;
@@ -56,6 +59,11 @@ export function markdownHtmlFacts(html) {
 	const note = elements.find(
 		(node) => attribute(node, "data-context7-ask") !== null,
 	);
+	function inNote(node) {
+		for (let parent = node.parentNode; parent; parent = parent.parentNode)
+			if (parent === note) return true;
+		return false;
+	}
 	return {
 		structured: elements
 			.filter(
@@ -90,6 +98,16 @@ export function markdownHtmlFacts(html) {
 		image: attribute(meta("og:image"), "content"),
 		imageAlt: attribute(meta("og:image:alt"), "content"),
 		title: text(elements.find((node) => node.tagName === "h1") ?? {}).trim(),
+		// `elements` is document order, so this is the outline's opening level.
+		firstHeading:
+			elements.find((node) => OUTLINE_HEADINGS.has(node.tagName))?.tagName ??
+			null,
+		// The note opens the body, so a heading inside it would take that slot
+		// even at h1, where firstHeading alone still reads "h1".
+		noteHeading:
+			elements.find(
+				(node) => OUTLINE_HEADINGS.has(node.tagName) && inNote(node),
+			)?.tagName ?? null,
 		bodyText: text(body ?? {}),
 		note: {
 			hidden: attribute(note, "aria-hidden"),
