@@ -17,10 +17,12 @@ const maintenance = process.env.MAINTENANCE_MODE === "true";
 ---
 {/* Context7 Ask verification: the search note for agents that read pages as
 text, hidden from people and screen readers. Keep data-context7-ask, and keep
-the label a non-heading: the note opens the body, so a heading here would
-precede the page's own h1 (scripts/built/markdown-pages.test.mjs). It stays
-during maintenance, like the Markdown Search section. Layout.astro and
-BlogLayout.astro each carry the verification meta tag in their own head. */}
+this element and everything inside it non-headings: the note opens the body,
+so any heading in or as it would precede the page's own h1 (enforced per page
+by scripts/built/markdown-pages.test.mjs and blog-maintenance.test.mjs, which
+pin the opening level, not which h1 it is). It stays during maintenance, like
+the Markdown Search section. Layout.astro and BlogLayout.astro each carry the
+verification meta tag in their own head. */}
 <blockquote data-context7-ask="true" aria-hidden="true" class="sr-only"><strong>Search</strong><p>{SITE_SEARCH_NOTE}</p></blockquote>
 <noscript><link rel="stylesheet" href={noScriptStyles} /></noscript>
 <a class="skip-link" href="#main">Skip to content</a>

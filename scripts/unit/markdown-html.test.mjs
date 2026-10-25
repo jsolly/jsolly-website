@@ -31,7 +31,7 @@ it("Markdown HTML facts exclude inert template contents and retain noscript desc
 	assert.ok(facts.bodyText.includes("Fallback"));
 });
 
-it("Markdown search-note facts detect displacement, lost hiding, missing notes and a heading in the note label", () => {
+it("Markdown search-note facts detect displacement, lost hiding, missing notes and a heading in or as the note", () => {
 	const note =
 		'<div data-context7-ask aria-hidden="true" class="other sr-only">Search</div>';
 	// The note opens the body, so any heading level in its label takes the
@@ -40,15 +40,29 @@ it("Markdown search-note facts detect displacement, lost hiding, missing notes a
 		markdownHtmlFacts(
 			`<!doctype html><body><div data-context7-ask aria-hidden="true" class="sr-only">${label}<p>note</p></div><main><h1>Page</h1><h2>Section</h2></main>`,
 		);
+	// Every level h1-h6, so narrowing the outline set to the id levels fails
+	// here, and one label nested a level deep, so atOrInNote must walk ancestors
+	// rather than check the note's direct children.
 	for (const [label, heading] of [
-		["<h2>Search</h2>", "h2"],
-		["<h6>Search</h6>", "h6"],
 		["<h1>Search</h1>", "h1"],
+		["<h2>Search</h2>", "h2"],
+		["<h4>Search</h4>", "h4"],
+		["<h5>Search</h5>", "h5"],
+		["<h6>Search</h6>", "h6"],
+		// biome-ignore lint/security/noSecrets: Nested HTML label fixture, not credential material.
+		["<div><h3>Search</h3></div>", "h3"],
 	]) {
 		const facts = labelled(label);
 		assert.equal(facts.noteHeading, heading, label);
 		assert.equal(facts.firstHeading, heading, label);
 	}
+	// A note element that is itself an h1 is the shape the old ancestors-only
+	// walk missed: firstHeading still reads "h1", so atOrInNote counts the note.
+	const headingNote = markdownHtmlFacts(
+		'<!doctype html><body><h1 data-context7-ask aria-hidden="true" class="sr-only">Search</h1><main><h1>Page</h1></main>',
+	);
+	assert.equal(headingNote.noteHeading, "h1");
+	assert.equal(headingNote.firstHeading, "h1");
 	// biome-ignore lint/security/noSecrets: HTML label fixture, not credential material.
 	const unheaded = labelled("<strong>Search</strong>");
 	assert.equal(unheaded.noteHeading, null);
@@ -78,11 +92,17 @@ it("Markdown search-note facts detect displacement, lost hiding, missing notes a
 		screenReaderOnly: false,
 		firstInBody: true,
 	});
-	assert.deepEqual(
-		// biome-ignore lint/security/noSecrets: Missing-note HTML fixture, not credential material.
-		markdownHtmlFacts("<!doctype html><body><h1>Page</h1>").note,
-		{ hidden: null, screenReaderOnly: false, firstInBody: false },
-	);
+	// biome-ignore lint/security/noSecrets: Missing-note HTML fixture, not credential material.
+	const missing = markdownHtmlFacts("<!doctype html><body><h1>Page</h1>");
+	assert.deepEqual(missing.note, {
+		hidden: null,
+		screenReaderOnly: false,
+		firstInBody: false,
+	});
+	// No note means atOrInNote matches nothing: a predicate that read a missing
+	// note as "in the note" would report this page's own h1 as displaced.
+	assert.equal(missing.noteHeading, null);
+	assert.equal(missing.firstHeading, "h1");
 });
 
 it("Markdown JSON-LD matching respects foreign namespaces and rejects malformed matching JSON", () => {
