@@ -31,9 +31,35 @@ it("Markdown HTML facts exclude inert template contents and retain noscript desc
 	assert.ok(facts.bodyText.includes("Fallback"));
 });
 
-it("Markdown search-note facts detect displacement, lost hiding and missing notes", () => {
+it("Markdown search-note facts detect displacement, lost hiding, missing notes and a heading in the note label", () => {
 	const note =
 		'<div data-context7-ask aria-hidden="true" class="other sr-only">Search</div>';
+	// The note opens the body, so any heading level in its label takes the
+	// document's first-heading slot away from the page's own h1.
+	const labelled = (label) =>
+		markdownHtmlFacts(
+			`<!doctype html><body><div data-context7-ask aria-hidden="true" class="sr-only">${label}<p>note</p></div><main><h1>Page</h1><h2>Section</h2></main>`,
+		);
+	for (const [label, heading] of [
+		["<h2>Search</h2>", "h2"],
+		["<h6>Search</h6>", "h6"],
+		["<h1>Search</h1>", "h1"],
+	]) {
+		const facts = labelled(label);
+		assert.equal(facts.noteHeading, heading, label);
+		assert.equal(facts.firstHeading, heading, label);
+	}
+	// biome-ignore lint/security/noSecrets: HTML label fixture, not credential material.
+	const unheaded = labelled("<strong>Search</strong>");
+	assert.equal(unheaded.noteHeading, null);
+	assert.equal(unheaded.firstHeading, "h1");
+	assert.equal(
+		markdownHtmlFacts(
+			// biome-ignore lint/security/noSecrets: Heading-free HTML fixture, not credential material.
+			"<!doctype html><body><template><h2>Inert</h2></template><p>No headings</p>",
+		).firstHeading,
+		null,
+	);
 	assert.deepEqual(
 		markdownHtmlFacts(`<!doctype html><body><!--comment-->${note}<h1>Page</h1>`)
 			.note,
