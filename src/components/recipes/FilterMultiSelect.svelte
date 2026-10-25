@@ -35,12 +35,14 @@
 	}
 
 	// Focus immediately on opening. A queued animation-frame autofocus can
-	// otherwise pull focus back after the user has already tabbed away.
+	// otherwise pull focus back after the user has already tabbed away. The
+	// panel is not positioned yet, so focusing without preventScroll would
+	// scroll the page to its unplaced origin at the top.
 	function enterFocus(event) {
 		event.preventDefault();
 		if (document.activeElement !== trigger) return;
 		// biome-ignore lint/security/noSecrets: CSS selector, not a credential.
-		content?.querySelector('button:not([disabled])')?.focus();
+		content?.querySelector('button:not([disabled])')?.focus({ preventScroll: true });
 	}
 
 	// Return keyboard focus from the panel, but keep an outside control's

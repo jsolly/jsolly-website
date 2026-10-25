@@ -24,6 +24,7 @@ const meals = recipes.filter((recipe) => recipe.type === "meal");
 const FAMILY_SIDE = /^Add a side/u;
 const SIDE_DINERS = "People having this side";
 const SERVINGS = /^Servings/u;
+const PROTEINS = /^Proteins:/u;
 const PITA = "pita_one";
 const SHAWARMA = "shawarma-chicken-bowls";
 
@@ -570,6 +571,252 @@ it("Share recipe on a recipe page shares its servings and family side, and the l
 			{ shared: query(shared), card: query(card), errors },
 			{ shared: expected, card: expected, errors: [] },
 		);
+	} finally {
+		await close();
+	}
+});
+
+it("a reader who marks a recipe made sees the date on its page and, in another open tab, on its library card, can mark it made again later, and can clear it", async () => {
+	const { page, errors, close } = await openPage();
+	try {
+		await page.clock.setFixedTime(new Date(2026, 9, 24, 12));
+		await goHydrated(page, "/recipes/meals/");
+		const id = await page
+			.locator(".recipe-card a.title-button")
+			.first()
+			.getAttribute("data-recipe-id");
+		assert.ok(
+			meals.some((recipe) => recipe.id === id),
+			id,
+		);
+		const badges = page.locator(".made-badge");
+		assert.equal(await badges.count(), 0);
+
+		// The recipe opens in a second tab while the library stays open.
+		const tab = await page.context().newPage();
+		const tabErrors = collectErrors(tab);
+		await tab.clock.setFixedTime(new Date(2026, 9, 24, 12));
+		await goRecipe(tab, `/recipes/${id}/`);
+		const made = tab.getByRole("checkbox", { name: "I made this" });
+		const again = tab.getByRole("button", { name: "Made it today" });
+		assert.equal(await made.isChecked(), false);
+		await made.check();
+		const stored = () =>
+			tab.evaluate(
+				(key) => JSON.parse(localStorage.getItem(key) || "null"),
+				"recipes-made-v1",
+			);
+		await badges.waitFor();
+		assert.deepEqual(
+			{
+				date: await tab.locator(".made-date").textContent(),
+				again: await again.count(),
+				stored: await stored(),
+				badges: await badges.allTextContents(),
+				badgeCard: await page
+					.locator(".recipe-card")
+					.filter({ has: page.locator(`a[data-recipe-id="${id}"]`) })
+					.locator(".made-badge")
+					.count(),
+			},
+			{
+				date: "Last made Oct 24, 2026",
+				again: 0,
+				stored: { [id]: "2026-10-24" },
+				badges: ["Made it!"],
+				badgeCard: 1,
+			},
+		);
+		await tab.emulateMedia({ media: "print" });
+		assert.equal(await tab.locator(".made").isVisible(), false);
+		await tab.emulateMedia({ media: "screen" });
+
+		// Six days later, returning to the open page offers "Made it today"
+		// without a reload, and the mark survives one.
+		await tab.clock.setFixedTime(new Date(2026, 9, 30, 12));
+		await tab.evaluate(() =>
+			document.dispatchEvent(new Event("visibilitychange")),
+		);
+		await again.waitFor();
+		await tab.reload();
+		await tab.locator(".recipe-page[data-preferences-ready=true]").waitFor();
+		assert.equal(await made.isChecked(), true);
+		await again.focus();
+		await tab.keyboard.press("Enter");
+		const status = tab.locator(".made [role=status]");
+		const confirmed = status.filter({
+			hasText: "Marked made today, Oct 30, 2026.",
+		});
+		await confirmed.waitFor();
+		// Returning to the tab the same day keeps the confirmation.
+		await tab.evaluate(() =>
+			document.dispatchEvent(new Event("visibilitychange")),
+		);
+		assert.deepEqual(
+			{
+				status: await status.textContent(),
+				date: await tab.locator(".made-date").textContent(),
+				again: await again.count(),
+				focusedOnMade: await made.evaluate(
+					(box) => box === document.activeElement,
+				),
+				stored: await stored(),
+			},
+			{
+				status: "Marked made today, Oct 30, 2026.",
+				date: "Last made Oct 30, 2026",
+				again: 0,
+				focusedOnMade: true,
+				stored: { [id]: "2026-10-30" },
+			},
+		);
+		assert.deepEqual(await badges.allTextContents(), ["Made it!"]);
+
+		// When the library tab saves an earlier date, the recipe tab drops the
+		// confirmation that no longer describes its mark.
+		await page.evaluate(
+			([key, saved]) => localStorage.setItem(key, JSON.stringify(saved)),
+			["recipes-made-v1", { [id]: "2026-10-24" }],
+		);
+		await again.waitFor();
+		assert.deepEqual(
+			{
+				status: await status.textContent(),
+				checked: await made.isChecked(),
+				date: await tab.locator(".made-date").textContent(),
+			},
+			{ status: "", checked: true, date: "Last made Oct 24, 2026" },
+		);
+		await again.click();
+		await confirmed.waitFor();
+
+		await made.uncheck();
+		await badges.waitFor({ state: "detached" });
+		assert.deepEqual(
+			{
+				status: await status.textContent(),
+				date: await tab.locator(".made-date").count(),
+				stored: await stored(),
+				errors: [...errors, ...tabErrors],
+			},
+			{ status: "", date: 0, stored: {}, errors: [] },
+		);
+	} finally {
+		await close();
+	}
+});
+
+it("chips under the results heading show the active filters and search, remove one at a time keeping focus, and Clear all leaves appliances alone", async () => {
+	const { page, errors, close } = await openPage();
+	try {
+		await goHydrated(page, "/recipes/meals/");
+		const chips = page.locator(".active-filters li button");
+		assert.equal(await chips.count(), 0);
+		const ovenBefore = await page
+			.getByRole("checkbox", { name: "Oven" })
+			.isChecked();
+		await page.getByRole("checkbox", { name: "Oven" }).uncheck();
+
+		await page.getByRole("button", { name: PROTEINS }).click();
+		await page
+			.getByRole("dialog", { name: "Proteins choices" })
+			.getByRole("checkbox", { name: "Chicken", exact: true })
+			.check();
+		await page.keyboard.press("Escape");
+		await page.getByRole("checkbox", { name: "Dump and go" }).check();
+		await page
+			.getByRole("searchbox", { name: "Search recipes" })
+			.fill("garlic");
+		await page
+			.getByRole("button", { name: "Remove search: “garlic”" })
+			.waitFor();
+		assert.deepEqual(
+			{
+				list: await page
+					.getByRole("list", { name: "Active filters and search" })
+					.count(),
+				chips: await chips.allTextContents(),
+				names: await chips.evaluateAll((buttons) =>
+					buttons.map((button) => button.getAttribute("aria-label")),
+				),
+			},
+			{
+				list: 1,
+				chips: ["Chicken", "Dump and go", "“garlic”"],
+				names: [
+					"Remove filter: Chicken",
+					"Remove filter: Dump and go",
+					"Remove search: “garlic”",
+				],
+			},
+		);
+
+		await chips.first().click();
+		assert.deepEqual(
+			{
+				chips: await chips.allTextContents(),
+				focused: await page.evaluate(() =>
+					document.activeElement?.getAttribute("aria-label"),
+				),
+				proteins: await page
+					.getByRole("button", { name: PROTEINS })
+					.getAttribute("aria-label"),
+			},
+			{
+				chips: ["Dump and go", "“garlic”"],
+				focused: "Remove filter: Dump and go",
+				proteins: "Proteins: All proteins",
+			},
+		);
+		const focusedName = () =>
+			page.evaluate(() => document.activeElement?.getAttribute("aria-label"));
+		// Removing the last chip focuses the new last one; removing the only one
+		// returns focus to the results heading.
+		await chips.last().click();
+		assert.deepEqual(
+			{ chips: await chips.allTextContents(), focused: await focusedName() },
+			{ chips: ["Dump and go"], focused: "Remove filter: Dump and go" },
+		);
+		await chips.first().click();
+		assert.deepEqual(
+			{
+				chips: await chips.count(),
+				focused: await page.evaluate(() => document.activeElement?.textContent),
+			},
+			{ chips: 0, focused: "Find your meal" },
+		);
+
+		await page.getByRole("checkbox", { name: "Dump and go" }).check();
+		await page
+			.getByRole("searchbox", { name: "Search recipes" })
+			.fill("garlic");
+		await page
+			.getByRole("button", { name: "Remove search: “garlic”" })
+			.waitFor();
+		await page.getByRole("button", { name: "Clear all" }).click();
+		assert.deepEqual(
+			{
+				chips: await chips.count(),
+				dumpAndGo: await page
+					.getByRole("checkbox", { name: "Dump and go" })
+					.isChecked(),
+				search: await page
+					.getByRole("searchbox", { name: "Search recipes" })
+					.inputValue(),
+				oven: await page.getByRole("checkbox", { name: "Oven" }).isChecked(),
+				focused: await page.evaluate(() => document.activeElement?.textContent),
+				errors,
+			},
+			{
+				chips: 0,
+				dumpAndGo: false,
+				search: "",
+				oven: false,
+				focused: "Find your meal",
+				errors: [],
+			},
+		);
+		assert.equal(ovenBefore, true);
 	} finally {
 		await close();
 	}

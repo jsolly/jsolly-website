@@ -1,13 +1,15 @@
 <script>
 	import Share2 from "@lucide/svelte/icons/share-2";
-	import { onMount } from "svelte";
+	import { onMount, tick } from "svelte";
 	import Button from "../../lib/components/ui/button.svelte";
+	import Checkbox from "../../lib/components/ui/checkbox.svelte";
 	import NativeSelect from "../../lib/components/ui/native-select.svelte";
 	import { BASE_SERVINGS, SERVING_CHOICES } from "./constants.mjs";
 	import RecipeContent from "./RecipeContent.svelte";
 	import RecipeOfflineStatus from "./RecipeOfflineStatus.svelte";
 	import RecipePrintButton from "./RecipePrintButton.svelte";
 	import { validateSettings } from "./recipe-logic.mjs";
+	import { madeDateFor, madeDateLabel, readMadeRecipes, todayMadeDate, watchMadeRecipes, writeMadeRecipe } from "./recipe-made.mjs";
 	import { collectionReturn, takeLegacyRedirect } from "./recipe-navigation.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
 	import { readRecipeURL, recipePageURL } from "./recipe-url.mjs";
@@ -19,9 +21,19 @@
 	// are resolved. The no-JavaScript stylesheet reveals the static fallback.
 	let { recipe } = $props();
 	const servingsId = $props.id();
+	const madeId = `${servingsId}-made`;
 	let interactive = $state(false);
 	let message = $state("");
 	let returnUrl = $state("");
+	// The local date this reader last made the recipe, or "" (recipe-made.mjs),
+	// and today's, read in the browser so "Made it today" can tell them apart.
+	let madeOn = $state("");
+	let today = $state("");
+	// A mark the browser refused to save stays for this visit, not overwritten by a re-read.
+	let madeUnsaved = false;
+	let madeBox = $state(null);
+	const MADE_SAVE_FAILED = "Your made mark applies to this visit but could not be saved.";
+	let madeStatus = $state("");
 	let settings = $state({
 		servings: BASE_SERVINGS,
 		units: "us",
@@ -68,6 +80,30 @@
 		persistPreferences();
 	}
 
+	function setMade(made, confirm = false) {
+		today = todayMadeDate();
+		madeOn = made ? today : "";
+		madeUnsaved = !writeMadeRecipe(recipe.id, madeOn);
+		if (madeUnsaved) madeStatus = MADE_SAVE_FAILED;
+		else madeStatus = confirm ? `Marked made today, ${madeDateLabel(today)}.` : "";
+	}
+
+	// "Made it today" removes itself once the date is today, so focus moves to
+	// the checkbox that stays and the status line confirms the dated mark.
+	async function setMadeToday() {
+		setMade(true, true);
+		await tick();
+		madeBox?.focus();
+	}
+
+	function refreshMade() {
+		today = todayMadeDate();
+		if (madeUnsaved) return;
+		madeOn = madeDateFor(readMadeRecipes(), recipe.id);
+		// A confirmation no longer describes a mark another tab cleared or moved.
+		if (madeOn !== today) madeStatus = "";
+	}
+
 	function setUnits(value) {
 		const units = validateSettings({ units: value }).units;
 		settings = { ...settings, units };
@@ -99,8 +135,11 @@
 			familyDiners: parsed.familyDiners,
 			familyChoice: parsed.familyChoice,
 		};
+		refreshMade();
 		interactive = true;
-		return printSession.listen();
+		const stopWatchingMade = watchMadeRecipes(refreshMade);
+		const stopPrint = printSession.listen();
+		return () => { stopPrint(); stopWatchingMade(); };
 	});
 </script>
 
@@ -121,6 +160,14 @@
 		<UnitControl units={settings.units} onUnitsChange={setUnits} disabled={!interactive} />
 			{/snippet}
 		</RecipeContent>
+		<div class="made recipe-enhanced">
+			<div class="made-controls">
+				<label for={madeId}><Checkbox bind:ref={madeBox} id={madeId} checked={madeOn !== ""} disabled={!interactive} onCheckedChange={(checked) => setMade(checked === true)} />I made this</label>
+				{#if madeOn}<span class="made-date">Last made {madeDateLabel(madeOn)}</span>{/if}
+				{#if madeOn && madeOn < today}<Button class="made-again" variant="outline" type="button" disabled={!interactive} onclick={setMadeToday}>Made it today</Button>{/if}
+			</div>
+			<p class="made-status" role="status">{madeStatus}</p>
+		</div>
 		<div class="recipe-enhanced"><ShareRecipe {recipe} {settings} disabled={!interactive} /></div>
 		<noscript><div class="share"><Button variant="outline" href={`/recipes/${recipe.id}/`}><Share2 aria-hidden="true" size={18} />Share recipe link</Button></div></noscript>
 		<p role="status">{message}</p>
@@ -165,6 +212,34 @@
 		a {
 			color: var(--recipe-accent);
 		}
+		.made {
+			margin-top: 24px;
+			border-top: 1px solid var(--recipe-line);
+			padding-top: 16px;
+		}
+		.made-controls {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 8px 16px;
+		}
+		.made-status:not(:empty) {
+			margin-top: 8px;
+		}
+		.made label {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			min-height: 44px;
+			font-weight: 650;
+			cursor: pointer;
+		}
+		.made-date {
+			color: var(--recipe-muted);
+		}
+		.made :global(.made-again) {
+			min-height: 44px;
+		}
 		.share {
 			margin-top: 24px;
 			border-top: 1px solid var(--recipe-line);
@@ -181,6 +256,7 @@
 		}
 		@media print {
 			.toolbar,
+			.made,
 			.share,
 			.servings {
 				display: none;

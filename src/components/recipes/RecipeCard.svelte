@@ -1,4 +1,5 @@
 <script>
+	import Check from "@lucide/svelte/icons/check";
 	import Button from "../../lib/components/ui/button.svelte";
 	import ApplianceIcon from "./ApplianceIcon.svelte";
 	import { BASE_SERVINGS } from "./constants.mjs";
@@ -12,8 +13,10 @@
 
 	// One recipe's card in the library grid: its group, photo, title, active
 	// time, net carbs per serving and appliances. `href` is the
-	// recipe page with the reader's servings and family side.
-	let { recipe, href, servings = BASE_SERVINGS, settings, onPrint, disabled = false } = $props();
+	// recipe page with the reader's servings and family side. `madeOn` is the
+	// local date the reader last made it, shown as a "Made it!" badge; server
+	// fragments never pass one.
+	let { recipe, href, madeOn = "", servings = BASE_SERVINGS, settings, onPrint, disabled = false } = $props();
 	// Diet labels live with the other highlights; retain canonical source titles.
 	const cardTitle = $derived(recipe.title
 		.replace(/\(\s*(?:(?:keto|low[ -]carb)\s*(?:\+|-)?\s*)+\)/giu, "")
@@ -42,13 +45,14 @@
 
 	{#if recipe.image}<figure class="card-photo"><img class="deferred-card-image" {@attach deferImage} sizes="(max-width:600px) 340px, (max-width:1000px) 420px, 360px" width={recipe.image.width} height={recipe.image.height} alt={recipe.image.alt} loading="lazy" decoding="async" /><noscript><img src={recipe.image.cardSrc} srcset={recipe.image.cardSrcset} sizes="(max-width:600px) 340px, (max-width:1000px) 420px, 360px" width={recipe.image.width} height={recipe.image.height} alt={recipe.image.alt} loading="lazy" decoding="async" /></noscript></figure>{/if}
 	<h3><a class="title-button" data-recipe-id={recipe.id} {href}>{cardTitle}</a></h3>
+	{#if madeOn}<p class="made-badge"><span class="made-check" aria-hidden="true"><Check size={10} strokeWidth={3.5} /></span>Made it!</p>{/if}
 	<div class="card-details">
 		<dl class="card-numbers">
-			<div>
+			<div class="card-metric">
 				<dt>{recipe.sourceRecipe ? "Prep time" : "Active time"}</dt>
 				<dd class="active-time"><span class="time-number" class:unknown={recipe.activeMinutes === null}>{recipe.activeMinutes === null ? "Not provided" : recipe.activeMinutes}</span>{#if recipe.activeMinutes !== null}<span class="time-unit">min</span>{/if}</dd>
 			</div>
-			<div>
+			<div class="card-metric">
 				<dt>{recipe.type === "smoothie" ? "Net Carbs (8 oz)" : "Net carbs per serving"}</dt>
 				<dd class="carb-value">{netCarbs === null ? "Not provided" : formatNutrition(netCarbs, "g")}</dd>
 			</div>
@@ -68,6 +72,7 @@
 	@layer properties, theme, base, components, utilities, blog, blog-no-script;
 	@layer blog {
 		.recipe-card {
+			position: relative;
 			background: var(--recipe-paper);
 			border: 1px solid var(--recipe-line);
 			border-radius: 16px;
@@ -101,6 +106,34 @@
 			text-decoration-color: currentColor;
 			text-underline-offset: 4px;
 		}
+		/* A sticker pinned over the card's top-right corner, tilted. */
+		.made-badge {
+			position: absolute;
+			top: -7px;
+			right: -6px;
+			z-index: 1;
+			display: inline-flex;
+			align-items: center;
+			gap: 5px;
+			margin: 0;
+			padding: 3px 9px 3px 4px;
+			border: 1px solid color-mix(in oklch, var(--recipe-made) 35%, transparent);
+			border-radius: 999px;
+			background: var(--recipe-badge);
+			color: var(--recipe-made);
+			font: italic 700 0.72rem / 1 var(--font-heading);
+			transform: rotate(10deg);
+			box-shadow: 0 2px 6px rgb(0 0 0 / 0.14);
+		}
+		.made-check {
+			display: grid;
+			place-items: center;
+			width: 16px;
+			height: 16px;
+			border-radius: 50%;
+			background: var(--recipe-made);
+			color: var(--recipe-badge);
+		}
 		.card-nutrition:has(> :global(.nutrition-pills)) {
 			margin-top: 14px;
 		}
@@ -123,6 +156,24 @@
 			display: grid;
 			grid-template-rows: 1fr auto;
 			gap: 6px;
+		}
+		/* Both metrics start at their column's left edge. Active time stays left
+		   aligned; the carb figure is centred under its label and, through subgrid
+		   (labels in one row, figures in the next), on the time figure's height. */
+		.card-numbers > .card-metric {
+			grid-row: span 2;
+			grid-template-rows: subgrid;
+			row-gap: 6px;
+			justify-self: start;
+		}
+		.card-metric dt {
+			align-self: end;
+		}
+		.card-metric dd {
+			align-self: center;
+		}
+		.card-metric .carb-value {
+			justify-self: center;
 		}
 		.card-numbers > div:last-child {
 			grid-column: 1 / -1;
@@ -203,7 +254,8 @@
 			}
 		}
 		@media print {
-			.card-photo {
+			.card-photo,
+			.made-badge {
 				display: none;
 			}
 		}

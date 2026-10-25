@@ -1,7 +1,9 @@
 <script>
 	import Shuffle from "@lucide/svelte/icons/shuffle";
+	import X from "@lucide/svelte/icons/x";
 	import { flushSync, onMount, tick, untrack } from "svelte";
 	import Button from "../../lib/components/ui/button.svelte";
+	import { activeFilters, withoutFilter, withoutFilters } from "./active-filters.mjs";
 	import { BASE_SERVINGS, DEFAULT_FILTERS, defaultAppliances, RECIPE_BATCH_SIZE, STORAGE_KEY } from "./constants.mjs";
 	import LibraryControls from "./LibraryControls.svelte";
 	import NativeRecipeControls from "./NativeRecipeControls.svelte";
@@ -9,6 +11,7 @@
 	import RecipeCard from "./RecipeCard.svelte";
 	import { withRecipeBrowse } from "./recipe-browse-coordination.mjs";
 	import { validateSettings } from "./recipe-logic.mjs";
+	import { madeDateFor, readMadeRecipes, watchMadeRecipes } from "./recipe-made.mjs";
 	import { clearLegacyRedirect, markLegacyRedirect } from "./recipe-navigation.mjs";
 	import { orderRecipeIds } from "./recipe-order.mjs";
 	import { loadRecipePack } from "./recipe-pack.mjs";
@@ -31,6 +34,8 @@
 	let appliancesOnHand = $state({ ...defaultAppliances });
 	let familyChoice = $state({});
 	let familyDiners = $state(0);
+	// Recipe id → the local date the reader last made it (recipe-made.mjs).
+	let made = $state.raw({});
 	let seed = $state("");
 	let expanding;
 	let loading = $state(false);
@@ -64,6 +69,8 @@
 	const renderedRecipes = $derived(summaries.slice(0, visibleLimit));
 	const smoothieIngredients = $derived(result.filterChoices.smoothieIngredients);
 	const hasMore = $derived(visibleLimit < result.total);
+	// The filters and search narrowing these results, shown as removable chips.
+	const chips = $derived(activeFilters(filters, query, { collection, hasIron: result.filterChoices.collectionHasIron, ingredientLabels: smoothieIngredients }));
 
 	function params(page = 1, shuffle = false) {
 		const values = new URLSearchParams({ path: collection === "smoothie" ? "/recipes/smoothies/" : "/recipes/meals/", browse: "1", page: String(page), servings: String(servings), units, q: query, seed, release: initial.release });
@@ -223,6 +230,21 @@
 			message = "The update could not be checked. Reconnect and choose Check for update to retry.";
 		}
 	}
+	// Removing a chip moves focus to the chip now in its place, or to the
+	// results heading when none remain, so keyboard focus is never lost.
+	async function removeChip(chip, index) {
+		if (chip.key === "query") query = "";
+		else filters = withoutFilter(filters, chip);
+		await tick();
+		const remaining = libraryElement?.querySelectorAll(".active-filters li button") ?? [];
+		(remaining[Math.min(index, remaining.length - 1)] ?? listHeading)?.focus();
+	}
+	async function clearChips() {
+		filters = withoutFilters(filters, chips);
+		query = "";
+		await tick();
+		listHeading?.focus();
+	}
 	function setUnits(value) { units = validateSettings({ units: value }).units; replaceUnitURL(units); }
 	function setServings(value) { ({ servings, familyDiners } = validateSettings({ servings: Number(value), familyDiners })); }
 	async function saveOpened(recipe) {
@@ -299,6 +321,9 @@
 			return;
 		}
 		clearLegacyRedirect();
+		const refreshMade = () => { made = readMadeRecipes(); };
+		refreshMade();
+		const stopWatchingMade = watchMadeRecipes(refreshMade);
 		if (savedMode && url.searchParams.get("collection") === "smoothie") collection = "smoothie";
 		const visit = history.state?.recipeList;
 		if (visit?.savedMode === savedMode && visit?.result?.release === initial.release && Array.isArray(visit.summaries) && ["meal", "smoothie"].includes(visit.collection)) {
@@ -319,7 +344,7 @@
 		document.addEventListener("visibilitychange", resume); window.addEventListener("online", resume); window.addEventListener("offline", resume);
 		navigator.connection?.addEventListener("change", resume);
 		scheduleBackground();
-		return () => { stopped = true; generation++; savedGeneration++; controller?.abort(); clearTimeout(backgroundTimer); stopPrint(); libraryElement?.removeEventListener("click", rememberVisit); window.removeEventListener("pagehide", saveVisit); document.removeEventListener("visibilitychange", resume); window.removeEventListener("online", resume); window.removeEventListener("offline", resume); navigator.connection?.removeEventListener("change", resume); };
+		return () => { stopped = true; generation++; savedGeneration++; controller?.abort(); clearTimeout(backgroundTimer); stopPrint(); libraryElement?.removeEventListener("click", rememberVisit); window.removeEventListener("pagehide", saveVisit); stopWatchingMade(); document.removeEventListener("visibilitychange", resume); window.removeEventListener("online", resume); window.removeEventListener("offline", resume); navigator.connection?.removeEventListener("change", resume); };
 	});
 	$effect(() => {
 		const key = browseKey;
@@ -339,9 +364,10 @@
 	{#if !saved}<noscript><NativeRecipeControls {collection} {pathname} metadata={result.filterChoices} /></noscript>{/if}
 	<div class="browse" id="meal-results" data-match-count={result.total} aria-busy={shuffling || loading}>
 		<div class="results-heading"><h2 bind:this={listHeading} tabindex="-1">{savedMode ? "Saved recipes" : collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2><Button class="enhanced-shuffle" variant="outline" type="button" disabled={!hydrated || shuffling || result.total < 2} onclick={shuffleCards}><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button>{#if !saved}<noscript><Button variant="outline" type="submit" form="recipe-browse-form" name="shuffle" value="1"><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button></noscript>{/if}</div>
+		{#if hydrated && chips.length}<div class="active-filters"><ul aria-label="Active filters and search">{#each chips as chip, index (`${chip.key}:${chip.value ?? ""}`)}<li><Button variant="outline" size="sm" type="button" aria-label={`Remove ${chip.key === "query" ? "search" : "filter"}: ${chip.label}`} onclick={() => removeChip(chip, index)}>{chip.label}<X aria-hidden="true" /></Button></li>{/each}</ul><Button variant="ghost" size="sm" type="button" onclick={clearChips}>Clear all</Button></div>{/if}
 		<p class="no-results" role="status">{!result.total ? savedMode ? "No saved recipes match. Open a recipe online to save it for offline use." : "No recipes match your search and filters. Try fewer words or adjust the filters." : query.trim() ? `${result.total} recipes found` : ""}</p>
 		<div class="recipe-grid">
-			{#each renderedRecipes as recipe (recipe.id)}<RecipeCard {recipe} servings={recipeSettings.servings} settings={recipeSettings} onPrint={() => print(recipe.id)} disabled={!hydrated} href={recipeBrowseHref(recipe, recipeSettings)} />{/each}
+			{#each renderedRecipes as recipe (recipe.id)}<RecipeCard {recipe} madeOn={madeDateFor(made, recipe.id)} servings={recipeSettings.servings} settings={recipeSettings} onPrint={() => print(recipe.id)} disabled={!hydrated} href={recipeBrowseHref(recipe, recipeSettings)} />{/each}
 		</div>
 		{#if unsupportedSavedRecords.length}<ul>{#each unsupportedSavedRecords as record (record.id)}<li><a href={`/recipes/${record.id}/`}>{record.recipe?.title || record.id}</a> - saved with another version; open its saved page to cook.</li>{/each}</ul>{/if}
 		{#if hydrated && hasMore}<div class="load-more" {@attach watchMore}><Button variant="outline" type="button" aria-busy={loading} onclick={() => loadMore(true)}>Load more recipes</Button><p>{renderedRecipes.length} of {result.total} recipes shown</p></div>{/if}
@@ -358,6 +384,9 @@
 	@layer blog {
 		.results-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 0.8rem; }
 		.results-heading :global(h2) { margin: 0; }
+		.active-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 0.8rem; }
+		/* .meal-library outranks the library's general list indent. */
+		.meal-library .active-filters ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
 		.meal-library {
 			background: var(--recipe-canvas);
 			border-radius: 16px;
@@ -382,6 +411,8 @@
 		.meal-library :global(button) {
 			cursor: pointer;
 		}
+		/* Chips are compact; this follows and outranks the library's button sizing. */
+		.meal-library .active-filters :global(button) { min-height: 36px; gap: 6px; font-size: 0.86rem; }
 		.meal-library :global(button:disabled) {
 			cursor: default;
 			opacity: 0.7;

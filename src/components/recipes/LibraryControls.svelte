@@ -19,7 +19,8 @@
 	import UnitControl from "./UnitControl.svelte";
 
 	// The recipe library's controls: the collection links, servings, the
-	// filters, the appliances on hand, the nutrition filters.
+	// appliances on hand, the filters (protein and carb or ingredient choices,
+	// then the nutrition checks) and the search.
 	// Every control is disabled until the library hydrates. `filters` is the
 	// library's DEFAULT_FILTERS-shaped filter state.
 	let {
@@ -110,18 +111,6 @@
 		<UnitControl {units} {onUnitsChange} disabled={!hydrated} />
 	</div>
 
-	<div class="recipe-filter-selects" class:smoothie-filters={collection === "smoothie"}>
-		<div class="filter-fields">
-			{#if collection === "meal"}
-				<FilterMultiSelect label="Proteins" options={proteins} bind:selected={filters.proteinChoice} emptyLabel="All proteins" disabled={!hydrated} canSelect={(values) => hasMatches({ protein: values })} />
-				<FilterMultiSelect label="Carbs" showClear={false} options={starchOptions} bind:selected={filters.starchChoice} emptyLabel="All starches" disabled={!hydrated} canSelect={(values) => hasMatches({ starch: values })} />
-			{:else}
-				<div class="smoothie-ingredients">
-					<FilterMultiSelect label="Ingredients" options={smoothieIngredients} bind:selected={filters.ingredientChoice} emptyLabel="All ingredients" disabled={!hydrated} canSelect={(values) => hasMatches({ ingredients: values })} />
-				</div>
-			{/if}
-		</div>
-	</div>
 	<fieldset class="inventory">
 		<legend>Appliances on hand</legend>
 		<!-- Keyboard focus lets users scroll the meals' appliance list; the
@@ -160,6 +149,17 @@
 	<!-- The legend floats so it lines up with the help trigger beside it. -->
 	<fieldset class="nutrient-filters">
 		<legend>Filters</legend><NutritionHelp />
+		<!-- The protein and carb (or ingredient) choices lead the filters. -->
+		<div class="filter-fields" class:smoothie-filters={collection === "smoothie"}>
+			{#if collection === "meal"}
+				<FilterMultiSelect label="Proteins" options={proteins} bind:selected={filters.proteinChoice} emptyLabel="All proteins" disabled={!hydrated} canSelect={(values) => hasMatches({ protein: values })} />
+				<FilterMultiSelect label="Carbs" showClear={false} options={starchOptions} bind:selected={filters.starchChoice} emptyLabel="All starches" disabled={!hydrated} canSelect={(values) => hasMatches({ starch: values })} />
+			{:else}
+				<div class="smoothie-ingredients">
+					<FilterMultiSelect label="Ingredients" options={smoothieIngredients} bind:selected={filters.ingredientChoice} emptyLabel="All ingredients" disabled={!hydrated} canSelect={(values) => hasMatches({ ingredients: values })} />
+				</div>
+			{/if}
+		</div>
 		<div class="nutrient-options">
 			{#each nutritionChecks as check (check.key)}<label for={controlId(check.key)} title={check.title}
 					><Checkbox
@@ -246,12 +246,9 @@
 			grid-column: 1;
 			grid-row: 1;
 		}
-		.recipe-filter-selects {
-			grid-column: 1 / -1;
-			display: grid;
-			gap: 16px;
-		}
 		.filter-fields {
+			flex-basis: 100%;
+			margin-top: 8px;
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 			gap: 16px;
@@ -260,7 +257,7 @@
 		.smoothie-ingredients {
 			grid-column: 1 / -1;
 		}
-		.smoothie-filters .filter-fields {
+		.filter-fields.smoothie-filters {
 			min-height: 0;
 			height: auto;
 		}
@@ -340,8 +337,7 @@
 			align-items: center;
 			flex-wrap: wrap;
 			gap: 0;
-			grid-column: 1;
-			grid-row: 5;
+			grid-column: 1 / -1;
 		}
 		/* Floated, the legend is a flex item beside the help trigger rather
 		   than the fieldset's caption. */

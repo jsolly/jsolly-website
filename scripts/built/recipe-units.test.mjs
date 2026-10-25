@@ -331,9 +331,41 @@ it("individual recipe controls recover corrupt preferences and remain enabled wh
 				exact: true,
 			})
 			.waitFor();
+		// A made mark the browser refuses to save stays for this visit, even
+		// when returning to the tab re-reads the (denied) record.
+		const made = page.getByRole("checkbox", { name: "I made this" });
+		await made.check();
+		await page
+			.getByText(
+				"Your made mark applies to this visit but could not be saved.",
+				{
+					exact: true,
+				},
+			)
+			.waitFor();
+		await page.evaluate(() =>
+			document.dispatchEvent(new Event("visibilitychange")),
+		);
+		// The made failure has its own line, so the preferences warning stays.
+		assert.deepEqual(
+			{
+				checked: await made.isChecked(),
+				made: await page.locator(".made [role=status]").textContent(),
+				shared: await page
+					.locator(".recipe-detail > p[role=status]")
+					.textContent(),
+			},
+			{
+				checked: true,
+				made: "Your made mark applies to this visit but could not be saved.",
+				shared: "Preferences apply to this visit but could not be saved.",
+			},
+		);
 		assert.deepEqual(errors.slice(errorsBeforeDeniedStorage), [
 			"Recipe preferences could not be restored; using US imperial and no side. SecurityError",
+			"Made recipes could not be restored; showing none as made. SecurityError",
 			"Recipe preferences could not be saved; changes apply only to this visit. SecurityError",
+			"A made recipe could not be saved; the mark applies only to this visit. SecurityError",
 		]);
 	} finally {
 		await context.close();

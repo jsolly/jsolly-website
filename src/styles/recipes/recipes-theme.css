@@ -17,6 +17,8 @@
 		--recipe-warm: #f1dfb7;
 		--recipe-input-border: var(--color-primary-500);
 		--recipe-badge: #e3ead8;
+		/* The made check on --recipe-badge: 5:1 or more in both schemes. */
+		--recipe-made: #2f6b2c;
 		--recipe-family: #f1ecd9;
 		--recipe-flow-paper: var(--color-card);
 		--recipe-flow-ink: var(--color-text-primary);
@@ -37,6 +39,7 @@
 			--recipe-warm: #4b4028;
 			--recipe-input-border: var(--color-primary-500);
 			--recipe-badge: #34452e;
+			--recipe-made: #a5d68f;
 			--recipe-family: #3c3b2b;
 			--recipe-flow-paper: var(--color-card);
 			--recipe-flow-ink: var(--color-text-primary);

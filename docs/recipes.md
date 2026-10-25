@@ -451,6 +451,17 @@ Search recipes searches the current collection alongside the existing filters.
 Names and ingredients rank highest; equipment, cooking instructions, family
 sides and nutrition highlights are searchable too. Online search runs on the browse server over the entire collection, with accent-insensitive matching, prefixes and limited typo tolerance. Offline search covers saved recipes only. Clearing search restores the current seeded order. Queries are not saved as preferences.
 
+The library's **Filters** section holds the protein and carb choices (ingredients
+on smoothies) above the nutrition checks; appliances on hand sit above it as the
+reader's kitchen, not a filter. Because filters persist, the interactive library
+shows each active filter and the search as a removable chip under the results
+heading (`active-filters.mjs`), with **Clear all**, which removes every shown
+chip. Chips count only filters the browse applies, so meal choices kept while
+viewing smoothies stay saved, and appliances are never cleared. Removing a
+chip moves keyboard focus to the chip now in its place (the new last chip when
+the last one is removed), or to the results heading when none remain. Without
+JavaScript, the native form's Reset filters link clears the URL instead.
+
 Each library card has a Print recipe action using the current servings, units,
 optional side and side-diner count. It loads and prints only that recipe without leaving the library. Individual printing also requests an offline save when the worker is available.
 
@@ -504,6 +515,16 @@ side-diner changes on a page are saved there and replace the matching URL
 settings. A page link without `servings`, `units`, `starch` or `sideDiners` uses
 the saved side and count. A link carrying explicit recipe settings, such as a share or non-default
 card link, decides the side itself.
+
+A reader can tick **I made this** on a recipe page. It records the local date in
+`localStorage` under `recipes-made-v1`, a separate record mapping recipe ids to
+`YYYY-MM-DD` (`recipe-made.mjs`); unticking removes that recipe. The page shows
+the last-made date and a **Made it today** button once that date is in the past,
+and cards in the interactive library show a green-check "Made it!" badge (server-rendered
+browse results do not). Both pages re-read the record when another tab changes
+it, Back restores the page, or the tab becomes visible again. The mark stays on
+that browser only: it does not sync between devices, and clearing site data
+removes it. Entries that are not real dates are dropped when read.
 
 ## Offline recipe app
 
