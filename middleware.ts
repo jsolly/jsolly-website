@@ -10,6 +10,8 @@ import {
 	shouldNegotiate,
 } from "./src/lib/accept-negotiate.js";
 import { agentResponse } from "./src/lib/agent-response.js";
+// biome-ignore lint/correctness/useJsonImportAttributes: Vercel's middleware bundler rejects import attributes (scripts/unit/middleware-bundle.test.mjs).
+import retiredCategories from "./src/lib/blog/retired-categories.json";
 import { previewResponseHeaders } from "./src/lib/csp-policy.js";
 import { recipeBrowseDestination } from "./src/lib/recipe-browse-route.mjs";
 // biome-ignore lint/correctness/useJsonImportAttributes: Vercel's middleware bundler rejects import attributes (scripts/unit/middleware-bundle.test.mjs).
@@ -21,7 +23,10 @@ const previewHeaders = previewResponseHeaders(
 	process.env.VERCEL_ENV,
 	vercelConfig,
 );
-const retiredPaths = new Set(retiredRecipes.map(({ id }) => `/recipes/${id}`));
+const retiredPaths = new Set([
+	...retiredRecipes.map(({ id }) => `/recipes/${id}`),
+	...retiredCategories.map(({ slug }) => `/blog/category/${slug}`),
+]);
 
 /** Same URL serves HTML or Markdown based on Accept, with Vary keeping CDN variants apart. */
 export default function middleware(request: Request) {

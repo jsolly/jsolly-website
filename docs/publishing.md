@@ -84,6 +84,12 @@ Keep published post and category slugs, and their case, unchanged: they are
 URLs (`/blog/<slug>/`, `/blog/category/<slug>/`), and the old host's redirects
 point at them. A new slug uses lowercase letters, digits and hyphens.
 
+Retired categories are removed from the CMS collection. Their old URLs remain
+200 retirement notices listed in `src/lib/blog/retired-categories.json`, with
+`noindex` on HTML and Markdown responses and no sitemap or category-menu entry.
+Do not assign new posts to a retired category. The legacy redirect contract stays
+unchanged because those destination URLs still exist.
+
 Choose up to three related posts by hand; a slug that names no post fails the
 build. `settings.content.merge: true` keeps frontmatter keys the CMS does not
 manage, such as `legacyId`, `legacyImage` and `legacyAuthorId`. Empty optional

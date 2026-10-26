@@ -4,7 +4,6 @@ import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { categoryHref, postHref } from "../../src/lib/blog/urls.js";
 import {
-	categorySlugs,
 	collectErrors,
 	exists,
 	publishedPosts,
@@ -396,7 +395,7 @@ it("Without JavaScript the blog home offers the full archive instead of Load mor
 	}
 });
 
-it("Category pages list only their own published posts, an empty category says so, and every card's category link is a built page", async () => {
+it("Category pages list only their own published posts, and every card's category link is a built page", async () => {
 	const geodevSlugs = published
 		.filter(({ category }) => category === "Geodev")
 		.map(({ slug }) => `/blog/${slug}/`);
@@ -422,27 +421,6 @@ it("Category pages list only their own published posts, an empty category says s
 	} finally {
 		await context.close();
 	}
-
-	const used = new Set(published.map(({ category }) => category));
-	const emptyCategories = (await categorySlugs()).filter(
-		(slug) => !used.has(slug),
-	);
-	assert.ok(emptyCategories.length > 0, "some category has no published post");
-	const empty = await Promise.all(
-		emptyCategories.map((slug) =>
-			readBuilt(categoryHref(slug), (document) => ({
-				slug,
-				cards: document.querySelectorAll(".post-card").length,
-				notice: document
-					.querySelector("main")
-					.textContent.includes("No posts in this category yet."),
-			})),
-		),
-	);
-	assert.deepEqual(
-		empty,
-		emptyCategories.map((slug) => ({ slug, cards: 0, notice: true })),
-	);
 
 	const archiveLinks = await readBuilt("blog/all-posts", categoryLinks);
 	assert.equal(archiveLinks.length, published.length);

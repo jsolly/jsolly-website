@@ -10,16 +10,20 @@ import retiredRecipes from "../../src/components/recipes/retired-recipes.json" w
 	type: "json",
 };
 import { postLastmods } from "../../src/lib/blog/post-loader.js";
+import retiredCategories from "../../src/lib/blog/retired-categories.json" with {
+	type: "json",
+};
 import { astroCsp } from "../../src/lib/csp-policy.js";
 
 // Astro builds these as dist/404.html and dist/500.html; they are not routes.
 const ERROR_ROUTES = new Set(["/404/", "/500/"]);
 const EDGE_SLASHES = /^\/+|\/+$/gu;
-// Exclude noindex search.
+// Exclude noindex search, saved recipes and retirement notices.
 // The integration already drops the 404 and 500 pages.
 const SITEMAP_EXCLUDED = new Set([
 	"/blog/search/",
 	"/recipes/saved/",
+	...retiredCategories.map(({ slug }) => `/blog/category/${slug}/`),
 	...retiredRecipes.map(({ id }) => `/recipes/${id}/`),
 ]);
 // Read once at config load, outside @astrojs/sitemap's serialize, whose

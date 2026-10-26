@@ -50,7 +50,7 @@ function cmsSource({ body, ...fields }) {
 const CMS_POST = {
 	slug: "cms-contract",
 	title: "CMS source compatibility",
-	category: "uncategorized",
+	category: "Geodev",
 	description: "Test the actual authoring format.",
 	draft: false,
 	published: "2026-10-02T14:00:23.123456-04:00",
@@ -60,6 +60,7 @@ const CMS_POST = {
 
 // A CMS upload under /blog/media/, used as the post image and in the body.
 const UPLOAD = "/blog/media/cms-upload.webp";
+const EMPTY_CATEGORY = "empty-category-contract";
 
 // A draft whose slug, text and update time appear nowhere else. Its update
 // time is later than every real post's, so a leak into a feed or a sitemap
@@ -73,7 +74,7 @@ const DRAFT = serializePost({
 	title: DRAFT_SECRET,
 	body: `<p>${DRAFT_SECRET}</p>`,
 	description: DRAFT_SECRET,
-	category: "uncategorized",
+	category: "Geodev",
 	draft: true,
 	published: "2026-10-02T00:00:00Z",
 	updated: `${DRAFT_UPDATED}Z`,
@@ -84,7 +85,7 @@ const DRAFT = serializePost({
 const IMAGE_POST = {
 	slug: "cms-image-contract",
 	title: "CMS image upload",
-	category: "uncategorized",
+	category: "Geodev",
 	description: "A post whose images are CMS uploads.",
 	draft: false,
 	image: UPLOAD,
@@ -201,6 +202,15 @@ async function readImagePost() {
 
 before(async () => {
 	copy = await createTempCopy("content-contracts");
+	await writeFile(
+		join(copy.dir, CATEGORIES_DIR, `${EMPTY_CATEGORY}.json`),
+		JSON.stringify({
+			slug: EMPTY_CATEGORY,
+			name: "Empty category fixture",
+			description: "No published posts.",
+		}),
+		{ flag: "wx" },
+	);
 	await writePost(CMS_POST.slug, cmsSource(CMS_POST));
 	await writePost(IMAGE_POST.slug, cmsSource(IMAGE_POST));
 	await writePost(DRAFT_SLUG, DRAFT);
@@ -214,7 +224,17 @@ before(async () => {
 		readDraft(),
 		readImagePost(),
 	]);
-	built = { cms, draft, image };
+	const emptyCategory = await readCopy(
+		`blog/category/${EMPTY_CATEGORY}`,
+		(document) => ({
+			title: document.querySelector("h1")?.textContent,
+			cards: document.querySelectorAll(".post-card").length,
+			notice: document
+				.querySelector("main")
+				.textContent.includes("No posts in this category yet."),
+		}),
+	);
+	built = { cms, draft, image, emptyCategory };
 });
 
 after(async () => {
@@ -321,14 +341,11 @@ it("an identical copy of a post under another file name fails the build with Dup
 it("an identical copy of a category under another file name fails the build with Duplicate category slug", async () => {
 	const { status, output } = await failingBuild({
 		[join(CATEGORIES_DIR, `identity-contract-${randomUUID()}.json`)]:
-			await readFile(
-				join(copy.dir, CATEGORIES_DIR, "uncategorized.json"),
-				"utf8",
-			),
+			await readFile(join(copy.dir, CATEGORIES_DIR, "Geodev.json"), "utf8"),
 	});
 	assert.notEqual(status, 0, "a duplicate category builds");
 	assert.ok(
-		output.includes("Duplicate category slug: uncategorized"),
+		output.includes("Duplicate category slug: Geodev"),
 		`the error names the slug:\n${output}`,
 	);
 });
@@ -347,5 +364,30 @@ it("a post relating a slug that names no post fails the build, naming both", asy
 	assert.ok(
 		output.includes(`Unknown related post: ${missing} (post related-contract)`),
 		`the error names the slug and the post:\n${output}`,
+	);
+});
+
+it("an active category with no published posts renders its empty state in an isolated fixture", () => {
+	assert.deepEqual(built.emptyCategory, {
+		title: "Empty category fixture",
+		cards: 0,
+		notice: true,
+	});
+});
+
+it("a post cannot use a retired category", async () => {
+	const { status, output } = await failingBuild({
+		[join(POSTS_DIR, "retired-category-contract.md")]: cmsSource({
+			...CMS_POST,
+			slug: "retired-category-contract",
+			category: "uncategorized",
+		}),
+	});
+	assert.notEqual(status, 0, "a post in a retired category builds");
+	assert.ok(
+		output.includes(
+			"Unknown category: uncategorized (post retired-category-contract)",
+		),
+		output,
 	);
 });
