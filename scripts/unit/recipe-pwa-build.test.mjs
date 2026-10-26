@@ -12,6 +12,8 @@ import { dirname, join } from "node:path";
 import { it } from "vitest";
 import { buildRecipePwa } from "../recipes/pwa-build.mjs";
 
+const UNEXPECTED_PIN = /unexpected deployment pin/u;
+
 it("worker manifests retain no-script, responsive and island resources without collecting inert markup", async () => {
 	const root = mkdtempSync(join(tmpdir(), "recipe-pwa-build-"));
 	const files = {
@@ -166,6 +168,78 @@ it("each PWA rebuild refreshes shared asset digests while recipe graphs remain i
 		);
 		rmSync(join(root, "shared.css"));
 		await assert.rejects(buildRecipePwa(root), { code: "ENOENT" });
+	} finally {
+		rmSync(root, { recursive: true, force: true });
+	}
+});
+
+it("pinned PWA builds retain transitive modules, CSS fonts and saved-view lazy chunks without admitting unrelated queries", async () => {
+	const root = mkdtempSync(join(tmpdir(), "recipe-pwa-pinned-"));
+	const deploymentId = "dpl_fixture_A";
+	const files = {
+		"release.json": JSON.stringify({ sha: "a".repeat(40) }),
+		"recipes/pwa/manifest.webmanifest": "{}",
+		"recipes/index.html": `<link rel="manifest" href="/recipes/pwa/manifest.webmanifest"><link rel="stylesheet" href="/_astro/styles.css?dpl=${deploymentId}"><script type="module" src="/_astro/entry.js?dpl=${deploymentId}"></script><link rel="stylesheet" href="/_astro/missing.css?v=1">`,
+		"recipes/test-recipe/index.html": `<astro-island component-url="/_astro/entry.js?dpl=${deploymentId}" renderer-url="/_astro/shared.js?dpl=${deploymentId}"></astro-island>`,
+		"recipes/data/packs/test-recipe.json": "{}",
+		"_astro/entry.js": `import './shared.js?dpl=${deploymentId}'; export const later = () => import(\`./lazy.js?dpl=${deploymentId}\`);`,
+		"_astro/shared.js": "export const value = 1;",
+		"_astro/lazy.js": "export const later = 2;",
+		"_astro/styles.css": `:root{--tw-content:""}@font-face{font-family:Fixture;src:url(/_astro/font.abc.woff2?dpl=${deploymentId})format("woff2")}`,
+		"_astro/font.abc.woff2": "fixture-font-bytes",
+	};
+	try {
+		for (const [file, bytes] of Object.entries(files)) {
+			mkdirSync(dirname(join(root, file)), { recursive: true });
+			writeFileSync(join(root, file), bytes);
+		}
+		const { urls } = await buildRecipePwa(root, { deploymentId });
+		for (const asset of [
+			"entry.js",
+			"shared.js",
+			"styles.css",
+			"font.abc.woff2",
+		]) {
+			assert.ok(urls.includes(`/_astro/${asset}`), asset);
+		}
+		assert.equal(
+			urls.includes("/_astro/lazy.js"),
+			false,
+			"installation remains static-only",
+		);
+		const recipe = JSON.parse(
+			readFileSync(join(root, "recipes/data/offline/test-recipe.json"), "utf8"),
+		);
+		assert.ok(recipe.assets.some(([path]) => path === "/_astro/lazy.js"));
+		assert.ok(recipe.assets.every(([path]) => !path.includes("?")));
+		writeFileSync(join(root, "_astro/shared.js"), "export const value = 3;");
+		await buildRecipePwa(root, { deploymentId });
+		const changed = JSON.parse(
+			readFileSync(join(root, "recipes/data/offline/test-recipe.json"), "utf8"),
+		);
+		assert.notDeepEqual(
+			new Map(changed.assets).get("/_astro/shared.js"),
+			new Map(recipe.assets).get("/_astro/shared.js"),
+		);
+	} finally {
+		rmSync(root, { recursive: true, force: true });
+	}
+});
+
+it("PWA generation rejects a mismatched generated deployment pin", async () => {
+	const root = mkdtempSync(join(tmpdir(), "recipe-pwa-wrong-pin-"));
+	try {
+		mkdirSync(join(root, "recipes/pwa"), { recursive: true });
+		writeFileSync(
+			join(root, "recipes/index.html"),
+			// biome-ignore lint/security/noSecrets: fixture HTML contains no credentials.
+			'<link rel="manifest" href="/recipes/pwa/manifest.webmanifest"><script src="/_astro/entry.js?dpl=other"></script>',
+		);
+		writeFileSync(join(root, "recipes/pwa/manifest.webmanifest"), "{}");
+		await assert.rejects(
+			buildRecipePwa(root, { deploymentId: "dpl_fixture_A" }),
+			UNEXPECTED_PIN,
+		);
 	} finally {
 		rmSync(root, { recursive: true, force: true });
 	}

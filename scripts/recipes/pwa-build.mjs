@@ -44,9 +44,10 @@ const LINK_RESOURCES = new Set([
 ]);
 // Files a script or stylesheet names: quoted script, style and font paths
 // (the minifier quotes some strings with backticks) and CSS url()s.
-const QUOTED_ASSET = /["'`](?<path>[^"'`\s]+\.(?:js|css|woff2?))["'`]/gu;
+const QUOTED_ASSET =
+	/["'`](?<path>[\w@%./-]+\.(?:js|css|woff2?)(?:\?[^"'`\s()<>]*)?)["'`]/gu;
 const STATIC_IMPORT =
-	/\b(?:import|export)\s*(?:[^;"'`()]*?\bfrom\s*)?["'`](?<path>[^"'`\s]+\.js)["'`]/gu;
+	/\b(?:import|export)\s*(?:[^;"'`()]*?\bfrom\s*)?["'`](?<path>[\w@%./-]+\.js(?:\?[^"'`\s()<>]*)?)["'`]/gu;
 const CSS_URL = /url\(["']?(?<path>[^\s)"']+)["']?\)/gu;
 const FONT_FILE = /\.[^/.]+\.woff2?$/u;
 const WHITESPACE = /\s+/u;
@@ -120,12 +121,23 @@ function fileReferences(contents, path, dynamic = true) {
 }
 
 // The same-origin path `value` names from `base`, or null for another origin
-// or a URL with a query (neither is part of the snapshot).
-function sitePath(value, base) {
+// or an unrelated query. Generated deployment pins identify these same bytes;
+// the worker cache owns pathname keys and verifies each response against its digest.
+function sitePath(value, base, deploymentId) {
 	// Vite preload dependency tables use build-root paths without a leading slash.
 	const reference = value.startsWith("_astro/") ? `/${value}` : value;
 	const url = new URL(reference, `${BASE}${base}`);
-	return url.origin === BASE && !url.search ? url.pathname : null;
+	if (url.origin !== BASE) return null;
+	if (!url.search) return url.pathname;
+	if (!url.pathname.startsWith("/_astro/")) return null;
+	const pins = [...url.searchParams];
+	if (pins.length !== 1 || pins[0][0] !== "dpl") return null;
+	if (!deploymentId || pins[0][1] !== deploymentId) {
+		throw new Error(
+			`pwa-build: generated asset has an unexpected deployment pin: ${value}`,
+		);
+	}
+	return url.pathname;
 }
 
 const fileOf = (root, path) =>
@@ -135,9 +147,18 @@ const fileOf = (root, path) =>
 // the files those name, until nothing new turns up. The worker is never part
 // of its own snapshot: the client script names it, and a copied build may
 // already hold an older one.
-async function collect(root, references, files, readContents, dynamic = true) {
+async function collect(
+	root,
+	references,
+	files,
+	readContents,
+	dynamic,
+	deploymentId,
+) {
 	const paths = [
-		...new Set(references.map(([value, base]) => sitePath(value, base))),
+		...new Set(
+			references.map(([value, base]) => sitePath(value, base, deploymentId)),
+		),
 	].filter((path) => path && path !== PWA_WORKER_PATH && !files.has(path));
 	if (paths.length === 0) return;
 	// Browsers capable of this service worker support WOFF2. Do not download
@@ -164,6 +185,7 @@ async function collect(root, references, files, readContents, dynamic = true) {
 		files,
 		readContents,
 		dynamic,
+		deploymentId,
 	);
 }
 
@@ -179,7 +201,7 @@ function digest(contents) {
  * copy of it) and returns { cache, urls }: its cache name and the sorted paths
  * it precaches. Throws when the landing page links no recipe app manifest.
  */
-export async function buildRecipePwa(root) {
+export async function buildRecipePwa(root, { deploymentId } = {}) {
 	// A build reads one immutable output tree. Reuse bytes and digests within
 	// this invocation; every rebuild starts fresh, including the same root.
 	const fileContents = new Map();
@@ -228,6 +250,7 @@ export async function buildRecipePwa(root) {
 		shell,
 		readContents,
 		false,
+		deploymentId,
 	);
 	// Icons are named by the manifest JSON, not an HTML resource attribute.
 	await collect(
@@ -238,6 +261,7 @@ export async function buildRecipePwa(root) {
 		shell,
 		readContents,
 		false,
+		deploymentId,
 	);
 	const offlineApi = await globby("_astro/recipe-offline.*.js", { cwd: root });
 	await collect(
@@ -246,6 +270,7 @@ export async function buildRecipePwa(root) {
 		shell,
 		readContents,
 		false,
+		deploymentId,
 	);
 	const savedTools = new Map();
 	const summaryModules = await globby("_astro/recipe-summary.*.js", {
@@ -265,6 +290,7 @@ export async function buildRecipePwa(root) {
 		savedTools,
 		readContents,
 		true,
+		deploymentId,
 	);
 	const release = JSON.parse(
 		await readFile(join(root, "release.json"), "utf8"),
@@ -309,6 +335,8 @@ export async function buildRecipePwa(root) {
 			[[page, "/"], [packPath, "/"], ...chosen],
 			recipeFiles,
 			readContents,
+			true,
+			deploymentId,
 		);
 		const manifest = {
 			schemaVersion: 1,
@@ -369,7 +397,9 @@ if (
 	if (process.env.MAINTENANCE_MODE === "true") {
 		console.info("Maintenance build: no recipe service worker written.");
 	} else {
-		const { cache, urls } = await buildRecipePwa(root);
+		const { cache, urls } = await buildRecipePwa(root, {
+			deploymentId: process.env.VERCEL_DEPLOYMENT_ID,
+		});
 		console.info(
 			`Wrote ${join(root, PWA_WORKER_PATH)}: ${cache}, ${urls.length} files.`,
 		);

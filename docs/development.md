@@ -263,15 +263,39 @@ Controlled recipe pages use the downloaded-snapshot workflow in
 [recipe operations](recipes.md). Vercel cache purges do not invalidate those browser
 snapshots. Runtime, fixtures and release tests are owned by this repository.
 
-Ordinary-page old-asset retention remains an unresolved acceptance gap. The
-portfolio/blog use hashed Astro assets, but there is no verified guarantee that
-an A-only chunk remains reachable through the production alias after B deploys.
-Their A/B fixtures test release detection/reload, not changed asset retention.
-[Vercel Skew Protection](https://vercel.com/docs/skew-protection) requires both
-project support and deployment-pinned requests; deployment retention alone does
-not prove this alias behavior. Recipe-controlled clients have the versioned
-snapshot routing described above. Do not claim equivalent protection for an
-ordinary tab that has not finished loading its assets.
+Vercel builds pin generated JavaScript entrypoints, inter-chunk imports,
+stylesheets and CSS font/image references to their deployment with `?dpl=`.
+The repository's static-only Astro integration supplies the native client asset
+pin and Vite resource URLs. The existing HTML postprocessor pins the static
+stylesheet links Astro currently omits, preserving inline script bytes and
+hydration comments. The ordinary static builder, root routing middleware, browse
+function and local `dist/` output retain their existing ownership.
+
+Hosted builds fail when Skew Protection or the deployment ID is missing. Local
+and ordinary CI builds remain unpinned. The recipe worker builder recognizes only
+the current build's generated deployment pin; its digest-bound snapshots keep
+pathname keys and include pinned transitive modules and CSS font resources.
+Other query URLs remain outside that snapshot contract. A mixed deployment ID
+in generated assets fails the worker build.
+
+On October 26, 2026 the live website project had Skew Protection enabled with
+Maximum Age = 12 hours and no cross-site allowed domains. That window starts at
+deployment creation, not when a tab opens. Do not claim availability after that
+window or retroactive protection for a client that loaded an older unpinned
+release. Full document navigation and `release.json` remain current, so explicit
+updates still reach the latest release. Mutable public media and arbitrary
+application fetches are outside the generated-asset pinning contract. Recipe
+clients additionally retain their verified downloaded snapshots.
+
+Local browser fixtures build two different pinned releases. They exercise an
+old document's previously unloaded JavaScript and stylesheet after replacement,
+with a missing/different unpinned negative control, and real offline recipe
+installation, save and reopening. These fixtures prove compiler/client/worker
+behavior; production acceptance separately requires a cold same-origin old
+module request returning original bytes while a newer deployment is current.
+Record its age, exact hashes and a distinguishable B/unpinned control. A passing
+build, deployment metadata or two identical asset bodies cannot establish that
+provider result.
 
 The gate's built browser tests serve distinct releases A, B and C at one origin.
 They exercise first installation, explicit multi-tab activation, postponement and
@@ -314,6 +338,11 @@ PR code is uploaded as data and never executed locally with deployment tokens.
 GitHub's public-repository event policy may block `pull_request_target`.
 [Review the applicable policy and insights](https://docs.github.com/en/actions/reference/security/securely-using-pull_request_target#default-policy-for-pull_request_target)
 before relying on automatic label events. The documented default is evaluated
-now and conditionally enforced December 2, 2026. A policy change needs its own
-authorization. Manual main-branch dispatch and `/preview` remain explicit
+now and conditionally enforced December 2, 2026. The repository's Active policy
+[Allow opt-in website Preview workflow](https://github.com/jsolly/jsolly-website/settings/actions/rules/8924)
+was saved and reloaded on October 26, 2026. It targets only
+`.github/workflows/vercel-preview.yml` and allows its existing `pull_request_target`,
+`issue_comment` and `workflow_dispatch` events. Other workflows remain outside
+this exception. Recheck that policy after changing this workflow's name or
+triggers. Manual main-branch dispatch and `/preview` remain explicit
 one-shot paths. Source tests do not prove a live Preview lifecycle.
