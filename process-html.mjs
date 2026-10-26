@@ -2,6 +2,10 @@ import fs from "node:fs/promises";
 import { globby } from "globby";
 import { minify } from "html-minifier-terser";
 import { JSDOM } from "jsdom";
+import {
+	deploymentAssetPin,
+	pinStylesheets,
+} from "./scripts/vercel-static-assets.mjs";
 
 const HEADING_SLUG_SPACES = /[\s.,?:]+/gu;
 const HEADING_SLUG_TRAILING_DASH = /-+$/u;
@@ -51,6 +55,7 @@ function addHeadingIds(html) {
 
 // The output directory: dist/, or a fixture tree in tests.
 const root = process.argv[2] ?? "./dist";
+const deploymentId = deploymentAssetPin(process.env);
 if (!(await fs.stat(root)).isDirectory())
 	throw new Error(`HTML postprocessor requires a directory: ${root}`);
 const files = await globby("**/*.html", { cwd: root });
@@ -65,6 +70,7 @@ await Promise.all(
 		if (!ID_PASS_SKIPPED.some((dir) => relative.startsWith(dir))) {
 			html = addHeadingIds(html);
 		}
+		html = pinStylesheets(html, deploymentId);
 
 		// Minify the HTML
 		html = await minify(

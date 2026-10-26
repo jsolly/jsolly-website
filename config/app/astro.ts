@@ -4,8 +4,9 @@ import { satteri } from "@astrojs/markdown-satteri";
 import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
-import type { AstroIntegration } from "astro";
+import type { AstroConfig, AstroIntegration } from "astro";
 import { defineConfig } from "astro/config";
+import { deploymentAssetPin } from "../../scripts/vercel-static-assets.mjs";
 import retiredRecipes from "../../src/components/recipes/retired-recipes.json" with {
 	type: "json",
 };
@@ -68,6 +69,52 @@ function routeManifest(): AstroIntegration {
 	};
 }
 
+// Keep Vercel's existing static builder, API functions and routing middleware.
+// Astro owns pinning HTML resources and generated inter-chunk imports.
+function vercelStaticAssets(): AstroIntegration {
+	const deploymentId = deploymentAssetPin(process.env);
+	type AssetUrlRenderer = NonNullable<
+		NonNullable<AstroConfig["vite"]["experimental"]>["renderBuiltUrl"]
+	>;
+	const renderBuiltUrl: AssetUrlRenderer = (filename, { type }) => {
+		if (!deploymentId || type !== "asset" || !filename.startsWith("_astro/")) {
+			return;
+		}
+		return `/${filename}?${new URLSearchParams({ dpl: deploymentId })}`;
+	};
+	return {
+		name: "vercel-static-assets",
+		hooks: {
+			"astro:config:setup": ({ updateConfig }) => {
+				if (!deploymentId) return;
+				updateConfig({
+					vite: {
+						experimental: {
+							// Cover Vite preload tables and CSS font/image references too.
+							renderBuiltUrl,
+						},
+					},
+				});
+			},
+			"astro:config:done": ({ config, setAdapter }) => {
+				if (!deploymentId) return;
+				if (config.output !== "static") {
+					throw new Error("The website asset adapter requires static output.");
+				}
+				setAdapter({
+					name: "vercel-static-assets",
+					entrypointResolution: "auto",
+					adapterFeatures: { buildOutput: "static" },
+					supportedAstroFeatures: { staticOutput: "stable" },
+					client: {
+						assetQueryParams: new URLSearchParams({ dpl: deploymentId }),
+					},
+				});
+			},
+		},
+	};
+}
+
 // https://astro.build/config
 export default defineConfig({
 	site:
@@ -103,6 +150,7 @@ export default defineConfig({
 			},
 		}),
 		routeManifest(),
+		vercelStaticAssets(),
 	],
 
 	// Prism highlights with classes; Shiki would emit inline style attributes
