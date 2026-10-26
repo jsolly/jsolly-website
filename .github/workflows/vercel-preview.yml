@@ -1,32 +1,14 @@
-# GitHub Vercel Preview template — opt-in CLI Preview (automatic Git Preview is off)
-# Copy to .github/workflows/vercel-preview.yml and:
-#   1. Replace prj_9irfTPLYZwwuC7YK0oB3bkc1QXtW with the Vercel project id
-#   2. Copy vercel-preview-comment.sh, vercel-preview-comment-contract.sh, and
-#      vercel-preview-workflow-contract.sh into scripts/
-#   3. Merge vercel.git.deploymentEnabled.json into vercel.json
-#   4. Add GitHub secret VERCEL_TOKEN (leftover: do not invent a token)
-#   5. Create the label: gh label create preview -R <owner/repo> \
-#        --description 'Redeploy a Vercel Preview on every push'
-# VERCEL_ORG_ID is the jsolly team (team_T8yHg0aDz7nCbyBgJh5a2saR).
-# CLI pin: vercel@59.20.0 (copied from GeoRoids PR 604 — do not invent a version).
-#
-# Opt-in Preview deploys. Automatic Git Preview builds are off in vercel.json.
-# Same-repo owner/member/collaborator User comments `/preview` on a PR, or runs this
-# workflow with a PR number: a one-shot deploy. Adding the `preview` label to a
-# same-repo PR deploys it and redeploys on every push until the label is removed.
-# GitHub runs no pull_request workflow while the PR has a merge conflict, so
-# label redeploys pause until the conflict is resolved.
-# Requires GitHub secret VERCEL_TOKEN.
-# issue_comment runs the workflow file from the default branch; pull_request
-# runs it from the PR head, which already holds secrets for same-repo PRs.
-# Agents trigger previews only when John asks; never use the label or dispatch unasked.
+# Repository-owned opt-in Vercel Previews. Automatic branch Git deploys stay off.
+# Automatic requests and tooling use main. PR sources are uploaded as data only.
+# Agents trigger Preview deployments only when John asks.
 
 name: Vercel Preview
 
 'on':
   issue_comment:
     types: [created]
-  pull_request:
+  pull_request_target:
+    branches: [main]
     types: [labeled, synchronize]
   workflow_dispatch:
     inputs:
@@ -49,9 +31,10 @@ jobs:
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 5
     if: >-
-      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'workflow_dispatch' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)) ||
       (
-        github.event_name == 'pull_request' &&
+        github.event_name == 'pull_request_target' &&
+        github.event.pull_request.base.ref == github.event.repository.default_branch &&
         github.event.pull_request.state == 'open' &&
         github.event.pull_request.head.repo.full_name == github.repository &&
         github.actor != 'dependabot[bot]' &&
@@ -76,20 +59,26 @@ jobs:
     outputs:
       skip: ${{ steps.pr.outputs.skip }}
       pr_number: ${{ steps.pr.outputs.pr_number }}
-      head_sha: ${{ steps.pr.outputs.head_sha }}
-      head_ref: ${{ steps.pr.outputs.head_ref }}
-      labeled: ${{ steps.pr.outputs.labeled }}
     steps:
       - uses: actions/checkout@v7
         with:
           ref: ${{ github.event.repository.default_branch }}
           persist-credentials: false
 
-      - name: Resolve the pull request head
+      - name: Validate the Preview request
         id: pr
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: bash scripts/vercel-preview-resolve.sh
+        run: |
+          set -euo pipefail
+          if [[ "$EVENT_NAME" == "issue_comment" ]] &&
+            ! printf '%s' "$COMMENT_BODY" | bash scripts/vercel-preview-comment.sh; then
+            echo "skip=true" >>"$GITHUB_OUTPUT"
+            exit 0
+          fi
+          [[ "$EVENT_PR" =~ ^[1-9][0-9]*$ ]] || { echo 'Invalid PR number' >&2; exit 1; }
+          {
+            echo "pr_number=${EVENT_PR}"
+            echo "skip=false"
+          } >>"$GITHUB_OUTPUT"
 
   preview:
     name: preview
@@ -98,8 +87,8 @@ jobs:
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 15
     # Only real deploys reach this group. Cancelling in-flight runs would abort
-    # a deploy mid-upload; a burst of pushes still collapses, since GitHub
-    # keeps one pending run per group.
+    # a deploy mid-upload. Resolve the latest eligible head inside this slot
+    # so out-of-order pending requests cannot discard a newer head.
     concurrency:
       group: vercel-preview-${{ needs.resolve.outputs.pr_number }}
       cancel-in-progress: false
@@ -109,9 +98,8 @@ jobs:
       REPO: ${{ github.repository }}
       EVENT_NAME: ${{ github.event_name }}
       PR_NUMBER: ${{ needs.resolve.outputs.pr_number }}
-      HEAD_SHA: ${{ needs.resolve.outputs.head_sha }}
-      HEAD_REF: ${{ needs.resolve.outputs.head_ref }}
-      LABELED: ${{ needs.resolve.outputs.labeled }}
+      EVENT_PR: ${{ needs.resolve.outputs.pr_number }}
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
     steps:
       # Keep PR-controlled package-manager files out of setup-node's cwd. A
       # yarnPath can execute during yarn --version even with caching disabled.
@@ -121,6 +109,12 @@ jobs:
           ref: ${{ github.event.repository.default_branch }}
           path: tooling
           persist-credentials: false
+
+      - name: Resolve the pull request head
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash "$GITHUB_WORKSPACE/tooling/scripts/vercel-preview-resolve.sh"
 
       # No package-manager cache: the label path's cache scope is one PR code
       # writes in CI, and a restored ~/.npm could plant the npx vercel package
@@ -133,7 +127,7 @@ jobs:
       - name: Check out PR sources
         uses: actions/checkout@v7
         with:
-          ref: ${{ needs.resolve.outputs.head_sha }}
+          ref: ${{ steps.pr.outputs.head_sha }}
           path: source
           persist-credentials: false
 
@@ -143,5 +137,8 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           GH_TOKEN: ${{ github.token }}
+          HEAD_SHA: ${{ steps.pr.outputs.head_sha }}
+          HEAD_REF: ${{ steps.pr.outputs.head_ref }}
+          LABELED: ${{ steps.pr.outputs.labeled }}
           SOURCE_DIR: ${{ github.workspace }}/source
         run: bash "$GITHUB_WORKSPACE/tooling/scripts/vercel-preview-deploy.sh"
