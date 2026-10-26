@@ -297,6 +297,25 @@ Record its age, exact hashes and a distinguishable B/unpinned control. A passing
 build, deployment metadata or two identical asset bodies cannot establish that
 provider result.
 
+After a pinned production release, run `node scripts/asset-retention-probe.mjs capture`
+with a new absolute JSON evidence path as its second argument. The command uses
+GET requests on the fixed production origin and refuses an existing output file.
+It records actual About-page module and stylesheet URLs, SHA-256 hashes, sizes,
+release identity and deployment pin. Keep this evidence outside the repository.
+Record deployment creation time separately from Vercel; capture time does not
+start or extend the project's 12-hour protection window.
+
+After another meaningful, reviewed release becomes current, run the same command
+with `verify` and the original evidence path. It requires a different current
+release, exact retained bytes, stable release identity during verification and a
+missing or byte-distinct unpinned module control. The JSON result records the
+control's actual status and hash when present. This is HTTP availability evidence.
+Complete acceptance with a fresh same-origin browser, service workers and browser
+cache disabled, importing the recorded old component after the replacement.
+Verify the module loaded over the network, returned the recorded bytes, and
+produced no import or console error. Do not count HTTP verification alone as
+browser execution, or two identical asset bodies as cross-deployment routing.
+
 The gate's built browser tests serve distinct releases A, B and C at one origin.
 They exercise first installation, explicit multi-tab activation, postponement and
 reopening, dirty cooking confirmation, third-release races, invalid metadata,
