@@ -20,4 +20,4 @@ The blog (`/blog/`) and recipe library (`/recipes/`) now live here. The old blog
 - **Editing:** [PagesCMS](https://app.pagescms.org) on an editorial branch from `main`, published by PR on green CI. See [docs/publishing.md](docs/publishing.md).
 - **Recipes:** edit `src/components/recipes/recipes.json`, then run `npm run recipes:sync` to regenerate the downloads in `public/recipes/data/` and commit both. See [docs/recipes.md](docs/recipes.md).
 
-<!-- Preview lifecycle probe: phase A. Temporary; removed after verification. -->
+<!-- Preview lifecycle probe: phase B. Temporary; removed after verification. -->
