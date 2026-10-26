@@ -299,3 +299,21 @@ Knip's Vercel dependency exception belongs to the John-only `vercel-curl`
 transport in `scripts/verify-blogthedata-cutover.mjs`, which resolves
 `node_modules/.bin/vercel` dynamically. Preview deployment uses its own isolated
 pinned CLI, and agents never run the cutover verifier's Vercel transport.
+
+### Preview workflow trust
+
+Automatic `preview` label events use `pull_request_target` for main-targeted,
+same-repo PRs. The workflow definition and helper scripts come from main.
+Manual dispatch is accepted only from main. The first job validates the request
+without deployment credentials; the serialized deploy job resolves the current
+eligible head after acquiring its slot. Closed, forked, retargeted or unlabeled
+PRs are refused. Rechecks before upload and alias publication suppress stale
+builds. Node setup and trusted tooling precede the isolated PR source checkout;
+PR code is uploaded as data and never executed locally with deployment tokens.
+
+GitHub's public-repository event policy may block `pull_request_target`.
+[Review the applicable policy and insights](https://docs.github.com/en/actions/reference/security/securely-using-pull_request_target#default-policy-for-pull_request_target)
+before relying on automatic label events. The documented default is evaluated
+now and conditionally enforced December 2, 2026. A policy change needs its own
+authorization. Manual main-branch dispatch and `/preview` remain explicit
+one-shot paths. Source tests do not prove a live Preview lifecycle.

@@ -25,14 +25,20 @@ require() {
 	fi
 }
 
-require 'run: bash scripts/vercel-preview-resolve.sh' 'execute the resolver from the trusted default-branch checkout'
+require 'run: bash "$GITHUB_WORKSPACE/tooling/scripts/vercel-preview-resolve.sh"' 'execute the resolver from the trusted default-branch checkout'
 require 'run: bash "$GITHUB_WORKSPACE/tooling/scripts/vercel-preview-deploy.sh"' 'execute deployment tooling from the trusted checkout outside PR sources'
+require '  pull_request_target:' 'load automatic workflow code from main'
+require '    branches: [main]' 'restrict automatic requests to main'
+require "github.ref == format('refs/heads/{0}', github.event.repository.default_branch)" 'restrict manual dispatch to the default branch'
+require '      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}' 'verify current PR base'
+require 'base_ref" != "$DEFAULT_BRANCH"' 'reject PRs retargeted away from main' "$RESOLVER"
+require '"$EVENT_NAME" == "pull_request_target" && "$labeled" != "true"' 'recheck label inside the deploy slot' "$RESOLVER"
 require '--build-env "VERCEL_GIT_COMMIT_SHA=${HEAD_SHA}"' 'pass the PR SHA as a Vite build env' "$DEPLOY"
 require '--meta "githubDeployment=1"' 'mark the CLI deploy as a GitHub deployment' "$DEPLOY"
 require '--meta "githubCommitSha=${HEAD_SHA}"' 'attach the PR SHA as GitHub commit metadata' "$DEPLOY"
 require 'jq -r '"'"'.head.sha'"'"'' 'resolve the Preview SHA from the PR head, not github.sha' "$RESOLVER"
-require 'ref: ${{ needs.resolve.outputs.head_sha }}' 'check out the resolved PR head SHA'
-require 'printf '"'"'%s'"'"' "$COMMENT_BODY" | bash scripts/vercel-preview-comment.sh' 'pipe comments through the exact /preview matcher' "$RESOLVER"
+require 'ref: ${{ steps.pr.outputs.head_sha }}' 'check out the resolved PR head SHA'
+require 'printf '"'"'%s'"'"' "$COMMENT_BODY" | bash scripts/vercel-preview-comment.sh' 'pipe comments through the exact /preview matcher'
 require 'github.event.comment.author_association == '"'"'OWNER'"'"'' 'restrict comment deploys to owner/member/collaborator'
 require 'head_repo" != "$REPO"' 'refuse fork PR heads' "$RESOLVER"
 require 'persist-credentials: false' 'do not persist the Actions token on checkout'
@@ -49,7 +55,7 @@ require "(github.event.action != 'labeled' || github.event.label.name == 'previe
 require "git -C \"\$SOURCE_DIR\" ls-files --cached --others -- ':(glob)**/vercel.ts' ':(glob)**/vercel.mts'" 'refuse PR source configs that the CLI would execute with VERCEL_TOKEN' "$DEPLOY"
 require "if: \${{ needs.resolve.outputs.skip == 'false' }}" 'deploy only after the resolve job accepts the event'
 require 'package-manager-cache: false' 'not restore a PR-written npm cache into the token-holding job'
-require 'if [[ "$current_sha" != "$HEAD_SHA" ]]; then' 'stand down for a newer head on every trigger' "$DEPLOY"
+require '|| "$current_sha" != "$HEAD_SHA" ]]; then' 'stand down for a newer head on every trigger' "$DEPLOY"
 require 'npx --yes vercel@59.20.0 alias set "$preview_url" "$preview_alias" --scope jsollys-projects' 'assign a stable project/PR alias with the pinned isolated CLI' "$DEPLOY"
 require 'preview_alias="pr-${PR_NUMBER}-${VERCEL_PROJECT_ID#prj_}.vercel.app"' 'scope the stable Preview alias to the full project ID and PR number' "$DEPLOY"
 require 'PR closed or moved during the build; leaving its Preview URL unchanged.' 'recheck the head after building before changing the alias' "$DEPLOY"
@@ -67,6 +73,7 @@ awk '
   resolve && /^          ref: \$\{\{ github.event.repository.default_branch \}\}$/ { resolveRef = NR }
   resolve && /^          persist-credentials: false$/ { resolveCredentials = NR }
   /^  preview:$/ { resolve = 0; preview = 1 }
+  preview && /name: Resolve the pull request head$/ { head = NR }
   preview && /name: Check out workflow tooling$/ { tooling = NR }
   preview && /uses: actions\/setup-node@/ { setup = NR }
   preview && /name: Check out PR sources$/ { sources = NR }
@@ -74,7 +81,7 @@ awk '
   preview && /^          path: source$/ { sourcePath = NR }
   END {
     if (!(resolveCheckout && resolveCheckout < resolveRef && resolveRef < resolveCredentials)) exit 1
-    if (!(tooling && tooling < toolingPath && toolingPath < setup && setup < sources && sources < sourcePath)) exit 1
+    if (!(tooling && tooling < toolingPath && toolingPath < head && head < setup && setup < sources && sources < sourcePath)) exit 1
   }
 ' "$WORKFLOW" || fail 'tokens must be step-scoped and Node setup must precede the isolated PR checkout'
 if grep -E '^env:' "$WORKFLOW" >/dev/null; then

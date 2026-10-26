@@ -30,11 +30,11 @@ fi
 # The label path also deploys only while the PR remains labeled.
 pr_json="$(gh api "repos/${REPO}/pulls/${PR_NUMBER}")"
 current_sha="$(printf '%s\n' "$pr_json" | jq -r '.head.sha')"
-if [[ "$current_sha" != "$HEAD_SHA" ]]; then
+if [[ "$(printf '%s\n' "$pr_json" | jq -r '.state')" != "open" || "$current_sha" != "$HEAD_SHA" ]]; then
   echo "PR head moved from ${HEAD_SHA} to ${current_sha}; the newer run deploys it."
   exit 0
 fi
-if [[ "$EVENT_NAME" == "pull_request" ]] &&
+if [[ "$EVENT_NAME" == "pull_request_target" ]] &&
   [[ "$(printf '%s\n' "$pr_json" | jq -r 'any(.labels[]; (.name | ascii_downcase) == "preview")')" != "true" ]]; then
   echo "The preview label was removed; not deploying."
   exit 0
@@ -98,7 +98,7 @@ if [[ "$(printf '%s\n' "$pr_json" | jq -r '.state')" != "open" ]] ||
   echo "PR closed or moved during the build; leaving its Preview URL unchanged."
   exit 0
 fi
-if [[ "$EVENT_NAME" == "pull_request" ]] &&
+if [[ "$EVENT_NAME" == "pull_request_target" ]] &&
   [[ "$(printf '%s\n' "$pr_json" | jq -r 'any(.labels[]; (.name | ascii_downcase) == "preview")')" != "true" ]]; then
   echo "The preview label was removed during the build; leaving its URL unchanged."
   exit 0
