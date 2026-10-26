@@ -2,6 +2,10 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { beforeAll as before, it } from "vitest";
+import middleware from "../../middleware.js";
+import retiredCategories from "../../src/lib/blog/retired-categories.json" with {
+	type: "json",
+};
 import { categoryHref, postHref } from "../../src/lib/blog/urls.js";
 import {
 	allPosts,
@@ -127,8 +131,11 @@ it("every legacy post and category URL leads to a built page, and each post is b
 	]);
 	assert.deepEqual(
 		new Set(categoryRows.map((row) => row.path)),
-		new Set((await categorySlugs()).map(categoryHref)),
-		"url-map.json category rows redirect to exactly the categories, slug case kept",
+		new Set([
+			...(await categorySlugs()).map(categoryHref),
+			...retiredCategories.map(({ slug }) => categoryHref(slug)),
+		]),
+		"url-map.json category rows redirect to exactly the active categories and retirement notices, slug case kept",
 	);
 	assert.deepEqual(
 		[...postRows, ...categoryRows].filter((row) => row.origin !== SITE),
@@ -251,4 +258,74 @@ it("every post page names its jsolly.com URL in its JSON-LD and share links and 
 		),
 	);
 	assert.deepEqual(unbuilt.flat(), [], "breadcrumb categories are built");
+});
+
+it("retired categories keep noindex HTML and Markdown notices outside navigation and the sitemap", async () => {
+	const active = new Set(await categorySlugs());
+	const sitemap = await readFile(join(DIST, "sitemap-0.xml"), "utf8");
+	assert.ok(retiredCategories.length > 0, "retirement coverage has a real URL");
+	await Promise.all(
+		retiredCategories.map(async ({ slug, name }) => {
+			const path = categoryHref(slug);
+			assert.ok(
+				!active.has(slug),
+				`${slug} is outside the active category collection`,
+			);
+			const facts = await readBuilt(path, (document) => ({
+				title: document.querySelector("h1")?.textContent,
+				robots: document
+					// biome-ignore lint/security/noSecrets: a static CSS selector, not a credential.
+					.querySelector('meta[name="robots"]')
+					?.getAttribute("content"),
+				canonical: document
+					// biome-ignore lint/security/noSecrets: a static CSS selector, not a credential.
+					.querySelector('link[rel="canonical"]')
+					?.getAttribute("href"),
+				text: document.querySelector("main").textContent,
+				browse: document.querySelector('main a[href="/blog/"]')?.textContent,
+				cards: document.querySelectorAll(".post-card").length,
+				selfLinks: document.querySelectorAll(`a[href="${path}"]`).length,
+			}));
+			assert.equal(facts.title, name);
+			assert.equal(facts.robots, "noindex, follow");
+			assert.equal(facts.canonical, `${SITE}${path}`);
+			assert.ok(facts.text.includes("This category is no longer used."));
+			assert.equal(facts.browse, "Browse the blog");
+			assert.equal(facts.cards, 0);
+			assert.equal(facts.selfLinks, 0, "no category navigation link");
+			assert.ok(!sitemap.includes(`${SITE}${path}`));
+			const markdown = await readFile(
+				join(DIST, `blog/category/${slug}.md`),
+				"utf8",
+			);
+			assert.ok(markdown.includes("This category is no longer used."));
+			assert.ok(
+				markdown.includes("[Browse the blog](https://www.jsolly.com/blog/)"),
+			);
+			for (const method of ["GET", "HEAD"]) {
+				for (const [url, accept] of [
+					[path, "text/html"],
+					[path, "text/markdown"],
+					[`/blog/category/${slug}.md`, "*/*"],
+				]) {
+					const response = middleware(
+						new Request(`${SITE}${url}`, { method, headers: { accept } }),
+					);
+					assert.equal(
+						response.headers.get("x-robots-tag"),
+						"noindex",
+						`${method} ${url} ${accept}`,
+					);
+				}
+			}
+		}),
+	);
+	const activeResponse = middleware(
+		new Request(`${SITE}/blog/category/Geodev/`),
+	);
+	assert.equal(
+		activeResponse.headers.get("x-robots-tag"),
+		null,
+		"active categories stay indexable",
+	);
 });
