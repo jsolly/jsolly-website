@@ -262,9 +262,7 @@ function verifyLibrary(width) {
 					.evaluateAll((links) => links.map((link) => link.dataset.recipeId)),
 				fishOrder,
 			);
-			await page
-				.getByRole("link", { name: "Keto smoothies", exact: true })
-				.click();
+			await page.getByRole("link", { name: "Smoothies", exact: true }).click();
 			await page.waitForFunction(
 				() => !document.querySelector("astro-island[ssr]"),
 			);

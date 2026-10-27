@@ -627,7 +627,7 @@ function filtersCheck(width) {
 
 			await follow(
 				page,
-				page.getByRole("link", { name: "Keto smoothies", exact: true }),
+				page.getByRole("link", { name: "Smoothies", exact: true }),
 				"**/recipes/smoothies/",
 			);
 			assert.equal(await cards(), smoothieCount);
@@ -666,7 +666,7 @@ function filtersCheck(width) {
 			await hydrated(page);
 			assert.equal(
 				await page
-					.getByRole("link", { name: "Keto smoothies", exact: true })
+					.getByRole("link", { name: "Smoothies", exact: true })
 					.getAttribute("aria-current"),
 				"page",
 			);
@@ -959,7 +959,7 @@ function collectionsCheck(width) {
 			);
 			await Promise.all([
 				page.waitForURL("**/recipes/smoothies/"),
-				page.getByRole("link", { name: "Keto smoothies", exact: true }).click(),
+				page.getByRole("link", { name: "Smoothies", exact: true }).click(),
 			]);
 			assert.equal(await page.locator(".recipe-card").count(), smoothieCount);
 			await Promise.all([
@@ -995,7 +995,7 @@ function collectionsCheck(width) {
 			});
 			const popover = enhanced.locator(".nutrition-help");
 			const heading = enhanced.getByRole("heading", {
-				name: "Keto meals",
+				name: "Meals",
 				exact: true,
 			});
 			const desktop = width === 1280;

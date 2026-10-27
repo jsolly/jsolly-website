@@ -1,19 +1,16 @@
 <script>
-	import { BASE_SERVINGS, dietaryLabels, nutritionHighlights } from "./constants.mjs";
+	import { BASE_SERVINGS, nutritionHighlights } from "./constants.mjs";
 	import { nutrientFilters } from "./nutrient-filters.mjs";
-	import { dietaryClass } from "./recipe-logic.mjs";
 
-	let { recipe, servings = BASE_SERVINGS, includeDietary = false, flags: givenFlags, dietary: givenDietary } = $props();
+	let { recipe, servings = BASE_SERVINGS, flags: givenFlags } = $props();
 	const flags = $derived(givenFlags ?? nutrientFilters(recipe, servings));
-	const dietary = $derived(givenDietary ?? (includeDietary ? dietaryClass(recipe) : null));
 	const highlights = $derived(
 		Object.entries(nutritionHighlights).filter(([key]) => flags[key]),
 	);
 </script>
 
-{#if highlights.length || includeDietary}
-	<ul class="nutrition-pills" aria-label={includeDietary ? "Recipe highlights" : "Nutrition highlights"}>
-		{#if includeDietary}<li data-dietary={dietary}>{dietaryLabels[dietary]}</li>{/if}
+{#if highlights.length}
+	<ul class="nutrition-pills" aria-label="Nutrition highlights">
 		{#each highlights as [key, { label, description }] (key)}
 			<li data-nutrient={key} title={description}>{label}</li>
 		{/each}
