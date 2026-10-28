@@ -26,6 +26,7 @@
 		.badge { display: inline-block; background: var(--recipe-badge); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; }
 		.detail-summary { margin: 10px 0 4px; line-height: 1.4; }
 		@media print {
+			.recipe-content > :global(:not(.recipe-body)) { display: none; }
 			.recipe-content :global(.nutrition-info) { display: none; }
 			.recipe-content :global(.nutrient-trigger) { background: transparent; border: 0; box-shadow: none; }
 		}

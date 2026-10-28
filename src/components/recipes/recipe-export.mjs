@@ -3,6 +3,7 @@ import {
 	mealLeftovers,
 	recipeDisclaimer,
 } from "./constants.mjs";
+import { ingredientText } from "./cooking-notes.mjs";
 import { cookingText } from "./cooking-quantities.mjs";
 import { ingredientMeasure, UNIT_LABELS } from "./ingredient-units.mjs";
 import { dailyNutrition } from "./nutrition.mjs";
@@ -40,17 +41,30 @@ export function recipeDocument(recipe, settings = {}) {
 		...valid,
 		familyChoice: option ? { [recipe.id]: option.id } : {},
 	});
-	const ingredients = recipe.ingredients.map((i) => ({
-		...ingredientMeasure(
+	const ingredients = recipe.ingredients.map((i) => {
+		const measured = ingredientMeasure(
 			i,
 			ingredientAmount(i, servings),
 			units,
 			formatQuantity,
-		),
-		name: i.name,
-		state: text(i.state),
-		note: text([i.note, purchaseNote(i, servings)].filter(Boolean).join(" · ")),
-	}));
+		);
+		return {
+			...measured,
+			...(measured.alternatives
+				? {
+						alternatives: measured.alternatives.map((choice) => ({
+							...choice,
+							name: ingredientText(choice.name),
+						})),
+					}
+				: {}),
+			name: ingredientText(i.name),
+			state: ingredientText(text(i.state)),
+			note: ingredientText(
+				text([i.note, purchaseNote(i, servings)].filter(Boolean).join(" · ")),
+			),
+		};
+	});
 	const sideIngredient =
 		option && sideDiners > 0
 			? {
@@ -60,9 +74,9 @@ export function recipeDocument(recipe, settings = {}) {
 						units,
 						formatQuantity,
 					),
-					name: option.ingredientName,
-					state: text(option.state),
-					note: text(option.note),
+					name: ingredientText(option.ingredientName),
+					state: ingredientText(text(option.state)),
+					note: ingredientText(text(option.note)),
 					choiceId: option.id,
 				}
 			: null;
@@ -109,9 +123,9 @@ export function recipeDocument(recipe, settings = {}) {
 				BASE_SERVINGS,
 				units,
 			),
-			name: o.ingredientName,
-			state: text(o.state),
-			note: text(o.note),
+			name: ingredientText(o.ingredientName),
+			state: ingredientText(text(o.state)),
+			note: ingredientText(text(o.note)),
 			nutritionAddedPerPerson: sideNutrition(recipe, o.id),
 			allergens: [...(o.allergens || [])],
 		})),

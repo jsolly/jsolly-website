@@ -1,9 +1,11 @@
 // biome-ignore-all lint/performance/noAwaitInLoops: browser scenarios and screenshots intentionally operate on the same page sequentially.
+
 import assert from "node:assert/strict";
 import { mkdir } from "node:fs/promises";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { collectErrors, serveStatic } from "./pages.mjs";
+import { legacyUnits, setLegacyUnits } from "./recipe-legacy-units.mjs";
 
 let site;
 let browser;
@@ -61,9 +63,7 @@ function verifySafariPrint(width) {
 			await page.goto(`${ORIGIN}/recipes/${recipeId}/?servings=2&units=grams`);
 			await ready(page);
 			await page.getByRole("combobox", { name: SERVINGS }).selectOption("6");
-			await page
-				.getByRole("combobox", { name: "Ingredient units" })
-				.selectOption("metric");
+			await setLegacyUnits(page, "metric");
 			await page
 				.getByRole("combobox", { name: FAMILY_SIDE })
 				.selectOption("pita_one");
@@ -123,12 +123,7 @@ function verifySafariPrint(width) {
 						.inputValue(),
 					"6",
 				);
-				assert.equal(
-					await browserPage
-						.getByRole("combobox", { name: "Ingredient units" })
-						.inputValue(),
-					"metric",
-				);
+				assert.equal(await legacyUnits(browserPage), "metric");
 				assert.equal(
 					await browserPage
 						.getByRole("combobox", { name: FAMILY_SIDE })

@@ -1,4 +1,5 @@
 // Canonical registries are server/build inputs. Browser recipes carry only their own context.
+import { validateOperationEquipment } from "./flow-equipment.mjs";
 import weights from "./ingredient-weights.json" with { type: "json" };
 import nutrition from "./nutrition-data.json" with { type: "json" };
 import { requirePublishedRecipe } from "./recipe-publication.mjs";
@@ -26,6 +27,7 @@ export function ingredientWithContext(ingredient) {
 }
 
 function recipeWithContext(recipe) {
+	validateOperationEquipment(recipe);
 	return requirePublishedRecipe({
 		...recipe,
 		ingredients: recipe.ingredients.map(ingredientWithContext),

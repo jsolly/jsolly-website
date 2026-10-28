@@ -86,7 +86,7 @@ export function ingredientAmount(ingredient, servings) {
 	return ingredient.scale === "minimum" ? Math.max(amount, scaled) : scaled;
 }
 
-/** Scale once from the canonical amount, then format the selected measure. */
+/** Scale once from the canonical amount, then show useful simultaneous measures. */
 export function formatIngredient(ingredient, servings, units = "metric") {
 	return ingredientMeasure(
 		ingredient,

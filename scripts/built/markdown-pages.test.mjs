@@ -16,6 +16,7 @@ const MISSING_CANONICAL = /canonical URL/u;
 const INGREDIENT_SECTION = /## Ingredients\n(?<body>[\s\S]*?)(?=\n## |$)/u;
 const UNRESOLVED_QUANTITY = /\{\{/u;
 const COOK_SECTION = /## Cook\n(?<body>[\s\S]*?)(?=\n## |$)/u;
+const INGREDIENT_PRODUCTION_WORDS = /\b(?:organic|conventional)\b\s*/giu;
 
 // Expected content comes from source JSON and the separately tested quantity
 // formatter, never the Markdown exporter that writes these backing files.
@@ -36,8 +37,13 @@ function cookingContentGaps(markdown, recipe) {
 		const quantity = formatIngredient(ingredient, 4, "us", {
 			wholeOunces: recipe.type === "smoothie",
 		});
+		// Production labels are intentionally omitted from ingredient display;
+		// the food identity, amount, preparation and original evidence remain.
+		const displayName = ingredient.name
+			.replace(INGREDIENT_PRODUCTION_WORDS, "")
+			.trim();
 		check(
-			ingredients.includes(`- ${quantity} ${ingredient.name}`),
+			ingredients.includes(`- ${quantity} ${displayName}`),
 			`${recipe.id} retains ingredient ${ingredient.name} at four servings`,
 		);
 		for (const detail of [ingredient.state, ingredient.note].filter(Boolean))
@@ -213,7 +219,9 @@ it("Each recipe Markdown contains its instructions and source uncertainty with c
 				markdown.includes(`https://www.jsolly.com/recipes/${recipe.id}/`),
 			);
 			assert.ok(
-				markdown.includes("canonical four-serving recipe in US measures"),
+				markdown.includes(
+					"canonical four-serving recipe with ingredient measurement equivalents shown together",
+				),
 			);
 			assert.ok(
 				markdown.includes(

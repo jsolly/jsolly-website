@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { beforeAll, it } from "vitest";
 import { buildRecipePwa } from "../recipes/pwa-build.mjs";
 import { collectErrors, readBuilt } from "./pages.mjs";
+import { legacyUnits, setLegacyUnits } from "./recipe-legacy-units.mjs";
 import {
 	browser,
 	controlled,
@@ -160,9 +161,7 @@ function installCheck(name, viewport) {
 				await navigateHydrated(page, `${site.origin}/recipes/${id}/`);
 				await saveVisited(page, id);
 			}
-			await page
-				.getByRole("combobox", { name: "Ingredient units" })
-				.selectOption("grams");
+			await setLegacyUnits(page, "grams");
 			await page.addInitScript(() => {
 				if (location.pathname !== "/recipes/saved/") return;
 				const postMessage = ServiceWorker.prototype.postMessage;
@@ -211,12 +210,7 @@ function installCheck(name, viewport) {
 				savedIds,
 				"offline view includes only the two opened recipes",
 			);
-			assert.equal(
-				await page
-					.getByRole("combobox", { name: "Ingredient units" })
-					.inputValue(),
-				"grams",
-			);
+			assert.equal(await legacyUnits(page), "grams");
 			await statusText(page, OFFLINE);
 			await navigateHydrated(page, `${site.origin}${SHARED_RECIPE}`);
 			await page.locator(".recipe-detail .reset-checks:visible").waitFor();

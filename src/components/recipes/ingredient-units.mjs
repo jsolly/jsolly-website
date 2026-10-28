@@ -105,53 +105,187 @@ export function ingredientGrams(ingredient, amount = ingredient.amount) {
 	return grams;
 }
 
-/** Canonical input is already scaled. Unit switches never reuse a display value. */
-export function ingredientMeasure(ingredient, amount, units, formatQuantity) {
+// Labels describe explicit observed portions, never inferred food identities.
+const PORTION_LABELS = {
+	head: ["head", "heads"],
+	bunch: ["bunch", "bunches"],
+	slice: ["slice", "slices"],
+	fillet: ["fillet", "fillets"],
+	clove: ["clove", "cloves"],
+	stalk: ["stalk", "stalks"],
+	spear: ["spear", "spears"],
+	strip: ["strip", "strips"],
+	cube: ["cube", "cubes"],
+	packet: ["packet", "packets"],
+	stick: ["stick", "sticks"],
+};
+
+function portionMeasure(ingredient, grams, formatQuantity) {
+	const ref = ingredient.weightReference;
+	if (!ref) return null;
+	const unit =
+		ref.displayPortion?.unit ||
+		Object.keys(PORTION_LABELS).find((key) => ref.measures[key]);
+	if (!unit) return null;
+	const observed = ref.measures[unit];
+	if (!positive(observed?.grams) || !positive(observed?.amount))
+		invalid(ingredient, `invalid household display portion in ${ref.id}`);
+	const count = grams / (observed.grams / observed.amount);
+	const names = ref.displayPortion || {
+		singular: PORTION_LABELS[unit][0],
+		plural: PORTION_LABELS[unit][1],
+	};
+	const exact =
+		ingredient.unit === unit ||
+		(ingredient.unit === "count" &&
+			["count", "clove", "lemon", "lime"].includes(unit));
+	if (!exact && count < 1 / 8) return null;
+	const portions = [
+		1 / 8,
+		1 / 6,
+		1 / 4,
+		1 / 3,
+		3 / 8,
+		1 / 2,
+		5 / 8,
+		2 / 3,
+		3 / 4,
+		5 / 6,
+		7 / 8,
+	];
+	const whole = Math.floor(count);
+	const candidates = [
+		whole,
+		...portions.map((fraction) => whole + fraction),
+		whole + 1,
+	].filter(positive);
+	const rounded = exact
+		? count
+		: count >= 5
+			? Math.round(count)
+			: candidates.reduce((best, candidate) =>
+					Math.abs(candidate - count) < Math.abs(best - count)
+						? candidate
+						: best,
+				);
+	const shown =
+		!exact && Math.abs(rounded - count) / count <= 0.15 ? rounded : count;
+	return {
+		quantity: `${names.prefix || ""}${exact ? "" : "about "}${formatQuantity(shown)} ${unit === "can" && shown < 1 ? (names.singular.startsWith("8 ") ? "of an " : "of a ") : ""}${shown <= 1 ? names.singular : names.plural}`,
+		status: "portion",
+	};
+}
+
+function spoonMeasure(ingredient, grams, formatQuantity) {
+	const ref = ingredient.weightReference;
+	if (!ref) return null;
+	const quantities = ["cup", "tbsp", "tsp"].flatMap((unit) => {
+		const direct = ref.measures[unit];
+		if (positive(direct?.grams) && positive(direct?.amount))
+			return [{ unit, amount: grams / (direct.grams / direct.amount) }];
+		const basis = ref.volumeInterpolationUnit;
+		const observation = ref.measures[basis];
+		if (
+			basis &&
+			positive(observation?.grams) &&
+			positive(observation?.amount) &&
+			VOLUME_ML[basis]
+		) {
+			const gramsPerMl =
+				observation.grams / observation.amount / VOLUME_ML[basis];
+			return [{ unit, amount: grams / gramsPerMl / VOLUME_ML[unit] }];
+		}
+		if (ref.kind === "liquid" && positive(ref.gramsPerMl))
+			return [{ unit, amount: grams / ref.gramsPerMl / VOLUME_ML[unit] }];
+		return [];
+	});
+	if (!quantities.length) return null;
+	const choice =
+		quantities.find(
+			({ unit, amount }) =>
+				(unit === "cup" && amount >= 0.25) || (unit === "tbsp" && amount >= 1),
+		) || quantities.at(-1);
+	const whole = Math.floor(choice.amount);
+	const candidates = [
+		whole,
+		...[
+			1 / 8,
+			1 / 6,
+			1 / 4,
+			1 / 3,
+			3 / 8,
+			1 / 2,
+			5 / 8,
+			2 / 3,
+			3 / 4,
+			5 / 6,
+			7 / 8,
+			1,
+		].map((fraction) => whole + fraction),
+	].filter(positive);
+	const nearest = candidates.reduce((best, value) =>
+		Math.abs(value - choice.amount) < Math.abs(best - choice.amount)
+			? value
+			: best,
+	);
+	const approximate =
+		Math.abs(nearest - choice.amount) > 1e-9 &&
+		Math.abs(nearest - choice.amount) / choice.amount <= 0.1;
+	return {
+		quantity: `${approximate ? "about " : ""}${formatQuantity(approximate ? nearest : choice.amount)} ${choice.unit}`,
+		status: "volume",
+	};
+}
+
+/** Show useful household, whole-gram and customary equivalents from one exact mass. */
+export function ingredientMeasure(ingredient, amount, _units, formatQuantity) {
 	const grams = ingredientGrams(ingredient, amount);
 	const weight = ingredientWeight(ingredient);
-	const mass = MASS_GRAMS[ingredient.unit];
-	const volume = VOLUME_ML[ingredient.unit];
-	let quantity;
-	let status;
-	if (units === "us") {
-		if (mass) {
-			const unit = grams >= MASS_GRAMS.lb ? "lb" : "oz";
-			quantity = `${measureNumber(grams / MASS_GRAMS[unit], 2)} ${unit}`;
-			status = "mass";
-		} else if (ingredient.unit === "ml") {
-			quantity = `${measureNumber(amount / VOLUME_ML["fl oz"], 2)} fl oz`;
-			status = "volume";
-		} else {
-			const shown =
-				amount < 0.02 ? measureNumber(amount) : formatQuantity(amount);
-			quantity = `${shown} ${ingredient.unit}`;
-			status = volume ? "volume" : "portion";
-		}
-	} else if (units === "metric" && weight.kind === "liquid") {
-		let milliliters;
-		if (volume) milliliters = amount * volume;
-		else {
-			if (!positive(weight.gramsPerMl))
+	const portion = portionMeasure(ingredient, grams, formatQuantity);
+	const spoon = portion
+		? null
+		: spoonMeasure(ingredient, grams, formatQuantity);
+	const measurements = [];
+	if (grams < 1) {
+		measurements.push({ quantity: "A pinch", status: "portion" });
+	} else {
+		if (portion || spoon) measurements.push(portion ?? spoon);
+		measurements.push({ quantity: `${Math.round(grams)} g`, status: "mass" });
+		if (weight.kind === "liquid") {
+			const volume = VOLUME_ML[ingredient.unit];
+			const ml = volume
+				? amount * volume
+				: positive(weight.gramsPerMl)
+					? grams / weight.gramsPerMl
+					: null;
+			if (!positive(ml))
 				invalid(
 					ingredient,
 					"liquid mass or portion needs an explicit gramsPerMl",
 				);
-			milliliters = grams / weight.gramsPerMl;
+			measurements.push({
+				quantity: `${measureNumber(ml)} mL`,
+				status: "volume",
+			});
+			if (measurements.length < 3)
+				measurements.push({
+					quantity: `${measureNumber(ml / VOLUME_ML["fl oz"], 2)} fl oz`,
+					status: "volume",
+				});
+		} else {
+			const unit = grams >= MASS_GRAMS.lb ? "lb" : "oz";
+			measurements.push({
+				quantity: `${measureNumber(grams / MASS_GRAMS[unit], 2)} ${unit}`,
+				status: "mass",
+			});
 		}
-		quantity = `${measureNumber(milliliters)} mL`;
-		status = "volume";
-	} else {
-		quantity = `${measureNumber(grams)} g`;
-		status = "mass";
 	}
 	const result = {
-		quantity,
-		status,
+		quantity: measurements.map(({ quantity }) => quantity).join(" / "),
+		measurements,
+		status: measurements.length > 1 ? "multiple" : measurements[0].status,
 		grams,
-		source:
-			units === "metric" && weight.kind === "liquid"
-				? weight.referenceSource || weight.source
-				: weight.source,
+		source: weight.source,
 	};
 	if (ingredient.alternatives?.length) {
 		if (!positive(ingredient.amount))
@@ -165,7 +299,7 @@ export function ingredientMeasure(ingredient, amount, units, formatQuantity) {
 					id: `${ingredient.id}/${alternative.name}`,
 				},
 				alternative.amount * (amount / ingredient.amount),
-				units,
+				_units,
 				formatQuantity,
 			),
 		}));

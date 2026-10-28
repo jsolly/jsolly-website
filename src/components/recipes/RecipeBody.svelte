@@ -2,6 +2,7 @@
 	import NativeSelect from "../../lib/components/ui/native-select.svelte";
 	import ApplianceIcon from "./ApplianceIcon.svelte";
 	import { BASE_SERVINGS } from "./constants.mjs";
+	import { ingredientText } from "./cooking-notes.mjs";
 	import { ingredientMeasure } from "./ingredient-units.mjs";
 	import NutrientDisclosure from "./NutrientDisclosure.svelte";
 	import NutritionHelp from "./NutritionHelp.svelte";
@@ -76,7 +77,7 @@
 				{#if !printOnly}<label class="side-diners recipe-enhanced" for={sideDinersId}>People having this side<NativeSelect id={sideDinersId} value={settings.familyDiners} disabled={!interactive} onchange={(event) => onSideDinersChange?.(Number(event.currentTarget.value))}>
 					{#each Array.from({ length: settings.servings + 1 }, (_, count) => count) as count (count)}<option value={count}>{count}</option>{/each}
 				</NativeSelect></label>{/if}
-				{#if settings.familyDiners > 0}<p>{sideAmount} {side.ingredientName} · for {settings.familyDiners} {settings.familyDiners === 1 ? "person" : "people"} · serve separately</p>{:else}<p>No side prepared.</p>{/if}
+				{#if settings.familyDiners > 0}<p>{sideAmount} {ingredientText(side.ingredientName)} · for {settings.familyDiners} {settings.familyDiners === 1 ? "person" : "people"} · serve separately</p>{:else}<p>No side prepared.</p>{/if}
 				<div class="side-nutrition">Side only, per person: {formatNutrition(sideMacros.kcal, "kcal")} · Protein {formatNutrition(sideMacros.protein_g, "g")} · Fat {formatNutrition(sideMacros.fat_g, "g")} · Carbs {formatNutrition(sideMacros.carbs_g, "g")} · Fiber {formatNutrition(sideMacros.fiber_g, "g")} · Net carbs {formatNutrition(sideMacros.net_carbs_g, "g")}. Base nutrition below excludes this side.</div>
 			{/if}
 		</div>
@@ -208,22 +209,7 @@
 			max-width: 360px;
 		}
 		@media print {
-			.recipe-photo {
-				width: 70mm;
-				max-width: 100%;
-				margin: 3mm 0;
-				break-inside: avoid;
-			}
-			.recipe-photo img {
-				max-height: 45mm;
-				object-fit: contain;
-				object-position: left center;
-				border-radius: 0;
-			}
-			.side-nutrition,
-			.family-box:not(.has-side) {
-				display: none;
-			}
+			.recipe-body > :global(:not(.trn-view)) { display: none; }
 		}
 	}
 </style>

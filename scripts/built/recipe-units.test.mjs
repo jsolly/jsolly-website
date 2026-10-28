@@ -4,6 +4,7 @@ import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { defaultAppliances } from "../../src/components/recipes/constants.mjs";
 import { collectErrors, serveStatic } from "./pages.mjs";
+import { legacyUnits, setLegacyUnits } from "./recipe-legacy-units.mjs";
 
 const DOWNLOAD_BUTTON = /^Download (?:Markdown|JSON)$/u;
 
@@ -28,11 +29,26 @@ const SERVINGS = /^Servings/u;
 const GRAMS = /340 g/u;
 const IMPERIAL = /11.99 oz/u;
 const LARGE_GRAMS = /1360 g/u;
-const WEIGHING = /0.78 g/u;
+const WEIGHING = /A pinch/u;
+const PARTIAL_GRAMS = /\d+\.\d+ g\b/u;
+const TWO_EGGS = /^2 large eggs\b/u;
+// biome-ignore-start lint/suspicious/noMisplacedAssertion: Called by the measured-ingredient browser scenarios.
+function assertMeasures(actual, expected) {
+	assert.equal(actual.length, expected.length);
+	for (const [index, amount] of expected.entries()) {
+		assert.ok(
+			actual[index].split(" / ").includes(amount),
+			`${actual[index]} includes ${amount}`,
+		);
+		assert.ok(actual[index].split(" / ").length <= 3);
+		assert.doesNotMatch(actual[index], PARTIAL_GRAMS);
+	}
+}
+// biome-ignore-end lint/suspicious/noMisplacedAssertion: shared browser assertions.
 const ready = (page) =>
 	page.waitForFunction(() => !document.querySelector("astro-island[ssr]"));
 function verifyUnits(width) {
-	it(`units persist across pages, links, a legacy redirect and print at ${width}px`, {
+	it(`simultaneous measures survive legacy unit preferences, links, redirect and print at ${width}px`, {
 		timeout: 90_000,
 	}, async () => {
 		const context = await browser.newContext({
@@ -65,15 +81,16 @@ function verifyUnits(width) {
 				`${site.origin}/recipes/lemon-salmon-and-asparagus/?units=us`,
 			);
 			await ready(page);
-			const units = page.getByRole("combobox", { name: UNIT_CONTROL });
-			await units.focus();
-			await units.press("g");
-			await units.press("Enter");
-			assert.equal(await units.inputValue(), "grams");
+			assert.equal(
+				await page.getByRole("combobox", { name: UNIT_CONTROL }).count(),
+				0,
+			);
+			await setLegacyUnits(page, "grams");
+			assert.equal(await legacyUnits(page), "grams");
 			assert.equal(new URL(page.url()).searchParams.get("units"), "grams");
 			await page.reload();
 			await ready(page);
-			assert.equal(await units.inputValue(), "grams");
+			assert.equal(await legacyUnits(page), "grams");
 			await page.getByRole("combobox", { name: SERVINGS }).selectOption("2");
 			const flow = page.locator(".recipe-detail .trn-table");
 			assert.match(await flow.textContent(), GRAMS);
@@ -115,20 +132,17 @@ function verifyUnits(width) {
 				GRAMS,
 			);
 			await page.emulateMedia({ media: "screen" });
-			await units.selectOption("metric");
+			await setLegacyUnits(page, "metric");
 			assert.match(await flow.textContent(), GRAMS);
-			await units.selectOption("us");
+			await setLegacyUnits(page, "us");
 			assert.match(await flow.textContent(), IMPERIAL);
-			await units.selectOption("grams");
+			await setLegacyUnits(page, "grams");
 			// Standalone controls now persist servings as well as units. Restore
 			// eight before checking the same large batch after the legacy redirect.
 			await page.getByRole("combobox", { name: SERVINGS }).selectOption("8");
 			await page.goto(`${site.origin}/recipes/meals/`);
 			await ready(page);
-			assert.equal(
-				await page.getByRole("combobox", { name: UNIT_CONTROL }).inputValue(),
-				"grams",
-			);
+			assert.equal(await legacyUnits(page), "grams");
 			const restored = await page.evaluate(() =>
 				JSON.parse(localStorage.getItem("recipes-settings-v1")),
 			);
@@ -159,18 +173,15 @@ function verifyUnits(width) {
 				{
 					servings: redirected.get("servings"),
 					units: redirected.get("units"),
-					shown: await units.inputValue(),
+					shown: await legacyUnits(page),
 				},
 				{ servings: "8", units: "metric", shown: "metric" },
 			);
-			await units.selectOption("grams");
+			await setLegacyUnits(page, "grams");
 			assert.match(await flow.textContent(), LARGE_GRAMS);
 			await page.goto(`${site.origin}/recipes/meals/`);
 			await ready(page);
-			assert.equal(
-				await page.getByRole("combobox", { name: UNIT_CONTROL }).inputValue(),
-				"grams",
-			);
+			assert.equal(await legacyUnits(page), "grams");
 			assert.deepEqual(applicationErrors(errors), []);
 		} finally {
 			await context.close();
@@ -201,42 +212,32 @@ function verifyChaffle(width) {
 			const quantities = flow.locator(
 				width < 761 ? ".mobile-ingredient strong" : "th.trn-ingredient strong",
 			);
-			const units = page.getByRole("combobox", { name: UNIT_CONTROL });
 			const servings = page.getByRole("combobox", { name: SERVINGS });
-			assert.deepEqual(await quantities.allTextContents(), [
-				"100 g",
-				"75 g",
-				"16 g",
-				"1.3 g",
-			]);
-			await units.selectOption("metric");
-			assert.deepEqual(await quantities.allTextContents(), [
-				"100 g",
-				"75 g",
-				"16 g",
-				"1.3 g",
-			]);
-			await units.selectOption("us");
-			assert.deepEqual(await quantities.allTextContents(), [
-				"2 count",
-				"2.66 oz",
-				"⅙ cup",
-				"⅓ tsp",
-			]);
-			await units.selectOption("grams");
+			const base = await quantities.allTextContents();
+			assertMeasures(base, ["100 g", "75 g", "16 g", "1 g"]);
+			assert.match(base[0], TWO_EGGS);
+			assert.equal(
+				await page.getByRole("combobox", { name: UNIT_CONTROL }).count(),
+				0,
+			);
+			for (const mode of ["metric", "us", "grams"]) {
+				// biome-ignore lint/performance/noAwaitInLoops: each legacy URL is opened and verified before the next.
+				await setLegacyUnits(page, mode);
+				assert.deepEqual(await quantities.allTextContents(), base);
+			}
 			await servings.selectOption("2");
-			assert.deepEqual(await quantities.allTextContents(), [
+			assertMeasures(await quantities.allTextContents(), [
 				"50 g",
 				"38 g",
 				"8 g",
-				"0.67 g",
+				"A pinch",
 			]);
 			await servings.selectOption("8");
-			assert.deepEqual(await quantities.allTextContents(), [
+			assertMeasures(await quantities.allTextContents(), [
 				"200 g",
 				"151 g",
 				"32 g",
-				"2.7 g",
+				"3 g",
 			]);
 			await servings.selectOption("4");
 			if (process.env.UI_EVIDENCE_DIR) {
@@ -250,11 +251,11 @@ function verifyChaffle(width) {
 				});
 			}
 			await page.emulateMedia({ media: "print" });
-			assert.deepEqual(
+			assertMeasures(
 				await page
 					.locator(".print-document th.trn-ingredient strong")
 					.allTextContents(),
-				["100 g", "75 g", "16 g", "1.3 g"],
+				["100 g", "75 g", "16 g", "1 g"],
 			);
 			assert.deepEqual(applicationErrors(errors), []);
 		} finally {
@@ -277,29 +278,27 @@ it("individual recipe controls recover corrupt preferences and remain enabled wh
 		await page.reload();
 		await ready(page);
 		assert.equal(
-			await page.getByRole("combobox", { name: UNIT_CONTROL }).inputValue(),
-			"us",
+			await page.getByRole("combobox", { name: UNIT_CONTROL }).count(),
+			0,
 		);
-		await page
-			.getByRole("combobox", { name: UNIT_CONTROL })
-			.selectOption("grams");
+		await page.getByRole("combobox", { name: SERVINGS }).selectOption("6");
 		assert.deepEqual(
 			await page.evaluate(() =>
 				JSON.parse(localStorage.getItem("recipes-settings-v1")),
 			),
-			{ units: "grams", servings: 4, familyDiners: 0, familyChoice: {} },
+			{ units: "us", servings: 6, familyDiners: 0, familyChoice: {} },
 		);
 		await page.reload();
 		await ready(page);
 		assert.equal(
-			await page.getByRole("combobox", { name: UNIT_CONTROL }).inputValue(),
-			"grams",
+			await page.getByRole("combobox", { name: SERVINGS }).inputValue(),
+			"6",
 		);
 		assert.deepEqual(
 			await page.evaluate(() =>
 				JSON.parse(localStorage.getItem("recipes-settings-v1")),
 			),
-			{ units: "grams", servings: 4, familyDiners: 0, familyChoice: {} },
+			{ units: "us", servings: 6, familyDiners: 0, familyChoice: {} },
 		);
 		assert.deepEqual(errors, [
 			"Recipe preferences could not be restored; using US imperial and no side. SyntaxError",
@@ -319,12 +318,10 @@ it("individual recipe controls recover corrupt preferences and remain enabled wh
 			await page.getByRole("combobox", { name: SERVINGS }).isEnabled(),
 			true,
 		);
-		await page
-			.getByRole("combobox", { name: UNIT_CONTROL })
-			.selectOption("metric");
+		await page.getByRole("combobox", { name: SERVINGS }).selectOption("6");
 		assert.equal(
-			await page.getByRole("combobox", { name: UNIT_CONTROL }).inputValue(),
-			"metric",
+			await page.getByRole("combobox", { name: SERVINGS }).inputValue(),
+			"6",
 		);
 		await page
 			.getByText("Preferences apply to this visit but could not be saved.", {
@@ -374,7 +371,7 @@ it("individual recipe controls recover corrupt preferences and remain enabled wh
 
 // USDA broth 174536 is 249 g/cup; white wine 174837 is 29.4 g/fl oz.
 // Water uses the reviewed 1 g/mL cooking convention and NIST 236.5882365 mL/cup.
-const LIQUID_CHOICES = ["chicken broth", "Water", "White wine"];
+const LIQUID_CHOICES = ["chicken broth", "or Water", "or White wine"];
 const LIQUID_DISPLAYS = {
 	2: { grams: ["31 g", "30 g", "29 g"], metric: "30 mL", us: "⅛ cup" },
 	4: { grams: ["62 g", "59 g", "59 g"], metric: "59 mL", us: "¼ cup" },
@@ -406,20 +403,18 @@ function verifyAlternatives(width) {
 						: ".recipe-detail th.trn-ingredient",
 				)
 				.filter({ hasText: "chicken broth" });
-			const units = page.getByRole("combobox", { name: UNIT_CONTROL });
 			const servings = page.getByRole("combobox", { name: SERVINGS });
 			for (const count of [2, 4, 6, 8]) {
 				await page.reload();
 				await ready(page);
 				await servings.selectOption(String(count));
-				for (const mode of ["grams", "metric", "us"]) {
-					await units.selectOption(mode);
-					const quantities =
-						mode === "grams"
-							? LIQUID_DISPLAYS[count].grams
-							: new Array(3).fill(LIQUID_DISPLAYS[count][mode]);
+				for (const mode of count === 4
+					? ["grams", "metric", "us"]
+					: ["grams"]) {
+					await setLegacyUnits(page, mode);
+					const quantities = LIQUID_DISPLAYS[count].grams;
 					assert.equal(await row.isVisible(), true);
-					assert.deepEqual(
+					assertMeasures(
 						await row.locator(".recipe-enhanced strong").allTextContents(),
 						quantities,
 					);
@@ -434,7 +429,7 @@ function verifyAlternatives(width) {
 						.locator(".print-document th.trn-ingredient")
 						.filter({ hasText: "chicken broth" });
 					assert.equal(await printed.isVisible(), true);
-					assert.deepEqual(
+					assertMeasures(
 						await printed.locator(".recipe-enhanced strong").allTextContents(),
 						quantities,
 					);

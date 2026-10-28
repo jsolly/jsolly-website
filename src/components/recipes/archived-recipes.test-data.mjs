@@ -22,9 +22,21 @@ const withReference = (ingredient) => ({
 		: {}),
 });
 
+// Archived v1 flows predate equipment metadata. Keep the archive untouched;
+// adapt these historical test fixtures with the neutral utensil identifier.
+const archivedFlow = (node) =>
+	node.children
+		? {
+				...node,
+				equipment: ["Kitchen utensils"],
+				children: node.children.map(archivedFlow),
+			}
+		: { ...node };
+
 export const archivedNutrition = nutrition;
 export const archivedRecipes = canonical.recipes.map((recipe) => ({
 	...recipe,
+	flow: { ...recipe.flow, root: archivedFlow(recipe.flow.root) },
 	ingredients: recipe.ingredients.map(withReference),
 	familyOptions: recipe.familyOptions.map(withReference),
 	calculation: {

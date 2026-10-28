@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { collectErrors, serveStatic } from "./pages.mjs";
+import { legacyUnits } from "./recipe-legacy-units.mjs";
 
 // Plan §1.6: blogthedata.com's Easy Meals & Smoothies post now 301s to
 // /recipes/, and browsers carry the #fragment across the redirect. The post
@@ -74,9 +75,7 @@ async function verifySharedNone(page, errors, recipe, landing) {
 			shownServings: await page
 				.getByRole("combobox", { name: "Servings", exact: true })
 				.inputValue(),
-			shownUnits: await page
-				.getByRole("combobox", { name: "Ingredient units", exact: true })
-				.inputValue(),
+			shownUnits: await legacyUnits(page),
 			sideDinerControls: await page
 				.getByRole("combobox", { name: "People having this side", exact: true })
 				.count(),

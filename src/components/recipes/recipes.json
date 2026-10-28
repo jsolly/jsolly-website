@@ -351,6 +351,9 @@
 													"ingredientId": "salmon",
 													"fraction": 1
 												}
+											],
+											"equipment": [
+												"Chopping board"
 											]
 										},
 										{
@@ -373,8 +376,14 @@
 											"ingredientId": "lemon_zest",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Chopping board"
 									]
 								}
+							],
+							"equipment": [
+								"Air fryer"
 							]
 						},
 						{
@@ -399,8 +408,14 @@
 											"ingredientId": "fine_salt",
 											"fraction": 0.5
 										}
+									],
+									"equipment": [
+										"Large bowl"
 									]
 								}
+							],
+							"equipment": [
+								"Air fryer"
 							]
 						},
 						{
@@ -411,6 +426,9 @@
 							"ingredientId": "hemp_hearts",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -906,8 +924,14 @@
 											"ingredientId": "black_pepper",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Large bowl"
 									]
 								}
+							],
+							"equipment": [
+								"Air fryer"
 							]
 						},
 						{
@@ -931,8 +955,14 @@
 													"ingredientId": "fine_salt",
 													"fraction": 0.3333333333333333
 												}
+											],
+											"equipment": [
+												"Large bowl"
 											]
 										}
+									],
+									"equipment": [
+										"Air fryer"
 									]
 								},
 								{
@@ -943,8 +973,14 @@
 									"ingredientId": "nutritional_yeast",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Kitchen utensils"
 							]
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -1380,14 +1416,25 @@
 													"ingredientId": "olive_oil",
 													"fraction": 0.25
 												}
+											],
+											"equipment": [
+												"Pans",
+												"Chopping board"
 											]
 										}
+									],
+									"equipment": [
+										"Oven",
+										"Pans"
 									]
 								},
 								{
 									"ingredientId": "basil_pesto",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Kitchen utensils"
 							]
 						},
 						{
@@ -1412,8 +1459,15 @@
 											"ingredientId": "black_pepper",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Pans"
 									]
 								}
+							],
+							"equipment": [
+								"Oven",
+								"Pans"
 							]
 						},
 						{
@@ -1424,6 +1478,9 @@
 							"ingredientId": "hemp_hearts",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -1964,6 +2021,9 @@
 																	"ingredientId": "black_pepper",
 																	"fraction": 1
 																}
+															],
+															"equipment": [
+																"Large bowl"
 															]
 														},
 														{
@@ -1976,8 +2036,14 @@
 																			"ingredientId": "spinach_frozen",
 																			"fraction": 1
 																		}
+																	],
+																	"equipment": [
+																		"Microwave"
 																	]
 																}
+															],
+															"equipment": [
+																"Sieve"
 															]
 														},
 														{
@@ -1992,6 +2058,9 @@
 															"ingredientId": "nutritional_yeast",
 															"fraction": 1
 														}
+													],
+													"equipment": [
+														"Large bowl"
 													]
 												},
 												{
@@ -2001,12 +2070,24 @@
 															"ingredientId": "olive_oil",
 															"fraction": 0.25
 														}
+													],
+													"equipment": [
+														"Kitchen utensils"
 													]
 												}
+											],
+											"equipment": [
+												"Baking dish"
 											]
 										}
+									],
+									"equipment": [
+										"Oven"
 									]
 								}
+							],
+							"equipment": [
+								"Chopping board"
 							]
 						},
 						{
@@ -2024,8 +2105,14 @@
 									"ingredientId": "lemon_juice",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -2571,12 +2658,18 @@
 															"ingredientId": "crushed_red_pepper",
 															"fraction": 1
 														}
+													],
+													"equipment": [
+														"Instant Pot"
 													]
 												},
 												{
 													"ingredientId": "garlic",
 													"fraction": 1
 												}
+											],
+											"equipment": [
+												"Pans"
 											]
 										},
 										{
@@ -2587,8 +2680,14 @@
 											"ingredientId": "cauliflower",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Instant Pot"
 									]
 								}
+							],
+							"equipment": [
+								"Instant Pot"
 							]
 						},
 						{
@@ -2607,6 +2706,9 @@
 							"ingredientId": "parmesan",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -3058,7 +3160,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "cucumber"
+					"sourceIngredientId": "cucumber",
+					"weightRef": "usda-168409-large"
 				},
 				{
 					"id": "salad_greens",
@@ -3253,6 +3356,9 @@
 									"ingredientId": "salad_greens",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Chopping board"
 							]
 						},
 						{
@@ -3274,6 +3380,9 @@
 									"ingredientId": "lemon_juice",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Small bowl"
 							]
 						},
 						{
@@ -3319,6 +3428,9 @@
 											"share": "remainder",
 											"fraction": 0.5
 										}
+									],
+									"equipment": [
+										"Pans"
 									]
 								},
 								{
@@ -3361,14 +3473,24 @@
 											"share": "remainder",
 											"fraction": 0.5
 										}
+									],
+									"equipment": [
+										"Pans"
 									]
 								}
+							],
+							"equipment": [
+								"Oven",
+								"Pans"
 							]
 						},
 						{
 							"ingredientId": "lemon_juice",
 							"fraction": 0.5
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -3974,6 +4096,9 @@
 									"ingredientId": "avocado",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Chopping board"
 							]
 						},
 						{
@@ -4012,6 +4137,9 @@
 															"ingredientId": "fine_salt",
 															"fraction": 1
 														}
+													],
+													"equipment": [
+														"Small bowl"
 													]
 												},
 												{
@@ -4026,20 +4154,33 @@
 													"ingredientId": "chicken_thigh",
 													"fraction": 1
 												}
+											],
+											"equipment": [
+												"Pans",
+												"Large bowl"
 											]
 										}
+									],
+									"equipment": [
+										"Oven"
 									]
 								},
 								{
 									"ingredientId": "lime_juice",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Kitchen utensils"
 							]
 						},
 						{
 							"ingredientId": "strained_greek_yogurt",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -4577,10 +4718,19 @@
 															"ingredientId": "chicken_thigh",
 															"fraction": 1
 														}
+													],
+													"equipment": [
+														"Instant Pot"
 													]
 												}
+											],
+											"equipment": [
+												"Instant Pot"
 											]
 										}
+									],
+									"equipment": [
+										"Chopping board"
 									]
 								},
 								{
@@ -4591,6 +4741,9 @@
 									"ingredientId": "lime_juice",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Small bowl"
 							]
 						},
 						{
@@ -4608,6 +4761,9 @@
 									"ingredientId": "lime_juice",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
@@ -4617,8 +4773,14 @@
 									"ingredientId": "avocado",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Chopping board"
 							]
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -4982,7 +5144,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "cucumber"
+					"sourceIngredientId": "cucumber",
+					"weightRef": "usda-168409-large"
 				},
 				{
 					"id": "salad_greens",
@@ -5230,6 +5393,9 @@
 									"ingredientId": "salad_greens",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Chopping board"
 							]
 						},
 						{
@@ -5243,6 +5409,9 @@
 									"ingredientId": "lemon_juice",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
@@ -5289,18 +5458,33 @@
 															"ingredientId": "black_pepper",
 															"fraction": 1
 														}
+													],
+													"equipment": [
+														"Small bowl"
 													]
 												}
+											],
+											"equipment": [
+												"Chopping board"
 											]
 										},
 										{
 											"ingredientId": "olive_oil",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Air fryer"
 									]
 								}
+							],
+							"equipment": [
+								"Air fryer"
 							]
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -5851,6 +6035,9 @@
 									"ingredientId": "fine_salt",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Oven"
 							]
 						},
 						{
@@ -5884,6 +6071,10 @@
 									"ingredientId": "fine_salt",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Oven",
+								"Pans"
 							]
 						},
 						{
@@ -5894,6 +6085,9 @@
 							"ingredientId": "nutritional_yeast",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -6290,7 +6484,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "cucumber"
+					"sourceIngredientId": "cucumber",
+					"weightRef": "usda-168409-large"
 				},
 				{
 					"id": "salad_greens",
@@ -6536,6 +6731,9 @@
 									"ingredientId": "salad_greens",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Chopping board"
 							]
 						},
 						{
@@ -6549,6 +6747,9 @@
 									"ingredientId": "lemon_juice",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
@@ -6595,18 +6796,33 @@
 															"ingredientId": "black_pepper",
 															"fraction": 1
 														}
+													],
+													"equipment": [
+														"Small bowl"
 													]
 												}
+											],
+											"equipment": [
+												"Chopping board"
 											]
 										},
 										{
 											"ingredientId": "olive_oil",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Pans"
 									]
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -6818,7 +7034,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "cucumber"
+					"sourceIngredientId": "cucumber",
+					"weightRef": "usda-168409-large"
 				},
 				{
 					"id": "lime",
@@ -6993,8 +7210,14 @@
 									"ingredientId": "cucumber",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Blender"
 							]
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -7306,8 +7529,14 @@
 									"ingredientId": "strawberry",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Blender"
 							]
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -7595,8 +7824,14 @@
 									"ingredientId": "strawberry",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Blender"
 							]
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -7723,7 +7958,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "cucumber"
+					"sourceIngredientId": "cucumber",
+					"weightRef": "usda-168409-large"
 				},
 				{
 					"id": "spinach",
@@ -7942,8 +8178,14 @@
 									"ingredientId": "cucumber",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Blender"
 							]
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -8700,6 +8942,9 @@
 													"ingredientId": "jalapeno",
 													"fraction": 1
 												}
+											],
+											"equipment": [
+												"Pans"
 											]
 										},
 										{
@@ -8734,6 +8979,9 @@
 											"ingredientId": "cheddar_sauce",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Small bowl"
 									]
 								},
 								{
@@ -8744,8 +8992,14 @@
 									"ingredientId": "cheddar_topping",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Kitchen utensils"
 							]
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -9439,6 +9693,9 @@
 									"fraction": 1,
 									"share": "pinch"
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
@@ -9474,12 +9731,18 @@
 									"fraction": 1,
 									"share": "remainder"
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
 							"ingredientId": "ingredient-2",
 							"fraction": 0.5
 						}
+					],
+					"equipment": [
+						"Oven"
 					]
 				}
 			},
@@ -10447,6 +10710,9 @@
 									"ingredientId": "ingredient-16",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -10472,12 +10738,18 @@
 									"ingredientId": "ingredient-8",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
 							"ingredientId": "ingredient-15",
 							"fraction": 0.5
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -11380,6 +11652,9 @@
 									"ingredientId": "ingredient-15",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -11417,12 +11692,18 @@
 									"ingredientId": "ingredient-14",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
 							"ingredientId": "ingredient-14",
 							"fraction": 0.5
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -12312,6 +12593,9 @@
 									"ingredientId": "ingredient-7",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -12341,6 +12625,9 @@
 									"ingredientId": "ingredient-12",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Kitchen utensils"
 							]
 						},
 						{
@@ -12351,6 +12638,10 @@
 							"ingredientId": "ingredient-15",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Oven",
+						"Large bowl"
 					]
 				}
 			},
@@ -13212,6 +13503,9 @@
 									"ingredientId": "ingredient-5",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Small bowl"
 							]
 						},
 						{
@@ -13237,6 +13531,9 @@
 									"ingredientId": "ingredient-9-pepper",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -13247,6 +13544,10 @@
 							"ingredientId": "ingredient-11",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans",
+						"Serving dishes"
 					]
 				}
 			},
@@ -13934,6 +14235,9 @@
 									"ingredientId": "ingredient-4",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -13955,6 +14259,9 @@
 									"ingredientId": "ingredient-8",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -13969,6 +14276,9 @@
 							"ingredientId": "ingredient-10",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -14433,6 +14743,10 @@
 							"ingredientId": "ingredient-5",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Slow cooker",
+						"Chopping board"
 					]
 				}
 			},
@@ -15181,6 +15495,10 @@
 									"ingredientId": "ingredient-4",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Serving dishes"
 							]
 						},
 						{
@@ -15198,6 +15516,9 @@
 									"ingredientId": "ingredient-7",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -15220,6 +15541,9 @@
 							"ingredientId": "ingredient-12",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -15635,12 +15959,18 @@
 									"ingredientId": "ingredient-5",
 									"fraction": 0.75
 								}
+							],
+							"equipment": [
+								"Small bowl"
 							]
 						},
 						{
 							"ingredientId": "ingredient-5",
 							"fraction": 0.25
 						}
+					],
+					"equipment": [
+						"Oven"
 					]
 				}
 			},
@@ -16618,6 +16948,10 @@
 									"ingredientId": "ingredient-7",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Large bowl"
 							]
 						},
 						{
@@ -16660,6 +16994,9 @@
 							"ingredientId": "ingredient-17",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -17323,6 +17660,9 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
@@ -17364,8 +17704,14 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						}
+					],
+					"equipment": [
+						"Oven"
 					]
 				}
 			},
@@ -18107,6 +18453,10 @@
 									"ingredientId": "ingredient-4",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Serving dishes"
 							]
 						},
 						{
@@ -18140,12 +18490,18 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
 							"ingredientId": "ingredient-11",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -18338,7 +18694,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "ingredient-5"
+					"sourceIngredientId": "ingredient-5",
+					"weightRef": "tomato-chilies-can-14oz"
 				},
 				{
 					"id": "ingredient-6",
@@ -18895,6 +19252,10 @@
 									"ingredientId": "ingredient-2",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Large bowl"
 							]
 						},
 						{
@@ -18936,12 +19297,20 @@
 									"ingredientId": "ingredient-12",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
 							"ingredientId": "ingredient-6",
 							"fraction": 0.5
 						}
+					],
+					"equipment": [
+						"Oven",
+						"Baking dish",
+						"Large bowl"
 					]
 				}
 			},
@@ -19535,6 +19904,9 @@
 									"ingredientId": "ingredient-6",
 									"fraction": 0.42857142857142855
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
@@ -19545,6 +19917,10 @@
 							"ingredientId": "ingredient-3",
 							"fraction": 0.5
 						}
+					],
+					"equipment": [
+						"Oven",
+						"Chopping board"
 					]
 				}
 			},
@@ -20201,12 +20577,18 @@
 											"ingredientId": "ingredient-5",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Large bowl"
 									]
 								},
 								{
 									"ingredientId": "ingredient-6",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Chopping board"
 							]
 						},
 						{
@@ -20224,12 +20606,19 @@
 									"ingredientId": "ingredient-9",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Small bowl"
 							]
 						},
 						{
 							"ingredientId": "ingredient-10",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Oven",
+						"Pans"
 					]
 				}
 			},
@@ -20794,6 +21183,10 @@
 							"ingredientId": "ingredient-8",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Slow cooker",
+						"Chopping board"
 					]
 				}
 			},
@@ -20986,7 +21379,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "ingredient-5"
+					"sourceIngredientId": "ingredient-5",
+					"weightRef": "tomato-chilies-can-10oz"
 				},
 				{
 					"id": "ingredient-6",
@@ -21554,6 +21948,9 @@
 									"ingredientId": "ingredient-12",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -21568,6 +21965,11 @@
 							"ingredientId": "ingredient-11",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Chopping board",
+						"Serving dishes",
+						"Large bowl"
 					]
 				}
 			},
@@ -22260,6 +22662,10 @@
 									"ingredientId": "ingredient-5",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Oven",
+								"Pans"
 							]
 						},
 						{
@@ -22289,8 +22695,14 @@
 									"ingredientId": "ingredient-10-pepper",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Small bowl"
 							]
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -22754,12 +23166,19 @@
 									"ingredientId": "ingredient-5",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
 							"ingredientId": "ingredient-6",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Oven",
+						"Baking dish"
 					]
 				}
 			},
@@ -23670,8 +24089,14 @@
 											"ingredientId": "ingredient-11",
 											"fraction": 0.1111111111111111
 										}
+									],
+									"equipment": [
+										"Small bowl"
 									]
 								}
+							],
+							"equipment": [
+								"Chopping board"
 							]
 						},
 						{
@@ -23705,8 +24130,15 @@
 									"ingredientId": "ingredient-11",
 									"fraction": 0.8888888888888888
 								}
+							],
+							"equipment": [
+								"Kitchen utensils"
 							]
 						}
+					],
+					"equipment": [
+						"Oven",
+						"Large bowl"
 					]
 				}
 			},
@@ -24469,6 +24901,10 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Small bowl"
 							]
 						},
 						{
@@ -24479,6 +24915,9 @@
 							"ingredientId": "ingredient-12",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -25070,6 +25509,10 @@
 									"ingredientId": "ingredient-1",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Large bowl"
 							]
 						},
 						{
@@ -25087,6 +25530,9 @@
 									"ingredientId": "ingredient-7",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -25097,6 +25543,9 @@
 							"ingredientId": "ingredient-8-pepper",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Large bowl"
 					]
 				}
 			},
@@ -25797,6 +26246,9 @@
 									"ingredientId": "ingredient-11",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
@@ -25822,8 +26274,15 @@
 									"ingredientId": "ingredient-6",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Small bowl"
 							]
 						}
+					],
+					"equipment": [
+						"Oven",
+						"Baking dish"
 					]
 				}
 			},
@@ -26235,12 +26694,20 @@
 									"ingredientId": "ingredient-4",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
 							"ingredientId": "ingredient-5",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Oven",
+						"Baking dish",
+						"Large bowl"
 					]
 				}
 			},
@@ -26999,6 +27466,9 @@
 									"ingredientId": "ingredient-7",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -27024,12 +27494,18 @@
 									"ingredientId": "ingredient-11",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
 							"ingredientId": "ingredient-12",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -28032,6 +28508,9 @@
 									"ingredientId": "ingredient-5",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -28061,6 +28540,10 @@
 									"ingredientId": "ingredient-11",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Microwave",
+								"Small bowl"
 							]
 						},
 						{
@@ -28075,6 +28558,10 @@
 							"ingredientId": "ingredient-14",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans",
+						"Small bowl"
 					]
 				}
 			},
@@ -28243,7 +28730,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "ingredient-4"
+					"sourceIngredientId": "ingredient-4",
+					"weightRef": "tomato-chilies-can-10oz"
 				},
 				{
 					"id": "ingredient-5",
@@ -28259,7 +28747,7 @@
 					"sourceUnit": "oz",
 					"sourceRawIngredientIndex": 4,
 					"optional": false,
-					"weightRef": "usda-170054",
+					"weightRef": "tomato-sauce-can-8oz",
 					"measurementProvenance": {
 						"original": {
 							"amount": 5.333333333333333,
@@ -28710,6 +29198,9 @@
 									"ingredientId": "ingredient-2",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -28744,6 +29235,9 @@
 							"ingredientId": "ingredient-9",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Kitchen utensils"
 					]
 				}
 			},
@@ -29491,6 +29985,9 @@
 									"ingredientId": "ingredient-1",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -29536,12 +30033,18 @@
 									"ingredientId": "ingredient-11",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
 							"ingredientId": "ingredient-12",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Kitchen utensils"
 					]
 				}
 			},
@@ -29999,6 +30502,10 @@
 									"ingredientId": "ingredient-4",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Large bowl"
 							]
 						},
 						{
@@ -30012,8 +30519,14 @@
 									"ingredientId": "ingredient-4",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -30434,8 +30947,16 @@
 									"ingredientId": "ingredient-5",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Chopping board",
+								"Large bowl"
 							]
 						}
+					],
+					"equipment": [
+						"Oven",
+						"Pans"
 					]
 				}
 			},
@@ -31243,6 +31764,9 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -31257,6 +31781,9 @@
 							"ingredientId": "ingredient-13",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -31453,7 +31980,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "ingredient-5"
+					"sourceIngredientId": "ingredient-5",
+					"weightRef": "tomato-chilies-can-10oz"
 				},
 				{
 					"id": "ingredient-6",
@@ -31469,7 +31997,7 @@
 					"sourceUnit": "oz",
 					"sourceRawIngredientIndex": 5,
 					"optional": false,
-					"weightRef": "usda-170054",
+					"weightRef": "tomato-sauce-can-15oz",
 					"measurementProvenance": {
 						"original": {
 							"amount": 7.5,
@@ -31529,7 +32057,7 @@
 					"sourceUnit": "oz",
 					"sourceRawIngredientIndex": 7,
 					"optional": false,
-					"weightRef": "usda-170459",
+					"weightRef": "tomato-paste-can-7oz",
 					"measurementProvenance": {
 						"original": {
 							"amount": 3.5,
@@ -32068,6 +32596,9 @@
 									"ingredientId": "ingredient-1",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -32122,6 +32653,9 @@
 							"ingredientId": "ingredient-13",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -32607,6 +33141,10 @@
 							"ingredientId": "ingredient-6",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Oven",
+						"Large bowl"
 					]
 				}
 			},
@@ -32775,7 +33313,8 @@
 						"massBasis": "edible",
 						"decision": "Editorial 283 g can-content target, including liquid."
 					},
-					"sourceIngredientId": "ingredient-4"
+					"sourceIngredientId": "ingredient-4",
+					"weightRef": "tomato-can-content-283"
 				},
 				{
 					"id": "ingredient-5",
@@ -32791,7 +33330,7 @@
 					"sourceUnit": "oz",
 					"sourceRawIngredientIndex": 4,
 					"optional": false,
-					"weightRef": "usda-170054",
+					"weightRef": "tomato-sauce-can-8oz",
 					"measurementProvenance": {
 						"original": {
 							"amount": 8,
@@ -33180,6 +33719,9 @@
 									"ingredientId": "ingredient-2",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -33202,6 +33744,9 @@
 							"ingredientId": "ingredient-7",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Large bowl"
 					]
 				}
 			},
@@ -34018,6 +34563,9 @@
 									"ingredientId": "ingredient-13",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -34040,6 +34588,9 @@
 									"ingredientId": "ingredient-13",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -34057,6 +34608,9 @@
 									"ingredientId": "ingredient-7",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -34071,6 +34625,10 @@
 							"ingredientId": "ingredient-10",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Oven",
+						"Pans"
 					]
 				}
 			},
@@ -34531,6 +35089,9 @@
 							"ingredientId": "ingredient-6",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Grill"
 					]
 				}
 			},
@@ -35215,6 +35776,9 @@
 									"ingredientId": "ingredient-1",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -35224,6 +35788,9 @@
 									"ingredientId": "ingredient-2",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -35261,12 +35828,18 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
 							"ingredientId": "ingredient-11",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -35622,12 +36195,21 @@
 									"ingredientId": "ingredient-3",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Chopping board",
+								"Large bowl"
 							]
 						},
 						{
 							"ingredientId": "ingredient-4",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Oven",
+						"Pans",
+						"Large bowl"
 					]
 				}
 			},
@@ -36474,6 +37056,11 @@
 									"ingredientId": "ingredient-7",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Oven",
+								"Pans",
+								"Large bowl"
 							]
 						},
 						{
@@ -36507,8 +37094,15 @@
 									"ingredientId": "ingredient-14",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						}
+					],
+					"equipment": [
+						"Pans",
+						"Serving dishes"
 					]
 				}
 			},
@@ -36910,8 +37504,15 @@
 									"ingredientId": "ingredient-5",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						}
+					],
+					"equipment": [
+						"Oven",
+						"Pans"
 					]
 				}
 			},
@@ -37207,7 +37808,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "ingredient-8"
+					"sourceIngredientId": "ingredient-8",
+					"weightRef": "tomato-chilies-can-10oz"
 				},
 				{
 					"id": "ingredient-9",
@@ -37584,6 +38186,9 @@
 									"ingredientId": "ingredient-8",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -37594,6 +38199,9 @@
 							"ingredientId": "ingredient-10",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -37979,6 +38587,11 @@
 									"ingredientId": "ingredient-2",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Oven",
+								"Pans",
+								"Large bowl"
 							]
 						},
 						{
@@ -37993,6 +38606,9 @@
 							"ingredientId": "ingredient-4-pepper",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Oven"
 					]
 				}
 			},
@@ -38439,6 +39055,9 @@
 									"ingredientId": "ingredient-1",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -38464,8 +39083,15 @@
 									"ingredientId": "ingredient-6",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						}
+					],
+					"equipment": [
+						"Pans",
+						"Serving dishes"
 					]
 				}
 			},
@@ -39213,6 +39839,9 @@
 									"ingredientId": "ingredient-5",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -39242,12 +39871,18 @@
 									"ingredientId": "ingredient-11",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Small bowl"
 							]
 						},
 						{
 							"ingredientId": "ingredient-12",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Oven"
 					]
 				}
 			},
@@ -39744,12 +40379,19 @@
 									"ingredientId": "ingredient-5-pepper",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
 							"ingredientId": "ingredient-6",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Oven",
+						"Large bowl"
 					]
 				}
 			},
@@ -40496,6 +41138,9 @@
 									"ingredientId": "ingredient-2",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -40529,12 +41174,18 @@
 									"ingredientId": "ingredient-9",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Small bowl"
 							]
 						},
 						{
 							"ingredientId": "ingredient-10",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Large bowl"
 					]
 				}
 			},
@@ -41150,6 +41801,10 @@
 									"ingredientId": "ingredient-9",
 									"fraction": 0.75
 								}
+							],
+							"equipment": [
+								"Grill",
+								"Large bowl"
 							]
 						},
 						{
@@ -41187,8 +41842,14 @@
 									"ingredientId": "ingredient-9",
 									"fraction": 0.25
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						}
+					],
+					"equipment": [
+						"Grill"
 					]
 				}
 			},
@@ -41859,12 +42520,19 @@
 									"ingredientId": "ingredient-9",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Small bowl"
 							]
 						},
 						{
 							"ingredientId": "ingredient-10",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Oven"
 					]
 				}
 			},
@@ -42971,6 +43639,9 @@
 									"ingredientId": "ingredient-12",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Small bowl"
 							]
 						},
 						{
@@ -43000,8 +43671,14 @@
 									"ingredientId": "ingredient-16",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						}
+					],
+					"equipment": [
+						"Grill"
 					]
 				}
 			},
@@ -43604,6 +44281,10 @@
 									"ingredientId": "ingredient-5",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Oven",
+								"Pans"
 							]
 						},
 						{
@@ -43621,12 +44302,18 @@
 									"ingredientId": "ingredient-8",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Small bowl"
 							]
 						},
 						{
 							"ingredientId": "ingredient-9",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -44844,6 +45531,9 @@
 									"ingredientId": "ingredient-9-pepper",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -44897,8 +45587,14 @@
 									"ingredientId": "ingredient-21",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -45767,6 +46463,10 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Blender",
+								"Pans"
 							]
 						},
 						{
@@ -45788,8 +46488,14 @@
 									"ingredientId": "ingredient-14",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						}
+					],
+					"equipment": [
+						"Blender"
 					]
 				}
 			},
@@ -46447,6 +47153,9 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Small bowl"
 							]
 						},
 						{
@@ -46464,8 +47173,15 @@
 									"ingredientId": "ingredient-3",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Small bowl"
 							]
 						}
+					],
+					"equipment": [
+						"Grill",
+						"Oven"
 					]
 				}
 			},
@@ -47224,6 +47940,10 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Small bowl"
 							]
 						},
 						{
@@ -47241,12 +47961,18 @@
 									"ingredientId": "ingredient-4",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
 							"ingredientId": "ingredient-3",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -47941,6 +48667,9 @@
 									"ingredientId": "ingredient-9-pepper",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Oven"
 							]
 						},
 						{
@@ -47962,12 +48691,20 @@
 									"ingredientId": "ingredient-8",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Oven",
+								"Large bowl"
 							]
 						},
 						{
 							"ingredientId": "ingredient-10",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Oven",
+						"Serving dishes"
 					]
 				}
 			},
@@ -48682,6 +49419,9 @@
 									"ingredientId": "ingredient-9",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
@@ -48692,6 +49432,9 @@
 							"ingredientId": "ingredient-11",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Kitchen utensils"
 					]
 				}
 			},
@@ -49532,6 +50275,9 @@
 									"ingredientId": "ingredient-4",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -49560,6 +50306,9 @@
 											"ingredientId": "ingredient-7",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Pans"
 									]
 								},
 								{
@@ -49586,8 +50335,14 @@
 									"ingredientId": "ingredient-3-pepper",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -50421,6 +51176,9 @@
 									"ingredientId": "ingredient-8-pepper",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -50462,6 +51220,9 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -50476,6 +51237,9 @@
 							"ingredientId": "ingredient-13",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Large bowl"
 					]
 				}
 			},
@@ -51435,6 +52199,10 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Large bowl"
 							]
 						},
 						{
@@ -51464,6 +52232,10 @@
 									"ingredientId": "ingredient-14",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Large bowl"
 							]
 						},
 						{
@@ -51478,6 +52250,9 @@
 							"ingredientId": "ingredient-15-parsley",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -52309,6 +53084,9 @@
 									"ingredientId": "ingredient-3",
 									"fraction": 0.6666666666666666
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -52325,6 +53103,9 @@
 											"ingredientId": "ingredient-13",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Microwave"
 									]
 								},
 								{
@@ -52355,8 +53136,14 @@
 									"ingredientId": "ingredient-12",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -53245,6 +54032,9 @@
 									"ingredientId": "ingredient-5",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -53274,6 +54064,9 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -53283,6 +54076,9 @@
 									"ingredientId": "ingredient-2",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -53293,6 +54089,9 @@
 							"ingredientId": "ingredient-12",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Large bowl"
 					]
 				}
 			},
@@ -54180,6 +54979,9 @@
 									"ingredientId": "ingredient-9-pepper",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -54208,6 +55010,9 @@
 											"ingredientId": "ingredient-7",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Pans"
 									]
 								},
 								{
@@ -54230,12 +55035,18 @@
 									"ingredientId": "ingredient-9-pepper",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
 							"ingredientId": "ingredient-12",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -55094,6 +55905,9 @@
 											"ingredientId": "ingredient-14",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Large bowl"
 									]
 								},
 								{
@@ -55104,6 +55918,9 @@
 									"ingredientId": "ingredient-5",
 									"fraction": 0.3333333333333333
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -55116,6 +55933,9 @@
 											"ingredientId": "ingredient-2",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Pans"
 									]
 								},
 								{
@@ -55138,6 +55958,9 @@
 									"ingredientId": "ingredient-8",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
@@ -55152,6 +55975,9 @@
 							"ingredientId": "ingredient-11",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -56059,6 +56885,9 @@
 											"ingredientId": "ingredient-15",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Large bowl"
 									]
 								},
 								{
@@ -56073,6 +56902,9 @@
 									"ingredientId": "ingredient-5",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -56094,6 +56926,9 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -56108,6 +56943,9 @@
 							"ingredientId": "ingredient-8",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -56988,6 +57826,9 @@
 											"ingredientId": "ingredient-14",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Large bowl"
 									]
 								},
 								{
@@ -57006,6 +57847,9 @@
 									"ingredientId": "ingredient-10-pepper",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -57027,6 +57871,9 @@
 									"ingredientId": "ingredient-9",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -57036,12 +57883,19 @@
 									"ingredientId": "ingredient-2",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Spiralizer"
 							]
 						},
 						{
 							"ingredientId": "ingredient-8",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Serving dishes",
+						"Large bowl"
 					]
 				}
 			},
@@ -57907,6 +58761,9 @@
 									"ingredientId": "ingredient-9-pepper",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -57952,6 +58809,9 @@
 									"ingredientId": "ingredient-11",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -57966,6 +58826,9 @@
 							"ingredientId": "ingredient-14",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Large bowl"
 					]
 				}
 			},
@@ -58866,6 +59729,10 @@
 									"ingredientId": "ingredient-12",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Large bowl"
 							]
 						},
 						{
@@ -58876,6 +59743,10 @@
 							"ingredientId": "ingredient-14",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Oven",
+						"Large bowl"
 					]
 				}
 			},
@@ -59573,6 +60444,9 @@
 									"ingredientId": "ingredient-3",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -59602,6 +60476,9 @@
 									"ingredientId": "ingredient-9",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -59611,6 +60488,9 @@
 									"ingredientId": "ingredient-2",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -59621,6 +60501,9 @@
 							"ingredientId": "ingredient-11",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Large bowl"
 					]
 				}
 			},
@@ -60468,12 +61351,18 @@
 											"ingredientId": "ingredient-11",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Large bowl"
 									]
 								},
 								{
 									"ingredientId": "ingredient-13",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -60483,8 +61372,14 @@
 									"ingredientId": "ingredient-2",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -61466,12 +62361,18 @@
 											"ingredientId": "ingredient-17",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Large bowl"
 									]
 								},
 								{
 									"ingredientId": "ingredient-3",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -61493,6 +62394,9 @@
 									"ingredientId": "ingredient-7",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -61502,6 +62406,9 @@
 									"ingredientId": "ingredient-2",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Spiralizer"
 							]
 						},
 						{
@@ -61524,6 +62431,9 @@
 							"ingredientId": "ingredient-11",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -62323,6 +63233,11 @@
 									"ingredientId": "ingredient-12",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Chopping board",
+								"Small bowl"
 							]
 						},
 						{
@@ -62341,6 +63256,10 @@
 							"ingredientId": "ingredient-11",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Oven",
+						"Pans"
 					]
 				}
 			},
@@ -63141,6 +64060,9 @@
 									"ingredientId": "ingredient-4",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -63162,6 +64084,9 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -63171,12 +64096,18 @@
 									"ingredientId": "ingredient-2",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Spiralizer"
 							]
 						},
 						{
 							"ingredientId": "ingredient-12",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Large bowl"
 					]
 				}
 			},
@@ -64124,6 +65055,9 @@
 									"ingredientId": "ingredient-4",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -64152,6 +65086,9 @@
 											"ingredientId": "ingredient-9",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Pans"
 									]
 								},
 								{
@@ -64170,12 +65107,18 @@
 									"ingredientId": "ingredient-12",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
 							"ingredientId": "ingredient-13",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -65208,6 +66151,9 @@
 									"ingredientId": "ingredient-5-pepper",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -65253,6 +66199,9 @@
 									"ingredientId": "ingredient-5-pepper",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -65263,6 +66212,9 @@
 							"ingredientId": "ingredient-13",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -66114,12 +67066,19 @@
 											"ingredientId": "ingredient-11-pepper",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Chopping board",
+										"Small bowl"
 									]
 								},
 								{
 									"ingredientId": "ingredient-9",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -66149,6 +67108,9 @@
 									"ingredientId": "ingredient-13",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -66162,8 +67124,14 @@
 									"ingredientId": "ingredient-7",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Spiralizer"
 							]
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -67000,6 +67968,9 @@
 									"ingredientId": "ingredient-11",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -67037,6 +68008,9 @@
 									"ingredientId": "ingredient-12",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -67055,6 +68029,9 @@
 							"ingredientId": "ingredient-14",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -67926,6 +68903,11 @@
 									"ingredientId": "ingredient-7",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Chopping board",
+								"Large bowl"
 							]
 						},
 						{
@@ -67955,6 +68937,9 @@
 									"ingredientId": "ingredient-14",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -67969,6 +68954,9 @@
 							"ingredientId": "ingredient-14",
 							"fraction": 0.5
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -68639,6 +69627,9 @@
 									"ingredientId": "ingredient-3",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -68664,6 +69655,10 @@
 									"ingredientId": "ingredient-8",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Large bowl"
 							]
 						},
 						{
@@ -68678,6 +69673,9 @@
 							"ingredientId": "ingredient-11",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Large bowl"
 					]
 				}
 			},
@@ -69369,6 +70367,9 @@
 									"ingredientId": "ingredient-3",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -69398,6 +70399,9 @@
 									"ingredientId": "ingredient-9",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -69407,6 +70411,9 @@
 									"ingredientId": "ingredient-2",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -69417,6 +70424,9 @@
 							"ingredientId": "ingredient-11",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Large bowl"
 					]
 				}
 			},
@@ -70000,6 +71010,9 @@
 									"ingredientId": "ingredient-3",
 									"fraction": 0.3333333333333333
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -70029,6 +71042,9 @@
 									"ingredientId": "ingredient-8",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Kitchen utensils"
 							]
 						},
 						{
@@ -70038,6 +71054,9 @@
 									"ingredientId": "ingredient-2",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Spiralizer"
 							]
 						},
 						{
@@ -70048,6 +71067,9 @@
 							"ingredientId": "ingredient-9",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -71003,6 +72025,9 @@
 									"ingredientId": "ingredient-3",
 									"fraction": 0.25
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -71027,6 +72052,9 @@
 											"ingredientId": "ingredient-13",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Large bowl"
 									]
 								},
 								{
@@ -71041,6 +72069,9 @@
 									"ingredientId": "ingredient-10-pepper",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -71074,8 +72105,14 @@
 									"ingredientId": "ingredient-9",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -72051,6 +73088,9 @@
 									"ingredientId": "ingredient-3",
 									"fraction": 0.25
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -72084,6 +73124,9 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -72093,6 +73136,9 @@
 									"ingredientId": "ingredient-2",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Spiralizer"
 							]
 						},
 						{
@@ -72111,6 +73157,9 @@
 							"ingredientId": "ingredient-16",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Large bowl"
 					]
 				}
 			},
@@ -72921,6 +73970,9 @@
 									"ingredientId": "ingredient-3",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -72942,6 +73994,9 @@
 									"ingredientId": "ingredient-7",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -72959,6 +74014,9 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
@@ -72977,6 +74035,9 @@
 							"ingredientId": "ingredient-13",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -73760,6 +74821,9 @@
 											"ingredientId": "ingredient-6",
 											"fraction": 1
 										}
+									],
+									"equipment": [
+										"Pans"
 									]
 								},
 								{
@@ -73778,6 +74842,9 @@
 									"ingredientId": "ingredient-9-pepper",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -73803,6 +74870,9 @@
 									"ingredientId": "ingredient-9-pepper",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -73813,6 +74883,9 @@
 							"ingredientId": "ingredient-12",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -74599,6 +75672,9 @@
 									"ingredientId": "ingredient-9",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -74624,8 +75700,15 @@
 									"ingredientId": "ingredient-13",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						}
+					],
+					"equipment": [
+						"Serving dishes",
+						"Large bowl"
 					]
 				}
 			},
@@ -75422,6 +76505,9 @@
 									"ingredientId": "ingredient-4",
 									"fraction": 0.6666666666666666
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -75459,12 +76545,18 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
 							"ingredientId": "ingredient-11",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -76136,6 +77228,9 @@
 											"ingredientId": "ingredient-6",
 											"fraction": 0.10714285714285714
 										}
+									],
+									"equipment": [
+										"Pans"
 									]
 								},
 								{
@@ -76169,8 +77264,14 @@
 											"ingredientId": "ingredient-6",
 											"fraction": 0.8928571428571429
 										}
+									],
+									"equipment": [
+										"Pans"
 									]
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
@@ -76181,6 +77282,9 @@
 							"ingredientId": "ingredient-10",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -77101,6 +78205,9 @@
 													"ingredientId": "ingredient-3",
 													"fraction": 0.5
 												}
+											],
+											"equipment": [
+												"Large bowl"
 											]
 										},
 										{
@@ -77130,14 +78237,23 @@
 													"ingredientId": "ingredient-8",
 													"fraction": 1
 												}
+											],
+											"equipment": [
+												"Small bowl"
 											]
 										}
+									],
+									"equipment": [
+										"Kitchen utensils"
 									]
 								},
 								{
 									"ingredientId": "ingredient-9",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -77159,6 +78275,9 @@
 									"ingredientId": "ingredient-13",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -77173,6 +78292,9 @@
 							"ingredientId": "ingredient-16",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -77375,7 +78497,8 @@
 							"unit": "g",
 							"weightRef": "usda-170457"
 						}
-					]
+					],
+					"weightRef": "diced-tomato-can-15oz"
 				},
 				{
 					"id": "ingredient-6",
@@ -78009,6 +79132,9 @@
 									"ingredientId": "ingredient-4",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -78050,6 +79176,9 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -78060,6 +79189,9 @@
 							"ingredientId": "ingredient-12",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -78905,6 +80037,10 @@
 									"ingredientId": "ingredient-7",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Serving dishes"
 							]
 						},
 						{
@@ -78934,6 +80070,9 @@
 									"ingredientId": "ingredient-12",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Kitchen utensils"
 							]
 						},
 						{
@@ -78944,6 +80083,9 @@
 							"ingredientId": "ingredient-13",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Oven"
 					]
 				}
 			},
@@ -79841,6 +80983,11 @@
 									"ingredientId": "ingredient-4",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Blender",
+								"Pans",
+								"Large bowl"
 							]
 						},
 						{
@@ -79866,6 +81013,9 @@
 									"ingredientId": "ingredient-8",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -79876,6 +81026,9 @@
 							"ingredientId": "ingredient-10",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -80692,6 +81845,9 @@
 									"ingredientId": "ingredient-4",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -80733,6 +81889,9 @@
 									"ingredientId": "ingredient-6",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -80747,6 +81906,9 @@
 							"ingredientId": "ingredient-10",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -81784,6 +82946,9 @@
 									"ingredientId": "ingredient-18",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -81817,6 +82982,9 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
@@ -81827,6 +82995,9 @@
 							"ingredientId": "ingredient-12",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -82683,6 +83854,9 @@
 									"ingredientId": "ingredient-3",
 									"fraction": 0.6666666666666666
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -82724,8 +83898,15 @@
 									"ingredientId": "ingredient-9",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Large bowl"
 							]
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -83458,6 +84639,9 @@
 									"ingredientId": "ingredient-7",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
@@ -83479,6 +84663,9 @@
 									"ingredientId": "ingredient-9",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
@@ -83497,6 +84684,9 @@
 							"ingredientId": "ingredient-10",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Oven"
 					]
 				}
 			},
@@ -84290,6 +85480,9 @@
 									"ingredientId": "ingredient-3-pepper",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -84327,6 +85520,9 @@
 									"ingredientId": "ingredient-1",
 									"fraction": 0.75
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -84337,6 +85533,9 @@
 							"ingredientId": "ingredient-12",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -85175,6 +86374,9 @@
 									"ingredientId": "ingredient-3",
 									"fraction": 0.6666666666666666
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -85216,8 +86418,14 @@
 									"ingredientId": "ingredient-9",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Microwave"
 							]
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -86017,6 +87225,9 @@
 									"ingredientId": "ingredient-12",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
@@ -86030,6 +87241,9 @@
 									"ingredientId": "ingredient-9",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Oven"
 							]
 						},
 						{
@@ -86048,6 +87262,9 @@
 							"ingredientId": "ingredient-13",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Oven"
 					]
 				}
 			},
@@ -86943,6 +88160,9 @@
 									"ingredientId": "ingredient-6",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -86956,6 +88176,9 @@
 									"ingredientId": "ingredient-14",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Microwave"
 							]
 						},
 						{
@@ -87002,6 +88225,9 @@
 							"ingredientId": "ingredient-15-pepper",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -87724,6 +88950,9 @@
 									"ingredientId": "ingredient-5-pepper",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -87741,6 +88970,9 @@
 									"ingredientId": "ingredient-8",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Kitchen utensils"
 							]
 						},
 						{
@@ -87755,6 +88987,9 @@
 							"ingredientId": "ingredient-11",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -88604,6 +89839,9 @@
 									"ingredientId": "ingredient-2",
 									"fraction": 0.6666666666666666
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -88645,12 +89883,18 @@
 									"ingredientId": "ingredient-11",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
 							"ingredientId": "ingredient-12",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -89482,6 +90726,9 @@
 									"ingredientId": "ingredient-12",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -89515,6 +90762,9 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -89529,6 +90779,9 @@
 							"ingredientId": "ingredient-7",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -90458,6 +91711,9 @@
 							"ingredientId": "ingredient-14",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -91014,6 +92270,10 @@
 									"ingredientId": "ingredient-2",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Large bowl"
 							]
 						},
 						{
@@ -91035,6 +92295,9 @@
 									"ingredientId": "ingredient-6",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -91045,6 +92308,9 @@
 							"ingredientId": "ingredient-8",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Kitchen utensils"
 					]
 				}
 			},
@@ -91903,6 +93169,9 @@
 									"ingredientId": "ingredient-4",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -91940,6 +93209,9 @@
 									"ingredientId": "ingredient-13",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -91954,6 +93226,9 @@
 							"ingredientId": "ingredient-10",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Kitchen utensils"
 					]
 				}
 			},
@@ -92804,6 +94079,9 @@
 									"ingredientId": "ingredient-4",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -92849,6 +94127,9 @@
 									"ingredientId": "ingredient-6",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Microwave"
 							]
 						},
 						{
@@ -92863,6 +94144,9 @@
 							"ingredientId": "ingredient-10",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -93878,6 +95162,10 @@
 									"ingredientId": "ingredient-5",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Chopping board"
 							]
 						},
 						{
@@ -93931,12 +95219,18 @@
 									"ingredientId": "ingredient-17",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
 							"ingredientId": "ingredient-18",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -94812,6 +96106,9 @@
 									"ingredientId": "ingredient-5",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -94821,6 +96118,10 @@
 									"ingredientId": "ingredient-7",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Microwave",
+								"Chopping board"
 							]
 						},
 						{
@@ -94847,6 +96148,10 @@
 							"ingredientId": "ingredient-9",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans",
+						"Small bowl"
 					]
 				}
 			},
@@ -95953,6 +97258,9 @@
 									"ingredientId": "ingredient-18",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -95990,8 +97298,14 @@
 									"ingredientId": "ingredient-13",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -96964,6 +98278,10 @@
 									"ingredientId": "ingredient-4",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Large bowl"
 							]
 						},
 						{
@@ -97005,12 +98323,18 @@
 									"ingredientId": "ingredient-6",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Microwave"
 							]
 						},
 						{
 							"ingredientId": "ingredient-9",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},
@@ -97661,6 +98985,10 @@
 									"ingredientId": "ingredient-3",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Large bowl"
 							]
 						},
 						{
@@ -97690,6 +99018,9 @@
 									"ingredientId": "ingredient-8",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -97700,6 +99031,9 @@
 							"ingredientId": "ingredient-10",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -98331,6 +99665,10 @@
 									"ingredientId": "ingredient-6-pepper",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Serving dishes"
 							]
 						},
 						{
@@ -98340,6 +99678,9 @@
 									"ingredientId": "ingredient-7",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -98350,6 +99691,9 @@
 							"ingredientId": "ingredient-9",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -99180,6 +100524,10 @@
 							"ingredientId": "ingredient-11",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans",
+						"Chopping board"
 					]
 				}
 			},
@@ -100341,6 +101689,9 @@
 									"ingredientId": "ingredient-16",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -100386,6 +101737,9 @@
 									"ingredientId": "ingredient-15",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -100408,6 +101762,9 @@
 							"ingredientId": "ingredient-17",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Chopping board"
 					]
 				}
 			},
@@ -101591,6 +102948,9 @@
 									"ingredientId": "ingredient-2",
 									"fraction": 0.6666666666666666
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -101632,6 +102992,9 @@
 									"ingredientId": "ingredient-11",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -101666,6 +103029,9 @@
 							"ingredientId": "ingredient-18",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -101911,7 +103277,8 @@
 						"massBasis": "edible",
 						"decision": "Editorial 411 g can-content target, including liquid."
 					},
-					"sourceIngredientId": "ingredient-7"
+					"sourceIngredientId": "ingredient-7",
+					"weightRef": "tomato-can-content-411"
 				},
 				{
 					"id": "ingredient-9",
@@ -102522,6 +103889,9 @@
 									"ingredientId": "ingredient-5",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Kitchen utensils"
 							]
 						},
 						{
@@ -102551,6 +103921,10 @@
 									"ingredientId": "ingredient-11",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Chopping board"
 							]
 						},
 						{
@@ -102561,6 +103935,9 @@
 							"ingredientId": "ingredient-12-pepper",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -103517,6 +104894,10 @@
 									"ingredientId": "ingredient-16",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Microwave",
+								"Chopping board"
 							]
 						},
 						{
@@ -103570,6 +104951,9 @@
 									"ingredientId": "ingredient-14",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -103584,6 +104968,9 @@
 							"ingredientId": "ingredient-15",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans"
 					]
 				}
 			},
@@ -104408,6 +105795,9 @@
 									"ingredientId": "ingredient-3",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -104457,8 +105847,15 @@
 									"ingredientId": "ingredient-9",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Chopping board"
 							]
 						}
+					],
+					"equipment": [
+						"Kitchen utensils"
 					]
 				}
 			},
@@ -105122,6 +106519,9 @@
 									"ingredientId": "ingredient-1",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -105147,6 +106547,9 @@
 									"ingredientId": "ingredient-7",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Small bowl"
 							]
 						},
 						{
@@ -105169,6 +106572,10 @@
 							"ingredientId": "ingredient-2",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Oven",
+						"Pans"
 					]
 				}
 			},
@@ -105957,6 +107364,10 @@
 									"ingredientId": "ingredient-4",
 									"fraction": 0.3333333333333333
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Chopping board"
 							]
 						},
 						{
@@ -105982,12 +107393,18 @@
 									"ingredientId": "ingredient-9",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Small bowl"
 							]
 						},
 						{
 							"ingredientId": "ingredient-8",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Kitchen utensils"
 					]
 				}
 			},
@@ -106659,6 +108076,9 @@
 									"ingredientId": "ingredient-10",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Microwave"
 							]
 						},
 						{
@@ -106668,6 +108088,9 @@
 									"ingredientId": "ingredient-1",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -106685,6 +108108,9 @@
 									"ingredientId": "ingredient-8",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Small bowl"
 							]
 						},
 						{
@@ -106694,6 +108120,9 @@
 									"ingredientId": "ingredient-3",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans"
 							]
 						},
 						{
@@ -106712,6 +108141,10 @@
 							"ingredientId": "ingredient-9-pepper",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Pans",
+						"Large bowl"
 					]
 				}
 			},
@@ -107074,8 +108507,14 @@
 									"ingredientId": "ingredient-4",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						}
+					],
+					"equipment": [
+						"Waffle iron"
 					]
 				}
 			},
@@ -107894,6 +109333,9 @@
 									"ingredientId": "ingredient-3",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Slow cooker"
 							]
 						},
 						{
@@ -107935,6 +109377,9 @@
 									"ingredientId": "ingredient-12",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Small bowl"
 							]
 						},
 						{
@@ -107949,6 +109394,9 @@
 							"ingredientId": "ingredient-14",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Chopping board"
 					]
 				}
 			},
@@ -108394,14 +109842,24 @@
 													"ingredientId": "garlic_powder",
 													"fraction": 0.5
 												}
+											],
+											"equipment": [
+												"Large bowl"
 											]
 										}
+									],
+									"equipment": [
+										"Large bowl"
 									]
 								},
 								{
 									"ingredientId": "canola_oil",
 									"fraction": 1
 								}
+							],
+							"equipment": [
+								"Pans",
+								"Large bowl"
 							]
 						},
 						{
@@ -108419,12 +109877,18 @@
 									"ingredientId": "garlic_powder",
 									"fraction": 0.5
 								}
+							],
+							"equipment": [
+								"Large bowl"
 							]
 						},
 						{
 							"ingredientId": "lemon_wedges",
 							"fraction": 1
 						}
+					],
+					"equipment": [
+						"Serving dishes"
 					]
 				}
 			},

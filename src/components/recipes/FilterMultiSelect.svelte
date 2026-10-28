@@ -65,6 +65,7 @@
 				<label for={`${uid}-${value}`}
 					><Checkbox
 						id={`${uid}-${value}`}
+						aria-label={text}
 						checked={selected.includes(value)}
 						disabled={choiceUnavailable(selected.includes(value), () => canSelect(toggled(value)))}
 						onCheckedChange={() => {

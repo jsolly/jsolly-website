@@ -1,3 +1,4 @@
+import { ingredientText } from "./cooking-notes.mjs";
 import { cookingText } from "./cooking-quantities.mjs";
 import { ingredientGrams, ingredientMeasure } from "./ingredient-units.mjs";
 import {
@@ -30,6 +31,7 @@ export function validateFlow(recipe) {
 		if (node.children) {
 			if (!node.action || !node.children.length)
 				throw new Error("Empty operation");
+
 			node.children.forEach(visit);
 			return;
 		}
@@ -102,11 +104,15 @@ export function flowGrid(recipe, settings = {}) {
 				formatQuantity,
 			);
 			item.quantity = measure.quantity;
-			item.alternatives = measure.alternatives;
+			item.alternatives = measure.alternatives?.map((choice) => ({
+				...choice,
+				name: ingredientText(choice.name),
+			}));
 			item.amount = amount;
-			item.name = ingredient.name;
+			item.name = ingredientText(ingredient.name);
 			item.state = text(
 				[ingredient.state, ingredient.note, purchaseNote(ingredient, servings)]
+					.map(ingredientText)
 					.filter(Boolean)
 					.join(" · "),
 			);
@@ -126,6 +132,7 @@ export function flowGrid(recipe, settings = {}) {
 		if (children.length === 1 && children[0].children)
 			return {
 				action: `${children[0].action} Then: ${node.action}`,
+				equipment: [...new Set([...children[0].equipment, ...node.equipment])],
 				children: children[0].children,
 			};
 		return { ...node, children };
@@ -154,6 +161,7 @@ export function flowGrid(recipe, settings = {}) {
 			colspan: op.parent ? op.parent.depth - op.depth : 1,
 			rowspan: op.rows,
 			text: op.action,
+			equipment: op.equipment,
 		});
 	for (const r of rows) r.cells.sort((a, b) => a.col - b.col);
 	const option = recipe.familyOptions?.find(
@@ -162,8 +170,7 @@ export function flowGrid(recipe, settings = {}) {
 	const side =
 		option && familyDiners > 0
 			? [
-					option.note ||
-						"Prepare the optional side separately and add it only to the plates that request it.",
+					`Side for ${familyDiners} ${familyDiners === 1 ? "person" : "people"}: ${ingredientMeasure(option, option.amount * familyDiners, units, formatQuantity).quantity} ${ingredientText(option.ingredientName)}. ${ingredientText(option.note) || "Prepare separately and add only to plates that request it."}`,
 				]
 			: [];
 	const pressure = recipe.ingredients
@@ -173,7 +180,7 @@ export function flowGrid(recipe, settings = {}) {
 		)
 		.map(
 			(ingredient) =>
-				`Use at least ${ingredientAmount(ingredient, servings)} mL ${ingredient.name.toLowerCase()} for pressure cooking.`,
+				`Use at least ${ingredientAmount(ingredient, servings)} mL ${ingredientText(ingredient.name).toLowerCase()} for pressure cooking.`,
 		);
 	return {
 		prep: [...recipe.flow.prep, ...pressure, ...side].map(text),

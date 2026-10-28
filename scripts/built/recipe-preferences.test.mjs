@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { collectErrors, serveStatic } from "./pages.mjs";
+import { legacyUnits } from "./recipe-legacy-units.mjs";
 
 let site;
 let browser;
@@ -60,12 +61,7 @@ function preferenceCase(path, override = true) {
 			);
 			release();
 			await page.locator('[data-preferences-ready="true"]').waitFor();
-			assert.equal(
-				await page
-					.getByRole("combobox", { name: "Ingredient units" })
-					.inputValue(),
-				override ? "grams" : "metric",
-			);
+			assert.equal(await legacyUnits(page), override ? "grams" : "metric");
 			assert.equal(
 				await page.getByRole("combobox", { name: SERVINGS }).inputValue(),
 				override ? "2" : "8",

@@ -12,22 +12,12 @@ const CASES = [
 		"spinach-feta-and-hemp-frittata",
 		"/recipes/",
 		["Immune support", "Iron-rich", "High in Omega-3s"],
-		["Keto"],
+		[],
 	],
-	[
-		"smoky-chicken-thighs-and-broccoli",
-		"/recipes/",
-		["Immune support"],
-		["Keto"],
-	],
-	["pesto-cod-and-zucchini", "/recipes/", ["High in Omega-3s"], ["Keto"]],
-	[
-		"strawberry-hemp-smoothie",
-		"/recipes/smoothies/",
-		["High in Omega-3s"],
-		["Keto"],
-	],
-	["avocado-lime-smoothie", "/recipes/smoothies/", [], ["Keto"]],
+	["smoky-chicken-thighs-and-broccoli", "/recipes/", ["Immune support"], []],
+	["pesto-cod-and-zucchini", "/recipes/", ["High in Omega-3s"], []],
+	["strawberry-hemp-smoothie", "/recipes/smoothies/", ["High in Omega-3s"], []],
+	["avocado-lime-smoothie", "/recipes/smoothies/", [], []],
 ];
 let site;
 let browser;

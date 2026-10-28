@@ -18,7 +18,7 @@ import {
 
 const BAD_DISPLAY =
 	/unavailable|unspecified|to taste|NaN|Infinity|undefined|~|\(/u;
-const GRAMS = /^[\d.e+-]+ g$/u;
+const GRAMS = /^\d+ g$/u;
 const output = new URL("../../docs/recipe-units-audit.json", import.meta.url);
 const SERVINGS = [2, 4, 6, 8];
 const positive = (value) => Number.isFinite(value) && value > 0;
@@ -80,35 +80,48 @@ function referenceAudit() {
 }
 
 function displays(ingredient, amount) {
-	return Object.fromEntries(
-		Object.keys(UNIT_LABELS).map((units) => {
-			const shown = ingredientMeasure(
-				ingredient,
-				amount,
-				units,
-				formatQuantity,
-			);
-			for (const choice of [shown, ...(shown.alternatives || [])]) {
-				requireEvidence(
-					positive(choice.grams),
-					ingredient.id,
-					`${units} has no positive cooking mass`,
-				);
-				requireEvidence(
-					!BAD_DISPLAY.test(choice.quantity),
-					ingredient.id,
-					`${units} contains unresolved conversion prose`,
-				);
-				if (units === "grams")
-					requireEvidence(
-						GRAMS.test(choice.quantity),
-						ingredient.id,
-						"grams mode must use grams only",
-					);
-			}
-			return [units, shown];
-		}),
-	);
+	const shown = ingredientMeasure(ingredient, amount, "us", formatQuantity);
+	for (const units of Object.keys(UNIT_LABELS))
+		requireEvidence(
+			JSON.stringify(shown) ===
+				JSON.stringify(
+					ingredientMeasure(ingredient, amount, units, formatQuantity),
+				),
+			ingredient.id,
+			"legacy unit preference must not hide or reorder measurements",
+		);
+	for (const choice of [shown, ...(shown.alternatives || [])]) {
+		requireEvidence(
+			positive(choice.grams),
+			ingredient.id,
+			"display has no positive cooking mass",
+		);
+		requireEvidence(
+			!BAD_DISPLAY.test(choice.quantity),
+			ingredient.id,
+			"display contains unresolved conversion prose",
+		);
+		requireEvidence(
+			choice.measurements.length >= 1 && choice.measurements.length <= 3,
+			ingredient.id,
+			"display needs one to three useful measures",
+		);
+		requireEvidence(
+			choice.grams < 1
+				? choice.quantity === "A pinch"
+				: choice.measurements.some((m) => GRAMS.test(m.quantity)),
+			ingredient.id,
+			"display needs whole grams or a pinch",
+		);
+		requireEvidence(
+			choice.measurements.every(
+				(m) => !m.quantity.endsWith(" g") || GRAMS.test(m.quantity),
+			),
+			ingredient.id,
+			"display contains fractional grams",
+		);
+	}
+	return shown;
 }
 
 /** Complete canonical rows, alternatives, serving scaling and every family-diner count. */

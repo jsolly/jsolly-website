@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { collectErrors, serveStatic } from "./pages.mjs";
-import { assertPrintImage } from "./recipe-print-image.mjs";
+import { assertPrintLayout } from "./recipe-print-layout.mjs";
 
 // Browsing the built recipe library in Chromium, ported from awesome-blog's
 // PWA suite (scripts/recipes/pwa.test.mjs) without its service worker: a meal
@@ -41,7 +41,7 @@ const RICE_SIDE = /5.64 oz Cooked rice/u;
 const TWO_SERVINGS_CHICKEN = /11.99 oz/u;
 const SMOOTHIE_YIELD = /up to two servings/u;
 const GLASS_NUTRITION = /Nutrition\s*per estimated 8 fl oz \(237 mL\) glass/u;
-const EIGHT_SERVINGS_WATER = /27.05 fl oz Cold water/u;
+const EIGHT_SERVINGS_WATER = /800 g \/ 800 mL/u;
 const EIGHT_SERVINGS = /8\s+servings/u;
 // Longer than the help popover's 120ms close delay.
 const HELP_CLOSE_WAIT_MS = 400;
@@ -365,7 +365,9 @@ function detailsCheck(width) {
 			await page.emulateMedia({ media: "print" });
 			assert.equal(await page.locator(".print-document").isVisible(), true);
 			assert.equal(await page.locator(".recipe-detail").isVisible(), true);
-			await assertPrintImage(page.locator(".print-document .recipe-photo img"));
+			await assertPrintLayout(
+				page.locator(".print-document .recipe-photo img"),
+			);
 			const printed = await page.locator(".print-document").textContent();
 			assert.match(printed, COOKING_FLOW);
 			assert.doesNotMatch(printed, REMOVED_PRINT_SECTIONS);
@@ -627,7 +629,7 @@ function filtersCheck(width) {
 
 			await follow(
 				page,
-				page.getByRole("link", { name: "Keto smoothies", exact: true }),
+				page.getByRole("link", { name: "Smoothies", exact: true }),
 				"**/recipes/smoothies/",
 			);
 			assert.equal(await cards(), smoothieCount);
@@ -666,7 +668,7 @@ function filtersCheck(width) {
 			await hydrated(page);
 			assert.equal(
 				await page
-					.getByRole("link", { name: "Keto smoothies", exact: true })
+					.getByRole("link", { name: "Smoothies", exact: true })
 					.getAttribute("aria-current"),
 				"page",
 			);
@@ -744,7 +746,11 @@ function filtersCheck(width) {
 			);
 			assert.equal(await detail.locator(".reset-checks-row").count(), 1);
 			assert.match(
-				await detail.locator(".trn-table").textContent(),
+				await detail
+					.locator(".trn-table th.trn-ingredient")
+					.filter({ hasText: "Cold water" })
+					.locator("strong")
+					.textContent(),
 				EIGHT_SERVINGS_WATER,
 			);
 			await page
@@ -974,7 +980,7 @@ function collectionsCheck(width) {
 			);
 			await Promise.all([
 				page.waitForURL("**/recipes/smoothies/"),
-				page.getByRole("link", { name: "Keto smoothies", exact: true }).click(),
+				page.getByRole("link", { name: "Smoothies", exact: true }).click(),
 			]);
 			assert.equal(await page.locator(".recipe-card").count(), smoothieCount);
 			await Promise.all([
@@ -1010,7 +1016,7 @@ function collectionsCheck(width) {
 			});
 			const popover = enhanced.locator(".nutrition-help");
 			const heading = enhanced.getByRole("heading", {
-				name: "Keto meals",
+				name: "Meals",
 				exact: true,
 			});
 			const desktop = width === 1280;

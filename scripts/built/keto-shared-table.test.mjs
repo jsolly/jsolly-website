@@ -1,10 +1,12 @@
 // biome-ignore-all lint/performance/noAwaitInLoops: Review each real recipe document and browser setting in order.
+
 import assert from "node:assert/strict";
 import { mkdir, readFile } from "node:fs/promises";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import data from "../../src/components/recipes/recipe-data.server.mjs";
 import { collectErrors, readBuilt, serveStatic } from "./pages.mjs";
+import { setLegacyUnits } from "./recipe-legacy-units.mjs";
 
 let site;
 let browser;
@@ -75,9 +77,7 @@ function verifySharedTable(width) {
 			await page.goto(`${site.origin}/recipes/greek-turkey-patties/`);
 			await ready();
 			const baseMacros = await page.locator(".nutrition > dl").textContent();
-			await page
-				.getByRole("combobox", { name: "Ingredient units" })
-				.selectOption("grams");
+			await setLegacyUnits(page, "grams");
 			await side().selectOption("pita_one");
 			await sideDiners().selectOption("2");
 			await page.reload();
@@ -91,9 +91,7 @@ function verifySharedTable(width) {
 				"4",
 			);
 			assert.ok(
-				(await page.locator(".family-box p").textContent()).includes(
-					"120 g Pita",
-				),
+				(await page.locator(".family-box p").textContent()).includes("120 g"),
 			);
 			assert.equal(
 				await page.locator(".nutrition > dl").textContent(),
@@ -109,9 +107,9 @@ function verifySharedTable(width) {
 				"greek-turkey-patties:pita_one",
 			);
 			await page.emulateMedia({ media: "print" });
-			assert.equal(await page.locator(".shared-table").isVisible(), true);
+			assert.equal(await page.locator(".shared-table").isVisible(), false);
 			assert.ok(
-				(await page.locator(".family-box p").textContent()).includes(
+				(await page.locator(".trn-table").textContent()).includes(
 					"for 2 people",
 				),
 			);

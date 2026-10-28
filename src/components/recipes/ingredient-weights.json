@@ -135,7 +135,12 @@
 				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
 				"evidence": "https://www.jsolly.com/recipes/"
 			},
-			"fdcId": 172385
+			"fdcId": 172385,
+			"displayPortion": {
+				"unit": "count",
+				"singular": "thigh",
+				"plural": "thighs"
+			}
 		},
 		{
 			"id": "chicken-breast",
@@ -157,7 +162,12 @@
 				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
 				"evidence": "https://www.jsolly.com/recipes/"
 			},
-			"fdcId": 171077
+			"fdcId": 171077,
+			"displayPortion": {
+				"unit": "count",
+				"singular": "breast",
+				"plural": "breasts"
+			}
 		},
 		{
 			"id": "chicken-large-breast",
@@ -179,7 +189,12 @@
 				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
 				"evidence": "https://www.jsolly.com/recipes/"
 			},
-			"fdcId": 171077
+			"fdcId": 171077,
+			"displayPortion": {
+				"unit": "count",
+				"singular": "large breast",
+				"plural": "large breasts"
+			}
 		},
 		{
 			"id": "chicken-small-breast",
@@ -201,7 +216,12 @@
 				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
 				"evidence": "https://www.jsolly.com/recipes/"
 			},
-			"fdcId": 171077
+			"fdcId": 171077,
+			"displayPortion": {
+				"unit": "count",
+				"singular": "small breast",
+				"plural": "small breasts"
+			}
 		},
 		{
 			"id": "chicken-thigh",
@@ -223,7 +243,12 @@
 				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
 				"evidence": "https://www.jsolly.com/recipes/"
 			},
-			"fdcId": 173627
+			"fdcId": 173627,
+			"displayPortion": {
+				"unit": "count",
+				"singular": "thigh",
+				"plural": "thighs"
+			}
 		},
 		{
 			"id": "cod-portion",
@@ -245,7 +270,12 @@
 				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
 				"evidence": "https://www.jsolly.com/recipes/"
 			},
-			"fdcId": 171955
+			"fdcId": 171955,
+			"displayPortion": {
+				"unit": "count",
+				"singular": "fillet",
+				"plural": "fillets"
+			}
 		},
 		{
 			"id": "fajita-packet",
@@ -416,7 +446,12 @@
 				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
 				"evidence": "https://www.jsolly.com/recipes/"
 			},
-			"fdcId": 167746
+			"fdcId": 167746,
+			"displayPortion": {
+				"unit": "count",
+				"singular": "lemon",
+				"plural": "lemons"
+			}
 		},
 		{
 			"id": "morton-kosher",
@@ -468,7 +503,12 @@
 				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
 				"evidence": "https://www.jsolly.com/recipes/"
 			},
-			"fdcId": 169766
+			"fdcId": 169766,
+			"displayPortion": {
+				"unit": "count",
+				"singular": "pepper",
+				"plural": "peppers"
+			}
 		},
 		{
 			"id": "pork-bone-chop",
@@ -490,7 +530,12 @@
 				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
 				"evidence": "https://www.jsolly.com/recipes/"
 			},
-			"fdcId": 167839
+			"fdcId": 167839,
+			"displayPortion": {
+				"unit": "count",
+				"singular": "chop",
+				"plural": "chops"
+			}
 		},
 		{
 			"id": "salmon-portion",
@@ -544,6 +589,11 @@
 				"retrieved": "2026-10-13",
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"displayPortion": {
+				"unit": "count",
+				"singular": "lemon",
+				"plural": "lemons"
 			}
 		},
 		{
@@ -578,7 +628,13 @@
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			},
 			"volumeInterpolationUnit": "cup",
-			"gramsPerMl": 1.0313276924062114
+			"gramsPerMl": 1.0313276924062114,
+			"displayPortion": {
+				"unit": "lemon",
+				"singular": "lemon",
+				"plural": "lemons",
+				"prefix": "juice of "
+			}
 		},
 		{
 			"id": "usda-167749-zest",
@@ -628,6 +684,11 @@
 				"retrieved": "2026-10-13",
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"displayPortion": {
+				"unit": "count",
+				"singular": "chop",
+				"plural": "chops"
 			}
 		},
 		{
@@ -684,7 +745,13 @@
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			},
 			"volumeInterpolationUnit": "cup",
-			"gramsPerMl": 1.0228741867307507
+			"gramsPerMl": 1.0228741867307507,
+			"displayPortion": {
+				"unit": "lime",
+				"singular": "lime",
+				"plural": "limes",
+				"prefix": "juice of "
+			}
 		},
 		{
 			"id": "usda-168277",
@@ -813,7 +880,12 @@
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			},
 			"volumeInterpolationUnit": "cup",
-			"nutritionFdcId": 168576
+			"nutritionFdcId": 168576,
+			"displayPortion": {
+				"unit": "count",
+				"singular": "jalapeño",
+				"plural": "jalapeños"
+			}
 		},
 		{
 			"id": "usda-168878",
@@ -993,7 +1065,12 @@
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			},
-			"volumeInterpolationUnit": "cup"
+			"volumeInterpolationUnit": "cup",
+			"displayPortion": {
+				"unit": "count",
+				"singular": "medium zucchini",
+				"plural": "medium zucchini"
+			}
 		},
 		{
 			"id": "usda-169291-large",
@@ -1015,6 +1092,11 @@
 				"retrieved": "2026-10-13",
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"displayPortion": {
+				"unit": "count",
+				"singular": "large zucchini",
+				"plural": "large zucchini"
 			}
 		},
 		{
@@ -1151,7 +1233,12 @@
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			},
-			"volumeInterpolationUnit": "cup"
+			"volumeInterpolationUnit": "cup",
+			"displayPortion": {
+				"unit": "count",
+				"singular": "medium head",
+				"plural": "medium heads"
+			}
 		},
 		{
 			"id": "usda-169975-small",
@@ -1173,6 +1260,11 @@
 				"retrieved": "2026-10-13",
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"displayPortion": {
+				"unit": "count",
+				"singular": "small head",
+				"plural": "small heads"
 			}
 		},
 		{
@@ -1345,7 +1437,12 @@
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			},
-			"volumeInterpolationUnit": "tbsp"
+			"volumeInterpolationUnit": "tbsp",
+			"displayPortion": {
+				"unit": "count",
+				"singular": "medium onion",
+				"plural": "medium onions"
+			}
 		},
 		{
 			"id": "usda-170000-sliced",
@@ -1390,6 +1487,11 @@
 				"retrieved": "2026-10-13",
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"displayPortion": {
+				"unit": "count",
+				"singular": "small onion",
+				"plural": "small onions"
 			}
 		},
 		{
@@ -1446,7 +1548,12 @@
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			},
-			"volumeInterpolationUnit": "tbsp"
+			"volumeInterpolationUnit": "tbsp",
+			"displayPortion": {
+				"unit": "count",
+				"singular": "scallion",
+				"plural": "scallions"
+			}
 		},
 		{
 			"id": "usda-170051",
@@ -1553,7 +1660,12 @@
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			},
-			"volumeInterpolationUnit": "tbsp"
+			"volumeInterpolationUnit": "tbsp",
+			"displayPortion": {
+				"unit": "count",
+				"singular": "medium pepper",
+				"plural": "medium peppers"
+			}
 		},
 		{
 			"id": "usda-170108-large",
@@ -1575,6 +1687,11 @@
 				"retrieved": "2026-10-13",
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"displayPortion": {
+				"unit": "count",
+				"singular": "large pepper",
+				"plural": "large peppers"
 			}
 		},
 		{
@@ -1672,7 +1789,12 @@
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			},
-			"volumeInterpolationUnit": "cup"
+			"volumeInterpolationUnit": "cup",
+			"displayPortion": {
+				"unit": "count",
+				"singular": "medium carrot",
+				"plural": "medium carrots"
+			}
 		},
 		{
 			"id": "usda-170416",
@@ -1756,7 +1878,12 @@
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			},
-			"volumeInterpolationUnit": "tbsp"
+			"volumeInterpolationUnit": "tbsp",
+			"displayPortion": {
+				"unit": "count",
+				"singular": "medium pepper",
+				"plural": "medium peppers"
+			}
 		},
 		{
 			"id": "usda-170427-sliced",
@@ -1801,6 +1928,11 @@
 				"retrieved": "2026-10-13",
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"displayPortion": {
+				"unit": "count",
+				"singular": "small pepper",
+				"plural": "small peppers"
 			}
 		},
 		{
@@ -1829,7 +1961,12 @@
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			},
-			"volumeInterpolationUnit": "cup"
+			"volumeInterpolationUnit": "cup",
+			"displayPortion": {
+				"unit": "count",
+				"singular": "medium tomato",
+				"plural": "medium tomatoes"
+			}
 		},
 		{
 			"id": "usda-170457-large",
@@ -1851,6 +1988,11 @@
 				"retrieved": "2026-10-13",
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"displayPortion": {
+				"unit": "count",
+				"singular": "large tomato",
+				"plural": "large tomatoes"
 			}
 		},
 		{
@@ -2451,6 +2593,11 @@
 				"retrieved": "2026-10-13",
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"displayPortion": {
+				"unit": "count",
+				"singular": "large egg",
+				"plural": "large eggs"
 			}
 		},
 		{
@@ -2876,6 +3023,11 @@
 				"retrieved": "2026-10-13",
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"displayPortion": {
+				"unit": "count",
+				"singular": "link",
+				"plural": "links"
 			}
 		},
 		{
@@ -2904,7 +3056,12 @@
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			},
-			"volumeInterpolationUnit": "cup"
+			"volumeInterpolationUnit": "cup",
+			"displayPortion": {
+				"unit": "count",
+				"singular": "avocado",
+				"plural": "avocados"
+			}
 		},
 		{
 			"id": "usda-172179",
@@ -3346,7 +3503,12 @@
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
 			},
-			"volumeInterpolationUnit": "tbsp"
+			"volumeInterpolationUnit": "tbsp",
+			"displayPortion": {
+				"unit": "stick",
+				"singular": "stick",
+				"plural": "sticks"
+			}
 		},
 		{
 			"id": "usda-173468",
@@ -3663,7 +3825,12 @@
 				"decision": "Editorial size default reviewed for four-serving recipe role; weigh the stated cooking quantity. This is not a recovered publisher weight or an edible-to-purchased conversion.",
 				"evidence": "https://www.jsolly.com/recipes/"
 			},
-			"fdcId": 171447
+			"fdcId": 171447,
+			"displayPortion": {
+				"unit": "count",
+				"singular": "whole chicken",
+				"plural": "whole chickens"
+			}
 		},
 		{
 			"id": "usda-172885",
@@ -3835,6 +4002,11 @@
 				"retrieved": "2026-10-13",
 				"evidence": "USDA SR Legacy food_portion.csv; archive SHA-256 b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
 				"decision": "Use the stated food preparation and portion. Exact observed units take precedence over explicit same-preparation volume interpolation."
+			},
+			"displayPortion": {
+				"unit": "count",
+				"singular": "small zucchini",
+				"plural": "small zucchini"
 			}
 		},
 		{
@@ -4041,6 +4213,11 @@
 				"retrieved": "2026-10-22",
 				"decision": "Use the named SR Legacy portion observation for this preparation; edible and cooking weights coincide.",
 				"evidence": "https://fdc.nal.usda.gov/food-details/171287/nutrients"
+			},
+			"displayPortion": {
+				"unit": "count",
+				"singular": "small egg",
+				"plural": "small eggs"
 			}
 		},
 		{
@@ -4263,6 +4440,255 @@
 				"decision": "Use cleaned raw edible tube mass for the squid; direct gram and NIST mass conversion remains canonical. The USDA ounce observation documents the food state and portion.",
 				"evidence": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
 				"archiveSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
+			}
+		},
+		{
+			"id": "usda-168409-large",
+			"kind": "mass",
+			"description": "Cucumber with peel, raw; large 8¼-inch cucumber",
+			"state": "Raw cucumber with peel",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/168409/nutrients",
+			"fdcId": 168409,
+			"measures": {
+				"count": {
+					"amount": 1,
+					"grams": 301,
+					"portion": "cucumber (8-1/4 inch), USDA SR Legacy"
+				}
+			},
+			"displayPortion": {
+				"unit": "count",
+				"singular": "large cucumber",
+				"plural": "large cucumbers"
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-28",
+				"decision": "Household display estimate from USDA SR Legacy whole raw cucumber with peel portion. Canonical edible cooking grams remain authoritative; produce size varies.",
+				"evidence": "USDA SR Legacy, cucumber with peel raw (FDC 168409): one 8¼-inch cucumber weighs 301 g."
+			}
+		},
+		{
+			"id": "tomato-can-content-411",
+			"kind": "mass",
+			"description": "Crushed tomato can contents including liquid, 411 g editorial package target",
+			"state": "Crushed tomato including liquid",
+			"basis": "edible",
+			"source": "https://www.jsolly.com/recipes/",
+			"measures": {
+				"can": {
+					"amount": 1,
+					"grams": 411,
+					"portion": "one explicitly sized 411 g can including liquid"
+				}
+			},
+			"displayPortion": {
+				"unit": "can",
+				"singular": "411 g can",
+				"plural": "411 g cans"
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-28",
+				"decision": "Expose the existing canonical 411 g can-content editorial target as a sized package guide. Not applicable to drained tomato targets or other can sizes.",
+				"evidence": "Existing recipe measurementProvenance decision: Editorial 411 g can-content target, including liquid."
+			}
+		},
+		{
+			"id": "tomato-chilies-can-14oz",
+			"kind": "mass",
+			"description": "Rotel tomatoes with chilies, net contents of a 14 oz can",
+			"state": "canned; measure undrained contents before draining",
+			"basis": "edible",
+			"source": "https://www.ketocookingwins.com/chicken-taco-casserole/",
+			"measures": {
+				"can": {
+					"amount": 1,
+					"grams": 396.89332375000004,
+					"portion": "Net contents of the specified 14 oz source can, before draining"
+				}
+			},
+			"displayPortion": {
+				"unit": "can",
+				"singular": "14 oz can",
+				"plural": "14 oz cans"
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-28",
+				"evidence": "1  can Rotel tomatoes with chilis (14 ounce can, DRAINED); Retain original measured quantity; reviewed dimensional and preparation basis.",
+				"decision": "Display the explicitly sized source package or existing editorial can-content target. Retain canonical cooking grams; never infer drained yield from net package contents."
+			}
+		},
+		{
+			"id": "tomato-chilies-can-10oz",
+			"kind": "mass",
+			"description": "Tomatoes with green chilies, net contents of a 10 oz can",
+			"state": "canned; undrained",
+			"basis": "edible",
+			"source": "https://www.maebells.com/keto-cheesy-chicken-enchilada-soup/",
+			"measures": {
+				"can": {
+					"amount": 1,
+					"grams": 283.49523125,
+					"portion": "Net contents of the specified 10 oz source can, before draining"
+				}
+			},
+			"displayPortion": {
+				"unit": "can",
+				"singular": "10 oz can",
+				"plural": "10 oz cans"
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-28",
+				"evidence": "1  (10 ounce) can tomatoes with green chilies, undrained; Retain original measured quantity; reviewed dimensional and preparation basis.",
+				"decision": "Display the explicitly sized source package or existing editorial can-content target. Retain canonical cooking grams; never infer drained yield from net package contents."
+			}
+		},
+		{
+			"id": "tomato-sauce-can-8oz",
+			"kind": "mass",
+			"description": "Tomato sauce, net contents of a 8 oz can",
+			"state": "canned",
+			"basis": "edible",
+			"source": "https://www.maebells.com/one-pan-cabbage-casserole/",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 245.0,
+					"portion": "cup"
+				},
+				"can": {
+					"amount": 1,
+					"grams": 226.796185,
+					"portion": "Net contents of the specified 8 oz source can, before draining"
+				}
+			},
+			"displayPortion": {
+				"unit": "can",
+				"singular": "8 oz can",
+				"plural": "8 oz cans"
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-28",
+				"evidence": "1  8 ounce can of tomato sauce; Retain original measured quantity; reviewed dimensional and preparation basis.",
+				"decision": "Display the explicitly sized source package or existing editorial can-content target. Retain canonical cooking grams; never infer drained yield from net package contents."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "tomato-sauce-can-15oz",
+			"kind": "mass",
+			"description": "Tomato sauce, net contents of a 15 oz can",
+			"state": "canned",
+			"basis": "edible",
+			"source": "https://www.maebells.com/easy-keto-chili-low-carb-no-bean-chili/",
+			"measures": {
+				"cup": {
+					"amount": 1.0,
+					"grams": 245.0,
+					"portion": "cup"
+				},
+				"can": {
+					"amount": 1,
+					"grams": 425.242846875,
+					"portion": "Net contents of the specified 15 oz source can, before draining"
+				}
+			},
+			"displayPortion": {
+				"unit": "can",
+				"singular": "15 oz can",
+				"plural": "15 oz cans"
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-28",
+				"evidence": "1  (15 ounce) can tomato sauce; Retain original measured quantity; reviewed dimensional and preparation basis.",
+				"decision": "Display the explicitly sized source package or existing editorial can-content target. Retain canonical cooking grams; never infer drained yield from net package contents."
+			},
+			"volumeInterpolationUnit": "cup"
+		},
+		{
+			"id": "tomato-paste-can-7oz",
+			"kind": "mass",
+			"description": "Tomato paste, net contents of a 7 oz can",
+			"state": "canned",
+			"basis": "edible",
+			"source": "https://www.maebells.com/easy-keto-chili-low-carb-no-bean-chili/",
+			"measures": {
+				"cup": {
+					"amount": 0.25,
+					"grams": 66.0,
+					"portion": "cup"
+				},
+				"tbsp": {
+					"amount": 1.0,
+					"grams": 16.0,
+					"portion": "tbsp"
+				},
+				"can": {
+					"amount": 1,
+					"grams": 198.44666187500002,
+					"portion": "Net contents of the specified 7 oz source can, before draining"
+				}
+			},
+			"displayPortion": {
+				"unit": "can",
+				"singular": "7 oz can",
+				"plural": "7 oz cans"
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-28",
+				"evidence": "1  (7 ounce) can tomato paste; Retain original measured quantity; reviewed dimensional and preparation basis.",
+				"decision": "Display the explicitly sized source package or existing editorial can-content target. Retain canonical cooking grams; never infer drained yield from net package contents."
+			},
+			"volumeInterpolationUnit": "tbsp"
+		},
+		{
+			"id": "tomato-can-content-283",
+			"kind": "mass",
+			"description": "Canned diced tomatoes, net contents of a 283 g can",
+			"state": "undrained",
+			"basis": "edible",
+			"source": "https://thebestketorecipes.com/one-pan-cheesy-taco-cabbage-skillet-keto-low-carb/",
+			"measures": {
+				"can": {
+					"amount": 1,
+					"grams": 283,
+					"portion": "Net contents of the specified 283 g source can, before draining"
+				}
+			},
+			"displayPortion": {
+				"unit": "can",
+				"singular": "283 g can",
+				"plural": "283 g cans"
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-28",
+				"evidence": "1  can tomatoes with green chilies (undrained); Editorial 283 g can-content target, including liquid.",
+				"decision": "Display the explicitly sized source package or existing editorial can-content target. Retain canonical cooking grams; never infer drained yield from net package contents."
+			}
+		},
+		{
+			"id": "diced-tomato-can-15oz",
+			"kind": "mass",
+			"description": "Diced tomatoes, net contents of a 15 oz can",
+			"state": "undrained (or diced fresh tomatoes)",
+			"basis": "edible",
+			"source": "https://www.eatwell101.com/fried-cabbage-sausage-skillet-recipe",
+			"measures": {
+				"can": {
+					"amount": 1,
+					"grams": 425.242846875,
+					"portion": "Net contents of the specified 15 oz source can, before draining"
+				}
+			},
+			"displayPortion": {
+				"unit": "can",
+				"singular": "15 oz can",
+				"plural": "15 oz cans"
+			},
+			"provenance": {
+				"reviewedOn": "2026-10-28",
+				"evidence": "1 (15 ounces) can diced tomatoes, undrained (or diced fresh tomatoes); Publisher specifies 15 oz can, undrained net contents.",
+				"decision": "Display the explicitly sized source package or existing editorial can-content target. Retain canonical cooking grams; never infer drained yield from net package contents."
 			}
 		}
 	]

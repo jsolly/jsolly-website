@@ -10,10 +10,10 @@ const SPRAY = /spray/iu;
 const MEASURED_SPRAY = /cooking spray/iu;
 const UNALLOCATED = /Unallocated/u;
 const UNBALANCED = /Unbalanced/u;
-const GARLIC_GRAMS = /0.78 g/u;
+const GARLIC_PINCH = /A pinch<\/strong> Garlic powder/u;
 const SAFE_FISH_METRIC = /63°C \(145°F\)/u;
-const ONE_GRAM_ZEST = /1 g<\/strong> Lemon zest/u;
-const MEASURED_PINCH = /0.3 g/u;
+const ONE_GRAM_ZEST = /½ tsp \/ 1 g \/ 0.04 oz<\/strong> Lemon zest/u;
+const MEASURED_PINCH = /A pinch<\/strong> Fine salt/u;
 const UNMEASURED = /pinch of|remaining|to taste|unavailable/u;
 const ROWSPAN = /rowspan=/u;
 const INVALID_FRACTION = /Invalid ingredient fraction/u;
@@ -59,7 +59,7 @@ it("tables show scaled gram amounts, safe endpoints and measured pinch allocatio
 		salmon.title,
 		flowGrid(salmon, { servings: 2, units: "metric" }),
 	);
-	assert.match(html, GARLIC_GRAMS);
+	assert.match(html, GARLIC_PINCH);
 	assert.match(html, SAFE_FISH_METRIC);
 	assert.match(html, ONE_GRAM_ZEST);
 	const shawarma = recipes.find((r) => r.key === "shawarma");
@@ -86,7 +86,12 @@ it("measured salt pinches and remainder branches conserve the actual scaled ingr
 		assert.equal(rows.length, 3);
 		assert.equal(
 			rows.find((row) => row.ingredient.share === "pinch").ingredient.quantity,
-			"0.3 g",
+			"A pinch",
+		);
+		const pinch = rows.find((row) => row.ingredient.share === "pinch");
+		assert.ok(
+			Math.abs(ingredientGrams(seasoning, pinch.ingredient.amount) - 0.3) <
+				1e-9,
 		);
 		const total = rows.reduce(
 			(sum, row) => sum + ingredientGrams(seasoning, row.ingredient.amount),

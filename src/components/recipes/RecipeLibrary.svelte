@@ -18,7 +18,6 @@
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
 	import { retiredRecipePath } from "./recipe-publication.mjs";
 	import { readRecipeURL, recipeBrowseHref, recipeHref } from "./recipe-url.mjs";
-	import { replaceUnitURL } from "./unit-preference.mjs";
 
 	let { initialCollection = "meal", pathname, initial, recipeIndex, saved = false } = $props();
 	let savedMode = $state(untrack(() => saved));
@@ -245,7 +244,6 @@
 		await tick();
 		listHeading?.focus();
 	}
-	function setUnits(value) { units = validateSettings({ units: value }).units; replaceUnitURL(units); }
 	function setServings(value) { ({ servings, familyDiners } = validateSettings({ servings: Number(value), familyDiners })); }
 	async function saveOpened(recipe) {
 		if (!("serviceWorker" in navigator) || !document.querySelector("#recipe-offline-status")) return;
@@ -360,7 +358,7 @@
 
 <section class="meal-library" data-hydrated={hydrated} data-preferences-ready={hydrated} aria-busy={!hydrated} data-print-prepared={printPrepared} bind:this={libraryElement} aria-label={savedMode ? "Saved recipes" : "Keto meals & smoothies recipe library"}>
 	{#if saved}<p>Saved recipes are available offline. Search, filters and shuffle use this saved collection.</p>{:else}<p><a href="/recipes/saved/">Saved recipes</a></p>{/if}
-	<LibraryControls {collection} saved={savedMode} onCollectionChange={(value) => { collection = value; }} bind:query {pathname} {hydrated} {servings} {units} onUnitsChange={setUnits} onServingsChange={setServings} shownApplianceKeys={result.filterChoices.shownAppliances} collectionHasIron={result.filterChoices.collectionHasIron} {smoothieIngredients} {hasMatches} bind:filters bind:appliancesOnHand />
+	<LibraryControls {collection} saved={savedMode} onCollectionChange={(value) => { collection = value; }} bind:query {pathname} {hydrated} {servings} onServingsChange={setServings} shownApplianceKeys={result.filterChoices.shownAppliances} collectionHasIron={result.filterChoices.collectionHasIron} {smoothieIngredients} {hasMatches} bind:filters bind:appliancesOnHand />
 	{#if !saved}<noscript><NativeRecipeControls {collection} {pathname} metadata={result.filterChoices} /></noscript>{/if}
 	<div class="browse" id="meal-results" data-match-count={result.total} aria-busy={shuffling || loading}>
 		<div class="results-heading"><h2 bind:this={listHeading} tabindex="-1">{savedMode ? "Saved recipes" : collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2><Button class="enhanced-shuffle" variant="outline" type="button" disabled={!hydrated || shuffling || result.total < 2} onclick={shuffleCards}><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button>{#if !saved}<noscript><Button variant="outline" type="submit" form="recipe-browse-form" name="shuffle" value="1"><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button></noscript>{/if}</div>

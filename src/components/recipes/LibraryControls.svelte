@@ -16,7 +16,6 @@
 	import FilterMultiSelect from "./FilterMultiSelect.svelte";
 	import NutritionHelp from "./NutritionHelp.svelte";
 	import { choiceUnavailable } from "./nutrient-filters.mjs";
-	import UnitControl from "./UnitControl.svelte";
 
 	// The recipe library's controls: the collection links, servings, the
 	// appliances on hand, the filters (protein and carb or ingredient choices,
@@ -32,8 +31,6 @@
 		hydrated,
 		servings,
 		onServingsChange,
-		units,
-		onUnitsChange,
 		shownApplianceKeys,
 		collectionHasIron,
 		smoothieIngredients,
@@ -42,8 +39,8 @@
 		appliancesOnHand = $bindable(),
 	} = $props();
 	const COLLECTION_LINKS = [
-		{ collection: "meal", href: "/recipes/meals/", label: "Keto meals" },
-		{ collection: "smoothie", href: "/recipes/smoothies/", label: "Keto smoothies" },
+		{ collection: "meal", href: "/recipes/meals/", label: "Meals" },
+		{ collection: "smoothie", href: "/recipes/smoothies/", label: "Smoothies" },
 	];
 	const uid = $props.id();
 	const servingsId = `${uid}-servings`;
@@ -108,7 +105,6 @@
 				>{#each SERVING_CHOICES as choice (choice)}<option value={choice}>{choice}</option>{/each}</NativeSelect
 			>
 		</div>
-		<UnitControl {units} {onUnitsChange} disabled={!hydrated} />
 	</div>
 
 	<fieldset class="inventory">
@@ -122,7 +118,7 @@
 					<!-- Re-ticking a counted appliance brings back its usual count. -->
 					<div class="inventory-count">
 						<label for={controlId(`appliance-${index}`)}
-							><Checkbox id={controlId(`appliance-${index}`)} checked={appliancesOnHand[value] > 0} onCheckedChange={(checked) => setAppliance(value, checked ? defaultAppliances[value] : 0)} disabled={!hydrated} /><ApplianceIcon
+							><Checkbox id={controlId(`appliance-${index}`)} aria-label={label} checked={appliancesOnHand[value] > 0} onCheckedChange={(checked) => setAppliance(value, checked ? defaultAppliances[value] : 0)} disabled={!hydrated} /><ApplianceIcon
 								name={value}
 								decorative
 							/>{label}</label
@@ -137,6 +133,7 @@
 					<label for={controlId(`appliance-${index}`)}
 						><Checkbox
 							id={controlId(`appliance-${index}`)}
+							aria-label={label}
 							checked={appliancesOnHand[value] > 0}
 							onCheckedChange={(checked) => setAppliance(value, checked ? 1 : 0)}
 							disabled={!hydrated}
@@ -164,6 +161,7 @@
 			{#each nutritionChecks as check (check.key)}<label for={controlId(check.key)} title={check.title}
 					><Checkbox
 						id={controlId(check.key)}
+						aria-label={check.label}
 						aria-describedby={nutritionThresholds[check.key] ? controlId(`${check.key}-threshold`) : undefined}
 						bind:checked={filters[check.key]}
 						disabled={!hydrated || choiceUnavailable(filters[check.key], () => hasMatches(check.applies))}
