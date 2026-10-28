@@ -59,12 +59,13 @@ of Address was filed October 9, 2026; both Bing properties are verified and the
 destination sitemap submitted. Bing provided no Site Move control; John accepted
 that evidence. Review coverage again November 8, 2026.
 
-AWS stack `blogthedata-migration-backups` stays frozen in the archived source;
-Object Lock retention ends November 1, 2026. Final read-only checks before archive
-found termination protection on, matching stack policy and clean infrastructure
-drift. Archival stops continuous repository checks but does not disable those AWS
-protections. John decides retention or a separate infrastructure handoff after
-November 1; no deployment or teardown is authorized by migration completion.
+John chose on October 28, 2026 to retain the migration backup for several years
+and manage its Glacier Deep Archive lifecycle in this repository. The existing
+standalone AWS stack `blogthedata-migration-backups` keeps its identity and
+protections. [Backup infrastructure](migration-backups.md) owns its template,
+review and human apply procedure. Source ownership does not establish deployment;
+verify the live lifecycle and eventual storage-class transition separately.
+Object Lock retention ends November 1, 2026. No teardown is authorized.
 
 Heroku release v315, database and media remain for recovery until John's separate
 retirement decision after the soak. The `blogthedata` S3 bucket and
