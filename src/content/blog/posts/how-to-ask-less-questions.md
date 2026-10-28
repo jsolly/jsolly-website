@@ -25,7 +25,7 @@ Before asking a question or making a request, think:
 
 <blockquote><p>"Is there anything that requires further action in order for the outcome to be reached? Is there any context they are missing that they would need to action my request or answer my question immediately? Can I proactively answer questions they might have after reading my message?"</p></blockquote>
 
-### Replace Questions with Assumptions
+## Replace Questions with Assumptions
 
 Instead of asking, "Do you want me to do X before the meeting on Tuesday?" I use one of these two statements:
 
@@ -33,7 +33,7 @@ Instead of asking, "Do you want me to do X before the meeting on Tuesday?" I use
 
 By making an assumption, you save your coworker/boss time by not requiring their response. Over time, you'll get better and better at your assumptions and save lots of time!
 
-### Anticipate Replies with Answers
+## Anticipate Replies with Answers
 
 You wouldn't write code without exception handling; why not approach verbal/written requests the same way? E.g.
 
@@ -41,7 +41,7 @@ You wouldn't write code without exception handling; why not approach verbal/writ
 
 It might seem like extra work, but over time you'll anticipate exceptions and objections and will be able to handle them with no back-and-forth!
 
-### Stop Scheduling Meetings Manually
+## Stop Scheduling Meetings Manually
 
 If I need to connect with someone, I give them my <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/">Calendly link,</a> which syncs with all my calendars and offers them all the timeslots I'm available. If I’m meeting with several people, everyone can 'vote' on meeting slots to decide what works for everyone.
 

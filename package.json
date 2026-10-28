@@ -34,7 +34,8 @@
 		"smoke:scenario-contract": "node scripts/run-tests.mjs smoke",
 		"recipes:usda": "node scripts/recipes/usda.mjs",
 		"check:preview": "npx --no-install biome ci --config-path=config/quality/biome.settings.jsonc . --error-on-warnings && npm run check:ts && npm test",
-		"gate:preview": "FLEET_UI_PREVIEW=1 FLEET_DOC_FAST=0 bash .git-hooks/pre-commit"
+		"gate:preview": "FLEET_UI_PREVIEW=1 FLEET_DOC_FAST=0 bash .git-hooks/pre-commit",
+		"check:a11y": "node scripts/check-accessibility.mjs"
 	},
 	"devDependencies": {
 		"@astrojs/check": "0.9.10",
@@ -54,6 +55,7 @@
 		"@types/sanitize-html": "2.16.2",
 		"@vercel/routing-utils": "6.6.0",
 		"astro": "~7.3.8",
+		"axe-core": "^4.14.0",
 		"entities": "8.1.0",
 		"esbuild": "0.28.1",
 		"globby": "^16.2.4",

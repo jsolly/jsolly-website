@@ -27,11 +27,11 @@ If you spend countless hours coding, you probably know how frustrating it can be
 
 In this post, I’ll share what helped me eliminate (or at least drastically reduce) my pains. I’m not a medical professional, but these solutions worked wonders for me. I hope they can help you, too!
 
-### <strong>The Quick Wins: My Top Ergonomic Tips</strong>
+## <strong>The Quick Wins: My Top Ergonomic Tips</strong>
 
 <ol><li><strong>Monitor Distance</strong><ul><li><strong>Keep it closer than you think!</strong> A common mistake is placing monitors too far away, which strains your neck and forces you to lean forward. For most people, a distance of about 20–30 inches (about an arm’s length) is recommended—but adjust until you can comfortably see text without craning.</li></ul></li><li><strong>Standing Desk</strong><ul><li><strong>Variety is key.</strong> Switching from sitting to standing throughout the day relieves pressure on your spine and muscles. Consider an electric standing desk or a converter that sits on top of your existing desk.</li></ul></li><li><strong>Angled Foot Platform</strong><ul><li><strong>Support your legs.</strong> When standing, a slight platform on which to rest one foot can ease lower-back tension. If you’re sitting, a footrest can improve circulation and posture.</li></ul></li><li><strong>Herman Miller Aeron Chair (Buy Used)</strong><ul><li><strong>Invest in quality seating.</strong> A great chair is pricey but worth every penny, especially if you can find one used. I used a Herman Miller Aeron at Esri, and since then, I haven’t seen anything better for my back and neck.</li></ul></li><li><strong>Angled Keyboard Tray</strong><ul><li><strong>Optimize your wrist position.</strong> A negatively tilted keyboard tray can help keep your wrists in a more neutral alignment, preventing strain over long typing sessions.</li></ul></li><li><strong>Two Different Mice</strong><ul><li><strong>Alternate to avoid repetitive strain.</strong> I have two mice: one with a neutral (vertical) design and one with a completely different style. Switching between them throughout the day ensures I’m not overusing the same muscles.</li></ul></li></ol>
 
-### <strong>1. How I Fixed My Neck Pain: Monitor Distance</strong>
+## <strong>1. How I Fixed My Neck Pain: Monitor Distance</strong>
 
 <strong>The Problem:</strong> I used to suffer from chronic neck pain, especially at the end of a long workday. My monitor was way too far back on my desk, forcing me to crane my neck forward constantly.
 
@@ -41,7 +41,7 @@ In this post, I’ll share what helped me eliminate (or at least drastically red
 
 <strong>Tip:</strong> If you can’t easily move your monitor stand, try a monitor arm. These are inexpensive and allow you to adjust height, tilt, and distance to find your perfect sweet spot.
 
-### <strong>2. How I Fixed My Wrist Pain: Switching Mice</strong>
+## <strong>2. How I Fixed My Wrist Pain: Switching Mice</strong>
 
 <strong>The Problem:</strong>
 
@@ -57,7 +57,7 @@ In this post, I’ll share what helped me eliminate (or at least drastically red
 
 However, as technology changed and my workflow changed, I encountered a new problem…
 
-### <strong>3. How I Fixed My Middle Finger Pain: Dual Mouse Setup</strong>
+## <strong>3. How I Fixed My Middle Finger Pain: Dual Mouse Setup</strong>
 
 <strong>The Problem:</strong>
 
@@ -85,7 +85,7 @@ These small, incremental changes transformed my coding life by eliminating const
 
 Have any favorite ergonomic hacks or solutions that have worked for you? Share them in the comments!
 
-### <strong>Key Takeaways</strong>
+## <strong>Key Takeaways</strong>
 
 <ul><li><strong>Proximity is powerful</strong>: Bring your monitor closer to reduce neck strain.</li><li><strong>Change it up</strong>: Standing desks, angled foot platforms, and adjustable chairs and trays help vary your posture.</li><li><strong>Switch your gear</strong>: Using two different mice (or a trackball) can alleviate repetitive motion pain in your fingers and wrists.</li><li><strong>Listen to your body</strong>: If something hurts, it’s often a sign that your setup (or usage habits) must change.</li></ul>
 

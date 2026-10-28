@@ -138,7 +138,7 @@
 		.primary-btn {
 			color: var(--color-card);
 		}
-		nav[aria-label="Social media links"] img {
+		nav[aria-label$="social media links" i] img {
 			filter: invert(1);
 		}
 	}

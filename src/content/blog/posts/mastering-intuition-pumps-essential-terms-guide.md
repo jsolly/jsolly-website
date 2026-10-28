@@ -335,19 +335,21 @@ Trying to identify your defenses and having the courage to give them up.
 
 <h2 id="vocab-reference">Vocab reference</h2>
 
-<h5 id="politeness-theory">Politeness Theory</h5>
+<h3 id="politeness-theory">Politeness Theory</h3>
 
 <a target="_blank" rel="noopener noreferrer" href="https://www.dropbox.com/s/2lg5mp2nx0i66k2/Brown%26SCL-Politeness1999.pdf?dl=0">An idea</a> put forth by sociologists Penelope Brown and Stephen C. Levinson that proposes that human politeness centers around maintaining [positive](#positive-face) and [negative](#negative-face) face of all conversation participants.
 
-<h5 id="positive-face">Positive face</h5>
+<h3 id="positive-face">Positive face</h3>
 
 The individual desire of a person that his personality is appreciated by others. Furthermore, this includes the way a person wants to be perceived by his social group. One example for positive face is the appreciation of individual achievements. According to this definition, a painter would, for instance, desire other people's appreciation of his paintings.
 
-<h5 id="negative-face">Negative face</h5>
+<h3 id="negative-face">Negative face</h3>
 
 Negative face describes the basic personal rights of an individual, including his personal freedom as well as freedom of action. One's negative face is a neglection of all factors which represent a threat towards individual rights. One popular example is the freedom of speech, which includes one's need not to be interrupted by others while speaking.
 
-<h5 id="grice-s-maxiums">Grice's Maxiums</h5>
+<span id="grice-s-maxiums"></span>
+
+<h3 id="grice-s-maxiums">Grice's Maxiums</h3>
 
 The fundamental building blocks of the [Collaboration Principle](#collaboration-principle)
 
@@ -361,15 +363,15 @@ Maxium of Quantity
 
 <ol><li>Maximum of Relation<ul><li>Be relevant</li></ul></li><li>Maxium of manner<ul><li>Avoid being obscure</li><li>Avoid ambiguity</li><li>Be brief</li><li>Be orderly</li></ul></li></ol>
 
-<h5 id="social-currency">Social Currency</h5>
+<h3 id="social-currency">Social Currency</h3>
 
 People accept criticism based on how much you have invested in them. <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Social_currency">Wiki</a> 💴
 
-<h5 id="skin-in-the-game">Skin in the Game</h5>
+<h3 id="skin-in-the-game">Skin in the Game</h3>
 
 Explained deeply in <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Antifragile">Taleb’s Antifragile</a>, it is the idea that you should involve yourself in systems where you have something to lose if it doesn’t turn out well. If someone has no skin in the game, you can’t trust them because they have nothing to lose. <a target="_blank" rel="noopener noreferrer" href="https://www.investopedia.com/terms/s/skininthegame.asp">Investopedia definition</a>. 🖐 🎲
 
-<h5 id="antifragility">Antifragility</h5>
+<h3 id="antifragility">Antifragility</h3>
 
 Things that benefit from disorder (randomness). <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Antifragility">Wiki</a> 💪🏻
 
@@ -377,7 +379,7 @@ Things that benefit from disorder (randomness). <a target="_blank" rel="noopener
 
 Adopt the best possible interpretation of what someone is saying. Abbreviated PoC. <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Principle_of_charity">Wiki</a> 🙏
 
-<h5 id="huh-really-and-so">Huh, Really, And, So</h5>
+<h3 id="huh-really-and-so">Huh, Really, And, So</h3>
 
 <ul><li>Huh? (Doesn’t make sense) 🤔</li><li>Really? (Doesn’t line up with existing knowledge) 🧐</li><li>And? (Something is missing)</li><li>So? (What does it matter?) 🤷‍️</li></ul>
 

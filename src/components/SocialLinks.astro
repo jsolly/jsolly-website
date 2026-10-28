@@ -10,9 +10,10 @@ import youtubeLogo from "../images/social/youtubeLogo.svg";
 
 interface Props {
 	imgLoading?: "eager" | "lazy";
+	label?: string;
 }
 
-const { imgLoading = "lazy" } = Astro.props;
+const { imgLoading = "lazy", label = "Social media links" } = Astro.props;
 const ICONS: Record<SocialIcon, ImageMetadata> = {
 	github: githubLogo,
 	linkedin: linkedinLogo,
@@ -21,7 +22,7 @@ const ICONS: Record<SocialIcon, ImageMetadata> = {
 };
 ---
 
-<nav class="flex gap-6" aria-label="Social media links">
+<nav class="flex gap-6" aria-label={label}>
 	{
 		socialLinks.map((link) => (
 			<a
