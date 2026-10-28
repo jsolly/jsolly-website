@@ -39,7 +39,6 @@ node_modules/
 !.cursor/CLOUD.md
 !.cursor/environment.json
 !.cursor/install-cloud-skills.sh
-!.cursor/aws-oidc-login.sh
 
 # Production browser smoke diagnostics
 production-smoke-artifacts/
