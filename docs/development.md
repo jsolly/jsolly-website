@@ -229,14 +229,22 @@ intended deployment and exact-release smoke when the repository requires them.
 
 ## Infrastructure and access
 
-Use existing scoped identities. Agents do not recover credentials, broaden grants
-or run destructive infrastructure/database operations. Keep read-only checks on
-the read-only role, including the repo-owned credential-isolation wrapper.
-`check:infra-pending` reports merged infrastructure inputs not yet deployed; AWS
-CloudFormation drift detection separately reports manual live-resource changes.
-Infrastructure apply and protection changes remain a concrete handoff to the
-human owner, with exact repository commands. A successful code deploy does not
-prove infrastructure adoption. Never bypass a dirty-infrastructure deploy refusal.
+Repository setup installs public tools and trusted hooks only. Vercel owns app
+deployment. The [retained migration backup stack](migration-backups.md) has its
+own human-reviewed CloudFormation apply; Vercel never applies that infrastructure.
+Agents do not apply that stack or broaden its grants. There is no local AWS
+credential-isolation wrapper.
+Separately authorized agent AWS reads use one native production `aws_mcp`
+connection for `agent@jsolly.com`, AgentMcp, account `730335616323`. Keep AWS Core
+knowledge tools, named human profiles, Vercel/PagesCMS credentials and retained
+CloudFront/S3 media. Do not export OAuth credentials, add a second AWS MCP or use
+a local AWS credential bridge.
+
+USDA maintenance is human-operated through the [protected stdin procedure](recipes.md#usda-api-lookups).
+Its scripts no longer resolve agent credentials or retrieve secret values.
+Agents use public USDA records or human-supplied public caches. Source cleanup
+does not retire installed helpers, cached sessions, saved cloud settings or live
+IAM trust. Native acceptance and dependency closure own those later steps.
 
 Repository instructions and access rules are maintained here. Personal home
 configuration and optional global skills remain separate and are not installed,
