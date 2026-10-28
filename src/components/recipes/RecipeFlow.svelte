@@ -5,8 +5,10 @@
 	import DialogContent from "../../lib/components/ui/dialog-content.svelte";
 	import DialogDescription from "../../lib/components/ui/dialog-description.svelte";
 	import DialogTitle from "../../lib/components/ui/dialog-title.svelte";
+	import ApplianceIcon from "./ApplianceIcon.svelte";
 	import { cookingNotes, OMITTED_PREPARATION } from "./cooking-notes.mjs";
 	import { cookingText } from "./cooking-quantities.mjs";
+	import { flowEquipment } from "./flow-equipment.mjs";
 	import { ingredientIcon } from "./ingredient-icon.mjs";
 	import { flowGrid } from "./trn-logic.mjs";
 
@@ -47,27 +49,30 @@
 </script>
 
 {#snippet ingredient(cell)}
-	<span><strong>{cell.text}</strong> <span class="ingredient-name">{cell.name}</span>{#if ingredientIcon(cell.name)}
-		<span class="ingredient-icon" aria-hidden="true">{ingredientIcon(cell.name)}</span>{/if}{#each cell.alternatives || [] as choice (choice.name)} or <strong>{choice.quantity}</strong> <span class="ingredient-name">{choice.name}</span>{/each}<small>{cookingNotes(cell.state).replace("Use the proportional split described in the method.", "Use the amount shown for this branch.")}</small></span>
+	<span><span class="ingredient-name">{cell.name}</span>{#if ingredientIcon(cell.name)}
+		<span class="ingredient-icon" aria-hidden="true">{ingredientIcon(cell.name)}</span>{/if}<strong class="ingredient-measures">{cell.text}</strong>{#each cell.alternatives || [] as choice (choice.name)}<span class="ingredient-name">or {choice.name}</span><strong class="ingredient-measures">{choice.quantity}</strong>{/each}<small>{cookingNotes(cell.state).replace("Use the proportional split described in the method.", "Use the amount shown for this branch.")}</small></span>
+{/snippet}
+
+{#snippet operationTools(action)}
+	<div class="operation-tools">{#each flowEquipment(action, recipe.appliancesNeeded) as name (name)}<ApplianceIcon {name} />{/each}</div>
 {/snippet}
 
 {#snippet mobileBranch(node)}
 	{#if node.children}
 		<div class="mobile-branch">
 			<ul class="branch-inputs">{#each node.children as child, index (index)}<li>{@render mobileBranch(child)}</li>{/each}</ul>
-			<div class="branch-join"><span aria-hidden="true">↓</span><p>{node.action}</p></div>
+			<div class="branch-join"><span aria-hidden="true">↓</span><div class="operation-content">{@render operationTools(node.action)}<p>{node.action}</p></div></div>
 		</div>
 	{:else}
 		<div class="mobile-ingredient" class:checked={checks.includes(node.row)}>
-			<!-- biome-ignore lint/a11y/noLabelWithoutControl: Installed Checkbox supplies the control. -->
-			<label class="recipe-enhanced" for={`${uid}-mobile-${node.row}`}><Checkbox id={`${uid}-mobile-${node.row}`} checked={checks.includes(node.row)} disabled={!interactive} onCheckedChange={() => toggle(node.row)} />{@render ingredient(node.cell)}</label>
+			<label class="recipe-enhanced" for={`${uid}-mobile-${node.row}`}><Checkbox id={`${uid}-mobile-${node.row}`} checked={checks.includes(node.row)} aria-label={`${node.cell.text} ${node.cell.name}`} disabled={!interactive} onCheckedChange={() => toggle(node.row)} />{@render ingredient(node.cell)}</label>
 			<noscript><!-- biome-ignore lint/a11y/noLabelWithoutControl: The ingredient snippet supplies label text. --><label for={`${uid}-mobile-native-${node.row}`}><input id={`${uid}-mobile-native-${node.row}`} type="checkbox" />{@render ingredient(node.cell)}</label></noscript>
 		</div>
 	{/if}
 {/snippet}
 
 <section class="trn-view">
-	<div class="flow-toolbar"><h2 id={headingId} class="flow-heading">{recipe.type === "smoothie" ? "Preparation flow" : "Cooking flow"}</h2></div>
+	<div class="flow-toolbar"><h2 id={headingId} class="flow-heading"><span class="flow-screen-title">{recipe.type === "smoothie" ? "Preparation flow" : "Cooking flow"}</span><span class="flow-print-title">{recipe.title}</span></h2></div>
 	<p class="trn-help" id={helpId}><span class="desktop-help">Read left to right. Each merged cell acts on the ingredient rows feeding into it. Parallel branches stay separate until plating.</span><span class="mobile-help">Read top to bottom. Ingredients feed into the action below their branch. Follow each branch until it joins the next action.</span></p>
 	{#if !printOnly}<section class="mobile-flow" aria-labelledby={headingId}>
 		<div class="mobile-prep" hidden={preparation.length === 0}>{#each preparation as text, i (i)}<p>{text}</p>{/each}</div>
@@ -91,16 +96,15 @@
 									{#if printOnly}
 										<div class="ingredient-label"><span class="paper-check" aria-hidden="true"></span>{@render ingredient(cell)}</div>
 									{:else}
-									<!-- biome-ignore lint/a11y/noLabelWithoutControl: The ingredient snippet supplies the label text. -->
-									<label class="recipe-enhanced" for={`${uid}-${i}`}><span class="paper-check" aria-hidden="true"></span><Checkbox id={`${uid}-${i}`} checked={checks.includes(i)} disabled={!interactive} onCheckedChange={() => toggle(i)} />{@render ingredient(cell)}</label>
+									<label class="recipe-enhanced" for={`${uid}-${i}`}><span class="paper-check" aria-hidden="true"></span><Checkbox id={`${uid}-${i}`} checked={checks.includes(i)} aria-label={`${cell.text} ${cell.name}`} disabled={!interactive} onCheckedChange={() => toggle(i)} />{@render ingredient(cell)}</label>
 									<noscript>
 										<!-- biome-ignore lint/a11y/noLabelWithoutControl: The ingredient snippet supplies the label text. -->
-										<label for={`${uid}-${i}-native`}><input id={`${uid}-${i}-native`} type="checkbox" />{@render ingredient(cell)}</label>
+											<label for={`${uid}-${i}-native`}><input id={`${uid}-${i}-native`} type="checkbox" />{@render ingredient(cell)}</label>
 									</noscript>
 									{/if}
 									</th>
 								{:else}
-									<td rowspan={cell.rowspan} colspan={cell.colspan} class="trn-operation">{cell.text}</td>
+									<td rowspan={cell.rowspan} colspan={cell.colspan} class="trn-operation">{@render operationTools(cell.text)}{cell.text}</td>
 								{/if}
 							{/each}
 						</tr>
@@ -171,6 +175,7 @@
 			outline: 3px solid var(--recipe-focus);
 			outline-offset: 3px;
 		}
+		.ingredient-measures { display: block; margin-top: 3px; line-height: 1.45; }
 		.ingredient-icon {
 			display: inline-block;
 			width: 1.4em;
@@ -214,6 +219,9 @@
 			color: var(--recipe-muted);
 			text-decoration: line-through;
 		}
+		.flow-print-title { display: none; }
+		.operation-tools { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+		.operation-content { min-width: 0; }
 		.flow-toolbar {
 			display: flex;
 			justify-content: space-between;
@@ -323,6 +331,10 @@
 			.mobile-ingredient.checked span { color: var(--recipe-muted); text-decoration: line-through; }
 		}
 		@media print {
+			.flow-screen-title { display: none; }
+			.flow-print-title { display: inline; }
+			.operation-tools { gap: 3pt; margin-bottom: 4pt; }
+			.operation-tools :global(svg) { width: 20pt; height: 20pt; }
 			.paper-check {
 				display: inline-block;
 				width: 9pt;
@@ -330,6 +342,8 @@
 				flex-shrink: 0;
 				border: 1px solid #000;
 			}
+			.trn-help,
+			.mobile-flow,
 			.reset-checks-row,
 			:global(.learn-method),
 			:global(.method-dialog),

@@ -3058,7 +3058,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "cucumber"
+					"sourceIngredientId": "cucumber",
+					"weightRef": "usda-168409-large"
 				},
 				{
 					"id": "salad_greens",
@@ -4982,7 +4983,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "cucumber"
+					"sourceIngredientId": "cucumber",
+					"weightRef": "usda-168409-large"
 				},
 				{
 					"id": "salad_greens",
@@ -6290,7 +6292,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "cucumber"
+					"sourceIngredientId": "cucumber",
+					"weightRef": "usda-168409-large"
 				},
 				{
 					"id": "salad_greens",
@@ -6818,7 +6821,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "cucumber"
+					"sourceIngredientId": "cucumber",
+					"weightRef": "usda-168409-large"
 				},
 				{
 					"id": "lime",
@@ -7723,7 +7727,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "cucumber"
+					"sourceIngredientId": "cucumber",
+					"weightRef": "usda-168409-large"
 				},
 				{
 					"id": "spinach",
@@ -18338,7 +18343,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "ingredient-5"
+					"sourceIngredientId": "ingredient-5",
+					"weightRef": "tomato-chilies-can-14oz"
 				},
 				{
 					"id": "ingredient-6",
@@ -20986,7 +20992,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "ingredient-5"
+					"sourceIngredientId": "ingredient-5",
+					"weightRef": "tomato-chilies-can-10oz"
 				},
 				{
 					"id": "ingredient-6",
@@ -28243,7 +28250,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "ingredient-4"
+					"sourceIngredientId": "ingredient-4",
+					"weightRef": "tomato-chilies-can-10oz"
 				},
 				{
 					"id": "ingredient-5",
@@ -28259,7 +28267,7 @@
 					"sourceUnit": "oz",
 					"sourceRawIngredientIndex": 4,
 					"optional": false,
-					"weightRef": "usda-170054",
+					"weightRef": "tomato-sauce-can-8oz",
 					"measurementProvenance": {
 						"original": {
 							"amount": 5.333333333333333,
@@ -31453,7 +31461,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "ingredient-5"
+					"sourceIngredientId": "ingredient-5",
+					"weightRef": "tomato-chilies-can-10oz"
 				},
 				{
 					"id": "ingredient-6",
@@ -31469,7 +31478,7 @@
 					"sourceUnit": "oz",
 					"sourceRawIngredientIndex": 5,
 					"optional": false,
-					"weightRef": "usda-170054",
+					"weightRef": "tomato-sauce-can-15oz",
 					"measurementProvenance": {
 						"original": {
 							"amount": 7.5,
@@ -31529,7 +31538,7 @@
 					"sourceUnit": "oz",
 					"sourceRawIngredientIndex": 7,
 					"optional": false,
-					"weightRef": "usda-170459",
+					"weightRef": "tomato-paste-can-7oz",
 					"measurementProvenance": {
 						"original": {
 							"amount": 3.5,
@@ -32775,7 +32784,8 @@
 						"massBasis": "edible",
 						"decision": "Editorial 283 g can-content target, including liquid."
 					},
-					"sourceIngredientId": "ingredient-4"
+					"sourceIngredientId": "ingredient-4",
+					"weightRef": "tomato-can-content-283"
 				},
 				{
 					"id": "ingredient-5",
@@ -32791,7 +32801,7 @@
 					"sourceUnit": "oz",
 					"sourceRawIngredientIndex": 4,
 					"optional": false,
-					"weightRef": "usda-170054",
+					"weightRef": "tomato-sauce-can-8oz",
 					"measurementProvenance": {
 						"original": {
 							"amount": 8,
@@ -37207,7 +37217,8 @@
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "ingredient-8"
+					"sourceIngredientId": "ingredient-8",
+					"weightRef": "tomato-chilies-can-10oz"
 				},
 				{
 					"id": "ingredient-9",
@@ -77375,7 +77386,8 @@
 							"unit": "g",
 							"weightRef": "usda-170457"
 						}
-					]
+					],
+					"weightRef": "diced-tomato-can-15oz"
 				},
 				{
 					"id": "ingredient-6",
@@ -101911,7 +101923,8 @@
 						"massBasis": "edible",
 						"decision": "Editorial 411 g can-content target, including liquid."
 					},
-					"sourceIngredientId": "ingredient-7"
+					"sourceIngredientId": "ingredient-7",
+					"weightRef": "tomato-can-content-411"
 				},
 				{
 					"id": "ingredient-9",

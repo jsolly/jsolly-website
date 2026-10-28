@@ -1,10 +1,12 @@
 // biome-ignore-all lint/performance/noAwaitInLoops: ordered browser interactions on one page.
+
 import assert from "node:assert/strict";
 import { mkdir } from "node:fs/promises";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import data from "../../src/components/recipes/recipe-data.server.mjs";
 import { collectErrors, serveStatic } from "./pages.mjs";
+import { setLegacyUnits } from "./recipe-legacy-units.mjs";
 
 let site;
 let browser;
@@ -67,17 +69,17 @@ function verifyLibrary(width) {
 			const units = page.getByRole("combobox", { name: "Ingredient units" });
 			const search = page.getByRole("searchbox", { name: "Search recipes" });
 			const a = await servings.boundingBox();
-			const b = await units.boundingBox();
+			assert.equal(
+				await units.count(),
+				0,
+				"all ingredient measures are shown without a selector",
+			);
 			const wrapper = await page
 				.locator('.servings-setting [data-slot="native-select-wrapper"]')
 				.boundingBox();
 			assert.ok(
 				Math.abs(wrapper.width - a.width) < 2,
 				"servings arrow stays inside its field",
-			);
-			assert.ok(
-				width > 600 ? Math.abs(a.y - b.y) < 2 : b.y > a.y,
-				`settings at ${width}px: ${a.y}, ${b.y}`,
 			);
 			const cardIds = () =>
 				page
@@ -156,7 +158,7 @@ function verifyLibrary(width) {
 				.uncheck();
 			await page.keyboard.press("Escape");
 			await servings.selectOption("6");
-			await units.selectOption("metric");
+			await setLegacyUnits(page, "metric");
 			const fullSearch = page.waitForResponse((response) => {
 				const url = new URL(response.url());
 				return (

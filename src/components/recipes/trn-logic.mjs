@@ -1,3 +1,4 @@
+import { ingredientText } from "./cooking-notes.mjs";
 import { cookingText } from "./cooking-quantities.mjs";
 import { ingredientGrams, ingredientMeasure } from "./ingredient-units.mjs";
 import {
@@ -102,11 +103,15 @@ export function flowGrid(recipe, settings = {}) {
 				formatQuantity,
 			);
 			item.quantity = measure.quantity;
-			item.alternatives = measure.alternatives;
+			item.alternatives = measure.alternatives?.map((choice) => ({
+				...choice,
+				name: ingredientText(choice.name),
+			}));
 			item.amount = amount;
-			item.name = ingredient.name;
+			item.name = ingredientText(ingredient.name);
 			item.state = text(
 				[ingredient.state, ingredient.note, purchaseNote(ingredient, servings)]
+					.map(ingredientText)
 					.filter(Boolean)
 					.join(" · "),
 			);
@@ -162,8 +167,7 @@ export function flowGrid(recipe, settings = {}) {
 	const side =
 		option && familyDiners > 0
 			? [
-					option.note ||
-						"Prepare the optional side separately and add it only to the plates that request it.",
+					`Side for ${familyDiners} ${familyDiners === 1 ? "person" : "people"}: ${ingredientMeasure(option, option.amount * familyDiners, units, formatQuantity).quantity} ${ingredientText(option.ingredientName)}. ${ingredientText(option.note) || "Prepare separately and add only to plates that request it."}`,
 				]
 			: [];
 	const pressure = recipe.ingredients
@@ -173,7 +177,7 @@ export function flowGrid(recipe, settings = {}) {
 		)
 		.map(
 			(ingredient) =>
-				`Use at least ${ingredientAmount(ingredient, servings)} mL ${ingredient.name.toLowerCase()} for pressure cooking.`,
+				`Use at least ${ingredientAmount(ingredient, servings)} mL ${ingredientText(ingredient.name).toLowerCase()} for pressure cooking.`,
 		);
 	return {
 		prep: [...recipe.flow.prep, ...pressure, ...side].map(text),

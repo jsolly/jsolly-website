@@ -137,17 +137,15 @@ ground meat, sausage and seafood. The adaptations have not been kitchen-tested.
 
 ### Ingredient units
 
-Choose **Grams**, **US imperial** or **Metric** on a recipe page or in the
-library. The choice persists under the existing settings key. A shared
-link carries `?units=grams|us|metric`; an explicit URL choice takes priority over
-the saved preference. Old links and saved settings default to US imperial.
-US imperial means US customary cups and spoons, not British Imperial volumes.
-`oz` is mass and `fl oz` is volume.
-
-- **Grams** uses grams for every ingredient, including liquids, counts and packages.
-- **US imperial** uses pounds or mass ounces for weights, fluid ounces for mL,
-  and reviewed source US cups/spoons and counts for other quantities.
-- **Metric** uses grams for solids and mL for liquids.
+Ingredient rows show up to three useful equivalents together, separated by
+slashes: a familiar household portion where supported, whole grams, and a
+US mass or liquid measure. Eggs, cloves, heads, slices and fractions of a
+known can, jar or butter stick use their reviewed portion weights. Counts
+and package sizes are approximate guides; products and produce vary.
+Unsupported equivalents are omitted instead of inferred from food names.
+There is no ingredient-units selector. Older `?units=grams|us|metric` links
+and saved preferences remain valid for cooking temperatures and dimensions;
+they do not hide ingredient equivalents. `oz` remains mass and `fl oz` volume.
 
 Ingredient rows use explicit `weightRef` identities in `ingredient-weights.json`.
 Each reference records the food state, portion observation, gram weight, source
@@ -157,25 +155,22 @@ packing have their own portion decisions. Runtime matching never infers food
 identity from an ingredient name or note. Invalid or unresolved quantities fail
 validation instead of rendering a fallback.
 
-The display contains only the selected quantity and unit. Conversion evidence
-and editorial default decisions remain in canonical data and the developer
-audit, without conversion explanations or source-quantity echoes in cooking
-documents. Nutrition uses edible weight; bone-in cooking purchase weight remains
-distinct. Pressure cooking retains its scaled required mL volume in the cooking
-preparation in every mode; the grams ingredient amount cannot replace that rule.
+All displays start from the unrounded canonical amount after linear, fixed,
+minimum or whole-batch scaling. Gram labels round to whole grams; a positive
+amount below one gram is described as "A pinch". These are display choices
+only: canonical quantities, nutrition and allocation calculations retain their
+precision. Required pressure-liquid minima retain their mL volume in cooking
+preparation and never rely on a rounded mass or household estimate.
 
-Conversions start from the unrounded canonical amount after linear, fixed,
-minimum or whole-batch scaling. Display rounding never replaces canonical data
-or changes nutrition. Positive amounts below ordinary display precision retain
-positive numeric precision rather than rounding to zero. Explicit cooking
-quantity references share the ingredient resolver; shopping labels and nutrient
-concentrations retain their own meaning. Cooking
-settings in Grams and Metric also show metric equivalents with the original
-settings and safe endpoints retained.
+Ingredient-facing text omits organic and conventional production labels.
+Cooking modes such as a conventional oven remain explicit. Conversion evidence,
+source labels and editorial decisions stay in canonical provenance and audits.
+Explicit cooking quantity references share the ingredient resolver; shopping
+labels and nutrient concentrations retain their own meaning.
 
 [`recipe-units-audit.json`](recipe-units-audit.json) lists every base ingredient
 and family option, its canonical state, source-backed weight if available, and
-its four-serving display and unresolved status in all three modes. Regenerate
+its four-serving combined display and resolution status. Regenerate
 from this repository root after editing recipes or conversion references:
 
 ```bash
@@ -183,7 +178,7 @@ node scripts/recipes/audit-units.mjs --write
 ```
 
 The unit suite rejects stale audit bytes and checks all recipes at every supported
-serving count in all three modes. `node scripts/recipes/audit-units.mjs` also checks
+serving count, including legacy unit-preference compatibility. `node scripts/recipes/audit-units.mjs` also checks
 the audit without writing it.
 
 `flow` stores the Tabular Recipe Notation operation tree: ingredient leaves with
@@ -484,7 +479,7 @@ npm run gate
 
 `scripts/recipes/sync-assistant-data.mjs` regenerates the two assistant
 downloads from `recipes.json`. Their settings are fixed: four adults, US units,
-no optional side selected, with each recipe's per-person side choices
+simultaneous ingredient equivalents and no optional side selected, with each recipe's per-person side choices
 listed. The JSON uses `schemaVersion: 2` and holds stable recipe ids, readable
 quantities, food states, dependency cells, steps, sources, restrictions and
 estimates; the Markdown is the same documents as text. Data access is discoverable
@@ -511,7 +506,7 @@ There is no generated article: the pages render straight from `recipes.json`
 
 ## Pages and settings
 
-Ingredient units offers US imperial, Metric and Grams only.
+Ingredient quantities show the supported equivalents together, without a unit selector.
 Ingredient and nutrition provenance remains in the canonical data and assistant downloads. There are no public assumptions pages or links. Print recipe uses a filled button with a
 printer icon. Machine-readable formats remain available through metadata and direct URLs.
 
@@ -726,9 +721,12 @@ the retired keto keys without discarding unrelated filters. Carbs clears by
 unticking choices; other multi-choice filters disable Clear selections when empty.
 
 Recipe pages print their on-screen cooking content directly. Individual card
-print packets use the same RecipeContent renderer. Print changes layout and hides
-controls and nutrition information, including nutrition highlights; it adds no separate method, ingredient list, background
-notes or disclaimers. Illustrations remain visible at up to 70 mm wide and 45 mm high. Measurement provenance remains in Markdown/JSON downloads.
+print packets use the same RecipeContent renderer. Print shows the recipe name above its cooking table, including the table’s
+preparation rows, required pressure-liquid minima and selected side amounts.
+Images, controls, summaries, attribution and nutrition stay out of print. The
+same operation-equipment icons appear in desktop, mobile and print flow steps,
+including large and small mixing bowls. Measurement provenance remains in
+Markdown/JSON downloads.
 
 Back to meals/smoothies uses the matching same-tab collection history entry
 when available. Collection history restores the scroll position, search and

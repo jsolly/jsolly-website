@@ -10,7 +10,7 @@ import {
 import { matchesRecipe } from "../../src/components/recipes/nutrient-filters.mjs";
 import recipeData from "../../src/components/recipes/recipe-data.server.mjs";
 import { collectErrors, serveStatic } from "./pages.mjs";
-import { assertPrintImage } from "./recipe-print-image.mjs";
+import { assertPrintLayout } from "./recipe-print-layout.mjs";
 
 // The hydrated recipe library in Chromium: printing from a card and the
 // collection, and the saved settings (J13: localStorage recipes-settings-v1)
@@ -137,7 +137,7 @@ it("card printing loads only that recipe's detail while browser-menu printing ke
 		);
 		assert.equal(await page.locator(".print-output").isVisible(), true);
 		assert.equal(await page.locator(".recipe-grid").isVisible(), false);
-		await assertPrintImage(page.locator(".print-output .recipe-photo img"));
+		await assertPrintLayout(page.locator(".print-output .recipe-photo img"));
 		await page.emulateMedia({ media: "screen" });
 		await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
 		assert.equal(
@@ -286,7 +286,7 @@ it("saved filters that no smoothie meets are cleared on the smoothies page, so i
 	}
 });
 
-it("a family side picked on a recipe page is saved with the library's settings, kept after a reload or a units change and carried by its card link", {
+it("a family side picked on a recipe page is saved with the library's settings, kept after a reload or a legacy settings link and carried by its card link", {
 	timeout: 60_000,
 }, async () => {
 	const { page, errors, close } = await openPage({
@@ -318,10 +318,12 @@ it("a family side picked on a recipe page is saved with the library's settings, 
 		// A plain link uses the saved side; a link carrying settings decides it.
 		await goRecipe(page, `/recipes/${SHAWARMA}/`);
 		const plain = await side().inputValue();
-		// A units change then reload keeps the saved side.
-		await page
-			.getByRole("combobox", { name: "Ingredient units" })
-			.selectOption("grams");
+		// Explicit legacy links must carry the selected side: a units-only
+		// link deliberately represents None, regardless of this browser's saved side.
+		await goRecipe(
+			page,
+			`/recipes/${SHAWARMA}/?servings=6&units=grams&starch=${SHAWARMA}:${PITA}&sideDiners=2`,
+		);
 		await page.reload();
 		await page.locator(".recipe-page[data-preferences-ready=true]").waitFor();
 		const query = new URL(page.url()).searchParams;

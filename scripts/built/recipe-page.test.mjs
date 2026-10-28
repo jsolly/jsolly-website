@@ -2,13 +2,13 @@ import assert from "node:assert/strict";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { PRINT_FAILED } from "../../src/components/recipes/constants.mjs";
-
 import { cookText } from "../../src/components/recipes/display-units.mjs";
 import nutritionData from "../../src/components/recipes/nutrition-data.json" with {
 	type: "json",
 };
 import recipeData from "../../src/components/recipes/recipe-data.server.mjs";
 import { collectErrors, serveStatic } from "./pages.mjs";
+import { setLegacyUnits } from "./recipe-legacy-units.mjs";
 
 const PRINT_ONLY_COPY =
 	/Before you start|Where your attention goes|First-cook checks|These recipes include household adaptations/u;
@@ -171,6 +171,16 @@ it("mobile flow preserves ordered operations, allocation leaves and cooking chec
 			);
 			const mobile = page.locator(".recipe-body .mobile-flow");
 			assert.equal(await mobile.isVisible(), true);
+			assert.equal(
+				await mobile
+					.locator(".branch-join")
+					.evaluateAll((steps) =>
+						steps.every((step) =>
+							step.querySelector(".operation-tools svg[role=img][aria-label]"),
+						),
+					),
+				true,
+			);
 			assert.deepEqual(
 				(await mobile.locator(".branch-join p").allTextContents()).map(
 					(content) => content.trim(),
@@ -235,18 +245,18 @@ it("mobile flow preserves ordered operations, allocation leaves and cooking chec
 		assert.deepEqual(
 			await scaledMobile.locator(".mobile-ingredient strong").allTextContents(),
 			[
-				"3 lb",
-				"0.95 oz",
-				"1 tsp",
-				"½ tsp",
-				"¼ tsp",
-				"0.14 oz",
-				"2 lb",
-				"0.95 oz",
-				"1 tsp",
-				"½ tsp",
-				"2.12 oz",
-				"1.41 oz",
+				"1360 g / 3 lb",
+				"2 tbsp / 27 g / 30 mL",
+				"1 tsp / 3 g / 0.11 oz",
+				"½ tsp / 3 g / 0.11 oz",
+				"A pinch",
+				"2 tsp / 4 g / 0.14 oz",
+				"about 57 spears / 908 g / 2 lb",
+				"2 tbsp / 27 g / 30 mL",
+				"1 tsp / 3 g / 0.11 oz",
+				"½ tsp / 3 g / 0.11 oz",
+				"juice of about 1 ¼ lemons / 60 g / 58 mL",
+				"40 g / 1.41 oz",
 			],
 		);
 		assert.deepEqual(
@@ -705,8 +715,8 @@ it("a reader who opens a six-serving link, picks 8 servings and the bun side get
 			{
 				facts:
 					"15 min active time / base batch 8 servings 40 min / base batch ready in",
-				sideLine: "12.7 oz Bun · for 8 people · serve separately",
-				cucumber: "1.32 lb",
+				sideLine: "360 g / 12.7 oz Bun · for 8 people · serve separately",
+				cucumber: "about 2 large cucumbers / 600 g / 1.32 lb",
 				link: `${site.origin}${PAGE}?servings=8&units=us&starch=greek-turkey-patties%3Abun_one&sideDiners=8`,
 				errors: [],
 			},
@@ -725,7 +735,7 @@ it("a reader who opens a six-serving link, picks 8 servings and the bun side get
 			{ servings: "8", side: SIDE },
 		);
 		await page.emulateMedia({ media: "print" });
-		assert.equal(await detail.locator(".family-box").isVisible(), true);
+		assert.equal(await detail.locator(".family-box").isVisible(), false);
 		assert.equal(await detail.locator(".side-nutrition").isVisible(), false);
 		await page.emulateMedia({ media: "screen" });
 		await sideSelect.selectOption("");
@@ -769,7 +779,7 @@ it("a shared link with ?servings=6 and a family side opens the recipe at six ser
 				side: SIDE,
 				facts:
 					"15 min active time / base batch 6 servings 40 min / base batch ready in",
-				sideLine: "9.52 oz Bun · for 6 people · serve separately",
+				sideLine: "270 g / 9.52 oz Bun · for 6 people · serve separately",
 				errors: [],
 			},
 		);
@@ -1013,6 +1023,19 @@ it("screen, page printing and card packets use identical cooking copy", {
 				);
 				assert.equal(await content.locator(".nutrition").isVisible(), false);
 				assert.equal(
+					await content.locator(".flow-print-title").textContent(),
+					recipeData.recipes.find((recipe) => recipe.id === id).title,
+				);
+				assert.equal(
+					await content.locator(".flow-print-title").isVisible(),
+					true,
+				);
+				assert.equal(await content.locator(".recipe-photo").isVisible(), false);
+				assert.equal(
+					await content.locator(".detail-summary").isVisible(),
+					false,
+				);
+				assert.equal(
 					await content.locator(".nutrition-pills").isVisible(),
 					false,
 				);
@@ -1033,9 +1056,7 @@ it("screen, page printing and card packets use identical cooking copy", {
 				await page
 					.getByRole("combobox", { name: "Servings", exact: true })
 					.selectOption("6");
-				await page
-					.getByRole("combobox", { name: "Ingredient units" })
-					.selectOption("metric");
+				await setLegacyUnits(page, "metric");
 				await page
 					.getByRole("searchbox", { name: "Search recipes" })
 					.fill(recipeData.recipes.find((recipe) => recipe.id === id).title);

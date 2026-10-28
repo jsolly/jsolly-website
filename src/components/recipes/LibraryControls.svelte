@@ -16,7 +16,6 @@
 	import FilterMultiSelect from "./FilterMultiSelect.svelte";
 	import NutritionHelp from "./NutritionHelp.svelte";
 	import { choiceUnavailable } from "./nutrient-filters.mjs";
-	import UnitControl from "./UnitControl.svelte";
 
 	// The recipe library's controls: the collection links, servings, the
 	// appliances on hand, the filters (protein and carb or ingredient choices,
@@ -32,8 +31,6 @@
 		hydrated,
 		servings,
 		onServingsChange,
-		units,
-		onUnitsChange,
 		shownApplianceKeys,
 		collectionHasIron,
 		smoothieIngredients,
@@ -108,7 +105,6 @@
 				>{#each SERVING_CHOICES as choice (choice)}<option value={choice}>{choice}</option>{/each}</NativeSelect
 			>
 		</div>
-		<UnitControl {units} {onUnitsChange} disabled={!hydrated} />
 	</div>
 
 	<fieldset class="inventory">

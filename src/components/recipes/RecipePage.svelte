@@ -14,7 +14,6 @@
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
 	import { readRecipeURL, recipePageURL } from "./recipe-url.mjs";
 	import ShareRecipe from "./ShareRecipe.svelte";
-	import UnitControl from "./UnitControl.svelte";
 	import { readRecipePreferences, writeRecipePreferences } from "./unit-preference.mjs";
 
 	// Keep preference-dependent content hidden until URL and saved settings
@@ -104,12 +103,6 @@
 		if (madeOn !== today) madeStatus = "";
 	}
 
-	function setUnits(value) {
-		const units = validateSettings({ units: value }).units;
-		settings = { ...settings, units };
-		replacePageURL();
-		persistPreferences();
-	}
 
 	onMount(() => {
 		// A legacy /recipes/#<id> redirect replaced the collection entry, so Back
@@ -157,7 +150,6 @@
 					{#each SERVING_CHOICES as choice (choice)}<option value={choice}>{choice}</option>{/each}
 				</NativeSelect></label
 			>
-		<UnitControl units={settings.units} onUnitsChange={setUnits} disabled={!interactive} />
 			{/snippet}
 		</RecipeContent>
 		<div class="made recipe-enhanced">

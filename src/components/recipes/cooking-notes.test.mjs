@@ -1,8 +1,17 @@
 import assert from "node:assert/strict";
 import { it } from "vitest";
-import { cookingNotes } from "./cooking-notes.mjs";
+import { cookingNotes, ingredientText } from "./cooking-notes.mjs";
 
 it("keeps ingredient state while removing nutrition import commentary", () => {
+	assert.equal(ingredientText("Organic conventional cucumbers"), "cucumbers");
+	assert.equal(
+		ingredientText("Conventionally grown tomatoes, drained"),
+		"tomatoes, drained",
+	);
+	assert.equal(
+		ingredientText("Conventional oven, not fan-assisted"),
+		"Conventional oven, not fan-assisted",
+	);
 	assert.equal(
 		cookingNotes(
 			"raw; skinless · Optional; excluded or included as stated in the publisher nutrition.",

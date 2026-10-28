@@ -78,3 +78,14 @@ export function cookingNotes(state) {
 		)
 		.join(" · ");
 }
+
+/** Ingredient production labels do not change how the food is prepared. */
+export function ingredientText(value) {
+	return String(value ?? "")
+		.replace(
+			/\b(?:organic|conventionally grown|conventional(?! (?:oven|bake|heat)))\b\s*/giu,
+			"",
+		)
+		.replace(/ {2,}/gu, " ")
+		.trim();
+}

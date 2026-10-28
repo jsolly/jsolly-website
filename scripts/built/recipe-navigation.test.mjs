@@ -1,4 +1,5 @@
 // biome-ignore-all lint/performance/noAwaitInLoops: ordered browser interactions and fresh viewport contexts.
+
 import assert from "node:assert/strict";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
@@ -123,26 +124,26 @@ function verifyNavigation(width) {
 			assert.ok(
 				Math.abs((await page.evaluate(() => scrollY)) - beforeScroll) <= 2,
 			);
-			// Card links carry a changed setting; the visit is saved at the click.
-			await page
-				.getByRole("combobox", { name: "Ingredient units" })
-				.selectOption("grams");
+			// Reloading a recipe must keep its collection-return entry as well as
+			// browser Back, without relying on the removed units control.
 			const changed = page.url();
-			await link.scrollIntoViewIfNeeded();
+			// Scroll the current reactive card atomically; summary prefetch may replace
+			// its node while Playwright waits for a previous node's stability.
+			await link.evaluate((node) =>
+				node.scrollIntoView({ block: "center", behavior: "instant" }),
+			);
 			const leftAt = await page.evaluate(() => scrollY);
-			const gramsLink = await link.getAttribute("href");
+			const changedLink = await link.getAttribute("href");
 			assert.equal(
-				new URL(gramsLink, site.origin).searchParams.get("units"),
-				"grams",
+				new URL(changedLink, site.origin).pathname,
+				`/recipes/${opened}/`,
 			);
 			await link.click();
-			await page.waitForURL(new URL(gramsLink, site.origin).href);
+			await page.waitForURL(new URL(changedLink, site.origin).href);
 			await hydrate(page);
 			assert.equal(
-				await page
-					.getByRole("combobox", { name: "Ingredient units" })
-					.inputValue(),
-				"grams",
+				await page.getByRole("combobox", { name: "Ingredient units" }).count(),
+				0,
 			);
 			await page.reload();
 			await hydrate(page);

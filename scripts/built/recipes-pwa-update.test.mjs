@@ -4,6 +4,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { it } from "vitest";
 import { collectErrors, serveStatic } from "./pages.mjs";
+import { legacyUnits, setLegacyUnits } from "./recipe-legacy-units.mjs";
 import {
 	browser,
 	dataLabel,
@@ -469,9 +470,7 @@ function cookingGuardCheck(name, viewport) {
 			);
 			await statusText(page, SAVED);
 			await page.waitForFunction(() => navigator.serviceWorker.controller);
-			await page
-				.getByRole("combobox", { name: "Ingredient units" })
-				.selectOption("grams");
+			await setLegacyUnits(page, "grams");
 			const ingredient = page
 				.locator(
 					".trn-ingredient [role=checkbox]:visible, .mobile-ingredient [role=checkbox]:visible",
@@ -531,9 +530,7 @@ function cookingGuardCheck(name, viewport) {
 			);
 			assert.equal(reloads, 1, "accepted activation reloads exactly once");
 			assert.equal(
-				await page
-					.getByRole("combobox", { name: "Ingredient units" })
-					.inputValue(),
+				await legacyUnits(page),
 				"grams",
 				"saved preferences survive confirmed reload",
 			);

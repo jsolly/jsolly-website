@@ -26,35 +26,35 @@ it("identified cooking allocations follow serving scaling and selected units", (
 			servings: 2,
 			units: "grams",
 		}),
-		"Use 170 g.",
+		"Use 170 g / 6 oz.",
 	);
 	assert.equal(
 		cookingText(recipe, "Use {{quantity:food:0.5}}.", {
 			servings: 2,
 			units: "us",
 		}),
-		"Use 6 oz.",
+		"Use 170 g / 6 oz.",
 	);
 	assert.equal(
 		cookingText(recipe, "Use {{quantity:fixed}}.", {
 			servings: 8,
 			units: "metric",
 		}),
-		"Use 2 g.",
+		"Use 2 g / 0.07 oz.",
 	);
 	assert.equal(
 		cookingText(recipe, "Season with {{portion:seasoning:tsp:1}}.", {
 			servings: 2,
 			units: "us",
 		}),
-		"Season with ½ tsp.",
+		"Season with ½ tsp / 2 g / 0.05 oz.",
 	);
 	assert.equal(
 		cookingText(recipe, "Season with {{portion:seasoning:tsp:1}}.", {
 			servings: 2,
 			units: "grams",
 		}),
-		"Season with 1.5 g.",
+		"Season with ½ tsp / 2 g / 0.05 oz.",
 	);
 });
 
@@ -64,14 +64,14 @@ it("individual cooking portions keep their size while ingredient and nutrition p
 			servings: 8,
 			units: "us",
 		}),
-		"Form 3.53 oz patties.",
+		"Form 100 g / 3.53 oz patties.",
 	);
 	assert.equal(
 		cookingText(recipe, "Form {{mass:100}} patties.", {
 			servings: 2,
 			units: "grams",
 		}),
-		"Form 100 g patties.",
+		"Form 100 g / 3.53 oz patties.",
 	);
 	assert.equal(
 		cookingText(recipe, "9 g protein per 100 g; buy a 32-ounce carton.", {

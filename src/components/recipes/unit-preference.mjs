@@ -1,5 +1,4 @@
 import { BASE_SERVINGS, STORAGE_KEY } from "./constants.mjs";
-import { unitPreference } from "./ingredient-units.mjs";
 import { validateSettings } from "./recipe-logic.mjs";
 
 /** Retire obsolete switches without pruning unrelated collection preferences. */
@@ -78,14 +77,6 @@ function updateSavedSettings(change, label, getStorage) {
 		return false;
 	}
 }
-export function writeUnitPreference(units, getStorage = () => localStorage) {
-	updateSavedSettings(
-		(prior) => ({ ...prior, units: unitPreference(units) }),
-		"units",
-		getStorage,
-	);
-}
-
 /** Saves one recipe's side in the library's familyChoice; none removes it. */
 export function writeSidePreference(
 	recipe,
@@ -131,11 +122,4 @@ export function writeRecipePreferences(
 		"preferences",
 		getStorage,
 	);
-}
-
-/** An explicit choice replaces the share link's old override before a reload. */
-export function replaceUnitURL(units) {
-	const url = new URL(window.location.href);
-	url.searchParams.set("units", unitPreference(units));
-	window.history.replaceState(window.history.state, "", url);
 }
