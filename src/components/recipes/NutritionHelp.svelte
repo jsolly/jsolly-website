@@ -32,7 +32,7 @@
 </script>
 
 <PopoverRoot bind:open
-	><PopoverTrigger bind:ref={trigger} class={topic === "net-carbs" ? "nutrition-info recipe-enhanced" : "nutrition-info"} aria-label={topic === "net-carbs" ? "What are net carbs?" : "About nutrition filters"} aria-describedby={contentId} openOnHover openDelay={OPEN_DELAY_MS} closeDelay={CLOSE_DELAY_MS}>ⓘ</PopoverTrigger
+	><PopoverTrigger bind:ref={trigger} class={topic === "net-carbs" ? "nutrition-info recipe-enhanced" : "nutrition-info"} aria-label={topic === "net-carbs" ? "What are net carbs?" : "About nutrition filters"} aria-describedby={content ? contentId : undefined} openOnHover openDelay={OPEN_DELAY_MS} closeDelay={CLOSE_DELAY_MS}>ⓘ</PopoverTrigger
 	><PopoverContent {open} bind:ref={content} id={contentId} class="nutrition-help" portalProps={{ disabled: true }} sideOffset={4} trapFocus={false} onOpenAutoFocus={(event) => event.preventDefault()} onCloseAutoFocus={restoreFocus}
 		>{#if topic === "net-carbs"}<strong>Net carbs</strong><p>Total carbohydrates minus fiber and recorded erythritol. For example, 12 g of total carbs minus 4 g of fiber gives 8 g of net carbs when no erythritol is present.</p>{:else}<strong>Nutrition filters</strong>
 		<p><strong>Iron-rich:</strong> {nutritionThresholds.ironRich}</p>

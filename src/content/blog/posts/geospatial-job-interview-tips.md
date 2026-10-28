@@ -185,7 +185,7 @@ PySAL - Spatial statistics.
 
 PyKrige - Python Kriging!..Interprolate raster from vector data.
 
-<span style="color:hsl(0,75%,60%);">This list could be missing important ones, so please let me know if I should add anything! For example, I have no experience with the R programming language, but I know they have powerful spatial libraries.</span>
+<span style="color:var(--color-text-primary);">This list could be missing important ones, so please let me know if I should add anything! For example, I have no experience with the R programming language, but I know they have powerful spatial libraries.</span>
 
 <strong>What is your experience with DevOps? What CI/CD tools have you used?</strong>
 

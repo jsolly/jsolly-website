@@ -27,7 +27,7 @@ Did you know that limiting blue light exposure is one of the most effective ways
 
 ## How to Get a Red Screen on Your iPhone
 
-1 - Go to Settings \> Accessibility \> Display &amp; Text Size \> Color Filters. Create a <span style="color:hsl(0,75%,60%);">red</span> color tint filter with maximum intensity.
+1 - Go to Settings \> Accessibility \> Display &amp; Text Size \> Color Filters. Create a <span style="color:var(--color-text-primary);">red</span> color tint filter with maximum intensity.
 
 2 - Disable the filter and navigate to settings \> accessibility \> Accessibility Shortcut. Ensure 'Color Filters' is checked.
 
