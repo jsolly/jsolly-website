@@ -39,7 +39,6 @@ node_modules/
 !.cursor/CLOUD.md
 !.cursor/environment.json
 !.cursor/install-cloud-skills.sh
-!.cursor/aws-oidc-login.sh
 
 # Production browser smoke diagnostics
 production-smoke-artifacts/
@@ -51,3 +50,6 @@ production-smoke-artifacts/
 # Python test artifacts
 __pycache__/
 .pytest_cache/
+
+# Local axe scan reports
+/accessibility-results.json

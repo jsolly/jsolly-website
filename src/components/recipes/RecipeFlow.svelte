@@ -8,7 +8,6 @@
 	import ApplianceIcon from "./ApplianceIcon.svelte";
 	import { cookingNotes, OMITTED_PREPARATION } from "./cooking-notes.mjs";
 	import { cookingText } from "./cooking-quantities.mjs";
-	import { flowEquipment } from "./flow-equipment.mjs";
 	import { ingredientIcon } from "./ingredient-icon.mjs";
 	import { flowGrid } from "./trn-logic.mjs";
 
@@ -27,7 +26,7 @@
 	const mobileFlow = $derived.by(() => {
 		let row = 0;
 		function branch(node) {
-			if (node.children) return { action: cookingText(recipe, node.action, settings), children: node.children.map(branch) };
+			if (node.children) return { action: cookingText(recipe, node.action, settings), equipment: node.equipment, children: node.children.map(branch) };
 			const index = row++;
 			return { row: index, cell: grid.rows[index].cells.find((cell) => cell.kind === "ingredient") };
 		}
@@ -53,15 +52,15 @@
 		<span class="ingredient-icon" aria-hidden="true">{ingredientIcon(cell.name)}</span>{/if}<strong class="ingredient-measures">{cell.text}</strong>{#each cell.alternatives || [] as choice (choice.name)}<span class="ingredient-name">or {choice.name}</span><strong class="ingredient-measures">{choice.quantity}</strong>{/each}<small>{cookingNotes(cell.state).replace("Use the proportional split described in the method.", "Use the amount shown for this branch.")}</small></span>
 {/snippet}
 
-{#snippet operationTools(action)}
-	<div class="operation-tools">{#each flowEquipment(action, recipe.appliancesNeeded) as name (name)}<ApplianceIcon {name} />{/each}</div>
+{#snippet operationTools(equipment)}
+	<div class="operation-tools">{#each equipment as name (name)}<ApplianceIcon {name} />{/each}</div>
 {/snippet}
 
 {#snippet mobileBranch(node)}
 	{#if node.children}
 		<div class="mobile-branch">
 			<ul class="branch-inputs">{#each node.children as child, index (index)}<li>{@render mobileBranch(child)}</li>{/each}</ul>
-			<div class="branch-join"><span aria-hidden="true">↓</span><div class="operation-content">{@render operationTools(node.action)}<p>{node.action}</p></div></div>
+			<div class="branch-join"><span aria-hidden="true">↓</span><div class="operation-content">{@render operationTools(node.equipment)}<p>{node.action}</p></div></div>
 		</div>
 	{:else}
 		<div class="mobile-ingredient" class:checked={checks.includes(node.row)}>
@@ -104,7 +103,7 @@
 									{/if}
 									</th>
 								{:else}
-									<td rowspan={cell.rowspan} colspan={cell.colspan} class="trn-operation">{@render operationTools(cell.text)}{cell.text}</td>
+									<td rowspan={cell.rowspan} colspan={cell.colspan} class="trn-operation">{@render operationTools(cell.equipment)}{cell.text}</td>
 								{/if}
 							{/each}
 						</tr>

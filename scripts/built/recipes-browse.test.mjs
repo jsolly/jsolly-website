@@ -799,6 +799,11 @@ async function pointerAndKeyboardHelp({ page, help, popover, heading }) {
 			inPopover: Boolean(document.activeElement?.closest(".nutrition-help")),
 			label: document.activeElement?.closest("label")?.textContent.trim(),
 		}));
+	const descriptions = { closed: await help.getAttribute("aria-describedby") };
+	const hasDescription = async () => {
+		const id = await help.getAttribute("aria-describedby");
+		return Boolean(id && id === (await popover.getAttribute("id")));
+	};
 	const openFromKeyboard = async () => {
 		await help.focus();
 		await page.keyboard.press("Enter");
@@ -811,8 +816,10 @@ async function pointerAndKeyboardHelp({ page, help, popover, heading }) {
 	};
 	await help.hover();
 	await popover.waitFor();
+	descriptions.opened = await hasDescription();
 	await moveToHeading();
 	await popover.waitFor({ state: "detached" });
+	descriptions.closedAfterHover = await help.getAttribute("aria-describedby");
 	await help.hover();
 	await popover.waitFor();
 	await help.click();
@@ -835,6 +842,7 @@ async function pointerAndKeyboardHelp({ page, help, popover, heading }) {
 		observer.observe(document.body, { childList: true, subtree: true });
 	});
 	await openFromKeyboard();
+	descriptions.reopened = await hasDescription();
 	const movedOnOpen = await focused();
 	const movedOnOpenClosed = await close();
 	await openFromKeyboard();
@@ -865,6 +873,7 @@ async function pointerAndKeyboardHelp({ page, help, popover, heading }) {
 	await popover.waitFor();
 	await popover.locator("p").first().click();
 	return {
+		descriptions,
 		clickedStaysOpen,
 		movedOnOpen,
 		movedOnOpenClosed,
@@ -889,6 +898,12 @@ async function touchHelp({ help, popover, heading }) {
 const ON_HELP = { onHelp: true, inPopover: false, label: undefined };
 const IMMUNE = { onHelp: false, inPopover: false, label: "Immune support" };
 const DESKTOP_HELP = {
+	descriptions: {
+		closed: null,
+		opened: true,
+		closedAfterHover: null,
+		reopened: true,
+	},
 	clickedStaysOpen: true,
 	movedOnOpen: IMMUNE,
 	movedOnOpenClosed: IMMUNE,

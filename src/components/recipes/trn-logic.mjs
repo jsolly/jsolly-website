@@ -31,6 +31,7 @@ export function validateFlow(recipe) {
 		if (node.children) {
 			if (!node.action || !node.children.length)
 				throw new Error("Empty operation");
+
 			node.children.forEach(visit);
 			return;
 		}
@@ -131,6 +132,7 @@ export function flowGrid(recipe, settings = {}) {
 		if (children.length === 1 && children[0].children)
 			return {
 				action: `${children[0].action} Then: ${node.action}`,
+				equipment: [...new Set([...children[0].equipment, ...node.equipment])],
 				children: children[0].children,
 			};
 		return { ...node, children };
@@ -159,6 +161,7 @@ export function flowGrid(recipe, settings = {}) {
 			colspan: op.parent ? op.parent.depth - op.depth : 1,
 			rowspan: op.rows,
 			text: op.action,
+			equipment: op.equipment,
 		});
 	for (const r of rows) r.cells.sort((a, b) => a.col - b.col);
 	const option = recipe.familyOptions?.find(

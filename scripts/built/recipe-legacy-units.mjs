@@ -19,13 +19,42 @@ export async function setLegacyUnits(page, units) {
 	);
 }
 
-export function legacyUnits(page) {
-	return page.evaluate(() => {
-		const explicit = new URL(location.href).searchParams.get("units");
+// Observe application-generated links, rather than rereading test setup inputs.
+export async function legacyUnits(page) {
+	const card = page.locator("a[data-recipe-id]").first();
+	if (await card.count())
 		return (
-			explicit ||
-			JSON.parse(localStorage.getItem("recipes-settings-v1") || "{}").units ||
-			"us"
+			new URL(await card.getAttribute("href"), page.url()).searchParams.get(
+				"units",
+			) || "us"
 		);
+	await page.evaluate(() => {
+		window.__legacyUnitShare = {
+			descriptor: Object.getOwnPropertyDescriptor(navigator, "share"),
+			url: "",
+		};
+		Object.defineProperty(navigator, "share", {
+			configurable: true,
+			value: ({ url }) => {
+				window.__legacyUnitShare.url = url;
+				return Promise.resolve();
+			},
+		});
 	});
+	try {
+		await page
+			.getByRole("button", { name: "Share this recipe", exact: true })
+			.click();
+		const url = await page.evaluate(() => window.__legacyUnitShare.url);
+		if (!url)
+			throw new Error("Application did not generate a recipe share URL");
+		return new URL(url).searchParams.get("units") || "us";
+	} finally {
+		await page.evaluate(() => {
+			const { descriptor } = window.__legacyUnitShare;
+			if (descriptor) Object.defineProperty(navigator, "share", descriptor);
+			else Reflect.deleteProperty(navigator, "share");
+			Reflect.deleteProperty(window, "__legacyUnitShare");
+		});
+	}
 }

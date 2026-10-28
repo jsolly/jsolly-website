@@ -179,6 +179,7 @@ export function articleHtml(body: string) {
 		OPENING_TAG,
 		(match: string, tag: string, attributes: string) => {
 			if (HEADING_TAG.test(tag)) return match;
+			if (tag === "pre") attributes += ' tabindex="0"';
 			return `<${tag}${attributes.replace(
 				CAPTURED_ID_ATTRIBUTE,
 				(attribute: string, id: string) =>

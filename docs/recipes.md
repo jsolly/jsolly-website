@@ -309,32 +309,61 @@ with 4/4/9. JSON and Markdown include model assumptions and brand limitations.
 
 ### USDA API lookups
 
-The maintenance-only `recipes:usda` command searches FoodData Central or fetches
-an identified food record. It reads the standard SecureString
-`/shared/nutrition/usda-api-key` in AWS account `730335616323`, `us-east-1`, using
-the existing `agent-readonly` identity. It uses the AWS SDK to avoid CLI
-history, verifies that identity and the returned
-parameter ARN/type, keeps the key in memory and sends it in `X-Api-Key`, never a
-URL. Errors omit provider bodies and credential-bearing diagnostics. The command
-does not modify recipe data or run during builds, tests or browser requests.
+The human-operated `recipes:usda` command searches FoodData Central or fetches
+an identified food record. It accepts one API key through stdin, keeps it in
+memory and sends it only in the fixed USDA origin's `X-Api-Key` header. It does
+not resolve AWS credentials, read AWS configuration or retrieve secrets. Empty,
+malformed, oversized or failed input stops before a USDA request. Errors omit
+input contents and credential-bearing diagnostics. The command does not modify
+recipe data or run during builds, tests or browser requests.
 
-From this repo's root:
+John runs the following steps in his own terminal. Agents do not run the human
+secret-read command or borrow human credentials. AgentMcp intentionally cannot
+read secret values. Agents can research public FoodData Central records or use
+public response caches John supplies. Keep AWS Core knowledge tools available.
+
+First verify the named production human session, cwd-independent:
 
 ```bash
-npm run recipes:usda -- search "spinach raw"
+env -u AWS_ACCESS_KEY_ID -u AWS_SECRET_ACCESS_KEY -u AWS_SESSION_TOKEN -u AWS_SECURITY_TOKEN aws sts get-caller-identity --profile prod-admin --region us-east-1
+```
+
+Expect account `730335616323` and John's `AdministratorAccess` session. Stop on
+another identity or a failed call. Use that same named profile and static-key
+exclusions for retrieval. [AWS credential precedence](https://docs.aws.amazon.com/cli/latest/topic/config-vars.html#credentials)
+means `AWS_PROFILE` alone is insufficient when static environment keys exist.
+Human sign-in and profile maintenance remain John's; the repository creates no
+login, default profile or credential export.
+
+John searches from `/Users/johnsolly/code/jsolly-website`:
+
+```bash
+set -o pipefail
+env -u AWS_ACCESS_KEY_ID -u AWS_SECRET_ACCESS_KEY -u AWS_SESSION_TOKEN -u AWS_SECURITY_TOKEN aws ssm get-parameter --profile prod-admin --name arn:aws:ssm:us-east-1:730335616323:parameter/shared/nutrition/usda-api-key --with-decryption --region us-east-1 --query Parameter.Value --output text | npm run recipes:usda -- search "spinach raw"
 ```
 
 Fetch a selected FDC record from the same cwd:
 
 ```bash
-npm run recipes:usda -- food 168462
+set -o pipefail
+env -u AWS_ACCESS_KEY_ID -u AWS_SECRET_ACCESS_KEY -u AWS_SESSION_TOKEN -u AWS_SECURITY_TOKEN aws ssm get-parameter --profile prod-admin --name arn:aws:ssm:us-east-1:730335616323:parameter/shared/nutrition/usda-api-key --with-decryption --region us-east-1 --query Parameter.Value --output text | npm run recipes:usda -- food 168462
 ```
 
-Refresh the already reviewed ingredient matches from this repo's root:
+Refresh reviewed ingredient matches from the same cwd:
 
 ```bash
-node scripts/recipes/refresh-nutrition.mjs --cache /private/tmp/jsolly-usda-refresh-20261013
+set -o pipefail
+env -u AWS_ACCESS_KEY_ID -u AWS_SECRET_ACCESS_KEY -u AWS_SESSION_TOKEN -u AWS_SECURITY_TOKEN aws ssm get-parameter --profile prod-admin --name arn:aws:ssm:us-east-1:730335616323:parameter/shared/nutrition/usda-api-key --with-decryption --region us-east-1 --query Parameter.Value --output text | node scripts/recipes/refresh-nutrition.mjs --cache /private/tmp/jsolly-usda-refresh-20261028
 ```
+
+The pipe carries the key directly to the process. Never use `tee`, shell tracing,
+a key argument, an environment variable or a saved key file. The reader accepts
+one 16–256 character key with an optional final LF/CRLF. `pipefail` reports a
+producer failure; it cannot retract already emitted bytes or prevent concurrent
+consumer work. Empty or malformed stdin and stream errors fail before HTTP.
+A complete public cache needs no key or AWS call; run the refresh command without
+the secret-producing pipe when replaying that cache. Missing records require
+John's human procedure and acquire the stdin key once for the entire refresh.
 
 The cache contains public USDA responses and their retrieval timestamps, never the
 key. `--delay-ms 0` permits a finite refresh without the default delay when
@@ -377,85 +406,35 @@ existing ingredient-weight, assumption, source-snapshot and download-regeneratio
 requirements still apply. Public lookup output may be saved as review evidence;
 never save the credential response or enable credential-bearing SDK diagnostics.
 
-Ownership: `shared-infra/aws/template.yaml` owns the exact IAM exception and
-`shared-infra/docs/identity.md` owns John's provisioning/deployment commands.
-The SecureString value is entered by John outside CloudFormation; neither repo
-contains the key or a secret placeholder. This repository owns its access
-guidance and optional `.cursor/aws-oidc-login.sh` bootstrap. The standard AWS SDK
-credential chain must already resolve an approved agent identity: local Claude/Codex/Cursor use the separate agent SSO session;
-Cursor Cloud can run the existing `.cursor/aws-oidc-login.sh`. Cloud Claude/Codex
-still need an approved AWS authentication path; this command does not create one.
-The shared role's USDA permission applies across repos using that role. It becomes
-available only after John's manual shared-infra deployment and key provisioning.
-No Vercel secret or site runtime access is needed.
+Ownership: shared-infra owns `/shared/nutrition/usda-api-key` in account
+`730335616323`, `us-east-1`, and its human provisioning/rotation procedure. John
+enters the SecureString value outside CloudFormation. Neither repository stores
+the key or a placeholder. This source migration removes the website's agent
+credential consumer; it does not remove the historical IAM exception, installed
+helpers, cached sessions or saved cloud environments. Shared-trust retirement
+requires the separate dependency and native-acceptance evidence. No AgentMcp
+secret exception, local credential bridge or new Vercel secret is introduced.
+The retained CloudFront/S3 image hosting is unrelated and remains required.
 
-#### Recover a local AWS lookup
+#### Recover a maintenance lookup
 
-Use the helper's failure category before retrying. It reports AWS identity
-verification and USDA parameter retrieval separately, without printing provider
-messages, causes, credentials or parameter values.
+A missing or invalid stdin key requires John to check his named human identity
+and protected parameter using the procedure above. Stop if identity or access is
+wrong; do not retry with agent SSO, a default profile or broader grants. The
+consumer cannot classify AWS login, network or permission errors because it makes
+no AWS call. A human producer failure must be diagnosed in that human session.
 
-If the SDK loses a configuration error while trying credential providers, the
-helper checks only the selected isolated local config after failure. It uses
-the SDK parser, reads shared credentials from `/dev/null`, and never inspects SSO
-caches. Missing selected/source profiles or the referenced SSO session produce
-a configuration diagnostic. Valid definitions do not prove authentication;
-unexplained provider failures stay ambiguous. Other approved cloud config paths
-retain the standard credential chain.
+For a USDA lookup failure, check API availability, quota and network connectivity
+without printing headers, key bytes, provider payloads or credential diagnostics.
+Do not change recipe data until public records and nutritional assumptions are
+reviewed. Source merge does not prove a live key read, human recovery or refresh.
 
-- For a configuration failure, check the selected config and profile first.
-  Local agent SSO uses `AWS_CONFIG_FILE="$HOME/.aws/agent-config"`,
-  `AWS_PROFILE=agent-readonly` and `AWS_SHARED_CREDENTIALS_FILE=/dev/null`.
-  The chain is `agent-readonly` → `agent-readonly-sso` → SSO session `agent`.
-  John's ordinary terminal can select a different config that lacks these profiles.
-  Never fall back to a personal or default profile.
-- For connectivity failures, check DNS, TLS and network reachability.
-- For permission denials, check the existing permission for the named operation.
-  Login does not repair grants. This helper never changes permissions.
-- For an unexpected identity, stop. The helper requests no parameter until the
-  approved `agent-readonly` role in account `730335616323` is verified.
-- For unknown failures, an invalid cache or a generic refresh failure, do not
-  infer session expiry. Diagnose the approved credential provider without
-  printing its state or deleting caches.
-
-An explicit SSO-provider expiry report means authentication credentials expired.
-It can also follow a failed refresh, so check connectivity before renewal.
-If the isolated local session needs renewal, John runs this in his own terminal,
-from any cwd:
-
-```bash
-env -u AWS_ACCESS_KEY_ID -u AWS_SECRET_ACCESS_KEY -u AWS_SESSION_TOKEN -u AWS_SECURITY_TOKEN -u AWS_DEFAULT_PROFILE AWS_CONFIG_FILE="$HOME/.aws/agent-config" AWS_SHARED_CREDENTIALS_FILE=/dev/null AWS_PROFILE=agent-readonly aws sso login --sso-session agent --no-browser
-```
-
-Open the printed URL in private Chrome on the same Mac. Sign in as
-`agent@jsolly.com`. `--no-browser` prevents automatic browser opening; it does
-not remove human authentication. Verify the direct SSO identity from any cwd:
-
-```bash
-env -u AWS_ACCESS_KEY_ID -u AWS_SECRET_ACCESS_KEY -u AWS_SESSION_TOKEN -u AWS_SECURITY_TOKEN -u AWS_DEFAULT_PROFILE AWS_CONFIG_FILE="$HOME/.aws/agent-config" AWS_SHARED_CREDENTIALS_FILE=/dev/null AWS_PROFILE=agent-readonly aws sts get-caller-identity --profile agent-readonly-sso --query Arn --output text
-```
-
-Expect account `730335616323`, an `AgentReadOnly` SSO assumed role and the session
-suffix `/agent@jsolly.com`. Stop on another identity. Retry maintenance only after
-verification. This identity check does not retrieve the USDA key. Cloud callers
-use their existing approved authentication path, not these local SSO commands.
-
-The [SSO token provider](https://docs.aws.amazon.com/sdkref/latest/guide/feature-sso-credentials.html)
-refreshes tokens within the allowed login session. Human reauthentication is
-required after that session can no longer renew. The configured
-[interactive duration](https://docs.aws.amazon.com/singlesignon/latest/userguide/user-interactive-sessions.html)
-is separate from the permission-set role-credential lifetime. Neither a cache
-timestamp nor a successful role call proves remaining interactive-session time.
-Do not assume a week-long duration. Duration changes apply only to new sessions.
-See [AWS session considerations](https://docs.aws.amazon.com/singlesignon/latest/userguide/user-session-duration-prereqs-considerations.html).
-
-The offline USDA tests inject identity, parameter and HTTP boundaries. Temporary
-synthetic config fixtures also exercise the installed SDK's missing-profile and
-missing-session paths with metadata disabled. They cover
-failure classification, redaction, stopping before secret access and a later
-successful invocation after simulated provider renewal. They do not authenticate
-or prove live human recovery. They never use real AWS config or caches. No key
-read is needed merely to diagnose login.
+Offline tests exercise real bounded stdin streams, partial-stream errors,
+credential redaction, inherited-provider nonuse and fixed-origin HTTP behavior.
+The actual refresh CLI runs against synthetic data and a fake HTTP boundary to
+prove a complete cache touches neither stdin nor HTTP, and multiple misses read
+one key and fetch only missing records. These fixtures never read real AWS
+configuration/caches, retrieve a key, call USDA or rewrite canonical nutrition.
 
 ### Evidence
 
@@ -725,7 +704,10 @@ print packets use the same RecipeContent renderer. Print shows the recipe name a
 preparation rows, required pressure-liquid minima and selected side amounts.
 Images, controls, summaries, attribution and nutrition stay out of print. The
 same operation-equipment icons appear in desktop, mobile and print flow steps,
-including large and small mixing bowls. Measurement provenance remains in
+including large and small mixing bowls. Each operation owns explicit equipment
+identifiers, validated when the canonical registries load; compacted cells combine their
+operations’ equipment without inferring tools from instruction wording.
+Measurement provenance remains in
 Markdown/JSON downloads.
 
 Back to meals/smoothies uses the matching same-tab collection history entry

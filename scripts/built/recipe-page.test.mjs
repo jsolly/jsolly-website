@@ -59,6 +59,24 @@ for (const width of [390, 1280]) {
 				`${site.origin}/recipes/source-honey-mustard-chicken-sheet-pan-dinner-keto-low-carb/`,
 			);
 			await page.getByRole("button", { name: "Print recipe" }).waitFor();
+			await page.waitForFunction(
+				() => !document.querySelector("astro-island[ssr]"),
+			);
+			const operationTools = page.locator(
+				width < 761
+					? ".recipe-detail .mobile-flow .operation-tools"
+					: ".recipe-detail .trn-table .operation-tools",
+			);
+			assert.ok((await operationTools.count()) > 0);
+			assert.ok(
+				await operationTools.evaluateAll((groups) =>
+					groups.every(
+						(group) =>
+							group.querySelector("svg")?.getAttribute("role") === "img" &&
+							group.querySelector("svg")?.getAttribute("aria-label"),
+					),
+				),
+			);
 			assert.match(
 				await page.locator(".detail-facts").textContent(),
 				MISSING_TOTAL,

@@ -223,6 +223,16 @@ jobs:
           TEST_FILE_TIMINGS_DIR: ${{ runner.temp }}/test-file-timings
           NODE_COMPILE_CACHE: ${{ runner.temp }}/node-compile-cache
         run: node scripts/ci-gate.mjs shard "$SHARD"
+      - name: Audit built pages with axe-core
+        if: steps.preparation.outputs.run_full == 'true' && matrix.shard == 1
+        run: npm run check:a11y
+      - name: Save accessibility findings
+        if: always() && matrix.shard == 1
+        uses: actions/upload-artifact@v7
+        with:
+          name: accessibility-results
+          path: accessibility-results.json
+          if-no-files-found: ignore
       - name: Preserve shard evidence
         if: always()
         uses: actions/upload-artifact@v7
