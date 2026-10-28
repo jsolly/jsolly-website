@@ -175,7 +175,7 @@ the existing main/owner-only producer trust rule applies to every cache.
 ## Hook trust
 
 The dispatcher lives in this clone's Git common directory, shared only by its
-linked worktrees. It registers pre-commit only. The complete hook/library/setup
+linked worktrees. It registers pre-commit and pre-push. The complete hook/library/setup/scanner
 bundle must match current reviewed `origin/main`, or a deliberately approved exact
 bundle digest. Missing files, symlinks, unreviewed modes and a foreign origin fail
 closed. The dispatcher executes a verified snapshot, then runs quality scripts in

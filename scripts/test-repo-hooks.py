@@ -13,7 +13,8 @@ from unittest.mock import patch
 
 SOURCE = Path(__file__).resolve().parent.parent
 BUNDLE = ('config/agents/repository.json', 'gate/gate-lib.sh', 'gate/hooks/pre-commit',
-          'scripts/repo-hooks.py', 'scripts/repo-python.sh', 'scripts/setup-agent-environment.sh')
+          'scripts/repo-hooks.py', 'scripts/repo-python.sh', 'scripts/setup-agent-environment.sh',
+          'scripts/security-scan.py')
 
 
 class TestHookTrust:
@@ -50,6 +51,8 @@ gate_gitleaks_bin() { printf '%s\\n' "$ROOT/tools/fixture-gitleaks"; }
 gate_secrets_scan_staged
 ''')
         hook.chmod(0o755)
+        (self.root / 'scripts/security-scan.py').write_text(
+            'import sys\nprint(\"fixture-security-phase=\" + sys.argv[1])\n')
         tools = self.root / 'tools'
         tools.mkdir()
         scanner = tools / 'fixture-gitleaks'
@@ -102,6 +105,20 @@ fi
         assert not (marker.exists())
         assert before == self.git('config', '--get', 'core.hooksPath').stdout
 
+    def test_pre_push_uses_verified_snapshot_and_rejects_unreviewed_scanner(self):
+        push_hook = self.hooks / 'pre-push'
+        result = subprocess.run([str(push_hook)], cwd=self.root, env=self.env,
+                                input='', text=True, capture_output=True)
+        assert result.returncode == 0, result.stderr
+        assert 'fixture-security-phase=push' in result.stdout
+        scanner = self.root / 'scripts/security-scan.py'
+        marker = self.scratch / 'unreviewed-scanner-ran'
+        scanner.write_text('from pathlib import Path\nPath(' + repr(str(marker)) + ').touch()\n')
+        result = subprocess.run([str(push_hook)], cwd=self.root, env=self.env,
+                                input='', text=True, capture_output=True)
+        assert result.returncode != 0
+        assert not marker.exists()
+
     def test_exact_bundle_approval_can_be_revoked(self):
         hook = self.root / '.git-hooks/pre-commit'
         hook.write_text(hook.read_text() + '\necho reviewed-change\n')
@@ -143,7 +160,11 @@ fi
         candidate = (self.root / 'scripts/repo-hooks.py').read_bytes()
         marker = self.root / 'config/agents/repository.json'
         legacy = self.root / '.repo-independent.json'
+        current_manifest = marker.read_bytes()
         marker.rename(legacy)
+        old_manifest = json.loads(current_manifest)
+        del old_manifest['files']['scripts/security-scan.py']
+        legacy.write_text(json.dumps(old_manifest))
         (self.root / 'scripts/repo-hooks.py').write_bytes((SOURCE / 'scripts/fixtures/repo-hooks-legacy.py').read_bytes())
         self.git('add', '-A')
         self.git('-c', 'core.hooksPath=/dev/null', 'commit', '-qm', 'reviewed old format')
@@ -152,6 +173,7 @@ fi
         self.hooks = Path(self.git('config', '--get', 'core.hooksPath').stdout.strip())
         self.installed = self.hooks.parent / 'scripts/repo-hooks.py'
         legacy.rename(marker)
+        marker.write_bytes(current_manifest)
         (self.root / 'scripts/repo-hooks.py').write_bytes(candidate)
         return self.tool('digest', check=True).stdout.strip()
 

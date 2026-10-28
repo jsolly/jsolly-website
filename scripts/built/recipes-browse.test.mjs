@@ -1071,6 +1071,7 @@ function filterFocusCheck(width) {
 				await page.goto(`${site.origin}${route}`);
 				await hydrated(page);
 				const trigger = page.getByRole("button", {
+					// nosemgrep: javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp -- Browser-test label is a fixed string from local test cases.
 					name: new RegExp(`^${label}:`, "u"),
 				});
 				const panel = page.getByRole("dialog", { name: `${label} choices` });

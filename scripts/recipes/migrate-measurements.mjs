@@ -106,6 +106,7 @@ if (data.measurementMigration === marker) {
 			const rows = decision.rows.map((patch) => {
 				const row = { ...original };
 				for (const key of migrationFields) delete row[key];
+				// nosemgrep: javascript.lang.security.insecure-object-assign.insecure-object-assign -- Offline authoring migration reads reviewed repository decisions, not network or request data.
 				Object.assign(row, patch);
 				assertPositive(row, `${recipe.id}/${row.id}`);
 				return row;

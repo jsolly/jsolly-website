@@ -62,6 +62,7 @@ function updateSavedSettings(change, label, getStorage) {
 			saved = JSON.parse(raw || "null");
 		} catch (error) {
 			console.error(
+				// nosemgrep: javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring -- Internal callers choose label from fixed literals; external values are not used as format strings.
 				`Malformed recipe settings were discarded while saving ${label}.`,
 				error instanceof Error ? error.name : "Unknown error",
 			);
@@ -71,6 +72,7 @@ function updateSavedSettings(change, label, getStorage) {
 		return true;
 	} catch (error) {
 		console.error(
+			// nosemgrep: javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring -- Internal callers choose label from fixed literals; external values are not used as format strings.
 			`Recipe ${label} could not be saved; changes apply only to this visit.`,
 			error instanceof Error ? error.name : "Unknown error",
 		);

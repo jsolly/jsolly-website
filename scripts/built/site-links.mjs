@@ -74,6 +74,7 @@ function legacyUrlPattern(hosts) {
 		.toSorted((a, b) => b.length - a.length)
 		.map((text) => RegExp.escape(text))
 		.join("|");
+	// nosemgrep: javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp -- Every interpolated host or route is escaped with RegExp.escape before construction.
 	return new RegExp(
 		`(?:[a-z][a-z\\d+.-]*:)?//(?:[\\w-]+\\.)*(?:${names})(?![\\w.-])`,
 		"iu",
@@ -433,6 +434,7 @@ export function miscasedLinks(site, routes) {
 		.toSorted((a, b) => b.length - a.length)
 		.map((text) => RegExp.escape(text))
 		.join("|");
+	// nosemgrep: javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp -- Every interpolated host or route is escaped with RegExp.escape before construction.
 	const pattern = new RegExp(`(?:${alternatives})(?![\\w-])`, "giu");
 	return [...site.texts].flatMap(([file, text]) =>
 		[...text.matchAll(pattern)]

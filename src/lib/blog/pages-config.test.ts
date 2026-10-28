@@ -103,6 +103,7 @@ async function pagesConfig() {
 // A field's `pattern` as PagesCMS applies it, throwing when there is none.
 function fieldPattern(field: z.infer<typeof fieldSchema>) {
 	if (!field.pattern) throw new Error(`Missing CMS pattern on ${field.name}`);
+	// nosemgrep: javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp -- Test compiles the reviewed PagesCMS field pattern from repository configuration.
 	return new RegExp(field.pattern, "u");
 }
 

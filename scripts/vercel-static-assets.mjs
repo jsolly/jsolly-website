@@ -31,6 +31,7 @@ export function pinStylesheets(html, deploymentId) {
 					edits.push({
 						start: location.startOffset,
 						end: location.endOffset,
+						// nosemgrep: javascript.audit.detect-replaceall-sanitization.detect-replaceall-sanitization -- Build-time URLSearchParams already percent-encodes attribute-sensitive characters; ampersand separators alone need HTML encoding.
 						value: `href="${url.pathname}${url.search.replaceAll("&", "&amp;")}"`,
 					});
 				}

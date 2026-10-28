@@ -134,7 +134,9 @@ async function snapshot(label) {
 	);
 	const landing = join(directory, LANDING, "index.html");
 	await writeFile(
+		// nosemgrep: javascript.lang.security.audit.unknown-value-with-script-tag.unknown-value-with-script-tag -- Test-only HTML uses fixed A/B/C fixture labels and repository-owned asset paths.
 		landing,
+		// nosemgrep: javascript.lang.security.audit.unknown-value-with-script-tag.unknown-value-with-script-tag -- Test-only HTML uses fixed A/B/C fixture labels and repository-owned asset paths.
 		(await readFile(landing, "utf8"))
 			.replace(
 				"</head>",

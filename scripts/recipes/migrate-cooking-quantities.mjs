@@ -94,6 +94,7 @@ function patchIngredient(recipeId, ingredientId, patch) {
 		throw new Error(
 			`Missing cooking-quantity cleanup ingredient: ${recipeId}/${ingredientId}`,
 		);
+	// nosemgrep: javascript.lang.security.insecure-object-assign.insecure-object-assign -- Offline migration patch arguments are literal objects in this source file, not external input.
 	Object.assign(ingredient, patch);
 }
 patchIngredient("pesto-cod-and-zucchini", "basil_pesto", {
