@@ -1,5 +1,7 @@
 """Exercise exact outgoing Git trees and fail-closed scanner boundaries."""
 import importlib.util
+import copy
+from datetime import date
 import json
 import os
 from pathlib import Path
@@ -100,6 +102,83 @@ class SecurityScan(unittest.TestCase):
                 patch.object(SCAN.subprocess, "check_output", return_value=str(executable) + "\n") as query:
             self.assertEqual(SCAN.binary("uvx", "uv@0.12.22"), str(executable))
             query.assert_called_once_with(["mise", "which", "--tool", "uv@0.12.22", "uvx"], cwd="/", text=True)
+
+    def advisory_fixture(self, name="deepmerge", version="4.3.1", advisory="GHSA-gcqx-w48m-w2h4"):
+        lock = json.loads((SCRIPT.parent.parent / "package-lock.json").read_text())
+        path = self.root / "package-lock.json"
+        path.write_text(json.dumps(lock))
+        report = {"results": [{"source": {"path": str(path), "type": "lockfile"},
+                               "packages": [{"package": {"name": name, "version": version, "ecosystem": "npm"},
+                                             "vulnerabilities": [{"id": advisory}]}]}]}
+        return lock, path, report
+
+    def test_approved_findings_expire_after_november_27_inclusive(self):
+        for name, version, advisory in (("deepmerge", "4.3.1", "GHSA-gcqx-w48m-w2h4"),
+                                        ("zod", "3.22.4", "GHSA-mrhx-c7xc-m3w5")):
+            _, path, report = self.advisory_fixture(name, version, advisory)
+            self.assertEqual(SCAN.dependency_report(report, path, today=date(2026, 11, 27)), 1)
+            with self.assertRaises(ValueError):
+                SCAN.dependency_report(report, path, today=date(2026, 11, 28))
+
+    def test_sandbox_disposition_never_covers_the_old_project_or_other_advisories(self):
+        _, path, report = self.advisory_fixture("sandbox", "4.4.0", "GHSA-fm4j-4xhm-xpwx")
+        self.assertEqual(SCAN.dependency_report(report, path, today=date(2027, 1, 1)), 1)
+        for version, advisory in (("0.8.2", "GHSA-fm4j-4xhm-xpwx"), ("4.4.0", "GHSA-new-finding")):
+            _, path, report = self.advisory_fixture("sandbox", version, advisory)
+            with self.assertRaises(ValueError):
+                SCAN.dependency_report(report, path, today=date(2026, 10, 28))
+
+    def test_identity_path_and_consumer_drift_block_existing_dispositions(self):
+        original, path, report = self.advisory_fixture()
+        for mutation in ("integrity", "resolved", "path", "caller", "new-caller"):
+            with self.subTest(mutation=mutation):
+                lock = copy.deepcopy(original)
+                packages = lock["packages"]
+                if mutation in ("integrity", "resolved"):
+                    packages["node_modules/deepmerge"][mutation] = "changed"
+                elif mutation == "path":
+                    packages["node_modules/new/node_modules/deepmerge"] = packages["node_modules/deepmerge"].copy()
+                elif mutation == "caller":
+                    packages["node_modules/@sveltejs/vite-plugin-svelte"]["version"] = "99.0.0"
+                else:
+                    packages["node_modules/new"] = {"version": "1.0.0", "dependencies": {"deepmerge": "4.3.1"}}
+                path.write_text(json.dumps(lock))
+                with self.assertRaises(ValueError):
+                    SCAN.dependency_report(report, path, today=date(2026, 10, 28))
+
+    def test_osv_errors_and_branch_supplied_ignore_config_cannot_pass(self):
+        _, _, report = self.advisory_fixture()
+        (self.root / "osv-scanner.toml").write_text('[[IgnoredVulns]]\nid = "GHSA-new-finding"\n')
+        def scanner(command, **kwargs):
+            config = Path(command[command.index("--config") + 1])
+            self.assertEqual(config.read_text(), "")
+            self.assertNotEqual(config.parent, self.root)
+            self.assertIn("--all-vulns", command)
+            return subprocess.CompletedProcess(command, 1, json.dumps(report))
+        with patch.object(SCAN.subprocess, "run", side_effect=scanner), \
+                patch.object(SCAN, "dependency_report", return_value=1):
+            SCAN.dependencies("osv-scanner", self.root)
+        for code, output in ((1, '{"results":[]}'), (128, '{"results":[]}'),
+                             (0, 'not json'), (0, '{}')):
+            with self.subTest(code=code, output=output), \
+                    patch.object(SCAN.subprocess, "run", return_value=subprocess.CompletedProcess([], code, output)):
+                with self.assertRaises((ValueError, subprocess.CalledProcessError)):
+                    SCAN.dependencies("osv-scanner", self.root)
+
+    def test_npm_aliases_cannot_inherit_a_deduplicated_osv_disposition(self):
+        original, path, report = self.advisory_fixture("zod", "3.22.4", "GHSA-mrhx-c7xc-m3w5")
+        for include_name, include_declaration in ((True, True), (False, True), (True, False), (False, False)):
+            with self.subTest(include_name=include_name, include_declaration=include_declaration):
+                lock = copy.deepcopy(original)
+                metadata = lock["packages"]["node_modules/@vercel/backends/node_modules/zod"].copy()
+                if include_name:
+                    metadata["name"] = "zod"
+                lock["packages"]["node_modules/review-zod-alias"] = metadata
+                if include_declaration:
+                    lock["packages"][""]["dependencies"]["review-zod-alias"] = "npm:zod@3.22.4"
+                path.write_text(json.dumps(lock))
+                with self.assertRaises(ValueError):
+                    SCAN.dependency_report(report, path, today=date(2026, 10, 28))
 
 
 if __name__ == "__main__":

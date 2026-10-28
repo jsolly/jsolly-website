@@ -82,7 +82,33 @@ prove a security app is installed or a check is required by GitHub rulesets.
 
 The initial OSV run found vulnerable lockfile dependencies. Compatible patched
 versions are updated where available. Findings without compatible published
-fixes remain blocking and must be resolved or receive a specific reviewed
-disposition before this task can be completed. No vulnerability ignore file,
-advisory baseline or blanket suppression is introduced. See the task's current
-scan receipt for the remaining package/advisory pairs.
+fixes require a specific reviewed disposition. John approved the following on
+28 October 2026 after independent review:
+
+| Package | Advisory | Disposition |
+| --- | --- | --- |
+| deepmerge 4.3.1 | GHSA-gcqx-w48m-w2h4 | Accept prototype-poisoning risk through 27 November 2026. Used by the Svelte Vite plugin to merge build configuration. |
+| zod 3.22.4 | GHSA-mrhx-c7xc-m3w5 | Accept resource-exhaustion risk through 27 November 2026. Four nested Vercel CLI consumers still require the Zod 3 API. |
+| sandbox 4.4.0 | GHSA-fm4j-4xhm-xpwx; GHSA-gc25-3vc5-2jf9 | Not applicable: the advisories describe gf3/sandbox before 1.0.0; the locked package is Vercel's Sandbox CLI. |
+
+These are not fixes. Build/development usage reduces public-visitor exposure
+but does not establish that every repository or tool input is safe. Latest
+deepmerge and Vercel releases had no compatible fix at review time; downgrading
+deepmerge or forcing Zod 4 into declared Zod 3 consumers is not a verified repair.
+The site's direct Zod dependency is patched at 4.6.7.
+
+The trusted scanner owns these dispositions. OSV runs with an empty external
+config and all findings enabled; branch-supplied ignore files cannot hide them.
+Every advisory stays visible in output. Exceptions require the exact package
+version, registry URL, integrity, complete set of lockfile locations and a
+fingerprint of callers resolving that package. Changes block until reviewed.
+The two risk acceptances expire after 27 November in America/New_York; a
+remaining finding blocks from 28 November. Patched dependencies need no exception.
+John owns the acceptance; replace it with upstream patches when available.
+
+Evidence: [deepmerge report](https://github.com/TehShrike/deepmerge/issues/273),
+[Zod advisory](https://osv.dev/GHSA-mrhx-c7xc-m3w5),
+[Vercel sandbox metadata](https://registry.npmjs.org/sandbox/4.4.0) and
+[old gf3 sandbox metadata](https://registry.npmjs.org/sandbox/0.8.2).
+Controlled local tests reproduced deepmerge's returned-object prototype change
+and Zod 3's per-invalid-entry issue accumulation, without exhausting memory.

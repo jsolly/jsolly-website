@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Pinned scanners shared by trusted Git hooks, Cursor and pull-request CI."""
 import argparse
+from datetime import datetime, date
+import hashlib
 import io
 import json
 import os
@@ -10,10 +12,147 @@ import shutil
 import subprocess
 import sys
 import tempfile
+from zoneinfo import ZoneInfo
 
 
 VERSIONS = {"semgrep": "1.182.1", "zizmor": "1.31.1", "cfn-lint": "1.58.0"}
 OSV_VERSION = "2.7.0"
+
+# John approved these exact dispositions in this chat on 2026-10-28.
+# Changing this policy changes the verified hook bundle and requires review.
+DEPENDENCY_DISPOSITIONS = {
+    ('deepmerge', '4.3.1'): {
+        "paths": [
+            "node_modules/deepmerge",
+        ],
+        "integrity": "sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==",
+        "resolved": "https://registry.npmjs.org/deepmerge/-/deepmerge-4.3.1.tgz",
+        "consumers": "f92403060bcbc4ada674a24784624493d4e96d4cbfd14ae917dc69338265e287",
+        "advisories": {
+            "GHSA-gcqx-w48m-w2h4": '2026-11-27',
+        },
+    },
+    ('sandbox', '4.4.0'): {
+        "paths": [
+            "node_modules/sandbox",
+        ],
+        "integrity": "sha512-8DlAEKlHbOQmz5R05dAYE+P1wNQ44nEvAnf1jnWtF0LZWHiu/F48USSMKyY8Ib8iE1MCfo3Yvhmky8bUppLaWA==",
+        "resolved": "https://registry.npmjs.org/sandbox/-/sandbox-4.4.0.tgz",
+        "consumers": "3414fa7a560353ef94e74912eeba5a1307a82d0d9e9039a948409e12afc667f0",
+        "advisories": {
+            "GHSA-fm4j-4xhm-xpwx": None,
+            "GHSA-gc25-3vc5-2jf9": None,
+        },
+    },
+    ('zod', '3.22.4'): {
+        "paths": [
+            "node_modules/@vercel/backends/node_modules/zod",
+            "node_modules/@vercel/express/node_modules/zod",
+            "node_modules/@vercel/hono/node_modules/zod",
+            "node_modules/@vercel/python-analysis/node_modules/zod",
+        ],
+        "integrity": "sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==",
+        "resolved": "https://registry.npmjs.org/zod/-/zod-3.22.4.tgz",
+        "consumers": "76d1aaae6c4eb022599aaec276a37ea16cc9ad20d525ea6a953b93a1b4143ca2",
+        "advisories": {
+            "GHSA-mrhx-c7xc-m3w5": '2026-11-27',
+        },
+    },
+}
+
+
+def dependency_consumers(packages, name, version):
+    """Fingerprint callers that resolve this exact package, including peers."""
+    consumers = []
+    for path, metadata in packages.items():
+        for kind in ("dependencies", "optionalDependencies", "peerDependencies"):
+            requested = metadata.get(kind, {}).get(name)
+            if requested is None:
+                continue
+            current = Path(path)
+            while True:
+                resolved = packages.get(str(current / "node_modules" / name))
+                if resolved is not None:
+                    if resolved.get("version") == version:
+                        consumers.append([path, metadata.get("version"), metadata.get("integrity"), kind, requested])
+                    break
+                if current == Path("."):
+                    break
+                current = current.parent
+    return hashlib.sha256(json.dumps(sorted(consumers), separators=(",", ":")).encode()).hexdigest()
+
+
+def disposition(packages, name, version, advisory, today):
+    policy = DEPENDENCY_DISPOSITIONS.get((name, version))
+    if policy is None or advisory not in policy["advisories"]:
+        return False
+    expires = policy["advisories"][advisory]
+    if expires and today > date.fromisoformat(expires):
+        return False
+    # OSV deduplicates npm aliases into the same package/version finding.
+    # A new alias must not inherit an existing location/caller approval.
+    for metadata in packages.values():
+        for kind in ("dependencies", "optionalDependencies", "peerDependencies"):
+            for requested in metadata.get(kind, {}).values():
+                if isinstance(requested, str) and (requested == f"npm:{name}" or requested.startswith(f"npm:{name}@")):
+                    return False
+    paths = {path for path, metadata in packages.items()
+             if (path.endswith("/node_modules/" + name) or path == "node_modules/" + name
+                 or metadata.get("name") == name or metadata.get("resolved") == policy["resolved"])
+             if metadata.get("version") == version}
+    if paths != set(policy["paths"]):
+        return False
+    for path in paths:
+        metadata = packages[path]
+        if metadata.get("integrity") != policy["integrity"] or metadata.get("resolved") != policy["resolved"]:
+            return False
+    return dependency_consumers(packages, name, version) == policy["consumers"]
+
+
+def dependency_report(report, lock, *, today=None):
+    """Keep raw OSV findings visible; allow only reviewed exact identities."""
+    today = today or datetime.now(ZoneInfo("America/New_York")).date()
+    packages = json.loads(lock.read_text())["packages"]
+    findings = blocked = 0
+    for result in report["results"]:
+        if result["source"]["type"] != "lockfile" or Path(result["source"]["path"]).resolve() != lock.resolve():
+            raise ValueError("Unexpected OSV source")
+        for entry in result["packages"]:
+            package = entry["package"]
+            if entry.get("groups") and not entry.get("vulnerabilities"):
+                raise ValueError("OSV findings missing advisory details")
+            for vulnerability in entry["vulnerabilities"]:
+                advisory = vulnerability["id"]
+                if not isinstance(advisory, str) or not advisory:
+                    raise ValueError("Invalid OSV advisory")
+                allowed = package["ecosystem"] == "npm" and disposition(
+                    packages, package["name"], package["version"], advisory, today)
+                label = "reviewed disposition" if allowed else "BLOCKED"
+                print(f"security: {label}: {package['name']}@{package['version']} {advisory}", file=sys.stderr)
+                findings += 1
+                blocked += not allowed
+    if blocked:
+        raise ValueError(f"OSV reported {blocked} unaccepted findings")
+    return findings
+
+
+def dependencies(scanner, root):
+    # Disable repository-supplied ignore files, even in an outgoing branch.
+    with tempfile.TemporaryDirectory(prefix="website-osv-policy-") as directory:
+        config = Path(directory) / "empty.toml"
+        config.write_text("")
+        command = [scanner, "scan", "source", "--lockfile", "package-lock.json",
+                   "--config", str(config), "--all-vulns", "--format", "json"]
+        print("security: " + " ".join(command), file=sys.stderr)
+        result = subprocess.run(command, cwd=root, stdout=subprocess.PIPE, text=True)
+        if result.returncode not in (0, 1):
+            raise subprocess.CalledProcessError(result.returncode, command)
+        report = json.loads(result.stdout)
+        if not isinstance(report, dict) or not isinstance(report.get("results"), list):
+            raise ValueError("Malformed OSV report")
+        findings = dependency_report(report, root / "package-lock.json")
+        if result.returncode == 1 and not findings:
+            raise ValueError("OSV failed without advisory findings")
 
 
 def binary(name, specification):
@@ -54,7 +193,7 @@ def source(root):
     version = subprocess.check_output([scanner, "--version"], text=True)
     if not re.search(rf"\b{re.escape(OSV_VERSION)}\b", version):
         raise ValueError(f"Install osv-scanner {OSV_VERSION} with repository setup")
-    run([scanner, "scan", "source", "--lockfile", "package-lock.json"], root)
+    dependencies(scanner, root)
 
 
 def secrets(root, *args):
@@ -176,7 +315,7 @@ def main():
                 working_tree(root, tree)
                 structural(tree)
                 source(tree)
-    except (OSError, ValueError, subprocess.CalledProcessError) as error:
+    except (OSError, ValueError, KeyError, TypeError, subprocess.CalledProcessError) as error:
         print(f"security scan failed: {error}", file=sys.stderr)
         if args.phase == "cursor":
             print(json.dumps({"permission": "deny", "user_message": "Secrets scan failed. Inspect the scanner output before retrying."}))
