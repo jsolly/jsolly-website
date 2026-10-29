@@ -41,72 +41,52 @@ distribution. This procedure changes neither those resources nor Heroku.
 
 ## Review and apply
 
-John runs AWS commands in his own MFA-authenticated administrator terminal.
-Agents prepare source and inspect native MCP reads; they do not apply stacks
-or broaden IAM grants. The current AgentMcp connection cannot write S3 lifecycle
-configuration. No console lifecycle edit is needed.
+John performs administrator infrastructure deployments in **AWS CloudShell**,
+using its existing authenticated administrator session. Give him one command
+at a time and wait for its result. Prepare the exact commands for the reviewed
+revision before handoff; do not depend on a laptop checkout, named profile or
+shell variables from a previous session.
 
-After the source change is reviewed, passes the full repository gate and CI,
-and merges, use a clean, current main checkout of `jsolly/jsolly-website`:
+Complete source validation in the agent environment or CI before handoff.
+John does not repeat those checks. A passing source check does not replace
+reviewing the actual change set in the target AWS account.
 
-```bash
-cd /Users/johnsolly/code/jsolly-website
-git switch main
-git pull --ff-only
-git status --short
-python3 scripts/check-migration-backups.py
-export AWS_PROFILE=prod-admin
-aws sts get-caller-identity
-aws cloudformation describe-stacks --region us-east-1 --stack-name blogthedata-migration-backups
-aws cloudformation get-stack-policy --region us-east-1 --stack-name blogthedata-migration-backups
-aws cloudformation list-stack-resources --region us-east-1 --stack-name blogthedata-migration-backups
-aws cloudformation validate-template --region us-east-1 --template-body file://config/aws/migration-backups/template.json
-```
+The archive lifecycle update was already applied from reviewed website revision
+`23c12bb2622e582a47d76357bdfbd0430cd6a3ff`. Read its live status before proposing
+another deployment. An object still reporting `STANDARD` does not mean the
+CloudFormation update failed; S3 processes lifecycle transitions asynchronously.
 
-Stop unless the checkout is clean, the account is `730335616323`, the stack is
-settled with termination protection enabled, the live policy matches the
-committed policy, and the stack owns only `BackupBucket` and `BackupBucketPolicy`
-for this exact backup bucket. An unreadable or missing stack is a blocker,
-never permission to create it. Preserve any additional live tags discovered
-during review. The following tags are the complete set observed October 28.
+For a future reviewed update, follow this sequence:
 
-Create an update-only change set; its unique name identifies this review:
+1. Download `config/aws/migration-backups/template.json` directly from the exact
+   reviewed merge SHA on GitHub into CloudShell. Supply a literal revision URL
+   and a CloudShell path such as `$HOME/migration-backups-template.json`.
+2. Inspect the CloudShell caller identity and the live stack, stack policy and
+   resources. Stop unless the account is `730335616323`, region is `us-east-1`,
+   the existing stack is settled with termination protection enabled, and it
+   owns only `BackupBucket` and `BackupBucketPolicy` for this backup bucket.
+   An unreadable or missing stack is a blocker, not permission to create one.
+3. Create an **UPDATE-only** CloudFormation change set using the downloaded
+   template. Preserve the live tags and stamp `InfraDeployCommit` with the exact
+   reviewed source SHA. Supply a unique literal change-set name in each command;
+   an unset variable must not select or identify the change set.
+4. Wait for change-set creation, then inspect the actual change set before
+   execution. For the archive change, permit only in-place bucket lifecycle and
+   reviewed commit-tag changes, with `Replacement: False`. A bucket-policy
+   resource modification is acceptable only when its policy properties are
+   unchanged and the difference is inherited tags. Reject additions, removals,
+   replacements, IAM changes and any weakened protection or expiration action.
+5. After review, execute that exact change-set ARN or name and wait for
+   `stack-update-complete`. A successful execute or wait command can return no
+   output; verify the resulting stack status instead of treating silence as an
+   error or creating another change set.
+6. Read back the deployed commit stamp, termination protection, stack policy,
+   lifecycle configuration and object versions. Keep the change-set ARN, source
+   SHA and readback with the task receipt. Confirm no expiration or deletion
+   action was introduced.
 
-```bash
-backup_commit="$(git rev-parse HEAD)"
-backup_change="archive-backup-$(date -u +%Y%m%dT%H%M%SZ)"
-aws cloudformation create-change-set \
-  --region us-east-1 --stack-name blogthedata-migration-backups \
-  --change-set-type UPDATE --change-set-name "$backup_change" \
-  --template-body file://config/aws/migration-backups/template.json \
-  --tags Key=Project,Value=blogthedata Key=Purpose,Value=migration-recovery \
-    "Key=InfraDeployCommit,Value=$backup_commit"
-aws cloudformation wait change-set-create-complete \
-  --region us-east-1 --stack-name blogthedata-migration-backups --change-set-name "$backup_change"
-aws cloudformation describe-change-set \
-  --region us-east-1 --stack-name blogthedata-migration-backups --change-set-name "$backup_change"
-```
-
-Review the actual change set. Only an in-place `Modify` of `BackupBucket` with
-`Replacement: False`, adding `LifecycleConfiguration`, is expected. Reject any
-add, remove, replacement, IAM change, unexpected property change or protection
-change. The `InfraDeployCommit` stamp now refers to this repository's commit,
-not the archived source. Check that tag separately after apply.
-
-Only after reviewing that exact change set, John executes it:
-
-```bash
-aws cloudformation execute-change-set \
-  --region us-east-1 --stack-name blogthedata-migration-backups --change-set-name "$backup_change"
-aws cloudformation wait stack-update-complete --region us-east-1 --stack-name blogthedata-migration-backups
-aws cloudformation describe-stacks --region us-east-1 --stack-name blogthedata-migration-backups
-aws s3api get-bucket-lifecycle-configuration --region us-east-1 --bucket blogthedata-backups-730335616323
-aws s3api list-object-versions --region us-east-1 --bucket blogthedata-backups-730335616323
-```
-
-Verify the stamp equals `backup_commit`, protection remains enabled, and the
-live rule matches the template with no expiration. A configured lifecycle is
-not proof the object has transitioned. S3 processes transitions asynchronously;
-reread versions later and verify the same version reports `DEEP_ARCHIVE`.
-Retain the change-set ARN, release commit and readback with the task receipt.
-The task stays open until its agreed live verification is recorded.
+A configured lifecycle is not proof the object has transitioned. Reread object
+versions later and verify the same recovery version reports `DEEP_ARCHIVE`.
+Keep the physical-transition follow-up open until that agreed live result is
+recorded. This procedure never changes the separate live media bucket or
+CloudFront distribution.
