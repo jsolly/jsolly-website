@@ -45,6 +45,13 @@ checks and trusted-main-only upload procedure remain in
 [development](development.md). PR code is uploaded as inert source, never run
 with the Vercel credential. Only the deploy job has PR-comment write permission.
 
+The Preview resolver publishes a validated 40-character hexadecimal
+`commit_sha`, which both checkout and deployment consume. Deployment also
+compares the local checkout and live PR head with that SHA. Branch references
+are rejected. The explicit output name avoids CodeQL's overlapping mutable-ref
+and SHA heuristics for fields named `head_sha`; no CodeQL query is suppressed.
+See the [checkout query implementation](https://github.com/github/codeql/blob/main/actions/ql/lib/codeql/actions/security/UntrustedCheckoutQuery.qll).
+
 This repository has CloudFormation but no CDK. cfn-lint applies; cdk-nag and
 Checkov on `cdk.out` do not. Dependabot covers npm and full-SHA Actions with a
 seven-day proposal cooldown. The repository-pinned npm also enforces

@@ -37,7 +37,8 @@ require '--build-env "VERCEL_GIT_COMMIT_SHA=${HEAD_SHA}"' 'pass the PR SHA as a 
 require '--meta "githubDeployment=1"' 'mark the CLI deploy as a GitHub deployment' "$DEPLOY"
 require '--meta "githubCommitSha=${HEAD_SHA}"' 'attach the PR SHA as GitHub commit metadata' "$DEPLOY"
 require 'jq -r '"'"'.head.sha'"'"'' 'resolve the Preview SHA from the PR head, not github.sha' "$RESOLVER"
-require 'ref: ${{ steps.pr.outputs.head_sha }}' 'check out the resolved PR head SHA'
+require 'ref: ${{ steps.pr.outputs.commit_sha }}' 'check out the resolved PR head SHA'
+require 'echo "commit_sha=${head_sha}"' 'publish the validated immutable commit output' "$RESOLVER"
 require 'printf '"'"'%s'"'"' "$COMMENT_BODY" | bash scripts/vercel-preview-comment.sh' 'pipe comments through the exact /preview matcher'
 require 'github.event.comment.author_association == '"'"'OWNER'"'"'' 'restrict comment deploys to owner/member/collaborator'
 require 'head_repo" != "$REPO"' 'refuse fork PR heads' "$RESOLVER"

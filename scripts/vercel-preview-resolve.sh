@@ -44,7 +44,7 @@ fi
 
 {
   echo "pr_number=${pr_number}"
-  echo "head_sha=${head_sha}"
+  echo "commit_sha=${head_sha}"
   echo "head_ref=${head_ref}"
   echo "labeled=${labeled}"
   echo "skip=false"

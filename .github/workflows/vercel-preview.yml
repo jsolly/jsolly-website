@@ -130,7 +130,8 @@ jobs:
       - name: Check out PR sources
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          ref: ${{ steps.pr.outputs.head_sha }}
+          # The resolver exports only a validated immutable commit, never a branch ref.
+          ref: ${{ steps.pr.outputs.commit_sha }}
           path: source
           persist-credentials: false
 
@@ -140,7 +141,7 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           GH_TOKEN: ${{ github.token }}
-          HEAD_SHA: ${{ steps.pr.outputs.head_sha }}
+          HEAD_SHA: ${{ steps.pr.outputs.commit_sha }}
           HEAD_REF: ${{ steps.pr.outputs.head_ref }}
           LABELED: ${{ steps.pr.outputs.labeled }}
           SOURCE_DIR: ${{ github.workspace }}/source
