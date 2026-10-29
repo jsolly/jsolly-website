@@ -140,6 +140,7 @@ const rowsByAction = (action) =>
 const patternRegex = new Map(
 	map.rows
 		.filter((row) => row.match === "pattern")
+		// nosemgrep: javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp -- Unit fixture compiles reviewed static redirect patterns, not user input.
 		.map((row) => [row.id, new RegExp(sourceToRegex(row.source).src, "u")]),
 );
 

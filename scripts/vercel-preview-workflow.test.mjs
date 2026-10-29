@@ -243,7 +243,7 @@ it("an explicit comment resolves the current same-repo head", (t) => {
 	assert.equal(result.status, 0, result.stderr);
 	assert.match(
 		readFileSync(join(f.root, "output"), "utf8"),
-		new RegExp(`head_sha=${head}`, "u"),
+		new RegExp(`commit_sha=${head}`, "u"),
 	);
 	assert.equal(f.calls("gh").length, 1);
 });
@@ -255,6 +255,25 @@ it("ordinary comments do not resolve or deploy a PR", (t) => {
 	assert.equal(f.execute("Validate the Preview request").status, 0);
 	assert.match(readFileSync(join(f.root, "output"), "utf8"), SKIP);
 	assert.deepEqual(f.calls(), []);
+});
+
+it("the immutable commit output refuses branch refs and malformed commit IDs", (t) => {
+	for (const sha of [
+		"feature/preview",
+		"refs/heads/main",
+		"refs/pull/129/head",
+		"a".repeat(39),
+		"A".repeat(40),
+		`${head}\nother`,
+	]) {
+		const f = fixture(t, { prs: [pr({ head: { ...pr().head, sha } })] });
+		const result = f.execute("Resolve the pull request head");
+		assert.notEqual(result.status, 0, sha);
+		assert.equal(
+			readFileSync(join(f.root, "output"), "utf8").includes("commit_sha="),
+			false,
+		);
+	}
 });
 
 describe("resolver refuses closed PRs, forks, invalid heads and invalid request IDs", () => {
@@ -453,6 +472,15 @@ it("the workflow contract rejects changes that re-expose tokens or PR tooling", 
 		],
 		["shared checkout", workflow.replace("          path: source\n", "")],
 		[
+			"mutable PR checkout",
+			workflow.replace(
+				// biome-ignore lint/suspicious/noTemplateCurlyInString: literal GitHub Actions expression
+				"ref: ${{ steps.pr.outputs.commit_sha }}",
+				// biome-ignore lint/suspicious/noTemplateCurlyInString: literal GitHub Actions expression
+				"ref: ${{ steps.pr.outputs.head_ref }}",
+			),
+		],
+		[
 			"cached packages",
 			workflow.replace(
 				"package-manager-cache: false",
@@ -521,6 +549,6 @@ it("head resolution inside the deploy slot picks the latest eligible head", (t) 
 	assert.equal(f.execute("Resolve the pull request head").status, 0);
 	assert.match(
 		readFileSync(join(f.root, "output"), "utf8"),
-		new RegExp(`head_sha=${latest}`, "u"),
+		new RegExp(`commit_sha=${latest}`, "u"),
 	);
 });

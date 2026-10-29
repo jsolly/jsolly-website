@@ -261,7 +261,9 @@ merge. See the repository CI workflow and [release instructions](docs/developmen
 
 This repo owns `gate/gate-lib.sh` and `scripts/repo-hooks.py`. Run reviewed
 `scripts/setup-agent-environment.sh` on main to install its outside-worktree
-pre-commit dispatcher. Never set hooksPath to `.git-hooks`: a branch could then
+pre-commit and pre-push dispatchers. The verified scanner, Cursor hook and CI
+coverage are documented in [security scanning](docs/security-scanning.md).
+Never set hooksPath to `.git-hooks`: a branch could then
 register executable hooks. See [development and release](docs/development.md).
 
 ## Configuration

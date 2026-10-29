@@ -207,6 +207,7 @@ export function compileRoutes(config) {
 	}
 	return routes.map((route) => ({
 		...route,
+		// nosemgrep: javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp -- Static build tooling compiles reviewed route configuration, never request input.
 		regex: route.src ? new RegExp(route.src, "u") : null,
 	}));
 }

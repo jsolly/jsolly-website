@@ -231,6 +231,7 @@ it("PWA generation rejects a mismatched generated deployment pin", async () => {
 	try {
 		mkdirSync(join(root, "recipes/pwa"), { recursive: true });
 		writeFileSync(
+			// nosemgrep: javascript.lang.security.audit.unknown-value-with-script-tag.unknown-value-with-script-tag -- Assertion inspects generated fixture HTML; it does not inject or execute the matched string.
 			join(root, "recipes/index.html"),
 			// biome-ignore lint/security/noSecrets: fixture HTML contains no credentials.
 			'<link rel="manifest" href="/recipes/pwa/manifest.webmanifest"><script src="/_astro/entry.js?dpl=other"></script>',

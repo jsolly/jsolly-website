@@ -5,9 +5,9 @@
 name: Vercel Preview
 
 'on':
-  issue_comment:
+  issue_comment: # zizmor: ignore[dangerous-triggers] -- Authorized member request only; trusted main tooling uploads PR source as inert data. See docs/development.md.
     types: [created]
-  pull_request_target:
+  pull_request_target: # zizmor: ignore[dangerous-triggers] -- Same-repo opt-in, trusted main tooling and inert source upload; never executes PR code with credentials.
     branches: [main]
     types: [labeled, synchronize]
   workflow_dispatch:
@@ -19,7 +19,7 @@ name: Vercel Preview
 
 permissions:
   contents: read
-  pull-requests: write
+  pull-requests: read
 
 jobs:
   # Decides whether this event is a real deploy request and resolves the PR
@@ -60,7 +60,7 @@ jobs:
       skip: ${{ steps.pr.outputs.skip }}
       pr_number: ${{ steps.pr.outputs.pr_number }}
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           ref: ${{ github.event.repository.default_branch }}
           persist-credentials: false
@@ -81,6 +81,9 @@ jobs:
           } >>"$GITHUB_OUTPUT"
 
   preview:
+    permissions:
+      contents: read
+      pull-requests: write
     name: preview
     needs: resolve
     if: ${{ needs.resolve.outputs.skip == 'false' }}
@@ -104,7 +107,7 @@ jobs:
       # Keep PR-controlled package-manager files out of setup-node's cwd. A
       # yarnPath can execute during yarn --version even with caching disabled.
       - name: Check out workflow tooling
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           ref: ${{ github.event.repository.default_branch }}
           path: tooling
@@ -119,15 +122,16 @@ jobs:
       # No package-manager cache: the label path's cache scope is one PR code
       # writes in CI, and a restored ~/.npm could plant the npx vercel package
       # or an untracked vercel.* config in this token-holding job.
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version-file: tooling/.nvmrc
           package-manager-cache: false
 
       - name: Check out PR sources
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          ref: ${{ steps.pr.outputs.head_sha }}
+          # The resolver exports only a validated immutable commit, never a branch ref.
+          ref: ${{ steps.pr.outputs.commit_sha }}
           path: source
           persist-credentials: false
 
@@ -137,7 +141,7 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           GH_TOKEN: ${{ github.token }}
-          HEAD_SHA: ${{ steps.pr.outputs.head_sha }}
+          HEAD_SHA: ${{ steps.pr.outputs.commit_sha }}
           HEAD_REF: ${{ steps.pr.outputs.head_ref }}
           LABELED: ${{ steps.pr.outputs.labeled }}
           SOURCE_DIR: ${{ github.workspace }}/source

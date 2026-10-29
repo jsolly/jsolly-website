@@ -32,6 +32,7 @@ it("stylesheet pinning preserves executable bytes, hydration markers and unrelat
 	const html = `<!doctype html><html><head>${script}<link rel="stylesheet" href="/_astro/main.css"></head><body><!--[--><noscript><link rel="STYLESHEET" href='/_astro/fallback.css'></noscript><!--]--><link rel="stylesheet" href="https://other.invalid/remote.css"><a href="/_astro/main.css">Download</a></body></html>`;
 	assert.equal(pinStylesheets(html), html);
 	const pinned = pinStylesheets(html, "dpl_fixture_A");
+	// nosemgrep: javascript.lang.security.audit.unknown-value-with-script-tag.unknown-value-with-script-tag -- Assertion checks preservation of a fixed script fixture in generated HTML.
 	assert.ok(pinned.includes(script));
 	assert.ok(pinned.includes('href="/_astro/main.css?dpl=dpl_fixture_A"'));
 	assert.ok(pinned.includes('href="/_astro/fallback.css?dpl=dpl_fixture_A"'));

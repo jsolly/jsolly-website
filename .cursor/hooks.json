@@ -1,0 +1,12 @@
+{
+	"version": 1,
+	"hooks": {
+		"beforeShellExecution": [
+			{
+				"command": "bash scripts/repo-python.sh scripts/repo-hooks.py dispatch --hook cursor",
+				"timeout": 60,
+				"failClosed": true
+			}
+		]
+	}
+}

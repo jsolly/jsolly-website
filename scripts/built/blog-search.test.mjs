@@ -125,6 +125,7 @@ it("a reader arriving with ?searched=django sees that query and published django
 		await searchbox.fill("htmx");
 		await page.waitForFunction(
 			(pattern) =>
+				// nosemgrep: javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp -- Browser-test regex comes from a fixed test constant passed by the fixture.
 				new RegExp(pattern, "iu").test(
 					document.querySelector(".post-card-link")?.textContent ?? "",
 				),
