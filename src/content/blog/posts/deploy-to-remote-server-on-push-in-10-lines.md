@@ -4,7 +4,7 @@ title: "Simplifying Automatic Deployments: Using Git Pull With CI Workflow"
 category: dev-tools
 description: "Simplifying Automatic Deployments: How I used an SSH job in my CI workflow to deploy updates to blogthedata.com"
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/deploy_linode_gitactions.webp
+image: /blog/media/migrated/image-03ce078971894cf74333bfae-297.webp
 legacyImage: post_metaimgs/deploy_linode_gitactions.webp
 imageAlt: Screenshot of Linode deployment code included in post
 imageAttribution: ""

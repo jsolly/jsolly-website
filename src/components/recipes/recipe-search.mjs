@@ -22,20 +22,21 @@ function text(value) {
 		.join(" ");
 }
 
-export function createRecipeSearch(recipes, servings = BASE_SERVINGS) {
-	const byId = new Map(recipes.map((recipe) => [recipe.id, recipe]));
-	const index = new MiniSearch({
-		fields: ["title", "ingredients", "details"],
-		processTerm: (term) =>
-			term.toLowerCase().normalize("NFD").replace(/\p{M}/gu, ""),
-		searchOptions: {
-			boost: { title: 8, ingredients: 4 },
-			combineWith: "AND",
-			prefix: (term) => term.length >= 2,
-			fuzzy: (term) => (term.length >= 5 ? 0.25 : false),
-			maxFuzzy: 2,
-		},
-	});
+const searchOptions = {
+	fields: ["title", "ingredients", "details"],
+	processTerm: (term) =>
+		term.toLowerCase().normalize("NFD").replace(/\p{M}/gu, ""),
+	searchOptions: {
+		boost: { title: 8, ingredients: 4 },
+		combineWith: "AND",
+		prefix: (term) => term.length >= 2,
+		fuzzy: (term) => (term.length >= 5 ? 0.25 : false),
+		maxFuzzy: 2,
+	},
+};
+
+export function buildRecipeSearchIndex(recipes, servings = BASE_SERVINGS) {
+	const index = new MiniSearch(searchOptions);
 	index.addAll(
 		recipes.map((recipe) => ({
 			id: recipe.id,
@@ -70,6 +71,24 @@ export function createRecipeSearch(recipes, servings = BASE_SERVINGS) {
 			]),
 		})),
 	);
+	return index;
+}
+
+const restoredIndexes = new WeakMap();
+export function createRecipeSearch(
+	recipes,
+	servings = BASE_SERVINGS,
+	serializedIndex = null,
+) {
+	const byId = new Map(recipes.map((recipe) => [recipe.id, recipe]));
+	let index;
+	if (serializedIndex) {
+		index = restoredIndexes.get(serializedIndex);
+		if (!index) {
+			index = MiniSearch.loadJS(serializedIndex, searchOptions);
+			restoredIndexes.set(serializedIndex, index);
+		}
+	} else index = buildRecipeSearchIndex(recipes, servings);
 	return (query) =>
 		!query.trim() ? recipes : index.search(query).map(({ id }) => byId.get(id));
 }

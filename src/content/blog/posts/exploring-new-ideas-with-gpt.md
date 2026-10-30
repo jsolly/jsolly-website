@@ -4,7 +4,7 @@ title: Exploring New Ideas With GPT and Bracket Directives
 category: productivity
 description: Use GPT to explore new ideas and gain insights. Learn more with bracket directives and metaphors. Unlock GPT's full potential for lifelong learning.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/ChatGPT_rqqK0Zr.webp
+image: /blog/media/migrated/image-2d13cb30d4d86a199a97dbc3-646.webp
 legacyImage: post_metaimgs/ChatGPT_rqqK0Zr.webp
 imageAlt: John Solly Headshot
 imageAttribution: https://img.fresherslive.com/latestnews/images/articles/origin/2022/12/13/how-to-bypass-chat-gpt-filter-63981171eb5d8-1670910321.jpg
@@ -31,7 +31,7 @@ If you ever want to explore a new topic, I have just the prompt for you! In the 
 
 <blockquote><p><strong>Prompt:</strong> [write: all categories and subcategories, functionality, relevant factors, unique differentiators] “Spatial Analysis"</p></blockquote>
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_WRe18ft.png" alt="GPT output displaying the results of the prompt"></figure>
+<figure class="image"><img src="/blog/media/migrated/image-5bf2af079bb4dbfb9dff4f7e-488.webp" alt="GPT output displaying the results of the prompt"></figure>
 
 Armed with this information, you can start exploring different spatial analysis aspects. What I love most about this prompt is that it applies to any topic. Simply replace "spatial analysis" with the topic of your choice and dive right in!
 
@@ -41,7 +41,7 @@ Metaphors are one of the best teaching tools for learning new topics. They allow
 
 <blockquote><p><strong>Prompt: </strong>[disable: "Pretext" AND "Context"][analyze: using metaphorical analysis][cross-reference: popular stories for metaphors used][rewrite: using metaphors to explain in the context of popular stories] The Scientific Method</p></blockquote>
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_xIi72Es.png" alt="GPT output displaying the results of the prompt"></figure>
+<figure class="image"><img src="/blog/media/migrated/image-ee896c9eca176716527054d5-653.webp" alt="GPT output displaying the results of the prompt"></figure>
 
 Here's a breakdown of the prompt. If you want to see all of the directives I know about, see the <a target="_blank" rel="noopener noreferrer" href="/blog/mastering-gpt-directives-and-parameters/">directive reference</a>.
 

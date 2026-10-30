@@ -4,7 +4,7 @@ title: "Ahrefs Website Optimization: Fix Orphan Pages & Duplicate Content"
 category: web-dev
 description: Audit your website with Ahrefs to fix orphan pages and duplicate content for better UX, higher SEO, and improved performance.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/SeoOptimization.webp
+image: /blog/media/migrated/image-75d0ef0c578bfe0a575c557d-512.webp
 legacyImage: post_metaimgs/SeoOptimization.webp
 imageAlt: A laptop with analytics on the screen. A robot hand is on the keyboard.
 imageAttribution: "Stable Diffusion 2.1: A computer screen displaying a website's analytics, with a magnifying glass overlaid on top to symbolize the focus on search engine optimization. In the background, a robot works tirelessly to fix errors and improve the website's ranking."
@@ -30,7 +30,7 @@ The following sections detail how I overcame these issues to achieve a score of 
 
 <p style="text-align:center;"><strong>Ahrefs Site Audit Score</strong></p>
 
-<figure class="image image-style-align-center"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_MgV8fds.png" alt="screenshot of ahref score of 100/100"></figure>
+<figure class="image image-style-align-center"><img src="/blog/media/migrated/image-10bed4101afffbab7ee3f326-271.webp" alt="screenshot of ahref score of 100/100"></figure>
 
 ## Orphan pages
 
@@ -66,7 +66,7 @@ But I didn't stop there. There are a ton of other issues to resolve, such as:
 
 On January 5th, I added a new category called "resources" to my blog. This category included a number of posts that were originally saved as markdown documents on my local machine. However, these posts contained a large number of broken or outdated links. As shown in the ahrefs audit, several of these external links were returning 3xx, 4xx, and 5xx errors.
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_cmjzHRQ.png" alt="Screenshot of ahrefs showing 17 external 3xx, 8 external 4xx, and 4 external 5xx"></figure>
+<figure class="image"><img src="/blog/media/migrated/image-547ab910c29a18306a855725-385.webp" alt="Screenshot of ahrefs showing 17 external 3xx, 8 external 4xx, and 4 external 5xx"></figure>
 
 Fixing the URLs was a relatively simple but a manual process nonetheless. 
 
@@ -80,11 +80,11 @@ To avoid these issues, I want to ensure that all internal and external links on 
 
 <p style="text-align:center;"><strong>Inspecting the network traffic in the chromium dev tools</strong></p>
 
-<figure class="image image-style-align-center"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_FRT9kjw.png" alt="Screenshot of dev console showing 301 redirect for protonmail"></figure>
+<figure class="image image-style-align-center"><img src="/blog/media/migrated/image-318ce0e8d0c36f843d53be16-828.webp" alt="Screenshot of dev console showing 301 redirect for protonmail"></figure>
 
 The weirdest discovery I made was that ahref's was flagging an external link to mailchimp.com. According to the audit results, it was redirecting (302) to mailchimp.com/fr, the French version of the Mailchimp website.
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_bpSgp0F.png" alt="Screenshot of 302 redirect to French version of Mailchimp"></figure>
+<figure class="image"><img src="/blog/media/migrated/image-2b9a44d4164cef30e25df7b1-395.webp" alt="Screenshot of 302 redirect to French version of Mailchimp"></figure>
 
 It seems that the user agent of the ahrefs bot appears to be coming from France, causing Mailchimp to redirect to the French version of the site. While this may not be a problem, I will contact ahrefs to get their opinion on the matter.
 
@@ -94,7 +94,7 @@ A 4xx error usually indicates that a webpage is either missing or blocked. I eit
 
 <p style="text-align:center;"><strong>Ahref's Audit reveals links with 403s</strong></p>
 
-<figure class="image image-style-align-center"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_RfZugIM.png" alt="403 (Forbidden) errors with links to Cloudflare docs"></figure>
+<figure class="image image-style-align-center"><img src="/blog/media/migrated/image-60b1b2457b69d084bfdf2c06-430.webp" alt="403 (Forbidden) errors with links to Cloudflare docs"></figure>
 
 ## Meta descriptions and titles
 

@@ -4,6 +4,7 @@ import { readFile } from "node:fs/promises";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { collectErrors, serveStatic } from "./pages.mjs";
+import { holdRecipeArtifact } from "./recipe-artifact-gate.mjs";
 
 const RAW_IMAGE = /<img\s/u;
 const PROTEINS = /^Proteins:/u;
@@ -41,25 +42,11 @@ it("scroll demand joins a pending background batch and keeps the Load more contr
 		serviceWorkers: "block",
 	});
 	const page = await context.newPage();
-	let release;
-	let requested;
-	const pending = new Promise((resolve) => {
-		requested = resolve;
-	});
-	const held = new Promise((resolve) => {
-		release = resolve;
-	});
-	await page.route("**/api/recipe-browse/?**", async (route) => {
-		if (new URL(route.request().url()).searchParams.get("page") === "2") {
-			requested();
-			await held;
-		}
-		await route.continue();
-	});
+	const summary = await holdRecipeArtifact(page, "summaries");
 	try {
 		await page.goto(`${site.origin}/recipes/meals/`);
 		await page.locator("[data-hydrated=true]").waitFor();
-		await pending;
+		await summary.started;
 		const more = page.getByRole("button", {
 			name: "Load more recipes",
 			exact: true,
@@ -83,7 +70,7 @@ it("scroll demand joins a pending background batch and keeps the Load more contr
 				),
 		);
 		await more.press("Enter");
-		release();
+		summary.release();
 		await page.waitForFunction(
 			() => document.querySelectorAll(".recipe-card").length === 12,
 		);
@@ -96,7 +83,7 @@ it("scroll demand joins a pending background batch and keeps the Load more contr
 			true,
 		);
 	} finally {
-		release();
+		summary.release();
 		await context.close();
 	}
 });
@@ -110,47 +97,43 @@ it("local shuffle remains stable after searching and clearing the query", {
 	});
 	const page = await context.newPage();
 	const errors = collectErrors(page);
-	let allLoaded;
-	const complete = new Promise((resolve) => {
-		allLoaded = resolve;
-	});
-	page.on("response", async (response) => {
-		if (
-			new URL(response.url()).pathname !== "/api/recipe-browse/" ||
-			!response.ok()
-		)
-			return;
-		const result = await response.json();
-		if (!result.nextPage && !new URL(response.url()).searchParams.get("q"))
-			allLoaded();
-	});
+	const complete = page.waitForResponse(
+		(response) =>
+			new URL(response.url()).pathname.startsWith("/recipes/data/summaries/") &&
+			response.ok(),
+	);
 	try {
 		await page.goto(`${site.origin}/recipes/meals/`);
 		await page.locator("[data-hydrated=true]").waitFor();
-		await complete;
-		await page
-			.getByRole("button", { name: "Shuffle meals", exact: true })
-			.click();
-		const shuffled = await ids(page);
-		const search = page.getByRole("searchbox", { name: "Search recipes" });
-		const queryResponse = page.waitForResponse(
-			(response) => new URL(response.url()).searchParams.get("q") === "chicken",
-		);
-		await search.fill("chicken");
-		await queryResponse;
+		await (await complete).json();
 		await page.waitForFunction(
 			() =>
 				document.querySelector("#meal-results").getAttribute("aria-busy") ===
 				"false",
 		);
-		const clear = page.waitForResponse(
+		await page
+			.getByRole("button", { name: "Shuffle meals", exact: true })
+			.click();
+		await page.waitForFunction(
+			() =>
+				document.querySelector("#meal-results").getAttribute("aria-busy") ===
+				"false",
+		);
+		const shuffled = await ids(page);
+		const search = page.getByRole("searchbox", { name: "Search recipes" });
+		const queryResponse = page.waitForResponse(
 			(response) =>
-				new URL(response.url()).pathname === "/api/recipe-browse/" &&
-				new URL(response.url()).searchParams.get("q") === "" &&
-				new URL(response.url()).searchParams.get("page") === "1",
+				new URL(response.url()).pathname.startsWith("/recipes/data/search/") &&
+				response.ok(),
+		);
+		await search.fill("chicken");
+		await (await queryResponse).json();
+		await page.waitForFunction(
+			() =>
+				document.querySelector("#meal-results").getAttribute("aria-busy") ===
+				"false",
 		);
 		await search.fill("");
-		await clear;
 		await page.waitForFunction(
 			() =>
 				document.querySelector("#meal-results").getAttribute("aria-busy") ===
@@ -210,8 +193,8 @@ it("a failed release-update check reports retry guidance without an unhandled re
 	});
 	const page = await context.newPage();
 	const errors = collectErrors(page);
-	await page.route("**/api/recipe-browse/?**", (route) =>
-		route.fulfill({ status: 409, contentType: "application/json", body: "{}" }),
+	await page.route("**/recipes/data/summaries/**", (route) =>
+		route.fulfill({ status: 404, contentType: "application/json", body: "{}" }),
 	);
 	try {
 		await page.goto(`${site.origin}/recipes/meals/`);
@@ -229,7 +212,7 @@ it("a failed release-update check reports retry guidance without an unhandled re
 			true,
 		);
 		assert.deepEqual(errors, [
-			"Failed to load resource: the server responded with a status of 409 (Conflict)",
+			"Failed to load resource: the server responded with a status of 404 (Not Found)",
 		]);
 	} finally {
 		await context.close();
@@ -250,11 +233,10 @@ it("Retry after a failed next batch renders the requested cards", {
 	);
 	const page = await context.newPage();
 	let failed = false;
-	await page.route("**/api/recipe-browse/?**", (route) => {
-		if (
-			new URL(route.request().url()).searchParams.get("page") === "2" &&
-			!failed
-		) {
+	const attempts = [];
+	await page.route("**/recipes/data/summaries/**", (route) => {
+		attempts.push(route.request().url());
+		if (!failed) {
 			failed = true;
 			return route.fulfill({ status: 503, body: "Unavailable" });
 		}
@@ -273,6 +255,19 @@ it("Retry after a failed next batch renders the requested cards", {
 			() => document.querySelectorAll(".recipe-card").length === 12,
 		);
 		assert.equal(await page.getByRole("alert").count(), 0);
+		assert.equal(attempts.length, 2);
+		assert.equal(
+			attempts[0],
+			attempts[1],
+			"Retry repeats the exact failed library identity",
+		);
+		assert.deepEqual(
+			await ids(page),
+			recipes
+				.filter((recipe) => recipe.type === "meal")
+				.slice(0, 12)
+				.map(({ id }) => id),
+		);
 	} finally {
 		await context.close();
 	}
@@ -285,73 +280,80 @@ it("Shuffle supersedes a pending filter refresh and retains the selected filter"
 		serviceWorkers: "block",
 		viewport: { width: 1280, height: 900 },
 	});
+	await context.addInitScript(() => {
+		Object.defineProperty(navigator, "connection", {
+			configurable: true,
+			value: Object.assign(new EventTarget(), {
+				saveData: true,
+				effectiveType: "4g",
+			}),
+		});
+		Object.defineProperty(crypto, "randomUUID", { value: () => "0" });
+	});
 	const page = await context.newPage();
-	let complete;
-	const downloaded = new Promise((resolve) => {
-		complete = resolve;
-	});
-	const initialResponse = async (response) => {
-		if (
-			new URL(response.url()).pathname !== "/api/recipe-browse/" ||
-			!response.ok()
-		)
-			return;
-		const result = await response.json();
-		if (!result.nextPage) {
-			page.off("response", initialResponse);
-			complete();
-		}
-	};
-	page.on("response", initialResponse);
-	let release;
-	const held = new Promise((resolve) => {
-		release = resolve;
-	});
-	let filterStarted;
-	const filtering = new Promise((resolve) => {
-		filterStarted = resolve;
-	});
-	await page.route("**/api/recipe-browse/?**", async (route) => {
-		const url = new URL(route.request().url());
-		if (
-			url.searchParams.getAll("proteinChoice").includes("fish") &&
-			!url.searchParams.has("shuffle") &&
-			url.searchParams.get("page") === "1"
-		) {
-			filterStarted();
-			await held;
-		}
-		await route.continue();
-	});
+	const summary = await holdRecipeArtifact(page, "summaries");
+	const requests = [];
+	page.on("request", (request) =>
+		requests.push(new URL(request.url()).pathname),
+	);
 	try {
 		await page.goto(`${site.origin}/recipes/meals/`);
 		await page.locator("[data-hydrated=true]").waitFor();
-		await downloaded;
 		assert.equal(
 			await page.getByRole("checkbox", { name: "Keto", exact: true }).count(),
 			0,
 		);
+		const initialCards = await ids(page);
 		await page.getByRole("button", { name: PROTEINS }).click();
 		await page.getByRole("checkbox", { name: "Fish", exact: true }).check();
 		await page.keyboard.press("Escape");
-		await filtering;
-		const shuffled = page.waitForResponse(
-			(response) => new URL(response.url()).searchParams.get("shuffle") === "1",
+		await summary.started;
+		assert.deepEqual(
+			await ids(page),
+			initialCards,
+			"filter demand retains cards while its library is pending",
 		);
 		await page
 			.getByRole("button", { name: "Shuffle meals", exact: true })
 			.click();
-		const result = await (await shuffled).json();
-		assert.ok(result.seed);
-		release();
+		assert.equal(
+			await page.locator("#meal-results").getAttribute("aria-busy"),
+			"true",
+		);
+		summary.release();
+		await summary.finished;
 		await page.waitForFunction(
-			() =>
+			(total) =>
 				document.querySelector("#meal-results").getAttribute("aria-busy") ===
-				"false",
+					"false" &&
+				Number(
+					document
+						.querySelector("#meal-results")
+						.getAttribute("data-match-count"),
+				) === total,
+			fishIds.size,
+		);
+		const shuffled = await ids(page);
+		assert.equal(shuffled.length, Math.min(6, fishIds.size));
+		assert.ok(shuffled.every((id) => fishIds.has(id)));
+		assert.notDeepEqual(
+			shuffled,
+			recipes
+				.filter((recipe) => recipe.type === "meal" && fishIds.has(recipe.id))
+				.slice(0, 6)
+				.map(({ id }) => id),
+			"the newer shuffle wins over the pending canonical filter order",
+		);
+		await page.evaluate(
+			() =>
+				new Promise((resolve) =>
+					requestAnimationFrame(() => requestAnimationFrame(resolve)),
+				),
 		);
 		assert.deepEqual(
 			await ids(page),
-			result.cards.map((card) => card.id),
+			shuffled,
+			"superseded filter completion cannot restore its older order",
 		);
 		await page.getByRole("button", { name: PROTEINS }).click();
 		assert.equal(
@@ -361,12 +363,14 @@ it("Shuffle supersedes a pending filter refresh and retains the selected filter"
 			true,
 		);
 		await page.keyboard.press("Escape");
+		const carbs = await page
+			.locator(".recipe-card .carb-value")
+			.allTextContents();
 		assert.ok(
-			result.cards.every(
-				(card) =>
-					fishIds.has(card.id) &&
-					Number.isFinite(card.netCarbs) &&
-					card.netCarbs <= 12.5,
+			carbs.every(
+				(value) =>
+					Number.isFinite(Number.parseFloat(value)) &&
+					Number.parseFloat(value) <= 12.5,
 			),
 		);
 		assert.equal(
@@ -376,9 +380,14 @@ it("Shuffle supersedes a pending filter refresh and retains the selected filter"
 				.count(),
 			0,
 		);
+		assert.equal(
+			requests.filter((path) => path.startsWith("/recipes/data/summaries/"))
+				.length,
+			1,
+		);
+		assert.ok(!requests.includes("/api/recipe-browse/"));
 	} finally {
-		page.off("response", initialResponse);
-		release();
+		summary.release();
 		await context.close();
 	}
 });

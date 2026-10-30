@@ -20,7 +20,6 @@ import {
 	CATEGORIES_DIR,
 	DEFAULT_IMAGE,
 	LEGACY_FRONTMATTER_KEYS,
-	LEGACY_MEDIA,
 	POSTS_DIR,
 } from "./constants.js";
 import { parsePost } from "./post-loader.js";
@@ -255,8 +254,13 @@ describe(".pages.yml", () => {
 		assert.ok(DEFAULT_IMAGE.startsWith(`${cms.media.output}/`));
 		const imagePattern = fieldPattern(posts.field("image"));
 		assert.match(DEFAULT_IMAGE, imagePattern);
-		assert.match(`${LEGACY_MEDIA}some.webp`, imagePattern);
-		for (const rejected of ["/media/default.webp", "http://x/a.webp", ""]) {
+		assert.match("/blog/media/migrated/image-example-960.webp", imagePattern);
+		for (const rejected of [
+			"/media/default.webp",
+			"http://x/a.webp",
+			"https://example.com/a.webp",
+			"",
+		]) {
 			assert.doesNotMatch(rejected, imagePattern);
 		}
 		const timestamps = ["published", "updated"].map((name) => ({

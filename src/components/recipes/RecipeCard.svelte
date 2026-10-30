@@ -2,21 +2,16 @@
 	import Check from "@lucide/svelte/icons/check";
 	import Button from "../../lib/components/ui/button.svelte";
 	import ApplianceIcon from "./ApplianceIcon.svelte";
-	import { BASE_SERVINGS } from "./constants.mjs";
 	import NutritionPills from "./NutritionPills.svelte";
 	import RecipePrintButton from "./RecipePrintButton.svelte";
-	import {
-		formatNutrition,
-		servingNutrition,
-		smoothiePortionNutrition,
-	} from "./recipe-logic.mjs";
+	import { formatNutrition } from "./recipe-settings.mjs";
 
 	// One recipe's card in the library grid: its group, photo, title, active
 	// time, net carbs per serving and appliances. `href` is the
 	// recipe page with the reader's servings and family side. `madeOn` is the
 	// local date the reader last made it, shown as a "Made it!" badge; server
 	// fragments never pass one.
-	let { recipe, href, madeOn = "", servings = BASE_SERVINGS, settings, onPrint, disabled = false } = $props();
+	let { recipe, href, madeOn = "", settings, onPrint, disabled = false } = $props();
 	// Diet labels live with the other highlights; retain canonical source titles.
 	const cardTitle = $derived(recipe.title
 		.replace(/\(\s*(?:(?:keto|low[ -]carb)\s*(?:\+|-)?\s*)+\)/giu, "")
@@ -24,7 +19,7 @@
 		.replace(/\s*\(family favorite\)/giu, "")
 		.replace(/\s+/gu, " ").trim()
 		.replace(/^./u, (letter) => letter.toUpperCase()));
-	const netCarbs = $derived("netCarbs" in recipe ? recipe.netCarbs : recipe.type === "smoothie" ? smoothiePortionNutrition(recipe).net_carbs_g : servingNutrition(recipe, BASE_SERVINGS).net_carbs_g);
+	const netCarbs = $derived(recipe.netCarbs);
 
 	function deferImage(node) {
 		if (!("IntersectionObserver" in window)) { node.src = recipe.image.cardSrc; node.srcset = recipe.image.cardSrcset; return; }
@@ -61,7 +56,7 @@
 				<dd class="appliance-icons">{#each recipe.appliancesNeeded as name (name)}<ApplianceIcon {name} />{/each}</dd>
 			</div>
 		</dl>
-		<div class="card-nutrition"><NutritionPills {recipe} {servings} flags={recipe.nutritionPills ? Object.fromEntries(recipe.nutritionPills.map((pill) => [pill.key, true])) : undefined} /></div>
+		<div class="card-nutrition"><NutritionPills flags={Object.fromEntries(recipe.nutritionPills.map((pill) => [pill.key, true]))} /></div>
 	</div>
 	<div class="card-actions"><Button class="open-button" {href} aria-label={`Open recipe: ${cardTitle}`}>Open recipe <span aria-hidden="true">→</span></Button>{#if onPrint}<RecipePrintButton {recipe} {settings} {onPrint} {disabled} />{/if}</div>
 </article>

@@ -4,12 +4,12 @@ title: How to Launch Runserver, Livereload, and Chrome Together in Django
 category: dev-tools
 description: "Create a one-click development environment: A tutorial on launching runserver, livereload, and Chrome together"
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/debug_thumbnail.png
+image: /blog/media/migrated/image-77806629de9bc2c1cda8545b-960.webp
 legacyImage: post_metaimgs/debug_thumbnail.png
 imageAlt: Screenshot of vscode with debug window open
 imageAttribution: ""
-imageWidth: 1853
-imageHeight: 722
+imageWidth: 960
+imageHeight: 374
 published: "2022-06-12T13:58:39Z"
 updated: "2026-09-07T14:25:05.482Z"
 author: John Solly

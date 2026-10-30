@@ -14,11 +14,8 @@ it("Vercel sends exactly the reviewed header policy to every route", async () =>
 		sortedSources(directives),
 		sortedSources(
 			new Map([
-				// Legacy blog post images live on the retained blogthedata CloudFront host (J6).
-				[
-					"img-src",
-					["'self'", "data:", "https://d1d7p8ufhgz4ld.cloudfront.net"],
-				],
+				// Blog and recipe images are served from this site.
+				["img-src", ["'self'", "data:"]],
 				["style-src", ["'self'", "'unsafe-inline'"]],
 				["font-src", ["'self'"]],
 				["base-uri", ["'self'"]],

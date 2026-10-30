@@ -1,6 +1,7 @@
 <script>
 	import Share2 from "@lucide/svelte/icons/share-2";
 	import Button from "../../lib/components/ui/button.svelte";
+	import { reportError } from "../../lib/report-error.mjs";
 	import { recipeHref } from "./recipe-url.mjs";
 
 	// Shares the recipe link with the reader's servings and optional side: the
@@ -21,6 +22,7 @@
 				if (error instanceof DOMException && error.name === "AbortError")
 					return;
 				if (!(error instanceof DOMException && error.name === "NotAllowedError")) {
+					void reportError("recipe-share");
 					console.error(`Sharing recipe ${recipe.id} failed.`, error);
 				}
 			}
@@ -32,6 +34,7 @@
 				return;
 			} catch (error) {
 				if (!(error instanceof DOMException && error.name === "NotAllowedError")) {
+					void reportError("recipe-copy");
 					console.error(`Copying recipe ${recipe.id} link failed.`, error);
 				}
 			}

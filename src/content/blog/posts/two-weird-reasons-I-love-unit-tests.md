@@ -4,7 +4,7 @@ title: "Unit Tests as a Design Tool: Increase Coverage and Improve Your Code"
 category: dev-tools
 description: Discover how unit tests can be a design tool to improve your code and increase coverage. Learn how to fix multiple bugs without re-running your code.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/testingPyramid.png
+image: /blog/media/migrated/image-cdb53b10ab2eec5a46caf5ec-500.webp
 legacyImage: post_metaimgs/testingPyramid.png
 imageAlt: Unit, Acceptance, UI test pyramid.
 imageAttribution: ""

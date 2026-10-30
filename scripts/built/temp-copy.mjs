@@ -160,8 +160,14 @@ export async function createTempCopy(label) {
 			return run(dir, "npm", ["run", script], `npm run ${script}`, env);
 		},
 		// `node <script>` in the copy, the script relative to its root.
-		node(script) {
-			return run(dir, process.execPath, [script], `node ${script}`);
+		node(script, args = [], env = {}) {
+			return run(
+				dir,
+				process.execPath,
+				[script, ...args],
+				`node ${script} ${args.join(" ")}`,
+				env,
+			);
 		},
 		// Deletes the copy (symlinks are unlinked, never followed), then checks
 		// that the real data store is unchanged.

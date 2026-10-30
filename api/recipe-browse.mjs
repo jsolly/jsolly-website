@@ -3,11 +3,42 @@ import { readFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { parseBrowseParams } from "../src/components/recipes/recipe-browse.mjs";
 import { renderBrowseHTML } from "../src/components/recipes/recipe-browse-html.mjs";
-import data from "../src/components/recipes/recipe-data.server.mjs";
+import {
+	browseLibraryPath,
+	parseBrowseLibrary,
+} from "../src/components/recipes/recipe-browse-library.mjs";
+import {
+	browseLibraryState,
+	browseSearchPath,
+	parseBrowseSearch,
+} from "../src/components/recipes/recipe-browse-search.mjs";
 import { createBrowsePage } from "../src/components/recipes/recipe-summary.mjs";
 
 import { preferredType } from "../src/lib/accept-negotiate.js";
 
+const libraries = new Map();
+function deployedLibrary(root, release, search = false) {
+	const path = join(
+		dirname(root),
+		search ? browseSearchPath(release) : browseLibraryPath(release),
+	);
+	if (!libraries.has(path)) {
+		const pending = readFile(path, "utf8").then((json) =>
+			(search ? parseBrowseSearch : parseBrowseLibrary)(
+				JSON.parse(json),
+				release,
+			),
+		);
+		libraries.set(path, pending);
+		pending.catch(() => {
+			if (libraries.get(path) === pending) libraries.delete(path);
+		});
+	}
+	return libraries.get(path);
+}
+
+const STACK_FRAME = /^\s+at /u;
+const STACK_QUERY = /[?#]/u;
 const FULL_SHA = /^[a-f0-9]{40}$/u;
 const PAGES = new Map([
 	["/recipes/", { file: "index.html", collection: "meal" }],
@@ -93,10 +124,16 @@ export async function browseResponse(
 			params.set("seed", randomBytes(8).toString("hex"));
 			params.set("page", "1");
 		}
-		const state = parseBrowseParams(params, page.collection, data.recipes);
+		const library = await deployedLibrary(root, release);
+		const recipes = library.recipes;
+		const parsed = parseBrowseParams(params, page.collection, recipes);
+		const state = browseLibraryState(
+			parsed.query.trim() ? await deployedLibrary(root, release, true) : null,
+			parsed,
+		);
 		if (wantsJSON)
 			return respond(
-				createBrowsePage(data.recipes, page.collection, state, release),
+				createBrowsePage(recipes, page.collection, state, release),
 			);
 		const [html, artifact] = await Promise.all([
 			readFile(join(root, page.file), "utf8"),
@@ -109,16 +146,30 @@ export async function browseResponse(
 		return respond(
 			renderBrowseHTML(
 				html,
-				data.recipes,
+				recipes,
 				page.collection,
 				state,
 				artifact.cards[state.settings.servings],
 			),
 		);
 	} catch (error) {
+		// Preserve code locations without logging request values or the raw error
+		// message, which can include input excerpts from a parser.
+		const stack =
+			error instanceof Error && typeof error.stack === "string"
+				? error.stack
+						.split("\n")
+						.slice(1)
+						.filter((line) => STACK_FRAME.test(line))
+						.map((line) => line.split(STACK_QUERY)[0])
+						.slice(0, 12)
+				: [];
 		console.error(
-			"Recipe browsing could not render the deployed collection.",
-			error instanceof Error ? error.message : "Unknown error",
+			JSON.stringify({
+				event: "recipe-browse-error",
+				message: "Recipe browsing could not render the deployed collection.",
+				stack,
+			}),
 		);
 		return respond(
 			"Recipe browsing is temporarily unavailable. Reload the collection to try again.",

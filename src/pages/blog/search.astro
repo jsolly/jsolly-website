@@ -7,4 +7,4 @@ import { blogContent } from "../../lib/blog/content.js";
 // The island reads ?searched= on mount, so the query string reaches it as is.
 const { posts } = await blogContent();
 ---
-<BlogLayout title="Search posts" section="blog" noindex><Search posts={cards(posts)} client:load /></BlogLayout>
+<BlogLayout title="Search posts" section="blog" noindex><Search posts={cards(posts)} client:idle /></BlogLayout>

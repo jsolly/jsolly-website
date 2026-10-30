@@ -32,6 +32,7 @@ export interface Card {
 	description: string;
 	excerpt: string;
 	image: string;
+	imageSrcset?: string;
 	imageAlt: string;
 	imageWidth: number | null;
 	imageHeight: number | null;

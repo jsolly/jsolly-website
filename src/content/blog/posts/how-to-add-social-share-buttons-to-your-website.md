@@ -4,12 +4,12 @@ title: Add Social Share Buttons to Your Blog Posts With OpenGraph Tags
 category: web-dev
 description: Add social share buttons to your blog posts with Twitter, LinkedIn, and Reddit. Get post previews to show correctly with Twitter meta tags and OpenGraph tags.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/social_networks.jpg
+image: /blog/media/migrated/image-bec062049499f37a58968d27-960.webp
 legacyImage: post_metaimgs/social_networks.jpg
 imageAlt: Various social media icons. Facebook, Instagram, etc.
 imageAttribution: https://2.bp.blogspot.com/-M-cVD8tA92k/XIlwhZ_Z-sI/AAAAAAAAPGE/RnV4x1RwTR0FWMef518GGi9aaRmgbLmxgCLcBGAs/s1600/Come-funzionano-i-social-network-1.jpg
-imageWidth: 1200
-imageHeight: 627
+imageWidth: 960
+imageHeight: 502
 published: "2022-05-27T13:04:55Z"
 updated: "2022-05-27T13:04:55Z"
 author: John Solly

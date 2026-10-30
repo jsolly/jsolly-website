@@ -196,8 +196,15 @@ function updateCheck(name, viewport) {
 			]);
 			for (const tab of [page, other])
 				tab.on("response", (response) => {
-					if (response.status() === 409)
-						conflicts.get(tab).push(response.url());
+					if (
+						response.status() === 409 ||
+						(response.status() === 404 &&
+							new URL(response.url()).pathname ===
+								`/recipes/data/summaries/library-${"a".repeat(40)}.json`)
+					)
+						conflicts
+							.get(tab)
+							.push({ url: response.url(), status: response.status() });
 				});
 			await navigateHydrated(
 				page,
@@ -375,24 +382,26 @@ function updateCheck(name, viewport) {
 				},
 				snapshots.B.cache,
 			);
-			// A still-open document's background browse request may reach B's API.
-			// Its explicit 409 is handled by the update UI; Chromium also reports
-			// that HTTP response on the console. Every other diagnostic fails.
+			// A deferred old document request can reach B after the swap. The
+			// local fixture has no retained A summary URL, so its precise 404 must
+			// offer an update, just as the native API's release conflict does.
+			// Every other HTTP diagnostic still fails this scenario.
 			for (const value of [...conflicts.values()].flat()) {
-				const url = new URL(value);
-				assert.equal(url.pathname, "/api/recipe-browse/");
-				assert.equal(url.searchParams.get("release"), "a".repeat(40));
+				const url = new URL(value.url);
+				assert.deepEqual(
+					{ path: url.pathname, release: url.searchParams.get("release") },
+					value.status === 409
+						? { path: "/api/recipe-browse/", release: "a".repeat(40) }
+						: {
+								path: `/recipes/data/summaries/library-${"a".repeat(40)}.json`,
+								release: null,
+							},
+				);
 			}
-			const diagnostic =
-				"Failed to load resource: the server responded with a status of 409 (Conflict)";
-			assert.deepEqual(
-				errors,
-				conflicts.get(page).map(() => diagnostic),
-			);
-			assert.deepEqual(
-				otherErrors,
-				conflicts.get(other).map(() => diagnostic),
-			);
+			const diagnostic = ({ status }) =>
+				`Failed to load resource: the server responded with a status of ${status === 409 ? "409 (Conflict)" : "404 (Not Found)"}`;
+			assert.deepEqual(errors, conflicts.get(page).map(diagnostic));
+			assert.deepEqual(otherErrors, conflicts.get(other).map(diagnostic));
 		} finally {
 			await context.close();
 		}

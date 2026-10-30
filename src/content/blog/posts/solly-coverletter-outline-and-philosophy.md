@@ -4,7 +4,7 @@ title: "Writing a Standout Cover Letter: Tips and Tricks for Job Applications"
 category: productivity
 description: "Writing a Killer Cover Letter for Job Applications: Tips, Structure, and Sample Templates to Help You Craft an Outstanding Cover Letter"
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/dreamJob.webp
+image: /blog/media/migrated/image-971371055962574491246a8a-960.webp
 legacyImage: post_metaimgs/dreamJob.webp
 imageAlt: A sign that says, 'Dream Job.'
 imageAttribution: https://cdn.pixabay.com/photo/2017/10/31/09/55/dream-job-2904780_960_720.jpg

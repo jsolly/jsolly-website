@@ -1,8 +1,6 @@
 import { KETO_NET_CARBS_MAX } from "./constants.mjs";
 import { displayNutrition } from "./recipe-logic.mjs";
-import retired from "./retired-recipes.json" with { type: "json" };
-
-const retiredIds = new Set(retired.map(({ id }) => id));
+import { retiredRecipePath } from "./recipe-url.mjs";
 
 /** Stored older recipes keep their own nutrition and never inherit a revised label. */
 export function isKetoSavedRecipe(record) {
@@ -11,7 +9,7 @@ export function isKetoSavedRecipe(record) {
 		!recipe ||
 		typeof recipe.id !== "string" ||
 		!["meal", "smoothie"].includes(recipe.type) ||
-		retiredIds.has(recipe.id)
+		retiredRecipePath(recipe.id)
 	)
 		return false;
 	try {
@@ -25,7 +23,7 @@ export function isKetoSavedRecipe(record) {
 
 /** Fail the build instead of quietly publishing an incomplete or non-keto dish. */
 export function requirePublishedRecipe(recipe) {
-	if (retiredIds.has(recipe.id))
+	if (retiredRecipePath(recipe.id))
 		throw new Error(`${recipe.id}: retired recipe cannot be published`);
 	if (!isKetoSavedRecipe({ recipe }))
 		throw new Error(`${recipe.id}: published recipe must qualify as keto`);
@@ -34,11 +32,6 @@ export function requirePublishedRecipe(recipe) {
 			`${recipe.id}: published recipe needs shared-table guidance`,
 		);
 	return recipe;
-}
-
-/** Known legacy fragments have an explicit notice at their original recipe URL. */
-export function retiredRecipePath(id) {
-	return retiredIds.has(id) ? `/recipes/${id}/` : null;
 }
 
 export function retirementMarkdown(recipe) {

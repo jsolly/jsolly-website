@@ -4,12 +4,12 @@ title: Using Pre-commit Hooks to Automate Collectstatic in Django
 category: dev-tools
 description: Use pre-commit hooks to automate collectstatic in Django to keep production and QA environments in sync. Save time and make the overall process more efficient.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/githooks.png
+image: /blog/media/migrated/image-a76d8068bfa58fbcc39d5697-960.webp
 legacyImage: post_metaimgs/githooks.png
 imageAlt: A hook going through the word 'git'
 imageAttribution: ""
-imageWidth: 2000
-imageHeight: 948
+imageWidth: 960
+imageHeight: 455
 published: "2022-01-24T16:31:25Z"
 updated: "2022-01-24T16:31:25Z"
 author: John Solly

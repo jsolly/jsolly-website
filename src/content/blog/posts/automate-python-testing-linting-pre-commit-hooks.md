@@ -4,12 +4,12 @@ title: Automate Python Testing and Linting With Pre-Commit Hooks.
 category: dev-tools
 description: Automate Python testing and linting with pre-commit hooks in this video tutorial. We'll show you how to set up and customize the hook for your project.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/precommitHook.webp
+image: /blog/media/migrated/image-6fa117139e5437b0f95e74e2-960.webp
 legacyImage: post_metaimgs/precommitHook.webp
 imageAlt: Screenshot of pre-commit hook .yaml configuration
 imageAttribution: ""
-imageWidth: 1244
-imageHeight: 775
+imageWidth: 960
+imageHeight: 598
 published: "2023-01-09T05:40:33.027Z"
 updated: "2026-09-07T14:25:05.518Z"
 author: John Solly

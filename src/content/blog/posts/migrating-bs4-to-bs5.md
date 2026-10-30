@@ -4,12 +4,12 @@ title: "Migrating From Bootstrap 4 to 5: Refactoring for a Smooth Transition"
 category: web-dev
 description: Thinking about upgrading Bootstrap in your app? You might want to check out the breaking changes before you do!
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/upgrade_0qtiEXj.png
+image: /blog/media/migrated/image-536291d280be3819522db333-960.webp
 legacyImage: post_metaimgs/upgrade_0qtiEXj.png
 imageAlt: Headshot of John Solly
 imageAttribution: ""
-imageWidth: 1920
-imageHeight: 1280
+imageWidth: 960
+imageHeight: 640
 published: "2022-03-15T13:37:45Z"
 updated: "2022-03-15T13:37:45Z"
 author: John Solly

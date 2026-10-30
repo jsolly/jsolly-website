@@ -4,12 +4,12 @@ title: "Creating a Custom 404 Page in Django: A Step-by-Step Guide"
 category: web-dev
 description: "Create a custom 404 page in Django: Follow this step-by-step guide with code examples to create an eye-catching 404 page."
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/404_page.png
+image: /blog/media/migrated/image-f07ba99ead8bdc9c0814a03d-960.webp
 legacyImage: post_metaimgs/404_page.png
 imageAlt: 404 page with a scarecrow and and a 'back to homepage' button
 imageAttribution: ""
-imageWidth: 1920
-imageHeight: 885
+imageWidth: 960
+imageHeight: 443
 published: "2022-07-02T17:33:46.863Z"
 updated: "2022-07-02T17:33:46.863Z"
 author: John Solly

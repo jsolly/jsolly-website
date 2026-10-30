@@ -4,12 +4,12 @@ title: Create a Website Title Generator with GPT3, Python, HTMX and Django!
 category: web-dev
 description: Generate website titles with Open AI's GPT-3 and HTMX in Django. Suitable for beginners and experienced developers.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/threeLogos.webp
+image: /blog/media/migrated/image-01aa920b65f64c6f02d5b6bc-960.webp
 legacyImage: post_metaimgs/threeLogos.webp
 imageAlt: John Solly Headshot
 imageAttribution: ""
-imageWidth: 1000
-imageHeight: 1000
+imageWidth: 960
+imageHeight: 960
 published: "2023-01-21T06:46:49.377Z"
 updated: "2026-09-07T14:25:05.520Z"
 author: John Solly

@@ -4,12 +4,12 @@ title: Implementing Anonymous Likes and Views in Django - A Guide
 category: web-dev
 description: Learn to implement anonymous likes and views in Django with a step-by-step guide. Discover the best ways to track and record user engagement on your website.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/postModel.png
+image: /blog/media/migrated/image-963ea6b2ef89943ddfd9d61e-960.webp
 legacyImage: post_metaimgs/postModel.png
 imageAlt: Screenshot of code for Post model
 imageAttribution: ""
-imageWidth: 1538
-imageHeight: 832
+imageWidth: 960
+imageHeight: 519
 published: "2021-12-31T05:59:46Z"
 updated: "2021-12-31T05:59:46Z"
 author: John Solly

@@ -3,21 +3,24 @@
 	import X from "@lucide/svelte/icons/x";
 	import { flushSync, onMount, tick, untrack } from "svelte";
 	import Button from "../../lib/components/ui/button.svelte";
+	import { reportError } from "../../lib/report-error.mjs";
 	import { activeFilters, withoutFilter, withoutFilters } from "./active-filters.mjs";
 	import { BASE_SERVINGS, DEFAULT_FILTERS, defaultAppliances, RECIPE_BATCH_SIZE, STORAGE_KEY } from "./constants.mjs";
 	import LibraryControls from "./LibraryControls.svelte";
 	import NativeRecipeControls from "./NativeRecipeControls.svelte";
-	import { parseSavedSettings } from "./nutrient-filters.mjs";
 	import RecipeCard from "./RecipeCard.svelte";
 	import { withRecipeBrowse } from "./recipe-browse-coordination.mjs";
-	import { validateSettings } from "./recipe-logic.mjs";
+	import { loadBrowseLibrary } from "./recipe-browse-library.mjs";
 	import { madeDateFor, readMadeRecipes, watchMadeRecipes } from "./recipe-made.mjs";
 	import { clearLegacyRedirect, markLegacyRedirect } from "./recipe-navigation.mjs";
 	import { orderRecipeIds } from "./recipe-order.mjs";
 	import { loadRecipePack } from "./recipe-pack.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
-	import { retiredRecipePath } from "./recipe-publication.mjs";
-	import { readRecipeURL, recipeBrowseHref, recipeHref } from "./recipe-url.mjs";
+	import { parseSavedSettings, validateSettings } from "./recipe-settings.mjs";
+	import { readRecipeURL, recipeBrowseHref, recipeHref, retiredRecipePath } from "./recipe-url.mjs";
+
+	
+	
 
 	let { initialCollection = "meal", pathname, initial, recipeIndex, saved = false } = $props();
 	let savedMode = $state(untrack(() => saved));
@@ -71,16 +74,6 @@
 	// The filters and search narrowing these results, shown as removable chips.
 	const chips = $derived(activeFilters(filters, query, { collection, hasIron: result.filterChoices.collectionHasIron, ingredientLabels: smoothieIngredients }));
 
-	function params(page = 1, shuffle = false) {
-		const values = new URLSearchParams({ path: collection === "smoothie" ? "/recipes/smoothies/" : "/recipes/meals/", browse: "1", page: String(page), servings: String(servings), units, q: query, seed, release: initial.release });
-		for (const [key, value] of Object.entries(filters)) {
-			if (Array.isArray(value)) for (const item of value) values.append(key, item);
-			else if (value) values.set(key, "1");
-		}
-		for (const [key, value] of Object.entries(appliancesOnHand)) values.set(`appliance.${key}`, String(value));
-		if (shuffle) values.set("shuffle", "1");
-		return values;
-	}
 	function canBackground() {
 		const connection = navigator.connection;
 		return !stopped && !document.hidden && navigator.onLine && !connection?.saveData && !SLOW_CONNECTION.test(connection?.effectiveType || "");
@@ -88,9 +81,9 @@
 	function scheduleBackground() {
 		clearTimeout(backgroundTimer);
 		if (!canBackground() || failure || !result.nextPage || savedMode) return;
-		backgroundTimer = setTimeout(() => { if (canBackground()) void requestPage(result.nextPage, false); }, 400);
+		backgroundTimer = setTimeout(() => { if (canBackground()) void requestLibrary(false); }, 400);
 	}
-	function requestPage(page, replace, shuffle = false) {
+	function requestLibrary(replace, shuffle = false) {
 		if (pending) return pending;
 		const own = generation;
 		controller = new AbortController();
@@ -98,15 +91,18 @@
 		loading = true;
 		pending = (async () => {
 			try {
-				const requestSignal = AbortSignal.any([signal, AbortSignal.timeout(15000)]);
-				const next = await withRecipeBrowse(requestSignal, async () => {
-					const response = await fetch(`/api/recipe-browse/?${params(page, shuffle)}`, { headers: { Accept: "application/json" }, signal: requestSignal, priority: replace ? "high" : "low" });
-					if (response.status === 409) { await response.text(); if (own === generation) releaseMismatch = true; throw new Error("A newer recipe library is available. Update and reload to continue."); }
-					if (!response.ok) { await response.text(); throw new Error("Recipes could not be loaded. Your current results are still here."); }
-					return response.json();
+				const next = await withRecipeBrowse(signal, async () => {
+					const library = await loadBrowseLibrary(initial.release, { url: initial.summaryURL });
+					const { createBrowseLibraryPage } = await import("./recipe-summary.mjs");
+					let nextState = { ...state, seed: shuffle ? crypto.randomUUID() : seed, page: 1 };
+					if (state.query.trim()) {
+						const { browseLibraryState, browseSearchPath, loadBrowseSearch } = await import("./recipe-browse-search.mjs");
+						const search = await loadBrowseSearch(initial.release, { url: browseSearchPath(initial.release) + new URL(initial.summaryURL, location.origin).search });
+						nextState = browseLibraryState(search, nextState);
+					}
+					return createBrowseLibraryPage(library.recipes, collection, nextState, initial.release);
 				});
 				if (own !== generation || stopped) return;
-				if (next.release !== initial.release) { releaseMismatch = true; throw new Error("A newer recipe library is available. Update and reload to continue."); }
 				if (replace && allowFilterReset) {
 					allowFilterReset = false;
 					if (next.filterChoices.matchesDefaultInventory === false) { filters = { ...DEFAULT_FILTERS }; return; }
@@ -118,7 +114,7 @@
 				failure = ""; failedRequest = null;
 				if (replace) visibleLimit = RECIPE_BATCH_SIZE;
 			} catch (error) {
-				if (own === generation && !signal.aborted) { failure = error.message; failedRequest = { page, replace, shuffle }; }
+				if (own === generation && !signal.aborted) { void reportError("recipe-browse"); if (error.code === "RECIPE_RELEASE_MISMATCH") releaseMismatch = true; failure = error.message; failedRequest = { replace, shuffle }; }
 			} finally {
 				if (own === generation) { loading = false; pending = null; controller = null; scheduleBackground(); }
 			}
@@ -147,7 +143,7 @@
 				visibleLimit = Math.min(cards.length, Math.max(RECIPE_BATCH_SIZE, visit.limit || RECIPE_BATCH_SIZE));
 				await tick(); restoreVisitPosition(visit);
 			}
-		} catch { if (own === savedGeneration) failure = "Saved recipes could not be read. Retry when storage is available."; }
+		} catch { void reportError("recipe-offline"); if (own === savedGeneration) failure = "Saved recipes could not be read. Retry when storage is available."; }
 	}
 	function begin(key) {
 		requestedKey = key;
@@ -155,7 +151,7 @@
 		controller?.abort(); pending = null; loading = false;
 		clearTimeout(backgroundTimer); failure = "";
 		if (savedMode) void refreshSaved();
-		else void requestPage(1, true);
+		else void requestLibrary(true);
 	}
 	function loadMore(focus = false) {
 		if (failure) return;
@@ -164,7 +160,7 @@
 		const first = renderedRecipes.length;
 		const expansion = { generation: own, focus };
 		expansion.promise = (async () => {
-			if (summaries.length <= visibleLimit && result.nextPage) await requestPage(result.nextPage, false);
+			if (summaries.length <= visibleLimit && result.nextPage) await requestLibrary(false);
 			if (own !== generation || failure || stopped) return;
 			visibleLimit = Math.min(summaries.length, result.total, visibleLimit + RECIPE_BATCH_SIZE);
 			await tick();
@@ -176,8 +172,8 @@
 	async function retryBrowse() {
 		failure = "";
 		if (savedMode) { await refreshSaved(); return; }
-		const retry = failedRequest || { page: 1, replace: true, shuffle: false };
-		if (retry.replace) await requestPage(retry.page, true, retry.shuffle);
+		const retry = failedRequest || { replace: true, shuffle: false };
+		if (retry.replace) await requestLibrary(true, retry.shuffle);
 		else await loadMore(true);
 	}
 	function watchMore(node) {
@@ -200,7 +196,7 @@
 			visibleLimit = RECIPE_BATCH_SIZE;
 		} else {
 			generation++; controller?.abort(); pending = null; failure = "";
-			await requestPage(1, true, true);
+			await requestLibrary(true, true);
 		}
 		shuffling = false;
 		if (!failure) { await tick(); listHeading?.focus({ preventScroll: true }); listHeading?.scrollIntoView({ block: "start" }); }
@@ -226,6 +222,7 @@
 				else message = "Checking for an update. Use Update and reload when the update notice appears.";
 			} else window.location.reload();
 		} catch {
+			void reportError("recipe-update");
 			message = "The update could not be checked. Reconnect and choose Check for update to retry.";
 		}
 	}
@@ -248,8 +245,8 @@
 	async function saveOpened(recipe) {
 		if (!("serviceWorker" in navigator) || !document.querySelector("#recipe-offline-status")) return;
 		try {
-			if (!await navigator.serviceWorker.getRegistration("/recipes/")) return; const { saveRecipeOffline } = await import("./recipe-offline.mjs"); await saveRecipeOffline(recipe.id, initial.release); }
-		catch { message = "This recipe was prepared for printing, but could not be saved offline. Retry by printing or opening it again."; }
+			if (!await navigator.serviceWorker.getRegistration("/recipes/")) return; const { saveRecipeOffline } = await import("./recipe-offline-save.mjs"); await saveRecipeOffline(recipe.id, initial.release); }
+		catch { void reportError("recipe-offline"); message = "This recipe was prepared for printing, but could not be saved offline. Retry by printing or opening it again."; }
 	}
 	function getDetail(id) {
 		if (savedMode) {
@@ -271,7 +268,7 @@
 			RecipePrint = module.default; printRecipe = recipe;
 			if (!savedMode) void saveOpened(recipe);
 			await tick(); message = await printSession.print(tick);
-		} catch (error) { message = error.message; }
+		} catch (error) { void reportError("recipe-print"); message = error.message; }
 	}
 	// Card links navigate normally; recording the visit at click time, as well as
 	// on pagehide, lets Back restore the order, search and scroll position.
@@ -297,7 +294,7 @@
 	onMount(() => {
 		let stored;
 		try { stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null"); }
-		catch (error) { console.error("Recipe settings could not be restored; using defaults.", error instanceof Error ? error.name : "Unknown error"); message = "Saved preferences could not be read; using defaults."; }
+		catch (error) { void reportError("recipe-storage-read"); console.error("Recipe settings could not be restored; using defaults.", error instanceof Error ? error.name : "Unknown error"); message = "Saved preferences could not be read; using defaults."; }
 		({ servings, units, familyDiners, filters, appliancesOnHand, familyChoice } = parseSavedSettings(stored, { recipes: recipeIndex, ingredients: smoothieIngredients }));
 		savedMode = saved || !navigator.onLine;
 		if (savedMode) { summaries = []; result = { ...initial, cards: [], total: 0, nextPage: null }; }
@@ -352,7 +349,7 @@
 	$effect(() => {
 		if (!hydrated) return;
 		const settings = JSON.stringify({ servings, units, familyDiners, filters, appliancesOnHand, familyChoice });
-		try { localStorage.setItem(STORAGE_KEY, settings); } catch (error) { console.error("Recipe settings could not be saved; changes apply only to this visit.", error instanceof Error ? error.name : "Unknown error"); message = "Preferences apply to this visit but could not be saved."; }
+		try { localStorage.setItem(STORAGE_KEY, settings); } catch (error) { void reportError("recipe-storage-write"); console.error("Recipe settings could not be saved; changes apply only to this visit.", error instanceof Error ? error.name : "Unknown error"); message = "Preferences apply to this visit but could not be saved."; }
 	});
 </script>
 
@@ -365,7 +362,7 @@
 		{#if hydrated && chips.length}<div class="active-filters"><ul aria-label="Active filters and search">{#each chips as chip, index (`${chip.key}:${chip.value ?? ""}`)}<li><Button variant="outline" size="sm" type="button" aria-label={`Remove ${chip.key === "query" ? "search" : "filter"}: ${chip.label}`} onclick={() => removeChip(chip, index)}>{chip.label}<X aria-hidden="true" /></Button></li>{/each}</ul><Button variant="ghost" size="sm" type="button" onclick={clearChips}>Clear all</Button></div>{/if}
 		<p class="no-results" role="status">{!result.total ? savedMode ? "No saved recipes match. Open a recipe online to save it for offline use." : "No recipes match your search and filters. Try fewer words or adjust the filters." : query.trim() ? `${result.total} recipes found` : ""}</p>
 		<div class="recipe-grid">
-			{#each renderedRecipes as recipe (recipe.id)}<RecipeCard {recipe} madeOn={madeDateFor(made, recipe.id)} servings={recipeSettings.servings} settings={recipeSettings} onPrint={() => print(recipe.id)} disabled={!hydrated} href={recipeBrowseHref(recipe, recipeSettings)} />{/each}
+			{#each renderedRecipes as recipe (recipe.id)}<RecipeCard {recipe} madeOn={madeDateFor(made, recipe.id)} settings={recipeSettings} onPrint={() => print(recipe.id)} disabled={!hydrated} href={recipeBrowseHref(recipe, recipeSettings)} />{/each}
 		</div>
 		{#if unsupportedSavedRecords.length}<ul>{#each unsupportedSavedRecords as record (record.id)}<li><a href={`/recipes/${record.id}/`}>{record.recipe?.title || record.id}</a> - saved with another version; open its saved page to cook.</li>{/each}</ul>{/if}
 		{#if hydrated && hasMore}<div class="load-more" {@attach watchMore}><Button variant="outline" type="button" aria-busy={loading} onclick={() => loadMore(true)}>Load more recipes</Button><p>{renderedRecipes.length} of {result.total} recipes shown</p></div>{/if}

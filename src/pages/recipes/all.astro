@@ -1,0 +1,43 @@
+---
+import { recipeCatalog, recipeCatalogItemList } from "../../components/recipes/recipe-catalog.mjs";
+import data from "../../components/recipes/recipe-data.server.mjs";
+import RecipeLayout from "../../layouts/RecipeLayout.astro";
+
+const collections = recipeCatalog(data.recipes);
+const count = data.recipes.length;
+const structuredData = JSON.stringify(recipeCatalogItemList(collections, Astro.site)).replaceAll("<", "\\u003c");
+---
+
+<RecipeLayout title="All keto recipes" description="Browse every keto meal and smoothie, with preparation times and estimated net carbohydrates per portion.">
+	<!-- biome-ignore lint/nursery/noAstroSetHtmlDirective: JSON-LD escapes authored text before embedding in a script element -->
+	<script slot="head" type="application/ld+json" set:html={structuredData} />
+	<h1>All keto recipes</h1>
+	<p>{count} recipes, grouped by collection. Nutrition is estimated for one base meal serving or an 8 fl oz smoothie glass. Optional sides are separate.</p>
+	{collections.map((collection) => (
+		<section aria-labelledby={`catalog-${collection.type}`}>
+			<h2 id={`catalog-${collection.type}`}><a href={collection.href}>{collection.title}</a></h2>
+			<ul class="recipe-catalog">
+				{collection.recipes.map((recipe) => (
+					<li>
+						<a href={recipe.href}>{recipe.title}</a>
+						<span>{recipe.timeLabel}: {recipe.time}. Net carbs: {recipe.netCarbs} {collection.type === "smoothie" ? "per 8 fl oz glass" : "per serving"}.</span>
+					</li>
+				))}
+			</ul>
+		</section>
+	))}
+</RecipeLayout>
+
+<style>
+	@layer properties, theme, base, components, utilities, blog, blog-no-script;
+	@layer blog {
+		.recipe-catalog {
+			display: grid;
+			gap: 1rem;
+		}
+		.recipe-catalog li span {
+			display: block;
+			font-size: 0.9rem;
+		}
+	}
+</style>

@@ -4,12 +4,12 @@ title: "Challenging the Status Quo: Reimagining a World That Runs on Love"
 category: productivity
 description: Are you tired of the current world order that runs on money, canned responses? Read on to find out how to reimagine a world that runs on love.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/gears.webp
+image: /blog/media/migrated/image-02c4d14d42b6d2fccde8cdb0-960.webp
 legacyImage: post_metaimgs/gears.webp
 imageAlt: Lots of metal gears
 imageAttribution: ""
-imageWidth: 1656
-imageHeight: 1080
+imageWidth: 960
+imageHeight: 626
 published: "2022-04-11T14:18:28Z"
 updated: "2022-04-11T14:18:28Z"
 author: John Solly

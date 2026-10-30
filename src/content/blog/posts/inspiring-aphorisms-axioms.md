@@ -4,7 +4,7 @@ title: "Words of Wisdom: A Collection of Aphorisms and Axioms"
 category: resources
 description: Find inspiration and wisdom in this collection of aphorisms and axioms. Reflect on their meanings and how they apply to your life and the world.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/wiseMan.webp
+image: /blog/media/migrated/image-083152aa12b72ec85feccff6-512.webp
 legacyImage: post_metaimgs/wiseMan.webp
 imageAlt: Wise old man teaching a young boy
 imageAttribution: "Stable Diffusion 2.1: An old, wise man shares ancient wisdom with a young learner, speaking of his travels and the lessons he has learned throughout his long, fulfilling life. The old man imparts tales of magic, adventure, and the power of the human spirit as the sun sets and the stars come out."
@@ -389,7 +389,7 @@ The ten rules state:
 
 <strong>Lawrence Kohlberg's stages of moral development</strong>
 
-<figure class="image image_resized" style="width:67.39%;"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/lawrence-kohlbergs-six-stages-of-moral-development.png" alt="Diagram illustrating Lawrence Kohlberg's stages of moral development, including pre-conventional, conventional, and post-conventional levels of moral reasoning."></figure>
+<figure class="image image_resized" style="width:67.39%;"><img src="/blog/media/migrated/image-3e0b21405e15de0bd50bfc1b-960.webp" alt="Diagram illustrating Lawrence Kohlberg's stages of moral development, including pre-conventional, conventional, and post-conventional levels of moral reasoning."></figure>
 
 <strong>Loss Aversion</strong>
 
@@ -429,7 +429,7 @@ The ten rules state:
 
 <strong>Overton Window</strong>
 
-<figure class="image image-style-align-center image_resized" style="width:42.59%;"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/Overton_Window.jpg" alt="Graph showing the Overton Window, a concept in political theory that represents the range of ideas that are considered politically acceptable in a given time and place."></figure>
+<figure class="image image-style-align-center image_resized" style="width:42.59%;"><img src="/blog/media/migrated/image-e419e00e6938ae04dbc69a68-862.webp" alt="Graph showing the Overton Window, a concept in political theory that represents the range of ideas that are considered politically acceptable in a given time and place."></figure>
 
 <strong>Peter principle</strong>
 
@@ -511,7 +511,7 @@ The ten rules state:
 
 <ul><li>The rally 'round the flag effect (or syndrome) is a concept used in <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Political_science">political science</a> and <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/International_relations">international relations</a> to explain increased short-run popular support of the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/President_of_the_United_States">President of the United States</a> during periods of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/International_crisis">international crisis</a> or <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/War">war</a>.<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Rally_%27round_the_flag_effect#cite_note-Goldstein-1">[1]</a> Because rally 'round The Flag effect can reduce criticism of governmental policies, it can be seen as a factor of <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Diversionary_foreign_policy">diversionary foreign policy</a>.<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Rally_%27round_the_flag_effect#cite_note-Goldstein-1">[1]</a></li></ul>
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/RallyRoundTheFlag.webp" alt="Diagram illustrating the Rally 'Round The Flag Effect, a phenomenon in which public support for a leader or government increases during times of crisis or military conflict."></figure>
+<figure class="image"><img src="/blog/media/migrated/image-f7d6d0af2c80073fc1acfb9f-384.webp" alt="Diagram illustrating the Rally 'Round The Flag Effect, a phenomenon in which public support for a leader or government increases during times of crisis or military conflict."></figure>
 
 <strong>Relativist Fallacy</strong>
 

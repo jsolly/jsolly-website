@@ -4,7 +4,7 @@ title: "Mastering Intuition Pumps: Essential Terms | A Comprehensive Guide"
 category: resources
 description: Learn the key terms and concepts behind intuition pumps to sharpen your mind and make better decisions. Dive deeper with my comprehensive guide.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/brainBulb.webp
+image: /blog/media/migrated/image-dd5b1a34f04dfdfb117cd18e-720.webp
 legacyImage: post_metaimgs/brainBulb.webp
 imageAlt: John Solly Headshot
 imageAttribution: ""

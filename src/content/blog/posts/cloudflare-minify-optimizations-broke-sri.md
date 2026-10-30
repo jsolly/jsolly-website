@@ -4,7 +4,7 @@ title: Solve CloudFlare's 'Auto Minify' and Subresource Integrity Conflict
 category: web-dev
 description: Fix CSS and JS breaking on your website caused by CloudFlare's 'auto-minification' by turning off optimizations and implementing minification server side.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/cloudflare_auto_minify.png
+image: /blog/media/migrated/image-8fb74ecfe060058754a1a620-659.webp
 legacyImage: post_metaimgs/cloudflare_auto_minify.png
 imageAlt: Screenshot of CloudFlare's auto-minify for HTML, CSS, and JS
 imageAttribution: ""
@@ -25,7 +25,7 @@ related:
 
 After <a target="_blank" rel="noopener noreferrer" href="/blog/how-to-implement-subresource-integrity-django/">implementing subresource integrity</a> and <a target="_blank" rel="noopener noreferrer" href="/blog/free-cdn-for-17x-speed/"> switching over to CloudFlare</a>, I noticed resources like CSS and JavaScript were breaking on my site. I ran into the same issue as <a target="_blank" rel="noopener noreferrer" href="https://valer.dev/posts/subresource-integrity/">this guy</a>. CloudFlare presents these options and I didn't think twice about turning them on.
 
-<img class="image_resized" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/cloudflare_auto_minify.png" alt="CloudFlare interface showing three checkboxes for 'Auto Minify'...HTML, CSS, and JS" width="659" height="216">
+<img class="image_resized" src="/blog/media/migrated/image-8fb74ecfe060058754a1a620-659.webp" alt="CloudFlare interface showing three checkboxes for 'Auto Minify'...HTML, CSS, and JS" width="659" height="216">
 
 Because there's an integrity hash on these files, they fail to load when modified. CloudFlare's 'auto-minification' changes, causing the hash check to fail.
 

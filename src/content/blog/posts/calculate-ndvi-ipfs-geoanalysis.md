@@ -4,7 +4,7 @@ title: Calculating NDVI with IPFS for Geospatial Analysis
 category: Geodev
 description: Discover the potential of using IPFS for geospatial analysis with our in-depth blog post, featuring a step-by-step guide on calculating NDVI.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/NDVI.webp
+image: /blog/media/migrated/image-f54b43412329cc65790a3e7c-880.webp
 legacyImage: post_metaimgs/NDVI.webp
 imageAlt: NDVI plot of Rome, Italy
 imageAttribution: Created using Matplotlib

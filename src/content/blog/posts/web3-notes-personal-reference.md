@@ -4,7 +4,7 @@ title: "Web3 Notes: A Personal Reference"
 category: resources
 description: Keep track of important web3 topics with these personal notes. Use them as a reference and stay informed about the latest developments in the world of web3.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/web3Image.webp
+image: /blog/media/migrated/image-340892402f796c63c8726249-768.webp
 legacyImage: post_metaimgs/web3Image.webp
 imageAlt: John Solly Headshot
 imageAttribution: "Stable Diffusion using this prompt: Web3, logo, crypto, Etherum, coin, blockchain"

@@ -27,6 +27,8 @@ import { serveStatic, stubOffOrigin } from "./pages.mjs";
 // with vercel.json's headers (the feeds' XML types, the header CSP), and
 // every other host by stubOffOrigin. The smoke suite's stub pages check the
 // scenario's logic; this checks it against the markup the site ships.
+const STATIC_RECIPE_SUMMARY =
+	/^\/recipes\/data\/summaries\/library-[a-f0-9]{40}\.json$/u;
 const JSON_TYPE = /^application\/json/u;
 const POST_PATH = /^\/blog\/[^/]+\/$/u;
 const DIST = fileURLToPath(new URL("../../dist/", import.meta.url));
@@ -236,7 +238,7 @@ it("The worker smoke proves summaries save nothing and an opened recipe reopens 
 for (const variant of [
 	{
 		title:
-			"The runner waits for activation, reloads during pending pagination, and proves saved-only offline use",
+			"The runner waits for activation, reloads during a pending static summary download, and proves saved-only offline use",
 		scope: "/recipes/",
 		script: "/recipes/service-worker.js",
 		valid: true,
@@ -267,6 +269,14 @@ for (const variant of [
 	},
 	{
 		title:
+			"The runner rejects unrelated JSON cancellation even during an explicit offline transition",
+		scope: "/recipes/",
+		script: "/recipes/service-worker.js",
+		valid: false,
+		failure: "offline-unrelated-json",
+	},
+	{
+		title:
 			"The runner still rejects missing cooking images during offline verification",
 		scope: "/recipes/",
 		script: "/recipes/service-worker.js",
@@ -290,6 +300,8 @@ for (const variant of [
 		const pending = new Set();
 		const fixtureErrors = [];
 		const events = [];
+		let cancellationPaths = [];
+		let heldCancellations = 0;
 		let summaryDelivered = false;
 		let reloads = 0;
 		let workerBrowseReady;
@@ -324,10 +336,12 @@ for (const variant of [
 				const operation = (async () => {
 					const url = new URL(incoming.url, origin);
 					if (
-						url.pathname === "/api/recipe-browse/" &&
+						cancellationPaths.includes(url.pathname) &&
 						url.searchParams.has("smoke-cancellation")
 					) {
-						cancellationHeld.resolve();
+						heldCancellations++;
+						if (heldCancellations === cancellationPaths.length)
+							cancellationHeld.resolve();
 						await releaseSummary.promise;
 						outgoing.writeHead(200, { "Content-Type": "application/json" });
 						outgoing.end("{}");
@@ -339,7 +353,7 @@ for (const variant of [
 					});
 					assert.equal(response.status, 200, url.pathname);
 					const body = Buffer.from(await response.arrayBuffer());
-					if (url.pathname === "/api/recipe-browse/") {
+					if (STATIC_RECIPE_SUMMARY.test(url.pathname)) {
 						events.push("summary-held");
 						summaryStarted.resolve();
 						await releaseSummary.promise;
@@ -371,6 +385,14 @@ for (const variant of [
 			const releaseSha = JSON.parse(
 				await readFile(join(DIST, "release.json"), "utf8"),
 			).sha;
+			cancellationPaths =
+				variant.failure === "offline-unrelated-json"
+					? ["/recipes/data/summaries/unrelated.json"]
+					: [
+							`/recipes/data/summaries/library-${releaseSha}.json`,
+							`/recipes/data/search/index-${releaseSha}.json`,
+							"/api/recipe-browse/",
+						];
 			const receipt = await runSmoke({
 				scenario: {
 					productionUrl: `${origin}/`,
@@ -387,27 +409,41 @@ for (const variant of [
 					verifyRecipeWorker: async (page, transitions) => {
 						await workerBrowseReady;
 						const evidence = await verifyRecipeWorker(page, transitions);
-						if (variant.valid || variant.failure === "offline-image") {
-							// Prove cancellation classification with a request we own,
-							// rather than depending on background pagination timing.
-							const summaryRequest = page.waitForRequest(
-								(browserRequest) =>
-									browserRequest.url() ===
-									`${origin}/api/recipe-browse/?smoke-cancellation=1`,
+						if (
+							variant.valid ||
+							["offline-image", "offline-unrelated-json"].includes(
+								variant.failure,
+							)
+						) {
+							// Exercise native browsing and both exact versioned artifacts.
+							// The unrelated JSON variant proves the allowance stays narrow.
+							const cancellationURLs = cancellationPaths.map(
+								(path) => `${origin}${path}?smoke-cancellation=1`,
 							);
-							await page.evaluate(() => {
+							const requests = cancellationURLs.map((url) =>
+								page.waitForRequest(
+									(browserRequest) => browserRequest.url() === url,
+								),
+							);
+							await page.evaluate((paths) => {
 								globalThis.smokeSummaryAbort = new AbortController();
-								void fetch("/api/recipe-browse/?smoke-cancellation=1", {
-									signal: globalThis.smokeSummaryAbort.signal,
-								}).catch(() => {
-									// The fixture deliberately aborts this held request below.
-								});
-							});
-							const heldRequest = await summaryRequest;
+								for (const path of paths)
+									void fetch(`${path}?smoke-cancellation=1`, {
+										signal: globalThis.smokeSummaryAbort.signal,
+									}).catch(() => {
+										// The fixture deliberately aborts these held requests below.
+									});
+							}, cancellationPaths);
+							const heldRequests = await Promise.all(requests);
 							await cancellationHeld.promise;
-							const cancelled = page.waitForEvent("requestfailed", {
-								predicate: (browserRequest) => browserRequest === heldRequest,
-							});
+							const cancelled = Promise.all(
+								heldRequests.map((heldRequest) =>
+									page.waitForEvent("requestfailed", {
+										predicate: (browserRequest) =>
+											browserRequest === heldRequest,
+									}),
+								),
+							);
 							transitions.beforeOffline();
 							await page.context().setOffline(true);
 							try {
@@ -477,7 +513,7 @@ for (const variant of [
 							if (variant.failure === "online-summary") {
 								let requests = 0;
 								await context.route(
-									(url) => url.pathname === "/api/recipe-browse/",
+									(url) => STATIC_RECIPE_SUMMARY.test(url.pathname),
 									(route) => {
 										requests++;
 										return requests === 2
@@ -508,7 +544,7 @@ for (const variant of [
 									assert.equal(
 										summaryDelivered,
 										false,
-										"pagination remains pending at reload",
+										"the static summary remains pending at reload",
 									);
 									reloads++;
 									// Observe the next page before reload can start its summary.
@@ -517,8 +553,9 @@ for (const variant of [
 									workerBrowseReady = Promise.all([
 										page.waitForRequest((browserRequest) => {
 											if (
-												new URL(browserRequest.url()).pathname !==
-												"/api/recipe-browse/"
+												!STATIC_RECIPE_SUMMARY.test(
+													new URL(browserRequest.url()).pathname,
+												)
 											)
 												return false;
 											summaryRequest = browserRequest;
@@ -563,8 +600,10 @@ for (const variant of [
 				variant.failure === "registration"
 					? "Unexpected service worker registration"
 					: variant.failure === "online-summary"
-						? "/api/recipe-browse/"
-						: "/recipes/media/";
+						? "/recipes/data/summaries/"
+						: variant.failure === "offline-unrelated-json"
+							? "/recipes/data/summaries/unrelated.json"
+							: "/recipes/media/";
 			assert.equal(
 				receipt.errors.length === 0,
 				variant.valid,
@@ -587,14 +626,18 @@ for (const variant of [
 			);
 			assert.equal(reloads, variant.failure === "registration" ? 0 : 1);
 			const cancellations = receipt.observations.filter(
-				({ source, phase, url }) =>
-					source === "verification-cancellation" &&
-					phase === "offline" &&
-					url === `${origin}/api/recipe-browse/?smoke-cancellation=1`,
+				({ source, phase }) =>
+					source === "verification-cancellation" && phase === "offline",
 			);
-			assert.equal(
-				cancellations.length > 0,
-				variant.valid || variant.failure === "offline-image",
+			const expectedCancellations =
+				variant.valid || variant.failure === "offline-image"
+					? cancellationPaths
+							.map((path) => `${origin}${path}?smoke-cancellation=1`)
+							.sort((a, b) => a.localeCompare(b))
+					: [];
+			assert.deepEqual(
+				cancellations.map(({ url }) => url).sort((a, b) => a.localeCompare(b)),
+				expectedCancellations,
 				JSON.stringify(receipt),
 			);
 

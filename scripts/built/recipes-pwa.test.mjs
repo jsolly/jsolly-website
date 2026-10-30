@@ -94,7 +94,9 @@ function installCheck(name, viewport) {
 			!urls.some(
 				(url) =>
 					url.startsWith("/recipes/media/") ||
-					url.startsWith("/recipes/data/packs/"),
+					url.startsWith("/recipes/data/packs/") ||
+					url.startsWith("/recipes/data/summaries/") ||
+					url.startsWith("/recipes/data/search/"),
 			),
 		);
 		for (const path of RECIPE_PAGES.filter(

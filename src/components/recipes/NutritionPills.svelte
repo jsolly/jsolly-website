@@ -1,9 +1,7 @@
 <script>
-	import { BASE_SERVINGS, nutritionHighlights } from "./constants.mjs";
-	import { nutrientFilters } from "./nutrient-filters.mjs";
+	import { nutritionHighlights } from "./constants.mjs";
 
-	let { recipe, servings = BASE_SERVINGS, flags: givenFlags } = $props();
-	const flags = $derived(givenFlags ?? nutrientFilters(recipe, servings));
+	let { flags } = $props();
 	const highlights = $derived(
 		Object.entries(nutritionHighlights).filter(([key]) => flags[key]),
 	);

@@ -95,6 +95,23 @@ async function snapshot(label) {
 	const builtRelease = JSON.parse(
 		await readFile(join(directory, "release.json"), "utf8"),
 	).sha;
+	const summaryRoot = join(directory, "recipes/data/summaries");
+	const summary = JSON.parse(
+		await readFile(join(summaryRoot, `library-${builtRelease}.json`), "utf8"),
+	);
+	await writeFile(
+		join(summaryRoot, `library-${release}.json`),
+		JSON.stringify({ ...summary, release }),
+	);
+	const searchRoot = join(directory, "recipes/data/search");
+	const search = JSON.parse(
+		await readFile(join(searchRoot, `index-${builtRelease}.json`), "utf8"),
+	);
+	await writeFile(
+		join(searchRoot, `index-${release}.json`),
+		JSON.stringify({ ...search, release }),
+	);
+
 	await writeFile(
 		join(directory, "release.json"),
 		JSON.stringify({ sha: release }),

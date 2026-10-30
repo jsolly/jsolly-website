@@ -4,7 +4,7 @@ title: "Creating Interactive Maps With Leaflet.js: A Step-by-Step Guide"
 category: Geodev
 description: "Creating interactive maps with Leaflet.js: A guide to adding plugins, customizing appearance, and more"
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/leaflet_map_fW6awdh.png
+image: /blog/media/migrated/image-faae00e67eaf95ed6fb0be39-926.webp
 legacyImage: post_metaimgs/leaflet_map_fW6awdh.png
 imageAlt: Map of the US showing points in LA, Dallas and NYC.
 imageAttribution: ""

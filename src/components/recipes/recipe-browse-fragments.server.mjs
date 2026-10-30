@@ -30,7 +30,6 @@ export function writeBrowseFragments(
 										props: {
 											recipe: recipeCardSummary(recipe, servings),
 											href: `/recipes/${recipe.id}/`,
-											servings,
 										},
 									}).body,
 								]),

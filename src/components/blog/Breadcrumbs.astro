@@ -1,0 +1,23 @@
+---
+import type { Breadcrumb } from "../../lib/blog/structured-data.js";
+
+interface Props {
+	crumbs: readonly Breadcrumb[];
+}
+const { crumbs } = Astro.props;
+---
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+	{crumbs.map((crumb, index) => <>
+		{index > 0 && <span aria-hidden="true">/</span>}
+		{index === crumbs.length - 1
+			? <span aria-current="page">{crumb.name}</span>
+			: <a href={crumb.href}>{crumb.name}</a>}
+	</>)}
+</nav>
+
+<style>
+@layer properties, theme, base, components, utilities, blog, blog-no-script;
+@layer blog {
+	.breadcrumbs { flex-wrap: wrap; }
+}
+</style>

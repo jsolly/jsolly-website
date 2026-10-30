@@ -68,9 +68,9 @@ verify the live lifecycle and eventual storage-class transition separately.
 Object Lock retention ends November 1, 2026. No teardown is authorized.
 
 Heroku release v315, database and media remain for recovery until John's separate
-retirement decision after the soak. The `blogthedata` S3 bucket and
-`https://d1d7p8ufhgz4ld.cloudfront.net` still serve article images: rehost those
-first-party before any retirement and update CSP and consumers together.
+retirement decision after the soak. Blog images are now [rehosted on this site](blog-images.md), with responsive
+WebPs and original-source receipts. The `blogthedata` S3 bucket and CloudFront
+distribution remain retained; rehosting does not authorize their retirement.
 Preserve private exports, independent backups, the recipe archive and migration
 receipts. Git history retains the completed plan bundle. The source repository
 can be unarchived for an authorized recovery.

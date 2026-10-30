@@ -19,9 +19,6 @@ export const LEGACY_FRONTMATTER_KEYS = [
 // The post image when frontmatter names none; the posts schema defaults to it.
 export const DEFAULT_IMAGE = "/blog/media/default.webp";
 
-// The retained blogthedata S3/CloudFront media base for legacy post images (J6).
-export const LEGACY_MEDIA = "https://d1d7p8ufhgz4ld.cloudfront.net/media/";
-
 // The hosts post bodies may embed in an iframe: the sanitizer keeps only these
 // iframes, and BlogLayout allows exactly these in frame-src.
 export const EMBED_HOSTS = ["www.youtube-nocookie.com", "viewer.diagrams.net"];
@@ -41,7 +38,7 @@ export const AUTOMATIC_BATCHES = 3;
 export const LEGACY_SITE = "https://www.blogthedata.com";
 
 // Posts the feeds list, most recently updated first.
-export const FEED_SIZE = 5;
+export const FEED_SIZE = 20;
 
 // Feed display names use John Solly; legacy feed and entry IDs stay stable.
 export const FEED_TITLE = "John Solly | Blog";

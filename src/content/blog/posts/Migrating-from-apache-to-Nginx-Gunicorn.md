@@ -4,7 +4,7 @@ title: "Switching to Nginx and Gunicorn: Updating My Blog's Web Server"
 category: dev-tools
 description: Upgrade your server and application with this step-by-step guide on migrating from Apache to Nginx and Gunicorn. Improve website speed and security!
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/gunicorn-logo.png
+image: /blog/media/migrated/image-76f13edf41c65ed15b732de5-800.webp
 legacyImage: post_metaimgs/gunicorn-logo.png
 imageAlt: Meta Image
 imageAttribution: ""

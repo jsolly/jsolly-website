@@ -146,7 +146,7 @@ function privacyMarkdown(origin: string): string {
 
 Last updated: October 2026
 
-jsolly.com is the personal website of John Solly, including his blog and recipes. It is a static site with no analytics or advertising trackers of its own, and it does not collect personal information directly.
+jsolly.com is the personal website of John Solly, including his blog and recipes. It is a static site with no analytics or advertising trackers of its own. It receives limited operational error reports as described below.
 
 ## Contact form
 
@@ -156,9 +156,13 @@ If you reach out through the contact link, your message is handled by Mailchimp 
 
 The site is hosted on Vercel, which may record standard server and CDN logs (such as IP address and user agent) for security and operations, per Vercel's privacy policy.
 
+## Error reports
+
+If a script or recipe feature fails, your browser may send this site a fixed error category and the page path, such as /recipes/meals/. Reports exclude query parameters, fragments, cookies, saved settings, form contents, error messages and stack traces. They contain no visitor identifier and are limited to three distinct categories per page load. John uses these reports to diagnose failures, not to measure visits. Vercel handles them as ordinary requests and may retain the hosting logs described above.
+
 ## Blog images
 
-Most blog post images are served from Amazon CloudFront and Amazon S3, which may likewise record standard request logs (such as IP address and user agent), per the AWS privacy notice.
+Blog post images are served from this site through Vercel, under the same hosting and logging practices described above.
 
 ## Embedded media
 

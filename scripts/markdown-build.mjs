@@ -82,11 +82,21 @@ export function pageMarkdown(html) {
 			filter: ["table", "iframe", "video", "pre"],
 			replacement: (_content, node) => `\n\n${node.outerHTML}\n\n`,
 		});
-		const structured = [
+		const entities = [
 			...document.querySelectorAll('script[type="application/ld+json"]'),
-		]
-			.map((node) => JSON.parse(node.textContent))
-			.find((entry) => entry["@type"] === "BlogPosting");
+		].flatMap((node) => {
+			const entry = JSON.parse(node.textContent);
+			return entry["@graph"] ?? [entry];
+		});
+		const structured = entities.find(
+			(entry) => entry["@type"] === "BlogPosting",
+		);
+		const author = structured?.author;
+		const authorName =
+			author?.name ??
+			entities.find((entry) => entry["@id"] === author?.["@id"])?.name;
+		if (structured && typeof authorName !== "string")
+			throw new Error(`BlogPosting author is unresolved on ${canonical}`);
 		const metadata = {
 			canonical,
 			title: content.querySelector("h1")?.textContent.trim() ?? document.title,
@@ -97,7 +107,7 @@ export function pageMarkdown(html) {
 					?.getAttribute("content") ?? "",
 			...(structured
 				? {
-						author: structured.author.name,
+						author: authorName,
 						published: structured.datePublished,
 						updated: structured.dateModified,
 					}

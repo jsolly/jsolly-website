@@ -1,3 +1,4 @@
+import { reportError } from "../../lib/report-error.mjs";
 import { RECIPE_BATCH_SIZE } from "./constants.mjs";
 
 const COLLECTION_PATHS = new Set([
@@ -70,6 +71,7 @@ export function markLegacyRedirect(id, getStorage = () => sessionStorage) {
 	try {
 		getStorage().setItem(LEGACY_REDIRECT_KEY, id);
 	} catch (error) {
+		void reportError("recipe-storage-write");
 		console.error(
 			"The legacy recipe link could not be recorded; Back may leave the site.",
 			error instanceof Error ? error.name : "Unknown error",
@@ -85,6 +87,7 @@ export function takeLegacyRedirect(id, getStorage = () => sessionStorage) {
 		storage.removeItem(LEGACY_REDIRECT_KEY);
 		return true;
 	} catch (error) {
+		void reportError("recipe-storage-read");
 		console.error(
 			"The legacy recipe link could not be read; Back uses browser history.",
 			error instanceof Error ? error.name : "Unknown error",
@@ -98,6 +101,7 @@ export function clearLegacyRedirect(getStorage = () => sessionStorage) {
 	try {
 		getStorage().removeItem(LEGACY_REDIRECT_KEY);
 	} catch (error) {
+		void reportError("recipe-storage-write");
 		console.error(
 			"A stale legacy recipe link could not be cleared; a later Back may follow its collection link.",
 			error instanceof Error ? error.name : "Unknown error",

@@ -4,6 +4,7 @@
 	import type { Card } from "../../lib/blog/types.js";
 	import Button from "../../lib/components/ui/button.svelte";
 	import Input from "../../lib/components/ui/input.svelte";
+	import { reportError } from "../../lib/report-error.mjs";
 	import PostCards from "./PostCards.svelte";
 
 	// The published post cards; a search hit shows its post's card.
@@ -68,6 +69,7 @@
 			};
 		} catch (error) {
 			console.error("Search index failed to load", error);
+			void reportError("blog-search");
 			searchState = { kind: "error" };
 		}
 	}

@@ -4,12 +4,12 @@ title: Fixing Broken Links With Django's Redirects App
 category: web-dev
 description: Learn how to use the redirects app in Django to redirect old URLs to new ones, avoiding 404 errors | A guide
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/django.webp
+image: /blog/media/migrated/image-73b1eab930004162db6cd1fd-960.webp
 legacyImage: post_metaimgs/django.webp
 imageAlt: Lead actor of Django Unchained pointing a gun at the camera
 imageAttribution: ""
-imageWidth: 1400
-imageHeight: 984
+imageWidth: 960
+imageHeight: 675
 published: "2022-07-24T22:09:57.597Z"
 updated: "2022-07-24T22:09:57.597Z"
 author: John Solly
@@ -37,7 +37,7 @@ But now everyone who visits the original link gets a 404. To fix that up, I foll
 
 Now on your admin page, you can add all the redirects you want
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_qzOXJUh.png" alt="screenshot of redirect page showing /red-is-my-favorite-color redirecting to /blue-is-my-favorite-color"></figure>
+<figure class="image"><img src="/blog/media/migrated/image-4f05a58e7e9a34bba88df7f9-882.webp" alt="screenshot of redirect page showing /red-is-my-favorite-color redirecting to /blue-is-my-favorite-color"></figure>
 
 I could add something in signals.py to do this automatically on slug change, but I don't want this behavior to be automagic, and I don't change link slugs very often.
 

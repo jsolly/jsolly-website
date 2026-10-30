@@ -5,14 +5,13 @@ import {
 } from "./constants.mjs";
 import { ingredientText } from "./cooking-notes.mjs";
 import { cookingText } from "./cooking-quantities.mjs";
-import { ingredientMeasure, UNIT_LABELS } from "./ingredient-units.mjs";
+import { ingredientMeasure } from "./ingredient-units.mjs";
 import { dailyNutrition } from "./nutrition.mjs";
 import {
 	capacityNote,
 	dietaryClass,
 	displayNutrition,
 	formatIngredient,
-	formatNutrition,
 	formatQuantity,
 	ingredientAmount,
 	nutritionHeading,
@@ -22,8 +21,12 @@ import {
 	sideNutrition,
 	smoothieYieldNote,
 	totalTimeLabel,
-	validateSettings,
 } from "./recipe-logic.mjs";
+import {
+	formatNutrition,
+	UNIT_LABELS,
+	validateSettings,
+} from "./recipe-settings.mjs";
 import { flowGrid, gridHtml } from "./trn-logic.mjs";
 
 /** One cooking document drives Markdown and JSON assistant exports. Model weights stay in recipes.json. */
