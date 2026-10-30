@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { JSDOM } from "jsdom";
 import { it } from "vitest";
 import { readBuilt } from "./pages.mjs";
 
@@ -39,8 +40,19 @@ it("every published recipe is crawlable in the static catalog and its ItemList",
 		actual.items.itemListElement.map(({ position, url }) => [position, url]),
 		expected.map((href, index) => [index + 1, `https://www.jsolly.com${href}`]),
 	);
-	const sitemap = await readFile("dist/sitemap-0.xml", "utf8");
-	assert.ok(sitemap.includes("https://www.jsolly.com/recipes/all/"));
+	const sitemap = new JSDOM(await readFile("dist/sitemap-0.xml", "utf8"), {
+		contentType: "application/xml",
+	});
+	try {
+		const locations = new Set(
+			[...sitemap.window.document.querySelectorAll("loc")].map(
+				({ textContent }) => textContent,
+			),
+		);
+		assert.ok(locations.has("https://www.jsolly.com/recipes/all/"));
+	} finally {
+		sitemap.window.close();
+	}
 });
 
 it("the recipe landing distinguishes both collections and preserves legacy library anchors", async () => {
