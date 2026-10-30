@@ -5,7 +5,6 @@ import {
 	ingredientGrams,
 	ingredientMeasure,
 	ingredientWeight,
-	UNIT_LABELS,
 } from "../../src/components/recipes/ingredient-units.mjs";
 import weights from "../../src/components/recipes/ingredient-weights.json" with {
 	type: "json",
@@ -15,6 +14,7 @@ import {
 	formatQuantity,
 	ingredientAmount,
 } from "../../src/components/recipes/recipe-logic.mjs";
+import { UNIT_LABELS } from "../../src/components/recipes/recipe-settings.mjs";
 
 const BAD_DISPLAY =
 	/unavailable|unspecified|to taste|NaN|Infinity|undefined|~|\(/u;

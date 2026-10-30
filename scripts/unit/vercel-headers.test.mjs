@@ -39,4 +39,15 @@ it("Vercel serves the recipe service worker uncached, unredirected and with the 
 		undefined,
 		"recipe pages keep Vercel's own caching",
 	);
+	for (const artifact of [
+		`summaries/library-${"a".repeat(40)}`,
+		`search/index-${"a".repeat(40)}`,
+	]) {
+		assert.equal(
+			routePath(routes, `/recipes/data/${artifact}.json`).headers[
+				"Cache-Control"
+			],
+			"public, max-age=31536000, immutable",
+		);
+	}
 });

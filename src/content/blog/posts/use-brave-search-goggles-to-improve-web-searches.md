@@ -4,7 +4,7 @@ title: Optimizing Web Searches With Brave's Search Goggles
 category: productivity
 description: Learn how to optimize web searches using Brave Search Googles. Create custom re-ranking on top of the Brave search index using rules and filters.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/solly-goggle.webp
+image: /blog/media/migrated/image-6d9f5e74db54432db177cb42-277.webp
 legacyImage: post_metaimgs/solly-goggle.webp
 imageAlt: Meta Image
 imageAttribution: ""

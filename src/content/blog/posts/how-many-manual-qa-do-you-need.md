@@ -4,12 +4,12 @@ title: "Find the Optimal QA to Developer Ratio: Data-Driven Hiring Decisions"
 category: productivity
 description: Learn how to estimate the ideal QA to Developer ratio for software development teams by considering variables and using data-driven approaches.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/tensorFlowModel.png
+image: /blog/media/migrated/image-f87a22b21f98007981a75bc0-960.webp
 legacyImage: post_metaimgs/tensorFlowModel.png
 imageAlt: Headshot of John Solly
 imageAttribution: ""
-imageWidth: 983
-imageHeight: 1000
+imageWidth: 960
+imageHeight: 977
 published: "2022-03-14T15:27:26Z"
 updated: "2026-09-07T14:25:05.458Z"
 author: John Solly
@@ -45,13 +45,13 @@ After scanning the thread and reviewing a few other resources, I noticed pattern
 
 I experimented with these parameters in Google Sheets using RANDBETWEEN( ) to input numbers like <i>Lines of Code</i> or <i>Number of Developers. Then I used</i> my judgment to estimate the number of QA engineers needed for a project.
 
-<img class="image_resized" style="height:73px;width:400px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/csv_output.png" alt="CSV output of manual classification of QA engineers needed">
+<img class="image_resized" style="height:73px;width:400px;" src="/blog/media/migrated/image-b37ab843c583784c71b00c96-960.webp" alt="CSV output of manual classification of QA engineers needed">
 
 With ~200 rows manually classified, I brought this up with my friend Aviv, who thought we could fit a model to the dataset to predict the number of QA Engineers needed for any situation. After importing the data into a <a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/drive/1rBKdTwgBrF02dXLpyImKsiK_hMjSOYow?usp=sharing">Jupyter notebook</a>, he trained a model using TensorFlow and exported the results to CSV,
 
 Here's a pair plot of the model's output. You can see the full report included in the notebook linked above.
 
-<img class="image_resized" style="height:407px;width:400px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/tensorflow_model_output.png" alt="Tensorflow Model Output">
+<img class="image_resized" style="height:407px;width:400px;" src="/blog/media/migrated/image-f87a22b21f98007981a75bc0-960.webp" alt="Tensorflow Model Output">
 
 The model correctly discovered that when I manually labeled <i><strong>Number of QA Engineers</strong></i> needed, I mainly leveraged <i><strong>Number of Developers</strong></i><strong>,&nbsp;</strong> <i><strong>Danger of Failure</strong></i>, and <i><strong>Degree of change in Codebase</strong></i>.
 

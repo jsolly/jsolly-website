@@ -4,7 +4,7 @@ title: "Mastering GPT: A Guide to Directives and Parameters"
 category: productivity
 description: Customize GPT with directives and parameters. Improve your GPT skills and get the most out of this powerful tool.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/referenceDirective.webp
+image: /blog/media/migrated/image-e5004112b6e7a9888bf26851-455.webp
 legacyImage: post_metaimgs/referenceDirective.webp
 imageAlt: John Solly Headshot
 imageAttribution: ""

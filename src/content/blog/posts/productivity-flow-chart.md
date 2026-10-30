@@ -4,7 +4,7 @@ title: "Creating Unique Content: Applying the Eisenhower Matrix"
 category: productivity
 description: Discover the unique value you can offer through content creation using the Eisenhower Matrix. Prioritize the most important tasks and create truly unique.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/flowchart.webp
+image: /blog/media/migrated/image-b9e565324c9e80623ac2a933-307.webp
 legacyImage: post_metaimgs/flowchart.webp
 imageAlt: Meta Image
 imageAttribution: ""

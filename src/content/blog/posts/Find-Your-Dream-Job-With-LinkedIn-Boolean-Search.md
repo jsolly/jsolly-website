@@ -4,7 +4,7 @@ title: "Finding GIS Jobs With LinkedIn Boolean Search: A Guide"
 category: productivity
 description: Using the power of LinkedIn Boolean search, you can find GIS jobs tailored to your specific needs. Learn how to use ORs and NOTs to find the perfect job!
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/LinkedInBooleanSearch.webp
+image: /blog/media/migrated/image-4b59b3b511e250ea9f56b4c1-521.webp
 legacyImage: post_metaimgs/LinkedInBooleanSearch.webp
 imageAlt: John Solly Headshot
 imageAttribution: ""
@@ -25,7 +25,7 @@ related:
 
 LinkedIn <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/help/linkedin/answer/a524335/using-boolean-search-on-linkedin?lang=en">Boolean Search</a> is my favorite way to find positions. Let's say you want to find 'GIS Developer' positions. If we search for that, there are over 1K results. That's a lot of jobs go through. Perhaps we can make a more targeted search.
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_WoJiHcX.png" alt="LinkedIn search for 'GIS Developer' with 1K results"></figure>
+<figure class="image"><img src="/blog/media/migrated/image-c94dd7ed133d2898bbe62d16-521.webp" alt="LinkedIn search for 'GIS Developer' with 1K results"></figure>
 
 ## Find Relevant Keywords
 
@@ -41,7 +41,7 @@ Armed with a list of keywords, we can perform more customized searches.
 
 (You get the idea...keep appending terms to get more and more results)
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_Kfklgyh.png" alt="LinkedIn search result with 129K results"></figure>
+<figure class="image"><img src="/blog/media/migrated/image-17366b6c824b42c204fe6534-521.webp" alt="LinkedIn search result with 129K results"></figure>
 
 Wow, that's a lot of jobs to go through. 128K!
 
@@ -51,7 +51,7 @@ With our list of ORs, we can start to get creative with our search. What if we w
 
 <code>(leaflet OR geoserver OR openlayers) AND (-(esri OR mapbox))</code>
 
-<figure class="image image-style-align-center"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_aAfvsLu.png" alt="LinkedIn search for Open Source positions with 485 results"></figure>
+<figure class="image image-style-align-center"><img src="/blog/media/migrated/image-9454708ee6b03318d42dd6a4-517.webp" alt="LinkedIn search for Open Source positions with 485 results"></figure>
 
 ## Show Me GIS Jobs That Don't Mention GIS
 
@@ -59,13 +59,13 @@ Many GIS jobs might not even have GIS in them! These are great positions to find
 
 <code>(leaflet OR geoserver OR openlayers) AND (-(gis OR geographic OR geospatial))</code>
 
-<figure class="image image-style-align-center"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_olZnj0G.png" alt="LinkedIn search for GIS jobs that don't mention GIS. 317 results."></figure>
+<figure class="image image-style-align-center"><img src="/blog/media/migrated/image-6b28ebd17afc70024b75fd15-507.webp" alt="LinkedIn search for GIS jobs that don't mention GIS. 317 results."></figure>
 
 ## Show me Open Source GIS Positions in Austin, TX
 
 Let's go back to the open source example where we had 485 results. This time let's add one of LinkedIn's standard filters on top. A geographic filter of 'Austin, TX.'
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_QCrFTvZ.png" alt="LinkedIn search with spatial filter of Austin Texas. 1 result."></figure>
+<figure class="image"><img src="/blog/media/migrated/image-c78ba67184ddc0ef6a6109c4-526.webp" alt="LinkedIn search with spatial filter of Austin Texas. 1 result."></figure>
 
 One result! I checked the job description, and it looks like they use Leaflet for visualization. Here's an excerpt from the posting.
 

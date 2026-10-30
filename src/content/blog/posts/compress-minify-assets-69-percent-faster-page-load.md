@@ -4,7 +4,7 @@ title: "Boost Page Speed: Minification and Compression for Static Assets"
 category: web-dev
 description: "Boost Your Website's Speed: How Compression and Minification Can Help You Reduce Your Payload Size by Up to 40%, For a Faster, More Responsive Website."
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/image_compression_jEj4yMk.png
+image: /blog/media/migrated/image-8550e708864a09faff30ad25-408.webp
 legacyImage: post_metaimgs/image_compression_jEj4yMk.png
 imageAlt: Screenshot of various image files being compressed.
 imageAttribution: ""
@@ -26,11 +26,11 @@ Caching static assets is only half the game. Adding minification and compression
 
 ## Before Optimization
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_vkktOjM.png" alt="Screenshot of file list before optimization"></figure>
+<figure class="image"><img src="/blog/media/migrated/image-b10284f02fbb0c16b4560023-596.webp" alt="Screenshot of file list before optimization"></figure>
 
 ## After making changes with WhiteNoise + GzipMiddleware
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_4BEdjPr.png" alt="Screenshot of files after (size gets smaller)"></figure>
+<figure class="image"><img src="/blog/media/migrated/image-439bf4267eaf1cf12a4bfe67-542.webp" alt="Screenshot of files after (size gets smaller)"></figure>
 
 Many of the files are smaller. For example, main.css went from 5.4 kB to 2.1 kB. That’s a -61% decrease in size!
 

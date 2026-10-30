@@ -4,12 +4,12 @@ title: Protect User Privacy With the Noreferrer and Noopener Link Attributes
 category: web-dev
 description: Learn how to protect user privacy on your website with HTML link attributes noreferrer and noopener in this informative article.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/noopenerNoreferrer.webp
+image: /blog/media/migrated/image-c8a41959c91422837f052351-960.webp
 legacyImage: post_metaimgs/noopenerNoreferrer.webp
 imageAlt: A link to example.com with noopener and noreferrer properties
 imageAttribution: ""
-imageWidth: 1190
-imageHeight: 732
+imageWidth: 960
+imageHeight: 591
 published: "2022-07-28T20:25:37.762Z"
 updated: "2022-07-28T20:25:37.762Z"
 author: John Solly

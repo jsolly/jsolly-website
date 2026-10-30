@@ -76,7 +76,7 @@
 	{#each visible as post (post.slug)}
 		<article class="post-card">
 			<a href={post.href} class="card-image" tabindex="-1" aria-label={post.title}>
-				<img src={post.image} alt={post.imageAlt} width={post.imageWidth ?? undefined} height={post.imageHeight ?? undefined} loading="lazy" decoding="async" />
+				<img src={post.image} srcset={post.imageSrcset} sizes="(max-width: 600px) calc(100vw - 2rem), (max-width: 960px) 31vw, 280px" alt={post.imageAlt} width={post.imageWidth ?? undefined} height={post.imageHeight ?? undefined} loading="lazy" decoding="async" />
 			</a>
 			<div class="card-copy">
 				<svelte:element this={headingTag}><a class="post-card-link" href={post.href}>{post.title}</a></svelte:element>

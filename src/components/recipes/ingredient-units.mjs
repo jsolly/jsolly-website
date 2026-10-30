@@ -1,8 +1,3 @@
-export const UNIT_LABELS = {
-	grams: "Grams",
-	us: "US imperial",
-	metric: "Metric",
-};
 // NIST customary units. A fluid ounce is volume, never mass.
 const MASS_GRAMS = { g: 1, oz: 28.349523125, lb: 453.59237 };
 const VOLUME_ML = {
@@ -18,12 +13,6 @@ function invalid(ingredient, reason) {
 	throw new Error(
 		`Invalid measurement for ${ingredient.recipeId ? `${ingredient.recipeId}/` : ""}${ingredient.id || ingredient.name || ingredient.ingredientName || "unnamed ingredient"}: ${reason}`,
 	);
-}
-
-export function unitPreference(value) {
-	return typeof value === "string" && Object.hasOwn(UNIT_LABELS, value)
-		? value
-		: "us";
 }
 
 /** Round once for display and retain a positive numeric quantity for tiny spices. */

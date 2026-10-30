@@ -4,7 +4,7 @@ title: How to debug an Astro Application in vscode (Video)
 category: web-dev
 description: A tutorial on debugging Astro applications, covering both client-side and server-side JavaScript. Learn how to add and hit breakpoints in VSCode!
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/astro-logo-dark.webp
+image: /blog/media/migrated/image-f03d77b9c951b7ad45e50e93-920.webp
 legacyImage: post_metaimgs/astro-logo-dark.webp
 imageAlt: Astro Logo
 imageAttribution: ""

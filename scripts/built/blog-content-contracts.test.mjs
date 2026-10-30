@@ -131,9 +131,9 @@ async function filesContaining(dir, markers) {
 }
 
 function structuredData(document) {
-	return JSON.parse(
-		document.querySelector('script[type="application/ld+json"]').textContent,
-	);
+	return [...document.querySelectorAll('script[type="application/ld+json"]')]
+		.map((script) => JSON.parse(script.textContent))
+		.find((value) => value["@type"] === "BlogPosting");
 }
 
 // The CMS post's page: its heading without the heading link, its
@@ -146,7 +146,8 @@ function readCmsPost() {
 			heading: heading.textContent,
 			code: document.querySelector(".article-body pre code")?.textContent,
 			time: document.querySelector("time")?.getAttribute("datetime"),
-			author: structuredData(document).author.name,
+			author: structuredData(document).author["@id"],
+			image: document.querySelector("img.article-hero")?.getAttribute("src"),
 		};
 	});
 }
@@ -184,7 +185,7 @@ async function readImagePost() {
 		social: document
 			.querySelector('meta[property="og:image"]')
 			?.getAttribute("content"),
-		structured: structuredData(document).image,
+		structured: structuredData(document).image.url,
 	}));
 	const card = await readCopy("blog/all-posts", (document) =>
 		document
@@ -219,6 +220,21 @@ before(async () => {
 		join(copy.dir, "public", UPLOAD),
 	);
 	requireSuccess(copy.npmRun("build"));
+	// Run the real image contract over the existing normal-upload and default
+	// cover fixtures, so a migration-only assertion cannot block CMS publishing.
+	requireSuccess(
+		copy.node(
+			"node_modules/vitest/vitest.mjs",
+			[
+				"run",
+				"--cache=false",
+				"--config",
+				"config/testing/vitest.config.mjs",
+				"scripts/built/blog-images.test.mjs",
+			],
+			{ TEST_SUITE: "built" },
+		),
+	);
 	const [cms, draft, image] = await Promise.all([
 		readCmsPost(),
 		readDraft(),
@@ -276,7 +292,8 @@ it("a post saved by PagesCMS builds with its title, preformatted indentation, ex
 		code: "  keep indentation\n",
 		time: "2026-10-02T18:00:23.123Z",
 		// A post without an author gets the public default.
-		author: "John Solly",
+		author: `${SITE}/#person`,
+		image: DEFAULT_IMAGE,
 	});
 });
 

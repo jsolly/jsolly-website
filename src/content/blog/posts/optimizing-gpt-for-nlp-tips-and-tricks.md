@@ -4,7 +4,7 @@ title: "Optimizing GPT for Natural Language Processing: Tips and Tricks"
 category: productivity
 description: Optimize GPT for NLP with these tips and tricks. Unlock its full potential for text generation, code completion and more!
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/ChatGPT_2hFjyq8.webp
+image: /blog/media/migrated/image-2d13cb30d4d86a199a97dbc3-646.webp
 legacyImage: post_metaimgs/ChatGPT_2hFjyq8.webp
 imageAlt: ChatGPT Logo
 imageAttribution: https://img.fresherslive.com/latestnews/images/articles/origin/2022/12/13/how-to-bypass-chat-gpt-filter-63981171eb5d8-1670910321.jpg
@@ -51,11 +51,11 @@ First, here's a list of resources I've used to improve my prompt engineering ski
 
 <strong>Do not provide explanations</strong> - GPT will often offer explanations in its reply. If you want a more natural conversation like an <a target="_blank" rel="noopener noreferrer" href="/blog/how-to-use-ChatGPT-for-GeoDev-Interview-practice/">AI job interview</a>, Including this phrase will ensure you only get dialog back.
 
-<figure class="image image-style-align-center"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_Iu6jxbT.png" alt="GPT output of the above prompt"></figure>
+<figure class="image image-style-align-center"><img src="/blog/media/migrated/image-8c520bae26f7d00a6cf5eb1b-511.webp" alt="GPT output of the above prompt"></figure>
 
 To get a look 'under the hood,' simply append, 'Explain how you arrived at your answer, step-by-step.'
 
-<figure class="image image-style-align-center"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_Jv0GYBE.png" alt="GPT output of the above prompt"></figure>
+<figure class="image image-style-align-center"><img src="/blog/media/migrated/image-83ed0aaad6da4e773d9baa1c-794.webp" alt="GPT output of the above prompt"></figure>
 
 Much more informative!
 
@@ -63,13 +63,13 @@ Much more informative!
 
 <blockquote><p><strong>Prompt: </strong>Write a Python script that iterates through a list of elements and removes duplicates.</p></blockquote>
 
-<figure class="image image-style-align-center"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_h2u09Xj.png" alt="GPT output of the above prompt"></figure>
+<figure class="image image-style-align-center"><img src="/blog/media/migrated/image-3e5def5d3311f0ca509fdb0a-782.webp" alt="GPT output of the above prompt"></figure>
 
 It's very readable but not the fastest way you could do it in Python. Here is the prompt with that extra phrase added:
 
 <blockquote><p><strong>Prompt:</strong> Write a Python script that iterates through a list of elements and removes duplicates. Optimize for time complexity.</p></blockquote>
 
-<figure class="image image-style-align-center"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_XzPquvh.png" alt="GPT output of the above prompt"></figure>
+<figure class="image image-style-align-center"><img src="/blog/media/migrated/image-75b5a2a64a1d04ae449fde79-773.webp" alt="GPT output of the above prompt"></figure>
 
 As you can see, you can get much quicker and cleaner code by letting GPT know what is essential to you.
 
@@ -85,7 +85,7 @@ One of the strengths of GPT is summarizing text. Here are some ideas to make it 
 
 <strong>Create a Subject Line </strong> \- I've started using this to create titles for my blog posts!
 
-<figure class="image image-style-align-center"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_ZguQqLR.png" alt="GPT output of the above prompt"></figure>
+<figure class="image image-style-align-center"><img src="/blog/media/migrated/image-5fad2568c5a41fcc27a92dcc-877.webp" alt="GPT output of the above prompt"></figure>
 
 ## Text Transformations
 
@@ -129,11 +129,11 @@ When using <a target="_blank" rel="noopener noreferrer" href="https://platform.o
 
 <blockquote><p><strong>Prompt: </strong>Take the following input, make it as few characters as physically possible with no information loss. Remove vowels when possible.&nbsp;<br>INPUT&nbsp;<br>&lt;copy/paste&gt;</p></blockquote>
 
-<figure class="image image-style-align-center"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_hbCNuZj.png" alt="GPT output of the above prompt"></figure>
+<figure class="image image-style-align-center"><img src="/blog/media/migrated/image-79ca7b0230c6e4d4f4970f39-728.webp" alt="GPT output of the above prompt"></figure>
 
 To uncompress, simply ask GPT to bring it back! I have done this in a separate thread and multiple other examples, and it works every time!
 
-<figure class="image image-style-align-center"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_mXWaXoB.png" alt="GPT output of the above prompt"></figure>
+<figure class="image image-style-align-center"><img src="/blog/media/migrated/image-40d6d5b765935b37cc40bc53-743.webp" alt="GPT output of the above prompt"></figure>
 
 This way, you can simply submit the compressed version as a prompt, and GPT will expand it under the hood without impacting the total character count!
 
@@ -147,7 +147,7 @@ Here is an example of a prompt with several directives.
 
 <blockquote><p><strong>Prompt:</strong> The following will be a subject, [write: all categories and subcategories] and do not respond to text: &lt;subject&gt;</p></blockquote>
 
-<figure class="image image-style-align-center"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_hQXKHaD.png" alt="GPT output of the above prompt"></figure>
+<figure class="image image-style-align-center"><img src="/blog/media/migrated/image-bfc1722b89b8b70a1fa94351-743.webp" alt="GPT output of the above prompt"></figure>
 
 As you can see, this is super powerful! Simply replace 'A game of Dungeons and Dragons' with whatever you want, and you'll get all the significant categorizations. I see this as applicable if you interact with GPT via its API.
 

@@ -5,8 +5,8 @@ import {
 	formatQuantity,
 	ingredientAmount,
 	purchaseNote,
-	validateSettings,
 } from "./recipe-logic.mjs";
+import { validateSettings } from "./recipe-settings.mjs";
 
 const HTML_SPECIAL = /[&<>"']/gu;
 const ESSENTIAL_STATE =

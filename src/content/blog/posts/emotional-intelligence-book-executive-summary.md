@@ -4,7 +4,7 @@ title: "Increasing Your EQ: The 66 Strategies of Emotional Intelligence 2.0"
 category: productivity
 description: Learn about Emotional Intelligence 2.0 and strategies for increasing EQ, such as body language, controlling emotions, cultural norms, and constructive feedback.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/ei-skills.webp
+image: /blog/media/migrated/image-8100b25744e6a9f42adce001-610.webp
 legacyImage: post_metaimgs/ei-skills.webp
 imageAlt: Emotional Intelligence quadrants. Self-awareness, Social Awareness, Self management, Relationship management
 imageAttribution: ""
@@ -30,7 +30,7 @@ I will now summarize the four skills along with the book's 66 strategies for inc
 
 EQ comprises four skills...<strong>Self Awareness</strong>, <strong>Self Management</strong>, <strong>Social Awareness</strong>, and <strong>Relationship Management</strong>.
 
-<img class="image_resized" style="height:475px;width:610px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/ei-skills.png" alt="Picture of the four emotional intelligence skills shown as a pie chart with each skill taking up 25% of the chart">
+<img class="image_resized" style="height:475px;width:610px;" src="/blog/media/migrated/image-740d45f4f62d581c7ca9a86b-610.webp" alt="Picture of the four emotional intelligence skills shown as a pie chart with each skill taking up 25% of the chart">
 
 A high EQ pays off. For every single point increase in EQ, you can expect an increase of $1,300 to your annual salary! (21)
 
@@ -114,7 +114,7 @@ When taking part in conversations, practice the Art of Listening (strategy 11).
 
 We have all heard the term, 'When in Rome, do as Romans do.' You'll never master social awareness until you understand the rules of the culture game (strategy 13). If you've traveled around, you'll have noticed people act differently from place to place. That reminds me, have you heard of the <a target="_blank" rel="noopener noreferrer" href="https://uta.pressbooks.pub/professionalandtechnicalcommunication/chapter/high-context-vs-low-context-cultures-4-13/">high context vs low context</a> continuum for cultures around the world?
 
-<img class="image_resized" style="height:338px;width:600px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/high-vs-low-context-2.png" alt="High vs low context cultures. High context cultures include Chinese, Korean, Japanese, and Arabs whereas low context cultures include English, North American, Swiss, German.">
+<img class="image_resized" style="height:338px;width:600px;" src="/blog/media/migrated/image-714a7f56d6c41166f1160b0a-960.webp" alt="High vs low context cultures. High context cultures include Chinese, Korean, Japanese, and Arabs whereas low context cultures include English, North American, Swiss, German.">
 
 I used to work with someone who was Swiss. He was the type of guy that was <a target="_blank" rel="noopener noreferrer" href="https://www.ukessays.com/essays/english-language/the-bald-on-record-strategy.php">bald on record</a>. He sugarcoated nothing!
 

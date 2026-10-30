@@ -4,7 +4,7 @@ title: Using ESlint and Husky to Improve Code Quality in a Game Project
 category: dev-tools
 description: ESlint helps you find errors in your JavaScript code. It's also can format code to make it easier to read. Everyone should use a linter!
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/eslint.webp
+image: /blog/media/migrated/image-abb05cedd77ad9e5705886ed-512.webp
 legacyImage: post_metaimgs/eslint.webp
 imageAlt: Eslint logo
 imageAttribution: ""

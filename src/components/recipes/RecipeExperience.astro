@@ -1,10 +1,12 @@
 ---
+import { deploymentAssetPin } from "../../../scripts/vercel-static-assets.mjs";
 import { buildReleaseSha } from "../../lib/build-release";
 import noScriptStyles from "../../styles/recipes/recipes-no-script.css?url";
 import RecipeCard from "./RecipeCard.svelte";
 import RecipeLibrary from "./RecipeLibrary.svelte";
 import { parseBrowseParams } from "./recipe-browse.mjs";
 import { writeBrowseFragments } from "./recipe-browse-fragments.server.mjs";
+import { browseLibraryPath } from "./recipe-browse-library.mjs";
 import data from "./recipe-data.server.mjs";
 import { createBrowsePage } from "./recipe-summary.mjs";
 
@@ -12,7 +14,9 @@ interface Props { collection?: "meal" | "smoothie"; saved?: boolean; }
 const { collection = "meal", saved = false } = Astro.props;
 const release = buildReleaseSha();
 const state = parseBrowseParams(new URLSearchParams(), collection, data.recipes);
-const initial = createBrowsePage(saved ? [] : data.recipes, collection, state, release);
+const deployment = deploymentAssetPin(process.env);
+const summaryURL = browseLibraryPath(release) + (deployment ? `?${new URLSearchParams({ dpl: deployment })}` : "");
+const initial = { ...createBrowsePage(saved ? [] : data.recipes, collection, state, release), summaryURL };
 // Saved pages still offer collection-wide control labels before their local records load.
 if (saved) initial.filterChoices = createBrowsePage(data.recipes, collection, state, release).filterChoices;
 const recipeIndex = data.recipes.map(({id,type,familyOptions}) => ({ id, type, familyOptions: familyOptions.map(({id: sideId}: {id: string}) => ({id: sideId})) }));

@@ -4,12 +4,12 @@ title: "12 Interview Questions to Ask: Insights Into the Company and Role"
 category: productivity
 description: An interview is a two-way conversation. These questions help you gain insight into whether this company is a good fit for you.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/job_interview.webp
+image: /blog/media/migrated/image-1974e8c8a0be28592354f59b-960.webp
 legacyImage: post_metaimgs/job_interview.webp
 imageAlt: Two people shaking hands with a red background.
 imageAttribution: ""
-imageWidth: 1634
-imageHeight: 1080
+imageWidth: 960
+imageHeight: 635
 published: "2022-06-14T13:42:30Z"
 updated: "2022-06-14T13:42:30Z"
 author: John Solly

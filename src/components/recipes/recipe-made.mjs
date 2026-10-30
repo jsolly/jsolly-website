@@ -1,3 +1,4 @@
+import { reportError } from "../../lib/report-error.mjs";
 import { MADE_STORAGE_KEY } from "./constants.mjs";
 
 // The record maps a recipe id to the local calendar date the reader last made
@@ -56,6 +57,7 @@ export function readMadeRecipes(getStorage = () => localStorage) {
 	try {
 		return madeEntries(getStorage().getItem(MADE_STORAGE_KEY));
 	} catch (error) {
+		void reportError("recipe-storage-read");
 		console.error(
 			"Made recipes could not be restored; showing none as made.",
 			error instanceof Error ? error.name : "Unknown error",
@@ -75,6 +77,7 @@ export function writeMadeRecipe(id, date, getStorage = () => localStorage) {
 		try {
 			made = madeEntries(storage.getItem(MADE_STORAGE_KEY));
 		} catch (error) {
+			void reportError("recipe-storage-read");
 			console.error(
 				"Malformed made recipes were discarded while saving.",
 				error instanceof Error ? error.name : "Unknown error",
@@ -85,6 +88,7 @@ export function writeMadeRecipe(id, date, getStorage = () => localStorage) {
 		storage.setItem(MADE_STORAGE_KEY, JSON.stringify(made));
 		return true;
 	} catch (error) {
+		void reportError("recipe-storage-write");
 		console.error(
 			"A made recipe could not be saved; the mark applies only to this visit.",
 			error instanceof Error ? error.name : "Unknown error",

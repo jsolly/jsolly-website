@@ -2,11 +2,11 @@ import { applianceChoices } from "./constants.mjs";
 import {
 	matchesRecipe,
 	nutrientFilters,
-	parseSavedSettings,
 	smoothieIngredientChoices,
 } from "./nutrient-filters.mjs";
 import { orderRecipeIds } from "./recipe-order.mjs";
 import { createRecipeSearch } from "./recipe-search.mjs";
+import { parseSavedSettings } from "./recipe-settings.mjs";
 
 const BROWSE_PAGE_SIZE = 6;
 const PAGE = /^[1-9]\d{0,8}$/u;
@@ -80,7 +80,11 @@ export function browseFilterSettings(recipes, collection, { settings }) {
 export function filterBrowseRecipes(recipes, collection, state) {
 	const filters = browseFilterSettings(recipes, collection, state);
 	const searched = state.query.trim()
-		? createRecipeSearch(recipes, state.settings.servings)(state.query)
+		? createRecipeSearch(
+				recipes,
+				state.settings.servings,
+				state.searchIndex,
+			)(state.query)
 		: recipes;
 	const matches = searched.filter(
 		(recipe) =>

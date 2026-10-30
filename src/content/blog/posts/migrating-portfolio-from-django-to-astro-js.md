@@ -4,12 +4,12 @@ title: "Django to Astro: Migrating a Django Portfolio to Astro.js"
 category: web-dev
 description: Learn about the the process of migrating a Django portfolio to Astro.js. From Django templates and views, to .astro components!
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/DjangoToAstro.webp
+image: /blog/media/migrated/image-d922a7f4d795fa553f14544e-960.webp
 legacyImage: post_metaimgs/DjangoToAstro.webp
 imageAlt: Django logo with an arrow pointing to the Astro.js logo
 imageAttribution: Built with Canva
-imageWidth: 1280
-imageHeight: 720
+imageWidth: 960
+imageHeight: 540
 published: "2024-04-05T17:48:15.466Z"
 updated: "2024-04-17T14:48:24.151Z"
 author: John Solly

@@ -42,7 +42,7 @@
 				},
 				{
 					"key": "Content-Security-Policy",
-					"value": "img-src 'self' data: https://d1d7p8ufhgz4ld.cloudfront.net; style-src 'self' 'unsafe-inline'; font-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests"
+					"value": "img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests"
 				}
 			]
 		},
@@ -81,11 +81,20 @@
 					"value": "no-store"
 				}
 			]
+		},
+		{
+			"source": "/recipes/data/:artifact(summaries|search)/:library.json",
+			"headers": [
+				{
+					"key": "Cache-Control",
+					"value": "public, max-age=31536000, immutable"
+				}
+			]
 		}
 	],
 	"functions": {
 		"api/recipe-browse.mjs": {
-			"includeFiles": "{dist/release.json,dist/recipes/index.html,dist/recipes/meals/index.html,dist/recipes/smoothies/index.html,.recipe-browse/*.json}",
+			"includeFiles": "{dist/release.json,dist/recipes/index.html,dist/recipes/meals/index.html,dist/recipes/smoothies/index.html,dist/recipes/data/summaries/*.json,dist/recipes/data/search/*.json,.recipe-browse/*.json}",
 			"maxDuration": 10
 		}
 	}

@@ -4,12 +4,12 @@ title: Uncover Hidden Errors in Django Templates With django-fastdev
 category: dev-tools
 description: Uncover hidden errors in Django templates with django-fastdev and coverage plugin. Learn how to write view tests, and get 100% code coverage for your templates.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/django.jpg
+image: /blog/media/migrated/image-8a710f05b075284b3bfc02f8-960.webp
 legacyImage: post_metaimgs/django.jpg
 imageAlt: Protagonist from Django Unchained holding a revolver
 imageAttribution: https://www.flickr.com/photos/ilfattoquotidiano/8390397908
-imageWidth: 1400
-imageHeight: 984
+imageWidth: 960
+imageHeight: 675
 published: "2022-05-14T04:13:09Z"
 updated: "2022-05-14T04:13:09Z"
 author: John Solly

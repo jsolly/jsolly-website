@@ -19,7 +19,7 @@ const URL_MAP = new URL(
 	"../../legacy/blogthedata/url-map.json",
 	import.meta.url,
 );
-const FEED_SIZE = 5;
+const FEED_SIZE = 20;
 // The recipe post, which moved to /recipes/ (J7).
 const RECIPE_POST = "15-minute-dump-and-go-instant-pot-recipes";
 const FEEDS = [
@@ -67,7 +67,7 @@ async function expectedIds(posts) {
 }
 
 // The published posts the feeds list: most recently updated first, then
-// newest published, five of them.
+// newest published, twenty of them.
 async function feedPosts() {
 	return (await publishedPosts())
 		.toSorted(
@@ -96,12 +96,14 @@ it("feeds follow current published metadata and retain canonical identities", as
 			link: item.querySelector("link")?.textContent,
 			guid: item.querySelector("guid")?.textContent,
 			description: item.querySelector("description")?.textContent,
+			pubDate: item.querySelector("pubDate")?.textContent,
 		})),
 		posts.map((post, index) => ({
 			title: post.title,
 			link: ids[index].link,
 			guid: ids[index].id,
 			description: post.description,
+			pubDate: post.publishedAt.toUTCString(),
 		})),
 	);
 	assert.equal(
@@ -109,11 +111,26 @@ it("feeds follow current published metadata and retain canonical identities", as
 		`${SITE}/blog/rss.xml`,
 	);
 
+	assert.equal(rss.querySelector("channel > language")?.textContent, "en-us");
+	assert.equal(
+		rss.querySelector("channel > lastBuildDate")?.textContent,
+		posts[0].updatedAt.toUTCString(),
+	);
+	const rssSelf = rss.getElementsByTagNameNS(
+		"http://www.w3.org/2005/Atom",
+		"link",
+	);
+	assert.equal(rssSelf.length, 1);
+	assert.equal(rssSelf[0]?.getAttribute("href"), `${SITE}/blog/rss.xml`);
+	assert.equal(rssSelf[0]?.getAttribute("rel"), "self");
+	assert.equal(rssSelf[0]?.getAttribute("type"), "application/rss+xml");
+
 	assert.deepEqual(
 		[...atom.querySelectorAll("entry")].map((entry) => ({
 			title: entry.querySelector("title")?.textContent,
 			link: entry.querySelector("link")?.getAttribute("href"),
 			id: entry.querySelector("id")?.textContent,
+			published: entry.querySelector("published")?.textContent,
 			updated: entry.querySelector("updated")?.textContent,
 			author: entry.querySelector("author name")?.textContent,
 		})),
@@ -121,7 +138,8 @@ it("feeds follow current published metadata and retain canonical identities", as
 			title: post.title,
 			link: ids[index].link,
 			id: ids[index].id,
-			updated: post.publishedAt.toISOString(),
+			published: post.publishedAt.toISOString(),
+			updated: post.updatedAt.toISOString(),
 			author: post.feedAuthor,
 		})),
 	);
@@ -158,10 +176,10 @@ it("feeds follow current published metadata and retain canonical identities", as
 	);
 });
 
-// The snapshot's top five are all ported posts, so only the legacy branch of
+// The snapshot's top twenty are all ported posts, so only the legacy branch of
 // expectedIds runs here; src/lib/blog/feeds.test.ts covers the new-post branch
 // (jsolly link as id, isPermaLink="true") until a jsolly-written post reaches
-// the top five.
+// the top twenty.
 it("pre-merge posts keep their blogthedata feed ids exactly, and no feed item points at the recipe post", async () => {
 	const posts = await feedPosts();
 	const ids = await expectedIds(posts);

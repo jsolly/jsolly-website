@@ -4,7 +4,7 @@ title: A Collection of Timeless Phrases and Sayings
 category: resources
 description: Discover a collection of timeless phrases and sayings that offer insights into the human experience. Use them to self-reflect and understand the world.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/hikerTrail.webp
+image: /blog/media/migrated/image-15e14527582bc29f40c08212-512.webp
 legacyImage: post_metaimgs/hikerTrail.webp
 imageAlt: A stunning sunset over a picturesque mountain range, with the silhouette of a lone hiker in the foreground.
 imageAttribution: Stable Diffusion 2.1

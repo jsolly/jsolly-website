@@ -59,12 +59,12 @@ old blog's algorithm, which must not change.
 Upload ordinary images through the CMS Media sidebar. They land in
 `public/blog/media/` and are served at `/blog/media/`. Resize and compress them
 before uploading, then paste the uploaded `/blog/media/...` path into the
-cover-image field. That field also keeps existing HTTPS image URLs.
+cover-image field. The field accepts these first-party paths. The default cover
+is `/blog/media/default.webp`. Existing migrated images retain their generated
+responsive variants; ordinary CMS uploads use their authored image path.
 
-The cover-image pattern accepts any `https://` URL, but the blog pages' CSP
-allows images only from jsolly.com itself, `data:` and the retained blogthedata
-CloudFront host `https://d1d7p8ufhgz4ld.cloudfront.net` (decision J6). The
-build-time `csp` suite fails on any built image from another host. Large
+The blog pages' CSP permits same-origin and `data:` images. The build-time `csp`
+suite fails on images from other hosts. Large
 downloads, videos or datasets go into the existing `blogthedata` S3 bucket
 separately and are linked by their CloudFront URL. The CMS has no S3 uploader
 and no AWS credentials; never paste AWS credentials into a CMS field.

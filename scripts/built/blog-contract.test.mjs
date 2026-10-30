@@ -6,6 +6,10 @@ import middleware from "../../middleware.js";
 import retiredCategories from "../../src/lib/blog/retired-categories.json" with {
 	type: "json",
 };
+import {
+	createArticleSearch,
+	parseSearchIndex,
+} from "../../src/lib/blog/search.js";
 import { categoryHref, postHref } from "../../src/lib/blog/urls.js";
 import {
 	allPosts,
@@ -49,12 +53,12 @@ async function redirects(kind) {
 		});
 }
 
-// A post page's article: whether it has text, and whether it embeds a frame
+// A post page's article text, and whether it embeds a frame
 // or an image (an article may be only that).
 function article(document) {
 	const body = document.querySelector(".article-body");
 	return {
-		text: Boolean(body?.textContent.trim()),
+		text: body?.textContent.trim() ?? "",
 		media: Boolean(body?.querySelector("iframe, img")),
 	};
 }
@@ -169,8 +173,12 @@ it("every legacy post and category URL leads to a built page, and each post is b
 	const index = JSON.parse(
 		await readFile(join(DIST, "blog/search-index.json"), "utf8"),
 	);
-	const indexed = new Map(index.map((entry) => [entry.slug, entry]));
-	assert.equal(indexed.size, index.length, "one search entry per slug");
+	const indexed = new Map(index.documents.map((entry) => [entry.slug, entry]));
+	assert.equal(
+		indexed.size,
+		index.documents.length,
+		"one search entry per slug",
+	);
 	const manifest = new Set(await routeManifest());
 	// Each post is in all five exactly when published.
 	const presence = await Promise.all(
@@ -197,13 +205,16 @@ it("every legacy post and category URL leads to a built page, and each post is b
 			manifest: post.published,
 		})),
 	);
-	assert.equal(index.length, published.length, "search entries");
+	assert.equal(index.documents.length, published.length, "search entries");
+	const search = createArticleSearch(parseSearchIndex(index));
 	// Readable on its page, and findable by its text unless it is only media.
 	const unreadable = published.map((post) => {
 		const { text, media } = postPages.find((page) => page.slug === post.slug);
-		return (text || media) && (indexed.get(post.slug).text || media)
-			? []
-			: [postHref(post.slug)];
+		const words = text.match(/[\p{L}\p{N}]{4,}/gu) ?? [];
+		const findable = words.some((word) =>
+			search(word).some((entry) => entry.slug === post.slug),
+		);
+		return (text || media) && (findable || media) ? [] : [postHref(post.slug)];
 	});
 	assert.deepEqual(
 		unreadable.flat(),
@@ -233,8 +244,12 @@ it("every post page names its jsolly.com URL in its JSON-LD and share links and 
 	assert.deepEqual(
 		pages.map(({ slug, jsonLd, share, breadcrumb }) => ({
 			slug,
-			types: jsonLd.map((data) => data["@type"]),
-			mainEntityOfPage: jsonLd.map((data) => data.mainEntityOfPage),
+			types: jsonLd
+				.filter((data) => data["@type"])
+				.map((data) => data["@type"]),
+			mainEntityOfPage: jsonLd
+				.filter((data) => data["@type"] === "BlogPosting")
+				.map((data) => data.mainEntityOfPage),
 			share,
 			breadcrumb,
 		})),
@@ -242,10 +257,10 @@ it("every post page names its jsolly.com URL in its JSON-LD and share links and 
 			const url = `${SITE}${postHref(post.slug)}`;
 			return {
 				slug: post.slug,
-				types: ["BlogPosting"],
-				mainEntityOfPage: [url],
+				types: ["BlogPosting", "BreadcrumbList"],
+				mainEntityOfPage: [{ "@type": "WebPage", "@id": url }],
 				share: SHARE_TARGETS.map((target) => ({ ...target, url })),
-				breadcrumb: ["/blog/", categoryHref(post.category)],
+				breadcrumb: ["/", "/blog/", categoryHref(post.category)],
 			};
 		}),
 	);

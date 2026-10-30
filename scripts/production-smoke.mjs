@@ -64,7 +64,11 @@ export async function runSmoke({
 			const url = new URL(request.url());
 			if (
 				url.origin === origin &&
-				url.pathname === "/api/recipe-browse/" &&
+				(url.pathname === "/api/recipe-browse/" ||
+					url.pathname ===
+						`/recipes/data/summaries/library-${receipt.releaseSha}.json` ||
+					url.pathname ===
+						`/recipes/data/search/index-${receipt.releaseSha}.json`) &&
 				request.method() === "GET"
 			)
 				pendingSummaries.add(request);

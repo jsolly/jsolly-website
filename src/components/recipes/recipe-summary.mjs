@@ -14,6 +14,7 @@ import {
 } from "./nutrient-filters.mjs";
 import {
 	browseFilterSettings,
+	filterBrowseRecipes,
 	paginateBrowseRecipes,
 } from "./recipe-browse.mjs";
 import {
@@ -24,8 +25,15 @@ import {
 
 /** Explicit card boundary: no ingredients, cooking method or calculation tables. */
 export function recipeCardSummary(recipe, servings = BASE_SERVINGS) {
-	const dietary = dietaryClass(recipe);
+	const dietary = recipe.browse ? null : dietaryClass(recipe);
 	const flags = nutrientFilters(recipe, servings);
+	if (recipe.browse)
+		return {
+			...recipe.browse.card,
+			nutritionPills: Object.entries(nutritionHighlights)
+				.filter(([key]) => flags[key])
+				.map(([key, { label, description }]) => ({ key, label, description })),
+		};
 	return {
 		id: recipe.id,
 		type: recipe.type,
@@ -55,7 +63,7 @@ export function recipeCardSummary(recipe, servings = BASE_SERVINGS) {
 }
 
 /** Availability describes adding/removing one option under the current collection filters. */
-export function browseFilterChoices(recipes, collection, state) {
+function browseFilterChoices(recipes, collection, state) {
 	const collectionRecipes = recipes.filter(
 		(recipe) => recipe.type === collection,
 	);
@@ -122,5 +130,16 @@ export function createBrowsePage(
 		nextPage: result.nextPage,
 		seed: state.seed,
 		filterChoices: browseFilterChoices(recipes, collection, state),
+	};
+}
+
+/** The cached online library loads all summaries while the view keeps its visible batch. */
+export function createBrowseLibraryPage(recipes, collection, state, release) {
+	return {
+		...createBrowsePage(recipes, collection, state, release),
+		cards: filterBrowseRecipes(recipes, collection, state).map((recipe) =>
+			recipeCardSummary(recipe, state.settings.servings),
+		),
+		nextPage: null,
 	};
 }

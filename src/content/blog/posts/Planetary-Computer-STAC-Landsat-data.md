@@ -4,7 +4,7 @@ title: Exploring Geospatial Data With the pystac_client Library and STAC
 category: Geodev
 description: Learn how to use the pystac_client library to access and explore geospatial data using the Spatial Temporal Asset Catalog (STAC) specification.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/landsat.webp
+image: /blog/media/migrated/image-949d8b843c0eec739650b4d6-500.webp
 legacyImage: post_metaimgs/landsat.webp
 imageAlt: John Solly Headshot
 imageAttribution: https://planetarycomputer.microsoft.com/api/data/v1/item/preview.png?collection=landsat-8-c2-l2&item=LC08_L2SP_015033_20200729_02_T1&assets=SR_B4&assets=SR_B3&assets=SR_B2&color_formula=gamma+RGB+2.7%

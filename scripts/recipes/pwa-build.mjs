@@ -26,7 +26,7 @@ import {
 	PWA_WORKER_PATH,
 	RECIPES_PATH,
 } from "../../src/components/recipes/constants.mjs";
-import { retiredRecipePath } from "../../src/components/recipes/recipe-publication.mjs";
+import { retiredRecipePath } from "../../src/components/recipes/recipe-url.mjs";
 
 const WORKER_SOURCE = new URL("service-worker.js", import.meta.url);
 // Release shell names share a prefix; complete historical shells remain read-only.
@@ -317,7 +317,7 @@ export async function buildRecipePwa(root, { deploymentId } = {}) {
 		const id = page.slice(RECIPES_PATH.length, -1);
 		if (
 			!id ||
-			["meals", "smoothies", "saved"].includes(id) ||
+			["all", "meals", "smoothies", "saved"].includes(id) ||
 			retiredRecipePath(id)
 		)
 			continue;

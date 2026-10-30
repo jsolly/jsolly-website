@@ -13,6 +13,7 @@ import { markdownHtmlFacts } from "./markdown-html.mjs";
 import { allPosts, distFiles, readBuiltPages } from "./pages.mjs";
 
 const MISSING_CANONICAL = /canonical URL/u;
+const UNRESOLVED_AUTHOR = /BlogPosting author is unresolved/u;
 const INGREDIENT_SECTION = /## Ingredients\n(?<body>[\s\S]*?)(?=\n## |$)/u;
 const UNRESOLVED_QUANTITY = /\{\{/u;
 const COOK_SECTION = /## Cook\n(?<body>[\s\S]*?)(?=\n## |$)/u;
@@ -96,6 +97,38 @@ it("Markdown conversion retains authored complex HTML and stable anchors without
 	);
 });
 
+it("Article Markdown preserves linked and inline authors and rejects an unresolved author", () => {
+	const document = (author, graph = []) => `<!doctype html>
+		<link rel="canonical" href="https://www.jsolly.com/blog/example/">
+		<script type="application/ld+json">${JSON.stringify({ "@graph": graph })}</script>
+		<script type="application/ld+json">${JSON.stringify({
+			"@type": "BlogPosting",
+			author,
+			datePublished: "2026-01-01T00:00:00.000Z",
+			dateModified: "2026-02-01T00:00:00.000Z",
+		})}</script>
+		<main><article><h1>Example</h1><p>Article text.</p></article></main>`;
+	const person = {
+		"@type": "Person",
+		"@id": "https://www.jsolly.com/#person",
+		name: "John Solly",
+	};
+	const linked = parseFrontmatter(
+		pageMarkdown(document({ "@id": person["@id"] }, [person])),
+	).frontmatter;
+	assert.equal(linked.author, "John Solly");
+	assert.equal(linked.published, "2026-01-01T00:00:00.000Z");
+	assert.equal(linked.updated, "2026-02-01T00:00:00.000Z");
+	const inline = parseFrontmatter(
+		pageMarkdown(document({ "@type": "Person", name: "Guest Writer" })),
+	).frontmatter;
+	assert.equal(inline.author, "Guest Writer");
+	assert.throws(
+		() => pageMarkdown(document({ "@id": person["@id"] })),
+		UNRESOLVED_AUTHOR,
+	);
+});
+
 it("Every published blog and recipe page has one static Markdown sibling and every draft stays absent", async () => {
 	const files = await distFiles();
 	assert.deepEqual(
@@ -142,7 +175,13 @@ it("Published article Markdown preserves rendered author, timestamps, heading ID
 				const structured = facts.structured.find(
 					(entry) => entry["@type"] === "BlogPosting",
 				);
-				assert.equal(frontmatter.author, structured.author.name);
+				const author = structured.author.name
+					? structured.author
+					: facts.structured
+							.flatMap((entry) => entry["@graph"] ?? [entry])
+							.find((entry) => entry["@id"] === structured.author["@id"]);
+				assert.ok(author, `${post.slug} resolves its author`);
+				assert.equal(frontmatter.author, author.name);
 				assert.equal(frontmatter.published, structured.datePublished);
 				assert.equal(frontmatter.updated, structured.dateModified);
 				for (const id of facts.headingIds)

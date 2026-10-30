@@ -7,17 +7,19 @@ import {
 	starchTypes,
 } from "./constants.mjs";
 import {
-	availableAppliances,
 	hasAppliances,
 	matchesRecipe,
-	normalizeSelection,
 	nutrientFilters,
-	parseSavedSettings,
 	smoothieIngredientChoices,
 } from "./nutrient-filters.mjs";
 import { recordedOmega3 } from "./nutrition.mjs";
 import data from "./recipe-data.server.mjs";
 import { displayNutrition, ingredientAmount } from "./recipe-logic.mjs";
+import {
+	availableAppliances,
+	normalizeSelection,
+	parseSavedSettings,
+} from "./recipe-settings.mjs";
 
 it("nutrition filters have usable intersections at all supported serving counts", () => {
 	for (const servings of [2, 4, 6, 8])

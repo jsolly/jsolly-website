@@ -19,11 +19,7 @@ const HTML_NAMESPACE = "http://www.w3.org/1999/xhtml";
 // the YouTube, diagrams.net embeds and same-origin notebook frames, on dist/blog/** only.
 // Page paths relative to dist/.
 const BLOG_PAGES = "blog/";
-const BLOG_IMG_SRC = [
-	"'self'",
-	"data:",
-	"https://d1d7p8ufhgz4ld.cloudfront.net",
-];
+const BLOG_IMG_SRC = ["'self'", "data:"];
 const BLOG_FRAME_SRC = [
 	"'self'",
 	"https://www.youtube-nocookie.com",
@@ -195,7 +191,7 @@ it("every built page image loads under both the header and the page meta policy"
 	}
 });
 
-it("blog pages, and only blog pages, allow CloudFront post images and the three embed hosts in their meta policy", () => {
+it("blog pages retain same-origin images and allow only the configured embed hosts in their meta policy", () => {
 	const blogPages = pages.filter(({ file }) => file.startsWith(BLOG_PAGES));
 	assert.ok(blogPages.length > 0, "built blog pages are required");
 	for (const { file, hasPolicy, policy } of pages) {

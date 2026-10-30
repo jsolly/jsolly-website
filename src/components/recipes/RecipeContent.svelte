@@ -1,6 +1,7 @@
 <script>
 	import { dietaryLabels } from "./constants.mjs";
-	import NutritionPills from "./NutritionPills.svelte";
+ import NutritionPills from "./NutritionPills.svelte";
+	import { nutrientFilters } from "./nutrient-filters.mjs";
 	import RecipeAttribution from "./RecipeAttribution.svelte";
 	import RecipeBody from "./RecipeBody.svelte";
 	import { dietaryClass } from "./recipe-logic.mjs";
@@ -12,7 +13,7 @@
 <div class="recipe-content">
 	<span class="badge">{dietaryLabels[dietaryClass(recipe)]}</span>
 	<h1 class="print-title">{recipe.title}</h1>
-	<NutritionPills {recipe} servings={settings.servings} />
+	<NutritionPills flags={nutrientFilters(recipe, settings.servings)} />
 	<p class="detail-summary">{recipe.summary}</p>
 	<RecipeAttribution {recipe} />
 	{#if controls}{@render controls()}{/if}

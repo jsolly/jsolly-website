@@ -4,12 +4,12 @@ title: "Streamlining Dependency Management: Using Constraints Files in Django"
 category: dev-tools
 description: "Use a constraints.txt file with pip install to ensure sub-dependencies won't break your app: A guide to set up requirements.txt and constraints.txt files."
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/python_logo_RINquiv.png
+image: /blog/media/migrated/image-7378beb607ef310d1d907deb-960.webp
 legacyImage: post_metaimgs/python_logo_RINquiv.png
 imageAlt: Python Logo
 imageAttribution: ""
-imageWidth: 1280
-imageHeight: 800
+imageWidth: 960
+imageHeight: 600
 published: "2022-07-11T00:49:45.283Z"
 updated: "2024-12-23T23:19:48.808Z"
 author: John Solly

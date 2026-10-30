@@ -4,7 +4,7 @@ title: "Organize Your Life: How I Use Todoist to Achieve Goals"
 category: productivity
 description: Get organized with Todoist! Learn how to use the app to reach goals and get things done with tips and tricks to unlock your potential.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/todoist_productivity.png
+image: /blog/media/migrated/image-0f46c8beabf349cde55ea953-693.webp
 legacyImage: post_metaimgs/todoist_productivity.png
 imageAlt: Headshot of John Solly
 imageAttribution: ""
@@ -45,7 +45,7 @@ What's great about Todoist is that it has very good natural language processing,
 
 For a couple weeks, don't set 'task quotas' or goals. Simply completed tasks as you have time. I naturally complete about 10-20 tasks per day and 50-70 tasks per week. Use this number as a baseline to figure an amount of completed tasks to shoot for each day.
 
-<figure class="image image_resized image-style-align-center" style="width:400px;"><img class="image_resized" style="height:691px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/todoist_productivity.png" alt="Todoist Productivity View"></figure>
+<figure class="image image_resized image-style-align-center" style="width:400px;"><img class="image_resized" style="height:691px;" src="/blog/media/migrated/image-0f46c8beabf349cde55ea953-693.webp" alt="Todoist Productivity View"></figure>
 
 Today, I consistently complete 10 tasks per day and 70 tasks per week. That's about it! Write things down, organize, and complete. Easy as 1-2-3!
 

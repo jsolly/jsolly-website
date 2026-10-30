@@ -4,12 +4,12 @@ title: "Adding CI to Your Project: Setting Up Github Actions for Blogthedata"
 category: dev-tools
 description: Learn how to add a CI workflow to your project with Github Actions. A step-by-step guide to test, lint, and deploy code with Github Actions.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/CI_Workflow.png
+image: /blog/media/migrated/image-4d187d263d98784022f4ef50-960.webp
 legacyImage: post_metaimgs/CI_Workflow.png
 imageAlt: Code, Build, Test, Release, Deploy, Operate, Monitor,  Plan.
 imageAttribution: https://cdn-images-1.medium.com/max/1600/1*TNJ7Rpr5G1OJHtKH-IBEFw.png
-imageWidth: 1600
-imageHeight: 639
+imageWidth: 960
+imageHeight: 383
 published: "2022-05-16T02:42:45Z"
 updated: "2026-09-07T14:25:05.476Z"
 author: John Solly

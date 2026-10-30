@@ -4,7 +4,7 @@ title: Add a Subtle Shake Effect to Your Website With CSS Animations
 category: web-dev
 description: Learn how to add a shake effect to any element on your website with CSS animations. Use the prefers-reduced-motion media query to turn off the animation.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/ButtonShake.webp
+image: /blog/media/migrated/image-9417726ddbb95a12121a4293-716.webp
 legacyImage: post_metaimgs/ButtonShake.webp
 imageAlt: Meta Image
 imageAttribution: CSS keyframe to make button shake

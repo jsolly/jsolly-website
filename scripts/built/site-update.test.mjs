@@ -28,6 +28,28 @@ async function serve(label) {
 	await rename(`${served}.next`, served);
 }
 
+// A replacement deployment has release-named browse artifacts as well as HTML.
+async function retargetBrowseArtifacts(label, originalSha, sha) {
+	await Promise.all(
+		[
+			["summaries", "library"],
+			["search", "index"],
+		].map(async ([directory, prefix]) => {
+			const folder = join(fixture, label, "recipes/data", directory);
+			const artifact = JSON.parse(
+				await readFile(join(folder, `${prefix}-${originalSha}.json`), "utf8"),
+			);
+			if (artifact.release !== originalSha)
+				throw new Error("Browse fixture has an unexpected release");
+			artifact.release = sha;
+			await writeFile(
+				join(folder, `${prefix}-${sha}.json`),
+				JSON.stringify(artifact),
+			);
+		}),
+	);
+}
+
 before(async () => {
 	fixture = await mkdtemp(join(tmpdir(), "site-update-test-"));
 	served = join(fixture, "served");
@@ -51,6 +73,7 @@ before(async () => {
 		join(fixture, "B", "release.json"),
 		JSON.stringify({ sha: NEXT_SHA }),
 	);
+	await retargetBrowseArtifacts("B", originalSha, NEXT_SHA);
 	await cp(join(fixture, "B"), join(fixture, "C"), { recursive: true });
 	await Promise.all(
 		ROUTES.map(async (route) => {
@@ -65,6 +88,7 @@ before(async () => {
 		join(fixture, "C", "release.json"),
 		JSON.stringify({ sha: THIRD_SHA }),
 	);
+	await retargetBrowseArtifacts("C", originalSha, THIRD_SHA);
 	await serve("A");
 	site = await serveStatic(served, { "Cache-Control": "no-store" });
 	browser = await chromium.launch();

@@ -17,29 +17,28 @@ import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
 // meta policy, and an image from an unlisted host injected on /about/ must
 // raise exactly one img-src violation under each of the two policies.
 const DIST = "dist";
-const CLOUDFRONT = "d1d7p8ufhgz4ld.cloudfront.net";
 // The recipe pages, which the recipe service worker controls.
 const RECIPES = "/recipes/";
 const UNLISTED_IMAGE = "https://example.invalid/x.png";
 const PAGES = [
-	{ path: "/blog/", hosts: [CLOUDFRONT] },
+	{ path: "/blog/", hosts: [] },
 	{
 		path: "/blog/how-to-debug-an-astro-app/",
-		hosts: ["www.youtube-nocookie.com", CLOUDFRONT],
+		hosts: ["www.youtube-nocookie.com"],
 	},
 	{
 		path: "/blog/Planetary-Computer-STAC-Landsat-data/",
-		hosts: [CLOUDFRONT],
+		hosts: [],
 	},
 	{
 		path: "/blog/productivity-flow-chart/",
-		hosts: ["viewer.diagrams.net", CLOUDFRONT],
+		hosts: ["viewer.diagrams.net"],
 	},
 	// The search island fetches its index and parses it with zod (jitless, so
 	// no eval) before any result card renders.
 	{
 		path: "/blog/search/?searched=django",
-		hosts: [CLOUDFRONT],
+		hosts: [],
 		prepare: loadSearchResults,
 	},
 	{ path: "/about/", hosts: [] },

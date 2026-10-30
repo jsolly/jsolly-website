@@ -47,7 +47,7 @@ describe("articleHtml", () => {
 	it("Article rendering strips executable authored HTML", () => {
 		const rendered = articleHtml(
 			// biome-ignore lint/security/noSecrets: an HTML fixture, not credential material.
-			'<script>alert(1)</script><img src="post_imgs/test.webp" onerror="alert(2)"><a href="javascript:alert(3)">bad</a><iframe src="https://evil.example/test"></iframe><iframe src="https://www.youtube-nocookie.com/embed/example"></iframe><table><tr><td>kept</td></tr></table>',
+			'<script>alert(1)</script><img src="/blog/media/test.webp" onerror="alert(2)"><a href="javascript:alert(3)">bad</a><iframe src="https://evil.example/test"></iframe><iframe src="https://www.youtube-nocookie.com/embed/example"></iframe><table><tr><td>kept</td></tr></table>',
 		);
 		assert.match(rendered, /<table>/u);
 		assert.match(rendered, /youtube-nocookie\.com\/embed/u);
@@ -66,7 +66,7 @@ describe("articleHtml", () => {
 		assert.doesNotMatch(rendered, /on-chain\/off-chain"/u);
 	});
 
-	it("Image sources stay as authored unless they are bare legacy upload paths", () => {
+	it("Image sources stay as authored and missing images use the local default", () => {
 		const rendered = articleHtml(
 			[
 				'<img src="/blog/media/upload.webp">',
@@ -74,8 +74,7 @@ describe("articleHtml", () => {
 				'<img src="default.webp">',
 				'<img src="http://example.com/x.jpg">',
 				'<img src="/images/x.jpg">',
-				'<img src="post_imgs/test.webp">',
-				'<img src="mediafiles/x.webp">',
+				'<img src="/blog/media/test.webp">',
 			].join(""),
 		);
 		const sources = [...rendered.matchAll(/src="(?<src>[^"]*)"/gu)].map(
@@ -87,8 +86,7 @@ describe("articleHtml", () => {
 			"/blog/media/default.webp",
 			"http://example.com/x.jpg",
 			"/images/x.jpg",
-			"https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/test.webp",
-			"https://d1d7p8ufhgz4ld.cloudfront.net/media/x.webp",
+			"/blog/media/test.webp",
 		]);
 		assert.doesNotMatch(rendered, /cloudfront\.net\/media\/blog\/media/u);
 	});

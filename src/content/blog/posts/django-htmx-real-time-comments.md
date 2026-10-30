@@ -4,7 +4,7 @@ title: (Video) Effortless Real-Time Comments in Django Using HTMX
 category: web-dev
 description: Add real-time comments to your Django app using HTMX. This step-by-step tutorial covers setting up HTMX and implementing seamless comment addition.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/blog_comment.webp
+image: /blog/media/migrated/image-6242d6102f8d1af21f365fa6-381.webp
 legacyImage: post_metaimgs/blog_comment.webp
 imageAlt: John Solly Headshot
 imageAttribution: ""

@@ -4,7 +4,7 @@ title: "Getting a Near-Perfect Google Lighthouse Score: Here's How I Did It"
 category: web-dev
 description: Boost your Google Lighthouse score to near perfect by adding alt-text to images, using natural aspect ratios and explicit image dimensions, and more.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/google_lighthouse_score.png
+image: /blog/media/migrated/image-a1a24bac87fdaeefd0721daa-423.webp
 legacyImage: post_metaimgs/google_lighthouse_score.png
 imageAlt: Very high Google Lighthouse scores.
 imageAttribution: ""
@@ -27,11 +27,11 @@ Recently ran a <a target="_blank" rel="noopener noreferrer" href="/blog/google-l
 
 ## Before
 
-<img class="image_resized" style="height:174px;width:426px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image-20220317151807-1.png" alt="Google Lighthouse Score before. Performance = 98, A11Y = 86, Best Practices = 92, SEO=90">
+<img class="image_resized" style="height:174px;width:426px;" src="/blog/media/migrated/image-39e6e40e3bc208b8f15de6b6-426.webp" alt="Google Lighthouse Score before. Performance = 98, A11Y = 86, Best Practices = 92, SEO=90">
 
 ## After
 
-<img class="image_resized" style="height:179px;width:423px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image-20220317151807-2.png" alt="Google Lighthouse Score after. Performance = 99, A11Y = 100, Best Practices = 100, SEO=100">
+<img class="image_resized" style="height:179px;width:423px;" src="/blog/media/migrated/image-a1a24bac87fdaeefd0721daa-423.webp" alt="Google Lighthouse Score after. Performance = 99, A11Y = 100, Best Practices = 100, SEO=100">
 
 Here are the changes I made to boost my score:
 
@@ -49,7 +49,7 @@ There were also images with no size attributes. With no explicit size, the brows
 
 Which reminds me of this GIF
 
-<img class="image_resized" style="height:301px;width:530px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image-20220317155701-3.gif" alt="Meme of trying to click on a button and an ad moves it to the wrong button.">
+<img class="image_resized" style="height:301px;width:530px;" src="/blog/media/migrated/image-b3cedfdd6be67876868b3b48-530.webp" alt="Meme of trying to click on a button and an ad moves it to the wrong button.">
 
 3 - Minor UI changes
 
@@ -57,10 +57,10 @@ Added lang="en" to the html tag and adjusted componet colors to increase contras
 
 ## Before
 
-<img class="image_resized" style="height:63px;width:995px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image-20220317160237-6.png" alt="Navbar before showing low contrast.">
+<img class="image_resized" style="height:63px;width:995px;" src="/blog/media/migrated/image-5c6f6fbbccbdcced24cde2ab-960.webp" alt="Navbar before showing low contrast.">
 
 ## After (Higher contrast)
 
-<img class="image_resized" style="height:56px;width:1090px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image-20220317160207-5.png" alt="Navbar after showing better contrast">
+<img class="image_resized" style="height:56px;width:1090px;" src="/blog/media/migrated/image-d093c50371a7f9024cda6639-960.webp" alt="Navbar after showing better contrast">
 
 Run a Lighthouse audit on your site and see what you can improve!

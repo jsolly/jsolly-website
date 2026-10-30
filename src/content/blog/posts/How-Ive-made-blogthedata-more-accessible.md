@@ -4,12 +4,12 @@ title: Improving Web Accessibility With Figma Wireframes
 category: web-dev
 description: Improve website accessibility by adding alt text, increasing contrast, implementing semantic HTML, using Figma wireframes, adding landmark elements, and more!
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/a11ylogo_highres.webp
+image: /blog/media/migrated/image-314746db23a561111766719e-960.webp
 legacyImage: post_metaimgs/a11ylogo_highres.webp
 imageAlt: A black circle with the text 'Accessibility' showing an eye, hand, ear, and brain representing different facets of a11y.
 imageAttribution: https://staff.washington.edu/tft/a11ylogo/images/a11ylogo_highres.png
-imageWidth: 1080
-imageHeight: 1080
+imageWidth: 960
+imageHeight: 960
 published: "2022-08-10T05:03:02.336Z"
 updated: "2024-11-06T13:37:19.147Z"
 author: John Solly
@@ -33,6 +33,6 @@ After creating a <a target="_blank" rel="noopener noreferrer" href="https://www.
 
 <p style="text-align:center;">Figma wireframe of blogthedata.com's homepage</p>
 
-<figure class="image image-style-align-center"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_jwvYXCX.png" alt="Figma wireframe showing landmark elements on blogthedata.com's homepage."></figure>
+<figure class="image image-style-align-center"><img src="/blog/media/migrated/image-97c7e47811f4801e3f380ec5-960.webp" alt="Figma wireframe showing landmark elements on blogthedata.com's homepage."></figure>
 
 Although never finished, I think I've made great strides toward a more accessible website!

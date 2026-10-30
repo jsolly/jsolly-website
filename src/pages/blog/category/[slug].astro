@@ -1,11 +1,14 @@
 ---
 import type { InferGetStaticPropsType } from "astro";
+import Breadcrumbs from "../../../components/blog/Breadcrumbs.astro";
 import PostCards from "../../../components/blog/PostCards.svelte";
 import BlogLayout from "../../../layouts/BlogLayout.astro";
 import { cards } from "../../../lib/blog/cards.js";
 import { POSTS_PER_BATCH } from "../../../lib/blog/constants.js";
 import { blogContent } from "../../../lib/blog/content.js";
 import retiredCategories from "../../../lib/blog/retired-categories.json" with { type: "json" };
+import { breadcrumbList, jsonLd } from "../../../lib/blog/structured-data.js";
+import { categoryHref } from "../../../lib/blog/urls.js";
 
 export async function getStaticPaths() {
 	const content = await blogContent();
@@ -30,6 +33,12 @@ export async function getStaticPaths() {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const entry = Astro.props;
+const crumbs = [
+	{ name: "Home", href: "/" },
+	{ name: "Blog", href: "/blog/" },
+	{ name: entry.kind === "active" ? entry.category.data.name : entry.retired.name, href: categoryHref(entry.kind === "active" ? entry.category.data.slug : entry.retired.slug) },
+];
+const breadcrumb = jsonLd(breadcrumbList(crumbs, Astro.site ?? new URL("https://www.jsolly.com/")));
 ---
 {entry.kind === "retired" ? (
 	<BlogLayout title={`${entry.retired.name} category retired`} description="This category is no longer used. Browse the blog for articles." section="blog" noindex>
@@ -38,5 +47,10 @@ const entry = Astro.props;
 		<p><a href="/blog/">Browse the blog</a></p>
 	</BlogLayout>
 ) : (
-	<BlogLayout title={entry.category.data.name} description={entry.category.data.description} section="blog"><h1>{entry.category.data.name}</h1><p>{entry.category.data.description}</p>{entry.category.data.slug === "resources" && <p><a href="/recipes/">Keto meals &amp; smoothies</a> with cooking tools and ideas for a shared table.</p>}{entry.posts.length ? <PostCards posts={entry.posts} pageSize={POSTS_PER_BATCH} client:load /> : <p>No posts in this category yet.</p>}</BlogLayout>
+	<BlogLayout title={entry.category.data.name} description={entry.category.data.description} section="blog">
+		<Fragment slot="head">
+			<!-- jsonLd escapes authored text for script embedding. -->
+			<script type="application/ld+json" set:html={breadcrumb} />
+		</Fragment>
+		<Breadcrumbs {crumbs} /><h1>{entry.category.data.name}</h1><p>{entry.category.data.description}</p>{entry.category.data.slug === "resources" && <p><a href="/recipes/">Keto meals &amp; smoothies</a> with cooking tools and ideas for a shared table.</p>}{entry.posts.length ? <PostCards posts={entry.posts} pageSize={POSTS_PER_BATCH} client:load /> : <p>No posts in this category yet.</p>}</BlogLayout>
 )}

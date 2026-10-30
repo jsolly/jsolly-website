@@ -5,11 +5,7 @@ import { JSDOM } from "jsdom";
 import { it, vi } from "vitest";
 import { unitAudit } from "../../../scripts/recipes/audit-units.mjs";
 import { archivedRecipes } from "./archived-recipes.test-data.mjs";
-import {
-	ingredientGrams,
-	ingredientMeasure,
-	unitPreference,
-} from "./ingredient-units.mjs";
+import { ingredientGrams, ingredientMeasure } from "./ingredient-units.mjs";
 import weights from "./ingredient-weights.json" with { type: "json" };
 import data from "./recipe-data.server.mjs";
 import { documentMarkdown, recipeDocument } from "./recipe-export.mjs";
@@ -18,6 +14,7 @@ import {
 	formatQuantity,
 	ingredientAmount,
 } from "./recipe-logic.mjs";
+import { unitPreference } from "./recipe-settings.mjs";
 import { readRecipeURL, recipeHref } from "./recipe-url.mjs";
 import { flowGrid, gridHtml } from "./trn-logic.mjs";
 import {

@@ -4,12 +4,12 @@ title: Why Cosine Similarity Beats Tags for Blog Organization
 category: web-dev
 description: Discover how to improve blog organization by using LLMs and similarity scores instead of tags. Enhance user experience with automated related posts.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/relatedblogposts.webp
+image: /blog/media/migrated/image-8530f0be8784e80802f26230-960.webp
 legacyImage: post_metaimgs/relatedblogposts.webp
 imageAlt: Clean and modern blog page interface displaying a main blog post in the center with a large title, image, and a snippet of content. On the right side, there is a sidebar listing related posts with smaller images, titles, and brief descriptions. The design is minimalistic with a white background, black text, and accent colors like blue and green for highlights, making it visually appealing and easy to navigate.
 imageAttribution: Dalle3
-imageWidth: 1792
-imageHeight: 1024
+imageWidth: 960
+imageHeight: 549
 published: "2024-06-12T13:21:57.107Z"
 updated: "2024-07-04T19:48:48.365Z"
 author: John Solly

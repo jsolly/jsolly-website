@@ -1,9 +1,11 @@
 name: Production smoke
 # Every deployment status (pending, in_progress, success, inactive) starts a run; only success and manual runs
 # carry the title /ship's follower discovers, so it never follows a skipped sibling.
-run-name: ${{ github.event_name == 'workflow_dispatch' && format('Production smoke {0} {1}', inputs.release_sha, inputs.request_id) || (github.event.deployment_status.state == 'success' && format('Production smoke {0} {1}', github.event.deployment.sha, github.event.deployment.id)) || format('Production smoke status {0} {1}', github.event.deployment_status.state, github.event.deployment.id) }}
+run-name: ${{ github.event_name == 'schedule' && format('Production daily smoke {0}', github.run_id) || github.event_name == 'workflow_dispatch' && format('Production smoke {0} {1}', inputs.release_sha, inputs.request_id) || (github.event.deployment_status.state == 'success' && format('Production smoke {0} {1}', github.event.deployment.sha, github.event.deployment.id)) || format('Production smoke status {0} {1}', github.event.deployment_status.state, github.event.deployment.id) }}
 on:
   deployment_status:
+  schedule:
+    - cron: "47 10 * * *"
   workflow_dispatch:
     inputs:
       release_sha:
@@ -17,14 +19,14 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: production-smoke-${{ github.event.deployment.id || inputs.request_id }}-${{ github.event.deployment_status.state || 'manual' }}
+  group: production-smoke-${{ github.event.deployment.id || inputs.request_id || github.run_id }}-${{ github.event.deployment_status.state || 'manual' }}
   cancel-in-progress: false
 jobs:
   smoke:
     # Substitute the production environment, status URL prefix and host's deployment creator.
     # Project-qualified production environments still require this project's status URL.
     if: >-
-      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') ||
+      ((github.event_name == 'workflow_dispatch' || github.event_name == 'schedule') && github.ref == 'refs/heads/main') ||
       (github.event_name == 'deployment_status' &&
        github.event.deployment_status.state == 'success' &&
        github.event.deployment.creator.login == 'vercel[bot]' &&
@@ -40,10 +42,27 @@ jobs:
       PRODUCTION_SMOKE_RELEASE_SHA: ${{ github.event.deployment.sha || inputs.release_sha }}
       PRODUCTION_SMOKE_REQUEST_ID: ${{ github.event.deployment.id || inputs.request_id }}
     steps:
+      - name: Resolve the current production release for the daily check
+        if: github.event_name == 'schedule'
+        id: scheduled-release
+        shell: bash
+        run: |
+          set -euo pipefail
+          release_file=$(mktemp)
+          trap 'rm -f "$release_file"' EXIT
+          status=$(curl --fail --silent --show-error --max-time 20 --max-filesize 1024 \
+            --proto '=https' --output "$release_file" --write-out '%{http_code}' \
+            --header 'Cache-Control: no-cache' https://www.jsolly.com/release.json)
+          [[ "$status" == 200 ]] || exit 1
+          jq -e 'type == "object" and keys == ["sha"]' "$release_file" >/dev/null
+          sha=$(jq -er '.sha | strings | select(test("^[0-9a-f]{40}$"))' "$release_file")
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          echo "PRODUCTION_SMOKE_RELEASE_SHA=$sha" >> "$GITHUB_ENV"
+          echo "PRODUCTION_SMOKE_REQUEST_ID=daily-${{ github.run_id }}" >> "$GITHUB_ENV"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           # The deployed commit's scenario, so a later merge's assertions never test an older build.
-          ref: ${{ github.event.deployment.sha || inputs.release_sha }}
+          ref: ${{ steps.scheduled-release.outputs.sha || github.event.deployment.sha || inputs.release_sha }}
           fetch-depth: 0
           persist-credentials: false
       - name: Verify the release belongs to main

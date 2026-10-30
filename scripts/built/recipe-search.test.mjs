@@ -6,6 +6,7 @@ import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import data from "../../src/components/recipes/recipe-data.server.mjs";
 import { collectErrors, serveStatic } from "./pages.mjs";
+import { holdRecipeArtifact } from "./recipe-artifact-gate.mjs";
 import { setLegacyUnits } from "./recipe-legacy-units.mjs";
 
 let site;
@@ -24,6 +25,12 @@ const PROTEINS = /^Proteins:/u;
 const OPEN_RECIPE = /^Open recipe:/u;
 const SMOOTHIE = /smoothie/iu;
 const TURKEY = /Turkey/u;
+// The second source fixture matches jalapeño/stuffed text plus the existing
+// limited typo tolerance from “popper” to “pepper”.
+const DISTANT_MATCH_IDS = [
+	"source-jalapen-o-popper-stuffed-chicken-breast",
+	"source-mexican-cauliflower-rice-with-cheesy-steak-roll-ups",
+];
 
 function verifyLibrary(width) {
 	it(`recipe search, aligned settings and individual card printing at ${width}px`, {
@@ -159,15 +166,7 @@ function verifyLibrary(width) {
 			await page.keyboard.press("Escape");
 			await servings.selectOption("6");
 			await setLegacyUnits(page, "metric");
-			const fullSearch = page.waitForResponse((response) => {
-				const url = new URL(response.url());
-				return (
-					url.pathname === "/api/recipe-browse/" &&
-					url.searchParams.get("q") === "jalapeno popper stuffed"
-				);
-			});
 			await search.fill("jalapeno popper stuffed");
-			const searchPage = await (await fullSearch).json();
 			const distantRecipe = data.recipes.find(
 				(recipe) =>
 					recipe.id === "source-jalapen-o-popper-stuffed-chicken-breast",
@@ -179,20 +178,23 @@ function verifyLibrary(width) {
 					.slice(0, 6)
 					.some((recipe) => recipe.id === distantRecipe.id),
 			);
-			assert.ok(
-				searchPage.cards.some((recipe) => recipe.id === distantRecipe.id),
-				"the API searches recipes beyond the initial six cards",
-			);
+
 			const cards = page.locator(".recipe-grid .recipe-card");
 			await page.waitForFunction(
-				() =>
+				(id) =>
 					document.querySelector("#meal-results").getAttribute("aria-busy") ===
-					"false",
+						"false" &&
+					document
+						.querySelector("#meal-results")
+						.getAttribute("data-match-count") === "2" &&
+					document.querySelector(".recipe-card [data-recipe-id]")?.dataset
+						.recipeId === id,
+				distantRecipe.id,
 			);
-			await cards.first().waitFor();
 			assert.deepEqual(
-				await cardIds(),
-				searchPage.cards.map((recipe) => recipe.id),
+				(await cardIds()).sort(),
+				[...DISTANT_MATCH_IDS].sort(),
+				"local full-text search includes a recipe beyond the initial six cards",
 			);
 			const mealId = await cards
 				.first()
@@ -385,29 +387,13 @@ it("recipe batches load by scroll and button; shuffle retains current cards and 
 		const initialIds = await page
 			.locator(".recipe-card .title-button")
 			.evaluateAll((links) => links.map((link) => link.dataset.recipeId));
-		let releaseShuffle;
-		let markRequested;
-		const held = new Promise((resolve) => {
-			releaseShuffle = resolve;
-		});
-		const requested = new Promise((resolve) => {
-			markRequested = resolve;
-		});
-		await page.route(
-			(url) =>
-				url.pathname === "/api/recipe-browse/" &&
-				url.searchParams.get("shuffle") === "1",
-			async (route) => {
-				markRequested();
-				await held;
-				await route.continue();
-			},
-		);
-		const shuffledResponse = page.waitForResponse(
-			(response) => new URL(response.url()).searchParams.get("shuffle") === "1",
+
+		const summary = await holdRecipeArtifact(page, "summaries");
+		await page.evaluate(() =>
+			Object.defineProperty(crypto, "randomUUID", { value: () => "0" }),
 		);
 		await page.getByRole("button", { name: "Shuffle meals" }).click();
-		await requested;
+		const download = await summary.started;
 		assert.equal(
 			await page.locator("#meal-results").getAttribute("aria-busy"),
 			"true",
@@ -426,50 +412,41 @@ it("recipe batches load by scroll and button; shuffle retains current cards and 
 				.evaluateAll((links) => links.map((link) => link.dataset.recipeId)),
 			initialIds,
 		);
-		releaseShuffle();
-		const shuffledPage = await (await shuffledResponse).json();
+
+		summary.release();
+		await summary.finished;
+		const artifact = await download.response.json();
+		assert.deepEqual(
+			artifact.recipes.map(({ id }) => id),
+			data.recipes.map(({ id }) => id),
+			"the download covers the complete source collection",
+		);
 		await page.waitForFunction(
 			() =>
 				document.querySelector("#meal-results").getAttribute("aria-busy") ===
 				"false",
 		);
-		assert.ok(shuffledPage.seed);
-		assert.deepEqual(
-			await page
-				.locator(".recipe-card .title-button")
-				.evaluateAll((links) => links.map((link) => link.dataset.recipeId)),
-			shuffledPage.cards.map((card) => card.id),
-		);
-		assert.notDeepEqual(
-			shuffledPage.cards.map((card) => card.id),
-			initialIds,
-		);
-		const nextShuffled = page.waitForResponse((response) => {
-			const url = new URL(response.url());
-			return (
-				url.pathname === "/api/recipe-browse/" &&
-				url.searchParams.get("page") === "2"
-			);
-		});
+		const shuffledIds = await page
+			.locator(".recipe-card .title-button")
+			.evaluateAll((links) => links.map((link) => link.dataset.recipeId));
+		assert.equal(shuffledIds.length, 6);
+		assert.notDeepEqual(shuffledIds, initialIds);
 		const more = page.getByRole("button", { name: "Load more recipes" });
 		await more.focus();
 		await page.keyboard.press("Enter");
 		await page.waitForFunction(
 			() => document.querySelectorAll(".recipe-card").length >= 12,
 		);
-		const nextPage = await (await nextShuffled).json();
-		assert.equal(nextPage.seed, shuffledPage.seed);
+
+		const firstTwelve = await page
+			.locator(".recipe-card .title-button")
+			.evaluateAll((links) => links.map((link) => link.dataset.recipeId));
 		assert.deepEqual(
-			await page
-				.locator(".recipe-card .title-button")
-				.evaluateAll((links) => links.map((link) => link.dataset.recipeId)),
-			[...shuffledPage.cards, ...nextPage.cards].map((card) => card.id),
+			firstTwelve.slice(0, 6),
+			shuffledIds,
+			"the next local batch retains the shuffle order",
 		);
-		assert.equal(
-			new Set([...shuffledPage.cards, ...nextPage.cards].map((card) => card.id))
-				.size,
-			12,
-		);
+		assert.equal(new Set(firstTwelve).size, 12);
 		await page.evaluate(() => window.scrollTo(0, 0));
 		await more.focus();
 		await page.keyboard.press("Enter");
@@ -511,6 +488,18 @@ it("recipe batches load by scroll and button; shuffle retains current cards and 
 				true,
 			);
 		}
+
+		assert.deepEqual(
+			(
+				await page
+					.locator(".recipe-card .title-button")
+					.evaluateAll((links) => links.map((link) => link.dataset.recipeId))
+			).sort(),
+			data.recipes
+				.filter((recipe) => recipe.type === "meal")
+				.map(({ id }) => id)
+				.sort(),
+		);
 		const count = page.getByRole("combobox", {
 			name: "Pressure cookers count",
 			exact: true,
@@ -613,19 +602,13 @@ it("background summaries leave six cards mounted and defer distant images and al
 		requested.push(new URL(request.url()).pathname),
 	);
 	try {
-		const thirdPage = page.waitForResponse((response) => {
-			const url = new URL(response.url());
-			return (
-				url.pathname === "/api/recipe-browse/" &&
-				url.searchParams.get("page") === "3"
-			);
-		});
+		const summary = await holdRecipeArtifact(page, "summaries");
 		await page.goto(`${site.origin}/recipes/meals/`);
 		await page.locator("[data-hydrated=true]").waitFor();
 		assert.equal(await page.locator(".recipe-card").count(), 6);
-		const background = await (await thirdPage).json();
-		assert.equal(background.page, 3);
-		assert.equal(background.cards.length, 6);
+		const download = await summary.started;
+		const background = await download.response.json();
+		assert.equal(background.recipes.length, data.recipes.length);
 		assert.equal(
 			await page.locator(".recipe-card").count(),
 			6,
@@ -647,6 +630,14 @@ it("background summaries leave six cards mounted and defer distant images and al
 		await page
 			.getByRole("button", { name: "Load more recipes" })
 			.scrollIntoViewIfNeeded();
+		assert.equal(
+			await page.locator(".recipe-card").count(),
+			6,
+			"scroll demand retains current cards until the pending download completes",
+		);
+		summary.release();
+		await summary.finished;
+
 		await page.waitForFunction(
 			() => document.querySelectorAll(".recipe-card").length === 12,
 		);
@@ -677,128 +668,164 @@ it("a superseded slow search cannot replace current results and Retry preserves 
 	});
 	await context.addInitScript(() => {
 		Object.defineProperty(navigator, "connection", {
+			configurable: true,
 			value: Object.assign(new EventTarget(), {
 				saveData: true,
 				effectiveType: "4g",
 			}),
-			configurable: true,
 		});
-		// biome-ignore lint/performance/noDelete: exercise the browser fallback, which checks property presence with "in".
+		// biome-ignore lint/performance/noDelete: exercise button pagination without automatic scroll demand.
 		delete window.IntersectionObserver;
 	});
 	const page = await context.newPage();
-	let releaseOld;
-	const held = new Promise((resolve) => {
-		releaseOld = resolve;
+	const downloads = [];
+	const apiRequests = [];
+	page.on("request", (request) => {
+		const path = new URL(request.url()).pathname;
+		if (path.startsWith("/recipes/data/search/")) downloads.push(request.url());
+		if (path === "/api/recipe-browse/") apiRequests.push(path);
 	});
-	let markOld;
-	const oldRequested = new Promise((resolve) => {
-		markOld = resolve;
-	});
-	let markOldFinished;
-	const oldFinished = new Promise((resolve) => {
-		markOldFinished = resolve;
-	});
+	let failNextIndex = false;
 	let failures = 0;
-	try {
-		await page.route(
-			(url) => url.pathname === "/api/recipe-browse/",
-			async (route) => {
-				const url = new URL(route.request().url());
-				if (url.searchParams.get("q") === "salmon") {
-					const response = await route.fetch();
-					markOld();
-					await held;
-					try {
-						await route.fulfill({ response });
-					} catch {
-						/* The aborted old request has already been discarded. */
-					}
-					markOldFinished();
-					return;
-				}
-				if (
-					url.searchParams.get("q") === "jalapeno popper stuffed" &&
-					failures++ === 0
-				) {
-					await route.fulfill({
-						status: 503,
-						contentType: "application/json",
-						body: '{"error":"temporary"}',
-					});
-					return;
-				}
-				await route.continue();
-			},
+	await page.route(
+		(url) => url.pathname.startsWith("/recipes/data/search/"),
+		async (route) => {
+			if (failNextIndex) {
+				failNextIndex = false;
+				failures++;
+				await route.fulfill({
+					status: 503,
+					contentType: "application/json",
+					body: '{"error":"temporary"}',
+				});
+			} else await route.continue();
+		},
+	);
+	const index = await holdRecipeArtifact(page, "search");
+	const ids = () =>
+		page
+			.locator(".recipe-card .title-button")
+			.evaluateAll((links) => links.map((link) => link.dataset.recipeId));
+	const distantId = "source-jalapen-o-popper-stuffed-chicken-breast";
+	const waitForDistant = () =>
+		page.waitForFunction(
+			(id) =>
+				document.querySelector("#meal-results").getAttribute("aria-busy") ===
+					"false" &&
+				document
+					.querySelector("#meal-results")
+					.getAttribute("data-match-count") === "2" &&
+				document.querySelector(".recipe-card [data-recipe-id]")?.dataset
+					.recipeId === id,
+			distantId,
 		);
+	try {
 		await page.goto(`${site.origin}/recipes/meals/`);
 		await page.locator("[data-hydrated=true]").waitFor();
 		const search = page.getByRole("searchbox", { name: "Search recipes" });
+		const initial = await ids();
 		await search.fill("salmon");
-		await oldRequested;
-		const currentResponse = page.waitForResponse(
-			(response) => new URL(response.url()).searchParams.get("q") === "chicken",
+		await index.started;
+		await search.fill("jalapeno popper stuffed");
+		assert.deepEqual(
+			await ids(),
+			initial,
+			"a shared pending index keeps current cards visible",
 		);
-		await search.fill("chicken");
-		const current = await (await currentResponse).json();
+		assert.equal(
+			await page.locator("#meal-results").getAttribute("aria-busy"),
+			"true",
+		);
+		index.release();
+		await index.finished;
+		await waitForDistant();
+		assert.deepEqual(
+			(await ids()).sort(),
+			[...DISTANT_MATCH_IDS].sort(),
+			"only the newest query can consume the slow shared index",
+		);
+		await page.evaluate(
+			() =>
+				new Promise((resolve) =>
+					requestAnimationFrame(() => requestAnimationFrame(resolve)),
+				),
+		);
+		assert.deepEqual(
+			(await ids()).sort(),
+			[...DISTANT_MATCH_IDS].sort(),
+			"completion of superseded work cannot overwrite the newest result",
+		);
+		assert.equal(await search.inputValue(), "jalapeno popper stuffed");
+		assert.equal(
+			downloads.length,
+			1,
+			"changing query shares the same in-flight index download",
+		);
+
+		// A fresh visit has no in-memory index. Load summaries without search first,
+		// so a failed index must preserve an already expanded result set.
+		await page.reload();
+		await page.locator("[data-hydrated=true]").waitFor();
+		await page.getByRole("button", { name: "Load more recipes" }).click();
+		await page.waitForFunction(
+			() => document.querySelectorAll(".recipe-card").length === 12,
+		);
+		const current = await ids();
+		await page
+			.getByRole("combobox", { name: "Servings", exact: true })
+			.selectOption("6");
 		await page.waitForFunction(
 			() =>
 				document.querySelector("#meal-results").getAttribute("aria-busy") ===
 				"false",
 		);
-		const ids = () =>
-			page
-				.locator(".recipe-card .title-button")
-				.evaluateAll((links) => links.map((link) => link.dataset.recipeId));
-		assert.deepEqual(
-			await ids(),
-			current.cards.map((recipe) => recipe.id),
+		const beforeFailure = await ids();
+		assert.ok(current.length >= beforeFailure.length);
+		failNextIndex = true;
+		const failedResponse = page.waitForResponse(
+			(response) =>
+				new URL(response.url()).pathname.startsWith("/recipes/data/search/") &&
+				response.status() === 503,
 		);
-		releaseOld();
-		await oldFinished;
-		assert.deepEqual(
-			await ids(),
-			current.cards.map((recipe) => recipe.id),
-		);
-		assert.equal(await search.inputValue(), "chicken");
 		await search.fill("jalapeno popper stuffed");
+		const failedURL = (await failedResponse).url();
 		await page.getByRole("alert").waitFor();
 		assert.deepEqual(
 			await ids(),
-			current.cards.map((recipe) => recipe.id),
-			"failure preserves the current cards",
+			beforeFailure,
+			"a failed index keeps the current cards",
 		);
-		const retryResponse = page.waitForResponse(
-			(response) => new URL(response.url()).pathname === "/api/recipe-browse/",
+		assert.equal(await search.inputValue(), "jalapeno popper stuffed");
+		const retryResponse = page.waitForResponse((response) =>
+			new URL(response.url()).pathname.startsWith("/recipes/data/search/"),
 		);
 		await page.getByRole("button", { name: "Retry", exact: true }).click();
-		const retryResult = await retryResponse;
-		const request = new URL(retryResult.url());
-		assert.equal(request.searchParams.get("q"), "jalapeno popper stuffed");
+		const retried = await retryResponse;
 		assert.equal(
-			request.searchParams.get("page"),
-			"1",
-			"retry repeats the failed first-page search",
+			retried.url(),
+			failedURL,
+			"retry repeats the exact immutable index identity",
 		);
-		const retried = await retryResult.json();
-		await page.waitForFunction(
-			() =>
-				document.querySelector("#meal-results").getAttribute("aria-busy") ===
-				"false",
-		);
-		assert.deepEqual(
-			await ids(),
-			retried.cards.map((recipe) => recipe.id),
-		);
-		assert.ok(
-			retried.cards.some(
-				(recipe) =>
-					recipe.id === "source-jalapen-o-popper-stuffed-chicken-breast",
-			),
+		assert.equal(retried.status(), 200);
+		await waitForDistant();
+		assert.deepEqual((await ids()).sort(), [...DISTANT_MATCH_IDS].sort());
+		assert.equal(await search.inputValue(), "jalapeno popper stuffed");
+		assert.equal(
+			await page
+				.getByRole("combobox", { name: "Servings", exact: true })
+				.inputValue(),
+			"6",
 		);
 		assert.equal(await page.getByRole("alert").count(), 0);
+		assert.equal(failures, 1);
+		assert.equal(
+			downloads.length,
+			3,
+			"one shared first visit, one failed fresh visit and one retry",
+		);
+		assert.deepEqual(apiRequests, []);
 	} finally {
-		releaseOld?.();
+		index.release();
 		await context.close();
 	}
 });
@@ -898,6 +925,8 @@ it("hovering or focusing a card downloads no pack, card Print downloads exactly 
 		const path = new URL(request.url()).pathname;
 		if (
 			path === "/api/recipe-browse/" ||
+			path.startsWith("/recipes/data/summaries/") ||
+			path.startsWith("/recipes/data/search/") ||
 			path.startsWith("/recipes/data/packs/")
 		)
 			speculative.push(path);

@@ -4,12 +4,12 @@ title: "Cleaner Code: Using for...of Loops in JavaScript"
 category: web-dev
 description: Learn how to use ES6's for...of loops to clean up your JavaScript code and improve readability. See a real-world example.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/asteroidLasers.webp
+image: /blog/media/migrated/image-3c0931f1f0d3643b9348f121-960.webp
 legacyImage: post_metaimgs/asteroidLasers.webp
 imageAlt: Screenshot of a for loop with a red x and a for of loop with a green checkmark.
 imageAttribution: ""
-imageWidth: 1164
-imageHeight: 840
+imageWidth: 960
+imageHeight: 693
 published: "2022-08-01T19:58:51.937Z"
 updated: "2022-08-01T19:58:51.937Z"
 author: John Solly

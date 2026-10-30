@@ -3,6 +3,7 @@
 // with the portfolio. Article styles stay scoped to the reading section.
 
 import SiteShell from "../components/SiteShell.astro";
+import StructuredData from "../components/StructuredData.astro";
 import Button from "../lib/components/ui/button.svelte";
 import "../styles/blog/blog.css";
 import BlogNavigation from "../components/blog/BlogNavigation.svelte";
@@ -12,7 +13,6 @@ import {
 	DEFAULT_IMAGE,
 	EMBED_HOSTS,
 	FEEDS,
-	LEGACY_MEDIA,
 } from "../lib/blog/constants.js";
 import { blogNavigation } from "../lib/blog/content.js";
 import noScriptStyles from "../styles/blog/no-script.css?url";
@@ -37,7 +37,7 @@ const {
 	article = false,
 } = Astro.props;
 
-// Post bodies load legacy images from CloudFront (J6) and embed YouTube,
+// Post bodies load same-origin responsive images and embed YouTube,
 // diagrams.net frames and same-origin notebook pages; only blog pages widen the Astro meta
 // policy, and a build without CSP must fail rather than ship without it.
 if (section === "blog") {
@@ -47,7 +47,7 @@ if (section === "blog") {
 		);
 	}
 	Astro.csp.insertDirective(
-		`img-src 'self' data: ${new URL(LEGACY_MEDIA).origin}`,
+		"img-src 'self' data:",
 	);
 	Astro.csp.insertDirective(
 		`frame-src 'self' ${EMBED_HOSTS.map((host) => `https://${host}`).join(" ")}`,
@@ -86,6 +86,7 @@ const isRecipeCollection = ["/recipes/", "/recipes/meals/", "/recipes/smoothies/
 		<meta name="twitter:card" content="summary_large_image" />
 		{noindex && <meta name="robots" content="noindex, follow" />}
 		<noscript><link rel="stylesheet" href={noScriptStyles} /></noscript>
+		{!isMaintenanceMode && <StructuredData />}
 		{!isMaintenanceMode && <slot name="head" />}
 	</head>
   <body id="top" class="bg-background text-text-primary font-body">
@@ -105,6 +106,7 @@ const isRecipeCollection = ["/recipes/", "/recipes/meals/", "/recipes/smoothies/
           <a href={FEEDS.rss.path}>RSS</a>
           <a href={FEEDS.atom.path}>Atom</a>
         </>}
+        <a href="/recipes/all/">All recipes</a>
         <a href="#top">Back to top</a>
       </nav>
     </SiteShell>

@@ -389,16 +389,23 @@ self.addEventListener("install", (event) => {
 		(async () => {
 			// Returning from fetch still starts a stopped worker. Route the live API
 			// directly to the network so it cannot restart a worker being replaced.
-			if (typeof event.addRoutes === "function")
-				await event.addRoutes({
-					condition: {
-						urlPattern: new URLPattern({
-							pathname: "/api/recipe-browse/",
-							baseURL: self.location.origin,
-						}),
-					},
-					source: "network",
-				});
+			if (typeof event.addRoutes === "function") {
+				await event.addRoutes(
+					[
+						"/api/recipe-browse/",
+						"/recipes/data/summaries/*",
+						"/recipes/data/search/*",
+					].map((pathname) => ({
+						condition: {
+							urlPattern: new URLPattern({
+								pathname,
+								baseURL: self.location.origin,
+							}),
+						},
+						source: "network",
+					})),
+				);
+			}
 			const token = crypto.randomUUID();
 			let reuse = false;
 			await ownershipLock(async () => {
@@ -639,6 +646,8 @@ self.addEventListener("fetch", (event) => {
 		// Dynamic browse responses are never offline assets. Owning their fetch
 		// events would let a slow backend keep this worker alive during an update.
 		url.pathname === "/api/recipe-browse/" ||
+		url.pathname.startsWith("/recipes/data/summaries/") ||
+		url.pathname.startsWith("/recipes/data/search/") ||
 		(recipeBrowseDestination(request) &&
 			preferredType(request.headers.get("accept")) === "text/html")
 	)

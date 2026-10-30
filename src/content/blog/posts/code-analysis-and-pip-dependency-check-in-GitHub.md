@@ -4,12 +4,12 @@ title: Automate Security in Your CI Workflow With CodeQL and Dependabot
 category: dev-tools
 description: Integrate CodeQL and Dependabot for automated security checks in your CI/CD workflow. Learn how to streamline your process and secure your codebase.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/CodeQL_and_dependabot.png
+image: /blog/media/migrated/image-903447597b9fee6693a0c064-960.webp
 legacyImage: post_metaimgs/CodeQL_and_dependabot.png
 imageAlt: Screenshot of CodeQL and Dependabot YAML code
 imageAttribution: ""
-imageWidth: 1316
-imageHeight: 708
+imageWidth: 960
+imageHeight: 516
 published: "2022-06-06T01:34:56Z"
 updated: "2024-11-06T13:36:05.671Z"
 author: John Solly
@@ -29,7 +29,7 @@ related:
 
 After setting up CodeQL, it creates a new workflow inside .github/workflows. The default setup is to run static code analysis whenever a PR/push is made against the master branch. The problem was that two workflows executed each code push.
 
-<figure class="image image_resized" style="width:81.27%;"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_8nDUbmE.png" alt="Screenshot of Git Actions showing two workflows. One by blogthedata tests and the other by CodeQL."></figure>
+<figure class="image image_resized" style="width:81.27%;"><img src="/blog/media/migrated/image-4041cb9632d78f78fe501c3c-947.webp" alt="Screenshot of Git Actions showing two workflows. One by blogthedata tests and the other by CodeQL."></figure>
 
 It made more sense for CodeQL to be the last step in my existing CI workflow instead of having to rebuild the container twice. I joined the two workflows.
 
@@ -157,7 +157,7 @@ updates:
 
 I changed <strong> line 18</strong> to point it to my requirements.txt file. Dependabot creates PRs for the issues it finds. I have four open Dependabot branches that I'll tackle in <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/awesome-django-blog/issues/101">this issue</a>. The code changes Dependabot suggests often bump the module version number in the requirements.txt. Since unit tests pass, I'll merge them and roll back if things go sideways.
 
-<img class="image_resized" style="width:82.17%;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_OyvV6v2.png" alt="Screenshot of Dependabot PR. Code change from Pillow8.3.2 to 9.0.1"> 
+<img class="image_resized" style="width:82.17%;" src="/blog/media/migrated/image-585cf545c19238b3f5fb2747-960.webp" alt="Screenshot of Dependabot PR. Code change from Pillow8.3.2 to 9.0.1"> 
 
 ## Conclusion
 

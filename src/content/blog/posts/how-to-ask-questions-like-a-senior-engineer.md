@@ -4,7 +4,7 @@ title: How to Ask Questions Like a Senior Engineer
 category: productivity
 description: Learn how to ask effective programming questions by reviewing examples and applying best practices from Stack Overflow.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/questioningBoy.webp
+image: /blog/media/migrated/image-553ffebc85d09db344670e93-600.webp
 legacyImage: post_metaimgs/questioningBoy.webp
 imageAlt: A boy with a question mark floating by his head.
 imageAttribution: https://freesvg.org/img/publicdomainq-0009066vfupbm.png

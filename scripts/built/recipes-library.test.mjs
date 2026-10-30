@@ -1,4 +1,6 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import { gzipSync } from "node:zlib";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import {
@@ -11,6 +13,7 @@ import { matchesRecipe } from "../../src/components/recipes/nutrient-filters.mjs
 import recipeData from "../../src/components/recipes/recipe-data.server.mjs";
 import { collectErrors, serveStatic } from "./pages.mjs";
 import { assertPrintLayout } from "./recipe-print-layout.mjs";
+import { assertRecipeStartupBudget } from "./recipe-startup-budget.mjs";
 
 // The hydrated recipe library in Chromium: printing from a card and the
 // collection, and the saved settings (J13: localStorage recipes-settings-v1)
@@ -819,6 +822,74 @@ it("chips under the results heading show the active filters and search, remove o
 			},
 		);
 		assert.equal(ovenBefore, true);
+	} finally {
+		await close();
+	}
+});
+
+it("the online library loads one release-named summary artifact and browses locally", {
+	timeout: 60_000,
+}, async () => {
+	await assertRecipeStartupBudget(browser, site.origin);
+	const { page, errors, close } = await openPage({ serviceWorkers: "block" });
+	const downloads = [];
+	const searches = [];
+	const dynamic = [];
+	page.on("request", (request) => {
+		const path = new URL(request.url()).pathname;
+		if (path.startsWith("/recipes/data/summaries/")) downloads.push(path);
+		if (path.startsWith("/recipes/data/search/")) searches.push(path);
+		if (path === "/api/recipe-browse/") dynamic.push(path);
+	});
+	try {
+		await goHydrated(page, "/recipes/meals/");
+		await page.waitForFunction(
+			() =>
+				!document.querySelector("#meal-results").getAttribute("aria-busy") ||
+				document.querySelector("#meal-results").getAttribute("aria-busy") ===
+					"false",
+		);
+		await page.waitForTimeout(800);
+		assert.equal(
+			searches.length,
+			0,
+			"background summaries never download the search indexes",
+		);
+		await page
+			.getByRole("searchbox", { name: "Search recipes" })
+			.fill("chicken");
+		await page.waitForFunction(
+			() =>
+				document.querySelector("#meal-results").getAttribute("aria-busy") ===
+					"false" &&
+				document
+					.querySelector(".no-results")
+					.textContent.includes("recipes found"),
+		);
+		const expected = meals.filter((recipe) => recipe.proteinType === "chicken");
+		assert.ok(expected.length > 6);
+		await page
+			.getByRole("button", { name: "Load more recipes", exact: true })
+			.scrollIntoViewIfNeeded();
+		await page.waitForFunction(
+			() => document.querySelectorAll(".recipe-card").length >= 12,
+		);
+		await page.getByRole("searchbox", { name: "Search recipes" }).fill("");
+		await page.waitForFunction(
+			(total) =>
+				document
+					.querySelector("#meal-results")
+					.getAttribute("data-match-count") === String(total),
+			meals.length,
+		);
+		await page
+			.getByRole("button", { name: "Shuffle meals", exact: true })
+			.click();
+		assert.equal(downloads.length, 1);
+		assert.ok(gzipSync(await readFile(`dist${downloads[0]}`)).length <= 30_000);
+		assert.equal(searches.length, 1);
+		assert.equal(dynamic.length, 0);
+		assert.deepEqual(errors, []);
 	} finally {
 		await close();
 	}

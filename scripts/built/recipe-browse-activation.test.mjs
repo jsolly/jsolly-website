@@ -90,6 +90,9 @@ it("Legacy activation drains a browse body before retiring A and queues the othe
 		await other.getByRole("button", { name: PROTEINS }).click();
 		await other.getByRole("checkbox", { name: "Fish", exact: true }).check();
 		await other.keyboard.press("Escape");
+		// The current UI filters locally; the probe represents an older tab that
+		// still owns a real API response while the legacy worker is replaced.
+		await startBrowse(other, api({ proteinChoice: "fish" }), "heldBrowse");
 		const held = await proxy.started;
 		const expected = recipeData.recipes
 			.filter(
@@ -134,6 +137,10 @@ it("Legacy activation drains a browse body before retiring A and queues the othe
 			"queued browse has not reached the server",
 		);
 		proxy.release();
+		assert.deepEqual(await other.evaluate(() => window.heldBrowse), {
+			status: held.status,
+			body: held.body,
+		});
 		await other.waitForFunction(
 			(ids) =>
 				JSON.stringify(

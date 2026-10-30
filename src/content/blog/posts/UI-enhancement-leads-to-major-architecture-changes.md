@@ -4,12 +4,12 @@ title: "Django Context Processors and Multi-Stage Migrations: Lessons Learned"
 category: web-dev
 description: Sometimes minor features need large technical lifts. How a small UI change pushed me to learn Django’s Context Processors and DB Migrations.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/context_processor.png
+image: /blog/media/migrated/image-9cac3e1668538c19d4686cef-960.webp
 legacyImage: post_metaimgs/context_processor.png
 imageAlt: Screenshot of Context Processor Code
 imageAttribution: ""
-imageWidth: 1280
-imageHeight: 688
+imageWidth: 960
+imageHeight: 516
 published: "2022-06-01T18:20:08Z"
 updated: "2024-12-23T23:19:07.658Z"
 author: John Solly
@@ -24,7 +24,7 @@ related:
 
 Who would have thought the number of posts per category as a badge icon could be tricky? This small UI change taught me about Django's context processors and multi-stage database migrations.
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_h9OEyTH.png" alt="Sidebar content showing Site Updates and Life Advice"></figure>
+<figure class="image"><img src="/blog/media/migrated/image-5112f0cc3adac0bb4f308aca-193.webp" alt="Sidebar content showing Site Updates and Life Advice"></figure>
 
 It all started when I found an example on the Bootstrap Docs showing <a target="_blank" rel="noopener noreferrer" href="https://getbootstrap.com/docs/4.0/components/list-group/#with-badges">count badges on list items</a>. I imagined injecting the category count into a template.
 
@@ -227,6 +227,6 @@ The last piece is creating the template code.
 
 The end result is count badges in the sidebar.
 
-<figure class="image image-style-align-center"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image.png" alt="Sidebar showing badges with post count."></figure>
+<figure class="image image-style-align-center"><img src="/blog/media/migrated/image-28fcd5e18fba88889debc3e1-230.webp" alt="Sidebar showing badges with post count."></figure>
 
 Crazy how what might seem trivial is actually a major technical undertaking.

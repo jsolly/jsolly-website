@@ -6,6 +6,12 @@ import { JSDOM } from "jsdom";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { browseResponse } from "../../../api/recipe-browse.mjs";
 import { filterBrowseRecipes, parseBrowseParams } from "./recipe-browse.mjs";
+import { browseLibraryPath } from "./recipe-browse-library.mjs";
+import {
+	buildBrowseLibrary,
+	buildBrowseSearch,
+} from "./recipe-browse-library.server.mjs";
+import { browseSearchPath } from "./recipe-browse-search.mjs";
 import data from "./recipe-data.server.mjs";
 import { createBrowsePage } from "./recipe-summary.mjs";
 
@@ -16,6 +22,17 @@ before(async () => {
 	directory = await mkdtemp(join(tmpdir(), "recipe-browse-"));
 	root = join(directory, "recipes");
 	await mkdir(root);
+	const libraryFile = join(directory, browseLibraryPath(release));
+	await mkdir(join(root, "data/summaries"), { recursive: true });
+	await writeFile(
+		libraryFile,
+		JSON.stringify(buildBrowseLibrary(data.recipes, release)),
+	);
+	await mkdir(join(root, "data/search"), { recursive: true });
+	await writeFile(
+		join(directory, browseSearchPath(release)),
+		JSON.stringify(buildBrowseSearch(data.recipes, release)),
+	);
 	await writeFile(
 		join(directory, "release.json"),
 		JSON.stringify({ sha: release }),

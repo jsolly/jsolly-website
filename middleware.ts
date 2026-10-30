@@ -17,6 +17,16 @@ import { recipeBrowseDestination } from "./src/lib/recipe-browse-route.mjs";
 // biome-ignore lint/correctness/useJsonImportAttributes: Vercel's middleware bundler rejects import attributes (scripts/unit/middleware-bundle.test.mjs).
 import vercelConfig from "./vercel.json";
 
+// Vercel statically extracts these literals before bundling. Keep both patterns
+// aligned with shouldNegotiate: extensionless misses still need Markdown 404s,
+// while .md files in API/asset/data namespaces remain ordinary static files.
+export const config = {
+	matcher: [
+		"/((?!api/|_astro/|favicons/|images/|scripts/|recipes/data/.*\\.[^./]+/*$|.*\\.[^./]+$).*)",
+		"/((?!api/|_astro/|favicons/|images/|scripts/|recipes/data/).*\\.[mM][dD])",
+	],
+};
+
 const markdownRoutes = new Map(builtMarkdownRoutes);
 // Preview deployments widen the header CSP for the Vercel Toolbar; empty in production.
 const previewHeaders = previewResponseHeaders(

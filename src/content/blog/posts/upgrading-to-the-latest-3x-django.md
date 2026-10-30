@@ -4,12 +4,12 @@ title: Upgrading to the Latest Django 3.x
 category: web-dev
 description: As a prerequisite to an upgrade to Django 4.0, I walk you through my upgrade process to the latest 3.x version
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/upgrade.png
+image: /blog/media/migrated/image-536291d280be3819522db333-960.webp
 legacyImage: post_metaimgs/upgrade.png
 imageAlt: The text 'upgrade' with lots of arrows pointing upward
 imageAttribution: ""
-imageWidth: 1920
-imageHeight: 1280
+imageWidth: 960
+imageHeight: 640
 published: "2022-05-04T12:31:30Z"
 updated: "2024-11-06T13:34:04.584Z"
 author: John Solly

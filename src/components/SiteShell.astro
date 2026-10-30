@@ -35,3 +35,9 @@ verification meta tag in their own head. */}
   <slot name="section-footer" />
   <Footer />
 </div>
+
+<script>
+  import { installErrorReporting } from "../lib/report-error.mjs";
+
+  installErrorReporting();
+</script>

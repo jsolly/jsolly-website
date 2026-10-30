@@ -8,10 +8,10 @@ import {
 	dietaryClass,
 	displayNutrition,
 	formatIngredient,
-	formatNutrition,
 	ingredientAmount,
 	totalTimeLabel,
 } from "./recipe-logic.mjs";
+import { formatNutrition } from "./recipe-settings.mjs";
 
 const NUTRITION_ASSUMPTIONS = /Nutrition assumptions:/u;
 const MISSING_PREP = /Preparation time not provided/u;

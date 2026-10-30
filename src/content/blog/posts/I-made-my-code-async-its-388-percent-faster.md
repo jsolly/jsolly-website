@@ -4,12 +4,12 @@ title: Speed Up REST Calls With AsyncIO | Get 388% Faster Results
 category: web-dev
 description: Use asyncio to speed up your REST calls and get 388% faster results. Learn how to make multiple requests without waiting for each response.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/async_code.png
+image: /blog/media/migrated/image-e2a1940e7180a4d292d5367e-960.webp
 legacyImage: post_metaimgs/async_code.png
 imageAlt: Screenshot of asynchronous Python code
 imageAttribution: ""
-imageWidth: 1396
-imageHeight: 832
+imageWidth: 960
+imageHeight: 572
 published: "2022-06-02T20:45:55Z"
 updated: "2022-06-02T20:45:55Z"
 author: John Solly

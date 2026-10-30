@@ -46,6 +46,28 @@ page with the reader's saved servings, units and side; the library does not
 render recipes itself.
 Images are files under `public/recipes/media/`, referenced as `/recipes/media/...`.
 
+Published recipe pages include `Recipe` JSON-LD built from the same default
+four-portion cooking document as their initial render. Ingredients, preparation,
+instructions, illustration metadata and base nutrition exclude optional sides.
+Smoothie yield and nutrition use the displayed estimated eight-fluid-ounce glass.
+Missing times and time ranges stay unreported as exact ISO durations, and active
+cooking time is not relabeled preparation time. Publisher source URLs remain in
+`isBasedOn` and citations; source author strings that mix people and brands do not
+become invented author identities. The keyword `keto` does not assert a nonexistent
+schema.org `KetogenicDiet` value. Retired recipe notices have no `Recipe` markup.
+
+Online collection browsing downloads one release-named static library from
+`/recipes/data/summaries/`. It contains card summaries and compact filter facts,
+without cooking instructions or nutrient calculation registries. A nonempty
+search lazily downloads release-named prebuilt indexes from `/recipes/data/search/`;
+plain browsing, filters and shuffle never request them. Search, filter changes, shuffle and further card batches then run
+locally. Vercel caches the immutable URL for one year, and production HTML pins
+its request to the deployment. A mismatched or unavailable version offers an
+update instead of mixing releases. Native no-JavaScript forms still use the
+no-store browse function, which reads the same build artifact and pre-rendered
+card fragments without loading the canonical nutrient tables. Saved browsing
+continues to use individually saved recipe records offline.
+
 The 124 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Unmeasured cooking spray used only to prepare cookware belongs in flow preparation directions, including any optional use or device-manual conditions, rather than ingredient rows. Measured oil-or-spray alternatives remain ingredients. Every food ingredient has a positive measured quantity. Missing and to-taste source amounts have reviewed measured defaults, with the original source retained in measurement provenance. Missing nutrition and times display as "Not provided". The 71 retained recipes that previously lacked complete macros now carry labeled nutrition estimates used by the same base-recipe dietary classification. Every publisher adaptation has an ingredient nutrient model. Missing nutrient observations do not qualify for nutrient filters. Prep time is distinguished from household active time. The browser keeps concise source attribution and cooking instructions; provenance and nutrition assumptions remain in canonical data and assistant downloads. Cooking guidance from source limitations belongs in the flow. Mobile renders the same ingredient allocation tree vertically, preserving branch joins and shared cooking checks; desktop and print retain the table.
 
 Every recipe has a first-party illustration under the [image contract](recipe-images.md), with illustration provenance retained in its image metadata and downloads.
@@ -491,7 +513,7 @@ printer icon. Machine-readable formats remain available through metadata and dir
 
 Search recipes searches the current collection alongside the existing filters.
 Names and ingredients rank highest; equipment, cooking instructions, family
-sides and nutrition highlights are searchable too. Online search runs on the browse server over the entire collection, with accent-insensitive matching, prefixes and limited typo tolerance. Offline search covers saved recipes only. Clearing search restores the current seeded order. Queries are not saved as preferences.
+sides and nutrition highlights are searchable too. Online search uses the downloaded prebuilt index over the entire collection, with accent-insensitive matching, prefixes and limited typo tolerance. Offline search covers saved recipes only. Clearing search restores the current seeded order. Queries are not saved as preferences.
 
 The library's **Filters** section holds the protein and carb choices (ingredients
 on smoothies) above the nutrition checks; appliances on hand sit above it as the
