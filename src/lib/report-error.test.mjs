@@ -84,7 +84,7 @@ it("does not send unknown categories or requests from local and Preview builds",
 	assert.deepEqual(calls, []);
 });
 
-it("uncaught failures report fixed categories without reading event messages or reasons", () => {
+it("uncaught and handled hydration failures report only fixed categories", () => {
 	const target = new EventTarget();
 	const reports = [];
 	const stop = installErrorReporting(target, (category) => {
@@ -98,7 +98,17 @@ it("uncaught failures report fixed categories without reading event messages or 
 			reason: "private promise value",
 		}),
 	);
+	target.dispatchEvent(
+		Object.assign(new Event("astro:hydration-error"), {
+			detail: { error: "private hydration failure", componentUrl: "private" },
+		}),
+	);
 	stop();
 	target.dispatchEvent(new Event("error"));
-	assert.deepEqual(reports, ["client-runtime", "client-async"]);
+	target.dispatchEvent(new Event("astro:hydration-error"));
+	assert.deepEqual(reports, [
+		"client-runtime",
+		"client-async",
+		"client-runtime",
+	]);
 });

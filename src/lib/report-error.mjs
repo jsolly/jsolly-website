@@ -14,9 +14,11 @@ export function installErrorReporting(target = window, report = reportError) {
 	const runtime = () => void report("client-runtime");
 	const asynchronous = () => void report("client-async");
 	target.addEventListener("error", runtime);
+	target.addEventListener("astro:hydration-error", runtime);
 	target.addEventListener("unhandledrejection", asynchronous);
 	return () => {
 		target.removeEventListener("error", runtime);
+		target.removeEventListener("astro:hydration-error", runtime);
 		target.removeEventListener("unhandledrejection", asynchronous);
 	};
 }
