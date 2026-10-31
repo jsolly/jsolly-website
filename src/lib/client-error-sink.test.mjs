@@ -3,7 +3,7 @@ import {
 	PutLogEventsCommand,
 	ResourceNotFoundException,
 } from "@aws-sdk/client-cloudwatch-logs";
-import { it } from "vitest";
+import { it, vi } from "vitest";
 import { CLIENT_ERROR_LOG } from "./client-error-constants.mjs";
 import {
 	clientErrorLogLine,
@@ -77,6 +77,8 @@ it("treats an event CloudWatch accepted but dropped as a failed write", async ()
 	await assert.rejects(record(REPORT), { name: "ClientErrorEventRejected" });
 });
 
+// The repository sets no default test timeout, so this bound turns a broken
+// deadline into a failure instead of a hung run; it sits far above the 20 ms deadline.
 it("fails and aborts a forward that outlives its deadline instead of waiting for the platform", {
 	timeout: 5000,
 }, async () => {
@@ -94,7 +96,24 @@ it("fails and aborts a forward that outlives its deadline instead of waiting for
 	assert.equal(signal.aborted, true);
 });
 
-it("federates into the stack's role and region, with one write attempt", async () => {
+it("arms no deadline timer when the write throws before returning a promise", async () => {
+	vi.useFakeTimers();
+	try {
+		const record = createCloudWatchRecorder({
+			client: {
+				send: () => {
+					throw new TypeError("send threw synchronously");
+				},
+			},
+		});
+		await assert.rejects(record(REPORT), { name: "TypeError" });
+		assert.equal(vi.getTimerCount(), 0);
+	} finally {
+		vi.useRealTimers();
+	}
+});
+
+it("federates into the stack's role and region and bounds the credential exchange and the single write attempt", async () => {
 	const requested = [];
 	const client = productionClient({
 		credentialsProvider: (options) => {
@@ -120,6 +139,11 @@ it("federates into the stack's role and region, with one write attempt", async (
 	]);
 	assert.equal(region, CLIENT_ERROR_LOG.region);
 	assert.equal(attempts, 1);
+	// The write's own per-attempt bounds, read from the SDK's resolved handler config.
+	const writeHandler = await client.config.requestHandler.configProvider;
+	assert.equal(writeHandler.connectionTimeout, 1000);
+	assert.equal(writeHandler.requestTimeout, 2000);
+	assert.equal(writeHandler.throwOnRequestTimeout, true);
 	// The client resolves credentials through the injected provider, not the default chain.
 	await assert.rejects(client.config.credentials(), PROVIDER_NOT_CALLED);
 });

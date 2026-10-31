@@ -31,10 +31,12 @@ export function clientErrorLogLine({ category, page, message }) {
 	});
 }
 
-// Rejects at the deadline and aborts the in-flight request, so a late write
-// cannot land after the handler has already answered 502.
+// Rejects at the deadline and aborts the in-flight request, so a stalled write is
+// cancelled rather than left running after the handler has answered 502. The
+// request starts first: if it throws synchronously, no timer is ever armed.
 function withDeadline(start, ms) {
 	const controller = new AbortController();
+	const pending = start(controller.signal);
 	let timer;
 	const deadline = new Promise((_, reject) => {
 		timer = setTimeout(() => {
@@ -44,9 +46,7 @@ function withDeadline(start, ms) {
 			reject(late);
 		}, ms);
 	});
-	return Promise.race([start(controller.signal), deadline]).finally(() =>
-		clearTimeout(timer),
-	);
+	return Promise.race([pending, deadline]).finally(() => clearTimeout(timer));
 }
 
 export function createCloudWatchRecorder({
