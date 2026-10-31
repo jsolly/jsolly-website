@@ -82,7 +82,6 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: ${{ steps.verified-tree.outputs.run_full != 'false' && 'npm' || '' }}
-          package-manager-cache: ${{ steps.verified-tree.outputs.run_full != 'false' }}
           cache-dependency-path: |
             .nvmrc
             package-lock.json

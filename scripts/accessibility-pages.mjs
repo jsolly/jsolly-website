@@ -8,6 +8,9 @@ import { join } from "node:path";
 
 const INDEX_HTML = /index\.html$/u;
 
+// The viewport widths each page is audited at, desktop then mobile.
+export const WIDTHS = [1280, 390];
+
 // Every built HTML document under root as a served route: `/blog/` for
 // dist/blog/index.html, `/404.html` for dist/404.html. Vercel's output is skipped.
 export async function builtPages(root) {
@@ -56,14 +59,19 @@ export const SAMPLE = [
 	},
 	{ route: "/blog/search/", template: "src/pages/blog/search.astro" },
 	{ route: "/blog/works-cited/", template: "src/pages/blog/works-cited.astro" },
-	// Blog posts: one with code blocks, tables and images, and one with body
-	// h2/h3 headings and an iframe embed.
+	// Blog posts: one with code blocks, tables and images, one with body
+	// headings and an iframe embed, and one whose hero image has an attribution
+	// caption.
 	{
 		route: "/blog/UI-enhancement-leads-to-major-architecture-changes/",
 		template: "src/pages/blog/[slug].astro",
 	},
 	{
 		route: "/blog/Adding-spell-check-django-ckeditor/",
+		template: "src/pages/blog/[slug].astro",
+	},
+	{
+		route: "/blog/Exploring-the-STAC-APIs-with-IPython-Notebooks/",
 		template: "src/pages/blog/[slug].astro",
 	},
 	{ route: "/recipes/", template: "src/pages/recipes/index.astro" },

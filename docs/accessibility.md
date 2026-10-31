@@ -6,7 +6,8 @@ with `npx playwright install chromium`.
 The axe-core audit scans every built HTML page at desktop and mobile widths.
 It waits for Astro islands to hydrate and runs every default axe rule, including
 best practices. Violations fail the command. The ignored
-`accessibility-results.json` records the expected page-viewport count, the error
+`accessibility-results.json` (or the path in `A11Y_RESULTS`) records the
+expected page-viewport count, the error
 that stopped the audit (or `null`), and each completed page-viewport's
 violations and findings that need manual review, with node selectors and
 explanations. To inspect selected routes, run `npm run check:a11y -- / /path/`.
@@ -20,13 +21,16 @@ review. Passing axe does not certify accessibility. Rebuild after source changes
 
 - **PR CI** (`CI / built (1)`) runs `npm run check:a11y:sample`: one route per
   page template, plus each variant a template renders differently (original,
-  `source-` and retired recipes; active and retired categories; two kinds of
-  post), from `SAMPLE` in `scripts/accessibility-pages.mjs`, at both widths.
-  Violations fail required `ci`. The `accessibility-results` artifact keeps the
-  report. `scripts/built/accessibility-sample.test.mjs` fails when a sampled route
-  is no longer a built page, a `src/pages` template has no sampled route, or a
-  recipe or category variant drops out; add or rename the entry in `SAMPLE` in
-  the same change.
+  `source-` and retired recipes; active and retired categories; a post with
+  code, tables and images, one with headings and an iframe embed, and one with
+  an image attribution caption), from `SAMPLE` in
+  `scripts/accessibility-pages.mjs`, at both widths. Violations fail required
+  `ci`. The `accessibility-results` artifact keeps the report.
+  `scripts/built/accessibility-sample.test.mjs` fails when a sampled route is no
+  longer a built page, a `src/pages` template has no sampled route, or a recipe,
+  category or post variant drops out; add or rename the entry in `SAMPLE` in the
+  same change. It also audits `/about/` with the real script and checks that the
+  reporter accepts the results file it writes.
 - **The Accessibility workflow** (`.github/workflows/a11y.yml`) builds `main`
   and runs the full `npm run check:a11y` after pushes to `main`, daily at
   04:17 UTC, and on manual dispatch from `main`. It does not block merges.
@@ -56,9 +60,10 @@ lists each event's fields:
   then one `violations-truncated` line with the omitted count;
 - `check-failed`, followed by the heartbeat, when the run has no complete,
   readable results: setup or the build failed, the audit stopped or was
-  incomplete, the results file is unreadable, the results never reached the
-  report job after a successful audit (artifact handoff), or the audit job
-  ended unsuccessfully after a clean audit.
+  incomplete, the results file is unreadable or malformed (a result without a
+  route, or at a width other than 1280 or 390), the audit job published results
+  that never reached the report job (artifact handoff), or the audit job ended
+  unsuccessfully after a clean audit.
 
 The report job downloads the results by the artifact ID the audit job publishes,
 so re-running only a failed report job still reads the original audit.

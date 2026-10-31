@@ -83,8 +83,8 @@ jobs:
           node-version-file: .nvmrc
           package-manager-cache: false
       # No ID when the audit job failed before the audit wrote results. Without a
-      # downloaded file the reporter sends check-failed: a setup or build failure,
-      # or an artifact handoff failure after a successful audit.
+      # downloaded file the reporter sends check-failed: a setup or build failure
+      # without an ID, an artifact handoff failure with one.
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
         if: needs.audit.outputs.artifact-id != ''
         continue-on-error: true
@@ -100,6 +100,7 @@ jobs:
       - name: Report to shared-infra scheduled checks
         env:
           AUDIT_JOB_RESULT: ${{ needs.audit.result }}
+          A11Y_ARTIFACT_ID: ${{ needs.audit.outputs.artifact-id }}
           A11Y_RESULTS: ${{ runner.temp }}/a11y/accessibility-results.json
           A11Y_SYNTHETIC: ${{ github.event_name == 'workflow_dispatch' && inputs.synthetic_violation && 'true' || 'false' }}
         run: node scripts/accessibility-report.mjs

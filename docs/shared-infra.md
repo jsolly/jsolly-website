@@ -23,7 +23,7 @@ Every event carries:
 | `heartbeat` | `info` | `outcome` (`pass` or `fail`), `violations` (total, including omitted) |
 | `a11y-violation` | `error` | `page` (route), `width` (1280 or 390), `rule` (axe rule id), `impact`, `help` |
 | `violations-truncated` | `error` | `omitted` (violation lines beyond the first 50) |
-| `check-failed` | `error` | `message`, from the fixed set in `auditOutcome` |
+| `check-failed` | `error` | `message`, from the fixed set in `scripts/accessibility-report.mjs` |
 
 Each completed run writes exactly one `heartbeat`, last. String values are one
 line of at most 500 characters and never contain page markup or raw error text;

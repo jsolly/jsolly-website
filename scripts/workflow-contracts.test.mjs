@@ -104,6 +104,30 @@ it("PR CI audits the sample and the Accessibility workflow audits every page", (
 		// biome-ignore lint/suspicious/noTemplateCurlyInString: literal GitHub Actions expression
 		path: "${{ runner.temp }}/a11y",
 	});
+	// The reporter tells a setup failure (no ID) from a failed handoff (an ID).
+	assert.deepEqual(
+		report.steps.find(
+			(step) => step.run === "node scripts/accessibility-report.mjs",
+		).env,
+		{
+			// biome-ignore lint/suspicious/noTemplateCurlyInString: literal GitHub Actions expression
+			AUDIT_JOB_RESULT: "${{ needs.audit.result }}",
+			// biome-ignore lint/suspicious/noTemplateCurlyInString: literal GitHub Actions expression
+			A11Y_ARTIFACT_ID: "${{ needs.audit.outputs.artifact-id }}",
+			// biome-ignore lint/suspicious/noTemplateCurlyInString: literal GitHub Actions expression
+			A11Y_RESULTS: "${{ runner.temp }}/a11y/accessibility-results.json",
+			A11Y_SYNTHETIC:
+				// biome-ignore lint/suspicious/noTemplateCurlyInString: literal GitHub Actions expression
+				"${{ github.event_name == 'workflow_dispatch' && inputs.synthetic_violation && 'true' || 'false' }}",
+		},
+	);
+	// The OIDC job restores no package cache, even if package.json gains a
+	// packageManager field.
+	assert.deepEqual(
+		report.steps.find((step) => step.uses?.startsWith("actions/setup-node@"))
+			.with,
+		{ "node-version-file": ".nvmrc", "package-manager-cache": false },
+	);
 });
 
 // A job that restores ~/.npm without running npm ci saves an empty cache under

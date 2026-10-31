@@ -5,6 +5,7 @@ import {
 	existsSync,
 	mkdirSync,
 	mkdtempSync,
+	readdirSync,
 	readFileSync,
 	rmSync,
 	writeFileSync,
@@ -13,12 +14,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { it } from "vitest";
-import {
-	auditOutcome,
-	LOG_GROUP,
-	MAX_VIOLATIONS,
-	reportEvents,
-} from "../accessibility-report.mjs";
+import { auditOutcome, reportEvents } from "../accessibility-report.mjs";
 
 const SCRIPT = fileURLToPath(
 	new URL("../accessibility-report.mjs", import.meta.url),
@@ -34,6 +30,7 @@ const UNSAFE = /[\p{Cc}\p{Cf}\u2028\u2029]/u;
 const run = {
 	serverUrl: "https://github.com",
 	repository: "jsolly/jsolly-website",
+	repo: "jsolly-website",
 	runId: "123",
 	runAttempt: "2",
 	sha: "a".repeat(40),
@@ -98,8 +95,12 @@ const clean = (routes) => ({
 		})),
 	),
 });
-const report = (text, jobResult, synthetic = false) =>
-	reportEvents({ run, ...auditOutcome(text, jobResult), synthetic });
+const report = (text, jobResult, { artifactId = "", synthetic = false } = {}) =>
+	reportEvents({
+		run,
+		...auditOutcome(text, jobResult, artifactId),
+		synthetic,
+	});
 const json = (value) => JSON.stringify(value);
 const failureOf = (events) =>
 	events.find((e) => e.event === "check-failed")?.message;
@@ -124,7 +125,9 @@ it("a clean, complete audit writes only a passing heartbeat", () => {
 	]);
 });
 
+// The contract allows 50 violation lines per run, then one truncation line.
 it("caps violation lines at 50 and reports the omitted count", () => {
+	// 30 routes at two widths, one violation each: 60 findings.
 	const routes = Array.from(
 		{ length: 30 },
 		(_, i) => `/recipes/source-keto-recipe-${i}/`,
@@ -139,22 +142,17 @@ it("caps violation lines at 50 and reports the omitted count", () => {
 				nodes: [],
 			},
 		];
-	const total = audit.results.length;
-	assert.ok(total >= 60);
 	const events = report(json(audit), "failure");
-	assert.equal(
-		events.filter((e) => e.event === "a11y-violation").length,
-		MAX_VIOLATIONS,
-	);
+	assert.equal(events.filter((e) => e.event === "a11y-violation").length, 50);
 	assert.deepEqual(events.at(-2), {
 		level: "error",
 		event: "violations-truncated",
 		...common,
-		omitted: total - MAX_VIOLATIONS,
+		omitted: 10,
 	});
 	assert.equal(events.at(-1).event, "heartbeat");
-	assert.equal(events.at(-1).violations, total);
-	assert.equal(events.length, MAX_VIOLATIONS + 2);
+	assert.equal(events.at(-1).violations, 60);
+	assert.equal(events.length, 52);
 });
 
 it("reports a crashed, incomplete or missing audit with a fixed check-failed message", () => {
@@ -207,16 +205,13 @@ it("reports a crashed, incomplete or missing audit with a fixed check-failed mes
 			violations: 0,
 		},
 	]);
-	// A successful audit whose artifact never arrived is a handoff failure.
-	assert.equal(
-		failureOf(report(null, "success")),
-		"The audit job succeeded, but its accessibility results did not reach the reporter (artifact handoff failed).",
-	);
-	// An unexpected job result never reaches the message verbatim.
-	assert.equal(
-		failureOf(report(null, "x\nInjected: header")),
-		"The audit job ended unknown without accessibility results (setup, build or audit start failed).",
-	);
+	// An audit that published its artifact, which never arrived, is a handoff
+	// failure whether the audit passed or found violations.
+	for (const jobResult of ["success", "failure"])
+		assert.equal(
+			failureOf(report(null, jobResult, { artifactId: "4242" })),
+			`The audit job ended ${jobResult} and published its accessibility results, but they did not reach the reporter (artifact handoff failed).`,
+		);
 });
 
 it("reports unreadable results as check-failed and still sends the heartbeat", () => {
@@ -227,6 +222,12 @@ it("reports unreadable results as check-failed and still sends the heartbeat", (
 		'{"expected":2,"error":null}',
 		'{"expected":1,"error":null,"results":[{"violations":[null]}]}',
 		'{"expected":1,"error":{"stack":"x"},"results":[]}',
+		// Each result names its route and one of the audited widths, 1280 or 390.
+		'{"expected":1,"error":null,"results":[{"width":390,"violations":[]}]}',
+		'{"expected":1,"error":null,"results":[{"path":1,"width":390,"violations":[]}]}',
+		'{"expected":1,"error":null,"results":[{"path":"/","width":"390\\n","violations":[]}]}',
+		'{"expected":1,"error":null,"results":[{"path":"/","width":0,"violations":[]}]}',
+		'{"expected":1,"error":null,"results":[{"path":"/","width":800,"violations":[]}]}',
 	])
 		assert.deepEqual(
 			report(text, "success").map((e) => [e.event, e.message]),
@@ -244,13 +245,20 @@ it("reports unreadable results as check-failed and still sends the heartbeat", (
 it("adds one synthetic violation only when requested", () => {
 	const audit = json(clean(["/"]));
 	assert.deepEqual(
-		report(audit, "success", true).map((e) => [e.level, e.event, e.rule]),
+		report(audit, "success", { synthetic: true }).map((e) => [
+			e.level,
+			e.event,
+			e.rule,
+		]),
 		[
 			["error", "a11y-violation", "synthetic-alert-test"],
 			["info", "heartbeat", undefined],
 		],
 	);
-	assert.equal(report(audit, "success", true).at(-1).outcome, "fail");
+	assert.equal(
+		report(audit, "success", { synthetic: true }).at(-1).outcome,
+		"fail",
+	);
 	assert.equal(report(audit, "success").at(-1).outcome, "pass");
 });
 
@@ -259,7 +267,6 @@ it("sends only single-line, bounded strings and no request ids", () => {
 	audit.expected = 1;
 	audit.results = [audit.results[0]];
 	audit.results[0].path = `/a\r\nb\u0085c/${"p".repeat(900)}`;
-	audit.results[0].width = "390\n";
 	audit.results[0].violations = [
 		{
 			id: `color${RIGHT_TO_LEFT_OVERRIDE}contrast${ZERO_WIDTH_SPACE}`,
@@ -271,7 +278,7 @@ it("sends only single-line, bounded strings and no request ids", () => {
 	];
 	const events = reportEvents({
 		run: { ...run, sha: `${"b".repeat(40)}\n` },
-		...auditOutcome(json(audit), "failure"),
+		...auditOutcome(json(audit), "failure", "4242"),
 	});
 	assert.ok(events.every((event) => !("requestId" in event)));
 	const values = events.flatMap((event) => Object.values(event));
@@ -289,7 +296,7 @@ it("sends only single-line, bounded strings and no request ids", () => {
 	const [violation] = events;
 	assert.equal(violation.page.length, 500);
 	assert.ok(violation.page.startsWith("/a b c/p"));
-	assert.equal(violation.width, 0);
+	assert.equal(violation.width, 1280);
 	assert.equal(violation.rule, "color contrast");
 	assert.equal(violation.impact, "serious");
 	assert.equal(violation.help.length, 500);
@@ -329,7 +336,8 @@ it("cuts long values without splitting a surrogate pair", () => {
 });
 
 // The CLI against a stand-in aws: records each call and the events file, and
-// fails on request (AWS_STUB_MODE), never reaching AWS.
+// fails on request (AWS_STUB_MODE), never reaching AWS. The CLI's TMPDIR is the
+// fixture root, so `leftovers` lists any temp directory a run left behind.
 function cliFixture(t) {
 	const root = mkdtempSync(join(tmpdir(), "a11y-report-test-"));
 	t.onTestFinished(() => rmSync(root, { recursive: true, force: true }));
@@ -356,18 +364,24 @@ if (args[1] === "put-log-events")
 		writeFileSync(join(root, name), text);
 		return join(root, name);
 	};
-	const cli = (results, jobResult, { synthetic = "false", mode = "" } = {}) => {
+	const cli = (
+		results,
+		jobResult,
+		{ artifactId = "", synthetic = "false", mode = "" } = {},
+	) => {
 		rmSync(calls, { force: true });
 		const child = spawnSync(process.execPath, [SCRIPT], {
 			encoding: "utf8",
 			env: {
 				PATH: `${join(root, "bin")}:${process.env.PATH}`,
+				TMPDIR: root,
 				GITHUB_SERVER_URL: run.serverUrl,
 				GITHUB_REPOSITORY: run.repository,
 				GITHUB_RUN_ID: run.runId,
 				GITHUB_RUN_ATTEMPT: run.runAttempt,
 				GITHUB_SHA: run.sha,
 				AUDIT_JOB_RESULT: jobResult,
+				A11Y_ARTIFACT_ID: artifactId,
 				A11Y_RESULTS: results,
 				A11Y_SYNTHETIC: synthetic,
 				AWS_STUB_MODE: mode,
@@ -379,7 +393,14 @@ if (args[1] === "put-log-events")
 					.split("\n")
 					.map((line) => JSON.parse(line))
 			: [];
-		return { status: child.status, stderr: child.stderr, calls: recorded };
+		return {
+			status: child.status,
+			stderr: child.stderr,
+			calls: recorded,
+			leftovers: readdirSync(root).filter((name) =>
+				name.startsWith("a11y-report-"),
+			),
+		};
 	};
 	return { root, file, cli };
 }
@@ -392,10 +413,11 @@ const callShape = (calls) => ({
 		({ timestamp }) => timestamp === calls[1].events[0].timestamp,
 	),
 });
+const LOG_GROUP = ["--log-group-name", "/shared-infra/scheduled-checks"];
 const SENT = {
 	commands: [
-		["logs", "create-log-stream", "--log-group-name", LOG_GROUP, ...STREAM],
-		["logs", "put-log-events", "--log-group-name", LOG_GROUP, ...STREAM],
+		["logs", "create-log-stream", ...LOG_GROUP, ...STREAM],
+		["logs", "put-log-events", ...LOG_GROUP, ...STREAM],
 	],
 	createTail: ["--output", "json"],
 	pager: "",
@@ -411,11 +433,13 @@ it("writes the run's events to its own log stream and exits 1 on error lines", (
 	assert.deepEqual(callShape(failed.calls), SENT);
 	assert.equal(failed.status, 1, failed.stderr);
 	assert.deepEqual(eventsOf(failed.calls), FIXTURE_EVENTS);
+	assert.deepEqual(failed.leftovers, []);
 
 	const clean2 = file("clean.json", json(clean(["/"])));
 	const passing = cli(clean2, "success");
 	assert.deepEqual(callShape(passing.calls), SENT);
 	assert.equal(passing.status, 0, passing.stderr);
+	assert.deepEqual(passing.leftovers, []);
 	assert.deepEqual(eventsOf(passing.calls), [
 		{
 			level: "info",
@@ -458,6 +482,24 @@ it("still sends check-failed and the heartbeat when the results are missing or u
 		events[0].message,
 		"The audit wrote unreadable accessibility results; see the run's accessibility-results artifact.",
 	);
+	// The audit found violations and published its artifact, but no file arrived.
+	const handoff = cli(
+		join(root, "absent", "accessibility-results.json"),
+		"failure",
+		{ artifactId: "4242" },
+	);
+	assert.deepEqual(callShape(handoff.calls), SENT);
+	assert.equal(handoff.status, 1, handoff.stderr);
+	assert.deepEqual(
+		eventsOf(handoff.calls).map((e) => [e.event, e.message]),
+		[
+			[
+				"check-failed",
+				"The audit job ended failure and published its accessibility results, but they did not reach the reporter (artifact handoff failed).",
+			],
+			["heartbeat", undefined],
+		],
+	);
 });
 
 it("fails when the AWS CLI fails or CloudWatch rejects events", (t) => {
@@ -469,6 +511,7 @@ it("fails when the AWS CLI fails or CloudWatch rejects events", (t) => {
 		create.calls.map(({ args }) => args[1]),
 		["create-log-stream"],
 	);
+	assert.deepEqual(create.leftovers, []);
 	const rejected = cli(results, "success", { mode: "rejected" });
 	assert.notEqual(rejected.status, 0);
 	assert.match(rejected.stderr, REJECTED);

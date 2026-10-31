@@ -3,11 +3,13 @@ import { createServer } from "node:http";
 import { extname, join, resolve, sep } from "node:path";
 import axe from "axe-core";
 import { chromium } from "playwright";
-import { builtPages, SAMPLE } from "./accessibility-pages.mjs";
+import { builtPages, SAMPLE, WIDTHS } from "./accessibility-pages.mjs";
 
 // Scan every built HTML document. `--sample` scans the PR CI sample instead;
-// route arguments scan only those routes.
+// route arguments scan only those routes. A11Y_RESULTS names the results file
+// (default accessibility-results.json).
 const root = resolve("dist");
+const output = process.env.A11Y_RESULTS ?? "accessibility-results.json";
 const args = process.argv.slice(2);
 if (args.includes("--sample") && args.length > 1)
 	throw new Error("--sample takes no route arguments");
@@ -109,14 +111,14 @@ async function auditPage(path, width) {
 		await context.close();
 	}
 }
-// accessibility-results.json records every completed page-viewport, the number
+// The results file records every completed page-viewport, the number
 // expected, and the error that stopped the audit, if any. The a11y workflow
 // reports it through scripts/accessibility-report.mjs.
 let failure;
 try {
 	browser = await chromium.launch({ headless: true });
 	await Promise.all(
-		[1280, 390].map(async (width) => {
+		WIDTHS.map(async (width) => {
 			const queue = [...pages];
 			async function nextPage() {
 				if (!queue.length) return;
@@ -126,9 +128,9 @@ try {
 			await Promise.all(Array.from({ length: 4 }, nextPage));
 		}),
 	);
-	if (results.length !== pages.length * 2)
+	if (results.length !== pages.length * WIDTHS.length)
 		throw new Error(
-			`Incomplete accessibility audit: ${results.length}/${pages.length * 2} page-viewports`,
+			`Incomplete accessibility audit: ${results.length}/${pages.length * WIDTHS.length} page-viewports`,
 		);
 } catch (error) {
 	failure = error;
@@ -137,10 +139,10 @@ try {
 	await browser?.close();
 	await new Promise((r) => server.close(r));
 	await writeFile(
-		"accessibility-results.json",
+		output,
 		JSON.stringify(
 			{
-				expected: pages.length * 2,
+				expected: pages.length * WIDTHS.length,
 				error: failure ? String(failure.message ?? failure) : null,
 				results,
 			},

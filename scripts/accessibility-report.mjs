@@ -8,16 +8,22 @@
 // `check-failed` with a fixed message. It exits 1 whenever it reported an error
 // line, and when the AWS CLI fails or CloudWatch rejects an event.
 import { spawnSync } from "node:child_process";
-import { existsSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
+import {
+	existsSync,
+	mkdtempSync,
+	readFileSync,
+	rmSync,
+	writeFileSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { WIDTHS } from "./accessibility-pages.mjs";
 
-export const LOG_GROUP = "/shared-infra/scheduled-checks";
-export const CHECK = "a11y";
-export const MAX_VIOLATIONS = 50;
+const LOG_GROUP = "/shared-infra/scheduled-checks";
+const CHECK = "a11y";
+const MAX_VIOLATIONS = 50;
 const MAX_FIELD = 500;
-const JOB_RESULTS = new Set(["success", "failure", "cancelled", "skipped"]);
 // Control (Cc: C0, C1, DEL, CR, LF) and format (Cf: bidi overrides, zero-width)
 // characters, and the Unicode line and paragraph separators.
 const UNSAFE = /[\p{Cc}\p{Cf}\u2028\u2029]+/gu;
@@ -37,8 +43,6 @@ const bounded = (value) => {
 	const cut = text.slice(0, MAX_FIELD - 1);
 	return `${HIGH_SURROGATE.test(cut) ? cut.slice(0, -1) : cut}…`;
 };
-const count = (value) =>
-	Number.isSafeInteger(value) && value >= 0 ? value : 0;
 
 const isAudit = (audit) =>
 	Number.isSafeInteger(audit?.expected) &&
@@ -46,23 +50,35 @@ const isAudit = (audit) =>
 	Array.isArray(audit.results) &&
 	audit.results.every(
 		(result) =>
-			Array.isArray(result?.violations) &&
+			typeof result?.path === "string" &&
+			WIDTHS.includes(result.width) &&
+			Array.isArray(result.violations) &&
 			result.violations.every((v) => typeof v?.id === "string"),
 	);
 
+// The check-failed message for readable results, or null when they are complete.
+function auditFailure({ error, expected, results }, jobResult) {
+	if (error)
+		return "The audit stopped before completing; see the run's accessibility-results artifact.";
+	if (results.length !== expected)
+		return `Incomplete accessibility audit: ${results.length}/${expected} page-viewports.`;
+	if (jobResult !== "success" && !results.some((r) => r.violations.length))
+		return `The audit job ended ${jobResult} after a clean audit.`;
+	return null;
+}
+
 // Pure: what one run reports, from the accessibility-results.json text the audit
-// job handed over (null when none arrived) and that job's result. `failure` is
-// the check-failed message, from this fixed vocabulary only: the audit's own
-// error text (stack traces, URLs, browser output) stays in the run's artifact.
-export function auditOutcome(text, jobResult) {
-	const result = JOB_RESULTS.has(jobResult) ? jobResult : "unknown";
+// job handed over (null when none arrived), that job's result and the ID of the
+// artifact it published (empty when it published none). `failure` is the
+// check-failed message, from this fixed vocabulary only: the audit's own error
+// text (stack traces, URLs, browser output) stays in the run's artifact.
+export function auditOutcome(text, jobResult, artifactId) {
 	if (text === null)
 		return {
 			results: [],
-			failure:
-				result === "success"
-					? "The audit job succeeded, but its accessibility results did not reach the reporter (artifact handoff failed)."
-					: `The audit job ended ${result} without accessibility results (setup, build or audit start failed).`,
+			failure: artifactId
+				? `The audit job ended ${jobResult} and published its accessibility results, but they did not reach the reporter (artifact handoff failed).`
+				: `The audit job ended ${jobResult} without accessibility results (setup, build or audit start failed).`,
 		};
 	let audit;
 	try {
@@ -76,22 +92,14 @@ export function auditOutcome(text, jobResult) {
 			failure:
 				"The audit wrote unreadable accessibility results; see the run's accessibility-results artifact.",
 		};
-	const { results } = audit;
-	const failure = audit.error
-		? "The audit stopped before completing; see the run's accessibility-results artifact."
-		: results.length !== audit.expected
-			? `Incomplete accessibility audit: ${results.length}/${audit.expected} page-viewports.`
-			: result !== "success" && !results.some((r) => r.violations.length)
-				? `The audit job ended ${result} after a clean audit.`
-				: null;
-	return { results, failure };
+	return { results: audit.results, failure: auditFailure(audit, jobResult) };
 }
 
 // Pure: the log events for one run, from auditOutcome. The heartbeat is always
 // the last event, whatever the outcome.
 export function reportEvents({ run, results, failure, synthetic = false }) {
 	const common = {
-		repo: run.repository.split("/")[1],
+		repo: run.repo,
 		check: CHECK,
 		run_url: `${run.serverUrl}/${run.repository}/actions/runs/${run.runId}/attempts/${run.runAttempt}`,
 		sha: run.sha,
@@ -104,7 +112,7 @@ export function reportEvents({ run, results, failure, synthetic = false }) {
 				event: "a11y-violation",
 				...common,
 				page: path,
-				width: count(width),
+				width,
 				rule: id,
 				impact,
 				help,
@@ -180,6 +188,7 @@ function main(env) {
 	const run = {
 		serverUrl: env.GITHUB_SERVER_URL,
 		repository: env.GITHUB_REPOSITORY,
+		repo: env.GITHUB_REPOSITORY.split("/")[1],
 		runId: env.GITHUB_RUN_ID,
 		runAttempt: env.GITHUB_RUN_ATTEMPT,
 		sha: env.GITHUB_SHA,
@@ -191,36 +200,43 @@ function main(env) {
 				? readFileSync(env.A11Y_RESULTS, "utf8")
 				: null,
 			env.AUDIT_JOB_RESULT,
+			env.A11Y_ARTIFACT_ID,
 		),
 		synthetic: env.A11Y_SYNTHETIC === "true",
 	});
-	const stream = `${run.repository.split("/")[1]}/${CHECK}/${run.runId}-${run.runAttempt}`;
+	const stream = `${run.repo}/${CHECK}/${run.runId}-${run.runAttempt}`;
 	const timestamp = Date.now();
-	const file = join(mkdtempSync(join(tmpdir(), "a11y-report-")), "events.json");
-	writeFileSync(
-		file,
-		JSON.stringify(
-			events.map((event) => ({ timestamp, message: JSON.stringify(event) })),
-		),
-	);
-	aws([
-		"logs",
-		"create-log-stream",
-		"--log-group-name",
-		LOG_GROUP,
-		"--log-stream-name",
-		stream,
-	]);
-	const put = aws([
-		"logs",
-		"put-log-events",
-		"--log-group-name",
-		LOG_GROUP,
-		"--log-stream-name",
-		stream,
-		"--log-events",
-		`file://${file}`,
-	]);
+	const dir = mkdtempSync(join(tmpdir(), "a11y-report-"));
+	let put;
+	try {
+		const file = join(dir, "events.json");
+		writeFileSync(
+			file,
+			JSON.stringify(
+				events.map((event) => ({ timestamp, message: JSON.stringify(event) })),
+			),
+		);
+		aws([
+			"logs",
+			"create-log-stream",
+			"--log-group-name",
+			LOG_GROUP,
+			"--log-stream-name",
+			stream,
+		]);
+		put = aws([
+			"logs",
+			"put-log-events",
+			"--log-group-name",
+			LOG_GROUP,
+			"--log-stream-name",
+			stream,
+			"--log-events",
+			`file://${file}`,
+		]);
+	} finally {
+		rmSync(dir, { recursive: true, force: true });
+	}
 	if (put.rejectedLogEventsInfo)
 		throw new Error(
 			`CloudWatch Logs rejected events: ${JSON.stringify(put.rejectedLogEventsInfo)}`,
