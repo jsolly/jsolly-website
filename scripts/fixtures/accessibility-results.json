@@ -1,0 +1,87 @@
+{
+	"expected": 4,
+	"error": null,
+	"results": [
+		{
+			"path": "/about/",
+			"width": 1280,
+			"violations": [],
+			"incomplete": [
+				{
+					"id": "color-contrast",
+					"impact": "serious",
+					"help": "Elements must meet minimum color contrast ratio thresholds",
+					"nodes": [
+						{
+							"html": "<h2 id=\"contact-me-heading\">Let's Connect</h2>",
+							"target": ["#contact-me-heading"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"path": "/about/",
+			"width": 390,
+			"violations": [
+				{
+					"id": "color-contrast",
+					"impact": "serious",
+					"tags": ["cat.color", "wcag2aa", "wcag143"],
+					"description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+					"help": "Elements must meet minimum color contrast ratio thresholds",
+					"helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+					"nodes": [
+						{
+							"html": "<p class=\"text-neutral-300\">Secret page markup</p>",
+							"target": ["main > p"],
+							"failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.9"
+						}
+					]
+				}
+			],
+			"incomplete": []
+		},
+		{
+			"path": "/blog/UI-enhancement-leads-to-major-architecture-changes/",
+			"width": 1280,
+			"violations": [
+				{
+					"id": "image-alt",
+					"impact": "critical",
+					"tags": ["cat.text-alternatives", "wcag2a", "wcag111"],
+					"description": "Ensure <img> elements have alternative text or a role of none or presentation",
+					"help": "Images must have alternative text",
+					"helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-alt?application=axeAPI",
+					"nodes": [
+						{
+							"html": "<img src=\"/blog/media/a.webp\">",
+							"target": ["img"]
+						}
+					]
+				},
+				{
+					"id": "link-name",
+					"impact": "serious",
+					"tags": ["cat.name-role-value", "wcag2a", "wcag244"],
+					"description": "Ensure links have discernible text",
+					"help": "Links must have discernible text",
+					"helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-name?application=axeAPI",
+					"nodes": [
+						{
+							"html": "<a href=\"/recipes/greek-turkey-patties/\"></a>",
+							"target": ["a"]
+						}
+					]
+				}
+			],
+			"incomplete": []
+		},
+		{
+			"path": "/blog/UI-enhancement-leads-to-major-architecture-changes/",
+			"width": 390,
+			"violations": [],
+			"incomplete": []
+		}
+	]
+}

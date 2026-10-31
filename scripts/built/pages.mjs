@@ -262,10 +262,11 @@ export async function stubOffOrigin(context, origin) {
 }
 
 // Every post as { slug, category, published, related, title, description,
-// feedAuthor, publishedAt, updatedAt }, read from the post frontmatter rather
-// than the build, so a test can hold the built pages to it. Only draft: false
-// publishes (`published`); the schema defaults draft to true. publishedAt and
-// updatedAt are the frontmatter timestamps as Dates.
+// feedAuthor, imageAttribution, publishedAt, updatedAt, body }, read from the
+// post file rather than the build, so a test can hold the built pages to it.
+// Only draft: false publishes (`published`); the schema defaults draft to true.
+// publishedAt and updatedAt are the frontmatter timestamps as Dates; body is the
+// Markdown after the frontmatter.
 export async function allPosts() {
 	const [{ parseFrontmatter }, { parseDocument }] = await Promise.all([
 		import("astro/markdown"),
@@ -276,7 +277,7 @@ export async function allPosts() {
 		files.map(async (file) => {
 			const source = await readFile(new URL(file, POSTS), "utf8");
 			// The core schema, as the post loader reads it (post-loader.ts).
-			const { rawFrontmatter } = parseFrontmatter(source);
+			const { rawFrontmatter, content } = parseFrontmatter(source);
 			const {
 				slug,
 				category,
@@ -285,6 +286,7 @@ export async function allPosts() {
 				title,
 				description,
 				feedAuthor = "John_Solly",
+				imageAttribution = "",
 				published,
 				updated,
 			} = parseDocument(rawFrontmatter, { schema: "core" }).toJS();
@@ -296,8 +298,10 @@ export async function allPosts() {
 				title,
 				description,
 				feedAuthor,
+				imageAttribution,
 				publishedAt: new Date(published),
 				updatedAt: new Date(updated),
+				body: content,
 			};
 		}),
 	);

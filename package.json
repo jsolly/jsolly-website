@@ -36,6 +36,7 @@
 		"check:preview": "npx --no-install biome ci --config-path=config/quality/biome.settings.jsonc . --error-on-warnings && npm run check:ts && npm test",
 		"gate:preview": "FLEET_UI_PREVIEW=1 FLEET_DOC_FAST=0 bash .git-hooks/pre-commit",
 		"check:a11y": "node scripts/check-accessibility.mjs",
+		"check:a11y:sample": "node scripts/check-accessibility.mjs --sample",
 		"check:security": "python3 scripts/security-scan.py ci"
 	},
 	"devDependencies": {

@@ -48,6 +48,9 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
+          cache-dependency-path: |
+            .nvmrc
+            package-lock.json
       - run: npm ci
       - name: Verify public redirects and service-worker kill switches
         shell: bash

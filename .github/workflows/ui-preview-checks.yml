@@ -25,5 +25,8 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
+          cache-dependency-path: |
+            .nvmrc
+            package-lock.json
       - run: npm ci
       - run: npm run check:preview

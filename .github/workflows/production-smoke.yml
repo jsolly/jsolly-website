@@ -73,6 +73,9 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
+          cache-dependency-path: |
+            .nvmrc
+            package-lock.json
       - run: npm ci
       - run: npx --no-install playwright install --with-deps chromium
       - run: npm run smoke:scenario-contract
