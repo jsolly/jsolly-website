@@ -77,9 +77,10 @@ text of at most 500 characters, without control or format characters.
 scheduled-check `report` jobs: this workflow's, on push, schedule and dispatch
 runs of `main`, and Production smoke's ([shared-infra fields](shared-infra.md)). shared-infra owns
 the log group, role, metric filters and alarms. Error lines raise
-`shared-infra-scheduled-check-errors`; about 30 hours without a heartbeat raises
+`shared-infra-scheduled-check-errors` when the report reaches CloudWatch; about
+30 hours without a heartbeat, including after a lost report, raises
 `shared-infra-scheduled-check-heartbeat-jsolly-website-a11y`. Both notify through
-shared-infra's alert topic and email enricher, when the report reaches CloudWatch
+shared-infra's alert topic and email enricher
 ([shared-infra fields → Coverage](shared-infra.md#coverage)). The run fails whenever it reports
 an error line, and when the AWS role cannot be assumed or CloudWatch rejects an
 event.
