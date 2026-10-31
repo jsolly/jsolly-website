@@ -12,6 +12,7 @@ import {
 } from "./client-error-sink.mjs";
 
 const REPORT = {
+	level: "error",
 	category: "recipe-update",
 	page: "/recipes/",
 	message: "A recipe app update failed.",
@@ -29,6 +30,33 @@ it("writes the structured error shape shared-infra's enricher and metric filter 
 		context: { category: "recipe-update", page: "/recipes/" },
 		error: { name: "recipe-update", message: "A recipe app update failed." },
 	});
+});
+
+it("writes the forwarding probe as an info line the error metric filter cannot count", () => {
+	// The stack's metric filter is { $.level = "error" } (scripts/unit/client-errors-stack.test.mjs).
+	assert.deepEqual(
+		JSON.parse(
+			clientErrorLogLine({
+				level: "info",
+				category: "forwarding-probe",
+				page: "/",
+				message: "Production smoke verified client-error forwarding.",
+			}),
+		),
+		{
+			level: "info",
+			message: "Production smoke verified client-error forwarding.",
+			context: { category: "forwarding-probe", page: "/" },
+		},
+	);
+});
+
+it("refuses to write a report whose level it does not know rather than guess a shape", () => {
+	for (const level of [undefined, "warn", "ERROR"]) {
+		assert.throws(() => clientErrorLogLine({ ...REPORT, level }), {
+			name: "TypeError",
+		});
+	}
 });
 
 it("puts one event on the stack's log stream", async () => {

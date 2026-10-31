@@ -99,7 +99,7 @@ JavaScript test discovery belongs to `config/testing/vitest.config.mjs`; suite c
 - CSP tests live in `scripts/built-csp.test.mjs` and `scripts/built/csp-browser.test.mjs`.
 - Production scenario contracts live in `scripts/production-smoke-scenario.test.mjs`; the built-site smoke is `scripts/built/production-smoke.test.mjs`.
 
-The `production` suite wraps the unchanged acceptance scenario and diagnostic helper
+The `production` suite wraps the acceptance scenario, its diagnostic helper and the client-error forwarding probe
 in `scripts/production-acceptance.test.mjs`, invoked by `npm run smoke:production`.
 
 Python hook/bootstrap tests use `npm run test:python`, pinned to pytest 9.1.1
@@ -227,8 +227,11 @@ for the intended production release and verifies the public browser flow with
 `scripts/production-smoke-scenario.mjs`; the workflow uses no deployment secrets.
 Vercel Git deployment and the existing PR CI checks remain unchanged.
 
-The scenario is GET only, runs at a phone width with service workers blocked,
-and lists its steps at the top of `scripts/production-smoke-scenario.mjs`. The
+The browser scenario is GET only, runs at a phone width with service workers
+blocked, and lists its steps at the top of `scripts/production-smoke-scenario.mjs`.
+Separately, `scripts/production-acceptance.test.mjs` posts one info-level
+forwarding probe to `/api/client-error/` and requires `204`, proving browser
+error reports still reach CloudWatch (`docs/client-errors.md`). The
 runner, `scripts/production-smoke.mjs`, is maintained in this repository.
 Review runner changes with the scenario contracts and built-site smoke suite.
 `scripts/built/production-smoke.test.mjs` runs it through the runner against

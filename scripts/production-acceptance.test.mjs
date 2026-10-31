@@ -5,6 +5,7 @@ import {
 	productionUrl,
 	serviceWorker,
 	smoke,
+	verifyClientErrorForwarding,
 	verifyRecipeWorker,
 	verifyRelease,
 } from "./production-smoke-scenario.mjs";
@@ -21,4 +22,8 @@ it("the intended production release passes public navigation, content and recipe
 	const receipt = await runSmoke({ scenario });
 	process.stdout.write(`${JSON.stringify(receipt, null, 2)}\n`);
 	assert.equal(receipt.success, true, receipt.errors.join("\n"));
+});
+
+it("production client-error reports still reach CloudWatch", async () => {
+	await verifyClientErrorForwarding();
 });
