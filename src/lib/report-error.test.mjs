@@ -63,7 +63,7 @@ it("silently contains network rejection and synchronous browser failures", async
 	await assert.doesNotReject(browser("recipe-print"));
 });
 
-it("does not send unknown categories or requests from local and Preview builds", async () => {
+it("does not send unknown categories, the smoke's forwarding probe, or requests from local and Preview builds", async () => {
 	const calls = [];
 	const fetcher = (...args) => {
 		calls.push(args);
@@ -81,6 +81,10 @@ it("does not send unknown categories or requests from local and Preview builds",
 		location: () => new URL("https://www.jsolly.com/"),
 		fetcher,
 	})("private exception message");
+	await createErrorReporter({
+		location: () => new URL("https://www.jsolly.com/"),
+		fetcher,
+	})("forwarding-probe");
 	assert.deepEqual(calls, []);
 });
 

@@ -42,11 +42,19 @@ killed invocation.
 
 ## Forwarding liveness
 
-Healthy visits send nothing, so silence cannot show that forwarding broke. Until
-a liveness probe exists, a broken path (Vercel OIDC disabled or switched to the
-Global issuer, role trust drift, a deleted stream, an SDK regression) shows only
-as `502` responses and `client-error-forward-failed` lines in the Vercel runtime
-logs; nothing pages.
+Healthy visits send nothing, so silence cannot show that forwarding broke. The
+Production smoke workflow therefore posts one `forwarding-probe` report after each
+production deployment and daily, from `scripts/production-acceptance.test.mjs`,
+and fails unless it answers `204`. The receiver writes the probe as an `info`
+line (`{"level":"info","message":"Production smoke verified client-error
+forwarding.",...}`), so the `{ $.level = "error" }` metric filter and the alarm
+never count it, and the browser reporter cannot send it.
+
+A broken path (Vercel OIDC disabled or switched to the Global issuer, role trust
+drift, a deleted stream, an SDK regression) therefore fails that run and shows as
+`502` responses and `client-error-forward-failed` lines in the Vercel runtime
+logs. A failed run surfaces through GitHub Actions, not through shared-infra's
+alert email.
 
 Credentials come from Vercel OIDC (team issuer) through
 `@vercel/oidc-aws-credentials-provider`. The project must keep **Secure backend
@@ -81,8 +89,11 @@ Two prerequisites live in shared-infra and must be applied first:
 - Enricher discovery through `DescribeMetricFilters`, so this non-Lambda log group
   enriches.
 
-Until the stack exists, every report answers `502` and appears in the Vercel
-runtime logs as `client-error-forward-failed`. Nothing pages.
+John created the stack on 31 October 2026 from merge SHA `824a5ee`
+(`InfraDeployCommit`), with termination protection and the stack policy, and a
+report from `https://www.jsolly.com/` answered `204`. If the stack is ever
+missing, every report answers `502` and appears in the Vercel runtime logs as
+`client-error-forward-failed`.
 
 ## Create the stack
 

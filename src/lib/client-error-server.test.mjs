@@ -30,6 +30,7 @@ it("accepts a fixed category on a published path and records only the allowed fi
 	assert.equal(response.headers.get("cache-control"), "no-store");
 	assert.deepEqual(logs, [
 		{
+			level: "error",
 			category: "recipe-print",
 			page: "/recipes/meals/",
 			message: "Recipe printing failed.",
@@ -52,6 +53,7 @@ it("answers 502 and logs the validated report with the error's name and status b
 	assert.deepEqual(failures.map(JSON.parse), [
 		{
 			event: "client-error-forward-failed",
+			level: "error",
 			category: "recipe-print",
 			page: "/recipes/meals/",
 			message: "Recipe printing failed.",
@@ -71,6 +73,22 @@ it("logs a transport failure's code, since its name alone is the generic Error",
 	const [failure] = failures.map(JSON.parse);
 	assert.equal(failure.error, "Error");
 	assert.equal(failure.code, "ECONNRESET");
+});
+
+it("records the production smoke's forwarding probe at info level, never as an error", async () => {
+	const { handle, logs } = fixture();
+	const response = await handle(
+		request(JSON.stringify({ category: "forwarding-probe", page: "/" })),
+	);
+	assert.equal(response.status, 204);
+	assert.deepEqual(logs, [
+		{
+			level: "info",
+			category: "forwarding-probe",
+			page: "/",
+			message: "Production smoke verified client-error forwarding.",
+		},
+	]);
 });
 
 it("rejects missing, cross-origin, or noncanonical origins without logging", async () => {

@@ -1,6 +1,7 @@
 // biome-ignore-all lint/suspicious/noMisplacedAssertion: This exported scenario is executed by the production smoke runner.
 import assert from "node:assert/strict";
 import { parseFrontmatter } from "astro/markdown";
+import { FORWARDING_PROBE } from "../src/lib/error-categories.mjs";
 
 // The production smoke, read-only (GET only) at a phone width, run by the
 // fleet runner scripts/production-smoke.mjs, which blocks service workers:
@@ -12,6 +13,8 @@ import { parseFrontmatter } from "astro/markdown";
 // 6. the post asked for as Markdown answers Markdown with Vary: Accept (J11);
 // 7. the mobile menu's Recipes link, and the /recipes/ library hydrating.
 // A separate fresh context verifies worker control, opened-only saving and offline reopening.
+// Outside the browser scenario, verifyClientErrorForwarding posts one info-level
+// forwarding probe to /api/client-error/ (the workflow's only non-GET request).
 export const serviceWorker = {
 	page: "/recipes/",
 	scope: "/recipes/",
@@ -321,6 +324,25 @@ export async function verifyRelease({ verifyHttp, releaseSha }) {
 		(await response.json())?.sha,
 		releaseSha,
 		"Canonical site must serve the intended release",
+	);
+}
+
+// A POST, so it stays outside the read-only browser scenario. 204 means the
+// production function wrote the probe to CloudWatch through Vercel OIDC; the
+// receiver records it at info level, so it never counts toward the error alarm.
+export async function verifyClientErrorForwarding({ fetcher = fetch } = {}) {
+	const response = await fetcher(`${productionUrl}/api/client-error/`, {
+		method: "POST",
+		headers: { Origin: productionUrl, "Content-Type": "application/json" },
+		body: JSON.stringify({ category: FORWARDING_PROBE.category, page: "/" }),
+		redirect: "error",
+		cache: "no-store",
+		signal: AbortSignal.timeout(15000),
+	});
+	assert.equal(
+		response.status,
+		204,
+		"client-error forwarding reaches CloudWatch (a 502 means the write failed; read the Vercel runtime log)",
 	);
 }
 

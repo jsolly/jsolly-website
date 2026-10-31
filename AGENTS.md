@@ -227,8 +227,11 @@ for the intended production release and verifies the public browser flow with
 `scripts/production-smoke-scenario.mjs`; the workflow uses no deployment secrets.
 Vercel Git deployment and the existing PR CI checks remain unchanged.
 
-The scenario is GET only, runs at a phone width with service workers blocked,
-and lists its steps at the top of `scripts/production-smoke-scenario.mjs`. The
+The browser scenario is GET only, runs at a phone width with service workers
+blocked, and lists its steps at the top of `scripts/production-smoke-scenario.mjs`.
+Separately, `scripts/production-acceptance.test.mjs` posts one info-level
+forwarding probe to `/api/client-error/` and requires `204`, proving browser
+error reports still reach CloudWatch (`docs/client-errors.md`). The
 runner, `scripts/production-smoke.mjs`, is maintained in this repository.
 Review runner changes with the scenario contracts and built-site smoke suite.
 `scripts/built/production-smoke.test.mjs` runs it through the runner against

@@ -16,3 +16,11 @@ export const ERROR_CATEGORIES = Object.freeze({
 });
 
 export const ERROR_REPORT_ORIGIN = "https://www.jsolly.com";
+
+// Sent only by the production smoke to prove reports still reach CloudWatch.
+// The receiver records it at info level, so the error metric filter and alarm
+// never count it, and the browser reporter cannot send it.
+export const FORWARDING_PROBE = Object.freeze({
+	category: "forwarding-probe",
+	message: "Production smoke verified client-error forwarding.",
+});
