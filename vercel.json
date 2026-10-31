@@ -93,6 +93,9 @@
 		}
 	],
 	"functions": {
+		"api/client-error.mjs": {
+			"maxDuration": 10
+		},
 		"api/recipe-browse.mjs": {
 			"includeFiles": "{dist/release.json,dist/recipes/index.html,dist/recipes/meals/index.html,dist/recipes/smoothies/index.html,dist/recipes/data/summaries/*.json,dist/recipes/data/search/*.json,.recipe-browse/*.json}",
 			"maxDuration": 10

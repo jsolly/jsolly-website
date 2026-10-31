@@ -50,7 +50,8 @@ import Layout from "../layouts/Layout.astro";
 					identifier and are limited to three distinct categories per page load.
 					John uses these reports to diagnose failures, not to measure visits.
 					Vercel handles them as ordinary requests and may retain the hosting
-					logs described above.
+					logs described above. Each accepted report is also stored for 30 days
+					in Amazon CloudWatch Logs, where repeated failures alert John.
 				</p>
 			</div>
 

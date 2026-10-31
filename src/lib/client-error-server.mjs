@@ -38,8 +38,16 @@ async function boundedJSON(request) {
 	return JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(body));
 }
 
-/** Only deployment-owned page routes and fixed categories may enter logs. */
-export function createClientErrorHandler({ paths, log = console.error }) {
+/**
+ * Only deployment-owned page routes and fixed categories may enter logs.
+ * `record` forwards an accepted report; a failure answers 502 and is logged
+ * here, so a broken forwarding path stays visible in the function's logs.
+ */
+export function createClientErrorHandler({
+	paths,
+	record,
+	logFailure = console.error,
+}) {
 	return async (request) => {
 		const response = (status, extra = {}) =>
 			new Response(null, { status, headers: { ...HEADERS, ...extra } });
@@ -54,32 +62,47 @@ export function createClientErrorHandler({ paths, log = console.error }) {
 		const length = request.headers.get("content-length");
 		if (length && (!BYTE_LENGTH.test(length) || Number(length) > MAX_BYTES))
 			return response(413);
+		let value;
 		try {
-			const value = await boundedJSON(request);
-			if (
-				!value ||
-				typeof value !== "object" ||
-				Array.isArray(value) ||
-				Object.keys(value).length !== 2 ||
-				!Object.hasOwn(value, "category") ||
-				!Object.hasOwn(value, "page") ||
-				typeof value.category !== "string" ||
-				!Object.hasOwn(ERROR_CATEGORIES, value.category) ||
-				typeof value.page !== "string" ||
-				!paths.has(value.page)
-			)
-				return response(400);
-			log(
-				JSON.stringify({
-					event: "client-error",
-					category: value.category,
-					page: value.page,
-					message: ERROR_CATEGORIES[value.category],
-				}),
-			);
-			return response(204);
+			value = await boundedJSON(request);
 		} catch {
 			return response(400);
 		}
+		if (
+			!value ||
+			typeof value !== "object" ||
+			Array.isArray(value) ||
+			Object.keys(value).length !== 2 ||
+			!Object.hasOwn(value, "category") ||
+			!Object.hasOwn(value, "page") ||
+			typeof value.category !== "string" ||
+			!Object.hasOwn(ERROR_CATEGORIES, value.category) ||
+			typeof value.page !== "string" ||
+			!paths.has(value.page)
+		)
+			return response(400);
+		const report = {
+			category: value.category,
+			page: value.page,
+			message: ERROR_CATEGORIES[value.category],
+		};
+		try {
+			await record(report);
+		} catch (error) {
+			const { name, code, $metadata } = error instanceof Error ? error : {};
+			logFailure(
+				JSON.stringify({
+					event: "client-error-forward-failed",
+					...report,
+					// Name, code and HTTP status identify the failure without its message,
+					// which can carry provider detail.
+					error: name ?? "Unknown error",
+					code: typeof code === "string" ? code : undefined,
+					status: $metadata?.httpStatusCode,
+				}),
+			);
+			return response(502);
+		}
+		return response(204);
 	};
 }
