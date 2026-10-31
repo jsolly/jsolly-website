@@ -98,14 +98,15 @@ independent review:
 | deepmerge 4.3.1 | GHSA-gcqx-w48m-w2h4 | Accept prototype-poisoning risk through 27 November 2026. Used by the Svelte Vite plugin to merge build configuration. |
 | zod 3.22.4 | GHSA-mrhx-c7xc-m3w5 | Accept resource-exhaustion risk through 27 November 2026. Four nested Vercel CLI consumers still require the Zod 3 API. |
 | sandbox 4.4.0 | GHSA-fm4j-4xhm-xpwx; GHSA-gc25-3vc5-2jf9 | Not applicable: the advisories describe gf3/sandbox before 1.0.0; the locked package is Vercel's Sandbox CLI. |
-| glob 13.0.6 | GHSA-3g3m-2fjr-6pw4 | Accept AbortSignal cancellation-bypass risk through 30 November 2026. Reached only through the Vercel CLI's `@vercel/nft`, whose latest release still requires glob 13; the fix is glob 14. |
-| minimatch 10.2.6 | GHSA-g3hv-75wg-m249 | Accept pattern denial-of-service risk through 30 November 2026. Reached only through Vercel CLI consumers (`@vercel/nft`'s glob, `@ts-morph/common`, `@vercel/python-analysis`) that still require minimatch 10; the fix is minimatch 11. |
+| glob 13.0.6 | GHSA-3g3m-2fjr-6pw4 | Accept AbortSignal cancellation-bypass risk through 30 November 2026. Reached only through the Vercel CLI's `@vercel/nft`, whose latest release still requires glob `^13`; the fix is glob 14.0.2 or later. |
+| minimatch 10.2.6 | GHSA-g3hv-75wg-m249 | Accept pattern denial-of-service risk through 30 November 2026. Reached only through Vercel CLI consumers: glob 13 declares `^10.2.2`, `@vercel/python-analysis` pins 10.1.1 and `@ts-morph/common` declares `^3.0.4`; the existing `minimatch: >=10.2.3` override holds all three at 10.2.6. The fix is minimatch 11.0.1 or later, a major release that removes `makeRe`, the `AST` class and regular-expression set items. |
 
 These are not fixes. Build/development usage reduces public-visitor exposure
 but does not establish that every repository or tool input is safe. Latest
 deepmerge and Vercel releases had no compatible fix at review time; downgrading
 deepmerge or forcing Zod 4 into declared Zod 3 consumers is not a verified repair,
-and neither is forcing glob 14 or minimatch 11 into consumers that declare 13 or 10.
+and neither is forcing glob 14 into `@vercel/nft` or minimatch 11 into glob 13
+without proving the Vercel CLI still works on it.
 The site's direct Zod dependency is patched at 4.6.7.
 
 The trusted scanner owns these dispositions. OSV runs with an empty external
@@ -113,8 +114,8 @@ config and all findings enabled; branch-supplied ignore files cannot hide them.
 Every advisory stays visible in output. Exceptions require the exact package
 version, registry URL, integrity, complete set of lockfile locations and a
 fingerprint of callers resolving that package. Changes block until reviewed.
-The two risk acceptances expire after 27 November in America/New_York; a
-remaining finding blocks from 28 November. Patched dependencies need no exception.
+Each risk acceptance expires after the date in its row, in America/New_York:
+deepmerge and zod block from 28 November, glob and minimatch from 1 December. Patched dependencies need no exception.
 John owns the acceptance; replace it with upstream patches when available.
 
 Evidence: [deepmerge report](https://github.com/TehShrike/deepmerge/issues/273),
