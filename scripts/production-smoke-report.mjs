@@ -3,8 +3,8 @@
 // (scripts/scheduled-check-report.mjs). A failed run writes one `check-failed`
 // error line, which pages through the shared error alarm; every run writes one
 // heartbeat last, whose absence for about 30 hours pages through the check's own
-// alarm. It exits 1 when it reported a failure, and when the AWS CLI fails or
-// CloudWatch rejects an event.
+// alarm (docs/shared-infra.md, Coverage). It exits 1 when it reported a failure,
+// and when the AWS CLI fails or CloudWatch rejects an event.
 import { fileURLToPath } from "node:url";
 import {
 	boundedEvents,
@@ -37,7 +37,7 @@ export function smokeEvents({ run, jobResult, releaseSha }) {
 						level: "error",
 						event: "check-failed",
 						...common,
-						message: `The production smoke job ended ${jobResult}: the live release, its public pages or client-error forwarding did not verify. See the run and its production-smoke artifact.`,
+						message: `The production smoke job ended ${jobResult}. See the run and its production-smoke artifact for the failing step.`,
 					},
 				]),
 		{
@@ -51,15 +51,14 @@ export function smokeEvents({ run, jobResult, releaseSha }) {
 
 function main(env) {
 	const run = runFromEnv(env, ["SMOKE_JOB_RESULT"]);
-	sendEvents({
+	const events = smokeEvents({
 		run,
-		check: CHECK,
-		events: smokeEvents({
-			run,
-			jobResult: env.SMOKE_JOB_RESULT,
-			releaseSha: env.SMOKE_RELEASE_SHA ?? "",
-		}),
+		jobResult: env.SMOKE_JOB_RESULT,
+		releaseSha: env.SMOKE_RELEASE_SHA ?? "",
 	});
+	// A reported smoke failure fails this job; the workflow's report job is
+	// continue-on-error, so only the smoke job decides the run's conclusion.
+	if (sendEvents({ run, check: CHECK, events })) process.exitCode = 1;
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) main(process.env);

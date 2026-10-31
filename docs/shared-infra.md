@@ -43,6 +43,26 @@ CloudWatch Logs Insights with `fields @timestamp, event, page, width, rule, mess
 | filter repo = "jsolly-website" and check = "a11y" | sort @timestamp desc`
 (or `check = "production-smoke"`).
 
-Failures email through shared-infra's shared error alarm. Each check's missing
-heartbeat emails through its own alarm in jsolly/shared-infra, which alerts only
-once that alarm is deployed.
+## Coverage
+
+What emails John, and what does not:
+
+- A failed check run whose report job reaches CloudWatch writes `check-failed`
+  (or violation) lines; `shared-infra-scheduled-check-errors` emails within
+  minutes.
+- If the report job itself fails (role assumption, OIDC trust drift, a
+  CloudWatch error), nothing is written. The run's own failure is the only
+  immediate signal (`gh run list --repo jsolly/jsolly-website --workflow
+  production-smoke.yml`, or `a11y.yml`), and the check's missing-heartbeat alarm
+  emails about 30 hours after the last heartbeat. Production smoke's report job
+  is `continue-on-error`, so a reporting failure leaves the run green: a
+  dispatched release check follows the smoke job alone.
+- Production smoke's post-deployment runs (`deployment_status`) never report,
+  because their token subject follows the deployment's ref. The release process
+  waits on them; a failure from a deploy no release process follows shows only as
+  a red run until the next daily run, which pages if the breakage persists.
+- Each heartbeat alarm alerts only once it is deployed in jsolly/shared-infra. It
+  reads ALARM from its deploy until the first heartbeat, so dispatch the check
+  once on `main` right after that deploy.
+- Any reporting run resets its check's 30-hour window, so a manual dispatch can
+  hide a stopped schedule for up to one window.

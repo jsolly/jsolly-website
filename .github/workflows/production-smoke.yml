@@ -97,7 +97,11 @@ jobs:
     # triggers mint the main-branch subject the reporting role trusts; a
     # deployment_status run's subject follows the deployment's ref, so post-deploy
     # runs stay with the release process, which waits on them.
+    # continue-on-error: the smoke job alone decides the run's conclusion, so a
+    # reporting failure never turns a dispatched release check red; a lost
+    # report pages through the missing-heartbeat alarm instead.
     needs: smoke
+    continue-on-error: true
     if: ${{ !cancelled() && github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') }}
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 5
@@ -117,7 +121,7 @@ jobs:
           role-to-assume: arn:aws:iam::730335616323:role/github-actions-scheduled-checks
           role-session-name: jsolly-website-production-smoke-${{ github.run_id }}-${{ github.run_attempt }}
           aws-region: us-east-1
-      # Fails the run when it reports a smoke failure.
+      # Fails this job when it reports a smoke failure.
       - name: Report to shared-infra scheduled checks
         env:
           SMOKE_JOB_RESULT: ${{ needs.smoke.result }}

@@ -25,10 +25,9 @@ const common = {
 	sha: "d".repeat(40),
 	release_sha: RELEASE,
 };
-const FAILED =
-	"The production smoke job ended failure: the live release, its public pages or client-error forwarding did not verify. See the run and its production-smoke artifact.";
+const ended = (result) =>
+	`The production smoke job ended ${result}. See the run and its production-smoke artifact for the failing step.`;
 const UNKNOWN_RESULT = /Unknown smoke job result: neutral/u;
-const ENDED_SKIPPED = /ended skipped/u;
 const MISSING_RESULT = /SMOKE_JOB_RESULT is required/u;
 const REJECTED = /CloudWatch Logs rejected events/u;
 
@@ -43,37 +42,56 @@ it("a failed daily smoke pages with one fixed check-failed line, then the heartb
 	assert.deepEqual(
 		smokeEvents({ run, jobResult: "failure", releaseSha: RELEASE }),
 		[
-			{ level: "error", event: "check-failed", ...common, message: FAILED },
+			{
+				level: "error",
+				event: "check-failed",
+				...common,
+				message: ended("failure"),
+			},
 			{ level: "info", event: "heartbeat", ...common, outcome: "fail" },
 		],
 	);
 });
 
-it("a smoke job that never ran or never resolved its release still reports a failure", () => {
+it.each(["cancelled", "skipped"])(
+	"a smoke job that ended %s still pages, naming the result",
+	(result) => {
+		assert.deepEqual(
+			smokeEvents({ run, jobResult: result, releaseSha: RELEASE }),
+			[
+				{
+					level: "error",
+					event: "check-failed",
+					...common,
+					message: ended(result),
+				},
+				{ level: "info", event: "heartbeat", ...common, outcome: "fail" },
+			],
+		);
+	},
+);
+
+it("a run that never resolved its release reports without a release_sha", () => {
 	const { release_sha: _, ...withoutRelease } = common;
-	const skipped = smokeEvents({ run, jobResult: "skipped", releaseSha: "" });
 	assert.deepEqual(
-		skipped.map(({ event, outcome }) => [event, outcome]),
-		[
-			["check-failed", undefined],
-			["heartbeat", "fail"],
-		],
+		smokeEvents({ run, jobResult: "failure", releaseSha: "" }).at(-1),
+		{ level: "info", event: "heartbeat", ...withoutRelease, outcome: "fail" },
 	);
-	assert.match(skipped[0].message, ENDED_SKIPPED);
-	// A release value that is not a full commit SHA is left out, not echoed.
-	for (const releaseSha of ["", "main", `${RELEASE}\n`, RELEASE.slice(1)])
+});
+
+it("a release value that is not a full commit SHA is left out, not echoed", () => {
+	for (const releaseSha of [
+		"main",
+		`${RELEASE}\n`,
+		RELEASE.slice(1),
+		"<img src=x>",
+	])
 		assert.deepEqual(
 			smokeEvents({ run, jobResult: "failure", releaseSha }).map(
 				({ release_sha }) => release_sha,
 			),
 			[undefined, undefined],
 		);
-	assert.deepEqual(skipped[1], {
-		level: "info",
-		event: "heartbeat",
-		...withoutRelease,
-		outcome: "fail",
-	});
 });
 
 it("refuses a job result GitHub never reports rather than guessing pass or fail", () => {

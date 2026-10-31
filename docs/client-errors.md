@@ -57,9 +57,11 @@ A broken path (Vercel OIDC disabled or switched to the Global issuer, role trust
 drift, a deleted stream, an SDK regression) therefore fails that run and shows as
 `502` responses and `client-error-forward-failed` lines in the Vercel runtime
 logs. The release process waits on the post-deployment run. The daily and manual
-runs report to shared-infra's scheduled checks (`docs/shared-infra.md`): a failed
-run emails John through the shared error alarm, and a daily run that stops
-arriving emails him after about 30 hours through the check's heartbeat alarm.
+runs report to shared-infra's scheduled checks: when the report reaches CloudWatch,
+a failed run emails John through the shared error alarm, and a daily run that
+stops arriving emails him after about 30 hours through the check's heartbeat
+alarm. [shared-infra fields → Coverage](shared-infra.md#coverage) lists what that
+leaves uncovered.
 The probe proves the write path only. It cannot show that the metric filter or
 the alarm still work, because it is deliberately never counted.
 

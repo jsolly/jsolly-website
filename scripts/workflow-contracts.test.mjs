@@ -72,9 +72,35 @@ it("only the scheduled-check report jobs can mint an OIDC token", () => {
 		"${{ !cancelled() && github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') }}",
 	);
 	assert.ok(!smoke.jobs.report.steps.some((step) => step.run?.includes("npm")));
+	// The smoke job alone decides the run's conclusion that release checks follow.
+	assert.equal(smoke.jobs.report["continue-on-error"], true);
+	assert.deepEqual(smoke.jobs.smoke.outputs, {
+		"release-sha":
+			// biome-ignore lint/suspicious/noTemplateCurlyInString: literal GitHub Actions expression
+			"${{ steps.scheduled-release.outputs.sha || github.event.deployment.sha || inputs.release_sha }}",
+	});
+	const setupNode = smoke.jobs.report.steps.find((step) =>
+		step.uses?.startsWith("actions/setup-node@"),
+	);
+	// The token-holding job restores no package cache another job could have written.
+	assert.deepEqual(setupNode.with, {
+		"node-version-file": ".nvmrc",
+		"package-manager-cache": false,
+	});
+	const reporter = smoke.jobs.report.steps.filter((step) => step.run);
 	assert.deepEqual(
-		smoke.jobs.report.steps.filter((step) => step.run).map((step) => step.run),
-		["node scripts/production-smoke-report.mjs"],
+		reporter.map(({ run, env }) => ({ run, env })),
+		[
+			{
+				run: "node scripts/production-smoke-report.mjs",
+				env: {
+					// biome-ignore lint/suspicious/noTemplateCurlyInString: literal GitHub Actions expression
+					SMOKE_JOB_RESULT: "${{ needs.smoke.result }}",
+					// biome-ignore lint/suspicious/noTemplateCurlyInString: literal GitHub Actions expression
+					SMOKE_RELEASE_SHA: "${{ needs.smoke.outputs.release-sha }}",
+				},
+			},
+		],
 	);
 });
 

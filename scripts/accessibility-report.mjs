@@ -134,7 +134,8 @@ function main(env) {
 		),
 		synthetic: env.A11Y_SYNTHETIC === "true",
 	});
-	sendEvents({ run, check: CHECK, events });
+	// The run fails whenever it reported an error line.
+	if (sendEvents({ run, check: CHECK, events })) process.exitCode = 1;
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) main(process.env);

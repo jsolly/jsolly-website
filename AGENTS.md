@@ -239,10 +239,12 @@ the built site, and fails if any request it makes is not a GET.
 
 Daily and manual runs on `main` then report to shared-infra's
 `/shared-infra/scheduled-checks` log group through OIDC
-(`scripts/production-smoke-report.mjs`, [shared-infra fields](docs/shared-infra.md)):
-a failed run writes one `check-failed` error that emails John, and every run writes
-a heartbeat whose absence for about 30 hours does too. Post-deployment runs do not
-report, because their token subject follows the deployment's ref.
+(`scripts/production-smoke-report.mjs`): when the report reaches CloudWatch, a
+failed run writes one `check-failed` error that emails John, and every run writes a
+heartbeat whose absence for about 30 hours does too. The report job is
+`continue-on-error`, so the smoke job alone decides the run's conclusion.
+Post-deployment runs do not report. What each gap leaves uncovered is listed in
+[shared-infra fields → Coverage](docs/shared-infra.md#coverage).
 
 The release process must wait for the exact release's Production smoke run to succeed and
 record its URL. Missing, failed, cancelled, skipped or timed-out runs are not

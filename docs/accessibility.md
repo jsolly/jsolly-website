@@ -73,8 +73,9 @@ messages come from a fixed set in the script; the audit's own error text stays i
 the run's artifact, because GitHub's secret masking does not apply to these lines
 and they are quoted into alert email. Every string is one line of well-formed
 text of at most 500 characters, without control or format characters.
-`scripts/workflow-contracts.test.mjs` keeps `id-token: write` to this workflow's
-`report` job, on push, schedule and dispatch runs of `main`. shared-infra owns
+`scripts/workflow-contracts.test.mjs` keeps `id-token: write` to the two
+scheduled-check `report` jobs: this workflow's, on push, schedule and dispatch
+runs of `main`, and Production smoke's ([shared-infra fields](shared-infra.md)). shared-infra owns
 the log group, role, metric filters and alarms. Error lines raise
 `shared-infra-scheduled-check-errors`; about 30 hours without a heartbeat raises
 `shared-infra-scheduled-check-heartbeat-jsolly-website-a11y`. Both notify through

@@ -90,11 +90,12 @@ function aws(args) {
 }
 
 /**
- * Writes the run's events to its own stream, all with one timestamp. Throws when
- * the AWS CLI fails or CloudWatch rejects an event, and sets exit code 1 when
- * the run reported an error line.
+ * Writes the run's events to its own stream, all with one timestamp, bounding
+ * every value again so no caller can send raw text. Throws when the AWS CLI fails
+ * or CloudWatch rejects an event; returns how many error lines it wrote.
  */
-export function sendEvents({ run, check, events }) {
+export function sendEvents({ run, check, events: unbounded }) {
+	const events = boundedEvents(unbounded);
 	const stream = `${run.repo}/${check}/${run.runId}-${run.runAttempt}`;
 	const timestamp = Date.now();
 	const dir = mkdtempSync(join(tmpdir(), `${check}-report-`));
@@ -136,5 +137,5 @@ export function sendEvents({ run, check, events }) {
 	console.log(
 		`Reported ${events.length} events to ${LOG_GROUP}:${stream}; ${errors.length} error lines.`,
 	);
-	if (errors.length) process.exitCode = 1;
+	return errors.length;
 }
