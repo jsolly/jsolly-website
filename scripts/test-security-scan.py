@@ -120,6 +120,15 @@ class SecurityScan(unittest.TestCase):
             with self.assertRaises(ValueError):
                 SCAN.dependency_report(report, path, today=date(2026, 11, 28))
 
+    def test_vercel_cli_glob_and_minimatch_findings_expire_after_november_30_inclusive(self):
+        for name, version, advisory in (("glob", "13.0.6", "GHSA-3g3m-2fjr-6pw4"),
+                                        ("minimatch", "10.2.6", "GHSA-g3hv-75wg-m249")):
+            with self.subTest(name=name):
+                _, path, report = self.advisory_fixture(name, version, advisory)
+                self.assertEqual(SCAN.dependency_report(report, path, today=date(2026, 11, 30)), 1)
+                with self.assertRaises(ValueError):
+                    SCAN.dependency_report(report, path, today=date(2026, 12, 1))
+
     def test_sandbox_disposition_never_covers_the_old_project_or_other_advisories(self):
         _, path, report = self.advisory_fixture("sandbox", "4.4.0", "GHSA-fm4j-4xhm-xpwx")
         self.assertEqual(SCAN.dependency_report(report, path, today=date(2027, 1, 1)), 1)

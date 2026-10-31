@@ -18,7 +18,8 @@ from zoneinfo import ZoneInfo
 VERSIONS = {"semgrep": "1.182.1", "zizmor": "1.31.1", "cfn-lint": "1.58.0"}
 OSV_VERSION = "2.7.0"
 
-# John approved these exact dispositions in this chat on 2026-10-28.
+# John approved these exact dispositions in chat: deepmerge, sandbox and zod on
+# 2026-10-28; glob and minimatch on 2026-10-31.
 # Changing this policy changes the verified hook bundle and requires review.
 DEPENDENCY_DISPOSITIONS = {
     ('deepmerge', '4.3.1'): {
@@ -56,6 +57,28 @@ DEPENDENCY_DISPOSITIONS = {
         "consumers": "76d1aaae6c4eb022599aaec276a37ea16cc9ad20d525ea6a953b93a1b4143ca2",
         "advisories": {
             "GHSA-mrhx-c7xc-m3w5": '2026-11-27',
+        },
+    },
+    ('glob', '13.0.6'): {
+        "paths": [
+            "node_modules/glob",
+        ],
+        "integrity": "sha512-Wjlyrolmm8uDpm/ogGyXZXb1Z+Ca2B8NbJwqBVg0axK9GbBeoS7yGV6vjXnYdGm6X53iehEuxxbyiKp8QmN4Vw==",
+        "resolved": "https://registry.npmjs.org/glob/-/glob-13.0.6.tgz",
+        "consumers": "9299eab18b8f3385b2908b28e6b4e136f2475bd293ba19df2eff16a7c29461a3",
+        "advisories": {
+            "GHSA-3g3m-2fjr-6pw4": '2026-11-30',
+        },
+    },
+    ('minimatch', '10.2.6'): {
+        "paths": [
+            "node_modules/minimatch",
+        ],
+        "integrity": "sha512-vpLQEs+VLCr1nU0BXS07maYoFwlDAH0gngQuuttxIwutDFEMHq2blX+8vpgxDdK3J1PwjCJiep77OitTZ4Ll1A==",
+        "resolved": "https://registry.npmjs.org/minimatch/-/minimatch-10.2.6.tgz",
+        "consumers": "598942bc901580392de5c20a17cf92c3323e18748c669461739e7d0498bda147",
+        "advisories": {
+            "GHSA-g3hv-75wg-m249": '2026-11-30',
         },
     },
 }
