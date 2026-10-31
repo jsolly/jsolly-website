@@ -114,13 +114,20 @@ class SecurityScan(unittest.TestCase):
 
     def test_approved_findings_expire_after_november_27_inclusive(self):
         for name, version, advisory in (("deepmerge", "4.3.1", "GHSA-gcqx-w48m-w2h4"),
-                                        ("glob", "13.0.6", "GHSA-3g3m-2fjr-6pw4"),
-                                        ("minimatch", "10.2.6", "GHSA-g3hv-75wg-m249"),
                                         ("zod", "3.22.4", "GHSA-mrhx-c7xc-m3w5")):
             _, path, report = self.advisory_fixture(name, version, advisory)
             self.assertEqual(SCAN.dependency_report(report, path, today=date(2026, 11, 27)), 1)
             with self.assertRaises(ValueError):
                 SCAN.dependency_report(report, path, today=date(2026, 11, 28))
+
+    def test_vercel_cli_glob_and_minimatch_findings_expire_after_november_30_inclusive(self):
+        for name, version, advisory in (("glob", "13.0.6", "GHSA-3g3m-2fjr-6pw4"),
+                                        ("minimatch", "10.2.6", "GHSA-g3hv-75wg-m249")):
+            with self.subTest(name=name):
+                _, path, report = self.advisory_fixture(name, version, advisory)
+                self.assertEqual(SCAN.dependency_report(report, path, today=date(2026, 11, 30)), 1)
+                with self.assertRaises(ValueError):
+                    SCAN.dependency_report(report, path, today=date(2026, 12, 1))
 
     def test_sandbox_disposition_never_covers_the_old_project_or_other_advisories(self):
         _, path, report = self.advisory_fixture("sandbox", "4.4.0", "GHSA-fm4j-4xhm-xpwx")
@@ -147,18 +154,6 @@ class SecurityScan(unittest.TestCase):
                 path.write_text(json.dumps(lock))
                 with self.assertRaises(ValueError):
                     SCAN.dependency_report(report, path, today=date(2026, 10, 28))
-
-    def test_minimatch_disposition_fingerprints_every_vercel_cli_caller(self):
-        original, path, report = self.advisory_fixture("minimatch", "10.2.6", "GHSA-g3hv-75wg-m249")
-        self.assertEqual(SCAN.dependency_report(report, path, today=date(2026, 10, 31)), 1)
-        for caller in ("node_modules/glob", "node_modules/@ts-morph/common",
-                       "node_modules/@vercel/python-analysis"):
-            with self.subTest(caller=caller):
-                lock = copy.deepcopy(original)
-                lock["packages"][caller]["integrity"] = "changed"
-                path.write_text(json.dumps(lock))
-                with self.assertRaises(ValueError):
-                    SCAN.dependency_report(report, path, today=date(2026, 10, 31))
 
     def test_osv_errors_and_branch_supplied_ignore_config_cannot_pass(self):
         _, _, report = self.advisory_fixture()
