@@ -31,16 +31,22 @@ export function clientErrorLogLine({ category, page, message }) {
 	});
 }
 
-function withDeadline(promise, ms) {
+// Rejects at the deadline and aborts the in-flight request, so a late write
+// cannot land after the handler has already answered 502.
+function withDeadline(start, ms) {
+	const controller = new AbortController();
 	let timer;
 	const deadline = new Promise((_, reject) => {
 		timer = setTimeout(() => {
 			const late = new Error(`Client-error forward exceeded ${ms} ms`);
 			late.name = "ClientErrorForwardTimeout";
+			controller.abort(late);
 			reject(late);
 		}, ms);
 	});
-	return Promise.race([promise, deadline]).finally(() => clearTimeout(timer));
+	return Promise.race([start(controller.signal), deadline]).finally(() =>
+		clearTimeout(timer),
+	);
 }
 
 export function createCloudWatchRecorder({
@@ -50,15 +56,17 @@ export function createCloudWatchRecorder({
 }) {
 	return async (report) => {
 		const result = await withDeadline(
-			client.send(
-				new PutLogEventsCommand({
-					logGroupName: CLIENT_ERROR_LOG.logGroupName,
-					logStreamName: CLIENT_ERROR_LOG.logStreamName,
-					logEvents: [
-						{ timestamp: now(), message: clientErrorLogLine(report) },
-					],
-				}),
-			),
+			(abortSignal) =>
+				client.send(
+					new PutLogEventsCommand({
+						logGroupName: CLIENT_ERROR_LOG.logGroupName,
+						logStreamName: CLIENT_ERROR_LOG.logStreamName,
+						logEvents: [
+							{ timestamp: now(), message: clientErrorLogLine(report) },
+						],
+					}),
+					{ abortSignal },
+				),
 			deadlineMs,
 		);
 		// CloudWatch can accept the call yet drop the event (for example a timestamp

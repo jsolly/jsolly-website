@@ -17,6 +17,10 @@ const REPORT = {
 	message: "A recipe app update failed.",
 };
 const PROVIDER_NOT_CALLED = /credentials provider not called by this test/u;
+// A request that never settles, as a stalled connection would.
+const NEVER_SETTLES = () =>
+	// biome-ignore lint/suspicious/noEmptyBlockStatements: the executor deliberately never settles.
+	new Promise(() => {});
 
 it("writes the structured error shape shared-infra's enricher and metric filter read", () => {
 	assert.deepEqual(JSON.parse(clientErrorLogLine(REPORT)), {
@@ -73,13 +77,21 @@ it("treats an event CloudWatch accepted but dropped as a failed write", async ()
 	await assert.rejects(record(REPORT), { name: "ClientErrorEventRejected" });
 });
 
-it("fails a forward that outlives its deadline instead of waiting for the platform", async () => {
+it("fails and aborts a forward that outlives its deadline instead of waiting for the platform", {
+	timeout: 5000,
+}, async () => {
+	let signal;
 	const record = createCloudWatchRecorder({
-		// A request that never settles, as a stalled connection would.
-		client: { send: () => new Promise(Boolean) },
+		client: {
+			send: (_command, options) => {
+				signal = options.abortSignal;
+				return NEVER_SETTLES();
+			},
+		},
 		deadlineMs: 20,
 	});
 	await assert.rejects(record(REPORT), { name: "ClientErrorForwardTimeout" });
+	assert.equal(signal.aborted, true);
 });
 
 it("federates into the stack's role and region, with one write attempt", async () => {
@@ -96,6 +108,12 @@ it("federates into the stack's role and region, with one write attempt", async (
 	assert.equal(requested.length, 1);
 	assert.equal(requested[0].roleArn, CLIENT_ERROR_LOG.roleArn);
 	assert.equal(requested[0].clientConfig.region, CLIENT_ERROR_LOG.region);
+	assert.equal(requested[0].clientConfig.maxAttempts, 2);
+	assert.deepEqual(requested[0].clientConfig.requestHandler, {
+		connectionTimeout: 1000,
+		requestTimeout: 2000,
+		throwOnRequestTimeout: true,
+	});
 	const [region, attempts] = await Promise.all([
 		client.config.region(),
 		client.config.maxAttempts(),
