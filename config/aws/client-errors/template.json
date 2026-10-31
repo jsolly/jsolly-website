@@ -1,0 +1,139 @@
+{
+	"AWSTemplateFormatVersion": "2010-09-09",
+	"Description": "Browser error reports from www.jsolly.com, forwarded by the Vercel production function and paged through shared-infra",
+	"Parameters": {
+		"AlertTopicArn": {
+			"Type": "AWS::SSM::Parameter::Value<String>",
+			"Default": "/shared-infra/alert-topic-arn",
+			"Description": "shared-infra's alert topic, resolved at deploy time"
+		}
+	},
+	"Resources": {
+		"ClientErrorLogGroup": {
+			"Type": "AWS::Logs::LogGroup",
+			"DeletionPolicy": "Retain",
+			"UpdateReplacePolicy": "Retain",
+			"Properties": {
+				"LogGroupName": "/jsolly-website/client-errors",
+				"RetentionInDays": 30
+			}
+		},
+		"ClientErrorLogStream": {
+			"Type": "AWS::Logs::LogStream",
+			"DeletionPolicy": "Retain",
+			"UpdateReplacePolicy": "Retain",
+			"Properties": {
+				"LogGroupName": {
+					"Ref": "ClientErrorLogGroup"
+				},
+				"LogStreamName": "vercel"
+			}
+		},
+		"ClientErrorMetricFilter": {
+			"Type": "AWS::Logs::MetricFilter",
+			"Properties": {
+				"LogGroupName": {
+					"Ref": "ClientErrorLogGroup"
+				},
+				"FilterPattern": "{ $.level = \"error\" }",
+				"MetricTransformations": [
+					{
+						"MetricNamespace": "jsolly-website",
+						"MetricName": "ClientErrorLogCount",
+						"MetricValue": "1"
+					}
+				]
+			}
+		},
+		"ClientErrorAlarm": {
+			"Type": "AWS::CloudWatch::Alarm",
+			"Properties": {
+				"AlarmName": "jsolly-website-client-errors",
+				"AlarmDescription": "Five or more browser error reports from www.jsolly.com within an hour",
+				"Namespace": "jsolly-website",
+				"MetricName": "ClientErrorLogCount",
+				"Statistic": "Sum",
+				"Period": 3600,
+				"EvaluationPeriods": 1,
+				"Threshold": 5,
+				"ComparisonOperator": "GreaterThanOrEqualToThreshold",
+				"TreatMissingData": "notBreaching",
+				"AlarmActions": [
+					{
+						"Ref": "AlertTopicArn"
+					}
+				],
+				"OKActions": [
+					{
+						"Ref": "AlertTopicArn"
+					}
+				]
+			}
+		},
+		"ClientErrorWriterRole": {
+			"Type": "AWS::IAM::Role",
+			"DeletionPolicy": "Delete",
+			"UpdateReplacePolicy": "Delete",
+			"Properties": {
+				"RoleName": "jsolly-website-client-errors",
+				"Description": "Vercel production jsolly-website writes browser error reports to one log stream",
+				"MaxSessionDuration": 3600,
+				"AssumeRolePolicyDocument": {
+					"Version": "2012-10-17",
+					"Statement": [
+						{
+							"Effect": "Allow",
+							"Principal": {
+								"Federated": {
+									"Fn::Sub": "arn:${AWS::Partition}:iam::${AWS::AccountId}:oidc-provider/oidc.vercel.com/jsollys-projects"
+								}
+							},
+							"Action": "sts:AssumeRoleWithWebIdentity",
+							"Condition": {
+								"StringEquals": {
+									"oidc.vercel.com/jsollys-projects:aud": "https://vercel.com/jsollys-projects",
+									"oidc.vercel.com/jsollys-projects:sub": "owner:jsollys-projects:project:jsolly-website:environment:production"
+								}
+							}
+						}
+					]
+				},
+				"Policies": [
+					{
+						"PolicyName": "write-client-error-stream",
+						"PolicyDocument": {
+							"Version": "2012-10-17",
+							"Statement": [
+								{
+									"Effect": "Allow",
+									"Action": "logs:PutLogEvents",
+									"Resource": {
+										"Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/jsolly-website/client-errors:log-stream:vercel"
+									}
+								}
+							]
+						}
+					}
+				],
+				"Tags": [
+					{
+						"Key": "Project",
+						"Value": "jsolly-website"
+					}
+				]
+			}
+		}
+	},
+	"Outputs": {
+		"ClientErrorWriterRoleArn": {
+			"Value": {
+				"Fn::GetAtt": ["ClientErrorWriterRole", "Arn"]
+			}
+		},
+		"ClientErrorLogGroupName": {
+			"Value": {
+				"Ref": "ClientErrorLogGroup"
+			}
+		}
+	}
+}
