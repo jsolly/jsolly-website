@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { it } from "vitest";
-import { CLIENT_ERROR_LOG } from "../../src/lib/client-error-log.mjs";
+import { CLIENT_ERROR_LOG } from "../../src/lib/client-error-constants.mjs";
 
 const read = (name) =>
 	JSON.parse(readFileSync(`config/aws/client-errors/${name}`, "utf8"));

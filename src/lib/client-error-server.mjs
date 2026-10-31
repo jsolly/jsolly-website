@@ -1,8 +1,4 @@
-import {
-	ERROR_CATEGORIES,
-	ERROR_REPORT_ORIGIN,
-	FORWARDING_PROBE,
-} from "./error-categories.mjs";
+import { ERROR_CATEGORIES, ERROR_REPORT_ORIGIN } from "./error-categories.mjs";
 
 const MAX_BYTES = 512;
 const JSON_TYPE = /^application\/json(?:;\s*charset=utf-8)?$/iu;
@@ -80,22 +76,15 @@ export function createClientErrorHandler({
 			!Object.hasOwn(value, "category") ||
 			!Object.hasOwn(value, "page") ||
 			typeof value.category !== "string" ||
-			!(
-				Object.hasOwn(ERROR_CATEGORIES, value.category) ||
-				value.category === FORWARDING_PROBE.category
-			) ||
+			!Object.hasOwn(ERROR_CATEGORIES, value.category) ||
 			typeof value.page !== "string" ||
 			!paths.has(value.page)
 		)
 			return response(400);
-		const probe = value.category === FORWARDING_PROBE.category;
 		const report = {
-			level: probe ? "info" : "error",
 			category: value.category,
 			page: value.page,
-			message: probe
-				? FORWARDING_PROBE.message
-				: ERROR_CATEGORIES[value.category],
+			message: ERROR_CATEGORIES[value.category],
 		};
 		try {
 			await record(report);

@@ -34,21 +34,19 @@ shared-infra's enricher reads `message` and `error` into the email's `error:`
 line and finds the log group from the alarm's metric filter. If the write fails,
 or CloudWatch accepts the call but drops the event, the function answers `502`
 and logs `client-error-forward-failed` with the validated report and only the
-error's name, code and HTTP status. AWS calls are bounded (1 s connect, 2 s
-request, two attempts) under a 10 s function limit, so a stall becomes a logged
-`502` instead of a killed invocation.
+error's name, code and HTTP status. Each AWS request is bounded (1 s connect,
+2 s request); the credential exchange may retry once and the write never does,
+so one report is never written twice. The whole forward ends after 8 s, inside
+the function's 10 s limit, so a stall becomes a logged `502` instead of a
+killed invocation.
 
 ## Forwarding liveness
 
-Healthy visits send nothing, so silence cannot show that forwarding broke. The
-production smoke (`scripts/production-acceptance.test.mjs`), which runs after
-every production deployment and daily, posts the `forwarding-probe` category
-and requires `204`. The receiver writes the probe at `level: "info"`, so the
-error metric filter and alarm never count it, and the browser reporter cannot
-send it. A broken path (Vercel OIDC disabled or switched to the Global issuer,
-role trust drift, a deleted stream, an SDK regression) fails that run, and the
-failed run notifies through GitHub. Read the Vercel runtime log's
-`client-error-forward-failed` line for the cause.
+Healthy visits send nothing, so silence cannot show that forwarding broke. Until
+a liveness probe exists, a broken path (Vercel OIDC disabled or switched to the
+Global issuer, role trust drift, a deleted stream, an SDK regression) shows only
+as `502` responses and `client-error-forward-failed` lines in the Vercel runtime
+logs; nothing pages.
 
 Credentials come from Vercel OIDC (team issuer) through
 `@vercel/oidc-aws-credentials-provider`. The project must keep **Secure backend
@@ -73,7 +71,7 @@ Vercel firewall rate limit on `/api/client-error/`; adding one bounds that.
 `jsolly-website-client-errors` in account `730335616323`, region `us-east-1`.
 Its stack policy denies replacing or deleting the log group and stream.
 `scripts/unit/client-errors-stack.test.mjs` pins the trust, permission, alarm and
-names to `src/lib/client-error-sink.mjs`. Vercel releases do not deploy this
+names to `src/lib/client-error-constants.mjs`. Vercel releases do not deploy this
 stack.
 
 Two prerequisites live in shared-infra and must be applied first:
@@ -83,14 +81,14 @@ Two prerequisites live in shared-infra and must be applied first:
 - Enricher discovery through `DescribeMetricFilters`, so this non-Lambda log group
   enriches.
 
-The production smoke's forwarding probe fails until the stack exists, so the
-stack is created from the reviewed PR head before the website PR merges.
+Until the stack exists, every report answers `502` and appears in the Vercel
+runtime logs as `client-error-forward-failed`. Nothing pages.
 
 ## Create the stack
 
 John creates the stack in **AWS CloudShell** with its existing administrator
-session, after shared-infra's infra deploy and **before** the website PR merges,
-from the PR's exact reviewed head commit. Give him one command at a time and wait
+session, after shared-infra's infra deploy and after the website PR merges, from
+the exact reviewed merge SHA on `main`. Give him one command at a time and wait
 for its result. Supply literal values; do not rely on shell variables from an
 earlier command.
 
@@ -98,20 +96,17 @@ earlier command.
    **Secure backend access with OIDC federation** is enabled with the **Team**
    issuer. The role trusts only Team-issuer tokens.
 2. Download `config/aws/client-errors/template.json` and `stack-policy.json`
-   from the exact reviewed commit on GitHub into CloudShell.
+   from the exact reviewed merge SHA on GitHub into CloudShell.
 3. Confirm the caller is account `730335616323`, region `us-east-1`, that
    `jsolly-website-client-errors` does not yet exist, and that the
    `oidc.vercel.com/jsollys-projects` provider does.
 4. Create a **CREATE** change set with `--capabilities CAPABILITY_NAMED_IAM`,
-   tag `Project=jsolly-website` and `InfraDeployCommit=<reviewed SHA>`.
+   tag `Project=jsolly-website` and `InfraDeployCommit=<merge SHA>`.
 5. Inspect the change set: exactly the five resources in the template, all
    `Add`. Reject anything else.
 6. Execute it, wait for `stack-create-complete`, then enable termination
    protection and set the stack policy from `stack-policy.json`.
 7. Read back the stack status, termination protection, stack policy and outputs.
-
-The website PR then merges, and its production smoke proves the probe reaches
-CloudWatch.
 
 ## Verify end to end
 
@@ -125,4 +120,5 @@ fetch("/api/client-error/", { method: "POST", headers: { "Content-Type": "applic
 Expect `204`, then a line in `/jsolly-website/client-errors`. Five such reports
 within an hour must produce an enriched ALARM email whose `log-group:` line is
 `/jsolly-website/client-errors`, followed by an OK email an hour later. A `502`
-means the write failed; read the Vercel runtime log's error name.
+means the write failed; read the Vercel runtime log's error name, code and
+status.

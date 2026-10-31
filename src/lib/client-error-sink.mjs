@@ -3,47 +3,67 @@ import {
 	PutLogEventsCommand,
 } from "@aws-sdk/client-cloudwatch-logs";
 import { awsCredentialsProvider } from "@vercel/oidc-aws-credentials-provider";
-import { CLIENT_ERROR_LOG } from "./client-error-log.mjs";
+import { CLIENT_ERROR_LOG } from "./client-error-constants.mjs";
 
-// The browser gives up after 5 s, so a stalled AWS call fails fast and reaches
-// the handler's logged 502 instead of holding the function until it is killed.
-const AWS_CALL_LIMITS = Object.freeze({
-	maxAttempts: 2,
-	requestHandler: {
-		connectionTimeout: 1000,
-		requestTimeout: 2000,
-		throwOnRequestTimeout: true,
-	},
+// Per-attempt limits for both the STS credential exchange and the write. The Logs
+// write gets one attempt: PutLogEvents is not idempotent, so a retry after a slow
+// but successful write would count one report twice toward the alarm.
+const REQUEST_HANDLER = Object.freeze({
+	connectionTimeout: 1000,
+	requestTimeout: 2000,
+	throwOnRequestTimeout: true,
 });
+// The whole forward, credentials included, ends before the function's 10 s limit,
+// so a stall becomes a logged 502 rather than a killed invocation.
+const FORWARD_DEADLINE_MS = 8000;
 
 /**
- * One structured line in the shape shared-infra's enricher reads: `message` plus
- * top-level `error: { name, message }` for an error report. Only validated fields
+ * One structured error line in the shape shared-infra's enricher reads:
+ * `message` plus top-level `error: { name, message }`. Only validated fields
  * (a fixed category, its fixed text and a published route) reach it.
  */
-export function clientErrorLogLine({ level, category, page, message }) {
-	if (level === "error")
-		return JSON.stringify({
-			level,
-			message: `Client error reported on ${page}`,
-			context: { category, page },
-			error: { name: category, message },
-		});
-	return JSON.stringify({ level, message, context: { category, page } });
+export function clientErrorLogLine({ category, page, message }) {
+	return JSON.stringify({
+		level: "error",
+		message: `Client error reported on ${page}`,
+		context: { category, page },
+		error: { name: category, message },
+	});
 }
 
-export function createCloudWatchRecorder({ client, now = Date.now }) {
+function withDeadline(promise, ms) {
+	let timer;
+	const deadline = new Promise((_, reject) => {
+		timer = setTimeout(() => {
+			const late = new Error(`Client-error forward exceeded ${ms} ms`);
+			late.name = "ClientErrorForwardTimeout";
+			reject(late);
+		}, ms);
+	});
+	return Promise.race([promise, deadline]).finally(() => clearTimeout(timer));
+}
+
+export function createCloudWatchRecorder({
+	client,
+	now = Date.now,
+	deadlineMs = FORWARD_DEADLINE_MS,
+}) {
 	return async (report) => {
-		const result = await client.send(
-			new PutLogEventsCommand({
-				logGroupName: CLIENT_ERROR_LOG.logGroupName,
-				logStreamName: CLIENT_ERROR_LOG.logStreamName,
-				logEvents: [{ timestamp: now(), message: clientErrorLogLine(report) }],
-			}),
+		const result = await withDeadline(
+			client.send(
+				new PutLogEventsCommand({
+					logGroupName: CLIENT_ERROR_LOG.logGroupName,
+					logStreamName: CLIENT_ERROR_LOG.logStreamName,
+					logEvents: [
+						{ timestamp: now(), message: clientErrorLogLine(report) },
+					],
+				}),
+			),
+			deadlineMs,
 		);
 		// CloudWatch can accept the call yet drop the event (for example a timestamp
 		// outside its window); that is a failed write, not a recorded report.
-		if (result?.rejectedLogEventsInfo || result?.rejectedEntityInfo) {
+		if (result?.rejectedLogEventsInfo) {
 			const rejected = new Error("CloudWatch rejected the client-error event");
 			rejected.name = "ClientErrorEventRejected";
 			throw rejected;
@@ -57,14 +77,15 @@ export function productionClient({
 } = {}) {
 	return new CloudWatchLogsClient({
 		region: CLIENT_ERROR_LOG.region,
-		...AWS_CALL_LIMITS,
+		maxAttempts: 1,
+		requestHandler: REQUEST_HANDLER,
 		credentials: credentialsProvider({
 			roleArn: CLIENT_ERROR_LOG.roleArn,
-			clientConfig: { region: CLIENT_ERROR_LOG.region, ...AWS_CALL_LIMITS },
+			clientConfig: {
+				region: CLIENT_ERROR_LOG.region,
+				maxAttempts: 2,
+				requestHandler: REQUEST_HANDLER,
+			},
 		}),
 	});
-}
-
-export function productionRecorder() {
-	return createCloudWatchRecorder({ client: productionClient() });
 }

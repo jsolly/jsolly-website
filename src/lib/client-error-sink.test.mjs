@@ -4,7 +4,7 @@ import {
 	ResourceNotFoundException,
 } from "@aws-sdk/client-cloudwatch-logs";
 import { it } from "vitest";
-import { CLIENT_ERROR_LOG } from "./client-error-log.mjs";
+import { CLIENT_ERROR_LOG } from "./client-error-constants.mjs";
 import {
 	clientErrorLogLine,
 	createCloudWatchRecorder,
@@ -12,11 +12,11 @@ import {
 } from "./client-error-sink.mjs";
 
 const REPORT = {
-	level: "error",
 	category: "recipe-update",
 	page: "/recipes/",
 	message: "A recipe app update failed.",
 };
+const PROVIDER_NOT_CALLED = /credentials provider not called by this test/u;
 
 it("writes the structured error shape shared-infra's enricher and metric filter read", () => {
 	assert.deepEqual(JSON.parse(clientErrorLogLine(REPORT)), {
@@ -24,20 +24,6 @@ it("writes the structured error shape shared-infra's enricher and metric filter 
 		message: "Client error reported on /recipes/",
 		context: { category: "recipe-update", page: "/recipes/" },
 		error: { name: "recipe-update", message: "A recipe app update failed." },
-	});
-});
-
-it("writes the forwarding probe as an info line the error metric filter cannot count", () => {
-	const probe = {
-		level: "info",
-		category: "forwarding-probe",
-		page: "/",
-		message: "Production smoke verified client-error forwarding.",
-	};
-	assert.deepEqual(JSON.parse(clientErrorLogLine(probe)), {
-		level: "info",
-		message: "Production smoke verified client-error forwarding.",
-		context: { category: "forwarding-probe", page: "/" },
 	});
 });
 
@@ -87,22 +73,34 @@ it("treats an event CloudWatch accepted but dropped as a failed write", async ()
 	await assert.rejects(record(REPORT), { name: "ClientErrorEventRejected" });
 });
 
-it("federates into the stack's role in the stack's region, with bounded AWS calls", async () => {
+it("fails a forward that outlives its deadline instead of waiting for the platform", async () => {
+	const record = createCloudWatchRecorder({
+		client: { send: () => new Promise(() => {}) },
+		deadlineMs: 20,
+	});
+	await assert.rejects(record(REPORT), { name: "ClientErrorForwardTimeout" });
+});
+
+it("federates into the stack's role and region, with one write attempt", async () => {
 	const requested = [];
 	const client = productionClient({
 		credentialsProvider: (options) => {
 			requested.push(options);
-			return () => Promise.reject(new Error("not called by this test"));
+			return () =>
+				Promise.reject(
+					new Error("credentials provider not called by this test"),
+				);
 		},
 	});
 	assert.equal(requested.length, 1);
 	assert.equal(requested[0].roleArn, CLIENT_ERROR_LOG.roleArn);
 	assert.equal(requested[0].clientConfig.region, CLIENT_ERROR_LOG.region);
-	assert.equal(requested[0].clientConfig.maxAttempts, 2);
 	const [region, attempts] = await Promise.all([
 		client.config.region(),
 		client.config.maxAttempts(),
 	]);
 	assert.equal(region, CLIENT_ERROR_LOG.region);
-	assert.equal(attempts, 2);
+	assert.equal(attempts, 1);
+	// The client resolves credentials through the injected provider, not the default chain.
+	await assert.rejects(client.config.credentials(), PROVIDER_NOT_CALLED);
 });
