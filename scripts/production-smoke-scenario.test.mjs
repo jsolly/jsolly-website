@@ -5,10 +5,12 @@ import {
 	productionUrl,
 	serviceWorker,
 	smoke,
+	verifyClientErrorForwarding,
 	verifyRelease,
 } from "./production-smoke-scenario.mjs";
 
 const STALE_RELEASE = /Canonical site must serve the intended release/u;
+const FORWARDING_BROKEN = /client-error forwarding reaches CloudWatch/u;
 const MENU_NEVER_OPENS = /Timeout[\s\S]*Mobile navigation/u;
 const MISSING_BODY = /article body is not empty/u;
 const MISSING_RESULT = /search lists the article just read/u;
@@ -443,5 +445,32 @@ it("a Markdown response identifying another article fails even when its body men
 			},
 		}),
 		WRONG_MARKDOWN_TITLE,
+	);
+});
+
+it("the forwarding probe posts only the probe category from the canonical origin", async () => {
+	const sent = [];
+	await verifyClientErrorForwarding({
+		fetcher: (url, init) => {
+			sent.push({ url, init });
+			return Promise.resolve(new Response(null, { status: 204 }));
+		},
+	});
+	assert.equal(sent.length, 1);
+	assert.equal(sent[0].url, `${productionUrl}/api/client-error/`);
+	assert.equal(sent[0].init.method, "POST");
+	assert.equal(sent[0].init.headers.Origin, productionUrl);
+	assert.deepEqual(JSON.parse(sent[0].init.body), {
+		category: "forwarding-probe",
+		page: "/",
+	});
+});
+
+it("a forwarding failure answered 502 fails the smoke", async () => {
+	await assert.rejects(
+		verifyClientErrorForwarding({
+			fetcher: () => Promise.resolve(new Response(null, { status: 502 })),
+		}),
+		FORWARDING_BROKEN,
 	);
 });

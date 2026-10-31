@@ -1,14 +1,18 @@
 import assert from "node:assert/strict";
-import { PutLogEventsCommand } from "@aws-sdk/client-cloudwatch-logs";
-import { it } from "vitest";
 import {
-	CLIENT_ERROR_LOG,
+	PutLogEventsCommand,
+	ResourceNotFoundException,
+} from "@aws-sdk/client-cloudwatch-logs";
+import { it } from "vitest";
+import { CLIENT_ERROR_LOG } from "./client-error-log.mjs";
+import {
 	clientErrorLogLine,
 	createCloudWatchRecorder,
+	productionClient,
 } from "./client-error-sink.mjs";
 
-const NOT_FOUND = /ResourceNotFoundException/u;
 const REPORT = {
+	level: "error",
 	category: "recipe-update",
 	page: "/recipes/",
 	message: "A recipe app update failed.",
@@ -23,10 +27,29 @@ it("writes the structured error shape shared-infra's enricher and metric filter 
 	});
 });
 
-it("puts one event on the stack's log stream and surfaces a CloudWatch failure", async () => {
+it("writes the forwarding probe as an info line the error metric filter cannot count", () => {
+	const probe = {
+		level: "info",
+		category: "forwarding-probe",
+		page: "/",
+		message: "Production smoke verified client-error forwarding.",
+	};
+	assert.deepEqual(JSON.parse(clientErrorLogLine(probe)), {
+		level: "info",
+		message: "Production smoke verified client-error forwarding.",
+		context: { category: "forwarding-probe", page: "/" },
+	});
+});
+
+it("puts one event on the stack's log stream", async () => {
 	const sent = [];
 	const record = createCloudWatchRecorder({
-		client: { send: async (command) => sent.push(command) },
+		client: {
+			send: (command) => {
+				sent.push(command);
+				return Promise.resolve({});
+			},
+		},
 		now: () => 1793434246210,
 	});
 	await record(REPORT);
@@ -39,11 +62,47 @@ it("puts one event on the stack's log stream and surfaces a CloudWatch failure",
 			{ timestamp: 1793434246210, message: clientErrorLogLine(REPORT) },
 		],
 	});
+});
 
-	const failing = createCloudWatchRecorder({
+it("surfaces a missing log group as the SDK's named error", async () => {
+	const missing = new ResourceNotFoundException({
+		message: "The specified log group does not exist.",
+		$metadata: { httpStatusCode: 400 },
+	});
+	const record = createCloudWatchRecorder({
+		client: { send: () => Promise.reject(missing) },
+	});
+	await assert.rejects(record(REPORT), { name: "ResourceNotFoundException" });
+});
+
+it("treats an event CloudWatch accepted but dropped as a failed write", async () => {
+	const record = createCloudWatchRecorder({
 		client: {
-			send: () => Promise.reject(new Error("ResourceNotFoundException")),
+			send: () =>
+				Promise.resolve({
+					rejectedLogEventsInfo: { tooOldLogEventEndIndex: 0 },
+				}),
 		},
 	});
-	await assert.rejects(failing(REPORT), NOT_FOUND);
+	await assert.rejects(record(REPORT), { name: "ClientErrorEventRejected" });
+});
+
+it("federates into the stack's role in the stack's region, with bounded AWS calls", async () => {
+	const requested = [];
+	const client = productionClient({
+		credentialsProvider: (options) => {
+			requested.push(options);
+			return () => Promise.reject(new Error("not called by this test"));
+		},
+	});
+	assert.equal(requested.length, 1);
+	assert.equal(requested[0].roleArn, CLIENT_ERROR_LOG.roleArn);
+	assert.equal(requested[0].clientConfig.region, CLIENT_ERROR_LOG.region);
+	assert.equal(requested[0].clientConfig.maxAttempts, 2);
+	const [region, attempts] = await Promise.all([
+		client.config.region(),
+		client.config.maxAttempts(),
+	]);
+	assert.equal(region, CLIENT_ERROR_LOG.region);
+	assert.equal(attempts, 2);
 });

@@ -108,7 +108,7 @@
 									"Effect": "Allow",
 									"Action": "logs:PutLogEvents",
 									"Resource": {
-										"Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/jsolly-website/client-errors:log-stream:vercel"
+										"Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:${ClientErrorLogGroup}:log-stream:${ClientErrorLogStream}"
 									}
 								}
 							]

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { it } from "vitest";
-import { CLIENT_ERROR_LOG } from "../../src/lib/client-error-sink.mjs";
+import { CLIENT_ERROR_LOG } from "../../src/lib/client-error-log.mjs";
 
 const read = (name) =>
 	JSON.parse(readFileSync(`config/aws/client-errors/${name}`, "utf8"));
@@ -77,7 +77,10 @@ it("grants only PutLogEvents on the one stream", () => {
 				Effect: "Allow",
 				Action: "logs:PutLogEvents",
 				Resource: {
-					"Fn::Sub": `arn:\${AWS::Partition}:logs:\${AWS::Region}:\${AWS::AccountId}:log-group:${CLIENT_ERROR_LOG.logGroupName}:log-stream:${CLIENT_ERROR_LOG.logStreamName}`,
+					"Fn::Sub":
+						// biome-ignore lint/suspicious/noTemplateCurlyInString: Literal CloudFormation substitution.
+						// biome-ignore lint/security/noSecrets: CloudFormation ARN template, not a credential.
+						"arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:${ClientErrorLogGroup}:log-stream:${ClientErrorLogStream}",
 				},
 			},
 		],

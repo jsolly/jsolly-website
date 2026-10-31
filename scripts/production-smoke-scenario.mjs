@@ -324,6 +324,25 @@ export async function verifyRelease({ verifyHttp, releaseSha }) {
 	);
 }
 
+// A POST, so it stays outside the read-only browser scenario. 204 means the
+// production function wrote the probe to CloudWatch through Vercel OIDC; the
+// receiver records it at info level, so it never counts toward the error alarm.
+export async function verifyClientErrorForwarding({ fetcher = fetch } = {}) {
+	const response = await fetcher(`${productionUrl}/api/client-error/`, {
+		method: "POST",
+		headers: { Origin: productionUrl, "Content-Type": "application/json" },
+		body: JSON.stringify({ category: "forwarding-probe", page: "/" }),
+		redirect: "error",
+		cache: "no-store",
+		signal: AbortSignal.timeout(15000),
+	});
+	assert.equal(
+		response.status,
+		204,
+		"client-error forwarding reaches CloudWatch (a 502 means the write failed; read the Vercel runtime log)",
+	);
+}
+
 export async function smoke({
 	page,
 	context,

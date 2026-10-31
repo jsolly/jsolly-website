@@ -30,6 +30,7 @@ it("accepts a fixed category on a published path and records only the allowed fi
 	assert.equal(response.headers.get("cache-control"), "no-store");
 	assert.deepEqual(logs, [
 		{
+			level: "error",
 			category: "recipe-print",
 			page: "/recipes/meals/",
 			message: "Recipe printing failed.",
@@ -42,6 +43,7 @@ it("accepts a fixed category on a published path and records only the allowed fi
 it("answers 502 and logs the validated report with only the error name when forwarding fails", async () => {
 	const failure = new Error("secret credential detail");
 	failure.name = "AccessDeniedException";
+	failure.$metadata = { httpStatusCode: 400 };
 	const { handle, failures } = fixture({
 		record: () => Promise.reject(failure),
 	});
@@ -51,13 +53,42 @@ it("answers 502 and logs the validated report with only the error name when forw
 	assert.deepEqual(failures.map(JSON.parse), [
 		{
 			event: "client-error-forward-failed",
+			level: "error",
 			category: "recipe-print",
 			page: "/recipes/meals/",
 			message: "Recipe printing failed.",
 			error: "AccessDeniedException",
+			status: 400,
 		},
 	]);
 	assert.doesNotMatch(failures.join(""), CREDENTIAL_DETAIL);
+});
+
+it("logs a transport failure's code, since its name alone is the generic Error", async () => {
+	const reset = Object.assign(new Error("socket hang up"), {
+		code: "ECONNRESET",
+	});
+	const { handle, failures } = fixture({ record: () => Promise.reject(reset) });
+	assert.equal((await handle(request())).status, 502);
+	const [failure] = failures.map(JSON.parse);
+	assert.equal(failure.error, "Error");
+	assert.equal(failure.code, "ECONNRESET");
+});
+
+it("records the production smoke's forwarding probe at info level, never as an error", async () => {
+	const { handle, logs } = fixture();
+	const response = await handle(
+		request(JSON.stringify({ category: "forwarding-probe", page: "/" })),
+	);
+	assert.equal(response.status, 204);
+	assert.deepEqual(logs, [
+		{
+			level: "info",
+			category: "forwarding-probe",
+			page: "/",
+			message: "Production smoke verified client-error forwarding.",
+		},
+	]);
 });
 
 it("rejects missing, cross-origin, or noncanonical origins without logging", async () => {
