@@ -38,6 +38,8 @@ jobs:
        startsWith(github.event.deployment_status.environment_url, 'https://jsolly-website-'))
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 15
+    outputs:
+      release-sha: ${{ steps.scheduled-release.outputs.sha || github.event.deployment.sha || inputs.release_sha }}
     env:
       PRODUCTION_SMOKE_RELEASE_SHA: ${{ github.event.deployment.sha || inputs.release_sha }}
       PRODUCTION_SMOKE_REQUEST_ID: ${{ github.event.deployment.id || inputs.request_id }}
@@ -87,3 +89,41 @@ jobs:
           path: production-smoke-artifacts/
           if-no-files-found: warn
           retention-days: 14
+
+  report:
+    # Scheduled and manual runs on main report to shared-infra's scheduled-checks
+    # log group (docs/shared-infra.md): a failure pages through the shared error
+    # alarm, and a missing daily heartbeat through this check's own alarm. Those
+    # triggers mint the main-branch subject the reporting role trusts; a
+    # deployment_status run's subject follows the deployment's ref, so post-deploy
+    # runs stay with the release process, which waits on them.
+    # continue-on-error: the smoke job alone decides the run's conclusion, so a
+    # reporting failure never turns a dispatched release check red; a lost
+    # report pages through the missing-heartbeat alarm instead.
+    needs: smoke
+    continue-on-error: true
+    if: ${{ !cancelled() && github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') }}
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .nvmrc
+          package-manager-cache: false
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: arn:aws:iam::730335616323:role/github-actions-scheduled-checks
+          role-session-name: jsolly-website-production-smoke-${{ github.run_id }}-${{ github.run_attempt }}
+          aws-region: us-east-1
+      # Fails this job when it reports a smoke failure.
+      - name: Report to shared-infra scheduled checks
+        env:
+          SMOKE_JOB_RESULT: ${{ needs.smoke.result }}
+          SMOKE_RELEASE_SHA: ${{ needs.smoke.outputs.release-sha }}
+        run: node scripts/production-smoke-report.mjs

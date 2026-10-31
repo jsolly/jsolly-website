@@ -125,7 +125,7 @@ and trusted hooks in a fresh worktree. No `.worktreeinclude` is needed: the only
 - **`process-html.mjs`:** runs after every `astro build`. On Vercel it also pins generated static stylesheet links through `scripts/vercel-static-assets.mjs`; the static-only Astro integration pins generated scripts and imports while preserving the existing builder, middleware and browse API. It adds slugified `id` attributes to id-less `h2/h3/h4`, except under `dist/blog/` and `dist/recipes/`, and runs `html-minifier`. The minifier keeps the Svelte and Astro hydration comments and collapses whitespace conservatively, so islands hydrate in place instead of re-rendering; Svelte's `<!>` anchor that ends a `<select>` or `<option>` with snippet content, which the minifier cannot parse, is rewritten to the equivalent `<!---->` first.
 - **`config/app/astro.ts`:** the site URL flips between `localhost:4321` (dev) and `https://www.jsolly.com` (prod). It sets `trailingSlash: "always"` and `prerenderConflictBehavior: "error"`, and renders Markdown with the satteri processor (`smartPunctuation` and `gfm` off) and Prism highlighting, because Shiki emits inline styles under the CSP. The `@astrojs/sitemap` options list every built page except the noindex `/blog/search/` (`filter`; the integration drops 404 and 500 itself; `/recipes/` pages are listed, J12) and give each post a `lastmod` from its frontmatter `updated` (`serialize`). The config reads those times once at load with `postLastmods` (`POSTS_DIR` and `POST_FILES` in `src/lib/blog/constants.ts`), because the integration swallows a throw inside `serialize` and the build would pass without a sitemap.
 - **Site files:** `public/robots.txt` disallows only `/blog/search/`; the legacy host's `robots.txt` disallows nothing, so crawlers follow its 301s. Both hosts' `.well-known/security.txt` (Contact `https://www.jsolly.com/contact/`, J15) share one `Expires`, which must fall after HEAD's commit date and less than 365 days after it (in the pre-commit hook HEAD is the parent of the commit being made), so bump both together yearly. `scripts/site-files.mjs` holds the one parser, `Expires` reader and security.txt check; the cutover verifier reads the live files' `Expires` with the same reader.
-- **`docs/`:** `publishing.md` (PagesCMS editing), `accessibility.md` and `shared-infra.md` (the axe audit and its CloudWatch events), `recipes.md` (recipe data, pipeline, settings and offline operations), `recipes-evidence/` (recipe provenance, J17: kept byte-for-byte, skipped by Biome and markdownlint, its `.py` an inert record), `legacy-redirects.md` (legacy deployment, monitoring and recovery) and `client-errors.md` (browser error reporting, its CloudWatch stack and alarm).
+- **`docs/`:** `publishing.md` (PagesCMS editing), `accessibility.md` and `shared-infra.md` (the scheduled-check events the axe audit and Production smoke write), `recipes.md` (recipe data, pipeline, settings and offline operations), `recipes-evidence/` (recipe provenance, J17: kept byte-for-byte, skipped by Biome and markdownlint, its `.py` an inert record), `legacy-redirects.md` (legacy deployment, monitoring and recovery) and `client-errors.md` (browser error reporting, its CloudWatch stack and alarm).
 
 ### Blog
 
@@ -197,7 +197,7 @@ If a green merge creates no Vercel deployment, verify that the project's Git con
 ## CI (local pre-commit gate)
 
 - `.git-hooks/pre-commit` runs through the repo-owned trusted hook dispatcher and validates Bash, Biome, YAML, Actions, Markdown, browser contract, Knip, the legacy redirect config (`redirects:check`), the generated recipe data (`recipes:check`), Astro and Svelte types (`check:ts`), unit tests, build, built-output tests and isolated hook/bootstrap fixtures. GitHub Actions repeats those checks as preparation and two built-test shards; the required `ci` aggregate verifies successful jobs, immutable build identity, complete disjoint file coverage and the unchanged built-test ledger. The local hook always runs the entire suite and does **not** deploy.
-- Built shard 1 also runs the axe sample (`npm run check:a11y:sample`). The full axe audit runs in `.github/workflows/a11y.yml` after each push to `main`, daily and on dispatch, outside required `ci`; it reports to shared-infra's `/shared-infra/scheduled-checks` log group through OIDC, whose alarms email on error lines (violations or check failures) or a missing daily heartbeat ([accessibility](docs/accessibility.md), [shared-infra fields](docs/shared-infra.md)). Alerting works only once jsolly/shared-infra's scheduled-checks change is deployed; until then a failing audit is only a red Actions run.
+- Built shard 1 also runs the axe sample (`npm run check:a11y:sample`). The full axe audit runs in `.github/workflows/a11y.yml` after each push to `main`, daily and on dispatch, outside required `ci`; it reports to shared-infra's `/shared-infra/scheduled-checks` log group through OIDC, whose alarms email on error lines (violations or check failures) when the report reaches CloudWatch, or on a missing daily heartbeat ([accessibility](docs/accessibility.md), [shared-infra fields → Coverage](docs/shared-infra.md#coverage)). Alerting works only once jsolly/shared-infra's scheduled-checks change is deployed; until then a failing audit is only a red Actions run.
 
 ## Conventions
 
@@ -236,6 +236,15 @@ runner, `scripts/production-smoke.mjs`, is maintained in this repository.
 Review runner changes with the scenario contracts and built-site smoke suite.
 `scripts/built/production-smoke.test.mjs` runs it through the runner against
 the built site, and fails if any request it makes is not a GET.
+
+Daily and manual runs on `main` then report to shared-infra's
+`/shared-infra/scheduled-checks` log group through OIDC
+(`scripts/production-smoke-report.mjs`): when the report reaches CloudWatch, a
+failed run writes one `check-failed` error that emails John, and every run writes a
+heartbeat whose absence for about 30 hours does too. The report job is
+`continue-on-error`, so the smoke job alone decides the run's conclusion.
+Post-deployment runs do not report. What each gap leaves uncovered is listed in
+[shared-infra fields → Coverage](docs/shared-infra.md#coverage).
 
 The release process must wait for the exact release's Production smoke run to succeed and
 record its URL. Missing, failed, cancelled, skipped or timed-out runs are not
