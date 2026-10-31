@@ -99,7 +99,7 @@ JavaScript test discovery belongs to `config/testing/vitest.config.mjs`; suite c
 - CSP tests live in `scripts/built-csp.test.mjs` and `scripts/built/csp-browser.test.mjs`.
 - Production scenario contracts live in `scripts/production-smoke-scenario.test.mjs`; the built-site smoke is `scripts/built/production-smoke.test.mjs`.
 
-The `production` suite wraps the unchanged acceptance scenario and diagnostic helper
+The `production` suite wraps the acceptance scenario, its diagnostic helper and the client-error forwarding probe
 in `scripts/production-acceptance.test.mjs`, invoked by `npm run smoke:production`.
 
 Python hook/bootstrap tests use `npm run test:python`, pinned to pytest 9.1.1

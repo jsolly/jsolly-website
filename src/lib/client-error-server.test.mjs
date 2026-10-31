@@ -53,7 +53,6 @@ it("answers 502 and logs the validated report with the error's name and status b
 	assert.deepEqual(failures.map(JSON.parse), [
 		{
 			event: "client-error-forward-failed",
-			level: "error",
 			category: "recipe-print",
 			page: "/recipes/meals/",
 			message: "Recipe printing failed.",
@@ -87,6 +86,30 @@ it("records the production smoke's forwarding probe at info level, never as an e
 			category: "forwarding-probe",
 			page: "/",
 			message: "Production smoke verified client-error forwarding.",
+		},
+	]);
+});
+
+it("logs a failed forwarding probe as a forward failure, without the probe's info level", async () => {
+	const { handle, failures } = fixture({
+		record: () =>
+			Promise.reject(
+				Object.assign(new Error("denied"), {
+					name: "InvalidIdentityTokenException",
+				}),
+			),
+	});
+	const response = await handle(
+		request(JSON.stringify({ category: "forwarding-probe", page: "/" })),
+	);
+	assert.equal(response.status, 502);
+	assert.deepEqual(failures.map(JSON.parse), [
+		{
+			event: "client-error-forward-failed",
+			category: "forwarding-probe",
+			page: "/",
+			message: "Production smoke verified client-error forwarding.",
+			error: "InvalidIdentityTokenException",
 		},
 	]);
 });

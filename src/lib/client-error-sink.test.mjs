@@ -51,6 +51,14 @@ it("writes the forwarding probe as an info line the error metric filter cannot c
 	);
 });
 
+it("refuses to write a report whose level it does not know rather than guess a shape", () => {
+	for (const level of [undefined, "warn", "ERROR"]) {
+		assert.throws(() => clientErrorLogLine({ ...REPORT, level }), {
+			name: "TypeError",
+		});
+	}
+});
+
 it("puts one event on the stack's log stream", async () => {
 	const sent = [];
 	const record = createCloudWatchRecorder({

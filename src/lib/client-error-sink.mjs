@@ -32,7 +32,10 @@ export function clientErrorLogLine({ level, category, page, message }) {
 			context: { category, page },
 			error: { name: category, message },
 		});
-	return JSON.stringify({ level, message, context: { category, page } });
+	if (level === "info")
+		return JSON.stringify({ level, message, context: { category, page } });
+	// Never guess a shape: a report without a known level would silently miss the alarm.
+	throw new TypeError(`Unknown client-error report level: ${String(level)}`);
 }
 
 // Rejects at the deadline and aborts the in-flight request, so a stalled write is

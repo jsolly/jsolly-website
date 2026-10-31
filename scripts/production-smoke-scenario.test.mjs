@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import { chromium } from "playwright";
 import { afterAll, beforeAll, it } from "vitest";
+import { createClientErrorHandler } from "../src/lib/client-error-server.mjs";
+import { createCloudWatchRecorder } from "../src/lib/client-error-sink.mjs";
 import {
 	productionUrl,
 	serviceWorker,
@@ -470,6 +472,42 @@ it("a forwarding failure answered 502 fails the smoke", async () => {
 	await assert.rejects(
 		verifyClientErrorForwarding({
 			fetcher: () => Promise.resolve(new Response(null, { status: 502 })),
+		}),
+		FORWARDING_BROKEN,
+	);
+});
+
+it("the forwarding probe passes only when the real receiver writes an info line to CloudWatch", async () => {
+	const receiver = (send) => {
+		const handle = createClientErrorHandler({
+			paths: new Set(["/"]),
+			record: createCloudWatchRecorder({ client: { send } }),
+			logFailure: () => undefined,
+		});
+		return (url, init) => handle(new Request(url, init));
+	};
+	const written = [];
+	await verifyClientErrorForwarding({
+		fetcher: receiver((command) => {
+			written.push(command.input.logEvents);
+			return Promise.resolve({});
+		}),
+	});
+	assert.equal(written.length, 1);
+	assert.deepEqual(JSON.parse(written[0][0].message), {
+		level: "info",
+		message: "Production smoke verified client-error forwarding.",
+		context: { category: "forwarding-probe", page: "/" },
+	});
+	await assert.rejects(
+		verifyClientErrorForwarding({
+			fetcher: receiver(() =>
+				Promise.reject(
+					Object.assign(new Error("denied"), {
+						name: "AccessDeniedException",
+					}),
+				),
+			),
 		}),
 		FORWARDING_BROKEN,
 	);

@@ -17,14 +17,17 @@ browser reportError(category)
 
 Only a fixed category from `src/lib/error-categories.mjs` and the page's
 pathname. At most three distinct categories per page load are sent, with no
-retry. The receiver accepts a category only from that vocabulary and a page
+retry. The receiver accepts a category only from that vocabulary, plus the
+production smoke's fixed `forwarding-probe` (see Forwarding liveness), and a page
 only from the build's route manifest, so error messages, stacks, query strings,
 user input, IP addresses and identifiers never reach CloudWatch. Never widen this
 boundary to carry an `Error`, its message or anything a visitor typed.
 
 ## Receiver behavior
 
-`api/client-error.mjs` validates the report, then writes one structured line:
+`api/client-error.mjs` validates the report, then writes one structured line. An
+error report takes this shape; the forwarding probe writes the `info` line shown
+under Forwarding liveness instead, and the sink refuses any other level:
 
 ```json
 {"level":"error","message":"Client error reported on /recipes/","context":{"category":"recipe-update","page":"/recipes/"},"error":{"name":"recipe-update","message":"A recipe app update failed."}}
@@ -54,7 +57,11 @@ A broken path (Vercel OIDC disabled or switched to the Global issuer, role trust
 drift, a deleted stream, an SDK regression) therefore fails that run and shows as
 `502` responses and `client-error-forward-failed` lines in the Vercel runtime
 logs. A failed run surfaces through GitHub Actions, not through shared-infra's
-alert email.
+alert email: the release process waits on the post-deployment run, and a failed
+daily run reaches John only through GitHub's notification for failed scheduled
+workflows (`gh run list --repo jsolly/jsolly-website --workflow production-smoke.yml`).
+The probe proves the write path only. It cannot show that the metric filter or
+the alarm still work, because it is deliberately never counted.
 
 Credentials come from Vercel OIDC (team issuer) through
 `@vercel/oidc-aws-credentials-provider`. The project must keep **Secure backend

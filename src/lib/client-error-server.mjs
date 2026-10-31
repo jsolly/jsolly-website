@@ -4,6 +4,21 @@ import {
 	FORWARDING_PROBE,
 } from "./error-categories.mjs";
 
+// Every category the receiver accepts, with its fixed level and text: the browser's
+// error vocabulary, plus the production smoke's forwarding probe at info level.
+const ACCEPTED_REPORTS = Object.freeze({
+	...Object.fromEntries(
+		Object.entries(ERROR_CATEGORIES).map(([category, message]) => [
+			category,
+			{ level: "error", message },
+		]),
+	),
+	[FORWARDING_PROBE.category]: {
+		level: "info",
+		message: FORWARDING_PROBE.message,
+	},
+});
+
 const MAX_BYTES = 512;
 const JSON_TYPE = /^application\/json(?:;\s*charset=utf-8)?$/iu;
 const BYTE_LENGTH = /^\d+$/u;
@@ -80,22 +95,17 @@ export function createClientErrorHandler({
 			!Object.hasOwn(value, "category") ||
 			!Object.hasOwn(value, "page") ||
 			typeof value.category !== "string" ||
-			!(
-				Object.hasOwn(ERROR_CATEGORIES, value.category) ||
-				value.category === FORWARDING_PROBE.category
-			) ||
+			!Object.hasOwn(ACCEPTED_REPORTS, value.category) ||
 			typeof value.page !== "string" ||
 			!paths.has(value.page)
 		)
 			return response(400);
-		const probe = value.category === FORWARDING_PROBE.category;
+		const { level, message } = ACCEPTED_REPORTS[value.category];
 		const report = {
-			level: probe ? "info" : "error",
+			level,
 			category: value.category,
 			page: value.page,
-			message: probe
-				? FORWARDING_PROBE.message
-				: ERROR_CATEGORIES[value.category],
+			message,
 		};
 		try {
 			await record(report);
@@ -103,8 +113,11 @@ export function createClientErrorHandler({
 			const { name, code, $metadata } = error instanceof Error ? error : {};
 			logFailure(
 				JSON.stringify({
+					// A failed forward is an error whatever the report's own level.
 					event: "client-error-forward-failed",
-					...report,
+					category: report.category,
+					page: report.page,
+					message: report.message,
 					// Name, code and HTTP status identify the failure without its message,
 					// which can carry provider detail.
 					error: name ?? "Unknown error",
