@@ -43,7 +43,7 @@
 			"incomplete": []
 		},
 		{
-			"path": "/blog/",
+			"path": "/blog/UI-enhancement-leads-to-major-architecture-changes/",
 			"width": 1280,
 			"violations": [
 				{
@@ -54,7 +54,10 @@
 					"help": "Images must have alternative text",
 					"helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-alt?application=axeAPI",
 					"nodes": [
-						{ "html": "<img src=\"/blog/media/a.webp\">", "target": ["img"] }
+						{
+							"html": "<img src=\"/blog/media/a.webp\">",
+							"target": ["img"]
+						}
 					]
 				},
 				{
@@ -64,13 +67,18 @@
 					"description": "Ensure links have discernible text",
 					"help": "Links must have discernible text",
 					"helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-name?application=axeAPI",
-					"nodes": [{ "html": "<a href=\"/blog/x/\"></a>", "target": ["a"] }]
+					"nodes": [
+						{
+							"html": "<a href=\"/recipes/greek-turkey-patties/\"></a>",
+							"target": ["a"]
+						}
+					]
 				}
 			],
 			"incomplete": []
 		},
 		{
-			"path": "/blog/",
+			"path": "/blog/UI-enhancement-leads-to-major-architecture-changes/",
 			"width": 390,
 			"violations": [],
 			"incomplete": []

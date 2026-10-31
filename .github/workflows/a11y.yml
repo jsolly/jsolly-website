@@ -21,8 +21,9 @@ on:
 permissions:
   contents: read
 
-# One audit at a time: a newer request waits rather than cancelling a run that is
-# about to report, and each run reports its own commit under its own log stream.
+# One audit at a time, and a running audit is never cancelled before it reports.
+# GitHub keeps at most one pending run and replaces it with a newer one, so after
+# a burst of pushes the newest commit is audited, not every push.
 concurrency:
   group: a11y-${{ github.ref }}
   cancel-in-progress: false
@@ -33,6 +34,10 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 30
+    # The report job downloads the results by this ID, so a re-run of only the
+    # report job (a later attempt) still finds the audit attempt's artifact.
+    outputs:
+      artifact-id: ${{ steps.results.outputs.artifact-id }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
@@ -50,6 +55,7 @@ jobs:
       - name: Audit every built page with axe-core
         run: npm run check:a11y
       - name: Save accessibility findings
+        id: results
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
@@ -76,12 +82,14 @@ jobs:
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
-      # Absent when the audit job failed before the audit wrote results; the
-      # reporter then sends check-failed.
+      # No ID when the audit job failed before the audit wrote results. Without a
+      # downloaded file the reporter sends check-failed: a setup or build failure,
+      # or an artifact handoff failure after a successful audit.
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        if: needs.audit.outputs.artifact-id != ''
         continue-on-error: true
         with:
-          name: accessibility-results-${{ github.run_attempt }}
+          artifact-ids: ${{ needs.audit.outputs.artifact-id }}
           path: ${{ runner.temp }}/a11y
       - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
         with:

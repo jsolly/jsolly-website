@@ -32,9 +32,9 @@ export async function builtPages(root) {
 	);
 }
 
-// One route per page template (and per recipe page variant), audited at both
-// widths in PR CI. `template` is the Astro page that renders the route, or the
-// static file for pages outside src/pages.
+// One route per page template, plus each variant a template renders differently,
+// audited at both widths in PR CI. `template` is the src/pages file that renders
+// the route; every src/pages template needs at least one entry.
 export const SAMPLE = [
 	{ route: "/", template: "src/pages/index.astro" },
 	{ route: "/about/", template: "src/pages/about.astro" },
@@ -45,15 +45,25 @@ export const SAMPLE = [
 	{ route: "/500.html", template: "src/pages/500.astro" },
 	{ route: "/blog/", template: "src/pages/blog/index.astro" },
 	{ route: "/blog/all-posts/", template: "src/pages/blog/all-posts.astro" },
+	// Blog categories: an active category and a retired-category notice.
 	{
 		route: "/blog/category/web-dev/",
 		template: "src/pages/blog/category/[slug].astro",
 	},
+	{
+		route: "/blog/category/uncategorized/",
+		template: "src/pages/blog/category/[slug].astro",
+	},
 	{ route: "/blog/search/", template: "src/pages/blog/search.astro" },
 	{ route: "/blog/works-cited/", template: "src/pages/blog/works-cited.astro" },
-	// Code blocks, tables and images.
+	// Blog posts: one with code blocks, tables and images, and one with body
+	// h2/h3 headings and an iframe embed.
 	{
 		route: "/blog/UI-enhancement-leads-to-major-architecture-changes/",
+		template: "src/pages/blog/[slug].astro",
+	},
+	{
+		route: "/blog/Adding-spell-check-django-ckeditor/",
 		template: "src/pages/blog/[slug].astro",
 	},
 	{ route: "/recipes/", template: "src/pages/recipes/index.astro" },
