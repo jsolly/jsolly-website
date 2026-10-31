@@ -1,20 +1,10 @@
 import assert from "node:assert/strict";
-import { spawnSync } from "node:child_process";
-import {
-	chmodSync,
-	existsSync,
-	mkdirSync,
-	mkdtempSync,
-	readdirSync,
-	readFileSync,
-	rmSync,
-	writeFileSync,
-} from "node:fs";
-import { tmpdir } from "node:os";
+import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { it } from "vitest";
 import { auditOutcome, reportEvents } from "../accessibility-report.mjs";
+import { callShape, eventsOf, fakeAwsCli, sentTo } from "./fake-aws-cli.mjs";
 
 const SCRIPT = fileURLToPath(
 	new URL("../accessibility-report.mjs", import.meta.url),
@@ -335,46 +325,17 @@ it("cuts long values without splitting a surrogate pair", () => {
 	assert.ok(kept.help.isWellFormed());
 });
 
-// The CLI against a stand-in aws: records each call and the events file, and
-// fails on request (AWS_STUB_MODE), never reaching AWS. The CLI's TMPDIR is the
-// fixture root, so `leftovers` lists any temp directory a run left behind.
+// The CLI against the stand-in aws (fake-aws-cli.mjs), never reaching AWS.
 function cliFixture(t) {
-	const root = mkdtempSync(join(tmpdir(), "a11y-report-test-"));
-	t.onTestFinished(() => rmSync(root, { recursive: true, force: true }));
-	mkdirSync(join(root, "bin"));
-	const calls = join(root, "calls.jsonl");
-	writeFileSync(
-		join(root, "bin", "aws"),
-		`#!${process.execPath}
-const fs = require("node:fs");
-const args = process.argv.slice(2);
-const file = args.find((arg) => arg.startsWith("file://"));
-fs.appendFileSync(${json(calls)}, JSON.stringify({
-  args, pager: process.env.AWS_PAGER,
-  events: file ? JSON.parse(fs.readFileSync(file.slice(7), "utf8")) : null,
-}) + "\\n");
-const mode = process.env.AWS_STUB_MODE;
-if (args[1] === "create-log-stream" && mode === "create-fails") process.exit(255);
-if (args[1] === "put-log-events")
-  console.log(mode === "rejected" ? '{"rejectedLogEventsInfo":{"tooOldLogEventEndIndex":0}}' : "{}");
-`,
-	);
-	chmodSync(join(root, "bin", "aws"), 0o755);
-	const file = (name, text) => {
-		writeFileSync(join(root, name), text);
-		return join(root, name);
-	};
+	const { root, file, run: runScript } = fakeAwsCli(t, "a11y");
 	const cli = (
 		results,
 		jobResult,
 		{ artifactId = "", synthetic = "false", mode = "" } = {},
-	) => {
-		rmSync(calls, { force: true });
-		const child = spawnSync(process.execPath, [SCRIPT], {
-			encoding: "utf8",
-			env: {
-				PATH: `${join(root, "bin")}:${process.env.PATH}`,
-				TMPDIR: root,
+	) =>
+		runScript(
+			SCRIPT,
+			{
 				GITHUB_SERVER_URL: run.serverUrl,
 				GITHUB_REPOSITORY: run.repository,
 				GITHUB_RUN_ID: run.runId,
@@ -384,48 +345,13 @@ if (args[1] === "put-log-events")
 				A11Y_ARTIFACT_ID: artifactId,
 				A11Y_RESULTS: results,
 				A11Y_SYNTHETIC: synthetic,
-				AWS_STUB_MODE: mode,
 			},
-		});
-		const recorded = existsSync(calls)
-			? readFileSync(calls, "utf8")
-					.trim()
-					.split("\n")
-					.map((line) => JSON.parse(line))
-			: [];
-		return {
-			status: child.status,
-			stderr: child.stderr,
-			calls: recorded,
-			leftovers: readdirSync(root).filter((name) =>
-				name.startsWith("a11y-report-"),
-			),
-		};
-	};
+			mode,
+		);
 	return { root, file, cli };
 }
-const STREAM = ["--log-stream-name", "jsolly-website/a11y/123-2"];
-const callShape = (calls) => ({
-	commands: calls.map(({ args }) => args.slice(0, 6)),
-	createTail: calls[0]?.args.slice(6),
-	pager: calls[1]?.pager,
-	oneTimestamp: calls[1]?.events.every(
-		({ timestamp }) => timestamp === calls[1].events[0].timestamp,
-	),
-});
-const LOG_GROUP = ["--log-group-name", "/shared-infra/scheduled-checks"];
-const SENT = {
-	commands: [
-		["logs", "create-log-stream", ...LOG_GROUP, ...STREAM],
-		["logs", "put-log-events", ...LOG_GROUP, ...STREAM],
-	],
-	createTail: ["--output", "json"],
-	pager: "",
-	oneTimestamp: true,
-};
+const SENT = sentTo("jsolly-website/a11y/123-2");
 const REJECTED = /CloudWatch Logs rejected events/u;
-const eventsOf = (calls) =>
-	calls[1].events.map(({ message }) => JSON.parse(message));
 
 it("writes the run's events to its own log stream and exits 1 on error lines", (t) => {
 	const { file, cli } = cliFixture(t);

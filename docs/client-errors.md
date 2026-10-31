@@ -56,10 +56,10 @@ never count it, and the browser reporter cannot send it.
 A broken path (Vercel OIDC disabled or switched to the Global issuer, role trust
 drift, a deleted stream, an SDK regression) therefore fails that run and shows as
 `502` responses and `client-error-forward-failed` lines in the Vercel runtime
-logs. A failed run surfaces through GitHub Actions, not through shared-infra's
-alert email: the release process waits on the post-deployment run, and a failed
-daily run reaches John only through GitHub's notification for failed scheduled
-workflows (`gh run list --repo jsolly/jsolly-website --workflow production-smoke.yml`).
+logs. The release process waits on the post-deployment run. The daily and manual
+runs report to shared-infra's scheduled checks (`docs/shared-infra.md`): a failed
+run emails John through the shared error alarm, and a daily run that stops
+arriving emails him after about 30 hours through the check's heartbeat alarm.
 The probe proves the write path only. It cannot show that the metric filter or
 the alarm still work, because it is deliberately never counted.
 

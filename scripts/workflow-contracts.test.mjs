@@ -17,9 +17,10 @@ for (const script of [
 }
 
 // A token minted in any main-context run carries the subject shared-infra's
-// scheduled-checks role trusts, so only the Accessibility report job may hold
-// id-token: write, and only from push, schedule and dispatch runs on main.
-it("only the Accessibility report job can mint an OIDC token", () => {
+// scheduled-checks role trusts, so only the two scheduled-check report jobs may
+// hold id-token: write: Accessibility from push, schedule and dispatch runs on
+// main, and Production smoke from schedule and dispatch runs on main.
+it("only the scheduled-check report jobs can mint an OIDC token", () => {
 	const dir = ".github/workflows";
 	const mints = (permissions) =>
 		permissions === "write-all" || permissions?.["id-token"] === "write";
@@ -34,7 +35,7 @@ it("only the Accessibility report job can mint an OIDC token", () => {
 					.map(([id]) => `${name}:${id}`),
 			];
 		});
-	assert.deepEqual(holders, ["a11y.yml:report"]);
+	assert.deepEqual(holders, ["a11y.yml:report", "production-smoke.yml:report"]);
 	const a11y = parse(readFileSync(join(dir, "a11y.yml"), "utf8"));
 	assert.deepEqual(Object.keys(a11y.on).sort(), [
 		"push",
@@ -56,6 +57,25 @@ it("only the Accessibility report job can mint an OIDC token", () => {
 		"${{ !cancelled() && github.ref == 'refs/heads/main' }}",
 	);
 	assert.ok(!a11y.jobs.report.steps.some((step) => step.run?.includes("npm")));
+
+	const smoke = parse(readFileSync(join(dir, "production-smoke.yml"), "utf8"));
+	assert.deepEqual(smoke.permissions, { contents: "read" });
+	assert.deepEqual(smoke.jobs.report.permissions, {
+		contents: "read",
+		"id-token": "write",
+	});
+	assert.equal(smoke.jobs.report.needs, "smoke");
+	// Never on deployment_status, whose token subject follows the deployment's ref.
+	assert.equal(
+		smoke.jobs.report.if,
+		// biome-ignore lint/suspicious/noTemplateCurlyInString: literal GitHub Actions expression
+		"${{ !cancelled() && github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') }}",
+	);
+	assert.ok(!smoke.jobs.report.steps.some((step) => step.run?.includes("npm")));
+	assert.deepEqual(
+		smoke.jobs.report.steps.filter((step) => step.run).map((step) => step.run),
+		["node scripts/production-smoke-report.mjs"],
+	);
 });
 
 const workflow = (name) =>
