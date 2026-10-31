@@ -22,7 +22,8 @@ class SecurityScan(unittest.TestCase):
     def setUp(self):
         self.scratch = tempfile.TemporaryDirectory()
         self.addCleanup(self.scratch.cleanup)
-        self.root = Path(self.scratch.name)
+        # main() resolves --root; macOS tempdirs sit behind /var -> /private/var.
+        self.root = Path(self.scratch.name).resolve()
         self.env = {**os.environ, "GIT_CONFIG_GLOBAL": os.devnull, "GIT_CONFIG_NOSYSTEM": "1"}
         self.git("init", "-q")
         (self.root / "package-lock.json").write_text('{"lockfileVersion":3}')
