@@ -44,6 +44,13 @@ authenticate executable cache data.
 Vitest uses previous durations only to order files, running every test again.
 Each successful run saves a new cache snapshot. Cold runs still run the full gate.
 
+setup-node caches `~/.npm` under a key hashed from `.nvmrc` and
+`package-lock.json`; every workflow that caches npm lists both files, so they
+share one entry. Protected main reuse skips `npm ci` in preparation, so that job
+skips the npm cache too. Its post step would otherwise save an empty `~/.npm`
+first, and every later job would restore that empty entry as a hit and never
+replace it.
+
 Build and built-test commands use separate directories below `NODE_COMPILE_CACHE`.
 Private validation trees keep their caches in their own scratch directories.
 The gate collects functional test results and counts, not V8 coverage profiles.

@@ -79,6 +79,8 @@ npm run redirects:write     # regenerate legacy/blogthedata/vercel.json from url
 npm run redirects:check     # fail when legacy/blogthedata/vercel.json differs from what url-map.json generates
 npm run recipes:sync        # regenerate public/recipes/data/recipe-library.{json,md} from recipes.json
 npm run recipes:check       # fail when public/recipes/data differs from what recipes.json generates
+npm run check:a11y          # axe audit of every built page at 1280 and 390 px (after build; docs/accessibility.md)
+npm run check:a11y:sample   # the PR CI axe sample: one page per template (scripts/accessibility-pages.mjs)
 ```
 
 ## Tests
@@ -195,6 +197,7 @@ If a green merge creates no Vercel deployment, verify that the project's Git con
 ## CI (local pre-commit gate)
 
 - `.git-hooks/pre-commit` runs through the repo-owned trusted hook dispatcher and validates Bash, Biome, YAML, Actions, Markdown, browser contract, Knip, the legacy redirect config (`redirects:check`), the generated recipe data (`recipes:check`), Astro and Svelte types (`check:ts`), unit tests, build, built-output tests and isolated hook/bootstrap fixtures. GitHub Actions repeats those checks as preparation and two built-test shards; the required `ci` aggregate verifies successful jobs, immutable build identity, complete disjoint file coverage and the unchanged built-test ledger. The local hook always runs the entire suite and does **not** deploy.
+- Built shard 1 also runs the axe sample (`npm run check:a11y:sample`). The full axe audit runs in `.github/workflows/a11y.yml` after each push to `main`, daily and on dispatch, outside required `ci`; it reports to shared-infra's `/shared-infra/scheduled-checks` log group through OIDC, whose alarms email on violations or a missing daily heartbeat ([accessibility](docs/accessibility.md)).
 
 ## Conventions
 

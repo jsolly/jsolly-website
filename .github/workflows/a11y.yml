@@ -1,0 +1,97 @@
+name: Accessibility
+# The full axe audit of every built page at both widths. PR CI audits only the
+# sample in scripts/accessibility-pages.mjs; this post-merge and daily run reports
+# to shared-infra's /shared-infra/scheduled-checks log group, which alarms on error
+# lines and on a missing daily heartbeat (docs/accessibility.md).
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.synthetic_violation && format('Accessibility audit {0} (synthetic violation)', github.sha) || format('Accessibility audit {0}', github.sha) }}
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+    inputs:
+      synthetic_violation:
+        description: Report one synthetic violation to test the alert path end to end
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+# One audit at a time: a newer request waits rather than cancelling a run that is
+# about to report, and each run reports its own commit under its own log stream.
+concurrency:
+  group: a11y-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    # The reporting role trusts main-branch runs only.
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            .nvmrc
+            package-lock.json
+      - run: npm ci
+      - run: npx --no-install playwright install --with-deps --only-shell chromium
+      - run: npm run build
+      - name: Audit every built page with axe-core
+        run: npm run check:a11y
+      - name: Save accessibility findings
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: accessibility-results-${{ github.run_attempt }}
+          path: accessibility-results.json
+          if-no-files-found: ignore
+          retention-days: 14
+
+  report:
+    # Runs after a failed audit too, and not after cancellation, so a cancelled run
+    # reports nothing rather than a false check failure.
+    needs: audit
+    if: ${{ !cancelled() && github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .nvmrc
+          package-manager-cache: false
+      # Absent when the audit job failed before the audit wrote results; the
+      # reporter then sends check-failed.
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        continue-on-error: true
+        with:
+          name: accessibility-results-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/a11y
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: arn:aws:iam::730335616323:role/github-actions-scheduled-checks
+          role-session-name: jsolly-website-a11y-${{ github.run_id }}-${{ github.run_attempt }}
+          aws-region: us-east-1
+      # Fails the run when it reports a violation or a check failure.
+      - name: Report to shared-infra scheduled checks
+        env:
+          AUDIT_JOB_RESULT: ${{ needs.audit.result }}
+          A11Y_RESULTS: ${{ runner.temp }}/a11y/accessibility-results.json
+          A11Y_SYNTHETIC: ${{ github.event_name == 'workflow_dispatch' && inputs.synthetic_violation && 'true' || 'false' }}
+        run: node scripts/accessibility-report.mjs

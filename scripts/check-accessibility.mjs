@@ -1,34 +1,22 @@
-import { readdir, readFile, stat, writeFile } from "node:fs/promises";
+import { readFile, stat, writeFile } from "node:fs/promises";
 import { createServer } from "node:http";
 import { extname, join, resolve, sep } from "node:path";
 import axe from "axe-core";
 import { chromium } from "playwright";
+import { builtPages, SAMPLE } from "./accessibility-pages.mjs";
 
-// Scan every built HTML document. Optional arguments restrict the route inventory.
-const INDEX_HTML = /index\.html$/u;
+// Scan every built HTML document. `--sample` scans the PR CI sample instead;
+// route arguments scan only those routes.
 const root = resolve("dist");
-async function inventory(dir) {
-	const entries = await readdir(dir, { withFileTypes: true });
-	const files = await Promise.all(
-		entries
-			.filter((e) => e.name !== "_vercel")
-			.map((e) => {
-				const path = join(dir, e.name);
-				return e.isDirectory()
-					? inventory(path)
-					: path.endsWith(".html")
-						? [path]
-						: [];
-			}),
-	);
-	return files.flat();
-}
-const routes = process.argv.slice(2);
-const pages = routes.length
-	? routes
-	: (await inventory(root)).map(
-			(p) => `/${p.slice(root.length + 1).replace(INDEX_HTML, "")}`,
-		);
+const args = process.argv.slice(2);
+if (args.includes("--sample") && args.length > 1)
+	throw new Error("--sample takes no route arguments");
+const pages =
+	args[0] === "--sample"
+		? SAMPLE.map(({ route }) => route)
+		: args.length
+			? args
+			: await builtPages(root);
 if (!pages.length)
 	throw new Error("No HTML pages found. Run npm run build first.");
 const mime = {
@@ -121,6 +109,10 @@ async function auditPage(path, width) {
 		await context.close();
 	}
 }
+// accessibility-results.json records every completed page-viewport, the number
+// expected, and the error that stopped the audit, if any. The a11y workflow
+// reports it through scripts/accessibility-report.mjs.
+let failure;
 try {
 	browser = await chromium.launch({ headless: true });
 	await Promise.all(
@@ -134,16 +126,27 @@ try {
 			await Promise.all(Array.from({ length: 4 }, nextPage));
 		}),
 	);
+	if (results.length !== pages.length * 2)
+		throw new Error(
+			`Incomplete accessibility audit: ${results.length}/${pages.length * 2} page-viewports`,
+		);
+} catch (error) {
+	failure = error;
+	throw error;
 } finally {
 	await browser?.close();
 	await new Promise((r) => server.close(r));
 	await writeFile(
 		"accessibility-results.json",
-		JSON.stringify(results, null, 2),
+		JSON.stringify(
+			{
+				expected: pages.length * 2,
+				error: failure ? String(failure.message ?? failure) : null,
+				results,
+			},
+			null,
+			2,
+		),
 	);
 }
-if (results.length !== pages.length * 2)
-	throw new Error(
-		`Incomplete accessibility audit: ${results.length}/${pages.length * 2} page-viewports`,
-	);
 if (results.some((r) => r.violations.length)) process.exitCode = 1;
