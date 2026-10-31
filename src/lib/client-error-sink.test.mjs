@@ -75,7 +75,8 @@ it("treats an event CloudWatch accepted but dropped as a failed write", async ()
 
 it("fails a forward that outlives its deadline instead of waiting for the platform", async () => {
 	const record = createCloudWatchRecorder({
-		client: { send: () => new Promise(() => {}) },
+		// A request that never settles, as a stalled connection would.
+		client: { send: () => new Promise(Boolean) },
 		deadlineMs: 20,
 	});
 	await assert.rejects(record(REPORT), { name: "ClientErrorForwardTimeout" });
