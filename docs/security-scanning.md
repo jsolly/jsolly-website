@@ -13,7 +13,8 @@ behavior consistent.
 ## Coverage
 
 - Pre-commit retains staged gitleaks scanning and the full gate, and adds
-  zizmor workflow checks and cfn-lint for the backup CloudFormation template.
+  zizmor workflow checks and cfn-lint for every `config/aws/*/template.json`
+  (the migration backup and client-error stacks).
 - Pre-push scans each outgoing commit's exact tree with Semgrep `p/default`
   and OSV. It scans outgoing history with gitleaks too. Non-HEAD and multiple
   ref pushes are covered. It reads Git blobs directly so `export-ignore`

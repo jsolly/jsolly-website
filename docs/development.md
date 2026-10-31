@@ -239,8 +239,10 @@ intended deployment and exact-release smoke when the repository requires them.
 Repository setup installs public tools and trusted hooks only. Vercel owns app
 deployment. The [retained migration backup stack](migration-backups.md) has its
 own human-reviewed CloudFormation apply; Vercel never applies that infrastructure.
-Agents do not apply that stack or broaden its grants. There is no local AWS
-credential-isolation wrapper.
+Agents do not apply that stack or broaden its grants. The
+[client-error stack](client-errors.md) is applied the same way; it holds the one
+runtime workload trust, Vercel production OIDC into a role that can only write
+one CloudWatch log stream. There is no local AWS credential-isolation wrapper.
 Separately authorized agent AWS reads use one native production `aws_mcp`
 connection for `agent@jsolly.com`, AgentMcp, account `730335616323`. Keep AWS Core
 knowledge tools, named human profiles, Vercel/PagesCMS credentials and retained

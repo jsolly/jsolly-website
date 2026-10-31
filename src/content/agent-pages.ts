@@ -158,7 +158,7 @@ The site is hosted on Vercel, which may record standard server and CDN logs (suc
 
 ## Error reports
 
-If a script or recipe feature fails, your browser may send this site a fixed error category and the page path, such as /recipes/meals/. Reports exclude query parameters, fragments, cookies, saved settings, form contents, error messages and stack traces. They contain no visitor identifier and are limited to three distinct categories per page load. John uses these reports to diagnose failures, not to measure visits. Vercel handles them as ordinary requests and may retain the hosting logs described above.
+If a script or recipe feature fails, your browser may send this site a fixed error category and the page path, such as /recipes/meals/. Reports exclude query parameters, fragments, cookies, saved settings, form contents, error messages and stack traces. They contain no visitor identifier and are limited to three distinct categories per page load. John uses these reports to diagnose failures, not to measure visits. Vercel handles them as ordinary requests and may retain the hosting logs described above. Each accepted report is also stored for 30 days in Amazon CloudWatch Logs, where repeated failures alert John.
 
 ## Blog images
 
