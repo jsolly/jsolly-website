@@ -51,12 +51,14 @@ What emails John, and what does not:
   (or violation) lines; `shared-infra-scheduled-check-errors` emails within
   minutes.
 - If the report job itself fails (role assumption, OIDC trust drift, a
-  CloudWatch error), nothing is written. The run's own failure is the only
-  immediate signal (`gh run list --repo jsolly/jsolly-website --workflow
-  production-smoke.yml`, or `a11y.yml`), and the check's missing-heartbeat alarm
-  emails about 30 hours after the last heartbeat. Production smoke's report job
-  is `continue-on-error`, so a reporting failure leaves the run green: a
-  dispatched release check follows the smoke job alone.
+  CloudWatch error), nothing is written, and the check's missing-heartbeat alarm
+  emails about 30 hours after the last heartbeat. Until then:
+  - `a11y`: the run fails, so GitHub's failed-run notification and
+    `gh run list --repo jsolly/jsolly-website --workflow a11y.yml` show it.
+  - `production-smoke`: the report job is `continue-on-error`, so the run stays
+    green and a dispatched release check follows the smoke job alone. Only the
+    report job's own result shows the lost report
+    (`gh run view <run id> --repo jsolly/jsolly-website --json jobs`).
 - Production smoke's post-deployment runs (`deployment_status`) never report,
   because their token subject follows the deployment's ref. The release process
   waits on them; a failure from a deploy no release process follows shows only as

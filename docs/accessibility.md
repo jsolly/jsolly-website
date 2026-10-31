@@ -79,7 +79,8 @@ runs of `main`, and Production smoke's ([shared-infra fields](shared-infra.md)).
 the log group, role, metric filters and alarms. Error lines raise
 `shared-infra-scheduled-check-errors`; about 30 hours without a heartbeat raises
 `shared-infra-scheduled-check-heartbeat-jsolly-website-a11y`. Both notify through
-shared-infra's alert topic and email enricher. The run fails whenever it reports
+shared-infra's alert topic and email enricher, when the report reaches CloudWatch
+([shared-infra fields → Coverage](shared-infra.md#coverage)). The run fails whenever it reports
 an error line, and when the AWS role cannot be assumed or CloudWatch rejects an
 event.
 

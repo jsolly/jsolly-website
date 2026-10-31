@@ -11,7 +11,7 @@ const WRITER = fileURLToPath(
 
 // A future reporter that forgets to bound its events still cannot send raw text
 // into retained logs and alert email: the writer bounds every value itself.
-it("the shared writer bounds a caller's raw multi-line text before sending it", (t) => {
+it("a reporter that forgets to bound its events still cannot put multi-line or bidi text into alert email", (t) => {
 	const { file, run } = fakeAwsCli(t, "raw-check");
 	const raw = `first line\nsecond line\u202e${"x".repeat(900)}`;
 	const script = file(
