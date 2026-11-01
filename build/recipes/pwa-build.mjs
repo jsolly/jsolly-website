@@ -12,7 +12,7 @@
 // build whose landing page links no recipe app manifest fails, since its
 // worker would precache pages that cannot install the app.
 //
-//   node scripts/recipes/pwa-build.mjs [dist]
+//   node build/recipes/pwa-build.mjs [dist]
 import { createHash } from "node:crypto";
 import { realpathSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";

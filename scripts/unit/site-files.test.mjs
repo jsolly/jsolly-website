@@ -6,7 +6,7 @@ import {
 	fieldValues,
 	headCommitDate,
 	securityTxtProblems,
-} from "../site-files.mjs";
+} from "../../build/site-files.mjs";
 
 // The security.txt check behind both hosts' tests, fed realistic broken
 // files (each case starts from the shape jsolly.com ships and breaks one

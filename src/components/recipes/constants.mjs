@@ -62,7 +62,7 @@ export const applianceNeeds = { "Two air fryers": 2 };
 
 /** The recipe library's landing page; the recipe app's id, start URL and scope. */
 export const RECIPES_PATH = "/recipes/";
-/** The recipe app's service worker, which scripts/recipes/pwa-build.mjs writes. */
+/** The recipe app's service worker, which build/recipes/pwa-build.mjs writes. */
 export const PWA_WORKER_PATH = "/recipes/service-worker.js";
 /** The recipe app's manifest and icons. */
 export const PWA_FILES_PATH = "/recipes/pwa/";

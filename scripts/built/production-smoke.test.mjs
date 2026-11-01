@@ -8,6 +8,10 @@ import { fileURLToPath } from "node:url";
 import { promisify } from "node:util";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
+import {
+	rootVercelRoutes,
+	routePath,
+} from "../../build/blogthedata-redirects.mjs";
 import middleware from "../../middleware.js";
 import { runSmoke } from "../../monitoring/production-smoke.mjs";
 import {
@@ -15,7 +19,6 @@ import {
 	smoke,
 	verifyRecipeWorker,
 } from "../../monitoring/production-smoke-scenario.mjs";
-import { rootVercelRoutes, routePath } from "../blogthedata-redirects.mjs";
 import { serveStatic, stubOffOrigin } from "./pages.mjs";
 
 // The production smoke scenario over the real built pages, run by the fleet
