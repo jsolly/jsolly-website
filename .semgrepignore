@@ -1,5 +1,0 @@
-# Replaces Semgrep's built-in ignore list, which skips tests/ and build/. Keep in step with
-# the --exclude list in gate/security-scan.py and docs/security-scanning.md.
-node_modules/
-public/notebooks/
-docs/recipes-evidence/
