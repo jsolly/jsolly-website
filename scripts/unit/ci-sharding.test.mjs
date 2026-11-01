@@ -220,6 +220,9 @@ it("runs the actual aggregate workflow condition after failures while keeping de
 	};
 	dependabot.event.pull_request.draft = true;
 	dependabot.event.pull_request.labels = [{ name: "preview" }];
+	// Without always(), a failed lane would skip ci, and a skipped required check passes.
+	assert.ok(String(workflow.jobs.ci.if).startsWith("always() && "));
+	assert.equal(workflow.jobs.ci["continue-on-error"], undefined);
 	assert.equal(evaluate(workflow.jobs.ci.if, dependabot, {}), true);
 	assert.equal(evaluate(workflow.jobs.ci.name, dependabot, {}), "ci");
 	assert.equal(evaluate(workflow.jobs.prepare.if, dependabot, {}), true);
