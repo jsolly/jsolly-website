@@ -7,6 +7,6 @@
 	},
 	"include": [
 		"../../static-assets/**/*.ts",
-		"../../src/lib/asset-storage.test.ts"
+		"../../tests/unit/asset-storage.test.ts"
 	]
 }

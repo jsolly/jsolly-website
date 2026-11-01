@@ -41,7 +41,7 @@ Besides `config/` (settings) and `api/` (Vercel functions), repository tooling a
 - `build/`: the custom build steps (static-asset pinning, Markdown siblings, the recipe service worker and their TypeScript loader), plus the CSP, site-file and blogthedata redirect parsers that tests and `monitoring/` reuse. `astro build` itself and the closing CSP suite run elsewhere.
 - `gate/`: the local gate, CI and Preview workflow helpers, lint wrappers, security scanner and hook trust (see [Git hooks](#git-hooks)).
 - `monitoring/`: the production smoke, accessibility audits, asset-retention probe and blogthedata cutover verifier.
-- `static-assets/`: the `npm run assets` CLI that inventories, uploads and verifies repository-owned images in AWS storage (see [AWS static assets](docs/aws-static-assets.md)).
+- `static-assets/`: the `npm run assets` CLI that inventories, checks, plans, uploads and verifies repository-owned images in AWS storage (see [AWS static assets](docs/aws-static-assets.md)).
 - `tests/`: every suite outside `src/`, its fixtures and the suite runner `tests/run-tests.mjs` (see [Tests](#tests)).
 - `src/components/recipes/tools/`: the recipe command-line tools (see [Recipes](#recipes)).
 
@@ -82,7 +82,7 @@ npm run gate                # the full pre-commit gate (see CI below)
 npm run check:fix           # biome check --write
 npm run check:ts            # astro check + svelte-check (errors only)
 npm run fix                 # check:fix + check:ts (combined)
-npm test                    # unit tests: src/**/*.test.{ts,mjs} and tests/unit/*.test.mjs
+npm test                    # unit tests: src/**/*.test.{ts,mjs} and tests/unit/*.test.{ts,mjs}
 npm run test:built          # built-output tests: tests/built/*.test.mjs against dist/ (run after build)
 npm run smoke:scenario-contract  # the production smoke scenario's contract tests (smoke suite)
 npm run smoke:production    # the production smoke itself, against the pinned production URL
@@ -96,7 +96,7 @@ npm run check:a11y:sample   # the PR CI axe sample: one page per template (monit
 
 ## Tests
 
-Every JavaScript suite runs through `tests/run-tests.mjs`: `unit` (`npm test`: `src/**/*.test.{ts,mjs}` and `tests/unit/*.test.mjs`), `built` (`npm run test:built`: `tests/built/*.test.mjs`), `csp` (the end of `npm run build`: `tests/built-csp.test.mjs`) and `smoke` (`npm run smoke:scenario-contract`: `tests/production-smoke-scenario.test.mjs`). It fails a suite when its passing-test count differs from `config/testing/test-counts.json`. Update the count in the commit that adds tests; lower it only in a commit that names each dropped test.
+Every JavaScript suite runs through `tests/run-tests.mjs`: `unit` (`npm test`: `src/**/*.test.{ts,mjs}` and `tests/unit/*.test.{ts,mjs}`), `built` (`npm run test:built`: `tests/built/*.test.mjs`), `csp` (the end of `npm run build`: `tests/built-csp.test.mjs`) and `smoke` (`npm run smoke:scenario-contract`: `tests/production-smoke-scenario.test.mjs`). It fails a suite when its passing-test count differs from `config/testing/test-counts.json`. Update the count in the commit that adds tests; lower it only in a commit that names each dropped test.
 
 - Built tests read `dist/` through `tests/built/pages.mjs` (shared readers, a static server, and stand-ins for every off-origin request, embed frames included). No test reaches the network.
 - A built test that needs its own build uses a `tests/built/temp-copy.mjs` copy of the working tree, never the real tree; that file's header describes the isolation.

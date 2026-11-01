@@ -1,7 +1,7 @@
 import { defineConfig } from "vitest/config";
 
 const suites = {
-	unit: ["src/**/*.test.ts", "src/**/*.test.mjs", "tests/unit/*.test.mjs"],
+	unit: ["src/**/*.test.ts", "src/**/*.test.mjs", "tests/unit/*.test.{ts,mjs}"],
 	built: ["tests/built/*.test.mjs"],
 	csp: ["tests/built-csp.test.mjs"],
 	workflow: [
