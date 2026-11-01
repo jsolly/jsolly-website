@@ -21,7 +21,9 @@ const IMAGE_CAPTION =
 	/^AI-generated illustration; appearance and portions are approximate\.(?:\s.+)?$/u;
 const IMAGE_PATH = /^\/recipes\/media\/[a-z0-9]+(?:-[a-z0-9]+)*-960\.webp$/u;
 
-const publicRoot = fileURLToPath(new URL("../../public/", import.meta.url));
+const publicRoot = fileURLToPath(
+	new URL("../../../../public/", import.meta.url),
+);
 
 const supportedStyles = new Set(["warm-overhead-v1"]);
 const sizes = new Map([

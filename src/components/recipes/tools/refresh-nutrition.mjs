@@ -7,7 +7,7 @@ import { reconcileMacros } from "./reconcile-nutrition.mjs";
 import { loadUsdaKey, lookup } from "./usda.mjs";
 import { observation } from "./usda-observation.mjs";
 
-const ROOT = new URL("../../", import.meta.url);
+const ROOT = new URL("../../../../", import.meta.url);
 const NUTRITION = new URL("src/components/recipes/nutrition-data.json", ROOT);
 const RECIPES = new URL("src/components/recipes/recipes.json", ROOT);
 const MACROS = {
@@ -179,7 +179,7 @@ function serializePreservingNumbers(value, originalText) {
 async function main(args) {
 	if (![2, 4].includes(args.length) || args[0] !== "--cache")
 		throw new Error(
-			"Usage: node scripts/recipes/refresh-nutrition.mjs --cache /absolute/public-response-cache",
+			"Usage: node src/components/recipes/tools/refresh-nutrition.mjs --cache /absolute/public-response-cache",
 		);
 	if (!args[1].startsWith("/"))
 		throw new Error("Use an absolute cache path outside the repository.");

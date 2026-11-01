@@ -3,22 +3,19 @@
 // markdownlint skip public/recipes/data, so the committed bytes are exactly
 // what this writes.
 //
-//   node scripts/recipes/sync-assistant-data.mjs          write both files
-//   node scripts/recipes/sync-assistant-data.mjs --check  regenerate in memory
+//   node src/components/recipes/tools/sync-assistant-data.mjs          write both files
+//   node src/components/recipes/tools/sync-assistant-data.mjs --check  regenerate in memory
 //                                                          and fail on drift
 import { realpathSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { BASE_SERVINGS } from "../../src/components/recipes/constants.mjs";
-import data from "../../src/components/recipes/recipe-data.server.mjs";
-import {
-	documentMarkdown,
-	recipeBundle,
-} from "../../src/components/recipes/recipe-export.mjs";
+import { BASE_SERVINGS } from "../constants.mjs";
+import data from "../recipe-data.server.mjs";
+import { documentMarkdown, recipeBundle } from "../recipe-export.mjs";
 
 const OUT_DIR = fileURLToPath(
-	new URL("../../public/recipes/data/", import.meta.url),
+	new URL("../../../../public/recipes/data/", import.meta.url),
 );
 const SETTINGS = { servings: BASE_SERVINGS, units: "us", familyDiners: 0 };
 

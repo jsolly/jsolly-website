@@ -5,7 +5,10 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { Readable } from "node:stream";
 import { it } from "vitest";
-import { loadUsdaKey, lookup } from "../recipes/usda.mjs";
+import {
+	loadUsdaKey,
+	lookup,
+} from "../../src/components/recipes/tools/usda.mjs";
 
 const KEY = "fixture-only-usda-key-not-a-real-key";
 const USAGE_ERROR = /Usage:/u;
@@ -130,7 +133,13 @@ syncBuiltinESMExports();
 			};
 			const result = spawnSync(
 				process.execPath,
-				["--import", preload, "scripts/recipes/usda.mjs", "food", "168462"],
+				[
+					"--import",
+					preload,
+					"src/components/recipes/tools/usda.mjs",
+					"food",
+					"168462",
+				],
 				{ env, input: "", encoding: "utf8", timeout: 10000 },
 			);
 			assert.equal(result.status, 1, result.stderr);

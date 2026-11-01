@@ -5,21 +5,19 @@ import {
 	ingredientGrams,
 	ingredientMeasure,
 	ingredientWeight,
-} from "../../src/components/recipes/ingredient-units.mjs";
-import weights from "../../src/components/recipes/ingredient-weights.json" with {
-	type: "json",
-};
-import data from "../../src/components/recipes/recipe-data.server.mjs";
-import {
-	formatQuantity,
-	ingredientAmount,
-} from "../../src/components/recipes/recipe-logic.mjs";
-import { UNIT_LABELS } from "../../src/components/recipes/recipe-settings.mjs";
+} from "../ingredient-units.mjs";
+import weights from "../ingredient-weights.json" with { type: "json" };
+import data from "../recipe-data.server.mjs";
+import { formatQuantity, ingredientAmount } from "../recipe-logic.mjs";
+import { UNIT_LABELS } from "../recipe-settings.mjs";
 
 const BAD_DISPLAY =
 	/unavailable|unspecified|to taste|NaN|Infinity|undefined|~|\(/u;
 const GRAMS = /^\d+ g$/u;
-const output = new URL("../../docs/recipe-units-audit.json", import.meta.url);
+const output = new URL(
+	"../../../../docs/recipe-units-audit.json",
+	import.meta.url,
+);
 const SERVINGS = [2, 4, 6, 8];
 const positive = (value) => Number.isFinite(value) && value > 0;
 const requireEvidence = (condition, identity, message) => {
@@ -233,6 +231,6 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
 	if (process.argv.includes("--write")) await writeFile(output, expected);
 	else if ((await readFile(output, "utf8")) !== expected)
 		throw new Error(
-			"Stale recipe unit audit. Run node scripts/recipes/audit-units.mjs --write.",
+			"Stale recipe unit audit. Run node src/components/recipes/tools/audit-units.mjs --write.",
 		);
 }

@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 import { reconcileMacros } from "./reconcile-nutrition.mjs";
 import { observation } from "./usda-observation.mjs";
 
-const ROOT = new URL("../../", import.meta.url);
+const ROOT = new URL("../../../../", import.meta.url);
 const SWEETENER = "https://www.lakanto.com/products/brown-sugar-replacement";
 const SWEETENER_LABEL =
 	// biome-ignore lint/security/noSecrets: public manufacturer label image URL.
@@ -120,7 +120,7 @@ if (
 ) {
 	if (process.argv.length !== 4 || process.argv[2] !== "--ranch")
 		throw new Error(
-			"Usage: node scripts/recipes/complete-macro-models.mjs --ranch /absolute/public-USDA-food.json",
+			"Usage: node src/components/recipes/tools/complete-macro-models.mjs --ranch /absolute/public-USDA-food.json",
 		);
 	const dataPath = new URL("src/components/recipes/nutrition-data.json", ROOT);
 	const recipePath = new URL("src/components/recipes/recipes.json", ROOT);

@@ -1,24 +1,21 @@
 // Recheck the planning inventory against its frozen pre-migration source data.
 // This is a review artifact, not a publication whitelist or recipe migration.
 import { readFile, writeFile } from "node:fs/promises";
-import data from "../../docs/recipes-archive/keto-2026-10-23/recipes.json" with {
+import data from "../../../../docs/recipes-archive/keto-2026-10-23/recipes.json" with {
 	type: "json",
 };
-import { KETO_NET_CARBS_MAX } from "../../src/components/recipes/constants.mjs";
-import {
-	dietaryClass,
-	displayNutrition,
-} from "../../src/components/recipes/recipe-logic.mjs";
+import { KETO_NET_CARBS_MAX } from "../constants.mjs";
+import { dietaryClass, displayNutrition } from "../recipe-logic.mjs";
 
 const output = new URL(
-	"../../docs/plans/keto-recipes-audit.json",
+	"../../../../docs/plans/keto-recipes-audit.json",
 	import.meta.url,
 );
-const plan = new URL("../../docs/plans/keto-recipes.md", import.meta.url);
+const plan = new URL("../../../../docs/plans/keto-recipes.md", import.meta.url);
 const mode = process.argv[2] ?? "--check";
 if (!["--check", "--write"].includes(mode) || process.argv.length > 3)
 	throw new Error(
-		"Usage: node scripts/recipes/audit-keto-plan.mjs [--check|--write]",
+		"Usage: node src/components/recipes/tools/audit-keto-plan.mjs [--check|--write]",
 	);
 
 const stored = await readFile(output, "utf8");

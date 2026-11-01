@@ -1,5 +1,5 @@
 // Recipe library constants shared by the recipe modules, their tests and
-// scripts/recipes.
+// src/components/recipes/tools.
 
 /** Recipe ingredient amounts and timings are written for this many adults. */
 export const BASE_SERVINGS = 4;
