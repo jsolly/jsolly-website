@@ -196,6 +196,7 @@ def snapshot(parent: Path, digest: str, payload: dict[str, bytes], slug: str) ->
         (staging / 'installation.json').write_text(json.dumps({'version': 2, 'manifest': MANIFEST, 'repo': slug, 'digest': digest}))
         (staging / 'installation.json').chmod(0o600)
         (staging / 'hooks').mkdir(mode=0o700)
+        # The scanner's place in the bundle marks the snapshot format that added the pre-push hook.
         hook_names = ('pre-commit', 'pre-push') if 'scripts/security-scan.py' in payload else ('pre-commit',)
         for name in hook_names:
             (staging / 'hooks' / name).write_bytes(payload['gate/hooks/pre-commit'])
@@ -253,6 +254,7 @@ def verify_dispatcher(version: Path):
     if hookdir.is_symlink() or not hookdir.is_dir():
         raise ValueError('Unsafe installed dispatcher directory')
     recorded = json.loads(regular(version, MANIFEST if (version / MANIFEST).exists() else LEGACY_MANIFEST, 0o644))
+    # The scanner's place in the bundle marks the snapshot format that added the pre-push hook.
     expected = {'pre-commit', 'pre-push'} if 'scripts/security-scan.py' in recorded['files'] else {'pre-commit'}
     for name in expected:
         dispatcher = regular(version, 'hooks/' + name, 0o755)
@@ -342,9 +344,8 @@ def dispatch(root: Path, common: Path, slug: str, digest: str, payload: dict[str
             raise ValueError('Committing index is outside this worktree Git directory')
         env['GIT_INDEX_FILE'] = str(index)
     scanner = [sys.executable, '-I', str(snap / 'scripts/security-scan.py')]
-    if hook in {'pre-push', 'cursor'}:
-        phase = 'push' if hook == 'pre-push' else 'cursor'
-        os.execve(sys.executable, [*scanner, phase, '--root', str(root)], env)
+    if hook == 'cursor':
+        os.execve(sys.executable, [*scanner, 'cursor', '--root', str(root)], env)
     subprocess.run([*scanner, 'commit', '--root', str(root)], env=env, check=True)
     # Snapshot shim sources snapshot library; quality scripts run in the committing root.
     os.chdir(root)
@@ -356,7 +357,7 @@ def main() -> int:
     parser.add_argument('command', choices=['install', 'dispatch', 'verify', 'digest', 'approve', 'approve-upgrade'])
     parser.add_argument('--root', type=Path, default=Path.cwd())
     parser.add_argument('--digest')
-    parser.add_argument('--hook', choices=['pre-commit', 'pre-push', 'cursor'], default='pre-commit')
+    parser.add_argument('--hook', choices=['pre-commit', 'cursor'], default='pre-commit')
     args = parser.parse_args()
     if sys.version_info < (3, 11):
         raise ValueError('Python >= 3.11 is required before installing repository hooks')
