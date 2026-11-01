@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { it } from "vitest";
-import { validateOperationEquipment } from "./flow-equipment.mjs";
+import { validateOperationEquipment } from "./flow-equipment.ts";
 import data from "./recipe-data.server.mjs";
 import { flowGrid, validateFlow } from "./trn-logic.mjs";
 

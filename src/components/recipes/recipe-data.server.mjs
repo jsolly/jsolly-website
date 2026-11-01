@@ -1,5 +1,5 @@
 // Canonical registries are server/build inputs. Browser recipes carry only their own context.
-import { validateOperationEquipment } from "./flow-equipment.mjs";
+import { validateOperationEquipment } from "./flow-equipment.ts";
 import weights from "./ingredient-weights.json" with { type: "json" };
 import nutrition from "./nutrition-data.json" with { type: "json" };
 import { requirePublishedRecipe } from "./recipe-publication.mjs";
