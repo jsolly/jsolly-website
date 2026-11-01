@@ -641,6 +641,14 @@ it("background summaries leave six cards mounted and defer distant images and al
 		await page.waitForFunction(
 			() => document.querySelectorAll(".recipe-card").length === 12,
 		);
+		assert.equal(
+			await page.evaluate(async (url) => {
+				const response = await fetch(url, { cache: "no-store" });
+				return (await response.json()).recipes.length;
+			}, download.url),
+			data.recipes.length,
+			"later summary requests pass through the persistent interceptor",
+		);
 		assert.deepEqual(
 			await page
 				.locator(".recipe-card .title-button")

@@ -8,7 +8,7 @@
 	"scripts": {
 		"worktree:init": "bash scripts/setup-agent-environment.sh",
 		"dev": "astro dev --config config/app/astro.ts",
-		"build": "astro build --config config/app/astro.ts && node process-html.mjs && node --import ./scripts/register-ts-from-js.mjs scripts/markdown-build.mjs && node scripts/recipes/pwa-build.mjs && node scripts/run-tests.mjs csp",
+		"build": "astro build --config config/app/astro.ts && node --import ./scripts/register-ts-from-js.mjs scripts/markdown-build.mjs && node scripts/recipes/pwa-build.mjs && node scripts/run-tests.mjs csp",
 		"build:maintenance": "MAINTENANCE_MODE=true npm run build",
 		"preview": "astro preview --config config/app/astro.ts",
 		"lint": "biome lint --config-path=config/quality/biome.settings.jsonc --no-errors-on-unmatched",
@@ -58,7 +58,6 @@
 		"entities": "8.1.0",
 		"esbuild": "0.28.1",
 		"globby": "^16.2.4",
-		"html-minifier-terser": "^7.2.0",
 		"jsdom": "^30.1.1",
 		"knip": "^6.37.0",
 		"markdownlint-cli2": "^0.23.3",

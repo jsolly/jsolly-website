@@ -4,9 +4,14 @@ export async function holdRecipeArtifact(page, directory) {
 	const released = Promise.withResolvers();
 	const finished = Promise.withResolvers();
 	page.once("close", () => released.resolve());
+	let claimed = false;
+	// Keep routing active until the page closes. Removing a one-shot route while
+	// fulfilling it can strand the dynamic imports triggered by that response.
 	await page.route(
 		(url) => url.pathname.startsWith(`/recipes/data/${directory}/`),
 		async (route) => {
+			if (claimed) return route.fallback();
+			claimed = true;
 			try {
 				const response = await route.fetch();
 				started.resolve({ url: route.request().url(), response });
@@ -19,7 +24,6 @@ export async function holdRecipeArtifact(page, directory) {
 				else finished.reject(error);
 			}
 		},
-		{ times: 1 },
 	);
 	return {
 		started: started.promise,

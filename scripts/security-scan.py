@@ -3,7 +3,6 @@
 import argparse
 from datetime import datetime, date
 import hashlib
-import io
 import json
 import os
 from pathlib import Path
@@ -231,66 +230,6 @@ def git(root, *args):
     return subprocess.check_output(["git", "--no-replace-objects", "-C", str(root), *args])
 
 
-def export_tree(root, revision, target):
-    """Read Git blobs directly: export-ignore attributes must not hide code."""
-    entries = []
-    for record in git(root, "ls-tree", "-rz", "--full-tree", revision).split(b"\0"):
-        if not record:
-            continue
-        metadata, raw_path = record.split(b"\t", 1)
-        mode, kind, object_id = metadata.decode().split()
-        path = Path(raw_path.decode())
-        if kind != "blob" or mode not in {"100644", "100755", "120000"}:
-            raise ValueError("Unsupported Git tree entry; inspect submodules separately")
-        if path.is_absolute() or any(part in {"..", ".git"} for part in path.parts):
-            raise ValueError("Unsafe Git tree path")
-        entries.append((path, object_id))
-    objects = subprocess.check_output(
-        ["git", "--no-replace-objects", "-C", str(root), "cat-file", "--batch"],
-        input="".join(object_id + "\n" for _, object_id in entries).encode(),
-    )
-    stream = io.BytesIO(objects)
-    for path, object_id in entries:
-        header = stream.readline().decode().split()
-        if len(header) != 3 or header[:2] != [object_id, "blob"]:
-            raise ValueError("Git blob read failed")
-        size = int(header[2])
-        data = stream.read(size)
-        if len(data) != size or stream.read(1) != b"\n":
-            raise ValueError("Truncated Git blob")
-        destination = target / path
-        destination.parent.mkdir(parents=True, exist_ok=True)
-        # Symlink targets are scanned as inert text; never follow source links.
-        destination.write_bytes(data)
-
-
-def push(root, records):
-    """Scan each exact outgoing tree, including non-HEAD and multiple refs."""
-    scanned = set()
-    for line in records.splitlines():
-        parts = line.split()
-        if len(parts) != 4 or not all(re.fullmatch(r"[0-9a-f]{40}", parts[n]) for n in (1, 3)):
-            raise ValueError("Malformed pre-push ref record")
-        local, remote = parts[1], parts[3]
-        if local == "0" * 40:
-            continue
-        history = local
-        if remote != "0" * 40:
-            exists = subprocess.run(["git", "-C", str(root), "cat-file", "-e", remote],
-                                    stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            if exists.returncode == 0:
-                history = f"{remote}..{local}"
-        secrets(root, "git", "--log-opts=--no-color --no-textconv " + history)
-        if local in scanned:
-            continue
-        scanned.add(local)
-        with tempfile.TemporaryDirectory(prefix="website-push-scan-") as directory:
-            tree = Path(directory)
-            export_tree(root, local, tree)
-            structural(tree)
-            source(tree)
-
-
 def working_tree(root, tree):
     """Copy tracked and unignored files without following links outside the repo."""
     paths = git(root, "ls-files", "-z", "--cached", "--others", "--exclude-standard")
@@ -319,7 +258,7 @@ def cursor(root, payload):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("phase", choices=("commit", "push", "ci", "cursor"))
+    parser.add_argument("phase", choices=("commit", "ci", "cursor"))
     parser.add_argument("--root", type=Path, default=Path.cwd())
     args = parser.parse_args()
     root = args.root.resolve(strict=True)
@@ -327,12 +266,10 @@ def main():
         if args.phase == "cursor":
             cursor(root, json.load(sys.stdin))
             print(json.dumps({"permission": "allow"}))
-        elif args.phase == "push":
-            push(root, sys.stdin.read())
         elif args.phase == "commit":
             structural(root)
         else:
-            secrets(root, "git", "--log-opts=--no-color --no-textconv --all")
+            secrets(root, "git", "--log-opts=--text --diff-merges=remerge --no-color --no-textconv --all")
             with tempfile.TemporaryDirectory(prefix="website-ci-scan-") as directory:
                 tree = Path(directory)
                 working_tree(root, tree)
