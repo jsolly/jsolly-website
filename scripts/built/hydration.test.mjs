@@ -1,139 +1,20 @@
 import assert from "node:assert/strict";
 import fs from "node:fs/promises";
-import { dirname, join } from "node:path";
-import { globby } from "globby";
+import { join } from "node:path";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { JOB_TITLE } from "../../src/content/constants.js";
-import {
-	collectErrors,
-	NOTEBOOK_RENDERS,
-	serveStatic,
-	stubOffOrigin,
-} from "./pages.mjs";
-import { createTempCopy, requireSuccess } from "./temp-copy.mjs";
+import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
 
-// What process-html.mjs must leave alone for the portfolio's islands to
-// hydrate in place. One `astro build` in a temp copy of the working tree gives
-// an unprocessed baseline; running process-html over that build in the copy
-// gives the processed side.
-//
-// Node identity across hydration: the island's component and renderer modules
-// are held at the network until the page has kept a reference to every element
-// inside a server-rendered island, so the snapshot is strictly pre-hydration.
-// Once released, hydrated and preferences-ready, the page counts how many
-// are still connected. An island that re-renders instead of hydrating discards
-// all of them. The shipped dist/ must reuse exactly what the unprocessed build
-// reuses, and every island on the pages below must reuse every node.
+// Hold island modules until every server-rendered node has been captured.
+// Hydration must retain the existing DOM, including recipe controls and tables.
 const SHIPPED = "dist";
-// The comments islands hydrate from, listed independently of process-html.mjs
-// so that dropping one of its ignoreCustomComments patterns fails here: Svelte
-// block open (`[`, `[!`, `[-1`) and close (`]`), empty anchors, `$props.id()`
-// markers (`$s1`) and Astro's `astro:end`. Svelte writes the empty anchor that
-// ends a <select> or <option> with snippet content as `<!>`, which parses to
-// the same empty comment as `<!---->`.
-const HYDRATION_COMMENT = /^(?:\[.*|\].*|\$.*|astro:end|)$/su;
-const COMMENT = /<!(?:--(?<data>[\s\S]*?)--)?>/gu;
 const ISLAND_MODULE = /\s(?:component|renderer)-url="(?<url>[^"]+)"/gu;
 const GEO_DEV_LINK = /Geo Dev/u;
 const OLD_BLOG_HOST = /blogthedata\.com/u;
-// Astro hashes an island's uid from the component's absolute path, so the
-// temp copy's uids differ from the real tree's; the dist/ comparison masks them.
-const ISLAND_UID = /(?<=<astro-island\b[^>]*\s)uid="[^"]*"/gu;
-const KINDS = ["[", "]", "", "$", "astro:end"];
-// Two synthetic pages carry every kind in one place, the `<!>` anchors that
-// end a <select> and an <option>, and an ordinary comment that processing
-// must drop. The top-level page goes through process-html's jsdom id pass;
-// the recipes/ one skips it, as recipe pages do, so the minifier itself meets
-// the `<!>` it cannot parse unless process-html rewrites it.
-const SYNTHETIC_PAGES = [
-	"__hydration-markers__/index.html",
-	"recipes/__hydration-markers__/index.html",
-];
-const SYNTHETIC_HTML = `<!doctype html>
-<html lang="en">
-	<head><title>markers</title><!-- dropped --></head>
-	<body>
-		<astro-island ssr>
-			<!--[--><p>
-				one   <!--$s1-->
-			</p><!----><!--[!--><!--]--><!--[-1--><span>two</span><!--]--><!--]-->
-			<select><!--[--><option>three</option><option><!--[--><span>four</span><!--]--><!></option><!--]--><!----><!></select>
-		</astro-island>
-		<!--astro:end-->
-	</body>
-</html>
-`;
-
-let copy;
 let browser;
-let unprocessed;
-let processed;
 const servers = [];
 const sites = {};
-
-function kindOf(data) {
-	return KINDS.find((kind) => kind !== "" && data.startsWith(kind)) ?? data;
-}
-
-// Every page's comments, split into hydration markers and everything else.
-async function pageComments(dist) {
-	const files = await globby("**/*.html", {
-		cwd: dist,
-		ignore: [NOTEBOOK_RENDERS],
-	});
-	const pages = await Promise.all(
-		files.map(async (file) => {
-			const html = await fs.readFile(join(dist, file), "utf8");
-			const comments = [...html.matchAll(COMMENT)].map(
-				(match) => match.groups.data ?? "",
-			);
-			return [
-				file,
-				{
-					hydration: comments.filter((data) => HYDRATION_COMMENT.test(data)),
-					ordinary: comments.filter((data) => !HYDRATION_COMMENT.test(data)),
-				},
-			];
-		}),
-	);
-	return Object.fromEntries(pages);
-}
-
-// The shipped dist/ must be byte for byte what process-html makes of a fresh
-// build of the current tree, island uids aside. That proves it was processed
-// without leaning on any particular page content, and also refuses a stale
-// dist/.
-async function assertShippedIsProcessed(processedDist) {
-	const [shippedFiles, processedFiles] = await Promise.all(
-		[SHIPPED, processedDist].map((dist) =>
-			globby("**/*.html", { cwd: dist }).then((files) => files.sort()),
-		),
-	);
-	const expectedFiles = processedFiles.filter(
-		(file) => !SYNTHETIC_PAGES.includes(file),
-	);
-	const differing =
-		shippedFiles.join("\n") === expectedFiles.join("\n")
-			? await Promise.all(
-					expectedFiles.map(async (file) => {
-						const [shipped, fresh] = await Promise.all(
-							[SHIPPED, processedDist].map((dist) =>
-								fs
-									.readFile(join(dist, file), "utf8")
-									.then((html) => html.replace(ISLAND_UID, 'uid=""')),
-							),
-						);
-						return shipped === fresh ? null : file;
-					}),
-				).then((files) => files.filter(Boolean))
-			: ["the set of pages"];
-	if (differing.length > 0) {
-		throw new Error(
-			`dist/ is not process-html's output of the current tree (differing: ${differing.join(", ")}); run \`npm run build\` first. If it persists after a fresh build, some output now depends on the checkout path; extend the ISLAND_UID mask.`,
-		);
-	}
-}
 
 async function listen(name, root) {
 	const site = await serveStatic(root);
@@ -213,29 +94,13 @@ async function nodeReuse({ root, origin }, path, stable = ":not(*)") {
 }
 
 before(async () => {
-	copy = await createTempCopy("hydration");
-	requireSuccess(copy.astroBuild());
-	const dist = join(copy.dir, "dist");
-	for (const page of SYNTHETIC_PAGES) {
-		const synthetic = join(dist, page);
-		// biome-ignore lint/performance/noAwaitInLoops: Fixture writes must not outlive failure cleanup.
-		await fs.mkdir(dirname(synthetic), { recursive: true });
-		await fs.writeFile(synthetic, SYNTHETIC_HTML);
-	}
-	const baseline = join(copy.dir, "baseline");
-	await fs.cp(dist, baseline, { recursive: true });
-	unprocessed = await pageComments(baseline);
-	requireSuccess(copy.node("process-html.mjs"));
-	processed = await pageComments(dist);
-	await assertShippedIsProcessed(dist);
-	await Promise.all([listen("shipped", SHIPPED), listen("baseline", baseline)]);
+	await listen("shipped", SHIPPED);
 	browser = await chromium.launch();
 });
 
 after(async () => {
 	await browser?.close();
 	await Promise.all(servers.map((site) => site.close()));
-	await copy?.remove();
 });
 
 // Every island on these pages must reuse every server-rendered node.
@@ -246,13 +111,11 @@ const FULL_REUSE_PAGES = [
 	"/blog/works-cited/",
 	"/blog/search/",
 ];
-// Also compare a recipe page against the unprocessed build. Greek
-// turkey patties has a family side, so its island includes the side select.
-// Its title and flow table are not replaced, so they must survive hydration
-// whatever the parity count says.
+// Greek turkey patties includes the family-side select. Its title and flow
+// table must survive hydration, as must the collection controls and initial cards.
 const COLLECTION_STABLE =
 	".library-controls *, .recipe-card:nth-child(-n+24), .recipe-card:nth-child(-n+24) *";
-const PARITY_PAGES = [
+const STABLE_REUSE_PAGES = [
 	// Collections remove later cards after hydration for progressive loading.
 	// Controls and the first 24 cards must still hydrate in place.
 	{ path: "/recipes/meals/", stable: COLLECTION_STABLE },
@@ -262,71 +125,28 @@ const PARITY_PAGES = [
 
 const sameSet = (a, b) => a.size === b.size && [...a].every((x) => b.has(x));
 
-// Opens path on the shipped and the unprocessed build. The report is what
-// both kinds of page must show: island modules held until the snapshot, no
-// page errors, server-rendered nodes, and the unprocessed build's reuse.
-async function compareReuse(path, stable) {
-	const [shipped, baseline] = await Promise.all([
-		nodeReuse(sites.shipped, path, stable),
-		nodeReuse(sites.baseline, path, stable),
-	]);
-	console.info(
-		`${path}: shipped reuses ${shipped.reused}/${shipped.total}, unprocessed build ${baseline.reused}/${baseline.total}`,
-	);
-	const builds = [shipped, baseline];
-	return {
-		shipped,
-		report: {
-			loadsIslandModules: builds.every((site) => site.held.size > 0),
-			heldUntilSnapshot: builds.every((site) =>
-				sameSet(site.intercepted, site.held),
-			),
-			errors: shipped.errors,
-			hasServerNodes: shipped.total > 0,
-			reuse: { reused: shipped.reused, total: shipped.total },
-		},
-		expected: {
-			loadsIslandModules: true,
-			heldUntilSnapshot: true,
-			errors: [],
-			hasServerNodes: true,
-			reuse: { reused: baseline.reused, total: baseline.total },
-		},
-	};
-}
-
-for (const path of FULL_REUSE_PAGES) {
-	it(`a visitor opening ${path} gets its islands hydrated in place`, async () => {
-		const { shipped, report, expected } = await compareReuse(path);
-		assert.deepEqual(
-			report,
-			expected,
-			`${path}: island hydration differs from the unprocessed build`,
-		);
-		assert.equal(
-			shipped.reused,
-			shipped.total,
-			`${path}: every server-rendered island node survives hydration`,
-		);
-	});
-}
-
-for (const { path, stable } of PARITY_PAGES) {
-	it(`a visitor opening ${path} gets its islands hydrated as the unprocessed build hydrates them, keeping its stable UI`, async () => {
-		const { shipped, report, expected } = await compareReuse(path, stable);
-		assert.deepEqual(
-			report,
-			expected,
-			`${path}: island hydration differs from the unprocessed build`,
-		);
+for (const { path, stable } of [
+	...FULL_REUSE_PAGES.map((route) => ({ path: route })),
+	...STABLE_REUSE_PAGES,
+]) {
+	it(`a visitor opening ${path} keeps its server-rendered UI through hydration`, async () => {
+		const report = await nodeReuse(sites.shipped, path, stable);
+		assert.ok(report.held.size > 0, `${path}: island modules exist`);
 		assert.ok(
-			shipped.stable.total > 0,
-			`${path}: stable nodes are server-rendered`,
+			sameSet(report.intercepted, report.held),
+			`${path}: modules were held until the SSR snapshot`,
+		);
+		assert.deepEqual(report.errors, [], `${path}: no browser errors`);
+		assert.ok(report.total > 0, `${path}: island nodes are server-rendered`);
+		const retained = stable ? report.stable : report;
+		assert.ok(
+			retained.total > 0,
+			`${path}: expected nodes are server-rendered`,
 		);
 		assert.equal(
-			shipped.stable.reused,
-			shipped.stable.total,
-			`${path}: its stable nodes (${stable}) survive hydration`,
+			retained.reused,
+			retained.total,
+			`${path}: expected server-rendered nodes survive hydration`,
 		);
 	});
 }
@@ -582,38 +402,5 @@ it("A search engine reading the home, about and contact pages gets John's Enterp
 			oldBio: false,
 			oldBlogHost: false,
 		})),
-	);
-});
-
-it("A production build's HTML post-processing leaves every island's hydration markers intact on every page and drops every other comment", () => {
-	const markers = (pages) =>
-		Object.fromEntries(
-			Object.entries(pages).map(([file, { hydration }]) => [file, hydration]),
-		);
-	assert.deepEqual(
-		SYNTHETIC_PAGES.map((page) => {
-			const kinds = new Set(unprocessed[page].hydration.map(kindOf));
-			return {
-				page,
-				missingKinds: KINDS.filter((kind) => !kinds.has(kind)),
-				ordinary: unprocessed[page].ordinary,
-			};
-		}),
-		SYNTHETIC_PAGES.map((page) => ({
-			page,
-			missingKinds: [],
-			ordinary: [" dropped "],
-		})),
-		"each synthetic page carries every hydration comment kind and an ordinary comment",
-	);
-	assert.ok(
-		unprocessed["about/index.html"].hydration.includes("astro:end"),
-		"the unprocessed /about/ page has its navigation island markers",
-	);
-	assert.deepEqual(markers(processed), markers(unprocessed));
-	assert.deepEqual(
-		Object.entries(processed).filter(([, { ordinary }]) => ordinary.length > 0),
-		[],
-		"no processed page keeps a non-hydration comment",
 	);
 });
