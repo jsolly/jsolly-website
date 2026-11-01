@@ -1,8 +1,8 @@
 # Configuration
 
 Move optional root-level settings under `config/<domain>/` or their existing owner.
-Keep already nested configuration with its component; test configuration may live
-under `tests/`. Each setting has one repository-owned home:
+Keep already nested configuration with its component; test configuration lives in
+`config/testing/`. Each setting has one repository-owned home:
 
 - `app/astro.ts` owns Astro, sitemap, Markdown rendering, CSP and Vite settings.
   Every Astro command selects it with `--config config/app/astro.ts`, including

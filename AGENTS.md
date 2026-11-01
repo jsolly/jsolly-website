@@ -36,7 +36,7 @@ Astro 7 with Svelte 5 islands, TypeScript and Node pinned in `.nvmrc`; Tailwind 
 
 ## Repository layout
 
-Repository tooling and tests live in four top-level directories and one component folder:
+Besides `config/` (settings) and `api/` (Vercel functions), repository tooling and tests live in four top-level directories and one component folder:
 
 - `build/`: the custom build steps (static-asset pinning, Markdown siblings, the recipe service worker and their TypeScript loader), plus the CSP, site-file and blogthedata redirect parsers that tests and `monitoring/` reuse. `astro build` itself and the closing CSP suite run elsewhere.
 - `gate/`: the local gate, CI and Preview workflow helpers, lint wrappers, security scanner and hook trust (see [Git hooks](#git-hooks)).
@@ -299,8 +299,8 @@ register executable hooks. See [development and release](docs/development.md).
 ## Configuration
 
 Move optional root-level settings under `config/<domain>/` or their existing owner.
-Keep already nested configuration with its component; test configuration may live
-under `tests/`. Give each setting one owner and keep minimal native adapters. See [configuration guidance](config/README.md)
+Keep already nested configuration with its component; test configuration lives in
+`config/testing/`. Give each setting one owner and keep minimal native adapters. See [configuration guidance](config/README.md)
 for native exceptions, scopes and verification. This repository owns them.
 
 ## Repository ownership
