@@ -85,8 +85,9 @@ function registerPillTest(width) {
 					`${id} page`,
 				);
 				await uniformPillText(page, page.locator(".recipe-detail"));
-				// Buttons use transition-all, so after the colour-scheme toggle in
-				// uniformPillText the button can briefly drop out of the accessibility tree.
+				// The page is visibility:hidden until preferences load, and Button's
+				// transition-all carries that hidden state for a moment after the reveal,
+				// so an immediate getByRole count can miss the button.
 				const printButton = page
 					.locator(".recipe-detail")
 					.getByRole("button", { name: "Print recipe", exact: true });
