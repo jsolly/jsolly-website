@@ -1,24 +1,28 @@
 # Repository security checks
 
-`scripts/security-scan.py` owns scanner invocation for Git hooks, Cursor and CI.
-The hook installer includes that runner in its verified snapshot. Both installed
-Git hook entries use the same trusted dispatcher; neither executes an
-unreviewed branch's scanner script. The existing full pre-commit gate remains.
+`gate/security-scan.py` owns scanner invocation for pre-commit, Cursor and
+CI. The hook installer includes that runner in its verified snapshot, and neither
+hook executes an unreviewed branch's scanner script. The existing full
+pre-commit gate remains.
 
-The alternatives were a CI-only check, which would miss the requested local
-protection, and separate hook scripts, which would duplicate scanner policy and
-escape the existing verified-hook ownership. One shared runner keeps their
-behavior consistent.
+Pre-push is the one exception: the dispatcher (`gate/hooks/pre-commit`) runs
+gitleaks itself, because the push check must stay within a few seconds. It
+uses the CI log options, so a change to them in `security-scan.py` or
+`gate/ci-secrets-scan.sh` must also change the dispatcher.
 
 ## Coverage
 
 - Pre-commit retains staged gitleaks scanning and the full gate, and adds
   zizmor workflow checks and cfn-lint for every `config/aws/*/template.json`
   (the migration backup and client-error stacks).
-- Pre-push scans each outgoing commit's exact tree with Semgrep `p/default`
-  and OSV. It scans outgoing history with gitleaks too. Non-HEAD and multiple
-  ref pushes are covered. It reads Git blobs directly so `export-ignore`
-  attributes cannot hide source. Delete-only pushes have no source to scan.
+- Pre-push runs gitleaks only over the commits each pushed ref sends that the
+  destination lacks, judged by the named remote's tracking refs and the ref's
+  current remote commit; that takes well under a second. A new ref pushed to a
+  bare URL scans the commit's whole history (about ten seconds). A commit made
+  with hooks bypassed is still checked. It reads the objects the push sends, ignoring
+  local replace refs, and refuses a ref that names something other than a
+  commit. Semgrep `p/default`, OSV and full-history gitleaks run in
+  `Security / security`.
 - Cursor's `beforeShellExecution` hook scans tracked and unignored working
   files with gitleaks before shell commands. `failClosed: true` blocks crashes,
   timeouts and invalid responses; a scanner finding returns `permission: deny`.
@@ -62,7 +66,7 @@ plan, app installation, ruleset, credential or infrastructure apply is changed.
 ## Installation and validation
 
 Run the existing reviewed repository setup after this bundle lands. It installs
-both verified Git hooks and the mise-pinned tools, including OSV. The pinned
+both Git hooks from a verified snapshot and the mise-pinned tools, including OSV. The pinned
 Python scanners are resolved through uvx on use. Missing tools, unavailable
 scanner services and nonzero scanner exits block the relevant operation.
 Noninteractive Git clients can locate tools through mise without shell shims.
@@ -72,14 +76,17 @@ intact until the new bundle is reviewed and installed. For local development,
 review the exact bundle digest and follow the exact-digest approval procedure
 in [development](development.md). Old installed snapshots are accepted only
 for verification/upgrade, never as permission to execute new unreviewed code.
+A snapshot installed before the trust files moved from `scripts/` to `gate/`
+keeps its pre-push hook until that one-time upgrade, also described in
+[development](development.md).
 
 Run the complete security checks directly with:
 
 ```bash
-python3 scripts/security-scan.py ci
+python3 gate/security-scan.py ci
 ```
 
-The Python test suite exercises exact-ref scanning, export-ignore resistance,
+The Python test suite exercises the outgoing-commit range and every pushed ref,
 untracked-file coverage, malformed input, failed-scanner denial and unreviewed
 scanner rejection. A protocol test does not prove a native Cursor hook fired;
 that needs a separate actual Cursor session. Passing source checks does not

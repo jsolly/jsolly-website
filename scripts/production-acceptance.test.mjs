@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { it } from "vitest";
-import { runSmoke } from "./production-smoke.mjs";
+import { runSmoke } from "../monitoring/production-smoke.mjs";
 import {
 	productionUrl,
 	serviceWorker,
@@ -8,7 +8,7 @@ import {
 	verifyClientErrorForwarding,
 	verifyRecipeWorker,
 	verifyRelease,
-} from "./production-smoke-scenario.mjs";
+} from "../monitoring/production-smoke-scenario.mjs";
 
 const scenario = {
 	productionUrl,

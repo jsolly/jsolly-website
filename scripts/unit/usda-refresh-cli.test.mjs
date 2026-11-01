@@ -30,7 +30,7 @@ it.each([true, false])(
 		const scratch = await mkdtemp(join(tmpdir(), "usda-refresh-cli-"));
 		try {
 			const root = join(scratch, "repo");
-			const scripts = join(root, "scripts/recipes");
+			const scripts = join(root, "src/components/recipes/tools");
 			const data = join(root, "src/components/recipes");
 			const cache = join(scratch, "public-cache");
 			await Promise.all(
@@ -45,7 +45,10 @@ it.each([true, false])(
 					"reconcile-nutrition.mjs",
 				].map((name) =>
 					copyFile(
-						new URL(`../recipes/${name}`, import.meta.url),
+						new URL(
+							`../../src/components/recipes/tools/${name}`,
+							import.meta.url,
+						),
 						join(scripts, name),
 					),
 				),

@@ -54,7 +54,7 @@ Keep one unrounded quantity through scaling and conversion. Apply linear, fixed,
 
 ### 1. Extend the audit and establish the data contract
 
-Extend `scripts/recipes/audit-units.mjs` to enumerate every base row, family option and explicit alternative, its reference, mass basis, defaults and unresolved decisions. Include real serving and family scaling, not only raw four-serving ingredient amounts. Track every existing row by recipe and ingredient identity through any split or normalization so no ingredient disappears.
+Extend `src/components/recipes/tools/audit-units.mjs` to enumerate every base row, family option and explicit alternative, its reference, mass basis, defaults and unresolved decisions. Include real serving and family scaling, not only raw four-serving ingredient amounts. Track every existing row by recipe and ingredient identity through any split or normalization so no ingredient disappears.
 
 Add validation for positive quantities, valid references, matching states, dimensional correctness and reference uniqueness. During migration, use the audit as the worklist. The completed gate must reject every unresolved entry; do not preserve a permanent exception list for difficult foods.
 
@@ -120,7 +120,7 @@ Use one implementation branch from then-current `origin/main`, with separate loc
 Implementation commands below run with cwd `/Users/johnsolly/code/jsolly-website`. They are planned checks and have not been run against an implementation in this planning task.
 
 ```bash
-node scripts/recipes/audit-units.mjs --write
+node src/components/recipes/tools/audit-units.mjs --write
 ```
 
 ```bash

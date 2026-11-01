@@ -174,7 +174,7 @@ gate__markdown_lint_paths() {
     case "$f" in *.md | *.mdx | *.markdown)
       [[ "$(git ls-files --stage -- "$f")" == 120000\ * ]] && continue
       echo "• markdown lint"
-      bash "$ROOT/scripts/lint-md.sh"
+      bash "$ROOT/gate/lint-md.sh"
       return ;;
     esac
   done
@@ -242,7 +242,7 @@ gate_begin_commit() { # <repo-name>
   local hooks_path
   hooks_path="$(git config --type=path --get core.hooksPath 2>/dev/null || true)"
   if [[ -n "$hooks_path" && "$hooks_path" != /dev/null ]] && ! gate_is_hooks_dispatcher "$hooks_path"; then
-    echo "⚠ core.hooksPath is '$hooks_path', not the dispatcher $GATE_HOOKS_DIR: a checked-out fork head can run its own hooks here. Fix: run reviewed scripts/setup-agent-environment.sh, and remove any package.json prepare that sets core.hooksPath." >&2
+    echo "⚠ core.hooksPath is '$hooks_path', not the dispatcher $GATE_HOOKS_DIR: a checked-out fork head can run its own hooks here. Fix: run reviewed gate/setup-agent-environment.sh, and remove any package.json prepare that sets core.hooksPath." >&2
   fi
   # (1) Merge / rebase / cherry-pick in progress: the commits being replayed were
   # already gated on their original authoring; re-running the full battery N times per
@@ -310,7 +310,7 @@ run_step() { # run_step "label" cmd [args...]
 # === Bash floor on entrypoints ===================================================
 # Sourced helpers and CI-only scripts are exempt by explicit repository path.
 # Setup and dispatch launchers must carry the normal first-command floor.
-GATE_BASH_FLOOR_EXEMPTIONS=(gate/gate-lib.sh scripts/check-actions.sh scripts/ci-verified-tree.sh scripts/vercel-preview-comment.sh scripts/vercel-preview-comment-contract.sh scripts/vercel-preview-workflow-contract.sh)
+GATE_BASH_FLOOR_EXEMPTIONS=(gate/gate-lib.sh gate/check-actions.sh gate/ci-verified-tree.sh gate/vercel-preview-comment.sh gate/vercel-preview-comment-contract.sh gate/vercel-preview-workflow-contract.sh)
 GATE_BASH_FLOOR_LINE='((BASH_VERSINFO[0] >= '"$GATE_BASH_MIN"')) || { echo "✗ $0 requires Bash >= '"$GATE_BASH_MIN"', not $BASH_VERSION. Fix: brew install bash; open a fresh shell and rerun repository setup." >&2; exit 1; }'
 
 # Print why <file> (tracked at repo-relative <rel>) breaks the floor, or nothing. A file with a
@@ -414,5 +414,5 @@ gate_require_node() {
 
 # Repair guidance for the pinned scanner; setup owns dependency installation.
 gate__cli_hint() {
-  echo "run reviewed scripts/setup-agent-environment.sh to install repo-pinned $1"
+  echo "run reviewed gate/setup-agent-environment.sh to install repo-pinned $1"
 }

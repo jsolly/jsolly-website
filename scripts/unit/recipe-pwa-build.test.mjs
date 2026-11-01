@@ -10,7 +10,7 @@ import {
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { it } from "vitest";
-import { buildRecipePwa } from "../recipes/pwa-build.mjs";
+import { buildRecipePwa } from "../../build/recipes/pwa-build.mjs";
 
 const UNEXPECTED_PIN = /unexpected deployment pin/u;
 

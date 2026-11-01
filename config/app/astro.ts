@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { satteri } from "@astrojs/markdown-satteri";
 import sitemap from "@astrojs/sitemap";
@@ -6,7 +6,11 @@ import svelte from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
 import type { AstroConfig, AstroIntegration } from "astro";
 import { defineConfig } from "astro/config";
-import { deploymentAssetPin } from "../../scripts/vercel-static-assets.mjs";
+import { globby } from "globby";
+import {
+	deploymentAssetPin,
+	pinStylesheets,
+} from "../../build/vercel-static-assets.mjs";
 import retiredRecipes from "../../src/components/recipes/retired-recipes.json" with {
 	type: "json",
 };
@@ -110,6 +114,20 @@ function vercelStaticAssets(): AstroIntegration {
 						assetQueryParams: new URLSearchParams({ dpl: deploymentId }),
 					},
 				});
+			},
+			"astro:build:done": async ({ dir }) => {
+				if (!deploymentId) return;
+				// Astro's static renderer omits the adapter's asset query on CSS
+				// links. Patch only their hrefs, preserving scripts and island DOM.
+				const files = await globby("**/*.html", { cwd: fileURLToPath(dir) });
+				await Promise.all(
+					files.map(async (file) => {
+						const output = new URL(file, dir);
+						const html = await readFile(output, "utf8");
+						const pinned = pinStylesheets(html, deploymentId);
+						if (pinned !== html) await writeFile(output, pinned);
+					}),
+				);
 			},
 		},
 	};

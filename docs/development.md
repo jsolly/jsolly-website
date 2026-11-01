@@ -13,7 +13,7 @@ fresh Linux setup provisions a pinned, checksum-verified public mise binary in
 and `.nvmrc` own its tool pins. On a reviewed fresh `origin/main` checkout run:
 
 ```bash
-bash scripts/setup-agent-environment.sh
+bash gate/setup-agent-environment.sh
 ```
 
 Setup installs repo-owned hooks outside the working tree, provisions the pinned
@@ -185,8 +185,11 @@ The dispatcher lives in this clone's Git common directory, shared only by its
 linked worktrees. It registers pre-commit and pre-push. The complete hook/library/setup/scanner
 bundle must match current reviewed `origin/main`, or a deliberately approved exact
 bundle digest. Missing files, symlinks, unreviewed modes and a foreign origin fail
-closed. The dispatcher executes a verified snapshot, then runs quality scripts in
-the committing checkout. Re-run reviewed setup after changing tool setup on main.
+closed. For pre-commit and Cursor the dispatcher executes a verified snapshot, then
+runs quality scripts in the committing checkout. Pre-push runs gitleaks from the
+installed snapshot's own dispatcher and library without re-verifying it on each
+push; it never runs the branch's files. Re-run reviewed setup after changing tool
+setup on main.
 
 This is hook-registration integrity, not a sandbox. Never check out or execute
 third-party/fork PR code in a trusted clone; review its diff through GitHub. Do not
@@ -194,7 +197,7 @@ run its npm lifecycle or setup scripts. Use a separate disposable environment wh
 execution of untrusted code has been explicitly authorized.
 
 After independent semantic/security review of your own gate change, get its exact
-digest with `bash scripts/repo-python.sh scripts/repo-hooks.py digest`. Use the installed snapshot's
+digest with `bash gate/repo-python.sh gate/repo-hooks.py digest`. Use the installed snapshot's
 `approve --root <absolute-repo-root> --digest <reviewed-digest>` command, with actual
 values, to approve only those bytes; never approve a fork's bundle. Approvals are
 repo-local. Revoke explicit approvals with `git config --local --unset-all
@@ -207,10 +210,10 @@ An installed snapshot from before this relocation needs the explicit upgrade flo
 After reviewing the complete candidate hook bundle, run from its repository root:
 
 ```bash
-digest="$(bash scripts/repo-python.sh scripts/repo-hooks.py digest)" &&
-  bash scripts/repo-python.sh scripts/repo-hooks.py approve-upgrade --digest "$digest" &&
-  bash scripts/repo-python.sh scripts/repo-hooks.py install &&
-  bash scripts/repo-python.sh scripts/repo-hooks.py verify
+digest="$(bash gate/repo-python.sh gate/repo-hooks.py digest)" &&
+  bash gate/repo-python.sh gate/repo-hooks.py approve-upgrade --digest "$digest" &&
+  bash gate/repo-python.sh gate/repo-hooks.py install &&
+  bash gate/repo-python.sh gate/repo-hooks.py verify
 ```
 
 The upgrade reauthorizes the exact old installed snapshot against protected
@@ -219,6 +222,41 @@ digest and dispatcher, then approves only the reviewed new digest. It does not
 trust an old manifest in the candidate checkout. Once reviewed main has the new
 layout, ordinary setup installs it directly, including over a valid old snapshot.
 Older checkouts must merge the reviewed migration before rerunning setup.
+
+The trust helpers, setup and scanner later moved from `scripts/` to `gate/`.
+Current code still verifies a snapshot installed before that move, so `verify`
+reports it as stale rather than unknown. That snapshot's own `approve` cannot read
+the new manifest. Until the upgrade, its dispatcher refuses commits in a `gate/`
+checkout, and Cursor's shell hook refuses commands. `approve-upgrade` does not
+apply, because the snapshot already uses the current manifest format. Once the
+move is on `origin/main`, ordinary setup on a fresh main checkout installs the new
+layout without approval.
+
+Before that, for example to commit the move itself, review the complete candidate
+bundle and record its digest. From that checkout's repository root, print the
+digest of the bytes on disk and confirm it is exactly the reviewed digest:
+
+```bash
+bash gate/repo-python.sh gate/repo-hooks.py digest --root <absolute-repo-root>
+```
+
+Then approve that reviewed digest, typed as the literal reviewed value, and rerun
+setup:
+
+```bash
+bash gate/repo-python.sh gate/repo-hooks.py approve \
+  --root <absolute-repo-root> --digest <reviewed-digest> &&
+  bash gate/setup-agent-environment.sh
+```
+
+The upgrade installs the `gate/` snapshot for the whole clone, because
+`core.hooksPath` lives in the shared Git common directory. Every other checkout
+or linked worktree still on the `scripts/` layout, including main until it pulls
+the merged move, then cannot commit, and Cursor's hook refuses its commands. Merge
+or pull the reviewed move into that checkout to recover.
+
+Current code never trusts a `scripts/` layout manifest in a working tree or on
+`origin/main`; it accepts that allowlist only for an installed snapshot.
 
 ## Review and integration
 
@@ -283,9 +321,10 @@ snapshots. Runtime, fixtures and release tests are owned by this repository.
 Vercel builds pin generated JavaScript entrypoints, inter-chunk imports,
 stylesheets and CSS font/image references to their deployment with `?dpl=`.
 The repository's static-only Astro integration supplies the native client asset
-pin and Vite resource URLs. The existing HTML postprocessor pins the static
-stylesheet links Astro currently omits, preserving inline script bytes and
-hydration comments. The ordinary static builder, root routing middleware, browse
+pin and Vite resource URLs. Its `astro:build:done` hook pins the static stylesheet links Astro currently
+omits, preserving inline script bytes and hydration comments. Astro owns HTML
+compression through `compressHTML: true`; portfolio heading ids are explicit
+source attributes rather than a second HTML rewrite. The ordinary static builder, root routing middleware, browse
 function and local `dist/` output retain their existing ownership.
 
 Hosted builds fail when Skew Protection or the deployment ID is missing. Local
@@ -314,7 +353,7 @@ Record its age, exact hashes and a distinguishable B/unpinned control. A passing
 build, deployment metadata or two identical asset bodies cannot establish that
 provider result.
 
-After a pinned production release, run `node scripts/asset-retention-probe.mjs capture`
+After a pinned production release, run `node monitoring/asset-retention-probe.mjs capture`
 with a new absolute JSON evidence path as its second argument. The command uses
 GET requests on the fixed production origin and refuses an existing output file.
 It records actual About-page module and stylesheet URLs, SHA-256 hashes, sizes,
@@ -348,15 +387,15 @@ dismissal/C, metadata failures, request ordering, lifecycle races, retry recover
 polling cleanup, rollback/scope isolation, and prior-client migration. Authentication
 is absent on this public site. Do not infer full coverage from a fresh B visit.
 
-Large workflow shell bodies live in `scripts/ci-secrets-scan.sh`,
-`scripts/vercel-preview-resolve.sh` and `scripts/vercel-preview-deploy.sh`.
+Large workflow shell bodies live in `gate/ci-secrets-scan.sh`,
+`gate/vercel-preview-resolve.sh` and `gate/vercel-preview-deploy.sh`.
 The pinned ShellCheck checks these files directly, and actionlint retains every
 workflow and remaining inline-script check. This avoids the pinned release's
 [macOS stdin deadlock](https://github.com/rhysd/actionlint/issues/650).
 Preview tooling still executes from the trusted default-branch checkout.
 
 Knip's Vercel dependency exception belongs to the John-only `vercel-curl`
-transport in `scripts/verify-blogthedata-cutover.mjs`, which resolves
+transport in `monitoring/verify-blogthedata-cutover.mjs`, which resolves
 `node_modules/.bin/vercel` dynamically. Preview deployment uses its own isolated
 pinned CLI, and agents never run the cutover verifier's Vercel transport.
 

@@ -4,8 +4,8 @@ import { dirname, join } from "node:path";
 import { globby } from "globby";
 import { JSDOM } from "jsdom";
 import { it } from "vitest";
+import { fieldLines, fieldValues } from "../../build/site-files.mjs";
 import { postHref } from "../../src/lib/blog/urls.js";
-import { fieldLines, fieldValues } from "../site-files.mjs";
 import { exists, publishedPosts, robotsMeta } from "./pages.mjs";
 
 // The site files over the built dist/ (plan B11): the sitemap, robots.txt and

@@ -26,13 +26,13 @@ import {
 	SERVICE_WORKER_HEADERS,
 	vercelConfig,
 	vercelJsonDrift,
-} from "../blogthedata-redirects.mjs";
+} from "../../build/blogthedata-redirects.mjs";
 import {
 	fieldLines,
 	fieldValues,
 	headCommitDate,
 	securityTxtProblems,
-} from "../site-files.mjs";
+} from "../../build/site-files.mjs";
 
 // The URL map is the legacy host's whole behaviour: these tests route every
 // known path through Vercel's own compiler and router library.
@@ -386,7 +386,7 @@ it("Only the pinned ledger of URLs the old host serves today stops working", () 
 it("The committed vercel.json is what url-map.json generates, so redirects:check passes", () => {
 	const check = spawnSync(
 		process.execPath,
-		["scripts/blogthedata-redirects.mjs", "--check"],
+		["build/blogthedata-redirects.mjs", "--check"],
 		{ cwd: ROOT, encoding: "utf8" },
 	);
 	assert.equal(check.status, 0, check.stderr);

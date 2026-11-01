@@ -5,6 +5,8 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { globby } from "globby";
 import { it } from "vitest";
+import { builtPages, SAMPLE } from "../../monitoring/accessibility-pages.mjs";
+import { auditOutcome } from "../../monitoring/accessibility-report.mjs";
 import recipeData from "../../src/components/recipes/recipes.json" with {
 	type: "json",
 };
@@ -14,8 +16,6 @@ import retiredRecipes from "../../src/components/recipes/retired-recipes.json" w
 import retiredCategories from "../../src/lib/blog/retired-categories.json" with {
 	type: "json",
 };
-import { builtPages, SAMPLE } from "../accessibility-pages.mjs";
-import { auditOutcome } from "../accessibility-report.mjs";
 import { allPosts, DIST } from "./pages.mjs";
 
 // PR CI audits only SAMPLE; the full audit runs after merge and daily.
@@ -26,7 +26,7 @@ it("every sampled accessibility route is a page the full audit scans", async () 
 	assert.deepEqual(
 		routes.filter((route) => !pages.has(route)),
 		[],
-		"Sampled routes missing from dist/: update SAMPLE in scripts/accessibility-pages.mjs",
+		"Sampled routes missing from dist/: update SAMPLE in monitoring/accessibility-pages.mjs",
 	);
 });
 
@@ -35,7 +35,7 @@ it("the accessibility sample covers every HTML page template", async () => {
 	assert.deepEqual(
 		new Set(SAMPLE.map(({ template }) => template)),
 		new Set(templates),
-		"Each src/pages template needs a sampled route in scripts/accessibility-pages.mjs",
+		"Each src/pages template needs a sampled route in monitoring/accessibility-pages.mjs",
 	);
 });
 
@@ -104,10 +104,14 @@ it("the audit's results file passes the reporter's checks, and --sample takes no
 	t.onTestFinished(() => rmSync(root, { recursive: true, force: true }));
 	const output = join(root, "accessibility-results.json");
 	const audit = (args) =>
-		spawnSync(process.execPath, ["scripts/check-accessibility.mjs", ...args], {
-			encoding: "utf8",
-			env: { ...process.env, A11Y_RESULTS: output },
-		});
+		spawnSync(
+			process.execPath,
+			["monitoring/check-accessibility.mjs", ...args],
+			{
+				encoding: "utf8",
+				env: { ...process.env, A11Y_RESULTS: output },
+			},
+		);
 	const rejected = audit(["--sample", "/about/"]);
 	assert.equal(rejected.status, 1);
 	assert.match(rejected.stderr, SAMPLE_WITH_ROUTES);

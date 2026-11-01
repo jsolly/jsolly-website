@@ -14,11 +14,11 @@ import { fileURLToPath } from "node:url";
 import { build } from "esbuild";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before } from "vitest";
-import { buildRecipePwa } from "../recipes/pwa-build.mjs";
+import { buildRecipePwa } from "../../build/recipes/pwa-build.mjs";
 import { serveStatic } from "./pages.mjs";
 
 // The recipe app offline, ported from awesome-blog's PWA suite
-// (scripts/recipes/pwa.test.mjs): it installs and the cooking tools work
+// (awesome-blog scripts/recipes/pwa.test.mjs): it installs and the cooking tools work
 // offline at a desktop and a phone width, an update waits until every recipe
 // tab closes, and a failed download keeps the previous snapshot or claims no
 // readiness, while a maintenance deploy (no worker) leaves the installed app
@@ -218,9 +218,10 @@ function setupRecipePwaFixture(variants = []) {
 		snapshots.C = await snapshot("C");
 		if (extras.has("legacy")) {
 			// Frozen deployed worker source from 7ba3b818e40043f67858d5e70e9b8866e079aaea,
-			// scripts/recipes/service-worker.js. Keep its lack of message handshakes
-			// and client metadata intact. New-client A HTML represents the first reopen
-			// needed by users whose original old document has no update detector.
+			// then at scripts/recipes/service-worker.js; it bundles from build/recipes/, the
+			// same depth. Keep its lack of message handshakes and client metadata intact.
+			// New-client A HTML represents the first reopen needed by users whose
+			// original old document has no update detector.
 			const legacy = join(fixture, "legacy");
 			await cp(snapshots.A.directory, legacy, { recursive: true });
 			const legacyCache = "recipe-pages-pwa-legacy-7ba3b81";
@@ -231,7 +232,9 @@ function setupRecipePwaFixture(variants = []) {
 			const legacyBundle = await build({
 				stdin: {
 					contents: legacySource,
-					resolveDir: fileURLToPath(new URL("../recipes/", import.meta.url)),
+					resolveDir: fileURLToPath(
+						new URL("../../build/recipes/", import.meta.url),
+					),
 					sourcefile: "service-worker.js",
 				},
 				bundle: true,

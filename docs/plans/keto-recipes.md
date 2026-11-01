@@ -106,7 +106,7 @@ Existing offline saves are immutable older recipe bundles and survive app update
 1. Establish the published-set invariant and retirement handling. Migrate the 15 adaptations with reviewed quantities, source evidence and reconciled nutrition. Keep any failed candidate unpublished.
 2. Complete and validate calamari, then add shared-table notes to every published recipe. Add the side-diner control using the existing calculation model.
 3. Rename the collections and app, remove both keto filters and migrate stale settings. Apply eligibility to every browsing and output path.
-4. Regenerate assistant downloads with `npm run recipes:sync`, update the units audit with `node scripts/recipes/audit-units.mjs --write`, and build canonical Markdown and offline bundles normally. Update recipe docs and affected count expectations.
+4. Regenerate assistant downloads with `npm run recipes:sync`, update the units audit with `node src/components/recipes/tools/audit-units.mjs --write`, and build canonical Markdown and offline bundles normally. Update recipe docs and affected count expectations.
 5. Test no non-keto leaks through initial cards, pagination, search, shuffle, native forms, direct pages, JSON, Markdown, packs or saved browsing. Check retired links and stale preferences explicitly.
 6. Verify changed ingredients, flow allocations, macros and measurements for 2, 4, 6 and 8 servings in Grams, Metric and US imperial. Check four base diners with a side for two, including print and shared URL round-trips.
 7. Run `npm run recipes:check` and the full `npm run gate`. Verify desktop and mobile, keyboard and pointer, light and dark themes, no JavaScript, print and an existing offline installation. Recipe data and nutrition changes require the full gate before release.
@@ -114,7 +114,7 @@ Existing offline saves are immutable older recipe bundles and survive app update
 The planning inventory can be rechecked without network access:
 
 ```bash
-node scripts/recipes/audit-keto-plan.mjs --check
+node src/components/recipes/tools/audit-keto-plan.mjs --check
 ```
 
 After explicitly reviewing changed records, `--write` refreshes factual fields and this appendix. The script refuses missing, duplicate or inconsistent decisions. The inventory is a planning snapshot, not the runtime publication policy.

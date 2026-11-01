@@ -6,14 +6,14 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
 import { it } from "vitest";
-import { terminateOwners } from "../gate-processes.mjs";
+import { terminateOwners } from "../../gate/gate-processes.mjs";
 import {
 	assertUnchanged,
 	createValidationTree,
 	privateEnvironment,
 	snapshot,
-} from "../gate-snapshot.mjs";
-import { runChains } from "../run-gate.mjs";
+} from "../../gate/gate-snapshot.mjs";
+import { runChains } from "../../gate/run-gate.mjs";
 
 const CHANGED = /changed/u;
 const INDEX_CHANGED = /staged index changed/u;
@@ -383,7 +383,7 @@ it("process enumeration fails closed without exposing subprocess environment byt
 
 it("outer cleanup retains ownership of nested schedulers after their parent dies", async (t) => {
 	const f = await fixture(t);
-	const runner = new URL("../run-gate.mjs", import.meta.url).href;
+	const runner = new URL("../../gate/run-gate.mjs", import.meta.url).href;
 	const child =
 		// biome-ignore lint/security/noSecrets: Executable process fixture source, no credentials.
 		"require('node:fs').writeFileSync('nested-pid',String(process.pid));setInterval(()=>{},1000)";

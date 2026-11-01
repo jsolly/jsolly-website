@@ -13,8 +13,32 @@ from unittest.mock import patch
 
 SOURCE = Path(__file__).resolve().parent.parent
 BUNDLE = ('config/agents/repository.json', 'gate/gate-lib.sh', 'gate/hooks/pre-commit',
-          'scripts/repo-hooks.py', 'scripts/repo-python.sh', 'scripts/setup-agent-environment.sh',
-          'scripts/security-scan.py')
+          'gate/repo-hooks.py', 'gate/repo-python.sh', 'gate/setup-agent-environment.sh',
+          'gate/security-scan.py')
+
+ZERO = '0' * 40
+# Stands in for gitleaks: logs each call's arguments and the subjects of the commits its
+# --log-opts select, fails on spacing gitleaks would pass to git as an empty revision or when git
+# cannot read that range, and finds a leak in any commit whose subject is "leak".
+FAKE_GITLEAKS = '''#!/usr/bin/env bash
+set -euo pipefail
+if [ "$1" = version ]; then echo 8.24.2; exit 0; fi
+printf '%s\\n' "$*" >> "$FIXTURE_CALLS"
+for arg; do case $arg in --log-opts=*) opts="${arg#--log-opts=}";; esac; done
+# gitleaks splits --log-opts on single spaces, so an extra space reaches git as an empty revision.
+case $opts in " "*|*" "|*"  "*) echo "fixture: malformed --log-opts" >&2; exit 3;; esac
+subjects="$(git log --format=%s $opts)"
+[ -z "$subjects" ] || printf '%s\\n' "$subjects" >> "$FIXTURE_SCANNED"
+! grep -qx leak <<<"$subjects"
+'''
+
+
+def load_module(path):
+    """Import a hook helper (current candidate or frozen fixture) from its file."""
+    spec = importlib.util.spec_from_file_location(Path(path).stem.replace('-', '_'), path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 
 class TestHookTrust:
@@ -51,7 +75,7 @@ gate_gitleaks_bin() { printf '%s\\n' "$ROOT/tools/fixture-gitleaks"; }
 gate_secrets_scan_staged
 ''')
         hook.chmod(0o755)
-        (self.root / 'scripts/security-scan.py').write_text(
+        (self.root / 'gate/security-scan.py').write_text(
             'import sys\nprint(\"fixture-security-phase=\" + sys.argv[1])\n')
         tools = self.root / 'tools'
         tools.mkdir()
@@ -69,14 +93,14 @@ fi
         self.git('update-ref', 'refs/remotes/origin/main', 'HEAD')
         self.tool('install', check=True)
         self.hooks = Path(self.git('config', '--get', 'core.hooksPath').stdout.strip())
-        self.installed = self.hooks.parent / 'scripts/repo-hooks.py'
+        self.installed = self.hooks.parent / 'gate/repo-hooks.py'
 
     def git(self, *args, root=None, check=True):
         return subprocess.run(['git', '-C', str(root or self.root), *args], env=self.env,
                               text=True, capture_output=True, check=check)
 
-    def tool(self, command, *args, installed=False, check=False):
-        path = self.installed if installed else self.root / 'scripts/repo-hooks.py'
+    def tool(self, command, *args, installed=False, script='gate/repo-hooks.py', check=False):
+        path = self.installed if installed else self.root / script
         return subprocess.run([sys.executable, '-I', str(path), command, '--root', str(self.root), *args],
                               cwd=self.root, env=self.env, text=True, capture_output=True, check=check)
 
@@ -105,18 +129,82 @@ fi
         assert not (marker.exists())
         assert before == self.git('config', '--get', 'core.hooksPath').stdout
 
-    def test_pre_push_uses_verified_snapshot_and_rejects_unreviewed_scanner(self):
-        push_hook = self.hooks / 'pre-push'
-        result = subprocess.run([str(push_hook)], cwd=self.root, env=self.env,
-                                input='', text=True, capture_output=True)
+    def commit(self, subject):
+        tree = self.git('rev-parse', 'HEAD^{tree}').stdout.strip()
+        return self.git('commit-tree', tree, '-p', 'HEAD', '-m', subject).stdout.strip()
+
+    def pre_push(self, records, remote='origin'):
+        tools = self.scratch / 'path-tools'
+        if not tools.exists():
+            tools.mkdir()
+            (tools / 'gitleaks').write_text(FAKE_GITLEAKS)
+            (tools / 'gitleaks').chmod(0o755)
+        logs = {name: self.scratch / name for name in ('calls', 'scanned')}
+        for log in logs.values():
+            log.unlink(missing_ok=True)
+        env = {**self.env, 'PATH': str(tools) + os.pathsep + self.env['PATH'],
+               'FIXTURE_CALLS': str(logs['calls']), 'FIXTURE_SCANNED': str(logs['scanned'])}
+        result = subprocess.run([str(self.hooks / 'pre-push'), remote, 'fixture-url'], cwd=self.root,
+                                env=env, input=records, text=True, capture_output=True)
+        read = {name: log.read_text().splitlines() if log.exists() else [] for name, log in logs.items()}
+        return result, read['scanned'], read['calls']
+
+    def test_pre_push_scans_the_commits_the_destination_lacks(self):
+        outgoing = self.commit('outgoing')
+        # Another remote holding the commit does not mean origin has it.
+        self.git('update-ref', 'refs/remotes/other/held', outgoing)
+        result, scanned, calls = self.pre_push(f'refs/heads/topic {outgoing} refs/heads/topic {ZERO}\n'
+                                               f'(delete) {ZERO} refs/heads/gone {outgoing}\n')
         assert result.returncode == 0, result.stderr
-        assert 'fixture-security-phase=push' in result.stdout
-        scanner = self.root / 'scripts/security-scan.py'
-        marker = self.scratch / 'unreviewed-scanner-ran'
-        scanner.write_text('from pathlib import Path\nPath(' + repr(str(marker)) + ').touch()\n')
-        result = subprocess.run([str(push_hook)], cwd=self.root, env=self.env,
-                                input='', text=True, capture_output=True)
+        assert scanned == ['outgoing']
+        assert len(calls) == 1 and '--redact' in calls[0].split()
+        # The same options as `security-scan.py ci` and gate/ci-secrets-scan.sh.
+        assert '--log-opts=--text --diff-merges=remerge --no-color --no-textconv ' in calls[0]
+
+    def test_pre_push_to_a_url_excludes_only_the_remote_commit_it_replaces(self):
+        outgoing = self.commit('outgoing')
+        baseline = self.git('rev-parse', 'HEAD').stdout.strip()
+        url = 'https://example.invalid/fixture.git'
+        result, scanned, _ = self.pre_push(f'refs/heads/main {outgoing} refs/heads/main {baseline}\n', remote=url)
+        assert result.returncode == 0, result.stderr
+        assert scanned == ['outgoing']
+        # A new ref at a URL has nothing to exclude, so the commit's whole history is scanned.
+        result, scanned, _ = self.pre_push(f'refs/heads/topic {outgoing} refs/heads/topic {ZERO}\n', remote=url)
+        assert result.returncode == 0, result.stderr
+        assert scanned == ['outgoing', 'fixture baseline']
+
+    def test_pre_push_blocks_a_leak_in_any_outgoing_ref(self):
+        clean, leak = self.commit('outgoing'), self.commit('leak')
+        result, scanned, _ = self.pre_push(f'refs/heads/clean {clean} refs/heads/clean {ZERO}\n'
+                                           f'refs/heads/leak {leak} refs/heads/leak {ZERO}\n')
         assert result.returncode != 0
+        assert scanned == ['outgoing', 'leak']
+
+    def test_pre_push_scans_sent_objects_and_refuses_non_commits(self):
+        leak = self.commit('leak')
+        self.git('replace', leak, self.commit('decoy'))
+        result, scanned, _ = self.pre_push(f'refs/heads/topic {leak} refs/heads/topic {ZERO}\n')
+        assert result.returncode != 0
+        assert scanned == ['leak']
+        tree = self.git('rev-parse', 'HEAD^{tree}').stdout.strip()
+        result, _, calls = self.pre_push(f'refs/tags/tree {tree} refs/tags/tree {ZERO}\n')
+        assert result.returncode != 0
+        assert calls == []
+
+    def test_pre_push_runs_only_installed_snapshot_bytes(self):
+        marker = self.scratch / 'working-tree-library-ran'
+        (self.root / 'gate/gate-lib.sh').write_text('touch "' + str(marker) + '"\n')
+        outgoing = self.commit('outgoing')
+        result, scanned, _ = self.pre_push(f'refs/heads/topic {outgoing} refs/heads/topic {ZERO}\n')
+        assert result.returncode == 0, result.stderr
+        assert scanned == ['outgoing']
+        assert not marker.exists()
+
+    def test_unreviewed_scanner_is_not_executed(self):
+        marker = self.scratch / 'unreviewed-scanner-ran'
+        (self.root / 'gate/security-scan.py').write_text(
+            'from pathlib import Path\nPath(' + repr(str(marker)) + ').touch()\n')
+        assert self.dispatch().returncode != 0
         assert not marker.exists()
 
     def test_exact_bundle_approval_can_be_revoked(self):
@@ -155,27 +243,129 @@ fi
                 assert result.returncode == 0, result.stdout + result.stderr
 
 
-    def legacy_upgrade_fixture(self):
-        """Install the frozen real pre-migration helper, then prepare a new candidate."""
-        candidate = (self.root / 'scripts/repo-hooks.py').read_bytes()
-        marker = self.root / 'config/agents/repository.json'
-        legacy = self.root / '.repo-independent.json'
-        current_manifest = marker.read_bytes()
-        marker.rename(legacy)
-        old_manifest = json.loads(current_manifest)
-        del old_manifest['files']['scripts/security-scan.py']
-        legacy.write_text(json.dumps(old_manifest))
-        (self.root / 'scripts/repo-hooks.py').write_bytes((SOURCE / 'scripts/fixtures/repo-hooks-legacy.py').read_bytes())
+    def old_layout_fixture(self, frozen, manifest_path, *, restore=True):
+        """Install a frozen real helper from the scripts/ layout it expects, then (by default)
+        return the working tree to the current candidate. Its own FILES lay out the tree."""
+        old = load_module(SOURCE / 'scripts/fixtures' / frozen)
+        manifest = self.root / 'config/agents/repository.json'
+        current_manifest = manifest.read_bytes()
+        slug = json.loads(current_manifest)['repo']
+        dispatcher = self.root / 'gate/hooks/pre-commit'
+        current_dispatcher = dispatcher.read_bytes()
+        call = '"$base/gate/repo-python.sh" "$base/gate/repo-hooks.py"'
+        assert current_dispatcher.decode().count(call) == 1
+        dispatcher.write_text(current_dispatcher.decode().replace(call, call.replace('gate/', 'scripts/')))
+        moved = [rel for rel in old.FILES if rel.startswith('scripts/')]
+        for rel in moved:
+            target = self.root / rel
+            target.parent.mkdir(exist_ok=True)
+            shutil.copy2(self.root / rel.replace('scripts/', 'gate/', 1), target)
+        (self.root / 'scripts/repo-hooks.py').write_bytes((SOURCE / 'scripts/fixtures' / frozen).read_bytes())
+        if manifest_path != 'config/agents/repository.json':
+            manifest.unlink()
+        (self.root / manifest_path).write_text(json.dumps({'version': 1, 'repo': slug, 'files': old.FILES}))
         self.git('add', '-A')
-        self.git('-c', 'core.hooksPath=/dev/null', 'commit', '-qm', 'reviewed old format')
+        self.git('-c', 'core.hooksPath=/dev/null', 'commit', '-qm', 'reviewed old layout')
         self.git('update-ref', 'refs/remotes/origin/main', 'HEAD')
-        self.tool('install', check=True)
+        self.tool('install', script='scripts/repo-hooks.py', check=True)
         self.hooks = Path(self.git('config', '--get', 'core.hooksPath').stdout.strip())
         self.installed = self.hooks.parent / 'scripts/repo-hooks.py'
-        legacy.rename(marker)
-        marker.write_bytes(current_manifest)
-        (self.root / 'scripts/repo-hooks.py').write_bytes(candidate)
+        if not restore:
+            return None
+        for rel in moved:
+            (self.root / rel).unlink()
+        (self.root / manifest_path).unlink(missing_ok=True)
+        manifest.write_bytes(current_manifest)
+        dispatcher.write_bytes(current_dispatcher)
         return self.tool('digest', check=True).stdout.strip()
+
+    def legacy_upgrade_fixture(self):
+        """Install the frozen real pre-relocation helper (root manifest, no scanner)."""
+        return self.old_layout_fixture('repo-hooks-legacy.py', '.repo-independent.json')
+
+    def scripts_layout_fixture(self, **options):
+        """Install the frozen real helper from before the gate/ move (scripts/ trust files)."""
+        return self.old_layout_fixture('repo-hooks-scripts-layout.py', 'config/agents/repository.json', **options)
+
+    def test_scripts_layout_installation_upgrades_by_exact_reviewed_approval(self):
+        digest = self.scripts_layout_fixture()
+        old_version = self.hooks.parent
+        assert sorted(path.name for path in self.hooks.iterdir()) == ['pre-commit', 'pre-push']
+        # The new code accepts the installed old snapshot and reports it stale.
+        result = self.tool('verify')
+        assert result.returncode != 0
+        assert 'Installed bundle is stale' in result.stderr
+        # Until the upgrade, the old dispatcher and the installed old helper's approve cannot read the
+        # new manifest, new dispatch refuses the old snapshot, and nothing installs unapproved.
+        result = self.dispatch()
+        assert result.returncode != 0
+        assert 'Unknown manifest' in result.stderr
+        result = self.tool('approve', '--digest', digest, installed=True)
+        assert result.returncode != 0
+        assert 'Unknown manifest' in result.stderr
+        result = self.tool('dispatch')
+        assert result.returncode != 0
+        assert 'Trust implementation changed' in result.stderr
+        result = self.tool('install')
+        assert result.returncode != 0
+        assert 'not reviewed origin/main' in result.stderr
+        assert 'Installed format is current' in self.tool('approve-upgrade', '--digest', digest).stderr
+        assert self.git('config', '--get', 'core.hooksPath').stdout.strip() == str(old_version / 'hooks')
+        self.tool('approve', '--digest', digest, check=True)
+        self.tool('install', check=True)
+        self.tool('verify', check=True)
+        self.hooks = Path(self.git('config', '--get', 'core.hooksPath').stdout.strip())
+        assert self.hooks.parent.name == digest
+        assert sorted(path.name for path in self.hooks.iterdir()) == ['pre-commit', 'pre-push']
+        result = self.dispatch()
+        assert result.returncode == 0, result.stderr
+        assert 'fixture-root=' + str(self.root) in result.stdout
+
+    def test_old_layout_tree_and_origin_main_are_never_trusted(self):
+        self.scripts_layout_fixture(restore=False)
+        before = (self.root / '.git/config').read_bytes()
+        for command in (('digest',), ('approve', '--digest', '0' * 64), ('install',)):
+            result = self.tool(*command)
+            assert result.returncode != 0, command
+            assert 'Unknown manifest' in result.stderr, command
+        candidate = load_module(self.root / 'gate/repo-hooks.py')
+        root, _, slug = candidate.context(self.root)
+        with pytest.raises(ValueError, match='Unknown manifest'):
+            candidate.bundle(root, slug, self.git('rev-parse', 'refs/remotes/origin/main').stdout.strip())
+        assert (self.root / '.git/config').read_bytes() == before
+
+    def test_protected_move_installs_over_scripts_layout_snapshot_without_approval(self):
+        self.scripts_layout_fixture()
+        self.git('add', '-A')
+        self.git('-c', 'core.hooksPath=/dev/null', 'commit', '-qm', 'reviewed gate move')
+        self.git('update-ref', 'refs/remotes/origin/main', 'HEAD')
+        self.tool('install', check=True)
+        self.tool('verify', check=True)
+        self.hooks = Path(self.git('config', '--get', 'core.hooksPath').stdout.strip())
+        result = self.dispatch()
+        assert result.returncode == 0, result.stderr
+        assert 'fixture-root=' + str(self.root) in result.stdout
+        assert self.git('config', '--get-all', 'repo.trustedGateBundle', check=False).returncode != 0
+
+    def test_tampered_scripts_layout_snapshot_is_refused(self, subtests):
+        digest = self.scripts_layout_fixture()
+        version = self.hooks.parent
+        for rel, refusal in (('gate/gate-lib.sh', 'Installed hook snapshot is corrupt'),
+                             ('hooks/pre-commit', 'Installed dispatcher differs from its verified snapshot')):
+            with subtests.test(path=rel):
+                path = version / rel
+                original = path.read_bytes()
+                path.write_bytes(original + b'\n# tamper\n')
+                try:
+                    for command in (('verify',), ('approve', '--digest', digest)):
+                        result = self.tool(*command)
+                        assert result.returncode != 0, command
+                        assert refusal in result.stderr, command
+                finally:
+                    path.write_bytes(original)
+        assert self.git('config', '--get-all', 'repo.trustedGateBundle', check=False).returncode != 0
+        # Restored bytes are the valid old snapshot again: stale, not refused.
+        assert 'Installed bundle is stale' in self.tool('verify').stderr
 
     def test_actual_legacy_installation_upgrades_by_exact_reviewed_approval(self):
         digest = self.legacy_upgrade_fixture()
@@ -252,9 +442,7 @@ fi
         digest = self.legacy_upgrade_fixture()
         self.tool('approve-upgrade', '--digest', digest, check=True)
         before = self.git('config', '--get', 'core.hooksPath').stdout
-        spec = importlib.util.spec_from_file_location('candidate_hooks', self.root / 'scripts/repo-hooks.py')
-        candidate = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(candidate)
+        candidate = load_module(self.root / 'gate/repo-hooks.py')
         _, common, slug = candidate.context(self.root)
         actual_digest, payload = candidate.bundle(self.root, slug)
         assert actual_digest == digest
@@ -301,7 +489,7 @@ fi
                 digest = self.tool('digest', check=True).stdout.strip()
                 self.git('config', '--local', '--add', 'repo.trustedGateBundle', digest)
                 for _ in range(2):
-                    result = subprocess.run([sys.executable, '-I', str(self.root / 'scripts/repo-hooks.py'),
+                    result = subprocess.run([sys.executable, '-I', str(self.root / 'gate/repo-hooks.py'),
                                              'install', '--root', str(self.root)], cwd=self.root,
                                             env=self.env, capture_output=True, text=True, umask=mask)
                     assert result.returncode == 0, result.stdout + result.stderr
@@ -312,9 +500,7 @@ fi
                 assert stat.S_IMODE(metadata.stat().st_mode) == 0o600
 
     def test_install_rejects_invalid_fresh_snapshot_before_registration(self, subtests):
-        spec = importlib.util.spec_from_file_location('fixture_current_hooks', self.root / 'scripts/repo-hooks.py')
-        current = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(current)
+        current = load_module(self.root / 'gate/repo-hooks.py')
         root, common, slug = current.context(self.root)
         original_snapshot = current.snapshot
         hook = self.root / '.git-hooks/pre-commit'
@@ -349,8 +535,8 @@ class TestPublicMiseBootstrap:
         self.root = tmp_path.resolve()
         self.bin = self.root / 'bin'
         self.bin.mkdir()
-        (self.root / 'scripts').mkdir()
-        shutil.copy2(SOURCE / 'scripts/repo-python.sh', self.root / 'scripts/repo-python.sh')
+        (self.root / 'gate').mkdir()
+        shutil.copy2(SOURCE / 'gate/repo-python.sh', self.root / 'gate/repo-python.sh')
         for name in ('bash', 'chmod', 'cp', 'dirname', 'install', 'mktemp', 'rm'):
             (self.bin / name).symlink_to(shutil.which(name))
         (self.bin / 'python3').symlink_to(sys.executable)
@@ -377,7 +563,7 @@ cp "$BOOTSTRAP_PAYLOAD" "$2"
 
     def provision(self, *, checksum=None, extra=None):
         import hashlib
-        text = (SOURCE / 'scripts/setup-agent-environment.sh').read_text()
+        text = (SOURCE / 'gate/setup-agent-environment.sh').read_text()
         start = text.index('install_public_mise() (')
         body = text[start:text.index('\n)\n', start) + 3]
         assert body.count("destination='/usr/local/bin/mise'") == 1

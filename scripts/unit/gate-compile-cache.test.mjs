@@ -3,7 +3,7 @@ import fs from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join, sep } from "node:path";
 import { it } from "vitest";
-import { runChains } from "../run-gate.mjs";
+import { runChains } from "../../gate/run-gate.mjs";
 
 it("persistent compilation rereads changed source and corrupt entries while private checks keep their own cache", async () => {
 	const dir = await fs.mkdtemp(join(tmpdir(), "gate-compile-cache-"));

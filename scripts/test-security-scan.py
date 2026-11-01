@@ -1,4 +1,4 @@
-"""Exercise exact outgoing Git trees and fail-closed scanner boundaries."""
+"""Exercise the Cursor, CI and dependency-policy scanner boundaries, failing closed."""
 import importlib.util
 import copy
 from datetime import date
@@ -12,7 +12,7 @@ import unittest
 from unittest.mock import patch
 
 
-SCRIPT = Path(__file__).with_name("security-scan.py")
+SCRIPT = Path(__file__).resolve().parent.parent / "gate/security-scan.py"
 SPEC = importlib.util.spec_from_file_location("security_scan", SCRIPT)
 SCAN = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(SCAN)
@@ -27,37 +27,13 @@ class SecurityScan(unittest.TestCase):
         self.env = {**os.environ, "GIT_CONFIG_GLOBAL": os.devnull, "GIT_CONFIG_NOSYSTEM": "1"}
         self.git("init", "-q")
         (self.root / "package-lock.json").write_text('{"lockfileVersion":3}')
-        (self.root / "code.js").write_text("committed")
-        (self.root / ".gitattributes").write_text("code.js export-ignore\n")
         self.git("add", "-A")
         self.git("-c", "user.name=fixture", "-c", "user.email=fixture@example.invalid",
                  "commit", "-qm", "source")
-        self.sha = self.git("rev-parse", "HEAD")
 
     def git(self, *args):
         return subprocess.check_output(["git", "-C", str(self.root), *args],
                                        env=self.env, text=True).strip()
-
-    def test_push_scans_committed_blobs_even_when_export_ignored_or_worktree_differs(self):
-        (self.root / "code.js").write_text("different worktree")
-        inspected = []
-
-        def inspect(tree):
-            inspected.append((tree / "code.js").read_text())
-
-        record = f"refs/heads/main {self.sha} refs/heads/main {'0' * 40}\n"
-        with patch.object(SCAN, "secrets") as secrets, patch.object(SCAN, "structural"), \
-                patch.object(SCAN, "source", side_effect=inspect):
-            SCAN.push(self.root, record + record)
-        self.assertEqual(inspected, ["committed"])
-        self.assertEqual(secrets.call_count, 2)
-
-    def test_deletion_scans_no_tree_and_malformed_records_fail(self):
-        with patch.object(SCAN, "source") as source:
-            SCAN.push(self.root, f"(delete) {'0' * 40} refs/heads/main {self.sha}\n")
-            source.assert_not_called()
-        with self.assertRaises(ValueError):
-            SCAN.push(self.root, "refs/heads/main shell-injection refs/heads/main 0000")
 
     def test_cursor_scans_untracked_files_but_not_ignored_artifacts(self):
         (self.root / ".gitignore").write_text("ignored.txt\n")

@@ -6,8 +6,8 @@ import { it } from "vitest";
 import { parse } from "yaml";
 
 for (const script of [
-	"scripts/vercel-preview-comment-contract.sh",
-	"scripts/vercel-preview-workflow-contract.sh",
+	"gate/vercel-preview-comment-contract.sh",
+	"gate/vercel-preview-workflow-contract.sh",
 ]) {
 	it(`${script} preserves its workflow contract`, () => {
 		const result = spawnSync("bash", [script], { encoding: "utf8" });
@@ -92,7 +92,7 @@ it("only the scheduled-check report jobs can mint an OIDC token", () => {
 		reporter.map(({ run, env }) => ({ run, env })),
 		[
 			{
-				run: "node scripts/production-smoke-report.mjs",
+				run: "node monitoring/production-smoke-report.mjs",
 				env: {
 					// biome-ignore lint/suspicious/noTemplateCurlyInString: literal GitHub Actions expression
 					SMOKE_JOB_RESULT: "${{ needs.smoke.result }}",
@@ -109,10 +109,13 @@ const workflow = (name) =>
 
 it("PR CI audits the sample and the Accessibility workflow audits every page", () => {
 	const { scripts } = JSON.parse(readFileSync("package.json", "utf8"));
-	assert.equal(scripts["check:a11y"], "node scripts/check-accessibility.mjs");
+	assert.equal(
+		scripts["check:a11y"],
+		"node monitoring/check-accessibility.mjs",
+	);
 	assert.equal(
 		scripts["check:a11y:sample"],
-		"node scripts/check-accessibility.mjs --sample",
+		"node monitoring/check-accessibility.mjs --sample",
 	);
 	const runs = (steps) =>
 		steps.filter((step) => step.run?.includes("check:a11y"));
@@ -153,7 +156,7 @@ it("PR CI audits the sample and the Accessibility workflow audits every page", (
 	// The reporter tells a setup failure (no ID) from a failed handoff (an ID).
 	assert.deepEqual(
 		report.steps.find(
-			(step) => step.run === "node scripts/accessibility-report.mjs",
+			(step) => step.run === "node monitoring/accessibility-report.mjs",
 		).env,
 		{
 			// biome-ignore lint/suspicious/noTemplateCurlyInString: literal GitHub Actions expression

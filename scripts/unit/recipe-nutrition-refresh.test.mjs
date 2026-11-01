@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { it } from "vitest";
-import { refreshModels } from "../recipes/refresh-nutrition.mjs";
+import { refreshModels } from "../../src/components/recipes/tools/refresh-nutrition.mjs";
 
 const source = "https://fdc.nal.usda.gov/food-details/123/nutrients";
 const row = {

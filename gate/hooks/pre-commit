@@ -4,4 +4,27 @@ set -euo pipefail
 # Installed outside the working tree for both pre-commit and pre-push.
 base="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
 hook="$(basename "${BASH_SOURCE[0]}")"
-exec bash "$base/scripts/repo-python.sh" "$base/scripts/repo-hooks.py" dispatch --hook "$hook"
+if [[ $hook == pre-push ]]; then
+  # Gitleaks only: the commits each pushed ref sends that the destination already lacks, judged by
+  # the named remote's tracking refs and the ref's current remote commit when it is present here.
+  # A new ref pushed to a bare URL scans the commit's whole history. Semgrep, OSV and full-history
+  # gitleaks run in the required Security check. The log options match `security-scan.py ci` and
+  # gate/ci-secrets-scan.sh; change all three together.
+  source "$base/gate/gate-lib.sh"
+  gl="$(gate_gitleaks_bin)"
+  export GIT_NO_REPLACE_OBJECTS=1 # scan the objects the push sends, not local replacements
+  tracking=()
+  if git config "remote.${1:-}.url" >/dev/null 2>&1; then tracking=("--remotes=$1"); fi
+  while read -r _ sha _ remote_sha; do
+    [[ $sha =~ ^0+$ ]] && continue # deleting a remote ref sends nothing
+    git rev-parse --verify --quiet "$sha^{commit}" >/dev/null ||
+      { echo "✗ pre-push scans commits; $sha is not one" >&2; exit 1; }
+    held=("${tracking[@]}")
+    if git rev-parse --verify --quiet "$remote_sha^{commit}" >/dev/null; then held+=("$remote_sha"); fi
+    opts="--text --diff-merges=remerge --no-color --no-textconv $sha"
+    ((${#held[@]} == 0)) || opts+=" --not ${held[*]}"
+    "$gl" git --no-banner --no-color --redact --log-opts="$opts"
+  done
+  exit 0
+fi
+exec bash "$base/gate/repo-python.sh" "$base/gate/repo-hooks.py" dispatch --hook "$hook"

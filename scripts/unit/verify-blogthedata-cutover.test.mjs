@@ -5,7 +5,6 @@ import { createServer } from "node:http";
 import { extname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { it } from "vitest";
-import { FEEDS } from "../../src/lib/blog/constants.js";
 import {
 	compileRoutes,
 	JSOLLY_ORIGIN,
@@ -13,8 +12,12 @@ import {
 	readLegacyJson,
 	routePath,
 	SERVICE_WORKER_HEADERS,
-} from "../blogthedata-redirects.mjs";
-import { DAY_MS, fieldLines, securityTxtExpires } from "../site-files.mjs";
+} from "../../build/blogthedata-redirects.mjs";
+import {
+	DAY_MS,
+	fieldLines,
+	securityTxtExpires,
+} from "../../build/site-files.mjs";
 import {
 	destinationsPlan,
 	fullPlan,
@@ -25,15 +28,16 @@ import {
 	sampleRows,
 	servedIndexForms,
 	verifyCutover,
-} from "../verify-blogthedata-cutover.mjs";
-import { fetchTransport } from "../verify-blogthedata-transports.mjs";
+} from "../../monitoring/verify-blogthedata-cutover.mjs";
+import { fetchTransport } from "../../monitoring/verify-blogthedata-transports.mjs";
+import { FEEDS } from "../../src/lib/blog/constants.js";
 
 // The verifier runs against local stub servers only: one answers as the
 // legacy project would (Vercel's own compiled routes over the real
 // vercel.json, plus public/), one as Vercel's http → https upgrade in front
 // of it, and one as jsolly.com. Nothing here reaches the network.
 const ROOT = fileURLToPath(new URL("../..", import.meta.url));
-const SCRIPT = join(ROOT, "scripts", "verify-blogthedata-cutover.mjs");
+const SCRIPT = join(ROOT, "monitoring", "verify-blogthedata-cutover.mjs");
 const PUBLIC_DIR = join(LEGACY_DIR, "public");
 const LEGACY_SECURITY_TXT = join(PUBLIC_DIR, ".well-known", "security.txt");
 const JSOLLY_SECURITY_TXT = join(ROOT, "public", ".well-known", "security.txt");

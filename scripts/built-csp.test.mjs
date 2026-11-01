@@ -5,9 +5,9 @@ import { join } from "node:path";
 import { globby } from "globby";
 import { parse } from "parse5";
 import { beforeAll, it } from "vitest";
+import { parseDirectives, readHeaderPolicy } from "../build/csp.mjs";
 import { VERCEL_TOOLBAR_SOURCES } from "../src/lib/csp-policy.js";
 import { NOTEBOOK_RENDERS, readBuiltPages } from "./built/pages.mjs";
-import { parseDirectives, readHeaderPolicy } from "./csp.mjs";
 
 const WHITESPACE = /\s+/u;
 const SCHEME_SOURCE = /^[a-z][a-z\d+.-]*:$/iu;

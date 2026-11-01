@@ -3,7 +3,7 @@ import { it } from "vitest";
 import {
 	observedProfile,
 	reconcileNutrition,
-} from "../recipes/reconcile-nutrition.mjs";
+} from "../../src/components/recipes/tools/reconcile-nutrition.mjs";
 
 const macros = { kcal: 200, protein_g: 20, carbs_g: 4, fiber_g: 1 };
 const model = {
