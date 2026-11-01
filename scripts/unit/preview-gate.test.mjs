@@ -23,14 +23,11 @@ async function fixture(t) {
 	const root = path.join(temp, "repo");
 	const bin = path.join(temp, "bin");
 	await mkdir(path.join(root, ".git-hooks"), { recursive: true });
-	await mkdir(path.join(root, "scripts"));
+	await mkdir(path.join(root, "gate"));
 	await mkdir(path.join(root, "node_modules"));
 	await Promise.all(
 		["run-gate.mjs", "gate-snapshot.mjs", "gate-processes.mjs"].map((name) =>
-			copyFile(
-				path.join(project, "scripts", name),
-				path.join(root, "scripts", name),
-			),
+			copyFile(path.join(project, "gate", name), path.join(root, "gate", name)),
 		),
 	);
 	await mkdir(path.join(root, "src/components"), { recursive: true });
@@ -40,22 +37,21 @@ async function fixture(t) {
 		path.join(root, ".git-hooks/pre-commit"),
 	);
 	await copyFile(
-		path.join(project, "scripts/ui-preview-scope.mjs"),
-		path.join(root, "scripts/ui-preview-scope.mjs"),
+		path.join(project, "gate/ui-preview-scope.mjs"),
+		path.join(root, "gate/ui-preview-scope.mjs"),
 	);
 	await writeFile(
 		path.join(root, "src/components/Example.svelte"),
 		"<p>Before</p>\n",
 	);
 	const receipt = path.join(temp, "calls");
-	await mkdir(path.join(root, "gate"));
 	const lib = path.join(root, "gate/gate-lib.sh");
 	await writeFile(
 		lib,
 		`gate_enter_committing_tree() { ROOT="$(git rev-parse --show-toplevel)"; cd "$ROOT"; }\ngate_begin_commit() { echo bootstrap >> "$RECEIPT"; [[ "\${FAIL_BOOTSTRAP:-0}" != 1 ]]; }\ngate_check_bash_floor() { :; }\ngate_require_node() { :; }\nrun_step() { shift; "$@"; }\n`,
 	);
 	await writeFile(
-		path.join(root, "scripts/repo-python.sh"),
+		path.join(root, "gate/repo-python.sh"),
 		`#!/usr/bin/env bash\nprintf 'trust-fixtures\\n' >> "$RECEIPT"\n`,
 	);
 	await Promise.all(
@@ -102,11 +98,11 @@ async function fixture(t) {
 		"add",
 		".git-hooks/pre-commit",
 		"gate/gate-lib.sh",
-		"scripts/repo-python.sh",
-		"scripts/ui-preview-scope.mjs",
-		"scripts/run-gate.mjs",
-		"scripts/gate-snapshot.mjs",
-		"scripts/gate-processes.mjs",
+		"gate/repo-python.sh",
+		"gate/ui-preview-scope.mjs",
+		"gate/run-gate.mjs",
+		"gate/gate-snapshot.mjs",
+		"gate/gate-processes.mjs",
 		"src/components/Example.svelte",
 	);
 	await git("-c", "core.hooksPath=/dev/null", "commit", "-m", "fixture");
@@ -241,7 +237,7 @@ it("failed CI browser setup fails the full gate without starting browser-depende
 
 async function preparationFixture(t) {
 	const f = await browserSetupFixture(t);
-	const probe = path.join(f.root, "scripts/preparation-probe.mjs");
+	const probe = path.join(f.root, "gate/preparation-probe.mjs");
 	await writeFile(
 		probe,
 		`import {runPreparation} from './run-gate.mjs'; await runPreparation(new URL('..', import.meta.url).pathname);`,
@@ -289,11 +285,11 @@ it("CI preparation rejects source mutation after all private checks settle", asy
 it("CI preparation shell refuses runtime-check failures before executing its partial scheduler", async (t) => {
 	const f = await fixture(t);
 	await copyFile(
-		path.join(project, "scripts/ci-prepare.sh"),
-		path.join(f.root, "scripts/ci-prepare.sh"),
+		path.join(project, "gate/ci-prepare.sh"),
+		path.join(f.root, "gate/ci-prepare.sh"),
 	);
 	await writeFile(
-		path.join(f.root, "scripts/ci-gate.mjs"),
+		path.join(f.root, "gate/ci-gate.mjs"),
 		"throw Error('scheduler must not start');",
 	);
 	for (const failing of ["gate_check_bash_floor", "gate_require_node"]) {
@@ -303,7 +299,7 @@ it("CI preparation shell refuses runtime-check failures before executing its par
 			`run_step() { shift; "$@"; }\ngate_check_bash_floor() { :; }\ngate_require_node() { :; }\n${failing}() { return 23; }\n`,
 		);
 		await assert.rejects(
-			run("bash", [path.join(f.root, "scripts/ci-prepare.sh")], {
+			run("bash", [path.join(f.root, "gate/ci-prepare.sh")], {
 				cwd: f.root,
 				env: f.env,
 			}),

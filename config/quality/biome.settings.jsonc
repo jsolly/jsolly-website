@@ -309,6 +309,28 @@
 	},
 	"overrides": [
 		{
+			// Node 24 executes these modules directly, including their typed dependencies.
+			// Keep real .ts specifiers at this boundary; no JS output is generated.
+			"includes": [
+				"src/components/recipes/flow-equipment.test.mjs",
+				"src/components/recipes/recipe-data.server.mjs",
+				"src/components/recipes/recipe-browse.mjs"
+			],
+			"linter": {
+				"rules": {
+					"correctness": {
+						"useImportExtensions": {
+							"level": "error",
+							"options": {
+								"forceJsExtensions": false,
+								"extensionMappings": { "ts": "ts" }
+							}
+						}
+					}
+				}
+			}
+		},
+		{
 			// Frozen pre-keto source registries retain their original bytes.
 			// They remain parsed and linted, but are never reformatted.
 			"includes": ["docs/recipes-archive/**/*.json"],

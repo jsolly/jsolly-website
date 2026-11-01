@@ -12,8 +12,8 @@ import {
 	restoreBundle,
 	verifyPreparation,
 	writeBundle,
-} from "../ci-evidence.mjs";
-import { validationMode } from "../ci-gate.mjs";
+} from "../../gate/ci-evidence.mjs";
+import { validationMode } from "../../gate/ci-gate.mjs";
 
 const id = {
 	sha: "a".repeat(40),
@@ -346,7 +346,7 @@ it("protected tree preparation requires the required ci proof from the latest su
 	]) {
 		fs.writeFileSync(proof, JSON.stringify({ name, conclusion }));
 		fs.writeFileSync(env.GITHUB_OUTPUT, "");
-		execFileSync("bash", [join(process.cwd(), "scripts/ci-verified-tree.sh")], {
+		execFileSync("bash", [join(process.cwd(), "gate/ci-verified-tree.sh")], {
 			cwd: f.root,
 			env,
 		});
@@ -357,7 +357,9 @@ it("protected tree preparation requires the required ci proof from the latest su
 });
 
 it("cost-based shards retain every discovered and new file independently of discovery order", async () => {
-	const { default: Sequencer } = await import("../ci-built-sequencer.mjs");
+	const { default: Sequencer } = await import(
+		"../../gate/ci-built-sequencer.mjs"
+	);
 	const root = process.cwd();
 	const discovered = JSON.parse(
 		execFileSync(

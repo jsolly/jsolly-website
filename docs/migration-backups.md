@@ -13,8 +13,10 @@ initial resource change is the recovery archive's transition to Glacier Deep
 Archive. There is no expiration or automatic deletion. Keep termination
 protection, stack policy, Object Lock, versioning and private access enabled.
 Vercel builds and website releases do not deploy this stack.
-The gate's Python suite runs `scripts/test-migration-backups.py`, including
-negative cases for expiration, replacement and weakened retention/protection.
+`gate/check-migration-backups.py` checks that contract against the checkout;
+`python3 gate/check-migration-backups.py` runs it directly. The gate's Python
+suite runs `scripts/test-migration-backups.py`, including negative cases for
+expiration, replacement and weakened retention/protection.
 
 ## Backup and recovery
 

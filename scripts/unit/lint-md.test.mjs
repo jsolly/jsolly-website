@@ -18,11 +18,11 @@ const MISSING_TOOL =
 it("Markdown lint fails closed when the lockfile-installed tool is missing", () => {
 	const fixture = mkdtempSync(join(tmpdir(), "lint-md-"));
 	try {
-		mkdirSync(join(fixture, "scripts"));
+		mkdirSync(join(fixture, "gate"));
 		mkdirSync(join(fixture, "bin"));
 		copyFileSync(
-			new URL("../lint-md.sh", import.meta.url),
-			join(fixture, "scripts/lint-md.sh"),
+			new URL("../../gate/lint-md.sh", import.meta.url),
+			join(fixture, "gate/lint-md.sh"),
 		);
 		// An obsolete npx fallback would succeed and leave this marker.
 		writeFileSync(
@@ -30,7 +30,7 @@ it("Markdown lint fails closed when the lockfile-installed tool is missing", () 
 			'#!/bin/sh\ntouch "$PWD/npx-called"\n',
 			{ mode: 0o755 },
 		);
-		const result = spawnSync("bash", [join(fixture, "scripts/lint-md.sh")], {
+		const result = spawnSync("bash", [join(fixture, "gate/lint-md.sh")], {
 			encoding: "utf8",
 			timeout: 5000,
 			env: {

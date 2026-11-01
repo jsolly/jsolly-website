@@ -6,8 +6,8 @@ import { it } from "vitest";
 import { parse } from "yaml";
 
 for (const script of [
-	"scripts/vercel-preview-comment-contract.sh",
-	"scripts/vercel-preview-workflow-contract.sh",
+	"gate/vercel-preview-comment-contract.sh",
+	"gate/vercel-preview-workflow-contract.sh",
 ]) {
 	it(`${script} preserves its workflow contract`, () => {
 		const result = spawnSync("bash", [script], { encoding: "utf8" });

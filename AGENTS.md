@@ -260,9 +260,9 @@ which cannot satisfy required `ci` or supply validated-tree proof. Marking ready
 or removing `preview` starts full CI. Ready PRs, main and manual dispatch run the
 full CI suite. Post-merge CI reuses a successful PR run only when
 its recorded checkout tree exactly matches the landed tree, using
-the repo-owned `scripts/ci-verified-tree.sh`. Missing proof runs full CI;
+the repo-owned `gate/ci-verified-tree.sh`. Missing proof runs full CI;
 manual runs always validate. Job names and deployment triggers stay intact.
-Canonical contract: [local CI helper](scripts/ci-verified-tree.sh).
+Canonical contract: [local CI helper](gate/ci-verified-tree.sh).
 
 ## Dependabot CI
 
@@ -273,8 +273,14 @@ and [release instructions](docs/development.md).
 
 ## Git hooks
 
-This repo owns `gate/gate-lib.sh` and `scripts/repo-hooks.py`. Run reviewed
-`scripts/setup-agent-environment.sh` on main to install its outside-worktree
+This repo owns `gate/gate-lib.sh` and `gate/repo-hooks.py`. `gate/` holds the
+local gate and its scheduler, the CI and Preview workflow helpers, Markdown and
+Actions lint, the security scanner, and hook trust and setup; their tests stay
+under `scripts/`. It also holds `check-migration-backups.py`, the retained
+CloudFormation migration stack's pre-update contract check, which the gate runs
+through `scripts/test-migration-backups.py`
+([migration backups](docs/migration-backups.md)). Run reviewed
+`gate/setup-agent-environment.sh` on main to install its outside-worktree
 pre-commit and pre-push dispatchers. The verified scanner, Cursor hook and CI
 coverage are documented in [security scanning](docs/security-scanning.md).
 Never set hooksPath to `.git-hooks`: a branch could then
@@ -336,6 +342,6 @@ so an inline `<script>` on a blog page also adds its hash to the portfolio pages
 ## Agent environment
 
 Use this repository's AGENTS.md and [development guide](docs/development.md).
-Run its reviewed `scripts/setup-agent-environment.sh` for pinned tools and hooks.
+Run its reviewed `gate/setup-agent-environment.sh` for pinned tools and hooks.
 No private configuration repo, external instruction import or global skill is
 required. Optional personal skills do not change this repository's authority.
