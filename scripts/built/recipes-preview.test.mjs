@@ -4,8 +4,8 @@ import { join } from "node:path";
 import { JSDOM } from "jsdom";
 import { chromium } from "playwright";
 import { afterAll, beforeAll, it } from "vitest";
+import { parseDirectives } from "../../build/csp.mjs";
 import { VERCEL_TOOLBAR_SOURCES } from "../../src/lib/csp-policy.js";
-import { parseDirectives } from "../csp.mjs";
 import {
 	collectErrors,
 	readBuiltPages,

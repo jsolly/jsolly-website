@@ -14,9 +14,12 @@ import { createSatteriMarkdownProcessor } from "@astrojs/markdown-satteri";
 import { globby } from "globby";
 import { JSDOM } from "jsdom";
 import { parse } from "parse5";
+import {
+	JSOLLY_ORIGIN,
+	readLegacyJson,
+} from "../../build/blogthedata-redirects.mjs";
 import { MARKDOWN_PATHS } from "../../src/content/agent-pages.js";
 import { markdownSiblingPath } from "../../src/lib/accept-negotiate.js";
-import { JSOLLY_ORIGIN, readLegacyJson } from "../blogthedata-redirects.mjs";
 import { DIST, distFileFor, distFiles } from "./pages.mjs";
 
 // Text the checks read; everything else in dist/ only has to exist.

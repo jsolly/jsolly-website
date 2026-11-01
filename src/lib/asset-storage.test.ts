@@ -323,7 +323,7 @@ it("upload authorization pins the exact bucket and key before using any signed c
 it("the real CLI and repository TS loader inventory and check a self-contained published fixture", async () => {
 	const root = await mkdtemp(join(tmpdir(), "asset-cli-"));
 	const loader = fileURLToPath(
-		new URL("../../scripts/register-ts-from-js.mjs", import.meta.url),
+		new URL("../../build/register-ts-from-js.mjs", import.meta.url),
 	);
 	const cli = fileURLToPath(
 		new URL("../../scripts/assets/cli.ts", import.meta.url),
@@ -362,7 +362,7 @@ it("verification receipts attest the captured manifest and reject concurrent man
 	const root = await mkdtemp(join(tmpdir(), "asset-receipt-"));
 	const receiptRoot = await mkdtemp(join(tmpdir(), "asset-receipt-output-"));
 	const loader = fileURLToPath(
-		new URL("../../scripts/register-ts-from-js.mjs", import.meta.url),
+		new URL("../../build/register-ts-from-js.mjs", import.meta.url),
 	);
 	const cli = fileURLToPath(
 		new URL("../../scripts/assets/cli.ts", import.meta.url),
@@ -417,7 +417,7 @@ it("verification receipts attest the captured manifest and reject concurrent man
 it("malformed external upload authorization never leaks parser input", async () => {
 	const root = await mkdtemp(join(tmpdir(), "asset-auth-"));
 	const loader = fileURLToPath(
-		new URL("../../scripts/register-ts-from-js.mjs", import.meta.url),
+		new URL("../../build/register-ts-from-js.mjs", import.meta.url),
 	);
 	const cli = fileURLToPath(
 		new URL("../../scripts/assets/cli.ts", import.meta.url),

@@ -3,12 +3,12 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { parseFrontmatter } from "astro/markdown";
 import { it } from "vitest";
+import { pageMarkdown } from "../../build/markdown-build.mjs";
 import middleware from "../../middleware.js";
 import { cookingText } from "../../src/components/recipes/cooking-quantities.mjs";
 import data from "../../src/components/recipes/recipe-data.server.mjs";
 import { formatIngredient } from "../../src/components/recipes/recipe-logic.mjs";
 import { markdownRoutes, routes } from "../../src/generated/route-manifest.js";
-import { pageMarkdown } from "../markdown-build.mjs";
 import { markdownHtmlFacts } from "./markdown-html.mjs";
 import { allPosts, distFiles, readBuiltPages } from "./pages.mjs";
 

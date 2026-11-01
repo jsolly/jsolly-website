@@ -10,7 +10,7 @@ import {
 	LEGACY_DIR,
 	readLegacyJson,
 	routePath,
-} from "../blogthedata-redirects.mjs";
+} from "../../build/blogthedata-redirects.mjs";
 
 // Two origins stand in for the cutover. Origin A first plays the old
 // blogthedata.com: a cache-first recipe worker, like the retired ones (same

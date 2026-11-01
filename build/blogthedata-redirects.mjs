@@ -278,9 +278,7 @@ function main(mode) {
 	if (mode === "--check") {
 		return check();
 	}
-	console.error(
-		"usage: node scripts/blogthedata-redirects.mjs --write|--check",
-	);
+	console.error("usage: node build/blogthedata-redirects.mjs --write|--check");
 	return 2;
 }
 

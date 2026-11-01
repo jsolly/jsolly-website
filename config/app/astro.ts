@@ -10,7 +10,7 @@ import { globby } from "globby";
 import {
 	deploymentAssetPin,
 	pinStylesheets,
-} from "../../scripts/vercel-static-assets.mjs";
+} from "../../build/vercel-static-assets.mjs";
 import retiredRecipes from "../../src/components/recipes/retired-recipes.json" with {
 	type: "json",
 };

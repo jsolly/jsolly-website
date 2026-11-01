@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { beforeAll, it } from "vitest";
-import { buildRecipePwa } from "../recipes/pwa-build.mjs";
+import { buildRecipePwa } from "../../build/recipes/pwa-build.mjs";
 import { collectErrors, readBuilt } from "./pages.mjs";
 import { legacyUnits, setLegacyUnits } from "./recipe-legacy-units.mjs";
 import {
