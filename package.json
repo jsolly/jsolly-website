@@ -13,7 +13,7 @@
 		"preview": "astro preview --config config/app/astro.ts",
 		"lint": "biome lint --config-path=config/quality/biome.settings.jsonc --no-errors-on-unmatched",
 		"format": "biome format --config-path=config/quality/biome.settings.jsonc --no-errors-on-unmatched --write",
-		"check:ts": "astro check --config config/app/astro.ts --minimumSeverity error --minimumFailingSeverity error && svelte-check --tsconfig ./tsconfig.json --threshold error",
+		"check:ts": "astro check --config config/app/astro.ts --minimumSeverity error --minimumFailingSeverity error && svelte-check --tsconfig ./tsconfig.json --threshold error && tsc --project config/typescript/recipe-domain.json",
 		"check:knip": "knip --config config/quality/knip.json --no-progress",
 		"test": "node scripts/run-tests.mjs unit",
 		"test:python": "uvx --from pytest==9.1.1 pytest -c config/testing/pytest.ini",
