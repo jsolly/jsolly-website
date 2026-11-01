@@ -206,7 +206,7 @@ if (
 	const [mode, file, ...extra] = process.argv.slice(2);
 	assert.ok(
 		(mode === "capture" || mode === "verify") && file && extra.length === 0,
-		"usage: node scripts/asset-retention-probe.mjs capture|verify /absolute/evidence.json",
+		"usage: node monitoring/asset-retention-probe.mjs capture|verify /absolute/evidence.json",
 	);
 	assert.equal(resolve(file), file, "use an absolute evidence path");
 	if (mode === "capture") {

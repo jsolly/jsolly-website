@@ -57,7 +57,7 @@ jobs:
         run: |
           mkdir -p legacy-redirect-artifacts
           for attempt in 1 2 3; do
-            if node scripts/verify-blogthedata-cutover.mjs --production --sample > "legacy-redirect-artifacts/attempt-$attempt.log" 2>&1; then
+            if node monitoring/verify-blogthedata-cutover.mjs --production --sample > "legacy-redirect-artifacts/attempt-$attempt.log" 2>&1; then
               cat "legacy-redirect-artifacts/attempt-$attempt.log"
               exit 0
             fi

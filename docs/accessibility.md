@@ -24,7 +24,7 @@ review. Passing axe does not certify accessibility. Rebuild after source changes
   `source-` and retired recipes; active and retired categories; a post with
   code, tables and images, one with headings and an iframe embed, and one with
   an image attribution caption), from `SAMPLE` in
-  `scripts/accessibility-pages.mjs`, at both widths. Violations fail required
+  `monitoring/accessibility-pages.mjs`, at both widths. Violations fail required
   `ci`. The `accessibility-results` artifact keeps the report.
   `scripts/built/accessibility-sample.test.mjs` fails when a sampled route is no
   longer a built page, a `src/pages` template has no sampled route, or a recipe,
@@ -50,7 +50,7 @@ first heartbeat arrives.
 
 The workflow's `report` job assumes
 `arn:aws:iam::730335616323:role/github-actions-scheduled-checks` through GitHub
-OIDC (us-east-1) and runs `scripts/accessibility-report.mjs`. That script writes
+OIDC (us-east-1) and runs `monitoring/accessibility-report.mjs`. That script writes
 JSON lines to the `/shared-infra/scheduled-checks` log group, in stream
 `jsolly-website/a11y/<run id>-<attempt>`. [shared-infra fields](shared-infra.md)
 lists each event's fields:

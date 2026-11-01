@@ -16,7 +16,7 @@ import { it } from "vitest";
 import {
 	fetchTransport,
 	vercelCurlTransport,
-} from "../verify-blogthedata-transports.mjs";
+} from "../../monitoring/verify-blogthedata-transports.mjs";
 
 // The vercel-curl transport against a fake `vercel` CLI; nothing here runs
 // the real CLI or reaches the network.

@@ -318,7 +318,7 @@ Record its age, exact hashes and a distinguishable B/unpinned control. A passing
 build, deployment metadata or two identical asset bodies cannot establish that
 provider result.
 
-After a pinned production release, run `node scripts/asset-retention-probe.mjs capture`
+After a pinned production release, run `node monitoring/asset-retention-probe.mjs capture`
 with a new absolute JSON evidence path as its second argument. The command uses
 GET requests on the fixed production origin and refuses an existing output file.
 It records actual About-page module and stylesheet URLs, SHA-256 hashes, sizes,
@@ -360,7 +360,7 @@ workflow and remaining inline-script check. This avoids the pinned release's
 Preview tooling still executes from the trusted default-branch checkout.
 
 Knip's Vercel dependency exception belongs to the John-only `vercel-curl`
-transport in `scripts/verify-blogthedata-cutover.mjs`, which resolves
+transport in `monitoring/verify-blogthedata-cutover.mjs`, which resolves
 `node_modules/.bin/vercel` dynamically. Preview deployment uses its own isolated
 pinned CLI, and agents never run the cutover verifier's Vercel transport.
 

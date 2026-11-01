@@ -4,7 +4,7 @@ import {
 	captureAssets,
 	pinnedPageAssets,
 	verifyAssets,
-} from "../asset-retention-probe.mjs";
+} from "../../monitoring/asset-retention-probe.mjs";
 
 const PIN_ERROR = /pin|mixed deployments/u;
 const BYTES_ERROR = /old deployment bytes changed/u;

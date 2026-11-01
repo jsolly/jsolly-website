@@ -4,7 +4,7 @@ import { parseFrontmatter } from "astro/markdown";
 import { FORWARDING_PROBE } from "../src/lib/error-categories.mjs";
 
 // The production smoke, read-only (GET only) at a phone width, run by the
-// fleet runner scripts/production-smoke.mjs, which blocks service workers:
+// fleet runner monitoring/production-smoke.mjs, which blocks service workers:
 // 1. the portfolio's mobile menu to About and Contact;
 // 2. Markdown negotiation on /about/;
 // 3. the mobile menu's Blog link, and the first post on /blog/;

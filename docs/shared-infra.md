@@ -3,14 +3,14 @@
 This site has no Lambda in shared-infra. Two GitHub Actions checks report to
 shared-infra's `/shared-infra/scheduled-checks` log group (us-east-1), one JSON
 object per log event, through the shared writer
-`scripts/scheduled-check-report.mjs`. The shape follows jsolly/shared-infra's
+`monitoring/scheduled-check-report.mjs`. The shape follows jsolly/shared-infra's
 scheduled-checks contract. Browser error reports go to the site's own log group
 instead ([client errors](client-errors.md)).
 
 | Check | Reporter | Runs that report | Stream |
 | --- | --- | --- | --- |
-| `a11y` | `scripts/accessibility-report.mjs` ([accessibility](accessibility.md)) | push to `main`, daily, dispatch | `jsolly-website/a11y/<run id>-<attempt>` |
-| `production-smoke` | `scripts/production-smoke-report.mjs` | daily (`47 10 * * *`) and dispatch on `main` | `jsolly-website/production-smoke/<run id>-<attempt>` |
+| `a11y` | `monitoring/accessibility-report.mjs` ([accessibility](accessibility.md)) | push to `main`, daily, dispatch | `jsolly-website/a11y/<run id>-<attempt>` |
+| `production-smoke` | `monitoring/production-smoke-report.mjs` | daily (`47 10 * * *`) and dispatch on `main` | `jsolly-website/production-smoke/<run id>-<attempt>` |
 
 Every event carries:
 

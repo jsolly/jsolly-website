@@ -113,7 +113,7 @@ async function auditPage(path, width) {
 }
 // The results file records every completed page-viewport, the number
 // expected, and the error that stopped the audit, if any. The a11y workflow
-// reports it through scripts/accessibility-report.mjs.
+// reports it through monitoring/accessibility-report.mjs.
 let failure;
 try {
 	browser = await chromium.launch({ headless: true });

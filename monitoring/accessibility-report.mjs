@@ -1,5 +1,5 @@
 // Report a full axe audit to shared-infra's scheduled-checks log group through
-// the shared writer (scripts/scheduled-check-report.mjs). Every run writes one
+// the shared writer (monitoring/scheduled-check-report.mjs). Every run writes one
 // heartbeat; violations are one error line per page, width and rule (at most
 // MAX_VIOLATIONS, then one truncation line); a run without complete, readable
 // results writes `check-failed` with a fixed message. It exits 1 whenever it

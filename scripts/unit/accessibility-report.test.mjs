@@ -3,11 +3,14 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { it } from "vitest";
-import { auditOutcome, reportEvents } from "../accessibility-report.mjs";
+import {
+	auditOutcome,
+	reportEvents,
+} from "../../monitoring/accessibility-report.mjs";
 import { callShape, eventsOf, fakeAwsCli, sentTo } from "./fake-aws-cli.mjs";
 
 const SCRIPT = fileURLToPath(
-	new URL("../accessibility-report.mjs", import.meta.url),
+	new URL("../../monitoring/accessibility-report.mjs", import.meta.url),
 );
 const FIXTURE = fileURLToPath(
 	new URL("../fixtures/accessibility-results.json", import.meta.url),

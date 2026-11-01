@@ -1,6 +1,6 @@
 // Report a scheduled or manual Production smoke run to shared-infra's
 // scheduled-checks log group through the shared writer
-// (scripts/scheduled-check-report.mjs). A failed run writes one `check-failed`
+// (monitoring/scheduled-check-report.mjs). A failed run writes one `check-failed`
 // error line, which pages through the shared error alarm; every run writes one
 // heartbeat last, whose absence for about 30 hours pages through the check's own
 // alarm (docs/shared-infra.md, Coverage). It exits 1 when it reported a failure,

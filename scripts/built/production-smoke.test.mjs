@@ -9,17 +9,17 @@ import { promisify } from "node:util";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import middleware from "../../middleware.js";
-import { rootVercelRoutes, routePath } from "../blogthedata-redirects.mjs";
-import { runSmoke } from "../production-smoke.mjs";
+import { runSmoke } from "../../monitoring/production-smoke.mjs";
 import {
 	productionUrl,
 	smoke,
 	verifyRecipeWorker,
-} from "../production-smoke-scenario.mjs";
+} from "../../monitoring/production-smoke-scenario.mjs";
+import { rootVercelRoutes, routePath } from "../blogthedata-redirects.mjs";
 import { serveStatic, stubOffOrigin } from "./pages.mjs";
 
 // The production smoke scenario over the real built pages, run by the fleet
-// runner itself (scripts/production-smoke.mjs), so its failure rules apply:
+// runner itself (monitoring/production-smoke.mjs), so its failure rules apply:
 // console and page errors, aborted or failing same-origin requests, non-2xx
 // checks and its behaviour deadline, with service workers blocked. Nothing
 // reaches the network: www.jsolly.com is answered by a local stand-in for

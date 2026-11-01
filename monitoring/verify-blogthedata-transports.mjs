@@ -1,4 +1,4 @@
-// The request transports of scripts/verify-blogthedata-cutover.mjs (see its
+// The request transports of monitoring/verify-blogthedata-cutover.mjs (see its
 // header). A transport is `async (url, { body }) => answer`, where answer is
 // { status, location, contentType, cacheControl, mitigated } plus `body` (a Buffer) when
 // asked; a failed request throws, with `transient: true` only for an error a
