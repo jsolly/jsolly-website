@@ -22,4 +22,4 @@ jobs:
         with:
           version: 2026.9.12
       - name: Secrets, workflows, infrastructure, source and dependencies
-        run: python3 scripts/security-scan.py ci
+        run: python3 gate/security-scan.py ci

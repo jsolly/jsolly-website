@@ -5,6 +5,7 @@
 		"src/**/*.test.ts",
 		"src/**/*.test.mjs",
 		"scripts/**/*.mjs",
+		"gate/**/*.mjs",
 		"monitoring/**/*.mjs",
 		"build/**/*.mjs",
 		"src/components/recipes/tools/*.mjs",

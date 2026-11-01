@@ -23,7 +23,7 @@ install_public_mise() (
   trap 'rm -rf "$scratch"' EXIT
   curl --fail --silent --show-error --location --retry 3 \
     "https://github.com/jdx/mise/releases/download/v${local_version}/${asset}" -o "$scratch/mise"
-  bash "$root/scripts/repo-python.sh" -c \
+  bash "$root/gate/repo-python.sh" -c \
     'import hashlib, pathlib, sys; actual = hashlib.sha256(pathlib.Path(sys.argv[1]).read_bytes()).hexdigest(); sys.exit(0 if actual == sys.argv[2] else "Downloaded mise checksum does not match the repository pin")' \
     "$scratch/mise" "$expected"
   chmod 0755 "$scratch/mise"
@@ -38,7 +38,7 @@ install_public_mise() (
 
 # Installation validates the complete reviewed bundle before writing hook state.
 # It runs no dependency lifecycle script. Unreviewed setup cannot upgrade hooks.
-bash scripts/repo-python.sh scripts/repo-hooks.py install --root "$root"
+bash gate/repo-python.sh gate/repo-hooks.py install --root "$root"
 install_public_mise
 mise trust "$root/.mise.toml"
 mise install
@@ -48,5 +48,5 @@ fi
 if [[ -x node_modules/.bin/playwright ]]; then
   mise exec -- node_modules/.bin/playwright install chromium
 fi
-bash scripts/repo-python.sh scripts/repo-hooks.py verify --root "$root"
+bash gate/repo-python.sh gate/repo-hooks.py verify --root "$root"
 echo 'Repository environment ready; no private configuration repository is required.'

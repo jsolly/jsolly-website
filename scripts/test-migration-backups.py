@@ -9,7 +9,7 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CHECK = runpy.run_path(str(ROOT / "scripts/check-migration-backups.py"))["check"]
+CHECK = runpy.run_path(str(ROOT / "gate/check-migration-backups.py"))["check"]
 
 
 class BackupContract(unittest.TestCase):

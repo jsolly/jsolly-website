@@ -8,4 +8,4 @@ cd "$ROOT"
 source "$ROOT/gate/gate-lib.sh"
 run_step "bash floor" gate_check_bash_floor
 gate_require_node
-node scripts/ci-gate.mjs prepare
+node gate/ci-gate.mjs prepare

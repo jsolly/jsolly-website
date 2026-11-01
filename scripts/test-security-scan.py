@@ -12,7 +12,7 @@ import unittest
 from unittest.mock import patch
 
 
-SCRIPT = Path(__file__).with_name("security-scan.py")
+SCRIPT = Path(__file__).resolve().parent.parent / "gate/security-scan.py"
 SPEC = importlib.util.spec_from_file_location("security_scan", SCRIPT)
 SCAN = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(SCAN)

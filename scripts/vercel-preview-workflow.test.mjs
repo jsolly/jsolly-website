@@ -29,11 +29,11 @@ const DEPLOYMENT_URL = /https:\/\/immutable\.vercel\.app/u;
 const COMMENT_SELECTOR = /select\(\.user\.login.*?\)\) \| \.id/u;
 
 const resolver = readFileSync(
-	new URL("vercel-preview-resolve.sh", import.meta.url),
+	new URL("../gate/vercel-preview-resolve.sh", import.meta.url),
 	"utf8",
 );
 const deploy = readFileSync(
-	new URL("vercel-preview-deploy.sh", import.meta.url),
+	new URL("../gate/vercel-preview-deploy.sh", import.meta.url),
 	"utf8",
 );
 
@@ -100,7 +100,7 @@ function fixture(t, config = {}) {
 			git("add", "--", config.configPath);
 		}
 	}
-	mkdirSync(join(root, "scripts"));
+	mkdirSync(join(root, "gate"));
 	mkdirSync(join(root, ".github/workflows"), { recursive: true });
 	for (const name of [
 		"vercel-preview-comment.sh",
@@ -108,7 +108,10 @@ function fixture(t, config = {}) {
 		"vercel-preview-resolve.sh",
 		"vercel-preview-deploy.sh",
 	]) {
-		copyFileSync(new URL(name, import.meta.url), join(root, "scripts", name));
+		copyFileSync(
+			new URL(`../gate/${name}`, import.meta.url),
+			join(root, "gate", name),
+		);
 	}
 	writeFileSync(
 		join(root, "case.json"),
@@ -437,7 +440,7 @@ it("the workflow contract rejects changes that re-expose tokens or PR tooling", 
 	const f = fixture(t);
 	const path = join(f.root, ".github/workflows/vercel-preview.yml");
 	const verify = () =>
-		spawnSync("bash", ["scripts/vercel-preview-workflow-contract.sh"], {
+		spawnSync("bash", ["gate/vercel-preview-workflow-contract.sh"], {
 			cwd: f.root,
 			env: { PATH: process.env.PATH },
 			encoding: "utf8",
