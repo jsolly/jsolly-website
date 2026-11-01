@@ -65,8 +65,8 @@ membership and extends that policy. These native files have active consumers:
 
 `AGENTS.md` and `README.md` remain repository instructions and documentation.
 `middleware.ts`, `api/` and `src/content.config.ts` remain application entry points.
-`process-html.mjs` remains executable build code. Moving the aliases changes no
-command, CI, hook or bootstrap path: all consumers still discover the same native
+Moving the aliases changes no command, CI, hook or bootstrap path: all consumers
+still discover the same native
 TypeScript adapter. The root alias copy is removed. There are no obsolete root
 configuration files to remove.
 

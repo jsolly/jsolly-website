@@ -1,6 +1,6 @@
 // Writes the recipe app's service worker, dist/recipes/service-worker.js,
 // which the recipe pages register with scope /recipes/ (plan §1.6). It runs in
-// `npm run build` after process-html.mjs, so the snapshot covers the HTML as
+// `npm run build` after Astro and Markdown generation, so the snapshot covers the HTML as
 // served.
 //
 // Installation downloads only the app shell. Individual opened recipes get

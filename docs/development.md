@@ -286,9 +286,10 @@ snapshots. Runtime, fixtures and release tests are owned by this repository.
 Vercel builds pin generated JavaScript entrypoints, inter-chunk imports,
 stylesheets and CSS font/image references to their deployment with `?dpl=`.
 The repository's static-only Astro integration supplies the native client asset
-pin and Vite resource URLs. The existing HTML postprocessor pins the static
-stylesheet links Astro currently omits, preserving inline script bytes and
-hydration comments. The ordinary static builder, root routing middleware, browse
+pin and Vite resource URLs. Its `astro:build:done` hook pins the static stylesheet links Astro currently
+omits, preserving inline script bytes and hydration comments. Astro owns HTML
+compression through `compressHTML: true`; portfolio heading ids are explicit
+source attributes rather than a second HTML rewrite. The ordinary static builder, root routing middleware, browse
 function and local `dist/` output retain their existing ownership.
 
 Hosted builds fail when Skew Protection or the deployment ID is missing. Local

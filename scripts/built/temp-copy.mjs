@@ -1,6 +1,5 @@
 // A throwaway copy of the working tree for built tests that need their own
-// build (today: the unprocessed baseline in hydration.test.mjs, the
-// maintenance build in blog-maintenance.test.mjs, the PagesCMS-shaped posts
+// build (today: the maintenance build in blog-maintenance.test.mjs, the PagesCMS-shaped posts
 // in blog-content-contracts.test.mjs and the Preview build in
 // recipes-preview.test.mjs). The real tree, its dist/ and its Astro
 // data store are never touched.
@@ -146,7 +145,7 @@ export async function createTempCopy(label) {
 	}
 	return {
 		dir,
-		// `astro build` in the copy, without process-html.
+		// Astro build and integration hooks, without the Markdown and PWA stages.
 		astroBuild() {
 			return run(
 				dir,
