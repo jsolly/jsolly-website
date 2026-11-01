@@ -27,9 +27,8 @@ behavior consistent.
   bypassed hooks, or secrets in ignored runtime files and environment variables.
 - `Security / security` scans PRs and main with the same runner, read-only
   repository permission, full-SHA Actions and no AWS credentials. Dependabot
-  retains the repository's explicit `ow-ci` maintenance opt-in. John must make
-  this check required in the repository ruleset for it to enforce merge
-  protection; a failing optional check alone does not prevent merges.
+  PRs run it like every other PR. The repository ruleset requires it, so a
+  failing check blocks the merge.
 
 Semgrep metrics and version checking are disabled. Rules are fetched from
 `p/default`; that service-managed rule set can change independently of the

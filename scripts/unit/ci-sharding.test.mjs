@@ -50,7 +50,10 @@ function reports() {
 	}));
 }
 function fixture(t) {
-	const directory = fs.mkdtempSync(join(tmpdir(), "ci-artifacts-"));
+	// Vitest reports resolved paths; macOS tmpdir() is a /var -> /private/var symlink.
+	const directory = fs.realpathSync(
+		fs.mkdtempSync(join(tmpdir(), "ci-artifacts-")),
+	);
 	t.onTestFinished(() =>
 		fs.rmSync(directory, { recursive: true, force: true }),
 	);
@@ -207,20 +210,30 @@ it("runs the actual aggregate workflow condition after failures while keeping de
 		true,
 	);
 	assert.equal(evaluate(workflow.jobs.ci.name, github, {}), "ci");
-	for (const defer of ["dependabot", "preview", "label"]) {
-		const changed = structuredClone(github);
-		if (defer === "dependabot")
-			changed.event.pull_request.user.login = "dependabot[bot]";
-		if (defer === "preview") {
-			changed.event.pull_request.draft = true;
-			changed.event.pull_request.labels = [{ name: "preview" }];
-		}
-		if (defer === "label") changed.event.action = "labeled";
-		assert.equal(evaluate(workflow.jobs.ci.if, changed, {}), false);
-		assert.equal(evaluate(workflow.jobs.ci.name, changed, {}), "ci-deferred");
-		assert.equal(evaluate(workflow.jobs.prepare.if, changed, {}), false);
-		assert.equal(evaluate(workflow.jobs.built.if, changed, {}), false);
-	}
+	// Labels start no CI runs; Dependabot PRs run full CI; only a same-repo human
+	// draft carrying `preview` defers.
+	assert.equal(workflow.on.pull_request.types.includes("labeled"), false);
+	const dependabot = structuredClone(github);
+	dependabot.event.pull_request.user = {
+		login: "dependabot[bot]",
+		type: "Bot",
+	};
+	dependabot.event.pull_request.draft = true;
+	dependabot.event.pull_request.labels = [{ name: "preview" }];
+	// Without always(), a failed lane would skip ci, and a skipped required check passes.
+	assert.ok(String(workflow.jobs.ci.if).startsWith("always() && "));
+	assert.equal(workflow.jobs.ci["continue-on-error"], undefined);
+	assert.equal(evaluate(workflow.jobs.ci.if, dependabot, {}), true);
+	assert.equal(evaluate(workflow.jobs.ci.name, dependabot, {}), "ci");
+	assert.equal(evaluate(workflow.jobs.prepare.if, dependabot, {}), true);
+	assert.equal(evaluate(workflow.jobs.built.if, dependabot, {}), true);
+	const preview = structuredClone(github);
+	preview.event.pull_request.draft = true;
+	preview.event.pull_request.labels = [{ name: "preview" }];
+	assert.equal(evaluate(workflow.jobs.ci.if, preview, {}), false);
+	assert.equal(evaluate(workflow.jobs.ci.name, preview, {}), "ci-deferred");
+	assert.equal(evaluate(workflow.jobs.prepare.if, preview, {}), false);
+	assert.equal(evaluate(workflow.jobs.built.if, preview, {}), false);
 });
 it("roundtrips only generated build bytes and replaces stale generated output", (t) => {
 	const f = fixture(t);
