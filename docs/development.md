@@ -185,8 +185,11 @@ The dispatcher lives in this clone's Git common directory, shared only by its
 linked worktrees. It registers pre-commit and pre-push. The complete hook/library/setup/scanner
 bundle must match current reviewed `origin/main`, or a deliberately approved exact
 bundle digest. Missing files, symlinks, unreviewed modes and a foreign origin fail
-closed. The dispatcher executes a verified snapshot, then runs quality scripts in
-the committing checkout. Re-run reviewed setup after changing tool setup on main.
+closed. For pre-commit and Cursor the dispatcher executes a verified snapshot, then
+runs quality scripts in the committing checkout. Pre-push runs gitleaks from the
+installed snapshot's own dispatcher and library without re-verifying it on each
+push; it never runs the branch's files. Re-run reviewed setup after changing tool
+setup on main.
 
 This is hook-registration integrity, not a sandbox. Never check out or execute
 third-party/fork PR code in a trusted clone; review its diff through GitHub. Do not
