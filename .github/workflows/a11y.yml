@@ -1,6 +1,6 @@
 name: Accessibility
 # The full axe audit of every built page at both widths. PR CI audits only the
-# sample in scripts/accessibility-pages.mjs; this post-merge and daily run reports
+# sample in monitoring/accessibility-pages.mjs; this post-merge and daily run reports
 # to shared-infra's /shared-infra/scheduled-checks log group, which alarms on error
 # lines and on a missing daily heartbeat (docs/accessibility.md).
 run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.synthetic_violation && format('Accessibility audit {0} (synthetic violation)', github.sha) || format('Accessibility audit {0}', github.sha) }}
@@ -103,4 +103,4 @@ jobs:
           A11Y_ARTIFACT_ID: ${{ needs.audit.outputs.artifact-id }}
           A11Y_RESULTS: ${{ runner.temp }}/a11y/accessibility-results.json
           A11Y_SYNTHETIC: ${{ github.event_name == 'workflow_dispatch' && inputs.synthetic_violation && 'true' || 'false' }}
-        run: node scripts/accessibility-report.mjs
+        run: node monitoring/accessibility-report.mjs

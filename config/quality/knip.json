@@ -5,6 +5,7 @@
 		"src/**/*.test.ts",
 		"src/**/*.test.mjs",
 		"scripts/**/*.mjs",
+		"monitoring/**/*.mjs",
 		"api/**/*.mjs"
 	],
 	"ignore": ["legacy/blogthedata/public/**"],

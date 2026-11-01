@@ -1,11 +1,11 @@
 import assert from "node:assert/strict";
 import { fileURLToPath } from "node:url";
 import { it } from "vitest";
-import { smokeEvents } from "../production-smoke-report.mjs";
+import { smokeEvents } from "../../monitoring/production-smoke-report.mjs";
 import { callShape, eventsOf, fakeAwsCli, sentTo } from "./fake-aws-cli.mjs";
 
 const SCRIPT = fileURLToPath(
-	new URL("../production-smoke-report.mjs", import.meta.url),
+	new URL("../../monitoring/production-smoke-report.mjs", import.meta.url),
 );
 const RELEASE = "e".repeat(40);
 const run = {

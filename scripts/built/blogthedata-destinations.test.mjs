@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { it } from "vitest";
+import { destinationsPlan } from "../../monitoring/verify-blogthedata-cutover.mjs";
 import { readLegacyJson } from "../blogthedata-redirects.mjs";
-import { destinationsPlan } from "../verify-blogthedata-cutover.mjs";
 import { DIST, distFileFor, distFiles } from "./pages.mjs";
 
 // Plan §4.2: every 301 destination in legacy/blogthedata/url-map.json must be

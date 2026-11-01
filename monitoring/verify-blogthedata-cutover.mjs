@@ -27,7 +27,7 @@
 //     preview, vercel-curl) and C1 (production).
 //   <url> is an https origin (http only for a loopback stub, as in the tests).
 //
-// Transports (scripts/verify-blogthedata-transports.mjs), which apply to the
+// Transports (monitoring/verify-blogthedata-transports.mjs), which apply to the
 // --base-url requests only:
 //   fetch (default): Node fetch with `redirect: "manual"`. `--bypass-env NAME`
 //     sends the Protection Bypass for Automation secret held in environment
@@ -96,8 +96,12 @@ import {
 	probePaths,
 	readLegacyJson,
 	SERVICE_WORKER_HEADERS,
-} from "./blogthedata-redirects.mjs";
-import { DAY_MS, fieldLines, securityTxtExpires } from "./site-files.mjs";
+} from "../scripts/blogthedata-redirects.mjs";
+import {
+	DAY_MS,
+	fieldLines,
+	securityTxtExpires,
+} from "../scripts/site-files.mjs";
 import {
 	curlArgs,
 	fetchTransport,
@@ -144,7 +148,7 @@ export const GROUP = Object.freeze({
 	destination: "destination 200",
 	securityTxt: "security.txt",
 });
-const USAGE = `usage: node scripts/verify-blogthedata-cutover.mjs
+const USAGE = `usage: node monitoring/verify-blogthedata-cutover.mjs
   --production [--sample]
   --base-url <url> [--transport fetch|vercel-curl] [--bypass-env NAME]
   --destinations-only --base-url <url> [--transport fetch|vercel-curl] [--bypass-env NAME]`;

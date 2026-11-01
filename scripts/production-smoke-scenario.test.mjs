@@ -1,15 +1,15 @@
 import assert from "node:assert/strict";
 import { chromium } from "playwright";
 import { afterAll, beforeAll, it } from "vitest";
-import { createClientErrorHandler } from "../src/lib/client-error-server.mjs";
-import { createCloudWatchRecorder } from "../src/lib/client-error-sink.mjs";
 import {
 	productionUrl,
 	serviceWorker,
 	smoke,
 	verifyClientErrorForwarding,
 	verifyRelease,
-} from "./production-smoke-scenario.mjs";
+} from "../monitoring/production-smoke-scenario.mjs";
+import { createClientErrorHandler } from "../src/lib/client-error-server.mjs";
+import { createCloudWatchRecorder } from "../src/lib/client-error-sink.mjs";
 
 const STALE_RELEASE = /Canonical site must serve the intended release/u;
 const FORWARDING_BROKEN = /client-error forwarding reaches CloudWatch/u;

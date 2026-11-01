@@ -6,7 +6,7 @@ import { eventsOf, fakeAwsCli } from "./fake-aws-cli.mjs";
 const ONE_ERROR_REPORTED = /\{"errors":1\}/u;
 const UNSAFE_LEFT = /[\n\u202e]/u;
 const WRITER = fileURLToPath(
-	new URL("../scheduled-check-report.mjs", import.meta.url),
+	new URL("../../monitoring/scheduled-check-report.mjs", import.meta.url),
 );
 
 // A future reporter that forgets to bound its events still cannot send raw text

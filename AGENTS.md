@@ -80,7 +80,7 @@ npm run redirects:check     # fail when legacy/blogthedata/vercel.json differs f
 npm run recipes:sync        # regenerate public/recipes/data/recipe-library.{json,md} from recipes.json
 npm run recipes:check       # fail when public/recipes/data differs from what recipes.json generates
 npm run check:a11y          # axe audit of every built page at 1280 and 390 px (after build; docs/accessibility.md)
-npm run check:a11y:sample   # the PR CI axe sample: one page per template (scripts/accessibility-pages.mjs)
+npm run check:a11y:sample   # the PR CI axe sample: one page per template (monitoring/accessibility-pages.mjs)
 ```
 
 ## Tests
@@ -163,7 +163,7 @@ Read [docs/recipes.md](docs/recipes.md) before changing recipe data, assistant d
 - **`url-union.json`** records every known old path, its evidence and whether it was served 200 in the frozen source. See Invariants for the redirect edit flow.
 - **`public/`** holds only `404.html`, `robots.txt`, `.well-known/security.txt` (the site files policy above) and the two kill-switch service workers.
 - **`fragment-ids.json`:** the fragment ids each old page offered, generated from the frozen awesome-blog build at C0. The manifest records its source SHA; temporary generation tools are retired.
-- **Cutover verifier:** `scripts/verify-blogthedata-cutover.mjs` checks the live hosts against `url-map.json` and `url-union.json` at cutover and daily after it through `.github/workflows/legacy-redirects.yml`; its transports live in `scripts/verify-blogthedata-transports.mjs`. It is not part of the gate and imports the repo's own modules, so it needs `npm ci` first. Its header lists the modes (`--production`, `--production --sample`, `--base-url`, `--destinations-only --base-url`) and the `--transport fetch|vercel-curl` and `--bypass-env NAME` options (NAME holds the bypass secret, which is never printed). A `--base-url` must be https; http is allowed only for a loopback stub. Agents never run its `--transport vercel-curl` mode (John only).
+- **Cutover verifier:** `monitoring/verify-blogthedata-cutover.mjs` checks the live hosts against `url-map.json` and `url-union.json` at cutover and daily after it through `.github/workflows/legacy-redirects.yml`; its transports live in `monitoring/verify-blogthedata-transports.mjs`. It is not part of the gate and imports the repo's own modules, so it needs `npm ci` first. Its header lists the modes (`--production`, `--production --sample`, `--base-url`, `--destinations-only --base-url`) and the `--transport fetch|vercel-curl` and `--bypass-env NAME` options (NAME holds the bypass secret, which is never printed). A `--base-url` must be https; http is allowed only for a loopback stub. Agents never run its `--transport vercel-curl` mode (John only).
 - **Source freeze:** C0 retired the temporary import/generation tools and their tests. `url-map.json` and `fragment-ids.json` retain the frozen source SHA, also recorded in `docs/legacy-redirects.md`. Historical tools remain in Git history; publishing continues through the destination workflow after cutover.
 
 ## Invariants
@@ -224,22 +224,22 @@ errors. Preserve native fallbacks and recipe printing when those views change.
 The **Production smoke** workflow is a separate post-deployment gate. It waits
 for the intended production release and verifies the public browser flow with
 `npm run smoke:production`. The URL is pinned in
-`scripts/production-smoke-scenario.mjs`; the workflow uses no deployment secrets.
+`monitoring/production-smoke-scenario.mjs`; the workflow uses no deployment secrets.
 Vercel Git deployment and the existing PR CI checks remain unchanged.
 
 The browser scenario is GET only, runs at a phone width with service workers
-blocked, and lists its steps at the top of `scripts/production-smoke-scenario.mjs`.
+blocked, and lists its steps at the top of `monitoring/production-smoke-scenario.mjs`.
 Separately, `scripts/production-acceptance.test.mjs` posts one info-level
 forwarding probe to `/api/client-error/` and requires `204`, proving browser
 error reports still reach CloudWatch (`docs/client-errors.md`). The
-runner, `scripts/production-smoke.mjs`, is maintained in this repository.
+runner, `monitoring/production-smoke.mjs`, is maintained in this repository.
 Review runner changes with the scenario contracts and built-site smoke suite.
 `scripts/built/production-smoke.test.mjs` runs it through the runner against
 the built site, and fails if any request it makes is not a GET.
 
 Daily and manual runs on `main` then report to shared-infra's
 `/shared-infra/scheduled-checks` log group through OIDC
-(`scripts/production-smoke-report.mjs`): when the report reaches CloudWatch, a
+(`monitoring/production-smoke-report.mjs`): when the report reaches CloudWatch, a
 failed run writes one `check-failed` error that emails John, and every run writes a
 heartbeat whose absence for about 30 hours does too. The report job is
 `continue-on-error`, so the smoke job alone decides the run's conclusion.

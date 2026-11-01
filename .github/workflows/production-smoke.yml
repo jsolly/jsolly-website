@@ -126,4 +126,4 @@ jobs:
         env:
           SMOKE_JOB_RESULT: ${{ needs.smoke.result }}
           SMOKE_RELEASE_SHA: ${{ needs.smoke.outputs.release-sha }}
-        run: node scripts/production-smoke-report.mjs
+        run: node monitoring/production-smoke-report.mjs
