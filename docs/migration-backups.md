@@ -15,7 +15,7 @@ protection, stack policy, Object Lock, versioning and private access enabled.
 Vercel builds and website releases do not deploy this stack.
 `gate/check-migration-backups.py` checks that contract against the checkout;
 `python3 gate/check-migration-backups.py` runs it directly. The gate's Python
-suite runs `scripts/test-migration-backups.py`, including negative cases for
+suite runs `tests/test-migration-backups.py`, including negative cases for
 expiration, replacement and weakened retention/protection.
 
 ## Backup and recovery

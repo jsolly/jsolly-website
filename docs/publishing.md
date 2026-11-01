@@ -105,7 +105,7 @@ with linting still on. Do not reformat those files by hand.
 Check the PR diff for accidental frontmatter or body rewrites. Run `npm run gate`
 and preview the build locally (`npm run build && npm run preview`). A draft must
 be absent from every route, the archive, search, the feeds, the sitemap and
-client data; `scripts/built/blog-content-contracts.test.mjs` builds a real draft
+client data; `tests/built/blog-content-contracts.test.mjs` builds a real draft
 and checks that. Set `draft` to false only when ready. Review image
 accessibility, the canonical URL, the category, the article, and the search and
 feed entries, then merge after green CI. Branch pushes create no Vercel Preview;

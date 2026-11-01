@@ -8,7 +8,7 @@ import fs from "node:fs";
 import { dirname, isAbsolute, join, relative } from "node:path";
 import { gunzipSync, gzipSync } from "node:zlib";
 
-const BUILT_FILE = /^scripts\/built\/[a-z0-9-]+\.test\.mjs$/u;
+const BUILT_FILE = /^tests\/built\/[a-z0-9-]+\.test\.mjs$/u;
 const SHA = /^[0-9a-f]{40}$/u;
 const POSITIVE = /^[1-9][0-9]*$/u;
 const digest = (bytes) => createHash("sha256").update(bytes).digest("hex");

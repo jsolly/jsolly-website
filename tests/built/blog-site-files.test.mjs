@@ -127,7 +127,7 @@ it("crawlers are kept off only the noindex blog search, which the sitemap leaves
 });
 
 // The file checks (valid fields, Expires, both hosts expiring together) are
-// in scripts/unit/site-files.test.mjs; this checks what security.txt and the
+// in tests/unit/site-files.test.mjs; this checks what security.txt and the
 // legacy /pgp-key.txt redirect (SEC-001) point at is in the build.
 it("security researchers reach the security.txt URLs, the contact page and the kept /pgp-key.txt", async () => {
 	const missing = await Promise.all(

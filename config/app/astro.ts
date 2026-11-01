@@ -182,7 +182,7 @@ export default defineConfig({
 
 	// Astro 7's default "jsx" mode drops line-break whitespace next to elements,
 	// gluing prose to inline links and code spans; `true` compresses losslessly.
-	// scripts/built/inline-spacing.test.mjs guards the rendered text.
+	// tests/built/inline-spacing.test.mjs guards the rendered text.
 	compressHTML: true,
 
 	// Astro hashes its generated island bootstrap in each built page.

@@ -4,7 +4,7 @@
 		"middleware.ts",
 		"src/**/*.test.ts",
 		"src/**/*.test.mjs",
-		"scripts/**/*.mjs",
+		"tests/**/*.mjs",
 		"gate/**/*.mjs",
 		"monitoring/**/*.mjs",
 		"build/**/*.mjs",

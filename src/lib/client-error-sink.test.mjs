@@ -33,7 +33,7 @@ it("writes the structured error shape shared-infra's enricher and metric filter 
 });
 
 it("writes the forwarding probe as an info line the error metric filter cannot count", () => {
-	// The stack's metric filter is { $.level = "error" } (scripts/unit/client-errors-stack.test.mjs).
+	// The stack's metric filter is { $.level = "error" } (tests/unit/client-errors-stack.test.mjs).
 	assert.deepEqual(
 		JSON.parse(
 			clientErrorLogLine({

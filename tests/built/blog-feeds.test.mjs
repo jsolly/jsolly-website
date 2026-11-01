@@ -9,7 +9,7 @@ import { publishedPosts, readBuilt } from "./pages.mjs";
 // awesome-blog's astro-contract test "feeds follow current published metadata
 // and retain canonical identities", re-pathed to /blog/{rss,atom}.xml with
 // links on jsolly.com; the second is plan §4.7 (decision J8), whose
-// Content-Type half is scripts/unit/vercel-headers.test.mjs. Expectations
+// Content-Type half is tests/unit/vercel-headers.test.mjs. Expectations
 // come from the post frontmatter and url-map.json, never from the feed code
 // under test.
 const DIST = "dist";

@@ -1,4 +1,4 @@
-// The site model and link checkers behind scripts/built/internal-links.test.mjs
+// The site model and link checkers behind tests/built/internal-links.test.mjs
 // (plan §4.3). readSite reads a built dist/ once: every file path (exact
 // case, from distFiles) and the text of every file the checks read, with each
 // HTML page parsed once. buildSite does the same for an in-memory fixture.

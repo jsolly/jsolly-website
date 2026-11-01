@@ -230,7 +230,7 @@ before(async () => {
 				"--cache=false",
 				"--config",
 				"config/testing/vitest.config.mjs",
-				"scripts/built/blog-images.test.mjs",
+				"tests/built/blog-images.test.mjs",
 			],
 			{ TEST_SUITE: "built" },
 		),

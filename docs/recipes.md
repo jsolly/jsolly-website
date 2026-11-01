@@ -37,7 +37,7 @@ changes still require `npm run gate`. The full gate always disables preview mode
 ## Data contract
 
 The canonical data is `src/components/recipes/recipes.json` (136 keto meals and 4
-keto smoothies, pinned by `scripts/unit/recipe-data.test.mjs`) and `src/components/recipes/nutrition-data.json` (the
+keto smoothies, pinned by `tests/unit/recipe-data.test.mjs`) and `src/components/recipes/nutrition-data.json` (the
 Daily Value nutrients and each recipe's per-ingredient nutrient rows). Recipe
 ids are stable: each is a page slug (`/recipes/<id>/`) and a legacy fragment id.
 Old blogthedata.com links use both. To accommodate those legacy links,
@@ -708,7 +708,7 @@ which adds `Content-Type: application/javascript` and `Cache-Control: no-cache`.
 
 The kill-switch files are never removed while the old host is served: a browser
 that has not yet made its update check would otherwise keep serving the old
-cached recipe pages. `scripts/built/blogthedata-killswitch.test.mjs` proves both
+cached recipe pages. `tests/built/blogthedata-killswitch.test.mjs` proves both
 retirements in Chromium across two origins. Visitors who had the old app
 installed install the new one from `/recipes/`.
 

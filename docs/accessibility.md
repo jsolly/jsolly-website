@@ -26,7 +26,7 @@ review. Passing axe does not certify accessibility. Rebuild after source changes
   an image attribution caption), from `SAMPLE` in
   `monitoring/accessibility-pages.mjs`, at both widths. Violations fail required
   `ci`. The `accessibility-results` artifact keeps the report.
-  `scripts/built/accessibility-sample.test.mjs` fails when a sampled route is no
+  `tests/built/accessibility-sample.test.mjs` fails when a sampled route is no
   longer a built page, a `src/pages` template has no sampled route, or a recipe,
   category or post variant drops out; add or rename the entry in `SAMPLE` in the
   same change. It also audits `/about/` with the real script and checks that the
@@ -73,7 +73,7 @@ messages come from a fixed set in the script; the audit's own error text stays i
 the run's artifact, because GitHub's secret masking does not apply to these lines
 and they are quoted into alert email. Every string is one line of well-formed
 text of at most 500 characters, without control or format characters.
-`scripts/workflow-contracts.test.mjs` keeps `id-token: write` to the two
+`tests/workflow-contracts.test.mjs` keeps `id-token: write` to the two
 scheduled-check `report` jobs: this workflow's, on push, schedule and dispatch
 runs of `main`, and Production smoke's ([shared-infra fields](shared-infra.md)). shared-infra owns
 the log group, role, metric filters and alarms. Error lines raise
