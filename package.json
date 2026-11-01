@@ -6,6 +6,7 @@
 		"node": "24.x"
 	},
 	"scripts": {
+		"assets": "node --use-env-proxy --import ./build/register-ts-from-js.mjs scripts/assets/cli.ts",
 		"worktree:init": "bash gate/setup-agent-environment.sh",
 		"dev": "astro dev --config config/app/astro.ts",
 		"build": "astro build --config config/app/astro.ts && node --import ./build/register-ts-from-js.mjs build/markdown-build.mjs && node build/recipes/pwa-build.mjs && node scripts/run-tests.mjs csp",
@@ -13,7 +14,7 @@
 		"preview": "astro preview --config config/app/astro.ts",
 		"lint": "biome lint --config-path=config/quality/biome.settings.jsonc --no-errors-on-unmatched",
 		"format": "biome format --config-path=config/quality/biome.settings.jsonc --no-errors-on-unmatched --write",
-		"check:ts": "astro check --config config/app/astro.ts --minimumSeverity error --minimumFailingSeverity error && svelte-check --tsconfig ./tsconfig.json --threshold error && tsc --project config/typescript/recipe-domain.json",
+		"check:ts": "astro check --config config/app/astro.ts --minimumSeverity error --minimumFailingSeverity error && svelte-check --tsconfig ./tsconfig.json --threshold error && tsc --project config/typescript/recipe-domain.json && tsc -p config/typescript/assets.json",
 		"check:knip": "knip --config config/quality/knip.json --no-progress",
 		"test": "node scripts/run-tests.mjs unit",
 		"test:python": "uvx --from pytest==9.1.1 pytest -c config/testing/pytest.ini",
