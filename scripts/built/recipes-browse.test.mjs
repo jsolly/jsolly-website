@@ -6,7 +6,7 @@ import { collectErrors, serveStatic } from "./pages.mjs";
 import { assertPrintLayout } from "./recipe-print-layout.mjs";
 
 // Browsing the built recipe library in Chromium, ported from awesome-blog's
-// PWA suite (src/components/recipes/tools/pwa.test.mjs) without its service worker: a meal
+// PWA suite (awesome-blog scripts/recipes/pwa.test.mjs) without its service worker: a meal
 // and a smoothie page with and without JavaScript, share links, the keto recipe library
 // filters and their saved settings (J13: localStorage recipes-settings-v1),
 // and the meals and smoothies pages without JavaScript plus the nutrition

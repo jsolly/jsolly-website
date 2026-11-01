@@ -18,7 +18,7 @@ import { buildRecipePwa } from "../../build/recipes/pwa-build.mjs";
 import { serveStatic } from "./pages.mjs";
 
 // The recipe app offline, ported from awesome-blog's PWA suite
-// (src/components/recipes/tools/pwa.test.mjs): it installs and the cooking tools work
+// (awesome-blog scripts/recipes/pwa.test.mjs): it installs and the cooking tools work
 // offline at a desktop and a phone width, an update waits until every recipe
 // tab closes, and a failed download keeps the previous snapshot or claims no
 // readiness, while a maintenance deploy (no worker) leaves the installed app

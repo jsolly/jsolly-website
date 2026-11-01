@@ -772,7 +772,7 @@ await write("src/components/recipes/nutrition-data.json", nutrition);
 await write("src/components/recipes/ingredient-weights.json", weights);
 // Keep reruns byte-stable with the repository's committed JSON format.
 const formatter = spawn(
-	fileURLToPath(new URL("../../node_modules/.bin/biome", import.meta.url)),
+	fileURLToPath(new URL("node_modules/.bin/biome", ROOT)),
 	[
 		"format",
 		"--write",
