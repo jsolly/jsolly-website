@@ -85,13 +85,14 @@ function registerPillTest(width) {
 					`${id} page`,
 				);
 				await uniformPillText(page, page.locator(".recipe-detail"));
-				assert.equal(
-					await page
-						.locator(".recipe-detail")
-						.getByRole("button", { name: "Print recipe", exact: true })
-						.count(),
-					1,
-				);
+				// The page is visibility:hidden until preferences load, and Button's
+				// transition-all carries that hidden state for a moment after the reveal,
+				// so an immediate getByRole count can miss the button.
+				const printButton = page
+					.locator(".recipe-detail")
+					.getByRole("button", { name: "Print recipe", exact: true });
+				await printButton.waitFor();
+				assert.equal(await printButton.count(), 1);
 				assert.equal(
 					await page.getByRole("button", { name: DOWNLOAD_BUTTON }).count(),
 					0,
