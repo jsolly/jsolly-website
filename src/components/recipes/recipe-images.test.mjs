@@ -3,11 +3,11 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { it } from "vitest";
+import data from "./recipe-data.server.mjs";
 import {
 	validateRecipeImage,
 	webpDimensions,
-} from "../../../scripts/recipes/image-contract.mjs";
-import data from "./recipe-data.server.mjs";
+} from "./tools/image-contract.mjs";
 
 const recipes = data.recipes;
 const publicRoot = fileURLToPath(new URL("../../../public/", import.meta.url));

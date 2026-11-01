@@ -14,7 +14,7 @@ import {
 	auditNutrition,
 	energyAudit,
 	ingredientFatAudit,
-} from "../recipes/audit-nutrition.mjs";
+} from "../../src/components/recipes/tools/audit-nutrition.mjs";
 
 const FAT_GRAMS = /fat: [\d.]+ g/u;
 

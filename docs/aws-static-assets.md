@@ -13,7 +13,7 @@ Astro island props and JSON-LD, excluding prose/code examples and external image
 It fails on missing source bytes; it does not silently discard missing images.
 Only raster images in `/blog/media/`, `/recipes/media/` and `/images/` qualify.
 
-At main `da016875febb3d189c72f16a89dd46de10d5646f`:
+At main `22008ddf8c5bf9f46fe7033efd246c8e2dba3f82`:
 
 | Scope | Tracked files | Bytes | Published candidates | Candidate bytes |
 | --- | ---: | ---: | ---: | ---: |

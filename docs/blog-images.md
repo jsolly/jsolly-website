@@ -15,14 +15,14 @@ not authorize retiring their bucket, distribution or backup resources.
 Run the integrity and coverage check without network access or image tools:
 
 ```bash
-python3 scripts/blog/migrate-images.py --check
+python3 src/lib/blog/migrate-images.py --check
 ```
 
 To reproduce the initial conversion in an unmodified pre-migration checkout,
 install curl, ImageMagick 7 and Inkscape, then supply an external original-image cache:
 
 ```bash
-python3 scripts/blog/migrate-images.py --write --cache /absolute/external/cache
+python3 src/lib/blog/migrate-images.py --write --cache /absolute/external/cache
 ```
 
 The command inherits the session proxy and CA trust, accepts only the inventoried
