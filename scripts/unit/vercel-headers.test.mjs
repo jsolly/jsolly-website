@@ -1,8 +1,11 @@
 import assert from "node:assert/strict";
 import { it } from "vitest";
+import {
+	rootVercelRoutes,
+	routePath,
+} from "../../build/blogthedata-redirects.mjs";
 import { PWA_WORKER_PATH } from "../../src/components/recipes/constants.mjs";
 import { FEEDS } from "../../src/lib/blog/constants.js";
-import { rootVercelRoutes, routePath } from "../blogthedata-redirects.mjs";
 
 // Headers a static build cannot set, which only vercel.json gives: the feeds'
 // XML types (plan §4.7) and the recipe service worker's no-cache. The root

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { it } from "vitest";
-import { parseDirectives, readHeaderPolicy } from "../csp.mjs";
+import { parseDirectives, readHeaderPolicy } from "../../build/csp.mjs";
 
 function sortedSources(directives) {
 	return new Map(

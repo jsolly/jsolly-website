@@ -96,12 +96,12 @@ import {
 	probePaths,
 	readLegacyJson,
 	SERVICE_WORKER_HEADERS,
-} from "../scripts/blogthedata-redirects.mjs";
+} from "../build/blogthedata-redirects.mjs";
 import {
 	DAY_MS,
 	fieldLines,
 	securityTxtExpires,
-} from "../scripts/site-files.mjs";
+} from "../build/site-files.mjs";
 import {
 	curlArgs,
 	fetchTransport,

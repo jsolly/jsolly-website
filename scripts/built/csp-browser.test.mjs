@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
-import { readHeaderPolicy } from "../csp.mjs";
+import { readHeaderPolicy } from "../../build/csp.mjs";
 import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
 
 // Plan §4.4(c): the built pages under both policies a browser enforces in

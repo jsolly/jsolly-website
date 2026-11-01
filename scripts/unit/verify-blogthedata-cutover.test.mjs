@@ -6,6 +6,19 @@ import { extname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { it } from "vitest";
 import {
+	compileRoutes,
+	JSOLLY_ORIGIN,
+	LEGACY_DIR,
+	readLegacyJson,
+	routePath,
+	SERVICE_WORKER_HEADERS,
+} from "../../build/blogthedata-redirects.mjs";
+import {
+	DAY_MS,
+	fieldLines,
+	securityTxtExpires,
+} from "../../build/site-files.mjs";
+import {
 	destinationsPlan,
 	fullPlan,
 	GROUP,
@@ -18,15 +31,6 @@ import {
 } from "../../monitoring/verify-blogthedata-cutover.mjs";
 import { fetchTransport } from "../../monitoring/verify-blogthedata-transports.mjs";
 import { FEEDS } from "../../src/lib/blog/constants.js";
-import {
-	compileRoutes,
-	JSOLLY_ORIGIN,
-	LEGACY_DIR,
-	readLegacyJson,
-	routePath,
-	SERVICE_WORKER_HEADERS,
-} from "../blogthedata-redirects.mjs";
-import { DAY_MS, fieldLines, securityTxtExpires } from "../site-files.mjs";
 
 // The verifier runs against local stub servers only: one answers as the
 // legacy project would (Vercel's own compiled routes over the real

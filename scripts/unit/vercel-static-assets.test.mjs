@@ -3,7 +3,7 @@ import { it } from "vitest";
 import {
 	deploymentAssetPin,
 	pinStylesheets,
-} from "../vercel-static-assets.mjs";
+} from "../../build/vercel-static-assets.mjs";
 
 const SKEW_PROTECTION = /Skew Protection/u;
 const DEPLOYMENT_ID = /VERCEL_DEPLOYMENT_ID/u;

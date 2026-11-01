@@ -14,7 +14,7 @@ import { fileURLToPath } from "node:url";
 import { build } from "esbuild";
 import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before } from "vitest";
-import { buildRecipePwa } from "../recipes/pwa-build.mjs";
+import { buildRecipePwa } from "../../build/recipes/pwa-build.mjs";
 import { serveStatic } from "./pages.mjs";
 
 // The recipe app offline, ported from awesome-blog's PWA suite
@@ -218,7 +218,7 @@ function setupRecipePwaFixture(variants = []) {
 		snapshots.C = await snapshot("C");
 		if (extras.has("legacy")) {
 			// Frozen deployed worker source from 7ba3b818e40043f67858d5e70e9b8866e079aaea,
-			// scripts/recipes/service-worker.js. Keep its lack of message handshakes
+			// build/recipes/service-worker.js. Keep its lack of message handshakes
 			// and client metadata intact. New-client A HTML represents the first reopen
 			// needed by users whose original old document has no update detector.
 			const legacy = join(fixture, "legacy");
