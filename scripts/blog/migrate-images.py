@@ -5,6 +5,8 @@ Requires curl, ImageMagick 7 and Inkscape for --write. --check uses only the Pyt
 library and the committed SHA-256 receipts. Originals stay in the external cache;
 this command does not delete or change the retained AWS resources.
 """
+from __future__ import annotations
+
 import argparse
 from concurrent.futures import ThreadPoolExecutor
 import hashlib
@@ -13,6 +15,93 @@ from pathlib import Path
 import re
 import subprocess
 from urllib.parse import quote
+from typing import TypedDict, TypeGuard, cast
+
+
+class Candidate(TypedDict):
+    path: str
+    width: int
+    height: int
+    frames: int
+    durationCentiseconds: int
+    bytes: int
+    sha256: str
+
+
+class MigratedImage(TypedDict):
+    source: str
+    sha256: str
+    bytes: int
+    width: int
+    height: int
+    frames: int
+    durationCentiseconds: int
+    variants: list[Candidate]
+
+
+class ImageReceipt(TypedDict):
+    images: list[MigratedImage]
+
+
+class Receipt(ImageReceipt):
+    version: int
+    converter: str
+    policy: str
+    authoredReferences: int
+
+
+class Attributes(TypedDict):
+    src: str
+    srcset: str
+    width: int
+    height: int
+
+
+
+class Options(argparse.Namespace):
+    check: bool
+    write: bool
+    cache: Path | None
+
+
+def read_variants() -> dict[str, Attributes]:
+    value: object = json.loads(VARIANTS.read_text())
+    if (not isinstance(value, dict)
+            or not all(isinstance(key, str) for key in value)
+            or not all(isinstance(item, dict)
+                       and isinstance(item.get("src"), str)
+                       and isinstance(item.get("srcset"), str)
+                       and type(item.get("width")) is int
+                       and type(item.get("height")) is int
+                       for item in value.values())):
+        raise ValueError("Invalid runtime variant manifest shape")
+    return cast(dict[str, Attributes], value)
+
+
+def is_candidate(value: object) -> TypeGuard[Candidate]:
+    return (isinstance(value, dict)
+            and all(isinstance(value.get(key), str) for key in ("path", "sha256"))
+            and all(type(value.get(key)) is int for key in
+                    ("width", "height", "frames", "durationCentiseconds", "bytes")))
+
+
+def is_image(value: object) -> TypeGuard[MigratedImage]:
+    return (isinstance(value, dict)
+            and all(isinstance(value.get(key), str) for key in ("source", "sha256"))
+            and all(type(value.get(key)) is int for key in
+                    ("width", "height", "frames", "durationCentiseconds", "bytes"))
+            and isinstance(value.get("variants"), list)
+            and all(is_candidate(candidate) for candidate in value["variants"]))
+
+
+def read_receipt() -> ImageReceipt:
+    value: object = json.loads(RECEIPT.read_text())
+    if (not isinstance(value, dict)
+            or not isinstance(value.get("images"), list)
+            or not all(is_image(image) for image in value["images"])):
+        raise ValueError("Invalid migration receipt shape")
+    # The full structure is checked above, including every nested candidate.
+    return cast(ImageReceipt, value)
 
 ROOT = Path(__file__).resolve().parents[2]
 POSTS = ROOT / "src/content/blog/posts"
@@ -25,20 +114,20 @@ MARKDOWN_IMAGE = re.compile(r"(!\[[^\]]*\]\()([^\s)]+)")
 SIZES = (480, 960, 1440)
 
 
-def digest(data):
+def digest(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
-def run(*args):
+def run(*args: str) -> str:
     return subprocess.run(args, check=True, text=True, capture_output=True).stdout
 
 
-def authored_sources(text):
+def authored_sources(text: str) -> list[str]:
     hero = HERO.search(text)
     return ([hero[1]] if hero else []) + [match[3] for match in IMAGE_SRC.finditer(text)] + [match[2] for match in MARKDOWN_IMAGE.finditer(text)]
 
 
-def dimensions(path):
+def dimensions(path: Path) -> tuple[int, int, int]:
     rows = run("magick", "identify", "-ping", "-format", "%w %h %n\n", str(path)).splitlines()
     width, height, frames = map(int, rows[0].split())
     if width < 1 or height < 1 or width * height > 100_000_000:
@@ -46,11 +135,11 @@ def dimensions(path):
     return width, height, frames
 
 
-def duration(path):
+def duration(path: Path) -> int:
     return sum(int(value) for value in run("magick", "identify", "-format", "%T\n", str(path)).splitlines())
 
 
-def webp_canvas(data):
+def webp_canvas(data: bytes) -> tuple[tuple[int, int], int, int]:
     if data[:4] != b"RIFF" or data[8:12] != b"WEBP" or int.from_bytes(data[4:8], "little") + 8 != len(data):
         raise ValueError("Invalid WebP container")
     canvas = None
@@ -79,10 +168,10 @@ def webp_canvas(data):
     return canvas, frames or 1, milliseconds
 
 
-def check(allow_originals=False):
-    receipt = json.loads(RECEIPT.read_text())
-    variants = json.loads(VARIANTS.read_text())
-    expected = {}
+def check(allow_originals: bool = False) -> None:
+    receipt = read_receipt()
+    variants = read_variants()
+    expected: dict[str, Attributes] = {}
     for image in receipt["images"]:
         candidates = image["variants"]
         widths = [candidate["width"] for candidate in candidates]
@@ -103,7 +192,7 @@ def check(allow_originals=False):
             if image["frames"] > 1 and milliseconds != image["durationCentiseconds"] * 10:
                 raise ValueError(f"Animation duration differs: {path}")
         fallback = next((candidate for candidate in reversed(candidates) if candidate["width"] <= 960), candidates[0])
-        attributes = {
+        attributes: Attributes = {
             "src": fallback["path"],
             "srcset": ", ".join(f"{candidate['path']} {candidate['width']}w" for candidate in candidates),
             "width": fallback["width"],
@@ -124,21 +213,22 @@ def check(allow_originals=False):
     print(f"Verified {refs} authored references, {len(receipt['images'])} original images, {len(variants)} responsive WebPs")
 
 
-def migrate(cache):
+def migrate(cache: Path) -> None:
     if RECEIPT.exists():
         # A receipt is written only after all converted assets are verified.
         # Repair an interrupted authored-file rewrite from that immutable mapping.
-        receipt = json.loads(RECEIPT.read_text())
-        runtime = {}
-        by_source = {}
+        receipt = read_receipt()
+        runtime: dict[str, Attributes] = {}
+        by_source: dict[str, Attributes] = {}
         for image in receipt["images"]:
             candidates = image["variants"]
             fallback = next((candidate for candidate in reversed(candidates) if candidate["width"] <= 960), candidates[0])
-            attributes = {"src": fallback["path"], "srcset": ", ".join(f"{candidate['path']} {candidate['width']}w" for candidate in candidates), "width": fallback["width"], "height": fallback["height"]}
+            attributes: Attributes = {"src": fallback["path"], "srcset": ", ".join(f"{candidate['path']} {candidate['width']}w" for candidate in candidates), "width": fallback["width"], "height": fallback["height"]}
             by_source[image["source"]] = attributes
             for candidate in candidates:
                 runtime[candidate["path"]] = attributes
-        if not VARIANTS.exists() or json.loads(VARIANTS.read_text()) != runtime:
+        current_variants: object = json.loads(VARIANTS.read_text()) if VARIANTS.exists() else None
+        if current_variants != runtime:
             VARIANTS.write_text(json.dumps(dict(sorted(runtime.items())), indent="\t") + "\n")
         check(allow_originals=True)
         rewrite_posts({path: path.read_text() for path in sorted(POSTS.glob("*.md"))}, by_source)
@@ -150,7 +240,7 @@ def migrate(cache):
         raise ValueError("Initial migration expects only the inventoried CloudFront media sources")
     cache.mkdir(parents=True, exist_ok=True)
 
-    def download(source):
+    def download(source: str) -> tuple[str, Path]:
         suffix = Path(source.split("?")[0]).suffix.lower()
         path = cache / f"{digest(source.encode())}{suffix}"
         if not path.exists():
@@ -168,10 +258,10 @@ def migrate(cache):
         downloaded = dict(pool.map(download, sources))
     output = ROOT / "public/blog/media/migrated"
     output.mkdir(parents=True, exist_ok=True)
-    images = []
+    images: list[MigratedImage] = []
     runtime = {}
-    local_by_source = {}
-    def convert(source):
+    local_by_source: dict[str, Attributes] = {}
+    def convert(source: str) -> tuple[MigratedImage, Attributes]:
         original = downloaded[source]
         original_digest = digest(original.read_bytes())
         conversion_input = original
@@ -182,7 +272,7 @@ def migrate(cache):
         width, height, frames = dimensions(conversion_input)
         centiseconds = duration(conversion_input)
         stem = f"image-{original_digest[:24]}"
-        candidates = []
+        candidates: list[Candidate] = []
         for size in sorted({min(width, target) for target in SIZES}):
             path = output / f"{stem}-{size}.webp"
             if not path.exists():
@@ -197,14 +287,14 @@ def migrate(cache):
             data = path.read_bytes()
             candidates.append({"path": f"/blog/media/migrated/{path.name}", "width": out_width, "height": out_height, "frames": out_frames, "durationCentiseconds": duration(path), "bytes": len(data), "sha256": digest(data)})
         fallback = next((candidate for candidate in reversed(candidates) if candidate["width"] <= 960), candidates[0])
-        attributes = {"src": fallback["path"], "srcset": ", ".join(f"{candidate['path']} {candidate['width']}w" for candidate in candidates), "width": fallback["width"], "height": fallback["height"]}
+        attributes: Attributes = {"src": fallback["path"], "srcset": ", ".join(f"{candidate['path']} {candidate['width']}w" for candidate in candidates), "width": fallback["width"], "height": fallback["height"]}
         return {"source": source, "sha256": original_digest, "bytes": original.stat().st_size, "width": width, "height": height, "frames": frames, "durationCentiseconds": centiseconds, "variants": candidates}, attributes
 
     # Identical source bytes share one conversion writer and one output family.
     source_hashes = {source: digest(path.read_bytes()) for source, path in downloaded.items()}
     unique = {value: source for source, value in source_hashes.items()}
     with ThreadPoolExecutor(max_workers=4) as pool:
-        converted = {}
+        converted: dict[str, tuple[MigratedImage, Attributes]] = {}
         for index, (image, attributes) in enumerate(pool.map(convert, unique.values())):
             converted[image["sha256"]] = image, attributes
             print(f"Converted {index + 1}/{len(unique)} image families", flush=True)
@@ -214,14 +304,14 @@ def migrate(cache):
         for candidate in image["variants"]:
             runtime[candidate["path"]] = attributes
         images.append({**image, "source": source})
-    receipt = {"version": 1, "converter": run("magick", "-version").splitlines()[0], "policy": "WebP quality 82, sRGB, orientation corrected, no crop or enlargement; retain animation timing; widths 480/960/1440 capped at original width", "authoredReferences": sum(len(authored_sources(text)) for text in posts.values()), "images": images}
-    RECEIPT.write_text(json.dumps(receipt, indent="\t") + "\n")
+    generated_receipt: Receipt = {"version": 1, "converter": run("magick", "-version").splitlines()[0], "policy": "WebP quality 82, sRGB, orientation corrected, no crop or enlargement; retain animation timing; widths 480/960/1440 capped at original width", "authoredReferences": sum(len(authored_sources(text)) for text in posts.values()), "images": images}
+    RECEIPT.write_text(json.dumps(generated_receipt, indent="\t") + "\n")
     VARIANTS.write_text(json.dumps(dict(sorted(runtime.items())), indent="\t") + "\n")
     rewrite_posts(posts, local_by_source)
     check()
 
 
-def rewrite_posts(posts, local_by_source):
+def rewrite_posts(posts: dict[Path, str], local_by_source: dict[str, Attributes]) -> None:
     # Prepare the complete replacement set before changing any authored bytes.
     replacements = {}
     for path, text in posts.items():
@@ -232,8 +322,8 @@ def rewrite_posts(posts, local_by_source):
             for field in ("width", "height"):
                 key = f"image{field.title()}"
                 text = re.sub(rf"^{key}: .+$", f"{key}: {attributes[field]}", text, flags=re.M)
-        text = IMAGE_SRC.sub(lambda match: f"{match[1]}{match[2]}{local_by_source.get(match[3], {'src': match[3]})['src']}{match[4]}", text)
-        text = MARKDOWN_IMAGE.sub(lambda match: f"{match[1]}{local_by_source.get(match[2], {'src': match[2]})['src']}", text)
+        text = IMAGE_SRC.sub(lambda match: f"{match[1]}{match[2]}{local_by_source[match[3]]['src'] if match[3] in local_by_source else match[3]}{match[4]}", text)
+        text = MARKDOWN_IMAGE.sub(lambda match: f"{match[1]}{local_by_source[match[2]]['src'] if match[2] in local_by_source else match[2]}", text)
         replacements[path] = text
     for path, text in replacements.items():
         if path.read_text() != text:
@@ -246,7 +336,7 @@ if __name__ == "__main__":
     group.add_argument("--check", action="store_true")
     group.add_argument("--write", action="store_true")
     parser.add_argument("--cache", type=Path)
-    options = parser.parse_args()
+    options = parser.parse_args(namespace=Options())
     if options.check:
         check()
     else:
