@@ -10,7 +10,7 @@ const OBSOLETE_ASSUMPTION =
 const CACHE_FILE = /^\d+\.json$/u;
 const foodId = (row) => Number(row.source?.match(FDC_URL)?.groups.id) || null;
 
-const ROOT = new URL("../../", import.meta.url);
+const ROOT = new URL("../../../../", import.meta.url);
 const MACROS = { kcal: 1008, protein_g: 1003, carbs_g: 1005, fiber_g: 1079 };
 const ALIASES = {
 	hemp: "hemp_hearts",
@@ -322,7 +322,7 @@ async function main() {
 	const [cache, output] = process.argv.slice(2);
 	if (!cache?.startsWith("/") || !output?.startsWith("/"))
 		throw new Error(
-			"Usage: node scripts/recipes/reconcile-nutrition.mjs /absolute/usda-cache /absolute/recipe-output.json",
+			"Usage: node src/components/recipes/tools/reconcile-nutrition.mjs /absolute/usda-cache /absolute/recipe-output.json",
 		);
 	const read = async (path) =>
 		JSON.parse(await readFile(new URL(path, ROOT), "utf8"));
@@ -345,9 +345,7 @@ async function main() {
 		foods.has(id)
 			? observedProfile(foods.get(id), nutrition.nutrients)
 			: undefined;
-	const { ingredientGrams } = await import(
-		"../../src/components/recipes/ingredient-units.mjs"
-	);
+	const { ingredientGrams } = await import("../ingredient-units.mjs");
 	const result = reconcileNutrition(nutrition, recipes, {
 		gramsForIngredient: (ingredient) =>
 			ingredientGrams({

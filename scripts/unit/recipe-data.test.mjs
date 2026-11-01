@@ -12,7 +12,10 @@ import {
 	RECIPES_PATH,
 } from "../../src/components/recipes/constants.mjs";
 import data from "../../src/components/recipes/recipe-data.server.mjs";
-import { drift, generate } from "../recipes/sync-assistant-data.mjs";
+import {
+	drift,
+	generate,
+} from "../../src/components/recipes/tools/sync-assistant-data.mjs";
 
 const PUBLIC = fileURLToPath(new URL("../../public", import.meta.url));
 const MEDIA_PREFIX = "/recipes/media/";

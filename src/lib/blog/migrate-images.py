@@ -14,7 +14,7 @@ import re
 import subprocess
 from urllib.parse import quote
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[3]
 POSTS = ROOT / "src/content/blog/posts"
 RECEIPT = ROOT / "docs/blog-image-migration.json"
 VARIANTS = ROOT / "src/lib/blog/image-variants.json"

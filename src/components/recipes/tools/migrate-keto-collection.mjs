@@ -3,10 +3,10 @@
 import { spawn } from "node:child_process";
 import { readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
-import { ingredientGrams } from "../../src/components/recipes/ingredient-units.mjs";
-import { validateFlow } from "../../src/components/recipes/trn-logic.mjs";
+import { ingredientGrams } from "../ingredient-units.mjs";
+import { validateFlow } from "../trn-logic.mjs";
 
-const ROOT = new URL("../../", import.meta.url);
+const ROOT = new URL("../../../../", import.meta.url);
 const ARCHIVE = "docs/recipes-archive/keto-2026-10-23/";
 const DATE = "2026-10-23";
 const PURE_SALT = /^(?:fine )?salt$/iu;
@@ -772,7 +772,7 @@ await write("src/components/recipes/nutrition-data.json", nutrition);
 await write("src/components/recipes/ingredient-weights.json", weights);
 // Keep reruns byte-stable with the repository's committed JSON format.
 const formatter = spawn(
-	fileURLToPath(new URL("../../node_modules/.bin/biome", import.meta.url)),
+	fileURLToPath(new URL("node_modules/.bin/biome", ROOT)),
 	[
 		"format",
 		"--write",

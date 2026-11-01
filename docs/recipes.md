@@ -150,7 +150,7 @@ records without deleting them. Direct older saved documents display a version
 notice and keep HTML and Markdown negotiation, including unsupported-Accept 406s.
 A shell update never relabels an old non-keto bundle or refreshes its ingredients.
 
-`node scripts/recipes/migrate-keto-collection.mjs` reproduces the migration from
+`node src/components/recipes/tools/migrate-keto-collection.mjs` reproduces the migration from
 the frozen baseline and reviewed calamari source data. Original publisher
 nutrition remains in provenance. Ingredient models, measured changes, food-state
 matches and conservative counted-oil/coating assumptions describe the current
@@ -196,11 +196,11 @@ its four-serving combined display and resolution status. Regenerate
 from this repository root after editing recipes or conversion references:
 
 ```bash
-node scripts/recipes/audit-units.mjs --write
+node src/components/recipes/tools/audit-units.mjs --write
 ```
 
 The unit suite rejects stale audit bytes and checks all recipes at every supported
-serving count, including legacy unit-preference compatibility. `node scripts/recipes/audit-units.mjs` also checks
+serving count, including legacy unit-preference compatibility. `node src/components/recipes/tools/audit-units.mjs` also checks
 the audit without writing it.
 
 `flow` stores the Tabular Recipe Notation operation tree: ingredient leaves with
@@ -243,7 +243,7 @@ are stored with the rows. No build or test calls a nutrition API. Each ingredien
 stores a snapshot of its canonical ingredient inputs; the unit suite rejects stale
 snapshots after a recipe edit. To revise a model, review its food record and edible
 gram assumptions, update the recorded per-100-g observations/grams and snapshots,
-then run `scripts/recipes/reconcile-nutrition.mjs` with the reviewed public FDC
+then run `src/components/recipes/tools/reconcile-nutrition.mjs` with the reviewed public FDC
 response cache and an output path for the reconciled recipe metadata. Its output
 keeps cooking data separate from the nutrition metadata merge. Complete fields
 sum `macros[field] × grams / 100` across rows and divide by four; incomplete
@@ -280,7 +280,7 @@ Recipes with missing observations do not gain a pill from those observations.
 
 ### Fat and calorie audit
 
-`node scripts/recipes/audit-nutrition.mjs` reads all 140 published recipes and every supported
+`node src/components/recipes/tools/audit-nutrition.mjs` reads all 140 published recipes and every supported
 serving count. Its JSON report includes ingredient coverage, fat sources, serving
 units, displayed macros and the difference from general Atwater energy,
 4 kcal/g protein + 4 kcal/g total carbohydrate + 9 kcal/g fat. A difference over
@@ -302,7 +302,7 @@ analytical fat is absent. Each decision retains its source and limitation in
 Eight recipes previously mixed incomplete branded profiles with retained publisher
 macro baselines. They now use complete ingredient models for calories, protein,
 carbohydrate, fiber and total fat at the same measured edible weights. All measured
-oils are counted. `scripts/recipes/complete-macro-models.mjs` records the reviewed
+oils are counted. `src/components/recipes/tools/complete-macro-models.mjs` records the reviewed
 migration, with `preCompleteIngredientNutritionEstimate` preserving the former
 model and `sourceRecipe.sourceNutrition` preserving the original publisher facts.
 No calorie value or fat value is inferred from the other as a residual.
@@ -375,7 +375,7 @@ Refresh reviewed ingredient matches from the same cwd:
 
 ```bash
 set -o pipefail
-env -u AWS_ACCESS_KEY_ID -u AWS_SECRET_ACCESS_KEY -u AWS_SESSION_TOKEN -u AWS_SECURITY_TOKEN aws ssm get-parameter --profile prod-admin --name arn:aws:ssm:us-east-1:730335616323:parameter/shared/nutrition/usda-api-key --with-decryption --region us-east-1 --query Parameter.Value --output text | node scripts/recipes/refresh-nutrition.mjs --cache /private/tmp/jsolly-usda-refresh-20261028
+env -u AWS_ACCESS_KEY_ID -u AWS_SECRET_ACCESS_KEY -u AWS_SESSION_TOKEN -u AWS_SECURITY_TOKEN aws ssm get-parameter --profile prod-admin --name arn:aws:ssm:us-east-1:730335616323:parameter/shared/nutrition/usda-api-key --with-decryption --region us-east-1 --query Parameter.Value --output text | node src/components/recipes/tools/refresh-nutrition.mjs --cache /private/tmp/jsolly-usda-refresh-20261028
 ```
 
 The pipe carries the key directly to the process. Never use `tee`, shell tracing,
@@ -478,7 +478,7 @@ npm run recipes:check   # fail when they differ from what recipes.json generates
 npm run gate
 ```
 
-`scripts/recipes/sync-assistant-data.mjs` regenerates the two assistant
+`src/components/recipes/tools/sync-assistant-data.mjs` regenerates the two assistant
 downloads from `recipes.json`. Their settings are fixed: four adults, US units,
 simultaneous ingredient equivalents and no optional side selected, with each recipe's per-person side choices
 listed. The JSON uses `schemaVersion: 2` and holds stable recipe ids, readable

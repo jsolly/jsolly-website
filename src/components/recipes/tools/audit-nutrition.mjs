@@ -1,16 +1,14 @@
 // Deterministic audit of every recipe and supported serving count. No network calls.
 import { realpathSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { SERVING_CHOICES } from "../../src/components/recipes/constants.mjs";
-import data from "../../src/components/recipes/nutrition-data.json" with {
-	type: "json",
-};
-import recipes from "../../src/components/recipes/recipe-data.server.mjs";
+import { SERVING_CHOICES } from "../constants.mjs";
+import data from "../nutrition-data.json" with { type: "json" };
+import recipes from "../recipe-data.server.mjs";
 import {
 	displayNutrition,
 	ingredientAmount,
 	nutritionPortionLabel,
-} from "../../src/components/recipes/recipe-logic.mjs";
+} from "../recipe-logic.mjs";
 
 /** USDA food-specific energy, fiber, alcohol and label rounding do not equal universal 4/4/9. */
 export function energyAudit(nutrition) {
