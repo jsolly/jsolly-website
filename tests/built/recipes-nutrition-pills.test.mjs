@@ -85,13 +85,13 @@ function registerPillTest(width) {
 					`${id} page`,
 				);
 				await uniformPillText(page, page.locator(".recipe-detail"));
-				assert.equal(
-					await page
-						.locator(".recipe-detail")
-						.getByRole("button", { name: "Print recipe", exact: true })
-						.count(),
-					1,
-				);
+				// Buttons use transition-all, so after the colour-scheme toggle in
+				// uniformPillText the button can briefly drop out of the accessibility tree.
+				const printButton = page
+					.locator(".recipe-detail")
+					.getByRole("button", { name: "Print recipe", exact: true });
+				await printButton.waitFor();
+				assert.equal(await printButton.count(), 1);
 				assert.equal(
 					await page.getByRole("button", { name: DOWNLOAD_BUTTON }).count(),
 					0,
