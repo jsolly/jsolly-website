@@ -8,7 +8,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
 import { it } from "vitest";
-import { runChains } from "../run-gate.mjs";
+import { runChains } from "../../gate/run-gate.mjs";
 
 const CANCELLED = /cancelled/u;
 const FIELDS = /\s+/u;

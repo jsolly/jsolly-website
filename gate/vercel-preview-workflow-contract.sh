@@ -6,8 +6,8 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 WORKFLOW="$ROOT/.github/workflows/vercel-preview.yml"
-RESOLVER="$ROOT/scripts/vercel-preview-resolve.sh"
-DEPLOY="$ROOT/scripts/vercel-preview-deploy.sh"
+RESOLVER="$ROOT/gate/vercel-preview-resolve.sh"
+DEPLOY="$ROOT/gate/vercel-preview-deploy.sh"
 
 fail() {
 	echo "✗ $*" >&2
@@ -25,8 +25,8 @@ require() {
 	fi
 }
 
-require 'run: bash "$GITHUB_WORKSPACE/tooling/scripts/vercel-preview-resolve.sh"' 'execute the resolver from the trusted default-branch checkout'
-require 'run: bash "$GITHUB_WORKSPACE/tooling/scripts/vercel-preview-deploy.sh"' 'execute deployment tooling from the trusted checkout outside PR sources'
+require 'run: bash "$GITHUB_WORKSPACE/tooling/gate/vercel-preview-resolve.sh"' 'execute the resolver from the trusted default-branch checkout'
+require 'run: bash "$GITHUB_WORKSPACE/tooling/gate/vercel-preview-deploy.sh"' 'execute deployment tooling from the trusted checkout outside PR sources'
 require '  pull_request_target:' 'load automatic workflow code from main'
 require '    branches: [main]' 'restrict automatic requests to main'
 require "github.ref == format('refs/heads/{0}', github.event.repository.default_branch)" 'restrict manual dispatch to the default branch'
@@ -39,7 +39,7 @@ require '--meta "githubCommitSha=${HEAD_SHA}"' 'attach the PR SHA as GitHub comm
 require 'jq -r '"'"'.head.sha'"'"'' 'resolve the Preview SHA from the PR head, not github.sha' "$RESOLVER"
 require 'ref: ${{ steps.pr.outputs.commit_sha }}' 'check out the resolved PR head SHA'
 require 'echo "commit_sha=${head_sha}"' 'publish the validated immutable commit output' "$RESOLVER"
-require 'printf '"'"'%s'"'"' "$COMMENT_BODY" | bash scripts/vercel-preview-comment.sh' 'pipe comments through the exact /preview matcher'
+require 'printf '"'"'%s'"'"' "$COMMENT_BODY" | bash gate/vercel-preview-comment.sh' 'pipe comments through the exact /preview matcher'
 require 'github.event.comment.author_association == '"'"'OWNER'"'"'' 'restrict comment deploys to owner/member/collaborator'
 require 'head_repo" != "$REPO"' 'refuse fork PR heads' "$RESOLVER"
 require 'persist-credentials: false' 'do not persist the Actions token on checkout'

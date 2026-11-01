@@ -13,7 +13,7 @@ fresh Linux setup provisions a pinned, checksum-verified public mise binary in
 and `.nvmrc` own its tool pins. On a reviewed fresh `origin/main` checkout run:
 
 ```bash
-bash scripts/setup-agent-environment.sh
+bash gate/setup-agent-environment.sh
 ```
 
 Setup installs repo-owned hooks outside the working tree, provisions the pinned
@@ -197,7 +197,7 @@ run its npm lifecycle or setup scripts. Use a separate disposable environment wh
 execution of untrusted code has been explicitly authorized.
 
 After independent semantic/security review of your own gate change, get its exact
-digest with `bash scripts/repo-python.sh scripts/repo-hooks.py digest`. Use the installed snapshot's
+digest with `bash gate/repo-python.sh gate/repo-hooks.py digest`. Use the installed snapshot's
 `approve --root <absolute-repo-root> --digest <reviewed-digest>` command, with actual
 values, to approve only those bytes; never approve a fork's bundle. Approvals are
 repo-local. Revoke explicit approvals with `git config --local --unset-all
@@ -210,10 +210,10 @@ An installed snapshot from before this relocation needs the explicit upgrade flo
 After reviewing the complete candidate hook bundle, run from its repository root:
 
 ```bash
-digest="$(bash scripts/repo-python.sh scripts/repo-hooks.py digest)" &&
-  bash scripts/repo-python.sh scripts/repo-hooks.py approve-upgrade --digest "$digest" &&
-  bash scripts/repo-python.sh scripts/repo-hooks.py install &&
-  bash scripts/repo-python.sh scripts/repo-hooks.py verify
+digest="$(bash gate/repo-python.sh gate/repo-hooks.py digest)" &&
+  bash gate/repo-python.sh gate/repo-hooks.py approve-upgrade --digest "$digest" &&
+  bash gate/repo-python.sh gate/repo-hooks.py install &&
+  bash gate/repo-python.sh gate/repo-hooks.py verify
 ```
 
 The upgrade reauthorizes the exact old installed snapshot against protected
@@ -222,6 +222,41 @@ digest and dispatcher, then approves only the reviewed new digest. It does not
 trust an old manifest in the candidate checkout. Once reviewed main has the new
 layout, ordinary setup installs it directly, including over a valid old snapshot.
 Older checkouts must merge the reviewed migration before rerunning setup.
+
+The trust helpers, setup and scanner later moved from `scripts/` to `gate/`.
+Current code still verifies a snapshot installed before that move, so `verify`
+reports it as stale rather than unknown. That snapshot's own `approve` cannot read
+the new manifest. Until the upgrade, its dispatcher refuses commits in a `gate/`
+checkout, and Cursor's shell hook refuses commands. `approve-upgrade` does not
+apply, because the snapshot already uses the current manifest format. Once the
+move is on `origin/main`, ordinary setup on a fresh main checkout installs the new
+layout without approval.
+
+Before that, for example to commit the move itself, review the complete candidate
+bundle and record its digest. From that checkout's repository root, print the
+digest of the bytes on disk and confirm it is exactly the reviewed digest:
+
+```bash
+bash gate/repo-python.sh gate/repo-hooks.py digest --root <absolute-repo-root>
+```
+
+Then approve that reviewed digest, typed as the literal reviewed value, and rerun
+setup:
+
+```bash
+bash gate/repo-python.sh gate/repo-hooks.py approve \
+  --root <absolute-repo-root> --digest <reviewed-digest> &&
+  bash gate/setup-agent-environment.sh
+```
+
+The upgrade installs the `gate/` snapshot for the whole clone, because
+`core.hooksPath` lives in the shared Git common directory. Every other checkout
+or linked worktree still on the `scripts/` layout, including main until it pulls
+the merged move, then cannot commit, and Cursor's hook refuses its commands. Merge
+or pull the reviewed move into that checkout to recover.
+
+Current code never trusts a `scripts/` layout manifest in a working tree or on
+`origin/main`; it accepts that allowlist only for an installed snapshot.
 
 ## Review and integration
 
@@ -352,8 +387,8 @@ dismissal/C, metadata failures, request ordering, lifecycle races, retry recover
 polling cleanup, rollback/scope isolation, and prior-client migration. Authentication
 is absent on this public site. Do not infer full coverage from a fresh B visit.
 
-Large workflow shell bodies live in `scripts/ci-secrets-scan.sh`,
-`scripts/vercel-preview-resolve.sh` and `scripts/vercel-preview-deploy.sh`.
+Large workflow shell bodies live in `gate/ci-secrets-scan.sh`,
+`gate/vercel-preview-resolve.sh` and `gate/vercel-preview-deploy.sh`.
 The pinned ShellCheck checks these files directly, and actionlint retains every
 workflow and remaining inline-script check. This avoids the pinned release's
 [macOS stdin deadlock](https://github.com/rhysd/actionlint/issues/650).

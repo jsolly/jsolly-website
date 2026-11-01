@@ -3,7 +3,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-MATCHER="$ROOT/scripts/vercel-preview-comment.sh"
+MATCHER="$ROOT/gate/vercel-preview-comment.sh"
 
 fail() {
 	echo "✗ $*" >&2

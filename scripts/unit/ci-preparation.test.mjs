@@ -1,6 +1,9 @@
 import assert from "node:assert/strict";
 import { it } from "vitest";
-import { preparationRun, waitForPreparation } from "../wait-ci-preparation.mjs";
+import {
+	preparationRun,
+	waitForPreparation,
+} from "../../gate/wait-ci-preparation.mjs";
 
 const AMBIGUOUS = /Ambiguous/u;
 const INCOMPLETE = /Incomplete/u;

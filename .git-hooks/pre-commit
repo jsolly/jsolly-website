@@ -20,11 +20,11 @@ if [[ "${FLEET_UI_PREVIEW:-0}" == 1 ]]; then
 		echo "✗ UI preview requires the repository gate's secrets/bootstrap checks." >&2
 		exit 1
 	fi
-	run_step "UI preview scope" node scripts/ui-preview-scope.mjs
+	run_step "UI preview scope" node gate/ui-preview-scope.mjs
 	run_step "UI preview checks" npm run check:preview
 	echo "✓ preview checks passed — full gate and required ci still needed before ready/merge."
 	exit 0
 fi
-node scripts/run-gate.mjs
+node gate/run-gate.mjs
 
 echo "✓ pre-commit gate passed — commit will land; Vercel deploys via GitHub integration after merge to main."

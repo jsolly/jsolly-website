@@ -9,7 +9,7 @@ if [[ $hook == pre-push ]]; then
   # the named remote's tracking refs and the ref's current remote commit when it is present here.
   # A new ref pushed to a bare URL scans the commit's whole history. Semgrep, OSV and full-history
   # gitleaks run in the required Security check. The log options match `security-scan.py ci` and
-  # scripts/ci-secrets-scan.sh; change all three together.
+  # gate/ci-secrets-scan.sh; change all three together.
   source "$base/gate/gate-lib.sh"
   gl="$(gate_gitleaks_bin)"
   export GIT_NO_REPLACE_OBJECTS=1 # scan the objects the push sends, not local replacements
@@ -27,4 +27,4 @@ if [[ $hook == pre-push ]]; then
   done
   exit 0
 fi
-exec bash "$base/scripts/repo-python.sh" "$base/scripts/repo-hooks.py" dispatch --hook "$hook"
+exec bash "$base/gate/repo-python.sh" "$base/gate/repo-hooks.py" dispatch --hook "$hook"

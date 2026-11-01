@@ -1,6 +1,6 @@
 # Repository security checks
 
-`scripts/security-scan.py` owns scanner invocation for pre-commit, Cursor and
+`gate/security-scan.py` owns scanner invocation for pre-commit, Cursor and
 CI. The hook installer includes that runner in its verified snapshot, and neither
 hook executes an unreviewed branch's scanner script. The existing full
 pre-commit gate remains.
@@ -8,7 +8,7 @@ pre-commit gate remains.
 Pre-push is the one exception: the dispatcher (`gate/hooks/pre-commit`) runs
 gitleaks itself, because the push check must stay within a few seconds. It
 uses the CI log options, so a change to them in `security-scan.py` or
-`scripts/ci-secrets-scan.sh` must also change the dispatcher.
+`gate/ci-secrets-scan.sh` must also change the dispatcher.
 
 ## Coverage
 
@@ -76,11 +76,14 @@ intact until the new bundle is reviewed and installed. For local development,
 review the exact bundle digest and follow the exact-digest approval procedure
 in [development](development.md). Old installed snapshots are accepted only
 for verification/upgrade, never as permission to execute new unreviewed code.
+A snapshot installed before the trust files moved from `scripts/` to `gate/`
+keeps its pre-push hook until that one-time upgrade, also described in
+[development](development.md).
 
 Run the complete security checks directly with:
 
 ```bash
-python3 scripts/security-scan.py ci
+python3 gate/security-scan.py ci
 ```
 
 The Python test suite exercises the outgoing-commit range and every pushed ref,

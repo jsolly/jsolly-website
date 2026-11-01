@@ -8,8 +8,8 @@
 # outside the pins changes the lint: actionlint's pyflakes rule stays off, and a
 # caller's SHELLCHECK_OPTS is dropped.
 #
-# This repository owns this helper at scripts/check-actions.sh. package.json
-# selects it with check:actions, and scripts/run-gate.mjs runs that command in the
+# This repository owns this helper at gate/check-actions.sh. package.json
+# selects it with check:actions, and gate/run-gate.mjs runs that command in the
 # gate. No npm dependency.
 set -euo pipefail
 unset SHELLCHECK_OPTS
@@ -18,7 +18,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 # actionlint lints the nearest ancestor holding both, so anywhere else it would lint a parent repo.
 if [[ ! -d .github/workflows || ! -e .git ]]; then
-  echo "✗ $ROOT is not a repository root with .github/workflows — run this as <repo>/scripts/check-actions.sh" >&2
+  echo "✗ $ROOT is not a repository root with .github/workflows — run this as <repo>/gate/check-actions.sh" >&2
   exit 1
 fi
 
@@ -80,7 +80,7 @@ unpack actionlint "$actionlint_digest" \
 # ShellCheck starts (rhysd/actionlint#650). Check their extracted files directly;
 # actionlint still checks every workflow and every remaining inline script.
 "$SHELLCHECK" --norc --shell bash \
-  scripts/ci-secrets-scan.sh scripts/ci-prepare.sh scripts/ci-verified-tree.sh \
-  scripts/vercel-preview-resolve.sh scripts/vercel-preview-deploy.sh
+  gate/ci-secrets-scan.sh gate/ci-prepare.sh gate/ci-verified-tree.sh \
+  gate/vercel-preview-resolve.sh gate/vercel-preview-deploy.sh
 # No file arguments: actionlint lints every .yml and .yaml workflow under .github/workflows.
 "$work/actionlint/actionlint" -shellcheck "$SHELLCHECK" -pyflakes=
