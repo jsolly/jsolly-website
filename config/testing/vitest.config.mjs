@@ -1,15 +1,15 @@
 import { defineConfig } from "vitest/config";
 
 const suites = {
-	unit: ["src/**/*.test.ts", "src/**/*.test.mjs", "scripts/unit/*.test.mjs"],
-	built: ["scripts/built/*.test.mjs"],
-	csp: ["scripts/built-csp.test.mjs"],
+	unit: ["src/**/*.test.ts", "src/**/*.test.mjs", "tests/unit/*.test.{ts,mjs}"],
+	built: ["tests/built/*.test.mjs"],
+	csp: ["tests/built-csp.test.mjs"],
 	workflow: [
-		"scripts/workflow-contracts.test.mjs",
-		"scripts/vercel-preview-workflow.test.mjs",
+		"tests/workflow-contracts.test.mjs",
+		"tests/vercel-preview-workflow.test.mjs",
 	],
-	production: ["scripts/production-acceptance.test.mjs"],
-	smoke: ["scripts/production-smoke-scenario.test.mjs"],
+	production: ["tests/production-acceptance.test.mjs"],
+	smoke: ["tests/production-smoke-scenario.test.mjs"],
 };
 
 export default defineConfig({

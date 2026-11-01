@@ -32,8 +32,8 @@ import {
 	TransientError,
 	uploadAssets,
 	verifyAssets,
-} from "../../scripts/assets/media.js";
-import { documentReferences } from "../../scripts/assets/references.js";
+} from "../../static-assets/media.js";
+import { documentReferences } from "../../static-assets/references.js";
 
 const bytes = new TextEncoder().encode("image-fixture");
 const path = "/blog/media/test.webp";
@@ -326,7 +326,7 @@ it("the real CLI and repository TS loader inventory and check a self-contained p
 		new URL("../../build/register-ts-from-js.mjs", import.meta.url),
 	);
 	const cli = fileURLToPath(
-		new URL("../../scripts/assets/cli.ts", import.meta.url),
+		new URL("../../static-assets/cli.ts", import.meta.url),
 	);
 	try {
 		await mkdir(join(root, "public/blog/media"), { recursive: true });
@@ -365,7 +365,7 @@ it("verification receipts attest the captured manifest and reject concurrent man
 		new URL("../../build/register-ts-from-js.mjs", import.meta.url),
 	);
 	const cli = fileURLToPath(
-		new URL("../../scripts/assets/cli.ts", import.meta.url),
+		new URL("../../static-assets/cli.ts", import.meta.url),
 	);
 	try {
 		await mkdir(join(root, "config/aws/static-assets"), { recursive: true });
@@ -420,7 +420,7 @@ it("malformed external upload authorization never leaks parser input", async () 
 		new URL("../../build/register-ts-from-js.mjs", import.meta.url),
 	);
 	const cli = fileURLToPath(
-		new URL("../../scripts/assets/cli.ts", import.meta.url),
+		new URL("../../static-assets/cli.ts", import.meta.url),
 	);
 	try {
 		await mkdir(join(root, "config/aws/static-assets"), { recursive: true });

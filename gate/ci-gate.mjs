@@ -168,7 +168,7 @@ async function main(mode, argument) {
 				"--reporter=json",
 				`--outputFile.json=${reportPath}`,
 				...(process.env.TEST_FILE_TIMINGS === "1"
-					? ["--reporter", join(ROOT, "scripts/test-file-timings.mjs")]
+					? ["--reporter", join(ROOT, "tests/test-file-timings.mjs")]
 					: []),
 			],
 			join(ROOT, "config/testing/ci-built.config.mjs"),

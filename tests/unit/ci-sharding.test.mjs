@@ -23,7 +23,7 @@ const id = {
 };
 const manifest = {
 	identity: id,
-	files: ["scripts/built/a.test.mjs", "scripts/built/b.test.mjs"],
+	files: ["tests/built/a.test.mjs", "tests/built/b.test.mjs"],
 	expectedTests: 2,
 };
 function reports() {
@@ -93,13 +93,13 @@ it("rejects missing, duplicated and unexpected shard coverage", () => {
 	duplicate[1].result.testResults[0].name = manifest.files[0];
 	assert.throws(() => aggregate(manifest, duplicate, id, 2));
 	const extra = reports();
-	extra[1].result.testResults[0].name = "scripts/built/extra.test.mjs";
+	extra[1].result.testResults[0].name = "tests/built/extra.test.mjs";
 	assert.throws(() => aggregate(manifest, extra, id, 2));
 	assert.throws(() =>
 		aggregate(
 			{
 				...manifest,
-				files: [...manifest.files, "scripts/built/missing.test.mjs"],
+				files: [...manifest.files, "tests/built/missing.test.mjs"],
 			},
 			reports(),
 			id,
@@ -377,7 +377,7 @@ it("cost-based shards retain every discovered and new file independently of disc
 	);
 	const files = [
 		...discovered.map(({ file }) => ({ moduleId: file })),
-		{ moduleId: join(root, "scripts/built/new-scenario.test.mjs") },
+		{ moduleId: join(root, "tests/built/new-scenario.test.mjs") },
 	];
 	const first = new Sequencer({
 		config: { root, shard: { index: 1, count: 2 } },
@@ -409,7 +409,7 @@ it("cost-based shards retain every discovered and new file independently of disc
 
 it("the pinned Vitest runner executes complete disjoint real fixture shards", (t) => {
 	const f = fixture(t);
-	const built = join(f.root, "scripts/built");
+	const built = join(f.root, "tests/built");
 	fs.mkdirSync(built, { recursive: true });
 	fs.mkdirSync(join(f.root, "node_modules"));
 	// Share only the installed package, leaving fixture-owned mutable caches.

@@ -47,7 +47,7 @@ killed invocation.
 
 Healthy visits send nothing, so silence cannot show that forwarding broke. The
 Production smoke workflow therefore posts one `forwarding-probe` report after each
-production deployment and daily, from `scripts/production-acceptance.test.mjs`,
+production deployment and daily, from `tests/production-acceptance.test.mjs`,
 and fails unless it answers `204`. The receiver writes the probe as an `info`
 line (`{"level":"info","message":"Production smoke verified client-error
 forwarding.",...}`), so the `{ $.level = "error" }` metric filter and the alarm
@@ -87,7 +87,7 @@ Vercel firewall rate limit on `/api/client-error/`; adding one bounds that.
 `config/aws/client-errors/template.json` defines the stack
 `jsolly-website-client-errors` in account `730335616323`, region `us-east-1`.
 Its stack policy denies replacing or deleting the log group and stream.
-`scripts/unit/client-errors-stack.test.mjs` pins the trust, permission, alarm and
+`tests/unit/client-errors-stack.test.mjs` pins the trust, permission, alarm and
 names to `src/lib/client-error-constants.mjs`. Vercel releases do not deploy this
 stack.
 

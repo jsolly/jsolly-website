@@ -54,7 +54,7 @@ export function runCounted({
 				"--reporter=default",
 				"--reporter=json",
 				...(process.env.TEST_FILE_TIMINGS === "1"
-					? ["--reporter", join(ROOT, "scripts/test-file-timings.mjs")]
+					? ["--reporter", join(ROOT, "tests/test-file-timings.mjs")]
 					: []),
 				`--outputFile.json=${reportPath}`,
 				...patterns,
@@ -122,9 +122,7 @@ export function runCounted({
 function main(suiteName) {
 	const suite = SUITES.has(suiteName);
 	if (!suite) {
-		console.error(
-			`usage: node scripts/run-tests.mjs <${[...SUITES].join("|")}>`,
-		);
+		console.error(`usage: node tests/run-tests.mjs <${[...SUITES].join("|")}>`);
 		return 2;
 	}
 	const ledger = JSON.parse(readFileSync(join(ROOT, LEDGER), "utf8"));

@@ -246,7 +246,7 @@ fi
     def old_layout_fixture(self, frozen, manifest_path, *, restore=True):
         """Install a frozen real helper from the scripts/ layout it expects, then (by default)
         return the working tree to the current candidate. Its own FILES lay out the tree."""
-        old = load_module(SOURCE / 'scripts/fixtures' / frozen)
+        old = load_module(SOURCE / 'tests/fixtures' / frozen)
         manifest = self.root / 'config/agents/repository.json'
         current_manifest = manifest.read_bytes()
         slug = json.loads(current_manifest)['repo']
@@ -260,7 +260,7 @@ fi
             target = self.root / rel
             target.parent.mkdir(exist_ok=True)
             shutil.copy2(self.root / rel.replace('scripts/', 'gate/', 1), target)
-        (self.root / 'scripts/repo-hooks.py').write_bytes((SOURCE / 'scripts/fixtures' / frozen).read_bytes())
+        (self.root / 'scripts/repo-hooks.py').write_bytes((SOURCE / 'tests/fixtures' / frozen).read_bytes())
         if manifest_path != 'config/agents/repository.json':
             manifest.unlink()
         (self.root / manifest_path).write_text(json.dumps({'version': 1, 'repo': slug, 'files': old.FILES}))

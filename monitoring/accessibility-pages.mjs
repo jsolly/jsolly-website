@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 // The pages the axe audit scans. `npm run check:a11y` audits every built HTML
 // document (the post-merge and daily `a11y` workflow); `npm run check:a11y:sample`
-// audits SAMPLE (PR CI). scripts/built/accessibility-sample.test.mjs fails when a
+// audits SAMPLE (PR CI). tests/built/accessibility-sample.test.mjs fails when a
 // sampled route stops being a built page or a page template has no sampled route.
 
 const INDEX_HTML = /index\.html$/u;

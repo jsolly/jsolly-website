@@ -25,7 +25,7 @@ coverage threshold or test ledger was reduced. The repository did not have an
 instrumented coverage threshold to migrate.
 
 `config/testing/vitest.config.mjs` owns JavaScript discovery.
-`scripts/run-tests.mjs` selects the suite, requires a successful Vitest exit and
+`tests/run-tests.mjs` selects the suite, requires a successful Vitest exit and
 checks its passing-test count against `config/testing/test-counts.json`. Its
 fixture exercises mismatched counts, skipped tests, failed tests, empty discovery,
 missing result fields and malformed JSON. `config/testing/pytest.ini` owns Python

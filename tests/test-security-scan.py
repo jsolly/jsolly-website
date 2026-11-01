@@ -70,6 +70,17 @@ class SecurityScan(unittest.TestCase):
                 SCAN.source(self.root)
             output.assert_not_called()
 
+    def test_semgrep_scope_is_owned_by_the_scanner_and_keeps_tests_and_build(self):
+        with patch.object(SCAN, "python_tool", side_effect=subprocess.CalledProcessError(1, "semgrep")) as tool:
+            with self.assertRaises(subprocess.CalledProcessError):
+                SCAN.source(self.root)
+        tool.assert_called_once_with("semgrep", [
+            "scan", "--config", "p/default", "--error",
+            "--metrics", "off", "--disable-version-check", "--no-git-ignore",
+            "--x-ignore-semgrepignore-files",
+            "--exclude", "node_modules", "--exclude", "public/notebooks",
+            "--exclude", "docs/recipes-evidence", "."], self.root)
+
     def test_noninteractive_resolution_uses_mise_executable_layout(self):
         executable = self.root / "uv-x86_64-unknown-linux-gnu" / "uvx"
         executable.parent.mkdir()
