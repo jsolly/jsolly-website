@@ -1,5 +1,5 @@
 // Decorative Unicode food symbols; names remain the accessible ingredient labels.
-const icons = [
+const icons: readonly (readonly [RegExp, string])[] = [
 	[/\bwater\b/iu, "💧"],
 	[/strawberr/iu, "🍓"],
 	[/banana/iu, "🍌"],
@@ -30,6 +30,6 @@ const icons = [
 	[/beans/iu, "🫘"],
 	[/feta|cheese/iu, "🧀"],
 ];
-export function ingredientIcon(name) {
+export function ingredientIcon(name: string): string {
 	return icons.find(([pattern]) => pattern.test(name))?.[1] || "";
 }

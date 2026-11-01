@@ -36,11 +36,12 @@ Astro 7 with Svelte 5 islands, TypeScript and Node pinned in `.nvmrc`; Tailwind 
 
 ## Repository layout
 
-Besides `config/` (settings) and `api/` (Vercel functions), repository tooling and tests live in four top-level directories and one component folder:
+Besides `config/` (settings) and `api/` (Vercel functions), repository tooling and tests live in five top-level directories and one component folder:
 
 - `build/`: the custom build steps (static-asset pinning, Markdown siblings, the recipe service worker and their TypeScript loader), plus the CSP, site-file and blogthedata redirect parsers that tests and `monitoring/` reuse. `astro build` itself and the closing CSP suite run elsewhere.
 - `gate/`: the local gate, CI and Preview workflow helpers, lint wrappers, security scanner and hook trust (see [Git hooks](#git-hooks)).
 - `monitoring/`: the production smoke, accessibility audits, asset-retention probe and blogthedata cutover verifier.
+- `static-assets/`: the `npm run assets` CLI that inventories, uploads and verifies repository-owned images in AWS storage (see [AWS static assets](docs/aws-static-assets.md)).
 - `tests/`: every suite outside `src/`, its fixtures and the suite runner `tests/run-tests.mjs` (see [Tests](#tests)).
 - `src/components/recipes/tools/`: the recipe command-line tools (see [Recipes](#recipes)).
 
