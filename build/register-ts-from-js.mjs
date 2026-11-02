@@ -1,3 +1,4 @@
-import { register } from "node:module";
+import { registerHooks } from "node:module";
+import { resolve } from "./ts-from-js-loader.mjs";
 
-register(new URL("./ts-from-js-loader.mjs", import.meta.url));
+registerHooks({ resolve });

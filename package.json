@@ -3,7 +3,7 @@
 	"type": "module",
 	"version": "0.0.1",
 	"engines": {
-		"node": "24.x"
+		"node": "26.x"
 	},
 	"scripts": {
 		"worktree:init": "bash gate/setup-agent-environment.sh",
@@ -51,6 +51,7 @@
 		"@tailwindcss/node": "^4.3.3",
 		"@tailwindcss/oxide": "^4.3.3",
 		"@tailwindcss/vite": "^4.3.3",
+		"@types/node": "^26.6.5",
 		"@types/sanitize-html": "2.16.2",
 		"@vercel/routing-utils": "6.6.0",
 		"astro": "~7.3.8",

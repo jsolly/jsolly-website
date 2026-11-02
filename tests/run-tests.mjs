@@ -142,7 +142,7 @@ function main(suiteName) {
 	return 1;
 }
 
-// `import.meta.main` needs Node 24.2; engines allows any 24.x.
+// `import.meta.main` needs Node 24.2; engines allows any 26.x.
 if (
 	process.argv[1] &&
 	realpathSync(process.argv[1]) === fileURLToPath(import.meta.url)

@@ -309,7 +309,7 @@
 	},
 	"overrides": [
 		{
-			// Node 24 executes these modules directly, including their typed dependencies.
+			// Node 26 executes these modules directly, including their typed dependencies.
 			// Keep real .ts specifiers at this boundary; no JS output is generated.
 			"includes": [
 				"src/components/recipes/flow-equipment.test.mjs",
