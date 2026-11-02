@@ -24,7 +24,15 @@ class SecurityScan(unittest.TestCase):
         self.addCleanup(self.scratch.cleanup)
         # main() resolves --root; macOS tempdirs sit behind /var -> /private/var.
         self.root = Path(self.scratch.name).resolve()
-        self.env = {**os.environ, "GIT_CONFIG_GLOBAL": os.devnull, "GIT_CONFIG_NOSYSTEM": "1"}
+        # A hook or caller's GIT_DIR, GIT_INDEX_FILE and the like would point both the fixture's
+        # git and the scanner's in-process git at another repository; patch.dict restores them.
+        isolated = {"GIT_CONFIG_GLOBAL": os.devnull, "GIT_CONFIG_NOSYSTEM": "1"}
+        environ = patch.dict(os.environ, isolated)
+        environ.start()
+        self.addCleanup(environ.stop)
+        for key in [key for key in os.environ if key.startswith("GIT_") and key not in isolated]:
+            del os.environ[key]
+        self.env = dict(os.environ)
         self.git("init", "-q")
         (self.root / "package-lock.json").write_text('{"lockfileVersion":3}')
         self.git("add", "-A")
@@ -34,6 +42,24 @@ class SecurityScan(unittest.TestCase):
     def git(self, *args):
         return subprocess.check_output(["git", "-C", str(self.root), *args],
                                        env=self.env, text=True).strip()
+
+    def test_a_hook_environment_pointing_at_another_repository_leaves_it_untouched(self):
+        decoy = self.root / "decoy"
+        subprocess.check_call(["git", "init", "-q", str(decoy)], env=self.env)
+        hook = {"GIT_DIR": str(decoy / ".git"), "GIT_INDEX_FILE": str(decoy / ".git/index"),
+                "GIT_WORK_TREE": str(decoy)}
+        with patch.dict(os.environ, hook):
+            fixture = SecurityScan("test_cursor_scans_untracked_files_but_not_ignored_artifacts")
+            fixture.setUp()
+            try:
+                self.assertEqual(fixture.git("rev-parse", "--show-toplevel"), str(fixture.root))
+                self.assertEqual(fixture.git("rev-list", "--count", "HEAD"), "1")
+            finally:
+                fixture.doCleanups()
+            # The fixture's cleanup puts the caller's variables back.
+            self.assertEqual(os.environ["GIT_DIR"], hook["GIT_DIR"])
+        self.assertEqual(subprocess.run(["git", "-C", str(decoy), "rev-parse", "--verify", "HEAD"],
+                                        env=self.env, capture_output=True).returncode, 128)
 
     def test_cursor_scans_untracked_files_but_not_ignored_artifacts(self):
         (self.root / ".gitignore").write_text("ignored.txt\n")
