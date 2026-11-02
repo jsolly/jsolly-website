@@ -1,15 +1,16 @@
 # shellcheck shell=bash
-    # Repository-owned quality gate helpers. Maintain this file in this repository.
-    # Source it by a repository-relative path; no external configuration repo is used.
-    # Trusted commit dispatch executes a verified hook/library snapshot. Other scripts
-    # and dependency lifecycles remain trusted repository code, not sandboxed code.
-    # Requires Bash >= 5. Call gate_enter_committing_tree before gate_begin_commit.
+# Repository-owned quality gate helpers. Maintain this file in this repository.
+# Source it by a repository-relative path; no external configuration repo is used.
+# Trusted commit dispatch executes a verified hook/library snapshot. Other scripts
+# and dependency lifecycles remain trusted repository code, not sandboxed code.
+# Requires Bash >= 5. Call gate_enter_committing_tree before gate_begin_commit.
 
-    # === Bash floor ==================================================================
+# === Bash floor ==================================================================
 # The fleet requires Bash >= 5. macOS /bin/bash is 3.2, and a shell that skipped ~/.zprofile resolves
 # bare `bash` to it; this source then prints the fix and fails, so the caller stops. 3.2 parses a
 # sourced file one command at a time, so this block stays first and 3.2-parseable, and everything
-# below may use Bash 5. `bash -n` is not proof: tests/test-gate-lib.sh sources it under /bin/bash.
+# below may use Bash 5. `bash -n` is not proof: check a change here by sourcing this file under
+# macOS /bin/bash, which CI's Linux runners do not have.
 GATE_BASH_MIN=5
 if [ "${BASH_VERSINFO[0]:-0}" -lt "$GATE_BASH_MIN" ]; then
   echo "✗ $0 is running Bash $BASH_VERSION; the fleet requires Bash >= $GATE_BASH_MIN and will not continue on it." >&2
