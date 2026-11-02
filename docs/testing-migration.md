@@ -31,7 +31,7 @@ fixture exercises mismatched counts, skipped tests, failed tests, empty discover
 missing result fields and malformed JSON. `config/testing/pytest.ini` owns Python
 discovery, and the full gate calls `npm run test:python`.
 
-Vitest supports the pinned Node 24 runtime and the existing Vite 8 dependencies.
+Vitest supports the pinned Node 26 runtime and the existing Vite 8 dependencies.
 See the [official Vitest prerequisites](https://vitest.dev/guide/migration/) and
 [pytest subtests documentation](https://docs.pytest.org/en/stable/how-to/subtests.html).
 

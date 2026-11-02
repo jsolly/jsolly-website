@@ -62,7 +62,7 @@ No object is deleted or intentionally overwritten.
 
 ## Local review and validation
 
-With repository setup complete and pinned Node 24:
+With repository setup complete and pinned Node 26:
 
 ```bash
 npm run build
