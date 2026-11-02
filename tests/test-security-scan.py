@@ -24,7 +24,15 @@ class SecurityScan(unittest.TestCase):
         self.addCleanup(self.scratch.cleanup)
         # main() resolves --root; macOS tempdirs sit behind /var -> /private/var.
         self.root = Path(self.scratch.name).resolve()
-        self.env = {**os.environ, "GIT_CONFIG_GLOBAL": os.devnull, "GIT_CONFIG_NOSYSTEM": "1"}
+        # A hook or caller's GIT_DIR, GIT_INDEX_FILE and the like would point both the fixture's
+        # git and the scanner's in-process git at another repository; patch.dict restores them.
+        isolated = {"GIT_CONFIG_GLOBAL": os.devnull, "GIT_CONFIG_NOSYSTEM": "1"}
+        environ = patch.dict(os.environ, isolated)
+        environ.start()
+        self.addCleanup(environ.stop)
+        for key in [key for key in os.environ if key.startswith("GIT_") and key not in isolated]:
+            del os.environ[key]
+        self.env = dict(os.environ)
         self.git("init", "-q")
         (self.root / "package-lock.json").write_text('{"lockfileVersion":3}')
         self.git("add", "-A")
