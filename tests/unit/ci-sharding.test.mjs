@@ -86,6 +86,24 @@ it("accepts only complete disjoint built files and actual passing assertions", (
 		files: 2,
 		tests: 2,
 	});
+	const typed = {
+		...manifest,
+		files: ["tests/built/a.test.ts", manifest.files[1]],
+	};
+	const typedReports = reports();
+	typedReports[0].result.testResults[0].name = typed.files[0];
+	assert.deepEqual(aggregate(typed, typedReports, id, 2), {
+		files: 2,
+		tests: 2,
+	});
+	assert.throws(() =>
+		aggregate(
+			{ ...typed, files: ["tests/built/a.test.js", typed.files[1]] },
+			typedReports,
+			id,
+			2,
+		),
+	);
 });
 it("rejects missing, duplicated and unexpected shard coverage", () => {
 	assert.throws(() => aggregate(manifest, reports().slice(0, 1), id, 2));

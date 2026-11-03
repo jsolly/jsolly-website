@@ -5,8 +5,9 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { globby } from "globby";
 import { it } from "vitest";
-import { builtPages, SAMPLE } from "../../monitoring/accessibility-pages.mjs";
+import { builtPages } from "../../monitoring/accessibility-pages.ts";
 import { auditOutcome } from "../../monitoring/accessibility-report.mjs";
+import { SAMPLE } from "../../monitoring/constants.ts";
 import recipeData from "../../src/components/recipes/recipes.json" with {
 	type: "json",
 };
@@ -26,7 +27,7 @@ it("every sampled accessibility route is a page the full audit scans", async () 
 	assert.deepEqual(
 		routes.filter((route) => !pages.has(route)),
 		[],
-		"Sampled routes missing from dist/: update SAMPLE in monitoring/accessibility-pages.mjs",
+		"Sampled routes missing from dist/: update SAMPLE in monitoring/constants.ts",
 	);
 });
 
@@ -35,7 +36,7 @@ it("the accessibility sample covers every HTML page template", async () => {
 	assert.deepEqual(
 		new Set(SAMPLE.map(({ template }) => template)),
 		new Set(templates),
-		"Each src/pages template needs a sampled route in monitoring/accessibility-pages.mjs",
+		"Each src/pages template needs a sampled route in monitoring/constants.ts",
 	);
 });
 
@@ -106,7 +107,7 @@ it("the audit's results file passes the reporter's checks, and --sample takes no
 	const audit = (args) =>
 		spawnSync(
 			process.execPath,
-			["monitoring/check-accessibility.mjs", ...args],
+			["monitoring/check-accessibility.ts", ...args],
 			{
 				encoding: "utf8",
 				env: { ...process.env, A11Y_RESULTS: output },

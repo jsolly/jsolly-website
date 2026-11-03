@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
-import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
-import { postHref } from "../../src/lib/blog/urls.js";
+import { postHref } from "../../src/lib/blog/urls.ts";
+import { launchTestBrowser } from "../network/browser.ts";
 import {
 	publishedPosts,
 	robotsMeta,
@@ -29,7 +29,7 @@ let publishedHrefs;
 
 before(async () => {
 	site = await serveStatic(DIST);
-	browser = await chromium.launch();
+	browser = await launchTestBrowser();
 	publishedHrefs = new Set(
 		(await publishedPosts()).map((post) => postHref(post.slug)),
 	);

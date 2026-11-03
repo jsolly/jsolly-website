@@ -1,5 +1,4 @@
 import assert from "node:assert/strict";
-import { chromium } from "playwright";
 import { afterAll, beforeAll, it } from "vitest";
 import {
 	productionUrl,
@@ -10,6 +9,8 @@ import {
 } from "../monitoring/production-smoke-scenario.mjs";
 import { createClientErrorHandler } from "../src/lib/client-error-server.mjs";
 import { createCloudWatchRecorder } from "../src/lib/client-error-sink.mjs";
+import { prepareSmokeStub } from "./fixtures/smoke-bootstrap.ts";
+import { launchTestBrowser } from "./network/browser.ts";
 
 const STALE_RELEASE = /Canonical site must serve the intended release/u;
 const FORWARDING_BROKEN = /client-error forwarding reaches CloudWatch/u;
@@ -36,7 +37,7 @@ const SHORT_TIMEOUT_MS = 1000;
 
 let browser;
 beforeAll(async () => {
-	browser = await chromium.launch();
+	browser = await launchTestBrowser();
 });
 afterAll(async () => {
 	await browser?.close();
@@ -176,8 +177,7 @@ async function runAgainstStubs({
 			return route.fulfill({ contentType: type, body });
 		});
 		const page = await context.newPage();
-		page.setDefaultTimeout(timeout);
-		await page.goto(productionUrl);
+		await prepareSmokeStub(page, productionUrl, timeout, STUB_TIMEOUT_MS);
 		const checked = [];
 		const requested = [];
 		await smoke({

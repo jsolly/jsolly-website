@@ -82,7 +82,7 @@ npm run check:fix           # biome check --write
 npm run check:ts            # astro check + svelte-check (errors only)
 npm run fix                 # check:fix + check:ts (combined)
 npm test                    # unit tests: src/**/*.test.{ts,mjs} and tests/unit/*.test.{ts,mjs}
-npm run test:built          # built-output tests: tests/built/*.test.mjs against dist/ (run after build)
+npm run test:built          # built-output tests: tests/built/*.test.{ts,mjs} against dist/ (run after build)
 npm run smoke:scenario-contract  # the production smoke scenario's contract tests (smoke suite)
 npm run smoke:production    # the production smoke itself, against the pinned production URL
 npm run redirects:write     # regenerate legacy/blogthedata/vercel.json from url-map.json
@@ -90,14 +90,14 @@ npm run redirects:check     # fail when legacy/blogthedata/vercel.json differs f
 npm run recipes:sync        # regenerate public/recipes/data/recipe-library.{json,md} from recipes.json
 npm run recipes:check       # fail when public/recipes/data differs from what recipes.json generates
 npm run check:a11y          # axe audit of every built page at 1280 and 390 px (after build; docs/accessibility.md)
-npm run check:a11y:sample   # the PR CI axe sample: one page per template (monitoring/accessibility-pages.mjs)
+npm run check:a11y:sample   # the PR CI axe sample: one page per template (monitoring/accessibility-pages.ts)
 ```
 
 ## Tests
 
-Every JavaScript suite runs through `tests/run-tests.mjs`: `unit` (`npm test`: `src/**/*.test.{ts,mjs}` and `tests/unit/*.test.{ts,mjs}`), `built` (`npm run test:built`: `tests/built/*.test.mjs`), `csp` (the end of `npm run build`: `tests/built-csp.test.mjs`) and `smoke` (`npm run smoke:scenario-contract`: `tests/production-smoke-scenario.test.mjs`). It fails a suite when its passing-test count differs from `config/testing/test-counts.json`. Update the count in the commit that adds tests; lower it only in a commit that names each dropped test.
+Every Vitest suite runs through `tests/run-tests.mjs`: `unit` (`npm test`: `src/**/*.test.{ts,mjs}` and `tests/unit/*.test.{ts,mjs}`), `built` (`npm run test:built`: `tests/built/*.test.{ts,mjs}`), `csp` (the end of `npm run build`: `tests/built-csp.test.mjs`) and `smoke` (`npm run smoke:scenario-contract`: `tests/production-smoke-scenario.test.mjs`). It fails a suite when its passing-test count differs from `config/testing/test-counts.json`. Update the count in the commit that adds tests; lower it only in a commit that names each dropped test.
 
-- Built tests read `dist/` through `tests/built/pages.mjs` (shared readers, a static server, and stand-ins for every off-origin request, embed frames included). No test reaches the network.
+- Built tests read `dist/` through `tests/built/pages.mjs` (shared readers, a static server, and stand-ins for every off-origin request, embed frames included). Offline suites permit loopback servers and local IPC only; external network access is blocked. `tests/network/` owns the Node socket guard and the loopback-only browser SOCKS proxy. All local browser launches use its factories, including service-worker and persistent-profile tests. Existing off-origin stubs remain in place; an unstubbed connection fails the suite even when application code catches it. The `production` suite remains an explicitly live acceptance check and cannot inherit an offline guard. See [test network isolation](docs/test-network.md).
 - A built test that needs its own build uses a `tests/built/temp-copy.mjs` copy of the working tree, never the real tree; that file's header describes the isolation.
 - Browser tests wait for `!document.querySelector("astro-island[ssr]")` before interacting.
 - Expectations come from the post frontmatter, `recipes.json` and `legacy/blogthedata/url-map.json`, never from the code under test.

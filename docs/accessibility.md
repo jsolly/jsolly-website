@@ -24,7 +24,7 @@ review. Passing axe does not certify accessibility. Rebuild after source changes
   `source-` and retired recipes; active and retired categories; a post with
   code, tables and images, one with headings and an iframe embed, and one with
   an image attribution caption), from `SAMPLE` in
-  `monitoring/accessibility-pages.mjs`, at both widths. Violations fail required
+  `monitoring/constants.ts`, at both widths. Violations fail required
   `ci`. The `accessibility-results` artifact keeps the report.
   `tests/built/accessibility-sample.test.mjs` fails when a sampled route is no
   longer a built page, a `src/pages` template has no sampled route, or a recipe,

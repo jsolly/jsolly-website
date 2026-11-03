@@ -13,7 +13,7 @@
 		"preview": "astro preview --config config/app/astro.ts",
 		"lint": "biome lint --config-path=config/quality/biome.settings.jsonc --no-errors-on-unmatched",
 		"format": "biome format --config-path=config/quality/biome.settings.jsonc --no-errors-on-unmatched --write",
-		"check:ts": "astro check --config config/app/astro.ts --minimumSeverity error --minimumFailingSeverity error && svelte-check --tsconfig ./tsconfig.json --threshold error && tsc --project config/typescript/recipe-domain.json",
+		"check:ts": "astro check --config config/app/astro.ts --minimumSeverity error --minimumFailingSeverity error && svelte-check --tsconfig ./tsconfig.json --threshold error && tsc --project config/typescript/recipe-domain.json && tsc --project config/typescript/test-network.json && tsc --project config/typescript/recipe-image-diagnostics.json && tsc --project tests/network/browser-controls/tsconfig.dedicated.json && tsc --project tests/network/browser-controls/tsconfig.shared.json && tsc --project tests/network/browser-controls/tsconfig.service.json && tsc --project tests/network/browser-controls/tsconfig.imported.json",
 		"check:knip": "knip --config config/quality/knip.json --no-progress",
 		"test": "node tests/run-tests.mjs unit",
 		"test:python": "uvx --from pytest==9.1.1 pytest -c config/testing/pytest.ini",
@@ -35,8 +35,8 @@
 		"recipes:usda": "node src/components/recipes/tools/usda.mjs",
 		"check:preview": "npx --no-install biome ci --config-path=config/quality/biome.settings.jsonc . --error-on-warnings && npm run check:ts && npm test",
 		"gate:preview": "FLEET_UI_PREVIEW=1 FLEET_DOC_FAST=0 bash .git-hooks/pre-commit",
-		"check:a11y": "node monitoring/check-accessibility.mjs",
-		"check:a11y:sample": "node monitoring/check-accessibility.mjs --sample",
+		"check:a11y": "node monitoring/check-accessibility.ts",
+		"check:a11y:sample": "node monitoring/check-accessibility.ts --sample",
 		"check:security": "python3 gate/security-scan.py ci"
 	},
 	"devDependencies": {

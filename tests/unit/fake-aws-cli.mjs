@@ -16,6 +16,8 @@ import {
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
+import { withOfflineNodeGuard } from "../network/node/guard.ts";
+
 export const LOG_GROUP = ["--log-group-name", "/shared-infra/scheduled-checks"];
 
 /** The shape every successful report's two AWS calls must have. */
@@ -72,12 +74,12 @@ if (args[1] === "put-log-events")
 		rmSync(calls, { force: true });
 		const child = spawnSync(process.execPath, [script], {
 			encoding: "utf8",
-			env: {
+			env: withOfflineNodeGuard({
 				PATH: `${join(root, "bin")}:${process.env.PATH}`,
 				TMPDIR: root,
 				AWS_STUB_MODE: mode,
 				...env,
-			},
+			}),
 		});
 		return {
 			status: child.status,

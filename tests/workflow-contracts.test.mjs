@@ -109,13 +109,10 @@ const workflow = (name) =>
 
 it("PR CI audits the sample and the Accessibility workflow audits every page", () => {
 	const { scripts } = JSON.parse(readFileSync("package.json", "utf8"));
-	assert.equal(
-		scripts["check:a11y"],
-		"node monitoring/check-accessibility.mjs",
-	);
+	assert.equal(scripts["check:a11y"], "node monitoring/check-accessibility.ts");
 	assert.equal(
 		scripts["check:a11y:sample"],
-		"node monitoring/check-accessibility.mjs --sample",
+		"node monitoring/check-accessibility.ts --sample",
 	);
 	const runs = (steps) =>
 		steps.filter((step) => step.run?.includes("check:a11y"));

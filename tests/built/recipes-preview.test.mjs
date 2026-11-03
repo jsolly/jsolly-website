@@ -2,10 +2,10 @@ import assert from "node:assert/strict";
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { JSDOM } from "jsdom";
-import { chromium } from "playwright";
 import { afterAll, beforeAll, it } from "vitest";
 import { parseDirectives } from "../../build/csp.mjs";
-import { VERCEL_TOOLBAR_SOURCES } from "../../src/lib/csp-policy.js";
+import { VERCEL_TOOLBAR_SOURCES } from "../../src/lib/csp-policy.ts";
+import { launchTestBrowser } from "../network/browser.ts";
 import {
 	collectErrors,
 	readBuiltPages,
@@ -68,7 +68,7 @@ it("Preview recipe pages reload without installing an offline snapshot", async (
 			assert.ok(!html.includes('id="recipe-offline-status"'), file);
 		}
 		site = await serveStatic(dist);
-		browser = await chromium.launch();
+		browser = await launchTestBrowser();
 		const page = await browser.newPage();
 		const errors = collectErrors(page);
 		await stubOffOrigin(page.context(), site.origin);
