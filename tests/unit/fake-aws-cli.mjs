@@ -33,7 +33,7 @@ export const sentTo = (stream) => ({
 		["logs", "create-log-stream", ...LOG_GROUP, "--log-stream-name", stream],
 		["logs", "put-log-events", ...LOG_GROUP, "--log-stream-name", stream],
 	],
-	createTail: ["--output", "json"],
+	createTail: ["--region", "us-east-1", "--output", "json"],
 	pager: "",
 	oneTimestamp: true,
 });
