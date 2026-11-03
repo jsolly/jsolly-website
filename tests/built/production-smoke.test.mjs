@@ -6,19 +6,19 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { promisify } from "node:util";
-import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import {
 	rootVercelRoutes,
 	routePath,
 } from "../../build/blogthedata-redirects.mjs";
-import middleware from "../../middleware.js";
+import middleware from "../../middleware.ts";
 import { runSmoke } from "../../monitoring/production-smoke.mjs";
 import {
 	productionUrl,
 	smoke,
 	verifyRecipeWorker,
 } from "../../monitoring/production-smoke-scenario.mjs";
+import { launchTestBrowser } from "../network/browser.ts";
 import { serveStatic, stubOffOrigin } from "./pages.mjs";
 
 // The production smoke scenario over the real built pages, run by the fleet
@@ -45,7 +45,7 @@ let browser;
 
 before(async () => {
 	site = await serveStatic(DIST);
-	browser = await chromium.launch();
+	browser = await launchTestBrowser();
 });
 
 after(async () => {
@@ -381,8 +381,8 @@ for (const variant of [
 				pending.add(operation);
 				void operation.finally(() => pending.delete(operation));
 			});
-			localBrowser = await chromium.launch({
-				args: ["--ignore-certificate-errors"],
+			localBrowser = await launchTestBrowser({
+				ignoreCertificateErrors: true,
 			});
 			process.chdir(workDir);
 			const releaseSha = JSON.parse(

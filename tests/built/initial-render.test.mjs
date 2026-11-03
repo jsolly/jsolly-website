@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { isDeepStrictEqual } from "node:util";
-import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
+import { launchTestBrowser } from "../network/browser.ts";
 import {
 	categorySlugs,
 	collectErrors,
@@ -36,7 +36,7 @@ const paths = [
 	"/recipes/cucumber-spinach-lime-smoothie/",
 ];
 before(async () => {
-	browser = await chromium.launch();
+	browser = await launchTestBrowser();
 	site = await serveStatic("dist");
 });
 after(async () => {

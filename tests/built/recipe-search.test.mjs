@@ -2,9 +2,9 @@
 
 import assert from "node:assert/strict";
 import { mkdir } from "node:fs/promises";
-import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import data from "../../src/components/recipes/recipe-data.server.mjs";
+import { launchTestBrowser } from "../network/browser.ts";
 import { collectErrors, serveStatic } from "./pages.mjs";
 import { holdRecipeArtifact } from "./recipe-artifact-gate.mjs";
 import { setLegacyUnits } from "./recipe-legacy-units.mjs";
@@ -13,7 +13,7 @@ let site;
 let browser;
 before(async () => {
 	site = await serveStatic("dist");
-	browser = await chromium.launch();
+	browser = await launchTestBrowser();
 });
 after(async () => {
 	await browser?.close();

@@ -1,7 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { gzipSync } from "node:zlib";
-import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import {
 	DEFAULT_FILTERS,
@@ -11,6 +10,7 @@ import {
 } from "../../src/components/recipes/constants.mjs";
 import { matchesRecipe } from "../../src/components/recipes/nutrient-filters.mjs";
 import recipeData from "../../src/components/recipes/recipe-data.server.mjs";
+import { launchTestBrowser } from "../network/browser.ts";
 import { collectErrors, serveStatic } from "./pages.mjs";
 import { assertPrintLayout } from "./recipe-print-layout.mjs";
 import { assertRecipeStartupBudget } from "./recipe-startup-budget.mjs";
@@ -36,7 +36,7 @@ let browser;
 
 before(async () => {
 	site = await serveStatic(DIST);
-	browser = await chromium.launch();
+	browser = await launchTestBrowser();
 });
 
 after(async () => {

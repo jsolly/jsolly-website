@@ -2,8 +2,8 @@ import assert from "node:assert/strict";
 import { mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { chromium } from "playwright";
 import { it } from "vitest";
+import { launchPersistentTestContext } from "../network/browser.ts";
 import {
 	browser,
 	navigateHydrated,
@@ -540,14 +540,14 @@ it("Saved recipe and its cooking dependencies survive a browser restart", {
 	const profile = await mkdtemp(join(tmpdir(), "recipes-saved-profile-"));
 	let context;
 	try {
-		context = await chromium.launchPersistentContext(profile, {
+		context = await launchPersistentTestContext(profile, {
 			headless: true,
 		});
 		const page = await context.newPage();
 		await install(page);
 		await openAndSave(page, ID);
 		await context.close();
-		context = await chromium.launchPersistentContext(profile, {
+		context = await launchPersistentTestContext(profile, {
 			headless: true,
 			offline: true,
 		});

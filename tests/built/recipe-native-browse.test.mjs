@@ -1,10 +1,10 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { JSDOM } from "jsdom";
-import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { browseResponse } from "../../api/recipe-browse.mjs";
 import recipeData from "../../src/components/recipes/recipe-data.server.mjs";
+import { launchTestBrowser } from "../network/browser.ts";
 import { collectErrors, serveStatic } from "./pages.mjs";
 
 const mealCount = recipeData.recipes.filter(
@@ -30,7 +30,7 @@ let server;
 let browser;
 before(async () => {
 	server = await serveStatic("dist");
-	browser = await chromium.launch();
+	browser = await launchTestBrowser();
 });
 after(async () => {
 	await browser?.close();

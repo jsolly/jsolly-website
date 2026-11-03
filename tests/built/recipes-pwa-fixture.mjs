@@ -12,9 +12,9 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { build } from "esbuild";
-import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before } from "vitest";
 import { buildRecipePwa } from "../../build/recipes/pwa-build.mjs";
+import { launchTestBrowser } from "../network/browser.ts";
 import { serveStatic } from "./pages.mjs";
 
 // The recipe app offline, ported from awesome-blog's PWA suite
@@ -302,7 +302,7 @@ function setupRecipePwaFixture(variants = []) {
 			Vary: "Accept",
 			"Cache-Control": "no-store",
 		});
-		browser = await chromium.launch();
+		browser = await launchTestBrowser();
 	});
 
 	after(async () => {

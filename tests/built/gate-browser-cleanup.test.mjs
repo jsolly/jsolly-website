@@ -7,6 +7,7 @@ import fs from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
+import { fileURLToPath } from "node:url";
 import { it } from "vitest";
 import { runChains } from "../../gate/run-gate.mjs";
 
@@ -16,25 +17,15 @@ const FIELDS = /\s+/u;
 it("cancellation also awaits Playwright's real detached Chromium process", async () => {
 	const dir = await fs.mkdtemp(join(tmpdir(), "gate-chromium-"));
 	const controller = new AbortController();
-	const playwright = new URL(
-		"../../node_modules/playwright/index.mjs",
-		import.meta.url,
-	).href;
-	const code = `import {chromium} from ${JSON.stringify(playwright)}; import fs from 'node:fs'; const server=await chromium.launchServer({headless:true}); fs.writeFileSync('descendant',String(server.process().pid)); setInterval(()=>{},1000)`;
+	const fixture = fileURLToPath(
+		new URL("../fixtures/gate-browser-descendant.ts", import.meta.url),
+	);
 	const running = runChains(
 		[
 			{
 				name: "chromium",
 				cwd: dir,
-				commands: [
-					[
-						"Chromium ownership",
-						process.execPath,
-						"--input-type=module",
-						"-e",
-						code,
-					],
-				],
+				commands: [["Chromium ownership", process.execPath, fixture]],
 			},
 		],
 		dir,

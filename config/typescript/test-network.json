@@ -1,0 +1,27 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"target": "ES2024",
+		"allowJs": false,
+		"types": ["node"],
+		"lib": ["ES2024", "DOM", "DOM.Iterable"],
+		"allowImportingTsExtensions": true,
+		"noEmit": true
+	},
+	"include": [
+		"../../tests/network/**/*.ts",
+		"../../tests/fixtures/gate-browser-descendant.ts",
+		"../../tests/fixtures/smoke-bootstrap.ts",
+		"../../tests/fixtures/network-lifecycle.ts",
+		"../../tests/fixtures/transport-deadline/*.ts",
+		"../../monitoring/check-accessibility.ts",
+		"../../monitoring/accessibility-pages.ts",
+		"../../monitoring/constants.ts",
+		"../../tests/built/test-network.test.ts",
+		"../../tests/built/recipe-library-readiness.ts",
+		"../../tests/unit/test-network.test.ts"
+	],
+	"exclude": ["../../tests/network/browser-controls/fixtures"]
+}

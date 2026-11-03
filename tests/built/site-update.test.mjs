@@ -10,8 +10,8 @@ import {
 } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
+import { launchTestBrowser } from "../network/browser.ts";
 import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
 import { assertUpdateNoticeLayout } from "./update-notice-layout.mjs";
 
@@ -91,7 +91,7 @@ before(async () => {
 	await retargetBrowseArtifacts("C", originalSha, THIRD_SHA);
 	await serve("A");
 	site = await serveStatic(served, { "Cache-Control": "no-store" });
-	browser = await chromium.launch();
+	browser = await launchTestBrowser();
 });
 
 after(async () => {
