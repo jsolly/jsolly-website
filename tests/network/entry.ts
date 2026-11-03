@@ -13,7 +13,8 @@ export function testProcessEnvironment(
 	env: NodeJS.ProcessEnv,
 ): NodeJS.ProcessEnv {
 	const next = { ...env, TEST_SUITE: suite };
-	if (isOfflineSuite(suite)) return withOfflineNodeGuard(next);
+	if (isOfflineSuite(suite))
+		return withOfflineNodeGuard({ ...next, ASTRO_TELEMETRY_DISABLED: "1" });
 	if (globalThis.__jsollyOfflineNodeGuard)
 		throw new Error("Live production acceptance cannot inherit offline tests");
 	return next;

@@ -4,6 +4,15 @@ import { executeTransportDeadline } from "./scenario.ts";
 import type { DeadlineRequest } from "./types.ts";
 import { parseDeadlineOutcome } from "./types.ts";
 
+class TransportFixtureError extends Error {
+	declare readonly transient?: boolean;
+
+	constructor(message: string, transient: boolean | undefined) {
+		super(message);
+		if (transient !== undefined) this.transient = transient;
+	}
+}
+
 export async function supervisedTransportDeadline(options: DeadlineRequest) {
 	// macOS keeps its existing direct execution. Linux container PID 1 may not
 	// reap orphaned grandchildren, so a test-owned ancestor takes that duty.
@@ -43,9 +52,6 @@ export async function supervisedTransportDeadline(options: DeadlineRequest) {
 	const parsed: unknown = JSON.parse(result);
 	const outcome = parseDeadlineOutcome(parsed);
 	if (outcome.kind === "rejected") {
-		throw Object.assign(
-			new Error(outcome.message),
-			outcome.transient === undefined ? {} : { transient: outcome.transient },
-		);
+		throw new TransportFixtureError(outcome.message, outcome.transient);
 	}
 }

@@ -5,6 +5,7 @@ import { join } from "node:path";
 import { it } from "vitest";
 import { collectErrors, serveStatic } from "./pages.mjs";
 import { legacyUnits, setLegacyUnits } from "./recipe-legacy-units.mjs";
+import { observeRecipeLibraryReadiness } from "./recipe-library-readiness.ts";
 import {
 	browser,
 	dataLabel,
@@ -135,12 +136,9 @@ ${snapshots.A.worker}`,
 		context = await browser.newContext();
 		const page = await context.newPage();
 		const errors = collectErrors(page);
-		const summaryResponse = page.waitForResponse(
-			(response) =>
-				response
-					.url()
-					.startsWith(`${local.origin}/recipes/data/summaries/library-`) &&
-				response.request().serviceWorker() === null,
+		const finishOnlineLibrary = observeRecipeLibraryReadiness(
+			page,
+			local.origin,
 		);
 		await navigateHydrated(page, `${local.origin}${LANDING}`);
 		await statusText(page, SAVED);
@@ -176,10 +174,7 @@ ${snapshots.A.worker}`,
 			{ status: 200, release: "a".repeat(40) },
 		);
 		// Installation can finish while online browsing still imports its modules.
-		const summary = await summaryResponse;
-		assert.equal(summary.status(), 200);
-		assert.equal(await summary.finished(), null);
-		await page.locator('#meal-results[aria-busy="false"]').waitFor();
+		await finishOnlineLibrary();
 		await context.setOffline(true);
 		assert.equal(await dataLabel(page), "A");
 		assert.deepEqual(errors, []);

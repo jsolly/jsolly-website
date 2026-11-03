@@ -13,6 +13,10 @@ credentials. The guard rejects nonloopback destinations before socket connection
 or hostname lookup. Recorded violations fail teardown and process exit even when
 application code catches the connection error.
 
+The runner sets `ASTRO_TELEMETRY_DISABLED=1` for offline suites and their nested
+builds. This prevents Astro's optional telemetry from attempting an external
+connection. Live production acceptance keeps its existing environment.
+
 Browser clients import the factories from `tests/network/browser.ts`. Each
 factory requires the fixture proxy and disables Chromium's implicit loopback
 proxy bypass. The SOCKS listener validates literal loopback destinations before

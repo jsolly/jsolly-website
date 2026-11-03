@@ -116,3 +116,11 @@ existing fixture budget for initial navigation and valid root-heading readiness;
 their target waits retain the original short default timeout. Other cases retain
 their original default-timeout and navigation sequence. The MJS body is not
 claimed to be typechecked; its cases, assertions and constants remain unchanged.
+
+The existing `tests/built/recipes-pwa-update.test.mjs` keeps its counted native
+discovery path and fixture owner. Its offline-transition case routes subscription
+and completion through `tests/built/recipe-library-readiness.ts`. That strict
+module owns response selection, status and body-completion assertions, and the
+existing DOM readiness check. The MJS caller subscribes before navigation and
+awaits the returned completion function immediately before going offline. Its
+remaining test body is not claimed to be typechecked.
