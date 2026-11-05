@@ -1,10 +1,7 @@
 import { cookText } from "./display-units.mjs";
 import { ingredientMeasure } from "./ingredient-units.mjs";
-import {
-	formatQuantity,
-	ingredientAmount,
-	validateSettings,
-} from "./recipe-logic.mjs";
+import { formatQuantity, ingredientAmount } from "./recipe-logic.mjs";
+import { validateSettings } from "./recipe-settings.mjs";
 
 const QUANTITY =
 	/\{\{(?<kind>mass|quantity):(?<value>[\w.-]+)(?::(?<fraction>[\d.]+))?\}\}/gu;

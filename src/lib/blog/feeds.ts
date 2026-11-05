@@ -70,18 +70,18 @@ export function rssFeed(
 	site: URL,
 	legacyIds: Map<string, string>,
 ) {
-	const items = feedItems(posts, site, legacyIds).map(
-		({ data, link, legacyId }) => {
-			// The old URL is no longer the permalink, so its guid says so.
-			const guid =
-				legacyId === undefined
-					? `<guid isPermaLink="true">${link}</guid>`
-					: `<guid isPermaLink="false">${legacyId}</guid>`;
-			return `<item><title>${xml(data.title)}</title><link>${link}</link><description>${xml(data.description)}</description>${guid}</item>`;
-		},
-	);
+	const feed = feedItems(posts, site, legacyIds);
+	const items = feed.map(({ data, link, legacyId }) => {
+		// The old URL is no longer the permalink, so its guid says so.
+		const guid =
+			legacyId === undefined
+				? `<guid isPermaLink="true">${link}</guid>`
+				: `<guid isPermaLink="false">${legacyId}</guid>`;
+		return `<item><title>${xml(data.title)}</title><link>${link}</link><description>${xml(data.description)}</description>${guid}<pubDate>${data.published.toUTCString()}</pubDate></item>`;
+	});
 	const feedUrl = new URL(FEEDS.rss.path, site).href;
-	return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>${xml(FEED_TITLE)}</title><link>${feedUrl}</link><description>${xml(FEED_DESCRIPTION)}</description>${items.join("")}</channel></rss>`;
+	const updated = (feed[0]?.data.updated ?? new Date(0)).toUTCString();
+	return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>${xml(FEED_TITLE)}</title><link>${feedUrl}</link><description>${xml(FEED_DESCRIPTION)}</description><language>en-us</language><atom:link href="${feedUrl}" rel="self" type="${FEEDS.rss.type}"/><lastBuildDate>${updated}</lastBuildDate>${items.join("")}</channel></rss>`;
 }
 
 export function atomFeed(
@@ -92,7 +92,7 @@ export function atomFeed(
 	const items = feedItems(posts, site, legacyIds);
 	const entries = items.map(
 		({ data, link, legacyId }) =>
-			`<entry><title>${xml(data.title)}</title><link href="${link}" rel="alternate"/><id>${legacyId ?? link}</id><summary type="html">${xml(data.description)}</summary><author><name>${xml(data.feedAuthor)}</name></author><updated>${data.published.toISOString()}</updated></entry>`,
+			`<entry><title>${xml(data.title)}</title><link href="${link}" rel="alternate"/><id>${legacyId ?? link}</id><summary type="html">${xml(data.description)}</summary><author><name>${xml(data.feedAuthor)}</name></author><published>${data.published.toISOString()}</published><updated>${data.updated.toISOString()}</updated></entry>`,
 	);
 	const feedUrl = new URL(FEEDS.atom.path, site).href;
 	const updated = (items[0]?.data.updated ?? new Date(0)).toISOString();

@@ -149,7 +149,7 @@ describe("blog feeds", () => {
 		);
 	});
 
-	it("Both feeds list the five most recently updated posts, the newest published first on a tie", () => {
+	it("Both feeds list the twenty most recently updated posts, the newest published first on a tie", () => {
 		const posts = [
 			post("python-constraints", "2026-01-01T00:00:00Z"),
 			post("htmx-comments", "2026-01-06T00:00:00Z"),
@@ -161,6 +161,12 @@ describe("blog feeds", () => {
 			),
 			post("agent-rules", "2026-01-05T00:00:00Z"),
 			post("astro-debugging", "2026-01-02T00:00:00Z"),
+			...Array.from({ length: 15 }, (_, index) =>
+				post(
+					`older-${index + 1}`,
+					`2025-12-${String(index + 1).padStart(2, "0")}T00:00:00Z`,
+				),
+			),
 		];
 		const expected = [
 			"htmx-comments",
@@ -168,6 +174,8 @@ describe("blog feeds", () => {
 			"mozilla-observatory",
 			"red-screens",
 			"astro-debugging",
+			"python-constraints",
+			...Array.from({ length: 14 }, (_, index) => `older-${15 - index}`),
 		];
 		for (const [build, tag] of [
 			[rssFeed, "item"],
@@ -180,6 +188,89 @@ describe("blog feeds", () => {
 				expected.map((slug) => `About ${slug}`),
 			);
 		}
+	});
+
+	it("An edited Atom entry reports its publication and latest update separately", () => {
+		const atom = parse(
+			atomFeed(
+				[
+					post("revised", "2026-10-29T16:45:00Z", "2024-03-01T12:00:00Z"),
+					post("unchanged", "2026-10-28T09:00:00Z", "2026-10-28T09:00:00Z"),
+				],
+				SITE,
+				new Map(),
+			),
+		);
+		assert.deepEqual(
+			[...atom.querySelectorAll("entry")].map((entry) => ({
+				published: entry.querySelector("published")?.textContent,
+				updated: entry.querySelector("updated")?.textContent,
+			})),
+			[
+				{
+					published: "2024-03-01T12:00:00.000Z",
+					updated: "2026-10-29T16:45:00.000Z",
+				},
+				{
+					published: "2026-10-28T09:00:00.000Z",
+					updated: "2026-10-28T09:00:00.000Z",
+				},
+			],
+		);
+		assert.equal(
+			rootChild(atom, "updated")?.textContent,
+			"2026-10-29T16:45:00.000Z",
+		);
+	});
+
+	it("RSS items have publication dates, while channel metadata describes the latest update and feed URL", () => {
+		const rss = parse(
+			rssFeed(
+				[
+					post("unchanged", "2026-10-28T09:00:00Z", "2026-10-28T09:00:00Z"),
+					post("revised", "2026-10-29T16:45:00Z", "2024-03-01T12:00:00Z"),
+				],
+				SITE,
+				new Map(),
+			),
+		);
+		assert.deepEqual(
+			[...rss.querySelectorAll("item")].map(
+				(item) => item.querySelector("pubDate")?.textContent,
+			),
+			["Fri, 01 Mar 2024 12:00:00 GMT", "Wed, 28 Oct 2026 09:00:00 GMT"],
+		);
+		assert.equal(
+			rss.querySelector("channel > lastBuildDate")?.textContent,
+			"Thu, 29 Oct 2026 16:45:00 GMT",
+		);
+		assert.equal(rss.querySelector("channel > language")?.textContent, "en-us");
+		const self = rss.getElementsByTagNameNS(
+			"http://www.w3.org/2005/Atom",
+			"link",
+		);
+		assert.equal(self.length, 1);
+		assert.equal(
+			self[0]?.getAttribute("href"),
+			"https://preview.example/blog/rss.xml",
+		);
+		assert.equal(self[0]?.getAttribute("rel"), "self");
+		assert.equal(self[0]?.getAttribute("type"), "application/rss+xml");
+	});
+
+	it("Empty feeds use a stable epoch timestamp instead of the build clock", () => {
+		const rss = parse(rssFeed([], SITE, new Map()));
+		const atom = parse(atomFeed([], SITE, new Map()));
+		assert.equal(
+			rss.querySelector("channel > lastBuildDate")?.textContent,
+			"Thu, 01 Jan 1970 00:00:00 GMT",
+		);
+		assert.equal(
+			rootChild(atom, "updated")?.textContent,
+			"1970-01-01T00:00:00.000Z",
+		);
+		assert.equal(rss.querySelectorAll("item").length, 0);
+		assert.equal(atom.querySelectorAll("entry").length, 0);
 	});
 
 	it("A title, description or author full of markup characters reads back as the same text in both feeds", () => {

@@ -4,12 +4,12 @@ title: "Secure Website With security.txt: Fight Web Vulnerabilities"
 category: web-dev
 description: Learn how to create a security.txt file, understand its importance, and generate a GPG asymmetric key pair. FANG companies did it, so should you!
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/report_bugs.png
+image: /blog/media/migrated/image-6cdb52cd9197697d43f3ee1c-960.webp
 legacyImage: post_metaimgs/report_bugs.png
 imageAlt: Bug with bomb legs. Report bugs, observe, verify,  inform
 imageAttribution: http://flickr.com/photos/kaet44/
-imageWidth: 1456
-imageHeight: 1536
+imageWidth: 960
+imageHeight: 1013
 published: "2022-05-08T03:29:59Z"
 updated: "2022-05-08T03:29:59Z"
 author: John Solly

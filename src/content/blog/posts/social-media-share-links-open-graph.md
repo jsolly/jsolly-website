@@ -4,12 +4,12 @@ title: Show the Right Image in LinkedIn Posts With the Open Graph Protocol
 category: web-dev
 description: Make your posts look beautiful on LinkedIn by using the Open Graph Protocol. Learn how to use the protocol and test it with social media post inspectors.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/thumbs_up.png
+image: /blog/media/migrated/image-04b1a64a69dfd5ad18f39a24-960.webp
 legacyImage: post_metaimgs/thumbs_up.png
 imageAlt: A thumbs up icon
 imageAttribution: ""
-imageWidth: 1920
-imageHeight: 1920
+imageWidth: 960
+imageHeight: 960
 published: "2022-03-25T04:53:54Z"
 updated: "2026-09-07T14:25:05.464Z"
 author: John Solly

@@ -4,7 +4,7 @@
 	import PopoverRoot from "../../lib/components/ui/popover.svelte";
 	import PopoverTrigger from "../../lib/components/ui/popover-trigger.svelte";
 	import PopoverContent from "./DeferredPopoverContent.svelte";
-	import { choiceUnavailable } from "./nutrient-filters.mjs";
+	import { choiceUnavailable } from "./recipe-settings.mjs";
 
 	// One of the library's multi-choice filters: a trigger summarising the
 	// choices and a popover of checks. An unchecked choice that would leave no

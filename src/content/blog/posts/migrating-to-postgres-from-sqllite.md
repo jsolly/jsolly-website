@@ -4,12 +4,12 @@ title: Migrating From SQLite to Postgres With Django - Documenting Gotchas
 category: dev-tools
 description: Migrate from SQLite to Postgres in Django with this step-by-step guide, including lessons learned and 'gotchas' encountered.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/upgrade_MOysw88.png
+image: /blog/media/migrated/image-536291d280be3819522db333-960.webp
 legacyImage: post_metaimgs/upgrade_MOysw88.png
 imageAlt: Arrows pointing upward
 imageAttribution: ""
-imageWidth: 1920
-imageHeight: 1280
+imageWidth: 960
+imageHeight: 640
 published: "2022-03-07T13:22:13Z"
 updated: "2026-09-07T14:25:05.450Z"
 author: John Solly

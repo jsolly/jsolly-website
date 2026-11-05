@@ -8,17 +8,8 @@
 	import NutritionHelp from "./NutritionHelp.svelte";
 	import { dailyNutrition } from "./nutrition.mjs";
 	import RecipeFlow from "./RecipeFlow.svelte";
-	import {
-		displayNutrition,
-		formatNutrition,
-		formatQuantity,
-		ingredientAmount,
-		nutritionHeading,
-		nutritionPortionLabel,
-		selectedSide,
-		sideNutrition,
-	totalTimeLabel,
-	} from "./recipe-logic.mjs";
+	import { displayNutrition, formatQuantity, ingredientAmount, nutritionHeading, nutritionPortionLabel, selectedSide, sideNutrition, totalTimeLabel } from "./recipe-logic.mjs";
+import { formatNutrition } from "./recipe-settings.mjs";
 
 	// A recipe's appliances, facts, photo, family side, cooking flow and
 	// nutrition, shared by the recipe page and printed card packets.

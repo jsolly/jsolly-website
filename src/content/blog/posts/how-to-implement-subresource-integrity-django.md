@@ -4,12 +4,12 @@ title: "Improving Security With SRI: From F to B on Mozilla Observatory"
 category: web-dev
 description: Learn how to implement SRI and improve security, including how to generate cryptographic hashes and use the django-sri module | A Step-by-step guide
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/security_hacker.jpg
+image: /blog/media/migrated/image-401e8bbe447ac916a135f6ea-960.webp
 legacyImage: post_metaimgs/security_hacker.jpg
 imageAlt: A hooded man (hacker) pointing at the camera with 0s and 1s
 imageAttribution: https://technofaq.org/wp-content/uploads/2016/12/hacker-.jpg
-imageWidth: 1920
-imageHeight: 1280
+imageWidth: 960
+imageHeight: 640
 published: "2022-05-21T19:42:17Z"
 updated: "2024-11-06T13:35:07.129Z"
 author: John Solly
@@ -27,7 +27,7 @@ related:
 
 Earlier this month, I ran a <a target="_blank" rel="noopener noreferrer" href="/blog/how-to-get-a-perfect-mozilla-observatory-score/">Mozilla Observatory Audit and got an F</a>. I implemented SRI in <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/awesome-django-blog/pull/67/files">this PR</a>, which <a target="_blank" rel="noopener noreferrer" href="https://observatory.mozilla.org/analyze/blogthedata.com">upgraded my score to a &nbsp;B</a> !
 
-<img class="image_resized" style="width:586px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image-20220527235214-1.png" alt="Mozilla Observatory security scores. F on May 3rd. B on May 21st.">
+<img class="image_resized" style="width:586px;" src="/blog/media/migrated/image-d54d3bddba7e30d8e8de1340-586.webp" alt="Mozilla Observatory security scores. F on May 3rd. B on May 21st.">
 
 To implement SRI, you add a cryptographic hash to each \<link\> and \<script\> tag.
 
@@ -35,7 +35,7 @@ To implement SRI, you add a cryptographic hash to each \<link\> and \<script\> t
 
 Most of my resources already have integrity values. For example, all <a target="_blank" rel="noopener noreferrer" href="https://getbootstrap.com">bootstrap files served via CDN</a> include SRI protection.
 
-<img class="image_resized" style="width:657px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image-20220527235312-2.png" alt="screenshot of Bootstrap CDN page showing integrity hash">
+<img class="image_resized" style="width:657px;" src="/blog/media/migrated/image-13cc3ac02187f61ee5f2a1c4-657.webp" alt="screenshot of Bootstrap CDN page showing integrity hash">
 
 Still, many dependencies I use do not include it. The CSS/JS for the my code snippets syntax highlighter, <a target="_blank" rel="noopener noreferrer" href="https://prismjs.com">Prism.js</a>, does not come with SRI protection.
 

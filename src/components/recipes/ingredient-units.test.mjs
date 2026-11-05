@@ -3,13 +3,8 @@ import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { JSDOM } from "jsdom";
 import { it, vi } from "vitest";
-import { unitAudit } from "../../../scripts/recipes/audit-units.mjs";
 import { archivedRecipes } from "./archived-recipes.test-data.mjs";
-import {
-	ingredientGrams,
-	ingredientMeasure,
-	unitPreference,
-} from "./ingredient-units.mjs";
+import { ingredientGrams, ingredientMeasure } from "./ingredient-units.mjs";
 import weights from "./ingredient-weights.json" with { type: "json" };
 import data from "./recipe-data.server.mjs";
 import { documentMarkdown, recipeDocument } from "./recipe-export.mjs";
@@ -18,7 +13,9 @@ import {
 	formatQuantity,
 	ingredientAmount,
 } from "./recipe-logic.mjs";
+import { unitPreference } from "./recipe-settings.mjs";
 import { readRecipeURL, recipeHref } from "./recipe-url.mjs";
+import { unitAudit } from "./tools/audit-units.mjs";
 import { flowGrid, gridHtml } from "./trn-logic.mjs";
 import {
 	readRecipePreferences,
@@ -557,7 +554,7 @@ it("the committed audit enumerates all source and family rows with current conve
 	assert.equal(
 		committed === unitAudit(),
 		true,
-		"Stale recipe unit audit. Run node scripts/recipes/audit-units.mjs --write.",
+		"Stale recipe unit audit. Run node src/components/recipes/tools/audit-units.mjs --write.",
 	);
 });
 

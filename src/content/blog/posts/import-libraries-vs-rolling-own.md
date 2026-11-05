@@ -4,12 +4,12 @@ title: Importing Libraries vs ‘Rolling Your Own’
 category: productivity
 description: Sometimes you should import functionality. Other times, write the code yourself. At Esri, we benefitted from leveraging another team's code.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/idea_coming_out_of_box_l7p9JwK.png
+image: /blog/media/migrated/image-e95e00c619b3ff1256a1dcf0-960.webp
 legacyImage: post_metaimgs/idea_coming_out_of_box_l7p9JwK.png
 imageAlt: A hand coming out of a box with a lightbulb
 imageAttribution: ""
-imageWidth: 1546
-imageHeight: 1920
+imageWidth: 960
+imageHeight: 1192
 published: "2021-12-28T07:34:45Z"
 updated: "2021-12-28T07:34:45Z"
 author: John Solly

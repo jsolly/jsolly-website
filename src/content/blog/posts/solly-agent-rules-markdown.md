@@ -4,7 +4,7 @@ title: Solly's Agent Rules
 category: productivity
 description: My global instructions for AI coding agents, covering communication, planning, implementation, delegation, shipping and safety.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/AI-agent-rules.webp
+image: /blog/media/migrated/image-ee9b1fb171991f4c408a6151-725.webp
 legacyImage: post_metaimgs/AI-agent-rules.webp
 imageAlt: 'Shows the text, "AI Agent Rules: AGENT.md"'
 imageAttribution: Grok Imagine

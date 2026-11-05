@@ -4,12 +4,12 @@ title: "Navigate the Digital Ocean: Tips & Tricks to Find Quality Information"
 category: productivity
 description: Learn tips and tricks for finding accurate and reliable information online, such as using the Hierarchy of Evidence and searching specific top-level domains.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/DuckDuckGo-Logo.webp
+image: /blog/media/migrated/image-e50cc8d7a2394f9088524e89-960.webp
 legacyImage: post_metaimgs/DuckDuckGo-Logo.webp
 imageAlt: Headshot of John Solly
 imageAttribution: ""
-imageWidth: 1350
-imageHeight: 1080
+imageWidth: 960
+imageHeight: 768
 published: "2022-03-14T14:41:56Z"
 updated: "2026-09-07T14:25:05.453Z"
 author: John Solly
@@ -33,7 +33,7 @@ First things first, before evaluating information, we should filter from WHERE w
 
 The <a target="_blank" rel="noopener noreferrer" href="https://www.researchgate.net/profile/Becky-Ingham-Broomfield/publication/301605361_A_nurses'_guide_to_the_hierarchy_of_research_designs_and_evidence/links/571debd308aead26e71a6028/A-nurses-guide-to-the-hierarchy-of-research-designs-and-evidence.pdf">hierarchy of evidence</a> gives you an idea of how good the evidence simply based on the experimental design! Whenever you read a research paper, this is the first filter you should apply. You'll notice that 'expert' opinions are at the bottom of the pyramid and comprise the weakest forms of evidence.
 
-<img class="image_resized" style="height:248px;width:400px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/hierarchy_of_evidence.jpeg" alt="Hierarchy of evidence pyramid">
+<img class="image_resized" style="height:248px;width:400px;" src="/blog/media/migrated/image-28ff91d8c285a4bb2594cb88-960.webp" alt="Hierarchy of evidence pyramid">
 
 ## Great, how can I find high-quality research?
 
@@ -49,7 +49,7 @@ You can also try site.edu, site.reddit.com, site.quora.com
 
 Try a few out and see what happens! Check out the <a target="_blank" rel="noopener noreferrer" href="https://help.duckduckgo.com/duckduckgo-help-pages/results/syntax/">search syntax documentation</a> to learn more.
 
-<img class="image_resized" style="height:156px;width:400px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/duckduckgo_serach.png" alt="A screenshot of a DuckDuckGo search showing 'Is saturated fat bad? site:.org'">
+<img class="image_resized" style="height:156px;width:400px;" src="/blog/media/migrated/image-2304173990647755563bce3c-960.webp" alt="A screenshot of a DuckDuckGo search showing 'Is saturated fat bad? site:.org'">
 
 So what the heck is happening? Well, you're only searching across websites that end in .org. 
 

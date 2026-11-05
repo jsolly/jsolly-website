@@ -4,12 +4,12 @@ title: I Use TailwindCSS Except in These Three Scenarios
 category: web-dev
 description: Discover the benefits of using TailwindCSS for quick application development and learn why scoped CSS is a superior solution for many use cases.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/TailwindLogo.webp
+image: /blog/media/migrated/image-67072b1438b979ff6d8343fc-960.webp
 legacyImage: post_metaimgs/TailwindLogo.webp
 imageAlt: Tailwind Logo
 imageAttribution: https://codekitapp.com/images/help/free-tailwind-icon@2x.png
-imageWidth: 1024
-imageHeight: 626
+imageWidth: 960
+imageHeight: 587
 published: "2024-03-28T22:24:46.536Z"
 updated: "2024-11-05T19:18:50.477Z"
 author: John Solly
@@ -35,7 +35,7 @@ When TailwindCSS was created, scoped CSS at the component level did not exist. H
 
 Let's take the following component on the <a target="_blank" rel="noopener noreferrer" href="https://johnsolly.dev/">showcase page</a> of my personal website (JohnSolly.dev).
 
-<figure class="image"><img style="aspect-ratio:444/207;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/CleanShot%202024-03-28%20at%2018.23.47.png" alt="Text surrounded in styled quotes" width="444" height="207"></figure>
+<figure class="image"><img style="aspect-ratio:444/207;" src="/blog/media/migrated/image-bfbb420a9771e44d5cbe4a10-444.webp" alt="Text surrounded in styled quotes" width="444" height="207"></figure>
 
 <strong>Pure Tailwind Utility Classes</strong>
 
@@ -82,7 +82,7 @@ Instead, I use a hybrid approach of Tailwind classes and scoped CSS within the .
 
 Another place I prefer to use something other than the Tailwind is with hover + focus states. You CAN do it in Tailwind, but your class list will explode.
 
-<figure class="image"><img style="aspect-ratio:410/230;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/CleanShot%202024-03-29%20at%2017.34.52.gif" alt="demonstration of hover animation on link cards" width="410" height="230"></figure>
+<figure class="image"><img style="aspect-ratio:410/230;" src="/blog/media/migrated/image-b62f2ff49094c348a7d404b4-410.webp" alt="demonstration of hover animation on link cards" width="410" height="230"></figure>
 
 <strong>Pure Tailwind Utility Classes</strong>
 
@@ -146,7 +146,7 @@ With the transitions and focus/hover states moved into scoped CSS, I can clearly
 
 Keyframes and anything related to moving things around on the screen are a nightmare in Tailwind. Here's an example from my <a target="_blank" rel="noopener noreferrer" href="https://johnsolly.dev/">showcase page</a> for rotating a chevron symbol when the user clicks on an accordion to open my bio.
 
-<figure class="image image-style-align-center"><img style="aspect-ratio:800/451;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/CleanShot%202024-03-29%20at%2017.36.40.gif" alt="John Solly Bio accordion opening and closing" width="800" height="451"></figure>
+<figure class="image image-style-align-center"><img style="aspect-ratio:800/451;" src="/blog/media/migrated/image-724ef84d9c60571a5fc1a3e6-800.webp" alt="John Solly Bio accordion opening and closing" width="800" height="451"></figure>
 
 <strong>Pure Tailwind Utility Classes</strong>
 

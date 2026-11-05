@@ -1,5 +1,6 @@
 import { BASE_SERVINGS } from "./constants.mjs";
-import { validateSettings } from "./recipe-logic.mjs";
+import { validateSettings } from "./recipe-settings.mjs";
+import retired from "./retired-recipes.json" with { type: "json" };
 
 // Reads a recipe link's settings and target (its /recipes/<id>/ page or
 // #<id> hash). Explicit settings override the addressed recipe's saved side,
@@ -103,4 +104,11 @@ export function recipePageURL(url, recipe, settings) {
 	for (const [key, value] of selected.searchParams)
 		next.searchParams.set(key, value);
 	return next;
+}
+
+const retiredIds = new Set(retired.map(({ id }) => id));
+
+/** Known legacy fragments have an explicit notice at their original recipe URL. */
+export function retiredRecipePath(id) {
+	return retiredIds.has(id) ? `/recipes/${id}/` : null;
 }

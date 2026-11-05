@@ -4,7 +4,7 @@ title: "Up-to-Date Tech Resources: Tutorials, Podcasts, Newsletters"
 category: resources
 description: Find the best resources for learning Python, web development, GIS, and more in this comprehensive list. Stay up-to-date with the latest advancements.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/favoriteResourcs.webp
+image: /blog/media/migrated/image-ad9ab292d83b3c534ba7cbbc-512.webp
 legacyImage: post_metaimgs/favoriteResourcs.webp
 imageAlt: An earth globe
 imageAttribution: "Stable Diffusion 2.1: A glowing orb of knowledge and information, representing the endless resources of the internet, inviting exploration and discovery."

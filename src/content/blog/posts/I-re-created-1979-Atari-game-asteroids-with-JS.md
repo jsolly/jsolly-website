@@ -4,7 +4,7 @@ title: "GeoAsteroids: Refactoring a JS Asteroids Clone Into a GIS Game"
 category: Geodev
 description: I've refactored my JavaScript Asteroids clone into a modular application and made it into a game for GIS nerds. Check out GeoAsteroids.com to play!
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/GeoAsteroids_screenshot.png
+image: /blog/media/migrated/image-5c7179de00cd5c87fd4ab2e8-800.webp
 legacyImage: post_metaimgs/GeoAsteroids_screenshot.png
 imageAlt: Screenshot of GeoAsteroids
 imageAttribution: ""

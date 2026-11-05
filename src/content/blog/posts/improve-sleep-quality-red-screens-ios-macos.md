@@ -4,12 +4,12 @@ title: "Maximizing Sleep Quality: How to Use Red Screens on iOS and MacOS"
 category: productivity
 description: Learn how to use accessibility settings on iOS and MacOS to limit blue light and promote better sleep
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/RedGlasses.webp
+image: /blog/media/migrated/image-bf1f01459fc5abf4d83d480b-960.webp
 legacyImage: post_metaimgs/RedGlasses.webp
 imageAlt: Man with red glasses in red room
 imageAttribution: DALLE3
-imageWidth: 1024
-imageHeight: 1024
+imageWidth: 960
+imageHeight: 960
 published: "2024-05-04T00:18:28.298Z"
 updated: "2026-09-07T14:25:05.534Z"
 author: John Solly
@@ -45,17 +45,17 @@ The steps for applying a red color tint filter with maximum intensity on MacOS a
 
 3 - Go back to accessibility settings, scroll to the bottom of the page, and click on 'shortcut.' Make sure to check the 'Color Filters' option.
 
-<figure class="image"><img style="aspect-ratio:715/625;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/ColorFiltersOption.webp" alt="Screenshot of Accessibility shortcuts page with 'Color Filters' selected" width="715" height="625"></figure>
+<figure class="image"><img style="aspect-ratio:715/625;" src="/blog/media/migrated/image-4e98da958e3847befa17542a-715.webp" alt="Screenshot of Accessibility shortcuts page with 'Color Filters' selected" width="715" height="625"></figure>
 
 4 - Go to Settings \> Control Center
 
 5 - Make sure 'Show in menu bar' is selected for the Accessibility Shortcut
 
-<figure class="image"><img style="aspect-ratio:710/620;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/MacOSControlCenter.webp" width="710" height="620" alt="MacOS control center with 'Show in Menu Bar' toggle in the 'on' position."></figure>
+<figure class="image"><img style="aspect-ratio:710/620;" src="/blog/media/migrated/image-37b4bd27eb4c005a70e614dc-710.webp" width="710" height="620" alt="MacOS control center with 'Show in Menu Bar' toggle in the 'on' position."></figure>
 
 4 - Now you can turn the red filter on/off in the menu bar
 
-<figure class="image"><img style="aspect-ratio:303/188;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/accessibilityMenuBar.webp" alt="Screenshot of MacOS menu bar showing Color Filters Accessibility Shortcut" width="303" height="188"></figure>
+<figure class="image"><img style="aspect-ratio:303/188;" src="/blog/media/migrated/image-6a436a7f049df18d6ae862e4-303.webp" alt="Screenshot of MacOS menu bar showing Color Filters Accessibility Shortcut" width="303" height="188"></figure>
 
 ## Leverage 'Night Shift' on iPhone and MacOS
 
