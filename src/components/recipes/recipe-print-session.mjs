@@ -1,3 +1,4 @@
+import { reportError } from "../../lib/report-error.mjs";
 import { PRINT_FAILED } from "./constants.mjs";
 
 // Preserve the document's prior print mode, including browser-menu printing.
@@ -42,6 +43,7 @@ export function createRecipePrintSession(mode, prepared, restored) {
 			window.print();
 			return "";
 		} catch (error) {
+			void reportError("recipe-print");
 			console.error("Recipe printing failed:", error);
 			restore();
 			return PRINT_FAILED;

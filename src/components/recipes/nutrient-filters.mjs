@@ -1,14 +1,6 @@
-import {
-	applianceChoices,
-	applianceLimits,
-	applianceNeeds,
-	DEFAULT_FILTERS,
-	defaultAppliances,
-	proteins,
-	starchOptions,
-} from "./constants.mjs";
+import { applianceNeeds, defaultAppliances } from "./constants.mjs";
 import { dailyNutrition, recordedOmega3 } from "./nutrition.mjs";
-import { ingredientAmount, validateSettings } from "./recipe-logic.mjs";
+import { ingredientAmount } from "./recipe-logic.mjs";
 
 const immuneNutrients = new Set([
 	"vitamin_a",
@@ -18,6 +10,7 @@ const immuneNutrients = new Set([
 	"selenium",
 ]);
 export function nutrientFilters(recipe, servings) {
+	if (recipe.browse) return recipe.browse.flags[servings];
 	const nutrients = dailyNutrition(recipe, servings, ingredientAmount);
 	const rich = (n) => n.amount !== null && n.amount / n.dailyValue >= 0.2;
 	return {
@@ -50,37 +43,17 @@ export function smoothieIngredientChoices(recipes) {
 }
 // Saved multi-select filters are arrays of option keys; anything else
 // restores as no selection.
-export function normalizeSelection(value, options) {
-	if (!Array.isArray(value)) return [];
-	return [...new Set(value.filter((item) => Object.hasOwn(options, item)))];
-}
+
 // An empty selection matches every value.
 function selectedMatches(selection, value) {
 	return !selection.length || selection.includes(value);
 }
 // A choice is unavailable when it is not picked and picking it would leave
 // no recipe (`wouldMatch` says whether any would remain).
-export function choiceUnavailable(picked, wouldMatch) {
-	return !picked && !wouldMatch();
-}
+
 // Saved appliance counts, clamped per appliance; a missing or invalid count
 // restores its default.
-export function availableAppliances(value) {
-	if (value && typeof value === "object")
-		return Object.fromEntries(
-			Object.keys(applianceChoices).map((key) => [
-				key,
-				Math.max(
-					0,
-					Math.min(
-						applianceLimits[key] ?? 1,
-						Number.isInteger(value[key]) ? value[key] : defaultAppliances[key],
-					),
-				),
-			]),
-		);
-	return { ...defaultAppliances };
-}
+
 export function hasAppliances(recipe, inventory) {
 	return recipe.appliancesNeeded.every(
 		(key) => (inventory[key] || 0) >= (applianceNeeds[key] ?? 1),
@@ -122,53 +95,4 @@ export function matchesRecipe(
 		(!iron || flags.iron) &&
 		(!omega || flags.omega)
 	);
-}
-
-const isObject = (value) =>
-	Boolean(value) && typeof value === "object" && !Array.isArray(value);
-
-// The library's saved settings (localStorage recipes-settings-v1), validated
-// key by key: anything missing, of the wrong shape or no longer offered
-// restores its default. `recipes` are the library's recipes (a family side
-// must still be one of its recipe's sides) and `ingredients` the smoothie
-// ingredient choices.
-export function parseSavedSettings(saved, { recipes, ingredients }) {
-	const settings = isObject(saved) ? saved : {};
-	const filters = isObject(settings.filters) ? settings.filters : {};
-	const familyChoice = isObject(settings.familyChoice)
-		? Object.fromEntries(
-				Object.entries(settings.familyChoice).filter(([id, side]) =>
-					recipes
-						.find((recipe) => recipe.id === id)
-						?.familyOptions.some((option) => option.id === side),
-				),
-			)
-		: {};
-	const flag = (key) => filters[key] === true;
-	const servings = validateSettings({ servings: settings.servings }).servings;
-	const familyDiners =
-		settings.familyDiners === undefined && Object.keys(familyChoice).length
-			? servings
-			: settings.familyDiners;
-	return {
-		servings,
-		familyDiners: validateSettings({ servings, familyDiners }).familyDiners,
-		units: validateSettings({ units: settings.units }).units,
-		filters: {
-			...DEFAULT_FILTERS,
-			proteinChoice: normalizeSelection(filters.proteinChoice, proteins),
-			starchChoice: normalizeSelection(filters.starchChoice, starchOptions),
-			ingredientChoice: normalizeSelection(
-				filters.ingredientChoice,
-				ingredients,
-			),
-			vegetarianOnly: flag("vegetarianOnly"),
-			immuneSupport: flag("immuneSupport"),
-			ironRich: flag("ironRich"),
-			omega3: flag("omega3"),
-			dumpAndGo: flag("dumpAndGo"),
-		},
-		appliancesOnHand: availableAppliances(settings.appliancesOnHand),
-		familyChoice,
-	};
 }

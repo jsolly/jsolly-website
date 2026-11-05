@@ -59,11 +59,11 @@ content:
         type: string
         default: John_Solly
       - name: image
-        label: Cover image URL or media path
+        label: Cover image media path
         type: string
         default: /blog/media/default.webp
-        description: "Upload through Media, then paste its /blog/media/... path here; existing HTTPS media URLs are preserved."
-        pattern: '^(?:/blog/media/\S+|https://\S+)$'
+        description: "Upload through Media, then paste its /blog/media/... path here. Images are served from this site."
+        pattern: '^/blog/media/\S+$'
       - name: imageAlt
         label: Image description
         type: string

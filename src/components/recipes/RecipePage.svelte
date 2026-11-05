@@ -8,10 +8,10 @@
 	import RecipeContent from "./RecipeContent.svelte";
 	import RecipeOfflineStatus from "./RecipeOfflineStatus.svelte";
 	import RecipePrintButton from "./RecipePrintButton.svelte";
-	import { validateSettings } from "./recipe-logic.mjs";
 	import { madeDateFor, madeDateLabel, readMadeRecipes, todayMadeDate, watchMadeRecipes, writeMadeRecipe } from "./recipe-made.mjs";
 	import { collectionReturn, takeLegacyRedirect } from "./recipe-navigation.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
+	import { validateSettings } from "./recipe-settings.mjs";
 	import { readRecipeURL, recipePageURL } from "./recipe-url.mjs";
 	import ShareRecipe from "./ShareRecipe.svelte";
 	import { readRecipePreferences, writeRecipePreferences } from "./unit-preference.mjs";

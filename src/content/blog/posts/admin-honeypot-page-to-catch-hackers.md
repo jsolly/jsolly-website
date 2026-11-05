@@ -4,12 +4,12 @@ title: Securing Your Django Admin Page With django-admin-honeypot
 category: web-dev
 description: Protect a Django admin page from bots and hackers with django-admin-honeypot. Learn how to implement logging and email notifications of failed login attempts.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/honeypot.jpg
+image: /blog/media/migrated/image-d3a4e8c1269b9ab50d88d254-960.webp
 legacyImage: post_metaimgs/honeypot.jpg
 imageAlt: A honeypot with a lock on it.
 imageAttribution: https://www.helpnetsecurity.com/2020/02/06/detecting-zero-day-iot-exploits/
-imageWidth: 1280
-imageHeight: 854
+imageWidth: 960
+imageHeight: 641
 published: "2022-05-08T15:15:49Z"
 updated: "2026-09-07T14:25:05.471Z"
 author: John Solly
@@ -31,7 +31,7 @@ https://blogthedata.com/admin
 
 I store every login attempt in the database for later review. The username field tells me what username they tried to use (don't worry, I don't know what password you tried).
 
-<img class="image_resized" style="height:231px;width:800px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image-20220508081723-1.png" alt="Django admin page showing an attempted login">
+<img class="image_resized" style="height:231px;width:800px;" src="/blog/media/migrated/image-305561708ae0afeade32dd88-837.webp" alt="Django admin page showing an attempted login">
 
 If I want to be extra hardcore, I could use a combination of the admin-honeypot signal hook and a tool like <a target="_blank" rel="noopener noreferrer" href="https://github.com/fail2ban/fail2ban/wiki">fail2ban</a> to block any IP address that tries to login on this page (don't worry, I haven't implemented that, so hack away).
 

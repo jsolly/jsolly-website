@@ -4,7 +4,7 @@ title: "Getting an Appraisal on Your Domain Name: Godaddy vs Estibot"
 category: web-dev
 description: Discover the value of your domain with an appraisal from Godaddy and Estibot. Learn how length, keyword sales, and extensions impact the value of your domain.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/blogthedataprice.png
+image: /blog/media/migrated/image-dd651fcc524ceade14a9cf99-503.webp
 legacyImage: post_metaimgs/blogthedataprice.png
 imageAlt: Headshot of John Solly
 imageAttribution: ""

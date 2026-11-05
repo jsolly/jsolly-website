@@ -4,7 +4,7 @@ title: How To Use ChatGPT To Practice for a GeoDev Interview
 category: Geodev
 description: I used the AI model, ChatGPT, as interview practice for a GeoDev position! I include the prompt I used so you can, too!
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/ChatGPT.webp
+image: /blog/media/migrated/image-2d13cb30d4d86a199a97dbc3-646.webp
 legacyImage: post_metaimgs/ChatGPT.webp
 imageAlt: John Solly Headshot
 imageAttribution: https://img.fresherslive.com/latestnews/images/articles/origin/2022/12/13/how-to-bypass-chat-gpt-filter-63981171eb5d8-1670910321.jpg
@@ -32,11 +32,11 @@ I noticed one called "<a target="_blank" rel="noopener noreferrer" href="https:/
 
 The interview was insightful, and the questions and answers were high quality. For example, I asked the interviewer about professional opportunities, and GPT totally nailed it.
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_gbusLaj.png" alt="GPT output of the above prompt"></figure>
+<figure class="image"><img src="/blog/media/migrated/image-885c4c6495f1c24cd50b56f5-746.webp" alt="GPT output of the above prompt"></figure>
 
 Sounds like a great place to work! I tried to get feedback at the end of the interview but just got a pat on the back.
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_QLOYT1F.png" alt="GPT output of the above prompt"></figure>
+<figure class="image"><img src="/blog/media/migrated/image-867756ab11c258fa2029be70-726.webp" alt="GPT output of the above prompt"></figure>
 
 ## Act as a Talent Coach for a Geospatial Developer
 
@@ -44,7 +44,7 @@ Next, I turned to a second prompt to get advice from a talent coach's perspectiv
 
 <blockquote><p>I want you to act as a Talent Coach for interviews. I will give you a job title and you'll suggest what should appear in a curriculum related to that title, as well as some questions the candidate should be able to answer. My first job title is "Geospatial Developer".</p></blockquote>
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_GiqM5D2.png" alt="GPT output of the above prompt"></figure>
+<figure class="image"><img src="/blog/media/migrated/image-fa443e53aad1cdf0f9494b2d-827.webp" alt="GPT output of the above prompt"></figure>
 
 ## Conclusion
 

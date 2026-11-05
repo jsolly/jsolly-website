@@ -1,5 +1,6 @@
 import { WORDS_PER_MINUTE } from "./constants.js";
-import { articleHtml, imageUrl, plainText } from "./html.js";
+import { articleHtml, plainText } from "./html.js";
+import { imageUrl, responsiveImage } from "./images.js";
 import type { Card, CardPost } from "./types.js";
 import { categoryHref, postHref } from "./urls.js";
 
@@ -35,27 +36,31 @@ function sameUtcDay(a: Date, b: Date) {
 
 // The post cards PostCards.svelte renders, in the given post order.
 export function cards(posts: CardPost[]): Card[] {
-	return posts.map(({ data, html, categoryName }) => ({
-		slug: data.slug,
-		href: postHref(data.slug),
-		title: data.title,
-		description: data.description,
-		excerpt: articleHtml(data.excerpt),
-		image: imageUrl(data.image),
-		imageAlt: data.imageAlt,
-		imageWidth: data.imageWidth,
-		imageHeight: data.imageHeight,
-		published: data.published.toISOString(),
-		updated: data.updated.toISOString(),
-		dateLabel: dateLabel(data.published),
-		updatedLabel: sameUtcDay(data.published, data.updated)
-			? null
-			: dateLabel(data.updated),
-		categoryHref: categoryHref(data.category),
-		categoryName,
-		minutes: Math.max(
-			1,
-			Math.ceil(plainText(html).split(WHITESPACE).length / WORDS_PER_MINUTE),
-		),
-	}));
+	return posts.map(({ data, html, categoryName }) => {
+		const responsive = responsiveImage(data.image);
+		return {
+			slug: data.slug,
+			href: postHref(data.slug),
+			title: data.title,
+			description: data.description,
+			excerpt: articleHtml(data.excerpt),
+			image: imageUrl(data.image),
+			...(responsive ? { imageSrcset: responsive.srcset } : {}),
+			imageAlt: data.imageAlt,
+			imageWidth: data.imageWidth,
+			imageHeight: data.imageHeight,
+			published: data.published.toISOString(),
+			updated: data.updated.toISOString(),
+			dateLabel: dateLabel(data.published),
+			updatedLabel: sameUtcDay(data.published, data.updated)
+				? null
+				: dateLabel(data.updated),
+			categoryHref: categoryHref(data.category),
+			categoryName,
+			minutes: Math.max(
+				1,
+				Math.ceil(plainText(html).split(WHITESPACE).length / WORDS_PER_MINUTE),
+			),
+		};
+	});
 }

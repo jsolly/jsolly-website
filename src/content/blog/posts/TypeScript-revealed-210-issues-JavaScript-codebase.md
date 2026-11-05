@@ -4,12 +4,12 @@ title: Adding TypeScript to a JavaScript Project | A Step-by-Step Guide
 category: dev-tools
 description: Add TypeScript to your JavaScript project by converting .js files to .ts and fixing any compilation errors. Follow this guide for detailed instructions.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/TypeScript.webp
+image: /blog/media/migrated/image-c2bf39b57ac4437abd2bf542-960.webp
 legacyImage: post_metaimgs/TypeScript.webp
 imageAlt: Meta Image
 imageAttribution: ""
-imageWidth: 1009
-imageHeight: 286
+imageWidth: 960
+imageHeight: 272
 published: "2022-07-19T21:59:53.847Z"
 updated: "2022-07-19T21:59:53.847Z"
 author: John Solly

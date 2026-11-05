@@ -4,12 +4,12 @@ title: Improve Security With a Content Security Policy | A Step-By-Step Guide
 category: web-dev
 description: Implement Content Security Policy for website security and user protection, using features like nonces, hashes, and source lists.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/content_security_policy.png
+image: /blog/media/migrated/image-48c47c16718f9ee091ecdd1a-960.webp
 legacyImage: post_metaimgs/content_security_policy.png
 imageAlt: Screenshot of Content Security Policy directives
 imageAttribution: ""
-imageWidth: 1440
-imageHeight: 754
+imageWidth: 960
+imageHeight: 503
 published: "2022-05-24T22:22:56Z"
 updated: "2024-11-06T13:41:08.074Z"
 author: John Solly

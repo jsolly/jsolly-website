@@ -4,12 +4,12 @@ title: "Git Good: Making the Move to Conventional Commits"
 category: dev-tools
 description: Learn the importance of good commit messages and the structure of Conventional Commits with an example in VScode.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/conventionalCommits.png
+image: /blog/media/migrated/image-f443d572646f84785cb359fe-960.webp
 legacyImage: post_metaimgs/conventionalCommits.png
 imageAlt: The text 'Conventional Commits' with a blue background.
 imageAttribution: ""
-imageWidth: 3850
-imageHeight: 2170
+imageWidth: 960
+imageHeight: 541
 published: "2022-01-23T19:18:48Z"
 updated: "2022-01-23T19:18:48Z"
 author: John Solly
@@ -56,18 +56,18 @@ Closes D2IQ-12345</code></pre>
 
 There is a plugin called <a target="_blank" rel="noopener noreferrer" href="https://marketplace.visualstudio.com/items?itemName=vivaxy.vscode-conventional-commits&amp;ssr=false#overview">Conventional Commits</a> that makes this super straight forward. Once you install the plugin, you'll get a little circle in VScode:
 
-<img class="image_resized" style="height:244px;width:469px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/conventional_commits_in_cscode_ui.png" alt="Conventional Commits icon in VScode">
+<img class="image_resized" style="height:244px;width:469px;" src="/blog/media/migrated/image-581fbb33171a631186956276-469.webp" alt="Conventional Commits icon in VScode">
 
 You can see in the image above I've already staged a change...a modification to my .gitignore file.
 
-<img class="image_resized" style="height:229px;width:431px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/staged_commit_in_vscode.png" alt="Staged commit in Vscode">
+<img class="image_resized" style="height:229px;width:431px;" src="/blog/media/migrated/image-64267df62e59b1413f206044-431.webp" alt="Staged commit in Vscode">
 
 You start the commit process by clicking that new circle. The rest of the steps are guided and self-explanatory. Once you finish, push away!
 
 ## This is what the commits look like in Git
 
-<img class="image_resized" style="height:230px;width:801px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/commit_view_github.png" alt="A list of commits in GitHub">
+<img class="image_resized" style="height:230px;width:801px;" src="/blog/media/migrated/image-6bbc7e4a8561dff13baba0f2-960.webp" alt="A list of commits in GitHub">
 
 ## If you click on one of the commits, you see the whole thing
 
-<img class="image_resized" style="height:171px;width:800px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/single_commit_view.png" alt="A view of a single commit in GitHub">I am quite happy with conventional commits. I can hear my future self thanking me. Hope you like them too! If you use another style of commits, let me know in the comments!
+<img class="image_resized" style="height:171px;width:800px;" src="/blog/media/migrated/image-aebb4929f04bb8182d9fadd2-960.webp" alt="A view of a single commit in GitHub">I am quite happy with conventional commits. I can hear my future self thanking me. Hope you like them too! If you use another style of commits, let me know in the comments!

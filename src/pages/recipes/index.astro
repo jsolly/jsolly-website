@@ -1,12 +1,14 @@
 ---
 import AuthorCard from "../../components/blog/AuthorCard.astro";
 import RecipeExperience from "../../components/recipes/RecipeExperience.astro";
+import { recipeCatalog } from "../../components/recipes/recipe-catalog.mjs";
+import data from "../../components/recipes/recipe-data.server.mjs";
 import RecipeLayout from "../../layouts/RecipeLayout.astro";
 import { headingLinkLabel } from "../../lib/blog/html.js";
 
 // The recipe library's landing page, where blogthedata.com's Easy Meals &
-// Smoothies post now 301s (RCP-001). It renders the library as that post did:
-// every recipe, meals first. The h1, #meal-results and the author card's
+// Smoothies post now 301s (RCP-001). The collection overview distinguishes it
+// from the meal browser. The h1, #meal-results and the author card's
 // h2#about-author keep the post's fragment ids. To accommodate legacy
 // blogthedata.com links, each recipe's #<id> redirects to that recipe's page
 // (plan §1.6).
@@ -14,11 +16,24 @@ const TITLE = "Keto meals & smoothies";
 const TITLE_ID = "easy-meals--smoothies";
 const DESCRIPTION =
 	"Keto meals and smoothies with measured portions, appliance filters and serving ideas for a shared table.";
+const collections = recipeCatalog(data.recipes);
 ---
 
 <RecipeLayout title={TITLE} description={DESCRIPTION}>
 	<article>
 		<h1 id={TITLE_ID}>{TITLE}<a class="heading-link" href={`#${TITLE_ID}`} aria-label={headingLinkLabel(TITLE)}>#</a></h1>
+		<p>Find a meal for a shared table or a smoothie by the glass. Browse a collection to filter by ingredients and kitchen equipment, or open the complete recipe index.</p>
+		<p><a href="/recipes/all/">Browse all {data.recipes.length} recipes</a></p>
+		<div class="collection-overview">
+			{collections.map((collection) => (
+				<section aria-labelledby={`collection-${collection.type}`}>
+					<h2 id={`collection-${collection.type}`}><a href={collection.href}>{collection.title}</a></h2>
+					<p>{collection.recipes.length} recipes. {collection.type === "meal" ? "Measured portions, cooking instructions and separate sides for other diners." : "Measured ingredients, blender instructions and estimated nutrition per glass."}</p>
+					<ul>{collection.recipes.slice(0, 3).map((recipe) => <li><a href={recipe.href}>{recipe.title}</a></li>)}</ul>
+				</section>
+			))}
+		</div>
+		<h2 id="browse-meals">Browse keto meals</h2>
 		<RecipeExperience />
 	</article>
 	<AuthorCard />
@@ -32,6 +47,11 @@ const DESCRIPTION =
 		/* The post's footer used to separate the library from the author card. */
 		article {
 			margin-bottom: 1.5rem;
+		}
+		.collection-overview {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+			gap: 1.5rem;
 		}
 	}
 </style>

@@ -4,7 +4,7 @@ title: Hired Freelancer on Fiverr to Fix a Tricky Bug - My Success Story
 category: productivity
 description: Learn how I hired yasirmughal1998 from Fiverr to fix a tricky bug on my category page for $35 USD in 2 days. Read my story to find out how it was done.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/fiverr_logo_icon_169172.png
+image: /blog/media/migrated/image-f017c9b0579f43f352790e9f-512.webp
 legacyImage: post_metaimgs/fiverr_logo_icon_169172.png
 imageAlt: Fiverr logo
 imageAttribution: ""

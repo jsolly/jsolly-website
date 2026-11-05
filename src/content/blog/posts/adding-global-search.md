@@ -4,12 +4,12 @@ title: Searching for Answers - Implementing Search Functionality to the Site
 category: web-dev
 description: Learn to implement search functionality on your website with this guide, including using the 'Q' function to search titles and content of posts.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/globalSearch.png
+image: /blog/media/migrated/image-c1b878483929f6b9a82874db-960.webp
 legacyImage: post_metaimgs/globalSearch.png
 imageAlt: Python code for global search
 imageAttribution: ""
-imageWidth: 1310
-imageHeight: 708
+imageWidth: 960
+imageHeight: 519
 published: "2022-01-12T15:52:32Z"
 updated: "2022-01-12T15:52:32Z"
 author: John Solly

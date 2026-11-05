@@ -4,12 +4,12 @@ title: How I Fixed My Neck, Wrist, and Finger Pain as a Software Engineer
 category: productivity
 description: Stop coding in pain! Discover how a software engineer fixed neck, wrist, and finger aches with simple ergonomic changes.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/hand.webp
+image: /blog/media/migrated/image-64288d316d5fcfa2f3fb3531-960.webp
 legacyImage: post_metaimgs/hand.webp
 imageAlt: John Solly Headshot
 imageAttribution: ""
-imageWidth: 1216
-imageHeight: 1080
+imageWidth: 960
+imageHeight: 853
 published: "2024-12-21T18:49:05.426Z"
 updated: "2024-12-25T22:11:14.541Z"
 author: John Solly
@@ -47,9 +47,9 @@ In this post, I’ll share what helped me eliminate (or at least drastically red
 
 <ul><li>I initially got an “ergonomic” mouse from Amazon. Within a few weeks, I developed pain on the top of my wrist, right where my hand and wrist meet. It was frustrating because this mouse was supposed to prevent precisely that.</li></ul>
 
-<figure class="image image-style-side image_resized" style="width:51.45%;"><img alt="Back of a hand with a red arrow pointing to the sore area near the knuckles" style="aspect-ratio:2984/2651;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/hand.jpg" width="2984" height="2651"></figure>
+<figure class="image image-style-side image_resized" style="width:51.45%;"><img alt="Back of a hand with a red arrow pointing to the sore area near the knuckles" style="aspect-ratio:2984/2651;" src="/blog/media/migrated/image-e4e3afdc67aafbdac0cbfd1f-960.webp" width="2984" height="2651"></figure>
 
-<figure class="image image-style-align-left"><img alt="A Logitech ERGO trackball mouse with a thumb-operated trackball" style="aspect-ratio:328/436;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/Logimouse.webp" width="328" height="436"></figure>
+<figure class="image image-style-align-left"><img alt="A Logitech ERGO trackball mouse with a thumb-operated trackball" style="aspect-ratio:328/436;" src="/blog/media/migrated/image-bf394208d04150a99fc1caf8-328.webp" width="328" height="436"></figure>
 
 <strong>The First Solution:</strong>
 
@@ -67,13 +67,13 @@ However, as technology changed and my workflow changed, I encountered a new prob
 
 <ul><li>I maxed out my scroll speed and mouse sensitivity using the Logi+ Control Center. That helped reduce the number of scrolls I needed, but the pain persisted because I was still using that same finger in the same repetitive way.</li></ul>
 
-<figure class="image image_resized" style="width:48.59%;"><img alt="Logi Options+ settings for a vertical mouse showing scroll wheel and pointer speed both at 100 percent" style="aspect-ratio:633/571;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/CleanShot 2024-12-25 at 17.10.02.png" width="633" height="571"></figure>
+<figure class="image image_resized" style="width:48.59%;"><img alt="Logi Options+ settings for a vertical mouse showing scroll wheel and pointer speed both at 100 percent" style="aspect-ratio:633/571;" src="/blog/media/migrated/image-9bec8425884fd17810660f0e-633.webp" width="633" height="571"></figure>
 
 <strong>Final Solution:</strong>
 
 <ul><li>I bought a second mouse (the Orbit Trackball). Now, I switch between them on the fly. Whenever I know I’ll be doing a lot of scrolling, I switch to the trackball to give my middle finger a break. The difference is night and day. It’s been a month, and my middle finger pain is almost gone!</li></ul>
 
-<figure class="image image_resized" style="width:49.5%;"><img alt="A Logitech MX Vertical mouse next to a Kensington trackball on a desk" style="aspect-ratio:2272/2340;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/twomice.jpg" width="2272" height="2340"></figure>
+<figure class="image image_resized" style="width:49.5%;"><img alt="A Logitech MX Vertical mouse next to a Kensington trackball on a desk" style="aspect-ratio:2272/2340;" src="/blog/media/migrated/image-f92599e4bbe6212fb5fe4fbe-960.webp" width="2272" height="2340"></figure>
 
 ## <strong>Conclusion</strong>
 

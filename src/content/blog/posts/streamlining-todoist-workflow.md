@@ -4,12 +4,12 @@ title: "Streamlining Todoist: My Simple Yet Effective Workflow"
 category: productivity
 description: Learn how I streamline my Todoist workflow with a custom tool and weekly planning method to increase my productivity and align with my goals.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/todoistTasks.webp
+image: /blog/media/migrated/image-1231058bc70957c4d9ae7b39-960.webp
 legacyImage: post_metaimgs/todoistTasks.webp
 imageAlt: Dashboard showing John's progress towards his goals. John has completed 13045 tasks, and has a daily goal of 14 tasks, a weekly goal of 21 tasks, and a karma score of 100.
 imageAttribution: ""
-imageWidth: 1125
-imageHeight: 768
+imageWidth: 960
+imageHeight: 655
 published: "2023-08-10T21:36:33.816Z"
 updated: "2026-09-07T14:25:05.523Z"
 author: John Solly

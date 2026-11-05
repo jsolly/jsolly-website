@@ -4,7 +4,7 @@ title: "Find Your Dream Job: A Guide to Job Searching and Interviewing"
 category: resources
 description: Find your dream job with this guide on job searching, researching companies, interviewing, and resumes/cover letters.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/shakingHandsInterview.webp
+image: /blog/media/migrated/image-f7c3846903a1f40fd555d93c-512.webp
 legacyImage: post_metaimgs/shakingHandsInterview.webp
 imageAlt: Two people shaking hands
 imageAttribution: "Stable Diffusion 2.1 Prompt: A typical job interview. Shaking hands. Professional. No faces."

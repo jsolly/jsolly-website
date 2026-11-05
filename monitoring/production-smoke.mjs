@@ -1,0 +1,350 @@
+// Production acceptance helper. Vitest owns orchestration; this module retains
+// release readiness, browser behavior, cleanup and diagnostic artifacts.
+import { mkdir, writeFile } from "node:fs/promises";
+import { resolve } from "node:path";
+
+const RELEASE_SHA = /^[0-9a-f]{40}$/u;
+const REQUEST_ID = /^[a-zA-Z0-9_-]{1,100}$/u;
+
+export function verifyResponse({ url, status }, canonical) {
+	const final = new URL(url);
+	const target = new URL(canonical);
+	if (final.protocol !== "https:" || final.origin !== target.origin) {
+		throw new Error(`Noncanonical response: ${url}`);
+	}
+	if (status < 200 || status >= 300) {
+		throw new Error(`HTTP ${status}: ${url}`);
+	}
+}
+export async function runSmoke({
+	scenario,
+	env = process.env,
+	fetcher = fetch,
+	launch,
+	readinessMs = 120000,
+	pollMs = 10000,
+	behaviorMs = 90000,
+}) {
+	const artifacts = resolve("production-smoke-artifacts");
+	await mkdir(artifacts, { recursive: true });
+	const receipt = {
+		requestId: env.PRODUCTION_SMOKE_REQUEST_ID,
+		releaseSha: env.PRODUCTION_SMOKE_RELEASE_SHA,
+		observations: [],
+		errors: [],
+		success: false,
+	};
+	let browser, context, page, workerContext, workerPage, timer;
+	const recordError = (error) => receipt.errors.push(String(error));
+	const diagnostics = [];
+	const drainDiagnostics = async () => {
+		for (let checked = 0; checked < diagnostics.length; ) {
+			const pending = diagnostics.slice(checked);
+			checked = diagnostics.length;
+			// biome-ignore lint/performance/noAwaitInLoops: drain each newly queued diagnostics batch before checking for more.
+			await Promise.all(pending);
+		}
+	};
+	const verifyHttp = async (url) => {
+		const response = await fetcher(url, {
+			redirect: "follow",
+			cache: "no-store",
+			signal: AbortSignal.timeout(15000),
+		});
+		const observation = { url: response.url, status: response.status };
+		receipt.observations.push(observation);
+		verifyResponse(observation, url);
+		return response;
+	};
+	const watchPage = (target) => {
+		const origin = new URL(scenario.productionUrl).origin;
+		const pendingSummaries = new Set();
+		const expectedCancellations = new Map();
+		target.on("request", (request) => {
+			const url = new URL(request.url());
+			if (
+				url.origin === origin &&
+				(url.pathname === "/api/recipe-browse/" ||
+					url.pathname ===
+						`/recipes/data/summaries/library-${receipt.releaseSha}.json` ||
+					url.pathname ===
+						`/recipes/data/search/index-${receipt.releaseSha}.json`) &&
+				request.method() === "GET"
+			)
+				pendingSummaries.add(request);
+		});
+		target.on("requestfinished", (request) => {
+			pendingSummaries.delete(request);
+			expectedCancellations.delete(request);
+		});
+		target.setDefaultTimeout(15000);
+		target.on("console", (message) => {
+			if (message.type() === "error") {
+				recordError(`console: ${message.text()}`);
+			}
+		});
+		target.on("pageerror", (error) => recordError(`pageerror: ${error}`));
+		target.on("requestfailed", (request) => {
+			const phase = expectedCancellations.get(request);
+			pendingSummaries.delete(request);
+			expectedCancellations.delete(request);
+			if (new URL(request.url()).origin !== origin) {
+				return;
+			}
+			diagnostics.push(
+				(async () => {
+					const failure = request.failure()?.errorText;
+					if (phase && failure === "net::ERR_ABORTED") {
+						receipt.observations.push({
+							url: request.url(),
+							method: request.method(),
+							source: "verification-cancellation",
+							phase,
+							failure,
+						});
+						return;
+					}
+					if (request.method() === "HEAD" && failure === "net::ERR_ABORTED") {
+						// Chromium can abort a HEAD body after receiving its successful headers.
+						const response = await request.response();
+						if (
+							response &&
+							response.status() >= 200 &&
+							response.status() < 300
+						) {
+							receipt.observations.push({
+								url: response.url(),
+								status: response.status(),
+								source: "browser-head",
+								method: "HEAD",
+							});
+							return;
+						}
+					}
+					recordError(`requestfailed: ${request.url()} ${failure}`);
+				})().catch(recordError),
+			);
+		});
+		target.on("response", (response) => {
+			if (new URL(response.url()).origin !== origin) {
+				return;
+			}
+			if (response.status() >= 400) {
+				recordError(`HTTP ${response.status()}: ${response.url()}`);
+			}
+			if (
+				response.request().resourceType() === "document" &&
+				response.status() >= 200 &&
+				response.status() < 300
+			) {
+				receipt.observations.push({
+					url: response.url(),
+					status: response.status(),
+					source: "browser",
+				});
+			}
+		});
+		// Only requests already in flight at this explicit verification step
+		// can qualify; later requests and every other failure stay diagnostic.
+		return (phase) => {
+			for (const request of pendingSummaries)
+				expectedCancellations.set(request, phase);
+		};
+	};
+	try {
+		if (!REQUEST_ID.test(receipt.requestId ?? "")) {
+			throw new Error("Invalid smoke request ID");
+		}
+		if (!RELEASE_SHA.test(receipt.releaseSha ?? "")) {
+			throw new Error("Invalid smoke release SHA");
+		}
+		if (new URL(scenario.productionUrl).protocol !== "https:") {
+			throw new Error("Production URL must use HTTPS");
+		}
+		const deadline = Date.now() + readinessMs;
+		for (;;) {
+			try {
+				// biome-ignore lint/performance/noAwaitInLoops: readiness retries must wait for the preceding request.
+				await verifyHttp(scenario.productionUrl);
+				break;
+			} catch (error) {
+				if (Date.now() >= deadline) {
+					throw new Error(`Readiness deadline: ${error}`, {
+						cause: error,
+					});
+				}
+				await new Promise((resolveWait) =>
+					setTimeout(resolveWait, Math.min(pollMs, deadline - Date.now())),
+				);
+			}
+		}
+		browser = await (
+			launch ?? (async () => (await import("playwright")).chromium.launch())
+		)();
+		context = await browser.newContext({ serviceWorkers: "block" });
+		// Routing disables the HTTP cache so every document comes from the network.
+		await context.route("**/*", (route) => route.continue());
+		await context.tracing.start({
+			screenshots: true,
+			snapshots: true,
+			sources: true,
+		});
+		page = await context.newPage();
+		watchPage(page);
+		await Promise.race([
+			(async () => {
+				const response = await page.goto(scenario.productionUrl, {
+					waitUntil: "domcontentloaded",
+				});
+				if (!response) {
+					throw new Error("Navigation returned no document");
+				}
+				verifyResponse(
+					{ url: response.url(), status: response.status() },
+					scenario.productionUrl,
+				);
+				await scenario.smoke({ page, context, artifacts, verifyHttp });
+				if (scenario.serviceWorker !== undefined) {
+					const settings = scenario.serviceWorker;
+					const canonical = new URL(scenario.productionUrl);
+					const urls = {};
+					for (const key of ["page", "scope", "script"]) {
+						if (typeof settings?.[key] !== "string") {
+							throw new Error(`Service worker ${key} must be a URL path`);
+						}
+						const value = new URL(settings[key], canonical);
+						if (
+							value.origin !== canonical.origin ||
+							value.search ||
+							value.hash
+						) {
+							throw new Error(`Noncanonical service worker ${key}`);
+						}
+						urls[key] = value.href;
+					}
+					if (!urls.scope.endsWith("/") || !urls.page.startsWith(urls.scope)) {
+						throw new Error(
+							"Service worker page must be inside its directory scope",
+						);
+					}
+					// A fresh context cannot inherit a previous release's worker or cache.
+					// Main behavioral checks remain in the worker-blocked context above.
+					workerContext = await browser.newContext({ serviceWorkers: "allow" });
+					await workerContext.tracing.start({
+						screenshots: true,
+						snapshots: true,
+						sources: true,
+					});
+					workerPage = await workerContext.newPage();
+					const prepareRecipeTransition = watchPage(workerPage);
+					const workerResponse = await workerPage.goto(urls.page, {
+						waitUntil: "domcontentloaded",
+					});
+					if (!workerResponse)
+						throw new Error("Worker navigation returned no document");
+					verifyResponse(
+						{ url: workerResponse.url(), status: workerResponse.status() },
+						urls.page,
+					);
+					// Await the browser's readiness promise explicitly: an async polling
+					// predicate is a truthy Promise before its result is available.
+					await workerPage.evaluate(async ({ scope, script }) => {
+						const registration = await navigator.serviceWorker.ready;
+						if (
+							registration.scope !== scope ||
+							registration.active?.scriptURL !== script
+						) {
+							throw new Error("Unexpected service worker registration");
+						}
+					}, urls);
+					await workerPage.waitForFunction(
+						({ script }) =>
+							navigator.serviceWorker.controller?.scriptURL === script &&
+							navigator.serviceWorker.controller.state === "activated",
+						urls,
+						{ timeout: behaviorMs },
+					);
+					// Background pagination may keep a healthy page continuously busy.
+					await workerPage.waitForLoadState("load");
+					prepareRecipeTransition("reload");
+					await workerPage.reload({ waitUntil: "domcontentloaded" });
+					await workerPage.waitForFunction(
+						({ script }) =>
+							navigator.serviceWorker.controller?.scriptURL === script,
+						urls,
+						{ timeout: behaviorMs },
+					);
+					if (workerPage.url() !== urls.page)
+						throw new Error("Worker page redirected");
+					const savedRecipeEvidence =
+						typeof scenario.verifyRecipeWorker === "function"
+							? await scenario.verifyRecipeWorker(workerPage, {
+									beforeOpen: () => prepareRecipeTransition("open"),
+									beforeOffline: () => prepareRecipeTransition("offline"),
+								})
+							: {};
+					receipt.observations.push({
+						...savedRecipeEvidence,
+						url: urls.page,
+						status: workerResponse.status(),
+						source: "service-worker",
+						scope: urls.scope,
+						script: urls.script,
+						state: "activated",
+						controlled: true,
+					});
+				}
+				await drainDiagnostics();
+				if (receipt.errors.length) {
+					throw new Error("Browser diagnostics failed");
+				}
+			})(),
+			new Promise((_, reject) => {
+				timer = setTimeout(
+					() => reject(new Error("Behavior deadline exceeded")),
+					behaviorMs,
+				);
+			}),
+		]);
+		receipt.success = true;
+	} catch (error) {
+		recordError(error);
+	} finally {
+		clearTimeout(timer);
+		if (page) {
+			await page
+				.screenshot({ path: resolve(artifacts, "page.png"), fullPage: true })
+				.catch(recordError);
+		}
+		if (workerPage) {
+			await workerPage
+				.screenshot({
+					path: resolve(artifacts, "service-worker.png"),
+					fullPage: true,
+				})
+				.catch(recordError);
+		}
+		if (workerContext) {
+			await workerContext.tracing
+				.stop({ path: resolve(artifacts, "service-worker-trace.zip") })
+				.catch(recordError);
+		}
+		if (context) {
+			await context.tracing
+				.stop({ path: resolve(artifacts, "trace.zip") })
+				.catch(recordError);
+		}
+		if (browser) {
+			await browser.close().catch(recordError);
+		}
+		await drainDiagnostics();
+		if (receipt.errors.length) {
+			receipt.success = false;
+		}
+		await writeFile(
+			resolve(artifacts, "receipt.json"),
+			`${JSON.stringify(receipt, null, 2)}\n`,
+		);
+	}
+	return receipt;
+}

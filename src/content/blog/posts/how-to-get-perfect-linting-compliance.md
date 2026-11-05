@@ -4,12 +4,12 @@ title: "Adhering to PEP 8 Style Guidelines: Cleaning Up Blogthedata.com Code"
 category: dev-tools
 description: Rid your code of errors, bugs, stylistic errors, and suspicious constructs. Use linters to take your app to the next level!
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/python_logo_Ca9SNv5.png
+image: /blog/media/migrated/image-7378beb607ef310d1d907deb-960.webp
 legacyImage: post_metaimgs/python_logo_Ca9SNv5.png
 imageAlt: Python logo
 imageAttribution: ""
-imageWidth: 1280
-imageHeight: 800
+imageWidth: 960
+imageHeight: 600
 published: "2022-05-06T17:35:08Z"
 updated: "2026-09-07T14:25:05.469Z"
 author: John Solly
@@ -51,7 +51,7 @@ I don't like lines being too long, but sometimes code just makes more sense on o
 
 ## Rulers in VScode
 
-<img class="image_resized" style="width:800px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image-20220506115820-2.png" alt="Screenshot of vscode with vertical bars showing rulers at 79 and 120 characters">
+<img class="image_resized" style="width:800px;" src="/blog/media/migrated/image-0e2a661768be7c6afed589da-906.webp" alt="Screenshot of vscode with vertical bars showing rulers at 79 and 120 characters">
 
 <a target="_blank" rel="noopener noreferrer" href="https://pylint.pycqa.org/en/latest/messages/convention/missing-module-docstring.html">C0114</a>, <a target="_blank" rel="noopener noreferrer" href="https://pylint.pycqa.org/en/latest/messages/convention/missing-class-docstring.html?highlight=C0115">C0115</a>, <a target="_blank" rel="noopener noreferrer" href="https://pylint.pycqa.org/en/latest/messages/convention/missing-function-docstring.html?highlight=C0116">C0116</a>, (missing class, module, function docstrings)
 

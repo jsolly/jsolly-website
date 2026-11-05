@@ -4,12 +4,12 @@ title: "Demystifying the CKEditor 4 to 5 Migration Process: Lessons Learned"
 category: web-dev
 description: Learn how to migrate from CKEditor 4 to CKEditor 5 and strengthen your Content Security Policy (CSP) by removing unsafe-inline scripts | A Guide
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/toad.jpg
+image: /blog/media/migrated/image-662d7d7709fec4e8fa0c8e38-960.webp
 legacyImage: post_metaimgs/toad.jpg
 imageAlt: A picture of a toad chilling in the sand.
 imageAttribution: ""
-imageWidth: 1920
-imageHeight: 1280
+imageWidth: 960
+imageHeight: 640
 published: "2022-05-27T18:45:25Z"
 updated: "2022-05-27T18:45:25Z"
 author: John Solly

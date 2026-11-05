@@ -4,7 +4,7 @@ title: "AI Pair Programmers: Writing Tests With Github Copilot"
 category: dev-tools
 description: Learn how AI pair programmers like Github Copilot can assist with writing tests, providing an example of its use in a 2D spaceship game.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/robot.webp
+image: /blog/media/migrated/image-8717d8daf76ed384d563e8e3-654.webp
 legacyImage: post_metaimgs/robot.webp
 imageAlt: A picture of a cartoon robot
 imageAttribution: https://pixabay.com/vectors/robot-android-148989/

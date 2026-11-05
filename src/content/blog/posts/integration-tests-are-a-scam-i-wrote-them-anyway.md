@@ -4,12 +4,12 @@ title: "Breaking Up With Integration Tests: Switch To Collab & Contract Tests"
 category: dev-tools
 description: Are integration tests a scam? Find out why J.B Rainsberger believes so and learn how to move away from integration tests toward collaboration and contract tests
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/selenium_python.jpg
+image: /blog/media/migrated/image-d17bded08c1ef052085f99a8-960.webp
 legacyImage: post_metaimgs/selenium_python.jpg
 imageAlt: The selenium and python logos next to each other.
 imageAttribution: ""
-imageWidth: 1600
-imageHeight: 899
+imageWidth: 960
+imageHeight: 539
 published: "2022-04-13T03:10:10Z"
 updated: "2024-11-06T13:34:39.057Z"
 author: John Solly

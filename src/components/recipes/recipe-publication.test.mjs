@@ -3,9 +3,9 @@ import { it } from "vitest";
 import {
 	isKetoSavedRecipe,
 	requirePublishedRecipe,
-	retiredRecipePath,
 	retirementMarkdown,
 } from "./recipe-publication.mjs";
+import { retiredRecipePath } from "./recipe-url.mjs";
 import retired from "./retired-recipes.json" with { type: "json" };
 
 const KETO_REQUIRED = /qualify as keto/u;

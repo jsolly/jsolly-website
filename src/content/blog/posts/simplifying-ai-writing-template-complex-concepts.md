@@ -4,7 +4,7 @@ title: "Simplifying AI Writing: Template for Breaking Down Complex Concepts"
 category: productivity
 description: Use a writing template to simplify understanding and working with AI prompts, applying writing fundamentals to create well-crafted final outputs.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/manWildDogs.webp
+image: /blog/media/migrated/image-1e48c2c4785ec87f358a9bd0-512.webp
 legacyImage: post_metaimgs/manWildDogs.webp
 imageAlt: "Stable Diffusion 2.1: Digital painting of a post-apocalyptic wasteland. Man surrounded by wild dogs. Vibrant colors, dynamic lines."
 imageAttribution: ""
@@ -39,13 +39,13 @@ Here's a prompt I am using when I am using ChatGPT for writing.
 
 <blockquote><p>Write a four-paragraph, fast paced, detailed, and humorous short story in the action genre set in a post-apocalyptic wasteland with no resolution and a lot of slang from the omniscient point of view. The story follows a survivor named Jake who is down to his last 6oz of water.</p></blockquote>
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_fVz8TIA.png" alt="A four paragraph short story from ChatGPT about a post-apocalyptic world."></figure>
+<figure class="image"><img src="/blog/media/migrated/image-ddad2c368cb758973e11995c-639.webp" alt="A four paragraph short story from ChatGPT about a post-apocalyptic world."></figure>
 
 ## Professional Writing
 
 <blockquote><p>Write a three-paragraph, even-paced concise and professional article in the geospatial genre about quantitative analysis with metaphors and idoims from the first-person point of view. The article is about the benefits of using a GIS.</p></blockquote>
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_XY7J7Pu.png" alt="A four paragraph short story from ChatGPT about the benefits of GIS"></figure>
+<figure class="image"><img src="/blog/media/migrated/image-813bc8fc3ab2b96c201bebdf-644.webp" alt="A four paragraph short story from ChatGPT about the benefits of GIS"></figure>
 
 ## Conclusion
 

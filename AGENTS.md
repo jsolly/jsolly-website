@@ -32,7 +32,17 @@ The blog and recipes migrated from blogthedata.com. The [source repository](http
 
 ## Stack
 
-Astro 7 with Svelte 5 islands, TypeScript and Node pinned in `.nvmrc`; Tailwind CSS 4 (via `@tailwindcss/vite`) and shadcn-svelte parts on bits-ui; Biome 2 for lint and format; `@astrojs/sitemap`; Inter and Poppins via `@fontsource`. The blog renders Markdown with the satteri processor and Prism, sanitizes article HTML with `sanitize-html` and searches with MiniSearch. Tests use Vitest, pytest, jsdom and Playwright (Chromium). Vercel hosts the static output plus `middleware.ts`; PagesCMS edits the blog content.
+Astro 7 with Svelte 5 islands, TypeScript and Node pinned in `.nvmrc`; Tailwind CSS 4 (via `@tailwindcss/vite`) and shadcn-svelte parts on bits-ui; Biome 2 for lint and format; `@astrojs/sitemap`; Inter and Poppins via `@fontsource`. The blog renders Markdown with the satteri processor and Prism, sanitizes article HTML with `sanitize-html` and searches with MiniSearch indexes prepared at build time. Tests use Vitest, pytest, jsdom and Playwright (Chromium). Vercel hosts the static output plus `middleware.ts`; PagesCMS edits the blog content.
+
+## Repository layout
+
+Besides `config/` (settings) and `api/` (Vercel functions), repository tooling and tests live in five top-level directories and one component folder:
+
+- `build/`: the custom build steps (static-asset pinning, Markdown siblings, the recipe service worker and their TypeScript loader), plus the CSP, site-file and blogthedata redirect parsers that tests and `monitoring/` reuse. `astro build` itself and the closing CSP suite run elsewhere.
+- `gate/`: the local gate, CI and Preview workflow helpers, lint wrappers, security scanner and hook trust (see [Git hooks](#git-hooks)).
+- `monitoring/`: the production smoke, accessibility audits, asset-retention probe and blogthedata cutover verifier.
+- `tests/`: every suite outside `src/`, its fixtures and the suite runner `tests/run-tests.mjs` (see [Tests](#tests)).
+- `src/components/recipes/tools/`: the recipe command-line tools (see [Recipes](#recipes)).
 
 ## Frontend stack
 
@@ -51,7 +61,7 @@ article printing, share actions and back navigation use installed Button control
 the heading-link copy script retains stable article fragments. Without JavaScript,
 the archive link replaces load-more and the shared mobile navigation stays visible.
 
-New blog and recipe controls use shadcn-svelte. The recipe pages already use shadcn-svelte's bits-ui parts (`dialog*`, `collapsible*`, `checkbox`, `native-select`, `popover*` in `src/lib/components/ui/`). Native `<details>`, checkboxes and a share link are the server-rendered no-JavaScript fallback. The recipe library enhances controls with JavaScript. Without it, native GET forms submit filters, search and shuffle to the Node browse function through the collection URL. Plain visits render six summaries; submitted results use native controls and no-store responses. Summary batches load ahead of scrolling; a card's full recipe and calculation references load only when it is printed, and recipe pages embed their own. Offline browsing uses explicitly opened or individually printed saved recipes.
+New blog and recipe controls use shadcn-svelte. The recipe pages already use shadcn-svelte's bits-ui parts (`dialog*`, `collapsible*`, `checkbox`, `native-select`, `popover*` in `src/lib/components/ui/`). Native `<details>`, checkboxes and a share link are the server-rendered no-JavaScript fallback. The recipe library enhances controls with JavaScript. Without it, native GET forms submit filters, search and shuffle to the Node browse function through the collection URL. Plain visits render six summaries; submitted results use native controls and no-store responses. Online browsing loads one release-named static summary library; filtering, search, shuffle and further card batches then run locally. Native no-JavaScript forms retain the no-store browse function and use the same build artifact. a card's full recipe and calculation references load only when it is printed, and recipe pages embed their own. Offline browsing uses explicitly opened or individually printed saved recipes.
 
 The personal `/shadcn-svelte` skill is optional. Preserve focus behavior and
 follow Local UI verification below.
@@ -64,44 +74,46 @@ follow Local UI verification below.
 
 ```bash
 npm run dev                 # Astro dev server (localhost:4321)
-npm run build               # astro build (writes the route manifest) + node process-html.mjs + static Markdown siblings (scripts/markdown-build.mjs) + recipe service worker (scripts/recipes/pwa-build.mjs) + built-CSP test (csp suite)
+npm run build               # astro build (writes the route manifest and pins hosted stylesheet links) + static Markdown siblings (build/markdown-build.mjs) + recipe service worker (build/recipes/pwa-build.mjs) + built-CSP test (csp suite)
 npm run build:maintenance   # MAINTENANCE_MODE=true npm run build (renders Maintenance.astro)
 npm run preview             # Preview the production build locally
 npm run gate                # the full pre-commit gate (see CI below)
 npm run check:fix           # biome check --write
 npm run check:ts            # astro check + svelte-check (errors only)
 npm run fix                 # check:fix + check:ts (combined)
-npm test                    # unit tests: src/**/*.test.{ts,mjs} and scripts/unit/*.test.mjs
-npm run test:built          # built-output tests: scripts/built/*.test.mjs against dist/ (run after build)
+npm test                    # unit tests: src/**/*.test.{ts,mjs} and tests/unit/*.test.{ts,mjs}
+npm run test:built          # built-output tests: tests/built/*.test.{ts,mjs} against dist/ (run after build)
 npm run smoke:scenario-contract  # the production smoke scenario's contract tests (smoke suite)
 npm run smoke:production    # the production smoke itself, against the pinned production URL
 npm run redirects:write     # regenerate legacy/blogthedata/vercel.json from url-map.json
 npm run redirects:check     # fail when legacy/blogthedata/vercel.json differs from what url-map.json generates
 npm run recipes:sync        # regenerate public/recipes/data/recipe-library.{json,md} from recipes.json
 npm run recipes:check       # fail when public/recipes/data differs from what recipes.json generates
+npm run check:a11y          # axe audit of every built page at 1280 and 390 px (after build; docs/accessibility.md)
+npm run check:a11y:sample   # the PR CI axe sample: one page per template (monitoring/accessibility-pages.ts)
 ```
 
 ## Tests
 
-Every JavaScript suite runs through `scripts/run-tests.mjs`: `unit` (`npm test`: `src/**/*.test.{ts,mjs}` and `scripts/unit/*.test.mjs`), `built` (`npm run test:built`: `scripts/built/*.test.mjs`), `csp` (the end of `npm run build`: `scripts/built-csp.test.mjs`) and `smoke` (`npm run smoke:scenario-contract`: `scripts/production-smoke-scenario.test.mjs`). It fails a suite when its passing-test count differs from `config/testing/test-counts.json`. Update the count in the commit that adds tests; lower it only in a commit that names each dropped test.
+Every Vitest suite runs through `tests/run-tests.mjs`: `unit` (`npm test`: `src/**/*.test.{ts,mjs}` and `tests/unit/*.test.{ts,mjs}`), `built` (`npm run test:built`: `tests/built/*.test.{ts,mjs}`), `csp` (the end of `npm run build`: `tests/built-csp.test.mjs`) and `smoke` (`npm run smoke:scenario-contract`: `tests/production-smoke-scenario.test.mjs`). It fails a suite when its passing-test count differs from `config/testing/test-counts.json`. Update the count in the commit that adds tests; lower it only in a commit that names each dropped test.
 
-- Built tests read `dist/` through `scripts/built/pages.mjs` (shared readers, a static server, and stand-ins for every off-origin request, the CloudFront post images and embed frames included). No test reaches the network.
-- A built test that needs its own build uses a `scripts/built/temp-copy.mjs` copy of the working tree, never the real tree; that file's header describes the isolation.
+- Built tests read `dist/` through `tests/built/pages.mjs` (shared readers, a static server, and stand-ins for every off-origin request, embed frames included). Offline suites permit loopback servers and local IPC only; external network access is blocked. `tests/network/` owns the Node socket guard and the loopback-only browser SOCKS proxy. All local browser launches use its factories, including service-worker and persistent-profile tests. Existing off-origin stubs remain in place; an unstubbed connection fails the suite even when application code catches it. The `production` suite remains an explicitly live acceptance check and cannot inherit an offline guard. See [test network isolation](docs/test-network.md).
+- A built test that needs its own build uses a `tests/built/temp-copy.mjs` copy of the working tree, never the real tree; that file's header describes the isolation.
 - Browser tests wait for `!document.querySelector("astro-island[ssr]")` before interacting.
 - Expectations come from the post frontmatter, `recipes.json` and `legacy/blogthedata/url-map.json`, never from the code under test.
 
 JavaScript test discovery belongs to `config/testing/vitest.config.mjs`; suite counts belong only to `config/testing/test-counts.json`. Read the test files for their current cases rather than copying titles or content counts into this guide.
 
-- Unit tests live beside the pure modules in `src/` and under `scripts/unit/`.
-- Built-output and browser tests live under `scripts/built/`. They cover portfolio, blog, recipes, maintenance, legacy redirects, links, fragments, hydration and release identity.
-- CSP tests live in `scripts/built-csp.test.mjs` and `scripts/built/csp-browser.test.mjs`.
-- Production scenario contracts live in `scripts/production-smoke-scenario.test.mjs`; the built-site smoke is `scripts/built/production-smoke.test.mjs`.
+- Unit tests live beside the pure modules in `src/` and under `tests/unit/`.
+- Built-output and browser tests live under `tests/built/`. They cover portfolio, blog, recipes, maintenance, legacy redirects, links, fragments, hydration and release identity.
+- CSP tests live in `tests/built-csp.test.mjs` and `tests/built/csp-browser.test.mjs`.
+- Production scenario contracts live in `tests/production-smoke-scenario.test.mjs`; the built-site smoke is `tests/built/production-smoke.test.mjs`.
 
-The `production` suite wraps the unchanged acceptance scenario and diagnostic helper
-in `scripts/production-acceptance.test.mjs`, invoked by `npm run smoke:production`.
+The `production` suite wraps the acceptance scenario, its diagnostic helper and the client-error forwarding probe
+in `tests/production-acceptance.test.mjs`, invoked by `npm run smoke:production`.
 
 Python hook/bootstrap tests use `npm run test:python`, pinned to pytest 9.1.1
-through uvx. `config/testing/pytest.ini` discovers `scripts/test-*.py`.
+through uvx. `config/testing/pytest.ini` discovers `tests/test-*.py`.
 Playwright remains the browser automation library; Vitest orchestrates browser tests.
 The two shell workflow contract fixtures run under the counted Vitest `workflow`
 suite through `npm run check:actions`. Their shell assertions stay intact.
@@ -118,29 +130,30 @@ and trusted hooks in a fresh worktree. No `.worktreeinclude` is needed: the only
 - **`src/pages/`:** the portfolio pages render with `src/layouts/Layout.astro`.
 - **`src/components/`:** `Header`, `Footer`, `ContactMe`, `SocialLinks`, `StructuredData`, `Maintenance`, the navigation island `SiteNavigation.svelte`, the index-page sections in `home/`, and the `blog/` and `recipes/` subdirs.
 - **`src/content/`:** `constants.ts` (John's role and the site's self-description in the J18 wording, the blog and recipe descriptions, `siteLinks` for the navigation and footer, `socialLinks`, and the Context7 Ask site key with the search note, Markdown section and `Link` value built from it; it imports no assets, so the middleware, `agent-response.ts` and the navigation island can import it), `types.ts`, `agent-pages.ts` (the agent Markdown pages), and the blog collections in `blog/`, defined in `src/content.config.ts`.
-- **`middleware.ts`:** Vercel routing middleware (every path; no matcher). Published portfolio, blog and recipe pages negotiate HTML or Markdown by `Accept`, with `Vary: Accept`. Portfolio bodies are inline; `scripts/markdown-build.mjs` converts actual published blog HTML and canonical recipe documents into static `.md` siblings. The edge manifest contains route/file pairs, never article bodies. Explicit `.md` requests serve Markdown regardless of `Accept`; unknown page paths retain the Markdown 404. Static files (other extensions, and all `/recipes/data/` files) are never negotiated or answered 406. Paths decode by segment and match case-sensitively. Recipe Markdown uses four servings in US measures and retains source uncertainty; browser query controls remain on HTML. Offline recipe snapshots cache the variants with explicit Accept keys, using the same negotiation helper as middleware. AWS image hosting remains retained. Negotiated page responses, the recipe browse rewrite and every Markdown response carry the Context7 Ask `Link: <…>; rel="search"` header; static files and 406s do not.
+- **`middleware.ts`:** Vercel routing middleware with invocation matchers that exclude assets and API/data files while retaining negotiated pages, explicit Markdown and native recipe browsing. Published portfolio, blog and recipe pages negotiate HTML or Markdown by `Accept`, with `Vary: Accept`. Portfolio bodies are inline; `build/markdown-build.mjs` converts actual published blog HTML and canonical recipe documents into static `.md` siblings. The edge manifest contains route/file pairs, never article bodies. Explicit `.md` requests serve Markdown regardless of `Accept`; unknown page paths retain the Markdown 404. Static files (other extensions, and all `/recipes/data/` files) are never negotiated or answered 406. Paths decode by segment and match case-sensitively. Recipe Markdown uses four servings in US measures and retains source uncertainty; browser query controls remain on HTML. Offline recipe snapshots cache the variants with explicit Accept keys, using the same negotiation helper as middleware. AWS image hosting remains retained. Negotiated page responses, the recipe browse rewrite and every Markdown response carry the Context7 Ask `Link: <…>; rel="search"` header; static files and 406s do not.
 - **Route manifest:** the `routeManifest` integration in `config/app/astro.ts` writes the gitignored `src/generated/route-manifest.js` from Astro's own `astro:build:done` page list (`export const routes = [...]`, one `/path/` per built page, `/` for the index, error pages excluded). `middleware.ts` imports it, and Vercel bundles the middleware after `npm run build`, so it ships that build's list. The tracked `route-manifest.d.ts` types the import, so `check:ts` and knip pass before any build. The lib functions take the route set as a parameter, so unit tests inject their own.
-- **`process-html.mjs`:** runs after every `astro build`. On Vercel it also pins generated static stylesheet links through `scripts/vercel-static-assets.mjs`; the static-only Astro integration pins generated scripts and imports while preserving the existing builder, middleware and browse API. It adds slugified `id` attributes to id-less `h2/h3/h4`, except under `dist/blog/` and `dist/recipes/`, and runs `html-minifier`. The minifier keeps the Svelte and Astro hydration comments and collapses whitespace conservatively, so islands hydrate in place instead of re-rendering; Svelte's `<!>` anchor that ends a `<select>` or `<option>` with snippet content, which the minifier cannot parse, is rewritten to the equivalent `<!---->` first.
+- **HTML output:** Astro owns lossless compression (`compressHTML: true`). Portfolio headings declare stable ids in their source; blog and recipe headings retain their section-owned ids. The static-only asset integration in `config/app/astro.ts` pins generated scripts and imports and uses `astro:build:done` to pin static stylesheet links through `build/vercel-static-assets.mjs`. Its edits preserve inline script bytes and island DOM, including hydration comments. Markdown and recipe-worker generation run after these hooks complete.
 - **`config/app/astro.ts`:** the site URL flips between `localhost:4321` (dev) and `https://www.jsolly.com` (prod). It sets `trailingSlash: "always"` and `prerenderConflictBehavior: "error"`, and renders Markdown with the satteri processor (`smartPunctuation` and `gfm` off) and Prism highlighting, because Shiki emits inline styles under the CSP. The `@astrojs/sitemap` options list every built page except the noindex `/blog/search/` (`filter`; the integration drops 404 and 500 itself; `/recipes/` pages are listed, J12) and give each post a `lastmod` from its frontmatter `updated` (`serialize`). The config reads those times once at load with `postLastmods` (`POSTS_DIR` and `POST_FILES` in `src/lib/blog/constants.ts`), because the integration swallows a throw inside `serialize` and the build would pass without a sitemap.
-- **Site files:** `public/robots.txt` disallows only `/blog/search/`; the legacy host's `robots.txt` disallows nothing, so crawlers follow its 301s. Both hosts' `.well-known/security.txt` (Contact `https://www.jsolly.com/contact/`, J15) share one `Expires`, which must fall after HEAD's commit date and less than 365 days after it (in the pre-commit hook HEAD is the parent of the commit being made), so bump both together yearly. `scripts/site-files.mjs` holds the one parser, `Expires` reader and security.txt check; the cutover verifier reads the live files' `Expires` with the same reader.
-- **`docs/`:** `publishing.md` (PagesCMS editing), `recipes.md` (recipe data, pipeline, settings and offline operations), `recipes-evidence/` (recipe provenance, J17: kept byte-for-byte, skipped by Biome and markdownlint, its `.py` an inert record) and `legacy-redirects.md` (legacy deployment, monitoring and recovery).
+- **Site files:** `public/robots.txt` disallows only `/blog/search/`; the legacy host's `robots.txt` disallows nothing, so crawlers follow its 301s. Both hosts' `.well-known/security.txt` (Contact `https://www.jsolly.com/contact/`, J15) share one `Expires`, which must fall after HEAD's commit date and less than 365 days after it (in the pre-commit hook HEAD is the parent of the commit being made), so bump both together yearly. `build/site-files.mjs` holds the one parser, `Expires` reader and security.txt check; the cutover verifier reads the live files' `Expires` with the same reader. `public/f39625a7d33d4ad098b88670f5eed922.txt` is the IndexNow ownership key for `www.jsolly.com`, whose contents are its own basename: engines fetch it from the root to verify the host before accepting URL submissions, so it is published deliberately and is not a secret. This repository is public, so that value must never be reused as, or derived from, a credential, and no credential may be derived from it; it authenticates nothing but "this host opted into IndexNow", and a submission is only a crawl hint the engine verifies by fetching the URL. Submission itself runs through OpenSEO outside this repo, for the URLs a deploy changed, never the whole site; Google does not use IndexNow. Rotation starts at OpenSEO, which mints and holds the key (`submit_indexnow_urls` takes a project and URLs, not a key), so a hex file generated here would not match: publish the new key file OpenSEO reports, confirm a submit succeeds, then delete the old one. Nothing in this repo reads the value, so this file's only job is to keep matching the key OpenSEO sends.
+- **`docs/`:** `publishing.md` (PagesCMS editing), `accessibility.md` and `shared-infra.md` (the scheduled-check events the axe audit and Production smoke write), `recipes.md` (recipe data, pipeline, settings and offline operations), `recipes-evidence/` (recipe provenance, J17: kept byte-for-byte, skipped by Biome and markdownlint, its `.py` an inert record), `legacy-redirects.md` (legacy deployment, monitoring and recovery) and `client-errors.md` (browser error reporting, its CloudWatch stack and alarm).
 
 ### Blog
 
-- **`src/layouts/BlogLayout.astro`:** section metadata and CSP wrapper around the shared `SiteShell`, with a Markdown alternate for each published page outside maintenance mode. It honors `MAINTENANCE_MODE` (the notice replaces the body, and the page's head slot, its post JSON-LD and article meta included, is dropped). With `section="blog"` it adds the per-page `img-src` (CloudFront) and `frame-src` (YouTube, diagrams.net, nbviewer) CSP directives, failing the build when `Astro.csp` is unavailable. It imports scoped `src/styles/blog/blog.css` and the section's `no-script.css` through `?url`; `SiteShell` owns the shared main stylesheet.
-- **Routes:** `/blog/`, `/blog/all-posts/`, `/blog/category/<slug>/` (slug case kept, e.g. `Geodev`; the `category/` folder is Astro's routing layout), `/blog/works-cited/`, and the noindex `/blog/search/`, whose `Search` island reads `?searched=` and fetches the `/blog/search-index.json` endpoint (one entry per published post). One page per published post, `/blog/<slug>/` (`blog/[slug].astro`, slug case kept), carries breadcrumbs, related cards, share links and BlogPosting JSON-LD on jsolly.com URLs. The `/blog/rss.xml` and `/blog/atom.xml` endpoints list the five most recently updated posts; BlogLayout links both as alternates, and `vercel.json` sends their Content-Types, which a static build cannot.
+- **`src/layouts/BlogLayout.astro`:** section metadata and CSP wrapper around the shared `SiteShell`, with a Markdown alternate for each published page outside maintenance mode. It honors `MAINTENANCE_MODE` (the notice replaces the body, and the page's head slot, its post JSON-LD and article meta included, is dropped). With `section="blog"` it adds the per-page `img-src` (same-origin and data images) and `frame-src` (YouTube, diagrams.net, nbviewer) CSP directives, failing the build when `Astro.csp` is unavailable. It imports scoped `src/styles/blog/blog.css` and the section's `no-script.css` through `?url`; `SiteShell` owns the shared main stylesheet.
+- **Routes:** `/blog/`, `/blog/all-posts/`, `/blog/category/<slug>/` (slug case kept, e.g. `Geodev`; the `category/` folder is Astro's routing layout), `/blog/works-cited/`, and the noindex `/blog/search/`, whose `Search` island reads `?searched=` and fetches the `/blog/search-index.json` endpoint (summary documents and a MiniSearch index prebuilt from all published article text). One page per published post, `/blog/<slug>/` (`blog/[slug].astro`, slug case kept), carries breadcrumbs, related cards, share links and BlogPosting JSON-LD on jsolly.com URLs. The `/blog/rss.xml` and `/blog/atom.xml` endpoints list the twenty most recently updated posts; BlogLayout links both as alternates, and `vercel.json` sends their Content-Types, which a static build cannot.
 - **`src/components/blog/`:** `BlogNavigation` (the blog chrome), `PostCards` (the card list with its load-more island), `AuthorCard` (whose `h2#about-author` is a legacy fragment id) and `Search`.
 - **`src/lib/blog/`:**
   - `post-loader.ts`: the PagesCMS frontmatter loader (YAML core schema), plus `postLastmods`, read at config load, so a bad post file fails the build there, named.
   - `schemas.ts`: the post and category schemas, plus `publishedContent` and `categoryCounts` (the pure checks, draft filter, orderings and category names). The build fails on an empty article, a duplicate post or category slug, an unknown category or a `related` slug naming no post.
   - `content.ts`: only the `getCollection` wiring (`blogContent`, `blogNavigation`).
+  - `migrate-images.py`: the one-time blog image migration; `images.test.ts` runs its `--check` mode against the published media.
   - `cards.ts`: `cards`, the pure post card data (UTC date labels, the same-day updated rule, reading time), and `dateLabel`.
   - `urls.ts`: `postHref` and `categoryHref`, slug case kept; dependency-free, so client islands can import them without the sanitizer.
   - `types.ts`: `Card`, `CardPost`, `FeedPost`, `LegacyRow`.
-  - `html.ts`: the article sanitizer, heading ids, and `imageUrl`, which maps bare legacy upload paths onto `LEGACY_MEDIA`.
+  - `html.ts`: the article sanitizer and heading ids. `images.ts` owns local responsive image lookup and validates authored image paths.
   - `feeds.ts`: the pure `rssFeed` and `atomFeed` builders, links on the Astro `site`, and `legacyFeedIds`, whose compatibility rule is in Invariants.
   - `search.ts`: the search index parse and MiniSearch.
-  - `constants.ts`: `POSTS_DIR`, `POST_FILES`, `CATEGORIES_DIR`, `DEFAULT_IMAGE`, `LEGACY_MEDIA`, `EMBED_HOSTS`, `FEEDS` (each feed's path, media type and alternate title), the feed title and description, `LEGACY_SITE` and `ATOM_FEED_ID`.
+  - `constants.ts`: `POSTS_DIR`, `POST_FILES`, `CATEGORIES_DIR`, `DEFAULT_IMAGE`, `EMBED_HOSTS`, `FEEDS` (each feed's path, media type and alternate title), the feed title and description, `LEGACY_SITE` and `ATOM_FEED_ID`.
 - **`.pages.yml`:** the PagesCMS config. Media uploads land in `public/blog/media` and are served at `/blog/media`; the posts and categories paths are `POSTS_DIR` and `CATEGORIES_DIR`.
 
 ### Recipes
@@ -152,7 +165,7 @@ Read [docs/recipes.md](docs/recipes.md) before changing recipe data, assistant d
 - `src/styles/recipes/` holds the recipe and no-JavaScript styles. `RecipeContent.svelte` shares screen and print cooking content; recipe pages print their existing DOM. `recipe-export.mjs` builds the Markdown and JSON assistant downloads.
 - Every ingredient has a positive measured amount and an explicit cooking weight basis. `ingredient-units.mjs` shows up to three simultaneous equivalents through reviewed `weightRef` identities, with whole-gram labels and sub-gram pinches; invalid or unresolved measurements fail validation. Household portions never come from ingredient-name guesses. `cooking-quantities.mjs` resolves identified instruction amounts. Keep the required pressure-liquid mL volume in cooking preparation in every mode. Developer evidence stays out of conversion copy in cooking views and downloads.
 - Published recipes must qualify as keto and have a `sharedTable` note. `recipe-data.server.mjs` enforces that boundary. Canonical recipe pages and card print packets share that serving guidance; the library lists summaries and links. Retirement notices preserve excluded URLs, and legacy fragments navigate to those canonical notices. Source records remain in `docs/recipes-archive/`. Measured optional sides use an independent diner count, carried through saved settings and `sideDiners` URLs, and never change base nutrition.
-- `scripts/recipes/` holds assistant-data generation and the service-worker build. The manifest and icons are under `public/recipes/pwa/`; illustrations are under `public/recipes/media/`.
+- `src/components/recipes/tools/` holds the recipe command-line tools: assistant-data sync, USDA lookup and nutrition refresh/reconcile, the unit, nutrition and keto audits, the keto and macro-model migrations, and the image contract that `recipe-images.test.mjs` imports. They are CLIs with file side effects, not pure modules; `tool-paths.test.mjs` checks that every literal path they resolve exists. `build/recipes/` holds the service-worker build. The manifest and icons are under `public/recipes/pwa/`; illustrations are under `public/recipes/media/`.
 
 ### Legacy host (`legacy/blogthedata/`)
 
@@ -161,23 +174,23 @@ Read [docs/recipes.md](docs/recipes.md) before changing recipe data, assistant d
 - **`url-union.json`** records every known old path, its evidence and whether it was served 200 in the frozen source. See Invariants for the redirect edit flow.
 - **`public/`** holds only `404.html`, `robots.txt`, `.well-known/security.txt` (the site files policy above) and the two kill-switch service workers.
 - **`fragment-ids.json`:** the fragment ids each old page offered, generated from the frozen awesome-blog build at C0. The manifest records its source SHA; temporary generation tools are retired.
-- **Cutover verifier:** `scripts/verify-blogthedata-cutover.mjs` checks the live hosts against `url-map.json` and `url-union.json` at cutover and daily after it through `.github/workflows/legacy-redirects.yml`; its transports live in `scripts/verify-blogthedata-transports.mjs`. It is not part of the gate and imports the repo's own modules, so it needs `npm ci` first. Its header lists the modes (`--production`, `--production --sample`, `--base-url`, `--destinations-only --base-url`) and the `--transport fetch|vercel-curl` and `--bypass-env NAME` options (NAME holds the bypass secret, which is never printed). A `--base-url` must be https; http is allowed only for a loopback stub. Agents never run its `--transport vercel-curl` mode (John only).
+- **Cutover verifier:** `monitoring/verify-blogthedata-cutover.mjs` checks the live hosts against `url-map.json` and `url-union.json` at cutover and daily after it through `.github/workflows/legacy-redirects.yml`; its transports live in `monitoring/verify-blogthedata-transports.mjs`. It is not part of the gate and imports the repo's own modules, so it needs `npm ci` first. Its header lists the modes (`--production`, `--production --sample`, `--base-url`, `--destinations-only --base-url`) and the `--transport fetch|vercel-curl` and `--bypass-env NAME` options (NAME holds the bypass secret, which is never printed). A `--base-url` must be https; http is allowed only for a loopback stub. Agents never run its `--transport vercel-curl` mode (John only).
 - **Source freeze:** C0 retired the temporary import/generation tools and their tests. `url-map.json` and `fragment-ids.json` retain the frozen source SHA, also recorded in `docs/legacy-redirects.md`. Historical tools remain in Git history; publishing continues through the destination workflow after cutover.
 
 ## Invariants
 
 These hold for every change. Where a test enforces one, it is named; the rest are policy that review checks.
 
-- **The heading-fragment algorithm is frozen.** Blog heading ids come from `headingId` in `src/lib/blog/html.ts`, the old blog's h1–h3 algorithm; old links and `legacy/blogthedata/fragment-ids.json` depend on its output. Do not change it, and keep a heading's text when its fragment must stay stable. Blog and recipe pages are excluded from `process-html.mjs`'s id pass (`scripts/unit/process-html-ids.test.mjs`). Recipe pages get no generated ids: on `/recipes/`, the h1's `#easy-meals--smoothies`, the card wrapper's `#meal-results` and the author card's `#about-author` are hand-written legacy-fragment ids from the old post (`scripts/built/legacy-fragments.test.mjs`); each recipe's section id on its page is its recipe id. To accommodate legacy blogthedata.com links, `/recipes/#<recipe-id>` redirects client-side (`location.replace`) to `/recipes/<recipe-id>/` with the saved settings, and that page's Back then follows its collection link (`scripts/built/recipes-deep-links.test.mjs`).
-- **Slugs are case-sensitive and stable.** Post, category and recipe slugs are URLs that old redirects, feeds and links point at; never rename or re-case one. `scripts/built/internal-links.test.mjs` (c) checks that every link uses the exact case and that no two routes differ only in case. The completed migration no longer freezes post or category counts; exact-case link checks remain.
+- **The heading-fragment algorithm is frozen.** Blog heading ids come from `headingId` in `src/lib/blog/html.ts`, the old blog's h1–h3 algorithm; old links and `legacy/blogthedata/fragment-ids.json` depend on its output. Do not change it, and keep a heading's text when its fragment must stay stable. Portfolio headings keep their existing explicit ids (`tests/built/portfolio-heading-ids.test.mjs`); blog and recipe pages own their ids. Recipe pages get no generated ids: on `/recipes/`, the h1's `#easy-meals--smoothies`, the card wrapper's `#meal-results` and the author card's `#about-author` are hand-written legacy-fragment ids from the old post (`tests/built/legacy-fragments.test.mjs`); each recipe's section id on its page is its recipe id. To accommodate legacy blogthedata.com links, `/recipes/#<recipe-id>` redirects client-side (`location.replace`) to `/recipes/<recipe-id>/` with the saved settings, and that page's Back then follows its collection link (`tests/built/recipes-deep-links.test.mjs`).
+- **Slugs are case-sensitive and stable.** Post, category and recipe slugs are URLs that old redirects, feeds and links point at; never rename or re-case one. `tests/built/internal-links.test.mjs` (c) checks that every link uses the exact case and that no two routes differ only in case. The completed migration no longer freezes post or category counts; exact-case link checks remain.
 - **PagesCMS owns its formats** (`docs/publishing.md`). `published` and `updated` are ISO 8601 strings with seconds and an explicit offset, string fields rather than date controls, parsed with the YAML core schema; date-only or offset-less values fail the build (`blog-content-contracts`). The body stays PagesCMS's Markdown code editor: no WYSIWYG editor without a verified complex-article roundtrip (tables, code, embeds); policy. `settings.content.merge: true` keeps unmanaged frontmatter (`legacyId`, `legacyImage`, `legacyAuthorId`). PagesCMS writes category JSON as `JSON.stringify(x, null, 2)` with no final newline, so `config/quality/biome.settings.jsonc` turns the formatter off for `src/content/blog/categories/**` only, linting kept on (`pages-config.test.ts`); never reformat those files.
-- **CloudFront is a runtime dependency (J6).** Legacy post images load from the retained `blogthedata` S3 bucket through CloudFront `https://d1d7p8ufhgz4ld.cloudfront.net` (`LEGACY_MEDIA`). The bucket and distribution must outlive any AWS cleanup until those images are rehosted same-origin. The CSP allows exactly that host (Content Security Policy below).
-- **Legacy feed ids (J8).** For posts that predate the merge (a `post` row in `url-map.json`), the RSS `<guid>` (with `isPermaLink="false"`) and the Atom entry `<id>` stay `https://www.blogthedata.com/post/<slug>/`, and the Atom feed id stays `https://www.blogthedata.com/atom/` (`ATOM_FEED_ID`). New posts get jsolly.com ids. Adding or removing a post row changes that post's feed id, and subscribers see it again as a new item (`scripts/built/blog-feeds.test.mjs`).
-- **Retain the legacy kill-switch workers.** Keep both workers listed in [docs/recipes.md](docs/recipes.md) as long as the old host is served. `scripts/built/blogthedata-killswitch.test.mjs` verifies their behavior.
+- **Blog images are first-party.** Migrated hero, body and card images use responsive WebP families under `public/blog/media/migrated/`. `docs/blog-images.md` owns the provenance and repeatable integrity check. Original S3/CloudFront resources remain retained; rehosting does not authorize retirement.
+- **Legacy feed ids (J8).** For posts that predate the merge (a `post` row in `url-map.json`), the RSS `<guid>` (with `isPermaLink="false"`) and the Atom entry `<id>` stay `https://www.blogthedata.com/post/<slug>/`, and the Atom feed id stays `https://www.blogthedata.com/atom/` (`ATOM_FEED_ID`). New posts get jsolly.com ids. Adding or removing a post row changes that post's feed id, and subscribers see it again as a new item (`tests/built/blog-feeds.test.mjs`).
+- **Retain the legacy kill-switch workers.** Keep both workers listed in [docs/recipes.md](docs/recipes.md) as long as the old host is served. `tests/built/blogthedata-killswitch.test.mjs` verifies their behavior.
 - **The `legacy/blogthedata` edit flow.** Edit `url-map.json` (and `url-union.json` when the edit adds a known path), run `npm run redirects:write`, and commit all three; the gate's `redirects:check` fails on drift.
 - **No `Encryption` in security.txt** (policy, no check). `public/pgp-key.txt`, the old blog's key, expired on 2023-05-08 and stays only because the legacy `/pgp-key.txt` redirect (SEC-001) and two posts link to it. Re-add `Encryption` to both hosts' security.txt only after John publishes a current key.
 - **Follow the recipe pipeline.** [docs/recipes.md](docs/recipes.md) owns the data and regeneration contract; treat its evidence directory as an inert record.
-- **Context7 Ask verification.** Context7 checks the `context7-site-verification` meta tag (in both `Layout.astro` and `BlogLayout.astro` heads) and the hidden `data-context7-ask` note that opens `SiteShell.astro`'s body; keep both, maintenance included. The note is not a heading and contains none, so the page's own `h1` opens the document's outline, in the maintenance build too (`scripts/built/markdown-pages.test.mjs` and `blog-maintenance.test.mjs` assert per page that the outline opens at `h1` with no heading in or as the note; neither pins which `h1` that is). Every Markdown body, maintenance and 404 included, ends with the Search section: `withSiteSearch` (`agent-pages.ts`) runs once in `agent-response.ts`'s `markdownBody` and once in `markdown-build.mjs` before each sibling is written. `public/llms.txt` carries it after the summary. `src/content/constants.test.ts` (llms.txt), `src/lib/accept-negotiate.test.ts`, `scripts/built/markdown-pages.test.mjs` and `blog-maintenance.test.mjs` hold them to the install instructions' literals.
+- **Context7 Ask verification.** Context7 checks the `context7-site-verification` meta tag (in both `Layout.astro` and `BlogLayout.astro` heads) and the hidden `data-context7-ask` note that opens `SiteShell.astro`'s body; keep both, maintenance included. The note is not a heading and contains none, so the page's own `h1` opens the document's outline, in the maintenance build too (`tests/built/markdown-pages.test.mjs` and `blog-maintenance.test.mjs` assert per page that the outline opens at `h1` with no heading in or as the note; neither pins which `h1` that is). Every Markdown body, maintenance and 404 included, ends with the Search section: `withSiteSearch` (`agent-pages.ts`) runs once in `agent-response.ts`'s `markdownBody` and once in `markdown-build.mjs` before each sibling is written. `public/llms.txt` carries it after the summary. `src/content/constants.test.ts` (llms.txt), `src/lib/accept-negotiate.test.ts`, `tests/built/markdown-pages.test.mjs` and `blog-maintenance.test.mjs` hold them to the install instructions' literals.
 - **Popover focus.** `NutritionHelp.svelte` and `FilterMultiSelect.svelte` suppress unconditional close auto-focus and restore the trigger only when focus remains inside their panel. Both are nonmodal, so an outside control keeps focus and Tab can move on. Multi-choice filters focus the first enabled button synchronously on opening; queued autofocus must not reclaim focus after Tab. The `recipes-browse` suite covers keyboard and pointer dismissal; re-check both on any bits-ui bump.
 - **Service workers blocked.** The production smoke's browser runs with Playwright's `serviceWorkers: "block"`, under which `register()` resolves with no registration; `recipe-pwa-client.mjs` then returns early and leaves the install instructions instead of logging a console error. The `recipes-pwa` tests cover this case.
 - **Shared stylesheet ownership.** Portfolio, blog and recipes use the shared shell and `src/styles/main.css` theme/UI entry. Blog and recipe sheets retain scoped content and cooking/print rules. The former isolated portfolio bundle checksum is retired by the approved visual unification; bundle filenames and dependency-generated bytes are not the contract. Review selector changes and verify all three sections at desktop and mobile widths, in light/dark mode, including native fallbacks and recipe printing. `tailwind-sources` and `blog-css-sources` enforce the single entry, shared shell, scoped article styles and section-specific manifest ownership.
@@ -195,6 +208,7 @@ If a green merge creates no Vercel deployment, verify that the project's Git con
 ## CI (local pre-commit gate)
 
 - `.git-hooks/pre-commit` runs through the repo-owned trusted hook dispatcher and validates Bash, Biome, YAML, Actions, Markdown, browser contract, Knip, the legacy redirect config (`redirects:check`), the generated recipe data (`recipes:check`), Astro and Svelte types (`check:ts`), unit tests, build, built-output tests and isolated hook/bootstrap fixtures. GitHub Actions repeats those checks as preparation and two built-test shards; the required `ci` aggregate verifies successful jobs, immutable build identity, complete disjoint file coverage and the unchanged built-test ledger. The local hook always runs the entire suite and does **not** deploy.
+- Built shard 1 also runs the axe sample (`npm run check:a11y:sample`). The full axe audit runs in `.github/workflows/a11y.yml` after each push to `main`, daily and on dispatch, outside required `ci`; it reports to shared-infra's `/shared-infra/scheduled-checks` log group through OIDC, whose alarms email on error lines (violations or check failures) when the report reaches CloudWatch, or on a missing daily heartbeat ([accessibility](docs/accessibility.md), [shared-infra fields → Coverage](docs/shared-infra.md#coverage)). Alerting works only once jsolly/shared-infra's scheduled-checks change is deployed; until then a failing audit is only a red Actions run.
 
 ## Conventions
 
@@ -202,8 +216,8 @@ If a green merge creates no Vercel deployment, verify that the project's Git con
 - **Tailwind utilities** over custom CSS; theme tokens live in `src/styles/`.
 - **Tailwind sources are explicit.** `src/styles/main.css` is the single Tailwind entry for all sections. It imports `source(none)` and scans UI under `src/components`, `src/layouts`, `src/pages` and `src/lib`, including installed shadcn parts. Content-only `lib/blog`, `components/recipes` and `pages/recipes` are excluded; recipe controls currently use semantic CSS rather than utility strings. Add actual UI sources if that changes. Scanner and built CSS contracts check the source set, shared shell and scoped article rules. No duplicate blog theme or Tailwind entry.
 - **Blog stylesheets are layered.** Every blog and recipe stylesheet and every recipe component `<style>` block declares `@layer properties, theme, base, components, utilities, blog, blog-no-script;`. Ported rules sit in `blog` (or `blog-no-script`), declared last, so the relative cascade is unchanged.
-- **Whitespace is lossless.** `config/app/astro.ts` sets `compressHTML: true`; Astro 7's default `"jsx"` drops line-break whitespace next to elements and glues prose to inline links and code. `scripts/built/inline-spacing.test.mjs` checks the rendered text of the portfolio pages.
-- **Heading IDs are auto-generated** by `process-html.mjs` from heading text — don't hand-write `id="..."` on headings unless overriding the generated slug. Blog and recipe pages own their ids instead (Invariants → heading-fragment algorithm).
+- **Whitespace is lossless.** `config/app/astro.ts` sets `compressHTML: true`; Astro 7's default `"jsx"` drops line-break whitespace next to elements and glues prose to inline links and code. `tests/built/inline-spacing.test.mjs` checks the rendered text of the portfolio pages.
+- **Heading IDs are stable source attributes.** Portfolio headings declare their existing fragment ids explicitly, independent of later text edits. Blog and recipe pages own their ids separately (Invariants → heading-fragment algorithm).
 - **Code layout.** Pure logic lives in tested modules (`src/lib/blog/*.ts`, `src/components/recipes/*.mjs`), with types in `types.ts` and literals in `constants.ts`. `content.ts` is collection wiring only. Pages stay flat where Astro routing allows.
 
 ## Local UI verification
@@ -221,15 +235,27 @@ errors. Preserve native fallbacks and recipe printing when those views change.
 The **Production smoke** workflow is a separate post-deployment gate. It waits
 for the intended production release and verifies the public browser flow with
 `npm run smoke:production`. The URL is pinned in
-`scripts/production-smoke-scenario.mjs`; the workflow uses no deployment secrets.
+`monitoring/production-smoke-scenario.mjs`; the workflow uses no deployment secrets.
 Vercel Git deployment and the existing PR CI checks remain unchanged.
 
-The scenario is GET only, runs at a phone width with service workers blocked,
-and lists its steps at the top of `scripts/production-smoke-scenario.mjs`. The
-runner, `scripts/production-smoke.mjs`, is maintained in this repository.
+The browser scenario is GET only, runs at a phone width with service workers
+blocked, and lists its steps at the top of `monitoring/production-smoke-scenario.mjs`.
+Separately, `tests/production-acceptance.test.mjs` posts one info-level
+forwarding probe to `/api/client-error/` and requires `204`, proving browser
+error reports still reach CloudWatch (`docs/client-errors.md`). The
+runner, `monitoring/production-smoke.mjs`, is maintained in this repository.
 Review runner changes with the scenario contracts and built-site smoke suite.
-`scripts/built/production-smoke.test.mjs` runs it through the runner against
+`tests/built/production-smoke.test.mjs` runs it through the runner against
 the built site, and fails if any request it makes is not a GET.
+
+Daily and manual runs on `main` then report to shared-infra's
+`/shared-infra/scheduled-checks` log group through OIDC
+(`monitoring/production-smoke-report.mjs`): when the report reaches CloudWatch, a
+failed run writes one `check-failed` error that emails John, and every run writes a
+heartbeat whose absence for about 30 hours does too. The report job is
+`continue-on-error`, so the smoke job alone decides the run's conclusion.
+Post-deployment runs do not report. What each gap leaves uncovered is listed in
+[shared-infra fields → Coverage](docs/shared-infra.md#coverage).
 
 The release process must wait for the exact release's Production smoke run to succeed and
 record its URL. Missing, failed, cancelled, skipped or timed-out runs are not
@@ -244,23 +270,27 @@ which cannot satisfy required `ci` or supply validated-tree proof. Marking ready
 or removing `preview` starts full CI. Ready PRs, main and manual dispatch run the
 full CI suite. Post-merge CI reuses a successful PR run only when
 its recorded checkout tree exactly matches the landed tree, using
-the repo-owned `scripts/ci-verified-tree.sh`. Missing proof runs full CI;
+the repo-owned `gate/ci-verified-tree.sh`. Missing proof runs full CI;
 manual runs always validate. Job names and deployment triggers stay intact.
-Canonical contract: [local CI helper](scripts/ci-verified-tree.sh).
+Canonical contract: [local CI helper](gate/ci-verified-tree.sh).
 
 ## Dependabot CI
 
-Dependabot PR events allocate no validation runners until an explicitly
-authorized maintenance run applies the `ow-ci` label. Only that `labeled` event
-runs the real `ci` check. Later Dependabot pushes defer again until maintenance
-removes and re-adds the label for the new head. Deferred runs report `ci-deferred`
-and cannot satisfy required `ci`. Skipped or absent checks never authorize a
-merge. See the repository CI workflow and [release instructions](docs/development.md).
+Dependabot PRs run the same `ci` check as every other PR; labels start no runs.
+Agents never approve, rebase, arm or merge a Dependabot PR unless John asks.
+Skipped or absent checks never authorize a merge. See the repository CI workflow
+and [release instructions](docs/development.md).
 
 ## Git hooks
 
-This repo owns `gate/gate-lib.sh` and `scripts/repo-hooks.py`. Run reviewed
-`scripts/setup-agent-environment.sh` on main to install its outside-worktree
+This repo owns `gate/gate-lib.sh` and `gate/repo-hooks.py`. `gate/` holds the
+local gate and its scheduler, the CI and Preview workflow helpers, Markdown and
+Actions lint, the security scanner, and hook trust and setup; their tests live
+under `tests/`. It also holds `check-migration-backups.py`, the retained
+CloudFormation migration stack's pre-update contract check, which the gate runs
+through `tests/test-migration-backups.py`
+([migration backups](docs/migration-backups.md)). Run reviewed
+`gate/setup-agent-environment.sh` on main to install its outside-worktree
 pre-commit and pre-push dispatchers. The verified scanner, Cursor hook and CI
 coverage are documented in [security scanning](docs/security-scanning.md).
 Never set hooksPath to `.git-hooks`: a branch could then
@@ -269,8 +299,8 @@ register executable hooks. See [development and release](docs/development.md).
 ## Configuration
 
 Move optional root-level settings under `config/<domain>/` or their existing owner.
-Keep already nested configuration with its component; test configuration may live
-under `tests/`. Give each setting one owner and keep minimal native adapters. See [configuration guidance](config/README.md)
+Keep already nested configuration with its component; test configuration lives in
+`config/testing/`. Give each setting one owner and keep minimal native adapters. See [configuration guidance](config/README.md)
 for native exceptions, scopes and verification. This repository owns them.
 
 ## Repository ownership
@@ -288,16 +318,14 @@ Astro `security.csp` emits per-page hashes for the island bootstrap and owns
 `script-src` or `default-src`, or allow arbitrary inline scripts. Verify built
 pages with both policies; Astro dev/preview alone does not apply Vercel headers.
 
-The header's `img-src` also allows `https://d1d7p8ufhgz4ld.cloudfront.net`,
-the retained blogthedata S3/CloudFront host that serves legacy blog post images
-(a retained runtime dependency; see `docs/legacy-redirects.md`), and `form-action 'self'`, which does not
-fall back to `default-src`. Browsers enforce the intersection, so the Astro meta
-still limits images on every page to `'self'` until a page adds its own
-`img-src` directive; BlogLayout adds one, with that host, on `/blog/` pages only.
-`scripts/csp.mjs` holds the one policy parser.
-`scripts/unit/vercel-csp-header.test.mjs` pins the full header directive map,
+The header restricts `img-src` to same-origin and data images, and sets
+`form-action 'self'`, which does not fall back to `default-src`. Browsers enforce
+the intersection with Astro's per-page policy; BlogLayout adds the same-origin
+and data image directive on blog pages.
+`build/csp.mjs` holds the one policy parser.
+`tests/unit/vercel-csp-header.test.mjs` pins the full header directive map,
 and the build-time `csp` suite checks every built `<img>` and `<source srcset>` URL against both policies, and the blog pages' own directives.
-`scripts/built/csp-browser.test.mjs` runs these pages in Chromium with the header served on every response, and fails on any `securitypolicyviolation`:
+`tests/built/csp-browser.test.mjs` runs these pages in Chromium with the header served on every response, and fails on any `securitypolicyviolation`:
 
 - `/blog/`, and posts with YouTube, nbviewer and diagrams.net embeds;
 - a `/blog/search/?searched=django` search (the island parses its index with zod, whose JIT `search.ts` turns off);
@@ -315,7 +343,7 @@ them to the Astro meta, and on Preview deployments `middleware.ts` sends the
 `vercel.json` header policy with them added to `img-src`, `style-src` and
 `font-src`. Production builds and responses keep the reviewed policies unchanged.
 `src/lib/csp-policy.test.ts` pins both sides; the built `csp` suite accepts the
-Preview meta only under `VERCEL_ENV=preview`, and `scripts/built/recipes-preview.test.mjs`
+Preview meta only under `VERCEL_ENV=preview`, and `tests/built/recipes-preview.test.mjs`
 runs a full Preview build through it.
 
 Astro lists every inline script hash of the build in each page's meta policy,
@@ -324,6 +352,6 @@ so an inline `<script>` on a blog page also adds its hash to the portfolio pages
 ## Agent environment
 
 Use this repository's AGENTS.md and [development guide](docs/development.md).
-Run its reviewed `scripts/setup-agent-environment.sh` for pinned tools and hooks.
+Run its reviewed `gate/setup-agent-environment.sh` for pinned tools and hooks.
 No private configuration repo, external instruction import or global skill is
 required. Optional personal skills do not change this repository's authority.

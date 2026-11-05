@@ -4,6 +4,10 @@
 	"files": [],
 	"include": [],
 	"compilerOptions": {
+		"paths": {
+			"$lib": ["../../src/lib"],
+			"$lib/*": ["../../src/lib/*"]
+		},
 		"noUncheckedIndexedAccess": true,
 		"noUnusedParameters": true,
 		"noUnusedLocals": true,

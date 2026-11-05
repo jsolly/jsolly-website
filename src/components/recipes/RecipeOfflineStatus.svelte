@@ -1,7 +1,7 @@
 <script>
 	import { onMount, untrack } from "svelte";
 	import Button from "../../lib/components/ui/button.svelte";
-	import { saveRecipeOffline } from "./recipe-offline.mjs";
+	import { saveRecipeOffline } from "./recipe-offline-save.mjs";
 
 	let { recipe } = $props();
 	let enabled = $state(false);
