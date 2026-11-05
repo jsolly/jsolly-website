@@ -367,7 +367,10 @@ it("A correct cutover passes every check, records the double slashes and keeps a
 		);
 		assert.deepEqual(warnings, []);
 		assert.deepEqual(
-			[...new Set(full.results.map((result) => result.group))].sort(),
+			[...new Set(full.results.map((result) => result.group))].sort(
+				(firstValue, secondValue) =>
+					firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+			),
 			Object.values(GROUP)
 				.filter((group) => group !== GROUP.securityTxt)
 				.sort(),
@@ -581,7 +584,9 @@ it("A broken cutover fails each wrong answer by name and exits non-zero", async 
 				`served 200 https:${worker}`,
 				"served 200 https:/robots.txt",
 				`stays 404 https:${row("PST-109").source}`,
-			].sort(),
+			].sort((firstValue, secondValue) =>
+				firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+			),
 		);
 		const at = (origin, path) => problemOf(result, `${origin}${path}`);
 		assert.match(at(legacyStub.origin, "/404.html"), REQUEST_FAILED);
@@ -674,7 +679,9 @@ it("A broken cutover fails each wrong answer by name and exits non-zero", async 
 				`served 200 https:${row("SWK-002").source}`,
 				`served 200 https:${worker}`,
 				"security.txt jsolly:/.well-known/security.txt",
-			].sort(),
+			].sort((firstValue, secondValue) =>
+				firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+			),
 		);
 		assert.match(
 			problemOf(sample, `${legacyStub.origin}${worker}`),

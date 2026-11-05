@@ -3,18 +3,20 @@ import { siteLinks } from "../content/constants.js";
 import SocialLinks from "./SocialLinks.astro";
 ---
 
-<footer class="site-footer mt-16 md:mt-24 pb-8">
-	<div class="border-t border-border pt-8">
-		<div class="flex flex-col md:flex-row justify-between items-center gap-8">
+<footer class="site-footer mt-16 pb-8 md:mt-24">
+	<div class="border-border border-t pt-8">
+		<div class="flex flex-col items-center justify-between gap-8 md:flex-row">
 			<nav class="flex flex-wrap justify-center gap-8" aria-label="Footer navigation">
 				{
+					
+					
 					
 					siteLinks.map((link) => (
 						<a
 							href={link.href}
 							target={link.target}
 							rel={link.rel}
-							class="font-medium text-lg text-text-secondary transition-colors hover:text-primary-600"
+							class="text-text-secondary hover:text-primary-600 text-lg font-medium transition-colors"
 							aria-label={link.label}
 						>
 							{link.text}
@@ -24,11 +26,11 @@ import SocialLinks from "./SocialLinks.astro";
 			</nav>
 			<SocialLinks label="Footer social media links" />
 		</div>
-		<p class="text-center text-text-muted mt-8 text-sm">
+		<p class="text-text-muted mt-8 text-center text-sm">
 			&copy; {new Date().getFullYear()} John Solly.
-			<a href="/privacy/" class="hover:text-primary-600 transition-colors underline">Privacy</a>
+			<a href="/privacy/" class="hover:text-primary-600 underline transition-colors">Privacy</a>
 			·
-			<a href="/terms/" class="hover:text-primary-600 transition-colors underline">Terms</a>
+			<a href="/terms/" class="hover:text-primary-600 underline transition-colors">Terms</a>
 		</p>
 	</div>
 </footer> 

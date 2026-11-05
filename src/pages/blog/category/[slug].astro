@@ -49,7 +49,7 @@ const breadcrumb = jsonLd(breadcrumbList(crumbs, Astro.site ?? new URL("https://
 ) : (
 	<BlogLayout title={entry.category.data.name} description={entry.category.data.description} section="blog">
 		<Fragment slot="head">
-			<!-- jsonLd escapes authored text for script embedding. -->
+			<!-- biome-ignore lint/nursery/noAstroSetHtmlDirective: jsonLd escapes authored text for script embedding. -->
 			<script type="application/ld+json" set:html={breadcrumb} />
 		</Fragment>
 		<Breadcrumbs {crumbs} /><h1>{entry.category.data.name}</h1><p>{entry.category.data.description}</p>{entry.category.data.slug === "resources" && <p><a href="/recipes/">Keto meals &amp; smoothies</a> with cooking tools and ideas for a shared table.</p>}{entry.posts.length ? <PostCards posts={entry.posts} pageSize={POSTS_PER_BATCH} client:load /> : <p>No posts in this category yet.</p>}</BlogLayout>

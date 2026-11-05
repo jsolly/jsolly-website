@@ -126,7 +126,7 @@ const STABLE_REUSE_PAGES = [
 const sameSet = (a, b) => a.size === b.size && [...a].every((x) => b.has(x));
 
 for (const { path, stable } of [
-	...FULL_REUSE_PAGES.map((route) => ({ path: route })),
+	...FULL_REUSE_PAGES.map((route) => ({ path: route, stable: undefined })),
 	...STABLE_REUSE_PAGES,
 ]) {
 	it(`a visitor opening ${path} keeps its server-rendered UI through hydration`, async () => {

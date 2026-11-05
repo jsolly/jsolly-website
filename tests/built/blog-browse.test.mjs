@@ -386,7 +386,9 @@ it("Without JavaScript the blog home offers the full archive instead of Load mor
 		await Promise.all([page.waitForURL("**/blog/all-posts/"), archive.click()]);
 		const hrefs = await cardHrefs(page);
 		assert.deepEqual(
-			[...hrefs].sort(),
+			[...hrefs].sort((firstValue, secondValue) =>
+				firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+			),
 			published.map(({ slug }) => postHref(slug)).sort(),
 			"the archive lists exactly the published posts",
 		);
@@ -414,7 +416,9 @@ it("Category pages list only their own published posts, and every card's categor
 		await countIs(page, geodevSlugs.length);
 		assert.deepEqual(
 			(await cardHrefs(page)).sort(),
-			[...geodevSlugs].sort(),
+			[...geodevSlugs].sort((firstValue, secondValue) =>
+				firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+			),
 			"every published Geodev post, and nothing else",
 		);
 		assert.deepEqual(errors, []);
@@ -424,7 +428,9 @@ it("Category pages list only their own published posts, and every card's categor
 
 	const archiveLinks = await readBuilt("blog/all-posts", categoryLinks);
 	assert.equal(archiveLinks.length, published.length);
-	const links = [...new Set(archiveLinks)].sort();
+	const links = [...new Set(archiveLinks)].sort((firstValue, secondValue) =>
+		firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+	);
 	const unbuilt = (
 		await Promise.all(
 			links.map(async (href) =>
@@ -438,9 +444,10 @@ it("Category pages list only their own published posts, and every card's categor
 	assert.deepEqual(unbuilt, [], "category links without a built page");
 	assert.deepEqual(
 		links,
-		[
-			...new Set(published.map(({ category }) => categoryHref(category))),
-		].sort(),
+		[...new Set(published.map(({ category }) => categoryHref(category)))].sort(
+			(firstValue, secondValue) =>
+				firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+		),
 		"the links keep each category slug's case",
 	);
 });

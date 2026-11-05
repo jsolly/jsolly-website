@@ -1,4 +1,4 @@
-// biome-ignore-all lint/suspicious/noMisplacedAssertion lint/nursery/noConditionalExpect: Node assertions validate external CI evidence at runtime, not test expectations.
+// biome-ignore-all lint/suspicious/noMisplacedAssertion lint/suspicious/noConditionalExpect: Node assertions validate external CI evidence at runtime, not test expectations.
 // Distinct hosted phases; npm run gate never selects these partial entrypoints.
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";

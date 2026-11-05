@@ -2,7 +2,16 @@
 name: UI preview checks
 on:
   pull_request:
-    types: [opened, synchronize, reopened, labeled, unlabeled, ready_for_review, converted_to_draft]
+    types:
+      [
+        opened,
+        synchronize,
+        reopened,
+        labeled,
+        unlabeled,
+        ready_for_review,
+        converted_to_draft,
+      ]
 permissions:
   contents: read
 jobs:

@@ -13,26 +13,26 @@ import Layout from "../layouts/Layout.astro";
     description={`John Solly is the ${ROLE}, a software engineer who has worked in startups, Fortune 500s, federal agencies and universities.`}
 >
     <div
-        class="about-section bg-subtle-dark-overlay-lvl-2 text-text rounded-lg shadow-lg p-6 mx-auto"
+        class="about-section bg-subtle-dark-overlay-lvl-2 text-text mx-auto rounded-lg p-6 shadow-lg"
     >
-        <div class="profile flex flex-col md:flex-row items-center">
+        <div class="profile flex flex-col items-center md:flex-row">
             <Image
                 src={jsollyImage}
                 alt="John Solly Avatar"
-                class="rounded-full mb-4 md:mb-0 md:mr-6 w-48"
+                class="mb-4 w-48 rounded-full md:mr-6 md:mb-0"
                 loading="eager"
                 fetchpriority="high"
             />
             <div>
                 <h1
-                    class="text-2xl font-bold text-text leading-none tracking-tight"
+                    class="text-text text-2xl leading-none font-bold tracking-tight"
                 >
                     John Solly
                 </h1>
                 <p class="text-text leading-relaxed tracking-wide">
                     {SHORT_ROLE}
                 </p>
-                <div class="social-links flex mt-3">
+                <div class="social-links mt-3 flex">
                     <SocialLinks imgLoading="eager" />
                 </div>
             </div>

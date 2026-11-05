@@ -101,7 +101,12 @@ it("summary artifacts contain no cooking instructions or nutrient calculation re
 			assert.equal(Object.hasOwn(recipe, field), false, field);
 		assert.ok(
 			recipe.ingredients.every(
-				(ingredient) => Object.keys(ingredient).sort().join() === "id,name",
+				(ingredient) =>
+					Object.keys(ingredient)
+						.sort((firstValue, secondValue) =>
+							firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+						)
+						.join() === "id,name",
 			),
 		);
 	}

@@ -1,6 +1,8 @@
 /** A seed orders stable IDs globally, so filtering retains relative order. */
 export function orderRecipeIds(ids: readonly string[], seed: string): string[] {
-	const ordered = [...ids].sort();
+	const ordered = [...ids].sort((firstValue, secondValue) =>
+		firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+	);
 	let hash = 2166136261;
 	for (const character of seed)
 		hash = Math.imul(hash ^ character.charCodeAt(0), 16777619) >>> 0;

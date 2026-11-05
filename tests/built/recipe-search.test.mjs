@@ -153,7 +153,14 @@ function verifyLibrary(width) {
 			);
 			const afterShuffle = await cardIds();
 			assert.notDeepEqual(afterShuffle, beforeShuffle);
-			assert.deepEqual([...afterShuffle].sort(), [...beforeShuffle].sort());
+			assert.deepEqual(
+				[...afterShuffle].sort((firstValue, secondValue) =>
+					firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+				),
+				[...beforeShuffle].sort((firstValue, secondValue) =>
+					firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+				),
+			);
 			assert.match(
 				await page.getByRole("button", { name: PROTEINS }).textContent(),
 				TURKEY,
@@ -193,7 +200,9 @@ function verifyLibrary(width) {
 			);
 			assert.deepEqual(
 				(await cardIds()).sort(),
-				[...DISTANT_MATCH_IDS].sort(),
+				[...DISTANT_MATCH_IDS].sort((firstValue, secondValue) =>
+					firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+				),
 				"local full-text search includes a recipe beyond the initial six cards",
 			);
 			const mealId = await cards
@@ -749,7 +758,9 @@ it("a superseded slow search cannot replace current results and Retry preserves 
 		await waitForDistant();
 		assert.deepEqual(
 			(await ids()).sort(),
-			[...DISTANT_MATCH_IDS].sort(),
+			[...DISTANT_MATCH_IDS].sort((firstValue, secondValue) =>
+				firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+			),
 			"only the newest query can consume the slow shared index",
 		);
 		await page.evaluate(
@@ -760,7 +771,9 @@ it("a superseded slow search cannot replace current results and Retry preserves 
 		);
 		assert.deepEqual(
 			(await ids()).sort(),
-			[...DISTANT_MATCH_IDS].sort(),
+			[...DISTANT_MATCH_IDS].sort((firstValue, secondValue) =>
+				firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+			),
 			"completion of superseded work cannot overwrite the newest result",
 		);
 		assert.equal(await search.inputValue(), "jalapeno popper stuffed");
@@ -816,7 +829,12 @@ it("a superseded slow search cannot replace current results and Retry preserves 
 		);
 		assert.equal(retried.status(), 200);
 		await waitForDistant();
-		assert.deepEqual((await ids()).sort(), [...DISTANT_MATCH_IDS].sort());
+		assert.deepEqual(
+			(await ids()).sort(),
+			[...DISTANT_MATCH_IDS].sort((firstValue, secondValue) =>
+				firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+			),
+		);
 		assert.equal(await search.inputValue(), "jalapeno popper stuffed");
 		assert.equal(
 			await page

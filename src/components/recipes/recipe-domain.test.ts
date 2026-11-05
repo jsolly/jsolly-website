@@ -10,7 +10,14 @@ it("seeded recipe order is independent of input order and leaves input intact", 
 	const ordered = orderRecipeIds(ids, "shared-seed");
 	assert.deepEqual(ordered, ["smoothie", "chicken", "salad", "salmon"]);
 	assert.deepEqual(ordered, orderRecipeIds([...ids].reverse(), "shared-seed"));
-	assert.deepEqual([...ordered].sort(), [...ids].sort());
+	assert.deepEqual(
+		[...ordered].sort((firstValue, secondValue) =>
+			firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+		),
+		[...ids].sort((firstValue, secondValue) =>
+			firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+		),
+	);
 	assert.deepEqual(ids, original);
 	assert.deepEqual(orderRecipeIds([], "shared-seed"), []);
 	assert.deepEqual(orderRecipeIds(["salmon"], "shared-seed"), ["salmon"]);

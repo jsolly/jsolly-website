@@ -1,5 +1,5 @@
 declare global {
-	// biome-ignore lint/nursery/useVarsOnTop: TypeScript ambient global properties require var; this declares no executable variable.
+	// biome-ignore lint/style/useVarsOnTop: TypeScript ambient global properties require var; this declares no executable variable.
 	var __jsollyOfflineNodeGuard: NodeNetworkGuard | undefined;
 }
 

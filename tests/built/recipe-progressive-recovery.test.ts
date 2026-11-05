@@ -166,6 +166,7 @@ it("native browse card images load with JavaScript enabled and disabled", {
 	timeout: 30_000,
 }, async (test) => {
 	const diagnostics = recipeImageDiagnostics(browser);
+	// biome-ignore lint/suspicious/useExpect: The existing helper invoked in this callback performs the behavioral Node assertions.
 	test.onTestFinished(() =>
 		diagnostics.finish(test.task.result?.state === "fail"),
 	);

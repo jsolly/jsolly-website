@@ -84,11 +84,12 @@ describe("createArticleSearch", () => {
 
 	it("Serialized search finds body-only terms without storing the article body", () => {
 		const payload = parseSearchIndex(JSON.parse(index));
-		assert.deepEqual(Object.keys(payload.documents[0]).sort(), [
-			"description",
-			"slug",
-			"title",
-		]);
+		assert.deepEqual(
+			Object.keys(payload.documents[0]).sort((a, b) =>
+				a < b ? -1 : a > b ? 1 : 0,
+			),
+			["description", "slug", "title"],
+		);
 		assert.equal(
 			JSON.stringify(payload.index).includes(sources[0].text),
 			false,

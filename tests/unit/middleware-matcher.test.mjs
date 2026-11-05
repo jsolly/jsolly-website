@@ -58,7 +58,7 @@ if (patterns.length === 0)
 	throw new Error("middleware matcher must not be empty");
 // Match the installed Vercel Node builder: getRegExpFromMatchers joins each
 // pathToRegexp().source and constructs a new RegExp without preserving flags.
-// biome-ignore lint/nursery/useUnicodeRegex: reproduce Vercel getRegExpFromMatchers exactly, including flag loss.
+// biome-ignore lint/style/useUnicodeRegex: reproduce Vercel getRegExpFromMatchers exactly, including flag loss.
 const matcher = new RegExp(
 	patterns
 		.map((pattern) => pathToRegexp("middleware-matcher-test", pattern).source)

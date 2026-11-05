@@ -208,11 +208,12 @@ it("Vercel compiles the legacy config within its redirect limit, every redirect 
 	assert.equal(config.outputDirectory, "public");
 	assert.equal(config.framework, null);
 	for (const redirect of config.redirects) {
-		assert.deepEqual(Object.keys(redirect).sort(), [
-			"destination",
-			"source",
-			"statusCode",
-		]);
+		assert.deepEqual(
+			Object.keys(redirect).sort((firstValue, secondValue) =>
+				firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+			),
+			["destination", "source", "statusCode"],
+		);
 		assert.equal(redirect.statusCode, 301);
 	}
 	// Structural: every redirect compiles to a literal path, so no source can
@@ -285,7 +286,9 @@ it("The old host serves exactly its tracked public files, with no-cache headers 
 	const workers = map.rows.filter((row) => row.class === "service-worker");
 	assert.deepEqual(
 		workers.map((row) => row.source.slice(1)).sort(),
-		[...SERVICE_WORKERS].sort(),
+		[...SERVICE_WORKERS].sort((firstValue, secondValue) =>
+			firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+		),
 	);
 	for (const row of workers) {
 		const { headers } = routePath(routes, row.source);

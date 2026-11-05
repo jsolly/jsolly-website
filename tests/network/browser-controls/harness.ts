@@ -1,5 +1,5 @@
 // biome-ignore-all lint/performance/noAwaitInLoops: Controls deliberately serialize shared sentinel state and prove ordered lifecycle cleanup.
-// biome-ignore-all lint/nursery/noConditionalExpect: This standalone native assertion harness checks both paired branches directly.
+// biome-ignore-all lint/suspicious/noConditionalExpect: This standalone native assertion harness checks both paired branches directly.
 // biome-ignore-all lint/suspicious/noMisplacedAssertion: Native Node assert controls run without a Vitest test wrapper.
 import assert from "node:assert/strict";
 import { execFile } from "node:child_process";

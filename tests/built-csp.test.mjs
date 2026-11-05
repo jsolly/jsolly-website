@@ -33,7 +33,11 @@ function expectedSources(base, directive) {
 	const sources = PREVIEW
 		? [...base, ...VERCEL_TOOLBAR_SOURCES[directive]]
 		: base;
-	return sources.length ? [...new Set(sources)].toSorted() : null;
+	return sources.length
+		? [...new Set(sources)].toSorted((firstValue, secondValue) =>
+				firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+			)
+		: null;
 }
 
 // Walk the parsed document tree, not template.content, just as document-level

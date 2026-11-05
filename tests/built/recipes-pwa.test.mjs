@@ -87,7 +87,12 @@ function installCheck(name, viewport) {
 			);
 		await serve("A");
 		const { urls } = snapshots.A;
-		assert.deepEqual(urls, [...urls].sort());
+		assert.deepEqual(
+			urls,
+			[...urls].sort((firstValue, secondValue) =>
+				firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+			),
+		);
 		assert.ok(urls.includes(LANDING));
 		assert.ok(urls.includes("/recipes/saved/"));
 		assert.ok(

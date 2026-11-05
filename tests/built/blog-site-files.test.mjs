@@ -82,8 +82,12 @@ it("crawlers find every indexable page in the sitemap, each post with its update
 	);
 	assert.equal(entries.size, listed, "each URL is listed once");
 	assert.deepEqual(
-		[...entries.keys()].sort(),
-		[...pages.indexable, RESUME].sort(),
+		[...entries.keys()].sort((firstValue, secondValue) =>
+			firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+		),
+		[...pages.indexable, RESUME].sort((firstValue, secondValue) =>
+			firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+		),
 		"the sitemap lists exactly the indexable built pages and the resume",
 	);
 	const lastmods = new Map(

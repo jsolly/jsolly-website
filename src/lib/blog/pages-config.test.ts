@@ -187,11 +187,15 @@ describe(".pages.yml", () => {
 		assert.equal(posts.field("related").options?.collection, posts.name);
 		assert.deepEqual(
 			posts.fields.map((field) => field.name).sort(),
-			[...Object.keys(postSchema.shape), "body"].sort(),
+			[...Object.keys(postSchema.shape), "body"].sort((a, b) =>
+				a < b ? -1 : a > b ? 1 : 0,
+			),
 		);
 		assert.deepEqual(
 			categories.fields.map((field) => field.name).sort(),
-			Object.keys(categorySchema.shape).sort(),
+			Object.keys(categorySchema.shape).sort((a, b) =>
+				a < b ? -1 : a > b ? 1 : 0,
+			),
 		);
 
 		// Every schema key a post or category cannot omit is required in the

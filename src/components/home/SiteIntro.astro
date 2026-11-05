@@ -10,20 +10,20 @@ import {
 const origin = Astro.site?.origin ?? "https://www.jsolly.com";
 ---
 
-<section class="py-8 md:py-4 max-w-3xl" aria-labelledby="about-this-site-heading">
+<section class="max-w-3xl py-8 md:py-4" aria-labelledby="about-this-site-heading">
 	<h2
 		id="about-this-site-heading"
-		class="text-3xl md:text-4xl font-bold text-text-primary font-heading tracking-tight mb-4"
+		class="text-text-primary font-heading mb-4 text-3xl font-bold tracking-tight md:text-4xl"
 	>
 		About this site
 	</h2>
-	<p class="text-lg text-text-secondary leading-relaxed mb-4">
+	<p class="text-text-secondary mb-4 text-lg leading-relaxed">
 		jsolly.com is the personal website of John Solly, {ROLE}. It is a small
 		static site: who I am, how to reach me, my blog and recipes, and pointers
 		to work I publish elsewhere. It is not a Leidos corporate page and it does
 		not ship a product API.
 	</p>
-	<p class="text-lg text-text-secondary leading-relaxed mb-8">
+	<p class="text-text-secondary mb-8 text-lg leading-relaxed">
 		Most of my career has been building spatial systems — at Esri, startups, and
 		federal agencies. I now {ROLE_STRATEGY}, supporting agencies such as SSA,
 		VA, and HHS. My focus is the convergence of spatial computing and AI:
@@ -33,11 +33,11 @@ const origin = Astro.site?.origin ?? "https://www.jsolly.com";
 
 	<h3
 		id="pages-on-this-site-heading"
-		class="text-xl font-bold text-text-primary font-heading tracking-tight mb-3"
+		class="text-text-primary font-heading mb-3 text-xl font-bold tracking-tight"
 	>
 		Pages
 	</h3>
-	<ul class="list-disc pl-6 text-lg text-text-secondary leading-relaxed mb-8 space-y-2">
+	<ul class="text-text-secondary mb-8 list-disc space-y-2 pl-6 text-lg leading-relaxed">
 		<li>
 			<a href="/about/">About</a> — background, focus areas, and how I got here
 		</li>
@@ -66,11 +66,11 @@ const origin = Astro.site?.origin ?? "https://www.jsolly.com";
 
 	<h3
 		id="for-agents-heading"
-		class="text-xl font-bold text-text-primary font-heading tracking-tight mb-3"
+		class="text-text-primary font-heading mb-3 text-xl font-bold tracking-tight"
 	>
 		For agents
 	</h3>
-	<p class="text-lg text-text-secondary leading-relaxed">
+	<p class="text-text-secondary text-lg leading-relaxed">
 		Start at
 		<a href={`${origin}/llms.txt`}>{origin}/llms.txt</a>
 		for when-to-use guidance. Request a page with
