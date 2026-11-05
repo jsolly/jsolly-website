@@ -69,7 +69,7 @@ jobs:
         run: bash gate/ci-verified-tree.sh
       # Protected main reuse runs no npm ci. Its setup-node post step would then save the
       # empty ~/.npm under the shared key, which every later job restores as a hit.
-      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: .nvmrc
           cache: ${{ steps.verified-tree.outputs.run_full != 'false' && 'npm' || '' }}
@@ -172,7 +172,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: bash gate/ci-secrets-scan.sh
-      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -273,7 +273,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: bash gate/ci-secrets-scan.sh
-      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
