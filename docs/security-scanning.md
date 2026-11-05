@@ -40,7 +40,12 @@ pinned CLI. Scanner findings and fatal errors fail the check. Semgrep's own
 partial-parser warnings remain visible and are not a claim of complete syntax
 coverage. The scanner does not support every Svelte/Astro construct. Generated
 dependencies, exported notebooks and inert recipe evidence are outside the
-Semgrep source scan. Inline `nosemgrep` comments identify reviewed individual
+Semgrep source scan, through the scanner's `--exclude` list. The scanner also
+passes `--x-ignore-semgrepignore-files`, so Semgrep's built-in ignore list does
+not skip `tests/` and `build/`, and no `.semgrepignore` file changes the scope.
+Semgrep marks that flag internal and subject to change, so a Semgrep version bump
+must confirm a planted finding under `tests/` is still reported.
+Inline `nosemgrep` comments identify reviewed individual
 audit false positives and explain the trusted data or fixture boundary.
 
 Zizmor keeps two precise exceptions for the opt-in Preview workflow's

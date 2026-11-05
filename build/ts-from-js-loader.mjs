@@ -1,11 +1,10 @@
 /**
- * Node test loader: resolve relative `.js` specifiers to sibling `.ts` files
- * so Edge-safe TypeScript (Node16 `.js` imports) can run under
- * `node --experimental-strip-types`.
+ * Resolve relative `.js` specifiers to sibling `.ts` files so Edge-safe
+ * TypeScript (Node16 `.js` imports) can run while Node strips types.
  */
 const JS_EXT_RE = /\.js$/u;
 
-export async function resolve(specifier, context, nextResolve) {
+export function resolve(specifier, context, nextResolve) {
 	if (
 		specifier.startsWith(".") &&
 		specifier.endsWith(".js") &&
@@ -14,11 +13,15 @@ export async function resolve(specifier, context, nextResolve) {
 		const asTs = new URL(specifier, context.parentURL);
 		asTs.pathname = asTs.pathname.replace(JS_EXT_RE, ".ts");
 		try {
-			return await nextResolve(asTs.href, context);
+			return nextResolve(asTs.href, context);
 		} catch (error) {
 			// Real `.js` files (dependencies such as lightningcss import their own
-			// `./index.js`) keep resolving as written.
-			if (error.code !== "ERR_MODULE_NOT_FOUND") {
+			// `./index.js`) keep resolving as written. ESM reports
+			// ERR_MODULE_NOT_FOUND; CommonJS require reports MODULE_NOT_FOUND.
+			if (
+				error.code !== "ERR_MODULE_NOT_FOUND" &&
+				error.code !== "MODULE_NOT_FOUND"
+			) {
 				throw error;
 			}
 		}

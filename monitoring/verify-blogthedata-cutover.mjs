@@ -430,7 +430,7 @@ function uniqueByPath(probes) {
 function fragmentNote() {
 	const pages = readLegacyJson("fragment-ids.json").pages;
 	const ids = Object.values(pages).reduce((sum, list) => sum + list.length, 0);
-	return `fragments: ${Object.keys(pages).length} old pages carry ${ids} ids (legacy/blogthedata/fragment-ids.json); the browser keeps #fragment across the 301 and never sends it, so scripts/built/legacy-fragments.test.mjs checks the ids against the build`;
+	return `fragments: ${Object.keys(pages).length} old pages carry ${ids} ids (legacy/blogthedata/fragment-ids.json); the browser keeps #fragment across the 301 and never sends it, so tests/built/legacy-fragments.test.mjs checks the ids against the build`;
 }
 
 // A plan: `legacy` probes run on each legacy target, `destinations` on the

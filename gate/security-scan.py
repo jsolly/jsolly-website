@@ -209,6 +209,8 @@ def structural(root):
 def source(root):
     python_tool("semgrep", ["scan", "--config", "p/default", "--error",
                            "--metrics", "off", "--disable-version-check", "--no-git-ignore",
+                           # Semgrep's built-in ignore list skips tests/ and build/; scan them.
+                           "--x-ignore-semgrepignore-files",
                            "--exclude", "node_modules", "--exclude", "public/notebooks",
                            "--exclude", "docs/recipes-evidence", "."], root)
     scanner = binary("osv-scanner", f"osv-scanner@{OSV_VERSION}")

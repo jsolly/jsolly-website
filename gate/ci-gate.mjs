@@ -5,6 +5,7 @@ import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { testProcessEnvironment } from "../tests/network/entry.ts";
 import {
 	aggregate,
 	identity,
@@ -26,7 +27,7 @@ const ledger = () =>
 const run = (args, configPath = config) =>
 	spawnSync(process.execPath, [vitest, ...args, "--config", configPath], {
 		cwd: ROOT,
-		env: { ...process.env, TEST_SUITE: "built" },
+		env: testProcessEnvironment("built", process.env),
 		stdio: "inherit",
 	});
 
@@ -168,7 +169,7 @@ async function main(mode, argument) {
 				"--reporter=json",
 				`--outputFile.json=${reportPath}`,
 				...(process.env.TEST_FILE_TIMINGS === "1"
-					? ["--reporter", join(ROOT, "scripts/test-file-timings.mjs")]
+					? ["--reporter", join(ROOT, "tests/test-file-timings.mjs")]
 					: []),
 			],
 			join(ROOT, "config/testing/ci-built.config.mjs"),

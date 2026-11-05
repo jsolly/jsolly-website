@@ -11,6 +11,8 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 
 export const LOG_GROUP = "/shared-infra/scheduled-checks";
+// Named on every call, so a run never depends on an environment or profile default.
+export const AWS_REGION = "us-east-1";
 const MAX_FIELD = 500;
 // Control (Cc: C0, C1, DEL, CR, LF) and format (Cf: bidi overrides, zero-width)
 // characters, and the Unicode line and paragraph separators.
@@ -76,11 +78,15 @@ export function runFromEnv(env, required = []) {
 }
 
 function aws(args) {
-	const result = spawnSync("aws", [...args, "--output", "json"], {
-		encoding: "utf8",
-		env: { ...process.env, AWS_PAGER: "" },
-		stdio: ["ignore", "pipe", "inherit"],
-	});
+	const result = spawnSync(
+		"aws",
+		[...args, "--region", AWS_REGION, "--output", "json"],
+		{
+			encoding: "utf8",
+			env: { ...process.env, AWS_PAGER: "" },
+			stdio: ["ignore", "pipe", "inherit"],
+		},
+	);
 	if (result.error) throw result.error;
 	if (result.status !== 0)
 		throw new Error(

@@ -18,7 +18,7 @@
 
 /* Explicit sources: automatic detection would scan every non-gitignored file,
    so docs and data would add utilities to this bundle.
-   scripts/unit/tailwind-sources.test.mjs checks the scanned file set. */
+   tests/unit/tailwind-sources.test.mjs checks the scanned file set. */
 @source "../components";
 @source "../layouts";
 @source "../pages";

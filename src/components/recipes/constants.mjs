@@ -69,7 +69,7 @@ export const PWA_FILES_PATH = "/recipes/pwa/";
 /**
  * The recipe app's name on a home screen and its theme colour, in the
  * RecipeLayout head tags; public/recipes/pwa/manifest.webmanifest repeats
- * them (scripts/unit/recipe-data.test.mjs checks they agree).
+ * them (tests/unit/recipe-data.test.mjs checks they agree).
  */
 export const PWA_NAME = "Keto meals & smoothies";
 export const PWA_THEME_COLOR = "#183e2b";
