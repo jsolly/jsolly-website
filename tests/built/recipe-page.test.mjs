@@ -1,5 +1,4 @@
 import assert from "node:assert/strict";
-import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { PRINT_FAILED } from "../../src/components/recipes/constants.mjs";
 import { cookText } from "../../src/components/recipes/display-units.mjs";
@@ -7,6 +6,7 @@ import nutritionData from "../../src/components/recipes/nutrition-data.json" wit
 	type: "json",
 };
 import recipeData from "../../src/components/recipes/recipe-data.server.mjs";
+import { launchTestBrowser } from "../network/browser.ts";
 import { collectErrors, serveStatic } from "./pages.mjs";
 import { setLegacyUnits } from "./recipe-legacy-units.mjs";
 
@@ -150,7 +150,7 @@ let browser;
 
 before(async () => {
 	site = await serveStatic(DIST);
-	browser = await chromium.launch();
+	browser = await launchTestBrowser();
 });
 
 after(async () => {

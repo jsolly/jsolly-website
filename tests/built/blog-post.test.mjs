@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
-import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
-import { postHref } from "../../src/lib/blog/urls.js";
+import { postHref } from "../../src/lib/blog/urls.ts";
+import { launchTestBrowser } from "../network/browser.ts";
 import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
 
 // The post page's own script over the built dist/, in Chromium: a heading
@@ -21,7 +21,7 @@ let browser;
 
 before(async () => {
 	site = await serveStatic(DIST);
-	browser = await chromium.launch();
+	browser = await launchTestBrowser();
 });
 
 after(async () => {

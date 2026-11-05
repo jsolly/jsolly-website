@@ -10,6 +10,8 @@ import {
 	lookup,
 } from "../../src/components/recipes/tools/usda.mjs";
 
+import { withOfflineNodeGuard } from "../network/node/guard.ts";
+
 const KEY = "fixture-only-usda-key-not-a-real-key";
 const USAGE_ERROR = /Usage:/u;
 const INPUT_ERROR = /requires one protected API key on stdin/u;
@@ -140,7 +142,12 @@ syncBuiltinESMExports();
 					"food",
 					"168462",
 				],
-				{ env, input: "", encoding: "utf8", timeout: 10000 },
+				{
+					env: withOfflineNodeGuard(env),
+					input: "",
+					encoding: "utf8",
+					timeout: 10000,
+				},
 			);
 			assert.equal(result.status, 1, result.stderr);
 			assert.match(result.stderr, INPUT_ERROR);

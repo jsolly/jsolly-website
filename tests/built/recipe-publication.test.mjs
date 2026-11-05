@@ -1,18 +1,18 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
-import middleware from "../../middleware.js";
+import middleware from "../../middleware.ts";
 import retired from "../../src/components/recipes/retired-recipes.json" with {
 	type: "json",
 };
+import { launchTestBrowser } from "../network/browser.ts";
 import { collectErrors, distFiles, readBuilt, serveStatic } from "./pages.mjs";
 
 let site;
 let browser;
 before(async () => {
 	site = await serveStatic("dist");
-	browser = await chromium.launch();
+	browser = await launchTestBrowser();
 });
 after(async () => {
 	await browser?.close();

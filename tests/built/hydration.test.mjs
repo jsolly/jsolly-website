@@ -1,9 +1,9 @@
 import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import { join } from "node:path";
-import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
-import { JOB_TITLE } from "../../src/content/constants.js";
+import { JOB_TITLE } from "../../src/content/constants.ts";
+import { launchTestBrowser } from "../network/browser.ts";
 import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
 
 // Hold island modules until every server-rendered node has been captured.
@@ -95,7 +95,7 @@ async function nodeReuse({ root, origin }, path, stable = ":not(*)") {
 
 before(async () => {
 	await listen("shipped", SHIPPED);
-	browser = await chromium.launch();
+	browser = await launchTestBrowser();
 });
 
 after(async () => {

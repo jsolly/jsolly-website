@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
-import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { readHeaderPolicy } from "../../build/csp.mjs";
+import { launchTestBrowser } from "../network/browser.ts";
 import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
 
 // Plan §4.4(c): the built pages under both policies a browser enforces in
@@ -75,7 +75,7 @@ let headerPolicy;
 before(async () => {
 	headerPolicy = await readHeaderPolicy();
 	site = await serveStatic(DIST, { "Content-Security-Policy": headerPolicy });
-	browser = await chromium.launch();
+	browser = await launchTestBrowser();
 });
 
 after(async () => {

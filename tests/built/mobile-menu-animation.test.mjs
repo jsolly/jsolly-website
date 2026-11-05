@@ -1,12 +1,12 @@
 import assert from "node:assert/strict";
-import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
+import { launchTestBrowser } from "../network/browser.ts";
 import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
 
 let browser;
 let site;
 before(async () => {
-	browser = await chromium.launch();
+	browser = await launchTestBrowser();
 	site = await serveStatic("dist");
 });
 after(async () => {

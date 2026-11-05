@@ -17,6 +17,7 @@ import {
 	fetchTransport,
 	vercelCurlTransport,
 } from "../../monitoring/verify-blogthedata-transports.mjs";
+import { supervisedTransportDeadline } from "../fixtures/transport-deadline/supervised.ts";
 
 // The vercel-curl transport against a fake `vercel` CLI; nothing here runs
 // the real CLI or reaches the network.
@@ -197,13 +198,13 @@ for (const phase of ["startup", "request"]) {
 			const options = { timeoutMs: 2000 };
 			await assert.rejects(
 				async () => {
-					const request = await vercelCurlTransport(
+					await supervisedTransportDeadline({
 						bin,
-						phase === "startup" ? "https://hungstartup.invalid" : STUB,
+						origin: phase === "startup" ? "https://hungstartup.invalid" : STUB,
 						scratch,
-						options,
-					);
-					await request(`${STUB}/hung`, { body: false });
+						url: `${STUB}/hung`,
+						...options,
+					});
 				},
 				(error) => {
 					assert.equal(

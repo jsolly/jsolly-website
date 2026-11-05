@@ -16,6 +16,8 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, it } from "vitest";
 
+import { withOfflineNodeGuard } from "./network/node/guard.ts";
+
 const workflow = readFileSync(
 	new URL("../.github/workflows/vercel-preview.yml", import.meta.url),
 	"utf8",
@@ -175,7 +177,7 @@ if (kind === "gh") {
 		writeFileSync(join(root, "bin", name), stub);
 		chmodSync(join(root, "bin", name), 0o755);
 	}
-	const env = {
+	const env = withOfflineNodeGuard({
 		...gitEnv,
 		PATH: `${join(root, "bin")}:${process.env.PATH}`,
 		PREVIEW_FIXTURE: root,
@@ -194,7 +196,7 @@ if (kind === "gh") {
 		VERCEL_TOKEN: "fixture-vercel",
 		GH_TOKEN: "fixture-github",
 		...config.env,
-	};
+	});
 	function execute(step, source = workflow) {
 		// Node's captured stderr is a socket on Linux. Unlike a pipe or file,
 		// it cannot be opened through /dev/stderr by the real workflow's tee.

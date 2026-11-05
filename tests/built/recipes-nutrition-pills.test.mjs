@@ -1,8 +1,8 @@
 // biome-ignore-all lint/performance/noAwaitInLoops: Each case navigates the same browser page sequentially.
 import assert from "node:assert/strict";
-import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import recipeData from "../../src/components/recipes/recipe-data.server.mjs";
+import { launchTestBrowser } from "../network/browser.ts";
 import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
 
 const DOWNLOAD_BUTTON = /^Download (?:Markdown|JSON)$/u;
@@ -23,7 +23,7 @@ let site;
 let browser;
 before(async () => {
 	site = await serveStatic("dist");
-	browser = await chromium.launch();
+	browser = await launchTestBrowser();
 });
 after(async () => {
 	await browser?.close();

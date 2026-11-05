@@ -1,8 +1,9 @@
 import { defineConfig } from "vitest/config";
+import { offlineVitestConfiguration } from "../../tests/network/entry.ts";
 
 const suites = {
 	unit: ["src/**/*.test.ts", "src/**/*.test.mjs", "tests/unit/*.test.{ts,mjs}"],
-	built: ["tests/built/*.test.mjs"],
+	built: ["tests/built/*.test.{ts,mjs}"],
 	csp: ["tests/built-csp.test.mjs"],
 	workflow: [
 		"tests/workflow-contracts.test.mjs",
@@ -14,6 +15,7 @@ const suites = {
 
 export default defineConfig({
 	test: {
+		...offlineVitestConfiguration(),
 		include: suites[process.env.TEST_SUITE ?? "unit"] ?? ["**/*.test.mjs"],
 		pool: "forks",
 		// Browser files own isolated processes and deployment fixtures. Four workers

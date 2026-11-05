@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
-import { chromium } from "playwright";
 import { it } from "vitest";
 import data from "../../src/components/recipes/recipe-data.server.mjs";
+import { launchTestBrowser } from "../network/browser.ts";
 import { serveStatic } from "./pages.mjs";
 import { holdRecipeArtifact } from "./recipe-artifact-gate.mjs";
 
@@ -26,7 +26,7 @@ it("background summaries preserve an in-flight card image on the existing elemen
 			await site.close();
 		}
 	});
-	browser = await chromium.launch();
+	browser = await launchTestBrowser();
 	context = await browser.newContext({
 		viewport: { width: 1280, height: 900 },
 		serviceWorkers: "block",

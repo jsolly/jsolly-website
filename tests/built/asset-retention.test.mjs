@@ -4,8 +4,8 @@ import { cp, readFile, writeFile } from "node:fs/promises";
 import { createServer } from "node:http";
 import { extname, join } from "node:path";
 import { JSDOM } from "jsdom";
-import { chromium } from "playwright";
 import { afterAll, beforeAll, it } from "vitest";
+import { launchTestBrowser } from "../network/browser.ts";
 import { collectErrors, stubOffOrigin } from "./pages.mjs";
 import { createTempCopy, requireSuccess } from "./temp-copy.mjs";
 
@@ -105,7 +105,7 @@ beforeAll(async () => {
 		});
 	});
 	origin = `http://127.0.0.1:${server.address().port}`;
-	browser = await chromium.launch();
+	browser = await launchTestBrowser();
 });
 
 afterAll(async () => {

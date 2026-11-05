@@ -6,7 +6,7 @@
 // reported an error line, and when the AWS CLI fails or CloudWatch rejects an event.
 import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { WIDTHS } from "./accessibility-pages.mjs";
+import { WIDTHS } from "./constants.ts";
 import {
 	boundedEvents,
 	commonFields,

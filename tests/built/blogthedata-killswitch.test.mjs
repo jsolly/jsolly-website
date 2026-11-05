@@ -2,7 +2,6 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import { createServer } from "node:http";
 import { extname, join, normalize } from "node:path";
-import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import {
 	compileRoutes,
@@ -11,6 +10,7 @@ import {
 	readLegacyJson,
 	routePath,
 } from "../../build/blogthedata-redirects.mjs";
+import { launchTestBrowser } from "../network/browser.ts";
 
 // Two origins stand in for the cutover. Origin A first plays the old
 // blogthedata.com: a cache-first recipe worker, like the retired ones (same
@@ -183,7 +183,7 @@ before(async () => {
 			return Promise.resolve();
 		}),
 	]);
-	browser = await chromium.launch();
+	browser = await launchTestBrowser();
 });
 
 after(async () => {

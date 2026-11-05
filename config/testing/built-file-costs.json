@@ -27,7 +27,7 @@
 	"tests/built/recipe-page.test.mjs": 36336,
 	"tests/built/recipe-popover-loading.test.mjs": 6208,
 	"tests/built/recipe-preferences.test.mjs": 3351,
-	"tests/built/recipe-progressive-recovery.test.mjs": 26620,
+	"tests/built/recipe-progressive-recovery.test.ts": 26620,
 	"tests/built/recipe-search.test.mjs": 31725,
 	"tests/built/recipe-units.test.mjs": 12620,
 	"tests/built/recipes-browse.test.mjs": 54222,
@@ -43,5 +43,6 @@
 	"tests/built/release-identity.test.mjs": 29,
 	"tests/built/route-manifest.test.mjs": 164,
 	"tests/built/safari-print.test.mjs": 8030,
-	"tests/built/site-update.test.mjs": 15591
+	"tests/built/site-update.test.mjs": 15591,
+	"tests/built/test-network.test.ts": 21190
 }

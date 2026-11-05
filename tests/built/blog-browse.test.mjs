@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import { join } from "node:path";
-import { chromium } from "playwright";
 import { afterAll as after, beforeAll as before, it } from "vitest";
-import { categoryHref, postHref } from "../../src/lib/blog/urls.js";
+import { categoryHref, postHref } from "../../src/lib/blog/urls.ts";
+import { launchTestBrowser } from "../network/browser.ts";
 import {
 	collectErrors,
 	exists,
@@ -41,7 +41,7 @@ let published;
 
 before(async () => {
 	site = await serveStatic(DIST);
-	browser = await chromium.launch();
+	browser = await launchTestBrowser();
 	published = await publishedPosts();
 });
 

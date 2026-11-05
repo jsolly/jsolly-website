@@ -5,6 +5,7 @@ import { mkdtempSync, readFileSync, realpathSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { testProcessEnvironment } from "./network/entry.ts";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const LEDGER = "config/testing/test-counts.json";
@@ -59,7 +60,7 @@ export function runCounted({
 				`--outputFile.json=${reportPath}`,
 				...patterns,
 			],
-			{ cwd, env: { ...process.env, TEST_SUITE: label }, stdio },
+			{ cwd, env: testProcessEnvironment(label, process.env), stdio },
 		);
 		if (child.error) {
 			return {
