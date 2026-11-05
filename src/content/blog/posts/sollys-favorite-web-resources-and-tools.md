@@ -4,7 +4,7 @@ title: Discover a Comprehensive List of Tools for Web Dev, GIS, and More!
 category: resources
 description: Discover tools, resources, and tutorials for web development, GIS, and social media that will help you to effectively utilize and improve your skills.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/devResourcesImage.webp
+image: /blog/media/migrated/image-973860eeae65df98d9b37b20-512.webp
 legacyImage: post_metaimgs/devResourcesImage.webp
 imageAlt: A casual livingroom
 imageAttribution: "Stable Diffusion 2.1 Prompt: A modern workspace for web developers, filled with cutting-edge technology and an array of resources for creating and innovating on the web."

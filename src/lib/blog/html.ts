@@ -1,9 +1,8 @@
 import { decodeHTML, escapeAttribute } from "entities";
 import sanitizeHtml from "sanitize-html";
-import { DEFAULT_IMAGE, EMBED_HOSTS, LEGACY_MEDIA } from "./constants.js";
+import { EMBED_HOSTS } from "./constants.js";
+import { imageUrl, responsiveImage } from "./images.js";
 
-const ABSOLUTE_HTTP = /^https?:\/\//iu;
-const MEDIAFILES_PREFIX = /^mediafiles\//u;
 const WHITESPACE_RUN = /\s+/gu;
 const NON_SLUG_CHARACTER = /[^a-zA-Z0-9_-]/gu;
 // An h1–h3 element with its attributes and inner HTML.
@@ -25,16 +24,6 @@ const NORMAL = /^normal$/u;
 const ZERO_PX = /^0px$/u;
 const INITIAL = /^initial$/u;
 const TWO = /^2$/u;
-
-// A bare legacy-relative path (a Django upload such as `post_imgs/x.webp` or
-// `mediafiles/x.webp`) lives on the legacy CloudFront host. Absolute http(s),
-// protocol-relative and root-relative sources, including /blog/media/ CMS
-// uploads, stay as authored.
-export function imageUrl(path: string) {
-	if (!path || path === "default.webp") return DEFAULT_IMAGE;
-	if (ABSOLUTE_HTTP.test(path) || path.startsWith("/")) return path;
-	return `${LEGACY_MEDIA}${path.replace(MEDIAFILES_PREFIX, "")}`;
-}
 
 // Decoded, unescaped text: safe in Astro/Svelte `{}` expressions and for
 // slugging, never in set:html or an inline <script>/JSON blob unless `<` is
@@ -59,7 +48,16 @@ const ARTICLE_SANITIZE: sanitizeHtml.IOptions = {
 	allowedAttributes: {
 		"*": ["id", "class", "style"],
 		a: ["href", "title", "target", "rel"],
-		img: ["src", "alt", "width", "height", "loading", "decoding"],
+		img: [
+			"src",
+			"srcset",
+			"sizes",
+			"alt",
+			"width",
+			"height",
+			"loading",
+			"decoding",
+		],
 		iframe: [
 			"src",
 			"title",
@@ -125,11 +123,20 @@ const ARTICLE_SANITIZE: sanitizeHtml.IOptions = {
 	transformTags: {
 		img: (_tag, attrs) => {
 			const { src = "" } = attrs;
+			const image = responsiveImage(src);
 			return {
 				tagName: "img",
 				attribs: {
 					...attrs,
 					src: imageUrl(src),
+					...(image
+						? {
+								srcset: image.srcset,
+								sizes: "(max-width: 960px) calc(100vw - 2rem), 900px",
+								width: String(image.width),
+								height: String(image.height),
+							}
+						: {}),
 					loading: "lazy",
 					decoding: "async",
 				},

@@ -1,5 +1,6 @@
+import { reportError } from "../../lib/report-error.mjs";
 import { BASE_SERVINGS, STORAGE_KEY } from "./constants.mjs";
-import { validateSettings } from "./recipe-logic.mjs";
+import { validateSettings } from "./recipe-settings.mjs";
 
 /** Retire obsolete switches without pruning unrelated collection preferences. */
 function currentRecipePreferences(value) {
@@ -44,6 +45,7 @@ export function readRecipePreferences(recipe, getStorage = () => localStorage) {
 			familyDiners: settings.familyDiners,
 		};
 	} catch (error) {
+		void reportError("recipe-storage-read");
 		console.error(
 			"Recipe preferences could not be restored; using US imperial and no side.",
 			error instanceof Error ? error.name : "Unknown error",
@@ -61,6 +63,7 @@ function updateSavedSettings(change, label, getStorage) {
 		try {
 			saved = JSON.parse(raw || "null");
 		} catch (error) {
+			void reportError("recipe-storage-read");
 			console.error(
 				// nosemgrep: javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring -- Internal callers choose label from fixed literals; external values are not used as format strings.
 				`Malformed recipe settings were discarded while saving ${label}.`,
@@ -71,6 +74,7 @@ function updateSavedSettings(change, label, getStorage) {
 		storage.setItem(STORAGE_KEY, JSON.stringify(change(prior)));
 		return true;
 	} catch (error) {
+		void reportError("recipe-storage-write");
 		console.error(
 			// nosemgrep: javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring -- Internal callers choose label from fixed literals; external values are not used as format strings.
 			`Recipe ${label} could not be saved; changes apply only to this visit.`,

@@ -4,7 +4,7 @@ title: "Ace Your Geospatial Professional Job Interview: Tips and Questions"
 category: Geodev
 description: Be ready for your geospatial professional job interview by familiarizing yourself with a wide range of questions organized into various categories.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/jobInterview.webp
+image: /blog/media/migrated/image-fce543b547454f7c245a0763-512.webp
 legacyImage: post_metaimgs/jobInterview.webp
 imageAlt: John Solly Headshot
 imageAttribution: ""
@@ -203,7 +203,7 @@ I think it's important to generally understand the EO (Earth Observation) space 
 
 It's easy to not need to use advanced techniques for working with geospatial data, but once the data gets large enough (\>10GB), you will often be moving into the work of Hadoop/Spark and other big data tools. Check out this <a target="_blank" rel="noopener noreferrer" href="https://vickiboykis.com/2023/01/17/welcome-to-the-jungle-we-got-fun-and-frames/">infographic from Viki Boykis</a>.
 
-![Graph showing Hadoop/Spark is only needed when data is larger than 1TB](https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/bigData.png)  
+![Graph showing Hadoop/Spark is only needed when data is larger than 1TB](/blog/media/migrated/image-c1d48269b348c3042261e007-960.webp)  
 If you don't have experience with data this big, I suggest you get acquainted, as data is only getting bigger as time goes on!
 
 ## Conclusion

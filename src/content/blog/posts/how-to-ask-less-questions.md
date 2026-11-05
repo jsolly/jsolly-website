@@ -4,7 +4,7 @@ title: Proactive Solutions to Avoid Unnecessary Questions and Meetings
 category: productivity
 description: Some questions can be replaced with statements. Give more information up-front to reduce back-and-forth.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/questioningBoyWithX.png
+image: /blog/media/migrated/image-7ede477b0d2edc10c349c031-600.webp
 legacyImage: post_metaimgs/questioningBoyWithX.png
 imageAlt: The infinity symbol
 imageAttribution: ""

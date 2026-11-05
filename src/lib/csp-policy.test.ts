@@ -59,7 +59,7 @@ it("Preview deployments widen only the header directives the toolbar needs", () 
 	assert.equal(
 		header,
 		[
-			"img-src 'self' data: https://d1d7p8ufhgz4ld.cloudfront.net https://vercel.live https://vercel.com blob:",
+			"img-src 'self' data: https://vercel.live https://vercel.com blob:",
 			"style-src 'self' 'unsafe-inline' https://vercel.live",
 			"font-src 'self' https://vercel.live https://assets.vercel.com",
 			"base-uri 'self'",

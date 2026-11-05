@@ -4,7 +4,7 @@ title: "How I Improved My Security Score With Mozilla Observatory: A Guide"
 category: web-dev
 description: Discover how to improve your rating using Mozilla Observatory's security assessment tool. See the steps I took to upgrade my score from a 'F' to an 'A+'.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/mozilla_observatory_results.png
+image: /blog/media/migrated/image-9267135767f04ccccceaa0a5-562.webp
 legacyImage: post_metaimgs/mozilla_observatory_results.png
 imageAlt: An A+ rating on Mozilla Observatory
 imageAttribution: ""
@@ -204,7 +204,7 @@ See this <a target="_blank" rel="noopener noreferrer" href="https://github.com/
 
 You can check the CAA record status of your site using <a target="_blank" rel="noopener noreferrer" href="https://geekflare.com/tools/website-audit">geekflare's website audit tool.</a> The CAA record further locks down your site by specifying the certificate authorities that may issue certificates for your domain. In my case, I added a record for letsencrypt.org since that is the CA I use for this site. Linode has an <a target="_blank" rel="noopener noreferrer" href="https://www.linode.com/docs/products/networking/dns-manager/guides/caa-record/">easy to follow article</a> on how to do this yourself!
 
-<img class="image_resized" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image-20220503153928-1.png" alt="CAA record showing letsencrypt.org as the supported CA" width="800" height="93">
+<img class="image_resized" src="/blog/media/migrated/image-8e3cfb86655b0d870e831dbb-960.webp" alt="CAA record showing letsencrypt.org as the supported CA" width="800" height="93">
 
 ## False Alarms and things I can't change
 
@@ -216,7 +216,7 @@ immuniweb also stated that cookies on my site were missing the HttpOnly flag. A
 
 I emailed ImmuniWeb to tell them about these depreciated properties. I hope they incorporate my feedback to improve the tool!
 
-<img class="image_resized" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/immuniweb_message.png" alt="Screenshot of Immuniweb email. They said &quot;Dear John Solly, Thank you for your message! We've transfered this information to the Development Team.&quot;" width="458" height="228">
+<img class="image_resized" src="/blog/media/migrated/image-6762636d8110affb93ea39d1-458.webp" alt="Screenshot of Immuniweb email. They said &quot;Dear John Solly, Thank you for your message! We've transfered this information to the Development Team.&quot;" width="458" height="228">
 
 Although some tools are outdated, they gave me useful info. For example, ImmuiWeb found was I am using an older version of jQuery. This threw me because my <a target="_blank" rel="noopener noreferrer" href="/blog/migrating-bs4-to-bs5/">migration from bootstrap 4 to bootstrap 5</a> should have removed jQuery. Turns out that it's my embedded Mailchimp form that is still relying on jQuery. The <a target="_blank" rel="noopener noreferrer" href="https://mailchimp.com/help/troubleshooting-the-embedded-signup-form/">Mailchimp docs</a> state:
 
@@ -232,7 +232,7 @@ The following OWASP recommended headers are checked.
 
 Unfortunately, I couldn't fix any of the missing headers. Here are the results for blogthedata.com
 
-<img class="image_resized" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image-20220503174158-1.png" alt="Missing http security headers, Content-Security-Policy, X-Permitted-Cross-Domain-Policies, Clear-Site-Data, Cross-Origin-Embedder-Policy, Cross-Origin-Opener-Policy, Cross-Origin-Resource-Policy-Cache-control" width="800" height="538">I am missing (6) of the suggested headers. 
+<img class="image_resized" src="/blog/media/migrated/image-e827f6ed96634cc38df13b00-960.webp" alt="Missing http security headers, Content-Security-Policy, X-Permitted-Cross-Domain-Policies, Clear-Site-Data, Cross-Origin-Embedder-Policy, Cross-Origin-Opener-Policy, Cross-Origin-Resource-Policy-Cache-control" width="800" height="538">I am missing (6) of the suggested headers. 
 
 Cross-Origin-Resource-Policy (CORP), Cross-Origin-Embedder-Policy - Both appear to be <a target="_blank" rel="noopener noreferrer" href="https://code.djangoproject.com/ticket/31923">open issues in Django 4.0</a> that have not been merged in. There might be a workaround to force the headers through apache, but I would rather wait for the PRs to merge for it to be natively supported in Django.
 
@@ -246,7 +246,7 @@ Clear-site-date - Django has an <a target="_blank" rel="noopener noreferrer" hre
 
 ## Outstanding items to fix
 
-<img class="image_resized" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image-20220504070637-1.png" alt="Image of Mozilla Observatory results. There are two arrows pointing to (2) missing implementations. Content Security Policy and Subresource Integrity." width="800" height="564">
+<img class="image_resized" src="/blog/media/migrated/image-7664042f17ec621b9b9cb083-960.webp" alt="Image of Mozilla Observatory results. There are two arrows pointing to (2) missing implementations. Content Security Policy and Subresource Integrity." width="800" height="564">
 
 I am now missing two items within the Mozilla Observatory audit. I've captured both requirements in separate GitHub issues.
 

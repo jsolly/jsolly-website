@@ -4,7 +4,7 @@ title: "Adding Personality to Your Messages: A Guide to Using ASCII Emojis"
 category: productivity
 description: Learn the benefits of using emojis in written communication and how to easily add ASCII emojis to messages on macOS and iOS.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/myEmojis.webp
+image: /blog/media/migrated/image-bb8c4f5241dceaa3a57227f6-668.webp
 legacyImage: post_metaimgs/myEmojis.webp
 imageAlt: A screenshot of the text replacement menu on MacOS showing several emoji text replacements
 imageAttribution: ""
@@ -39,7 +39,7 @@ On your Apple device, follow these steps:
 
 You should see a screen like this (But a lot more empty)
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/myEmojis_v84rFnF.png" alt="Emojis added through text replacement in the MacOS UI"></figure>
+<figure class="image"><img src="/blog/media/migrated/image-64eb25c2134fd630231ea7ec-668.webp" alt="Emojis added through text replacement in the MacOS UI"></figure>
 
 This works because if you type what's on the left, '&amp;adventure,' you get a text replacement for the emoji! As an aside... there are lots of fun ways to mess with people this way. Like if you do a text replacement of 'yes' with 'no' ...every time the user types 'yes', it will be automatically replaced with 'no'!
 

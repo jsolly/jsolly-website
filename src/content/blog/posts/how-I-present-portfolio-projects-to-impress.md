@@ -4,7 +4,7 @@ title: Create an Effective Dev Portfolio for Hiring Managers & Developers
 category: resources
 description: Learn how to create a development portfolio that appeals to hiring managers and developers with tips on project thumbnails and preview cards.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/jumpingForJoy.webp
+image: /blog/media/migrated/image-ce251326fdbab81071222b3c-512.webp
 legacyImage: post_metaimgs/jumpingForJoy.webp
 imageAlt: A woman jumping in professional clothing
 imageAttribution: "Stable diffusion 2.1 Prompt: A candidate is excited that she got the job. Jumping for joy. No deformities."
@@ -70,7 +70,7 @@ On my main portfolio page, users can scroll through my projects and see:
 
 <ul><li>A relevant thumbnail</li><li>A one-sentence description</li><li>The tech stack used</li><li>A link to the code</li><li>A link to a live demo</li></ul>
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_yIYYPcP.png" alt="Screenshot of GeoAsteroids project Card"></figure>
+<figure class="image"><img src="/blog/media/migrated/image-0f93f5c08b4852ff4e601670-960.webp" alt="Screenshot of GeoAsteroids project Card"></figure>
 
 If the project preview card piques the user's interest, they will click on the project to learn more.
 

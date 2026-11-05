@@ -1,18 +1,10 @@
 // Pure calculations for the meal library. Recipe ingredient amounts are for
 // BASE_SERVINGS (four) adults.
-import {
-	BASE_SERVINGS,
-	KETO_NET_CARBS_MAX,
-	SERVING_CHOICES,
-} from "./constants.mjs";
-import {
-	ingredientGrams,
-	ingredientMeasure,
-	unitPreference,
-} from "./ingredient-units.mjs";
+import { BASE_SERVINGS, KETO_NET_CARBS_MAX } from "./constants.mjs";
+import { ingredientGrams, ingredientMeasure } from "./ingredient-units.mjs";
 import { familyFat, macroNutrition } from "./nutrition.mjs";
+import { validateSettings } from "./recipe-settings.mjs";
 
-const SERVINGS = new Set(SERVING_CHOICES);
 const NUTRIENTS = [
 	"kcal",
 	"protein_g",
@@ -23,17 +15,6 @@ const NUTRIENTS = [
 ];
 
 const finite = (value) => typeof value === "number" && Number.isFinite(value);
-
-export function validateSettings(settings = {}) {
-	const servings = SERVINGS.has(Number(settings?.servings))
-		? Number(settings.servings)
-		: BASE_SERVINGS;
-	const familyDiners = Number.isInteger(Number(settings?.familyDiners))
-		? Math.max(0, Math.min(servings, Number(settings.familyDiners)))
-		: 0;
-	const units = unitPreference(settings?.units);
-	return { servings, familyDiners, units };
-}
 
 /** Use familiar fractions for kitchen measures; retain two decimals otherwise. */
 export function formatQuantity(value) {
@@ -222,8 +203,3 @@ export function totalTimeLabel(recipe, servings = BASE_SERVINGS) {
 }
 
 /** Preserve absent source nutrition on screen, in print and in exports. */
-export function formatNutrition(value, unit = "", decimals = 0) {
-	return finite(value)
-		? `${value.toFixed(decimals)}${unit ? ` ${unit}` : ""}`
-		: "Not provided";
-}

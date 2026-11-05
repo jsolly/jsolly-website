@@ -4,7 +4,7 @@ title: "Enhance Your Blog: Enable Spell Checking With SCAYT in Django CKEditor"
 category: web-dev
 description: Learn how to enable spell checking in Django CKEditor with SCAYT. This guide will show you how to improve the editing experience on your website.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/spellcheck.webp
+image: /blog/media/migrated/image-4002c9660872cd3261a531a9-720.webp
 legacyImage: post_metaimgs/spellcheck.webp
 imageAlt: abc with a green checkmark
 imageAttribution: ""
@@ -49,17 +49,17 @@ After adding this code to my django settings file, I got all this new functional
 
 ## Before
 
-<img class="image_resized" style="height:420px;width:500px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/before_add_post.png" alt="Create post screen before adding ckeditor">
+<img class="image_resized" style="height:420px;width:500px;" src="/blog/media/migrated/image-fee68c1f2f80b41e8d08ccf4-877.webp" alt="Create post screen before adding ckeditor">
 
 ## After
 
-<img class="image_resized" style="height:495px;width:500px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/after_add_post.png" alt="Create post view after adding ckeditor">
+<img class="image_resized" style="height:495px;width:500px;" src="/blog/media/migrated/image-726cf2c8b3a6b2e6b35024a9-876.webp" alt="Create post view after adding ckeditor">
 
 I think there are way too many buttons going on here, but at this point in the website, I am the only one making posts, so I will leave it for now. Plus, it's fun to have so much rich text functionality.
 
 The second problem I ran into is that SCAYT is not enabled by default. You need to click on it and choose 'enable’ start spell checking my posts.
 
-<img class="image_resized" style="height:203px;width:196px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/disable_scaty.png" alt="Disable SCAYT dropdown in ckeditor">
+<img class="image_resized" style="height:203px;width:196px;" src="/blog/media/migrated/image-6c305025ba25acdf325b223a-196.webp" alt="Disable SCAYT dropdown in ckeditor">
 
 Turns out, there is an option you can set in ckeditor's config.js file which is located in /static/ckeditor/ckeditor/config.js
 

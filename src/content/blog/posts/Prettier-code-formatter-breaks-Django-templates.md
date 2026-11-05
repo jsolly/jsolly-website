@@ -4,7 +4,7 @@ title: Why You Shouldn't Use Prettier on Django Template Files
 category: dev-tools
 description: "Don't use Prettier on Django Templates: My Experience and Why it's Not Compatible with the Template Language's Syntax"
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/prettierLogo.webp
+image: /blog/media/migrated/image-a49ac71fda7efdb6f2c5feb9-300.webp
 legacyImage: post_metaimgs/prettierLogo.webp
 imageAlt: Prettier Logo with a red x over it
 imageAttribution: https://raw.githubusercontent.com/prettier/prettier-logo/master/images/prettier-banner-dark.png

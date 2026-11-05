@@ -4,7 +4,7 @@ title: Eliminating Duplicate Pages With HTMX Infinite Scrolling
 category: web-dev
 description: Discover how htmx can be used to improve your website by implementing infinite scrolling, resolving duplication issues and enhancing functionality.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/htmx.webp
+image: /blog/media/migrated/image-2120dc61afecc0dfeebf1469-256.webp
 legacyImage: post_metaimgs/htmx.webp
 imageAlt: HTMX Logo
 imageAttribution: ""

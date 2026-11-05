@@ -4,7 +4,7 @@ title: "Upgrading to Django 4.0: Navigating Dependency and Migration Errors"
 category: web-dev
 description: Navigating dependency and migration errors while upgrading to Django 4.0 - A guide to upgrading from Django 3.2.14 to 4.0.5
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/django_support_timeline.jpg
+image: /blog/media/migrated/image-b6f883c0dcfb78d98689deee-721.webp
 legacyImage: post_metaimgs/django_support_timeline.jpg
 imageAlt: Django support timeline. Shows 3.2 support ending in 2022.
 imageAttribution: ""

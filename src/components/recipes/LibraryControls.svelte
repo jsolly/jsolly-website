@@ -15,7 +15,7 @@
 	} from "./constants.mjs";
 	import FilterMultiSelect from "./FilterMultiSelect.svelte";
 	import NutritionHelp from "./NutritionHelp.svelte";
-	import { choiceUnavailable } from "./nutrient-filters.mjs";
+	import { choiceUnavailable } from "./recipe-settings.mjs";
 
 	// The recipe library's controls: the collection links, servings, the
 	// appliances on hand, the filters (protein and carb or ingredient choices,

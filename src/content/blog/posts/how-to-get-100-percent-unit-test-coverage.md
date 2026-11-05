@@ -4,7 +4,7 @@ title: Achieving 100% Unit Test Coverage | A Step-by-Step Guide
 category: dev-tools
 description: Learn how to achieve 100% unit test coverage in your application with this step-by-step guide, covering route, view, model, form testing and more.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/unittest_coverage.png
+image: /blog/media/migrated/image-b9c33c6583ef5560d7ee0fc6-425.webp
 legacyImage: post_metaimgs/unittest_coverage.png
 imageAlt: A list of python files with 100% test coverage
 imageAttribution: ""
@@ -29,7 +29,7 @@ Curious about unit testing your app?
 
 The first step is to figure out where you stand with current test coverage. Python has an excellent library called <a target="_blank" rel="noopener noreferrer" href="https://pypi.org/project/coverage/">coverage</a> that tells you how many statements your tests touch and what is missing. Output looks like this:
 
-<img class="image_resized" style="height:569px;width:593px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image-20220407221910-1.png" alt="Python Coverage report showing unit test coverage for each file.">
+<img class="image_resized" style="height:569px;width:593px;" src="/blog/media/migrated/image-2e16ec9d5b72bfd4c133797b-593.webp" alt="Python Coverage report showing unit test coverage for each file.">
 
 The lowest hanging fruit is ensuring routes hook up to the correct View. Here, I’m testing the home route links to the HomeView.
 

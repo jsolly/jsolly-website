@@ -4,7 +4,7 @@ title: "Speed Up Your Website With WebP Image Conversion: A Step-by-Step Guide"
 category: web-dev
 description: Convert your images to WebP for faster website performance. Learn how to use a shell script and see the benefits of WebP's superior compression.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/webpConvert.webp
+image: /blog/media/migrated/image-b107096a3eaa0aab162a1a72-912.webp
 legacyImage: post_metaimgs/webpConvert.webp
 imageAlt: Script for converting images to .webp
 imageAttribution: ""

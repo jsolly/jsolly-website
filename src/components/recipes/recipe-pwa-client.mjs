@@ -1,4 +1,5 @@
 // biome-ignore-all lint/suspicious/noUnnecessaryConditions: browser event callbacks mutate lifecycle flags after initialization.
+import { reportError } from "../../lib/report-error.mjs";
 import {
 	confirmUpdateReload,
 	reloadForUpdate,
@@ -160,6 +161,7 @@ async function refresh() {
 }
 function reportCheckFailure(error) {
 	state.checkFailed = true;
+	void reportError("recipe-update");
 	console.error("Recipe update check failed:", error);
 	render();
 }
@@ -174,6 +176,7 @@ function observeInstaller() {
 		if (worker.state === "installed") installed = true;
 		if (worker.state === "redundant" && !installed) {
 			state.failed = true;
+			void reportError("recipe-update");
 			console.error(
 				hasActive()
 					? "Recipe update download failed:"
@@ -332,6 +335,7 @@ if (status) {
 		} catch (error) {
 			problem =
 				"The recipe update could not be applied. Try Update and reload again.";
+			void reportError("recipe-update");
 			console.error("Recipe update activation failed:", error);
 		} finally {
 			applying = false;
@@ -352,6 +356,7 @@ if (status) {
 	if (!import.meta.env.DEV && "serviceWorker" in navigator)
 		void register().catch((error) => {
 			state.failed = true;
+			void reportError("recipe-update");
 			console.error("Recipe service worker registration failed:", error);
 			render();
 		});

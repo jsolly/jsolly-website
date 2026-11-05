@@ -4,7 +4,7 @@ title: Optimize Render Blocking Resources With Template Blocks in Django
 category: web-dev
 description: Learn how to optimize your website's page load speed with template blocks and a Google Lighthouse audit. Discover how to remove unnecessary CSS and JavaScript.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/render_blocking_resources.png
+image: /blog/media/migrated/image-41437e01c4ca550201b8e713-816.webp
 legacyImage: post_metaimgs/render_blocking_resources.png
 imageAlt: A <head> snippet with a big X covering it
 imageAttribution: ""

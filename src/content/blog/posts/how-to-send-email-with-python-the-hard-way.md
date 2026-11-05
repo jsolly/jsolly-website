@@ -4,12 +4,12 @@ title: Success! How I Finally Got Password Reset Emails Working for My Blog
 category: web-dev
 description: Discover how I use SendGrid and Linode to get password reset emails for blogthedata.com, and the code changes I made for DKIM, DMARC, and SPF protection.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/email.png
+image: /blog/media/migrated/image-dc0f06a9bf47174df1e04988-960.webp
 legacyImage: post_metaimgs/email.png
 imageAlt: Lots of letters (emails) streaming out of a computer
 imageAttribution: ""
-imageWidth: 1280
-imageHeight: 716
+imageWidth: 960
+imageHeight: 537
 published: "2022-05-08T22:43:50Z"
 updated: "2026-09-07T14:25:05.474Z"
 author: John Solly
@@ -66,7 +66,7 @@ blogthedata.com.	86400	IN	NS	ns5.linode.com.
 
 To get ProtonMail server working with my domain, I needed to add the following DNS records in Lincode. Most of these records are about authenticating with my purchased domain, blogthedata.com.
 
-<p style="text-align:center;"><img class="image_resized" style="width:258px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image-20220508222604-1.png" alt="Image of protonmail DNS certificates. MX, SPF, DKIM, and DMARC are green meaning 'ON'"></p>
+<p style="text-align:center;"><img class="image_resized" style="width:258px;" src="/blog/media/migrated/image-59375e7a1c16749dd6f62c6a-258.webp" alt="Image of protonmail DNS certificates. MX, SPF, DKIM, and DMARC are green meaning 'ON'"></p>
 
 <blockquote><p>DKIM, along with&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://www.cloudflare.com/learning/dns/dns-records/dns-spf-record/">Sender Policy Framework (SPF)</a>&nbsp;and&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://www.cloudflare.com/learning/dns/dns-records/dns-dmarc-record/">Domain-based Message Authentication Reporting and Conformance (DMARC)</a>, makes it much more difficult for attackers to impersonate domains in this way. Emails that do not pass DKIM and SPF get marked as "spam" or are not delivered by email servers. If example.com has DKIM, SPF, and DMARC set up for their domain, then Alice will probably never even see Chuck's malicious email because it will either go to her spam folder or be rejected by the email server altogether.</p><p><a target="_blank" rel="noopener noreferrer" href="https://www.cloudflare.com/learning/dns/dns-records/dns-dkim-record/">DKIM, DMARC, SPF</a>&nbsp;(cloudfare doc)</p></blockquote>
 

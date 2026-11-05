@@ -1,6 +1,7 @@
 ---
 import type { InferGetStaticPropsType } from "astro";
 import AuthorCard from "../../components/blog/AuthorCard.astro";
+import Breadcrumbs from "../../components/blog/Breadcrumbs.astro";
 import PostCards from "../../components/blog/PostCards.svelte";
 import BlogLayout from "../../layouts/BlogLayout.astro";
 import { attributionLink, cards, dateLabel } from "../../lib/blog/cards.js";
@@ -9,8 +10,9 @@ import {
 	articleHtml,
 	headingId,
 	headingLinkLabel,
-	imageUrl,
 } from "../../lib/blog/html.js";
+import { imageUrl, responsiveImage } from "../../lib/blog/images.js";
+import { blogPosting, breadcrumbList, jsonLd } from "../../lib/blog/structured-data.js";
 import { categoryHref, postHref } from "../../lib/blog/urls.js";
 import Button from "../../lib/components/ui/button.svelte";
 
@@ -32,10 +34,6 @@ export async function getStaticPaths() {
 }
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-
-// JSON in an inline <script> must not contain "</script"; post titles and
-// descriptions are authored text that may hold "<", so every "<" is escaped.
-const LESS_THAN = /</gu;
 
 // The share links, in order: each opens the target's share form for the
 // post's jsolly.com URL in a new tab.
@@ -67,17 +65,15 @@ const attribution = attributionLink(data.imageAttribution);
 const url = new URL(postHref(data.slug), Astro.site).href;
 const categoryPage = categoryHref(data.category);
 const titleId = headingId(data.title);
-const structured = JSON.stringify({
-	"@context": "https://schema.org",
-	"@type": "BlogPosting",
-	headline: data.title,
-	description: data.description,
-	image: new URL(image, Astro.site).href,
-	datePublished: data.published.toISOString(),
-	dateModified: data.updated.toISOString(),
-	author: { "@type": "Person", name: data.author },
-	mainEntityOfPage: url,
-}).replace(LESS_THAN, "\\u003c");
+const site = Astro.site ?? new URL("https://www.jsolly.com/");
+const crumbs = [
+	{ name: "Home", href: "/" },
+	{ name: "Blog", href: "/blog/" },
+	{ name: categoryName, href: categoryPage },
+	{ name: data.title, href: postHref(data.slug) },
+];
+const structured = jsonLd(blogPosting(data, categoryName, site));
+const breadcrumb = jsonLd(breadcrumbList(crumbs, site));
 ---
 <BlogLayout title={data.title} description={data.description} image={image} imageAlt={data.imageAlt} section="blog" article>
 	<Fragment slot="head">
@@ -85,11 +81,13 @@ const structured = JSON.stringify({
 		<meta property="article:modified_time" content={data.updated.toISOString()} />
 		<!-- biome-ignore lint/nursery/noAstroSetHtmlDirective: first-party JSON-LD must stay raw JSON; every "<" is escaped above -->
 		<script type="application/ld+json" set:html={structured} />
+		<!-- biome-ignore lint/nursery/noAstroSetHtmlDirective: jsonLd escapes authored text for script embedding -->
+		<script type="application/ld+json" set:html={breadcrumb} />
 	</Fragment>
-	<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/blog/">Home</a><span aria-hidden="true">/</span><a href={categoryPage}>{categoryName}</a></nav>
+	<Breadcrumbs {crumbs} />
 	<article>
 		<h1 id={titleId}>{data.title}<a class="heading-link" href={`#${titleId}`} aria-label={headingLinkLabel(data.title)}>#</a></h1>
-		<figure><img class="article-hero" src={image} alt={data.imageAlt} width={data.imageWidth ?? undefined} height={data.imageHeight ?? undefined} fetchpriority="high" />{data.imageAttribution && <figcaption>{attribution ? <>Image source: <a href={attribution.href} rel="noopener noreferrer">{attribution.label}</a></> : data.imageAttribution}</figcaption>}</figure>
+		<figure><img class="article-hero" src={image} srcset={responsiveImage(image)?.srcset} sizes="(max-width: 960px) calc(100vw - 2rem), 900px" alt={data.imageAlt} width={data.imageWidth ?? undefined} height={data.imageHeight ?? undefined} fetchpriority="high" />{data.imageAttribution && <figcaption>{attribution ? <>Image source: <a href={attribution.href} rel="noopener noreferrer">{attribution.label}</a></> : data.imageAttribution}</figcaption>}</figure>
 		<!-- biome-ignore lint/nursery/noAstroSetHtmlDirective: articleHtml returns sanitize-html output (src/lib/blog/html.ts) -->
 		<div class="article-body post-text" set:html={articleHtml(html)} />
 		<footer class="post-details">
@@ -103,6 +101,8 @@ const structured = JSON.stringify({
 	<AuthorCard />
 </BlogLayout>
 <script>
+	import { reportError } from "../../lib/report-error.mjs";
+
 	const COPIED = "Heading link copied.";
 	// How long the copy message stays before the status region empties.
 	const ANNOUNCE_MS = 3000;
@@ -138,6 +138,7 @@ const structured = JSON.stringify({
 			// Following the fragment still works without clipboard permission.
 			if (!(error instanceof DOMException && error.name === "NotAllowedError")) {
 				console.error("Copying blog heading link failed.", error);
+				void reportError("blog-copy");
 			}
 		}
 	}

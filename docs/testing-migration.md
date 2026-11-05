@@ -25,13 +25,13 @@ coverage threshold or test ledger was reduced. The repository did not have an
 instrumented coverage threshold to migrate.
 
 `config/testing/vitest.config.mjs` owns JavaScript discovery.
-`scripts/run-tests.mjs` selects the suite, requires a successful Vitest exit and
+`tests/run-tests.mjs` selects the suite, requires a successful Vitest exit and
 checks its passing-test count against `config/testing/test-counts.json`. Its
 fixture exercises mismatched counts, skipped tests, failed tests, empty discovery,
 missing result fields and malformed JSON. `config/testing/pytest.ini` owns Python
 discovery, and the full gate calls `npm run test:python`.
 
-Vitest supports the pinned Node 24 runtime and the existing Vite 8 dependencies.
+Vitest supports the pinned Node 26 runtime and the existing Vite 8 dependencies.
 See the [official Vitest prerequisites](https://vitest.dev/guide/migration/) and
 [pytest subtests documentation](https://docs.pytest.org/en/stable/how-to/subtests.html).
 

@@ -1,5 +1,5 @@
 import { next, rewrite } from "@vercel/edge";
-// biome-ignore lint/correctness/useJsonImportAttributes: Vercel's middleware bundler rejects import attributes (scripts/unit/middleware-bundle.test.mjs).
+// biome-ignore lint/correctness/useJsonImportAttributes: Vercel's middleware bundler rejects import attributes (tests/unit/middleware-bundle.test.mjs).
 import retiredRecipes from "./src/components/recipes/retired-recipes.json";
 import { SITE_SEARCH_LINK } from "./src/content/constants.js";
 // Written by astro build (routeManifest in config/app/astro.ts); gitignored, typed by the tracked .d.ts.
@@ -10,12 +10,22 @@ import {
 	shouldNegotiate,
 } from "./src/lib/accept-negotiate.js";
 import { agentResponse } from "./src/lib/agent-response.js";
-// biome-ignore lint/correctness/useJsonImportAttributes: Vercel's middleware bundler rejects import attributes (scripts/unit/middleware-bundle.test.mjs).
+// biome-ignore lint/correctness/useJsonImportAttributes: Vercel's middleware bundler rejects import attributes (tests/unit/middleware-bundle.test.mjs).
 import retiredCategories from "./src/lib/blog/retired-categories.json";
 import { previewResponseHeaders } from "./src/lib/csp-policy.js";
 import { recipeBrowseDestination } from "./src/lib/recipe-browse-route.mjs";
-// biome-ignore lint/correctness/useJsonImportAttributes: Vercel's middleware bundler rejects import attributes (scripts/unit/middleware-bundle.test.mjs).
+// biome-ignore lint/correctness/useJsonImportAttributes: Vercel's middleware bundler rejects import attributes (tests/unit/middleware-bundle.test.mjs).
 import vercelConfig from "./vercel.json";
+
+// Vercel statically extracts these literals before bundling. Keep both patterns
+// aligned with shouldNegotiate: extensionless misses still need Markdown 404s,
+// while .md files in API/asset/data namespaces remain ordinary static files.
+export const config = {
+	matcher: [
+		"/((?!api/|_astro/|favicons/|images/|scripts/|recipes/data/.*\\.[^./]+/*$|.*\\.[^./]+$).*)",
+		"/((?!api/|_astro/|favicons/|images/|scripts/|recipes/data/).*\\.[mM][dD])",
+	],
+};
 
 const markdownRoutes = new Map(builtMarkdownRoutes);
 // Preview deployments widen the header CSP for the Vercel Toolbar; empty in production.

@@ -4,7 +4,7 @@ title: "Improving Website Health With Ahrefs: A Step-by-Step Guide"
 category: web-dev
 description: Improve website's health score with Ahrefs and eliminate duplicate pages. Tips on fixing common issues and implementing new features.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/ahrefScore.webp
+image: /blog/media/migrated/image-7f47b5318c349daaac01ca35-512.webp
 legacyImage: post_metaimgs/ahrefScore.webp
 imageAlt: John Solly Headshot
 imageAttribution: ""
@@ -24,13 +24,13 @@ related:
 
 <a target="_blank" rel="noopener noreferrer" href="https://ahrefs.com/">Ahrefs</a> is an SEO tool that identifies issues on your websites, like broken links, missing alt-text, and more. When I first ran the tool, my site got a 44/100 😭
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_ojFXOEx.png" alt="Ahrefs health score of 44/100"></figure>
+<figure class="image"><img src="/blog/media/migrated/image-2d7e4e132a55fe3257ced6db-512.webp" alt="Ahrefs health score of 44/100"></figure>
 
 ## Top Issues
 
 Here's a screenshot of the problems Ahrefs encountered on blogthedata.com
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_FwTrFpJ.png" alt="A list of top issues according to ahrefs. The highlight is 215 pages without canonical."></figure>
+<figure class="image"><img src="/blog/media/migrated/image-02caee54b328691c98012c76-596.webp" alt="A list of top issues according to ahrefs. The highlight is 215 pages without canonical."></figure>
 
 ## Alt-text, H1 tags, meta descriptions/titles
 
@@ -52,7 +52,7 @@ Technically, both of those are on separate domains, so I was getting flagged for
 
 After implementing bulk redirects, my score skyrocketed to 92/100.
 
-<figure class="image"><img src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image_y8S5R6S.png" alt="Ahrefs score of 92"></figure>
+<figure class="image"><img src="/blog/media/migrated/image-a9d26aac7ed79ca8c4698ed0-512.webp" alt="Ahrefs score of 92"></figure>
 
 ### Removing the remaining duplicate pages
 

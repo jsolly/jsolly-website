@@ -13,8 +13,8 @@ import {
 	shuffleRecipes,
 	sideNutrition,
 	temperature,
-	validateSettings,
 } from "./recipe-logic.mjs";
+import { validateSettings } from "./recipe-settings.mjs";
 
 const WEIGHED = /(?:\d+ g|^A pinch$)/u;
 const IMPERIAL_MEASURE = /tsp|g|oz|^A pinch$/u;

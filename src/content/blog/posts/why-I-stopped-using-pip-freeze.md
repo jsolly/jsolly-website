@@ -4,12 +4,12 @@ title: "Optimizing Your Project's Dependencies: A Guide to Using Pip Freeze"
 category: dev-tools
 description: Learn how to use pip freeze to create a shortlist of modules for your requirements.txt file and the benefits of using pip to figure out nested dependencies.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/pip_install.jpg
+image: /blog/media/migrated/image-8eb77174362148c19afffdd3-960.webp
 legacyImage: post_metaimgs/pip_install.jpg
 imageAlt: Python logo with the words 'pip install'
 imageAttribution: https://i.ytimg.com/vi/eJUj9zMHmJc/maxresdefault.jpg
-imageWidth: 1280
-imageHeight: 720
+imageWidth: 960
+imageHeight: 540
 published: "2022-05-26T14:28:16Z"
 updated: "2024-11-06T13:36:39.290Z"
 author: John Solly

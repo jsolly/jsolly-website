@@ -4,12 +4,12 @@ title: Improve SEO With a Sitemap.xml & Robots.txt - A Guide
 category: web-dev
 description: Learn how to improve your website's SEO with a sitemap.xml and robots.txt file. A step-by-step guide on how to create and use these files to boost SEO.
 draft: false
-image: https://d1d7p8ufhgz4ld.cloudfront.net/media/post_metaimgs/spider.png
+image: /blog/media/migrated/image-b3195661b10c78fde2ae531f-960.webp
 legacyImage: post_metaimgs/spider.png
 imageAlt: A black widow spider
 imageAttribution: ""
-imageWidth: 2400
-imageHeight: 1569
+imageWidth: 960
+imageHeight: 628
 published: "2022-05-05T12:38:00Z"
 updated: "2022-05-05T12:38:00Z"
 author: John Solly
@@ -81,7 +81,7 @@ You should have separate site maps for different pages because not every route u
 
 After adding my sitemap, I went into <a target="_blank" rel="noopener noreferrer" href="https://search.google.com/search-console">Google Search Console</a> and submitted my sitemap url. Google successfully parsed my sitemap and found 33 paths! That should be all of my current blog posts + /about and /roadmap!
 
-<img class="image_resized" style="height:344px;width:800px;" src="https://d1d7p8ufhgz4ld.cloudfront.net/media/post_imgs/image-20220507054336-1.png" alt="Google sitemap page showing https://blogthedata.com/sitemap.xml having 33 routes detected">
+<img class="image_resized" style="height:344px;width:800px;" src="/blog/media/migrated/image-d144e94d50a303d61c7e5156-960.webp" alt="Google sitemap page showing https://blogthedata.com/sitemap.xml having 33 routes detected">
 
 After adding site maps for all the relevant pages, you'll want to incorporate this into a robots.txt file. You can see <a target="_blank" rel="noopener noreferrer" href="/robots.txt">my robots file here</a>. I include the sitemap url so the spider knows where to go to learn more about blogthedata.com
 

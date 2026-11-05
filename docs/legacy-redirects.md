@@ -21,7 +21,7 @@ redirect promotion. The intended website project is `jsolly-website`
 Production environment and `https://jsolly-website-` deployment URL prefix.
 
 `.github/workflows/legacy-redirects.yml` runs daily and on manual dispatch. It
-verifies public redirects with `scripts/verify-blogthedata-cutover.mjs` and records
+verifies public redirects with `monitoring/verify-blogthedata-cutover.mjs` and records
 artifacts even on failure. `url-map.json` is the frozen redirect contract,
 `url-union.json` its source inventory, and `fragment-ids.json` preserves headings.
 Their source freeze SHA is `6545bc279bb906ac6fdb53cb0e0d7946d0f5b4c9`. Keep legacy feed
@@ -68,9 +68,9 @@ verify the live lifecycle and eventual storage-class transition separately.
 Object Lock retention ends November 1, 2026. No teardown is authorized.
 
 Heroku release v315, database and media remain for recovery until John's separate
-retirement decision after the soak. The `blogthedata` S3 bucket and
-`https://d1d7p8ufhgz4ld.cloudfront.net` still serve article images: rehost those
-first-party before any retirement and update CSP and consumers together.
+retirement decision after the soak. Blog images are now [rehosted on this site](blog-images.md), with responsive
+WebPs and original-source receipts. The `blogthedata` S3 bucket and CloudFront
+distribution remain retained; rehosting does not authorize their retirement.
 Preserve private exports, independent backups, the recipe archive and migration
 receipts. Git history retains the completed plan bundle. The source repository
 can be unarchived for an authorized recovery.

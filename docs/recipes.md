@@ -37,7 +37,7 @@ changes still require `npm run gate`. The full gate always disables preview mode
 ## Data contract
 
 The canonical data is `src/components/recipes/recipes.json` (136 keto meals and 4
-keto smoothies, pinned by `scripts/unit/recipe-data.test.mjs`) and `src/components/recipes/nutrition-data.json` (the
+keto smoothies, pinned by `tests/unit/recipe-data.test.mjs`) and `src/components/recipes/nutrition-data.json` (the
 Daily Value nutrients and each recipe's per-ingredient nutrient rows). Recipe
 ids are stable: each is a page slug (`/recipes/<id>/`) and a legacy fragment id.
 Old blogthedata.com links use both. To accommodate those legacy links,
@@ -45,6 +45,28 @@ Old blogthedata.com links use both. To accommodate those legacy links,
 page with the reader's saved servings, units and side; the library does not
 render recipes itself.
 Images are files under `public/recipes/media/`, referenced as `/recipes/media/...`.
+
+Published recipe pages include `Recipe` JSON-LD built from the same default
+four-portion cooking document as their initial render. Ingredients, preparation,
+instructions, illustration metadata and base nutrition exclude optional sides.
+Smoothie yield and nutrition use the displayed estimated eight-fluid-ounce glass.
+Missing times and time ranges stay unreported as exact ISO durations, and active
+cooking time is not relabeled preparation time. Publisher source URLs remain in
+`isBasedOn` and citations; source author strings that mix people and brands do not
+become invented author identities. The keyword `keto` does not assert a nonexistent
+schema.org `KetogenicDiet` value. Retired recipe notices have no `Recipe` markup.
+
+Online collection browsing downloads one release-named static library from
+`/recipes/data/summaries/`. It contains card summaries and compact filter facts,
+without cooking instructions or nutrient calculation registries. A nonempty
+search lazily downloads release-named prebuilt indexes from `/recipes/data/search/`;
+plain browsing, filters and shuffle never request them. Search, filter changes, shuffle and further card batches then run
+locally. Vercel caches the immutable URL for one year, and production HTML pins
+its request to the deployment. A mismatched or unavailable version offers an
+update instead of mixing releases. Native no-JavaScript forms still use the
+no-store browse function, which reads the same build artifact and pre-rendered
+card fragments without loading the canonical nutrient tables. Saved browsing
+continues to use individually saved recipe records offline.
 
 The 124 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Unmeasured cooking spray used only to prepare cookware belongs in flow preparation directions, including any optional use or device-manual conditions, rather than ingredient rows. Measured oil-or-spray alternatives remain ingredients. Every food ingredient has a positive measured quantity. Missing and to-taste source amounts have reviewed measured defaults, with the original source retained in measurement provenance. Missing nutrition and times display as "Not provided". The 71 retained recipes that previously lacked complete macros now carry labeled nutrition estimates used by the same base-recipe dietary classification. Every publisher adaptation has an ingredient nutrient model. Missing nutrient observations do not qualify for nutrient filters. Prep time is distinguished from household active time. The browser keeps concise source attribution and cooking instructions; provenance and nutrition assumptions remain in canonical data and assistant downloads. Cooking guidance from source limitations belongs in the flow. Mobile renders the same ingredient allocation tree vertically, preserving branch joins and shared cooking checks; desktop and print retain the table.
 
@@ -128,7 +150,7 @@ records without deleting them. Direct older saved documents display a version
 notice and keep HTML and Markdown negotiation, including unsupported-Accept 406s.
 A shell update never relabels an old non-keto bundle or refreshes its ingredients.
 
-`node scripts/recipes/migrate-keto-collection.mjs` reproduces the migration from
+`node src/components/recipes/tools/migrate-keto-collection.mjs` reproduces the migration from
 the frozen baseline and reviewed calamari source data. Original publisher
 nutrition remains in provenance. Ingredient models, measured changes, food-state
 matches and conservative counted-oil/coating assumptions describe the current
@@ -174,11 +196,11 @@ its four-serving combined display and resolution status. Regenerate
 from this repository root after editing recipes or conversion references:
 
 ```bash
-node scripts/recipes/audit-units.mjs --write
+node src/components/recipes/tools/audit-units.mjs --write
 ```
 
 The unit suite rejects stale audit bytes and checks all recipes at every supported
-serving count, including legacy unit-preference compatibility. `node scripts/recipes/audit-units.mjs` also checks
+serving count, including legacy unit-preference compatibility. `node src/components/recipes/tools/audit-units.mjs` also checks
 the audit without writing it.
 
 `flow` stores the Tabular Recipe Notation operation tree: ingredient leaves with
@@ -221,7 +243,7 @@ are stored with the rows. No build or test calls a nutrition API. Each ingredien
 stores a snapshot of its canonical ingredient inputs; the unit suite rejects stale
 snapshots after a recipe edit. To revise a model, review its food record and edible
 gram assumptions, update the recorded per-100-g observations/grams and snapshots,
-then run `scripts/recipes/reconcile-nutrition.mjs` with the reviewed public FDC
+then run `src/components/recipes/tools/reconcile-nutrition.mjs` with the reviewed public FDC
 response cache and an output path for the reconciled recipe metadata. Its output
 keeps cooking data separate from the nutrition metadata merge. Complete fields
 sum `macros[field] × grams / 100` across rows and divide by four; incomplete
@@ -258,7 +280,7 @@ Recipes with missing observations do not gain a pill from those observations.
 
 ### Fat and calorie audit
 
-`node scripts/recipes/audit-nutrition.mjs` reads all 140 published recipes and every supported
+`node src/components/recipes/tools/audit-nutrition.mjs` reads all 140 published recipes and every supported
 serving count. Its JSON report includes ingredient coverage, fat sources, serving
 units, displayed macros and the difference from general Atwater energy,
 4 kcal/g protein + 4 kcal/g total carbohydrate + 9 kcal/g fat. A difference over
@@ -280,7 +302,7 @@ analytical fat is absent. Each decision retains its source and limitation in
 Eight recipes previously mixed incomplete branded profiles with retained publisher
 macro baselines. They now use complete ingredient models for calories, protein,
 carbohydrate, fiber and total fat at the same measured edible weights. All measured
-oils are counted. `scripts/recipes/complete-macro-models.mjs` records the reviewed
+oils are counted. `src/components/recipes/tools/complete-macro-models.mjs` records the reviewed
 migration, with `preCompleteIngredientNutritionEstimate` preserving the former
 model and `sourceRecipe.sourceNutrition` preserving the original publisher facts.
 No calorie value or fat value is inferred from the other as a residual.
@@ -353,7 +375,7 @@ Refresh reviewed ingredient matches from the same cwd:
 
 ```bash
 set -o pipefail
-env -u AWS_ACCESS_KEY_ID -u AWS_SECRET_ACCESS_KEY -u AWS_SESSION_TOKEN -u AWS_SECURITY_TOKEN aws ssm get-parameter --profile prod-admin --name arn:aws:ssm:us-east-1:730335616323:parameter/shared/nutrition/usda-api-key --with-decryption --region us-east-1 --query Parameter.Value --output text | node scripts/recipes/refresh-nutrition.mjs --cache /private/tmp/jsolly-usda-refresh-20261028
+env -u AWS_ACCESS_KEY_ID -u AWS_SECRET_ACCESS_KEY -u AWS_SESSION_TOKEN -u AWS_SECURITY_TOKEN aws ssm get-parameter --profile prod-admin --name arn:aws:ssm:us-east-1:730335616323:parameter/shared/nutrition/usda-api-key --with-decryption --region us-east-1 --query Parameter.Value --output text | node src/components/recipes/tools/refresh-nutrition.mjs --cache /private/tmp/jsolly-usda-refresh-20261028
 ```
 
 The pipe carries the key directly to the process. Never use `tee`, shell tracing,
@@ -456,7 +478,7 @@ npm run recipes:check   # fail when they differ from what recipes.json generates
 npm run gate
 ```
 
-`scripts/recipes/sync-assistant-data.mjs` regenerates the two assistant
+`src/components/recipes/tools/sync-assistant-data.mjs` regenerates the two assistant
 downloads from `recipes.json`. Their settings are fixed: four adults, US units,
 simultaneous ingredient equivalents and no optional side selected, with each recipe's per-person side choices
 listed. The JSON uses `schemaVersion: 2` and holds stable recipe ids, readable
@@ -491,7 +513,7 @@ printer icon. Machine-readable formats remain available through metadata and dir
 
 Search recipes searches the current collection alongside the existing filters.
 Names and ingredients rank highest; equipment, cooking instructions, family
-sides and nutrition highlights are searchable too. Online search runs on the browse server over the entire collection, with accent-insensitive matching, prefixes and limited typo tolerance. Offline search covers saved recipes only. Clearing search restores the current seeded order. Queries are not saved as preferences.
+sides and nutrition highlights are searchable too. Online search uses the downloaded prebuilt index over the entire collection, with accent-insensitive matching, prefixes and limited typo tolerance. Offline search covers saved recipes only. Clearing search restores the current seeded order. Queries are not saved as preferences.
 
 The library's **Filters** section holds the protein and carb choices (ingredients
 on smoothies) above the nutrition checks; appliances on hand sit above it as the
@@ -686,7 +708,7 @@ which adds `Content-Type: application/javascript` and `Cache-Control: no-cache`.
 
 The kill-switch files are never removed while the old host is served: a browser
 that has not yet made its update check would otherwise keep serving the old
-cached recipe pages. `scripts/built/blogthedata-killswitch.test.mjs` proves both
+cached recipe pages. `tests/built/blogthedata-killswitch.test.mjs` proves both
 retirements in Chromium across two origins. Visitors who had the old app
 installed install the new one from `/recipes/`.
 

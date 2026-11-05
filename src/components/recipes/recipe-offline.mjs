@@ -1,8 +1,7 @@
 // These APIs run only on explicit recipe opens or individual print requests.
 // They never save a recipe while rendering a card, scrolling or hovering it.
-import { isKetoSavedRecipe } from "./recipe-publication.mjs";
 
-async function request(message) {
+export async function requestRecipeStorage(message) {
 	if (!("serviceWorker" in navigator))
 		throw new Error("Offline storage is unavailable in this browser.");
 	let readyTimer;
@@ -49,16 +48,11 @@ async function request(message) {
 		}
 	});
 }
-export async function saveRecipeOffline(
-	id,
-	release = document.querySelector("#site-update-notice")?.dataset.release,
-) {
-	const result = await request({ type: "SAVE_RECIPE", id, release });
-	window.dispatchEvent(new CustomEvent("recipe-saved", { detail: result }));
-	return result;
-}
 export async function listSavedRecipes() {
-	return (await request({ type: "LIST_SAVED_RECIPES" })).recipes.filter(
-		isKetoSavedRecipe,
-	);
+	const { recipes } = await requestRecipeStorage({
+		type: "LIST_SAVED_RECIPES",
+	});
+	if (!recipes.length) return recipes;
+	const { isKetoSavedRecipe } = await import("./recipe-publication.mjs");
+	return recipes.filter(isKetoSavedRecipe);
 }
