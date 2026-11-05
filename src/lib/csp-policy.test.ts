@@ -35,13 +35,21 @@ it("adds exactly the Vercel Toolbar sources to Preview builds", () => {
 	for (const [name, sources] of Object.entries(VERCEL_TOOLBAR_SOURCES)) {
 		assert.deepEqual(
 			directives.get(name)?.toSorted(),
-			[...new Set(["'self'", ...sources])].toSorted(),
+			[...new Set(["'self'", ...sources])].toSorted(
+				(firstValue, secondValue) =>
+					firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+			),
 			name,
 		);
 	}
 	assert.deepEqual(
-		[...directives.keys()].toSorted(),
-		["default-src", ...Object.keys(VERCEL_TOOLBAR_SOURCES)].toSorted(),
+		[...directives.keys()].toSorted((firstValue, secondValue) =>
+			firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+		),
+		["default-src", ...Object.keys(VERCEL_TOOLBAR_SOURCES)].toSorted(
+			(firstValue, secondValue) =>
+				firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+		),
 		"no other directive changes",
 	);
 });

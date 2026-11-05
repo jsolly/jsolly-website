@@ -14,13 +14,18 @@ const ISSUER = "oidc.vercel.com/jsollys-projects";
 const OWN_LOG_GROUP = /^\/jsolly-website\//u;
 
 it("defines exactly the reviewed resources", () => {
-	assert.deepEqual(Object.keys(resources).sort(), [
-		"ClientErrorAlarm",
-		"ClientErrorLogGroup",
-		"ClientErrorLogStream",
-		"ClientErrorMetricFilter",
-		"ClientErrorWriterRole",
-	]);
+	assert.deepEqual(
+		Object.keys(resources).sort((firstValue, secondValue) =>
+			firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+		),
+		[
+			"ClientErrorAlarm",
+			"ClientErrorLogGroup",
+			"ClientErrorLogStream",
+			"ClientErrorMetricFilter",
+			"ClientErrorWriterRole",
+		],
+	);
 });
 
 it("names the log group, stream and role the Vercel function writes with", () => {

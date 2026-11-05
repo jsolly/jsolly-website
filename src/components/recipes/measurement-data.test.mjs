@@ -124,8 +124,12 @@ it("measurement migration preserves mass while later keto changes retain indepen
 				);
 			}
 	assert.deepEqual(
-		[...reviewed].sort(),
-		[...REVIEWED_MASS_CHANGES.keys()].sort(),
+		[...reviewed].sort((firstValue, secondValue) =>
+			firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+		),
+		[...REVIEWED_MASS_CHANGES.keys()].sort((a, b) =>
+			a < b ? -1 : a > b ? 1 : 0,
+		),
 	);
 });
 

@@ -1,4 +1,4 @@
-// biome-ignore-all lint/suspicious/noMisplacedAssertion lint/nursery/noConditionalExpect: Node assertions validate external CI evidence at runtime, not test expectations.
+// biome-ignore-all lint/suspicious/noMisplacedAssertion lint/suspicious/noConditionalExpect: Node assertions validate external CI evidence at runtime, not test expectations.
 // CI artifact and coverage contracts. Only Node built-ins, so the final required
 // check can validate reports without installing or executing dependencies.
 import assert from "node:assert/strict";
@@ -240,8 +240,12 @@ export function aggregate(manifest, reports, expected, expectedTests) {
 		count += assertions;
 	}
 	assert.deepEqual(
-		[...seen].sort(),
-		[...manifest.files].sort(),
+		[...seen].sort((firstValue, secondValue) =>
+			firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+		),
+		[...manifest.files].sort((firstValue, secondValue) =>
+			firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+		),
 		"Incomplete built-file coverage",
 	);
 	assert.equal(count, expectedTests, "Incomplete built-test count");

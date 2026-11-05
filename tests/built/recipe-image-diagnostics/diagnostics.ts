@@ -77,6 +77,7 @@ export function recipeImageDiagnostics(browser: Browser) {
 	}
 	function emit(label: string, value: unknown) {
 		safely(() => {
+			// biome-ignore lint/suspicious/noUnnecessaryConditions: JSON.stringify returns undefined for runtime values such as undefined, functions and symbols.
 			let serialized = JSON.stringify(value) ?? "null";
 			const budget = OUTPUT_BYTES - Buffer.byteLength(`${PREFIX} ${label} \n`);
 			const originalBytes = Buffer.byteLength(serialized);

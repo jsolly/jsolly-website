@@ -315,6 +315,7 @@ async function cancelAndConfirm(t, code) {
 }
 
 for (const detached of [false, true]) {
+	// biome-ignore lint/suspicious/useExpect: The existing helper invoked in this callback performs the behavioral Node assertions.
 	it(`cancellation awaits an owned ${detached ? "detached" : "same-group"} descendant`, async (t) => {
 		await cancelAndConfirm(
 			t,

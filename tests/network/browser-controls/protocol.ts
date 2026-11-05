@@ -1,4 +1,4 @@
-// biome-ignore-all lint/nursery/noConditionalExpect: Native protocol controls assert every branch directly.
+// biome-ignore-all lint/suspicious/noConditionalExpect: Native protocol controls assert every branch directly.
 // biome-ignore-all lint/suspicious/noMisplacedAssertion: Pure Node assertion controls are called by the built-suite wrapper.
 import assert from "node:assert/strict";
 import {

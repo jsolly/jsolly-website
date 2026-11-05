@@ -7,29 +7,29 @@ import Layout from "../layouts/Layout.astro";
 <Layout noindex title="404 Not Found" description="Page not found">
 	<div class="flex flex-col items-center text-center">
 		<header class="my-8">
-			<span class="text-4xl font-bold text-accent"> 404 NOT FOUND</span>
+			<span class="text-accent text-4xl font-bold"> 404 NOT FOUND</span>
 		</header>
 		<Image
 			src={ScarecrowImg}
 			alt=""
 			width="300"
 			height="300"
-			class="shadow-lg rounded-lg"
+			class="rounded-lg shadow-lg"
 		/>
 		<section class="mt-8">
-			<h1 class="text-5xl font-bold mt-8 tracking-tighter">
+			<h1 class="mt-8 text-5xl font-bold tracking-tighter">
 				I have bad news for you...
 			</h1>
-			<p class="mt-4 text-lg text-text">
+			<p class="text-text mt-4 text-lg">
 				The page you are looking for might be removed or is temporarily
 				unavailable.
 			</p>
 			<nav
-				class="mt-6 text-left max-w-md mx-auto"
+				class="mx-auto mt-6 max-w-md text-left"
 				aria-label="Suggested next steps"
 			>
-				<p class="text-lg text-text mb-2">Try one of these instead:</p>
-				<ul class="list-disc pl-6 text-lg text-text space-y-1">
+				<p class="text-text mb-2 text-lg">Try one of these instead:</p>
+				<ul class="text-text list-disc space-y-1 pl-6 text-lg">
 					<li><a href="/">Home</a></li>
 					<li><a href="/about/">About</a></li>
 					<li><a href="/contact/">Contact</a></li>

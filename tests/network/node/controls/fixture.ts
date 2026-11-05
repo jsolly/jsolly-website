@@ -1,5 +1,5 @@
 // biome-ignore-all lint/suspicious/noMisplacedAssertion: Standalone native child verification CLI intentionally asserts outside a test framework.
-// biome-ignore-all lint/nursery/noConditionalExpect: Each isolated child runs one explicitly selected control case.
+// biome-ignore-all lint/suspicious/noConditionalExpect: Each isolated child runs one explicitly selected control case.
 import assert from "node:assert/strict";
 import { execFile, fork } from "node:child_process";
 import { once } from "node:events";
@@ -306,10 +306,12 @@ try {
 	}
 	if (scenario === "fresh-env") {
 		const fresh = withOfflineNodeGuard({ FIXTURE_ONLY: "true" });
-		assert.deepEqual(Object.keys(fresh).sort(), [
-			"FIXTURE_ONLY",
-			"NODE_OPTIONS",
-		]);
+		assert.deepEqual(
+			Object.keys(fresh).sort((firstValue, secondValue) =>
+				firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+			),
+			["FIXTURE_ONLY", "NODE_OPTIONS"],
+		);
 		assert.equal(fresh[Object.keys(fresh)[0] ?? ""], "true");
 		assert.throws(() => withOfflineNodeGuard({ TEST_SUITE: "production" }));
 	}

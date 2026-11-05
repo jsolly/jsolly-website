@@ -105,7 +105,12 @@ function nativeBrowseTest(width) {
 				"salmon",
 			);
 			const original = await cardIds(page);
-			assert.deepEqual([...original].sort(), salmonFishIds);
+			assert.deepEqual(
+				[...original].sort((firstValue, secondValue) =>
+					firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+				),
+				salmonFishIds,
+			);
 			const orders = new Set([original.join(",")]);
 			async function shuffleOnce() {
 				await Promise.all([
@@ -113,7 +118,14 @@ function nativeBrowseTest(width) {
 					page.getByRole("button", { name: "Shuffle meals" }).click(),
 				]);
 				const ids = await cardIds(page);
-				assert.deepEqual([...ids].sort(), [...original].sort());
+				assert.deepEqual(
+					[...ids].sort((firstValue, secondValue) =>
+						firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+					),
+					[...original].sort((firstValue, secondValue) =>
+						firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+					),
+				);
 				orders.add(ids.join(","));
 				assert.equal(
 					await page
@@ -193,7 +205,12 @@ function nativeBrowseTest(width) {
 					)
 					.map((recipe) => recipe.id)
 					.sort();
-				assert.deepEqual((await cardIds(page)).sort(), expected);
+				assert.deepEqual(
+					(await cardIds(page)).sort((firstValue, secondValue) =>
+						firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+					),
+					expected,
+				);
 				assert.equal(
 					new URL(page.url()).searchParams.has("mealKetoOnly"),
 					false,
@@ -202,7 +219,12 @@ function nativeBrowseTest(width) {
 					page.waitForEvent("load"),
 					page.getByRole("button", { name: "Shuffle meals" }).click(),
 				]);
-				assert.deepEqual((await cardIds(page)).sort(), expected);
+				assert.deepEqual(
+					(await cardIds(page)).sort((firstValue, secondValue) =>
+						firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+					),
+					expected,
+				);
 				assert.equal(
 					await page
 						.getByRole("checkbox", { name: "Keto", exact: true })
@@ -228,11 +250,21 @@ function nativeBrowseTest(width) {
 				0,
 			);
 			assert.equal(ketoSmoothieIds.length, 4);
-			assert.deepEqual((await cardIds(page)).sort(), ketoSmoothieIds);
+			assert.deepEqual(
+				(await cardIds(page)).sort((firstValue, secondValue) =>
+					firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+				),
+				ketoSmoothieIds,
+			);
 			await page.goto(
 				`${server.origin}/recipes/smoothies/?browse=1&smoothieKetoOnly=1`,
 			);
-			assert.deepEqual((await cardIds(page)).sort(), ketoSmoothieIds);
+			assert.deepEqual(
+				(await cardIds(page)).sort((firstValue, secondValue) =>
+					firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+				),
+				ketoSmoothieIds,
+			);
 			await Promise.all([
 				page.waitForEvent("load"),
 				page.getByRole("button", { name: "Apply filters" }).click(),
@@ -241,7 +273,12 @@ function nativeBrowseTest(width) {
 				new URL(page.url()).searchParams.has("smoothieKetoOnly"),
 				false,
 			);
-			assert.deepEqual((await cardIds(page)).sort(), ketoSmoothieIds);
+			assert.deepEqual(
+				(await cardIds(page)).sort((firstValue, secondValue) =>
+					firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+				),
+				ketoSmoothieIds,
+			);
 			await page
 				.getByRole("searchbox", { name: "Search recipes" })
 				.fill("impossiblezzznomatch");

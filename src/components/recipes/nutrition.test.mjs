@@ -114,6 +114,7 @@ it("daily nutrients and recorded omega-3 follow actual fixed minimum whole-batch
 	}
 });
 
+// biome-ignore lint/suspicious/useExpect: The existing helper invoked in this callback performs the behavioral Node assertions.
 it("macros use observed nonlinear contributions and preserve the separate smoothie glass yield", () => {
 	for (const recipe of recipes.recipes) {
 		const rows = data.recipes[recipe.id];
@@ -195,6 +196,7 @@ it("positive fixed pepper contributes less per serving as diners increase", () =
 	);
 });
 
+// biome-ignore lint/suspicious/useExpect: The existing helper invoked in this callback performs the behavioral Node assertions.
 it("bone-in pork nutrition retains 80 percent edible yield instead of counting bones", () => {
 	const rows =
 		data.recipes[

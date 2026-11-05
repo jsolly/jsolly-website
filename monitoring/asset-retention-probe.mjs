@@ -1,4 +1,4 @@
-// biome-ignore-all lint/suspicious/noMisplacedAssertion lint/nursery/noConditionalExpect: These are runtime acceptance checks in an operational probe, not conditional test cases.
+// biome-ignore-all lint/suspicious/noMisplacedAssertion lint/suspicious/noConditionalExpect: These are runtime acceptance checks in an operational probe, not conditional test cases.
 // Read-only production asset acceptance. Capture A, then verify after a real B release.
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
@@ -61,7 +61,13 @@ export function pinnedPageAssets(html) {
 		),
 		"page must expose a generated stylesheet",
 	);
-	return { deploymentId: [...ids][0], component, paths: [...paths].sort() };
+	return {
+		deploymentId: [...ids][0],
+		component,
+		paths: [...paths].sort((firstValue, secondValue) =>
+			firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+		),
+	};
 }
 
 function request(path) {
