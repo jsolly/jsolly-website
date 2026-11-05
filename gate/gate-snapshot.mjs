@@ -44,7 +44,9 @@ export async function snapshot(root, env = process.env) {
 				.split("\0")
 				.filter(Boolean),
 		),
-	].sort();
+	].sort((firstValue, secondValue) =>
+		firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+	);
 	const files = [];
 	const hash = createHash("sha256");
 	for (const name of names) {

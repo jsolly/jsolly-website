@@ -24,6 +24,7 @@ it("the intended production release passes public navigation, content and recipe
 	assert.equal(receipt.success, true, receipt.errors.join("\n"));
 });
 
+// biome-ignore lint/suspicious/useExpect: The existing helper invoked in this callback performs the behavioral Node assertions.
 it("production client-error reports still reach CloudWatch", async () => {
 	await verifyClientErrorForwarding();
 });

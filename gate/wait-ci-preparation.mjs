@@ -1,4 +1,4 @@
-// biome-ignore-all lint/suspicious/noMisplacedAssertion lint/nursery/noConditionalExpect lint/performance/noAwaitInLoops: Runtime assertions validate paginated external job evidence and readiness is sequential.
+// biome-ignore-all lint/suspicious/noMisplacedAssertion lint/suspicious/noConditionalExpect lint/performance/noAwaitInLoops: Runtime assertions validate paginated external job evidence and readiness is sequential.
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import { setTimeout as delay } from "node:timers/promises";

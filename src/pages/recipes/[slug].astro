@@ -46,9 +46,9 @@ const structured = recipe ? jsonLd(recipeStructuredData(recipe, site)) : "";
 {recipe ? (
 	<RecipeLayout title={recipe.title} description={recipe.summary} image={recipe.image.src} imageAlt={recipe.image.alt} article>
 		<Fragment slot="head">
-			<!-- jsonLd escapes authored text for script embedding. -->
+			<!-- biome-ignore lint/nursery/noAstroSetHtmlDirective: jsonLd escapes authored text for script embedding. -->
 			<script type="application/ld+json" set:html={structured} />
-			<!-- jsonLd escapes authored text for script embedding. -->
+			<!-- biome-ignore lint/nursery/noAstroSetHtmlDirective: jsonLd escapes authored text for script embedding. -->
 			<script type="application/ld+json" set:html={breadcrumb} />
 		</Fragment>
 		<Breadcrumbs {crumbs} />

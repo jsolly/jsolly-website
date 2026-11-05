@@ -3,7 +3,7 @@ run-name: Legacy redirects ${{ github.event.deployment.sha || github.sha }}
 
 on:
   schedule:
-    - cron: '23 9 * * *'
+    - cron: "23 9 * * *"
   workflow_dispatch:
   deployment_status:
 

@@ -12,6 +12,16 @@
 	--color-input: var(--color-primary-500);
 	--color-ring: var(--color-blue-500);
 	--color-destructive: #b91c1c;
+	--color-secondary-hover: color-mix(
+		in oklch,
+		var(--secondary),
+		var(--foreground) 5%
+	);
+	--radius-control-xs: min(var(--radius-md), 10px);
+	--radius-control-sm: min(var(--radius-md), 12px);
+	--radius-control-check: 4px;
+	--text-control-sm: 0.8rem;
+	--container-dialog: calc(100% - 2rem);
 	--radius-lg: 12px;
 	--radius-md: 8px;
 }

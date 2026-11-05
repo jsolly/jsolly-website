@@ -382,7 +382,9 @@ it("the archive preserves original measurement identities while the current audi
 					),
 				]),
 		),
-	].sort();
+	].sort((firstValue, secondValue) =>
+		firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+	);
 	assert.equal(migratedIdentities.length, 1680);
 	assert.equal(
 		createHash("sha256")

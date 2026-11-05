@@ -67,7 +67,7 @@ function preferenceCase(path, override = true) {
 				override ? "2" : "8",
 			);
 			if (!override) {
-				// biome-ignore lint/nursery/noConditionalExpect: only the saved-only library case owns dietary filters.
+				// biome-ignore lint/suspicious/noConditionalExpect: only the saved-only library case owns dietary filters.
 				assert.equal(
 					await page
 						.getByRole("checkbox", { name: "Vegetarian", exact: true })

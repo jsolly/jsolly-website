@@ -1,17 +1,17 @@
 version: 2
 updates:
-# Keep dependencies up to date. Even though dependencies are managed with npm, Dependabot
-# uses the npm registry to check for updates.
-- package-ecosystem: npm
-  directory: /
-  # Check for updates at 2am UTC
-  schedule:
-    interval: daily
-  cooldown:
-    default-days: 7
-- package-ecosystem: github-actions
-  directory: /
-  schedule:
-    interval: weekly
-  cooldown:
-    default-days: 7
+  # Keep dependencies up to date. Even though dependencies are managed with npm, Dependabot
+  # uses the npm registry to check for updates.
+  - package-ecosystem: npm
+    directory: /
+    # Check for updates at 2am UTC
+    schedule:
+      interval: daily
+    cooldown:
+      default-days: 7
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7

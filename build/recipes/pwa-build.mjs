@@ -351,7 +351,9 @@ export async function buildRecipePwa(root, { deploymentId } = {}) {
 				),
 			],
 			assets: [...recipeFiles.keys()]
-				.sort()
+				.sort((firstValue, secondValue) =>
+					firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+				)
 				.map((resource) => [resource, describe(recipeFiles.get(resource))]),
 		};
 		const contents = Buffer.from(JSON.stringify(manifest));
@@ -359,7 +361,9 @@ export async function buildRecipePwa(root, { deploymentId } = {}) {
 		await writeFile(fileOf(root, path), contents);
 		recipeManifests[id] = { path, ...describe(contents) };
 	}
-	const assets = [...shell.keys()].sort();
+	const assets = [...shell.keys()].sort((firstValue, secondValue) =>
+		firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+	);
 	const bundled = await build({
 		entryPoints: [fileURLToPath(WORKER_SOURCE)],
 		bundle: true,

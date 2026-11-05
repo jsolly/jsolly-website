@@ -206,7 +206,9 @@ export function unitAudit() {
 			};
 		});
 	});
-	const sourceIdentities = [...originalIdentities].sort();
+	const sourceIdentities = [...originalIdentities].sort((a, b) =>
+		a < b ? -1 : a > b ? 1 : 0,
+	);
 	const identitySha256 = createHash("sha256")
 		.update(JSON.stringify(sourceIdentities))
 		.digest("hex");

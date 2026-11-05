@@ -37,11 +37,12 @@ it("only the scheduled-check report jobs can mint an OIDC token", () => {
 		});
 	assert.deepEqual(holders, ["a11y.yml:report", "production-smoke.yml:report"]);
 	const a11y = parse(readFileSync(join(dir, "a11y.yml"), "utf8"));
-	assert.deepEqual(Object.keys(a11y.on).sort(), [
-		"push",
-		"schedule",
-		"workflow_dispatch",
-	]);
+	assert.deepEqual(
+		Object.keys(a11y.on).sort((firstValue, secondValue) =>
+			firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+		),
+		["push", "schedule", "workflow_dispatch"],
+	);
 	assert.deepEqual(a11y.on.push, { branches: ["main"] });
 	assert.deepEqual(a11y.permissions, { contents: "read" });
 	assert.deepEqual(a11y.jobs.report.permissions, {
