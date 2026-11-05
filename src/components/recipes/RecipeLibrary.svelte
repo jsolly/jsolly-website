@@ -13,7 +13,7 @@
 	import { loadBrowseLibrary } from "./recipe-browse-library.mjs";
 	import { madeDateFor, readMadeRecipes, watchMadeRecipes } from "./recipe-made.mjs";
 	import { clearLegacyRedirect, markLegacyRedirect } from "./recipe-navigation.mjs";
-	import { orderRecipeIds } from "./recipe-order.mjs";
+	import { orderRecipeIds } from "./recipe-order.ts";
 	import { loadRecipePack } from "./recipe-pack.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
 	import { parseSavedSettings, validateSettings } from "./recipe-settings.mjs";

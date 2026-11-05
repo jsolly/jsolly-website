@@ -17,14 +17,17 @@ browser reportError(category)
 
 Only a fixed category from `src/lib/error-categories.mjs` and the page's
 pathname. At most three distinct categories per page load are sent, with no
-retry. The receiver accepts a category only from that vocabulary and a page
+retry. The receiver accepts a category only from that vocabulary, plus the
+production smoke's fixed `forwarding-probe` (see Forwarding liveness), and a page
 only from the build's route manifest, so error messages, stacks, query strings,
 user input, IP addresses and identifiers never reach CloudWatch. Never widen this
 boundary to carry an `Error`, its message or anything a visitor typed.
 
 ## Receiver behavior
 
-`api/client-error.mjs` validates the report, then writes one structured line:
+`api/client-error.mjs` validates the report, then writes one structured line. An
+error report takes this shape; the forwarding probe writes the `info` line shown
+under Forwarding liveness instead, and the sink refuses any other level:
 
 ```json
 {"level":"error","message":"Client error reported on /recipes/","context":{"category":"recipe-update","page":"/recipes/"},"error":{"name":"recipe-update","message":"A recipe app update failed."}}
@@ -42,11 +45,25 @@ killed invocation.
 
 ## Forwarding liveness
 
-Healthy visits send nothing, so silence cannot show that forwarding broke. Until
-a liveness probe exists, a broken path (Vercel OIDC disabled or switched to the
-Global issuer, role trust drift, a deleted stream, an SDK regression) shows only
-as `502` responses and `client-error-forward-failed` lines in the Vercel runtime
-logs; nothing pages.
+Healthy visits send nothing, so silence cannot show that forwarding broke. The
+Production smoke workflow therefore posts one `forwarding-probe` report after each
+production deployment and daily, from `tests/production-acceptance.test.mjs`,
+and fails unless it answers `204`. The receiver writes the probe as an `info`
+line (`{"level":"info","message":"Production smoke verified client-error
+forwarding.",...}`), so the `{ $.level = "error" }` metric filter and the alarm
+never count it, and the browser reporter cannot send it.
+
+A broken path (Vercel OIDC disabled or switched to the Global issuer, role trust
+drift, a deleted stream, an SDK regression) therefore fails that run and shows as
+`502` responses and `client-error-forward-failed` lines in the Vercel runtime
+logs. The release process waits on the post-deployment run. The daily and manual
+runs report to shared-infra's scheduled checks: when the report reaches CloudWatch,
+a failed run emails John through the shared error alarm, and a daily run that
+stops arriving emails him after about 30 hours through the check's heartbeat
+alarm. [shared-infra fields → Coverage](shared-infra.md#coverage) lists what that
+leaves uncovered.
+The probe proves the write path only. It cannot show that the metric filter or
+the alarm still work, because it is deliberately never counted.
 
 Credentials come from Vercel OIDC (team issuer) through
 `@vercel/oidc-aws-credentials-provider`. The project must keep **Secure backend
@@ -70,7 +87,7 @@ Vercel firewall rate limit on `/api/client-error/`; adding one bounds that.
 `config/aws/client-errors/template.json` defines the stack
 `jsolly-website-client-errors` in account `730335616323`, region `us-east-1`.
 Its stack policy denies replacing or deleting the log group and stream.
-`scripts/unit/client-errors-stack.test.mjs` pins the trust, permission, alarm and
+`tests/unit/client-errors-stack.test.mjs` pins the trust, permission, alarm and
 names to `src/lib/client-error-constants.mjs`. Vercel releases do not deploy this
 stack.
 
@@ -81,8 +98,11 @@ Two prerequisites live in shared-infra and must be applied first:
 - Enricher discovery through `DescribeMetricFilters`, so this non-Lambda log group
   enriches.
 
-Until the stack exists, every report answers `502` and appears in the Vercel
-runtime logs as `client-error-forward-failed`. Nothing pages.
+John created the stack on 31 October 2026 from merge SHA `824a5ee`
+(`InfraDeployCommit`), with termination protection and the stack policy, and a
+report from `https://www.jsolly.com/` answered `204`. If the stack is ever
+missing, every report answers `502` and appears in the Vercel runtime logs as
+`client-error-forward-failed`.
 
 ## Create the stack
 

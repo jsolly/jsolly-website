@@ -4,7 +4,7 @@ import {
 	nutrientFilters,
 	smoothieIngredientChoices,
 } from "./nutrient-filters.mjs";
-import { orderRecipeIds } from "./recipe-order.mjs";
+import { orderRecipeIds } from "./recipe-order.ts";
 import { createRecipeSearch } from "./recipe-search.mjs";
 import { parseSavedSettings } from "./recipe-settings.mjs";
 

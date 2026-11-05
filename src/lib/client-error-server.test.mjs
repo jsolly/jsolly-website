@@ -30,6 +30,7 @@ it("accepts a fixed category on a published path and records only the allowed fi
 	assert.equal(response.headers.get("cache-control"), "no-store");
 	assert.deepEqual(logs, [
 		{
+			level: "error",
 			category: "recipe-print",
 			page: "/recipes/meals/",
 			message: "Recipe printing failed.",
@@ -71,6 +72,46 @@ it("logs a transport failure's code, since its name alone is the generic Error",
 	const [failure] = failures.map(JSON.parse);
 	assert.equal(failure.error, "Error");
 	assert.equal(failure.code, "ECONNRESET");
+});
+
+it("records the production smoke's forwarding probe at info level, never as an error", async () => {
+	const { handle, logs } = fixture();
+	const response = await handle(
+		request(JSON.stringify({ category: "forwarding-probe", page: "/" })),
+	);
+	assert.equal(response.status, 204);
+	assert.deepEqual(logs, [
+		{
+			level: "info",
+			category: "forwarding-probe",
+			page: "/",
+			message: "Production smoke verified client-error forwarding.",
+		},
+	]);
+});
+
+it("logs a failed forwarding probe as a forward failure, without the probe's info level", async () => {
+	const { handle, failures } = fixture({
+		record: () =>
+			Promise.reject(
+				Object.assign(new Error("denied"), {
+					name: "InvalidIdentityTokenException",
+				}),
+			),
+	});
+	const response = await handle(
+		request(JSON.stringify({ category: "forwarding-probe", page: "/" })),
+	);
+	assert.equal(response.status, 502);
+	assert.deepEqual(failures.map(JSON.parse), [
+		{
+			event: "client-error-forward-failed",
+			category: "forwarding-probe",
+			page: "/",
+			message: "Production smoke verified client-error forwarding.",
+			error: "InvalidIdentityTokenException",
+		},
+	]);
 });
 
 it("rejects missing, cross-origin, or noncanonical origins without logging", async () => {

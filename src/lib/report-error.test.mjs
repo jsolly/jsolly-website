@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { it } from "vitest";
+import { ERROR_CATEGORIES, FORWARDING_PROBE } from "./error-categories.mjs";
 import { installErrorReporting } from "./report-error.mjs";
 import { createErrorReporter } from "./report-error-client.mjs";
 
@@ -82,6 +83,22 @@ it("does not send unknown categories or requests from local and Preview builds",
 		fetcher,
 	})("private exception message");
 	assert.deepEqual(calls, []);
+});
+
+it("a page load never emits the production smoke's forwarding probe", async () => {
+	const calls = [];
+	await createErrorReporter({
+		location: () => new URL("https://www.jsolly.com/"),
+		fetcher: (...args) => {
+			calls.push(args);
+			return Promise.resolve();
+		},
+	})(FORWARDING_PROBE.category);
+	assert.deepEqual(calls, []);
+	assert.equal(
+		Object.hasOwn(ERROR_CATEGORIES, FORWARDING_PROBE.category),
+		false,
+	);
 });
 
 it("uncaught and handled hydration failures report only fixed categories", () => {

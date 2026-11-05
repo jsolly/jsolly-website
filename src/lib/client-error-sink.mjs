@@ -18,17 +18,24 @@ const REQUEST_HANDLER = Object.freeze({
 const FORWARD_DEADLINE_MS = 8000;
 
 /**
- * One structured error line in the shape shared-infra's enricher reads:
- * `message` plus top-level `error: { name, message }`. Only validated fields
- * (a fixed category, its fixed text and a published route) reach it.
+ * One structured line. An error report takes the shape shared-infra's enricher
+ * reads, `message` plus top-level `error: { name, message }`; the forwarding
+ * probe is an info line the `{ $.level = "error" }` metric filter never counts.
+ * Only validated fields (a fixed category, its fixed text and a published route)
+ * reach it.
  */
-export function clientErrorLogLine({ category, page, message }) {
-	return JSON.stringify({
-		level: "error",
-		message: `Client error reported on ${page}`,
-		context: { category, page },
-		error: { name: category, message },
-	});
+export function clientErrorLogLine({ level, category, page, message }) {
+	if (level === "error")
+		return JSON.stringify({
+			level,
+			message: `Client error reported on ${page}`,
+			context: { category, page },
+			error: { name: category, message },
+		});
+	if (level === "info")
+		return JSON.stringify({ level, message, context: { category, page } });
+	// Never guess a shape: a report without a known level would silently miss the alarm.
+	throw new TypeError(`Unknown client-error report level: ${String(level)}`);
 }
 
 // Rejects at the deadline and aborts the in-flight request, so a stalled write is

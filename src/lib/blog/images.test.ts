@@ -12,7 +12,7 @@ it("the complete image migration matches its authored coverage, original receipt
 	const root = fileURLToPath(new URL("../../../", import.meta.url));
 	const output = execFileSync(
 		"python3",
-		["scripts/blog/migrate-images.py", "--check"],
+		["src/lib/blog/migrate-images.py", "--check"],
 		{ cwd: root, encoding: "utf8" },
 	);
 	assert.match(

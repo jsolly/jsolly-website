@@ -24,9 +24,9 @@ review. Passing axe does not certify accessibility. Rebuild after source changes
   `source-` and retired recipes; active and retired categories; a post with
   code, tables and images, one with headings and an iframe embed, and one with
   an image attribution caption), from `SAMPLE` in
-  `scripts/accessibility-pages.mjs`, at both widths. Violations fail required
+  `monitoring/constants.ts`, at both widths. Violations fail required
   `ci`. The `accessibility-results` artifact keeps the report.
-  `scripts/built/accessibility-sample.test.mjs` fails when a sampled route is no
+  `tests/built/accessibility-sample.test.mjs` fails when a sampled route is no
   longer a built page, a `src/pages` template has no sampled route, or a recipe,
   category or post variant drops out; add or rename the entry in `SAMPLE` in the
   same change. It also audits `/about/` with the real script and checks that the
@@ -50,7 +50,7 @@ first heartbeat arrives.
 
 The workflow's `report` job assumes
 `arn:aws:iam::730335616323:role/github-actions-scheduled-checks` through GitHub
-OIDC (us-east-1) and runs `scripts/accessibility-report.mjs`. That script writes
+OIDC (us-east-1) and runs `monitoring/accessibility-report.mjs`. That script writes
 JSON lines to the `/shared-infra/scheduled-checks` log group, in stream
 `jsolly-website/a11y/<run id>-<attempt>`. [shared-infra fields](shared-infra.md)
 lists each event's fields:
@@ -73,12 +73,15 @@ messages come from a fixed set in the script; the audit's own error text stays i
 the run's artifact, because GitHub's secret masking does not apply to these lines
 and they are quoted into alert email. Every string is one line of well-formed
 text of at most 500 characters, without control or format characters.
-`scripts/workflow-contracts.test.mjs` keeps `id-token: write` to this workflow's
-`report` job, on push, schedule and dispatch runs of `main`. shared-infra owns
+`tests/workflow-contracts.test.mjs` keeps `id-token: write` to the two
+scheduled-check `report` jobs: this workflow's, on push, schedule and dispatch
+runs of `main`, and Production smoke's ([shared-infra fields](shared-infra.md)). shared-infra owns
 the log group, role, metric filters and alarms. Error lines raise
-`shared-infra-scheduled-check-errors`; about 30 hours without a heartbeat raises
+`shared-infra-scheduled-check-errors` when the report reaches CloudWatch; about
+30 hours without a heartbeat, including after a lost report, raises
 `shared-infra-scheduled-check-heartbeat-jsolly-website-a11y`. Both notify through
-shared-infra's alert topic and email enricher. The run fails whenever it reports
+shared-infra's alert topic and email enricher
+([shared-infra fields → Coverage](shared-infra.md#coverage)). The run fails whenever it reports
 an error line, and when the AWS role cannot be assumed or CloudWatch rejects an
 event.
 

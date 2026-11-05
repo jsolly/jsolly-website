@@ -8,7 +8,7 @@
 	import ApplianceIcon from "./ApplianceIcon.svelte";
 	import { cookingNotes, OMITTED_PREPARATION } from "./cooking-notes.mjs";
 	import { cookingText } from "./cooking-quantities.mjs";
-	import { ingredientIcon } from "./ingredient-icon.mjs";
+	import { ingredientIcon } from "./ingredient-icon.ts";
 	import { flowGrid } from "./trn-logic.mjs";
 
 	// The recipe's Tabular Recipe Notation table. Interactive, each ingredient

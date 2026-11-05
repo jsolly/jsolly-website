@@ -9,7 +9,7 @@ versions and the 15 recipes adapted for the keto collection. It preserves
 publisher claims, prior cooking instructions and ingredient observations for
 review. These records are not published recipe data.
 
-`scripts/recipes/migrate-keto-collection.mjs` reads these immutable inputs and
+`src/components/recipes/tools/migrate-keto-collection.mjs` reads these immutable inputs and
 the reviewed plan and calamari source to reproduce the current registries.
 Keep this snapshot unchanged. Revise the current data and the migration decisions
 when correcting a recipe, and retain the original evidence here.

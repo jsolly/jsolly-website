@@ -20,10 +20,12 @@
 		.replace(/\s+/gu, " ").trim()
 		.replace(/^./u, (letter) => letter.toUpperCase()));
 	const netCarbs = $derived(recipe.netCarbs);
+	const cardSrc = $derived(recipe.image?.cardSrc);
+	const cardSrcset = $derived(recipe.image?.cardSrcset);
 
 	function deferImage(node) {
-		if (!("IntersectionObserver" in window)) { node.src = recipe.image.cardSrc; node.srcset = recipe.image.cardSrcset; return; }
-		const src = recipe.image.cardSrc, srcset = recipe.image.cardSrcset;
+		if (!("IntersectionObserver" in window)) { node.src = cardSrc; node.srcset = cardSrcset; return; }
+		const src = cardSrc, srcset = cardSrcset;
 		node.removeAttribute("src"); node.removeAttribute("srcset");
 		const observer = new IntersectionObserver((entries) => {
 			if (!entries.some((entry) => entry.isIntersecting)) return;
