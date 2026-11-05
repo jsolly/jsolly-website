@@ -69,14 +69,14 @@ jobs:
         run: bash gate/ci-verified-tree.sh
       # Protected main reuse runs no npm ci. Its setup-node post step would then save the
       # empty ~/.npm under the shared key, which every later job restores as a hit.
-      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: .nvmrc
           cache: ${{ steps.verified-tree.outputs.run_full != 'false' && 'npm' || '' }}
           cache-dependency-path: |
             .nvmrc
             package-lock.json
-      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
         if: steps.verified-tree.outputs.run_full != 'false'
         with:
           version: "0.12.22"
@@ -92,7 +92,7 @@ jobs:
           (github.event_name == 'pull_request' &&
           github.event.pull_request.head.repo.full_name == github.repository &&
           github.event.pull_request.user.login == github.repository_owner))
-        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: |
             ${{ runner.temp }}/node-compile-cache
@@ -172,7 +172,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: bash gate/ci-secrets-scan.sh
-      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -186,7 +186,7 @@ jobs:
           (github.event_name == 'pull_request' &&
           github.event.pull_request.head.repo.full_name == github.repository &&
           github.event.pull_request.user.login == github.repository_owner)
-        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: |
             ${{ runner.temp }}/node-compile-cache
@@ -273,7 +273,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: bash gate/ci-secrets-scan.sh
-      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: .nvmrc
           package-manager-cache: false
