@@ -28,7 +28,7 @@
 		bind:ref
 		data-slot="dialog-content"
 		class={cn(
-			"bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 ring-foreground/10 max-w-dialog fixed top-1/2 left-1/2 z-50 grid w-full -translate-1/2 gap-4 rounded-xl p-4 text-sm ring-1 duration-100 outline-none sm:max-w-sm",
+			"bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 ring-foreground/10 ui-dialog-content fixed top-1/2 left-1/2 z-50 grid w-full max-w-(--dialog-max-width) -translate-1/2 gap-4 rounded-xl p-4 text-sm ring-1 duration-100 outline-none sm:max-w-sm",
 			className
 		)}
 		{...restProps}
@@ -46,3 +46,10 @@
 		{/if}
 	</DialogPrimitive.Content>
 </DialogPortal>
+
+<style>
+	@layer properties, theme, base, components, utilities, blog, blog-no-script;
+	@layer components {
+		:global(.ui-dialog-content) { --dialog-max-width: calc(100% - 2rem); }
+	}
+</style>
