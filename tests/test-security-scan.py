@@ -151,6 +151,23 @@ class SecurityScan(unittest.TestCase):
             with self.assertRaises(ValueError):
                 SCAN.dependency_report(report, path, today=date(2026, 10, 28))
 
+    def test_glob_disposition_rejects_changed_and_additional_callers(self):
+        original, path, report = self.advisory_fixture("glob", "13.0.6", "GHSA-3g3m-2fjr-6pw4")
+        self.assertEqual(SCAN.dependency_report(report, path, today=date(2026, 10, 31)), 1)
+        for mutation in ("caller-version", "caller-range", "new-caller"):
+            with self.subTest(mutation=mutation):
+                lock = copy.deepcopy(original)
+                packages = lock["packages"]
+                if mutation == "caller-version":
+                    packages["node_modules/@vercel/nft"]["version"] = "99.0.0"
+                elif mutation == "caller-range":
+                    packages["node_modules/@vercel/nft"]["dependencies"]["glob"] = "*"
+                else:
+                    packages["node_modules/new"] = {"version": "1.0.0", "dependencies": {"glob": "13.0.6"}}
+                path.write_text(json.dumps(lock))
+                with self.assertRaises(ValueError):
+                    SCAN.dependency_report(report, path, today=date(2026, 10, 31))
+
     def test_identity_path_and_consumer_drift_block_existing_dispositions(self):
         original, path, report = self.advisory_fixture()
         for mutation in ("integrity", "resolved", "path", "caller", "new-caller"):

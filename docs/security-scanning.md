@@ -132,7 +132,9 @@ John owns the acceptance; replace it with upstream patches when available.
 
 Evidence: [deepmerge report](https://github.com/TehShrike/deepmerge/issues/273),
 [Zod advisory](https://osv.dev/GHSA-mrhx-c7xc-m3w5),
-[Vercel sandbox metadata](https://registry.npmjs.org/sandbox/4.4.0) and
-[old gf3 sandbox metadata](https://registry.npmjs.org/sandbox/0.8.2).
+[Vercel sandbox metadata](https://registry.npmjs.org/sandbox/4.4.0),
+[old gf3 sandbox metadata](https://registry.npmjs.org/sandbox/0.8.2),
+[glob advisory](https://osv.dev/GHSA-3g3m-2fjr-6pw4) and
+[minimatch advisory](https://osv.dev/GHSA-g3hv-75wg-m249).
 Controlled local tests reproduced deepmerge's returned-object prototype change
 and Zod 3's per-invalid-entry issue accumulation, without exhausting memory.
