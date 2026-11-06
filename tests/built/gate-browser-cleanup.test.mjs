@@ -37,17 +37,26 @@ it("cancellation also awaits Playwright's real detached Chromium process", async
 	});
 	try {
 		let pid;
+		let observed = "";
 		for (let n = 0; n < 500; n++) {
 			if (failure) throw failure;
 			try {
-				pid = Number(await fs.readFile(join(dir, "descendant"), "utf8"));
-				break;
+				observed = await fs.readFile(join(dir, "descendant"), "utf8");
+				const value = Number(observed);
+				// A partial write reads as 0. Keep waiting for the real pid.
+				if (Number.isInteger(value) && value > 0) {
+					pid = value;
+					break;
+				}
 			} catch (error) {
 				if (error.code !== "ENOENT") throw error;
 			}
 			await delay(10);
 		}
-		assert.ok(pid, "Chromium started");
+		assert.ok(
+			pid,
+			`Chromium started (last descendant record: ${JSON.stringify(observed)})`,
+		);
 		controller.abort();
 		await assert.rejects(running, CANCELLED);
 		const row = execFileSync("ps", ["-axo", "pid=,stat="], { encoding: "utf8" })
