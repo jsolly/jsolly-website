@@ -21,6 +21,8 @@
 		"../../monitoring/constants.ts",
 		"../../tests/built/test-network.test.ts",
 		"../../tests/built/recipe-library-readiness.ts",
+		"../../tests/built/site-update-observer.ts",
+		"../../tests/built/site-update-observer.test.ts",
 		"../../tests/unit/test-network.test.ts"
 	],
 	"exclude": ["../../tests/network/browser-controls/fixtures"]

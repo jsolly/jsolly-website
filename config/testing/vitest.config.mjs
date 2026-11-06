@@ -1,3 +1,4 @@
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitest/config";
 import { offlineVitestConfiguration } from "../../tests/network/entry.ts";
 
@@ -16,6 +17,22 @@ const suites = {
 export default defineConfig({
 	test: {
 		...offlineVitestConfiguration(),
+		// Unit API tests run before the build writes deployment-owned routes.
+		// Built and production suites must continue reading their real manifest.
+		alias:
+			(process.env.TEST_SUITE ?? "unit") === "unit"
+				? [
+						{
+							find: /^(?:\.\.?\/)+src\/generated\/route-manifest\.js$/u,
+							replacement: fileURLToPath(
+								new URL(
+									"../../tests/fixtures/unit-route-manifest.ts",
+									import.meta.url,
+								),
+							),
+						},
+					]
+				: [],
 		include: suites[process.env.TEST_SUITE ?? "unit"] ?? ["**/*.test.mjs"],
 		pool: "forks",
 		// Browser files own isolated processes and deployment fixtures. Four workers
