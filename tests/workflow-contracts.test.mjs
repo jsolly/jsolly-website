@@ -215,6 +215,13 @@ it("every npm cache keys on .nvmrc and package-lock.json and follows npm ci", ()
 	}
 	// Preparation's npm ci is conditional, so its cache must be too.
 	const prepare = workflow("ci.yml").jobs.prepare.steps;
+	// An empty cache input must stay disabled if package.json gains packageManager.
+	assert.equal(
+		prepare.find((step) => step.uses?.startsWith("actions/setup-node@")).with[
+			"package-manager-cache"
+		],
+		false,
+	);
 	assert.equal(
 		cached.find(({ job }) => job === "ci.yml:prepare").cache,
 		// biome-ignore lint/suspicious/noTemplateCurlyInString: literal GitHub Actions expression
