@@ -1,6 +1,6 @@
 import { ERROR_CATEGORIES, ERROR_REPORT_ORIGIN } from "./error-categories.mjs";
 
-/** At most three distinct categories per page load, with no durable identity. */
+/** At most three attempts per page load, with one for all recipe-update phases. */
 export function createErrorReporter({
 	location = () => globalThis.location,
 	fetcher = (...args) => fetch(...args),
@@ -8,18 +8,21 @@ export function createErrorReporter({
 	const sent = new Set();
 	return async (category) => {
 		try {
+			if (!Object.hasOwn(ERROR_CATEGORIES, category)) return;
+			const key = category.startsWith("recipe-update-")
+				? "recipe-update"
+				: category;
 			const page = location();
 			if (
-				!Object.hasOwn(ERROR_CATEGORIES, category) ||
 				!page ||
 				page.origin !== ERROR_REPORT_ORIGIN ||
 				typeof page.pathname !== "string" ||
 				page.pathname.length > 256 ||
-				sent.has(category) ||
+				sent.has(key) ||
 				sent.size >= 3
 			)
 				return;
-			sent.add(category);
+			sent.add(key);
 			await fetcher("/api/client-error/", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },

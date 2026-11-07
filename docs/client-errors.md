@@ -16,8 +16,12 @@ browser reportError(category)
 ## What leaves the browser
 
 Only a fixed category from `src/lib/error-categories.mjs` and the page's
-pathname. At most three distinct categories per page load are sent, with no
-retry. The receiver accepts a category only from that vocabulary, plus the
+pathname. At most three attempts per page load are sent, with no retry. Recipe
+update failures share one attempt across their registration, download, worker
+version, network check, activation and library-update categories. The first
+failure keeps its specific category; later failures in that family do not add
+reports. Older installed documents can still send the generic `recipe-update`
+category. The receiver accepts a category only from that vocabulary, plus the
 production smoke's fixed `forwarding-probe` (see Forwarding liveness), and a page
 only from the build's route manifest, so error messages, stacks, query strings,
 user input, IP addresses and identifiers never reach CloudWatch. Never widen this
@@ -142,3 +146,10 @@ within an hour must produce an enriched ALARM email whose `log-group:` line is
 `/jsolly-website/client-errors`, followed by an OK email an hour later. A `502`
 means the write failed; read the Vercel runtime log's error name, code and
 status.
+
+The six update-reporting browser fault scenarios are strict TypeScript, checked
+by `config/typescript/recipe-update-reporting.json` through `check:ts`. That scoped
+project infers the existing `tests/built/pages.mjs` static-server helper from its
+source; the unchanged helper and its JavaScript imports are not claimed to be
+fully typechecked. New fixture logic and browser interactions remain strictly
+checked without casts or ambient module declarations.

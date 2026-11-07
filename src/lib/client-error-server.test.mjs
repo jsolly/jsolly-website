@@ -63,6 +63,33 @@ it("answers 502 and logs the validated report with the error's name and status b
 	assert.doesNotMatch(failures.join(""), CREDENTIAL_DETAIL);
 });
 
+it("records each fixed recipe-update phase with only its fixed text and published path", async () => {
+	const cases = [
+		["recipe-update-registration", "Recipe offline registration failed."],
+		["recipe-update-download", "A recipe app download failed."],
+		["recipe-update-version", "A recipe worker version could not be verified."],
+		["recipe-update-check", "A recipe app update check failed."],
+		["recipe-update-activation", "A recipe app update could not be applied."],
+		[
+			"recipe-update-library",
+			"The recipe library update could not be checked.",
+		],
+	];
+	await Promise.all(
+		cases.map(async ([category, message]) => {
+			const { handle, logs, failures } = fixture();
+			const response = await handle(
+				request(JSON.stringify({ category, page: REPORT.page })),
+			);
+			assert.equal(response.status, 204);
+			assert.deepEqual(logs, [
+				{ level: "error", category, page: REPORT.page, message },
+			]);
+			assert.deepEqual(failures, []);
+		}),
+	);
+});
+
 it("logs a transport failure's code, since its name alone is the generic Error", async () => {
 	const reset = Object.assign(new Error("socket hang up"), {
 		code: "ECONNRESET",
