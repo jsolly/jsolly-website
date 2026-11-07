@@ -210,6 +210,23 @@ ingredient, compacts successive actions on the same input, and computes
 non-overlapping rowspan and colspan cells. Optional sides stay outside the base
 tree.
 
+Ingredient lists follow the first appearance of each ingredient in the cooking
+flow, keeping independent branches together and listing smoothie water first.
+When a source leaves a shared ingredient's split unspecified, show its total in
+a preparation branch before the consuming branches and explain the allocation
+there. Do not invent measured fractions or present those totals as finishing
+ingredients. Reorder lists and current nutrition snapshots without changing
+ingredient quantities or historical evidence, then regenerate downloads and the
+unit audit:
+
+```bash
+node src/components/recipes/tools/order-ingredients.mjs --write
+npm run recipes:sync
+node src/components/recipes/tools/audit-units.mjs --write
+```
+
+Run the ordering tool without `--write` to check for drift.
+
 Every recipe owns its `starches` categories in `recipes.json`; the library filter
 uses that metadata for main ingredients and available optional sides.
 Maintain `recipes.json` and its unit, allergen and family metadata together. Do
