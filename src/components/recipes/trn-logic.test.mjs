@@ -18,6 +18,82 @@ const UNMEASURED = /pinch of|remaining|to taste|unavailable/u;
 const ROWSPAN = /rowspan=/u;
 const INVALID_FRACTION = /Invalid ingredient fraction/u;
 const UNBALANCED_SYMBOLIC = /Unbalanced symbolic allocation/u;
+const BEFORE_PREPARATION = /Before/u;
+const UNSPECIFIED_SPLIT = /no measured split/u;
+it("ingredient lists follow first appearance in the cooking flow, including liquid-first smoothies", () => {
+	for (const recipe of recipes) {
+		const firstUse = new Set();
+		function visit(node) {
+			if (node.ingredientId) firstUse.add(node.ingredientId);
+			node.children?.forEach(visit);
+		}
+		visit(recipe.flow.root);
+		assert.deepEqual(
+			recipe.ingredients.map((ingredient) => ingredient.id),
+			[...firstUse],
+			recipe.id,
+		);
+	}
+	for (const recipe of recipes.filter(
+		(candidate) => candidate.type === "smoothie",
+	))
+		assert.equal(recipe.ingredients[0].id, "water", recipe.id);
+});
+
+it("seasoning and shared totals appear before the operations that need them", () => {
+	const find = (id) => recipes.find((recipe) => recipe.id === `source-${id}`);
+	for (const [id, totals] of [
+		["10-minute-sheet-pan-steak-with-lemon-zucchini", ["ingredient-10"]],
+		[
+			"stuffed-chicken-breast-with-mozzarella-and-spinach",
+			["ingredient-12", "ingredient-12-pepper"],
+		],
+		[
+			"garlic-lemon-chicken-breasts-with-green-beans",
+			["ingredient-6", "ingredient-7", "ingredient-9", "ingredient-9-pepper"],
+		],
+	]) {
+		const recipe = find(id);
+		const preparation = recipe.flow.root.children.at(0);
+		assert.deepEqual(
+			preparation.children.map((child) => child.ingredientId),
+			totals,
+			id,
+		);
+		assert.match(preparation.action, BEFORE_PREPARATION);
+		assert.match(preparation.action, UNSPECIFIED_SPLIT);
+		assert(
+			preparation.children.every((child) => child.fraction === 1),
+			id,
+		);
+		assert(
+			!recipe.flow.root.children.some((child) =>
+				totals.includes(child.ingredientId),
+			),
+			id,
+		);
+	}
+	const sheetPan = find("sheet-pan-garlic-butter-chicken-and-asparagus");
+	const butter = sheetPan.flow.root.children.find((node) =>
+		node.action?.startsWith("Mix melted butter"),
+	);
+	assert(butter.children.some((node) => node.ingredientId === "ingredient-8"));
+	assert(
+		butter.children.some((node) => node.ingredientId === "ingredient-8-pepper"),
+	);
+	const steak = find("garlic-butter-steak-and-green-beans");
+	assert(
+		steak.flow.root.children
+			.at(0)
+			.children.some((node) => node.ingredientId === "ingredient-9"),
+	);
+	assert(
+		!steak.flow.root.children.some(
+			(node) => node.ingredientId === "ingredient-9",
+		),
+	);
+});
+
 it("all recipe dependency diagrams allocate all ingredients and produce a complete nonoverlapping merged-cell grid", () => {
 	for (const recipe of recipes) {
 		assert(validateFlow(recipe));
