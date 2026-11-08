@@ -62,7 +62,9 @@ The full gate runs build → CSP → built tests in the original checkout. Its
 preview and deployment consumers. Static checks, types, unit/Python fixtures and
 smoke contracts each run in a private validation tree while that build chain runs.
 Each copy has independent Git metadata, the effective staged index, working-source
-bytes and mutable dependency caches. The scheduler rejects changes to HEAD, the
+bytes and mutable dependency caches. Copies need full history, so a shallow
+checkout fails before validation with the fix: `git fetch --unshallow origin`.
+The scheduler rejects changes to HEAD, the
 index or nonignored source files during validation. All commands and counted suites
 must pass; failures retain diagnostics under the printed `jsolly-gate-*` directory.
 In CI, `JSOLLY_INSTALL_BROWSER=1` runs the same headless-shell and full OS
