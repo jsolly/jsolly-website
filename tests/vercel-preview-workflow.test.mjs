@@ -18,10 +18,14 @@ import { describe, it } from "vitest";
 
 import { withOfflineNodeGuard } from "./network/node/guard.ts";
 
-const STABLE_URL = "https://repo-feature--preview.preview.jsolly.com";
 const STABLE_OUTPUT =
 	/^https:\/\/repo-feature--preview\.preview\.jsolly\.com$/mu;
 const BUILD_OUTPUT = /^https:\/\/immutable\.vercel\.app$/mu;
+const STABLE_LINE =
+	/: https:\/\/repo-feature--preview\.preview\.jsolly\.com \(build: https:\/\/immutable\.vercel\.app\)/u;
+const NO_STABLE_LINK = /immutable\.vercel\.app \(no stable link:/u;
+const BUILD_NOTE = /\(build:/u;
+const PREVIEW_HOST = /^[a-z0-9-]{1,63}\.preview\.jsolly\.com$/u;
 const workflow = readFileSync(
 	new URL("../.github/workflows/vercel-preview.yml", import.meta.url),
 	"utf8",
@@ -363,9 +367,8 @@ it("a labeled Preview uses isolated CLI commands and edits one stable comment", 
 		patch[0].args.some(
 			(arg) =>
 				arg.includes(head) &&
-				arg.includes("(build: https://immutable.vercel.app)") &&
 				arg.includes("<!-- vercel-preview -->") &&
-				arg.includes(STABLE_URL),
+				STABLE_LINE.test(arg),
 		),
 	);
 	assert.match(readFileSync(f.env.GITHUB_OUTPUT, "utf8"), STABLE_OUTPUT);
@@ -439,8 +442,8 @@ describe("a branch that reduces to main never takes the main snapshot alias", ()
 					.calls("gh")
 					.find((call) => call.args.includes("PATCH"))
 					?.args.join(" ") ?? "";
-			assert.match(comment, /immutable\.vercel\.app \(no stable link:/u);
-			assert.doesNotMatch(comment, /\(build:/u);
+			assert.match(comment, NO_STABLE_LINK);
+			assert.doesNotMatch(comment, BUILD_NOTE);
 			assert.match(readFileSync(f.env.GITHUB_OUTPUT, "utf8"), BUILD_OUTPUT);
 		});
 	}
@@ -461,7 +464,7 @@ it("branches that differ only in punctuation or case get distinct links", (t) =>
 		const result = f.execute("Deploy the Preview");
 		assert.equal(result.status, 0, result.stderr);
 		const host = f.calls("npx")[1]?.args[5] ?? "";
-		assert.match(host, /^[a-z0-9-]{1,63}\.preview\.jsolly\.com$/u);
+		assert.match(host, PREVIEW_HOST);
 		return host;
 	});
 	assert.equal(new Set(hosts).size, hosts.length, hosts.join(" "));
