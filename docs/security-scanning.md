@@ -103,9 +103,10 @@ independent review:
 These are not fixes. Build/development usage reduces public-visitor exposure
 but does not establish that every repository or tool input is safe. Latest
 deepmerge and Vercel releases had no compatible fix at review time; downgrading
-deepmerge or forcing Zod 4 into declared Zod 3 consumers is not a verified repair,
-and neither is forcing glob 14 into `@vercel/nft` or minimatch 11 into glob 13
-without proving the Vercel CLI still works on it.
+deepmerge or forcing Zod 4 into declared Zod 3 consumers is not a verified
+repair (except the one scoped override verified below), and neither is forcing
+glob 14 into `@vercel/nft` or minimatch 11 into glob 13 without proving the
+Vercel CLI still works on it.
 The site's direct Zod dependency is patched at 4.6.7. A scoped override gives
 `@vercel/config` that same copy instead of its declared Zod 3: its only Zod use
 is a cron schema built from `z.object`, `z.string().regex` and `parse`, and its
