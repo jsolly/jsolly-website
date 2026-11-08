@@ -106,7 +106,11 @@ deepmerge and Vercel releases had no compatible fix at review time; downgrading
 deepmerge or forcing Zod 4 into declared Zod 3 consumers is not a verified repair,
 and neither is forcing glob 14 into `@vercel/nft` or minimatch 11 into glob 13
 without proving the Vercel CLI still works on it.
-The site's direct Zod dependency is patched at 4.6.7.
+The site's direct Zod dependency is patched at 4.6.7. A scoped override gives
+`@vercel/config` that same copy instead of its declared Zod 3: its only Zod use
+is a cron schema built from `z.object`, `z.string().regex` and `parse`, and its
+`validate` command accepts this repo's `vercel.ts` on 4.6.7. The site imports
+only its types.
 
 The trusted scanner owns these dispositions. OSV runs with an empty external
 config and all findings enabled; branch-supplied ignore files cannot hide them.
