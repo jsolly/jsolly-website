@@ -15,11 +15,12 @@ Keep UI work in a draft pull request and add the `preview` label. The Vercel
 Preview workflow deploys each pushed commit and updates one Preview comment on
 the pull request. Remove the label to stop automatic redeployments.
 
-The Preview comment links to one protected URL for the project and pull request,
-plus the immutable URL for that build. Reload the stable URL after a deployment
-finishes to see the new commit. Preview builds do not register the offline
-worker, so its cache cannot hide changes. Production keeps the offline app's
-normal update behavior and changes only after the pull request merges.
+The Preview comment links to one stable URL for the repository and branch,
+`<repository>-<branch>.preview.jsolly.com`, plus the immutable URL for that
+build. Reload the stable URL after a deployment finishes to see the new commit.
+Preview builds do not register the offline worker, so its cache cannot hide
+changes. Production keeps the offline app's normal update behavior and changes
+only after the pull request merges.
 
 Draft PRs carrying `preview` use the separate **UI preview checks** workflow
 (lint, types and unit tests); the long built-site suite waits until full CI is

@@ -402,13 +402,22 @@ pinned CLI, and agents never run the cutover verifier's Vercel transport.
 ### Preview workflow trust
 
 Automatic `preview` label events use `pull_request_target` for main-targeted,
-same-repo PRs. The workflow definition and helper scripts come from main.
-Manual dispatch is accepted only from main. The first job validates the request
-without deployment credentials; the serialized deploy job resolves the current
-eligible head after acquiring its slot. Closed, forked, retargeted or unlabeled
-PRs are refused. Rechecks before upload and alias publication suppress stale
-builds. Node setup and trusted tooling precede the isolated PR source checkout;
-PR code is uploaded as data and never executed locally with deployment tokens.
+same-repo PRs. The workflow definition and helper scripts come from main. Manual
+dispatch is accepted only from main. The first job validates the request without
+deployment credentials; the serialized deploy job resolves the current eligible
+head after acquiring its slot. Closed, forked, retargeted or unlabeled PRs are
+refused. Rechecks before upload and alias publication suppress stale builds.
+Each PR branch keeps one stable link on the team's wildcard certificate:
+`<repository>-<branch>.preview.jsolly.com`, with each `/` written as `--`. A
+branch with other characters, one ending in a dash and eight hex digits or made
+of exactly eight, or one too long for a DNS label, gets a short hash of its
+exact name, so no two branches of one repository share a link. A branch that
+reduces to `main` keeps only its build URL, because that link belongs to the
+main snapshot. Links are unique within one repository only: the workflow does
+not check other repositories' links, so two repository and branch names that
+join to the same text would share one. Node setup and trusted tooling precede
+the isolated PR source checkout; PR code is uploaded as data and never executed
+locally with deployment tokens.
 
 GitHub's public-repository event policy may block `pull_request_target`.
 [Review the applicable policy and insights](https://docs.github.com/en/actions/reference/security/securely-using-pull_request_target#default-policy-for-pull_request_target)
