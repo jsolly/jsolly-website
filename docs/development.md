@@ -409,14 +409,15 @@ head after acquiring its slot. Closed, forked, retargeted or unlabeled PRs are
 refused. Rechecks before upload and alias publication suppress stale builds.
 Each PR branch keeps one stable link on the team's wildcard certificate:
 `<repository>-<branch>.preview.jsolly.com`, with each `/` written as `--`. A
-branch with other characters, one ending in eight hex digits, or one too long
-for a DNS label, gets a short hash of its exact name, so no two branches of one
-repository share a link. A branch that reduces to `main` keeps only its build
-URL, because that link belongs to the main snapshot. Links are unique within one
-repository only: the workflow does not check other repositories' links, so two
-repository and branch names that join to the same text would share one. Node
-setup and trusted tooling precede the isolated PR source checkout; PR code is
-uploaded as data and never executed locally with deployment tokens.
+branch with other characters, one ending in a dash and eight hex digits or made
+of exactly eight, or one too long for a DNS label, gets a short hash of its
+exact name, so no two branches of one repository share a link. A branch that
+reduces to `main` keeps only its build URL, because that link belongs to the
+main snapshot. Links are unique within one repository only: the workflow does
+not check other repositories' links, so two repository and branch names that
+join to the same text would share one. Node setup and trusted tooling precede
+the isolated PR source checkout; PR code is uploaded as data and never executed
+locally with deployment tokens.
 
 GitHub's public-repository event policy may block `pull_request_target`.
 [Review the applicable policy and insights](https://docs.github.com/en/actions/reference/security/securely-using-pull_request_target#default-policy-for-pull_request_target)
