@@ -199,7 +199,7 @@ These hold for every change. Where a test enforces one, it is named; the rest ar
 
 Production deploy is owned by **Vercel's GitHub integration** — a merge to `main` triggers the Vercel build and deploy. There is no local `npm run deploy` or CLI deploy step in the release process.
 
-**Vercel Previews only for `preview/` branches.** Production Git deploys stay on `main`. Vercel's Git integration builds a Preview for a pushed branch named `preview/**` (`vercel.ts` `git.deploymentEnabled`); every other branch builds nothing. The branch's stable Vercel URL tracks its latest push. Agents create or push a `preview/` branch only when John asks, through `/preview-link`.
+**Vercel Previews only for `preview/` branches.** Production Git deploys stay on `main`. Vercel's Git integration builds a Preview for a pushed branch named `preview/**` (`vercel.ts` `git.deploymentEnabled`); every other branch builds nothing. The branch's stable Vercel URL tracks its latest push. Agents create or push a `preview/<name>` branch only when John asks: push the work to that branch (no PR or extra commit needed), wait for its Vercel deployment, and open the branch URL; John's optional `/preview-link` skill automates this. Fork PRs are not built without a team member's approval (Vercel Git Fork Protection), and that setting must stay on.
 
 If a green merge creates no Vercel deployment, verify that the project's Git connection uses the current GitHub repository ID. Recreating a repository under the same name can leave Vercel linked to the old ID. Reconnect the current repository through Vercel's Git settings; the repository name alone does not prove the connection is current.
 

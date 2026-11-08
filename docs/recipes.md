@@ -11,14 +11,15 @@ offline app and the old host's kill-switch.
 
 ## Preview recipe changes
 
-**Vercel Previews only for `preview/` branches.** Production Git deploys stay on `main`. Vercel's Git integration builds a Preview for a pushed branch named `preview/**` (`vercel.ts` `git.deploymentEnabled`); every other branch builds nothing. The branch's stable Vercel URL tracks its latest push. Agents create or push a `preview/` branch only when John asks, through `/preview-link`.
+Previews build only for `preview/**` branches; [AGENTS.md → Deploy](../AGENTS.md#deploy) owns the rule and the procedure.
 
 Reload the branch's stable URL after a deployment finishes to see the new
 commit. Preview builds do not register the offline worker, so its
 cache cannot hide changes. Production keeps the offline app's normal update
 behavior and changes only after the change merges to `main`.
 
-Draft PRs carrying the `preview` label use the separate **UI preview checks**
+The `preview` PR label never deploys anything; it only selects the separate
+**UI preview checks** workflow. Draft PRs carrying it use that
 workflow (lint, types and unit tests); the long built-site suite waits until
 full CI is requested. Before marking ready or merging, run the full local gate
 and wait for required `ci` on the current head. Marking ready or removing `preview`

@@ -207,7 +207,7 @@ export function compileRoutes(config) {
 		trailingSlash: config.trailingSlash,
 	});
 	if (error) {
-		throw new Error(`routing-utils rejected vercel.json: ${error.message}`, {
+		throw new Error(`routing-utils rejected config: ${error.message}`, {
 			cause: error,
 		});
 	}

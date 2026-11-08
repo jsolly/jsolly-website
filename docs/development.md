@@ -401,4 +401,4 @@ Vercel transport.
 
 ### Vercel Previews
 
-**Vercel Previews only for `preview/` branches.** Production Git deploys stay on `main`. Vercel's Git integration builds a Preview for a pushed branch named `preview/**` (`vercel.ts` `git.deploymentEnabled`); every other branch builds nothing. The branch's stable Vercel URL tracks its latest push. Agents create or push a `preview/` branch only when John asks, through `/preview-link`.
+Previews build only for `preview/**` branches; [AGENTS.md → Deploy](../AGENTS.md#deploy) owns the rule and the procedure.

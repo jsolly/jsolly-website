@@ -6,10 +6,7 @@ import { config } from "../vercel.ts";
 
 const WHITESPACE = /\s+/u;
 
-// The response header policy that vercel.ts applies to every route. Exactly
-// one Content-Security-Policy may exist and it must cover every route: a
-// second, route-scoped policy would be enforced by browsers without the review
-// these tests pin.
+// The header policy of the repo's vercel.ts (siteHeaderPolicy owns its rules).
 export function readHeaderPolicy() {
 	return siteHeaderPolicy(config);
 }
