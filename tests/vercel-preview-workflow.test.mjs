@@ -18,6 +18,10 @@ import { describe, it } from "vitest";
 
 import { withOfflineNodeGuard } from "./network/node/guard.ts";
 
+const STABLE_URL = "https://repo-feature--preview.preview.jsolly.com";
+const STABLE_OUTPUT =
+	/^https:\/\/repo-feature--preview\.preview\.jsolly\.com$/mu;
+const BUILD_OUTPUT = /^https:\/\/immutable\.vercel\.app$/mu;
 const workflow = readFileSync(
 	new URL("../.github/workflows/vercel-preview.yml", import.meta.url),
 	"utf8",
@@ -29,9 +33,6 @@ if (!realGit.startsWith("/")) throw new Error("Git executable is unavailable");
 const SKIP = /skip=true/u;
 const DEPLOYMENT_URL = /https:\/\/immutable\.vercel\.app/u;
 const COMMENT_SELECTOR = /select\(\.user\.login.*?\)\) \| \.id/u;
-const PREVIEW_DOMAIN = /\.preview\.jsolly\.com$/u;
-const HASHED_LONG_LABEL =
-	/^repo-claude-fix-every-unicode-branch-and-keep-going-un-[0-9a-f]{8}$/u;
 
 const resolver = readFileSync(
 	new URL("../gate/vercel-preview-resolve.sh", import.meta.url),
@@ -351,7 +352,7 @@ it("a labeled Preview uses isolated CLI commands and edits one stable comment", 
 		"alias",
 		"set",
 		"https://immutable.vercel.app",
-		"repo-feature-preview.preview.jsolly.com",
+		"repo-feature--preview.preview.jsolly.com",
 		"--scope",
 		"jsollys-projects",
 	]);
@@ -360,25 +361,70 @@ it("a labeled Preview uses isolated CLI commands and edits one stable comment", 
 	assert.ok(patch[0].args.includes("repos/fixture/repo/issues/comments/17"));
 	assert.ok(
 		patch[0].args.some(
-			(arg) => arg.includes(head) && arg.includes("<!-- vercel-preview -->"),
+			(arg) =>
+				arg.includes(head) &&
+				arg.includes("<!-- vercel-preview -->") &&
+				arg.includes(STABLE_URL),
 		),
 	);
+	assert.match(readFileSync(f.env.GITHUB_OUTPUT, "utf8"), STABLE_OUTPUT);
 	assert.equal(
 		f.calls("gh").some((call) => call.args[0] === "pr"),
 		false,
 	);
 });
 
-it("a long branch keeps its Preview alias inside one DNS label", (t) => {
-	const ref =
-		"claude/Fix_Every-Unicode--Branch!!-and-keep-going-until-the-label-overflows";
-	const f = fixture(t, { env: { HEAD_REF: ref } });
-	assert.equal(f.execute("Deploy the Preview").status, 0);
-	const alias = f.calls("npx")[1].args[5];
-	const label = alias.replace(PREVIEW_DOMAIN, "");
-	assert.notEqual(label, alias);
-	assert.equal(label.length, 63);
-	assert.match(label, HASHED_LONG_LABEL);
+const A58 = "a".repeat(58);
+const LONG =
+	"claude/preview-branch-links-and-a-much-longer-tail-that-overflows";
+const ALIAS_CASES = [
+	["feat/x", "repo-feat--x"],
+	["feat-x", "repo-feat-x"],
+	["Feature_X", "repo-feature-x-c6683d00"],
+	["fix-deadbeef", "repo-fix-deadbeef-4df4b325"],
+	[".github", "repo-github-bdcc6a2a"],
+	["caf\u00e9", "repo-caf-850f7dc4"],
+	[A58, `repo-${A58}`],
+	[
+		`${A58}a`,
+		"repo-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-111bb261",
+	],
+	[
+		"claude/Fix_Every-Unicode--Branch!!-and-keep-going-until-the-label-overflows",
+		"repo-claude-fix-every-unicode-branch-and-keep-going-un-7f2666a9",
+	],
+	[
+		`${LONG}-one`,
+		"repo-claude--preview-branch-links-and-a-much-longer-ta-fbd25542",
+	],
+	[
+		`${LONG}-two`,
+		"repo-claude--preview-branch-links-and-a-much-longer-ta-01dc17c6",
+	],
+];
+
+describe("every branch gets its own Preview alias inside one DNS label", () => {
+	for (const [ref, label] of ALIAS_CASES) {
+		it(`${ref} -> ${label}`, (t) => {
+			const f = fixture(t, { env: { HEAD_REF: ref } });
+			const result = f.execute("Deploy the Preview");
+			assert.equal(result.status, 0, result.stderr);
+			assert.ok(label.length <= 63);
+			assert.equal(f.calls("npx")[1]?.args[5], `${label}.preview.jsolly.com`);
+		});
+	}
+});
+
+describe("a branch that reduces to main never takes the main snapshot alias", () => {
+	for (const ref of ["main", "Main", "main_", "-main-"]) {
+		it(ref, (t) => {
+			const f = fixture(t, { env: { HEAD_REF: ref } });
+			const result = f.execute("Deploy the Preview");
+			assert.equal(result.status, 0, result.stderr);
+			assert.equal(f.calls("npx").length, 1);
+			assert.match(readFileSync(f.env.GITHUB_OUTPUT, "utf8"), BUILD_OUTPUT);
+		});
+	}
 });
 
 it("a manual one-shot Preview does not require or claim label redeploys", (t) => {

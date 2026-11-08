@@ -407,9 +407,14 @@ Manual dispatch is accepted only from main. The first job validates the request
 without deployment credentials; the serialized deploy job resolves the current
 eligible head after acquiring its slot. Closed, forked, retargeted or unlabeled
 PRs are refused. Rechecks before upload and alias publication suppress stale
-builds. Each PR branch keeps one stable link,
-`<repository>-<branch>.preview.jsolly.com`, on the team's wildcard certificate. Node setup and trusted tooling precede the isolated PR source checkout;
-PR code is uploaded as data and never executed locally with deployment tokens.
+builds. Each PR branch keeps one stable link on the team's wildcard
+certificate: `<repository>-<branch>.preview.jsolly.com`, with each `/` written
+as `--`. A branch with other characters, or one too long for a DNS label, gets a
+short hash of its exact name, so no two branches share a link. A branch that
+reduces to `main` keeps only its build URL, because that link belongs to the
+main snapshot. Node setup and trusted tooling precede the isolated PR source
+checkout; PR code is uploaded as data and never executed locally with
+deployment tokens.
 
 GitHub's public-repository event policy may block `pull_request_target`.
 [Review the applicable policy and insights](https://docs.github.com/en/actions/reference/security/securely-using-pull_request_target#default-policy-for-pull_request_target)
