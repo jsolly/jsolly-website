@@ -29,6 +29,9 @@ if (!realGit.startsWith("/")) throw new Error("Git executable is unavailable");
 const SKIP = /skip=true/u;
 const DEPLOYMENT_URL = /https:\/\/immutable\.vercel\.app/u;
 const COMMENT_SELECTOR = /select\(\.user\.login.*?\)\) \| \.id/u;
+const PREVIEW_DOMAIN = /\.preview\.jsolly\.com$/u;
+const HASHED_LONG_LABEL =
+	/^repo-claude-fix-every-unicode-branch-and-keep-going-un-[0-9a-f]{8}$/u;
 
 const resolver = readFileSync(
 	new URL("../gate/vercel-preview-resolve.sh", import.meta.url),
@@ -348,7 +351,7 @@ it("a labeled Preview uses isolated CLI commands and edits one stable comment", 
 		"alias",
 		"set",
 		"https://immutable.vercel.app",
-		"pr-129-fixtureproject.vercel.app",
+		"repo-feature-preview.preview.jsolly.com",
 		"--scope",
 		"jsollys-projects",
 	]);
@@ -364,6 +367,18 @@ it("a labeled Preview uses isolated CLI commands and edits one stable comment", 
 		f.calls("gh").some((call) => call.args[0] === "pr"),
 		false,
 	);
+});
+
+it("a long branch keeps its Preview alias inside one DNS label", (t) => {
+	const ref =
+		"claude/Fix_Every-Unicode--Branch!!-and-keep-going-until-the-label-overflows";
+	const f = fixture(t, { env: { HEAD_REF: ref } });
+	assert.equal(f.execute("Deploy the Preview").status, 0);
+	const alias = f.calls("npx")[1].args[5];
+	const label = alias.replace(PREVIEW_DOMAIN, "");
+	assert.notEqual(label, alias);
+	assert.equal(label.length, 63);
+	assert.match(label, HASHED_LONG_LABEL);
 });
 
 it("a manual one-shot Preview does not require or claim label redeploys", (t) => {
