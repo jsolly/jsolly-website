@@ -1,3 +1,4 @@
+import type { VercelConfig } from "@vercel/config/v1";
 import type { AstroUserConfig } from "astro";
 
 type AstroCsp = Exclude<
@@ -54,14 +55,9 @@ export function astroCsp(vercelEnv: string | undefined): AstroCsp {
 	};
 }
 
-type HeaderRule = {
-	source: string;
-	headers: { key: string; value: string }[];
-};
-
-/** The one Content-Security-Policy vercel.json sends on every route. */
-export function siteHeaderPolicy(config: { headers: HeaderRule[] }): string {
-	const policies = config.headers.flatMap(({ source, headers }) =>
+/** The one Content-Security-Policy vercel.ts sends on every route. */
+export function siteHeaderPolicy(config: VercelConfig): string {
+	const policies = (config.headers ?? []).flatMap(({ source, headers }) =>
 		headers
 			.filter(({ key }) => key.toLowerCase() === "content-security-policy")
 			.map(({ value }) => ({ source, value })),
@@ -69,7 +65,7 @@ export function siteHeaderPolicy(config: { headers: HeaderRule[] }): string {
 	const [policy] = policies;
 	if (policies.length !== 1 || policy?.source !== "/(.*)") {
 		throw new Error(
-			'vercel.json must send exactly one Content-Security-Policy, on "/(.*)"',
+			'vercel.ts must send exactly one Content-Security-Policy, on "/(.*)"',
 		);
 	}
 	return policy.value;
@@ -97,7 +93,7 @@ function previewHeaderPolicy(policy: string): string {
  */
 export function previewResponseHeaders(
 	vercelEnv: string | undefined,
-	config: { headers: HeaderRule[] },
+	config: VercelConfig,
 ): Record<string, string> {
 	return vercelEnv === "preview"
 		? {

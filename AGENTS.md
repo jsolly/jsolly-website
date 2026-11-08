@@ -39,7 +39,7 @@ Astro 7 with Svelte 5 islands, TypeScript and Node pinned in `.nvmrc`; Tailwind 
 Besides `config/` (settings) and `api/` (Vercel functions), repository tooling and tests live in five top-level directories and one component folder:
 
 - `build/`: the custom build steps (static-asset pinning, Markdown siblings, the recipe service worker and their TypeScript loader), plus the CSP, site-file and blogthedata redirect parsers that tests and `monitoring/` reuse. `astro build` itself and the closing CSP suite run elsewhere.
-- `gate/`: the local gate, CI and Preview workflow helpers, lint wrappers, security scanner and hook trust (see [Git hooks](#git-hooks)).
+- `gate/`: the local gate, CI workflow helpers, lint wrappers, security scanner and hook trust (see [Git hooks](#git-hooks)).
 - `monitoring/`: the production smoke, accessibility audits, asset-retention probe and blogthedata cutover verifier.
 - `tests/`: every suite outside `src/`, its fixtures and the suite runner `tests/run-tests.mjs` (see [Tests](#tests)).
 - `src/components/recipes/tools/`: the recipe command-line tools (see [Recipes](#recipes)).
@@ -140,7 +140,7 @@ and trusted hooks in a fresh worktree. No `.worktreeinclude` is needed: the only
 ### Blog
 
 - **`src/layouts/BlogLayout.astro`:** section metadata and CSP wrapper around the shared `SiteShell`, with a Markdown alternate for each published page outside maintenance mode. It honors `MAINTENANCE_MODE` (the notice replaces the body, and the page's head slot, its post JSON-LD and article meta included, is dropped). With `section="blog"` it adds the per-page `img-src` (same-origin and data images) and `frame-src` (YouTube, diagrams.net, nbviewer) CSP directives, failing the build when `Astro.csp` is unavailable. It imports scoped `src/styles/blog/blog.css` and the section's `no-script.css` through `?url`; `SiteShell` owns the shared main stylesheet.
-- **Routes:** `/blog/`, `/blog/all-posts/`, `/blog/category/<slug>/` (slug case kept, e.g. `Geodev`; the `category/` folder is Astro's routing layout), `/blog/works-cited/`, and the noindex `/blog/search/`, whose `Search` island reads `?searched=` and fetches the `/blog/search-index.json` endpoint (summary documents and a MiniSearch index prebuilt from all published article text). One page per published post, `/blog/<slug>/` (`blog/[slug].astro`, slug case kept), carries breadcrumbs, related cards, share links and BlogPosting JSON-LD on jsolly.com URLs. The `/blog/rss.xml` and `/blog/atom.xml` endpoints list the twenty most recently updated posts; BlogLayout links both as alternates, and `vercel.json` sends their Content-Types, which a static build cannot.
+- **Routes:** `/blog/`, `/blog/all-posts/`, `/blog/category/<slug>/` (slug case kept, e.g. `Geodev`; the `category/` folder is Astro's routing layout), `/blog/works-cited/`, and the noindex `/blog/search/`, whose `Search` island reads `?searched=` and fetches the `/blog/search-index.json` endpoint (summary documents and a MiniSearch index prebuilt from all published article text). One page per published post, `/blog/<slug>/` (`blog/[slug].astro`, slug case kept), carries breadcrumbs, related cards, share links and BlogPosting JSON-LD on jsolly.com URLs. The `/blog/rss.xml` and `/blog/atom.xml` endpoints list the twenty most recently updated posts; BlogLayout links both as alternates, and `vercel.ts` sends their Content-Types, which a static build cannot.
 - **`src/components/blog/`:** `BlogNavigation` (the blog chrome), `PostCards` (the card list with its load-more island), `AuthorCard` (whose `h2#about-author` is a legacy fragment id) and `Search`.
 - **`src/lib/blog/`:**
   - `post-loader.ts`: the PagesCMS frontmatter loader (YAML core schema), plus `postLastmods`, read at config load, so a bad post file fails the build there, named.
@@ -197,9 +197,9 @@ These hold for every change. Where a test enforces one, it is named; the rest ar
 
 ## Deploy
 
-Production deploy is owned by **Vercel's GitHub integration** — a merge to `main` triggers the Vercel build and deploy. There is no local `npm run deploy` or CLI deploy step in the release process. Branch pushes do **not** create Preview deployments (`vercel.json` `git.deploymentEnabled`).
+Production deploy is owned by **Vercel's GitHub integration** — a merge to `main` triggers the Vercel build and deploy. There is no local `npm run deploy` or CLI deploy step in the release process.
 
-**Opt-in Preview:** comment `/preview` as the first non-empty line on a same-repo PR (owner/member/collaborator User), or run workflow **Vercel Preview** with the PR number. GitHub runs that workflow from `main`. One-shot: new commits do not rebuild until you ask again. To redeploy on every push instead, add the `preview` label to the PR; the workflow and tooling then come from main, resolve the latest eligible PR head inside the deploy slot, edit one Preview comment in place, and stops when the label is removed. Requires GitHub secret `VERCEL_TOKEN`. Agents must not comment `/preview` or add the `preview` label unless the user asked.
+**Vercel Previews only for `preview/` branches.** Production Git deploys stay on `main`. Vercel's Git integration builds a Preview for a pushed branch named `preview/**` (`vercel.ts` `git.deploymentEnabled`); every other branch builds nothing. The branch's stable Vercel URL tracks its latest push. Agents create or push a `preview/` branch only when John asks, through `/preview-link`.
 
 If a green merge creates no Vercel deployment, verify that the project's Git connection uses the current GitHub repository ID. Recreating a repository under the same name can leave Vercel linked to the old ID. Reconnect the current repository through Vercel's Git settings; the repository name alone does not prove the connection is current.
 
@@ -284,7 +284,7 @@ and [release instructions](docs/development.md).
 ## Git hooks
 
 This repo owns `gate/gate-lib.sh` and `gate/repo-hooks.py`. `gate/` holds the
-local gate and its scheduler, the CI and Preview workflow helpers, Markdown and
+local gate and its scheduler, the CI workflow helpers, Markdown and
 Actions lint, the security scanner, and hook trust and setup; their tests live
 under `tests/`. It also holds `check-migration-backups.py`, the retained
 CloudFormation migration stack's pre-update contract check, which the gate runs
@@ -340,7 +340,7 @@ On the recipe pages it also waits for the recipe service worker to control the p
 **Vercel Toolbar on Previews.** `src/lib/csp-policy.ts` owns the toolbar's
 `vercel.live`, Pusher and Vercel asset hosts. Builds with `VERCEL_ENV=preview` add
 them to the Astro meta, and on Preview deployments `middleware.ts` sends the
-`vercel.json` header policy with them added to `img-src`, `style-src` and
+`vercel.ts` header policy with them added to `img-src`, `style-src` and
 `font-src`. Production builds and responses keep the reviewed policies unchanged.
 `src/lib/csp-policy.test.ts` pins both sides; the built `csp` suite accepts the
 Preview meta only under `VERCEL_ENV=preview`, and `tests/built/recipes-preview.test.mjs`

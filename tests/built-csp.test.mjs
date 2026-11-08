@@ -174,8 +174,8 @@ it("final built pages authorize Astro bootstrap through hashes and retain CSP", 
 	}
 });
 
-it("every built page image loads under both the header and the page meta policy", async () => {
-	const headerImages = imageSources(parseDirectives(await readHeaderPolicy()));
+it("every built page image loads under both the header and the page meta policy", () => {
+	const headerImages = imageSources(parseDirectives(readHeaderPolicy()));
 	assert.ok(pages.length > 0, "built HTML is required");
 	for (const { file, hasPolicy, policy, images } of pages) {
 		assert.ok(hasPolicy, `${file}: policy is in the head`);
@@ -185,7 +185,7 @@ it("every built page image loads under both the header and the page meta policy"
 			const shown = url.href.slice(0, 80);
 			assert.ok(
 				allowsUrl(headerImages, url),
-				`${file}: ${shown} needs a vercel.json header img-src source`,
+				`${file}: ${shown} needs a vercel.ts header img-src source`,
 			);
 			assert.ok(
 				allowsUrl(metaImages, url),

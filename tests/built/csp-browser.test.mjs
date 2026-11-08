@@ -5,7 +5,7 @@ import { launchTestBrowser } from "../network/browser.ts";
 import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
 
 // Plan §4.4(c): the built pages under both policies a browser enforces in
-// production, the vercel.json response header (served on every response, as
+// production, the vercel.ts response header (served on every response, as
 // Vercel does) and each page's Astro meta policy. Any securitypolicyviolation
 // fails. Off-origin requests are answered locally with stand-ins and recorded:
 // a blocked request never leaves the page (the violation fires instead), so
@@ -73,7 +73,7 @@ let browser;
 let headerPolicy;
 
 before(async () => {
-	headerPolicy = await readHeaderPolicy();
+	headerPolicy = readHeaderPolicy();
 	site = await serveStatic(DIST, { "Content-Security-Policy": headerPolicy });
 	browser = await launchTestBrowser();
 });
@@ -210,7 +210,7 @@ async function visit(path, expected, prepare, redirect) {
 	}
 }
 
-it("blog posts with embeds, the blog home, a blog search, /about/, a recipe page with its notation dialog open, the recipe library with its popovers, the recipe landing and a legacy recipe link's redirected page load under the vercel.json header and their meta policy without a violation, recipe pages with their service worker active", {
+it("blog posts with embeds, the blog home, a blog search, /about/, a recipe page with its notation dialog open, the recipe library with its popovers, the recipe landing and a legacy recipe link's redirected page load under the vercel.ts header and their meta policy without a violation, recipe pages with their service worker active", {
 	timeout: 120_000,
 }, async () => {
 	// One page at a time keeps each page's requests its own.

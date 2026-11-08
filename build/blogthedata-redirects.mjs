@@ -17,6 +17,7 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { isDeepStrictEqual } from "node:util";
 import { getTransformedRoutes } from "@vercel/routing-utils";
+import { config as rootConfig } from "../vercel.ts";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 export const LEGACY_DIR = join(ROOT, "legacy", "blogthedata");
@@ -198,7 +199,7 @@ export function vercelJsonDrift(dir = LEGACY_DIR) {
 	return `vercel.json differs from what url-map.json generates in: ${differing.join(", ")}`;
 }
 
-// Vercel's compiled routes (pre-filesystem phase) for a vercel.json object.
+// Vercel's compiled routes (pre-filesystem phase) for a Vercel config object.
 export function compileRoutes(config) {
 	const { routes, error } = getTransformedRoutes({
 		redirects: config.redirects,
@@ -217,14 +218,13 @@ export function compileRoutes(config) {
 	}));
 }
 
-// The jsolly.com project's own vercel.json (the repo root's), compiled.
+// The jsolly.com project's own config (the repo root's vercel.ts), compiled.
 // routePath ignores `has`, so the apex-host redirect (it only answers
 // jsolly.com) stays out.
 export function rootVercelRoutes() {
-	const config = JSON.parse(readFileSync(join(ROOT, "vercel.json"), "utf8"));
 	return compileRoutes({
-		...config,
-		redirects: config.redirects.filter((redirect) => !redirect.has),
+		...rootConfig,
+		redirects: (rootConfig.redirects ?? []).filter((redirect) => !redirect.has),
 	});
 }
 

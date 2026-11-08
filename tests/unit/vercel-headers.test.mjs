@@ -7,7 +7,7 @@ import {
 import { PWA_WORKER_PATH } from "../../src/components/recipes/constants.mjs";
 import { FEEDS } from "../../src/lib/blog/constants.js";
 
-// Headers a static build cannot set, which only vercel.json gives: the feeds'
+// Headers a static build cannot set, which only vercel.ts gives: the feeds'
 // XML types (plan §4.7) and the recipe service worker's no-cache. The root
 // config compiles with Vercel's own routing-utils, as the legacy redirect
 // project's does.

@@ -6,10 +6,7 @@ const suites = {
 	unit: ["src/**/*.test.ts", "src/**/*.test.mjs", "tests/unit/*.test.{ts,mjs}"],
 	built: ["tests/built/*.test.{ts,mjs}"],
 	csp: ["tests/built-csp.test.mjs"],
-	workflow: [
-		"tests/workflow-contracts.test.mjs",
-		"tests/vercel-preview-workflow.test.mjs",
-	],
+	workflow: ["tests/workflow-contracts.test.mjs"],
 	production: ["tests/production-acceptance.test.mjs"],
 	smoke: ["tests/production-smoke-scenario.test.mjs"],
 };

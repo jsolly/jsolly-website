@@ -316,12 +316,13 @@
 			// Keep real .ts specifiers at this boundary; no JS output is generated.
 			"includes": [
 				"tests/network/**/*.ts",
+				"build/blogthedata-redirects.mjs",
+				"build/csp.mjs",
 				"tests/fixtures/transport-deadline/*.ts",
 				"tests/unit/verify-blogthedata-transports.test.mjs",
 				"tests/built/test-network.test.ts",
 				"tests/unit/test-network.test.ts",
 				"tests/run-tests.mjs",
-				"tests/vercel-preview-workflow.test.mjs",
 				"tests/unit/usda.test.mjs",
 				"tests/unit/fake-aws-cli.mjs",
 				"gate/ci-gate.mjs",

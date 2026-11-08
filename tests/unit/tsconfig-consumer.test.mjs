@@ -63,6 +63,7 @@ it("native TypeScript scope applies compiler policy to intended inputs", async (
 			"src/probe.ts",
 			"src/pages/probe.ts",
 			"middleware.ts",
+			"vercel.ts",
 			"config/app/astro.ts",
 			"src/nested/fallback.ts",
 		];
