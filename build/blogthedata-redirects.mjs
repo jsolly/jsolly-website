@@ -150,6 +150,11 @@ export function vercelConfig(map) {
 		installCommand: "",
 		buildCommand: "",
 		outputDirectory: "public",
+		// Skip a build when nothing under this Root Directory changed since the
+		// last successful blogthedata deployment. Exit 0 skips; any other exit
+		// builds: a change, no previous deployment, or a commit missing from
+		// Vercel's shallow clone.
+		ignoreCommand: 'git diff --quiet "$VERCEL_GIT_PREVIOUS_SHA" HEAD -- .',
 		git: {
 			deploymentEnabled: {
 				main: true,

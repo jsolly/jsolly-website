@@ -14,9 +14,12 @@ Vercel project `blogthedata` (`prj_QxSNy3z51xOp295HUvPfDa1JY9h8`, team
 
 Auto-assign Custom Production Domains is off. It stays off through the soak ending
 October 23, 2026; John decides whether to restore it after reviewing monitoring.
-New Git deployments are staged. Verify a redirect edit on its staged URL before
-any separately authorized promotion; a website release is not proof of legacy
-redirect promotion. The intended website project is `jsolly-website`
+A push builds this project only when something under `legacy/blogthedata`
+changed since its last successful deployment (`ignoreCommand`, written by
+`npm run redirects:write`); Vercel cancels the other builds. New Git deployments
+are staged. Verify a redirect edit on its staged URL before any separately
+authorized promotion; a website release is not proof of legacy redirect promotion.
+The intended website project is `jsolly-website`
 (`prj_9irfTPLYZwwuC7YK0oB3bkc1QXtW`). Its Production smoke selects the Vercel bot,
 Production environment and `https://jsolly-website-` deployment URL prefix.
 
@@ -45,13 +48,10 @@ passed. Website deploy success and legacy deployment success are distinct.
 
 ## Recovery and retained resources
 
-The original full-blog rollback deployment is `dpl_6HZzAQxVN9Q71SEMF1Yxr5b74PR4`,
-<https://blogthedata-kzcuzzfmm-jsollys-projects.vercel.app>, source SHA
-`6545bc279bb906ac6fdb53cb0e0d7946d0f5b4c9`. It remained available after monitoring
-landed. In Vercel Instant Rollback, choose this deployment explicitly: the default
-previous candidate may be a newer staged redirect build. Roll back the legacy
-redirect cutover before rolling back the website integration. Do not execute a
-rollback merely to inspect availability.
+John chose on November 8, 2026 to let the original full-blog deployment expire under
+the project's deployment retention, so Vercel Instant Rollback no longer offers a
+full-blog recovery. blogthedata.com serves only redirects to jsolly.com. Recovery of
+the old blog uses the retained resources below.
 
 John keeps blogthedata.com indefinitely with auto-renew enabled, currently paid
 through August 6, 2028. Keep Google/Bing verification DNS records. Google Change
