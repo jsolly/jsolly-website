@@ -18,7 +18,8 @@ A push builds this project only when something under `legacy/blogthedata`
 changed since its last successful deployment (`ignoreCommand`, written by
 `npm run redirects:write`); Vercel cancels the other builds. New Git deployments
 are staged. Verify a redirect edit on its staged URL before any separately
-authorized promotion; a website release is not proof of legacy redirect promotion. The intended website project is `jsolly-website`
+authorized promotion; a website release is not proof of legacy redirect promotion.
+The intended website project is `jsolly-website`
 (`prj_9irfTPLYZwwuC7YK0oB3bkc1QXtW`). Its Production smoke selects the Vercel bot,
 Production environment and `https://jsolly-website-` deployment URL prefix.
 
