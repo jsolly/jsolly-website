@@ -21,6 +21,7 @@ const MISSING = /ENOENT/u;
 const SIGNAL = /SIGTERM/u;
 const CANCELLED = /cancelled/u;
 const FIELDS = /\s+/u;
+const UNSHALLOW = /shallow\. Run `git fetch --unshallow origin`/u;
 
 async function fixture(t) {
 	const dir = await fs.mkdtemp(join(tmpdir(), "gate-contract-"));
@@ -121,6 +122,36 @@ it("keeps dependency caches private and preserves executable source modes", asyn
 		(await fs.lstat(join(copy, "node_modules/package"))).isSymbolicLink(),
 	);
 	assert.equal((await fs.stat(join(copy, "tool"))).mode & 0o777, 0o755);
+});
+
+it("rejects a shallow source before cloning, naming the unshallow fix", async (t) => {
+	const f = await fixture(t);
+	await fs.writeFile(join(f.root, "tracked"), "second");
+	f.git(
+		"-c",
+		"user.name=Fixture",
+		"-c",
+		"user.email=fixture@example.invalid",
+		"-c",
+		"commit.gpgsign=false",
+		"commit",
+		"-qam",
+		"second",
+	);
+	const shallow = join(f.dir, "shallow");
+	execFileSync(
+		"git",
+		["clone", "-q", "--depth", "1", `file://${f.root}`, shallow],
+		{ env: f.env, stdio: "ignore" },
+	);
+	await fs.writeFile(join(shallow, "tracked"), "staged");
+	execFileSync("git", ["add", "tracked"], { cwd: shallow, env: f.env });
+	const copy = join(f.dir, "copy");
+	await assert.rejects(
+		createValidationTree(shallow, copy, await snapshot(shallow, f.env), f.env),
+		UNSHALLOW,
+	);
+	await assert.rejects(fs.stat(copy), { code: "ENOENT" });
 });
 
 it("rejects index-only changes while working source and HEAD stay identical", async (t) => {
