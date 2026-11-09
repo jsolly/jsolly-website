@@ -29,12 +29,10 @@
 		"outdated": "npm outdated",
 		"update": "npx --yes npm-check-updates -u && npm install",
 		"check:actions": "bash gate/check-actions.sh && node tests/run-tests.mjs workflow",
-		"gate": "FLEET_UI_PREVIEW=0 FLEET_DOC_FAST=0 bash .git-hooks/pre-commit",
+		"gate": "FLEET_DOC_FAST=0 bash .git-hooks/pre-commit",
 		"smoke:production": "node tests/run-tests.mjs production",
 		"smoke:scenario-contract": "node tests/run-tests.mjs smoke",
 		"recipes:usda": "node src/components/recipes/tools/usda.mjs",
-		"check:preview": "npx --no-install biome ci --config-path=config/quality/biome.settings.jsonc . --error-on-warnings && npm run check:ts && npm test",
-		"gate:preview": "FLEET_UI_PREVIEW=1 FLEET_DOC_FAST=0 bash .git-hooks/pre-commit",
 		"check:a11y": "node monitoring/check-accessibility.ts",
 		"check:a11y:sample": "node monitoring/check-accessibility.ts --sample",
 		"check:security": "python3 gate/security-scan.py ci"

@@ -1,24 +1,9 @@
 name: CI
-run-name: >-
-  ${{ !(github.event_name == 'pull_request' &&
-  github.event.pull_request.draft &&
-  github.event.pull_request.head.repo.full_name == github.repository &&
-  github.event.pull_request.user.type == 'User' &&
-  github.event.pull_request.user.login != 'dependabot[bot]' &&
-  contains(github.event.pull_request.labels.*.name, 'preview')) && format('{0} validation', github.workflow) || 'Deferred validation' }}
 
 on:
   workflow_dispatch:
   pull_request:
-    types:
-      [
-        opened,
-        synchronize,
-        reopened,
-        unlabeled,
-        ready_for_review,
-        converted_to_draft,
-      ]
+    types: [opened, synchronize, reopened]
   push:
     branches: [main]
 
@@ -28,13 +13,7 @@ on:
 # green push run, so it rescans the cancelled commit. Where a Deploy follows CI (aws-sam), an older
 # run left to finish would queue a Deploy that refuses as stale.
 concurrency:
-  group: >-
-    ${{ !(github.event_name == 'pull_request' &&
-    github.event.pull_request.draft &&
-    github.event.pull_request.head.repo.full_name == github.repository &&
-    github.event.pull_request.user.type == 'User' &&
-    github.event.pull_request.user.login != 'dependabot[bot]' &&
-    contains(github.event.pull_request.labels.*.name, 'preview')) && format('ci-{0}-{1}-{2}', github.workflow, github.event.pull_request.number || github.ref, github.event_name) || format('deferred-{0}', github.run_id) }}
+  group: ${{ format('ci-{0}-{1}-{2}', github.workflow, github.event.pull_request.number || github.ref, github.event_name) }}
   cancel-in-progress: true
 
 permissions:
@@ -44,13 +23,6 @@ permissions:
 
 jobs:
   prepare:
-    if: >-
-      !(github.event_name == 'pull_request' &&
-      github.event.pull_request.draft &&
-      github.event.pull_request.head.repo.full_name == github.repository &&
-      github.event.pull_request.user.type == 'User' &&
-      github.event.pull_request.user.login != 'dependabot[bot]' &&
-      contains(github.event.pull_request.labels.*.name, 'preview'))
     runs-on: ubuntu-24.04-arm
     outputs:
       tree: ${{ steps.verified-tree.outputs.tree }}
@@ -160,13 +132,6 @@ jobs:
           retention-days: 1
 
   built:
-    if: >-
-      !(github.event_name == 'pull_request' &&
-      github.event.pull_request.draft &&
-      github.event.pull_request.head.repo.full_name == github.repository &&
-      github.event.pull_request.user.type == 'User' &&
-      github.event.pull_request.user.login != 'dependabot[bot]' &&
-      contains(github.event.pull_request.labels.*.name, 'preview'))
     strategy:
       fail-fast: false
       matrix:
@@ -257,20 +222,8 @@ jobs:
           retention-days: 14
 
   ci:
-    name: >-
-      ${{ !(github.event_name == 'pull_request' &&
-      github.event.pull_request.draft &&
-      github.event.pull_request.head.repo.full_name == github.repository &&
-      github.event.pull_request.user.type == 'User' &&
-      github.event.pull_request.user.login != 'dependabot[bot]' &&
-      contains(github.event.pull_request.labels.*.name, 'preview')) && 'ci' || 'ci-deferred' }}
-    if: >-
-      always() && !(github.event_name == 'pull_request' &&
-      github.event.pull_request.draft &&
-      github.event.pull_request.head.repo.full_name == github.repository &&
-      github.event.pull_request.user.type == 'User' &&
-      github.event.pull_request.user.login != 'dependabot[bot]' &&
-      contains(github.event.pull_request.labels.*.name, 'preview'))
+    name: ci
+    if: always()
     needs: [prepare, built]
     runs-on: ubuntu-24.04-arm
     steps:

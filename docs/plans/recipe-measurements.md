@@ -131,7 +131,7 @@ npm run recipes:sync
 npm run gate
 ```
 
-Run the full gate before `/ship`; this is a data and logic migration and cannot use the UI-only preview shortcut. Follow repository release instructions, merge on green `CI / ci`, then verify Vercel READY, the exact live `/release.json` SHA and that release's successful Production smoke run. Record the run URL and verify the production recipe worker installs and controls the page. Production integration is a later implementation step, not part of this plan-only request.
+Run the full gate before `/ship`. Follow repository release instructions, merge on green `CI / ci`, then verify Vercel READY, the exact live `/release.json` SHA and that release's successful Production smoke run. Record the run URL and verify the production recipe worker installs and controls the page. Production integration is a later implementation step, not part of this plan-only request.
 
 ## Planning evidence
 

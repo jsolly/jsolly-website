@@ -195,7 +195,6 @@ it("every npm cache keys on .nvmrc and package-lock.json and follows npm ci", ()
 		"ci.yml:prepare",
 		"legacy-redirects.yml:verify",
 		"production-smoke.yml:smoke",
-		"ui-preview-checks.yml:ci-preview",
 	]);
 	for (const { job, paths, npmCi } of cached) {
 		assert.deepEqual(paths, [".nvmrc", "package-lock.json"], job);

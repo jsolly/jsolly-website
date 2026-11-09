@@ -73,8 +73,7 @@ Smoke contracts and built browser tests wait for installation to succeed; built
 tests also wait for the complete build and CSP suite. Installation failures fail
 the gate. The real Chromium process-cleanup regression belongs to the built suite;
 the unit suite retains detached-process and shutdown-race coverage. Local gates use the browser already provisioned by repository setup.
-The preview shortcut and gate bootstrap remain unchanged. `gate/gate-lib.sh` is
-unchanged. No previous passing result is accepted as current test evidence.
+No previous passing result is accepted as current test evidence.
 
 Static link and Markdown checks read HTML through parse5 instead of allocating
 browser-like DOM windows. They preserve document recovery, base URLs, inert
@@ -170,7 +169,7 @@ successful preparation and both shards, matching identities, disjoint file sets
 whose union exactly equals discovery, and actual passing assertions matching the
 single built-suite ledger. Skipped, todo, missing, extra and duplicate evidence
 fail. Only this successful aggregate publishes the protected `ci-tree-v1-ci`
-proof. Deferrals retain `ci-deferred`; main reuse requires the existing protected
+proof. Main reuse requires the existing protected
 identical-tree proof and explicitly names reused validation. No ruleset changes.
 
 Measure the complete workflow through all jobs, not the aggregate's short runtime.

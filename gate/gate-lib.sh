@@ -311,7 +311,7 @@ run_step() { # run_step "label" cmd [args...]
 # === Bash floor on entrypoints ===================================================
 # Sourced helpers and CI-only scripts are exempt by explicit repository path.
 # Setup and dispatch launchers must carry the normal first-command floor.
-GATE_BASH_FLOOR_EXEMPTIONS=(gate/gate-lib.sh gate/check-actions.sh gate/ci-verified-tree.sh gate/vercel-preview-comment.sh gate/vercel-preview-comment-contract.sh gate/vercel-preview-workflow-contract.sh)
+GATE_BASH_FLOOR_EXEMPTIONS=(gate/gate-lib.sh gate/check-actions.sh gate/ci-verified-tree.sh)
 GATE_BASH_FLOOR_LINE='((BASH_VERSINFO[0] >= '"$GATE_BASH_MIN"')) || { echo "✗ $0 requires Bash >= '"$GATE_BASH_MIN"', not $BASH_VERSION. Fix: brew install bash; open a fresh shell and rerun repository setup." >&2; exit 1; }'
 
 # Print why <file> (tracked at repo-relative <rel>) breaks the floor, or nothing. A file with a

@@ -12,14 +12,6 @@ After the ordinary worker-blocked scenario succeeds, a fresh worker-enabled cont
 
 Local gate before push: `npm run gate`.
 
-For explicitly authorized draft UI previews, follow this local procedure:
-verify the open same-repo draft PR has `preview` and the expected parent head;
-set `FLEET_UI_PREVIEW_PR` and `FLEET_UI_PREVIEW_HEAD` to that verified context,
-then run `npm run gate:preview`. It permits only added/modified Svelte components
-and stylesheets and runs staged secrets checks, lint, types and unit tests.
-Keep semantic review and desktop/mobile UI verification. Non-UI changes and
-ready/merge always use the full gate. `npm run gate` forces the shortcut off.
-
 ## Purpose
 
 Personal website at [jsolly.com](https://www.jsolly.com), one Astro static site with three parts:
@@ -265,10 +257,8 @@ specific run. Preserve `production-smoke-artifacts/` diagnostics when a check fa
 
 ## Verified-tree CI
 
-Same-repo human draft PRs with `preview` run the separate `ci-preview` checks,
-which cannot satisfy required `ci` or supply validated-tree proof. Marking ready
-or removing `preview` starts full CI. Ready PRs, main and manual dispatch run the
-full CI suite. Post-merge CI reuses a successful PR run only when
+Every PR, draft or ready, plus main and manual dispatch, runs the full CI suite;
+labels and draft state never defer it. Post-merge CI reuses a successful PR run only when
 its recorded checkout tree exactly matches the landed tree, using
 the repo-owned `gate/ci-verified-tree.sh`. Missing proof runs full CI;
 manual runs always validate. Job names and deployment triggers stay intact.

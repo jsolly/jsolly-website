@@ -18,7 +18,7 @@ import { it } from "vitest";
 const run = promisify(exec);
 const project = process.cwd();
 async function fixture(t) {
-	const temp = await mkdtemp(path.join(os.tmpdir(), "preview-gate-"));
+	const temp = await mkdtemp(path.join(os.tmpdir(), "pre-commit-gate-"));
 	t.onTestFinished(() => rm(temp, { recursive: true, force: true }));
 	const root = path.join(temp, "repo");
 	const bin = path.join(temp, "bin");
@@ -36,10 +36,6 @@ async function fixture(t) {
 		path.join(project, ".git-hooks/pre-commit"),
 		path.join(root, ".git-hooks/pre-commit"),
 	);
-	await copyFile(
-		path.join(project, "gate/ui-preview-scope.mjs"),
-		path.join(root, "gate/ui-preview-scope.mjs"),
-	);
 	await writeFile(
 		path.join(root, "src/components/Example.svelte"),
 		"<p>Before</p>\n",
@@ -48,7 +44,7 @@ async function fixture(t) {
 	const lib = path.join(root, "gate/gate-lib.sh");
 	await writeFile(
 		lib,
-		`gate_enter_committing_tree() { ROOT="$(git rev-parse --show-toplevel)"; cd "$ROOT"; }\ngate_begin_commit() { echo bootstrap >> "$RECEIPT"; [[ "\${FAIL_BOOTSTRAP:-0}" != 1 ]]; }\ngate_check_bash_floor() { :; }\ngate_require_node() { :; }\nrun_step() { shift; "$@"; }\n`,
+		`gate_enter_committing_tree() { ROOT="$(git rev-parse --show-toplevel)"; cd "$ROOT"; }\ngate_begin_commit() { echo bootstrap >> "$RECEIPT"; }\ngate_check_bash_floor() { :; }\ngate_require_node() { :; }\nrun_step() { shift; "$@"; }\n`,
 	);
 	await writeFile(
 		path.join(root, "gate/repo-python.sh"),
@@ -59,7 +55,7 @@ async function fixture(t) {
 			const file = path.join(bin, command);
 			await writeFile(
 				file,
-				`#!/usr/bin/env bash\nprintf '%s\\n' '${command} '"$*" >> "$RECEIPT"\n[[ "\${FAIL_CHECK:-0}" != 1 ]]\n`,
+				`#!/usr/bin/env bash\nprintf '%s\\n' '${command} '"$*" >> "$RECEIPT"\n`,
 			);
 			await chmod(file, 0o755);
 		}),
@@ -83,11 +79,9 @@ async function fixture(t) {
 		RECEIPT: receipt,
 		PATH: `${bin}:${env.PATH}`,
 		FLEET_DOC_FAST: "0",
-		FLEET_UI_PREVIEW: "1",
-		FLEET_UI_PREVIEW_PR: "129",
 	});
 	const git = (...args) => run("git", ["-C", root, ...args], { env });
-	await git("init", "-b", "codex/preview");
+	await git("init", "-b", "codex/gate");
 	const common = (
 		await git("rev-parse", "--path-format=absolute", "--git-common-dir")
 	).stdout.trim();
@@ -99,14 +93,12 @@ async function fixture(t) {
 		".git-hooks/pre-commit",
 		"gate/gate-lib.sh",
 		"gate/repo-python.sh",
-		"gate/ui-preview-scope.mjs",
 		"gate/run-gate.mjs",
 		"gate/gate-snapshot.mjs",
 		"gate/gate-processes.mjs",
 		"src/components/Example.svelte",
 	);
 	await git("-c", "core.hooksPath=/dev/null", "commit", "-m", "fixture");
-	env.FLEET_UI_PREVIEW_HEAD = (await git("rev-parse", "HEAD")).stdout.trim();
 	await writeFile(
 		path.join(root, "src/components/Example.svelte"),
 		"<p>After</p>\n",
@@ -119,47 +111,18 @@ async function fixture(t) {
 	return { root, bin, hook, env, calls: () => readFile(receipt, "utf8") };
 }
 
-it("preview hook runs bootstrap and quick checks, without the full build/browser suite", async (t) => {
-	const f = await fixture(t);
-	const result = await f.hook();
-	assert.ok(result.stdout.includes("preview checks passed"));
-	assert.equal(await f.calls(), "bootstrap\nnpm run check:preview\n");
-});
-
-it("preview hook rejects non-UI files and bootstrap/check failures", async (t) => {
-	const f = await fixture(t);
-	await writeFile(path.join(f.root, "package.json"), "{}\n");
-	await assert.rejects(f.hook(), (error) =>
-		error.stderr.includes("only Svelte components"),
-	);
-	await rm(path.join(f.root, "package.json"));
-	await assert.rejects(f.hook({ FAIL_BOOTSTRAP: "1" }));
-	await assert.rejects(f.hook({ FAIL_CHECK: "1" }));
-});
-
-it("preview shortcut refuses an absent repository gate", async (t) => {
-	const f = await fixture(t);
-	await rm(path.join(f.root, "gate/gate-lib.sh"));
-	await assert.rejects(f.hook(), (error) =>
-		error.stderr.includes("gate/gate-lib.sh"),
-	);
-});
-
-it("full gate disables preview mode and retains build/browser steps", async (t) => {
+it("full gate retains build/browser steps", async (t) => {
 	const f = await fixture(t);
 	const packageJson = JSON.parse(
 		await readFile(path.join(project, "package.json"), "utf8"),
 	);
-	assert.ok(
-		packageJson.scripts.gate.startsWith("FLEET_UI_PREVIEW=0 FLEET_DOC_FAST=0 "),
-	);
-	const result = await f.hook({ FLEET_UI_PREVIEW: "0" });
+	assert.ok(packageJson.scripts.gate.startsWith("FLEET_DOC_FAST=0 "));
+	const result = await f.hook();
 	assert.ok(result.stdout.includes("pre-commit gate passed"));
 	const calls = await f.calls();
 	assert.ok(calls.includes("npm run build\n"));
 	assert.ok(calls.includes("npm run test:built\n"));
 	assert.ok(calls.includes("npm run test:python\n"));
-	assert.ok(!calls.includes("npm run check:preview"));
 });
 
 async function browserSetupFixture(t) {
@@ -203,7 +166,6 @@ if (["run smoke:scenario-contract", "run test:built"].includes(command) && !fs.e
 it("CI browser setup overlaps build and gates every browser-dependent suite", async (t) => {
 	const f = await browserSetupFixture(t);
 	const result = await f.hook({
-		FLEET_UI_PREVIEW: "0",
 		JSOLLY_INSTALL_BROWSER: "1",
 	});
 	assert.ok(result.stdout.includes("pre-commit gate passed"));
@@ -222,7 +184,6 @@ it("failed CI browser setup fails the full gate without starting browser-depende
 	const f = await browserSetupFixture(t);
 	await assert.rejects(
 		f.hook({
-			FLEET_UI_PREVIEW: "0",
 			JSOLLY_INSTALL_BROWSER: "1",
 			FAIL_BROWSER: "1",
 		}),
