@@ -1,20 +1,8 @@
 import assert from "node:assert/strict";
-import { spawnSync } from "node:child_process";
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { it } from "vitest";
 import { parse } from "yaml";
-
-for (const script of [
-	"gate/vercel-preview-comment-contract.sh",
-	"gate/vercel-preview-workflow-contract.sh",
-]) {
-	it(`${script} preserves its workflow contract`, () => {
-		const result = spawnSync("bash", [script], { encoding: "utf8" });
-		assert.ifError(result.error);
-		assert.equal(result.status, 0, `${result.stdout}\n${result.stderr}`);
-	});
-}
 
 // A token minted in any main-context run carries the subject shared-infra's
 // scheduled-checks role trusts, so only the two scheduled-check report jobs may

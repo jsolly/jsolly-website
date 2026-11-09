@@ -270,8 +270,9 @@ Merge only when the required CI validates the exact current head. Never push to
 the default branch, weaken rulesets, bypass checks or use an admin merge. Optional
 personal review skills may help, but they are not prerequisites for this flow.
 
-Preserve existing code-only Deploy, production-main-only Vercel and opt-in Preview
-rules. Never trigger a preview merely to validate this migration. Verify the
+Preserve existing code-only Deploy, production-main-only Vercel and
+`preview/`-branch-only Preview rules. Never push a `preview/` branch merely to
+validate this migration. Verify the
 intended deployment and exact-release smoke when the repository requires them.
 
 ## Infrastructure and access
@@ -314,7 +315,7 @@ release announces again. A click rechecks the target; a newer target requires a
 second choice. Actual dirty forms or cooking checks require confirmation, and
 cancelling preserves the tab. No check automatically reloads a page. A reload
 that still receives the old shell leaves a manual retry notice instead of looping.
-Development, opt-in Previews and maintenance omit the notice.
+Development, Previews and maintenance omit the notice.
 
 Controlled recipe pages use the downloaded-snapshot workflow in
 [recipe operations](recipes.md). Vercel cache purges do not invalidate those browser
@@ -390,45 +391,16 @@ polling cleanup, rollback/scope isolation, and prior-client migration. Authentic
 is absent on this public site. Do not infer full coverage from a fresh B visit.
 
 Large workflow shell bodies live in `gate/ci-secrets-scan.sh`,
-`gate/vercel-preview-resolve.sh` and `gate/vercel-preview-deploy.sh`.
+`gate/ci-prepare.sh` and `gate/ci-verified-tree.sh`.
 The pinned ShellCheck checks these files directly, and actionlint retains every
 workflow and remaining inline-script check. This avoids the pinned release's
 [macOS stdin deadlock](https://github.com/rhysd/actionlint/issues/650).
-Preview tooling still executes from the trusted default-branch checkout.
 
 Knip's Vercel dependency exception belongs to the John-only `vercel-curl`
 transport in `monitoring/verify-blogthedata-cutover.mjs`, which resolves
-`node_modules/.bin/vercel` dynamically. Preview deployment uses its own isolated
-pinned CLI, and agents never run the cutover verifier's Vercel transport.
+`node_modules/.bin/vercel` dynamically. Agents never run the cutover verifier's
+Vercel transport.
 
-### Preview workflow trust
+### Vercel Previews
 
-Automatic `preview` label events use `pull_request_target` for main-targeted,
-same-repo PRs. The workflow definition and helper scripts come from main. Manual
-dispatch is accepted only from main. The first job validates the request without
-deployment credentials; the serialized deploy job resolves the current eligible
-head after acquiring its slot. Closed, forked, retargeted or unlabeled PRs are
-refused. Rechecks before upload and alias publication suppress stale builds.
-Each PR branch keeps one stable link on the team's wildcard certificate:
-`<repository>-<branch>.preview.jsolly.com`, with each `/` written as `--`. A
-branch with other characters, one ending in a dash and eight hex digits or made
-of exactly eight, or one too long for a DNS label, gets a short hash of its
-exact name, so no two branches of one repository share a link. A branch that
-reduces to `main` keeps only its build URL, because that link belongs to the
-main snapshot. Links are unique within one repository only: the workflow does
-not check other repositories' links, so two repository and branch names that
-join to the same text would share one. Node setup and trusted tooling precede
-the isolated PR source checkout; PR code is uploaded as data and never executed
-locally with deployment tokens.
-
-GitHub's public-repository event policy may block `pull_request_target`.
-[Review the applicable policy and insights](https://docs.github.com/en/actions/reference/security/securely-using-pull_request_target#default-policy-for-pull_request_target)
-before relying on automatic label events. The documented default is evaluated
-now and conditionally enforced December 2, 2026. The repository's Active policy
-[Allow opt-in website Preview workflow](https://github.com/jsolly/jsolly-website/settings/actions/rules/8924)
-was saved and reloaded on October 26, 2026. It targets only
-`.github/workflows/vercel-preview.yml` and allows its existing `pull_request_target`,
-`issue_comment` and `workflow_dispatch` events. Other workflows remain outside
-this exception. Recheck that policy after changing this workflow's name or
-triggers. Manual main-branch dispatch and `/preview` remain explicit
-one-shot paths. Source tests do not prove a live Preview lifecycle.
+Previews build only for `preview/**` branches; [AGENTS.md → Deploy](../AGENTS.md#deploy) owns the rule and the procedure.

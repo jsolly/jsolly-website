@@ -48,19 +48,6 @@ must confirm a planted finding under `tests/` is still reported.
 Inline `nosemgrep` comments identify reviewed individual
 audit false positives and explain the trusted data or fixture boundary.
 
-Zizmor keeps two precise exceptions for the opt-in Preview workflow's
-`issue_comment` and `pull_request_target` triggers. Its existing author/repository
-checks and trusted-main-only upload procedure remain in
-[development](development.md). PR code is uploaded as inert source, never run
-with the Vercel credential. Only the deploy job has PR-comment write permission.
-
-The Preview resolver publishes a validated 40-character hexadecimal
-`commit_sha`, which both checkout and deployment consume. Deployment also
-compares the local checkout and live PR head with that SHA. Branch references
-are rejected. The explicit output name avoids CodeQL's overlapping mutable-ref
-and SHA heuristics for fields named `head_sha`; no CodeQL query is suppressed.
-See the [checkout query implementation](https://github.com/github/codeql/blob/main/actions/ql/lib/codeql/actions/security/UntrustedCheckoutQuery.qll).
-
 This repository has CloudFormation but no CDK. cfn-lint applies; cdk-nag and
 Checkov on `cdk.out` do not. Dependabot covers npm and full-SHA Actions with a
 seven-day proposal cooldown. The repository-pinned npm also enforces
@@ -116,10 +103,15 @@ independent review:
 These are not fixes. Build/development usage reduces public-visitor exposure
 but does not establish that every repository or tool input is safe. Latest
 deepmerge and Vercel releases had no compatible fix at review time; downgrading
-deepmerge or forcing Zod 4 into declared Zod 3 consumers is not a verified repair,
-and neither is forcing glob 14 into `@vercel/nft` or minimatch 11 into glob 13
-without proving the Vercel CLI still works on it.
-The site's direct Zod dependency is patched at 4.6.7.
+deepmerge or forcing Zod 4 into declared Zod 3 consumers is not a verified
+repair (except the one scoped override verified below), and neither is forcing
+glob 14 into `@vercel/nft` or minimatch 11 into glob 13 without proving the
+Vercel CLI still works on it.
+The site's direct Zod dependency is patched at 4.6.7. A scoped override gives
+`@vercel/config` that same copy instead of its declared Zod 3: its only Zod use
+is a cron schema built from `z.object`, `z.string().regex` and `parse`, and its
+`validate` command accepts this repo's `vercel.ts` on 4.6.7. The site imports
+only its types.
 
 The trusted scanner owns these dispositions. OSV runs with an empty external
 config and all findings enabled; branch-supplied ignore files cannot hide them.

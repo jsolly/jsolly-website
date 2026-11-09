@@ -73,8 +73,8 @@ Credentials come from Vercel OIDC (team issuer) through
 `@vercel/oidc-aws-credentials-provider`. The project must keep **Secure backend
 access with OIDC federation** enabled with the **Team** issuer. The role trusts
 only `owner:jsollys-projects:project:jsolly-website:environment:production` and
-can only `PutLogEvents` on the one stream. Previews are disabled and cannot
-assume it.
+can only `PutLogEvents` on the one stream. Preview deployments cannot assume
+it.
 
 ## Threshold
 

@@ -47,7 +47,7 @@ export const FEED_DESCRIPTION = "Latest blog posts from John Solly";
 // The Atom feed's id on the old host, unchanged so readers keep the feed (J8).
 export const ATOM_FEED_ID = `${LEGACY_SITE}/atom/`;
 
-// The blog's two feeds: where each is served, its media type (vercel.json
+// The blog's two feeds: where each is served, its media type (vercel.ts
 // sends it as `<type>; charset=utf-8`) and the title BlogLayout's alternate
 // link gives it.
 export const FEEDS = {
