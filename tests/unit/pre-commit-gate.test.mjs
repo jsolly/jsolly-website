@@ -99,10 +99,6 @@ async function fixture(t) {
 		"src/components/Example.svelte",
 	);
 	await git("-c", "core.hooksPath=/dev/null", "commit", "-m", "fixture");
-	await writeFile(
-		path.join(root, "src/components/Example.svelte"),
-		"<p>After</p>\n",
-	);
 	const hook = (overrides) =>
 		run("bash", [path.join(root, ".git-hooks/pre-commit")], {
 			cwd: root,

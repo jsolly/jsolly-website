@@ -257,10 +257,10 @@ specific run. Preserve `production-smoke-artifacts/` diagnostics when a check fa
 
 ## Verified-tree CI
 
-Every PR, draft or ready, plus main and manual dispatch, runs the full CI suite;
-labels and draft state never defer it. Post-merge CI reuses a successful PR run only when
-its recorded checkout tree exactly matches the landed tree, using
-the repo-owned `gate/ci-verified-tree.sh`. Missing proof runs full CI;
+Every PR, draft or ready, plus main and manual dispatch, runs the full CI
+suite; labels and draft state never defer it. Post-merge CI reuses a successful
+PR run only when its recorded checkout tree exactly matches the landed tree,
+using the repo-owned `gate/ci-verified-tree.sh`. Missing proof runs full CI;
 manual runs always validate. Job names and deployment triggers stay intact.
 Canonical contract: [local CI helper](gate/ci-verified-tree.sh).
 

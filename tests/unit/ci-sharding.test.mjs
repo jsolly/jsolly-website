@@ -197,6 +197,16 @@ it("always runs the required ci aggregate after its lanes, for every pull reques
 		"synchronize",
 		"reopened",
 	]);
+	// One run per PR, push ref or dispatch; a newer run cancels the older one,
+	// and a dispatch on main never cancels the push run.
+	assert.equal(workflow.concurrency["cancel-in-progress"], true);
+	for (const part of [
+		"github.workflow",
+		"github.event.pull_request.number || github.ref",
+		"github.event_name",
+	]) {
+		assert.ok(workflow.concurrency.group.includes(part), part);
+	}
 });
 it("roundtrips only generated build bytes and replaces stale generated output", (t) => {
 	const f = fixture(t);
