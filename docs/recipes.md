@@ -18,18 +18,8 @@ commit. Preview builds do not register the offline worker, so its
 cache cannot hide changes. Production keeps the offline app's normal update
 behavior and changes only after the change merges to `main`.
 
-The `preview` PR label never deploys anything; it only selects the separate
-**UI preview checks** workflow. Draft PRs carrying it use that
-workflow (lint, types and unit tests); the long built-site suite waits until
-full CI is requested. Before marking ready or merging, run the full local gate
-and wait for required `ci` on the current head. Marking ready or removing `preview`
-starts full CI. A skipped `ci-deferred` or passing `ci-preview` cannot authorize
-merging.
-
-For explicitly authorized UI-only local publication, verify the live same-repo
-draft PR has `preview` and the expected head, then `npm run gate:preview` uses the scope guard and quick
-checks. Only added/modified Svelte components and stylesheets qualify; other
-changes still require `npm run gate`. The full gate always disables preview mode.
+Before marking ready or merging, run the full local gate (`npm run gate`) and
+wait for required `ci` on the current head; every PR push runs full CI.
 
 ## Data contract
 
