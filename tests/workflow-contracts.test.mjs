@@ -219,3 +219,55 @@ it("every npm cache keys on .nvmrc and package-lock.json and follows npm ci", ()
 		"steps.verified-tree.outputs.run_full != 'false'",
 	);
 });
+
+it("auto-merge arms native squash auto-merge and sweeps green allowlisted pull requests", () => {
+	const autoMerge = workflow("auto-merge.yml");
+	assert.deepEqual(
+		Object.keys(autoMerge.on).sort((firstValue, secondValue) =>
+			firstValue < secondValue ? -1 : firstValue > secondValue ? 1 : 0,
+		),
+		["pull_request", "schedule", "workflow_dispatch"],
+	);
+	assert.deepEqual(autoMerge.on.pull_request.types, [
+		"opened",
+		"reopened",
+		"synchronize",
+		"ready_for_review",
+	]);
+	assert.deepEqual(autoMerge.on.schedule, [{ cron: "*/30 * * * *" }]);
+	assert.ok(Object.hasOwn(autoMerge.on, "workflow_dispatch"));
+	assert.deepEqual(autoMerge.permissions, {});
+	assert.equal(autoMerge.concurrency["cancel-in-progress"], false);
+	assert.equal(
+		autoMerge.concurrency.group.includes("github.event.pull_request.number"),
+		true,
+	);
+	const steps = autoMerge.jobs.merge.steps;
+	assert.equal(steps.length, 1);
+	assert.equal(steps[0].uses, undefined);
+	assert.equal(
+		steps[0].env.GH_TOKEN,
+		// biome-ignore lint/suspicious/noTemplateCurlyInString: literal GitHub Actions expression
+		"${{ secrets.AUTO_MERGE_TOKEN }}",
+	);
+	const run = steps[0].run;
+	assert.equal(run.includes("actions/checkout"), false);
+	assert.equal(run.includes("github.token"), false);
+	assert.equal(run.includes("gh workflow run"), false);
+	assert.equal(run.includes('gh pr merge --auto --squash "$PR_URL"'), true);
+	assert.equal(
+		run.includes('gh pr merge --squash --match-head-commit "$sha" "$url"'),
+		true,
+	);
+	assert.equal(run.includes('"$1" == "solly-agent" || "$1" == "jsolly"'), true);
+	assert.equal(run.includes('"$draft" == "false"'), true);
+	assert.equal(
+		run.includes(
+			"AUTO_MERGE_TOKEN is not set. Refusing to fall back to GITHUB_TOKEN.",
+		),
+		true,
+	);
+	assert.equal(run.includes("unset GITHUB_TOKEN"), true);
+	assert.equal(run.includes('"$sha" "ci"'), true);
+	assert.equal(run.includes('"$sha" "security"'), true);
+});
