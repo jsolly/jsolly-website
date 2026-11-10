@@ -5,11 +5,11 @@ set -euo pipefail
 base="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
 hook="$(basename "${BASH_SOURCE[0]}")"
 if [[ $hook == pre-push ]]; then
-  # Gitleaks only: the commits each pushed ref sends that the destination already lacks, judged by
-  # the named remote's tracking refs and the ref's current remote commit when it is present here.
-  # A new ref pushed to a bare URL scans the commit's whole history. Semgrep, OSV and full-history
-  # gitleaks run in the required Security check. The log options match `security-scan.py ci` and
-  # gate/ci-secrets-scan.sh; change all three together.
+  # Range gitleaks, then this snapshot's Semgrep and OSV source scan. Gitleaks covers the commits
+  # each pushed ref sends that the destination already lacks, judged by the named remote's tracking
+  # refs and the ref's current remote commit when it is present here. A new ref pushed to a bare URL
+  # scans the commit's whole history. Full-history gitleaks stays in the required Security check.
+  # The log options match `security-scan.py ci` and gate/ci-secrets-scan.sh; change all three together.
   source "$base/gate/gate-lib.sh"
   gl="$(gate_gitleaks_bin)"
   export GIT_NO_REPLACE_OBJECTS=1 # scan the objects the push sends, not local replacements
@@ -25,6 +25,8 @@ if [[ $hook == pre-push ]]; then
     ((${#held[@]} == 0)) || opts+=" --not ${held[*]}"
     "$gl" git --no-banner --no-color --redact --log-opts="$opts"
   done
+  repo="$(git rev-parse --show-toplevel)"
+  bash "$base/gate/repo-python.sh" "$base/gate/security-scan.py" push --root "$repo"
   exit 0
 fi
 exec bash "$base/gate/repo-python.sh" "$base/gate/repo-hooks.py" dispatch --hook "$hook"

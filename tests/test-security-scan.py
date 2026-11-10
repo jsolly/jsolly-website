@@ -89,6 +89,27 @@ class SecurityScan(unittest.TestCase):
                 self.assertNotEqual(result.returncode, 0)
                 self.assertEqual(json.loads(result.stdout)["permission"], "deny")
 
+    def test_push_scans_source_on_a_tracked_copy_without_history_or_structural_checks(self):
+        seen = {}
+
+        def copy_tree(root, tree):
+            seen["root"] = root
+            seen["tree"] = tree
+
+        def scan_source(tree):
+            self.assertEqual(tree, seen["tree"])
+            self.assertNotEqual(tree, self.root)
+
+        with patch.object(SCAN, "working_tree", side_effect=copy_tree), \
+                patch.object(SCAN, "source", side_effect=scan_source) as source, \
+                patch.object(SCAN, "secrets") as secrets, \
+                patch.object(SCAN, "structural") as structural:
+            SCAN.push(self.root)
+        source.assert_called_once()
+        secrets.assert_not_called()
+        structural.assert_not_called()
+        self.assertEqual(seen["root"], self.root)
+
     def test_semgrep_failure_prevents_a_successful_source_scan(self):
         with patch.object(SCAN, "python_tool", side_effect=subprocess.CalledProcessError(1, "semgrep")), \
                 patch.object(SCAN.subprocess, "check_output") as output:
