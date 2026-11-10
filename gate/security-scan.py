@@ -249,6 +249,14 @@ def working_tree(root, tree):
         shutil.copyfile(original, target)
 
 
+def push(root):
+    """Semgrep and OSV on a copy of the tracked tree. Range gitleaks stays in the dispatcher."""
+    with tempfile.TemporaryDirectory(prefix="website-push-scan-") as directory:
+        tree = Path(directory)
+        working_tree(root, tree)
+        source(tree)
+
+
 def cursor(root, payload):
     if not isinstance(payload, dict) or not isinstance(payload.get("command"), str):
         raise ValueError("Malformed Cursor shell-hook input")
@@ -260,7 +268,7 @@ def cursor(root, payload):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("phase", choices=("commit", "ci", "cursor"))
+    parser.add_argument("phase", choices=("commit", "ci", "cursor", "push"))
     parser.add_argument("--root", type=Path, default=Path.cwd())
     args = parser.parse_args()
     root = args.root.resolve(strict=True)
@@ -270,6 +278,8 @@ def main():
             print(json.dumps({"permission": "allow"}))
         elif args.phase == "commit":
             structural(root)
+        elif args.phase == "push":
+            push(root)
         else:
             secrets(root, "git", "--log-opts=--text --diff-merges=remerge --no-color --no-textconv --all")
             with tempfile.TemporaryDirectory(prefix="website-ci-scan-") as directory:

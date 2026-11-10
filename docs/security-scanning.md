@@ -5,24 +5,26 @@ CI. The hook installer includes that runner in its verified snapshot, and neithe
 hook executes an unreviewed branch's scanner script. The existing full
 pre-commit gate remains.
 
-Pre-push is the one exception: the dispatcher (`gate/hooks/pre-commit`) runs
-gitleaks itself, because the push check must stay within a few seconds. It
-uses the CI log options, so a change to them in `security-scan.py` or
-`gate/ci-secrets-scan.sh` must also change the dispatcher.
+Pre-push keeps range gitleaks in the dispatcher (`gate/hooks/pre-commit`).
+It uses the CI log options, so a change to them in `security-scan.py` or
+`gate/ci-secrets-scan.sh` must also change the dispatcher. The same snapshot
+then runs `security-scan.py push`: the Semgrep and OSV source scan, not the
+branch's copy of that script.
 
 ## Coverage
 
 - Pre-commit retains staged gitleaks scanning and the full gate, and adds
   zizmor workflow checks and cfn-lint for every `config/aws/*/template.json`
   (the migration backup and client-error stacks).
-- Pre-push runs gitleaks only over the commits each pushed ref sends that the
+- Pre-push runs gitleaks over the commits each pushed ref sends that the
   destination lacks, judged by the named remote's tracking refs and the ref's
-  current remote commit; that takes well under a second. A new ref pushed to a
-  bare URL scans the commit's whole history (about ten seconds). A commit made
-  with hooks bypassed is still checked. It reads the objects the push sends, ignoring
-  local replace refs, and refuses a ref that names something other than a
-  commit. Semgrep `p/default`, OSV and full-history gitleaks run in
-  `Security / security`.
+  current remote commit. A new ref pushed to a bare URL scans the commit's
+  whole history. A commit made with hooks bypassed is still checked. It reads
+  the objects the push sends, ignoring local replace refs, and refuses a ref
+  that names something other than a commit. That same push then runs Semgrep
+  `p/default` and OSV on a copy of the tracked, unignored tree, with the
+  reviewed dependency dispositions. `Security / security` still repeats that
+  source scan and adds full-history gitleaks, zizmor and cfn-lint.
 - Cursor's `beforeShellExecution` hook scans tracked and unignored working
   files with gitleaks before shell commands. `failClosed: true` blocks crashes,
   timeouts and invalid responses; a scanner finding returns `permission: deny`.

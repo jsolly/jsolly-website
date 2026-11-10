@@ -156,6 +156,7 @@ fi
         result, scanned, calls = self.pre_push(f'refs/heads/topic {outgoing} refs/heads/topic {ZERO}\n'
                                                f'(delete) {ZERO} refs/heads/gone {outgoing}\n')
         assert result.returncode == 0, result.stderr
+        assert 'fixture-security-phase=push' in result.stdout
         assert scanned == ['outgoing']
         assert len(calls) == 1 and '--redact' in calls[0].split()
         # The same options as `security-scan.py ci` and gate/ci-secrets-scan.sh.
@@ -172,6 +173,15 @@ fi
         result, scanned, _ = self.pre_push(f'refs/heads/topic {outgoing} refs/heads/topic {ZERO}\n', remote=url)
         assert result.returncode == 0, result.stderr
         assert scanned == ['outgoing', 'fixture baseline']
+
+    def test_pre_push_blocks_when_the_source_scan_fails(self):
+        scanner = self.hooks.parent / 'gate/security-scan.py'
+        scanner.write_text('import sys\nsys.stderr.write("fixture-source-scan-failed\\n")\nraise SystemExit(1)\n')
+        outgoing = self.commit('outgoing')
+        result, scanned, _ = self.pre_push(f'refs/heads/topic {outgoing} refs/heads/topic {ZERO}\n')
+        assert result.returncode != 0
+        assert scanned == ['outgoing']
+        assert 'fixture-source-scan-failed' in result.stderr
 
     def test_pre_push_blocks_a_leak_in_any_outgoing_ref(self):
         clean, leak = self.commit('outgoing'), self.commit('leak')
