@@ -259,7 +259,13 @@ it("auto-merge arms native squash auto-merge and sweeps green allowlisted pull r
 		run.includes('gh pr merge --squash --match-head-commit "$sha" "$url"'),
 		true,
 	);
-	assert.equal(run.includes('"$1" == "solly-agent" || "$1" == "jsolly"'), true);
+	assert.equal(
+		run.includes(
+			'"$1" == "solly-agent" || "$1" == "jsolly" || "$1" == "cursor[bot]" || "$1" == "app/cursor"',
+		),
+		true,
+	);
+	assert.equal(run.includes("dependabot"), false);
 	assert.equal(run.includes('"$draft" == "false"'), true);
 	assert.equal(
 		run.includes(
