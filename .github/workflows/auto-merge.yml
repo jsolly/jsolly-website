@@ -1,6 +1,6 @@
 name: Auto-merge
 # Arm GitHub squash auto-merge for a non-draft, same-repository pull request
-# from solly-agent or jsolly. A 30-minute sweep re-arms that request and, when
+# from solly-agent, jsolly, or cursor[bot]. A 30-minute sweep re-arms that request and, when
 # ci and security are already green, squash-merges it. The solly-agent token
 # starts push workflows normally. This file never checks out pull-request code.
 on:
@@ -51,7 +51,7 @@ jobs:
           }
 
           allowlisted() {
-            [[ "$1" == "solly-agent" || "$1" == "jsolly" ]]
+            [[ "$1" == "solly-agent" || "$1" == "jsolly" || "$1" == "cursor[bot]" ]]
           }
 
           arm_auto_merge() {

@@ -2,7 +2,7 @@
 
 Ship profile: `vercel-static`
 
-**Integration: branch → reviewed PR → merge on green `CI / ci`.** A non-draft pull request authored by `solly-agent` or `jsolly` arms GitHub squash auto-merge. Hold one by converting it to a draft or running `gh pr merge --disable-auto`. Any other author, including Dependabot, is not auto-merged. Every 30 minutes a sweep re-arms that auto-merge and squash-merges the pull request when `ci` and `security` are already green. The solly-agent merge token starts push workflows normally. Follow [local release instructions](docs/development.md). Agents never push to `main`, change rulesets, or admin-merge.
+**Integration: branch → reviewed PR → merge on green `CI / ci`.** A non-draft pull request authored by `solly-agent`, `jsolly`, or `cursor[bot]` arms GitHub squash auto-merge. Hold one by converting it to a draft or running `gh pr merge --disable-auto`. Any other author, including Dependabot, is not auto-merged. Every 30 minutes a sweep re-arms that auto-merge and squash-merges the pull request when `ci` and `security` are already green. The solly-agent merge token starts push workflows normally. Follow [local release instructions](docs/development.md). Agents never push to `main`, change rulesets, or admin-merge.
 
 Production URL: <https://www.jsolly.com>
 
@@ -268,7 +268,7 @@ Canonical contract: [local CI helper](gate/ci-verified-tree.sh).
 
 Dependabot PRs run the same `ci` check as every other PR; labels start no runs.
 Agents never approve, rebase, arm or merge a Dependabot PR unless John asks.
-Auto-merge refuses them because the author is not `solly-agent` or `jsolly`.
+Auto-merge refuses them because the author is not `solly-agent`, `jsolly`, or `cursor[bot]`.
 Skipped or absent checks never authorize a merge. See the repository CI workflow
 and [release instructions](docs/development.md).
 
