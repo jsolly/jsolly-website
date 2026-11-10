@@ -261,7 +261,7 @@ it("auto-merge arms native squash auto-merge and sweeps green allowlisted pull r
 	);
 	assert.equal(
 		run.includes(
-			'"$1" == "solly-agent" || "$1" == "jsolly" || "$1" == "cursor[bot]"',
+			'"$1" == "solly-agent" || "$1" == "jsolly" || "$1" == "cursor[bot]" || "$1" == "app/cursor"',
 		),
 		true,
 	);

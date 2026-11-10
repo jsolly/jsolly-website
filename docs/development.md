@@ -269,7 +269,7 @@ Merge only when the required CI validates the exact current head. Never push to
 the default branch, weaken rulesets, bypass checks or use an admin merge. Optional
 personal review skills may help, but they are not prerequisites for this flow.
 
-A non-draft pull request authored by `solly-agent`, `jsolly`, or `cursor[bot]`, with its head
+A non-draft pull request authored by `solly-agent`, `jsolly`, `cursor[bot]`, or `app/cursor`, with its head
 in this repository, arms GitHub squash auto-merge from
 `.github/workflows/auto-merge.yml` when it is opened, updated, reopened, or
 marked ready. Hold it by converting it to a draft or running
