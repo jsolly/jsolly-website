@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 ((BASH_VERSINFO[0] >= 5)) || { echo "✗ $0 requires Bash >= 5, not $BASH_VERSION. Fix: brew install bash; open a fresh shell and rerun repository setup." >&2; exit 1; }
 set -eo pipefail
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
+cd "$ROOT"
+# shellcheck source=/dev/null
+source "$ROOT/gate/gate-lib.sh"
 
 tmp=$(mktemp -d)
 curl --fail --location --silent --show-error \
@@ -69,4 +73,6 @@ if [[ -n "$merges" ]]; then
   echo "::error::$range holds a merge with three or more parents, which the scan cannot read"
   exit 1
 fi
-/usr/local/bin/gitleaks git --no-banner --no-color --redact --verbose --log-opts="--text --diff-merges=remerge --no-color --no-textconv $range"
+# The scan reads the gate's own gitleaks policy, never one the checkout supplies.
+gate_gitleaks_refuse_repo_policy HEAD
+gate_gitleaks_run /usr/local/bin/gitleaks git --no-banner --no-color --redact --verbose --log-opts="--text --diff-merges=remerge --no-color --no-textconv $range"

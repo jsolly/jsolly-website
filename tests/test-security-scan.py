@@ -89,6 +89,60 @@ class SecurityScan(unittest.TestCase):
                 self.assertNotEqual(result.returncode, 0)
                 self.assertEqual(json.loads(result.stdout)["permission"], "deny")
 
+    def test_secrets_scans_under_the_gate_policy_and_refuses_a_repository_policy(self):
+        lib = SCRIPT.parent / "gate-lib.sh"
+        shell = subprocess.check_output(
+            ["bash", "-c", 'source "$1" >/dev/null && printf "%s\\n" "$GATE_GITLEAKS_POLICY"', "_", str(lib)],
+            cwd=self.root, env=self.env, text=True)
+        self.assertEqual(shell, SCAN.GITLEAKS_POLICY)
+        seen = []
+
+        def scanner(args, root, **kwargs):
+            seen.append((Path(args[args.index("--config") + 1]).read_text(), root))
+
+        with patch.object(SCAN, "binary", return_value="gitleaks"), \
+                patch.object(SCAN.subprocess, "check_output", return_value="8.24.2\n"), \
+                patch.object(SCAN, "run", side_effect=scanner):
+            SCAN.secrets(self.root, "dir", str(self.root))
+            self.assertEqual(seen, [(SCAN.GITLEAKS_POLICY, self.root)])
+            for name in (".gitleaks.toml", ".gitleaksignore"):
+                for form in ("file", "dangling symlink"):
+                    with self.subTest(name=name, form=form):
+                        path = self.root / name
+                        if form == "file":
+                            path.write_text("")
+                        else:
+                            path.symlink_to(self.root / "missing-policy")
+                        with self.assertRaisesRegex(ValueError, "Remove " + name.replace(".", r"\.")):
+                            SCAN.secrets(self.root, "dir", str(self.root))
+                        path.unlink()
+        self.assertEqual(len(seen), 1)
+
+    def test_ci_scans_all_history_through_the_gate_policy_first(self):
+        calls = []
+        with patch.object(sys, "argv", ["security-scan.py", "ci", "--root", str(self.root)]), \
+                patch.object(SCAN, "secrets", side_effect=lambda *args: calls.append(("secrets", *args))), \
+                patch.object(SCAN, "working_tree", side_effect=lambda *args: calls.append(("tree",))), \
+                patch.object(SCAN, "structural", side_effect=lambda *args: calls.append(("structural",))), \
+                patch.object(SCAN, "source", side_effect=lambda *args: calls.append(("source",))):
+            self.assertEqual(SCAN.main(), 0)
+        self.assertEqual(calls[0], ("secrets", self.root, "git",
+                                    "--log-opts=--text --diff-merges=remerge --no-color --no-textconv --all"))
+        self.assertEqual([call[0] for call in calls[1:]], ["tree", "structural", "source"])
+
+    def test_ci_range_scan_refuses_a_repository_policy_then_scans_under_the_gate_policy(self):
+        # gate/ci-secrets-scan.sh installs gitleaks with sudo, so its scan is pinned by contract here
+        # and the two helpers it calls are exercised by tests/test-repo-hooks.py.
+        lines = (SCRIPT.parent / "ci-secrets-scan.sh").read_text().splitlines()
+        refuse = lines.index("gate_gitleaks_refuse_repo_policy HEAD")
+        scans = [number for number, line in enumerate(lines)
+                 if "gitleaks " in line and not line.lstrip().startswith(("#", "sudo ", "echo "))
+                 and "gate_gitleaks_refuse_repo_policy" not in line]
+        self.assertEqual(len(scans), 1, scans)
+        self.assertGreater(scans[0], refuse)
+        self.assertTrue(lines[scans[0]].startswith("gate_gitleaks_run /usr/local/bin/gitleaks git "))
+        self.assertIn('source "$ROOT/gate/gate-lib.sh"', lines[:refuse])
+
     def test_push_scans_source_on_a_tracked_copy_without_history_or_structural_checks(self):
         seen = {}
 
