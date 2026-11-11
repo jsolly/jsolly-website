@@ -71,7 +71,9 @@ Object Lock retention ends November 1, 2026. No teardown is authorized.
 
 John retired Heroku and deleted the Heroku account by November 11, 2026. The old
 app (release v315), its database and anything stored there are gone, so Heroku is
-no longer a recovery path; the migration backup above is. Blog images are now [rehosted on this site](blog-images.md), with responsive
+no longer a recovery path; the migration backup above is.
+
+Blog images are now [rehosted on this site](blog-images.md), with responsive
 WebPs and original-source receipts. The `blogthedata` S3 bucket and CloudFront
 distribution remain retained; rehosting does not authorize their retirement.
 Preserve private exports, independent backups, the recipe archive and migration

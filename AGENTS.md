@@ -161,7 +161,7 @@ Read [docs/recipes.md](docs/recipes.md) before changing recipe data, assistant d
 
 ### Legacy host (`legacy/blogthedata/`)
 
-- **The project:** the redirect-only static project for the old blog hosts (blogthedata.com, `www.blogthedata.com`, `blogthedata.vercel.app`), owned by this repo. It is the Root Directory of the separate Vercel project `blogthedata` and is live from protected `jsolly/jsolly-website` main. Auto-assign Custom Production Domains stays off through the soak; staged builds do not replace the proven domain deployment. See `docs/legacy-redirects.md` before changing or promoting it.
+- **The project:** the redirect-only static project for the old blog hosts (blogthedata.com, `www.blogthedata.com`, `blogthedata.vercel.app`), owned by this repo. It is the Root Directory of the separate Vercel project `blogthedata` and is live from protected `jsolly/jsolly-website` main. Auto-assign Custom Production Domains stays off unless John turns it back on; staged builds do not replace the proven domain deployment. See `docs/legacy-redirects.md` before changing or promoting it.
 - **`url-map.json`** is the source of truth: each row of known old paths 301s to `https://www.jsolly.com/...`, serves a file from `public/`, or stays 404 (the static `public/404.html`; no catch-all). Rows of class `service-worker` also get the no-cache JavaScript headers. `meta.freeze_sha` records the awesome-blog source freeze SHA pinned at C0.
 - **`url-union.json`** records every known old path, its evidence and whether it was served 200 in the frozen source. See Invariants for the redirect edit flow.
 - **`public/`** holds only `404.html`, `robots.txt`, `.well-known/security.txt` (the site files policy above) and the two kill-switch service workers.
