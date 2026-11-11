@@ -1,6 +1,6 @@
 // biome-ignore-all lint/performance/noAwaitInLoops: Poll actual Chromium readiness before cancellation.
 // Real browser ownership is an integration boundary. Keep it in the built suite
-// so pure unit checks can run while CI provisions Chromium and OS dependencies.
+// so pure unit checks can run while CI provisions Chromium.
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import fs from "node:fs/promises";

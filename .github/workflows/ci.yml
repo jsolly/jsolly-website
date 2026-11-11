@@ -168,7 +168,10 @@ jobs:
           key: ci-runtime-v5-built-${{ matrix.shard }}-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             ci-runtime-v5-built-${{ matrix.shard }}-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.nvmrc', 'package-lock.json') }}-
-      - run: npx --no-install playwright install --with-deps --only-shell chromium
+      # TEMPORARY: no `--with-deps`. apt on the arm runner could not reach ports.ubuntu.com on
+      # 2026-11-11 (font packages only; the runner image has the browser libraries). Restore the
+      # flag when the mirror resolves again: https://app.todoist.com/app/task/6hxj7q93qR2WxXW5
+      - run: npx --no-install playwright install --only-shell chromium
       - name: Await successful preparation from this attempt
         env:
           GH_TOKEN: ${{ github.token }}

@@ -166,9 +166,11 @@ it("CI browser setup overlaps build and gates every browser-dependent suite", as
 	});
 	assert.ok(result.stdout.includes("pre-commit gate passed"));
 	const calls = await f.calls();
+	// TEMPORARY: no `--with-deps` while the arm runner cannot reach ports.ubuntu.com; restore with
+	// gate/run-gate.mjs and the workflows: https://app.todoist.com/app/task/6hxj7q93qR2WxXW5
 	assert.ok(
 		calls.includes(
-			"npx --no-install playwright install --with-deps --only-shell chromium\n",
+			"npx --no-install playwright install --only-shell chromium\n",
 		),
 	);
 	assert.ok(calls.includes("npm test\n"));
