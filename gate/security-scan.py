@@ -16,6 +16,12 @@ from zoneinfo import ZoneInfo
 
 VERSIONS = {"semgrep": "1.182.1", "zizmor": "1.31.1", "cfn-lint": "1.58.0"}
 OSV_VERSION = "2.7.0"
+# Gitleaks reads a .gitleaks.toml (without --config) and a .gitleaksignore (always) from the root it
+# scans, so the scan passes this policy and refuses to run beside either file (REPOSITORY_GITLEAKS_FILES). This is
+# GATE_GITLEAKS_POLICY in gate/gate-lib.sh (the pinned release's default rules, no ignore list);
+# change both together.
+GITLEAKS_POLICY = 'title = "jsolly-website gate"\n\n[extend]\nuseDefault = true\n'
+REPOSITORY_GITLEAKS_FILES = (".gitleaks.toml", ".gitleaksignore")
 
 # John approved these exact dispositions in chat: deepmerge, sandbox and zod on
 # 2026-10-28; glob and minimatch on 2026-10-31.
@@ -221,11 +227,19 @@ def source(root):
 
 
 def secrets(root, *args):
+    """Gitleaks under the gate's own policy, never a .gitleaks.toml or .gitleaksignore in root."""
     scanner = binary("gitleaks", "gitleaks@8.24.2")
     version = subprocess.check_output([scanner, "version"], text=True)
     if version.strip().removeprefix("v") != "8.24.2":
         raise ValueError("Install repository-pinned gitleaks 8.24.2")
-    run([scanner, *args, "--redact", "--no-banner"], root)
+    found = [name for name in REPOSITORY_GITLEAKS_FILES if os.path.lexists(root / name)]
+    if found:
+        raise ValueError(f"Remove {' and '.join(found)}: the scan reads only the gate's own gitleaks "
+                         "policy (GITLEAKS_POLICY here and in gate/gate-lib.sh)")
+    with tempfile.TemporaryDirectory(prefix="website-gitleaks-policy-") as policy:
+        config = Path(policy) / "gitleaks.toml"
+        config.write_text(GITLEAKS_POLICY)
+        run([scanner, *args, "--redact", "--no-banner", "--config", str(config)], root)
 
 
 def git(root, *args):

@@ -36,6 +36,17 @@ branch's copy of that script.
   PRs run it like every other PR. The repository ruleset requires it, so a
   failing check blocks the merge.
 
+Every gitleaks scan (staged, pre-push, Cursor, the CI range scan and the
+full-history scan) reads the gate's own policy: the pinned release's default
+rules and no ignore list, held as `GATE_GITLEAKS_POLICY` in `gate/gate-lib.sh`
+and `GITLEAKS_POLICY` in `gate/security-scan.py`. Change both together, through
+review. Left to its defaults, gitleaks takes its rules from a `.gitleaks.toml`
+at the root it scans and always reads a `.gitleaksignore` there, so either file
+could switch a finding off. Each scan therefore refuses to run when either file
+sits at the root of the index, the pushed commit, the checkout or the directory
+it scans from, tracked or not. Inline `gitleaks:allow` comments still mark
+reviewed individual false positives.
+
 Semgrep metrics and version checking are disabled. Rules are fetched from
 `p/default`; that service-managed rule set can change independently of the
 pinned CLI. Scanner findings and fatal errors fail the check. Semgrep's own
@@ -81,6 +92,7 @@ python3 gate/security-scan.py ci
 ```
 
 The Python test suite exercises the outgoing-commit range and every pushed ref,
+the gate-owned gitleaks policy and the refusal of a repository one,
 untracked-file coverage, malformed input, failed-scanner denial and unreviewed
 scanner rejection. A protocol test does not prove a native Cursor hook fired;
 that needs a separate actual Cursor session. Passing source checks does not
