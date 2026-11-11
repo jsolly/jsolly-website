@@ -39,7 +39,7 @@ download, database restore and media verification. Private receipts and separate
 local copies remain outside Git.
 
 This bucket is separate from the live `blogthedata` media bucket and CloudFront
-distribution. This procedure changes neither those resources nor Heroku.
+distribution. This procedure does not change those resources.
 
 ## Review and apply
 
