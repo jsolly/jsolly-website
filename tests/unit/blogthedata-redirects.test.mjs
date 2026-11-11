@@ -3,6 +3,7 @@ import { spawnSync } from "node:child_process";
 import {
 	cpSync,
 	existsSync,
+	mkdirSync,
 	mkdtempSync,
 	readFileSync,
 	rmSync,
@@ -405,6 +406,57 @@ it("An edit to url-map.json without regenerating vercel.json fails the gate", ()
 		});
 		writeFileSync(join(dir, "url-map.json"), JSON.stringify(edited));
 		assert.match(vercelJsonDrift(dir) ?? "", DRIFT_IN_REDIRECTS);
+	} finally {
+		rmSync(dir, { recursive: true, force: true });
+	}
+});
+
+it("Vercel skips a blogthedata build only when its folder is unchanged, and builds when history is missing", () => {
+	// Vercel skips on exit 0, builds on exit 1 and fails the deployment on any
+	// other exit, so every git error (a previous SHA outside the shallow clone,
+	// or none at all) must reach Vercel as 1.
+	const dir = mkdtempSync(join(tmpdir(), "blogthedata-ignore-"));
+	const git = (...args) => {
+		const result = spawnSync("git", args, {
+			cwd: dir,
+			encoding: "utf8",
+			env: {
+				...process.env,
+				GIT_CONFIG_GLOBAL: "/dev/null",
+				GIT_CONFIG_NOSYSTEM: "1",
+				GIT_AUTHOR_NAME: "test",
+				GIT_AUTHOR_EMAIL: "test@example.com",
+				GIT_COMMITTER_NAME: "test",
+				GIT_COMMITTER_EMAIL: "test@example.com",
+			},
+		});
+		assert.equal(result.status, 0, result.stderr);
+		return result.stdout.trim();
+	};
+	const skipCheck = (previous) =>
+		spawnSync("sh", ["-c", config.ignoreCommand], {
+			cwd: join(dir, "legacy"),
+			encoding: "utf8",
+			env: { ...process.env, VERCEL_GIT_PREVIOUS_SHA: previous },
+		}).status;
+	try {
+		git("init", "-q");
+		writeFileSync(join(dir, "site.txt"), "site");
+		mkdirSync(join(dir, "legacy"));
+		cpSync(join(LEGACY_DIR, "vercel.json"), join(dir, "legacy", "vercel.json"));
+		git("add", ".");
+		git("commit", "-qm", "deployed");
+		const deployed = git("rev-parse", "HEAD");
+		writeFileSync(join(dir, "site.txt"), "site edit");
+		git("commit", "-qam", "website only");
+		assert.equal(skipCheck(deployed), 0, "unchanged legacy folder skips");
+		// A well-formed SHA absent from the clone: git exits 128, as on Vercel.
+		assert.equal(skipCheck("1".repeat(40)), 1, "missing history builds");
+		assert.equal(skipCheck(""), 1, "no previous deployment builds");
+		writeFileSync(join(dir, "legacy", "note.txt"), "legacy edit");
+		git("add", ".");
+		git("commit", "-qm", "legacy edit");
+		assert.equal(skipCheck(deployed), 1, "a legacy change builds");
 	} finally {
 		rmSync(dir, { recursive: true, force: true });
 	}
