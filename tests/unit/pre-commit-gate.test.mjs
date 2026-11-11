@@ -168,7 +168,7 @@ it("CI browser setup overlaps build and gates every browser-dependent suite", as
 	const calls = await f.calls();
 	assert.ok(
 		calls.includes(
-			"npx --no-install playwright install --with-deps --only-shell chromium\n",
+			"npx --no-install playwright install --only-shell chromium\n",
 		),
 	);
 	assert.ok(calls.includes("npm test\n"));

@@ -202,7 +202,8 @@ async function runValidation(root, built) {
 										"--no-install",
 										"playwright",
 										"install",
-										"--with-deps",
+										// TEMPORARY: no --with-deps; ports.ubuntu.com was unreachable from the arm
+										// runner on 2026-11-11. Restore it with the workflow steps (see ci.yml).
 										"--only-shell",
 										"chromium",
 									],

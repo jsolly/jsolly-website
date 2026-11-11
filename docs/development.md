@@ -67,8 +67,8 @@ checkout fails before validation with the fix: `git fetch --unshallow origin`.
 The scheduler rejects changes to HEAD, the
 index or nonignored source files during validation. All commands and counted suites
 must pass; failures retain diagnostics under the printed `jsolly-gate-*` directory.
-In CI, `JSOLLY_INSTALL_BROWSER=1` runs the same headless-shell and full OS
-installation command alongside static checks, pure unit tests, types and build.
+In CI, `JSOLLY_INSTALL_BROWSER=1` runs the same headless-shell installation
+command (temporarily without Playwright's OS dependencies; see `ci.yml`) alongside static checks, pure unit tests, types and build.
 Smoke contracts and built browser tests wait for installation to succeed; built
 tests also wait for the complete build and CSP suite. Installation failures fail
 the gate. The real Chromium process-cleanup regression belongs to the built suite;
