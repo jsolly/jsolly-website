@@ -137,6 +137,50 @@ gate_gitleaks_bin() {
   return 1
 }
 
+# Gitleaks takes its rules from --config, else $GITLEAKS_CONFIG, else a .gitleaks.toml at the root
+# it scans, and always reads a .gitleaksignore at that root, whatever --gitleaks-ignore-path says
+# (verified against 8.24.2). Left alone, a committed or stray file there decides what the scan
+# reports. So every gate scan reads this gate-owned policy (the pinned release's default rules, no
+# ignore list) and refuses to run beside either file. gate/security-scan.py holds the same text as
+# GITLEAKS_POLICY; change both together. Inline gitleaks:allow comments still apply.
+GATE_GITLEAKS_POLICY='title = "jsolly-website gate"
+
+[extend]
+useDefault = true'
+
+# Run gitleaks in the directory it scans, under GATE_GITLEAKS_POLICY written to a new file.
+# Callers run gate_gitleaks_refuse_repo_policy first.
+gate_gitleaks_run() { # <gitleaks binary> <gitleaks arguments...>
+  local policy status=0
+  policy="$(mktemp -d "${TMPDIR:-/tmp}/gate-gitleaks.XXXXXX")" || return 1
+  if ! printf '%s\n' "$GATE_GITLEAKS_POLICY" >"$policy/gitleaks.toml"; then
+    rm -rf "$policy"
+    return 1
+  fi
+  "$1" "${@:2}" --config "$policy/gitleaks.toml" || status=$?
+  rm -rf "$policy"
+  return "$status"
+}
+
+# Refuse a .gitleaks.toml or .gitleaksignore in the working directory gitleaks will scan from, and at
+# the root of <commit>, or of the index with none, so none reaches a scan or misleads a reader.
+gate_gitleaks_refuse_repo_policy() { # [commit]
+  local found="" name listed names=(.gitleaks.toml .gitleaksignore)
+  for name in "${names[@]}"; do
+    [[ ! -e "$name" && ! -L "$name" ]] || found+=" $PWD/$name"
+  done
+  if [ $# -eq 0 ]; then
+    listed="$(git ls-files --cached -- "${names[@]/#/:(top,literal)}")" || return 1
+  else
+    listed="$(git ls-tree --full-tree --name-only "$1" -- "${names[@]}")" || return 1
+  fi
+  for name in $listed; do found+=" ${1:-index}:$name"; done
+  [ -n "$found" ] || return 0
+  printf '✗ found%s. The gate reads only its own gitleaks policy (GATE_GITLEAKS_POLICY in gate/gate-lib.sh) and refuses a repository .gitleaks.toml or .gitleaksignore.\n  Fix: remove it. Change the policy in gate/gate-lib.sh and gate/security-scan.py through review, or mark a reviewed false positive with an inline gitleaks:allow comment.\n' \
+    "$found" >&2
+  return 1
+}
+
 # Staged secrets scan: gitleaks over the index (what the commit will capture), not a
 # ref range. `--pre-commit --staged` is gitleaks' documented pre-commit mode ("scan
 # staged commits"). Fail-loud if the pinned gitleaks is absent.
@@ -162,7 +206,8 @@ gate_secrets_scan_staged() {
       "$unread" "$(git rev-parse --git-path info/attributes)" "$(git --version)" >&2
     exit 1
   fi
-  GIT_ATTR_SOURCE="$tree" "$gl" git --no-banner --no-color --redact --verbose --pre-commit --staged
+  gate_gitleaks_refuse_repo_policy || exit 1
+  GIT_ATTR_SOURCE="$tree" gate_gitleaks_run "$gl" git --no-banner --no-color --redact --verbose --pre-commit --staged
 }
 
 # Markdown lint when any path on stdin (added/changed, one per line) is authored

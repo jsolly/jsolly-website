@@ -17,14 +17,20 @@ BUNDLE = ('config/agents/repository.json', 'gate/gate-lib.sh', 'gate/hooks/pre-c
           'gate/security-scan.py')
 
 ZERO = '0' * 40
-# Stands in for gitleaks: logs each call's arguments and the subjects of the commits its
-# --log-opts select, fails on spacing gitleaks would pass to git as an empty revision or when git
-# cannot read that range, and finds a leak in any commit whose subject is "leak".
+# Stands in for gitleaks: logs each call's arguments, the --config file it was handed and the
+# subjects of the commits its --log-opts select, fails on spacing gitleaks would pass to git as an
+# empty revision or when git cannot read that range, and finds a leak in any commit whose subject is
+# "leak".
 FAKE_GITLEAKS = '''#!/usr/bin/env bash
 set -euo pipefail
 if [ "$1" = version ]; then echo 8.24.2; exit 0; fi
 printf '%s\\n' "$*" >> "$FIXTURE_CALLS"
-for arg; do case $arg in --log-opts=*) opts="${arg#--log-opts=}";; esac; done
+prev=
+for arg; do
+  [ "$prev" != --config ] || cat "$arg" >> "$FIXTURE_POLICY"
+  prev=$arg
+  case $arg in --log-opts=*) opts="${arg#--log-opts=}";; esac
+done
 # gitleaks splits --log-opts on single spaces, so an extra space reaches git as an empty revision.
 case $opts in " "*|*" "|*"  "*) echo "fixture: malformed --log-opts" >&2; exit 3;; esac
 subjects="$(git log --format=%s $opts)"
@@ -80,7 +86,12 @@ gate_secrets_scan_staged
         tools = self.root / 'tools'
         tools.mkdir()
         scanner = tools / 'fixture-gitleaks'
+        # Records the --config file each staged scan was handed, then finds the fixture secret.
+        self.staged_policy = self.scratch / 'staged-policy'
+        self.env['FIXTURE_STAGED_POLICY'] = str(self.staged_policy)
         scanner.write_text('''#!/usr/bin/env bash
+prev=
+for arg; do [ "$prev" != --config ] || cat "$arg" > "$FIXTURE_STAGED_POLICY"; prev=$arg; done
 if git diff --cached --text | grep -q REPO_FIXTURE_SECRET; then
   echo fixture-secret-found >&2
   exit 1
@@ -94,6 +105,12 @@ fi
         self.tool('install', check=True)
         self.hooks = Path(self.git('config', '--get', 'core.hooksPath').stdout.strip())
         self.installed = self.hooks.parent / 'gate/repo-hooks.py'
+
+    def gate_policy(self):
+        """The candidate's GATE_GITLEAKS_POLICY, as gate_gitleaks_run writes it."""
+        return subprocess.check_output(
+            ['bash', '-c', 'source "$1" >/dev/null && printf "%s\\n" "$GATE_GITLEAKS_POLICY"', '_',
+             str(SOURCE / 'gate/gate-lib.sh')], cwd=self.root, env=self.env, text=True)
 
     def git(self, *args, root=None, check=True):
         return subprocess.run(['git', '-C', str(root or self.root), *args], env=self.env,
@@ -139,14 +156,16 @@ fi
             tools.mkdir()
             (tools / 'gitleaks').write_text(FAKE_GITLEAKS)
             (tools / 'gitleaks').chmod(0o755)
-        logs = {name: self.scratch / name for name in ('calls', 'scanned')}
+        logs = {name: self.scratch / name for name in ('calls', 'scanned', 'policy')}
         for log in logs.values():
             log.unlink(missing_ok=True)
         env = {**self.env, 'PATH': str(tools) + os.pathsep + self.env['PATH'],
-               'FIXTURE_CALLS': str(logs['calls']), 'FIXTURE_SCANNED': str(logs['scanned'])}
+               'FIXTURE_CALLS': str(logs['calls']), 'FIXTURE_SCANNED': str(logs['scanned']),
+               'FIXTURE_POLICY': str(logs['policy'])}
         result = subprocess.run([str(self.hooks / 'pre-push'), remote, 'fixture-url'], cwd=self.root,
                                 env=env, input=records, text=True, capture_output=True)
         read = {name: log.read_text().splitlines() if log.exists() else [] for name, log in logs.items()}
+        self.pushed_policy = read['policy']
         return result, read['scanned'], read['calls']
 
     def test_pre_push_scans_the_commits_the_destination_lacks(self):
@@ -161,6 +180,29 @@ fi
         assert len(calls) == 1 and '--redact' in calls[0].split()
         # The same options as `security-scan.py ci` and gate/ci-secrets-scan.sh.
         assert '--log-opts=--text --diff-merges=remerge --no-color --no-textconv ' in calls[0]
+        # The gate's own policy, never one from the checkout.
+        assert '/gitleaks.toml' in calls[0].split('--config ', 1)[1].split()[0]
+        assert self.pushed_policy == self.gate_policy().splitlines()
+
+    def test_pre_push_refuses_a_repository_gitleaks_policy_without_scanning(self):
+        for name in ('.gitleaks.toml', '.gitleaksignore'):
+            policy = self.root / name
+            policy.write_text('[allowlist]\npaths = [".*"]\n')
+            self.git('add', name)
+            tree = self.git('write-tree').stdout.strip()
+            self.git('rm', '-q', '--cached', name)
+            policy.unlink()
+            pushed = self.git('commit-tree', tree, '-p', 'HEAD', '-m', 'leak').stdout.strip()
+            result, scanned, calls = self.pre_push(f'refs/heads/topic {pushed} refs/heads/topic {ZERO}\n')
+            assert result.returncode != 0
+            assert 'refuses a repository .gitleaks.toml or .gitleaksignore' in result.stderr
+            assert pushed + ':' + name in result.stderr
+            assert calls == [] and scanned == []
+        # Gitleaks reads a .gitleaksignore beside it whatever its flags say, so a stray one is refused too.
+        (self.root / '.gitleaksignore').write_text('')
+        result, _, calls = self.pre_push(f'refs/heads/topic {self.commit("outgoing")} refs/heads/topic {ZERO}\n')
+        assert result.returncode != 0 and calls == []
+        assert str(self.root / '.gitleaksignore') in result.stderr
 
     def test_pre_push_to_a_url_excludes_only_the_remote_commit_it_replaces(self):
         outgoing = self.commit('outgoing')
@@ -252,6 +294,40 @@ fi
                 result = self.git('commit', '-m', 'safe commit', *options, check=False)
                 assert result.returncode == 0, result.stdout + result.stderr
 
+    def test_commits_refuse_a_staged_or_stray_gitleaks_policy(self, subtests):
+        (self.root / 'content.txt').write_text('safe updated\n')
+        self.git('add', 'content.txt')
+        for name in ('.gitleaks.toml', '.gitleaksignore'):
+            with subtests.test(staged=name):
+                (self.root / name).write_text('[allowlist]\npaths = [".*"]\n')
+                self.git('add', name)
+                (self.root / name).unlink()
+                result = self.git('commit', '-m', 'must refuse', check=False)
+                assert result.returncode != 0
+                assert 'index:' + name in result.stderr
+                assert 'refuses a repository .gitleaks.toml or .gitleaksignore' in result.stderr
+                self.git('rm', '-q', '--cached', name)
+        # Untracked, a file (or a symlink, dangling or not) is still what gitleaks would read.
+        for name in ('.gitleaks.toml', '.gitleaksignore'):
+            for form in ('file', 'dangling symlink'):
+                with subtests.test(stray=name, form=form):
+                    path = self.root / name
+                    if form == 'file':
+                        path.write_text('')
+                    else:
+                        path.symlink_to(self.scratch / 'missing-policy')
+                    result = self.git('commit', '-m', 'must refuse', check=False)
+                    assert result.returncode != 0
+                    assert str(path) in result.stderr
+                    path.unlink()
+        # Gitleaks reads neither file below the root it scans, so a nested one is ordinary content.
+        (self.root / 'sub').mkdir()
+        (self.root / 'sub/.gitleaks.toml').write_text('')
+        self.git('add', 'sub/.gitleaks.toml')
+        self.staged_policy.unlink(missing_ok=True)
+        result = self.git('commit', '-m', 'safe commit', check=False)
+        assert result.returncode == 0, result.stdout + result.stderr
+        assert self.staged_policy.read_text() == self.gate_policy()
 
     def old_layout_fixture(self, frozen, manifest_path, *, restore=True):
         """Install a frozen real helper from the scripts/ layout it expects, then (by default)
