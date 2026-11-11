@@ -415,20 +415,29 @@ it("Vercel skips a blogthedata build only when its folder is unchanged, and buil
 	// Vercel skips on exit 0, builds on exit 1 and fails the deployment on any
 	// other exit, so every git error (a previous SHA outside the shallow clone,
 	// or none at all) must reach Vercel as 1.
-	const dir = mkdtempSync(join(tmpdir(), "blogthedata-ignore-"));
+	const root = mkdtempSync(join(tmpdir(), "blogthedata-ignore-"));
+	const dir = join(root, "repo");
+	// A hook exports GIT_DIR, GIT_INDEX_FILE and friends; drop every inherited
+	// GIT_* so this fixture can only touch its own repository. No detached
+	// auto-maintenance may race the separate git diff process.
+	const gitConfig = join(root, "gitconfig");
+	writeFileSync(gitConfig, "[maintenance]\n\tauto = false\n");
+	const env = {
+		...Object.fromEntries(
+			Object.entries(process.env).filter(([key]) => !key.startsWith("GIT_")),
+		),
+		GIT_CONFIG_GLOBAL: gitConfig,
+		GIT_CONFIG_NOSYSTEM: "1",
+		GIT_AUTHOR_NAME: "test",
+		GIT_AUTHOR_EMAIL: "test@example.com",
+		GIT_COMMITTER_NAME: "test",
+		GIT_COMMITTER_EMAIL: "test@example.com",
+	};
 	const git = (...args) => {
 		const result = spawnSync("git", args, {
 			cwd: dir,
 			encoding: "utf8",
-			env: {
-				...process.env,
-				GIT_CONFIG_GLOBAL: "/dev/null",
-				GIT_CONFIG_NOSYSTEM: "1",
-				GIT_AUTHOR_NAME: "test",
-				GIT_AUTHOR_EMAIL: "test@example.com",
-				GIT_COMMITTER_NAME: "test",
-				GIT_COMMITTER_EMAIL: "test@example.com",
-			},
+			env,
 		});
 		assert.equal(result.status, 0, result.stderr);
 		return result.stdout.trim();
@@ -437,9 +446,10 @@ it("Vercel skips a blogthedata build only when its folder is unchanged, and buil
 		spawnSync("sh", ["-c", config.ignoreCommand], {
 			cwd: join(dir, "legacy"),
 			encoding: "utf8",
-			env: { ...process.env, VERCEL_GIT_PREVIOUS_SHA: previous },
+			env: { ...env, VERCEL_GIT_PREVIOUS_SHA: previous },
 		}).status;
 	try {
+		mkdirSync(dir);
 		git("init", "-q");
 		writeFileSync(join(dir, "site.txt"), "site");
 		mkdirSync(join(dir, "legacy"));
@@ -458,7 +468,7 @@ it("Vercel skips a blogthedata build only when its folder is unchanged, and buil
 		git("commit", "-qm", "legacy edit");
 		assert.equal(skipCheck(deployed), 1, "a legacy change builds");
 	} finally {
-		rmSync(dir, { recursive: true, force: true });
+		rmSync(root, { recursive: true, force: true });
 	}
 });
 
