@@ -730,8 +730,9 @@ class TestMiseLock:
             if isinstance(table, dict) and 'slsa' in table.get('provenance', {})
         ]
         assert recorded == [], (
-            'mise 2026.9.16 and later refuse to install osv-scanner from a lock that records SLSA '
-            'provenance while the Aqua registry entry names no signer; delete the provenance.slsa '
-            'subtables under tools.osv-scanner after `mise lock`; on a version bump, recheck whether '
-            'the registry now names a signer and, if it does, remove this test instead'
+            'mise refuses to install osv-scanner from a lock that records SLSA provenance while the '
+            'Aqua registry entry names no signer (seen with mise 2026.9.16 and 2026.10.14); delete the '
+            'provenance.slsa subtables under tools.osv-scanner after `mise lock`; on a version bump, '
+            'recheck whether the registry now names a signer and, if it does, keep the subtables and '
+            'remove this test'
         )

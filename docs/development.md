@@ -13,9 +13,10 @@ fresh Linux setup provisions a pinned, checksum-verified public mise binary in
 and `.nvmrc` own its tool pins; `mise.lock` records each tool's download URL and checksum per
 platform so installs need no GitHub API lookup. To bump a pin, edit `.mise.toml`, run `mise lock`
 and commit both files. After `mise lock` and before committing, delete the `provenance.slsa`
-subtables under `tools.osv-scanner`: mise 2026.9.16 and 2026.10.14 refuse to install from them
-because its registry entry names no signer. A gate test enforces this; recheck the registry on
-each osv-scanner bump. Checksums and URLs still pin the download. On a reviewed fresh
+subtables under `tools.osv-scanner`: its registry entry names no signer, and mise refuses
+them (seen with mise 2026.9.16 and 2026.10.14). A gate test enforces this. Recheck the registry
+on each osv-scanner bump; if it now names a signer, keep the subtables and remove the guard test
+(`TestMiseLock` in `tests/test-repo-hooks.py`). Checksums and URLs still pin the download. On a reviewed fresh
 `origin/main` checkout run:
 
 ```bash
