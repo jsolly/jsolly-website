@@ -8,6 +8,7 @@ import shutil
 import stat
 import subprocess
 import sys
+import tomllib
 import pytest
 from unittest.mock import patch
 
@@ -714,3 +715,23 @@ cp "$BOOTSTRAP_PAYLOAD" "$2"
         assert result.returncode != 0
         assert destination.read_text() == 'existing useful content\n'
         assert not (self.downloads.exists())
+
+
+class TestMiseLock:
+    # mise 2026.9.12 re-adds these subtables on every `mise lock`, and CI and the gate run a mise
+    # that accepts them, so only this test catches a forgotten deletion before a newer mise on a
+    # developer or builder host refuses the lock.
+    def test_osv_scanner_records_no_slsa_provenance(self):
+        lock = tomllib.loads((SOURCE / 'mise.lock').read_text())
+        recorded = [
+            platform
+            for entry in lock['tools']['osv-scanner']
+            for platform, table in entry.items()
+            if isinstance(table, dict) and 'slsa' in table.get('provenance', {})
+        ]
+        assert recorded == [], (
+            'mise 2026.9.16 and later refuse to install osv-scanner from a lock that records SLSA '
+            'provenance while the Aqua registry entry names no signer; delete the provenance.slsa '
+            'subtables under tools.osv-scanner after `mise lock`; on a version bump, recheck whether '
+            'the registry now names a signer and, if it does, remove this test instead'
+        )
