@@ -197,7 +197,9 @@ closed. For pre-commit and Cursor the dispatcher executes a verified snapshot, t
 runs quality scripts in the committing checkout. Pre-push runs range gitleaks
 and the snapshot's Semgrep and OSV source scan from the installed snapshot's
 own dispatcher and library without re-verifying it on each push; it never runs
-the branch's files. Re-run reviewed setup after changing tool setup on main.
+the branch's files. A Semgrep or OSV scan whose server cannot be reached is
+skipped with a warning and left to `Security / security`
+([security scanning](security-scanning.md)). Re-run reviewed setup after changing tool setup on main.
 
 This is hook-registration integrity, not a sandbox. Never check out or execute
 third-party/fork PR code in a trusted clone; review its diff through GitHub. Do not

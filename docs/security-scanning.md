@@ -23,8 +23,13 @@ branch's copy of that script.
   the objects the push sends, ignoring local replace refs, and refuses a ref
   that names something other than a commit. That same push then runs Semgrep
   `p/default` and OSV on a copy of the tracked, unignored tree, with the
-  reviewed dependency dispositions. `Security / security` still repeats that
-  source scan and adds full-history gitleaks, zizmor and cfn-lint.
+  reviewed dependency dispositions. A scan whose server cannot be reached
+  (semgrep.dev or api.osv.dev: no DNS, TCP or TLS, no answer, or a proxy that
+  refuses the connection, as in Claude's cloud sessions) is skipped with a
+  warning. Any HTTP answer counts as reachable, any other probe failure fails
+  the push, and a finding or scanner error still fails it once a scan runs.
+  `Security / security` still repeats that source scan, never skips it, and
+  adds full-history gitleaks, zizmor and cfn-lint.
 - Cursor's `beforeShellExecution` hook scans tracked and unignored working
   files with gitleaks before shell commands. `failClosed: true` blocks crashes,
   timeouts and invalid responses; a scanner finding returns `permission: deny`.
@@ -73,7 +78,9 @@ plan, app installation, ruleset, credential or infrastructure apply is changed.
 Run the existing reviewed repository setup after this bundle lands. It installs
 both Git hooks from a verified snapshot and the mise-pinned tools, including OSV. The pinned
 Python scanners are resolved through uvx on use. Missing tools, unavailable
-scanner services and nonzero scanner exits block the relevant operation.
+scanner services and nonzero scanner exits block the relevant operation,
+except the pre-push skip of an unreachable Semgrep or OSV server described
+above.
 Noninteractive Git clients can locate tools through mise without shell shims.
 
 The hook manifest allowlist changed, so an existing pre-push-free snapshot stays

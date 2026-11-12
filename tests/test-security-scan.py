@@ -150,9 +150,11 @@ class SecurityScan(unittest.TestCase):
             seen["root"] = root
             seen["tree"] = tree
 
-        def scan_source(tree):
+        def scan_source(tree, *, skip_unreachable):
             self.assertEqual(tree, seen["tree"])
             self.assertNotEqual(tree, self.root)
+            # Only pre-push may skip a scan whose server cannot be reached.
+            self.assertTrue(skip_unreachable)
 
         with patch.object(SCAN, "working_tree", side_effect=copy_tree), \
                 patch.object(SCAN, "source", side_effect=scan_source) as source, \
@@ -170,6 +172,68 @@ class SecurityScan(unittest.TestCase):
             with self.assertRaises(subprocess.CalledProcessError):
                 SCAN.source(self.root)
             output.assert_not_called()
+
+    def source_with_probe(self, code, *, skip_unreachable=True):
+        """Run source() with the scanners stubbed and every curl probe exiting with code."""
+        probes = []
+
+        def run(command, **kwargs):
+            probes.append(command)
+            return subprocess.CompletedProcess(command, code)
+
+        with patch.object(SCAN.shutil, "which", return_value="/usr/bin/curl"), \
+                patch.object(SCAN.subprocess, "run", side_effect=run), \
+                patch.object(SCAN, "python_tool") as tool, \
+                patch.object(SCAN, "binary", return_value="osv-scanner"), \
+                patch.object(SCAN.subprocess, "check_output", return_value=f"osv-scanner version: {SCAN.OSV_VERSION}\n"), \
+                patch.object(SCAN, "dependencies") as dependencies:
+            SCAN.source(self.root, skip_unreachable=skip_unreachable)
+        return probes, tool, dependencies
+
+    def test_pre_push_skips_a_scan_only_when_its_server_refuses_the_connection(self):
+        for code in sorted(SCAN.UNREACHABLE_CURL_EXITS):
+            with self.subTest(code=code), patch("sys.stderr") as stderr:
+                probes, tool, dependencies = self.source_with_probe(code)
+                tool.assert_not_called()
+                dependencies.assert_not_called()
+                self.assertEqual([command[-1] for command in probes],
+                                 ["https://semgrep.dev/", "https://api.osv.dev/"])
+                warnings = "".join(call.args[0] for call in stderr.write.call_args_list)
+                self.assertIn(f"semgrep (pre-push) skipped: https://semgrep.dev/ is unreachable from this host (curl exit {code})", warnings)
+                self.assertIn("osv-scanner (pre-push) skipped", warnings)
+                self.assertIn("Security / security runs it on the pull request", warnings)
+
+    def test_any_http_answer_runs_both_pre_push_scans(self):
+        probes, tool, dependencies = self.source_with_probe(0)
+        tool.assert_called_once()
+        dependencies.assert_called_once_with("osv-scanner", self.root)
+        # No --fail: an HTTP error status still exits 0 and counts as reachable.
+        for command in probes:
+            self.assertEqual(command[:-1], ["/usr/bin/curl", "--head", "--silent", "--output", os.devnull,
+                                            "--connect-timeout", "5", "--max-time", "15"])
+            self.assertNotIn("--fail", command)
+
+    def test_other_probe_failures_and_missing_curl_fail_the_push(self):
+        for code in (1, 22, 60, 77):
+            with self.subTest(code=code):
+                with self.assertRaisesRegex(ValueError, f"curl exit {code}, not a refused connection"):
+                    self.source_with_probe(code)
+        with patch.object(SCAN.shutil, "which", return_value=None), \
+                patch.object(SCAN, "python_tool") as tool:
+            with self.assertRaisesRegex(ValueError, "curl is not on PATH"):
+                SCAN.source(self.root, skip_unreachable=True)
+            tool.assert_not_called()
+
+    def test_ci_never_probes_or_skips_a_scan(self):
+        with patch.object(SCAN, "unreachable") as probe, \
+                patch.object(SCAN, "python_tool") as tool, \
+                patch.object(SCAN, "binary", return_value="osv-scanner"), \
+                patch.object(SCAN.subprocess, "check_output", return_value=f"osv-scanner version: {SCAN.OSV_VERSION}\n"), \
+                patch.object(SCAN, "dependencies") as dependencies:
+            SCAN.source(self.root)
+        probe.assert_not_called()
+        tool.assert_called_once()
+        dependencies.assert_called_once()
 
     def test_semgrep_scope_is_owned_by_the_scanner_and_keeps_tests_and_build(self):
         with patch.object(SCAN, "python_tool", side_effect=subprocess.CalledProcessError(1, "semgrep")) as tool:
