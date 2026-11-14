@@ -17,28 +17,6 @@ BUNDLE = ('config/agents/repository.json', 'gate/gate-lib.sh', 'gate/hooks/pre-c
           'gate/repo-hooks.py', 'gate/repo-python.sh', 'gate/setup-agent-environment.sh',
           'gate/security-scan.py')
 
-ZERO = '0' * 40
-# Stands in for gitleaks: logs each call's arguments, the --config file it was handed and the
-# subjects of the commits its --log-opts select, fails on spacing gitleaks would pass to git as an
-# empty revision or when git cannot read that range, and finds a leak in any commit whose subject is
-# "leak".
-FAKE_GITLEAKS = '''#!/usr/bin/env bash
-set -euo pipefail
-if [ "$1" = version ]; then echo 8.24.2; exit 0; fi
-printf '%s\\n' "$*" >> "$FIXTURE_CALLS"
-prev=
-for arg; do
-  [ "$prev" != --config ] || cat "$arg" >> "$FIXTURE_POLICY"
-  prev=$arg
-  case $arg in --log-opts=*) opts="${arg#--log-opts=}";; esac
-done
-# gitleaks splits --log-opts on single spaces, so an extra space reaches git as an empty revision.
-case $opts in " "*|*" "|*"  "*) echo "fixture: malformed --log-opts" >&2; exit 3;; esac
-subjects="$(git log --format=%s $opts)"
-[ -z "$subjects" ] || printf '%s\\n' "$subjects" >> "$FIXTURE_SCANNED"
-! grep -qx leak <<<"$subjects"
-'''
-
 
 def load_module(path):
     """Import a hook helper (current candidate or frozen fixture) from its file."""
@@ -150,108 +128,6 @@ fi
     def commit(self, subject):
         tree = self.git('rev-parse', 'HEAD^{tree}').stdout.strip()
         return self.git('commit-tree', tree, '-p', 'HEAD', '-m', subject).stdout.strip()
-
-    def pre_push(self, records, remote='origin'):
-        tools = self.scratch / 'path-tools'
-        if not tools.exists():
-            tools.mkdir()
-            (tools / 'gitleaks').write_text(FAKE_GITLEAKS)
-            (tools / 'gitleaks').chmod(0o755)
-        logs = {name: self.scratch / name for name in ('calls', 'scanned', 'policy')}
-        for log in logs.values():
-            log.unlink(missing_ok=True)
-        env = {**self.env, 'PATH': str(tools) + os.pathsep + self.env['PATH'],
-               'FIXTURE_CALLS': str(logs['calls']), 'FIXTURE_SCANNED': str(logs['scanned']),
-               'FIXTURE_POLICY': str(logs['policy'])}
-        result = subprocess.run([str(self.hooks / 'pre-push'), remote, 'fixture-url'], cwd=self.root,
-                                env=env, input=records, text=True, capture_output=True)
-        read = {name: log.read_text().splitlines() if log.exists() else [] for name, log in logs.items()}
-        self.pushed_policy = read['policy']
-        return result, read['scanned'], read['calls']
-
-    def test_pre_push_scans_the_commits_the_destination_lacks(self):
-        outgoing = self.commit('outgoing')
-        # Another remote holding the commit does not mean origin has it.
-        self.git('update-ref', 'refs/remotes/other/held', outgoing)
-        result, scanned, calls = self.pre_push(f'refs/heads/topic {outgoing} refs/heads/topic {ZERO}\n'
-                                               f'(delete) {ZERO} refs/heads/gone {outgoing}\n')
-        assert result.returncode == 0, result.stderr
-        assert 'fixture-security-phase=push' in result.stdout
-        assert scanned == ['outgoing']
-        assert len(calls) == 1 and '--redact' in calls[0].split()
-        # The same options as `security-scan.py ci` and gate/ci-secrets-scan.sh.
-        assert '--log-opts=--text --diff-merges=remerge --no-color --no-textconv ' in calls[0]
-        # The gate's own policy, never one from the checkout.
-        assert '/gitleaks.toml' in calls[0].split('--config ', 1)[1].split()[0]
-        assert self.pushed_policy == self.gate_policy().splitlines()
-
-    def test_pre_push_refuses_a_repository_gitleaks_policy_without_scanning(self):
-        for name in ('.gitleaks.toml', '.gitleaksignore'):
-            policy = self.root / name
-            policy.write_text('[allowlist]\npaths = [".*"]\n')
-            self.git('add', name)
-            tree = self.git('write-tree').stdout.strip()
-            self.git('rm', '-q', '--cached', name)
-            policy.unlink()
-            pushed = self.git('commit-tree', tree, '-p', 'HEAD', '-m', 'leak').stdout.strip()
-            result, scanned, calls = self.pre_push(f'refs/heads/topic {pushed} refs/heads/topic {ZERO}\n')
-            assert result.returncode != 0
-            assert 'refuses a repository .gitleaks.toml or .gitleaksignore' in result.stderr
-            assert pushed + ':' + name in result.stderr
-            assert calls == [] and scanned == []
-        # Gitleaks reads a .gitleaksignore beside it whatever its flags say, so a stray one is refused too.
-        (self.root / '.gitleaksignore').write_text('')
-        result, _, calls = self.pre_push(f'refs/heads/topic {self.commit("outgoing")} refs/heads/topic {ZERO}\n')
-        assert result.returncode != 0 and calls == []
-        assert str(self.root / '.gitleaksignore') in result.stderr
-
-    def test_pre_push_to_a_url_excludes_only_the_remote_commit_it_replaces(self):
-        outgoing = self.commit('outgoing')
-        baseline = self.git('rev-parse', 'HEAD').stdout.strip()
-        url = 'https://example.invalid/fixture.git'
-        result, scanned, _ = self.pre_push(f'refs/heads/main {outgoing} refs/heads/main {baseline}\n', remote=url)
-        assert result.returncode == 0, result.stderr
-        assert scanned == ['outgoing']
-        # A new ref at a URL has nothing to exclude, so the commit's whole history is scanned.
-        result, scanned, _ = self.pre_push(f'refs/heads/topic {outgoing} refs/heads/topic {ZERO}\n', remote=url)
-        assert result.returncode == 0, result.stderr
-        assert scanned == ['outgoing', 'fixture baseline']
-
-    def test_pre_push_blocks_when_the_source_scan_fails(self):
-        scanner = self.hooks.parent / 'gate/security-scan.py'
-        scanner.write_text('import sys\nsys.stderr.write("fixture-source-scan-failed\\n")\nraise SystemExit(1)\n')
-        outgoing = self.commit('outgoing')
-        result, scanned, _ = self.pre_push(f'refs/heads/topic {outgoing} refs/heads/topic {ZERO}\n')
-        assert result.returncode != 0
-        assert scanned == ['outgoing']
-        assert 'fixture-source-scan-failed' in result.stderr
-
-    def test_pre_push_blocks_a_leak_in_any_outgoing_ref(self):
-        clean, leak = self.commit('outgoing'), self.commit('leak')
-        result, scanned, _ = self.pre_push(f'refs/heads/clean {clean} refs/heads/clean {ZERO}\n'
-                                           f'refs/heads/leak {leak} refs/heads/leak {ZERO}\n')
-        assert result.returncode != 0
-        assert scanned == ['outgoing', 'leak']
-
-    def test_pre_push_scans_sent_objects_and_refuses_non_commits(self):
-        leak = self.commit('leak')
-        self.git('replace', leak, self.commit('decoy'))
-        result, scanned, _ = self.pre_push(f'refs/heads/topic {leak} refs/heads/topic {ZERO}\n')
-        assert result.returncode != 0
-        assert scanned == ['leak']
-        tree = self.git('rev-parse', 'HEAD^{tree}').stdout.strip()
-        result, _, calls = self.pre_push(f'refs/tags/tree {tree} refs/tags/tree {ZERO}\n')
-        assert result.returncode != 0
-        assert calls == []
-
-    def test_pre_push_runs_only_installed_snapshot_bytes(self):
-        marker = self.scratch / 'working-tree-library-ran'
-        (self.root / 'gate/gate-lib.sh').write_text('touch "' + str(marker) + '"\n')
-        outgoing = self.commit('outgoing')
-        result, scanned, _ = self.pre_push(f'refs/heads/topic {outgoing} refs/heads/topic {ZERO}\n')
-        assert result.returncode == 0, result.stderr
-        assert scanned == ['outgoing']
-        assert not marker.exists()
 
     def test_unreviewed_scanner_is_not_executed(self):
         marker = self.scratch / 'unreviewed-scanner-ran'

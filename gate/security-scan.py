@@ -212,54 +212,19 @@ def structural(root):
         python_tool("cfn-lint", templates, root)
 
 
-# curl's no-connection exits: 5/6 proxy or host not resolved, 7 no connect, 28 no answer in
-# time, 35 TLS handshake, 56 connection dropped (a proxy that refuses the CONNECT, as in
-# Claude's cloud sessions).
-UNREACHABLE_CURL_EXITS = frozenset({5, 6, 7, 28, 35, 56})
-
-
-def unreachable(url, scan):
-    """Pre-push only: True, with a warning, when url's server cannot be reached at all.
-
-    A HEAD request without --fail exits 0 on any HTTP answer, error statuses included, so any
-    answer means run the scan. Any other probe failure, such as a broken local CA bundle, fails
-    the push. Security / security runs a skipped scan on the pull request.
-    """
-    curl = shutil.which("curl")
-    if not curl:
-        raise ValueError(f"curl is not on PATH; the {scan} pre-push scan needs it to reach its server")
-    probe = subprocess.run([curl, "--head", "--silent", "--output", os.devnull,
-                            "--connect-timeout", "5", "--max-time", "15", url])
-    if probe.returncode == 0:
-        return False
-    if probe.returncode in UNREACHABLE_CURL_EXITS:
-        print(f"security: WARNING {scan} (pre-push) skipped: {url} is unreachable from this host "
-              f"(curl exit {probe.returncode}). Security / security runs it on the pull request.",
-              file=sys.stderr)
-        return True
-    raise ValueError(f"Could not probe {url} for the {scan} pre-push scan (curl exit {probe.returncode}, "
-                     "not a refused connection); fix this host's curl, or let Security / security run the scan")
-
-
-def source(root, *, skip_unreachable=False):
-    """Semgrep and OSV; findings and scanner errors always fail.
-
-    skip_unreachable is for pre-push only: a scan whose server refuses the connection is skipped
-    with a warning. CI never skips.
-    """
-    if not (skip_unreachable and unreachable("https://semgrep.dev/", "semgrep")):
-        python_tool("semgrep", ["scan", "--config", "p/default", "--error",
-                               "--metrics", "off", "--disable-version-check", "--no-git-ignore",
-                               # Semgrep's built-in ignore list skips tests/ and build/; scan them.
-                               "--x-ignore-semgrepignore-files",
-                               "--exclude", "node_modules", "--exclude", "public/notebooks",
-                               "--exclude", "docs/recipes-evidence", "."], root)
+def source(root):
+    """Required CI source scans; findings and scanner errors always fail."""
+    python_tool("semgrep", ["scan", "--config", "p/default", "--error",
+                           "--metrics", "off", "--disable-version-check", "--no-git-ignore",
+                           # Semgrep's built-in ignore list skips tests/ and build/; scan them.
+                           "--x-ignore-semgrepignore-files",
+                           "--exclude", "node_modules", "--exclude", "public/notebooks",
+                           "--exclude", "docs/recipes-evidence", "."], root)
     scanner = binary("osv-scanner", f"osv-scanner@{OSV_VERSION}")
     version = subprocess.check_output([scanner, "--version"], text=True)
     if not re.search(rf"\b{re.escape(OSV_VERSION)}\b", version):
         raise ValueError(f"Install osv-scanner {OSV_VERSION} with repository setup")
-    if not (skip_unreachable and unreachable("https://api.osv.dev/", "osv-scanner")):
-        dependencies(scanner, root)
+    dependencies(scanner, root)
 
 
 def secrets(root, *args):
@@ -299,14 +264,6 @@ def working_tree(root, tree):
         shutil.copyfile(original, target)
 
 
-def push(root):
-    """Semgrep and OSV on a copy of the tracked tree. Range gitleaks stays in the dispatcher."""
-    with tempfile.TemporaryDirectory(prefix="website-push-scan-") as directory:
-        tree = Path(directory)
-        working_tree(root, tree)
-        source(tree, skip_unreachable=True)
-
-
 def cursor(root, payload):
     if not isinstance(payload, dict) or not isinstance(payload.get("command"), str):
         raise ValueError("Malformed Cursor shell-hook input")
@@ -318,7 +275,7 @@ def cursor(root, payload):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("phase", choices=("commit", "ci", "cursor", "push"))
+    parser.add_argument("phase", choices=("commit", "ci", "cursor"))
     parser.add_argument("--root", type=Path, default=Path.cwd())
     args = parser.parse_args()
     root = args.root.resolve(strict=True)
@@ -328,8 +285,6 @@ def main():
             print(json.dumps({"permission": "allow"}))
         elif args.phase == "commit":
             structural(root)
-        elif args.phase == "push":
-            push(root)
         else:
             secrets(root, "git", "--log-opts=--text --diff-merges=remerge --no-color --no-textconv --all")
             with tempfile.TemporaryDirectory(prefix="website-ci-scan-") as directory:

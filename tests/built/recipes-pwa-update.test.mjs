@@ -533,14 +533,17 @@ function cookingGuardCheck(name, viewport) {
 				if (frame === page.mainFrame()) reloads += 1;
 			});
 			const accepted = page.waitForEvent("dialog");
+			const reloaded = page.waitForEvent("framenavigated", {
+				predicate: (frame) => frame === page.mainFrame(),
+			});
 			const apply = update.press("Enter");
 			await (await accepted).accept();
 			await apply;
-			await page.waitForFunction(
-				(sha) =>
-					document.querySelector("#site-update-notice").dataset.release === sha,
-				"b".repeat(40),
-			);
+			await reloaded;
+			// The new document creates its notice during startup after navigation.
+			await page
+				.locator(`#site-update-notice[data-release="${"b".repeat(40)}"]`)
+				.waitFor({ state: "attached" });
 			await page.waitForFunction(
 				() => !document.querySelector("astro-island[ssr]"),
 			);

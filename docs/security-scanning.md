@@ -7,29 +7,23 @@ pre-commit gate remains.
 
 Pre-push keeps range gitleaks in the dispatcher (`gate/hooks/pre-commit`).
 It uses the CI log options, so a change to them in `security-scan.py` or
-`gate/ci-secrets-scan.sh` must also change the dispatcher. The same snapshot
-then runs `security-scan.py push`: the Semgrep and OSV source scan, not the
-branch's copy of that script.
+`gate/ci-secrets-scan.sh` must also change the dispatcher. Semgrep and OSV run in required CI, without
+a local network probe or skip path.
 
 ## Coverage
 
 - Pre-commit retains staged gitleaks scanning and the full gate, and adds
   zizmor workflow checks and cfn-lint for every `config/aws/*/template.json`
   (the migration backup and client-error stacks).
-- Pre-push runs gitleaks over the commits each pushed ref sends that the
-  destination lacks, judged by the named remote's tracking refs and the ref's
-  current remote commit. A new ref pushed to a bare URL scans the commit's
-  whole history. A commit made with hooks bypassed is still checked. It reads
-  the objects the push sends, ignoring local replace refs, and refuses a ref
-  that names something other than a commit. That same push then runs Semgrep
-  `p/default` and OSV on a copy of the tracked, unignored tree, with the
-  reviewed dependency dispositions. A scan whose server cannot be reached
-  (semgrep.dev or api.osv.dev: no DNS, TCP or TLS, no answer, or a proxy that
-  refuses the connection, as in Claude's cloud sessions) is skipped with a
-  warning. Any HTTP answer counts as reachable, any other probe failure fails
-  the push, and a finding or scanner error still fails it once a scan runs.
-  `Security / security` still repeats that source scan, never skips it, and
-  adds full-history gitleaks, zizmor and cfn-lint.
+- Pre-push runs only gitleaks over each pushed ref's outgoing commits, excluding
+  the destination's advertised old commit when available locally. Tracking refs
+  cannot exclude history because they may be stale. New refs scan their whole
+  history. Removed secrets and non-HEAD refs are still checked. The hook validates
+  native push records, ignores local replace refs, refuses non-commit objects and
+  octopus merges, and fails when the pinned scanner is unavailable. It executes
+  installed snapshot code, with no source-tree copy or scanner-service requests.
+  `Security / security` runs required Semgrep and OSV, full-history gitleaks,
+  zizmor and cfn-lint. Findings and scanner errors fail that check.
 - Cursor's `beforeShellExecution` hook scans tracked and unignored working
   files with gitleaks before shell commands. `failClosed: true` blocks crashes,
   timeouts and invalid responses; a scanner finding returns `permission: deny`.
@@ -79,8 +73,7 @@ Run the existing reviewed repository setup after this bundle lands. It installs
 both Git hooks from a verified snapshot and the mise-pinned tools, including OSV. The pinned
 Python scanners are resolved through uvx on use. Missing tools, unavailable
 scanner services and nonzero scanner exits block the relevant operation,
-except the pre-push skip of an unreachable Semgrep or OSV server described
-above.
+with no scanner-service skips.
 Noninteractive Git clients can locate tools through mise without shell shims.
 
 The hook manifest allowlist changed, so an existing pre-push-free snapshot stays
@@ -98,7 +91,8 @@ Run the complete security checks directly with:
 python3 gate/security-scan.py ci
 ```
 
-The Python test suite exercises the outgoing-commit range and every pushed ref,
+Vitest installed-hook fixtures exercise outgoing history and every pushed ref.
+The Python test suite retains hook trust, Cursor and CI scanner coverage, including
 the gate-owned gitleaks policy and the refusal of a repository one,
 untracked-file coverage, malformed input, failed-scanner denial and unreviewed
 scanner rejection. A protocol test does not prove a native Cursor hook fired;
