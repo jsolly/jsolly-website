@@ -284,6 +284,8 @@ through `tests/test-migration-backups.py`
 `gate/setup-agent-environment.sh` on main to install its outside-worktree
 pre-commit and pre-push dispatchers. The verified scanner, Cursor hook and CI
 coverage are documented in [security scanning](docs/security-scanning.md).
+Pre-push runs only installed-policy gitleaks on outgoing history; required CI
+runs Semgrep and OSV without service skips.
 Never set hooksPath to `.git-hooks`: a branch could then
 register executable hooks. See [development and release](docs/development.md).
 

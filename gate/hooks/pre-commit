@@ -5,29 +5,35 @@ set -euo pipefail
 base="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
 hook="$(basename "${BASH_SOURCE[0]}")"
 if [[ $hook == pre-push ]]; then
-  # Range gitleaks, then this snapshot's Semgrep and OSV source scan. Gitleaks covers the commits
-  # each pushed ref sends that the destination already lacks, judged by the named remote's tracking
-  # refs and the ref's current remote commit when it is present here. A new ref pushed to a bare URL
-  # scans the commit's whole history. Full-history gitleaks stays in the required Security check.
-  # The log options match `security-scan.py ci` and gate/ci-secrets-scan.sh; change all three together.
+  # Scan outgoing history with the installed Gitleaks policy. Semgrep and OSV run in CI.
+  # Exclude only the destination's advertised old commit; tracking refs may be stale.
+  # New refs scan their full history. Keep log options aligned with CI.
   source "$base/gate/gate-lib.sh"
-  gl="$(gate_gitleaks_bin)"
+  gl=""
   export GIT_NO_REPLACE_OBJECTS=1 # scan the objects the push sends, not local replacements
-  tracking=()
-  if git config "remote.${1:-}.url" >/dev/null 2>&1; then tracking=("--remotes=$1"); fi
-  while read -r _ sha _ remote_sha; do
+  while true; do
+    if ! read -r local_ref sha remote_ref remote_sha extra; then
+      [[ -z ${local_ref:-}${sha:-}${remote_ref:-}${remote_sha:-}${extra:-} ]] ||
+        { echo "Malformed pre-push input: unterminated record" >&2; exit 1; }
+      break
+    fi
+    [[ -n $local_ref && -n $remote_ref && -z $extra && $sha =~ ^([0-9a-f]{40}|[0-9a-f]{64})$ && $remote_sha =~ ^([0-9a-f]{40}|[0-9a-f]{64})$ ]] ||
+      { echo "Malformed pre-push input" >&2; exit 1; }
     [[ $sha =~ ^0+$ ]] && continue # deleting a remote ref sends nothing
     git rev-parse --verify --quiet "$sha^{commit}" >/dev/null ||
       { echo "✗ pre-push scans commits; $sha is not one" >&2; exit 1; }
-    held=("${tracking[@]}")
+    held=()
     if git rev-parse --verify --quiet "$remote_sha^{commit}" >/dev/null; then held+=("$remote_sha"); fi
     gate_gitleaks_refuse_repo_policy "$sha"
     opts="--text --diff-merges=remerge --no-color --no-textconv $sha"
     ((${#held[@]} == 0)) || opts+=" --not ${held[*]}"
+    exclusions=()
+    ((${#held[@]} == 0)) || exclusions=(--not "${held[@]}")
+    merges="$(git rev-list --min-parents=3 "$sha" "${exclusions[@]}")"
+    [[ -z $merges ]] || { echo "Cannot scan an octopus merge" >&2; exit 1; }
+    [[ -n $gl ]] || gl="$(gate_gitleaks_bin)"
     gate_gitleaks_run "$gl" git --no-banner --no-color --redact --log-opts="$opts"
   done
-  repo="$(git rev-parse --show-toplevel)"
-  bash "$base/gate/repo-python.sh" "$base/gate/security-scan.py" push --root "$repo"
   exit 0
 fi
 exec bash "$base/gate/repo-python.sh" "$base/gate/repo-hooks.py" dispatch --hook "$hook"
