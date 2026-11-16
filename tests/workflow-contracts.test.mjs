@@ -234,7 +234,7 @@ it("auto-merge arms native squash auto-merge and sweeps green allowlisted pull r
 		"synchronize",
 		"ready_for_review",
 	]);
-	assert.deepEqual(autoMerge.on.schedule, [{ cron: "*/30 * * * *" }]);
+	assert.deepEqual(autoMerge.on.schedule, [{ cron: "0 9,17,22 * * *" }]);
 	assert.ok(Object.hasOwn(autoMerge.on, "workflow_dispatch"));
 	assert.deepEqual(autoMerge.permissions, {});
 	assert.equal(autoMerge.concurrency["cancel-in-progress"], false);
