@@ -2,7 +2,7 @@
 
 Ship profile: `vercel-static`
 
-**Integration: branch → reviewed PR → merge on green `CI / ci`.** A non-draft pull request authored by `solly-agent`, `jsolly`, `cursor[bot]`, or `app/cursor` arms GitHub squash auto-merge. Hold one by converting it to a draft or running `gh pr merge --disable-auto`. Any other author, including Dependabot, is not auto-merged. Every 30 minutes a sweep re-arms that auto-merge and squash-merges the pull request when `ci` and `security` are already green. The solly-agent merge token starts push workflows normally. Follow [local release instructions](docs/development.md). Agents never push to `main`, change rulesets, or admin-merge.
+**Integration: branch → reviewed PR → merge on green `CI / ci`.** A non-draft pull request authored by `solly-agent`, `jsolly`, `cursor[bot]`, or `app/cursor` arms GitHub squash auto-merge. Hold one by converting it to a draft or running `gh pr merge --disable-auto`. Any other author, including Dependabot, is not auto-merged. At 09:00, 17:00 and 22:00 UTC daily a sweep re-arms that auto-merge and squash-merges the pull request when `ci` and `security` are already green. The solly-agent merge token starts push workflows normally. Follow [local release instructions](docs/development.md). Agents never push to `main`, change rulesets, or admin-merge.
 
 Production URL: <https://www.jsolly.com>
 

@@ -280,8 +280,7 @@ A non-draft pull request authored by `solly-agent`, `jsolly`, `cursor[bot]`, or 
 in this repository, arms GitHub squash auto-merge from
 `.github/workflows/auto-merge.yml` when it is opened, updated, reopened, or
 marked ready. Hold it by converting it to a draft or running
-`gh pr merge --disable-auto`. Any other author stays untouched. Every 30
-minutes, and on manual dispatch, the same workflow re-arms auto-merge for each
+`gh pr merge --disable-auto`. Any other author stays untouched. At 09:00, 17:00 and 22:00 UTC daily, and on manual dispatch, the same workflow re-arms auto-merge for each
 open eligible pull request. If `ci` and `security` are already green on that
 head and the pull request is still open, the sweep squash-merges it with
 `--match-head-commit`. Both paths use `secrets.AUTO_MERGE_TOKEN` and fail if
