@@ -1,0 +1,9 @@
+{
+	"projectId": "prj_9irfTPLYZwwuC7YK0oB3bkc1QXtW",
+	"teamId": "team_T8yHg0aDz7nCbyBgJh5a2saR",
+	"timeoutMs": 500,
+	"window": 60,
+	"edge": { "limit": 60 },
+	"ingestion": { "id": "client-error-ingestion", "limit": 120 },
+	"duplicate": { "id": "client-error-duplicate", "limit": 1 }
+}

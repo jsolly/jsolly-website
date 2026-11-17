@@ -4,10 +4,13 @@ import { beforeEach, it, vi } from "vitest";
 import { CLIENT_ERROR_LOG } from "../../src/lib/client-error-constants.mjs";
 import { ERROR_CATEGORIES } from "../../src/lib/error-categories.mjs";
 
-const { send, failedForward } = vi.hoisted(() => ({
+const { send, failedForward, checkRateLimit } = vi.hoisted(() => ({
+	checkRateLimit: vi.fn(),
 	send: vi.fn(),
 	failedForward: vi.fn(),
 }));
+
+vi.mock("@vercel/firewall", () => ({ checkRateLimit }));
 
 // Vitest supplies a unit-only route manifest before a build exists. Keep the
 // API's real handler and recorder, replacing only the external AWS client.
@@ -15,6 +18,9 @@ vi.mock("../../src/lib/client-error-sink.mjs", async (original) => ({
 	...(await original()),
 	productionClient: () => ({ send }),
 }));
+
+// Only the external providers and server-owned test configuration are replaced.
+vi.stubEnv("CLIENT_ERROR_BUCKET_SECRET", "unit-fixture-only-bucket-identifier");
 
 // The handler captures console.error when the API module is evaluated.
 const originalError = console.error;
@@ -40,6 +46,8 @@ const request = (body, extraHeaders = {}) =>
 	});
 
 beforeEach(() => {
+	checkRateLimit.mockReset();
+	checkRateLimit.mockResolvedValue({ rateLimited: false });
 	send.mockReset();
 	send.mockResolvedValue({});
 	failedForward.mockClear();
@@ -61,7 +69,11 @@ it("the API forwards each browser category to the configured CloudWatch destinat
 		assert.equal(response.status, 204, category);
 		assert.equal(response.headers.get("cache-control"), "no-store");
 		assert.equal(bodies[index], "");
-		const [command, options] = send.mock.calls[index];
+		const [command, options] = send.mock.calls.find(
+			([candidate]) =>
+				JSON.parse(candidate.input.logEvents[0].message).context.category ===
+				category,
+		);
 		assert.ok(command instanceof PutLogEventsCommand);
 		assert.equal(command.input.logGroupName, CLIENT_ERROR_LOG.logGroupName);
 		assert.equal(command.input.logStreamName, CLIENT_ERROR_LOG.logStreamName);
@@ -149,4 +161,36 @@ it("the API returns 502 and a sanitized diagnostic when CloudWatch rejects a for
 		error: "AccessDeniedException",
 		status: 403,
 	});
+});
+
+it("the deployed API skips CloudWatch on budget exhaustion, duplicates and unavailable counters", async () => {
+	for (const [id, result, status] of [
+		["client-error-ingestion", { rateLimited: true }, 429],
+		["client-error-duplicate", { rateLimited: true }, 204],
+		["client-error-ingestion", { rateLimited: false, error: "not-found" }, 503],
+		["client-error-duplicate", { rateLimited: true, error: "blocked" }, 503],
+	]) {
+		send.mockClear();
+		checkRateLimit.mockImplementation(async (rule) =>
+			rule === id ? result : { rateLimited: false },
+		);
+		assert.equal(
+			// biome-ignore lint/performance/noAwaitInLoops: Each case changes shared API mocks after the previous call completes.
+			(await api.fetch(request({ category: "recipe-print", page: PAGE })))
+				.status,
+			status,
+		);
+		assert.equal(send.mock.calls.length, 0);
+		assert.equal(failedForward.mock.calls.length, 0);
+	}
+});
+
+it("a timed-out limiter fails closed without a CloudWatch call or amplified failure log", async () => {
+	checkRateLimit.mockRejectedValue(new Error("private limiter detail"));
+	assert.equal(
+		(await api.fetch(request({ category: "recipe-print", page: PAGE }))).status,
+		503,
+	);
+	assert.equal(send.mock.calls.length, 0);
+	assert.equal(failedForward.mock.calls.length, 0);
 });

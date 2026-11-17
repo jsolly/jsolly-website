@@ -64,6 +64,7 @@ async function boundedJSON(request) {
  */
 export function createClientErrorHandler({
 	paths,
+	admit,
 	record,
 	logFailure = console.error,
 }) {
@@ -107,6 +108,10 @@ export function createClientErrorHandler({
 			page: value.page,
 			message,
 		};
+		const admission = await admit(report);
+		if (admission === "limited") return response(429, { "Retry-After": "60" });
+		if (admission === "duplicate") return response(204);
+		if (admission !== "allow") return response(503, { "Retry-After": "60" });
 		try {
 			await record(report);
 		} catch (error) {
