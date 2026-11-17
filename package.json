@@ -68,7 +68,6 @@
 		"tailwindcss": "^4.3.3",
 		"turndown": "7.2.4",
 		"typescript": "^6.0.3",
-		"vercel": "^63.1.2",
 		"vitest": "5.0.5",
 		"yaml": "2.9.1"
 	},
@@ -85,27 +84,6 @@
 		},
 		"srvx": ">=0.11.13",
 		"yaml": "$yaml",
-		"@vercel/node": {
-			"path-to-regexp": ">=6.3.0 <7.0.0"
-		},
-		"@vercel/remix-builder": {
-			"path-to-regexp": ">=6.3.0 <7.0.0"
-		},
-		"@vercel/routing-utils": {
-			"path-to-regexp": ">=6.3.0 <7.0.0"
-		},
-		"@vercel/backends": {
-			"path-to-regexp": ">=8.4.0"
-		},
-		"@vercel/express": {
-			"path-to-regexp": ">=8.4.0"
-		},
-		"@vercel/fun": {
-			"path-to-regexp": ">=8.4.0"
-		},
-		"@vercel/hono": {
-			"path-to-regexp": ">=8.4.0"
-		},
 		"@vercel/config": {
 			"zod": "$zod"
 		},
@@ -114,6 +92,9 @@
 		"http-cache-semantics": "^4.3.0",
 		"markdown-it": "^15.0.3",
 		"vite": "^8.3.5",
+		"@vercel/routing-utils": {
+			"path-to-regexp": ">=6.3.0 <7.0.0"
+		},
 		"zod@4.1.11": "4.6.7"
 	},
 	"dependencies": {
@@ -132,7 +113,7 @@
 		"zod": "4.6.7"
 	},
 	"allowScripts": {
-		"esbuild@0.28.1": true,
-		"fsevents@2.3.3": true
+		"fsevents@2.3.3": true,
+		"esbuild@0.28.2": true
 	}
 }
