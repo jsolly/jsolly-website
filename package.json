@@ -52,7 +52,7 @@
 		"@types/node": "^26.6.5",
 		"@types/sanitize-html": "2.16.2",
 		"@vercel/config": "0.14.1",
-		"@vercel/routing-utils": "6.6.0",
+		"@vercel/routing-utils": "6.6.1",
 		"astro": "~7.4.7",
 		"axe-core": "^4.14.0",
 		"entities": "8.1.0",
