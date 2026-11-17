@@ -64,6 +64,13 @@ const lowerCaseKeys = (headers) =>
 async function vercel(url, { method = "GET", accept = "*/*" } = {}) {
 	methods.add(method);
 	const { pathname } = new URL(url);
+	if (pathname === "/_vercel/speed-insights/script.js") {
+		// This script is served by Vercel, not dist/. Keep the vendor boundary
+		// local while the smoke exercises the real built application and SDK.
+		return new Response("/* Vercel Speed Insights stand-in */", {
+			headers: { "content-type": "application/javascript" },
+		});
+	}
 	const { redirect, headers: configured } = routePath(routes, pathname);
 	if (redirect)
 		throw new Error(`${pathname} redirects to ${redirect.location}`);
