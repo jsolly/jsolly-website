@@ -59,17 +59,16 @@
 		"entities": "8.1.0",
 		"esbuild": "0.28.2",
 		"globby": "^16.2.4",
-		"jsdom": "^30.1.1",
+		"jsdom": "^31.0.0",
 		"knip": "^6.37.0",
 		"markdownlint-cli2": "^0.23.3",
 		"parse5": "8.0.1",
 		"playwright": "1.63.0",
 		"sanitize-html": "2.18.1",
-		"svelte-check": "4.7.6",
+		"svelte-check": "4.7.7",
 		"tailwindcss": "^4.3.3",
 		"turndown": "7.2.4",
 		"typescript": "^6.0.3",
-		"vercel": "^63.1.2",
 		"vitest": "5.0.5",
 		"yaml": "2.9.1"
 	},
@@ -86,27 +85,6 @@
 		},
 		"srvx": ">=0.11.13",
 		"yaml": "$yaml",
-		"@vercel/node": {
-			"path-to-regexp": ">=6.3.0 <7.0.0"
-		},
-		"@vercel/remix-builder": {
-			"path-to-regexp": ">=6.3.0 <7.0.0"
-		},
-		"@vercel/routing-utils": {
-			"path-to-regexp": ">=6.3.0 <7.0.0"
-		},
-		"@vercel/backends": {
-			"path-to-regexp": ">=8.4.0"
-		},
-		"@vercel/express": {
-			"path-to-regexp": ">=8.4.0"
-		},
-		"@vercel/fun": {
-			"path-to-regexp": ">=8.4.0"
-		},
-		"@vercel/hono": {
-			"path-to-regexp": ">=8.4.0"
-		},
 		"@vercel/config": {
 			"zod": "$zod"
 		},
@@ -115,6 +93,9 @@
 		"http-cache-semantics": "^4.3.0",
 		"markdown-it": "^15.0.3",
 		"vite": "^8.3.5",
+		"@vercel/routing-utils": {
+			"path-to-regexp": ">=6.3.0 <7.0.0"
+		},
 		"zod@4.1.11": "4.6.7"
 	},
 	"dependencies": {
@@ -129,11 +110,11 @@
 		"shadcn-svelte": "1.7.0",
 		"svelte": "5.57.1",
 		"tailwind-merge": "3.7.0",
-		"tailwind-variants": "3.3.1",
+		"tailwind-variants": "4.0.0",
 		"zod": "4.6.7"
 	},
 	"allowScripts": {
-		"esbuild@0.28.1": true,
-		"fsevents@2.3.3": true
+		"fsevents@2.3.3": true,
+		"esbuild@0.28.2": true
 	}
 }

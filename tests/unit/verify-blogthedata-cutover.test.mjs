@@ -1,7 +1,14 @@
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
-import { readFileSync } from "node:fs";
+import {
+	chmodSync,
+	mkdtempSync,
+	readFileSync,
+	rmSync,
+	writeFileSync,
+} from "node:fs";
 import { createServer } from "node:http";
+import { tmpdir } from "node:os";
 import { extname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { it } from "vitest";
@@ -289,11 +296,16 @@ function verify({ legacyStub, upgradeStub, jsollyStub }, options) {
 }
 
 // The CLI with `args`, its env carrying the bypass secret by name.
-function runCli(args) {
+function runCli(args, env = {}) {
 	return new Promise((resolve, reject) => {
 		const child = spawn(process.execPath, [SCRIPT, ...args], {
 			cwd: ROOT,
-			env: { ...process.env, [BYPASS_ENV]: BYPASS_SECRET, [EMPTY_ENV]: "" },
+			env: {
+				...process.env,
+				[BYPASS_ENV]: BYPASS_SECRET,
+				[EMPTY_ENV]: "",
+				...env,
+			},
 			stdio: ["ignore", "pipe", "pipe"],
 		});
 		let stdout = "";
@@ -835,5 +847,29 @@ it("Only the exact WordPress login path accepts a marked Vercel deny", () => {
 			probe.expectation.check({ status: 403, mitigated: "deny" }),
 			probe.path,
 		);
+	}
+});
+
+// Exercise CLI resolution without invoking the real, human-only Vercel CLI.
+it("the human cutover transport resolves an external Vercel CLI from PATH", async () => {
+	const directory = mkdtempSync(join(tmpdir(), "cutover-external-cli-"));
+	try {
+		const executable = join(directory, "vercel");
+		writeFileSync(
+			executable,
+			'#!/usr/bin/env node\nconsole.error("external-cli-fixture"); process.exit(1);\n',
+		);
+		chmodSync(executable, 0o755);
+		const result = await runCli(
+			["--base-url", "https://stub.invalid", "--transport", "vercel-curl"],
+			{
+				PATH: `${directory}:${process.env.PATH}`,
+			},
+		);
+		assert.equal(result.status, 1);
+		assert.ok(result.stderr.includes("external-cli-fixture"));
+		assert.ok(!result.stdout.includes("node_modules/.bin/vercel"));
+	} finally {
+		rmSync(directory, { recursive: true, force: true });
 	}
 });
