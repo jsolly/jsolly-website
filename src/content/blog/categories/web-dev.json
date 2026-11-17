@@ -1,6 +1,6 @@
 {
   "slug": "web-dev",
   "name": "Web Dev",
-  "description": "Posts about Web Development",
+  "description": "Web development tutorials covering Django, Astro, JavaScript, deployment, security, and accessibility.",
   "legacyId": 11
 }

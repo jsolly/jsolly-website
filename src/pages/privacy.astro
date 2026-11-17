@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout
 	title="Privacy Policy & Data Practices — John Solly"
-	description="How jsolly.com handles your data: no analytics or first-party tracking cookies, a Mailchimp contact form, and a few third-party blog embeds."
+	description="How jsolly.com handles performance measurements, error reports, recipe settings, its Mailchimp contact form, and third-party blog embeds."
 >
 	<section class="text-text-secondary mx-auto max-w-2xl py-8">
 		<h1
@@ -12,14 +12,14 @@ import Layout from "../layouts/Layout.astro";
 		>
 			Privacy Policy
 		</h1>
-		<p class="text-text-muted mb-8 text-sm">Last updated: October 2026</p>
+		<p class="text-text-muted mb-8 text-sm">Last updated: November 2026</p>
 
 		<div class="space-y-6 text-lg leading-relaxed">
 			<p>
 				jsolly.com is the personal website of John Solly, including his blog
-				and recipes. It's a static site with no analytics or advertising
-				trackers of its own. It receives limited operational error reports
-				as described below.
+				and recipes. It uses Vercel Speed Insights to measure page performance,
+				and receives limited operational error reports as described below.
+				It sets no advertising or first-party tracking cookies.
 			</p>
 
 			<div>
@@ -37,6 +37,19 @@ import Layout from "../layouts/Layout.astro";
 					The site is hosted on Vercel, which may record standard server and CDN
 					logs (such as IP address and user agent) for security and operations,
 					per Vercel's privacy policy.
+				</p>
+			</div>
+
+			<div>
+				<h2 id="performance-measurements" class="text-text-primary mb-2 text-xl font-bold">Performance measurements</h2>
+				<p>
+					Vercel Speed Insights measures loading speed, layout shifts, and interaction
+					responsiveness. It sends performance measurements and the page address to
+					Vercel through this site's performance endpoint. The site removes query
+					parameters and fragments from that address before sending it, so recipe
+					servings, filters, and search terms are excluded. Speed Insights does not
+					use tracking cookies. These measurements help identify slow pages; they
+					do not include contact-form contents or saved recipe settings.
 				</p>
 			</div>
 

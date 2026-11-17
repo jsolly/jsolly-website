@@ -64,6 +64,13 @@ const lowerCaseKeys = (headers) =>
 async function vercel(url, { method = "GET", accept = "*/*" } = {}) {
 	methods.add(method);
 	const { pathname } = new URL(url);
+	if (pathname === "/_vercel/speed-insights/script.js") {
+		// This script is served by Vercel, not dist/. Keep the vendor boundary
+		// local while the smoke exercises the real built application and SDK.
+		return new Response("/* Vercel Speed Insights stand-in */", {
+			headers: { "content-type": "application/javascript" },
+		});
+	}
 	const { redirect, headers: configured } = routePath(routes, pathname);
 	if (redirect)
 		throw new Error(`${pathname} redirects to ${redirect.location}`);
@@ -210,6 +217,65 @@ it("The production smoke passes on the built site under the runner's failure rul
 	} finally {
 		process.chdir(cwd);
 		await rm(workDir, { recursive: true, force: true });
+	}
+});
+
+it("An offline production-origin recipe opens without requesting optional telemetry", async () => {
+	const context = await browser.newContext({ serviceWorkers: "block" });
+	const telemetry = [];
+	const errors = [];
+	try {
+		// Cached documents and assets are the stand-in boundary here. The worker
+		// cases below separately exercise real installation and saved reopening.
+		await context.route("**/*", async (route) => {
+			const browserRequest = route.request();
+			assert.equal(new URL(browserRequest.url()).origin, productionUrl);
+			if (
+				new URL(browserRequest.url()).pathname.startsWith(
+					"/_vercel/speed-insights/",
+				)
+			) {
+				telemetry.push(browserRequest.url());
+				return route.abort("internetdisconnected");
+			}
+			const response = await vercel(browserRequest.url(), {
+				method: browserRequest.method(),
+				accept: browserRequest.headers().accept,
+			});
+			await route.fulfill({
+				status: response.status,
+				headers: Object.fromEntries(response.headers),
+				body: Buffer.from(await response.arrayBuffer()),
+			});
+		});
+		await context.setOffline(true);
+		const page = await context.newPage();
+		page.on("pageerror", (error) => errors.push(error.message));
+		page.on("requestfailed", (failedRequest) =>
+			errors.push(failedRequest.url()),
+		);
+		await page.goto(`${productionUrl}/recipes/lemon-salmon-and-asparagus/`);
+		await page.waitForFunction(
+			() => !document.querySelector("astro-island[ssr]"),
+		);
+		assert.equal(await page.evaluate(() => navigator.onLine), false);
+		assert.equal(
+			await page
+				.getByRole("heading", {
+					name: "Lemon salmon and asparagus",
+					exact: true,
+				})
+				.count(),
+			1,
+		);
+		assert.deepEqual(
+			telemetry,
+			[],
+			"offline cooking needs no runtime telemetry asset",
+		);
+		assert.deepEqual(errors, []);
+	} finally {
+		await context.close();
 	}
 });
 

@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """Pinned scanners shared by trusted Git hooks, Cursor and pull-request CI."""
 import argparse
-from datetime import datetime, date
-import hashlib
 import json
 import os
 from pathlib import Path
@@ -11,7 +9,6 @@ import shutil
 import subprocess
 import sys
 import tempfile
-from zoneinfo import ZoneInfo
 
 
 VERSIONS = {"semgrep": "1.182.1", "zizmor": "1.31.1", "cfn-lint": "1.58.0"}
@@ -23,124 +20,8 @@ OSV_VERSION = "2.7.0"
 GITLEAKS_POLICY = 'title = "jsolly-website gate"\n\n[extend]\nuseDefault = true\n'
 REPOSITORY_GITLEAKS_FILES = (".gitleaks.toml", ".gitleaksignore")
 
-# John approved these exact dispositions in chat: deepmerge, sandbox and zod on
-# 2026-10-28; glob and minimatch on 2026-10-31.
-# Changing this policy changes the verified hook bundle and requires review.
-DEPENDENCY_DISPOSITIONS = {
-    ('deepmerge', '4.3.1'): {
-        "paths": [
-            "node_modules/deepmerge",
-        ],
-        "integrity": "sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==",
-        "resolved": "https://registry.npmjs.org/deepmerge/-/deepmerge-4.3.1.tgz",
-        "consumers": "f92403060bcbc4ada674a24784624493d4e96d4cbfd14ae917dc69338265e287",
-        "advisories": {
-            "GHSA-gcqx-w48m-w2h4": '2026-11-27',
-        },
-    },
-    ('sandbox', '4.4.0'): {
-        "paths": [
-            "node_modules/sandbox",
-        ],
-        "integrity": "sha512-8DlAEKlHbOQmz5R05dAYE+P1wNQ44nEvAnf1jnWtF0LZWHiu/F48USSMKyY8Ib8iE1MCfo3Yvhmky8bUppLaWA==",
-        "resolved": "https://registry.npmjs.org/sandbox/-/sandbox-4.4.0.tgz",
-        "consumers": "3414fa7a560353ef94e74912eeba5a1307a82d0d9e9039a948409e12afc667f0",
-        "advisories": {
-            "GHSA-fm4j-4xhm-xpwx": None,
-            "GHSA-gc25-3vc5-2jf9": None,
-        },
-    },
-    ('zod', '3.22.4'): {
-        "paths": [
-            "node_modules/@vercel/backends/node_modules/zod",
-            "node_modules/@vercel/express/node_modules/zod",
-            "node_modules/@vercel/hono/node_modules/zod",
-            "node_modules/@vercel/python-analysis/node_modules/zod",
-        ],
-        "integrity": "sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==",
-        "resolved": "https://registry.npmjs.org/zod/-/zod-3.22.4.tgz",
-        "consumers": "76d1aaae6c4eb022599aaec276a37ea16cc9ad20d525ea6a953b93a1b4143ca2",
-        "advisories": {
-            "GHSA-mrhx-c7xc-m3w5": '2026-11-27',
-        },
-    },
-    ('glob', '13.0.6'): {
-        "paths": [
-            "node_modules/glob",
-        ],
-        "integrity": "sha512-Wjlyrolmm8uDpm/ogGyXZXb1Z+Ca2B8NbJwqBVg0axK9GbBeoS7yGV6vjXnYdGm6X53iehEuxxbyiKp8QmN4Vw==",
-        "resolved": "https://registry.npmjs.org/glob/-/glob-13.0.6.tgz",
-        "consumers": "9299eab18b8f3385b2908b28e6b4e136f2475bd293ba19df2eff16a7c29461a3",
-        "advisories": {
-            "GHSA-3g3m-2fjr-6pw4": '2026-11-30',
-        },
-    },
-    ('minimatch', '10.2.6'): {
-        "paths": [
-            "node_modules/minimatch",
-        ],
-        "integrity": "sha512-vpLQEs+VLCr1nU0BXS07maYoFwlDAH0gngQuuttxIwutDFEMHq2blX+8vpgxDdK3J1PwjCJiep77OitTZ4Ll1A==",
-        "resolved": "https://registry.npmjs.org/minimatch/-/minimatch-10.2.6.tgz",
-        "consumers": "598942bc901580392de5c20a17cf92c3323e18748c669461739e7d0498bda147",
-        "advisories": {
-            "GHSA-g3hv-75wg-m249": '2026-11-30',
-        },
-    },
-}
-
-
-def dependency_consumers(packages, name, version):
-    """Fingerprint callers that resolve this exact package, including peers."""
-    consumers = []
-    for path, metadata in packages.items():
-        for kind in ("dependencies", "optionalDependencies", "peerDependencies"):
-            requested = metadata.get(kind, {}).get(name)
-            if requested is None:
-                continue
-            current = Path(path)
-            while True:
-                resolved = packages.get(str(current / "node_modules" / name))
-                if resolved is not None:
-                    if resolved.get("version") == version:
-                        consumers.append([path, metadata.get("version"), metadata.get("integrity"), kind, requested])
-                    break
-                if current == Path("."):
-                    break
-                current = current.parent
-    return hashlib.sha256(json.dumps(sorted(consumers), separators=(",", ":")).encode()).hexdigest()
-
-
-def disposition(packages, name, version, advisory, today):
-    policy = DEPENDENCY_DISPOSITIONS.get((name, version))
-    if policy is None or advisory not in policy["advisories"]:
-        return False
-    expires = policy["advisories"][advisory]
-    if expires and today > date.fromisoformat(expires):
-        return False
-    # OSV deduplicates npm aliases into the same package/version finding.
-    # A new alias must not inherit an existing location/caller approval.
-    for metadata in packages.values():
-        for kind in ("dependencies", "optionalDependencies", "peerDependencies"):
-            for requested in metadata.get(kind, {}).values():
-                if isinstance(requested, str) and (requested == f"npm:{name}" or requested.startswith(f"npm:{name}@")):
-                    return False
-    paths = {path for path, metadata in packages.items()
-             if (path.endswith("/node_modules/" + name) or path == "node_modules/" + name
-                 or metadata.get("name") == name or metadata.get("resolved") == policy["resolved"])
-             if metadata.get("version") == version}
-    if paths != set(policy["paths"]):
-        return False
-    for path in paths:
-        metadata = packages[path]
-        if metadata.get("integrity") != policy["integrity"] or metadata.get("resolved") != policy["resolved"]:
-            return False
-    return dependency_consumers(packages, name, version) == policy["consumers"]
-
-
-def dependency_report(report, lock, *, today=None):
-    """Keep raw OSV findings visible; allow only reviewed exact identities."""
-    today = today or datetime.now(ZoneInfo("America/New_York")).date()
-    packages = json.loads(lock.read_text())["packages"]
+def dependency_report(report, lock):
+    """Fail on every OSV finding; repository ignore files cannot accept risk."""
     findings = blocked = 0
     for result in report["results"]:
         if result["source"]["type"] != "lockfile" or Path(result["source"]["path"]).resolve() != lock.resolve():
@@ -153,12 +34,9 @@ def dependency_report(report, lock, *, today=None):
                 advisory = vulnerability["id"]
                 if not isinstance(advisory, str) or not advisory:
                     raise ValueError("Invalid OSV advisory")
-                allowed = package["ecosystem"] == "npm" and disposition(
-                    packages, package["name"], package["version"], advisory, today)
-                label = "reviewed disposition" if allowed else "BLOCKED"
-                print(f"security: {label}: {package['name']}@{package['version']} {advisory}", file=sys.stderr)
+                print(f"security: BLOCKED: {package['name']}@{package['version']} {advisory}", file=sys.stderr)
                 findings += 1
-                blocked += not allowed
+                blocked += 1
     if blocked:
         raise ValueError(f"OSV reported {blocked} unaccepted findings")
     return findings

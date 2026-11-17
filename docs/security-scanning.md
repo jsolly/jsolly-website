@@ -99,49 +99,19 @@ scanner rejection. A protocol test does not prove a native Cursor hook fired;
 that needs a separate actual Cursor session. Passing source checks does not
 prove a security app is installed or a check is required by GitHub rulesets.
 
-## Existing dependency findings
+## Dependency findings
 
-The initial OSV run found vulnerable lockfile dependencies. Compatible patched
-versions are updated where available. Findings without compatible published
-fixes require a specific reviewed disposition. John approved deepmerge, zod and
-sandbox on 28 October 2026 and glob and minimatch on 31 October 2026, after
-independent review:
+Every OSV advisory blocks CI. The scanner supplies an empty external config and
+checks all findings, so repository ignore files cannot hide a vulnerability.
 
-| Package | Advisory | Disposition |
-| --- | --- | --- |
-| deepmerge 4.3.1 | GHSA-gcqx-w48m-w2h4 | Accept prototype-poisoning risk through 27 November 2026. Used by the Svelte Vite plugin to merge build configuration. |
-| zod 3.22.4 | GHSA-mrhx-c7xc-m3w5 | Accept resource-exhaustion risk through 27 November 2026. Four nested Vercel CLI consumers still require the Zod 3 API. |
-| sandbox 4.4.0 | GHSA-fm4j-4xhm-xpwx; GHSA-gc25-3vc5-2jf9 | Not applicable: the advisories describe gf3/sandbox before 1.0.0; the locked package is Vercel's Sandbox CLI. |
-| glob 13.0.6 | GHSA-3g3m-2fjr-6pw4 | Accept AbortSignal cancellation-bypass risk through 30 November 2026. Reached only through the Vercel CLI's `@vercel/nft`, whose latest release still requires glob `^13`; the fix is glob 14.0.2 or later. |
-| minimatch 10.2.6 | GHSA-g3hv-75wg-m249 | Accept pattern denial-of-service risk through 30 November 2026. Reached only through Vercel CLI consumers: glob 13 declares `^10.2.2`, `@vercel/python-analysis` pins 10.1.1 and `@ts-morph/common` declares `^3.0.4`; the existing `minimatch: >=10.2.3` override holds all three at 10.2.6. The fix is minimatch 11.0.1 or later, a major release that removes `makeRe`, the `AST` class and regular-expression set items. |
+The repository does not install the Vercel CLI. Production deploys through
+Vercel's Git integration; build, tests and CI do not need the CLI. Removing that
+optional development tool removes its vulnerable Zod 3, glob and minimatch
+consumers rather than forcing incompatible transitive upgrades. The site's
+runtime Zod dependency remains at 4.6.7.
 
-These are not fixes. Build/development usage reduces public-visitor exposure
-but does not establish that every repository or tool input is safe. Latest
-deepmerge and Vercel releases had no compatible fix at review time; downgrading
-deepmerge or forcing Zod 4 into declared Zod 3 consumers is not a verified
-repair (except the one scoped override verified below), and neither is forcing
-glob 14 into `@vercel/nft` or minimatch 11 into glob 13 without proving the
-Vercel CLI still works on it.
-The site's direct Zod dependency is patched at 4.6.7. A scoped override gives
-`@vercel/config` that same copy instead of its declared Zod 3: its only Zod use
-is a cron schema built from `z.object`, `z.string().regex` and `parse`, and its
-`validate` command accepts this repo's `vercel.ts` on 4.6.7. The site imports
-only its types.
-
-The trusted scanner owns these dispositions. OSV runs with an empty external
-config and all findings enabled; branch-supplied ignore files cannot hide them.
-Every advisory stays visible in output. Exceptions require the exact package
-version, registry URL, integrity, complete set of lockfile locations and a
-fingerprint of callers resolving that package. Changes block until reviewed.
-Each risk acceptance expires after the date in its row, in America/New_York:
-deepmerge and zod block from 28 November, glob and minimatch from 1 December. Patched dependencies need no exception.
-John owns the acceptance; replace it with upstream patches when available.
-
-Evidence: [deepmerge report](https://github.com/TehShrike/deepmerge/issues/273),
-[Zod advisory](https://osv.dev/GHSA-mrhx-c7xc-m3w5),
-[Vercel sandbox metadata](https://registry.npmjs.org/sandbox/4.4.0),
-[old gf3 sandbox metadata](https://registry.npmjs.org/sandbox/0.8.2),
-[glob advisory](https://osv.dev/GHSA-3g3m-2fjr-6pw4) and
-[minimatch advisory](https://osv.dev/GHSA-g3hv-75wg-m249).
-Controlled local tests reproduced deepmerge's returned-object prototype change
-and Zod 3's per-invalid-entry issue accumulation, without exhausting memory.
+The previous dated risk acceptances and Sandbox package-name exceptions are
+retired. Regression tests submit each former advisory and require rejection.
+Operational Vercel CLI use, including the human-only cutover transport, requires
+a separately maintained CLI outside this project's dependencies. It does not
+change the Git-based deployment process.

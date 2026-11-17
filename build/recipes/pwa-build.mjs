@@ -128,6 +128,9 @@ function sitePath(value, base, deploymentId) {
 	const reference = value.startsWith("_astro/") ? `/${value}` : value;
 	const url = new URL(reference, `${BASE}${base}`);
 	if (url.origin !== BASE) return null;
+	// Vercel serves telemetry at runtime; it is neither a built asset nor
+	// required to cook offline. Never add it to a verified offline snapshot.
+	if (url.pathname.startsWith("/_vercel/speed-insights/")) return null;
 	if (!url.search) return url.pathname;
 	if (!url.pathname.startsWith("/_astro/")) return null;
 	const pins = [...url.searchParams];

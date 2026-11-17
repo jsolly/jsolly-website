@@ -19,7 +19,7 @@
 	],
 	"ignore": ["legacy/blogthedata/public/**"],
 	"ignoreBinaries": ["uvx"],
-	"ignoreDependencies": ["markdownlint-cli2", "vercel"],
+	"ignoreDependencies": ["markdownlint-cli2"],
 	"treatConfigHintsAsErrors": true,
 	"vitest": {
 		"config": [
