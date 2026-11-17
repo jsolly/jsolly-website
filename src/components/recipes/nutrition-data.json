@@ -615,67 +615,6 @@
 				}
 			},
 			{
-				"food": "salt",
-				"grams": 3,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"sodium": 38758,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"saturated_fat": 0,
-					"vitamin_c": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"vitamin_b12": 0,
-					"cholesterol": 0,
-					"fat": 0,
-					"calcium": 24,
-					"potassium": 8,
-					"zinc": 0.1,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"vitamin_a": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"pantothenic_acid": 0,
-					"folate": 0,
-					"choline": 0,
-					"vitamin_d": 0,
-					"selenium": 0.1
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"ingredientId": "fine_salt",
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"measurementBaseline": {
-					"grams": 3,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": ""
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -1237,67 +1176,6 @@
 				}
 			},
 			{
-				"food": "salt",
-				"grams": 4.5,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"sodium": 38758,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"saturated_fat": 0,
-					"vitamin_c": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"vitamin_b12": 0,
-					"cholesterol": 0,
-					"fat": 0,
-					"calcium": 24,
-					"potassium": 8,
-					"zinc": 0.1,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"vitamin_a": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"pantothenic_acid": 0,
-					"folate": 0,
-					"choline": 0,
-					"vitamin_d": 0,
-					"selenium": 0.1
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"ingredientId": "fine_salt",
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"measurementBaseline": {
-					"grams": 4.5,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 4.5
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.75,
-					"unit": "tsp",
-					"state": ""
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -1723,67 +1601,6 @@
 					"amount": 20,
 					"unit": "g",
 					"state": "hulled"
-				}
-			},
-			{
-				"food": "salt",
-				"grams": 1.5,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"sodium": 38758,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"saturated_fat": 0,
-					"vitamin_c": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"vitamin_b12": 0,
-					"cholesterol": 0,
-					"fat": 0,
-					"calcium": 24,
-					"potassium": 8,
-					"zinc": 0.1,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"vitamin_a": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"pantothenic_acid": 0,
-					"folate": 0,
-					"choline": 0,
-					"vitamin_d": 0,
-					"selenium": 0.1
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"ingredientId": "fine_salt",
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"measurementBaseline": {
-					"grams": 1.5,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 1.5
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.25,
-					"unit": "tsp",
-					"state": ""
 				}
 			},
 			{
@@ -2402,67 +2219,6 @@
 					"amount": 15,
 					"unit": "g",
 					"state": "unsweetened"
-				}
-			},
-			{
-				"food": "salt",
-				"grams": 1.5,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"sodium": 38758,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"saturated_fat": 0,
-					"vitamin_c": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"vitamin_b12": 0,
-					"cholesterol": 0,
-					"fat": 0,
-					"calcium": 24,
-					"potassium": 8,
-					"zinc": 0.1,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"vitamin_a": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"pantothenic_acid": 0,
-					"folate": 0,
-					"choline": 0,
-					"vitamin_d": 0,
-					"selenium": 0.1
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"ingredientId": "fine_salt",
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"measurementBaseline": {
-					"grams": 1.5,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 1.5
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.25,
-					"unit": "tsp",
-					"state": ""
 				}
 			},
 			{
@@ -3338,67 +3094,6 @@
 				}
 			},
 			{
-				"food": "salt",
-				"grams": 4.5,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"sodium": 38758,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"saturated_fat": 0,
-					"vitamin_c": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"vitamin_b12": 0,
-					"cholesterol": 0,
-					"fat": 0,
-					"calcium": 24,
-					"potassium": 8,
-					"zinc": 0.1,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"vitamin_a": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"pantothenic_acid": 0,
-					"folate": 0,
-					"choline": 0,
-					"vitamin_d": 0,
-					"selenium": 0.1
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"ingredientId": "fine_salt",
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"measurementBaseline": {
-					"grams": 4.5,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 4.5
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.75,
-					"unit": "tsp",
-					"state": ""
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -4204,67 +3899,6 @@
 					"amount": 60,
 					"unit": "g",
 					"state": "plain, strained"
-				}
-			},
-			{
-				"food": "salt",
-				"grams": 3,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"sodium": 38758,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"saturated_fat": 0,
-					"vitamin_c": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"vitamin_b12": 0,
-					"cholesterol": 0,
-					"fat": 0,
-					"calcium": 24,
-					"potassium": 8,
-					"zinc": 0.1,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"vitamin_a": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"pantothenic_acid": 0,
-					"folate": 0,
-					"choline": 0,
-					"vitamin_d": 0,
-					"selenium": 0.1
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"ingredientId": "fine_salt",
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"measurementBaseline": {
-					"grams": 3,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": ""
 				}
 			}
 		],
@@ -5510,67 +5144,6 @@
 				}
 			},
 			{
-				"food": "salt",
-				"grams": 1.5,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"sodium": 38758,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"saturated_fat": 0,
-					"vitamin_c": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"vitamin_b12": 0,
-					"cholesterol": 0,
-					"fat": 0,
-					"calcium": 24,
-					"potassium": 8,
-					"zinc": 0.1,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"vitamin_a": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"pantothenic_acid": 0,
-					"folate": 0,
-					"choline": 0,
-					"vitamin_d": 0,
-					"selenium": 0.1
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"ingredientId": "fine_salt",
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"measurementBaseline": {
-					"grams": 1.5,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 1.5
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.25,
-					"unit": "tsp",
-					"state": ""
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -5940,67 +5513,6 @@
 				},
 				"ingredientSnapshot": {
 					"name": "Garlic powder",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": ""
-				}
-			},
-			{
-				"food": "salt",
-				"grams": 3,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"sodium": 38758,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"saturated_fat": 0,
-					"vitamin_c": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"vitamin_b12": 0,
-					"cholesterol": 0,
-					"fat": 0,
-					"calcium": 24,
-					"potassium": 8,
-					"zinc": 0.1,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"vitamin_a": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"pantothenic_acid": 0,
-					"folate": 0,
-					"choline": 0,
-					"vitamin_d": 0,
-					"selenium": 0.1
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"ingredientId": "fine_salt",
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"measurementBaseline": {
-					"grams": 4.5,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
 					"amount": 0.5,
 					"unit": "tsp",
 					"state": ""
@@ -6937,67 +6449,6 @@
 					"amount": 15,
 					"unit": "g",
 					"state": "unsweetened"
-				}
-			},
-			{
-				"food": "salt",
-				"grams": 1.5,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"sodium": 38758,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"saturated_fat": 0,
-					"vitamin_c": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"vitamin_b12": 0,
-					"cholesterol": 0,
-					"fat": 0,
-					"calcium": 24,
-					"potassium": 8,
-					"zinc": 0.1,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"vitamin_a": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"pantothenic_acid": 0,
-					"folate": 0,
-					"choline": 0,
-					"vitamin_d": 0,
-					"selenium": 0.1
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"ingredientId": "fine_salt",
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"measurementBaseline": {
-					"grams": 1.5,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 1.5
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.25,
-					"unit": "tsp",
-					"state": ""
 				}
 			},
 			{
@@ -10370,70 +9821,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-8",
-				"ingredientId": "ingredient-8",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -10817,70 +10204,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 1.2
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-6",
-				"grams": 3,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-6",
-				"measurementBaseline": {
-					"grams": 3,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
 				}
 			},
 			{
@@ -11818,70 +11141,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 1.55
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-5",
-				"grams": 3,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-5",
-				"measurementBaseline": {
-					"grams": 3,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
 				}
 			},
 			{
@@ -12883,70 +12142,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 1.15
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-6",
-				"grams": 1.5,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.25,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-6",
-				"measurementBaseline": {
-					"grams": 1.5,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 1.5
 				}
 			},
 			{
@@ -14224,70 +13419,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-9",
-				"ingredientId": "ingredient-9",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -14930,70 +14061,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-3",
-				"ingredientId": "ingredient-3",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -15449,70 +14516,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 453.59237
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-2",
-				"grams": 6,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 1,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-2",
-				"measurementBaseline": {
-					"grams": 6,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 6
 				}
 			},
 			{
@@ -16708,70 +15711,6 @@
 			},
 			{
 				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-4",
-				"grams": 3.1999999999999997,
-				"ingredientSnapshot": {
-					"name": "Morton coarse kosher salt",
-					"amount": 0.6666666666666666,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-4",
-				"measurementBaseline": {
-					"grams": 4,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3.1999999999999997
-				}
-			},
-			{
-				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0.152,
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
 				"food": "ingredient-5",
@@ -16994,70 +15933,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 18.666666666666664
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-8",
-				"grams": 3.1999999999999997,
-				"ingredientSnapshot": {
-					"name": "Morton coarse kosher salt",
-					"amount": 0.6666666666666666,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-8",
-				"measurementBaseline": {
-					"grams": 4,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3.1999999999999997
 				}
 			},
 			{
@@ -18024,70 +16899,6 @@
 			},
 			{
 				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-7",
-				"grams": 6,
-				"ingredientSnapshot": {
-					"name": "Fine sea salt",
-					"amount": 1,
-					"unit": "tsp",
-					"state": "fine grains"
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-7",
-				"measurementBaseline": {
-					"grams": 6,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 6
-				}
-			},
-			{
-				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0.621,
 				"source": "https://fdc.nal.usda.gov/food-details/171328/nutrients",
 				"food": "ingredient-8",
@@ -18854,70 +17665,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 3.1
-				}
-			},
-			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-2",
-				"ingredientId": "ingredient-2",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
 				}
 			},
 			{
@@ -21340,70 +20087,6 @@
 					"basis": "edible cooking mass",
 					"cookingGrams": 0.7666666666666666
 				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-8",
-				"grams": 2,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.3333333333333333,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-8",
-				"measurementBaseline": {
-					"grams": 2,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 2
-				}
 			}
 		],
 		"source-cheesy-chicken-enchilada-soup": [
@@ -22792,70 +21475,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-10",
-				"ingredientId": "ingredient-10",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -23855,70 +22474,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 4.65
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-10",
-				"grams": 3,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-10",
-				"measurementBaseline": {
-					"grams": 3,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
 				}
 			},
 			{
@@ -25564,70 +24119,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-8",
-				"ingredientId": "ingredient-8",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -26011,70 +24502,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 0.575
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-6",
-				"grams": 1.5,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.25,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-6",
-				"measurementBaseline": {
-					"grams": 1.5,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 1.5
 				}
 			},
 			{
@@ -27038,70 +25465,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 2.3
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-6",
-				"grams": 3,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-6",
-				"measurementBaseline": {
-					"grams": 3,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
 				}
 			},
 			{
@@ -28957,70 +27320,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-8",
-				"ingredientId": "ingredient-8",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -29664,70 +27963,6 @@
 			},
 			{
 				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-10",
-				"grams": 1.5,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.25,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-10",
-				"measurementBaseline": {
-					"grams": 1.5,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 1.5
-				}
-			},
-			{
-				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0.152,
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
 				"food": "ingredient-11",
@@ -30110,70 +28345,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 113.6
-				}
-			},
-			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-5",
-				"ingredientId": "ingredient-5",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
 				}
 			},
 			{
@@ -30916,70 +29087,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 1.1199999999999999
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-6",
-				"grams": 1.8000000000000003,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.30000000000000004,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-6",
-				"measurementBaseline": {
-					"grams": 1.8000000000000003,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 1.8000000000000003
 				}
 			},
 			{
@@ -32236,70 +30343,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 1.55
-				}
-			},
-			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-11",
-				"ingredientId": "ingredient-11",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
 				}
 			},
 			{
@@ -33924,70 +31967,6 @@
 			},
 			{
 				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-11",
-				"grams": 4,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.6666666666666666,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-11",
-				"measurementBaseline": {
-					"grams": 4,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 4
-				}
-			},
-			{
-				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0.152,
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
 				"food": "ingredient-12",
@@ -35570,70 +33549,6 @@
 			},
 			{
 				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-2",
-				"grams": 6,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 1,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-2",
-				"measurementBaseline": {
-					"grams": 6,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 6
-				}
-			},
-			{
-				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0.152,
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
 				"food": "ingredient-3",
@@ -36304,70 +34219,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 124.5
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-13",
-				"grams": 1.5,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.25,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-13",
-				"measurementBaseline": {
-					"grams": 1.5,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 1.5
 				}
 			},
 			{
@@ -37592,70 +35443,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-4",
-				"ingredientId": "ingredient-4",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -37911,70 +35698,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 35
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-4",
-				"grams": 3,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-4",
-				"measurementBaseline": {
-					"grams": 3,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
 				}
 			},
 			{
@@ -39237,70 +36960,6 @@
 				"macroSource": "https://fdc.nal.usda.gov/food-details/173431/nutrients"
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-5",
-				"ingredientId": "ingredient-5",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -40450,70 +38109,6 @@
 			},
 			{
 				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-7",
-				"grams": 3,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-7",
-				"measurementBaseline": {
-					"grams": 3,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				}
-			},
-			{
-				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0.453,
 				"source": "https://fdc.nal.usda.gov/food-details/171329/nutrients",
 				"food": "ingredient-8",
@@ -40994,70 +38589,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 0.6
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-6",
-				"grams": 4,
-				"ingredientSnapshot": {
-					"name": "Fine sea salt",
-					"amount": 0.6666666666666666,
-					"unit": "tsp",
-					"state": "fine grains"
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-6",
-				"measurementBaseline": {
-					"grams": 4,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 4
 				}
 			},
 			{
@@ -41935,70 +39466,6 @@
 			},
 			{
 				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-11",
-				"grams": 6,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 1,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-11",
-				"measurementBaseline": {
-					"grams": 6,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 6
-				}
-			},
-			{
-				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0.152,
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
 				"food": "ingredient-12",
@@ -42187,70 +39654,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 1
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-15",
-				"grams": 1.5,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.25,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-15",
-				"measurementBaseline": {
-					"grams": 1.5,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 1.5
 				}
 			},
 			{
@@ -42567,70 +39970,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 453.59237
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-4",
-				"grams": 3,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-4",
-				"measurementBaseline": {
-					"grams": 3,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
 				}
 			},
 			{
@@ -43957,70 +41296,6 @@
 			{
 				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-17",
-				"grams": 1.5,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.25,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-17",
-				"measurementBaseline": {
-					"grams": 1.5,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 1.5
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
 				"source": "https://fdc.nal.usda.gov/food-details/167749/nutrients",
 				"food": "ingredient-18",
 				"grams": 2,
@@ -44272,70 +41547,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 4
-				}
-			},
-			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-9",
-				"ingredientId": "ingredient-9",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
 				}
 			},
 			{
@@ -45829,70 +43040,6 @@
 			},
 			{
 				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-8",
-				"grams": 1.5,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.25,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-8",
-				"measurementBaseline": {
-					"grams": 1.5,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 1.5
-				}
-			},
-			{
-				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0.152,
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
 				"food": "ingredient-9",
@@ -47247,70 +44394,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-9",
-				"ingredientId": "ingredient-9",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -47827,70 +44910,6 @@
 			{
 				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-7",
-				"grams": 1.5,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.25,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-7",
-				"measurementBaseline": {
-					"grams": 1.5,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 1.5
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
 				"source": "https://fdc.nal.usda.gov/food-details/170932/nutrients",
 				"food": "ingredient-8",
 				"grams": 0.225,
@@ -48311,71 +45330,6 @@
 					"basis": "edible cooking mass",
 					"cookingGrams": 56.8
 				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-3",
-				"grams": 2.6666666666666665,
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.4444444444444444,
-					"unit": "tsp",
-					"state": "fine grains"
-				},
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-3",
-				"measurementBaseline": {
-					"grams": 4,
-					"macros": {
-						"kcal": 125.5,
-						"protein_g": 5.195,
-						"carbs_g": 31.975,
-						"fiber_g": 12.65
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 2.6666666666666665
-				},
-				"fdcId": 173468,
-				"ketoProfileReview": "Pure measured salt uses the existing USDA salt profile; pepper remains a separate measured row."
 			},
 			{
 				"fdcId": 170931,
@@ -49596,70 +46550,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-8",
-				"ingredientId": "ingredient-8",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -50234,70 +47124,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 1.55
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-7",
-				"grams": 6,
-				"ingredientSnapshot": {
-					"name": "Salt",
-					"amount": 1,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-7",
-				"measurementBaseline": {
-					"grams": 6,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 6
 				}
 			},
 			{
@@ -51323,69 +48149,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 3.1999999999999997
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
-				"food": "ingredient-7",
-				"grams": 1.3333333333333333,
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.2222222222222222,
-					"unit": "tsp",
-					"state": "fine grains"
-				},
-				"description": "Salt/pepper model: equal masses table salt and ground black pepper",
-				"nutrients": {
-					"fat": 1.63,
-					"saturated_fat": 0.696,
-					"cholesterol": 0,
-					"sodium": 19389,
-					"vitamin_a": 13.5,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0.52,
-					"vitamin_k": 81.85,
-					"thiamin": 0.054,
-					"riboflavin": 0.09,
-					"niacin": 0.5715,
-					"vitamin_b6": 0.1455,
-					"folate": 8.5,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0.6995,
-					"choline": 5.65,
-					"calcium": 233.5,
-					"iron": 5.0200000000000005,
-					"magnesium": 86,
-					"phosphorus": 79,
-					"potassium": 668.5,
-					"zinc": 0.645,
-					"copper": 0.68,
-					"manganese": 6.4265,
-					"selenium": 2.5
-				},
-				"macros": {
-					"kcal": 125.5,
-					"protein_g": 5.195,
-					"carbs_g": 31.975,
-					"fiber_g": 12.65
-				},
-				"ingredientId": "ingredient-7",
-				"measurementBaseline": {
-					"grams": 2,
-					"macros": {
-						"kcal": 125.5,
-						"protein_g": 5.195,
-						"carbs_g": 31.975,
-						"fiber_g": 12.65
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 1.3333333333333333
 				}
 			},
 			{
@@ -52518,70 +49281,6 @@
 			},
 			{
 				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-13",
-				"grams": 6,
-				"ingredientSnapshot": {
-					"name": "Salt",
-					"amount": 1,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-13",
-				"measurementBaseline": {
-					"grams": 6,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 6
-				}
-			},
-			{
-				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0.152,
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
 				"food": "ingredient-14",
@@ -53347,70 +50046,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 238
-				}
-			},
-			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-9",
-				"ingredientId": "ingredient-9",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
 				}
 			},
 			{
@@ -56473,70 +53108,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-10",
-				"ingredientId": "ingredient-10",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -57304,70 +53875,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 24
-				}
-			},
-			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-9",
-				"ingredientId": "ingredient-9",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
 				}
 			},
 			{
@@ -58239,69 +54746,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 0.6
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
-				"food": "ingredient-11",
-				"grams": 1.3333333333333333,
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.2222222222222222,
-					"unit": "tsp",
-					"state": "fine grains"
-				},
-				"description": "Salt/pepper model: equal masses table salt and ground black pepper",
-				"nutrients": {
-					"fat": 1.63,
-					"saturated_fat": 0.696,
-					"cholesterol": 0,
-					"sodium": 19389,
-					"vitamin_a": 13.5,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0.52,
-					"vitamin_k": 81.85,
-					"thiamin": 0.054,
-					"riboflavin": 0.09,
-					"niacin": 0.5715,
-					"vitamin_b6": 0.1455,
-					"folate": 8.5,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0.6995,
-					"choline": 5.65,
-					"calcium": 233.5,
-					"iron": 5.0200000000000005,
-					"magnesium": 86,
-					"phosphorus": 79,
-					"potassium": 668.5,
-					"zinc": 0.645,
-					"copper": 0.68,
-					"manganese": 6.4265,
-					"selenium": 2.5
-				},
-				"macros": {
-					"kcal": 125.5,
-					"protein_g": 5.195,
-					"carbs_g": 31.975,
-					"fiber_g": 12.65
-				},
-				"ingredientId": "ingredient-11",
-				"measurementBaseline": {
-					"grams": 2,
-					"macros": {
-						"kcal": 125.5,
-						"protein_g": 5.195,
-						"carbs_g": 31.975,
-						"fiber_g": 12.65
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 1.3333333333333333
 				}
 			},
 			{
@@ -60036,70 +56480,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-12",
-				"ingredientId": "ingredient-12",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -60867,70 +57247,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 19.5
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-14",
-				"grams": 12,
-				"ingredientSnapshot": {
-					"name": "Salt",
-					"amount": 2,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-14",
-				"measurementBaseline": {
-					"grams": 12,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 12
 				}
 			},
 			{
@@ -61776,69 +58092,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 1.05
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
-				"food": "ingredient-8",
-				"grams": 1,
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.16666666666666666,
-					"unit": "tsp",
-					"state": "fine grains"
-				},
-				"description": "Salt/pepper model: equal masses table salt and ground black pepper",
-				"nutrients": {
-					"fat": 1.63,
-					"saturated_fat": 0.696,
-					"cholesterol": 0,
-					"sodium": 19389,
-					"vitamin_a": 13.5,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0.52,
-					"vitamin_k": 81.85,
-					"thiamin": 0.054,
-					"riboflavin": 0.09,
-					"niacin": 0.5715,
-					"vitamin_b6": 0.1455,
-					"folate": 8.5,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0.6995,
-					"choline": 5.65,
-					"calcium": 233.5,
-					"iron": 5.0200000000000005,
-					"magnesium": 86,
-					"phosphorus": 79,
-					"potassium": 668.5,
-					"zinc": 0.645,
-					"copper": 0.68,
-					"manganese": 6.4265,
-					"selenium": 2.5
-				},
-				"macros": {
-					"kcal": 125.5,
-					"protein_g": 5.195,
-					"carbs_g": 31.975,
-					"fiber_g": 12.65
-				},
-				"ingredientId": "ingredient-8",
-				"measurementBaseline": {
-					"grams": 1.5,
-					"macros": {
-						"kcal": 125.5,
-						"protein_g": 5.195,
-						"carbs_g": 31.975,
-						"fiber_g": 12.65
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 1
 				}
 			},
 			{
@@ -62862,70 +59115,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-11",
-				"ingredientId": "ingredient-11",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -63567,71 +59756,6 @@
 				}
 			},
 			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-10",
-				"grams": 4,
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.6666666666666666,
-					"unit": "tsp",
-					"state": "fine grains"
-				},
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-10",
-				"measurementBaseline": {
-					"grams": 6,
-					"macros": {
-						"kcal": 125.5,
-						"protein_g": 5.195,
-						"carbs_g": 31.975,
-						"fiber_g": 12.65
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 4
-				},
-				"fdcId": 173468,
-				"ketoProfileReview": "Pure measured salt uses the existing USDA salt profile; pepper remains a separate measured row."
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -64143,70 +60267,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 2.4
-				}
-			},
-			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-5",
-				"ingredientId": "ingredient-5",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
 				}
 			},
 			{
@@ -65653,70 +61713,6 @@
 					"amount": 0.45,
 					"unit": "g",
 					"state": "optional"
-				}
-			},
-			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-11",
-				"ingredientId": "ingredient-11",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
 				}
 			},
 			{
@@ -67486,70 +63482,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 15
-				}
-			},
-			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-3",
-				"ingredientId": "ingredient-3",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
 				}
 			},
 			{
@@ -70283,70 +66215,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-10",
-				"ingredientId": "ingredient-10",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -71576,70 +67444,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-15",
-				"ingredientId": "ingredient-15",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -72410,70 +68214,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-11",
-				"ingredientId": "ingredient-11",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -73182,69 +68922,6 @@
 			{
 				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
-				"food": "ingredient-9",
-				"grams": 2,
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.3333333333333333,
-					"unit": "tsp",
-					"state": "fine grains"
-				},
-				"description": "Salt/pepper model: equal masses table salt and ground black pepper",
-				"nutrients": {
-					"fat": 1.63,
-					"saturated_fat": 0.696,
-					"cholesterol": 0,
-					"sodium": 19389,
-					"vitamin_a": 13.5,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0.52,
-					"vitamin_k": 81.85,
-					"thiamin": 0.054,
-					"riboflavin": 0.09,
-					"niacin": 0.5715,
-					"vitamin_b6": 0.1455,
-					"folate": 8.5,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0.6995,
-					"choline": 5.65,
-					"calcium": 233.5,
-					"iron": 5.0200000000000005,
-					"magnesium": 86,
-					"phosphorus": 79,
-					"potassium": 668.5,
-					"zinc": 0.645,
-					"copper": 0.68,
-					"manganese": 6.4265,
-					"selenium": 2.5
-				},
-				"macros": {
-					"kcal": 125.5,
-					"protein_g": 5.195,
-					"carbs_g": 31.975,
-					"fiber_g": 12.65
-				},
-				"ingredientId": "ingredient-9",
-				"measurementBaseline": {
-					"grams": 3,
-					"macros": {
-						"kcal": 125.5,
-						"protein_g": 5.195,
-						"carbs_g": 31.975,
-						"fiber_g": 12.65
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 2
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
 				"source": "https://fdc.nal.usda.gov/food-details/174536/nutrients",
 				"food": "ingredient-10",
 				"grams": 62.25,
@@ -73882,70 +69559,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 1.55
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-7",
-				"grams": 6,
-				"ingredientSnapshot": {
-					"name": "Salt",
-					"amount": 1,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-7",
-				"measurementBaseline": {
-					"grams": 6,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 6
 				}
 			},
 			{
@@ -76169,70 +71782,6 @@
 			},
 			{
 				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-8",
-				"grams": 6,
-				"ingredientSnapshot": {
-					"name": "Salt",
-					"amount": 1,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-8",
-				"measurementBaseline": {
-					"grams": 6,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 6
-				}
-			},
-			{
-				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0.315,
 				"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients",
 				"food": "ingredient-9",
@@ -77257,70 +72806,6 @@
 			},
 			{
 				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-9",
-				"grams": 3,
-				"ingredientSnapshot": {
-					"name": "Salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-9",
-				"measurementBaseline": {
-					"grams": 3,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				}
-			},
-			{
-				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0.152,
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
 				"food": "ingredient-10",
@@ -77575,70 +73060,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 800
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-2",
-				"grams": 1.5,
-				"ingredientSnapshot": {
-					"name": "Salt",
-					"amount": 0.25,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-2",
-				"measurementBaseline": {
-					"grams": 1.5,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 1.5
 				}
 			},
 			{
@@ -78472,70 +73893,6 @@
 					"edibleFraction": 0.5,
 					"basis": "edible fraction of purchased mass; retained reviewed nutrition yield",
 					"cookingGrams": 800
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-2",
-				"grams": 2.4,
-				"ingredientSnapshot": {
-					"name": "Morton coarse kosher salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-2",
-				"measurementBaseline": {
-					"grams": 3,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 2.4
 				}
 			},
 			{
@@ -80089,70 +75446,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-7",
-				"ingredientId": "ingredient-7",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -80983,70 +76276,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 3.8
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-13",
-				"grams": 6,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 1,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-13",
-				"measurementBaseline": {
-					"grams": 6,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 6
 				}
 			},
 			{
@@ -81918,70 +77147,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 2.4
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-7",
-				"grams": 1.5,
-				"ingredientSnapshot": {
-					"name": "Salt",
-					"amount": 0.25,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-7",
-				"measurementBaseline": {
-					"grams": 1.5,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 1.5
 				}
 			},
 			{
@@ -83151,70 +78316,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-4",
-				"ingredientId": "ingredient-4",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -83921,70 +79022,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-3",
-				"ingredientId": "ingredient-3",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -84495,70 +79532,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 2.4
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-7",
-				"grams": 1.5,
-				"ingredientSnapshot": {
-					"name": "Salt",
-					"amount": 0.25,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-7",
-				"measurementBaseline": {
-					"grams": 1.5,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 1.5
 				}
 			},
 			{
@@ -85729,70 +80702,6 @@
 			},
 			{
 				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-11",
-				"grams": 2,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.3333333333333333,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-11",
-				"measurementBaseline": {
-					"grams": 2,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 2
-				}
-			},
-			{
-				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0.152,
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
 				"food": "ingredient-12",
@@ -86895,70 +81804,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-15",
-				"ingredientId": "ingredient-15",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -87662,70 +82507,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 80
-				}
-			},
-			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-5",
-				"ingredientId": "ingredient-5",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
 				}
 			},
 			{
@@ -88560,70 +83341,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 226
-				}
-			},
-			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-13",
-				"ingredientId": "ingredient-13",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
 				}
 			},
 			{
@@ -90295,70 +85012,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-9",
-				"ingredientId": "ingredient-9",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -91682,70 +86335,6 @@
 			},
 			{
 				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-12",
-				"grams": 3,
-				"ingredientSnapshot": {
-					"name": "Salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-12",
-				"measurementBaseline": {
-					"grams": 3,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				}
-			},
-			{
-				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0.152,
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
 				"food": "ingredient-13",
@@ -92512,70 +87101,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 2.4000000000000004
-				}
-			},
-			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-7",
-				"ingredientId": "ingredient-7",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
 				}
 			},
 			{
@@ -93512,70 +88037,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 14
-				}
-			},
-			{
-				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-11",
-				"grams": 3,
-				"ingredientSnapshot": {
-					"name": "fine grain sea salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-11",
-				"measurementBaseline": {
-					"grams": 3,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
 				}
 			},
 			{
@@ -96784,70 +91245,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-7",
-				"ingredientId": "ingredient-7",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -98130,70 +92527,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-6",
-				"ingredientId": "ingredient-6",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -98835,70 +93168,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-9",
-				"ingredientId": "ingredient-9",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -99346,70 +93615,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 12
-				}
-			},
-			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-5",
-				"ingredientId": "ingredient-5",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
 				}
 			},
 			{
@@ -101310,70 +95515,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-13",
-				"ingredientId": "ingredient-13",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -102268,70 +96409,6 @@
 					"amount": 0.45,
 					"unit": "g",
 					"state": "(optional)"
-				}
-			},
-			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-12",
-				"ingredientId": "ingredient-12",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
 				}
 			},
 			{
@@ -103268,70 +97345,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 1.15
-				}
-			},
-			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-12",
-				"ingredientId": "ingredient-12",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
 				}
 			},
 			{
@@ -104335,70 +98348,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-13",
-				"ingredientId": "ingredient-13",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -104913,70 +98862,6 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-8",
-				"ingredientId": "ingredient-8",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
@@ -105296,70 +99181,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 3
-				}
-			},
-			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-3",
-				"ingredientId": "ingredient-3",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
 				}
 			},
 			{
@@ -106322,70 +100143,6 @@
 					"edibleFraction": 1,
 					"basis": "edible cooking mass",
 					"cookingGrams": 62.25
-				}
-			},
-			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"omega3RecordedGramsPer100g": 0,
-				"assumedMacroFields": [],
-				"food": "ingredient-9",
-				"ingredientId": "ingredient-9",
-				"grams": 3,
-				"measurementBaseline": {
-					"grams": 0,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 3
-				},
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 0.5,
-					"unit": "tsp",
-					"state": "fine grains"
 				}
 			},
 			{
@@ -107392,70 +101149,6 @@
 			},
 			{
 				"assumedMacroFields": [],
-				"omega3RecordedGramsPer100g": 0,
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"food": "ingredient-11",
-				"grams": 0.75,
-				"ingredientSnapshot": {
-					"name": "salt",
-					"amount": 0.125,
-					"unit": "tsp",
-					"state": ""
-				},
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"nutrients": {
-					"fat": 0,
-					"saturated_fat": 0,
-					"cholesterol": 0,
-					"sodium": 38758,
-					"vitamin_a": 0,
-					"vitamin_c": 0,
-					"vitamin_d": 0,
-					"vitamin_e": 0,
-					"vitamin_k": 0,
-					"thiamin": 0,
-					"riboflavin": 0,
-					"niacin": 0,
-					"vitamin_b6": 0,
-					"folate": 0,
-					"vitamin_b12": 0,
-					"pantothenic_acid": 0,
-					"choline": 0,
-					"calcium": 24,
-					"iron": 0.33,
-					"magnesium": 1,
-					"phosphorus": 0,
-					"potassium": 8,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0,
-					"protein_g": 0,
-					"carbs_g": 0,
-					"fiber_g": 0
-				},
-				"ingredientId": "ingredient-11",
-				"measurementBaseline": {
-					"grams": 0.75,
-					"macros": {
-						"kcal": 0,
-						"protein_g": 0,
-						"carbs_g": 0,
-						"fiber_g": 0
-					}
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass",
-					"cookingGrams": 0.75
-				}
-			},
-			{
-				"assumedMacroFields": [],
 				"omega3RecordedGramsPer100g": 0.152,
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
 				"food": "ingredient-12",
@@ -107719,36 +101412,36 @@
 				"nutrients": {
 					"fat": 1.38,
 					"saturated_fat": 0.358,
-					"cholesterol": 233.0,
-					"sodium": 44.0,
-					"vitamin_a": 10.0,
+					"cholesterol": 233,
+					"sodium": 44,
+					"vitamin_a": 10,
 					"vitamin_c": 4.7,
-					"vitamin_d": 0.0,
+					"vitamin_d": 0,
 					"vitamin_e": 1.2,
-					"vitamin_k": 0.0,
+					"vitamin_k": 0,
 					"thiamin": 0.02,
 					"riboflavin": 0.412,
 					"niacin": 2.175,
 					"vitamin_b6": 0.056,
-					"folate": 5.0,
+					"folate": 5,
 					"vitamin_b12": 1.3,
 					"pantothenic_acid": 0.5,
-					"choline": 65.0,
-					"calcium": 32.0,
+					"choline": 65,
+					"calcium": 32,
 					"iron": 0.68,
-					"magnesium": 33.0,
-					"phosphorus": 221.0,
-					"potassium": 246.0,
+					"magnesium": 33,
+					"phosphorus": 221,
+					"potassium": 246,
 					"zinc": 1.53,
 					"copper": 1.891,
 					"manganese": 0.035,
 					"selenium": 44.8
 				},
 				"macros": {
-					"kcal": 92.0,
+					"kcal": 92,
 					"protein_g": 15.58,
 					"carbs_g": 3.08,
-					"fiber_g": 0.0
+					"fiber_g": 0
 				},
 				"omega3RecordedGramsPer100g": 0.488,
 				"assumedMacroFields": [],
@@ -107781,33 +101474,33 @@
 				"nutrients": {
 					"fat": 49.93,
 					"saturated_fat": 3.802,
-					"cholesterol": 0.0,
-					"sodium": 1.0,
-					"vitamin_a": 0.0,
-					"vitamin_c": 0.0,
-					"vitamin_d": 0.0,
+					"cholesterol": 0,
+					"sodium": 1,
+					"vitamin_a": 0,
+					"vitamin_c": 0,
+					"vitamin_d": 0,
 					"vitamin_e": 25.63,
-					"vitamin_k": 0.0,
+					"vitamin_k": 0,
 					"thiamin": 0.205,
 					"riboflavin": 1.138,
 					"niacin": 3.618,
 					"vitamin_b6": 0.137,
-					"folate": 44.0,
-					"vitamin_b12": 0.0,
+					"folate": 44,
+					"vitamin_b12": 0,
 					"pantothenic_acid": 0.471,
 					"choline": 52.1,
-					"calcium": 269.0,
+					"calcium": 269,
 					"iron": 3.71,
-					"magnesium": 270.0,
-					"phosphorus": 481.0,
-					"potassium": 733.0,
+					"magnesium": 270,
+					"phosphorus": 481,
+					"potassium": 733,
 					"zinc": 3.12,
 					"copper": 1.031,
 					"manganese": 2.179,
 					"selenium": 4.1
 				},
 				"macros": {
-					"kcal": 579.0,
+					"kcal": 579,
 					"protein_g": 21.15,
 					"carbs_g": 21.55,
 					"fiber_g": 12.5
@@ -107843,36 +101536,36 @@
 				"nutrients": {
 					"fat": 9.51,
 					"saturated_fat": 3.126,
-					"cholesterol": 372.0,
-					"sodium": 142.0,
-					"vitamin_a": 160.0,
-					"vitamin_c": 0.0,
-					"vitamin_d": 2.0,
+					"cholesterol": 372,
+					"sodium": 142,
+					"vitamin_a": 160,
+					"vitamin_c": 0,
+					"vitamin_d": 2,
 					"vitamin_e": 1.05,
 					"vitamin_k": 0.3,
 					"thiamin": 0.04,
 					"riboflavin": 0.457,
 					"niacin": 0.075,
 					"vitamin_b6": 0.17,
-					"folate": 47.0,
+					"folate": 47,
 					"vitamin_b12": 0.89,
 					"pantothenic_acid": 1.533,
 					"choline": 293.8,
-					"calcium": 56.0,
+					"calcium": 56,
 					"iron": 1.75,
-					"magnesium": 12.0,
-					"phosphorus": 198.0,
-					"potassium": 138.0,
+					"magnesium": 12,
+					"phosphorus": 198,
+					"potassium": 138,
 					"zinc": 1.29,
 					"copper": 0.072,
 					"manganese": 0.028,
 					"selenium": 30.7
 				},
 				"macros": {
-					"kcal": 143.0,
+					"kcal": 143,
 					"protein_g": 12.56,
 					"carbs_g": 0.72,
-					"fiber_g": 0.0
+					"fiber_g": 0
 				},
 				"omega3RecordedGramsPer100g": 0.094,
 				"assumedMacroFields": [],
@@ -107903,38 +101596,38 @@
 				"description": "Oil, canola",
 				"source": "https://fdc.nal.usda.gov/food-details/172336/nutrients",
 				"nutrients": {
-					"fat": 100.0,
+					"fat": 100,
 					"saturated_fat": 7.365,
-					"cholesterol": 0.0,
-					"sodium": 0.0,
-					"vitamin_a": 0.0,
-					"vitamin_c": 0.0,
-					"vitamin_d": 0.0,
+					"cholesterol": 0,
+					"sodium": 0,
+					"vitamin_a": 0,
+					"vitamin_c": 0,
+					"vitamin_d": 0,
 					"vitamin_e": 17.46,
 					"vitamin_k": 71.3,
-					"thiamin": 0.0,
-					"riboflavin": 0.0,
-					"niacin": 0.0,
-					"vitamin_b6": 0.0,
-					"folate": 0.0,
-					"vitamin_b12": 0.0,
-					"pantothenic_acid": 0.0,
+					"thiamin": 0,
+					"riboflavin": 0,
+					"niacin": 0,
+					"vitamin_b6": 0,
+					"folate": 0,
+					"vitamin_b12": 0,
+					"pantothenic_acid": 0,
 					"choline": 0.2,
-					"calcium": 0.0,
-					"iron": 0.0,
-					"magnesium": 0.0,
-					"phosphorus": 0.0,
-					"potassium": 0.0,
-					"zinc": 0.0,
-					"copper": 0.0,
-					"manganese": 0.0,
-					"selenium": 0.0
+					"calcium": 0,
+					"iron": 0,
+					"magnesium": 0,
+					"phosphorus": 0,
+					"potassium": 0,
+					"zinc": 0,
+					"copper": 0,
+					"manganese": 0,
+					"selenium": 0
 				},
 				"macros": {
-					"kcal": 884.0,
-					"protein_g": 0.0,
-					"carbs_g": 0.0,
-					"fiber_g": 0.0
+					"kcal": 884,
+					"protein_g": 0,
+					"carbs_g": 0,
+					"fiber_g": 0
 				},
 				"omega3RecordedGramsPer100g": 9.137,
 				"assumedMacroFields": [],
@@ -107967,36 +101660,36 @@
 				"nutrients": {
 					"fat": 74.85,
 					"saturated_fat": 11.703,
-					"cholesterol": 42.0,
-					"sodium": 635.0,
-					"vitamin_a": 16.0,
-					"vitamin_c": 0.0,
+					"cholesterol": 42,
+					"sodium": 635,
+					"vitamin_a": 16,
+					"vitamin_c": 0,
 					"vitamin_d": 0.2,
 					"vitamin_e": 3.28,
-					"vitamin_k": 163.0,
+					"vitamin_k": 163,
 					"thiamin": 0.01,
 					"riboflavin": 0.019,
-					"niacin": 0.0,
+					"niacin": 0,
 					"vitamin_b6": 0.008,
-					"folate": 5.0,
+					"folate": 5,
 					"vitamin_b12": 0.12,
 					"pantothenic_acid": 0.172,
 					"choline": 34.2,
-					"calcium": 8.0,
+					"calcium": 8,
 					"iron": 0.21,
-					"magnesium": 1.0,
-					"phosphorus": 21.0,
-					"potassium": 20.0,
+					"magnesium": 1,
+					"phosphorus": 21,
+					"potassium": 20,
 					"zinc": 0.15,
 					"copper": 0.019,
 					"manganese": 0.007,
 					"selenium": 2.3
 				},
 				"macros": {
-					"kcal": 680.0,
+					"kcal": 680,
 					"protein_g": 0.96,
 					"carbs_g": 0.57,
-					"fiber_g": 0.0
+					"fiber_g": 0
 				},
 				"omega3RecordedGramsPer100g": 5.336,
 				"assumedMacroFields": [],
@@ -108029,33 +101722,33 @@
 				"nutrients": {
 					"fat": 0.24,
 					"saturated_fat": 0.04,
-					"cholesterol": 0.0,
-					"sodium": 1.0,
-					"vitamin_a": 0.0,
+					"cholesterol": 0,
+					"sodium": 1,
+					"vitamin_a": 0,
 					"vitamin_c": 38.7,
-					"vitamin_d": 0.0,
+					"vitamin_d": 0,
 					"vitamin_e": 0.15,
-					"vitamin_k": 0.0,
+					"vitamin_k": 0,
 					"thiamin": 0.024,
 					"riboflavin": 0.015,
 					"niacin": 0.091,
 					"vitamin_b6": 0.046,
-					"folate": 20.0,
-					"vitamin_b12": 0.0,
+					"folate": 20,
+					"vitamin_b12": 0,
 					"pantothenic_acid": 0.131,
 					"choline": 5.1,
-					"calcium": 6.0,
+					"calcium": 6,
 					"iron": 0.08,
-					"magnesium": 6.0,
-					"phosphorus": 8.0,
-					"potassium": 103.0,
+					"magnesium": 6,
+					"phosphorus": 8,
+					"potassium": 103,
 					"zinc": 0.05,
 					"copper": 0.016,
 					"manganese": 0.012,
 					"selenium": 0.1
 				},
 				"macros": {
-					"kcal": 22.0,
+					"kcal": 22,
 					"protein_g": 0.35,
 					"carbs_g": 6.9,
 					"fiber_g": 0.3
@@ -108091,38 +101784,38 @@
 				"nutrients": {
 					"fat": 0.3,
 					"saturated_fat": 0.039,
-					"cholesterol": 0.0,
-					"sodium": 2.0,
-					"vitamin_a": 1.0,
-					"vitamin_c": 53.0,
-					"vitamin_d": 0.0,
+					"cholesterol": 0,
+					"sodium": 2,
+					"vitamin_a": 1,
+					"vitamin_c": 53,
+					"vitamin_d": 0,
 					"vitamin_e": 0.15,
-					"vitamin_k": 0.0,
+					"vitamin_k": 0,
 					"thiamin": 0.04,
 					"riboflavin": 0.02,
 					"niacin": 0.1,
 					"vitamin_b6": 0.08,
-					"folate": 11.0,
-					"vitamin_b12": 0.0,
+					"folate": 11,
+					"vitamin_b12": 0,
 					"pantothenic_acid": 0.19,
 					"choline": 5.1,
-					"calcium": 26.0,
+					"calcium": 26,
 					"iron": 0.6,
-					"magnesium": 8.0,
-					"phosphorus": 16.0,
-					"potassium": 138.0,
+					"magnesium": 8,
+					"phosphorus": 16,
+					"potassium": 138,
 					"zinc": 0.06,
 					"copper": 0.037,
 					"manganese": 0.03,
 					"selenium": 0.4
 				},
 				"macros": {
-					"kcal": 29.0,
+					"kcal": 29,
 					"protein_g": 1.1,
 					"carbs_g": 9.32,
 					"fiber_g": 2.8
 				},
-				"omega3RecordedGramsPer100g": 0.0,
+				"omega3RecordedGramsPer100g": 0,
 				"assumedMacroFields": [],
 				"food": "lemon_wedges",
 				"ingredientId": "lemon_wedges",
@@ -108153,36 +101846,36 @@
 				"nutrients": {
 					"fat": 0.73,
 					"saturated_fat": 0.249,
-					"cholesterol": 0.0,
-					"sodium": 60.0,
-					"vitamin_a": 0.0,
+					"cholesterol": 0,
+					"sodium": 60,
+					"vitamin_a": 0,
 					"vitamin_c": 1.2,
-					"vitamin_d": 0.0,
+					"vitamin_d": 0,
 					"vitamin_e": 0.67,
 					"vitamin_k": 0.4,
 					"thiamin": 0.435,
 					"riboflavin": 0.141,
 					"niacin": 0.796,
 					"vitamin_b6": 1.654,
-					"folate": 47.0,
-					"vitamin_b12": 0.0,
+					"folate": 47,
+					"vitamin_b12": 0,
 					"pantothenic_acid": 0.743,
 					"choline": 67.5,
-					"calcium": 79.0,
+					"calcium": 79,
 					"iron": 5.65,
-					"magnesium": 77.0,
-					"phosphorus": 414.0,
-					"potassium": 1193.0,
+					"magnesium": 77,
+					"phosphorus": 414,
+					"potassium": 1193,
 					"zinc": 2.99,
 					"copper": 0.533,
 					"manganese": 0.979,
 					"selenium": 23.9
 				},
 				"macros": {
-					"kcal": 331.0,
+					"kcal": 331,
 					"protein_g": 16.55,
 					"carbs_g": 72.73,
-					"fiber_g": 9.0
+					"fiber_g": 9
 				},
 				"omega3RecordedGramsPer100g": 0.012,
 				"assumedMacroFields": [],
@@ -108209,101 +101902,39 @@
 				}
 			},
 			{
-				"fdcId": 173468,
-				"description": "Salt, table",
-				"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
-				"nutrients": {
-					"fat": 0.0,
-					"saturated_fat": 0.0,
-					"cholesterol": 0.0,
-					"sodium": 38758.0,
-					"vitamin_a": 0.0,
-					"vitamin_c": 0.0,
-					"vitamin_d": 0.0,
-					"vitamin_e": 0.0,
-					"vitamin_k": 0.0,
-					"thiamin": 0.0,
-					"riboflavin": 0.0,
-					"niacin": 0.0,
-					"vitamin_b6": 0.0,
-					"folate": 0.0,
-					"vitamin_b12": 0.0,
-					"pantothenic_acid": 0.0,
-					"choline": 0.0,
-					"calcium": 24.0,
-					"iron": 0.33,
-					"magnesium": 1.0,
-					"phosphorus": 0.0,
-					"potassium": 8.0,
-					"zinc": 0.1,
-					"copper": 0.03,
-					"manganese": 0.1,
-					"selenium": 0.1
-				},
-				"macros": {
-					"kcal": 0.0,
-					"protein_g": 0.0,
-					"carbs_g": 0.0,
-					"fiber_g": 0.0
-				},
-				"omega3RecordedGramsPer100g": 0.0,
-				"assumedMacroFields": [],
-				"food": "fine_salt",
-				"ingredientId": "fine_salt",
-				"grams": 3,
-				"ingredientSnapshot": {
-					"name": "Fine salt",
-					"amount": 3,
-					"unit": "g",
-					"state": "dry"
-				},
-				"measurementReconciliation": {
-					"edibleFraction": 1,
-					"basis": "edible cooking mass; conservative full oil, coating, egg wash and lemon-wedge model",
-					"cookingGrams": 3
-				},
-				"sourceReview": {
-					"reviewedOn": "2026-10-23",
-					"sourceArchive": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
-					"archiveSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
-					"recordType": "SR Legacy",
-					"decision": "Exact named raw or ready-to-eat food state matched to the measured ingredient."
-				}
-			},
-			{
 				"fdcId": 170931,
 				"description": "Spices, pepper, black",
 				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
 				"nutrients": {
 					"fat": 3.26,
 					"saturated_fat": 1.392,
-					"cholesterol": 0.0,
-					"sodium": 20.0,
-					"vitamin_a": 27.0,
-					"vitamin_c": 0.0,
-					"vitamin_d": 0.0,
+					"cholesterol": 0,
+					"sodium": 20,
+					"vitamin_a": 27,
+					"vitamin_c": 0,
+					"vitamin_d": 0,
 					"vitamin_e": 1.04,
 					"vitamin_k": 163.7,
 					"thiamin": 0.108,
 					"riboflavin": 0.18,
 					"niacin": 1.143,
 					"vitamin_b6": 0.291,
-					"folate": 17.0,
-					"vitamin_b12": 0.0,
+					"folate": 17,
+					"vitamin_b12": 0,
 					"pantothenic_acid": 1.399,
 					"choline": 11.3,
-					"calcium": 443.0,
+					"calcium": 443,
 					"iron": 9.71,
-					"magnesium": 171.0,
-					"phosphorus": 158.0,
-					"potassium": 1329.0,
+					"magnesium": 171,
+					"phosphorus": 158,
+					"potassium": 1329,
 					"zinc": 1.19,
 					"copper": 1.33,
 					"manganese": 12.753,
 					"selenium": 4.9
 				},
 				"macros": {
-					"kcal": 251.0,
+					"kcal": 251,
 					"protein_g": 10.39,
 					"carbs_g": 63.95,
 					"fiber_g": 25.3

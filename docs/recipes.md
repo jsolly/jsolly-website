@@ -57,6 +57,13 @@ continues to use individually saved recipe records offline.
 
 The 124 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Unmeasured cooking spray used only to prepare cookware belongs in flow preparation directions, including any optional use or device-manual conditions, rather than ingredient rows. Measured oil-or-spray alternatives remain ingredients. Every food ingredient has a positive measured quantity. Missing and to-taste source amounts have reviewed measured defaults, with the original source retained in measurement provenance. Missing nutrition and times display as "Not provided". The 71 retained recipes that previously lacked complete macros now carry labeled nutrition estimates used by the same base-recipe dietary classification. Every publisher adaptation has an ingredient nutrient model. Missing nutrient observations do not qualify for nutrient filters. Prep time is distinguished from household active time. The browser keeps concise source attribution and cooking instructions; provenance and nutrition assumptions remain in canonical data and assistant downloads. Cooking guidance from source limitations belongs in the flow. Mobile renders the same ingredient allocation tree vertically, preserving branch joins and shared cooking checks; desktop and print retain the table.
 
+Plain added salt is omitted from current ingredient lists and cooking directions.
+Garlic salt and seasoning salt remain measured blends. Nutrition models exclude
+the removed ingredient; publisher records and historical estimates remain intact.
+`node src/components/recipes/tools/remove-salt.mjs` checks the migration. To apply
+it again, use `--write`, format the canonical JSON with Biome, and run
+`npm run recipes:sync`.
+
 Every recipe has a first-party illustration under the [image contract](recipe-images.md), with illustration provenance retained in its image metadata and downloads.
 
 Household ingredient amounts describe the reviewed four-adult base, except
