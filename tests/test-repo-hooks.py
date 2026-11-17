@@ -510,7 +510,7 @@ class TestPublicMiseBootstrap:
         self.script(self.bin / 'uname', '#!/usr/bin/env bash\nif [[ "$1" == -s ]]; then echo "${FIXTURE_SYSTEM:-Linux}"; else echo "${FIXTURE_ARCH:-x86_64}"; fi\n')
         self.script(self.bin / 'curl', '''#!/usr/bin/env bash
 printf '%s\\n' "$*" >> "$BOOTSTRAP_DOWNLOADS"
-[[ "${FIXTURE_DOWNLOAD_FAIL:-0}" != 1 ]] || exit 7
+[[ "${FIXTURE_DOWNLOAD_FAIL:-0}" == 0 ]] || exit "$FIXTURE_DOWNLOAD_FAIL"
 while [[ "$1" != -o ]]; do shift; done
 cp "$BOOTSTRAP_PAYLOAD" "$2"
 ''')
@@ -564,6 +564,16 @@ cp "$BOOTSTRAP_PAYLOAD" "$2"
         assert result.returncode != 0
         assert not (self.executions.exists())
         assert not ((self.bin / 'mise').exists())
+
+    def test_download_timeout_is_bounded_and_never_installs(self):
+        result = self.provision(extra={'FIXTURE_DOWNLOAD_FAIL': '28'})
+        assert result.returncode == 28, result.stderr
+        args = self.downloads.read_text().split()
+        for flag in ('--connect-timeout', '--max-time', '--retry-max-time'):
+            assert flag in args
+            assert float(args[args.index(flag) + 1]) > 0
+        assert not self.executions.exists()
+        assert not (self.bin / 'mise').exists()
 
     def test_unrunnable_verified_binary_is_not_installed(self):
         self.payload.write_text('#!/usr/bin/env bash\nexit 19\n')

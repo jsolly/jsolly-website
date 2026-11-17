@@ -6,6 +6,7 @@ export function createErrorReporter({
 	fetcher = (...args) => fetch(...args),
 } = {}) {
 	const sent = new Set();
+	let failureReported = false;
 	return async (category) => {
 		try {
 			if (!Object.hasOwn(ERROR_CATEGORIES, category)) return;
@@ -23,7 +24,7 @@ export function createErrorReporter({
 			)
 				return;
 			sent.add(key);
-			await fetcher("/api/client-error/", {
+			const response = await fetcher("/api/client-error/", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({ category, page: page.pathname }),
@@ -33,8 +34,15 @@ export function createErrorReporter({
 				cache: "no-store",
 				signal: AbortSignal.timeout(5000),
 			});
+			if (!response.ok)
+				throw new Error("Client error endpoint rejected report");
 		} catch {
-			// Error reporting must never retry, recurse, or disrupt the original UI.
+			if (!failureReported) {
+				failureReported = true;
+				console.error(
+					"Client error reporting failed; reports may not reach monitoring.",
+				);
+			}
 		}
 	};
 }

@@ -7,7 +7,7 @@ cd "$ROOT"
 source "$ROOT/gate/gate-lib.sh"
 
 tmp=$(mktemp -d)
-curl --fail --location --silent --show-error \
+curl --fail --location --silent --show-error --connect-timeout 10 --max-time 120 \
   https://github.com/gitleaks/gitleaks/releases/download/v8.24.2/gitleaks_8.24.2_linux_arm64.tar.gz \
   --output "$tmp/gitleaks.tar.gz"
 echo "574a6d52573c61173add7ddb5e3cc68c0e82cb0735818a1eeb9a0a2de1643fbc  $tmp/gitleaks.tar.gz" | sha256sum --check
