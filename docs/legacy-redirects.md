@@ -12,11 +12,16 @@ Vercel project `blogthedata` (`prj_QxSNy3z51xOp295HUvPfDa1JY9h8`, team
 `main`, Root Directory `legacy/blogthedata`. It serves `blogthedata.com`,
 `www.blogthedata.com` and `blogthedata.vercel.app`. Never reconnect the archived source.
 
-Auto-assign Custom Production Domains is off. It stays off through the soak ending
-October 23, 2026; John decides whether to restore it after reviewing monitoring.
-New Git deployments are staged. Verify a redirect edit on its staged URL before
-any separately authorized promotion; a website release is not proof of legacy
-redirect promotion. The intended website project is `jsolly-website`
+Auto-assign Custom Production Domains is off and stays off after the soak that
+ended October 23, 2026, so a new deployment cannot take over the domains. Turning
+it back on is John's decision.
+A push builds this project only when something under `legacy/blogthedata`
+changed since its last successful deployment, or when that deployment's commit is
+missing from Vercel's shallow clone (`ignoreCommand`, written by
+`npm run redirects:write`); Vercel cancels the other builds. New Git deployments
+are staged. Verify a redirect edit on its staged URL before any separately
+authorized promotion; a website release is not proof of legacy redirect promotion.
+The intended website project is `jsolly-website`
 (`prj_9irfTPLYZwwuC7YK0oB3bkc1QXtW`). Its Production smoke selects the Vercel bot,
 Production environment and `https://jsolly-website-` deployment URL prefix.
 
@@ -45,19 +50,17 @@ passed. Website deploy success and legacy deployment success are distinct.
 
 ## Recovery and retained resources
 
-The original full-blog rollback deployment is `dpl_6HZzAQxVN9Q71SEMF1Yxr5b74PR4`,
-<https://blogthedata-kzcuzzfmm-jsollys-projects.vercel.app>, source SHA
-`6545bc279bb906ac6fdb53cb0e0d7946d0f5b4c9`. It remained available after monitoring
-landed. In Vercel Instant Rollback, choose this deployment explicitly: the default
-previous candidate may be a newer staged redirect build. Roll back the legacy
-redirect cutover before rolling back the website integration. Do not execute a
-rollback merely to inspect availability.
+John chose on November 8, 2026 to let the original full-blog deployment expire under
+the project's deployment retention, so Vercel Instant Rollback no longer offers a
+full-blog recovery. blogthedata.com serves only redirects to jsolly.com. Recovery of
+the old blog uses the retained resources below.
 
 John keeps blogthedata.com indefinitely with auto-renew enabled, currently paid
 through August 6, 2028. Keep Google/Bing verification DNS records. Google Change
 of Address was filed October 9, 2026; both Bing properties are verified and the
 destination sitemap submitted. Bing provided no Site Move control; John accepted
-that evidence. Review coverage again November 8, 2026.
+that evidence. The November 8, 2026 coverage review found no missing redirects;
+an indexing recheck follows on November 18, 2026.
 
 John chose on October 28, 2026 to retain the migration backup for several years
 and manage its Glacier Deep Archive lifecycle in this repository. The existing
@@ -67,8 +70,11 @@ review and human apply procedure. Source ownership does not establish deployment
 verify the live lifecycle and eventual storage-class transition separately.
 Object Lock retention ends November 1, 2026. No teardown is authorized.
 
-Heroku release v315, database and media remain for recovery until John's separate
-retirement decision after the soak. Blog images are now [rehosted on this site](blog-images.md), with responsive
+John retired Heroku and deleted the Heroku account by November 11, 2026. The old
+app (release v315), its database and anything stored there are gone, so Heroku is
+no longer a recovery path; the migration backup above is.
+
+Blog images are now [rehosted on this site](blog-images.md), with responsive
 WebPs and original-source receipts. The `blogthedata` S3 bucket and CloudFront
 distribution remain retained; rehosting does not authorize their retirement.
 Preserve private exports, independent backups, the recipe archive and migration

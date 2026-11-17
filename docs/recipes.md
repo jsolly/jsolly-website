@@ -11,28 +11,15 @@ offline app and the old host's kill-switch.
 
 ## Preview recipe changes
 
-Keep UI work in a draft pull request and add the `preview` label. The Vercel
-Preview workflow deploys each pushed commit and updates one Preview comment on
-the pull request. Remove the label to stop automatic redeployments.
+Previews build only for `preview/**` branches; [AGENTS.md → Deploy](../AGENTS.md#deploy) owns the rule and the procedure.
 
-The Preview comment links to one protected URL for the project and pull request,
-plus the immutable URL for that build. Reload the stable URL after a deployment
-finishes to see the new commit. Preview builds do not register the offline
-worker, so its cache cannot hide changes. Production keeps the offline app's
-normal update behavior and changes only after the pull request merges.
+Reload the branch's stable URL after a deployment finishes to see the new
+commit. Preview builds do not register the offline worker, so its
+cache cannot hide changes. Production keeps the offline app's normal update
+behavior and changes only after the change merges to `main`.
 
-Draft PRs carrying `preview` use the separate **UI preview checks** workflow
-(lint, types and unit tests); the long built-site suite waits until full CI is
-requested. The Preview deployment stays independent, so UI iteration does not
-wait for full CI. Before marking ready or merging, run the full local gate and
-wait for required `ci` on the current head. Marking ready or removing `preview`
-starts full CI. A skipped `ci-deferred` or passing `ci-preview` cannot authorize
-merging.
-
-For explicitly authorized UI-only local publication, verify the live same-repo
-draft PR has `preview` and the expected head, then `npm run gate:preview` uses the scope guard and quick
-checks. Only added/modified Svelte components and stylesheets qualify; other
-changes still require `npm run gate`. The full gate always disables preview mode.
+Before marking ready or merging, run the full local gate (`npm run gate`) and
+wait for required `ci` on the current head; every PR push runs full CI.
 
 ## Data contract
 
@@ -69,6 +56,13 @@ card fragments without loading the canonical nutrient tables. Saved browsing
 continues to use individually saved recipe records offline.
 
 The 124 publisher adaptations retain their source URLs, attribution, nutrition basis and limitations in `sourceRecipe`, including in JSON downloads. Unmeasured cooking spray used only to prepare cookware belongs in flow preparation directions, including any optional use or device-manual conditions, rather than ingredient rows. Measured oil-or-spray alternatives remain ingredients. Every food ingredient has a positive measured quantity. Missing and to-taste source amounts have reviewed measured defaults, with the original source retained in measurement provenance. Missing nutrition and times display as "Not provided". The 71 retained recipes that previously lacked complete macros now carry labeled nutrition estimates used by the same base-recipe dietary classification. Every publisher adaptation has an ingredient nutrient model. Missing nutrient observations do not qualify for nutrient filters. Prep time is distinguished from household active time. The browser keeps concise source attribution and cooking instructions; provenance and nutrition assumptions remain in canonical data and assistant downloads. Cooking guidance from source limitations belongs in the flow. Mobile renders the same ingredient allocation tree vertically, preserving branch joins and shared cooking checks; desktop and print retain the table.
+
+Plain added salt is omitted from current ingredient lists and cooking directions.
+Garlic salt and seasoning salt remain measured blends. Nutrition models exclude
+the removed ingredient; publisher records and historical estimates remain intact.
+`node src/components/recipes/tools/remove-salt.mjs` checks the migration. To apply
+it again, use `--write`, format the canonical JSON with Biome, and run
+`npm run recipes:sync`.
 
 Every recipe has a first-party illustration under the [image contract](recipe-images.md), with illustration provenance retained in its image metadata and downloads.
 

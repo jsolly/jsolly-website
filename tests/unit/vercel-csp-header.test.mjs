@@ -8,8 +8,8 @@ function sortedSources(directives) {
 	);
 }
 
-it("Vercel sends exactly the reviewed header policy to every route", async () => {
-	const directives = parseDirectives(await readHeaderPolicy());
+it("Vercel sends exactly the reviewed header policy to every route", () => {
+	const directives = parseDirectives(readHeaderPolicy());
 	assert.deepEqual(
 		sortedSources(directives),
 		sortedSources(
@@ -31,8 +31,8 @@ it("Vercel sends exactly the reviewed header policy to every route", async () =>
 	);
 });
 
-it("Vercel leaves the script policy to the per-page Astro meta hashes", async () => {
-	const directives = parseDirectives(await readHeaderPolicy());
+it("Vercel leaves the script policy to the per-page Astro meta hashes", () => {
+	const directives = parseDirectives(readHeaderPolicy());
 	for (const name of ["script-src", "script-src-elem", "default-src"]) {
 		assert.ok(
 			!directives.has(name),

@@ -10,7 +10,14 @@ service-worker fixture; the certificate is deleted after the test. Install mise
 on non-Linux hosts;
 fresh Linux setup provisions a pinned, checksum-verified public mise binary in
 `/usr/local/bin`, using noninteractive sudo only when needed. The repository's `.mise.toml`
-and `.nvmrc` own its tool pins. On a reviewed fresh `origin/main` checkout run:
+and `.nvmrc` own its tool pins; `mise.lock` records each tool's download URL and checksum per
+platform so installs need no GitHub API lookup. To bump a pin, edit `.mise.toml`, run `mise lock`
+and commit both files. After `mise lock` and before committing, delete the `provenance.slsa`
+subtables under `tools.osv-scanner`: its registry entry names no signer, and mise refuses
+them (seen with mise 2026.9.16 and 2026.10.14). A gate test enforces this. Recheck the registry
+on each osv-scanner bump; if it now names a signer, keep the subtables and remove the guard test
+(`TestMiseLock` in `tests/test-repo-hooks.py`). Checksums and URLs still pin the download. On a reviewed fresh
+`origin/main` checkout run:
 
 ```bash
 bash gate/setup-agent-environment.sh
@@ -62,17 +69,18 @@ The full gate runs build → CSP → built tests in the original checkout. Its
 preview and deployment consumers. Static checks, types, unit/Python fixtures and
 smoke contracts each run in a private validation tree while that build chain runs.
 Each copy has independent Git metadata, the effective staged index, working-source
-bytes and mutable dependency caches. The scheduler rejects changes to HEAD, the
+bytes and mutable dependency caches. Copies need full history, so a shallow
+checkout fails before validation with the fix: `git fetch --unshallow origin`.
+The scheduler rejects changes to HEAD, the
 index or nonignored source files during validation. All commands and counted suites
 must pass; failures retain diagnostics under the printed `jsolly-gate-*` directory.
-In CI, `JSOLLY_INSTALL_BROWSER=1` runs the same headless-shell and full OS
-installation command alongside static checks, pure unit tests, types and build.
+In CI, `JSOLLY_INSTALL_BROWSER=1` runs the same headless-shell installation
+command alongside static checks, pure unit tests, types and build.
 Smoke contracts and built browser tests wait for installation to succeed; built
 tests also wait for the complete build and CSP suite. Installation failures fail
 the gate. The real Chromium process-cleanup regression belongs to the built suite;
 the unit suite retains detached-process and shutdown-race coverage. Local gates use the browser already provisioned by repository setup.
-The preview shortcut and gate bootstrap remain unchanged. `gate/gate-lib.sh` is
-unchanged. No previous passing result is accepted as current test evidence.
+No previous passing result is accepted as current test evidence.
 
 Static link and Markdown checks read HTML through parse5 instead of allocating
 browser-like DOM windows. They preserve document recovery, base URLs, inert
@@ -114,8 +122,8 @@ The shared built-test server loads DOM and frontmatter parsers only when a
 caller requests those readers. Browser-only files do not initialize unused
 DOM windows or blog parser dependencies; the readers and assertions stay intact.
 
-CI installs the pinned Chromium headless shell used by every browser test, plus
-its OS dependencies. It omits the unused headed Chromium download.
+CI installs the pinned Chromium headless shell used by every browser test. It
+omits the unused headed Chromium download.
 
 The CSP suite parses each built page once into immutable facts, retaining its
 separate policy, script-byte/order and image checks. Maintenance and CMS fixture
@@ -168,7 +176,7 @@ successful preparation and both shards, matching identities, disjoint file sets
 whose union exactly equals discovery, and actual passing assertions matching the
 single built-suite ledger. Skipped, todo, missing, extra and duplicate evidence
 fail. Only this successful aggregate publishes the protected `ci-tree-v1-ci`
-proof. Deferrals retain `ci-deferred`; main reuse requires the existing protected
+proof. Main reuse requires the existing protected
 identical-tree proof and explicitly names reused validation. No ruleset changes.
 
 Measure the complete workflow through all jobs, not the aggregate's short runtime.
@@ -186,10 +194,10 @@ linked worktrees. It registers pre-commit and pre-push. The complete hook/librar
 bundle must match current reviewed `origin/main`, or a deliberately approved exact
 bundle digest. Missing files, symlinks, unreviewed modes and a foreign origin fail
 closed. For pre-commit and Cursor the dispatcher executes a verified snapshot, then
-runs quality scripts in the committing checkout. Pre-push runs gitleaks from the
-installed snapshot's own dispatcher and library without re-verifying it on each
-push; it never runs the branch's files. Re-run reviewed setup after changing tool
-setup on main.
+runs quality scripts in the committing checkout. Pre-push runs only range gitleaks from the installed snapshot's dispatcher and
+library without re-verifying it on each push; it never runs branch files.
+Semgrep and OSV remain required in `Security / security`, without network probes
+or service skips ([security scanning](security-scanning.md)). Re-run reviewed setup after changing tool setup on main.
 
 This is hook-registration integrity, not a sandbox. Never check out or execute
 third-party/fork PR code in a trusted clone; review its diff through GitHub. Do not
@@ -268,9 +276,26 @@ Merge only when the required CI validates the exact current head. Never push to
 the default branch, weaken rulesets, bypass checks or use an admin merge. Optional
 personal review skills may help, but they are not prerequisites for this flow.
 
-Preserve existing code-only Deploy, production-main-only Vercel and opt-in Preview
-rules. Never trigger a preview merely to validate this migration. Verify the
+A non-draft pull request authored by `solly-agent`, `jsolly`, `cursor[bot]`, or `app/cursor`, with its head
+in this repository, arms GitHub squash auto-merge from
+`.github/workflows/auto-merge.yml` when it is opened, updated, reopened, or
+marked ready. Hold it by converting it to a draft or running
+`gh pr merge --disable-auto`. Any other author stays untouched. At 09:00, 17:00 and 22:00 UTC daily, and on manual dispatch, the same workflow re-arms auto-merge for each
+open eligible pull request. If `ci` and `security` are already green on that
+head and the pull request is still open, the sweep squash-merges it with
+`--match-head-commit`. Both paths use `secrets.AUTO_MERGE_TOKEN` and fail if
+that secret is missing; they do not fall back to `GITHUB_TOKEN`. A merge made
+with that token starts push workflows, including CI and the accessibility
+audit. Repository auto-merge stays enabled. Rulesets are unchanged.
+
+Preserve existing code-only Deploy, production-main-only Vercel and
+`preview/`-branch-only Preview rules. Never push a `preview/` branch merely to
+validate this migration. Verify the
 intended deployment and exact-release smoke when the repository requires them.
+
+The repository does not install the Vercel CLI. Builds and releases use Astro
+and Vercel's Git integration. Human-only operational commands such as the legacy
+cutover's `vercel-curl` transport require a separately maintained CLI.
 
 ## Infrastructure and access
 
@@ -312,7 +337,7 @@ release announces again. A click rechecks the target; a newer target requires a
 second choice. Actual dirty forms or cooking checks require confirmation, and
 cancelling preserves the tab. No check automatically reloads a page. A reload
 that still receives the old shell leaves a manual retry notice instead of looping.
-Development, opt-in Previews and maintenance omit the notice.
+Development, Previews and maintenance omit the notice.
 
 Controlled recipe pages use the downloaded-snapshot workflow in
 [recipe operations](recipes.md). Vercel cache purges do not invalidate those browser
@@ -388,36 +413,16 @@ polling cleanup, rollback/scope isolation, and prior-client migration. Authentic
 is absent on this public site. Do not infer full coverage from a fresh B visit.
 
 Large workflow shell bodies live in `gate/ci-secrets-scan.sh`,
-`gate/vercel-preview-resolve.sh` and `gate/vercel-preview-deploy.sh`.
+`gate/ci-prepare.sh` and `gate/ci-verified-tree.sh`.
 The pinned ShellCheck checks these files directly, and actionlint retains every
 workflow and remaining inline-script check. This avoids the pinned release's
 [macOS stdin deadlock](https://github.com/rhysd/actionlint/issues/650).
-Preview tooling still executes from the trusted default-branch checkout.
 
-Knip's Vercel dependency exception belongs to the John-only `vercel-curl`
-transport in `monitoring/verify-blogthedata-cutover.mjs`, which resolves
-`node_modules/.bin/vercel` dynamically. Preview deployment uses its own isolated
-pinned CLI, and agents never run the cutover verifier's Vercel transport.
+The John-only `vercel-curl` transport in
+`monitoring/verify-blogthedata-cutover.mjs` resolves a separately maintained
+`vercel` executable from PATH. It runs from an empty temporary directory.
+Agents never run the cutover verifier's Vercel transport.
 
-### Preview workflow trust
+### Vercel Previews
 
-Automatic `preview` label events use `pull_request_target` for main-targeted,
-same-repo PRs. The workflow definition and helper scripts come from main.
-Manual dispatch is accepted only from main. The first job validates the request
-without deployment credentials; the serialized deploy job resolves the current
-eligible head after acquiring its slot. Closed, forked, retargeted or unlabeled
-PRs are refused. Rechecks before upload and alias publication suppress stale
-builds. Node setup and trusted tooling precede the isolated PR source checkout;
-PR code is uploaded as data and never executed locally with deployment tokens.
-
-GitHub's public-repository event policy may block `pull_request_target`.
-[Review the applicable policy and insights](https://docs.github.com/en/actions/reference/security/securely-using-pull_request_target#default-policy-for-pull_request_target)
-before relying on automatic label events. The documented default is evaluated
-now and conditionally enforced December 2, 2026. The repository's Active policy
-[Allow opt-in website Preview workflow](https://github.com/jsolly/jsolly-website/settings/actions/rules/8924)
-was saved and reloaded on October 26, 2026. It targets only
-`.github/workflows/vercel-preview.yml` and allows its existing `pull_request_target`,
-`issue_comment` and `workflow_dispatch` events. Other workflows remain outside
-this exception. Recheck that policy after changing this workflow's name or
-triggers. Manual main-branch dispatch and `/preview` remain explicit
-one-shot paths. Source tests do not prove a live Preview lifecycle.
+Previews build only for `preview/**` branches; [AGENTS.md → Deploy](../AGENTS.md#deploy) owns the rule and the procedure.

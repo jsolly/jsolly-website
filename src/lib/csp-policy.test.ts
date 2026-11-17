@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { it } from "vitest";
-import vercelConfig from "../../vercel.json" with { type: "json" };
+import { config as vercelConfig } from "../../vercel.js";
 import {
 	astroCsp,
 	previewResponseHeaders,
@@ -79,7 +79,7 @@ it("Preview deployments widen only the header directives the toolbar needs", () 
 	);
 });
 
-it("the site header policy must be the one vercel.json policy on every route", () => {
+it("the site header policy must be the one vercel.ts policy on every route", () => {
 	const rule = (source: string) => ({
 		source,
 		headers: [{ key: "Content-Security-Policy", value: "img-src 'self'" }],
@@ -95,4 +95,5 @@ it("the site header policy must be the one vercel.json policy on every route", (
 	]) {
 		assert.throws(() => siteHeaderPolicy({ headers }), /exactly one/u);
 	}
+	assert.throws(() => siteHeaderPolicy({}), /exactly one/u);
 });

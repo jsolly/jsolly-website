@@ -87,6 +87,14 @@ export async function createValidationTree(
 	env = process.env,
 ) {
 	const clean = privateEnvironment(env);
+	// A shallow source makes clone ignore --shared and fetch only reachable
+	// objects, so read-tree cannot find the staged tree.
+	if (
+		git(root, ["rev-parse", "--is-shallow-repository"], clean).trim() === "true"
+	)
+		throw new Error(
+			"The gate needs full Git history, but this checkout is shallow. Run `git fetch --unshallow origin`, then run the gate again.",
+		);
 	// Shared object storage is read-only here. refs, configuration and index are private.
 	git(
 		root,

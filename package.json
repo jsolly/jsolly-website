@@ -29,12 +29,10 @@
 		"outdated": "npm outdated",
 		"update": "npx --yes npm-check-updates -u && npm install",
 		"check:actions": "bash gate/check-actions.sh && node tests/run-tests.mjs workflow",
-		"gate": "FLEET_UI_PREVIEW=0 FLEET_DOC_FAST=0 bash .git-hooks/pre-commit",
+		"gate": "FLEET_DOC_FAST=0 bash .git-hooks/pre-commit",
 		"smoke:production": "node tests/run-tests.mjs production",
 		"smoke:scenario-contract": "node tests/run-tests.mjs smoke",
 		"recipes:usda": "node src/components/recipes/tools/usda.mjs",
-		"check:preview": "npx --no-install biome ci --config-path=config/quality/biome.settings.jsonc . --error-on-warnings && npm run check:ts && npm test",
-		"gate:preview": "FLEET_UI_PREVIEW=1 FLEET_DOC_FAST=0 bash .git-hooks/pre-commit",
 		"check:a11y": "node monitoring/check-accessibility.ts",
 		"check:a11y:sample": "node monitoring/check-accessibility.ts --sample",
 		"check:security": "python3 gate/security-scan.py ci"
@@ -53,13 +51,14 @@
 		"@tailwindcss/vite": "^4.3.3",
 		"@types/node": "^26.6.5",
 		"@types/sanitize-html": "2.16.2",
-		"@vercel/routing-utils": "6.6.0",
-		"astro": "~7.4.2",
+		"@vercel/config": "0.14.1",
+		"@vercel/routing-utils": "6.6.1",
+		"astro": "~7.4.7",
 		"axe-core": "^4.14.0",
 		"entities": "8.1.0",
 		"esbuild": "0.28.2",
 		"globby": "^16.2.4",
-		"jsdom": "^30.1.1",
+		"jsdom": "^31.0.0",
 		"knip": "^6.37.0",
 		"markdownlint-cli2": "^0.23.3",
 		"parse5": "8.0.1",
@@ -69,7 +68,6 @@
 		"tailwindcss": "^4.3.3",
 		"turndown": "7.2.4",
 		"typescript": "^6.0.3",
-		"vercel": "^63.1.2",
 		"vitest": "5.0.5",
 		"yaml": "2.9.1"
 	},
@@ -86,32 +84,17 @@
 		},
 		"srvx": ">=0.11.13",
 		"yaml": "$yaml",
-		"@vercel/node": {
-			"path-to-regexp": ">=6.3.0 <7.0.0"
-		},
-		"@vercel/remix-builder": {
-			"path-to-regexp": ">=6.3.0 <7.0.0"
-		},
-		"@vercel/routing-utils": {
-			"path-to-regexp": ">=6.3.0 <7.0.0"
-		},
-		"@vercel/backends": {
-			"path-to-regexp": ">=8.4.0"
-		},
-		"@vercel/express": {
-			"path-to-regexp": ">=8.4.0"
-		},
-		"@vercel/fun": {
-			"path-to-regexp": ">=8.4.0"
-		},
-		"@vercel/hono": {
-			"path-to-regexp": ">=8.4.0"
+		"@vercel/config": {
+			"zod": "$zod"
 		},
 		"js-yaml@^4.0.0": "^4.3.2",
 		"fast-uri": "^3.1.9",
 		"http-cache-semantics": "^4.3.0",
 		"markdown-it": "^15.0.3",
 		"vite": "^8.3.5",
+		"@vercel/routing-utils": {
+			"path-to-regexp": ">=6.3.0 <7.0.0"
+		},
 		"zod@4.1.11": "4.6.7"
 	},
 	"dependencies": {
@@ -130,7 +113,7 @@
 		"zod": "4.6.7"
 	},
 	"allowScripts": {
-		"esbuild@0.28.1": true,
-		"fsevents@2.3.3": true
+		"fsevents@2.3.3": true,
+		"esbuild@0.28.2": true
 	}
 }

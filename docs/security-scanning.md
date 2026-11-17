@@ -5,24 +5,25 @@ CI. The hook installer includes that runner in its verified snapshot, and neithe
 hook executes an unreviewed branch's scanner script. The existing full
 pre-commit gate remains.
 
-Pre-push is the one exception: the dispatcher (`gate/hooks/pre-commit`) runs
-gitleaks itself, because the push check must stay within a few seconds. It
-uses the CI log options, so a change to them in `security-scan.py` or
-`gate/ci-secrets-scan.sh` must also change the dispatcher.
+Pre-push keeps range gitleaks in the dispatcher (`gate/hooks/pre-commit`).
+It uses the CI log options, so a change to them in `security-scan.py` or
+`gate/ci-secrets-scan.sh` must also change the dispatcher. Semgrep and OSV run in required CI, without
+a local network probe or skip path.
 
 ## Coverage
 
 - Pre-commit retains staged gitleaks scanning and the full gate, and adds
   zizmor workflow checks and cfn-lint for every `config/aws/*/template.json`
   (the migration backup and client-error stacks).
-- Pre-push runs gitleaks only over the commits each pushed ref sends that the
-  destination lacks, judged by the named remote's tracking refs and the ref's
-  current remote commit; that takes well under a second. A new ref pushed to a
-  bare URL scans the commit's whole history (about ten seconds). A commit made
-  with hooks bypassed is still checked. It reads the objects the push sends, ignoring
-  local replace refs, and refuses a ref that names something other than a
-  commit. Semgrep `p/default`, OSV and full-history gitleaks run in
-  `Security / security`.
+- Pre-push runs only gitleaks over each pushed ref's outgoing commits, excluding
+  the destination's advertised old commit when available locally. Tracking refs
+  cannot exclude history because they may be stale. New refs scan their whole
+  history. Removed secrets and non-HEAD refs are still checked. The hook validates
+  native push records, ignores local replace refs, refuses non-commit objects and
+  octopus merges, and fails when the pinned scanner is unavailable. It executes
+  installed snapshot code, with no source-tree copy or scanner-service requests.
+  `Security / security` runs required Semgrep and OSV, full-history gitleaks,
+  zizmor and cfn-lint. Findings and scanner errors fail that check.
 - Cursor's `beforeShellExecution` hook scans tracked and unignored working
   files with gitleaks before shell commands. `failClosed: true` blocks crashes,
   timeouts and invalid responses; a scanner finding returns `permission: deny`.
@@ -33,6 +34,17 @@ uses the CI log options, so a change to them in `security-scan.py` or
   repository permission, full-SHA Actions and no AWS credentials. Dependabot
   PRs run it like every other PR. The repository ruleset requires it, so a
   failing check blocks the merge.
+
+Every gitleaks scan (staged, pre-push, Cursor, the CI range scan and the
+full-history scan) reads the gate's own policy: the pinned release's default
+rules and no ignore list, held as `GATE_GITLEAKS_POLICY` in `gate/gate-lib.sh`
+and `GITLEAKS_POLICY` in `gate/security-scan.py`. Change both together, through
+review. Left to its defaults, gitleaks takes its rules from a `.gitleaks.toml`
+at the root it scans and always reads a `.gitleaksignore` there, so either file
+could switch a finding off. Each scan therefore refuses to run when either file
+sits at the root of the index, the pushed commit, the checkout or the directory
+it scans from, tracked or not. Inline `gitleaks:allow` comments still mark
+reviewed individual false positives.
 
 Semgrep metrics and version checking are disabled. Rules are fetched from
 `p/default`; that service-managed rule set can change independently of the
@@ -48,19 +60,6 @@ must confirm a planted finding under `tests/` is still reported.
 Inline `nosemgrep` comments identify reviewed individual
 audit false positives and explain the trusted data or fixture boundary.
 
-Zizmor keeps two precise exceptions for the opt-in Preview workflow's
-`issue_comment` and `pull_request_target` triggers. Its existing author/repository
-checks and trusted-main-only upload procedure remain in
-[development](development.md). PR code is uploaded as inert source, never run
-with the Vercel credential. Only the deploy job has PR-comment write permission.
-
-The Preview resolver publishes a validated 40-character hexadecimal
-`commit_sha`, which both checkout and deployment consume. Deployment also
-compares the local checkout and live PR head with that SHA. Branch references
-are rejected. The explicit output name avoids CodeQL's overlapping mutable-ref
-and SHA heuristics for fields named `head_sha`; no CodeQL query is suppressed.
-See the [checkout query implementation](https://github.com/github/codeql/blob/main/actions/ql/lib/codeql/actions/security/UntrustedCheckoutQuery.qll).
-
 This repository has CloudFormation but no CDK. cfn-lint applies; cdk-nag and
 Checkov on `cdk.out` do not. Dependabot covers npm and full-SHA Actions with a
 seven-day proposal cooldown. The repository-pinned npm also enforces
@@ -73,7 +72,8 @@ plan, app installation, ruleset, credential or infrastructure apply is changed.
 Run the existing reviewed repository setup after this bundle lands. It installs
 both Git hooks from a verified snapshot and the mise-pinned tools, including OSV. The pinned
 Python scanners are resolved through uvx on use. Missing tools, unavailable
-scanner services and nonzero scanner exits block the relevant operation.
+scanner services and nonzero scanner exits block the relevant operation,
+with no scanner-service skips.
 Noninteractive Git clients can locate tools through mise without shell shims.
 
 The hook manifest allowlist changed, so an existing pre-push-free snapshot stays
@@ -91,50 +91,27 @@ Run the complete security checks directly with:
 python3 gate/security-scan.py ci
 ```
 
-The Python test suite exercises the outgoing-commit range and every pushed ref,
+Vitest installed-hook fixtures exercise outgoing history and every pushed ref.
+The Python test suite retains hook trust, Cursor and CI scanner coverage, including
+the gate-owned gitleaks policy and the refusal of a repository one,
 untracked-file coverage, malformed input, failed-scanner denial and unreviewed
 scanner rejection. A protocol test does not prove a native Cursor hook fired;
 that needs a separate actual Cursor session. Passing source checks does not
 prove a security app is installed or a check is required by GitHub rulesets.
 
-## Existing dependency findings
+## Dependency findings
 
-The initial OSV run found vulnerable lockfile dependencies. Compatible patched
-versions are updated where available. Findings without compatible published
-fixes require a specific reviewed disposition. John approved deepmerge, zod and
-sandbox on 28 October 2026 and glob and minimatch on 31 October 2026, after
-independent review:
+Every OSV advisory blocks CI. The scanner supplies an empty external config and
+checks all findings, so repository ignore files cannot hide a vulnerability.
 
-| Package | Advisory | Disposition |
-| --- | --- | --- |
-| deepmerge 4.3.1 | GHSA-gcqx-w48m-w2h4 | Accept prototype-poisoning risk through 27 November 2026. Used by the Svelte Vite plugin to merge build configuration. |
-| zod 3.22.4 | GHSA-mrhx-c7xc-m3w5 | Accept resource-exhaustion risk through 27 November 2026. Four nested Vercel CLI consumers still require the Zod 3 API. |
-| sandbox 4.4.0 | GHSA-fm4j-4xhm-xpwx; GHSA-gc25-3vc5-2jf9 | Not applicable: the advisories describe gf3/sandbox before 1.0.0; the locked package is Vercel's Sandbox CLI. |
-| glob 13.0.6 | GHSA-3g3m-2fjr-6pw4 | Accept AbortSignal cancellation-bypass risk through 30 November 2026. Reached only through the Vercel CLI's `@vercel/nft`, whose latest release still requires glob `^13`; the fix is glob 14.0.2 or later. |
-| minimatch 10.2.6 | GHSA-g3hv-75wg-m249 | Accept pattern denial-of-service risk through 30 November 2026. Reached only through Vercel CLI consumers: glob 13 declares `^10.2.2`, `@vercel/python-analysis` pins 10.1.1 and `@ts-morph/common` declares `^3.0.4`; the existing `minimatch: >=10.2.3` override holds all three at 10.2.6. The fix is minimatch 11.0.1 or later, a major release that removes `makeRe`, the `AST` class and regular-expression set items. |
+The repository does not install the Vercel CLI. Production deploys through
+Vercel's Git integration; build, tests and CI do not need the CLI. Removing that
+optional development tool removes its vulnerable Zod 3, glob and minimatch
+consumers rather than forcing incompatible transitive upgrades. The site's
+runtime Zod dependency remains at 4.6.7.
 
-These are not fixes. Build/development usage reduces public-visitor exposure
-but does not establish that every repository or tool input is safe. Latest
-deepmerge and Vercel releases had no compatible fix at review time; downgrading
-deepmerge or forcing Zod 4 into declared Zod 3 consumers is not a verified repair,
-and neither is forcing glob 14 into `@vercel/nft` or minimatch 11 into glob 13
-without proving the Vercel CLI still works on it.
-The site's direct Zod dependency is patched at 4.6.7.
-
-The trusted scanner owns these dispositions. OSV runs with an empty external
-config and all findings enabled; branch-supplied ignore files cannot hide them.
-Every advisory stays visible in output. Exceptions require the exact package
-version, registry URL, integrity, complete set of lockfile locations and a
-fingerprint of callers resolving that package. Changes block until reviewed.
-Each risk acceptance expires after the date in its row, in America/New_York:
-deepmerge and zod block from 28 November, glob and minimatch from 1 December. Patched dependencies need no exception.
-John owns the acceptance; replace it with upstream patches when available.
-
-Evidence: [deepmerge report](https://github.com/TehShrike/deepmerge/issues/273),
-[Zod advisory](https://osv.dev/GHSA-mrhx-c7xc-m3w5),
-[Vercel sandbox metadata](https://registry.npmjs.org/sandbox/4.4.0),
-[old gf3 sandbox metadata](https://registry.npmjs.org/sandbox/0.8.2),
-[glob advisory](https://osv.dev/GHSA-3g3m-2fjr-6pw4) and
-[minimatch advisory](https://osv.dev/GHSA-g3hv-75wg-m249).
-Controlled local tests reproduced deepmerge's returned-object prototype change
-and Zod 3's per-invalid-entry issue accumulation, without exhausting memory.
+The previous dated risk acceptances and Sandbox package-name exceptions are
+retired. Regression tests submit each former advisory and require rejection.
+Operational Vercel CLI use, including the human-only cutover transport, requires
+a separately maintained CLI outside this project's dependencies. It does not
+change the Git-based deployment process.

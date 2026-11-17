@@ -115,7 +115,7 @@ const MARKDOWN_TYPE = /text\/markdown/u;
 const ABOUT_HEADING = /^# John Solly/mu;
 const POST_PATH = /^\/blog\/[^/]+\/$/u;
 const RESULT_COUNT = /^\d+ results?$/u;
-// The feeds and the Content-Type vercel.json gives each (the static build
+// The feeds and the Content-Type vercel.ts gives each (the static build
 // cannot), with the root element each document must open.
 const FEEDS = [
 	["/blog/rss.xml", "application/rss+xml", "<rss"],

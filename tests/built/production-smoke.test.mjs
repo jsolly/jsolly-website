@@ -27,7 +27,7 @@ import { serveStatic, stubOffOrigin } from "./pages.mjs";
 // checks and its behaviour deadline, with service workers blocked. Nothing
 // reaches the network: www.jsolly.com is answered by a local stand-in for
 // Vercel, the real middleware (Markdown negotiation and Vary), then dist/,
-// with vercel.json's headers (the feeds' XML types, the header CSP), and
+// with vercel.ts's headers (the feeds' XML types, the header CSP), and
 // every other host by stubOffOrigin. The smoke suite's stub pages check the
 // scenario's logic; this checks it against the markup the site ships.
 const STATIC_RECIPE_SUMMARY =
@@ -59,7 +59,7 @@ const lowerCaseKeys = (headers) =>
 	);
 
 // Answers `url` (on www.jsolly.com) as Vercel would: the middleware's own
-// response when it negotiates one, otherwise the dist/ file with vercel.json's
+// response when it negotiates one, otherwise the dist/ file with vercel.ts's
 // headers and the middleware's (its Vary). Resolves to a Response.
 async function vercel(url, { method = "GET", accept = "*/*" } = {}) {
 	methods.add(method);
