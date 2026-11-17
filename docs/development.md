@@ -35,6 +35,10 @@ Use the repository's README and AGENTS.md for its build, test and deployment
 commands. A missing prerequisite is a failed setup; report it rather than claiming
 that the gate ran. No setup command deploys the application or infrastructure.
 
+Astro and Svelte use TypeScript 6's compiler API. `npm run check:ts` selects
+TypeScript 7's CLI through the `@typescript/native` npm alias for compiler-only
+projects. The script names that CLI path because both packages expose `tsc`.
+
 ## Test file timings
 
 CI runs preparation, two built shards and the required aggregate `ci` on
