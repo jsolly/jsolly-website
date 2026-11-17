@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { it } from "vitest";
+import { it, vi } from "vitest";
 import { ERROR_CATEGORIES, FORWARDING_PROBE } from "./error-categories.mjs";
 import { installErrorReporting } from "./report-error.mjs";
 import { createErrorReporter } from "./report-error-client.mjs";
@@ -11,7 +11,7 @@ it("sends only category and pathname, omitting cookies, referrer, query and frag
 			new URL("https://www.jsolly.com/recipes/meals/?searched=private#private"),
 		fetcher: (...args) => {
 			calls.push(args);
-			return Promise.resolve();
+			return Promise.resolve(new Response(null, { status: 204 }));
 		},
 	});
 	await report("recipe-print");
@@ -36,7 +36,7 @@ it("deduplicates categories and caps attempts at three per page load without dur
 		location: () => new URL("https://www.jsolly.com/"),
 		fetcher: (_url, options) => {
 			calls.push(JSON.parse(options.body));
-			return Promise.resolve();
+			return Promise.resolve(new Response(null, { status: 204 }));
 		},
 	});
 	await report("recipe-print");
@@ -50,18 +50,41 @@ it("deduplicates categories and caps attempts at three per page load without dur
 	);
 });
 
-it("silently contains network rejection and synchronous browser failures", async () => {
-	const network = createErrorReporter({
-		location: () => new URL("https://www.jsolly.com/"),
-		fetcher: () => Promise.reject(new Error("private network detail")),
-	});
-	const browser = createErrorReporter({
-		location: () => {
-			throw new Error("private browser detail");
-		},
-	});
-	await assert.doesNotReject(network("recipe-print"));
-	await assert.doesNotReject(browser("recipe-print"));
+it("contains failed reporting and emits one sanitized local error per reporter", async () => {
+	const errors = vi.spyOn(console, "error").mockImplementation(() => undefined);
+	try {
+		await Promise.all(
+			[
+				() => Promise.reject(new Error("private network detail")),
+				() =>
+					Promise.resolve(
+						new Response("private endpoint detail", { status: 503 }),
+					),
+			].map(async (fetcher) => {
+				const report = createErrorReporter({
+					location: () => new URL("https://www.jsolly.com/"),
+					fetcher,
+				});
+				await assert.doesNotReject(report("recipe-print"));
+				await assert.doesNotReject(report("recipe-share"));
+			}),
+		);
+		const browser = createErrorReporter({
+			location: () => {
+				throw new Error("private browser detail");
+			},
+		});
+		await assert.doesNotReject(browser("recipe-print"));
+		await assert.doesNotReject(browser("recipe-share"));
+		assert.equal(errors.mock.calls.length, 3);
+		for (const call of errors.mock.calls) {
+			assert.deepEqual(call, [
+				"Client error reporting failed; reports may not reach monitoring.",
+			]);
+		}
+	} finally {
+		errors.mockRestore();
+	}
 });
 
 it("shares one recipe-update attempt across phases while preserving the three-report limit", async () => {
@@ -79,7 +102,10 @@ it("shares one recipe-update attempt across phases while preserving the three-re
 			const calls = [];
 			const report = createErrorReporter({
 				location: () => new URL("https://www.jsolly.com/recipes/"),
-				fetcher: async (_url, options) => calls.push(JSON.parse(options.body)),
+				fetcher: (_url, options) => {
+					calls.push(JSON.parse(options.body));
+					return Promise.resolve(new Response(null, { status: 204 }));
+				},
 			});
 			await report(first);
 			await Promise.all(phases.map((phase) => report(phase)));
@@ -99,7 +125,7 @@ it("does not send unknown categories or requests from local and Preview builds",
 	const calls = [];
 	const fetcher = (...args) => {
 		calls.push(args);
-		return Promise.resolve();
+		return Promise.resolve(new Response(null, { status: 204 }));
 	};
 	await createErrorReporter({
 		location: () => new URL("http://localhost:4321/"),
@@ -122,7 +148,7 @@ it("a page load never emits the production smoke's forwarding probe", async () =
 		location: () => new URL("https://www.jsolly.com/"),
 		fetcher: (...args) => {
 			calls.push(args);
-			return Promise.resolve();
+			return Promise.resolve(new Response(null, { status: 204 }));
 		},
 	})(FORWARDING_PROBE.category);
 	assert.deepEqual(calls, []);

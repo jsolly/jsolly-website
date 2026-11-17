@@ -1,4 +1,5 @@
 let reporter;
+let failureReported = false;
 
 /** Load the transport only when an error occurs; healthy visits send nothing. */
 export async function reportError(category) {
@@ -6,7 +7,12 @@ export async function reportError(category) {
 		reporter ??= import("./report-error-client.mjs");
 		return (await reporter).reportError(category);
 	} catch {
-		/* Reporting must not disrupt the UI. */
+		if (!failureReported) {
+			failureReported = true;
+			console.error(
+				"Client error reporter could not load; monitoring is unavailable.",
+			);
+		}
 	}
 }
 
