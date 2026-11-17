@@ -18,6 +18,7 @@ const FRAGMENTS = {
 	"privacy/index.html": [
 		"contact-form",
 		"hosting-&-logs",
+		"performance-measurements",
 		"error-reports",
 		"blog-images",
 		"embedded-media",

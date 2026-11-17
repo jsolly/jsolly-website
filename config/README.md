@@ -4,6 +4,9 @@ Move optional root-level settings under `config/<domain>/` or their existing own
 Keep already nested configuration with its component; test configuration lives in
 `config/testing/`. Each setting has one repository-owned home:
 
+- `security/client-error-limits.json` owns telemetry budgets and SDK rule IDs.
+  `monitoring/check-client-error-firewall.mjs` prints the target rule definitions
+  and checks captured active configuration without changing the firewall.
 - `app/astro.ts` owns Astro, sitemap, Markdown rendering, CSP and Vite settings.
   Every Astro command selects it with `--config config/app/astro.ts`, including
   the isolated builds used by content and hydration tests. Its post-loader import

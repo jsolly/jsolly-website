@@ -39,6 +39,10 @@ Use the repository's README and AGENTS.md for its build, test and deployment
 commands. A missing prerequisite is a failed setup; report it rather than claiming
 that the gate ran. No setup command deploys the application or infrastructure.
 
+Astro and Svelte use TypeScript 6's compiler API. `npm run check:ts` selects
+TypeScript 7's CLI through the `@typescript/native` npm alias for compiler-only
+projects. The script names that CLI path because both packages expose `tsc`.
+
 ## Test file timings
 
 CI runs preparation, two built shards and the required aggregate `ci` on
@@ -297,6 +301,10 @@ Preserve existing code-only Deploy, production-main-only Vercel and
 validate this migration. Verify the
 intended deployment and exact-release smoke when the repository requires them.
 
+The repository does not install the Vercel CLI. Builds and releases use Astro
+and Vercel's Git integration. Human-only operational commands such as the legacy
+cutover's `vercel-curl` transport require a separately maintained CLI.
+
 ## Infrastructure and access
 
 Repository setup installs public tools and trusted hooks only. Vercel owns app
@@ -418,10 +426,10 @@ The pinned ShellCheck checks these files directly, and actionlint retains every
 workflow and remaining inline-script check. This avoids the pinned release's
 [macOS stdin deadlock](https://github.com/rhysd/actionlint/issues/650).
 
-Knip's Vercel dependency exception belongs to the John-only `vercel-curl`
-transport in `monitoring/verify-blogthedata-cutover.mjs`, which resolves
-`node_modules/.bin/vercel` dynamically. Agents never run the cutover verifier's
-Vercel transport.
+The John-only `vercel-curl` transport in
+`monitoring/verify-blogthedata-cutover.mjs` resolves a separately maintained
+`vercel` executable from PATH. It runs from an empty temporary directory.
+Agents never run the cutover verifier's Vercel transport.
 
 ### Vercel Previews
 

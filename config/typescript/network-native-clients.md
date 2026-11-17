@@ -111,10 +111,12 @@ real-source inference and are not claimed to be fully typed; see
 The counted smoke entry point `tests/production-smoke-scenario.test.mjs` retains
 its native MJS discovery path and calls the strict
 `tests/fixtures/smoke-bootstrap.ts` helper. The two short negative cases use the
-existing fixture budget for initial navigation and valid root-heading readiness;
-their target waits retain the original short default timeout. Other cases retain
-their original default-timeout and navigation sequence. The MJS body is not
-claimed to be typechecked; its cases, assertions and constants remain unchanged.
+existing 5000 ms budget for initial navigation and every valid preceding page.
+The 1000 ms negative timeout applies only on the configured target page: `/` for
+the menu case and `/recipes/` for hydration. A delayed valid Contact heading
+proves that the hydration case reaches its intended wait. Other cases retain
+their original timeout and navigation sequence. The MJS body is not claimed to
+be typechecked; discovery, test counts and production smoke assertions are unchanged.
 
 The existing `tests/built/recipes-pwa-update.test.mjs` keeps its counted native
 discovery path and fixture owner. Its offline-transition case routes subscription

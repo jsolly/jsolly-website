@@ -144,9 +144,9 @@ This site does not publish a public inbox address. Use Say Hello on the HTML con
 function privacyMarkdown(origin: string): string {
 	return `# Privacy Policy & Data Practices
 
-Last updated: October 2026
+Last updated: November 2026
 
-jsolly.com is the personal website of John Solly, including his blog and recipes. It is a static site with no analytics or advertising trackers of its own. It receives limited operational error reports as described below.
+jsolly.com is the personal website of John Solly, including his blog and recipes. It uses Vercel Speed Insights to measure page performance, and receives limited operational error reports as described below. It sets no advertising or first-party tracking cookies.
 
 ## Contact form
 
@@ -155,6 +155,10 @@ If you reach out through the contact link, your message is handled by Mailchimp 
 ## Hosting & logs
 
 The site is hosted on Vercel, which may record standard server and CDN logs (such as IP address and user agent) for security and operations, per Vercel's privacy policy.
+
+## Performance measurements
+
+Vercel Speed Insights measures loading speed, layout shifts, and interaction responsiveness. It sends performance measurements and the page address to Vercel through this site's performance endpoint. The site removes query parameters and fragments from that address before sending it, so recipe servings, filters, and search terms are excluded. Speed Insights does not use tracking cookies. These measurements help identify slow pages; they do not include contact-form contents or saved recipe settings.
 
 ## Error reports
 
