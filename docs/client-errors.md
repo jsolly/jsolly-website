@@ -76,15 +76,87 @@ only `owner:jsollys-projects:project:jsolly-website:environment:production` and
 can only `PutLogEvents` on the one stream. Preview deployments cannot assume
 it.
 
+## Ingestion limits
+
+`config/security/client-error-limits.json` owns the reviewed limits. The endpoint
+validates its fixed payload before `client-error-admission.mjs` checks shared
+Vercel Firewall counters. No visitor headers or IP addresses leave the receiver
+through the SDK. The calls use a fixed first-party host, server-selected keys and
+500 ms deadlines. A production Secret named `CLIENT_ERROR_BUCKET_SECRET` supplies
+at least 32 characters of server-only entropy. HMAC-SHA256 derives both counter
+keys, so the raw Secret never enters SDK request headers. Without it
+the receiver answers `503` before any SDK or CloudWatch call. Keep the Secret
+out of the browser and repository; no public counter request can predict these
+bucket keys from category names or page URLs alone.
+
+- The edge rule matches only production POSTs to `/api/client-error` and
+  `/api/client-error/` on `www.jsolly.com`, with 60 requests per minute per IP.
+- The SDK `client-error-ingestion` rule caps accepted reports at 120 per minute,
+  shared across source IPs and function instances within a region.
+- The SDK `client-error-duplicate` rule permits one error for each category/page
+  pair per minute. Repeated reports answer `204` without a CloudWatch write.
+- The info-level production probe skips duplicate suppression so `204` still
+  proves a new write. Probes consume the same ingestion budget as browser errors.
+
+An exhausted ingestion budget answers `429` with `Retry-After: 60`. A missing
+rule, blocked SDK call, timeout or provider error answers `503` with the same
+retry header. Neither path writes to CloudWatch or emits an application failure log. The SDK
+warns when a configured rule is missing, so a missing-rule failure can still
+produce Vercel runtime warnings. The configuration checker must pass before
+enforcement is declared healthy.
+Responses remain `no-store`. The browser reporter never retries automatically.
+The two bounded SDK calls add at most one second before the sink's existing
+8-second forwarding deadline, within the function's 10-second maximum.
+
+Counters are distributed by Vercel, not kept in function memory. They are
+per-region fixed windows, so they are not a strict worldwide billing cap and a
+boundary between windows permits a burst. Public reports remain unauthenticated:
+Origin validation is not proof that a failure occurred. A sustained attacker can
+still consume the budget or submit false errors within it. Use the browser smoke
+and server-side diagnostics to investigate an alert.
+
+## Firewall rollout and verification
+
+The code depends on three separately managed firewall rules. Merging a PR does
+not activate their enforcement. Set the server-only production Secret before
+deploying this receiver; environment changes apply to the next deployment. New SDK rules start in log mode so traffic can
+be observed without rejecting legitimate reports. Do not describe that state as
+a fixed security issue.
+
+Print the narrowly scoped target rules without changing the live firewall:
+
+```bash
+node monitoring/check-client-error-firewall.mjs --print-rules
+```
+
+Review traffic in the project's Firewall dashboard. Change only these rules to
+return `429` after their limit. The existing per-IP rule keeps its 60/minute
+budget. Apply the staged preview and production rollout before declaring the
+finding resolved. This needs a human publish step; unrelated firewall rules and
+managed protections stay in place.
+
+Export the active configuration for the project and check the captured JSON:
+
+```bash
+node monitoring/check-client-error-firewall.mjs /path/to/active-config.json
+```
+
+The checker rejects a different project or team, observation-only actions,
+disabled or invalid rules, different budgets and changed match conditions.
+Additional active mitigations or bypasses require manual review. Matching rule
+definitions is not proof of live enforcement. The checker never writes
+configuration or handles credentials. A real production probe must still answer
+`204` after enforcement is enabled. Do not flood the production receiver to test
+limits: run the local API tests for denial and duplicate cases.
+
 ## Threshold
 
 The alarm fires at five or more reports in a trailing one-hour window, chosen by
-John on 2026-10-31. Browser reports arrive from many visitors, so an isolated
-failure should not email. A sustained regression does. The receiver is public
-and an `Origin` header can be forged, so anyone can submit valid reports. Each
-breach sends one ALARM and one OK email, but a sustained flood can hold the alarm
-in ALARM, and a real regression during it sends no new email. The project has no
-Vercel firewall rate limit on `/api/client-error/`; adding one bounds that.
+John on 2026-10-31. Ingestion now counts at most one report per category/page per
+minute within each region. Five distinct minute windows can still trigger the
+alarm during a sustained regression. An isolated failure should not email.
+A forged breach can still hold the alarm in ALARM and mask a later transition;
+rate limits bound ingestion, not the truth of public telemetry.
 
 ## Infrastructure
 

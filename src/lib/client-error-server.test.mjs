@@ -7,7 +7,7 @@ const REPORT = { category: "recipe-print", page: "/recipes/meals/" };
 const HEADERS = { Origin: ORIGIN, "Content-Type": "application/json" };
 const CREDENTIAL_DETAIL = /secret credential detail/u;
 
-function fixture({ record } = {}) {
+function fixture({ record, admit = async () => "allow" } = {}) {
 	const logs = [];
 	const failures = [];
 	return {
@@ -15,6 +15,7 @@ function fixture({ record } = {}) {
 		failures,
 		handle: createClientErrorHandler({
 			paths: new Set(["/", "/recipes/meals/", "/privacy/"]),
+			admit,
 			record: record ?? (async (report) => logs.push(report)),
 			logFailure: (value) => failures.push(value),
 		}),
@@ -249,4 +250,42 @@ it("rejects malformed JSON and invalid UTF-8 without echoing or logging it", asy
 		["", ""],
 	);
 	assert.deepEqual(logs, []);
+});
+
+it("does not write or log rejected and duplicate reports, and tells clients when to retry", async () => {
+	for (const [decision, status] of [
+		["limited", 429],
+		["duplicate", 204],
+		["unavailable", 503],
+	]) {
+		const { handle, logs, failures } = fixture({ admit: async () => decision });
+		// biome-ignore lint/performance/noAwaitInLoops: Sequential assertions identify the admission decision under test.
+		const response = await handle(request());
+		assert.equal(response.status, status);
+		assert.equal(
+			response.headers.get("retry-after"),
+			status === 204 ? null : "60",
+		);
+		assert.equal(response.headers.get("cache-control"), "no-store");
+		assert.deepEqual(logs, []);
+		assert.deepEqual(failures, []);
+	}
+});
+
+it("validates reports before consuming the shared budget", async () => {
+	let checks = 0;
+	const { handle } = fixture({
+		admit: () => {
+			checks++;
+			return Promise.resolve("allow");
+		},
+	});
+	assert.equal(
+		(await handle(request(JSON.stringify({ category: "unknown", page: "/" }))))
+			.status,
+		400,
+	);
+	assert.equal(checks, 0);
+	assert.equal((await handle(request())).status, 204);
+	assert.equal(checks, 1);
 });

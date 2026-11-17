@@ -492,6 +492,7 @@ it("the forwarding probe passes only when the real receiver writes an info line 
 	const receiver = (send) => {
 		const handle = createClientErrorHandler({
 			paths: new Set(["/"]),
+			admit: async () => "allow",
 			record: createCloudWatchRecorder({ client: { send } }),
 			logFailure: () => undefined,
 		});
