@@ -70,6 +70,8 @@ npm run build               # astro build (writes the route manifest and pins ho
 npm run build:maintenance   # MAINTENANCE_MODE=true npm run build (renders Maintenance.astro)
 npm run preview             # Preview the production build locally
 npm run gate                # the full pre-commit gate (see CI below)
+npm run browser:install     # Playwright's install of the pinned Chromium headless shell (docs/development.md)
+npm run browser:check       # fail unless that headless shell is installed (the local gate runs it first)
 npm run check:fix           # biome check --write
 npm run check:ts            # astro check + svelte-check (errors only)
 npm run fix                 # check:fix + check:ts (combined)

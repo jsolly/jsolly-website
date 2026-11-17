@@ -46,7 +46,7 @@ if [[ -f package-lock.json ]]; then
   mise exec -- npm ci
 fi
 if [[ -x node_modules/.bin/playwright ]]; then
-  mise exec -- node_modules/.bin/playwright install chromium
+  mise exec -- npm run --silent browser:install
 fi
 bash gate/repo-python.sh gate/repo-hooks.py verify --root "$root"
 echo 'Repository environment ready; no private configuration repository is required.'

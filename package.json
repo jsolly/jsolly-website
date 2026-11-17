@@ -7,6 +7,8 @@
 	},
 	"scripts": {
 		"worktree:init": "bash gate/setup-agent-environment.sh",
+		"browser:install": "node gate/provision-chromium.ts",
+		"browser:check": "node gate/provision-chromium.ts --check",
 		"dev": "astro dev --config config/app/astro.ts",
 		"build": "astro build --config config/app/astro.ts && node --import ./build/register-ts-from-js.mjs build/markdown-build.mjs && node build/recipes/pwa-build.mjs && node tests/run-tests.mjs csp",
 		"build:maintenance": "MAINTENANCE_MODE=true npm run build",

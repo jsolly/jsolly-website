@@ -116,6 +116,7 @@ it("full gate retains build/browser steps", async (t) => {
 	const result = await f.hook();
 	assert.ok(result.stdout.includes("pre-commit gate passed"));
 	const calls = await f.calls();
+	assert.ok(calls.includes("npm run --silent browser:check\n"));
 	assert.ok(calls.includes("npm run build\n"));
 	assert.ok(calls.includes("npm run test:built\n"));
 	assert.ok(calls.includes("npm run test:python\n"));
@@ -148,6 +149,10 @@ main().catch(error => { console.error(error.message); process.exitCode=1; });
 const fs = require("node:fs");
 const command = process.argv.slice(2).join(" ");
 fs.appendFileSync(process.env.RECEIPT, "npm " + command + "\\n");
+if (command === "run --silent browser:check" && process.env.FAIL_BROWSER === "1") {
+	console.error("browser missing; run npm run browser:install");
+	process.exit(44);
+}
 if (command === "run build") fs.writeFileSync(process.env.RECEIPT + ".build", "built");
 if (command === "test") fs.writeFileSync(process.env.RECEIPT + ".unit", "tested");
 if (["run smoke:scenario-contract", "run test:built"].includes(command) && !fs.existsSync(process.env.RECEIPT + ".browser")) {
@@ -173,9 +178,24 @@ it("CI browser setup overlaps build and gates every browser-dependent suite", as
 			"npx --no-install playwright install --only-shell chromium\n",
 		),
 	);
+	assert.ok(!calls.includes("browser:check"));
 	assert.ok(calls.includes("npm test\n"));
 	assert.ok(calls.includes("npm run smoke:scenario-contract\n"));
 	assert.ok(calls.includes("npm run test:built\n"));
+});
+
+it("local gate without a provisioned browser fails before any check starts", async (t) => {
+	const f = await browserSetupFixture(t);
+	await assert.rejects(
+		f.hook({ FAIL_BROWSER: "1" }),
+		(error) =>
+			error.code === 44 && error.stderr.includes("npm run browser:install"),
+	);
+	const calls = await f.calls();
+	assert.ok(calls.includes("npm run --silent browser:check\n"));
+	assert.ok(!calls.includes("npm run build\n"));
+	assert.ok(!calls.includes("npm test\n"));
+	assert.ok(!calls.includes("npx "));
 });
 
 it("failed CI browser setup fails the full gate without starting browser-dependent suites", async (t) => {

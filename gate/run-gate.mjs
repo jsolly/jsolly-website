@@ -173,6 +173,25 @@ async function runValidation(root, built) {
 	process.on("SIGTERM", cancel);
 	let passed = false;
 	try {
+		const installMode = process.env.JSOLLY_INSTALL_BROWSER;
+		if (![undefined, "0", "1"].includes(installMode))
+			throw new Error("JSOLLY_INSTALL_BROWSER must be 1, 0 or unset.");
+		// Without an install step, a missing browser fails here, before any check
+		// starts, with the command that provisions it.
+		if (installMode !== "1")
+			await runChains(
+				[
+					{
+						name: "browser-check",
+						cwd: root,
+						commands: [
+							["browser check", "npm", "run", "--silent", "browser:check"],
+						],
+					},
+				],
+				scratch,
+				{ signal: controller.signal },
+			);
 		const work = [];
 		for (const chain of chains) {
 			if (controller.signal.aborted) throw new Error("Gate cancelled");
@@ -185,9 +204,6 @@ async function runValidation(root, built) {
 		}
 		await assertUnchanged(root, source);
 		const options = { signal: controller.signal };
-		const installMode = process.env.JSOLLY_INSTALL_BROWSER;
-		if (![undefined, "0", "1"].includes(installMode))
-			throw new Error("JSOLLY_INSTALL_BROWSER must be 1, 0 or unset.");
 		const browserReady =
 			installMode === "1"
 				? runChains(

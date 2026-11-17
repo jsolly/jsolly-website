@@ -28,8 +28,14 @@ bash gate/setup-agent-environment.sh
 ```
 
 Setup installs repo-owned hooks outside the working tree, provisions the pinned
-tools and lockfile dependencies, and installs pinned Chromium when this repo uses
-Playwright. Run the repo's documented quality gate with its pinned tools:
+tools and lockfile dependencies, and runs `npm run browser:install`, which is
+Playwright's own `playwright install --only-shell chromium` for the headless shell
+every browser test uses. Setup uses no other download source. Where the browser
+download host is not reachable, as in some cloud agent sessions, setup fails with
+a message for the environment owner: provision the pinned browser or allow the
+host. When `PLAYWRIGHT_DOWNLOAD_HOST` or `PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST`
+replaces Playwright's CDN, the message names that variable and the default host.
+Run the repo's documented quality gate with its pinned tools:
 
 ```bash
 mise exec -- npm run gate
@@ -88,6 +94,8 @@ Smoke contracts and built browser tests wait for installation to succeed; built
 tests also wait for the complete build and CSP suite. Installation failures fail
 the gate. The real Chromium process-cleanup regression belongs to the built suite;
 the unit suite retains detached-process and shutdown-race coverage. Local gates use the browser already provisioned by repository setup.
+Before starting any check, a local gate runs `npm run browser:check`, which fails
+with the install command when the pinned headless shell is missing.
 No previous passing result is accepted as current test evidence.
 
 Static link and Markdown checks read HTML through parse5 instead of allocating
