@@ -6,7 +6,7 @@
 
 4 adult servings · US imperial measures · keto · 8 min active per base batch · 25 min
 
-Lemon salmon with asparagus and garlic.
+Air-fryer salmon with lemon zest, garlic, and asparagus, finished with lemon juice.
 
 No mid-cook action; remove fish and asparagus separately at their endpoints.
 
@@ -114,7 +114,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 adult servings · US imperial measures · keto · 12 min active per base batch · 35 min
 
-Smoky chicken thighs with roasted broccoli.
+Air-fryer chicken thighs and broccoli seasoned with smoked paprika, garlic, and oregano.
 
 Start broccoli five minutes after chicken; shake broccoli once.
 
@@ -230,7 +230,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 adult servings · US imperial measures · keto · 11 min active per base batch · 40 min
 
-Pesto cod with zucchini.
+Oven-baked cod and zucchini with basil pesto, lemon juice, and a hemp-heart topping.
 
 One scheduled fish-pan addition, then separate vegetable/fish endpoint checks.
 
@@ -342,7 +342,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 adult servings · US imperial measures · keto · 15 min active per base batch · 50 min
 
-Spinach, feta and hemp frittata with salad.
+An oven-baked spinach, feta, and hemp-heart frittata served with a side salad.
 
 No mid-cook action; toss salad while the frittata bakes.
 
@@ -590,7 +590,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 adult servings · US imperial measures · keto · 14 min active per base batch · 40 min
 
-Shawarma-spiced chicken, cauliflower and lemon yogurt.
+Shawarma-spiced chicken and cauliflower bowls with cucumber, salad greens, and lemon yogurt.
 
 Heat one separate starch while roasting; optional rack swap.
 
@@ -716,7 +716,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 adult servings · US imperial measures · keto · 14 min active per base batch · 40 min
 
-Chicken fajitas with roasted peppers and onions.
+Sheet-pan chicken fajitas with roasted peppers and onions, served with lettuce and avocado.
 
 Heat tortillas during the roast; optional rack swap.
 
@@ -838,7 +838,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 adult servings · US imperial measures · keto · 15 min active per base batch · 45 min
 
-Salsa verde chicken with avocado and cabbage slaw.
+Instant Pot salsa verde chicken with cumin and lime, served with avocado and cabbage slaw.
 
 Controlled pressure release, safety check, and shredding at the end; time has a long tail.
 
@@ -970,7 +970,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 adult servings · US imperial measures · keto · 15 min active per base batch · 40 min
 
-Greek turkey patties with cucumber salad and yogurt.
+Air-fryer turkey and feta patties with cucumber salad and a lemon Greek yogurt sauce.
 
 Flip patties once; heat one family bread choice during cooking.
 
@@ -1218,7 +1218,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 adult servings · US imperial measures · keto · 30 min active per base batch · 40 min
 
-Pan-fried turkey-feta patties with cucumber salad and lemon yogurt.
+Pan-fried turkey and feta patties served with cucumber salad and a lemon Greek yogurt sauce.
 
 Turn each batch once; cook every patty to 165°F.
 
@@ -1724,7 +1724,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 portions · US imperial measures · keto · 5 min publisher preparation · 25 min
 
-Cooked shredded chicken in a green-chili cheese sauce.
+Shredded chicken in a creamy green-chili cheese sauce with garlic and jalapeno, cooked in one pan.
 
 Stir the sauce until smooth, then cover and reheat cooked chicken to 165°F.
 
@@ -9076,7 +9076,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 portions · US imperial measures · keto · 10 min publisher preparation · 20 min
 
-One Pan Shrimp and Asparagus, adapted from Christina Cherrier.
+Shrimp and asparagus cooked in one pan with garlic, butter, and Italian seasoning, adapted from Christina Cherrier.
 
 Follow the cooking flow and check each component at the stated endpoint.
 
@@ -9648,7 +9648,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
-Creamy Tuscan Salmon Recipe, adapted from Christina Cherrier.
+Salmon in a creamy garlic sauce with vegetable broth and onion, adapted from Christina Cherrier.
 
 Follow the cooking flow and check each component at the stated endpoint.
 
@@ -10380,7 +10380,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 portions · US imperial measures · keto · 10 min publisher preparation · 20 min
 
-Sheet Pan Shrimp Fajitas, adapted from Christina Cherrier.
+Sheet-pan shrimp fajitas with bell peppers, onion, ancho chili powder, and cumin, adapted from Christina Cherrier.
 
 Follow the cooking flow and check each component at the stated endpoint.
 
@@ -11242,7 +11242,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 portions · US imperial measures · keto · 10 min publisher preparation · 25 min
 
-Creamy Cajun Shrimp with Sausage, adapted from Christina Cherrier.
+Cajun-seasoned shrimp and sausage with bell peppers, garlic, and a creamy sauce, adapted from Christina Cherrier.
 
 Follow the cooking flow and check each component at the stated endpoint.
 
@@ -12680,7 +12680,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 portions · US imperial measures · keto · 15 min publisher preparation · 35 min
 
-Creamy Garlic Pesto Chicken, adapted from Christina Cherrier.
+Chicken with basil pesto, garlic, sun-dried tomatoes, and bell peppers, adapted from Christina Cherrier.
 
 Follow the cooking flow and check each component at the stated endpoint.
 
@@ -12966,7 +12966,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 portions · US imperial measures · keto · 15 min publisher preparation · 25 min
 
-Easy Chicken Fajitas, adapted from Christina Cherrier.
+Rotisserie chicken fajitas seasoned with chili powder, paprika, cumin, and garlic, adapted from Christina Cherrier.
 
 Follow the cooking flow and check each component at the stated endpoint.
 
@@ -13520,7 +13520,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 portions · US imperial measures · keto · 10 min publisher preparation · 30 min
 
-Fried Cabbage with Sausage, adapted from Christina Cherrier.
+Fried cabbage and smoked sausage with tomatoes, bell pepper, and Cajun seasoning, adapted from Christina Cherrier.
 
 Follow the cooking flow and check each component at the stated endpoint.
 
@@ -13650,7 +13650,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 portions · US imperial measures · keto · 10 min publisher preparation · 35 min
 
-Tomato Spinach Chicken Skillet, adapted from Christina Cherrier.
+Chicken with tomato, spinach, garlic, and Italian seasoning, adapted from Christina Cherrier.
 
 Follow the cooking flow and check each component at the stated endpoint.
 
@@ -14502,7 +14502,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 portions · US imperial measures · keto · 5 min publisher preparation · 15 min
 
-Creamy Garlic Shrimp with Spinach, adapted from Christina Cherrier.
+Creamy garlic shrimp with spinach, sun-dried tomatoes, and chicken stock, adapted from Christina Cherrier.
 
 Follow the cooking flow and check each component at the stated endpoint.
 
@@ -16478,7 +16478,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 portions · US imperial measures · keto · 15 min publisher preparation · 30 min
 
-Garlic Butter Steak and Green Beans, adapted from Christina Cherrier.
+Flank steak and green beans with garlic butter, soy sauce, and Sriracha, adapted from Christina Cherrier.
 
 Follow the cooking flow and check each component at the stated endpoint.
 
@@ -17002,7 +17002,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 portions · US imperial measures · keto · 10 min publisher preparation · 25 min
 
-Italian Sausage and Peppers Skillet, adapted from Christina Cherrier.
+Italian sausage, bell pepper, and onion in a tomato skillet sauce, adapted from Christina Cherrier.
 
 Follow the cooking flow and check each component at the stated endpoint.
 
@@ -17880,7 +17880,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 portions · US imperial measures · keto · 10 min publisher preparation · 20 min
 
-Grilled Bruschetta Chicken, adapted from Christina Cherrier.
+Italian-seasoned chicken topped with tomatoes, onion, and garlic, adapted from Christina Cherrier.
 
 Follow the cooking flow and check each component at the stated endpoint.
 
@@ -18136,7 +18136,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 portions · US imperial measures · keto · 5 min publisher preparation · 17 min
 
-Basic Keto Chaffle Recipe, adapted from Annie.
+Cheese and egg waffles made with almond flour and baking powder, adapted from Annie.
 
 Follow the cooking flow and check each component at the stated endpoint.
 
@@ -18238,7 +18238,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 portions · US imperial measures · keto · 5 min publisher preparation · 495 min
 
-Keto crack chicken, adapted from theketoqueens.com.
+Slow-cooker chicken with cream cheese, chives, garlic, and onion, adapted from theketoqueens.com.
 
 Follow the cooking flow and check each component at the stated endpoint.
 
@@ -18384,7 +18384,7 @@ These recipes include household adaptations and recipes adapted from the linked 
 
 4 adult servings · US imperial measures · keto · 30 min active per base batch · 45 min
 
-Almond-crusted fried squid rings with lemon-garlic mayonnaise.
+Almond-flour-crusted squid rings, fried until crisp and served with lemon-garlic mayonnaise.
 
 Continuous frying attention; turn each batch once and check squid at 145°F. Larger quantities need additional batches.
 

@@ -67,7 +67,7 @@ const isRecipeCollection = ["/recipes/", "/recipes/meals/", "/recipes/smoothies/
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="context7-site-verification" content={CONTEXT7_SITE_KEY} />
-		<title>{title} | John Solly</title>
+		<title>{title.length + " | John Solly".length <= 60 ? `${title} | John Solly` : title}</title>
 		<meta name="description" content={description} />
 		<link rel="canonical" href={canonical} />
 		{!isMaintenanceMode && <link rel="alternate" type="text/markdown" href={markdownSiblingPath(Astro.url.pathname)} />}

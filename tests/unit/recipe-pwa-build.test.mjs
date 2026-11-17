@@ -46,7 +46,8 @@ it("worker manifests retain no-script, responsive and island resources without c
 			releaseId: "a".repeat(40),
 			recipe: { id: "test-recipe" },
 		}),
-		"_astro/entry.js": "export {};",
+		"_astro/entry.js":
+			'const telemetry = "/_vercel/speed-insights/script.js"; export { telemetry };',
 		"_astro/preload.js": "export {};",
 		"_astro/component.js": "export {};",
 		"_astro/renderer.js": "export {};",

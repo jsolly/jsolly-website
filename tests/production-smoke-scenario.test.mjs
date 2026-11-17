@@ -155,12 +155,13 @@ function stubRequest(answers, requested) {
 }
 
 // Runs the scenario against the stub site, with `pages` and `markdown`
-// replacing its pages and Markdown answers and `timeout` as the page's
-// default. Records every browser request's method. Resolves to what it checked.
+// replacing its pages and Markdown answers. Short negative timeouts apply only
+// at `timeoutPath`. Records requests' methods and resolves to what it checked.
 async function runAgainstStubs({
 	pages = {},
 	markdown = {},
 	timeout = STUB_TIMEOUT_MS,
+	timeoutPath = "/",
 } = {}) {
 	const site = { ...SITE, ...pages };
 	const context = await browser.newContext();
@@ -177,7 +178,13 @@ async function runAgainstStubs({
 			return route.fulfill({ contentType: type, body });
 		});
 		const page = await context.newPage();
-		await prepareSmokeStub(page, productionUrl, timeout, STUB_TIMEOUT_MS);
+		await prepareSmokeStub(
+			page,
+			productionUrl,
+			timeout,
+			STUB_TIMEOUT_MS,
+			timeoutPath,
+		);
 		const checked = [];
 		const requested = [];
 		await smoke({
@@ -274,12 +281,16 @@ it("a recipe library that never hydrates fails", async () => {
 	await assert.rejects(
 		runAgainstStubs({
 			pages: {
+				// Valid earlier pages retain their normal budget, even when their
+				// content arrives after the hydration failure's short wait.
+				"/contact/": `${PORTFOLIO_MENU}<main></main><script>setTimeout(() => { document.querySelector('main').innerHTML = '<h1>Contact John</h1>'; }, ${SHORT_TIMEOUT_MS + 250});</script>`,
 				"/recipes/": SITE["/recipes/"].replace(
 					'data-hydrated="true"',
 					'data-hydrated="false"',
 				),
 			},
 			timeout: SHORT_TIMEOUT_MS,
+			timeoutPath: "/recipes/",
 		}),
 		NEVER_HYDRATES,
 	);

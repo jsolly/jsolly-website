@@ -1,21 +1,32 @@
 import type { Page } from "playwright";
 
-/** Give short negative cases a ready root fixture before their target wait. */
+/** Keep valid pages on the normal budget until a negative case's target page. */
 export async function prepareSmokeStub(
 	page: Page,
 	url: string,
 	scenarioTimeoutMs: number,
 	bootstrapTimeoutMs: number,
+	timeoutPath = "/",
 ) {
-	page.setDefaultTimeout(scenarioTimeoutMs);
+	page.setDefaultTimeout(bootstrapTimeoutMs);
 	if (scenarioTimeoutMs < bootstrapTimeoutMs) {
-		// These cases supply a valid root heading. Only bootstrap uses the existing
-		// fixture budget; the smoke scenario retains its requested short default.
 		await page.goto(url, { timeout: bootstrapTimeoutMs });
 		await page
 			.getByRole("heading", { name: "Hi, I'm John Solly.", exact: true })
 			.waitFor({ timeout: bootstrapTimeoutMs });
+		const selectTimeout = () => {
+			page.setDefaultTimeout(
+				new URL(page.url()).pathname === timeoutPath
+					? scenarioTimeoutMs
+					: bootstrapTimeoutMs,
+			);
+		};
+		page.on("framenavigated", (frame) => {
+			if (frame === page.mainFrame()) selectTimeout();
+		});
+		selectTimeout();
 		return;
 	}
+	page.setDefaultTimeout(scenarioTimeoutMs);
 	await page.goto(url);
 }
