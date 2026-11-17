@@ -1,6 +1,6 @@
 {
   "slug": "Geodev",
   "name": "Geo Dev",
-  "description": "Building geospatial apps in Python, JavaScript, and Go.",
+  "description": "Build geospatial applications with Python, JavaScript, and Go, including maps, spatial data, and GIS workflows.",
   "legacyId": 4
 }

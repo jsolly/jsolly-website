@@ -37,7 +37,18 @@ verification meta tag in their own head. */}
 </div>
 
 <script>
+  import { injectSpeedInsights } from "@vercel/speed-insights";
   import { installErrorReporting } from "../lib/report-error.mjs";
 
   installErrorReporting();
+  if (import.meta.env.PROD && window.location.hostname === "www.jsolly.com" && navigator.onLine) {
+    injectSpeedInsights({
+      beforeSend(event) {
+        const url = new URL(event.url);
+        url.search = "";
+        url.hash = "";
+        return { ...event, url: url.href };
+      },
+    });
+  }
 </script>

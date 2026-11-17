@@ -16,7 +16,7 @@
 			"totalMin": 20,
 			"totalMax": 25,
 			"timeVariable": false,
-			"summary": "Lemon salmon with asparagus and garlic.",
+			"summary": "Air-fryer salmon with lemon zest, garlic, and asparagus, finished with lemon juice.",
 			"allergens": [
 				"fish"
 			],
@@ -494,7 +494,7 @@
 			"totalMin": 25,
 			"totalMax": 35,
 			"timeVariable": false,
-			"summary": "Smoky chicken thighs with roasted broccoli.",
+			"summary": "Air-fryer chicken thighs and broccoli seasoned with smoked paprika, garlic, and oregano.",
 			"allergens": [],
 			"boosters": [
 				"yeast"
@@ -1012,7 +1012,7 @@
 			"totalMin": 30,
 			"totalMax": 40,
 			"timeVariable": false,
-			"summary": "Pesto cod with zucchini.",
+			"summary": "Oven-baked cod and zucchini with basil pesto, lemon juice, and a hemp-heart topping.",
 			"allergens": [
 				"fish",
 				"milk",
@@ -1461,7 +1461,7 @@
 			"totalMin": 40,
 			"totalMax": 50,
 			"timeVariable": false,
-			"summary": "Spinach, feta and hemp frittata with salad.",
+			"summary": "An oven-baked spinach, feta, and hemp-heart frittata served with a side salad.",
 			"allergens": [
 				"egg",
 				"milk"
@@ -2678,7 +2678,7 @@
 			"totalMin": 30,
 			"totalMax": 40,
 			"timeVariable": false,
-			"summary": "Shawarma-spiced chicken, cauliflower and lemon yogurt.",
+			"summary": "Shawarma-spiced chicken and cauliflower bowls with cucumber, salad greens, and lemon yogurt.",
 			"allergens": [
 				"milk"
 			],
@@ -3430,7 +3430,7 @@
 			"totalMin": 30,
 			"totalMax": 40,
 			"timeVariable": false,
-			"summary": "Chicken fajitas with roasted peppers and onions.",
+			"summary": "Sheet-pan chicken fajitas with roasted peppers and onions, served with lettuce and avocado.",
 			"allergens": [
 				"milk"
 			],
@@ -4076,7 +4076,7 @@
 			"totalMin": 40,
 			"totalMax": 45,
 			"timeVariable": true,
-			"summary": "Salsa verde chicken with avocado and cabbage slaw.",
+			"summary": "Instant Pot salsa verde chicken with cumin and lime, served with avocado and cabbage slaw.",
 			"allergens": [
 				"milk"
 			],
@@ -4648,7 +4648,7 @@
 			"totalMin": 30,
 			"totalMax": 40,
 			"timeVariable": false,
-			"summary": "Greek turkey patties with cucumber salad and yogurt.",
+			"summary": "Air-fryer turkey and feta patties with cucumber salad and a lemon Greek yogurt sauce.",
 			"allergens": [
 				"egg",
 				"milk"
@@ -5909,7 +5909,7 @@
 			"totalMin": 35,
 			"totalMax": 40,
 			"timeVariable": false,
-			"summary": "Pan-fried turkey-feta patties with cucumber salad and lemon yogurt.",
+			"summary": "Pan-fried turkey and feta patties served with cucumber salad and a lemon Greek yogurt sauce.",
 			"allergens": [
 				"egg",
 				"milk"
@@ -7922,7 +7922,7 @@
 			"totalMin": 25,
 			"totalMax": 25,
 			"timeVariable": false,
-			"summary": "Cooked shredded chicken in a green-chili cheese sauce.",
+			"summary": "Shredded chicken in a creamy green-chili cheese sauce with garlic and jalapeno, cooked in one pan.",
 			"allergens": [
 				"milk",
 				"tree nuts"
@@ -48377,7 +48377,7 @@
 			"totalMin": 20,
 			"totalMax": 20,
 			"timeVariable": false,
-			"summary": "One Pan Shrimp and Asparagus, adapted from Christina Cherrier.",
+			"summary": "Shrimp and asparagus cooked in one pan with garlic, butter, and Italian seasoning, adapted from Christina Cherrier.",
 			"allergens": [
 				"milk",
 				"shellfish"
@@ -51942,7 +51942,7 @@
 			"totalMin": 30,
 			"totalMax": 30,
 			"timeVariable": false,
-			"summary": "Creamy Tuscan Salmon Recipe, adapted from Christina Cherrier.",
+			"summary": "Salmon in a creamy garlic sauce with vegetable broth and onion, adapted from Christina Cherrier.",
 			"allergens": [
 				"milk",
 				"fish"
@@ -56547,7 +56547,7 @@
 			"totalMin": 20,
 			"totalMax": 20,
 			"timeVariable": false,
-			"summary": "Sheet Pan Shrimp Fajitas, adapted from Christina Cherrier.",
+			"summary": "Sheet-pan shrimp fajitas with bell peppers, onion, ancho chili powder, and cumin, adapted from Christina Cherrier.",
 			"allergens": [
 				"shellfish"
 			],
@@ -61619,7 +61619,7 @@
 			"totalMin": 25,
 			"totalMax": 25,
 			"timeVariable": false,
-			"summary": "Creamy Cajun Shrimp with Sausage, adapted from Christina Cherrier.",
+			"summary": "Cajun-seasoned shrimp and sausage with bell peppers, garlic, and a creamy sauce, adapted from Christina Cherrier.",
 			"allergens": [
 				"milk",
 				"shellfish"
@@ -70416,7 +70416,7 @@
 			"totalMin": 35,
 			"totalMax": 35,
 			"timeVariable": false,
-			"summary": "Creamy Garlic Pesto Chicken, adapted from Christina Cherrier.",
+			"summary": "Chicken with basil pesto, garlic, sun-dried tomatoes, and bell peppers, adapted from Christina Cherrier.",
 			"allergens": [
 				"milk",
 				"tree-nuts"
@@ -72055,7 +72055,7 @@
 			"totalMin": 25,
 			"totalMax": 25,
 			"timeVariable": false,
-			"summary": "Easy Chicken Fajitas, adapted from Christina Cherrier.",
+			"summary": "Rotisserie chicken fajitas seasoned with chili powder, paprika, cumin, and garlic, adapted from Christina Cherrier.",
 			"allergens": [],
 			"boosters": [],
 			"ingredients": [
@@ -75381,7 +75381,7 @@
 			"totalMin": 30,
 			"totalMax": 30,
 			"timeVariable": false,
-			"summary": "Fried Cabbage with Sausage, adapted from Christina Cherrier.",
+			"summary": "Fried cabbage and smoked sausage with tomatoes, bell pepper, and Cajun seasoning, adapted from Christina Cherrier.",
 			"allergens": [
 				"milk"
 			],
@@ -76254,7 +76254,7 @@
 			"totalMin": 35,
 			"totalMax": 35,
 			"timeVariable": false,
-			"summary": "Tomato Spinach Chicken Skillet, adapted from Christina Cherrier.",
+			"summary": "Chicken with tomato, spinach, garlic, and Italian seasoning, adapted from Christina Cherrier.",
 			"allergens": [
 				"milk"
 			],
@@ -81495,7 +81495,7 @@
 			"totalMin": 15,
 			"totalMax": 15,
 			"timeVariable": false,
-			"summary": "Creamy Garlic Shrimp with Spinach, adapted from Christina Cherrier.",
+			"summary": "Creamy garlic shrimp with spinach, sun-dried tomatoes, and chicken stock, adapted from Christina Cherrier.",
 			"allergens": [
 				"milk",
 				"shellfish"
@@ -93705,7 +93705,7 @@
 			"totalMin": 30,
 			"totalMax": 30,
 			"timeVariable": false,
-			"summary": "Garlic Butter Steak and Green Beans, adapted from Christina Cherrier.",
+			"summary": "Flank steak and green beans with garlic butter, soy sauce, and Sriracha, adapted from Christina Cherrier.",
 			"allergens": [
 				"milk",
 				"soy",
@@ -96819,7 +96819,7 @@
 			"totalMin": 25,
 			"totalMax": 25,
 			"timeVariable": false,
-			"summary": "Italian Sausage and Peppers Skillet, adapted from Christina Cherrier.",
+			"summary": "Italian sausage, bell pepper, and onion in a tomato skillet sauce, adapted from Christina Cherrier.",
 			"allergens": [
 				"milk"
 			],
@@ -102611,7 +102611,7 @@
 			"totalMin": 20,
 			"totalMax": 20,
 			"timeVariable": false,
-			"summary": "Grilled Bruschetta Chicken, adapted from Christina Cherrier.",
+			"summary": "Italian-seasoned chicken topped with tomatoes, onion, and garlic, adapted from Christina Cherrier.",
 			"allergens": [
 				"tree nuts"
 			],
@@ -104104,7 +104104,7 @@
 			"totalMin": 13,
 			"totalMax": 17,
 			"timeVariable": false,
-			"summary": "Basic Keto Chaffle Recipe, adapted from Annie.",
+			"summary": "Cheese and egg waffles made with almond flour and baking powder, adapted from Annie.",
 			"allergens": [
 				"milk",
 				"tree nuts",
@@ -104476,7 +104476,7 @@
 			"totalMin": 495,
 			"totalMax": 495,
 			"timeVariable": false,
-			"summary": "Keto crack chicken, adapted from theketoqueens.com.",
+			"summary": "Slow-cooker chicken with cream cheese, chives, garlic, and onion, adapted from theketoqueens.com.",
 			"allergens": [
 				"milk"
 			],
@@ -105319,7 +105319,7 @@
 			"totalMin": 35,
 			"totalMax": 45,
 			"timeVariable": true,
-			"summary": "Almond-crusted fried squid rings with lemon-garlic mayonnaise.",
+			"summary": "Almond-flour-crusted squid rings, fried until crisp and served with lemon-garlic mayonnaise.",
 			"allergens": [
 				"molluscan shellfish (squid)",
 				"tree nuts (almond)",
