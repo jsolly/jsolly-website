@@ -16,6 +16,8 @@
 		"../../tests/fixtures/smoke-bootstrap.ts",
 		"../../tests/fixtures/network-lifecycle.ts",
 		"../../tests/fixtures/transport-deadline/*.ts",
+		"../../gate/provision-chromium.ts",
+		"../../tests/unit/provision-chromium.test.ts",
 		"../../monitoring/check-accessibility.ts",
 		"../../monitoring/accessibility-pages.ts",
 		"../../monitoring/constants.ts",
