@@ -11,8 +11,12 @@ on non-Linux hosts;
 fresh Linux setup provisions a pinned, checksum-verified public mise binary in
 `/usr/local/bin`, using noninteractive sudo only when needed. The repository's `.mise.toml`
 and `.nvmrc` own its tool pins; `mise.lock` records each tool's download URL and checksum per
-platform so installs need no GitHub API lookup. To bump a pin, edit `.mise.toml`, run `mise lock`
-and commit both files. After `mise lock` and before committing, delete the `provenance.slsa`
+platform so installs need no GitHub API release lookup, which proxied cloud sessions refuse.
+`.mise.toml` sets `locked = true`, so a tool missing from `mise.lock` fails `mise install` with "is
+not in the lockfile" instead of falling back to that lookup. mise applies `locked` to your global
+tools too when `mise install` runs here; with uninstalled global tools, install them outside the
+repo first or set `locked_scopes = ["project"]` in your own global config. To bump a pin, edit `.mise.toml`, run
+`mise lock` and commit both files. After `mise lock` and before committing, delete the `provenance.slsa`
 subtables under `tools.osv-scanner`: its registry entry names no signer, and mise refuses
 them (seen with mise 2026.9.16 and 2026.10.14). A gate test enforces this. Recheck the registry
 on each osv-scanner bump; if it now names a signer, keep the subtables and remove the guard test
