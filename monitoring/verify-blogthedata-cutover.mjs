@@ -33,7 +33,7 @@
 //     sends the Protection Bypass for Automation secret held in environment
 //     variable NAME as `x-vercel-protection-bypass`; the value is never printed.
 //   vercel-curl: John only, for SSO-protected deployments. Each request runs
-//     the repo's pinned CLI in an empty temporary working directory as
+//     a separately maintained CLI from PATH in an empty temporary directory as
 //       vercel curl <url> --scope jsollys-projects --
 //         -sS -o <file|/dev/null> --max-redirs 0 --max-time 30 -w <format>
 //     so the CLI never links or prompts inside a checkout. The write-out is the
@@ -117,7 +117,7 @@ const { FEEDS } = await import(
 );
 const LEGACY_PUBLIC = join(LEGACY_DIR, "public");
 const JSOLLY_SECURITY_TXT = "/.well-known/security.txt";
-const VERCEL_BIN = join(ROOT, "node_modules", ".bin", "vercel");
+const VERCEL_BIN = "vercel";
 const CONCURRENCY = 8;
 const EXPIRY_MARGIN_DAYS = 30;
 const LOOPBACK_HOSTS = new Set(["127.0.0.1", "localhost", "[::1]"]);

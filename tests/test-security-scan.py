@@ -1,7 +1,5 @@
 """Exercise the Cursor, CI and dependency-policy scanner boundaries, failing closed."""
 import importlib.util
-import copy
-from datetime import date
 import json
 import os
 from pathlib import Path
@@ -180,65 +178,26 @@ class SecurityScan(unittest.TestCase):
                                              "vulnerabilities": [{"id": advisory}]}]}]}
         return lock, path, report
 
-    def test_approved_findings_expire_after_november_27_inclusive(self):
-        for name, version, advisory in (("deepmerge", "4.3.1", "GHSA-gcqx-w48m-w2h4"),
-                                        ("zod", "3.22.4", "GHSA-mrhx-c7xc-m3w5")):
-            _, path, report = self.advisory_fixture(name, version, advisory)
-            self.assertEqual(SCAN.dependency_report(report, path, today=date(2026, 11, 27)), 1)
-            with self.assertRaises(ValueError):
-                SCAN.dependency_report(report, path, today=date(2026, 11, 28))
-
-    def test_vercel_cli_glob_and_minimatch_findings_expire_after_november_30_inclusive(self):
-        for name, version, advisory in (("glob", "13.0.6", "GHSA-3g3m-2fjr-6pw4"),
-                                        ("minimatch", "10.2.6", "GHSA-g3hv-75wg-m249")):
-            with self.subTest(name=name):
+    def test_every_advisory_blocks_including_retired_risk_acceptances(self):
+        # These exact advisories were previously accepted. They must now fail,
+        # even if a future lockfile reintroduces the original package versions.
+        cases = (("deepmerge", "4.3.1", "GHSA-gcqx-w48m-w2h4"),
+                 ("zod", "3.22.4", "GHSA-mrhx-c7xc-m3w5"),
+                 ("glob", "13.0.6", "GHSA-3g3m-2fjr-6pw4"),
+                 ("minimatch", "10.2.6", "GHSA-g3hv-75wg-m249"),
+                 ("sandbox", "4.4.0", "GHSA-fm4j-4xhm-xpwx"),
+                 ("sandbox", "4.4.0", "GHSA-gc25-3vc5-2jf9"),
+                 ("new-package", "1.0.0", "GHSA-new-finding"))
+        for name, version, advisory in cases:
+            with self.subTest(name=name, advisory=advisory):
                 _, path, report = self.advisory_fixture(name, version, advisory)
-                self.assertEqual(SCAN.dependency_report(report, path, today=date(2026, 11, 30)), 1)
-                with self.assertRaises(ValueError):
-                    SCAN.dependency_report(report, path, today=date(2026, 12, 1))
+                with self.assertRaisesRegex(ValueError, "1 unaccepted findings"):
+                    SCAN.dependency_report(report, path)
 
-    def test_sandbox_disposition_never_covers_the_old_project_or_other_advisories(self):
-        _, path, report = self.advisory_fixture("sandbox", "4.4.0", "GHSA-fm4j-4xhm-xpwx")
-        self.assertEqual(SCAN.dependency_report(report, path, today=date(2027, 1, 1)), 1)
-        for version, advisory in (("0.8.2", "GHSA-fm4j-4xhm-xpwx"), ("4.4.0", "GHSA-new-finding")):
-            _, path, report = self.advisory_fixture("sandbox", version, advisory)
-            with self.assertRaises(ValueError):
-                SCAN.dependency_report(report, path, today=date(2026, 10, 28))
-
-    def test_glob_disposition_rejects_changed_and_additional_callers(self):
-        original, path, report = self.advisory_fixture("glob", "13.0.6", "GHSA-3g3m-2fjr-6pw4")
-        self.assertEqual(SCAN.dependency_report(report, path, today=date(2026, 10, 31)), 1)
-        for mutation in ("caller-version", "caller-range", "new-caller"):
-            with self.subTest(mutation=mutation):
-                lock = copy.deepcopy(original)
-                packages = lock["packages"]
-                if mutation == "caller-version":
-                    packages["node_modules/@vercel/nft"]["version"] = "99.0.0"
-                elif mutation == "caller-range":
-                    packages["node_modules/@vercel/nft"]["dependencies"]["glob"] = "*"
-                else:
-                    packages["node_modules/new"] = {"version": "1.0.0", "dependencies": {"glob": "13.0.6"}}
-                path.write_text(json.dumps(lock))
-                with self.assertRaises(ValueError):
-                    SCAN.dependency_report(report, path, today=date(2026, 10, 31))
-
-    def test_identity_path_and_consumer_drift_block_existing_dispositions(self):
-        original, path, report = self.advisory_fixture()
-        for mutation in ("integrity", "resolved", "path", "caller", "new-caller"):
-            with self.subTest(mutation=mutation):
-                lock = copy.deepcopy(original)
-                packages = lock["packages"]
-                if mutation in ("integrity", "resolved"):
-                    packages["node_modules/deepmerge"][mutation] = "changed"
-                elif mutation == "path":
-                    packages["node_modules/new/node_modules/deepmerge"] = packages["node_modules/deepmerge"].copy()
-                elif mutation == "caller":
-                    packages["node_modules/@sveltejs/vite-plugin-svelte"]["version"] = "99.0.0"
-                else:
-                    packages["node_modules/new"] = {"version": "1.0.0", "dependencies": {"deepmerge": "4.3.1"}}
-                path.write_text(json.dumps(lock))
-                with self.assertRaises(ValueError):
-                    SCAN.dependency_report(report, path, today=date(2026, 10, 28))
+    def test_clean_report_passes_without_an_exception_policy(self):
+        path = self.root / "package-lock.json"
+        report = {"results": [{"source": {"path": str(path), "type": "lockfile"}, "packages": []}]}
+        self.assertEqual(SCAN.dependency_report(report, path), 0)
 
     def test_osv_errors_and_branch_supplied_ignore_config_cannot_pass(self):
         _, _, report = self.advisory_fixture()
@@ -259,20 +218,6 @@ class SecurityScan(unittest.TestCase):
                 with self.assertRaises((ValueError, subprocess.CalledProcessError)):
                     SCAN.dependencies("osv-scanner", self.root)
 
-    def test_npm_aliases_cannot_inherit_a_deduplicated_osv_disposition(self):
-        original, path, report = self.advisory_fixture("zod", "3.22.4", "GHSA-mrhx-c7xc-m3w5")
-        for include_name, include_declaration in ((True, True), (False, True), (True, False), (False, False)):
-            with self.subTest(include_name=include_name, include_declaration=include_declaration):
-                lock = copy.deepcopy(original)
-                metadata = lock["packages"]["node_modules/@vercel/backends/node_modules/zod"].copy()
-                if include_name:
-                    metadata["name"] = "zod"
-                lock["packages"]["node_modules/review-zod-alias"] = metadata
-                if include_declaration:
-                    lock["packages"][""]["dependencies"]["review-zod-alias"] = "npm:zod@3.22.4"
-                path.write_text(json.dumps(lock))
-                with self.assertRaises(ValueError):
-                    SCAN.dependency_report(report, path, today=date(2026, 10, 28))
 
 
 if __name__ == "__main__":
