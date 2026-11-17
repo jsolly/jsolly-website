@@ -1,0 +1,78 @@
+/* Every blog and recipe sheet declares the full order, Tailwind's own
+   `properties` layer first, so blog and blog-no-script stay last whichever
+   sheet loads first. */
+@layer properties, theme, base, components, utilities, blog, blog-no-script;
+/* Recipe colours, shared by the recipe pages and their portaled dialogs, plus
+   the print rules for a recipe page. Ported from awesome-blog recipes-theme.css. */
+@layer blog {
+	:root {
+		--recipe-canvas: var(--color-background);
+		--recipe-paper: var(--color-card);
+		--recipe-ink: var(--color-text-primary);
+		--recipe-muted: var(--color-text-secondary);
+		--recipe-line: var(--color-border);
+		--recipe-accent: var(--color-primary-900);
+		--recipe-accent-text: var(--color-card);
+		--recipe-soft: var(--color-primary-100);
+		--recipe-warm: #f1dfb7;
+		--recipe-input-border: var(--color-primary-500);
+		--recipe-badge: #e3ead8;
+		/* The made check on --recipe-badge: 5:1 or more in both schemes. */
+		--recipe-made: #2f6b2c;
+		--recipe-family: #f1ecd9;
+		--recipe-flow-paper: var(--color-card);
+		--recipe-flow-ink: var(--color-text-primary);
+		--recipe-flow-prep: var(--color-primary-100);
+		--recipe-focus: #a65c16;
+	}
+	/* Screen only, so print keeps the light colours above. */
+	@media screen and (prefers-color-scheme: dark) {
+		:root {
+			--recipe-canvas: var(--color-background);
+			--recipe-paper: var(--color-card);
+			--recipe-ink: var(--color-text-primary);
+			--recipe-muted: var(--color-text-secondary);
+			--recipe-line: var(--color-border);
+			--recipe-accent: var(--color-primary-900);
+			--recipe-accent-text: var(--color-card);
+			--recipe-soft: var(--color-primary-100);
+			--recipe-warm: #4b4028;
+			--recipe-input-border: var(--color-primary-500);
+			--recipe-badge: #34452e;
+			--recipe-made: #a5d68f;
+			--recipe-family: #3c3b2b;
+			--recipe-flow-paper: var(--color-card);
+			--recipe-flow-ink: var(--color-text-primary);
+			--recipe-flow-prep: var(--color-primary-100);
+			--recipe-focus: #e6ac65;
+		}
+	}
+
+	/* Printing a recipe page (or any page while a recipe print is prepared)
+	   prints only the recipe. blog.css's print block already hides the site
+	   header and footer and drops the layout's margins and padding, and theme.css
+	   prints black on white. */
+	@media print {
+		html .recipe-content .nutrition,
+		html .recipe-content .nutrition-pills {
+			display: none;
+		}
+
+		html:is([data-recipe-print], :has(.recipe-page)) .breadcrumbs,
+		html:is([data-recipe-print], :has(.recipe-page)) h1 {
+			display: none;
+		}
+		html:is([data-recipe-print], :has(.recipe-page)) .reading-section {
+			max-width: none;
+		}
+	}
+}
+
+@layer blog {
+	/* Reveal the resolved preferences and their dependent content together.
+	   Visibility reserves the server-rendered layout and removes pending controls
+	   from keyboard navigation. The noscript sheet reveals the static fallback. */
+	[data-preferences-ready="false"] {
+		visibility: hidden;
+	}
+}

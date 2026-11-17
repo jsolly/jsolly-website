@@ -1,0 +1,22 @@
+---
+// /recipes/meals/ and /recipes/smoothies/, the same paths as on
+// blogthedata.com: the recipe library opened on one collection.
+import RecipeLayout from "../../layouts/RecipeLayout.astro";
+import RecipeExperience from "./RecipeExperience.astro";
+
+interface Props {
+	collection: "meal" | "smoothie";
+	title: string;
+}
+
+const { collection, title } = Astro.props;
+const description = collection === "meal"
+	? "Browse keto meals by ingredients and appliances, with measured portions, cooking instructions, estimated nutrition and serving ideas for a shared table."
+	: "Browse keto smoothies with measured ingredients, blender instructions, estimated nutrition per glass and separate additions for other diners.";
+---
+
+<RecipeLayout {title} {description}>
+	<h1>{title}</h1>
+	<p><a href="/recipes/all/">See all keto meals and smoothies</a>, or use the filters below to find a recipe.</p>
+	<RecipeExperience {collection} />
+</RecipeLayout>

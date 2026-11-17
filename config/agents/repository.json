@@ -1,0 +1,13 @@
+{
+	"version": 1,
+	"repo": "jsolly/jsolly-website",
+	"files": {
+		".git-hooks/pre-commit": 493,
+		"gate/gate-lib.sh": 420,
+		"gate/hooks/pre-commit": 493,
+		"gate/repo-hooks.py": 493,
+		"gate/repo-python.sh": 493,
+		"gate/setup-agent-environment.sh": 493,
+		"gate/security-scan.py": 420
+	}
+}

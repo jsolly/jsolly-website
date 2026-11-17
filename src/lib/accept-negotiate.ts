@@ -89,32 +89,70 @@ export function appendVaryAccept(headers: Headers): void {
 }
 
 const MARKDOWN_FILE_RE = /\.md$/iu;
-const STATIC_EXT_RE =
-	/\.(?:js|css|png|jpe?g|gif|webp|svg|ico|pdf|xml|txt|woff2?|map|webmanifest|json)$/iu;
+// A file extension in the last path segment. Every file other than a `.md`
+// sibling is static: the middleware never negotiates or 406s it.
+const FILE_EXT_RE = /\.[^./]+$/u;
 export const TRAILING_SLASHES_RE = /\/+$/u;
 const MARKDOWN_EXT_RE = /\.md$/iu;
 const MARKDOWN_SIBLING_RE = /\.md(?:\/+)?$/iu;
+
+const STATIC_DATA_PREFIX = "/recipes/data/";
+function routeKey(pathname: string): string {
+	return pathname.replace(TRAILING_SLASHES_RE, "") || "/";
+}
+
+/**
+ * Request paths arrive percent-encoded (`/blog/caf%C3%A9/`, `/blog/c%2B%2B/`),
+ * while the route manifest lists the decoded paths Astro built. Each segment is
+ * decoded fully, reserved characters included; a malformed escape stays raw.
+ */
+function decodedPath(pathname: string): string {
+	try {
+		return pathname
+			.split("/")
+			.map((segment) => {
+				const decoded = decodeURIComponent(segment);
+				return decoded.includes("/") || decoded.includes("\\")
+					? segment
+					: decoded;
+			})
+			.join("/");
+	} catch {
+		return pathname;
+	}
+}
+
+/**
+ * A file under /recipes/data/, served as it is even when it ends in `.md`.
+ * An extensionless path there is not a file and keeps the Markdown 404.
+ */
+function isStaticDataPath(pathname: string): boolean {
+	const path = routeKey(pathname);
+	return path.startsWith(STATIC_DATA_PREFIX) && FILE_EXT_RE.test(path);
+}
 
 export function shouldNegotiate(pathname: string, method: string): boolean {
 	const verb = method.toUpperCase();
 	if (verb !== "GET" && verb !== "HEAD") return false;
 	if (
+		pathname.startsWith("/api/") ||
 		pathname.startsWith("/_astro/") ||
 		pathname.startsWith("/favicons/") ||
 		pathname.startsWith("/images/") ||
-		pathname.startsWith("/scripts/")
+		pathname.startsWith("/scripts/") ||
+		isStaticDataPath(pathname)
 	) {
 		return false;
 	}
 	if (MARKDOWN_FILE_RE.test(pathname)) return true;
-	if (STATIC_EXT_RE.test(pathname)) return false;
+	if (FILE_EXT_RE.test(pathname)) return false;
 	return true;
 }
 
-/** Canonical page key: `/`, `/about`, `/contact`, `/privacy`, `/terms`. */
+/** Decoded, case-sensitive page key without a trailing slash or Markdown suffix. */
 export function normalizePagePath(pathname: string): string {
 	const isMarkdownSibling = MARKDOWN_SIBLING_RE.test(pathname);
-	let path = pathname.replace(TRAILING_SLASHES_RE, "") || "/";
+	let path = decodedPath(pathname).replace(TRAILING_SLASHES_RE, "") || "/";
 	if (MARKDOWN_EXT_RE.test(path)) {
 		path = path.replace(MARKDOWN_EXT_RE, "");
 		path = path.replace(TRAILING_SLASHES_RE, "") || "/";

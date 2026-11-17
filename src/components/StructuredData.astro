@@ -1,5 +1,5 @@
 ---
-import { socialLinks } from "../content/socialLinks.js";
+import { JOB_TITLE, ROLE, socialLinks } from "../content/constants.js";
 
 const site = Astro.site ?? new URL("https://www.jsolly.com/");
 const origin = site.origin;
@@ -18,7 +18,7 @@ const jsonLd = {
 			url: `${origin}/`,
 			name: "John Solly",
 			description:
-				"Personal website of John Solly — Health-IT Division CTO at Leidos and software engineer.",
+				`Personal website of John Solly — ${ROLE} and software engineer.`,
 			inLanguage: "en-US",
 			publisher: { "@id": organizationId },
 		},
@@ -29,7 +29,7 @@ const jsonLd = {
 			url: `${origin}/`,
 			logo: `${origin}/images/og-image.jpg`,
 			description:
-				"Personal website of John Solly — Health-IT Division CTO at Leidos, software engineer, and builder of spatial and AI systems.",
+				`Personal website of John Solly — ${ROLE}, software engineer, and builder of spatial and AI systems.`,
 			sameAs: socialLinks.map((link) => link.href),
 			contactPoint: {
 				"@type": "ContactPoint",
@@ -48,9 +48,9 @@ const jsonLd = {
 			name: "John Solly",
 			url: `${origin}/`,
 			image: `${origin}/images/og-image.jpg`,
-			jobTitle: "Health-IT Division CTO at Leidos",
+			jobTitle: JOB_TITLE,
 			description:
-				"Health-IT Division CTO at Leidos leading digital modernization for federal health and benefits agencies; software engineer and builder.",
+				`${ROLE}, leading digital modernization for federal health and benefits agencies; software engineer and builder.`,
 			sameAs: socialLinks.map((link) => link.href),
 			contactPoint: {
 				"@type": "ContactPoint",

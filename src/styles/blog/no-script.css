@@ -1,0 +1,18 @@
+@layer properties, theme, base, components, utilities, blog, blog-no-script;
+@layer blog-no-script {
+	.load-more,
+	.category-toggle {
+		display: none;
+	}
+	.category-options[data-state="closed"] {
+		display: block;
+		position: static;
+		width: 100%;
+		max-height: none;
+		box-shadow: none;
+	}
+	.blog-toolbar-links,
+	.category-menu {
+		width: 100%;
+	}
+}

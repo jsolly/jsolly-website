@@ -1,7 +1,30 @@
-@import "@fontsource/inter/latin.css";
-@import "@fontsource/poppins/latin.css";
-@import "tailwindcss";
+@import "@fontsource/inter/latin-400.css";
+@import "@fontsource/inter/latin-500.css";
+@import "@fontsource/inter/latin-600.css";
+@import "@fontsource/inter/latin-700.css";
+@import "@fontsource/inter/latin-900.css";
+@import "@fontsource/poppins/latin-400.css";
+@import "@fontsource/poppins/latin-500.css";
+@import "@fontsource/poppins/latin-600.css";
+@import "@fontsource/poppins/latin-700.css";
+@import "@fontsource/poppins/latin-900.css";
+@import "tailwindcss" source(none);
+@import "shadcn-svelte/tailwind.css";
 @import "./theme.css";
+@import "./ui.css";
 @import "./base.css";
 @import "./components.css";
 @import "./utilities.css";
+
+/* Explicit sources: automatic detection would scan every non-gitignored file,
+   so docs and data would add utilities to this bundle.
+   tests/unit/tailwind-sources.test.mjs checks the scanned file set. */
+@source "../components";
+@source "../layouts";
+@source "../pages";
+@source "../lib";
+/* Scan UI source, never recipe prose or sanitizer/data modules. */
+@source not "../lib/blog";
+@source not "../components/recipes";
+@source not "../pages/recipes";
+@source "../lib/components/ui";

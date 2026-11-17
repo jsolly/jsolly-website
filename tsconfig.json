@@ -1,20 +1,11 @@
 {
-	"extends": ["astro/tsconfigs/strict", "./tsconfig/fleet/strict-astro.json"],
+	"extends": "./config/typescript/tsconfig.json",
 	"include": [
 		".astro/types.d.ts",
 		"src/**/*",
 		"middleware.ts",
-		"astro.config.ts"
+		"vercel.ts",
+		"config/app/astro.ts"
 	],
-	"exclude": ["**/node_modules/**", "dist/**", ".astro", "src/**/*.test.ts"],
-	"compilerOptions": {
-		"plugins": [
-			{
-				"name": "@astrojs/ts-plugin"
-			}
-		],
-		"strictNullChecks": true,
-		"baseUrl": ".",
-		"skipLibCheck": true
-	}
+	"exclude": ["**/node_modules/**", "dist/**", ".astro", "src/**/*.test.ts"]
 }

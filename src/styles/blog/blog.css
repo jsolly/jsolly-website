@@ -1,0 +1,569 @@
+/* Every blog sheet declares the full order, Tailwind's own `properties` layer
+   first, so blog and blog-no-script stay last whichever sheet loads first. */
+@layer properties, theme, base, components, utilities, blog, blog-no-script;
+/* Blog site styles, ported from awesome-blog global.css, article-content.css and
+   motion.css, in that order, plus theme.css's dark social-icon and print code
+   rules. A few rules moved so that rules ending in the same element run from
+   lower to higher specificity; none moved past a rule of equal specificity
+   setting the same property, so the cascade is unchanged. */
+@layer blog {
+	:where(.reading-section) * {
+		box-sizing: border-box;
+	}
+	:where(.reading-section) a:not([data-slot]) {
+		color: var(--blue);
+		text-underline-offset: 0.18em;
+	}
+	:where(.reading-section) a:hover {
+		text-decoration-thickness: 2px;
+	}
+	:where(.reading-section) img {
+		max-width: 100%;
+		height: auto;
+	}
+	:where(.reading-section) button:not([data-slot]),
+	:where(.reading-section) input:not([data-slot]) {
+		font: inherit;
+	}
+	:where(.reading-section) button:not([data-slot]),
+	:where(.reading-section) input:not([data-slot]),
+	:where(.reading-section) select,
+	:where(.reading-section) a,
+	:where(.reading-section) summary {
+		transition:
+			color var(--motion-fast) ease,
+			background-color var(--motion-fast) ease,
+			border-color var(--motion-fast) ease,
+			box-shadow var(--motion-fast) ease;
+	}
+	:where(.reading-section) button:not([data-slot]):hover:not(:disabled) {
+		filter: brightness(1.08);
+	}
+	:where(.reading-section) button:not([data-slot]) {
+		background: var(--button);
+		color: var(--button-text);
+		border: 1px solid transparent;
+		border-radius: 10px;
+		padding: 0.55rem 0.9rem;
+		cursor: pointer;
+		transition:
+			filter var(--motion-fast) ease,
+			background-color var(--motion-fast) ease,
+			border-color var(--motion-fast) ease;
+	}
+	/* Weight keeps prose links identifiable without a resting underline. */
+	:where(.reading-section) p a,
+	:where(.reading-section) li a,
+	:where(.reading-section) td a,
+	:where(.reading-section) dd a {
+		font-weight: 600;
+	}
+	:where(.reading-section) button:not([data-slot]):disabled {
+		cursor: default;
+	}
+	:where(.reading-section) input:not([data-slot]) {
+		min-width: 0;
+		border: 1px solid var(--input-border);
+		border-radius: 10px;
+		padding: 0.55rem 0.75rem;
+		background: var(--paper);
+		color: inherit;
+	}
+	:where(.reading-section) :focus-visible {
+		outline: 3px solid var(--color-primary-500);
+		outline-offset: 3px;
+	}
+	:where(.reading-section) .post-card {
+		border: 1px solid var(--border);
+		border-radius: 12px;
+		box-shadow: var(--shadow-soft);
+		background: var(--paper);
+		overflow: hidden;
+		display: grid;
+		grid-template-columns: 31% minmax(0, 1fr);
+		margin-bottom: 1.3rem;
+	}
+	:where(.reading-section) .card-copy {
+		padding: 1.2rem 1.4rem;
+	}
+	/* Card titles are h2 in a list and h3 under a post's "Related posts". */
+	:where(.reading-section) .post-card :is(h2, h3) {
+		margin: 0.1rem 0 0.6rem;
+		font-size: 1.35rem;
+	}
+	:where(.reading-section) .post-card-link {
+		text-decoration: none;
+	}
+	:where(.reading-section) .card-image {
+		display: block;
+		align-self: start;
+	}
+	:where(.reading-section) .card-image img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 1.1;
+		object-fit: cover;
+	}
+	:where(.reading-section) .card-copy > p:last-child {
+		font-size: 0.93rem;
+		margin-bottom: 0;
+	}
+	:where(.reading-section) .post-meta {
+		font-size: 0.75rem;
+		color: var(--muted);
+		margin: 0.2rem 0;
+	}
+	:where(.reading-section) .pagination {
+		display: flex;
+		justify-content: center;
+		gap: 1.3rem;
+		align-items: center;
+		margin: 1.8rem 0;
+	}
+	:where(.reading-section) .breadcrumbs {
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+		font-size: 0.85rem;
+		margin-bottom: 1rem;
+	}
+	:where(.reading-section) .article-hero {
+		width: 100%;
+		max-height: 450px;
+		object-fit: contain;
+		background: var(--paper);
+		border-radius: 4px;
+	}
+	:where(.reading-section) .article-body {
+		overflow-wrap: anywhere;
+		line-height: 1.8;
+	}
+	:where(.reading-section) .article-body h2,
+	:where(.reading-section) .article-body h3 {
+		scroll-margin-top: 1rem;
+		margin: 2rem 0 0.8rem;
+	}
+	:where(.reading-section) .article-body img {
+		display: block;
+		max-height: 800px;
+		object-fit: contain;
+		margin: auto;
+	}
+	:where(.reading-section) .article-body figure {
+		margin: 1.2rem 0;
+	}
+	:where(.reading-section) .article-body figcaption {
+		color: var(--muted);
+		text-align: center;
+		font-size: 0.8rem;
+	}
+	:where(.reading-section) .article-body table {
+		border-collapse: collapse;
+		display: block;
+		max-width: 100%;
+		overflow: auto;
+		font-size: 0.9rem;
+	}
+	:where(.reading-section) .article-body th,
+	:where(.reading-section) .article-body td {
+		border: 1px solid #aaa;
+		padding: 0.5rem;
+	}
+	:where(.reading-section) .article-body pre {
+		background: #171d29;
+		color: #e5edf7;
+		padding: 1rem;
+		border-radius: 4px;
+		overflow: auto;
+		white-space: pre;
+		line-height: 1.6;
+		font-size: 0.8rem;
+	}
+	:where(.reading-section) .article-body code {
+		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+	}
+	:where(.reading-section) .article-body :not(pre) > code {
+		background: #e4e8ee;
+		padding: 0.1rem 0.2rem;
+		border-radius: 3px;
+		font-size: 0.87em;
+	}
+	:where(.reading-section) .article-body iframe {
+		width: 100%;
+		min-height: 400px;
+		border: 0;
+	}
+	:where(.reading-section) .article-body blockquote {
+		border-left: 4px solid var(--blue);
+		padding: 0.1rem 1rem;
+		margin: 1rem 0;
+	}
+	:where(.reading-section) .heading-link {
+		font-size: 0.75em;
+		margin-left: 0.5rem;
+		text-decoration: none;
+	}
+	:where(.reading-section) .article-actions {
+		display: flex;
+		gap: 0.6rem;
+		align-items: center;
+		flex-wrap: wrap;
+		margin: 1.5rem 0;
+	}
+	:where(.reading-section) .article-actions a,
+	:where(.reading-section) .article-actions button {
+		font-size: 0.85rem;
+	}
+	:where(.reading-section) .search-page-form {
+		display: block;
+	}
+	:where(.reading-section) .search-page-form > div {
+		display: flex;
+		gap: 0.5rem;
+	}
+	:where(.reading-section) .search-page-form input {
+		width: 100%;
+	}
+	:where(.reading-section) .search-page-form label {
+		display: block;
+		margin-bottom: 0.5rem;
+	}
+	:where(.reading-section) .search-result {
+		border-bottom: 1px solid var(--border);
+		padding: 0.8rem 0;
+	}
+	:where(.reading-section) .search-result h2 {
+		margin: 0.5rem 0;
+	}
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+	@media (max-width: 760px) {
+		:where(.reading-section) .post-card {
+			grid-template-columns: 1fr;
+		}
+		:where(.reading-section) .card-image img {
+			height: 180px;
+			aspect-ratio: auto;
+			object-fit: cover;
+		}
+		:where(.reading-section) .card-copy {
+			padding: 1rem;
+		}
+		:where(.reading-section) .article-body iframe {
+			min-height: 240px;
+		}
+	}
+	@media (prefers-color-scheme: dark) {
+		:where(.reading-section) .article-body :not(pre) > code {
+			background: #333;
+		}
+	}
+	@media print {
+		:where(.reading-section) .article-actions,
+		:where(.reading-section) .heading-link,
+		:where(.reading-section) .related-posts,
+		:where(.reading-section) .about-card {
+			/* biome-ignore lint/complexity/noImportantStyles: print output must hide the site chrome even over inline style attributes and higher-specificity component rules */
+			display: none !important;
+		}
+		:where(.reading-section) .article-body pre {
+			white-space: pre-wrap;
+			color: black;
+			background: #eee;
+		}
+		/* After the screen and dark-mode code rules, so it wins by order. */
+		:where(.reading-section) .article-body :not(pre) > code {
+			background: #eee;
+			color: #000;
+		}
+		:where(.reading-section) .article-hero {
+			max-height: 260px;
+		}
+		:where(.reading-section) a:not([data-slot]) {
+			color: inherit;
+		}
+	}
+
+	:where(.reading-section) .load-more {
+		text-align: center;
+		margin: 1.8rem 0;
+		min-height: 100px;
+	}
+	:where(.reading-section) .load-more p {
+		color: var(--muted);
+		font-size: 0.85rem;
+	}
+
+	:where(.reading-section) .about-card {
+		background: var(--paper);
+		border-radius: 12px;
+		box-shadow: var(--shadow-soft);
+		padding: 1.5rem;
+		margin-bottom: 2.5rem;
+	}
+	:where(.reading-section) .profile-header {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+	}
+	:where(.reading-section) .profile-photo {
+		display: block;
+		width: 192px;
+		height: 192px;
+		border-radius: 50%;
+		object-fit: cover;
+		object-position: center 35%;
+		flex-shrink: 0;
+	}
+	:where(.reading-section) .profile-identity h2 {
+		font-size: 1.35rem;
+		font-weight: 700;
+		margin: 0 0 0.2rem;
+	}
+	:where(.reading-section) .profile-role {
+		margin: 0;
+		font-size: 0.95rem;
+		letter-spacing: 0.02em;
+	}
+	:where(.reading-section) .social-links {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-top: 0.55rem;
+	}
+	:where(.reading-section) .social-links a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		color: var(--heading);
+		border-radius: 8px;
+		text-decoration: none;
+		opacity: 0.8;
+		transition:
+			opacity 300ms cubic-bezier(0.4, 0, 0.2, 1),
+			transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+	}
+	:where(.reading-section) .social-links a:is(:hover, :focus-visible) {
+		opacity: 1;
+		transform: scale(1.1);
+	}
+	:where(.reading-section) .social-links img {
+		width: 24px;
+		height: 24px;
+	}
+	:where(.reading-section) .about-content {
+		margin-top: 1rem;
+		font-size: 1.08rem;
+		line-height: 1.6;
+	}
+	:where(.reading-section) .about-content p:last-child {
+		margin-bottom: 0;
+	}
+	@media (max-width: 760px) {
+		:where(.reading-section) .about-card {
+			padding: 1.25rem;
+		}
+		:where(.reading-section) .profile-header {
+			flex-direction: column;
+			gap: 1rem;
+			align-items: center;
+			text-align: center;
+		}
+		:where(.reading-section) .profile-photo {
+			width: 160px;
+			height: 160px;
+		}
+		:where(.reading-section) .social-links {
+			justify-content: center;
+		}
+		:where(.reading-section) .about-content {
+			font-size: 1rem;
+		}
+	}
+	@media print {
+		:where(.reading-section) .social-links a {
+			transform: none;
+		}
+	}
+
+	:where(.reading-section) .post-details {
+		margin-top: 1.5rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--border);
+	}
+	:where(.reading-section) .article-actions a:not([data-slot]) {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 44px;
+		padding: 0.5rem 0.85rem;
+		border: 1px solid var(--border);
+		border-radius: 10px;
+		background: var(--paper);
+		color: var(--heading);
+		text-decoration: none;
+		font-weight: 600;
+	}
+	:where(.reading-section) .article-actions a:not([data-slot]):hover {
+		background: var(--hover);
+		border-color: var(--input-border);
+	}
+	:where(.reading-section) .action-label {
+		font-size: 0.8rem;
+		color: var(--muted);
+		margin-right: 0.2rem;
+	}
+	:where(.reading-section) .post-card :is(h2, h3) a {
+		color: var(--heading);
+	}
+
+	:where(.reading-section) .share-actions img {
+		display: block;
+		width: 22px;
+		height: 22px;
+	}
+	@media (prefers-color-scheme: dark) {
+		:where(.reading-section) .social-links img,
+		:where(.reading-section) .share-actions img {
+			filter: invert(1);
+		}
+	}
+	/* Rendered CKEditor media still uses these content classes after conversion. */
+	:where(.reading-section) .article-body,
+	:where(.reading-section) > article {
+		min-width: 0;
+	}
+	:where(.reading-section) .article-body iframe[style] {
+		min-height: 0;
+	}
+	:where(.reading-section) .article-body figure.image-style-side {
+		float: right;
+		margin-left: 1.5rem;
+		max-width: 50%;
+	}
+	:where(.reading-section) .article-body::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	:where(.reading-section) .article-body figure.table {
+		max-width: 100%;
+		overflow-x: auto;
+	}
+	:where(.reading-section) .article-body figure.table > table {
+		display: table;
+	}
+	@media (max-width: 760px) {
+		:where(.reading-section) .article-body figure.image-style-side {
+			float: none;
+			margin: 1rem 0;
+			max-width: 100%;
+		}
+	}
+	@media print {
+		:where(.reading-section) .article-body figure.table {
+			overflow: visible;
+		}
+	}
+	/* Native disclosures retain their keyboard and no-JavaScript behavior. */
+	@supports selector(::details-content) {
+		:where(.reading-section) details::details-content {
+			opacity: 0;
+			transition:
+				opacity var(--motion-panel) ease,
+				content-visibility var(--motion-panel) allow-discrete;
+		}
+		:where(.reading-section) details[open]::details-content {
+			opacity: 1;
+		}
+		@supports (interpolate-size: allow-keywords) {
+			:where(.reading-section) details {
+				interpolate-size: allow-keywords;
+			}
+			:where(.reading-section) details::details-content {
+				block-size: 0;
+				overflow: clip;
+				transition:
+					block-size var(--motion-panel) var(--motion-ease),
+					opacity var(--motion-panel) ease,
+					content-visibility var(--motion-panel) allow-discrete;
+			}
+			:where(.reading-section) details[open]::details-content {
+				block-size: auto;
+			}
+			/* The desktop category dropdown is positioned outside the disclosure box. */
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		:where(.reading-section) *,
+		:where(.reading-section) *::before,
+		:where(.reading-section) *::after,
+		:where(.reading-section) details::details-content {
+			/* biome-ignore-start lint/complexity/noImportantStyles: reduced motion must override every transition and animation, including higher-specificity rules and inline styles */
+			transition-duration: 0s !important;
+			animation-duration: 0s !important;
+			animation-iteration-count: 1 !important;
+			scroll-behavior: auto !important;
+			/* biome-ignore-end lint/complexity/noImportantStyles: end of the reduced-motion overrides */
+		}
+	}
+	@media print {
+		:where(.reading-section) details::details-content {
+			transition: none;
+		}
+	}
+
+	/* Match the portfolio: a transparent underline fades in on hover or focus. */
+	:where(.reading-section) .text-button {
+		text-decoration: underline 2px transparent;
+		text-underline-offset: 4px;
+		text-decoration-skip-ink: none;
+		transition:
+			text-decoration-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+			color var(--motion-fast) ease,
+			background-color var(--motion-fast) ease;
+	}
+	:where(.reading-section) .text-button:is(:hover, :focus-visible) {
+		text-decoration-color: currentColor;
+	}
+	@media print {
+		:where(.reading-section) .text-button {
+			text-decoration-color: currentColor;
+		}
+	}
+
+	@keyframes load-more-bounce {
+		0%,
+		20%,
+		50%,
+		80%,
+		100% {
+			transform: translateY(0);
+		}
+		40% {
+			transform: translateY(-6px);
+		}
+		60% {
+			transform: translateY(-3px);
+		}
+	}
+	:where(.reading-section) .load-more-button.paused {
+		animation: load-more-bounce 1.8s ease-in-out 2;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		:where(.reading-section) .load-more-button.paused {
+			animation: none;
+		}
+	}
+}

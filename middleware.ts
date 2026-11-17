@@ -1,30 +1,69 @@
-import { next } from "@vercel/edge";
+import { next, rewrite } from "@vercel/edge";
+// biome-ignore lint/correctness/useJsonImportAttributes: Vercel's middleware bundler rejects import attributes (tests/unit/middleware-bundle.test.mjs).
+import retiredRecipes from "./src/components/recipes/retired-recipes.json";
+import { SITE_SEARCH_LINK } from "./src/content/constants.js";
+// Written by astro build (routeManifest in config/app/astro.ts); gitignored, typed by the tracked .d.ts.
+import { markdownRoutes as builtMarkdownRoutes } from "./src/generated/route-manifest.js";
 import {
 	appendVaryAccept,
+	normalizePagePath,
 	shouldNegotiate,
 } from "./src/lib/accept-negotiate.js";
 import { agentResponse } from "./src/lib/agent-response.js";
+// biome-ignore lint/correctness/useJsonImportAttributes: Vercel's middleware bundler rejects import attributes (tests/unit/middleware-bundle.test.mjs).
+import retiredCategories from "./src/lib/blog/retired-categories.json";
+import { previewResponseHeaders } from "./src/lib/csp-policy.js";
+import { recipeBrowseDestination } from "./src/lib/recipe-browse-route.mjs";
+import { config as vercelConfig } from "./vercel.js";
 
-/**
- * Request-time release id for static Vercel sites.
- * Vercel applies committed vercel.json headers as-is (build-time stamps do not stick),
- * so Edge Middleware reads the deployment's VERCEL_GIT_COMMIT_SHA instead.
- *
- * Also implements acceptmarkdown.com negotiation: same URL serves HTML or
- * text/markdown based on Accept, with Vary: Accept so the CDN keeps variants apart.
- */
+// Vercel statically extracts these literals before bundling. Keep both patterns
+// aligned with shouldNegotiate: extensionless misses still need Markdown 404s,
+// while .md files in API/asset/data namespaces remain ordinary static files.
+export const config = {
+	matcher: [
+		"/((?!api/|_astro/|favicons/|images/|scripts/|recipes/data/.*\\.[^./]+/*$|.*\\.[^./]+$).*)",
+		"/((?!api/|_astro/|favicons/|images/|scripts/|recipes/data/).*\\.[mM][dD])",
+	],
+};
+
+const markdownRoutes = new Map(builtMarkdownRoutes);
+// Preview deployments widen the header CSP for the Vercel Toolbar; empty in production.
+const previewHeaders = previewResponseHeaders(
+	process.env.VERCEL_ENV,
+	vercelConfig,
+);
+const retiredPaths = new Set([
+	...retiredRecipes.map(({ id }) => `/recipes/${id}`),
+	...retiredCategories.map(({ slug }) => `/blog/category/${slug}`),
+]);
+
+/** Same URL serves HTML or Markdown based on Accept, with Vary keeping CDN variants apart. */
 export default function middleware(request: Request) {
 	const url = new URL(request.url);
-	const sha = process.env.VERCEL_GIT_COMMIT_SHA || process.env.GITHUB_SHA || "";
-	const releaseId = sha ? sha.slice(0, 12) : "dev";
+	const retired = retiredPaths.has(normalizePagePath(url.pathname));
 
-	const negotiated = agentResponse(request, releaseId);
-	if (negotiated) return negotiated;
+	const negotiated = agentResponse(request, markdownRoutes);
+	if (negotiated) {
+		if (retired) negotiated.headers.set("X-Robots-Tag", "noindex");
+		return negotiated;
+	}
 
-	const response = next();
-	response.headers.set("x-release-id", releaseId);
+	const browse = recipeBrowseDestination(request);
+	if (browse)
+		return rewrite(browse, {
+			headers: {
+				"Cache-Control": "no-store",
+				Vary: "Accept",
+				Link: SITE_SEARCH_LINK,
+				...previewHeaders,
+			},
+		});
+
+	const response = next({ headers: previewHeaders });
+	if (retired) response.headers.set("X-Robots-Tag", "noindex");
 	if (shouldNegotiate(url.pathname, request.method)) {
 		appendVaryAccept(response.headers);
+		response.headers.append("Link", SITE_SEARCH_LINK);
 	}
 	return response;
 }

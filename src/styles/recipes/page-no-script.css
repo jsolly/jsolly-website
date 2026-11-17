@@ -1,0 +1,9 @@
+@layer properties, theme, base, components, utilities, blog, blog-no-script;
+@layer blog-no-script {
+	[data-preferences-ready="false"] {
+		visibility: visible;
+	}
+	.recipe-enhanced {
+		display: none;
+	}
+}

@@ -1,5 +1,6 @@
 # build output
 dist/
+.recipe-browse/
 
 # local env / secrets (never commit)
 .env
@@ -18,6 +19,9 @@ dist/
 # generated types
 .astro/
 
+# route manifest for the middleware, written by astro build (route-manifest.d.ts is tracked)
+src/generated/route-manifest.js
+
 # dependencies
 node_modules/
 
@@ -35,7 +39,17 @@ node_modules/
 !.cursor/CLOUD.md
 !.cursor/environment.json
 !.cursor/install-cloud-skills.sh
-!.cursor/aws-oidc-login.sh
 
+# Production browser smoke diagnostics
+production-smoke-artifacts/
 
-# Materialized agent config (fetched by .dotagents/bootstrap.sh; not committed)
+# Claude desktop nests session worktrees here; committed so tools that read only
+# .gitignore (Biome, markdownlint globs) skip them. Fleet canon: new-solly-repo row 13.
+.claude/worktrees/
+
+# Python test artifacts
+__pycache__/
+.pytest_cache/
+
+# Local axe scan reports
+/accessibility-results.json

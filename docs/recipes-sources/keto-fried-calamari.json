@@ -1,0 +1,2903 @@
+{
+	"recipe": {
+		"id": "keto-fried-calamari",
+		"starches": ["none"],
+		"key": "keto_fried_calamari",
+		"title": "Keto fried calamari",
+		"type": "meal",
+		"proteinType": "seafood",
+		"vegetarian": false,
+		"appliance": "stovetop",
+		"appliancesNeeded": ["Stovetop", "Pans"],
+		"activeMinutes": 30,
+		"totalMin": 35,
+		"totalMax": 45,
+		"timeVariable": true,
+		"summary": "Almond-crusted fried squid rings with lemon-garlic mayonnaise.",
+		"allergens": [
+			"molluscan shellfish (squid)",
+			"tree nuts (almond)",
+			"egg",
+			"soy"
+		],
+		"boosters": [],
+		"ingredients": [
+			{
+				"id": "squid",
+				"name": "Cleaned squid tubes",
+				"state": "raw, thawed; cut into 1/4-inch-wide rings",
+				"amount": 680,
+				"unit": "g",
+				"category": "protein",
+				"note": "Use cleaned tubes, not whole uncleaned squid. Thaw in the refrigerator, drain and pat completely dry before coating.",
+				"scale": "linear",
+				"weightRef": "usda-174223",
+				"sourceIngredientId": "squid",
+				"measurementProvenance": {
+					"original": {
+						"amount": 680,
+						"unit": "g",
+						"name": "Cleaned squid tubes",
+						"state": "raw, thawed; cut into 1/4-inch-wide rings",
+						"note": "Use cleaned tubes, not whole uncleaned squid. Thaw in the refrigerator, drain and pat completely dry before coating."
+					},
+					"sourceIngredientId": "squid",
+					"reviewedOn": "2026-10-23",
+					"massBasis": "edible",
+					"decision": "Measured original four-serving calamari formula. Raw squid is cleaned edible weight; all measured coating, egg wash, sauce and oil are included in the conservative nutrition model."
+				}
+			},
+			{
+				"id": "almond_flour",
+				"name": "Blanched almond flour",
+				"state": "finely ground",
+				"amount": 96,
+				"unit": "g",
+				"category": "pantry",
+				"note": "Use a fine flour rather than coarse almond meal. Coat only the next panful just before frying.",
+				"scale": "linear",
+				"weightRef": "ka-almond-flour",
+				"sourceIngredientId": "almond_flour",
+				"measurementProvenance": {
+					"original": {
+						"amount": 96,
+						"unit": "g",
+						"name": "Blanched almond flour",
+						"state": "finely ground",
+						"note": "Use a fine flour rather than coarse almond meal. Coat only the next panful just before frying."
+					},
+					"sourceIngredientId": "almond_flour",
+					"reviewedOn": "2026-10-23",
+					"massBasis": "edible",
+					"decision": "Measured original four-serving calamari formula. Raw squid is cleaned edible weight; all measured coating, egg wash, sauce and oil are included in the conservative nutrition model."
+				}
+			},
+			{
+				"id": "egg",
+				"name": "Beaten whole egg",
+				"state": "raw, beaten",
+				"amount": 50,
+				"unit": "g",
+				"category": "protein",
+				"note": "Beat whole eggs, then weigh the listed portion. Discard unused egg wash after coating.",
+				"scale": "linear",
+				"weightRef": "usda-171287",
+				"sourceIngredientId": "egg",
+				"measurementProvenance": {
+					"original": {
+						"amount": 50,
+						"unit": "g",
+						"name": "Beaten whole egg",
+						"state": "raw, beaten",
+						"note": "Beat whole eggs, then weigh the listed portion. Discard unused egg wash after coating."
+					},
+					"sourceIngredientId": "egg",
+					"reviewedOn": "2026-10-23",
+					"massBasis": "edible",
+					"decision": "Measured original four-serving calamari formula. Raw squid is cleaned edible weight; all measured coating, egg wash, sauce and oil are included in the conservative nutrition model."
+				}
+			},
+			{
+				"id": "canola_oil",
+				"name": "Refined canola oil",
+				"state": "as purchased",
+				"amount": 108,
+				"unit": "g",
+				"category": "pantry",
+				"note": "Use a refined oil suitable for frying. Reserve some of the measured oil for small top-ups between batches; do not add unmeasured oil.",
+				"scale": "linear",
+				"weightRef": "usda-172336",
+				"sourceIngredientId": "canola_oil",
+				"measurementProvenance": {
+					"original": {
+						"amount": 108,
+						"unit": "g",
+						"name": "Refined canola oil",
+						"state": "as purchased",
+						"note": "Use a refined oil suitable for frying. Reserve some of the measured oil for small top-ups between batches; do not add unmeasured oil."
+					},
+					"sourceIngredientId": "canola_oil",
+					"reviewedOn": "2026-10-23",
+					"massBasis": "edible",
+					"decision": "Measured original four-serving calamari formula. Raw squid is cleaned edible weight; all measured coating, egg wash, sauce and oil are included in the conservative nutrition model."
+				}
+			},
+			{
+				"id": "mayonnaise",
+				"name": "Regular mayonnaise",
+				"state": "ready to eat",
+				"amount": 60,
+				"unit": "g",
+				"category": "chilled",
+				"note": "Choose a no-added-sugar product. Check the label for egg, soy and other allergens.",
+				"scale": "linear",
+				"weightRef": "usda-171009",
+				"sourceIngredientId": "mayonnaise",
+				"measurementProvenance": {
+					"original": {
+						"amount": 60,
+						"unit": "g",
+						"name": "Regular mayonnaise",
+						"state": "ready to eat",
+						"note": "Choose a no-added-sugar product. Check the label for egg, soy and other allergens."
+					},
+					"sourceIngredientId": "mayonnaise",
+					"reviewedOn": "2026-10-23",
+					"massBasis": "edible",
+					"decision": "Measured original four-serving calamari formula. Raw squid is cleaned edible weight; all measured coating, egg wash, sauce and oil are included in the conservative nutrition model."
+				}
+			},
+			{
+				"id": "lemon_juice",
+				"name": "Lemon juice",
+				"state": "raw, unsweetened",
+				"amount": 30,
+				"unit": "g",
+				"category": "produce",
+				"note": "Mix into the mayonnaise dipping sauce.",
+				"scale": "linear",
+				"weightRef": "usda-167747",
+				"sourceIngredientId": "lemon_juice",
+				"measurementProvenance": {
+					"original": {
+						"amount": 30,
+						"unit": "g",
+						"name": "Lemon juice",
+						"state": "raw, unsweetened",
+						"note": "Mix into the mayonnaise dipping sauce."
+					},
+					"sourceIngredientId": "lemon_juice",
+					"reviewedOn": "2026-10-23",
+					"massBasis": "edible",
+					"decision": "Measured original four-serving calamari formula. Raw squid is cleaned edible weight; all measured coating, egg wash, sauce and oil are included in the conservative nutrition model."
+				}
+			},
+			{
+				"id": "lemon_wedges",
+				"name": "Lemon wedges",
+				"state": "washed, cut for serving",
+				"amount": 60,
+				"unit": "g",
+				"category": "produce",
+				"note": "Serve alongside the calamari. The estimate conservatively counts the full listed wedge weight as edible lemon flesh.",
+				"scale": "linear",
+				"weightRef": "usda-167746",
+				"sourceIngredientId": "lemon_wedges",
+				"measurementProvenance": {
+					"original": {
+						"amount": 60,
+						"unit": "g",
+						"name": "Lemon wedges",
+						"state": "washed, cut for serving",
+						"note": "Serve alongside the calamari. The estimate conservatively counts the full listed wedge weight as edible lemon flesh."
+					},
+					"sourceIngredientId": "lemon_wedges",
+					"reviewedOn": "2026-10-23",
+					"massBasis": "edible",
+					"decision": "Measured original four-serving calamari formula. Raw squid is cleaned edible weight; all measured coating, egg wash, sauce and oil are included in the conservative nutrition model."
+				}
+			},
+			{
+				"id": "garlic_powder",
+				"name": "Garlic powder",
+				"state": "ground",
+				"amount": 3.1,
+				"unit": "g",
+				"category": "pantry",
+				"note": "Use half in the almond coating and half in the sauce.",
+				"scale": "linear",
+				"weightRef": "usda-171325",
+				"sourceIngredientId": "garlic_powder",
+				"measurementProvenance": {
+					"original": {
+						"amount": 3.1,
+						"unit": "g",
+						"name": "Garlic powder",
+						"state": "ground",
+						"note": "Use half in the almond coating and half in the sauce."
+					},
+					"sourceIngredientId": "garlic_powder",
+					"reviewedOn": "2026-10-23",
+					"massBasis": "edible",
+					"decision": "Measured original four-serving calamari formula. Raw squid is cleaned edible weight; all measured coating, egg wash, sauce and oil are included in the conservative nutrition model."
+				}
+			},
+			{
+				"id": "fine_salt",
+				"name": "Fine salt",
+				"state": "dry",
+				"amount": 3,
+				"unit": "g",
+				"category": "pantry",
+				"note": "Mix into the almond coating.",
+				"scale": "linear",
+				"weightRef": "usda-173468",
+				"sourceIngredientId": "fine_salt",
+				"measurementProvenance": {
+					"original": {
+						"amount": 3,
+						"unit": "g",
+						"name": "Fine salt",
+						"state": "dry",
+						"note": "Mix into the almond coating."
+					},
+					"sourceIngredientId": "fine_salt",
+					"reviewedOn": "2026-10-23",
+					"massBasis": "edible",
+					"decision": "Measured original four-serving calamari formula. Raw squid is cleaned edible weight; all measured coating, egg wash, sauce and oil are included in the conservative nutrition model."
+				}
+			},
+			{
+				"id": "black_pepper",
+				"name": "Black pepper",
+				"state": "ground",
+				"amount": 0.575,
+				"unit": "g",
+				"category": "pantry",
+				"note": "Mix into the almond coating.",
+				"scale": "linear",
+				"weightRef": "usda-170931",
+				"sourceIngredientId": "black_pepper",
+				"measurementProvenance": {
+					"original": {
+						"amount": 0.575,
+						"unit": "g",
+						"name": "Black pepper",
+						"state": "ground",
+						"note": "Mix into the almond coating."
+					},
+					"sourceIngredientId": "black_pepper",
+					"reviewedOn": "2026-10-23",
+					"massBasis": "edible",
+					"decision": "Measured original four-serving calamari formula. Raw squid is cleaned edible weight; all measured coating, egg wash, sauce and oil are included in the conservative nutrition model."
+				}
+			}
+		],
+		"steps": [
+			{
+				"title": "Prepare the squid and coating",
+				"text": "Thaw cleaned squid in the refrigerator, drain and pat completely dry. Cut the tubes into 1/4-inch-wide rings. Beat and weigh the egg. Mix almond flour, salt, black pepper and half the garlic powder in a shallow dish. Keep the squid and egg chilled until coating."
+			},
+			{
+				"title": "Mix the dipping sauce",
+				"text": "In a clean bowl, stir mayonnaise, lemon juice and the other half of the garlic powder. Cover and refrigerate while frying. Keep the sauce and its utensils away from raw squid and egg."
+			},
+			{
+				"title": "Heat the oil",
+				"text": "For four servings, use a heavy 10-inch skillet with a base about 8 inches across. Use a smaller 8-inch skillet for two servings. Heat enough of the measured refined canola oil to make a shallow layer about 1/8 inch deep, reserving any rest for small top-ups between batches. Never fill the pan more than one-third deep. Heat the oil to 350\u00b0F and monitor it with a frying thermometer."
+			},
+			{
+				"title": "Coat and fry in batches",
+				"text": "Coat only the next panful at a time: dip rings into beaten egg, let excess drain, then press lightly into the almond mixture and shake off loose flour. Fry one uncrowded layer, about four batches for four servings. Turn once after about 1 minute; allow roughly 2\u20133 minutes total per batch, continuing until the thickest squid reaches 145\u00b0F for at least 15 seconds and the coating is golden. Check with a thin-tip food thermometer. Oil temperature, squid thickness and coating can change the time; the endpoint decides doneness. Adjust heat to hold about 350\u00b0F and allow oil to recover before the next batch."
+			},
+			{
+				"title": "Drain and serve",
+				"text": "Use clean tongs to transfer cooked calamari to a rack over a tray. Skim loose browned crumbs between batches with a dry slotted utensil. Serve promptly with the chilled sauce and lemon wedges. Discard remaining raw egg wash and dredge. Allow used oil to cool fully before handling or disposal."
+			}
+		],
+		"equipment": [
+			"Heavy 10-inch skillet for four servings, or an 8-inch skillet for two",
+			"Frying thermometer",
+			"Thin-tip instant-read food thermometer",
+			"Dry slotted utensil, clean tongs and a wire rack over a tray"
+		],
+		"timeline": [
+			{
+				"phase": "Dry, slice and prepare",
+				"duration": "15\u201320 min",
+				"attention": "Dry the squid thoroughly; mix coating and chilled sauce."
+			},
+			{
+				"phase": "Heat oil and fry batches",
+				"duration": "15\u201320 min",
+				"attention": "Monitor oil continuously, turn each batch once and check the seafood endpoint."
+			},
+			{
+				"phase": "Drain and serve",
+				"duration": "5 min",
+				"attention": "Serve promptly; larger quantities need more batches."
+			}
+		],
+		"tips": [
+			"Almond flour browns readily. Keep the oil near 350\u00b0F, skim browned crumbs and coat each batch only when the pan is ready.",
+			"Use dry utensils around hot oil, lower rings gently away from you and keep water away from the pan.",
+			"For six or eight servings, keep the same pan and uncrowded layer; fry additional batches and reserve the extra measured oil for top-ups. Total time can increase."
+		],
+		"fallback": "If the coating browns before the squid reaches 145\u00b0F, lower the oil temperature and finish that batch to the safe endpoint. Do not use coating color or a fixed timer as proof of doneness.",
+		"limitations": [
+			"This household adaptation has not been kitchen-tested; coating texture, oil use and cooking times are estimates.",
+			"Nutrition counts all measured oil, almond flour, egg wash and lemon-wedge weight even when some remain in the pan, bowl or on the plate. Actual intake can be lower; no absorption or dredge-retention measurement is claimed.",
+			"The almond-flour nutrient profile uses the established USDA whole-almond proxy. Mayonnaise and flour brands can differ. Check every packaged ingredient label for additional allergens."
+		],
+		"sources": [
+			{
+				"title": "USDA FoodData Central: raw mixed-species squid",
+				"url": "https://fdc.nal.usda.gov/food-details/174223/nutrients"
+			},
+			{
+				"title": "USDA SR Legacy nutrient source archive",
+				"url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip"
+			},
+			{
+				"title": "USDA FSIS frying and safe seafood temperatures",
+				"url": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/deep-fat-frying"
+			},
+			{
+				"title": "King Arthur ingredient weight chart",
+				"url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart"
+			},
+			{
+				"title": "FDA Food Code 2022, section 3-401.11 cooking endpoint",
+				"url": "https://www.fda.gov/media/184685/download"
+			}
+		],
+		"nutrition": {
+			"kcal": 662.8410625,
+			"protein_g": 33.610448125,
+			"carbs_g": 13.154585625000001,
+			"fiber_g": 3.54861875,
+			"net_carbs_g": 9.605966875
+		},
+		"familyOptions": [],
+		"attentionSummary": "Continuous frying attention; turn each batch once and check squid at 145\u00b0F. Larger quantities need additional batches.",
+		"flavorRationale": "A thin almond crust adds crunch; lemon and garlic balance the fried squid.",
+		"midCookActions": 7,
+		"sharedTable": "Serve the calamari for everyone. Offer fries, bread or pasta in separate dishes so each person can build their own plate. Keep dipping sauces on the side; base nutrition includes the measured lemon-garlic mayonnaise.",
+		"image": {
+			"src": "/recipes/media/keto-fried-calamari-960.webp",
+			"width": 960,
+			"height": 720,
+			"cardSrc": "/recipes/media/keto-fried-calamari-480.webp",
+			"cardSrcset": "/recipes/media/keto-fried-calamari-480.webp 480w, /recipes/media/keto-fried-calamari-960.webp 960w",
+			"detailSrcset": "/recipes/media/keto-fried-calamari-480.webp 480w, /recipes/media/keto-fried-calamari-960.webp 960w, /recipes/media/keto-fried-calamari-1440.webp 1440w",
+			"alt": "Illustration of golden almond-crusted fried calamari rings with lemon wedges and a bowl of lemon-garlic mayonnaise.",
+			"caption": "AI-generated illustration; appearance and portions are approximate.",
+			"styleVersion": "warm-overhead-v1"
+		},
+		"flow": {
+			"prep": [
+				"Thaw cleaned squid in the refrigerator. Pat completely dry and cut into 1/4-inch-wide rings. Keep squid and beaten egg chilled until coating.",
+				"For four servings use a heavy 10-inch skillet; use an 8-inch skillet for two. Heat a shallow 1/8-inch layer from the measured oil to 350\u00b0F, reserving any rest for top-ups. Never fill more than one-third deep.",
+				"Keep sauce and clean serving utensils separate from raw squid and egg. Six or eight servings need additional uncrowded batches and more time."
+			],
+			"root": {
+				"action": "Serve promptly from the rack with the chilled lemon-garlic sauce and lemon wedges. Discard raw wash and dredge; cool oil fully before handling.",
+				"children": [
+					{
+						"action": "Coat only the next panful, then fry in one uncrowded layer at about 350\u00b0F. Turn once after about 1 min; allow roughly 2\u20133 min total per batch, but check the thickest squid reaches 145\u00b0F for at least 15 seconds with a thin-tip thermometer. Recover oil temperature and skim browned crumbs between batches. Drain cooked rings on a rack with clean tongs.",
+						"children": [
+							{
+								"action": "Dip dry squid rings into beaten egg, drain excess, then press into almond coating and shake off loose flour.",
+								"children": [
+									{
+										"ingredientId": "squid",
+										"fraction": 1
+									},
+									{
+										"ingredientId": "egg",
+										"fraction": 1
+									},
+									{
+										"action": "Mix almond flour, salt, black pepper and half the garlic powder.",
+										"children": [
+											{
+												"ingredientId": "almond_flour",
+												"fraction": 1
+											},
+											{
+												"ingredientId": "fine_salt",
+												"fraction": 1
+											},
+											{
+												"ingredientId": "black_pepper",
+												"fraction": 1
+											},
+											{
+												"ingredientId": "garlic_powder",
+												"fraction": 0.5
+											}
+										]
+									}
+								]
+							},
+							{
+								"ingredientId": "canola_oil",
+								"fraction": 1
+							}
+						]
+					},
+					{
+						"action": "Mix mayonnaise, lemon juice and the other half of the garlic powder in a clean bowl. Cover and chill until serving.",
+						"children": [
+							{
+								"ingredientId": "mayonnaise",
+								"fraction": 1
+							},
+							{
+								"ingredientId": "lemon_juice",
+								"fraction": 1
+							},
+							{
+								"ingredientId": "garlic_powder",
+								"fraction": 0.5
+							}
+						]
+					},
+					{
+						"ingredientId": "lemon_wedges",
+						"fraction": 1
+					}
+				]
+			}
+		},
+		"nutritionEstimate": {
+			"method": "Measured edible cooking grams multiplied by the observed USDA SR Legacy nutrient profiles and divided into four equal portions. All measured frying oil, almond coating, egg wash, sauce and lemon wedges are counted conservatively; no oil absorption, coating retention or cooking-retention factors.",
+			"estimatedMacroFields": [
+				"kcal",
+				"protein_g",
+				"carbs_g",
+				"fiber_g",
+				"net_carbs_g"
+			],
+			"publisherBaselineFields": [],
+			"ingredientSnapshot": [
+				{
+					"id": "squid",
+					"name": "Cleaned squid tubes",
+					"amount": 680,
+					"unit": "g",
+					"state": "raw, thawed; cut into 1/4-inch-wide rings"
+				},
+				{
+					"id": "almond_flour",
+					"name": "Blanched almond flour",
+					"amount": 96,
+					"unit": "g",
+					"state": "finely ground"
+				},
+				{
+					"id": "egg",
+					"name": "Beaten whole egg",
+					"amount": 50,
+					"unit": "g",
+					"state": "raw, beaten"
+				},
+				{
+					"id": "canola_oil",
+					"name": "Refined canola oil",
+					"amount": 108,
+					"unit": "g",
+					"state": "as purchased"
+				},
+				{
+					"id": "mayonnaise",
+					"name": "Regular mayonnaise",
+					"amount": 60,
+					"unit": "g",
+					"state": "ready to eat"
+				},
+				{
+					"id": "lemon_juice",
+					"name": "Lemon juice",
+					"amount": 30,
+					"unit": "g",
+					"state": "raw, unsweetened"
+				},
+				{
+					"id": "lemon_wedges",
+					"name": "Lemon wedges",
+					"amount": 60,
+					"unit": "g",
+					"state": "washed, cut for serving"
+				},
+				{
+					"id": "garlic_powder",
+					"name": "Garlic powder",
+					"amount": 3.1,
+					"unit": "g",
+					"state": "ground"
+				},
+				{
+					"id": "fine_salt",
+					"name": "Fine salt",
+					"amount": 3,
+					"unit": "g",
+					"state": "dry"
+				},
+				{
+					"id": "black_pepper",
+					"name": "Black pepper",
+					"amount": 0.575,
+					"unit": "g",
+					"state": "ground"
+				}
+			],
+			"assumptions": [
+				"No wheat flour, starch, sugar or carby side is in the base recipe.",
+				"All measured frying oil is counted as consumed even if left in the skillet or reserve; the cooking pan fill is not an absorption estimate.",
+				"All coating and egg wash are counted despite discarded leftovers.",
+				"The full lemon-wedge weight is counted as edible lemon flesh.",
+				"Whole-almond nutrient observations proxy the blanched almond flour; actual brands vary.",
+				"Regular USDA mayonnaise proxies the selected no-added-sugar product; actual label values and allergens may differ."
+			]
+		}
+	},
+	"nutritionRows": [
+		{
+			"fdcId": 174223,
+			"description": "Mollusks, squid, mixed species, raw",
+			"source": "https://fdc.nal.usda.gov/food-details/174223/nutrients",
+			"nutrients": {
+				"fat": 1.38,
+				"saturated_fat": 0.358,
+				"cholesterol": 233.0,
+				"sodium": 44.0,
+				"vitamin_a": 10.0,
+				"vitamin_c": 4.7,
+				"vitamin_d": 0.0,
+				"vitamin_e": 1.2,
+				"vitamin_k": 0.0,
+				"thiamin": 0.02,
+				"riboflavin": 0.412,
+				"niacin": 2.175,
+				"vitamin_b6": 0.056,
+				"folate": 5.0,
+				"vitamin_b12": 1.3,
+				"pantothenic_acid": 0.5,
+				"choline": 65.0,
+				"calcium": 32.0,
+				"iron": 0.68,
+				"magnesium": 33.0,
+				"phosphorus": 221.0,
+				"potassium": 246.0,
+				"zinc": 1.53,
+				"copper": 1.891,
+				"manganese": 0.035,
+				"selenium": 44.8
+			},
+			"macros": {
+				"kcal": 92.0,
+				"protein_g": 15.58,
+				"carbs_g": 3.08,
+				"fiber_g": 0.0
+			},
+			"omega3RecordedGramsPer100g": 0.488,
+			"assumedMacroFields": [],
+			"food": "squid",
+			"ingredientId": "squid",
+			"grams": 680,
+			"ingredientSnapshot": {
+				"name": "Cleaned squid tubes",
+				"amount": 680,
+				"unit": "g",
+				"state": "raw, thawed; cut into 1/4-inch-wide rings"
+			},
+			"measurementReconciliation": {
+				"edibleFraction": 1,
+				"basis": "edible cooking mass; conservative full oil, coating, egg wash and lemon-wedge model",
+				"cookingGrams": 680
+			},
+			"sourceReview": {
+				"reviewedOn": "2026-10-23",
+				"sourceArchive": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+				"archiveSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"recordType": "SR Legacy",
+				"decision": "Exact named raw or ready-to-eat food state matched to the measured ingredient."
+			}
+		},
+		{
+			"fdcId": 170567,
+			"description": "Nuts, almonds",
+			"source": "https://fdc.nal.usda.gov/food-details/170567/nutrients",
+			"nutrients": {
+				"fat": 49.93,
+				"saturated_fat": 3.802,
+				"cholesterol": 0.0,
+				"sodium": 1.0,
+				"vitamin_a": 0.0,
+				"vitamin_c": 0.0,
+				"vitamin_d": 0.0,
+				"vitamin_e": 25.63,
+				"vitamin_k": 0.0,
+				"thiamin": 0.205,
+				"riboflavin": 1.138,
+				"niacin": 3.618,
+				"vitamin_b6": 0.137,
+				"folate": 44.0,
+				"vitamin_b12": 0.0,
+				"pantothenic_acid": 0.471,
+				"choline": 52.1,
+				"calcium": 269.0,
+				"iron": 3.71,
+				"magnesium": 270.0,
+				"phosphorus": 481.0,
+				"potassium": 733.0,
+				"zinc": 3.12,
+				"copper": 1.031,
+				"manganese": 2.179,
+				"selenium": 4.1
+			},
+			"macros": {
+				"kcal": 579.0,
+				"protein_g": 21.15,
+				"carbs_g": 21.55,
+				"fiber_g": 12.5
+			},
+			"omega3RecordedGramsPer100g": 0.003,
+			"assumedMacroFields": [],
+			"food": "almond_flour",
+			"ingredientId": "almond_flour",
+			"grams": 96,
+			"ingredientSnapshot": {
+				"name": "Blanched almond flour",
+				"amount": 96,
+				"unit": "g",
+				"state": "finely ground"
+			},
+			"measurementReconciliation": {
+				"edibleFraction": 1,
+				"basis": "edible cooking mass; conservative full oil, coating, egg wash and lemon-wedge model",
+				"cookingGrams": 96
+			},
+			"sourceReview": {
+				"reviewedOn": "2026-10-23",
+				"sourceArchive": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+				"archiveSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"recordType": "SR Legacy",
+				"decision": "Exact named raw or ready-to-eat food state matched to the measured ingredient. Almond flour uses the established whole-almond nutrient proxy; brand-specific flour and mayonnaise may differ."
+			}
+		},
+		{
+			"fdcId": 171287,
+			"description": "Egg, whole, raw, fresh",
+			"source": "https://fdc.nal.usda.gov/food-details/171287/nutrients",
+			"nutrients": {
+				"fat": 9.51,
+				"saturated_fat": 3.126,
+				"cholesterol": 372.0,
+				"sodium": 142.0,
+				"vitamin_a": 160.0,
+				"vitamin_c": 0.0,
+				"vitamin_d": 2.0,
+				"vitamin_e": 1.05,
+				"vitamin_k": 0.3,
+				"thiamin": 0.04,
+				"riboflavin": 0.457,
+				"niacin": 0.075,
+				"vitamin_b6": 0.17,
+				"folate": 47.0,
+				"vitamin_b12": 0.89,
+				"pantothenic_acid": 1.533,
+				"choline": 293.8,
+				"calcium": 56.0,
+				"iron": 1.75,
+				"magnesium": 12.0,
+				"phosphorus": 198.0,
+				"potassium": 138.0,
+				"zinc": 1.29,
+				"copper": 0.072,
+				"manganese": 0.028,
+				"selenium": 30.7
+			},
+			"macros": {
+				"kcal": 143.0,
+				"protein_g": 12.56,
+				"carbs_g": 0.72,
+				"fiber_g": 0.0
+			},
+			"omega3RecordedGramsPer100g": 0.094,
+			"assumedMacroFields": [],
+			"food": "egg",
+			"ingredientId": "egg",
+			"grams": 50,
+			"ingredientSnapshot": {
+				"name": "Beaten whole egg",
+				"amount": 50,
+				"unit": "g",
+				"state": "raw, beaten"
+			},
+			"measurementReconciliation": {
+				"edibleFraction": 1,
+				"basis": "edible cooking mass; conservative full oil, coating, egg wash and lemon-wedge model",
+				"cookingGrams": 50
+			},
+			"sourceReview": {
+				"reviewedOn": "2026-10-23",
+				"sourceArchive": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+				"archiveSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"recordType": "SR Legacy",
+				"decision": "Exact named raw or ready-to-eat food state matched to the measured ingredient."
+			}
+		},
+		{
+			"fdcId": 172336,
+			"description": "Oil, canola",
+			"source": "https://fdc.nal.usda.gov/food-details/172336/nutrients",
+			"nutrients": {
+				"fat": 100.0,
+				"saturated_fat": 7.365,
+				"cholesterol": 0.0,
+				"sodium": 0.0,
+				"vitamin_a": 0.0,
+				"vitamin_c": 0.0,
+				"vitamin_d": 0.0,
+				"vitamin_e": 17.46,
+				"vitamin_k": 71.3,
+				"thiamin": 0.0,
+				"riboflavin": 0.0,
+				"niacin": 0.0,
+				"vitamin_b6": 0.0,
+				"folate": 0.0,
+				"vitamin_b12": 0.0,
+				"pantothenic_acid": 0.0,
+				"choline": 0.2,
+				"calcium": 0.0,
+				"iron": 0.0,
+				"magnesium": 0.0,
+				"phosphorus": 0.0,
+				"potassium": 0.0,
+				"zinc": 0.0,
+				"copper": 0.0,
+				"manganese": 0.0,
+				"selenium": 0.0
+			},
+			"macros": {
+				"kcal": 884.0,
+				"protein_g": 0.0,
+				"carbs_g": 0.0,
+				"fiber_g": 0.0
+			},
+			"omega3RecordedGramsPer100g": 9.137,
+			"assumedMacroFields": [],
+			"food": "canola_oil",
+			"ingredientId": "canola_oil",
+			"grams": 108,
+			"ingredientSnapshot": {
+				"name": "Refined canola oil",
+				"amount": 108,
+				"unit": "g",
+				"state": "as purchased"
+			},
+			"measurementReconciliation": {
+				"edibleFraction": 1,
+				"basis": "edible cooking mass; conservative full oil, coating, egg wash and lemon-wedge model",
+				"cookingGrams": 108
+			},
+			"sourceReview": {
+				"reviewedOn": "2026-10-23",
+				"sourceArchive": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+				"archiveSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"recordType": "SR Legacy",
+				"decision": "Exact named raw or ready-to-eat food state matched to the measured ingredient."
+			}
+		},
+		{
+			"fdcId": 171009,
+			"description": "Salad dressing, mayonnaise, regular",
+			"source": "https://fdc.nal.usda.gov/food-details/171009/nutrients",
+			"nutrients": {
+				"fat": 74.85,
+				"saturated_fat": 11.703,
+				"cholesterol": 42.0,
+				"sodium": 635.0,
+				"vitamin_a": 16.0,
+				"vitamin_c": 0.0,
+				"vitamin_d": 0.2,
+				"vitamin_e": 3.28,
+				"vitamin_k": 163.0,
+				"thiamin": 0.01,
+				"riboflavin": 0.019,
+				"niacin": 0.0,
+				"vitamin_b6": 0.008,
+				"folate": 5.0,
+				"vitamin_b12": 0.12,
+				"pantothenic_acid": 0.172,
+				"choline": 34.2,
+				"calcium": 8.0,
+				"iron": 0.21,
+				"magnesium": 1.0,
+				"phosphorus": 21.0,
+				"potassium": 20.0,
+				"zinc": 0.15,
+				"copper": 0.019,
+				"manganese": 0.007,
+				"selenium": 2.3
+			},
+			"macros": {
+				"kcal": 680.0,
+				"protein_g": 0.96,
+				"carbs_g": 0.57,
+				"fiber_g": 0.0
+			},
+			"omega3RecordedGramsPer100g": 5.336,
+			"assumedMacroFields": [],
+			"food": "mayonnaise",
+			"ingredientId": "mayonnaise",
+			"grams": 60,
+			"ingredientSnapshot": {
+				"name": "Regular mayonnaise",
+				"amount": 60,
+				"unit": "g",
+				"state": "ready to eat"
+			},
+			"measurementReconciliation": {
+				"edibleFraction": 1,
+				"basis": "edible cooking mass; conservative full oil, coating, egg wash and lemon-wedge model",
+				"cookingGrams": 60
+			},
+			"sourceReview": {
+				"reviewedOn": "2026-10-23",
+				"sourceArchive": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+				"archiveSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"recordType": "SR Legacy",
+				"decision": "Exact named raw or ready-to-eat food state matched to the measured ingredient. Almond flour uses the established whole-almond nutrient proxy; brand-specific flour and mayonnaise may differ."
+			}
+		},
+		{
+			"fdcId": 167747,
+			"description": "Lemon juice, raw",
+			"source": "https://fdc.nal.usda.gov/food-details/167747/nutrients",
+			"nutrients": {
+				"fat": 0.24,
+				"saturated_fat": 0.04,
+				"cholesterol": 0.0,
+				"sodium": 1.0,
+				"vitamin_a": 0.0,
+				"vitamin_c": 38.7,
+				"vitamin_d": 0.0,
+				"vitamin_e": 0.15,
+				"vitamin_k": 0.0,
+				"thiamin": 0.024,
+				"riboflavin": 0.015,
+				"niacin": 0.091,
+				"vitamin_b6": 0.046,
+				"folate": 20.0,
+				"vitamin_b12": 0.0,
+				"pantothenic_acid": 0.131,
+				"choline": 5.1,
+				"calcium": 6.0,
+				"iron": 0.08,
+				"magnesium": 6.0,
+				"phosphorus": 8.0,
+				"potassium": 103.0,
+				"zinc": 0.05,
+				"copper": 0.016,
+				"manganese": 0.012,
+				"selenium": 0.1
+			},
+			"macros": {
+				"kcal": 22.0,
+				"protein_g": 0.35,
+				"carbs_g": 6.9,
+				"fiber_g": 0.3
+			},
+			"omega3RecordedGramsPer100g": 0.009,
+			"assumedMacroFields": [],
+			"food": "lemon_juice",
+			"ingredientId": "lemon_juice",
+			"grams": 30,
+			"ingredientSnapshot": {
+				"name": "Lemon juice",
+				"amount": 30,
+				"unit": "g",
+				"state": "raw, unsweetened"
+			},
+			"measurementReconciliation": {
+				"edibleFraction": 1,
+				"basis": "edible cooking mass; conservative full oil, coating, egg wash and lemon-wedge model",
+				"cookingGrams": 30
+			},
+			"sourceReview": {
+				"reviewedOn": "2026-10-23",
+				"sourceArchive": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+				"archiveSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"recordType": "SR Legacy",
+				"decision": "Exact named raw or ready-to-eat food state matched to the measured ingredient."
+			}
+		},
+		{
+			"fdcId": 167746,
+			"description": "Lemons, raw, without peel",
+			"source": "https://fdc.nal.usda.gov/food-details/167746/nutrients",
+			"nutrients": {
+				"fat": 0.3,
+				"saturated_fat": 0.039,
+				"cholesterol": 0.0,
+				"sodium": 2.0,
+				"vitamin_a": 1.0,
+				"vitamin_c": 53.0,
+				"vitamin_d": 0.0,
+				"vitamin_e": 0.15,
+				"vitamin_k": 0.0,
+				"thiamin": 0.04,
+				"riboflavin": 0.02,
+				"niacin": 0.1,
+				"vitamin_b6": 0.08,
+				"folate": 11.0,
+				"vitamin_b12": 0.0,
+				"pantothenic_acid": 0.19,
+				"choline": 5.1,
+				"calcium": 26.0,
+				"iron": 0.6,
+				"magnesium": 8.0,
+				"phosphorus": 16.0,
+				"potassium": 138.0,
+				"zinc": 0.06,
+				"copper": 0.037,
+				"manganese": 0.03,
+				"selenium": 0.4
+			},
+			"macros": {
+				"kcal": 29.0,
+				"protein_g": 1.1,
+				"carbs_g": 9.32,
+				"fiber_g": 2.8
+			},
+			"omega3RecordedGramsPer100g": 0.0,
+			"assumedMacroFields": [],
+			"food": "lemon_wedges",
+			"ingredientId": "lemon_wedges",
+			"grams": 60,
+			"ingredientSnapshot": {
+				"name": "Lemon wedges",
+				"amount": 60,
+				"unit": "g",
+				"state": "washed, cut for serving"
+			},
+			"measurementReconciliation": {
+				"edibleFraction": 1,
+				"basis": "edible cooking mass; conservative full oil, coating, egg wash and lemon-wedge model",
+				"cookingGrams": 60
+			},
+			"sourceReview": {
+				"reviewedOn": "2026-10-23",
+				"sourceArchive": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+				"archiveSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"recordType": "SR Legacy",
+				"decision": "Exact named raw or ready-to-eat food state matched to the measured ingredient."
+			}
+		},
+		{
+			"fdcId": 171325,
+			"description": "Spices, garlic powder",
+			"source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
+			"nutrients": {
+				"fat": 0.73,
+				"saturated_fat": 0.249,
+				"cholesterol": 0.0,
+				"sodium": 60.0,
+				"vitamin_a": 0.0,
+				"vitamin_c": 1.2,
+				"vitamin_d": 0.0,
+				"vitamin_e": 0.67,
+				"vitamin_k": 0.4,
+				"thiamin": 0.435,
+				"riboflavin": 0.141,
+				"niacin": 0.796,
+				"vitamin_b6": 1.654,
+				"folate": 47.0,
+				"vitamin_b12": 0.0,
+				"pantothenic_acid": 0.743,
+				"choline": 67.5,
+				"calcium": 79.0,
+				"iron": 5.65,
+				"magnesium": 77.0,
+				"phosphorus": 414.0,
+				"potassium": 1193.0,
+				"zinc": 2.99,
+				"copper": 0.533,
+				"manganese": 0.979,
+				"selenium": 23.9
+			},
+			"macros": {
+				"kcal": 331.0,
+				"protein_g": 16.55,
+				"carbs_g": 72.73,
+				"fiber_g": 9.0
+			},
+			"omega3RecordedGramsPer100g": 0.012,
+			"assumedMacroFields": [],
+			"food": "garlic_powder",
+			"ingredientId": "garlic_powder",
+			"grams": 3.1,
+			"ingredientSnapshot": {
+				"name": "Garlic powder",
+				"amount": 3.1,
+				"unit": "g",
+				"state": "ground"
+			},
+			"measurementReconciliation": {
+				"edibleFraction": 1,
+				"basis": "edible cooking mass; conservative full oil, coating, egg wash and lemon-wedge model",
+				"cookingGrams": 3.1
+			},
+			"sourceReview": {
+				"reviewedOn": "2026-10-23",
+				"sourceArchive": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+				"archiveSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"recordType": "SR Legacy",
+				"decision": "Exact named raw or ready-to-eat food state matched to the measured ingredient."
+			}
+		},
+		{
+			"fdcId": 173468,
+			"description": "Salt, table",
+			"source": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
+			"nutrients": {
+				"fat": 0.0,
+				"saturated_fat": 0.0,
+				"cholesterol": 0.0,
+				"sodium": 38758.0,
+				"vitamin_a": 0.0,
+				"vitamin_c": 0.0,
+				"vitamin_d": 0.0,
+				"vitamin_e": 0.0,
+				"vitamin_k": 0.0,
+				"thiamin": 0.0,
+				"riboflavin": 0.0,
+				"niacin": 0.0,
+				"vitamin_b6": 0.0,
+				"folate": 0.0,
+				"vitamin_b12": 0.0,
+				"pantothenic_acid": 0.0,
+				"choline": 0.0,
+				"calcium": 24.0,
+				"iron": 0.33,
+				"magnesium": 1.0,
+				"phosphorus": 0.0,
+				"potassium": 8.0,
+				"zinc": 0.1,
+				"copper": 0.03,
+				"manganese": 0.1,
+				"selenium": 0.1
+			},
+			"macros": {
+				"kcal": 0.0,
+				"protein_g": 0.0,
+				"carbs_g": 0.0,
+				"fiber_g": 0.0
+			},
+			"omega3RecordedGramsPer100g": 0.0,
+			"assumedMacroFields": [],
+			"food": "fine_salt",
+			"ingredientId": "fine_salt",
+			"grams": 3,
+			"ingredientSnapshot": {
+				"name": "Fine salt",
+				"amount": 3,
+				"unit": "g",
+				"state": "dry"
+			},
+			"measurementReconciliation": {
+				"edibleFraction": 1,
+				"basis": "edible cooking mass; conservative full oil, coating, egg wash and lemon-wedge model",
+				"cookingGrams": 3
+			},
+			"sourceReview": {
+				"reviewedOn": "2026-10-23",
+				"sourceArchive": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+				"archiveSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"recordType": "SR Legacy",
+				"decision": "Exact named raw or ready-to-eat food state matched to the measured ingredient."
+			}
+		},
+		{
+			"fdcId": 170931,
+			"description": "Spices, pepper, black",
+			"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
+			"nutrients": {
+				"fat": 3.26,
+				"saturated_fat": 1.392,
+				"cholesterol": 0.0,
+				"sodium": 20.0,
+				"vitamin_a": 27.0,
+				"vitamin_c": 0.0,
+				"vitamin_d": 0.0,
+				"vitamin_e": 1.04,
+				"vitamin_k": 163.7,
+				"thiamin": 0.108,
+				"riboflavin": 0.18,
+				"niacin": 1.143,
+				"vitamin_b6": 0.291,
+				"folate": 17.0,
+				"vitamin_b12": 0.0,
+				"pantothenic_acid": 1.399,
+				"choline": 11.3,
+				"calcium": 443.0,
+				"iron": 9.71,
+				"magnesium": 171.0,
+				"phosphorus": 158.0,
+				"potassium": 1329.0,
+				"zinc": 1.19,
+				"copper": 1.33,
+				"manganese": 12.753,
+				"selenium": 4.9
+			},
+			"macros": {
+				"kcal": 251.0,
+				"protein_g": 10.39,
+				"carbs_g": 63.95,
+				"fiber_g": 25.3
+			},
+			"omega3RecordedGramsPer100g": 0.152,
+			"assumedMacroFields": [],
+			"food": "black_pepper",
+			"ingredientId": "black_pepper",
+			"grams": 0.575,
+			"ingredientSnapshot": {
+				"name": "Black pepper",
+				"amount": 0.575,
+				"unit": "g",
+				"state": "ground"
+			},
+			"measurementReconciliation": {
+				"edibleFraction": 1,
+				"basis": "edible cooking mass; conservative full oil, coating, egg wash and lemon-wedge model",
+				"cookingGrams": 0.575
+			},
+			"sourceReview": {
+				"reviewedOn": "2026-10-23",
+				"sourceArchive": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+				"archiveSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+				"recordType": "SR Legacy",
+				"decision": "Exact named raw or ready-to-eat food state matched to the measured ingredient."
+			}
+		}
+	],
+	"newWeightReferences": [
+		{
+			"id": "usda-174223",
+			"kind": "mass",
+			"description": "Mollusks, squid, mixed species, raw",
+			"state": "raw cleaned edible squid tubes",
+			"basis": "edible",
+			"source": "https://fdc.nal.usda.gov/food-details/174223/nutrients",
+			"measures": {
+				"oz": {
+					"amount": 1,
+					"grams": 28.35,
+					"portion": "Raw squid, ounce boneless; USDA food_portion row93968"
+				}
+			},
+			"fdcId": 174223,
+			"provenance": {
+				"reviewedOn": "2026-10-23",
+				"retrieved": "2026-10-23",
+				"decision": "Use cleaned raw edible tube mass for the squid; direct gram and NIST mass conversion remains canonical. The USDA ounce observation documents the food state and portion.",
+				"evidence": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+				"archiveSha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0"
+			}
+		}
+	],
+	"evidence": {
+		"reviewedOn": "2026-10-23",
+		"archive": {
+			"url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+			"sha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+			"byteCount": 6074592
+		},
+		"profiles": [
+			{
+				"fdcId": 167746,
+				"description": "Lemons, raw, without peel",
+				"nutrients": {
+					"1278": {
+						"name": "PUFA 20:5 n-3 (EPA)",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1272": {
+						"name": "PUFA 22:6 n-3 (DHA)",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1109": {
+						"name": "Vitamin E (alpha-tocopherol)",
+						"unit": "MG",
+						"amount": 0.15
+					},
+					"1185": {
+						"name": "Vitamin K (phylloquinone)",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1106": {
+						"name": "Vitamin A, RAE",
+						"unit": "UG",
+						"amount": 1.0
+					},
+					"1190": {
+						"name": "Folate, DFE",
+						"unit": "UG",
+						"amount": 11.0
+					},
+					"1180": {
+						"name": "Choline, total",
+						"unit": "MG",
+						"amount": 5.1
+					},
+					"1003": {
+						"name": "Protein",
+						"unit": "G",
+						"amount": 1.1
+					},
+					"1162": {
+						"name": "Vitamin C, total ascorbic acid",
+						"unit": "MG",
+						"amount": 53.0
+					},
+					"1165": {
+						"name": "Thiamin",
+						"unit": "MG",
+						"amount": 0.04
+					},
+					"1166": {
+						"name": "Riboflavin",
+						"unit": "MG",
+						"amount": 0.02
+					},
+					"1178": {
+						"name": "Vitamin B-12",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1079": {
+						"name": "Fiber, total dietary",
+						"unit": "G",
+						"amount": 2.8
+					},
+					"1089": {
+						"name": "Iron, Fe",
+						"unit": "MG",
+						"amount": 0.6
+					},
+					"1090": {
+						"name": "Magnesium, Mg",
+						"unit": "MG",
+						"amount": 8.0
+					},
+					"1091": {
+						"name": "Phosphorus, P",
+						"unit": "MG",
+						"amount": 16.0
+					},
+					"1093": {
+						"name": "Sodium, Na",
+						"unit": "MG",
+						"amount": 2.0
+					},
+					"1098": {
+						"name": "Copper, Cu",
+						"unit": "MG",
+						"amount": 0.037
+					},
+					"1101": {
+						"name": "Manganese, Mn",
+						"unit": "MG",
+						"amount": 0.03
+					},
+					"1258": {
+						"name": "Fatty acids, total saturated",
+						"unit": "G",
+						"amount": 0.039
+					},
+					"1253": {
+						"name": "Cholesterol",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1004": {
+						"name": "Total lipid (fat)",
+						"unit": "G",
+						"amount": 0.3
+					},
+					"1005": {
+						"name": "Carbohydrate, by difference",
+						"unit": "G",
+						"amount": 9.32
+					},
+					"1008": {
+						"name": "Energy",
+						"unit": "KCAL",
+						"amount": 29.0
+					},
+					"1087": {
+						"name": "Calcium, Ca",
+						"unit": "MG",
+						"amount": 26.0
+					},
+					"1092": {
+						"name": "Potassium, K",
+						"unit": "MG",
+						"amount": 138.0
+					},
+					"1095": {
+						"name": "Zinc, Zn",
+						"unit": "MG",
+						"amount": 0.06
+					},
+					"1167": {
+						"name": "Niacin",
+						"unit": "MG",
+						"amount": 0.1
+					},
+					"1170": {
+						"name": "Pantothenic acid",
+						"unit": "MG",
+						"amount": 0.19
+					},
+					"1175": {
+						"name": "Vitamin B-6",
+						"unit": "MG",
+						"amount": 0.08
+					},
+					"1114": {
+						"name": "Vitamin D (D2 + D3)",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1103": {
+						"name": "Selenium, Se",
+						"unit": "UG",
+						"amount": 0.4
+					}
+				}
+			},
+			{
+				"fdcId": 167747,
+				"description": "Lemon juice, raw",
+				"nutrients": {
+					"1185": {
+						"name": "Vitamin K (phylloquinone)",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1109": {
+						"name": "Vitamin E (alpha-tocopherol)",
+						"unit": "MG",
+						"amount": 0.15
+					},
+					"1180": {
+						"name": "Choline, total",
+						"unit": "MG",
+						"amount": 5.1
+					},
+					"1253": {
+						"name": "Cholesterol",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1178": {
+						"name": "Vitamin B-12",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1114": {
+						"name": "Vitamin D (D2 + D3)",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1162": {
+						"name": "Vitamin C, total ascorbic acid",
+						"unit": "MG",
+						"amount": 38.7
+					},
+					"1165": {
+						"name": "Thiamin",
+						"unit": "MG",
+						"amount": 0.024
+					},
+					"1166": {
+						"name": "Riboflavin",
+						"unit": "MG",
+						"amount": 0.015
+					},
+					"1106": {
+						"name": "Vitamin A, RAE",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1003": {
+						"name": "Protein",
+						"unit": "G",
+						"amount": 0.35
+					},
+					"1258": {
+						"name": "Fatty acids, total saturated",
+						"unit": "G",
+						"amount": 0.04
+					},
+					"1272": {
+						"name": "PUFA 22:6 n-3 (DHA)",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1278": {
+						"name": "PUFA 20:5 n-3 (EPA)",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1404": {
+						"name": "PUFA 18:3 n-3 c,c,c (ALA)",
+						"unit": "G",
+						"amount": 0.009
+					},
+					"1079": {
+						"name": "Fiber, total dietary",
+						"unit": "G",
+						"amount": 0.3
+					},
+					"1089": {
+						"name": "Iron, Fe",
+						"unit": "MG",
+						"amount": 0.08
+					},
+					"1090": {
+						"name": "Magnesium, Mg",
+						"unit": "MG",
+						"amount": 6.0
+					},
+					"1091": {
+						"name": "Phosphorus, P",
+						"unit": "MG",
+						"amount": 8.0
+					},
+					"1093": {
+						"name": "Sodium, Na",
+						"unit": "MG",
+						"amount": 1.0
+					},
+					"1098": {
+						"name": "Copper, Cu",
+						"unit": "MG",
+						"amount": 0.016
+					},
+					"1101": {
+						"name": "Manganese, Mn",
+						"unit": "MG",
+						"amount": 0.012
+					},
+					"1190": {
+						"name": "Folate, DFE",
+						"unit": "UG",
+						"amount": 20.0
+					},
+					"1167": {
+						"name": "Niacin",
+						"unit": "MG",
+						"amount": 0.091
+					},
+					"1170": {
+						"name": "Pantothenic acid",
+						"unit": "MG",
+						"amount": 0.131
+					},
+					"1175": {
+						"name": "Vitamin B-6",
+						"unit": "MG",
+						"amount": 0.046
+					},
+					"1087": {
+						"name": "Calcium, Ca",
+						"unit": "MG",
+						"amount": 6.0
+					},
+					"1092": {
+						"name": "Potassium, K",
+						"unit": "MG",
+						"amount": 103.0
+					},
+					"1095": {
+						"name": "Zinc, Zn",
+						"unit": "MG",
+						"amount": 0.05
+					},
+					"1004": {
+						"name": "Total lipid (fat)",
+						"unit": "G",
+						"amount": 0.24
+					},
+					"1005": {
+						"name": "Carbohydrate, by difference",
+						"unit": "G",
+						"amount": 6.9
+					},
+					"1008": {
+						"name": "Energy",
+						"unit": "KCAL",
+						"amount": 22.0
+					},
+					"1103": {
+						"name": "Selenium, Se",
+						"unit": "UG",
+						"amount": 0.1
+					}
+				}
+			},
+			{
+				"fdcId": 170567,
+				"description": "Nuts, almonds",
+				"nutrients": {
+					"1272": {
+						"name": "PUFA 22:6 n-3 (DHA)",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1278": {
+						"name": "PUFA 20:5 n-3 (EPA)",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1180": {
+						"name": "Choline, total",
+						"unit": "MG",
+						"amount": 52.1
+					},
+					"1114": {
+						"name": "Vitamin D (D2 + D3)",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1404": {
+						"name": "PUFA 18:3 n-3 c,c,c (ALA)",
+						"unit": "G",
+						"amount": 0.003
+					},
+					"1003": {
+						"name": "Protein",
+						"unit": "G",
+						"amount": 21.15
+					},
+					"1079": {
+						"name": "Fiber, total dietary",
+						"unit": "G",
+						"amount": 12.5
+					},
+					"1089": {
+						"name": "Iron, Fe",
+						"unit": "MG",
+						"amount": 3.71
+					},
+					"1090": {
+						"name": "Magnesium, Mg",
+						"unit": "MG",
+						"amount": 270.0
+					},
+					"1091": {
+						"name": "Phosphorus, P",
+						"unit": "MG",
+						"amount": 481.0
+					},
+					"1098": {
+						"name": "Copper, Cu",
+						"unit": "MG",
+						"amount": 1.031
+					},
+					"1101": {
+						"name": "Manganese, Mn",
+						"unit": "MG",
+						"amount": 2.179
+					},
+					"1253": {
+						"name": "Cholesterol",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1258": {
+						"name": "Fatty acids, total saturated",
+						"unit": "G",
+						"amount": 3.802
+					},
+					"1165": {
+						"name": "Thiamin",
+						"unit": "MG",
+						"amount": 0.205
+					},
+					"1166": {
+						"name": "Riboflavin",
+						"unit": "MG",
+						"amount": 1.138
+					},
+					"1167": {
+						"name": "Niacin",
+						"unit": "MG",
+						"amount": 3.618
+					},
+					"1170": {
+						"name": "Pantothenic acid",
+						"unit": "MG",
+						"amount": 0.471
+					},
+					"1175": {
+						"name": "Vitamin B-6",
+						"unit": "MG",
+						"amount": 0.137
+					},
+					"1004": {
+						"name": "Total lipid (fat)",
+						"unit": "G",
+						"amount": 49.93
+					},
+					"1005": {
+						"name": "Carbohydrate, by difference",
+						"unit": "G",
+						"amount": 21.55
+					},
+					"1008": {
+						"name": "Energy",
+						"unit": "KCAL",
+						"amount": 579.0
+					},
+					"1087": {
+						"name": "Calcium, Ca",
+						"unit": "MG",
+						"amount": 269.0
+					},
+					"1092": {
+						"name": "Potassium, K",
+						"unit": "MG",
+						"amount": 733.0
+					},
+					"1095": {
+						"name": "Zinc, Zn",
+						"unit": "MG",
+						"amount": 3.12
+					},
+					"1103": {
+						"name": "Selenium, Se",
+						"unit": "UG",
+						"amount": 4.1
+					},
+					"1109": {
+						"name": "Vitamin E (alpha-tocopherol)",
+						"unit": "MG",
+						"amount": 25.63
+					},
+					"1190": {
+						"name": "Folate, DFE",
+						"unit": "UG",
+						"amount": 44.0
+					},
+					"1162": {
+						"name": "Vitamin C, total ascorbic acid",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1106": {
+						"name": "Vitamin A, RAE",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1093": {
+						"name": "Sodium, Na",
+						"unit": "MG",
+						"amount": 1.0
+					},
+					"1178": {
+						"name": "Vitamin B-12",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1185": {
+						"name": "Vitamin K (phylloquinone)",
+						"unit": "UG",
+						"amount": 0.0
+					}
+				}
+			},
+			{
+				"fdcId": 170931,
+				"description": "Spices, pepper, black",
+				"nutrients": {
+					"1178": {
+						"name": "Vitamin B-12",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1253": {
+						"name": "Cholesterol",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1004": {
+						"name": "Total lipid (fat)",
+						"unit": "G",
+						"amount": 3.26
+					},
+					"1185": {
+						"name": "Vitamin K (phylloquinone)",
+						"unit": "UG",
+						"amount": 163.7
+					},
+					"1180": {
+						"name": "Choline, total",
+						"unit": "MG",
+						"amount": 11.3
+					},
+					"1005": {
+						"name": "Carbohydrate, by difference",
+						"unit": "G",
+						"amount": 63.95
+					},
+					"1008": {
+						"name": "Energy",
+						"unit": "KCAL",
+						"amount": 251.0
+					},
+					"1103": {
+						"name": "Selenium, Se",
+						"unit": "UG",
+						"amount": 4.9
+					},
+					"1109": {
+						"name": "Vitamin E (alpha-tocopherol)",
+						"unit": "MG",
+						"amount": 1.04
+					},
+					"1087": {
+						"name": "Calcium, Ca",
+						"unit": "MG",
+						"amount": 443.0
+					},
+					"1092": {
+						"name": "Potassium, K",
+						"unit": "MG",
+						"amount": 1329.0
+					},
+					"1095": {
+						"name": "Zinc, Zn",
+						"unit": "MG",
+						"amount": 1.19
+					},
+					"1167": {
+						"name": "Niacin",
+						"unit": "MG",
+						"amount": 1.143
+					},
+					"1170": {
+						"name": "Pantothenic acid",
+						"unit": "MG",
+						"amount": 1.399
+					},
+					"1175": {
+						"name": "Vitamin B-6",
+						"unit": "MG",
+						"amount": 0.291
+					},
+					"1190": {
+						"name": "Folate, DFE",
+						"unit": "UG",
+						"amount": 17.0
+					},
+					"1003": {
+						"name": "Protein",
+						"unit": "G",
+						"amount": 10.39
+					},
+					"1079": {
+						"name": "Fiber, total dietary",
+						"unit": "G",
+						"amount": 25.3
+					},
+					"1089": {
+						"name": "Iron, Fe",
+						"unit": "MG",
+						"amount": 9.71
+					},
+					"1090": {
+						"name": "Magnesium, Mg",
+						"unit": "MG",
+						"amount": 171.0
+					},
+					"1091": {
+						"name": "Phosphorus, P",
+						"unit": "MG",
+						"amount": 158.0
+					},
+					"1093": {
+						"name": "Sodium, Na",
+						"unit": "MG",
+						"amount": 20.0
+					},
+					"1098": {
+						"name": "Copper, Cu",
+						"unit": "MG",
+						"amount": 1.33
+					},
+					"1101": {
+						"name": "Manganese, Mn",
+						"unit": "MG",
+						"amount": 12.753
+					},
+					"1162": {
+						"name": "Vitamin C, total ascorbic acid",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1165": {
+						"name": "Thiamin",
+						"unit": "MG",
+						"amount": 0.108
+					},
+					"1166": {
+						"name": "Riboflavin",
+						"unit": "MG",
+						"amount": 0.18
+					},
+					"1404": {
+						"name": "PUFA 18:3 n-3 c,c,c (ALA)",
+						"unit": "G",
+						"amount": 0.152
+					},
+					"1258": {
+						"name": "Fatty acids, total saturated",
+						"unit": "G",
+						"amount": 1.392
+					},
+					"1272": {
+						"name": "PUFA 22:6 n-3 (DHA)",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1278": {
+						"name": "PUFA 20:5 n-3 (EPA)",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1106": {
+						"name": "Vitamin A, RAE",
+						"unit": "UG",
+						"amount": 27.0
+					},
+					"1114": {
+						"name": "Vitamin D (D2 + D3)",
+						"unit": "UG",
+						"amount": 0.0
+					}
+				}
+			},
+			{
+				"fdcId": 171009,
+				"description": "Salad dressing, mayonnaise, regular",
+				"nutrients": {
+					"1190": {
+						"name": "Folate, DFE",
+						"unit": "UG",
+						"amount": 5.0
+					},
+					"1114": {
+						"name": "Vitamin D (D2 + D3)",
+						"unit": "UG",
+						"amount": 0.2
+					},
+					"1167": {
+						"name": "Niacin",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1090": {
+						"name": "Magnesium, Mg",
+						"unit": "MG",
+						"amount": 1.0
+					},
+					"1162": {
+						"name": "Vitamin C, total ascorbic acid",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1278": {
+						"name": "PUFA 20:5 n-3 (EPA)",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1272": {
+						"name": "PUFA 22:6 n-3 (DHA)",
+						"unit": "G",
+						"amount": 0.005
+					},
+					"1404": {
+						"name": "PUFA 18:3 n-3 c,c,c (ALA)",
+						"unit": "G",
+						"amount": 5.331
+					},
+					"1253": {
+						"name": "Cholesterol",
+						"unit": "MG",
+						"amount": 42.0
+					},
+					"1258": {
+						"name": "Fatty acids, total saturated",
+						"unit": "G",
+						"amount": 11.703
+					},
+					"1166": {
+						"name": "Riboflavin",
+						"unit": "MG",
+						"amount": 0.019
+					},
+					"1178": {
+						"name": "Vitamin B-12",
+						"unit": "UG",
+						"amount": 0.12
+					},
+					"1089": {
+						"name": "Iron, Fe",
+						"unit": "MG",
+						"amount": 0.21
+					},
+					"1185": {
+						"name": "Vitamin K (phylloquinone)",
+						"unit": "UG",
+						"amount": 163.0
+					},
+					"1091": {
+						"name": "Phosphorus, P",
+						"unit": "MG",
+						"amount": 21.0
+					},
+					"1093": {
+						"name": "Sodium, Na",
+						"unit": "MG",
+						"amount": 635.0
+					},
+					"1098": {
+						"name": "Copper, Cu",
+						"unit": "MG",
+						"amount": 0.019
+					},
+					"1101": {
+						"name": "Manganese, Mn",
+						"unit": "MG",
+						"amount": 0.007
+					},
+					"1106": {
+						"name": "Vitamin A, RAE",
+						"unit": "UG",
+						"amount": 16.0
+					},
+					"1003": {
+						"name": "Protein",
+						"unit": "G",
+						"amount": 0.96
+					},
+					"1170": {
+						"name": "Pantothenic acid",
+						"unit": "MG",
+						"amount": 0.172
+					},
+					"1175": {
+						"name": "Vitamin B-6",
+						"unit": "MG",
+						"amount": 0.008
+					},
+					"1004": {
+						"name": "Total lipid (fat)",
+						"unit": "G",
+						"amount": 74.85
+					},
+					"1005": {
+						"name": "Carbohydrate, by difference",
+						"unit": "G",
+						"amount": 0.57
+					},
+					"1008": {
+						"name": "Energy",
+						"unit": "KCAL",
+						"amount": 680.0
+					},
+					"1087": {
+						"name": "Calcium, Ca",
+						"unit": "MG",
+						"amount": 8.0
+					},
+					"1092": {
+						"name": "Potassium, K",
+						"unit": "MG",
+						"amount": 20.0
+					},
+					"1095": {
+						"name": "Zinc, Zn",
+						"unit": "MG",
+						"amount": 0.15
+					},
+					"1103": {
+						"name": "Selenium, Se",
+						"unit": "UG",
+						"amount": 2.3
+					},
+					"1109": {
+						"name": "Vitamin E (alpha-tocopherol)",
+						"unit": "MG",
+						"amount": 3.28
+					},
+					"1180": {
+						"name": "Choline, total",
+						"unit": "MG",
+						"amount": 34.2
+					},
+					"1165": {
+						"name": "Thiamin",
+						"unit": "MG",
+						"amount": 0.01
+					},
+					"1079": {
+						"name": "Fiber, total dietary",
+						"unit": "G",
+						"amount": 0.0
+					}
+				}
+			},
+			{
+				"fdcId": 171287,
+				"description": "Egg, whole, raw, fresh",
+				"nutrients": {
+					"1008": {
+						"name": "Energy",
+						"unit": "KCAL",
+						"amount": 143.0
+					},
+					"1180": {
+						"name": "Choline, total",
+						"unit": "MG",
+						"amount": 293.8
+					},
+					"1165": {
+						"name": "Thiamin",
+						"unit": "MG",
+						"amount": 0.04
+					},
+					"1166": {
+						"name": "Riboflavin",
+						"unit": "MG",
+						"amount": 0.457
+					},
+					"1178": {
+						"name": "Vitamin B-12",
+						"unit": "UG",
+						"amount": 0.89
+					},
+					"1253": {
+						"name": "Cholesterol",
+						"unit": "MG",
+						"amount": 372.0
+					},
+					"1258": {
+						"name": "Fatty acids, total saturated",
+						"unit": "G",
+						"amount": 3.126
+					},
+					"1272": {
+						"name": "PUFA 22:6 n-3 (DHA)",
+						"unit": "G",
+						"amount": 0.058
+					},
+					"1278": {
+						"name": "PUFA 20:5 n-3 (EPA)",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1404": {
+						"name": "PUFA 18:3 n-3 c,c,c (ALA)",
+						"unit": "G",
+						"amount": 0.036
+					},
+					"1003": {
+						"name": "Protein",
+						"unit": "G",
+						"amount": 12.56
+					},
+					"1089": {
+						"name": "Iron, Fe",
+						"unit": "MG",
+						"amount": 1.75
+					},
+					"1090": {
+						"name": "Magnesium, Mg",
+						"unit": "MG",
+						"amount": 12.0
+					},
+					"1091": {
+						"name": "Phosphorus, P",
+						"unit": "MG",
+						"amount": 198.0
+					},
+					"1093": {
+						"name": "Sodium, Na",
+						"unit": "MG",
+						"amount": 142.0
+					},
+					"1098": {
+						"name": "Copper, Cu",
+						"unit": "MG",
+						"amount": 0.072
+					},
+					"1101": {
+						"name": "Manganese, Mn",
+						"unit": "MG",
+						"amount": 0.028
+					},
+					"1106": {
+						"name": "Vitamin A, RAE",
+						"unit": "UG",
+						"amount": 160.0
+					},
+					"1103": {
+						"name": "Selenium, Se",
+						"unit": "UG",
+						"amount": 30.7
+					},
+					"1109": {
+						"name": "Vitamin E (alpha-tocopherol)",
+						"unit": "MG",
+						"amount": 1.05
+					},
+					"1087": {
+						"name": "Calcium, Ca",
+						"unit": "MG",
+						"amount": 56.0
+					},
+					"1092": {
+						"name": "Potassium, K",
+						"unit": "MG",
+						"amount": 138.0
+					},
+					"1095": {
+						"name": "Zinc, Zn",
+						"unit": "MG",
+						"amount": 1.29
+					},
+					"1004": {
+						"name": "Total lipid (fat)",
+						"unit": "G",
+						"amount": 9.51
+					},
+					"1167": {
+						"name": "Niacin",
+						"unit": "MG",
+						"amount": 0.075
+					},
+					"1170": {
+						"name": "Pantothenic acid",
+						"unit": "MG",
+						"amount": 1.533
+					},
+					"1175": {
+						"name": "Vitamin B-6",
+						"unit": "MG",
+						"amount": 0.17
+					},
+					"1190": {
+						"name": "Folate, DFE",
+						"unit": "UG",
+						"amount": 47.0
+					},
+					"1005": {
+						"name": "Carbohydrate, by difference",
+						"unit": "G",
+						"amount": 0.72
+					},
+					"1114": {
+						"name": "Vitamin D (D2 + D3)",
+						"unit": "UG",
+						"amount": 2.0
+					},
+					"1185": {
+						"name": "Vitamin K (phylloquinone)",
+						"unit": "UG",
+						"amount": 0.3
+					},
+					"1162": {
+						"name": "Vitamin C, total ascorbic acid",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1079": {
+						"name": "Fiber, total dietary",
+						"unit": "G",
+						"amount": 0.0
+					}
+				}
+			},
+			{
+				"fdcId": 171325,
+				"description": "Spices, garlic powder",
+				"nutrients": {
+					"1178": {
+						"name": "Vitamin B-12",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1253": {
+						"name": "Cholesterol",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1180": {
+						"name": "Choline, total",
+						"unit": "MG",
+						"amount": 67.5
+					},
+					"1079": {
+						"name": "Fiber, total dietary",
+						"unit": "G",
+						"amount": 9.0
+					},
+					"1089": {
+						"name": "Iron, Fe",
+						"unit": "MG",
+						"amount": 5.65
+					},
+					"1090": {
+						"name": "Magnesium, Mg",
+						"unit": "MG",
+						"amount": 77.0
+					},
+					"1091": {
+						"name": "Phosphorus, P",
+						"unit": "MG",
+						"amount": 414.0
+					},
+					"1093": {
+						"name": "Sodium, Na",
+						"unit": "MG",
+						"amount": 60.0
+					},
+					"1098": {
+						"name": "Copper, Cu",
+						"unit": "MG",
+						"amount": 0.533
+					},
+					"1101": {
+						"name": "Manganese, Mn",
+						"unit": "MG",
+						"amount": 0.979
+					},
+					"1003": {
+						"name": "Protein",
+						"unit": "G",
+						"amount": 16.55
+					},
+					"1162": {
+						"name": "Vitamin C, total ascorbic acid",
+						"unit": "MG",
+						"amount": 1.2
+					},
+					"1165": {
+						"name": "Thiamin",
+						"unit": "MG",
+						"amount": 0.435
+					},
+					"1166": {
+						"name": "Riboflavin",
+						"unit": "MG",
+						"amount": 0.141
+					},
+					"1185": {
+						"name": "Vitamin K (phylloquinone)",
+						"unit": "UG",
+						"amount": 0.4
+					},
+					"1404": {
+						"name": "PUFA 18:3 n-3 c,c,c (ALA)",
+						"unit": "G",
+						"amount": 0.012
+					},
+					"1258": {
+						"name": "Fatty acids, total saturated",
+						"unit": "G",
+						"amount": 0.249
+					},
+					"1272": {
+						"name": "PUFA 22:6 n-3 (DHA)",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1278": {
+						"name": "PUFA 20:5 n-3 (EPA)",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1106": {
+						"name": "Vitamin A, RAE",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1114": {
+						"name": "Vitamin D (D2 + D3)",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1167": {
+						"name": "Niacin",
+						"unit": "MG",
+						"amount": 0.796
+					},
+					"1170": {
+						"name": "Pantothenic acid",
+						"unit": "MG",
+						"amount": 0.743
+					},
+					"1175": {
+						"name": "Vitamin B-6",
+						"unit": "MG",
+						"amount": 1.654
+					},
+					"1190": {
+						"name": "Folate, DFE",
+						"unit": "UG",
+						"amount": 47.0
+					},
+					"1087": {
+						"name": "Calcium, Ca",
+						"unit": "MG",
+						"amount": 79.0
+					},
+					"1092": {
+						"name": "Potassium, K",
+						"unit": "MG",
+						"amount": 1193.0
+					},
+					"1095": {
+						"name": "Zinc, Zn",
+						"unit": "MG",
+						"amount": 2.99
+					},
+					"1103": {
+						"name": "Selenium, Se",
+						"unit": "UG",
+						"amount": 23.9
+					},
+					"1109": {
+						"name": "Vitamin E (alpha-tocopherol)",
+						"unit": "MG",
+						"amount": 0.67
+					},
+					"1004": {
+						"name": "Total lipid (fat)",
+						"unit": "G",
+						"amount": 0.73
+					},
+					"1005": {
+						"name": "Carbohydrate, by difference",
+						"unit": "G",
+						"amount": 72.73
+					},
+					"1008": {
+						"name": "Energy",
+						"unit": "KCAL",
+						"amount": 331.0
+					}
+				}
+			},
+			{
+				"fdcId": 172336,
+				"description": "Oil, canola",
+				"nutrients": {
+					"1109": {
+						"name": "Vitamin E (alpha-tocopherol)",
+						"unit": "MG",
+						"amount": 17.46
+					},
+					"1004": {
+						"name": "Total lipid (fat)",
+						"unit": "G",
+						"amount": 100.0
+					},
+					"1178": {
+						"name": "Vitamin B-12",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1185": {
+						"name": "Vitamin K (phylloquinone)",
+						"unit": "UG",
+						"amount": 71.3
+					},
+					"1253": {
+						"name": "Cholesterol",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1258": {
+						"name": "Fatty acids, total saturated",
+						"unit": "G",
+						"amount": 7.365
+					},
+					"1272": {
+						"name": "PUFA 22:6 n-3 (DHA)",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1278": {
+						"name": "PUFA 20:5 n-3 (EPA)",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1003": {
+						"name": "Protein",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1106": {
+						"name": "Vitamin A, RAE",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1404": {
+						"name": "PUFA 18:3 n-3 c,c,c (ALA)",
+						"unit": "G",
+						"amount": 9.137
+					},
+					"1005": {
+						"name": "Carbohydrate, by difference",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1167": {
+						"name": "Niacin",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1170": {
+						"name": "Pantothenic acid",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1175": {
+						"name": "Vitamin B-6",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1087": {
+						"name": "Calcium, Ca",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1092": {
+						"name": "Potassium, K",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1095": {
+						"name": "Zinc, Zn",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1008": {
+						"name": "Energy",
+						"unit": "KCAL",
+						"amount": 884.0
+					},
+					"1079": {
+						"name": "Fiber, total dietary",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1089": {
+						"name": "Iron, Fe",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1090": {
+						"name": "Magnesium, Mg",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1091": {
+						"name": "Phosphorus, P",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1093": {
+						"name": "Sodium, Na",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1098": {
+						"name": "Copper, Cu",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1101": {
+						"name": "Manganese, Mn",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1162": {
+						"name": "Vitamin C, total ascorbic acid",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1165": {
+						"name": "Thiamin",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1166": {
+						"name": "Riboflavin",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1190": {
+						"name": "Folate, DFE",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1114": {
+						"name": "Vitamin D (D2 + D3)",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1103": {
+						"name": "Selenium, Se",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1180": {
+						"name": "Choline, total",
+						"unit": "MG",
+						"amount": 0.2
+					}
+				}
+			},
+			{
+				"fdcId": 173468,
+				"description": "Salt, table",
+				"nutrients": {
+					"1079": {
+						"name": "Fiber, total dietary",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1089": {
+						"name": "Iron, Fe",
+						"unit": "MG",
+						"amount": 0.33
+					},
+					"1090": {
+						"name": "Magnesium, Mg",
+						"unit": "MG",
+						"amount": 1.0
+					},
+					"1091": {
+						"name": "Phosphorus, P",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1093": {
+						"name": "Sodium, Na",
+						"unit": "MG",
+						"amount": 38758.0
+					},
+					"1098": {
+						"name": "Copper, Cu",
+						"unit": "MG",
+						"amount": 0.03
+					},
+					"1101": {
+						"name": "Manganese, Mn",
+						"unit": "MG",
+						"amount": 0.1
+					},
+					"1258": {
+						"name": "Fatty acids, total saturated",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1162": {
+						"name": "Vitamin C, total ascorbic acid",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1165": {
+						"name": "Thiamin",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1166": {
+						"name": "Riboflavin",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1178": {
+						"name": "Vitamin B-12",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1253": {
+						"name": "Cholesterol",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1003": {
+						"name": "Protein",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1004": {
+						"name": "Total lipid (fat)",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1005": {
+						"name": "Carbohydrate, by difference",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1008": {
+						"name": "Energy",
+						"unit": "KCAL",
+						"amount": 0.0
+					},
+					"1087": {
+						"name": "Calcium, Ca",
+						"unit": "MG",
+						"amount": 24.0
+					},
+					"1092": {
+						"name": "Potassium, K",
+						"unit": "MG",
+						"amount": 8.0
+					},
+					"1095": {
+						"name": "Zinc, Zn",
+						"unit": "MG",
+						"amount": 0.1
+					},
+					"1167": {
+						"name": "Niacin",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1175": {
+						"name": "Vitamin B-6",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1106": {
+						"name": "Vitamin A, RAE",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1278": {
+						"name": "PUFA 20:5 n-3 (EPA)",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1272": {
+						"name": "PUFA 22:6 n-3 (DHA)",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1109": {
+						"name": "Vitamin E (alpha-tocopherol)",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1185": {
+						"name": "Vitamin K (phylloquinone)",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1170": {
+						"name": "Pantothenic acid",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1190": {
+						"name": "Folate, DFE",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1180": {
+						"name": "Choline, total",
+						"unit": "MG",
+						"amount": 0.0
+					},
+					"1114": {
+						"name": "Vitamin D (D2 + D3)",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1103": {
+						"name": "Selenium, Se",
+						"unit": "UG",
+						"amount": 0.1
+					}
+				}
+			},
+			{
+				"fdcId": 174223,
+				"description": "Mollusks, squid, mixed species, raw",
+				"nutrients": {
+					"1109": {
+						"name": "Vitamin E (alpha-tocopherol)",
+						"unit": "MG",
+						"amount": 1.2
+					},
+					"1185": {
+						"name": "Vitamin K (phylloquinone)",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1180": {
+						"name": "Choline, total",
+						"unit": "MG",
+						"amount": 65.0
+					},
+					"1190": {
+						"name": "Folate, DFE",
+						"unit": "UG",
+						"amount": 5.0
+					},
+					"1114": {
+						"name": "Vitamin D (D2 + D3)",
+						"unit": "UG",
+						"amount": 0.0
+					},
+					"1106": {
+						"name": "Vitamin A, RAE",
+						"unit": "UG",
+						"amount": 10.0
+					},
+					"1253": {
+						"name": "Cholesterol",
+						"unit": "MG",
+						"amount": 233.0
+					},
+					"1258": {
+						"name": "Fatty acids, total saturated",
+						"unit": "G",
+						"amount": 0.358
+					},
+					"1272": {
+						"name": "PUFA 22:6 n-3 (DHA)",
+						"unit": "G",
+						"amount": 0.342
+					},
+					"1278": {
+						"name": "PUFA 20:5 n-3 (EPA)",
+						"unit": "G",
+						"amount": 0.146
+					},
+					"1003": {
+						"name": "Protein",
+						"unit": "G",
+						"amount": 15.58
+					},
+					"1079": {
+						"name": "Fiber, total dietary",
+						"unit": "G",
+						"amount": 0.0
+					},
+					"1089": {
+						"name": "Iron, Fe",
+						"unit": "MG",
+						"amount": 0.68
+					},
+					"1090": {
+						"name": "Magnesium, Mg",
+						"unit": "MG",
+						"amount": 33.0
+					},
+					"1091": {
+						"name": "Phosphorus, P",
+						"unit": "MG",
+						"amount": 221.0
+					},
+					"1093": {
+						"name": "Sodium, Na",
+						"unit": "MG",
+						"amount": 44.0
+					},
+					"1098": {
+						"name": "Copper, Cu",
+						"unit": "MG",
+						"amount": 1.891
+					},
+					"1101": {
+						"name": "Manganese, Mn",
+						"unit": "MG",
+						"amount": 0.035
+					},
+					"1162": {
+						"name": "Vitamin C, total ascorbic acid",
+						"unit": "MG",
+						"amount": 4.7
+					},
+					"1165": {
+						"name": "Thiamin",
+						"unit": "MG",
+						"amount": 0.02
+					},
+					"1166": {
+						"name": "Riboflavin",
+						"unit": "MG",
+						"amount": 0.412
+					},
+					"1178": {
+						"name": "Vitamin B-12",
+						"unit": "UG",
+						"amount": 1.3
+					},
+					"1004": {
+						"name": "Total lipid (fat)",
+						"unit": "G",
+						"amount": 1.38
+					},
+					"1005": {
+						"name": "Carbohydrate, by difference",
+						"unit": "G",
+						"amount": 3.08
+					},
+					"1008": {
+						"name": "Energy",
+						"unit": "KCAL",
+						"amount": 92.0
+					},
+					"1087": {
+						"name": "Calcium, Ca",
+						"unit": "MG",
+						"amount": 32.0
+					},
+					"1092": {
+						"name": "Potassium, K",
+						"unit": "MG",
+						"amount": 246.0
+					},
+					"1095": {
+						"name": "Zinc, Zn",
+						"unit": "MG",
+						"amount": 1.53
+					},
+					"1167": {
+						"name": "Niacin",
+						"unit": "MG",
+						"amount": 2.175
+					},
+					"1170": {
+						"name": "Pantothenic acid",
+						"unit": "MG",
+						"amount": 0.5
+					},
+					"1175": {
+						"name": "Vitamin B-6",
+						"unit": "MG",
+						"amount": 0.056
+					},
+					"1103": {
+						"name": "Selenium, Se",
+						"unit": "UG",
+						"amount": 44.8
+					}
+				}
+			}
+		],
+		"cookingSafety": {
+			"source": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/deep-fat-frying",
+			"reviewedOn": "2026-10-23",
+			"decision": "USDA FSIS specifies145\u00b0F for fish and shellfish during frying; FDA Food Code2022 section3-401.11(A)(1) specifies145\u00b0F for15seconds for uncomminuted fish. The350\u00b0F oil setting, ring geometry, batch times and almond coating are an untested household adaptation, not an agency recipe.",
+			"additionalSource": "https://www.fda.gov/media/184685/download"
+		}
+	}
+}

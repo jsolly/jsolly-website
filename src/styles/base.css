@@ -4,7 +4,7 @@ Base Typography & Layout
 
 @layer base {
 	html {
-		@apply min-h-full text-text-secondary bg-background antialiased scroll-smooth font-body;
+		@apply min-h-full text-text-secondary bg-background antialiased font-body;
 		font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 	}
 

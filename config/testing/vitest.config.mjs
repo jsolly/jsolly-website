@@ -1,0 +1,52 @@
+import { fileURLToPath } from "node:url";
+import { defineConfig } from "vitest/config";
+import { offlineVitestConfiguration } from "../../tests/network/entry.ts";
+
+const suites = {
+	unit: ["src/**/*.test.ts", "src/**/*.test.mjs", "tests/unit/*.test.{ts,mjs}"],
+	built: ["tests/built/*.test.{ts,mjs}"],
+	csp: ["tests/built-csp.test.mjs"],
+	workflow: ["tests/workflow-contracts.test.mjs"],
+	production: ["tests/production-acceptance.test.mjs"],
+	smoke: ["tests/production-smoke-scenario.test.mjs"],
+};
+
+export default defineConfig({
+	test: {
+		...offlineVitestConfiguration(),
+		// Unit API tests run before the build writes deployment-owned routes.
+		// Built and production suites must continue reading their real manifest.
+		alias:
+			(process.env.TEST_SUITE ?? "unit") === "unit"
+				? [
+						{
+							find: /^(?:\.\.?\/)+src\/generated\/route-manifest\.js$/u,
+							replacement: fileURLToPath(
+								new URL(
+									"../../tests/fixtures/unit-route-manifest.ts",
+									import.meta.url,
+								),
+							),
+						},
+					]
+				: [],
+		include: suites[process.env.TEST_SUITE ?? "unit"] ?? ["**/*.test.mjs"],
+		pool: "forks",
+		// Browser files own isolated processes and deployment fixtures. Four workers
+		// reduce CPU contention while retaining every case and fixture.
+		maxWorkers:
+			process.env.TEST_SUITE === "built"
+				? 4
+				: process.env.TEST_SUITE === "unit"
+					? 2
+					: undefined,
+		// Built files own mutable deployment fixtures, so their cases stay sequential.
+		// Smoke contracts share only the browser; every case owns its context and stubs.
+		sequence: { hooks: "list", concurrent: process.env.TEST_SUITE === "smoke" },
+		restoreMocks: true,
+		// node:test had no default deadline. Browser cases retain their explicit
+		// deadlines; build fixtures and hooks can legitimately take longer.
+		testTimeout: 0,
+		hookTimeout: 0,
+	},
+});

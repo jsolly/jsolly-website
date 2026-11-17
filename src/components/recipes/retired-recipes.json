@@ -1,0 +1,50 @@
+[
+	{
+		"id": "tomato-lentil-and-chicken-bake",
+		"title": "Tomato, lentil, and chicken bake",
+		"type": "meal",
+		"replacementId": "source-garlic-butter-chicken-with-cauliflower-rice"
+	},
+	{
+		"id": "harissa-chickpea-and-cauliflower-bowls",
+		"title": "Harissa chickpea and cauliflower bowls",
+		"type": "meal",
+		"replacementId": null
+	},
+	{
+		"id": "sheet-pan-gnocchi-white-beans-and-broccoli",
+		"title": "Sheet-pan gnocchi, white beans, and broccoli",
+		"type": "meal",
+		"replacementId": null
+	},
+	{
+		"id": "strawberry-banana-smoothie",
+		"title": "Strawberry-banana smoothie",
+		"type": "smoothie",
+		"replacementId": "strawberry-avocado-smoothie"
+	},
+	{
+		"id": "banana-flax-smoothie",
+		"title": "Banana-flax smoothie",
+		"type": "smoothie",
+		"replacementId": "avocado-lime-smoothie"
+	},
+	{
+		"id": "chicken-posole",
+		"title": "Chicken Posole (enchilada soup)",
+		"type": "meal",
+		"replacementId": "source-cheesy-chicken-enchilada-soup"
+	},
+	{
+		"id": "source-one-pan-sausage-veggies",
+		"title": "One-Pan Sausage Veggies",
+		"type": "meal",
+		"replacementId": "source-keto-sausage-veggie-sheet-pan-dinner"
+	},
+	{
+		"id": "carrot-cake",
+		"title": "Carrot cake",
+		"type": "meal",
+		"replacementId": null
+	}
+]

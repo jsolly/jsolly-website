@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /blog/search/
 
 Sitemap: https://www.jsolly.com/sitemap-index.xml
 

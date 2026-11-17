@@ -3,88 +3,118 @@
 	"type": "module",
 	"version": "0.0.1",
 	"engines": {
-		"node": "24.x"
+		"node": "26.x"
 	},
 	"scripts": {
-		"worktree:init": "npm ci",
-		"dev": "astro dev",
-		"prebuild": "node scripts/gen-release-id.mjs",
-		"build": "astro build && node process-html.mjs",
-		"postbuild": "node scripts/restore-release-stub.mjs",
-		"build:maintenance": "MAINTENANCE_MODE=true astro build && node process-html.mjs",
-		"preview": "astro preview",
-		"prepare": "if [ -z \"$CI\" ] && git rev-parse --git-dir >/dev/null 2>&1; then git config core.hooksPath .git-hooks; fi",
-		"lint": "biome lint --no-errors-on-unmatched",
-		"format": "biome format --no-errors-on-unmatched --write",
-		"check:ts": "astro check --minimumSeverity error --minimumFailingSeverity error",
-		"check:knip": "knip --no-progress",
-		"test": "node --import ./scripts/register-ts-from-js.mjs --experimental-strip-types --test src/lib/*.test.ts",
-		"check:md": "bash scripts/lint-md.sh",
-		"check:yaml": "uvx yamllint@1.38.0 -s .",
-		"check:fix": "biome check --write --no-errors-on-unmatched --error-on-warnings",
-		"check:release-id": "node scripts/check-release-id.mjs",
+		"worktree:init": "bash gate/setup-agent-environment.sh",
+		"dev": "astro dev --config config/app/astro.ts",
+		"build": "astro build --config config/app/astro.ts && node --import ./build/register-ts-from-js.mjs build/markdown-build.mjs && node build/recipes/pwa-build.mjs && node tests/run-tests.mjs csp",
+		"build:maintenance": "MAINTENANCE_MODE=true npm run build",
+		"preview": "astro preview --config config/app/astro.ts",
+		"lint": "biome lint --config-path=config/quality/biome.settings.jsonc --no-errors-on-unmatched",
+		"format": "biome format --config-path=config/quality/biome.settings.jsonc --no-errors-on-unmatched --write",
+		"check:ts": "astro check --config config/app/astro.ts --minimumSeverity error --minimumFailingSeverity error && svelte-check --tsconfig ./tsconfig.json --threshold error && node node_modules/@typescript/native/bin/tsc --project config/typescript/recipe-domain.json && node node_modules/@typescript/native/bin/tsc --project config/typescript/test-network.json && node node_modules/@typescript/native/bin/tsc --project config/typescript/recipe-image-diagnostics.json && node node_modules/@typescript/native/bin/tsc --project config/typescript/recipe-update-reporting.json && node node_modules/@typescript/native/bin/tsc --project tests/network/browser-controls/tsconfig.dedicated.json && node node_modules/@typescript/native/bin/tsc --project tests/network/browser-controls/tsconfig.shared.json && node node_modules/@typescript/native/bin/tsc --project tests/network/browser-controls/tsconfig.service.json && node node_modules/@typescript/native/bin/tsc --project tests/network/browser-controls/tsconfig.imported.json",
+		"check:knip": "knip --config config/quality/knip.json --no-progress",
+		"test": "node tests/run-tests.mjs unit",
+		"test:python": "uvx --from pytest==9.1.1 pytest -c config/testing/pytest.ini",
+		"test:built": "node tests/run-tests.mjs built",
+		"redirects:write": "node build/blogthedata-redirects.mjs --write",
+		"redirects:check": "node build/blogthedata-redirects.mjs --check",
+		"recipes:sync": "node src/components/recipes/tools/sync-assistant-data.mjs",
+		"recipes:check": "node src/components/recipes/tools/sync-assistant-data.mjs --check",
+		"check:md": "bash gate/lint-md.sh",
+		"check:yaml": "uvx yamllint@1.38.0 -c config/quality/yamllint.yaml -s .",
+		"check:fix": "biome check --config-path=config/quality/biome.settings.jsonc --write --no-errors-on-unmatched --error-on-warnings",
 		"fix": "npm run check:fix && npm run check:ts",
 		"outdated": "npm outdated",
-		"update": "npx npm-check-updates -u && npm install",
-		"check:actions": "bash scripts/check-actions.sh",
-		"gate": "FLEET_DOC_FAST=0 bash .git-hooks/pre-commit"
+		"update": "npx --yes npm-check-updates -u && npm install",
+		"check:actions": "bash gate/check-actions.sh && node tests/run-tests.mjs workflow",
+		"gate": "FLEET_DOC_FAST=0 bash .git-hooks/pre-commit",
+		"smoke:production": "node tests/run-tests.mjs production",
+		"smoke:scenario-contract": "node tests/run-tests.mjs smoke",
+		"recipes:usda": "node src/components/recipes/tools/usda.mjs",
+		"check:a11y": "node monitoring/check-accessibility.ts",
+		"check:a11y:sample": "node monitoring/check-accessibility.ts --sample",
+		"check:security": "python3 gate/security-scan.py ci"
 	},
 	"devDependencies": {
 		"@astrojs/check": "0.9.10",
+		"@astrojs/markdown-satteri": "0.4.3",
 		"@astrojs/sitemap": "^3.7.4",
-		"@astrojs/ts-plugin": "^1.10.11",
-		"@biomejs/biome": "2.5.14",
-		"knip": "^6.35.1",
+		"@astrojs/ts-plugin": "^1.10.12",
+		"@biomejs/biome": "2.6.4",
 		"@fontsource/inter": "^5.3.0",
 		"@fontsource/poppins": "^5.3.0",
+		"@internationalized/date": "^3.12.4",
+		"@tailwindcss/node": "^4.3.3",
+		"@tailwindcss/oxide": "^4.3.3",
 		"@tailwindcss/vite": "^4.3.3",
-		"astro": "~7.3.2",
-		"github-actionlint": "^1.7.12",
+		"@types/node": "^26.6.5",
+		"@types/sanitize-html": "2.16.2",
+		"@typescript/native": "npm:typescript@7.0.2",
+		"@vercel/config": "0.14.1",
+		"@vercel/routing-utils": "6.6.1",
+		"astro": "~7.4.7",
+		"axe-core": "^4.14.0",
+		"entities": "8.1.0",
+		"esbuild": "0.28.2",
 		"globby": "^16.2.4",
-		"html-minifier-terser": "^7.2.0",
-		"jsdom": "^30.0.1",
-		"markdownlint-cli2": "^0.23.2",
-		"sharp": "^0.35.3",
+		"jsdom": "^30.1.1",
+		"knip": "^6.37.0",
+		"markdownlint-cli2": "^0.23.3",
+		"parse5": "8.0.1",
+		"playwright": "1.63.0",
+		"sanitize-html": "2.18.1",
+		"svelte-check": "4.7.6",
 		"tailwindcss": "^4.3.3",
-		"typescript": "^7.0.2",
-		"vercel": "^59.16.0"
+		"turndown": "7.2.4",
+		"typescript": "6.0.3",
+		"vitest": "5.0.5",
+		"yaml": "2.9.1"
 	},
 	"overrides": {
-		"esbuild": ">=0.28.1",
+		"esbuild": "$esbuild",
 		"@tootallnate/once": ">=2.0.1",
 		"minimatch": ">=10.2.3",
 		"tar": ">=7.5.11",
-		"undici": ">=6.24.0",
+		"undici": "^8.12.3",
 		"ajv": ">=8.18.0",
-		"smol-toml": "^1.7.1",
+		"smol-toml": "^1.9.0",
+		"micromark-extension-math": {
+			"katex": "^0.18.2"
+		},
 		"srvx": ">=0.11.13",
-		"yaml": ">=2.8.3",
-		"@vercel/node": {
+		"yaml": "$yaml",
+		"@vercel/config": {
+			"zod": "$zod"
+		},
+		"js-yaml@^4.0.0": "^4.3.2",
+		"fast-uri": "^3.1.9",
+		"http-cache-semantics": "^4.3.0",
+		"markdown-it": "^15.0.3",
+		"vite": "^8.3.5",
+		"@vercel/routing-utils": {
 			"path-to-regexp": ">=6.3.0 <7.0.0"
 		},
-		"@vercel/remix-builder": {
-			"path-to-regexp": ">=6.3.0 <7.0.0"
-		},
-		"@vercel/backends": {
-			"path-to-regexp": ">=8.4.0"
-		},
-		"@vercel/express": {
-			"path-to-regexp": ">=8.4.0"
-		},
-		"@vercel/fun": {
-			"path-to-regexp": ">=8.4.0"
-		},
-		"@vercel/hono": {
-			"path-to-regexp": ">=8.4.0"
-		},
-		"adm-zip": "0.6.0",
-		"js-yaml@^4.0.0": "^4.3.2"
+		"zod@4.1.11": "4.6.7"
 	},
 	"dependencies": {
-		"@vercel/edge": "^1.3.3"
+		"@astrojs/svelte": "9.1.2",
+		"@aws-sdk/client-cloudwatch-logs": "3.1150.0",
+		"@lucide/svelte": "1.51.0",
+		"@vercel/edge": "^1.3.3",
+		"@vercel/oidc-aws-credentials-provider": "3.3.16",
+		"bits-ui": "2.19.5",
+		"clsx": "2.1.1",
+		"minisearch": "7.2.0",
+		"shadcn-svelte": "1.7.0",
+		"svelte": "5.57.1",
+		"tailwind-merge": "3.7.0",
+		"tailwind-variants": "3.3.1",
+		"zod": "4.6.7"
 	},
 	"allowScripts": {
-		"esbuild@0.28.1": true,
-		"fsevents@2.3.3": true
+		"fsevents@2.3.3": true,
+		"esbuild@0.28.2": true
 	}
 }

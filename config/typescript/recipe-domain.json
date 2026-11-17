@@ -1,0 +1,15 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"allowJs": false,
+		"types": ["node"],
+		"allowImportingTsExtensions": true,
+		"noEmit": true
+	},
+	"include": [
+		"../../src/components/recipes/recipe-order.ts",
+		"../../src/components/recipes/ingredient-icon.ts",
+		"../../src/components/recipes/flow-equipment.ts",
+		"../../src/components/recipes/recipe-domain.test.ts"
+	]
+}
