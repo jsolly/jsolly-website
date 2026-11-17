@@ -180,78 +180,33 @@ it("requires successful jobs and restricts protected reuse to main pushes", () =
 		"reuse",
 	);
 });
-it("runs the actual aggregate workflow condition after failures while keeping deferrals separate", () => {
+it("always runs the required ci aggregate after its lanes, for every pull request", () => {
 	const workflow = parse(fs.readFileSync(".github/workflows/ci.yml", "utf8"));
-	const evaluate = (expression, eventContext, needs) => {
-		const code = expression
-			.replaceAll(
-				"github.event.pull_request.labels.*.name",
-				"github.event.pull_request.labels.map(label => label.name)",
-			)
-			.replace(/^\s*\$\{\{\s*|\s*\}\}\s*$/gu, "");
-		// biome-ignore lint/nursery/noImpliedEval: Execute the actual repository-owned Actions condition against fixture contexts, rather than testing a copied condition.
-		return new Function(
-			"github",
-			"needs",
-			"always",
-			"contains",
-			`return (${code});`,
-		)(
-			eventContext,
-			needs,
-			() => true,
-			(array, value) => array.includes(value),
-		);
-	};
-	const github = {
-		event_name: "pull_request",
-		repository: "owner/repo",
-		event: {
-			action: "synchronize",
-			label: { name: "unrelated" },
-			pull_request: {
-				draft: false,
-				user: { login: "owner", type: "User" },
-				head: { repo: { full_name: "owner/repo" } },
-				labels: [],
-			},
-		},
-	};
 	assert.deepEqual(workflow.jobs.ci.needs, ["prepare", "built"]);
 	assert.equal(workflow.jobs.built.needs, undefined);
-	assert.equal(evaluate(workflow.jobs.built.if, github, {}), true);
-	assert.equal(
-		evaluate(workflow.jobs.ci.if, github, {
-			prepare: { result: "failure" },
-			built: { result: "cancelled" },
-		}),
-		true,
-	);
-	assert.equal(evaluate(workflow.jobs.ci.name, github, {}), "ci");
-	// Labels start no CI runs; Dependabot PRs run full CI; only a same-repo human
-	// draft carrying `preview` defers.
-	assert.equal(workflow.on.pull_request.types.includes("labeled"), false);
-	const dependabot = structuredClone(github);
-	dependabot.event.pull_request.user = {
-		login: "dependabot[bot]",
-		type: "Bot",
-	};
-	dependabot.event.pull_request.draft = true;
-	dependabot.event.pull_request.labels = [{ name: "preview" }];
-	// Without always(), a failed lane would skip ci, and a skipped required check passes.
-	assert.ok(String(workflow.jobs.ci.if).startsWith("always() && "));
+	// The required check name is fixed, and a failed lane must not skip ci:
+	// a skipped required check passes.
+	assert.equal(workflow.jobs.ci.name, "ci");
+	assert.equal(workflow.jobs.ci.if, "always()");
 	assert.equal(workflow.jobs.ci["continue-on-error"], undefined);
-	assert.equal(evaluate(workflow.jobs.ci.if, dependabot, {}), true);
-	assert.equal(evaluate(workflow.jobs.ci.name, dependabot, {}), "ci");
-	assert.equal(evaluate(workflow.jobs.prepare.if, dependabot, {}), true);
-	assert.equal(evaluate(workflow.jobs.built.if, dependabot, {}), true);
-	const preview = structuredClone(github);
-	preview.event.pull_request.draft = true;
-	preview.event.pull_request.labels = [{ name: "preview" }];
-	assert.equal(evaluate(workflow.jobs.ci.if, preview, {}), false);
-	assert.equal(evaluate(workflow.jobs.ci.name, preview, {}), "ci-deferred");
-	assert.equal(evaluate(workflow.jobs.prepare.if, preview, {}), false);
-	assert.equal(evaluate(workflow.jobs.built.if, preview, {}), false);
+	// Lanes run on every event; no label, author or draft state defers validation.
+	assert.equal(workflow.jobs.prepare.if, undefined);
+	assert.equal(workflow.jobs.built.if, undefined);
+	assert.deepEqual(workflow.on.pull_request.types, [
+		"opened",
+		"synchronize",
+		"reopened",
+	]);
+	// One run per PR, push ref or dispatch; a newer run cancels the older one,
+	// and a dispatch on main never cancels the push run.
+	assert.equal(workflow.concurrency["cancel-in-progress"], true);
+	for (const part of [
+		"github.workflow",
+		"github.event.pull_request.number || github.ref",
+		"github.event_name",
+	]) {
+		assert.ok(workflow.concurrency.group.includes(part), part);
+	}
 });
 it("roundtrips only generated build bytes and replaces stale generated output", (t) => {
 	const f = fixture(t);

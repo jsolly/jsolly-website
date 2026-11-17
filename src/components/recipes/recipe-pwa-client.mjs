@@ -146,7 +146,7 @@ async function refresh() {
 			(!waiting && controller !== navigator.serviceWorker.controller)
 		)
 			return true;
-		reportCheckFailure(error);
+		reportCheckFailure("recipe-update-version", error);
 		return false;
 	}
 	if (sequence !== refreshSequence || applying) return true;
@@ -159,9 +159,9 @@ async function refresh() {
 	render();
 	return true;
 }
-function reportCheckFailure(error) {
+function reportCheckFailure(category, error) {
 	state.checkFailed = true;
-	void reportError("recipe-update");
+	void reportError(category);
 	console.error("Recipe update check failed:", error);
 	render();
 }
@@ -176,7 +176,7 @@ function observeInstaller() {
 		if (worker.state === "installed") installed = true;
 		if (worker.state === "redundant" && !installed) {
 			state.failed = true;
-			void reportError("recipe-update");
+			void reportError("recipe-update-download");
 			console.error(
 				hasActive()
 					? "Recipe update download failed:"
@@ -186,7 +186,9 @@ function observeInstaller() {
 		}
 		state.active = hasActive();
 		render();
-		void refresh().catch(reportCheckFailure);
+		void refresh().catch((error) =>
+			reportCheckFailure("recipe-update-version", error),
+		);
 	});
 }
 function activateAndWait(worker, release) {
@@ -253,7 +255,9 @@ async function register() {
 	registration.addEventListener("updatefound", observeInstaller);
 	render();
 	// Discover already-downloaded workers even when this document starts offline.
-	void refresh().catch(reportCheckFailure);
+	void refresh().catch((error) =>
+		reportCheckFailure("recipe-update-version", error),
+	);
 	let startup = true;
 	watchConnectedUpdates(async (signal) => {
 		let timer;
@@ -275,7 +279,7 @@ async function register() {
 			state.checkFailed = false;
 			return await refresh();
 		} catch (error) {
-			if (!signal.aborted) reportCheckFailure(error);
+			if (!signal.aborted) reportCheckFailure("recipe-update-check", error);
 			return false;
 		} finally {
 			clearTimeout(timer);
@@ -335,7 +339,7 @@ if (status) {
 		} catch (error) {
 			problem =
 				"The recipe update could not be applied. Try Update and reload again.";
-			void reportError("recipe-update");
+			void reportError("recipe-update-activation");
 			console.error("Recipe update activation failed:", error);
 		} finally {
 			applying = false;
@@ -345,7 +349,10 @@ if (status) {
 	if ("serviceWorker" in navigator)
 		navigator.serviceWorker.addEventListener("controllerchange", () => {
 			ready();
-			if (registration) void refresh().catch(reportCheckFailure);
+			if (registration)
+				void refresh().catch((error) =>
+					reportCheckFailure("recipe-update-version", error),
+				);
 		});
 	for (const event of ["online", "offline"])
 		window.addEventListener(event, () => {
@@ -356,7 +363,7 @@ if (status) {
 	if (!import.meta.env.DEV && "serviceWorker" in navigator)
 		void register().catch((error) => {
 			state.failed = true;
-			void reportError("recipe-update");
+			void reportError("recipe-update-registration");
 			console.error("Recipe service worker registration failed:", error);
 			render();
 		});

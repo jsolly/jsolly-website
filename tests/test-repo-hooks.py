@@ -8,6 +8,7 @@ import shutil
 import stat
 import subprocess
 import sys
+import tomllib
 import pytest
 from unittest.mock import patch
 
@@ -15,22 +16,6 @@ SOURCE = Path(__file__).resolve().parent.parent
 BUNDLE = ('config/agents/repository.json', 'gate/gate-lib.sh', 'gate/hooks/pre-commit',
           'gate/repo-hooks.py', 'gate/repo-python.sh', 'gate/setup-agent-environment.sh',
           'gate/security-scan.py')
-
-ZERO = '0' * 40
-# Stands in for gitleaks: logs each call's arguments and the subjects of the commits its
-# --log-opts select, fails on spacing gitleaks would pass to git as an empty revision or when git
-# cannot read that range, and finds a leak in any commit whose subject is "leak".
-FAKE_GITLEAKS = '''#!/usr/bin/env bash
-set -euo pipefail
-if [ "$1" = version ]; then echo 8.24.2; exit 0; fi
-printf '%s\\n' "$*" >> "$FIXTURE_CALLS"
-for arg; do case $arg in --log-opts=*) opts="${arg#--log-opts=}";; esac; done
-# gitleaks splits --log-opts on single spaces, so an extra space reaches git as an empty revision.
-case $opts in " "*|*" "|*"  "*) echo "fixture: malformed --log-opts" >&2; exit 3;; esac
-subjects="$(git log --format=%s $opts)"
-[ -z "$subjects" ] || printf '%s\\n' "$subjects" >> "$FIXTURE_SCANNED"
-! grep -qx leak <<<"$subjects"
-'''
 
 
 def load_module(path):
@@ -80,7 +65,12 @@ gate_secrets_scan_staged
         tools = self.root / 'tools'
         tools.mkdir()
         scanner = tools / 'fixture-gitleaks'
+        # Records the --config file each staged scan was handed, then finds the fixture secret.
+        self.staged_policy = self.scratch / 'staged-policy'
+        self.env['FIXTURE_STAGED_POLICY'] = str(self.staged_policy)
         scanner.write_text('''#!/usr/bin/env bash
+prev=
+for arg; do [ "$prev" != --config ] || cat "$arg" > "$FIXTURE_STAGED_POLICY"; prev=$arg; done
 if git diff --cached --text | grep -q REPO_FIXTURE_SECRET; then
   echo fixture-secret-found >&2
   exit 1
@@ -94,6 +84,12 @@ fi
         self.tool('install', check=True)
         self.hooks = Path(self.git('config', '--get', 'core.hooksPath').stdout.strip())
         self.installed = self.hooks.parent / 'gate/repo-hooks.py'
+
+    def gate_policy(self):
+        """The candidate's GATE_GITLEAKS_POLICY, as gate_gitleaks_run writes it."""
+        return subprocess.check_output(
+            ['bash', '-c', 'source "$1" >/dev/null && printf "%s\\n" "$GATE_GITLEAKS_POLICY"', '_',
+             str(SOURCE / 'gate/gate-lib.sh')], cwd=self.root, env=self.env, text=True)
 
     def git(self, *args, root=None, check=True):
         return subprocess.run(['git', '-C', str(root or self.root), *args], env=self.env,
@@ -132,73 +128,6 @@ fi
     def commit(self, subject):
         tree = self.git('rev-parse', 'HEAD^{tree}').stdout.strip()
         return self.git('commit-tree', tree, '-p', 'HEAD', '-m', subject).stdout.strip()
-
-    def pre_push(self, records, remote='origin'):
-        tools = self.scratch / 'path-tools'
-        if not tools.exists():
-            tools.mkdir()
-            (tools / 'gitleaks').write_text(FAKE_GITLEAKS)
-            (tools / 'gitleaks').chmod(0o755)
-        logs = {name: self.scratch / name for name in ('calls', 'scanned')}
-        for log in logs.values():
-            log.unlink(missing_ok=True)
-        env = {**self.env, 'PATH': str(tools) + os.pathsep + self.env['PATH'],
-               'FIXTURE_CALLS': str(logs['calls']), 'FIXTURE_SCANNED': str(logs['scanned'])}
-        result = subprocess.run([str(self.hooks / 'pre-push'), remote, 'fixture-url'], cwd=self.root,
-                                env=env, input=records, text=True, capture_output=True)
-        read = {name: log.read_text().splitlines() if log.exists() else [] for name, log in logs.items()}
-        return result, read['scanned'], read['calls']
-
-    def test_pre_push_scans_the_commits_the_destination_lacks(self):
-        outgoing = self.commit('outgoing')
-        # Another remote holding the commit does not mean origin has it.
-        self.git('update-ref', 'refs/remotes/other/held', outgoing)
-        result, scanned, calls = self.pre_push(f'refs/heads/topic {outgoing} refs/heads/topic {ZERO}\n'
-                                               f'(delete) {ZERO} refs/heads/gone {outgoing}\n')
-        assert result.returncode == 0, result.stderr
-        assert scanned == ['outgoing']
-        assert len(calls) == 1 and '--redact' in calls[0].split()
-        # The same options as `security-scan.py ci` and gate/ci-secrets-scan.sh.
-        assert '--log-opts=--text --diff-merges=remerge --no-color --no-textconv ' in calls[0]
-
-    def test_pre_push_to_a_url_excludes_only_the_remote_commit_it_replaces(self):
-        outgoing = self.commit('outgoing')
-        baseline = self.git('rev-parse', 'HEAD').stdout.strip()
-        url = 'https://example.invalid/fixture.git'
-        result, scanned, _ = self.pre_push(f'refs/heads/main {outgoing} refs/heads/main {baseline}\n', remote=url)
-        assert result.returncode == 0, result.stderr
-        assert scanned == ['outgoing']
-        # A new ref at a URL has nothing to exclude, so the commit's whole history is scanned.
-        result, scanned, _ = self.pre_push(f'refs/heads/topic {outgoing} refs/heads/topic {ZERO}\n', remote=url)
-        assert result.returncode == 0, result.stderr
-        assert scanned == ['outgoing', 'fixture baseline']
-
-    def test_pre_push_blocks_a_leak_in_any_outgoing_ref(self):
-        clean, leak = self.commit('outgoing'), self.commit('leak')
-        result, scanned, _ = self.pre_push(f'refs/heads/clean {clean} refs/heads/clean {ZERO}\n'
-                                           f'refs/heads/leak {leak} refs/heads/leak {ZERO}\n')
-        assert result.returncode != 0
-        assert scanned == ['outgoing', 'leak']
-
-    def test_pre_push_scans_sent_objects_and_refuses_non_commits(self):
-        leak = self.commit('leak')
-        self.git('replace', leak, self.commit('decoy'))
-        result, scanned, _ = self.pre_push(f'refs/heads/topic {leak} refs/heads/topic {ZERO}\n')
-        assert result.returncode != 0
-        assert scanned == ['leak']
-        tree = self.git('rev-parse', 'HEAD^{tree}').stdout.strip()
-        result, _, calls = self.pre_push(f'refs/tags/tree {tree} refs/tags/tree {ZERO}\n')
-        assert result.returncode != 0
-        assert calls == []
-
-    def test_pre_push_runs_only_installed_snapshot_bytes(self):
-        marker = self.scratch / 'working-tree-library-ran'
-        (self.root / 'gate/gate-lib.sh').write_text('touch "' + str(marker) + '"\n')
-        outgoing = self.commit('outgoing')
-        result, scanned, _ = self.pre_push(f'refs/heads/topic {outgoing} refs/heads/topic {ZERO}\n')
-        assert result.returncode == 0, result.stderr
-        assert scanned == ['outgoing']
-        assert not marker.exists()
 
     def test_unreviewed_scanner_is_not_executed(self):
         marker = self.scratch / 'unreviewed-scanner-ran'
@@ -242,6 +171,40 @@ fi
                 result = self.git('commit', '-m', 'safe commit', *options, check=False)
                 assert result.returncode == 0, result.stdout + result.stderr
 
+    def test_commits_refuse_a_staged_or_stray_gitleaks_policy(self, subtests):
+        (self.root / 'content.txt').write_text('safe updated\n')
+        self.git('add', 'content.txt')
+        for name in ('.gitleaks.toml', '.gitleaksignore'):
+            with subtests.test(staged=name):
+                (self.root / name).write_text('[allowlist]\npaths = [".*"]\n')
+                self.git('add', name)
+                (self.root / name).unlink()
+                result = self.git('commit', '-m', 'must refuse', check=False)
+                assert result.returncode != 0
+                assert 'index:' + name in result.stderr
+                assert 'refuses a repository .gitleaks.toml or .gitleaksignore' in result.stderr
+                self.git('rm', '-q', '--cached', name)
+        # Untracked, a file (or a symlink, dangling or not) is still what gitleaks would read.
+        for name in ('.gitleaks.toml', '.gitleaksignore'):
+            for form in ('file', 'dangling symlink'):
+                with subtests.test(stray=name, form=form):
+                    path = self.root / name
+                    if form == 'file':
+                        path.write_text('')
+                    else:
+                        path.symlink_to(self.scratch / 'missing-policy')
+                    result = self.git('commit', '-m', 'must refuse', check=False)
+                    assert result.returncode != 0
+                    assert str(path) in result.stderr
+                    path.unlink()
+        # Gitleaks reads neither file below the root it scans, so a nested one is ordinary content.
+        (self.root / 'sub').mkdir()
+        (self.root / 'sub/.gitleaks.toml').write_text('')
+        self.git('add', 'sub/.gitleaks.toml')
+        self.staged_policy.unlink(missing_ok=True)
+        result = self.git('commit', '-m', 'safe commit', check=False)
+        assert result.returncode == 0, result.stdout + result.stderr
+        assert self.staged_policy.read_text() == self.gate_policy()
 
     def old_layout_fixture(self, frozen, manifest_path, *, restore=True):
         """Install a frozen real helper from the scripts/ layout it expects, then (by default)
@@ -628,3 +591,24 @@ cp "$BOOTSTRAP_PAYLOAD" "$2"
         assert result.returncode != 0
         assert destination.read_text() == 'existing useful content\n'
         assert not (self.downloads.exists())
+
+
+class TestMiseLock:
+    # mise 2026.9.12 re-adds these subtables on every `mise lock`, and CI and the gate run a mise
+    # that accepts them, so only this test catches a forgotten deletion before a newer mise on a
+    # developer or builder host refuses the lock.
+    def test_osv_scanner_records_no_slsa_provenance(self):
+        lock = tomllib.loads((SOURCE / 'mise.lock').read_text())
+        recorded = [
+            platform
+            for entry in lock['tools']['osv-scanner']
+            for platform, table in entry.items()
+            if isinstance(table, dict) and 'slsa' in table.get('provenance', {})
+        ]
+        assert recorded == [], (
+            'mise refuses to install osv-scanner from a lock that records SLSA provenance while the '
+            'Aqua registry entry names no signer (seen with mise 2026.9.16 and 2026.10.14); delete the '
+            'provenance.slsa subtables under tools.osv-scanner after `mise lock`; on a version bump, '
+            'recheck whether the registry now names a signer and, if it does, keep the subtables and '
+            'remove this test'
+        )

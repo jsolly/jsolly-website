@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { it } from "vitest";
+import { archivedRecipes } from "./archived-recipes.test-data.mjs";
 import { ingredientGrams } from "./ingredient-units.mjs";
 import data from "./recipe-data.server.mjs";
 import { ingredientAmount } from "./recipe-logic.mjs";
@@ -13,14 +14,97 @@ const UNBALANCED = /Unbalanced/u;
 const GARLIC_PINCH = /A pinch<\/strong> Garlic powder/u;
 const SAFE_FISH_METRIC = /63°C \(145°F\)/u;
 const ONE_GRAM_ZEST = /½ tsp \/ 1 g \/ 0.04 oz<\/strong> Lemon zest/u;
+const PLAIN_SALT =
+	/^(?:(?:fine(?: grain)? sea|fine|Morton coarse kosher) )?salt$/iu;
 const MEASURED_PINCH = /A pinch<\/strong> Fine salt/u;
 const UNMEASURED = /pinch of|remaining|to taste|unavailable/u;
 const ROWSPAN = /rowspan=/u;
 const INVALID_FRACTION = /Invalid ingredient fraction/u;
 const UNBALANCED_SYMBOLIC = /Unbalanced symbolic allocation/u;
+const BEFORE_PREPARATION = /Before/u;
+const UNSPECIFIED_SPLIT = /no measured split/u;
+it("ingredient lists follow first appearance in the cooking flow, including liquid-first smoothies", () => {
+	for (const recipe of recipes) {
+		const firstUse = new Set();
+		function visit(node) {
+			if (node.ingredientId) firstUse.add(node.ingredientId);
+			node.children?.forEach(visit);
+		}
+		visit(recipe.flow.root);
+		assert.deepEqual(
+			recipe.ingredients.map((ingredient) => ingredient.id),
+			[...firstUse],
+			recipe.id,
+		);
+	}
+	for (const recipe of recipes.filter(
+		(candidate) => candidate.type === "smoothie",
+	))
+		assert.equal(recipe.ingredients[0].id, "water", recipe.id);
+});
+
+it("seasoning and shared totals appear before the operations that need them", () => {
+	const find = (id) => recipes.find((recipe) => recipe.id === `source-${id}`);
+	for (const [id, totals] of [
+		["10-minute-sheet-pan-steak-with-lemon-zucchini", ["ingredient-10"]],
+		[
+			"stuffed-chicken-breast-with-mozzarella-and-spinach",
+			["ingredient-12-pepper"],
+		],
+		[
+			"garlic-lemon-chicken-breasts-with-green-beans",
+			["ingredient-6", "ingredient-7", "ingredient-9-pepper"],
+		],
+	]) {
+		const recipe = find(id);
+		const preparation = recipe.flow.root.children.at(0);
+		assert.deepEqual(
+			preparation.children.map((child) => child.ingredientId),
+			totals,
+			id,
+		);
+		assert.match(preparation.action, BEFORE_PREPARATION);
+		assert.match(preparation.action, UNSPECIFIED_SPLIT);
+		assert(
+			preparation.children.every((child) => child.fraction === 1),
+			id,
+		);
+		assert(
+			!recipe.flow.root.children.some((child) =>
+				totals.includes(child.ingredientId),
+			),
+			id,
+		);
+	}
+	const sheetPan = find("sheet-pan-garlic-butter-chicken-and-asparagus");
+	const butter = sheetPan.flow.root.children.find((node) =>
+		node.action?.startsWith("Mix melted butter"),
+	);
+	assert(!butter.children.some((node) => node.ingredientId === "ingredient-8"));
+	assert(
+		butter.children.some((node) => node.ingredientId === "ingredient-8-pepper"),
+	);
+	const steak = find("garlic-butter-steak-and-green-beans");
+	assert(
+		steak.flow.root.children
+			.at(0)
+			.children.some((node) => node.ingredientId === "ingredient-9"),
+	);
+	assert(
+		!steak.flow.root.children.some(
+			(node) => node.ingredientId === "ingredient-9",
+		),
+	);
+});
+
 it("all recipe dependency diagrams allocate all ingredients and produce a complete nonoverlapping merged-cell grid", () => {
 	for (const recipe of recipes) {
 		assert(validateFlow(recipe));
+		assert.equal(
+			recipe.ingredients.some((ingredient) => PLAIN_SALT.test(ingredient.name)),
+			false,
+			recipe.id,
+		);
 		for (const servings of [2, 4, 6, 8]) {
 			const grid = flowGrid(recipe, { servings, units: "metric" });
 			const occupied = grid.rows.map(() => new Array(grid.columns).fill(false));
@@ -62,7 +146,7 @@ it("tables show scaled gram amounts, safe endpoints and measured pinch allocatio
 	assert.match(html, GARLIC_PINCH);
 	assert.match(html, SAFE_FISH_METRIC);
 	assert.match(html, ONE_GRAM_ZEST);
-	const shawarma = recipes.find((r) => r.key === "shawarma");
+	const shawarma = archivedRecipes.find((r) => r.key === "shawarma");
 	const s = gridHtml(
 		shawarma.title,
 		flowGrid(shawarma, { servings: 4, units: "metric" }),
@@ -73,8 +157,8 @@ it("tables show scaled gram amounts, safe endpoints and measured pinch allocatio
 	assert.match(s, ROWSPAN);
 });
 
-it("measured salt pinches and remainder branches conserve the actual scaled ingredient", () => {
-	const recipe = recipes.find((r) => r.key === "shawarma");
+it("archived measured salt pinches and remainder branches conserve the actual scaled ingredient", () => {
+	const recipe = archivedRecipes.find((r) => r.key === "shawarma");
 	assert(validateFlow(recipe));
 	const seasoning = recipe.ingredients.find(
 		(ingredient) => ingredient.id === "fine_salt",

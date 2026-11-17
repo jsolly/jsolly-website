@@ -3,7 +3,6 @@
 # Repository-owned quality gate; Vercel owns deployment after merge.
 set -euo pipefail
 
-gate_lib="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)/gate/gate-lib.sh"
 # shellcheck source=/dev/null
 _repo_owned_gate_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
 source "$_repo_owned_gate_root/gate/gate-lib.sh"
@@ -13,18 +12,6 @@ gate_enter_committing_tree "${BASH_SOURCE[0]}"
 gate_begin_commit "jsolly-website"    # staged secrets/md-lint; merge/empty skips; doc-only fast path; banner; ERR trap
 run_step "bash floor" gate_check_bash_floor   # every Bash entrypoint refuses Bash < 5
 gate_require_node                     # enforce the pinned Node (.nvmrc), not whatever's on PATH
-# The caller verifies live draft+preview PR/head context through GitHub before
-# using this shortcut. The scope guard independently rejects non-UI deltas.
-if [[ "${FLEET_UI_PREVIEW:-0}" == 1 ]]; then
-	if [[ ! -f "$gate_lib" ]]; then
-		echo "✗ UI preview requires the repository gate's secrets/bootstrap checks." >&2
-		exit 1
-	fi
-	run_step "UI preview scope" node gate/ui-preview-scope.mjs
-	run_step "UI preview checks" npm run check:preview
-	echo "✓ preview checks passed — full gate and required ci still needed before ready/merge."
-	exit 0
-fi
 node gate/run-gate.mjs
 
 echo "✓ pre-commit gate passed — commit will land; Vercel deploys via GitHub integration after merge to main."

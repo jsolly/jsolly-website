@@ -42,8 +42,5 @@ it("the middleware and its local imports use no import attributes", () => {
 			if (target) pending.push(target);
 		}
 	}
-	assert.ok(
-		seen.has(resolve(ROOT, "vercel.json")),
-		"middleware reads vercel.json",
-	);
+	assert.ok(seen.has(resolve(ROOT, "vercel.ts")), "middleware reads vercel.ts");
 });

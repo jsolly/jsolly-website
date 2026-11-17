@@ -163,7 +163,7 @@ const CONTENT_TYPES = {
 
 // Serves `root` on a free local port the way a static host does: a path
 // ending in / answers with its index.html, anything missing with a plain 404.
-// `headers` go on every response, as vercel.json's do. Resolves to
+// `headers` go on every response, as vercel.ts's do. Resolves to
 // { origin, close }.
 export async function serveStatic(root, headers = {}) {
 	const server = createServer(async (request, response) => {

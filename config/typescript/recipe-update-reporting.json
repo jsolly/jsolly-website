@@ -1,0 +1,5 @@
+{
+	"extends": "./test-network.json",
+	"compilerOptions": { "allowJs": true, "checkJs": false },
+	"include": ["../../tests/built/recipe-update-reporting.test.ts"]
+}

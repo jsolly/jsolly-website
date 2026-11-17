@@ -98,28 +98,38 @@ it("the accessibility sample keeps a post with headings and an iframe, and one w
 	);
 });
 
-// The real audit, on one page, writes results the reporter accepts.
 const SAMPLE_WITH_ROUTES = /--sample takes no route arguments/u;
-it("the audit's results file passes the reporter's checks, and --sample takes no routes", (t) => {
+it("--sample rejects route arguments without writing audit results", (t) => {
 	const root = mkdtempSync(join(tmpdir(), "a11y-audit-test-"));
 	t.onTestFinished(() => rmSync(root, { recursive: true, force: true }));
 	const output = join(root, "accessibility-results.json");
-	const audit = (args) =>
-		spawnSync(
-			process.execPath,
-			["monitoring/check-accessibility.ts", ...args],
-			{
-				encoding: "utf8",
-				env: { ...process.env, A11Y_RESULTS: output },
-			},
-		);
-	const rejected = audit(["--sample", "/about/"]);
-	assert.equal(rejected.status, 1);
+	const rejected = spawnSync(
+		process.execPath,
+		["monitoring/check-accessibility.ts", "--sample", "/about/"],
+		{
+			encoding: "utf8",
+			env: { ...process.env, A11Y_RESULTS: output },
+		},
+	);
+	assert.equal(rejected.status, 1, `${rejected.stdout}\n${rejected.stderr}`);
 	assert.match(rejected.stderr, SAMPLE_WITH_ROUTES);
 	assert.ok(!existsSync(output));
+});
 
-	const about = audit(["/about/"]);
-	assert.equal(about.status, 0, about.stderr);
+// The real audit, on one page, writes results the reporter accepts.
+it("the audit's results file passes the reporter's checks", (t) => {
+	const root = mkdtempSync(join(tmpdir(), "a11y-audit-test-"));
+	t.onTestFinished(() => rmSync(root, { recursive: true, force: true }));
+	const output = join(root, "accessibility-results.json");
+	const about = spawnSync(
+		process.execPath,
+		["monitoring/check-accessibility.ts", "/about/"],
+		{
+			encoding: "utf8",
+			env: { ...process.env, A11Y_RESULTS: output },
+		},
+	);
+	assert.equal(about.status, 0, `${about.stdout}\n${about.stderr}`);
 	const text = readFileSync(output, "utf8");
 	assert.equal(JSON.parse(text).expected, 2);
 	const { results, failure } = auditOutcome(text, "success", "4242");

@@ -13,6 +13,10 @@ import { join } from "node:path";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { launchTestBrowser } from "../network/browser.ts";
 import { collectErrors, serveStatic, stubOffOrigin } from "./pages.mjs";
+import {
+	observeReleaseChecks,
+	waitForReleaseChecks,
+} from "./site-update-observer.ts";
 import { assertUpdateNoticeLayout } from "./update-notice-layout.mjs";
 
 const ROUTES = ["/", "/blog/", "/recipes/"];
@@ -107,6 +111,7 @@ function updateCheck(route) {
 		try {
 			await stubOffOrigin(context, site.origin);
 			const page = await context.newPage();
+			await observeReleaseChecks(page);
 			const errors = collectErrors(page);
 			const conflicts = [];
 			page.on("response", (response) => {
@@ -117,6 +122,7 @@ function updateCheck(route) {
 			await page.waitForFunction(
 				() => !document.querySelector("astro-island[ssr]"),
 			);
+			await waitForReleaseChecks(page);
 			const notice = page.locator("#site-update-notice");
 			const original = await notice.getAttribute("data-release");
 			assert.notEqual(original, NEXT_SHA);
@@ -218,6 +224,7 @@ function updateCheck(route) {
 					sha,
 				NEXT_SHA,
 			);
+			await waitForReleaseChecks(page);
 			await page.clock.fastForward(5 * 60_000);
 			assert.equal(
 				await notice.isVisible(),
@@ -248,19 +255,23 @@ function updateCheck(route) {
 for (const route of ROUTES) updateCheck(route);
 
 async function checkNow(page) {
+	await waitForReleaseChecks(page);
 	const response = page.waitForResponse("**/release.json");
 	await page.clock.fastForward(35 * 60_000);
 	await page.evaluate(() => window.dispatchEvent(new Event("focus")));
 	await response;
+	await waitForReleaseChecks(page);
 }
 
 async function openOldPage(context) {
 	const page = await context.newPage();
+	await observeReleaseChecks(page);
 	await page.clock.install();
 	await page.goto(`${site.origin}/`);
 	await page.waitForFunction(
 		() => !document.querySelector("astro-island[ssr]"),
 	);
+	await waitForReleaseChecks(page);
 	await page.evaluate(() => {
 		window.loadedSentinel = true;
 	});
@@ -371,6 +382,7 @@ it("Stale HTML after explicit reload offers recovery and never loops automatical
 				!window.loadedSentinel && !document.querySelector("astro-island[ssr]"),
 		);
 		await update.waitFor({ state: "visible" });
+		await waitForReleaseChecks(page);
 		await page.clock.fastForward(10 * 60_000);
 		assert.equal(
 			navigations,
@@ -429,6 +441,7 @@ it("Metadata MIME, redirects, HTTP errors and timeout cannot invent an update; p
 			(await aborted).failure(),
 			"the bounded release request actually aborts",
 		);
+		await waitForReleaseChecks(page);
 		assert.equal(
 			await notice.isVisible(),
 			false,

@@ -64,6 +64,37 @@ it("silently contains network rejection and synchronous browser failures", async
 	await assert.doesNotReject(browser("recipe-print"));
 });
 
+it("shares one recipe-update attempt across phases while preserving the three-report limit", async () => {
+	const phases = [
+		"recipe-update",
+		"recipe-update-registration",
+		"recipe-update-download",
+		"recipe-update-version",
+		"recipe-update-check",
+		"recipe-update-activation",
+		"recipe-update-library",
+	];
+	await Promise.all(
+		phases.map(async (first) => {
+			const calls = [];
+			const report = createErrorReporter({
+				location: () => new URL("https://www.jsolly.com/recipes/"),
+				fetcher: async (_url, options) => calls.push(JSON.parse(options.body)),
+			});
+			await report(first);
+			await Promise.all(phases.map((phase) => report(phase)));
+			await report("recipe-print");
+			await report("recipe-share");
+			await report("client-runtime");
+			assert.deepEqual(calls, [
+				{ category: first, page: "/recipes/" },
+				{ category: "recipe-print", page: "/recipes/" },
+				{ category: "recipe-share", page: "/recipes/" },
+			]);
+		}),
+	);
+});
+
 it("does not send unknown categories or requests from local and Preview builds", async () => {
 	const calls = [];
 	const fetcher = (...args) => {

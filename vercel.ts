@@ -1,0 +1,116 @@
+import type { VercelConfig } from "@vercel/config/v1";
+
+// The jsolly-website project's Vercel configuration. Vercel's Git integration
+// reads it from the project root; middleware.ts, the CSP readers and the
+// routing tests import the same object. The type-only import leaves this file
+// with no runtime dependency.
+export const config: VercelConfig = {
+	trailingSlash: true,
+	fluid: true,
+	git: {
+		// Vercel deploys a branch when any matching rule is true: main builds
+		// Production, preview/** branches build Previews, every other branch
+		// builds nothing.
+		deploymentEnabled: {
+			main: true,
+			"preview/**": true,
+			"*": false,
+			"*/*": false,
+			"*/*/*": false,
+			"*/*/*/*": false,
+			"**": false,
+		},
+	},
+	redirects: [
+		{
+			source: "/:path*",
+			has: [
+				{
+					type: "host",
+					value: "jsolly.com",
+				},
+			],
+			destination: "https://www.jsolly.com/:path*",
+			permanent: true,
+		},
+	],
+	headers: [
+		{
+			source: "/(.*)",
+			headers: [
+				{
+					key: "X-Content-Type-Options",
+					value: "nosniff",
+				},
+				{
+					key: "Referrer-Policy",
+					value: "strict-origin-when-cross-origin",
+				},
+				{
+					key: "X-Frame-Options",
+					value: "SAMEORIGIN",
+				},
+				{
+					key: "Content-Security-Policy",
+					value:
+						"img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests",
+				},
+			],
+		},
+		{
+			source: "/blog/rss.xml",
+			headers: [
+				{
+					key: "Content-Type",
+					value: "application/rss+xml; charset=utf-8",
+				},
+			],
+		},
+		{
+			source: "/blog/atom.xml",
+			headers: [
+				{
+					key: "Content-Type",
+					value: "application/atom+xml; charset=utf-8",
+				},
+			],
+		},
+		{
+			source: "/recipes/service-worker.js",
+			headers: [
+				{
+					key: "Cache-Control",
+					value: "no-cache",
+				},
+			],
+		},
+		{
+			source: "/release.json",
+			headers: [
+				{
+					key: "Cache-Control",
+					value: "no-store",
+				},
+			],
+		},
+		{
+			source: "/recipes/data/:artifact(summaries|search)/:library.json",
+			headers: [
+				{
+					key: "Cache-Control",
+					value: "public, max-age=31536000, immutable",
+				},
+			],
+		},
+	],
+	functions: {
+		"api/client-error.mjs": {
+			maxDuration: 10,
+		},
+		"api/recipe-browse.mjs": {
+			includeFiles:
+				"{dist/release.json,dist/recipes/index.html,dist/recipes/meals/index.html,dist/recipes/smoothies/index.html,dist/recipes/data/summaries/*.json,dist/recipes/data/search/*.json,.recipe-browse/*.json}",
+			maxDuration: 10,
+		},
+	},
+};

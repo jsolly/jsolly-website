@@ -342,7 +342,7 @@ function unresolved(site, url) {
 	}
 	if (!site.files.has(file)) {
 		if (MIDDLEWARE_PATHS.has(url.pathname)) return null;
-		// vercel.json trailingSlash: the slashless form answers 308, not the page.
+		// vercel.ts trailingSlash: the slashless form answers 308, not the page.
 		return site.files.has(`${file}/index.html`)
 			? "links a page without its trailing slash"
 			: "has no file in dist/";

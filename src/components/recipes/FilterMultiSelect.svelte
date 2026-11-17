@@ -91,6 +91,9 @@
 	   blog stays last whichever stylesheet the browser reads first. */
 	@layer properties, theme, base, components, utilities, blog, blog-no-script;
 	@layer blog {
+		.filter-select {
+			min-width: 0;
+		}
 		.filter-label {
 			font-size: 0.86rem;
 			font-weight: 600;
@@ -102,6 +105,7 @@
 		.filter-select :global([data-slot="popover-trigger"].multi-trigger) {
 			display: flex;
 			width: 100%;
+			min-width: 0;
 			align-items: center;
 			justify-content: space-between;
 			gap: 12px;
@@ -115,6 +119,7 @@
 			font-size: 0.86rem;
 		}
 		.filter-select :global(.multi-trigger span) {
+			min-width: 0;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;

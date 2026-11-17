@@ -4,6 +4,7 @@
 		".astro/types.d.ts",
 		"src/**/*",
 		"middleware.ts",
+		"vercel.ts",
 		"config/app/astro.ts"
 	],
 	"exclude": ["**/node_modules/**", "dist/**", ".astro", "src/**/*.test.ts"]

@@ -79,9 +79,8 @@ The following existing native MJS entry points also retain their filenames:
 - `config/testing/vitest.config.mjs` is the native configuration path used by
   Vitest, CI and isolated runner fixtures. It installs typed setup modules and
   discovers the added typed built regression test.
-- `tests/unit/fake-aws-cli.mjs`, `tests/unit/usda.test.mjs` and
-  `tests/vercel-preview-workflow.test.mjs` retain their fixture/discovery
-  contracts. Their fresh child environments receive the defining typed guard
+- `tests/unit/fake-aws-cli.mjs` and `tests/unit/usda.test.mjs` retain their
+  fixture/discovery contracts. Their fresh child environments receive the defining typed guard
   without adding host credentials or changing original assertions.
 - `tests/workflow-contracts.test.mjs` retains its counted workflow discovery
   contract. Its accessibility CLI command expectation names the actual typed

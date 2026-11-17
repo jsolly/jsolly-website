@@ -222,7 +222,7 @@
 				else message = "Checking for an update. Use Update and reload when the update notice appears.";
 			} else window.location.reload();
 		} catch {
-			void reportError("recipe-update");
+			void reportError("recipe-update-library");
 			message = "The update could not be checked. Reconnect and choose Check for update to retry.";
 		}
 	}

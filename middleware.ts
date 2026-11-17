@@ -14,8 +14,7 @@ import { agentResponse } from "./src/lib/agent-response.js";
 import retiredCategories from "./src/lib/blog/retired-categories.json";
 import { previewResponseHeaders } from "./src/lib/csp-policy.js";
 import { recipeBrowseDestination } from "./src/lib/recipe-browse-route.mjs";
-// biome-ignore lint/correctness/useJsonImportAttributes: Vercel's middleware bundler rejects import attributes (tests/unit/middleware-bundle.test.mjs).
-import vercelConfig from "./vercel.json";
+import { config as vercelConfig } from "./vercel.js";
 
 // Vercel statically extracts these literals before bundling. Keep both patterns
 // aligned with shouldNegotiate: extensionless misses still need Markdown 404s,

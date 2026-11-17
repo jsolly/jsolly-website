@@ -6,7 +6,7 @@ import { FEEDS } from "../../lib/blog/constants.js";
 import { blogContent } from "../../lib/blog/content.js";
 import { atomFeed, legacyFeedIds } from "../../lib/blog/feeds.js";
 
-// The static build drops this Content-Type (vercel.json sends it in
+// The static build drops this Content-Type (vercel.ts sends it in
 // production); astro dev needs it, or it serves the feed as text/plain.
 export const GET: APIRoute = async ({ site }) => {
 	if (!site) {
