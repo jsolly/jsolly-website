@@ -77,6 +77,8 @@ async function goHydrated(page, path) {
 	);
 }
 
+const byText = (a, b) => a.localeCompare(b);
+
 // The titles of the recipes in the library's print copy.
 const printedTitles = (page) =>
 	page
@@ -175,12 +177,6 @@ it("card printing loads only that recipe's detail while browser-menu printing ke
 			"browser-menu printing does not download full recipes",
 		);
 		assert.equal(packs.length, requestsBeforeMenu);
-		assert.equal(
-			await page
-				.getByRole("button", { name: "Print all meals", includeHidden: true })
-				.count(),
-			0,
-		);
 		await page.emulateMedia({ media: "screen" });
 		await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
 		await goHydrated(page, "/recipes/smoothies/");
@@ -193,15 +189,6 @@ it("card printing loads only that recipe's detail while browser-menu printing ke
 			smoothies.length,
 		);
 		assert.deepEqual(await printedTitles(page), []);
-		assert.equal(
-			await page
-				.getByRole("button", {
-					name: "Print all smoothies",
-					includeHidden: true,
-				})
-				.count(),
-			0,
-		);
 
 		await goHydrated(failing.page, "/recipes/meals/");
 		await failing.page
@@ -228,6 +215,82 @@ it("card printing loads only that recipe's detail while browser-menu printing ke
 	} finally {
 		await close();
 		await failing.close();
+	}
+});
+
+it("Print all meals and Print all smoothies print every recipe in that collection, one per page, without saving them offline", {
+	timeout: 120_000,
+}, async () => {
+	const { page, errors, close } = await openPage({
+		initScript: printFiresBeforePrint,
+	});
+	const packs = [];
+	const offline = [];
+	page.on("request", (request) => {
+		const { pathname } = new URL(request.url());
+		if (pathname.startsWith("/recipes/data/packs/")) packs.push(pathname);
+		if (pathname.startsWith("/recipes/data/offline/")) offline.push(pathname);
+	});
+	const printAll = async (path, label, collection) => {
+		packs.length = 0;
+		await goHydrated(page, path);
+		// A search narrows the cards, not what Print all prints.
+		await page
+			.getByRole("searchbox", { name: "Search recipes" })
+			.fill(collection[0].title);
+		await page.waitForFunction(
+			() =>
+				document.querySelector("#meal-results").getAttribute("aria-busy") ===
+				"false",
+		);
+		await page.evaluate(() =>
+			document.documentElement.removeAttribute("data-test-print-requested"),
+		);
+		await page.getByRole("button", { name: label, exact: true }).click();
+		await page
+			.locator("[data-test-print-requested=true]")
+			.waitFor({ state: "attached", timeout: 60_000 });
+		await page.emulateMedia({ media: "print" });
+		assert.deepEqual(
+			await printedTitles(page),
+			collection.map((recipe) => recipe.title),
+			`${label} prints the whole collection in canonical order`,
+		);
+		assert.deepEqual(
+			[...new Set(packs)].sort(byText),
+			collection
+				.map((recipe) => `/recipes/data/packs/${recipe.id}.json`)
+				.sort(byText),
+		);
+		assert.equal(await page.locator(".recipe-grid").isVisible(), false);
+		assert.equal(
+			await page
+				.locator(".print-output .print-meal")
+				.nth(1)
+				.evaluate((article) => getComputedStyle(article).breakBefore),
+			"page",
+			"each recipe after the first starts a new page",
+		);
+		await assertPrintLayout(
+			page.locator(".print-output .recipe-photo img").first(),
+		);
+		await page.emulateMedia({ media: "screen" });
+		await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
+		assert.deepEqual(await printedTitles(page), []);
+		assert.equal(
+			await page.evaluate(() =>
+				document.documentElement.getAttribute("data-recipe-print"),
+			),
+			null,
+		);
+	};
+	try {
+		await printAll("/recipes/meals/", "Print all meals", meals);
+		await printAll("/recipes/smoothies/", "Print all smoothies", smoothies);
+		assert.deepEqual(offline, [], "collection printing saves nothing offline");
+		assert.deepEqual(errors, []);
+	} finally {
+		await close();
 	}
 });
 

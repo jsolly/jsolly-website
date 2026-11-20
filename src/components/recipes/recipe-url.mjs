@@ -84,6 +84,36 @@ export function recipeHref(recipe, settings) {
 	return `/recipes/${recipe.id}/?${params}`;
 }
 
+// A collection page link carrying the reader's servings, units and every
+// selected side in that collection, for printing the whole collection in Safari.
+export function collectionHref(collection, settings, recipes) {
+	const { servings, units } = validateSettings(settings);
+	const sides = recipes
+		.filter((recipe) => recipe.type === collection)
+		.flatMap((recipe) => {
+			const side = settings.familyChoice?.[recipe.id];
+			return recipe.familyOptions.some((option) => option.id === side)
+				? [`${recipe.id}:${side}`]
+				: [];
+		});
+	const params = new URLSearchParams({
+		servings: String(servings),
+		units,
+		starch: sides.join(","),
+	});
+	if (sides.length)
+		params.set(
+			"sideDiners",
+			String(
+				validateSettings({
+					...settings,
+					familyDiners: settings.familyDiners ?? servings,
+				}).familyDiners,
+			),
+		);
+	return `${collection === "smoothie" ? "/recipes/smoothies/" : "/recipes/meals/"}?${params}`;
+}
+
 // Default browsing links point directly to the canonical page. Shared links
 // still carry explicit defaults so they override a recipient's preferences.
 export function recipeBrowseHref(recipe, settings) {

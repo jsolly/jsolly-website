@@ -2,9 +2,15 @@ import assert from "node:assert/strict";
 import { it } from "vitest";
 import data from "./recipe-data.server.mjs";
 import { recipeDocument } from "./recipe-export.mjs";
-import { loadRecipePack, recipeFromPack } from "./recipe-pack.mjs";
+import {
+	loadRecipePack,
+	loadRecipePacks,
+	recipeFromPack,
+} from "./recipe-pack.mjs";
 
 const RELEASE = "1".repeat(40);
+const PACK_ID = /packs\/(?<id>[^/]+)\.json$/u;
+const LOAD_FAILED = /could not be loaded/u;
 const payload = (recipe, releaseId = RELEASE) => ({
 	schemaVersion: 1,
 	releaseId,
@@ -98,4 +104,72 @@ it("failed detail downloads can retry without caching the error or mixing releas
 		code: "RECIPE_RELEASE_MISMATCH",
 	});
 	assert.equal(calls, 3);
+});
+
+it("collection printing loads every pack in order with bounded concurrent downloads", async () => {
+	const release = "4".repeat(40);
+	const chosen = data.recipes.slice(0, 9);
+	let open = 0;
+	let peak = 0;
+	const progress = [];
+	const fetcher = async (url) => {
+		open++;
+		peak = Math.max(peak, open);
+		await new Promise((resolve) => setTimeout(resolve, 1));
+		open--;
+		const id = PACK_ID.exec(url).groups.id;
+		return Response.json(
+			payload(
+				chosen.find((recipe) => recipe.id === id),
+				release,
+			),
+		);
+	};
+	const recipes = await loadRecipePacks(
+		chosen.map((recipe) => recipe.id),
+		release,
+		{
+			fetcher,
+			concurrency: 3,
+			onProgress: (loaded, total) => progress.push([loaded, total]),
+		},
+	);
+	assert.deepEqual(
+		recipes.map((recipe) => recipe.id),
+		chosen.map((recipe) => recipe.id),
+	);
+	assert.equal(peak, 3);
+	assert.deepEqual(
+		progress,
+		chosen.map((_, index) => [index + 1, chosen.length]),
+	);
+});
+
+it("collection printing stops starting downloads after the first failure", async () => {
+	const release = "5".repeat(40);
+	const chosen = data.recipes.slice(0, 8);
+	const requested = [];
+	const fetcher = (url) => {
+		requested.push(url);
+		if (requested.length === 2)
+			return Promise.resolve(new Response("", { status: 503 }));
+		const id = PACK_ID.exec(url).groups.id;
+		return Promise.resolve(
+			Response.json(
+				payload(
+					chosen.find((recipe) => recipe.id === id),
+					release,
+				),
+			),
+		);
+	};
+	await assert.rejects(
+		loadRecipePacks(
+			chosen.map((recipe) => recipe.id),
+			release,
+			{ fetcher, concurrency: 1 },
+		),
+		LOAD_FAILED,
+	);
+	assert.equal(requested.length, 2);
 });

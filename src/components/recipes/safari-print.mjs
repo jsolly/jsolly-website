@@ -1,5 +1,3 @@
-import { recipeHref } from "./recipe-url.mjs";
-
 const IOS = /iPhone|iPad|iPod/u;
 
 // iPadOS can identify as a Mac; standalone alone also matches Mac Dock apps,
@@ -11,8 +9,9 @@ export function needsSafariPrint(navigator, standalone) {
 	return ios && (navigator.standalone === true || standalone);
 }
 
-export function safariPrintLinks(recipe, settings, origin) {
-	const url = new URL(recipeHref(recipe, settings), origin);
+// `href` is the same-origin page to print from: a recipe or a collection.
+export function safariPrintLinks(href, origin) {
+	const url = new URL(href, origin);
 	return {
 		url: url.href,
 		// Safari's application scheme escapes the Home Screen window. It is

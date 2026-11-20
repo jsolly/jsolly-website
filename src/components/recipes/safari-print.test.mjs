@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { it } from "vitest";
-import { readRecipeURL } from "./recipe-url.mjs";
+import { collectionHref, readRecipeURL, recipeHref } from "./recipe-url.mjs";
 import { needsSafariPrint, safariPrintLinks } from "./safari-print.mjs";
 
 const recipe = {
@@ -53,8 +53,7 @@ it("Safari and copyable links preserve recipe settings on the current Preview or
 				familyChoice: { [recipe.id]: "pita_one" },
 			};
 			const links = safariPrintLinks(
-				recipe,
-				settings,
+				recipeHref(recipe, settings),
 				"https://preview.example.test",
 			);
 			const restored = readRecipeURL(new URL(links.url), [recipe]);
@@ -67,8 +66,7 @@ it("Safari and copyable links preserve recipe settings on the current Preview or
 
 it("local HTTP testing retains a copyable link without offering an invalid Safari scheme", () => {
 	const links = safariPrintLinks(
-		recipe,
-		{ servings: 6, units: "metric" },
+		recipeHref(recipe, { servings: 6, units: "metric" }),
 		"http://localhost:4321",
 	);
 	assert.equal(links.safari, "");
@@ -76,5 +74,53 @@ it("local HTTP testing retains a copyable link without offering an invalid Safar
 		links.url,
 		// biome-ignore lint/security/noSecrets: public recipe URL fixture.
 		"http://localhost:4321/recipes/greek-turkey-patties/?servings=6&units=metric&starch=",
+	);
+});
+
+it("collection print links carry servings, units and every selected side in that collection", () => {
+	const recipes = [
+		{ ...recipe, type: "meal" },
+		{
+			id: "shawarma-chicken-bowls",
+			type: "meal",
+			familyOptions: [{ id: "rice_one" }],
+		},
+		{
+			id: "berry-smoothie",
+			type: "smoothie",
+			familyOptions: [{ id: "banana" }],
+		},
+	];
+	const settings = {
+		servings: 6,
+		units: "grams",
+		familyDiners: 2,
+		familyChoice: {
+			[recipe.id]: "pita_one",
+			"berry-smoothie": "banana",
+			"shawarma-chicken-bowls": "missing",
+		},
+	};
+	const links = safariPrintLinks(
+		collectionHref("meal", settings, recipes),
+		"https://preview.example.test",
+	);
+	const url = new URL(links.url);
+	assert.equal(url.pathname, "/recipes/meals/");
+	assert.equal(links.safari, `x-safari-${links.url}`);
+	assert.deepEqual(readRecipeURL(url, recipes), {
+		servings: 6,
+		units: "grams",
+		familyDiners: 2,
+		familyChoice: { [recipe.id]: "pita_one" },
+		recipeId: "",
+	});
+	assert.equal(
+		new URL(
+			collectionHref("smoothie", { servings: 4, units: "us" }, recipes),
+			"https://x.test",
+		).href,
+		// biome-ignore lint/security/noSecrets: public recipe URL fixture.
+		"https://x.test/recipes/smoothies/?servings=4&units=us&starch=",
 	);
 });

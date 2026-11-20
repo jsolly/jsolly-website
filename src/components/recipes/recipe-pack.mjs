@@ -53,3 +53,38 @@ export function loadRecipePack(id, releaseId, { fetcher = fetch } = {}) {
 	}
 	return pending;
 }
+
+/**
+ * Collection printing: every pack for `ids`, in that order, with at most
+ * `concurrency` downloads open. The first failure rejects and starts no more.
+ * `onProgress(loaded, total)` follows each completed download.
+ */
+export async function loadRecipePacks(
+	ids,
+	releaseId,
+	{ fetcher = fetch, concurrency = 6, onProgress } = {},
+) {
+	const recipes = new Array(ids.length);
+	let next = 0;
+	let loaded = 0;
+	let failed = false;
+	async function worker() {
+		while (!failed && next < ids.length) {
+			const index = next++;
+			try {
+				// biome-ignore lint/performance/noAwaitInLoops: each worker downloads one pack at a time to bound concurrency.
+				recipes[index] = await loadRecipePack(ids[index], releaseId, {
+					fetcher,
+				});
+			} catch (error) {
+				failed = true;
+				throw error;
+			}
+			onProgress?.(++loaded, ids.length);
+		}
+	}
+	await Promise.all(
+		Array.from({ length: Math.min(concurrency, ids.length) }, worker),
+	);
+	return recipes;
+}
