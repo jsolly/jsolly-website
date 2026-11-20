@@ -3,9 +3,10 @@
 
 /**
  * Every recipe in `collection`, in the canonical order of `recipes`, whatever
- * the search and filters show. `onMessage` receives the loading progress.
+ * the search and filters show. `onMessage` receives the loading progress; an
+ * already-aborted `signal` rejects before any message or download.
  */
-export function loadCollection(
+export async function loadCollection(
 	recipes,
 	collection,
 	load,
@@ -17,7 +18,7 @@ export function loadCollection(
 		.map((recipe) => recipe.id);
 	const noun = collection === "smoothie" ? "smoothies" : "meals";
 	onMessage?.(`Loading ${ids.length} ${noun} for printing…`);
-	return loadRecipePacks(ids, load, {
+	return await loadRecipePacks(ids, load, {
 		concurrency,
 		signal,
 		onProgress: (loaded, total) =>

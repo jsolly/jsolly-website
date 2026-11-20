@@ -283,9 +283,11 @@
 		// Aborting on any failure stops the remaining downloads and their progress
 		// messages, so the error stays visible.
 		const downloads = new AbortController();
+		// The collection pressed, not whichever is showing once the loader arrives.
+		const chosen = collection;
 		try {
 			const [recipes, module] = await Promise.all([
-				import("./recipe-collection-print.mjs").then(({ loadCollection }) => loadCollection(recipeIndex, collection, (id) => loadRecipePack(id, initial.release), { signal: downloads.signal, onMessage: (text) => { message = text; } })),
+				import("./recipe-collection-print.mjs").then(({ loadCollection }) => loadCollection(recipeIndex, chosen, (id) => loadRecipePack(id, initial.release), { signal: downloads.signal, onMessage: (text) => { message = text; } })),
 				import("./RecipePrint.svelte"),
 			]);
 			await showPrint(module, recipes);
