@@ -267,10 +267,13 @@
 		message = "Loading recipe for printing…";
 		try {
 			const [recipe, module] = await Promise.all([getDetail(id), import("./RecipePrint.svelte")]);
-			RecipePrint = module.default; printRecipes = [recipe];
 			if (!savedMode) void saveOpened(recipe);
-			await tick(); message = await printSession.print(tick);
+			await showPrint(module, [recipe]);
 		} catch (error) { void reportError("recipe-print"); message = error.message; }
+	}
+	async function showPrint(module, recipes) {
+		RecipePrint = module.default; printRecipes = recipes;
+		await tick(); message = await printSession.print(tick);
 	}
 	// Prints every recipe in the current collection, in canonical order, whatever
 	// the search and filters show. Packs download with bounded concurrency and
@@ -281,14 +284,16 @@
 		const ids = recipeIndex.filter((recipe) => recipe.type === collection).map((recipe) => recipe.id);
 		const noun = collection === "smoothie" ? "smoothies" : "meals";
 		message = `Loading ${ids.length} ${noun} for printing…`;
+		// Aborting on any failure stops the remaining downloads and their progress
+		// messages, so the error stays visible.
+		const downloads = new AbortController();
 		try {
 			const [recipes, module] = await Promise.all([
-				loadRecipePacks(ids, initial.release, { onProgress: (loaded, total) => { message = `Loading ${noun} for printing: ${loaded} of ${total}…`; } }),
+				loadRecipePacks(ids, initial.release, { signal: downloads.signal, onProgress: (loaded, total) => { message = `Loading ${noun} for printing: ${loaded} of ${total}…`; } }),
 				import("./RecipePrint.svelte"),
 			]);
-			RecipePrint = module.default; printRecipes = recipes;
-			await tick(); message = await printSession.print(tick);
-		} catch (error) { void reportError("recipe-print"); message = error.message; }
+			await showPrint(module, recipes);
+		} catch (error) { downloads.abort(); void reportError("recipe-print"); message = error.message; }
 		finally { printingCollection = false; }
 	}
 	// Card links navigate normally; recording the visit at click time, as well as
@@ -379,7 +384,7 @@
 	<LibraryControls {collection} saved={savedMode} onCollectionChange={(value) => { collection = value; }} bind:query {pathname} {hydrated} {servings} onServingsChange={setServings} shownApplianceKeys={result.filterChoices.shownAppliances} collectionHasIron={result.filterChoices.collectionHasIron} {smoothieIngredients} {hasMatches} bind:filters bind:appliancesOnHand />
 	{#if !saved}<noscript><NativeRecipeControls {collection} {pathname} metadata={result.filterChoices} /></noscript>{/if}
 	<div class="browse" id="meal-results" data-match-count={result.total} aria-busy={shuffling || loading}>
-		<div class="results-heading"><h2 bind:this={listHeading} tabindex="-1">{savedMode ? "Saved recipes" : collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2><div class="results-actions"><Button class="enhanced-shuffle" variant="outline" type="button" disabled={!hydrated || shuffling || result.total < 2} onclick={shuffleCards}><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button>{#if !saved}<noscript><Button variant="outline" type="submit" form="recipe-browse-form" name="shuffle" value="1"><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button></noscript>{/if}{#if !savedMode}<RecipePrintButton class="enhanced-print-all" variant="outline" label={collection === "smoothie" ? "Print all smoothies" : "Print all meals"} subject="collection" href={collectionHref(collection, recipeSettings, recipeIndex)} disabled={!hydrated || printingCollection} onPrint={printCollection} />{/if}</div></div>
+		<div class="results-heading"><h2 bind:this={listHeading} tabindex="-1">{savedMode ? "Saved recipes" : collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2><div class="results-actions"><Button class="enhanced-shuffle" variant="outline" type="button" disabled={!hydrated || shuffling || result.total < 2} onclick={shuffleCards}><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button>{#if !saved}<noscript><Button variant="outline" type="submit" form="recipe-browse-form" name="shuffle" value="1"><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button></noscript>{/if}{#if !savedMode}<RecipePrintButton class="enhanced-print-all" variant="outline" label={collection === "smoothie" ? "Print all smoothies" : "Print all meals"} subject="collection" href={collectionHref(collection, recipeSettings, recipeIndex)} disabled={!hydrated} busy={printingCollection} onPrint={printCollection} />{/if}</div></div>
 		{#if hydrated && chips.length}<div class="active-filters"><ul aria-label="Active filters and search">{#each chips as chip, index (`${chip.key}:${chip.value ?? ""}`)}<li><Button variant="outline" size="sm" type="button" aria-label={`Remove ${chip.key === "query" ? "search" : "filter"}: ${chip.label}`} onclick={() => removeChip(chip, index)}>{chip.label}<X aria-hidden="true" /></Button></li>{/each}</ul><Button variant="ghost" size="sm" type="button" onclick={clearChips}>Clear all</Button></div>{/if}
 		<p class="no-results" role="status">{!result.total ? savedMode ? "No saved recipes match. Open a recipe online to save it for offline use." : "No recipes match your search and filters. Try fewer words or adjust the filters." : query.trim() ? `${result.total} recipes found` : ""}</p>
 		<div class="recipe-grid">

@@ -225,23 +225,35 @@ it("Print all meals and Print all smoothies print every recipe in that collectio
 		initScript: printFiresBeforePrint,
 	});
 	const packs = [];
-	const offline = [];
 	page.on("request", (request) => {
 		const { pathname } = new URL(request.url());
 		if (pathname.startsWith("/recipes/data/packs/")) packs.push(pathname);
-		if (pathname.startsWith("/recipes/data/offline/")) offline.push(pathname);
 	});
 	const printAll = async (path, label, collection) => {
 		packs.length = 0;
 		await goHydrated(page, path);
+		// Offline saves go through the service worker, so it must control the
+		// page for the no-save check below to be able to fail.
+		await page.waitForFunction(() => navigator.serviceWorker.controller);
 		// A search narrows the cards, not what Print all prints.
+		const cards = page.locator(".recipe-card");
+		const shown = await cards.count();
 		await page
 			.getByRole("searchbox", { name: "Search recipes" })
 			.fill(collection[0].title);
 		await page.waitForFunction(
-			() =>
+			(count) =>
+				document.querySelectorAll(".recipe-card").length < count &&
 				document.querySelector("#meal-results").getAttribute("aria-busy") ===
-				"false",
+					"false",
+			shown,
+		);
+		assert.equal(
+			await cards
+				.locator(`.title-button[data-recipe-id="${collection[0].id}"]`)
+				.count(),
+			1,
+			"the search kept the recipe it names",
 		);
 		await page.evaluate(() =>
 			document.documentElement.removeAttribute("data-test-print-requested"),
@@ -287,7 +299,13 @@ it("Print all meals and Print all smoothies print every recipe in that collectio
 	try {
 		await printAll("/recipes/meals/", "Print all meals", meals);
 		await printAll("/recipes/smoothies/", "Print all smoothies", smoothies);
-		assert.deepEqual(offline, [], "collection printing saves nothing offline");
+		assert.deepEqual(
+			(await page.evaluate(() => caches.keys())).filter((name) =>
+				name.startsWith("recipe-saved-v1-"),
+			),
+			[],
+			"collection printing saves nothing offline",
+		);
 		assert.deepEqual(errors, []);
 	} finally {
 		await close();

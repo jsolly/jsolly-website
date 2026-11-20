@@ -946,8 +946,8 @@ function collectionsCheck(width) {
 			await page.goto(`${site.origin}/recipes/meals/`);
 			assert.equal(await page.locator(".recipe-card").count(), 6);
 			assert.equal(await page.locator(".recipe-detail").count(), 0);
-			// The controls need JavaScript, so recipes-no-script.css hides them
-			// (hidden controls are counted with includeHidden).
+			// The controls and Print all need JavaScript, so recipes-no-script.css
+			// hides them (hidden controls are counted with includeHidden).
 			const servings = page.getByRole("combobox", {
 				name: SERVINGS,
 				includeHidden: true,
@@ -959,7 +959,8 @@ function collectionsCheck(width) {
 				exact: true,
 				includeHidden: true,
 			});
-			assert.equal(await printAll.count(), 0);
+			assert.equal(await printAll.count(), 1);
+			assert.equal(await printAll.isVisible(), false);
 			const next = page
 				.getByRole("navigation", { name: "Recipe pages" })
 				.getByRole("link", { name: "Next recipes" });

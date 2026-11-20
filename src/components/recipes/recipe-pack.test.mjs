@@ -173,3 +173,73 @@ it("collection printing stops starting downloads after the first failure", async
 	);
 	assert.equal(requested.length, 2);
 });
+
+it("collection printing reports no progress after a failure, even from downloads still in flight", async () => {
+	const release = "6".repeat(40);
+	const chosen = data.recipes.slice(0, 4);
+	const requested = [];
+	const progress = [];
+	const fetcher = (url) => {
+		requested.push(url);
+		const id = PACK_ID.exec(url).groups.id;
+		if (id === chosen[0].id)
+			return Promise.resolve(new Response("", { status: 503 }));
+		const recipe = chosen.find((item) => item.id === id);
+		return new Promise((resolve) => {
+			setTimeout(() => resolve(Response.json(payload(recipe, release))), 10);
+		});
+	};
+	await assert.rejects(
+		loadRecipePacks(
+			chosen.map((recipe) => recipe.id),
+			release,
+			{
+				fetcher,
+				concurrency: 3,
+				onProgress: (loaded, total) => progress.push([loaded, total]),
+			},
+		),
+		LOAD_FAILED,
+	);
+	await new Promise((resolve) => {
+		setTimeout(resolve, 40);
+	});
+	assert.deepEqual(progress, [], "the error is the last word");
+	assert.equal(requested.length, 3, "no download starts after the failure");
+});
+
+it("an aborted collection print starts no more downloads and reports no more progress", async () => {
+	const release = "7".repeat(40);
+	const chosen = data.recipes.slice(0, 4);
+	const requested = [];
+	const progress = [];
+	const loading = new AbortController();
+	const fetcher = (url) => {
+		requested.push(url);
+		const id = PACK_ID.exec(url).groups.id;
+		loading.abort();
+		return Promise.resolve(
+			Response.json(
+				payload(
+					chosen.find((recipe) => recipe.id === id),
+					release,
+				),
+			),
+		);
+	};
+	await assert.rejects(
+		loadRecipePacks(
+			chosen.map((recipe) => recipe.id),
+			release,
+			{
+				fetcher,
+				concurrency: 1,
+				signal: loading.signal,
+				onProgress: (loaded, total) => progress.push([loaded, total]),
+			},
+		),
+		{ name: "AbortError" },
+	);
+	assert.equal(requested.length, 1);
+	assert.deepEqual(progress, []);
+});

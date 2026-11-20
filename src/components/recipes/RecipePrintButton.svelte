@@ -6,7 +6,8 @@
 
 	// `href` is the page Safari opens to print from: the recipe, or the
 	// collection for a whole-collection print; `subject` names it in the help.
-	let { href, label = "Print recipe", subject = "recipe", onPrint, disabled = false, variant = "default", class: className = "" } = $props();
+	// `busy` marks a print in progress without disabling, so focus stays put.
+	let { href, label = "Print recipe", subject = "recipe", onPrint, disabled = false, busy = false, variant = "default", class: className = "" } = $props();
 	let origin = $state("");
 	const links = $derived(origin ? safariPrintLinks(href, origin) : null);
 	const linkId = $props.id();
@@ -21,7 +22,7 @@
 </script>
 
 <div class="recipe-print-action">
-	<Button type="button" {variant} class={`${variant === "default" ? "print-recipe" : ""} ${className}`} {disabled} onclick={print}><Printer aria-hidden="true" />{label}</Button>
+	<Button type="button" {variant} class={`${variant === "default" ? "print-recipe" : ""} ${className}`} {disabled} aria-busy={busy || undefined} onclick={print}><Printer aria-hidden="true" />{label}</Button>
 	{#if links}
 		<div class="safari-print-help">
 			<p role="status">To print from this Home Screen app, open the {subject} in Safari, then tap {label} there. Your servings, units and optional side{subject === "recipe" ? " are" : "s are"} included in the link. Opening Safari needs an internet connection.</p>

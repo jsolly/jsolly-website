@@ -2,6 +2,11 @@ import { BASE_SERVINGS } from "./constants.mjs";
 import { validateSettings } from "./recipe-settings.mjs";
 import retired from "./retired-recipes.json" with { type: "json" };
 
+const COLLECTION_TYPES = {
+	"/recipes/meals/": "meal",
+	"/recipes/smoothies/": "smoothie",
+};
+
 // Reads a recipe link's settings and target (its /recipes/<id>/ page or
 // #<id> hash). Explicit settings override the addressed recipe's saved side,
 // including older shares that represent None by omitting starch.
@@ -33,10 +38,18 @@ export function readRecipeURL(
 	const explicitSettings = ["servings", "units", "starch", "sideDiners"].some(
 		(key) => url.searchParams.has(key),
 	);
+	// A collection print link lists every chosen side in that collection, so its
+	// starch replaces the reader's saved sides for all of that collection.
+	const collectionType = url.searchParams.has("starch")
+		? COLLECTION_TYPES[url.pathname]
+		: undefined;
+	const addressed = (id) =>
+		(explicitSettings && id === recipeId) ||
+		(collectionType !== undefined &&
+			recipes.find((recipe) => recipe.id === id)?.type === collectionType);
 	const familyChoice = Object.fromEntries(
 		Object.entries(defaults.familyChoice || {}).filter(
-			([id, side]) =>
-				offered(id, side) && !(explicitSettings && id === recipeId),
+			([id, side]) => offered(id, side) && !addressed(id),
 		),
 	);
 	let explicitSide = false;
@@ -60,42 +73,16 @@ export function readRecipeURL(
 	return { servings, units, familyDiners, familyChoice, recipeId };
 }
 
-// The shareable link to a recipe page with the reader's servings and optional side.
-export function recipeHref(recipe, settings) {
-	const params = new URLSearchParams({
-		servings: String(validateSettings(settings).servings),
-		units: validateSettings(settings).units,
-		starch: "",
-	});
-	const side = settings.familyChoice?.[recipe.id];
-	if (recipe.familyOptions.some((option) => option.id === side)) {
-		params.set("starch", `${recipe.id}:${side}`);
-		params.set(
-			"sideDiners",
-			String(
-				validateSettings({
-					...settings,
-					familyDiners:
-						settings.familyDiners ?? settings.servings ?? BASE_SERVINGS,
-				}).familyDiners,
-			),
-		);
-	}
-	return `/recipes/${recipe.id}/?${params}`;
-}
-
-// A collection page link carrying the reader's servings, units and every
-// selected side in that collection, for printing the whole collection in Safari.
-export function collectionHref(collection, settings, recipes) {
+// Servings, units and the chosen side of each of `recipes`, with the side
+// diner count whenever a side is chosen. Shared by recipe and collection links.
+function settingsParams(recipes, settings) {
 	const { servings, units } = validateSettings(settings);
-	const sides = recipes
-		.filter((recipe) => recipe.type === collection)
-		.flatMap((recipe) => {
-			const side = settings.familyChoice?.[recipe.id];
-			return recipe.familyOptions.some((option) => option.id === side)
-				? [`${recipe.id}:${side}`]
-				: [];
-		});
+	const sides = recipes.flatMap((recipe) => {
+		const side = settings.familyChoice?.[recipe.id];
+		return recipe.familyOptions.some((option) => option.id === side)
+			? [`${recipe.id}:${side}`]
+			: [];
+	});
 	const params = new URLSearchParams({
 		servings: String(servings),
 		units,
@@ -111,7 +98,24 @@ export function collectionHref(collection, settings, recipes) {
 				}).familyDiners,
 			),
 		);
-	return `${collection === "smoothie" ? "/recipes/smoothies/" : "/recipes/meals/"}?${params}`;
+	return params;
+}
+
+// The shareable link to a recipe page with the reader's servings and optional side.
+export function recipeHref(recipe, settings) {
+	return `/recipes/${recipe.id}/?${settingsParams([recipe], settings)}`;
+}
+
+// A collection page link carrying the reader's servings, units and every
+// selected side in that collection, for printing the whole collection in Safari.
+export function collectionHref(collection, settings, recipes) {
+	const path = Object.keys(COLLECTION_TYPES).find(
+		(key) => COLLECTION_TYPES[key] === collection,
+	);
+	return `${path}?${settingsParams(
+		recipes.filter((recipe) => recipe.type === collection),
+		settings,
+	)}`;
 }
 
 // Default browsing links point directly to the canonical page. Shared links

@@ -56,13 +56,14 @@ export function loadRecipePack(id, releaseId, { fetcher = fetch } = {}) {
 
 /**
  * Collection printing: every pack for `ids`, in that order, with at most
- * `concurrency` downloads open. The first failure rejects and starts no more.
- * `onProgress(loaded, total)` follows each completed download.
+ * `concurrency` downloads open. The first failure, or an aborted `signal`,
+ * rejects and starts no more. `onProgress(loaded, total)` follows each
+ * completed download until then, never after.
  */
 export async function loadRecipePacks(
 	ids,
 	releaseId,
-	{ fetcher = fetch, concurrency = 6, onProgress } = {},
+	{ fetcher = fetch, concurrency = 6, onProgress, signal } = {},
 ) {
 	const recipes = new Array(ids.length);
 	let next = 0;
@@ -70,6 +71,7 @@ export async function loadRecipePacks(
 	let failed = false;
 	async function worker() {
 		while (!failed && next < ids.length) {
+			signal?.throwIfAborted();
 			const index = next++;
 			try {
 				// biome-ignore lint/performance/noAwaitInLoops: each worker downloads one pack at a time to bound concurrency.
@@ -80,6 +82,8 @@ export async function loadRecipePacks(
 				failed = true;
 				throw error;
 			}
+			if (failed) return;
+			signal?.throwIfAborted();
 			onProgress?.(++loaded, ids.length);
 		}
 	}

@@ -124,3 +124,59 @@ it("collection print links carry servings, units and every selected side in that
 		"https://x.test/recipes/smoothies/?servings=4&units=us&starch=",
 	);
 });
+
+it("a collection print link replaces Safari's own saved sides for that collection only", () => {
+	const recipes = [
+		{ ...recipe, type: "meal" },
+		{
+			id: "shawarma-chicken-bowls",
+			type: "meal",
+			familyOptions: [{ id: "rice_one" }],
+		},
+		{
+			id: "berry-smoothie",
+			type: "smoothie",
+			familyOptions: [{ id: "banana" }],
+		},
+	];
+	// Safari keeps its own storage, apart from the Home Screen app's.
+	const safari = {
+		servings: 2,
+		familyDiners: 1,
+		familyChoice: {
+			"shawarma-chicken-bowls": "rice_one",
+			"berry-smoothie": "banana",
+		},
+	};
+	const app = {
+		servings: 4,
+		units: "us",
+		familyDiners: 2,
+		familyChoice: { [recipe.id]: "pita_one" },
+	};
+	const url = new URL(collectionHref("meal", app, recipes), "https://x.test");
+	assert.deepEqual(readRecipeURL(url, recipes, safari), {
+		servings: 4,
+		units: "us",
+		familyDiners: 2,
+		familyChoice: { [recipe.id]: "pita_one", "berry-smoothie": "banana" },
+		recipeId: "",
+	});
+	const none = new URL(
+		collectionHref("meal", { servings: 4, units: "us" }, recipes),
+		"https://x.test",
+	);
+	assert.deepEqual(readRecipeURL(none, recipes, safari).familyChoice, {
+		"berry-smoothie": "banana",
+	});
+	// A native browse link carries servings but no starch, so saved sides stay.
+	assert.deepEqual(
+		readRecipeURL(
+			// biome-ignore lint/security/noSecrets: public collection browse URL, not a credential.
+			new URL("/recipes/meals/?servings=4&page=2", "https://x.test"),
+			recipes,
+			safari,
+		).familyChoice,
+		safari.familyChoice,
+	);
+});
