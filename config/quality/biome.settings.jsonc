@@ -326,6 +326,7 @@
 				"tests/unit/usda.test.mjs",
 				"tests/unit/fake-aws-cli.mjs",
 				"gate/ci-gate.mjs",
+				"gate/run-gate.mjs",
 				"config/testing/vitest.config.mjs",
 				"monitoring/accessibility-pages.ts",
 				"monitoring/accessibility-report.mjs",

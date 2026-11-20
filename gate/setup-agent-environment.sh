@@ -45,8 +45,11 @@ mise install
 if [[ -f package-lock.json ]]; then
   mise exec -- npm ci
 fi
-if [[ -x node_modules/.bin/playwright ]]; then
-  mise exec -- npm run --silent browser:install
+# Where Playwright cannot download its browser (some cloud agent sessions), setup
+# continues and the local gate skips its browser suites; CI always runs them.
+# Tracking: https://app.todoist.com/app/task/6j3qXFvGP5QhCRP5
+if [[ -x node_modules/.bin/playwright ]] && ! mise exec -- npm run --silent browser:install; then
+  echo '⚠ Browser not installed. Where browser downloads are switched off the local gate skips its browser suites (CI runs them); otherwise it fails until the browser is installed. See docs/development.md.' >&2
 fi
 bash gate/repo-python.sh gate/repo-hooks.py verify --root "$root"
 echo 'Repository environment ready; no private configuration repository is required.'

@@ -16,6 +16,10 @@ import {
 	privateEnvironment,
 	snapshot,
 } from "./gate-snapshot.mjs";
+import {
+	browserDownloadsDisabled,
+	SHELL_MISSING_EXIT,
+} from "./provision-chromium.ts";
 
 const chains = [
 	{
@@ -59,6 +63,22 @@ const buildCommands = [
 	["build", "npm", "run", "build"],
 	["built tests", "npm", "run", "test:built"],
 ];
+
+// TEMPORARY: Claude Duet cloud sessions cannot provision Playwright's browser
+// (dead PLAYWRIGHT_DOWNLOAD_HOST, PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1, and a proxy
+// that refuses the download hosts). There, and only where browser downloads are
+// switched off like that, a local gate without the shell skips the suites that
+// launch it instead of failing. Anywhere else a missing shell still fails with
+// the install command, and CI always installs the browser and never skips.
+// Remove the skip when sessions can run a browser:
+// https://app.todoist.com/app/task/6j3qXFvGP5QhCRP5
+export const NO_BROWSER_SKIPPED =
+	"⚠ The smoke scenario contract and built-output tests were skipped (see the warning above); CI runs them on the pull request.";
+export const NO_BROWSER_WARNING = `⚠ No Chrome Headless Shell is installed and PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD switches browser downloads off, so this local gate SKIPS the smoke scenario contract and the built-output tests (one counted suite, so its non-browser files are skipped too).
+  Why: some cloud agent sessions cannot download Playwright's browser; they point PLAYWRIGHT_DOWNLOAD_HOST at a dead address, set PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1, and their proxy refuses the download hosts.
+  CI installs the browser and runs both on every pull request, and the required \`ci\` check still gates the merge.
+  Where the download host is reachable, run \`npm run browser:install\` to run them locally.
+  Tracking (remove this skip once sessions can run a browser): https://app.todoist.com/app/task/6j3qXFvGP5QhCRP5`;
 
 export async function runChains(
 	work,
@@ -176,25 +196,40 @@ async function runValidation(root, built) {
 		const installMode = process.env.JSOLLY_INSTALL_BROWSER;
 		if (![undefined, "0", "1"].includes(installMode))
 			throw new Error("JSOLLY_INSTALL_BROWSER must be 1, 0 or unset.");
-		// Without an install step, a missing browser fails here, before any check
-		// starts, with the command that provisions it.
-		if (installMode !== "1")
-			await runChains(
-				[
-					{
-						name: "browser-check",
-						cwd: root,
-						commands: [
-							["browser check", "npm", "run", "--silent", "browser:check"],
-						],
-					},
-				],
-				scratch,
-				{ signal: controller.signal },
-			);
+		// Without an install step, the browser is checked before any check starts.
+		// A missing shell outside CI, where browser downloads are switched off,
+		// skips the browser suites (NO_BROWSER_WARNING); anything else fails here.
+		let browser = true;
+		if (installMode !== "1") {
+			try {
+				await runChains(
+					[
+						{
+							name: "browser-check",
+							cwd: root,
+							commands: [
+								["browser check", "npm", "run", "--silent", "browser:check"],
+							],
+						},
+					],
+					scratch,
+					{ signal: controller.signal },
+				);
+			} catch (error) {
+				if (
+					error.exitCode !== SHELL_MISSING_EXIT ||
+					process.env.CI ||
+					!browserDownloadsDisabled(process.env)
+				)
+					throw error;
+				browser = false;
+				console.warn(NO_BROWSER_WARNING);
+			}
+		}
 		const work = [];
 		for (const chain of chains) {
 			if (controller.signal.aborted) throw new Error("Gate cancelled");
+			if (!browser && chain.name === "smoke") continue;
 			const cwd = await createValidationTree(
 				root,
 				join(scratch, chain.name),
@@ -238,7 +273,7 @@ async function runValidation(root, built) {
 		for (const phase of work) {
 			if (phase.name === "smoke") phase.ready = browserReady;
 		}
-		if (built)
+		if (built && browser)
 			work.push({
 				name: "built",
 				cwd: root,
@@ -255,6 +290,7 @@ async function runValidation(root, built) {
 		if (failure) throw failure.reason;
 		await assertUnchanged(root, source);
 		passed = true;
+		if (!browser) console.warn(NO_BROWSER_SKIPPED);
 	} catch (error) {
 		console.error(`Gate diagnostics retained at ${scratch}`);
 		throw error;

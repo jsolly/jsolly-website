@@ -71,7 +71,7 @@ npm run build:maintenance   # MAINTENANCE_MODE=true npm run build (renders Maint
 npm run preview             # Preview the production build locally
 npm run gate                # the full pre-commit gate (see CI below)
 npm run browser:install     # Playwright's install of the pinned Chromium headless shell (docs/development.md)
-npm run browser:check       # fail unless that headless shell is installed (the local gate runs it first)
+npm run browser:check       # exit 3 when only that headless shell is missing, 1 on other errors (the local gate runs it first)
 npm run check:fix           # biome check --write
 npm run check:ts            # astro check + svelte-check (errors only)
 npm run fix                 # check:fix + check:ts (combined)
@@ -201,7 +201,7 @@ If a green merge creates no Vercel deployment, verify that the project's Git con
 
 ## CI (local pre-commit gate)
 
-- `.git-hooks/pre-commit` runs through the repo-owned trusted hook dispatcher and validates Bash, Biome, YAML, Actions, Markdown, browser contract, Knip, the legacy redirect config (`redirects:check`), the generated recipe data (`recipes:check`), Astro and Svelte types (`check:ts`), unit tests, build, built-output tests and isolated hook/bootstrap fixtures. GitHub Actions repeats those checks as preparation and two built-test shards; the required `ci` aggregate verifies successful jobs, immutable build identity, complete disjoint file coverage and the unchanged built-test ledger. The local hook always runs the entire suite and does **not** deploy.
+- `.git-hooks/pre-commit` runs through the repo-owned trusted hook dispatcher and validates Bash, Biome, YAML, Actions, Markdown, browser contract, Knip, the legacy redirect config (`redirects:check`), the generated recipe data (`recipes:check`), Astro and Svelte types (`check:ts`), unit tests, build, built-output tests and isolated hook/bootstrap fixtures. GitHub Actions repeats those checks as preparation and two built-test shards; the required `ci` aggregate verifies successful jobs, immutable build identity, complete disjoint file coverage and the unchanged built-test ledger. The local hook runs the entire suite and does **not** deploy. Temporary exception: when no Chrome Headless Shell is installed and `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD` switches downloads off (cloud agent sessions cannot download one), it warns and skips the smoke contract and built-output tests; CI still runs them, and a report of a local gate run must say they were skipped ([development and release](docs/development.md)).
 - Built shard 1 also runs the axe sample (`npm run check:a11y:sample`). The full axe audit runs in `.github/workflows/a11y.yml` after each push to `main`, daily and on dispatch, outside required `ci`; it reports to shared-infra's `/shared-infra/scheduled-checks` log group through OIDC, whose alarms email on error lines (violations or check failures) when the report reaches CloudWatch, or on a missing daily heartbeat ([accessibility](docs/accessibility.md), [shared-infra fields → Coverage](docs/shared-infra.md#coverage)). Alerting works only once jsolly/shared-infra's scheduled-checks change is deployed; until then a failing audit is only a red Actions run.
 
 ## Conventions

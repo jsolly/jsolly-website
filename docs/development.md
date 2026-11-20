@@ -34,9 +34,11 @@ Setup installs repo-owned hooks outside the working tree, provisions the pinned
 tools and lockfile dependencies, and runs `npm run browser:install`, which is
 Playwright's own `playwright install --only-shell chromium` for the headless shell
 every browser test uses. Setup uses no other download source. Where the browser
-download host is not reachable, as in some cloud agent sessions, setup fails with
-a message for the environment owner: provision the pinned browser or allow the
-host. When `PLAYWRIGHT_DOWNLOAD_HOST` or `PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST`
+download host is not reachable, as in some cloud agent sessions, the install
+prints a message for the environment owner (provision the pinned browser or allow
+the host) and setup continues with a warning. Where `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD`
+switches downloads off, the local gate then skips its browser suites (below);
+otherwise it fails until the browser is installed. When `PLAYWRIGHT_DOWNLOAD_HOST` or `PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST`
 replaces Playwright's CDN, the message names that variable and the default host.
 Run the repo's documented quality gate with its pinned tools:
 
@@ -45,8 +47,8 @@ mise exec -- npm run gate
 ```
 
 Use the repository's README and AGENTS.md for its build, test and deployment
-commands. A missing prerequisite is a failed setup; report it rather than claiming
-that the gate ran. No setup command deploys the application or infrastructure.
+commands. A missing prerequisite other than the browser is a failed setup; report
+it rather than claiming that the gate ran. No setup command deploys the application or infrastructure.
 
 Astro and Svelte use TypeScript 6's compiler API. `npm run check:ts` selects
 TypeScript 7's CLI through the `@typescript/native` npm alias for compiler-only
@@ -97,8 +99,20 @@ Smoke contracts and built browser tests wait for installation to succeed; built
 tests also wait for the complete build and CSP suite. Installation failures fail
 the gate. The real Chromium process-cleanup regression belongs to the built suite;
 the unit suite retains detached-process and shutdown-race coverage. Local gates use the browser already provisioned by repository setup.
-Before starting any check, a local gate runs `npm run browser:check`, which fails
-with the install command when the pinned headless shell is missing.
+Before starting any check, a local gate runs `npm run browser:check`. A broken
+Playwright installation fails the gate there. When only the pinned headless shell
+is missing (exit code 3) and `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD` switches browser
+downloads off (read as Playwright reads it: the variable or its npm config form, any
+non-empty value but `false` or `0`), the local gate warns
+and skips the smoke scenario contract and the built-output tests, the two suites
+that launch it, and runs everything else. Without that variable a missing shell
+still fails with the install command. The built suite is one counted suite, so its non-browser files are
+skipped with it. This is temporary: Claude Duet cloud sessions point
+`PLAYWRIGHT_DOWNLOAD_HOST` at a dead address, set `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1`
+and refuse Playwright's download hosts at their proxy, so they cannot provision a
+browser. CI installs the browser and never skips; with `CI` set, a missing browser
+still fails. A routine checks twice a month for browser support; remove the skip
+when it lands ([Todoist 6j3qXFvGP5QhCRP5](https://app.todoist.com/app/task/6j3qXFvGP5QhCRP5)).
 No previous passing result is accepted as current test evidence.
 
 Static link and Markdown checks read HTML through parse5 instead of allocating
