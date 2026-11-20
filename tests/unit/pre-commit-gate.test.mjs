@@ -14,9 +14,17 @@ import os from "node:os";
 import path from "node:path";
 import { promisify } from "node:util";
 import { it } from "vitest";
+import { SHELL_MISSING_EXIT } from "../../gate/provision-chromium.js";
+import { NO_BROWSER_WARNING } from "../../gate/run-gate.mjs";
 
 const run = promisify(exec);
 const project = process.cwd();
+// The caller's own downloads setting, in any form Playwright reads, stays out of the fixture.
+const SKIP_DOWNLOAD_FORMS = new Set(
+	["", "npm_config_", "npm_package_config_"].map(
+		(prefix) => `${prefix}playwright_skip_browser_download`,
+	),
+);
 async function fixture(t) {
 	const temp = await mkdtemp(path.join(os.tmpdir(), "pre-commit-gate-"));
 	t.onTestFinished(() => rm(temp, { recursive: true, force: true }));
@@ -26,7 +34,12 @@ async function fixture(t) {
 	await mkdir(path.join(root, "gate"));
 	await mkdir(path.join(root, "node_modules"));
 	await Promise.all(
-		["run-gate.mjs", "gate-snapshot.mjs", "gate-processes.mjs"].map((name) =>
+		[
+			"run-gate.mjs",
+			"gate-snapshot.mjs",
+			"gate-processes.mjs",
+			"provision-chromium.ts",
+		].map((name) =>
 			copyFile(path.join(project, "gate", name), path.join(root, "gate", name)),
 		),
 	);
@@ -66,7 +79,8 @@ async function fixture(t) {
 				!key.startsWith("GIT_") &&
 				!key.startsWith("FLEET_") &&
 				key !== "CI" &&
-				key !== "JSOLLY_INSTALL_BROWSER",
+				key !== "JSOLLY_INSTALL_BROWSER" &&
+				!SKIP_DOWNLOAD_FORMS.has(key.toLowerCase()),
 		),
 	);
 	Object.assign(env, {
@@ -96,6 +110,7 @@ async function fixture(t) {
 		"gate/run-gate.mjs",
 		"gate/gate-snapshot.mjs",
 		"gate/gate-processes.mjs",
+		"gate/provision-chromium.ts",
 		"src/components/Example.svelte",
 	);
 	await git("-c", "core.hooksPath=/dev/null", "commit", "-m", "fixture");
@@ -149,9 +164,9 @@ main().catch(error => { console.error(error.message); process.exitCode=1; });
 const fs = require("node:fs");
 const command = process.argv.slice(2).join(" ");
 fs.appendFileSync(process.env.RECEIPT, "npm " + command + "\\n");
-if (command === "run --silent browser:check" && process.env.FAIL_BROWSER === "1") {
+if (command === "run --silent browser:check" && process.env.BROWSER_CHECK_EXIT) {
 	console.error("browser missing; run npm run browser:install");
-	process.exit(44);
+	process.exit(Number(process.env.BROWSER_CHECK_EXIT));
 }
 if (command === "run build") fs.writeFileSync(process.env.RECEIPT + ".build", "built");
 if (command === "test") fs.writeFileSync(process.env.RECEIPT + ".unit", "tested");
@@ -184,18 +199,74 @@ it("CI browser setup overlaps build and gates every browser-dependent suite", as
 	assert.ok(calls.includes("npm run test:built\n"));
 });
 
-it("local gate without a provisioned browser fails before any check starts", async (t) => {
+it("local gate without a provisioned browser skips only the browser suites, with the reason, where downloads are off", async (t) => {
 	const f = await browserSetupFixture(t);
-	await assert.rejects(
-		f.hook({ FAIL_BROWSER: "1" }),
-		(error) =>
-			error.code === 44 && error.stderr.includes("npm run browser:install"),
-	);
+	const result = await f.hook({
+		BROWSER_CHECK_EXIT: String(SHELL_MISSING_EXIT),
+		PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1",
+	});
+	assert.ok(result.stdout.includes("pre-commit gate passed"));
+	assert.ok(result.stderr.includes(NO_BROWSER_WARNING));
 	const calls = await f.calls();
 	assert.ok(calls.includes("npm run --silent browser:check\n"));
+	for (const retained of [
+		"npm run build\n",
+		"npm test\n",
+		"npm run test:python\n",
+		"npm run check:ts\n",
+	])
+		assert.ok(calls.includes(retained), retained);
+	assert.ok(!calls.includes("npm run smoke:scenario-contract\n"));
+	assert.ok(!calls.includes("npm run test:built\n"));
+	assert.ok(!calls.includes("npx --no-install playwright"));
+});
+
+it("local gate with browser downloads on still fails before any check for a missing browser", async (t) => {
+	const f = await browserSetupFixture(t);
+	const missing = (error) =>
+		error.code === SHELL_MISSING_EXIT &&
+		error.stderr.includes("npm run browser:install");
+	await assert.rejects(
+		f.hook({ BROWSER_CHECK_EXIT: String(SHELL_MISSING_EXIT) }),
+		missing,
+	);
+	await assert.rejects(
+		f.hook({
+			BROWSER_CHECK_EXIT: String(SHELL_MISSING_EXIT),
+			PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "0",
+		}),
+		missing,
+	);
+	const calls = await f.calls();
 	assert.ok(!calls.includes("npm run build\n"));
 	assert.ok(!calls.includes("npm test\n"));
-	assert.ok(!calls.includes("npx "));
+});
+
+it("local gate still fails before any check when the browser check fails for another reason", async (t) => {
+	const f = await browserSetupFixture(t);
+	await assert.rejects(
+		f.hook({ BROWSER_CHECK_EXIT: "1", PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1" }),
+		(error) =>
+			error.code === 1 && error.stderr.includes("npm run browser:install"),
+	);
+	const calls = await f.calls();
+	assert.ok(!calls.includes("npm run build\n"));
+	assert.ok(!calls.includes("npm test\n"));
+});
+
+it("CI never skips the browser suites for a missing browser", async (t) => {
+	const f = await browserSetupFixture(t);
+	await assert.rejects(
+		f.hook({
+			BROWSER_CHECK_EXIT: String(SHELL_MISSING_EXIT),
+			PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1",
+			CI: "true",
+		}),
+		(error) => error.code === SHELL_MISSING_EXIT,
+	);
+	const calls = await f.calls();
+	assert.ok(!calls.includes("npm run build\n"));
+	assert.ok(!calls.includes("npm test\n"));
 });
 
 it("failed CI browser setup fails the full gate without starting browser-dependent suites", async (t) => {

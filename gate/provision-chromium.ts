@@ -1,8 +1,11 @@
 // Installs and checks the Chrome Headless Shell that Playwright pins and every browser
 // test launches. Installation is Playwright's own `install --only-shell chromium`;
 // this file adds no other download source. When that install fails and the shell is
-// still missing, setup stops with one message for the environment owner. `--check`
-// reports whether the pinned shell is installed and changes nothing.
+// still missing, it prints one message for the environment owner and exits 1 (setup
+// warns and continues). `--check`
+// reports whether the pinned shell is installed and changes nothing; it exits with
+// SHELL_MISSING_EXIT only when the shell is missing, so the local gate can skip its
+// browser checks then and still fail on any other error.
 import { spawnSync } from "node:child_process";
 import { existsSync, readFileSync, realpathSync } from "node:fs";
 import { createRequire } from "node:module";
@@ -10,18 +13,24 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const MARKER = "INSTALLATION_COMPLETE";
+// gate/run-gate.mjs imports this to recognise a missing shell.
+export const SHELL_MISSING_EXIT = 3;
+
+class ShellMissing extends Error {}
 // Playwright takes the first non-empty of these names, browser-specific first. For
 // each name it reads the variable, then npm's `npm_config_<name>` (for example from
 // ~/.npmrc under `npm run`), then `npm_package_config_<name>`, stopping at the first
 // form that is set.
-const HOST_OVERRIDES = [
-	"PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST",
-	"PLAYWRIGHT_DOWNLOAD_HOST",
-].map((name) => [
+const envForms = (name: string) => [
 	name,
 	`npm_config_${name.toLowerCase()}`,
 	`npm_package_config_${name.toLowerCase()}`,
-]);
+];
+const HOST_OVERRIDES = [
+	"PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST",
+	"PLAYWRIGHT_DOWNLOAD_HOST",
+].map(envForms);
+const SKIP_DOWNLOAD = envForms("PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD");
 const INSTALL = "`playwright install --only-shell chromium`";
 
 export interface PlannedShell {
@@ -76,6 +85,14 @@ export function downloadOverride(
 		}
 	}
 	return undefined;
+}
+
+// Playwright's own reading of PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: the first form that
+// is set, where "false", "0" and empty mean downloads stay on.
+export function browserDownloadsDisabled(env: NodeJS.ProcessEnv): boolean {
+	const name = SKIP_DOWNLOAD.find((form) => env[form] !== undefined);
+	const value = name === undefined ? undefined : env[name];
+	return Boolean(value) && value !== "false" && value !== "0";
 }
 
 export function withoutDownloadOverrides(env: NodeJS.ProcessEnv) {
@@ -172,7 +189,7 @@ function main(mode: string | undefined) {
 	const shell = plan();
 	if (mode === "--check") {
 		if (!installed(shell))
-			throw new Error(missingMessage(provisioningFor(shell)));
+			throw new ShellMissing(missingMessage(provisioningFor(shell)));
 		return;
 	}
 	if (mode !== undefined) throw new Error(`Unknown option: ${mode}`);
@@ -211,6 +228,6 @@ if (
 		console.error(
 			`✗ ${error instanceof Error ? error.message : String(error)}`,
 		);
-		process.exitCode = 1;
+		process.exitCode = error instanceof ShellMissing ? SHELL_MISSING_EXIT : 1;
 	}
 }

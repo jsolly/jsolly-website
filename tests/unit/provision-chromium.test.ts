@@ -4,10 +4,12 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import {
+	browserDownloadsDisabled,
 	downloadOverride,
 	installFailedMessage,
 	missingMessage,
 	plannedHeadlessShell,
+	SHELL_MISSING_EXIT,
 	withoutDownloadOverrides,
 } from "../../gate/provision-chromium.js";
 
@@ -112,6 +114,31 @@ describe("Chromium provisioning", () => {
 		expect(withoutDownloadOverrides(all)).toEqual({ PATH: "/bin" });
 	});
 
+	it("reads PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD as Playwright does, npm config forms included", () => {
+		const name = "PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD";
+		expect(browserDownloadsDisabled({})).toBe(false);
+		for (const value of ["", "false", "0"])
+			expect(browserDownloadsDisabled({ [name]: value })).toBe(false);
+		for (const value of ["1", "true"])
+			expect(browserDownloadsDisabled({ [name]: value })).toBe(true);
+		expect(
+			browserDownloadsDisabled({
+				npm_config_playwright_skip_browser_download: "1",
+			}),
+		).toBe(true);
+		expect(
+			browserDownloadsDisabled({
+				npm_package_config_playwright_skip_browser_download: "true",
+			}),
+		).toBe(true);
+		expect(
+			browserDownloadsDisabled({
+				[name]: "0",
+				npm_config_playwright_skip_browser_download: "1",
+			}),
+		).toBe(false);
+	});
+
 	it("never prints override credentials, path or query", () => {
 		const secret = "s3cr3t-token";
 		const shell = plannedHeadlessShell(
@@ -169,7 +196,7 @@ describe("Chromium provisioning", () => {
 		);
 	});
 
-	it("--check exits 0 only when the pinned shell's install marker exists", {
+	it("--check exits 0 only when the pinned shell's install marker exists, and the missing-shell code otherwise", {
 		timeout: 60_000,
 	}, () => {
 		const browsers = mkdtempSync(join(tmpdir(), "provision-chromium-"));
@@ -195,7 +222,8 @@ describe("Chromium provisioning", () => {
 					encoding: "utf8",
 				});
 			const missing = check();
-			expect(missing.status).toBe(1);
+			// The local gate skips its browser suites on exactly this code.
+			expect(missing.status).toBe(SHELL_MISSING_EXIT);
 			expect(missing.stderr).toContain(`is not installed at ${directory}`);
 			mkdirSync(directory, { recursive: true });
 			writeFileSync(join(directory, "INSTALLATION_COMPLETE"), "");
