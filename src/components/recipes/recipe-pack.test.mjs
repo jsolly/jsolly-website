@@ -1,12 +1,9 @@
 import assert from "node:assert/strict";
 import { it } from "vitest";
+import { loadCollection, loadRecipePacks } from "./recipe-collection-print.mjs";
 import data from "./recipe-data.server.mjs";
 import { recipeDocument } from "./recipe-export.mjs";
-import {
-	loadRecipePack,
-	loadRecipePacks,
-	recipeFromPack,
-} from "./recipe-pack.mjs";
+import { loadRecipePack, recipeFromPack } from "./recipe-pack.mjs";
 
 const RELEASE = "1".repeat(40);
 const PACK_ID = /packs\/(?<id>[^/]+)\.json$/u;
@@ -127,9 +124,8 @@ it("collection printing loads every pack in order with bounded concurrent downlo
 	};
 	const recipes = await loadRecipePacks(
 		chosen.map((recipe) => recipe.id),
-		release,
+		(id) => loadRecipePack(id, release, { fetcher }),
 		{
-			fetcher,
 			concurrency: 3,
 			onProgress: (loaded, total) => progress.push([loaded, total]),
 		},
@@ -166,8 +162,8 @@ it("collection printing stops starting downloads after the first failure", async
 	await assert.rejects(
 		loadRecipePacks(
 			chosen.map((recipe) => recipe.id),
-			release,
-			{ fetcher, concurrency: 1 },
+			(id) => loadRecipePack(id, release, { fetcher }),
+			{ concurrency: 1 },
 		),
 		LOAD_FAILED,
 	);
@@ -192,18 +188,22 @@ it("collection printing reports no progress after a failure, even from downloads
 	await assert.rejects(
 		loadRecipePacks(
 			chosen.map((recipe) => recipe.id),
-			release,
+			(id) => loadRecipePack(id, release, { fetcher }),
 			{
-				fetcher,
 				concurrency: 3,
 				onProgress: (loaded, total) => progress.push([loaded, total]),
 			},
 		),
 		LOAD_FAILED,
 	);
-	await new Promise((resolve) => {
-		setTimeout(resolve, 40);
-	});
+	// The downloads still in flight share the cached requests: wait for them,
+	// then one more turn, so a late progress report would have arrived.
+	await Promise.all(
+		chosen
+			.slice(1, 3)
+			.map((recipe) => loadRecipePack(recipe.id, release, { fetcher })),
+	);
+	await Promise.resolve();
 	assert.deepEqual(progress, [], "the error is the last word");
 	assert.equal(requested.length, 3, "no download starts after the failure");
 });
@@ -230,9 +230,8 @@ it("an aborted collection print starts no more downloads and reports no more pro
 	await assert.rejects(
 		loadRecipePacks(
 			chosen.map((recipe) => recipe.id),
-			release,
+			(id) => loadRecipePack(id, release, { fetcher }),
 			{
-				fetcher,
 				concurrency: 1,
 				signal: loading.signal,
 				onProgress: (loaded, total) => progress.push([loaded, total]),
@@ -242,4 +241,39 @@ it("an aborted collection print starts no more downloads and reports no more pro
 	);
 	assert.equal(requested.length, 1);
 	assert.deepEqual(progress, []);
+});
+
+it("Print all loads its whole collection in canonical order and reports progress in that collection's words", async () => {
+	const recipes = [
+		{ id: "a", type: "meal" },
+		{ id: "b", type: "smoothie" },
+		{ id: "c", type: "meal" },
+	];
+	const messages = [];
+	const loaded = await loadCollection(
+		recipes,
+		"meal",
+		(id) => Promise.resolve({ id }),
+		{ onMessage: (text) => messages.push(text) },
+	);
+	assert.deepEqual(
+		loaded.map((recipe) => recipe.id),
+		["a", "c"],
+	);
+	assert.deepEqual(messages, [
+		"Loading 2 meals for printing…",
+		"Loading meals for printing: 1 of 2…",
+		"Loading meals for printing: 2 of 2…",
+	]);
+	const stopped = new AbortController();
+	stopped.abort();
+	assert.throws(
+		() =>
+			loadCollection(recipes, "smoothie", () => Promise.resolve({}), {
+				signal: stopped.signal,
+				onMessage: (text) => messages.push(text),
+			}),
+		{ name: "AbortError" },
+	);
+	assert.equal(messages.length, 3, "an aborted print writes no message");
 });

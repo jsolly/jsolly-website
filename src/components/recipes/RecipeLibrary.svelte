@@ -15,7 +15,7 @@
 	import { madeDateFor, readMadeRecipes, watchMadeRecipes } from "./recipe-made.mjs";
 	import { clearLegacyRedirect, markLegacyRedirect } from "./recipe-navigation.mjs";
 	import { orderRecipeIds } from "./recipe-order.js";
-	import { loadRecipePack, loadRecipePacks } from "./recipe-pack.mjs";
+	import { loadRecipePack } from "./recipe-pack.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
 	import { parseSavedSettings, validateSettings } from "./recipe-settings.mjs";
 	import { collectionHref, readRecipeURL, recipeBrowseHref, recipeHref, retiredRecipePath } from "./recipe-url.mjs";
@@ -275,21 +275,17 @@
 		RecipePrint = module.default; printRecipes = recipes;
 		await tick(); message = await printSession.print(tick);
 	}
-	// Prints every recipe in the current collection, in canonical order, whatever
-	// the search and filters show. Packs download with bounded concurrency and
-	// are not saved offline: only individually opened or printed recipes are.
+	// Print all: the collection's packs download with bounded concurrency and
+	// are not saved offline; only individually opened or printed recipes are.
 	async function printCollection() {
 		if (printingCollection) return;
 		printingCollection = true;
-		const ids = recipeIndex.filter((recipe) => recipe.type === collection).map((recipe) => recipe.id);
-		const noun = collection === "smoothie" ? "smoothies" : "meals";
-		message = `Loading ${ids.length} ${noun} for printing…`;
 		// Aborting on any failure stops the remaining downloads and their progress
 		// messages, so the error stays visible.
 		const downloads = new AbortController();
 		try {
 			const [recipes, module] = await Promise.all([
-				loadRecipePacks(ids, initial.release, { signal: downloads.signal, onProgress: (loaded, total) => { message = `Loading ${noun} for printing: ${loaded} of ${total}…`; } }),
+				import("./recipe-collection-print.mjs").then(({ loadCollection }) => loadCollection(recipeIndex, collection, (id) => loadRecipePack(id, initial.release), { signal: downloads.signal, onMessage: (text) => { message = text; } })),
 				import("./RecipePrint.svelte"),
 			]);
 			await showPrint(module, recipes);
