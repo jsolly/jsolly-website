@@ -1,8 +1,9 @@
 # Recipe browsing performance
 
 Collection pages start with six card summaries. Further summaries and images load
-separately; full recipe data loads only on a card's individual print, and opening
-a card navigates to its recipe page.
+separately; full recipe data loads only on a card's individual print or on Print
+all, which downloads the collection's packs six at a time, and opening a card
+navigates to its recipe page.
 Background summary downloads do not add cards to the document.
 The complete immutable summary download stays within the summary response budget;
 prebuilt full-text indexes download separately, only for a nonempty search.

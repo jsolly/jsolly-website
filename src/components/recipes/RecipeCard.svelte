@@ -5,6 +5,7 @@
 	import NutritionPills from "./NutritionPills.svelte";
 	import RecipePrintButton from "./RecipePrintButton.svelte";
 	import { formatNutrition } from "./recipe-settings.mjs";
+	import { recipeHref } from "./recipe-url.mjs";
 
 	// One recipe's card in the library grid: its group, photo, title, active
 	// time, net carbs per serving and appliances. `href` is the
@@ -60,7 +61,7 @@
 		</dl>
 		<div class="card-nutrition"><NutritionPills flags={Object.fromEntries(recipe.nutritionPills.map((pill) => [pill.key, true]))} /></div>
 	</div>
-	<div class="card-actions"><Button class="open-button" {href} aria-label={`Open recipe: ${cardTitle}`}>Open recipe <span aria-hidden="true">→</span></Button>{#if onPrint}<RecipePrintButton {recipe} {settings} {onPrint} {disabled} />{/if}</div>
+	<div class="card-actions"><Button class="open-button" {href} aria-label={`Open recipe: ${cardTitle}`}>Open recipe <span aria-hidden="true">→</span></Button>{#if onPrint}<RecipePrintButton href={recipeHref(recipe, settings)} {onPrint} {disabled} />{/if}</div>
 </article>
 
 <style>

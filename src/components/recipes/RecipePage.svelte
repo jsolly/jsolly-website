@@ -12,7 +12,7 @@
 	import { collectionReturn, takeLegacyRedirect } from "./recipe-navigation.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
 	import { validateSettings } from "./recipe-settings.mjs";
-	import { readRecipeURL, recipePageURL } from "./recipe-url.mjs";
+	import { readRecipeURL, recipeHref, recipePageURL } from "./recipe-url.mjs";
 	import ShareRecipe from "./ShareRecipe.svelte";
 	import { readRecipePreferences, writeRecipePreferences } from "./unit-preference.mjs";
 
@@ -140,7 +140,7 @@
 	<section class="recipe-detail print-document" id={recipe.id}>
 		<div class="toolbar">
 			<a href={returnUrl || `/recipes/${collection}/`} onclick={(event) => { if (returnUrl && history.length > 1 && event.button === 0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) { event.preventDefault(); history.back(); } }}>← Back to {returnUrl.startsWith("/recipes/saved/") ? "saved recipes" : returnUrl.startsWith("/recipes/?") || returnUrl === "/recipes/" ? "recipes" : collection}</a>
-			<RecipePrintButton {recipe} {settings} class="recipe-enhanced" disabled={!interactive} onPrint={print} />
+			<RecipePrintButton href={recipeHref(recipe, settings)} class="recipe-enhanced" disabled={!interactive} onPrint={print} />
 			<RecipeOfflineStatus {recipe} />
 		</div>
 		<RecipeContent {recipe} {settings} {interactive} onSideChange={setSide} onSideDinersChange={setSideDiners}>

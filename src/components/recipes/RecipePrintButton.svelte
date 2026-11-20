@@ -4,9 +4,12 @@
 	import Input from "../../lib/components/ui/input.svelte";
 	import { needsSafariPrint, safariPrintLinks } from "./safari-print.mjs";
 
-	let { recipe, settings, onPrint, disabled = false, class: className = "" } = $props();
+	// `href` is the page Safari opens to print from: the recipe, or the
+	// collection for a whole-collection print; `subject` names it in the help.
+	// `busy` marks a print in progress without disabling, so focus stays put.
+	let { href, label = "Print recipe", subject = "recipe", onPrint, disabled = false, busy = false, variant = "default", class: className = "" } = $props();
 	let origin = $state("");
-	const links = $derived(origin ? safariPrintLinks(recipe, settings, origin) : null);
+	const links = $derived(origin ? safariPrintLinks(href, origin) : null);
 	const linkId = $props.id();
 
 	function print() {
@@ -19,13 +22,13 @@
 </script>
 
 <div class="recipe-print-action">
-	<Button type="button" class={`print-recipe ${className}`} {disabled} onclick={print}><Printer aria-hidden="true" />Print recipe</Button>
+	<Button type="button" {variant} class={`${variant === "default" ? "print-recipe" : ""} ${className}`} {disabled} aria-busy={busy || undefined} onclick={print}><Printer aria-hidden="true" />{label}</Button>
 	{#if links}
 		<div class="safari-print-help">
-			<p role="status">To print from this Home Screen app, open the recipe in Safari, then tap Print recipe there. Your servings, units and optional side are included in the link. Opening Safari needs an internet connection.</p>
+			<p role="status">To print from this Home Screen app, open the {subject} in Safari, then tap {label} there. Your servings, units and optional side{subject === "recipe" ? " are" : "s are"} included in the link. Opening Safari needs an internet connection.</p>
 			{#if links.safari}<Button variant="outline" href={links.safari}>Open in Safari</Button>{/if}
-			<label for={linkId}>If Safari does not open, copy this recipe link and paste it into Safari:</label>
-			<Input id={linkId} aria-label="Recipe link for Safari" readonly value={links.url} />
+			<label for={linkId}>If Safari does not open, copy this {subject} link and paste it into Safari:</label>
+			<Input id={linkId} aria-label={`${subject === "recipe" ? "Recipe" : "Collection"} link for Safari`} readonly value={links.url} />
 		</div>
 	{/if}
 </div>
