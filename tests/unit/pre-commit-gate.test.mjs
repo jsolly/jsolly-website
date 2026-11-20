@@ -15,7 +15,10 @@ import path from "node:path";
 import { promisify } from "node:util";
 import { it } from "vitest";
 import { SHELL_MISSING_EXIT } from "../../gate/provision-chromium.js";
-import { NO_BROWSER_WARNING } from "../../gate/run-gate.mjs";
+import {
+	NO_BROWSER_SKIPPED,
+	NO_BROWSER_WARNING,
+} from "../../gate/run-gate.mjs";
 
 const run = promisify(exec);
 const project = process.cwd();
@@ -207,9 +210,12 @@ it("local gate without a provisioned browser skips only the browser suites, with
 	});
 	assert.ok(result.stdout.includes("pre-commit gate passed"));
 	assert.ok(result.stderr.includes(NO_BROWSER_WARNING));
+	assert.ok(result.stderr.includes(NO_BROWSER_SKIPPED));
 	const calls = await f.calls();
 	assert.ok(calls.includes("npm run --silent browser:check\n"));
 	for (const retained of [
+		"npm run check:yaml\n",
+		"npm run check:md\n",
 		"npm run build\n",
 		"npm test\n",
 		"npm run test:python\n",

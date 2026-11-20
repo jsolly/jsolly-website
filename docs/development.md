@@ -36,8 +36,9 @@ Playwright's own `playwright install --only-shell chromium` for the headless she
 every browser test uses. Setup uses no other download source. Where the browser
 download host is not reachable, as in some cloud agent sessions, the install
 prints a message for the environment owner (provision the pinned browser or allow
-the host) and setup continues with a warning; the local gate then skips its browser
-suites (below). When `PLAYWRIGHT_DOWNLOAD_HOST` or `PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST`
+the host) and setup continues with a warning. Where `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD`
+switches downloads off, the local gate then skips its browser suites (below);
+otherwise it fails until the browser is installed. When `PLAYWRIGHT_DOWNLOAD_HOST` or `PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST`
 replaces Playwright's CDN, the message names that variable and the default host.
 Run the repo's documented quality gate with its pinned tools:
 
@@ -46,8 +47,8 @@ mise exec -- npm run gate
 ```
 
 Use the repository's README and AGENTS.md for its build, test and deployment
-commands. A missing prerequisite is a failed setup; report it rather than claiming
-that the gate ran. No setup command deploys the application or infrastructure.
+commands. A missing prerequisite other than the browser is a failed setup; report
+it rather than claiming that the gate ran. No setup command deploys the application or infrastructure.
 
 Astro and Svelte use TypeScript 6's compiler API. `npm run check:ts` selects
 TypeScript 7's CLI through the `@typescript/native` npm alias for compiler-only
@@ -102,7 +103,7 @@ Before starting any check, a local gate runs `npm run browser:check`. A broken
 Playwright installation fails the gate there. When only the pinned headless shell
 is missing (exit code 3) and `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD` switches browser
 downloads off (read as Playwright reads it: the variable or its npm config form, any
-value but `false` or `0`), the local gate warns
+non-empty value but `false` or `0`), the local gate warns
 and skips the smoke scenario contract and the built-output tests, the two suites
 that launch it, and runs everything else. Without that variable a missing shell
 still fails with the install command. The built suite is one counted suite, so its non-browser files are

@@ -72,6 +72,8 @@ const buildCommands = [
 // the install command, and CI always installs the browser and never skips.
 // Remove the skip when sessions can run a browser:
 // https://app.todoist.com/app/task/6j3qXFvGP5QhCRP5
+export const NO_BROWSER_SKIPPED =
+	"⚠ The smoke scenario contract and built-output tests were skipped (see the warning above); CI runs them on the pull request.";
 export const NO_BROWSER_WARNING = `⚠ No Chrome Headless Shell is installed and PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD switches browser downloads off, so this local gate SKIPS the smoke scenario contract and the built-output tests (one counted suite, so its non-browser files are skipped too).
   Why: some cloud agent sessions cannot download Playwright's browser; they point PLAYWRIGHT_DOWNLOAD_HOST at a dead address, set PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1, and their proxy refuses the download hosts.
   CI installs the browser and runs both on every pull request, and the required \`ci\` check still gates the merge.
@@ -288,10 +290,7 @@ async function runValidation(root, built) {
 		if (failure) throw failure.reason;
 		await assertUnchanged(root, source);
 		passed = true;
-		if (!browser)
-			console.warn(
-				"⚠ The smoke scenario contract and built-output tests were skipped (see the warning above); CI runs them on the pull request.",
-			);
+		if (!browser) console.warn(NO_BROWSER_SKIPPED);
 	} catch (error) {
 		console.error(`Gate diagnostics retained at ${scratch}`);
 		throw error;

@@ -20,17 +20,20 @@ class ShellMissing extends Error {}
 // Playwright takes the first non-empty of these names, browser-specific first. For
 // each name it reads the variable, then npm's `npm_config_<name>` (for example from
 // ~/.npmrc under `npm run`), then `npm_package_config_<name>`, stopping at the first
-// form that is set.
+// form that is set (Playwright's getFromENV).
 const envForms = (name: string) => [
 	name,
 	`npm_config_${name.toLowerCase()}`,
 	`npm_package_config_${name.toLowerCase()}`,
 ];
+function fromEnv(env: NodeJS.ProcessEnv, name: string) {
+	const form = envForms(name).find((candidate) => env[candidate] !== undefined);
+	return form === undefined ? undefined : { form, value: env[form] };
+}
 const HOST_OVERRIDES = [
 	"PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST",
 	"PLAYWRIGHT_DOWNLOAD_HOST",
-].map(envForms);
-const SKIP_DOWNLOAD = envForms("PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD");
+];
 const INSTALL = "`playwright install --only-shell chromium`";
 
 export interface PlannedShell {
@@ -76,12 +79,11 @@ function redactedOrigin(value: string): string | undefined {
 export function downloadOverride(
 	env: NodeJS.ProcessEnv,
 ): Provisioning["override"] {
-	for (const forms of HOST_OVERRIDES) {
-		const name = forms.find((form) => env[form] !== undefined);
-		const value = name === undefined ? undefined : env[name];
-		if (name && value) {
-			const origin = redactedOrigin(value);
-			return origin ? { name, origin } : { name };
+	for (const variable of HOST_OVERRIDES) {
+		const found = fromEnv(env, variable);
+		if (found?.value) {
+			const origin = redactedOrigin(found.value);
+			return origin ? { name: found.form, origin } : { name: found.form };
 		}
 	}
 	return undefined;
@@ -90,14 +92,13 @@ export function downloadOverride(
 // Playwright's own reading of PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: the first form that
 // is set, where "false", "0" and empty mean downloads stay on.
 export function browserDownloadsDisabled(env: NodeJS.ProcessEnv): boolean {
-	const name = SKIP_DOWNLOAD.find((form) => env[form] !== undefined);
-	const value = name === undefined ? undefined : env[name];
+	const value = fromEnv(env, "PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD")?.value;
 	return Boolean(value) && value !== "false" && value !== "0";
 }
 
 export function withoutDownloadOverrides(env: NodeJS.ProcessEnv) {
 	const copy = { ...env };
-	for (const name of HOST_OVERRIDES.flat()) delete copy[name];
+	for (const name of HOST_OVERRIDES.flatMap(envForms)) delete copy[name];
 	return copy;
 }
 
