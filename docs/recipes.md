@@ -547,16 +547,16 @@ optional side and side-diner count; tap **Print recipe** again in Safari. A sele
 also shown for manual copy/paste if the Safari application scheme is unavailable.
 Safari needs a network connection and, on a protected Preview, its own authorized
 session. Browser tabs and Mac Dock apps retain their existing print flow.
-This handoff covers individual recipe pages and library cards. There is no whole-collection print action.
+This handoff covers individual recipe pages, library cards and **Print all meals**/**Print all smoothies**, whose link opens the collection page with the same settings and every selected side in that collection. That link's side list replaces Safari's own saved sides for that collection, so Safari prints exactly the app's choices.
 The direct iOS application handoff needs real-device verification; Chromium
 standalone emulation verifies detection, link settings and browser restoration,
 not iOS print-sheet presentation.
 
-The library loads an individual recipe and its print renderer only on a card's Print recipe. Browser-menu printing on a collection prints only the currently rendered cards. It removes prepared print content when printing ends and restores prior print state after failures.
+The library loads an individual recipe and its print renderer only on a card's Print recipe. **Print all meals** and **Print all smoothies**, beside the shuffle button, print every recipe in the current collection in canonical order, whatever the search and filters show, using the current servings, units, sides and side-diner count. Each recipe starts a new page. They download the collection's packs six at a time, report progress, stop at the first failed download, keep its error on screen and save nothing offline. The button keeps focus while it loads. The button is absent on the Saved recipes view and while offline. Browser-menu printing on a collection prints only the currently rendered cards. It removes prepared print content when printing ends and restores prior print state after failures.
 
 Performance budgets and local measurement settings are recorded in [recipe-performance.md](recipe-performance.md).
 
-Collection pages server-render six summaries and hydrate the same six. Additional summary batches load ahead of scrolling; spare connection time fetches remaining summaries without mounting them or loading their images. Hidden tabs, Data Saver and slow connections pause speculative summary work. Images load within 300 px of the viewport. Hovering or focusing a card downloads nothing; a recipe pack loads only when its card's Print recipe is chosen, and repeated prints reuse that download.
+Collection pages server-render six summaries and hydrate the same six. Additional summary batches load ahead of scrolling; spare connection time fetches remaining summaries without mounting them or loading their images. Hidden tabs, Data Saver and slow connections pause speculative summary work. Images load within 300 px of the viewport. Hovering or focusing a card downloads nothing; a recipe pack loads only when its card's Print recipe or the collection's Print all is chosen, and repeated prints reuse that download.
 
 Per-recipe packs under `/recipes/data/packs/<id>.json` carry the selected recipe, calculation references and release identity. Browser calculation modules import no complete nutrition or ingredient-weight registry. Standalone pages embed only their own calculation context. Full assistant downloads remain deliberate links and are excluded from automatic offline caching.
 

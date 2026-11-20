@@ -9,6 +9,7 @@
 	import LibraryControls from "./LibraryControls.svelte";
 	import NativeRecipeControls from "./NativeRecipeControls.svelte";
 	import RecipeCard from "./RecipeCard.svelte";
+	import RecipePrintButton from "./RecipePrintButton.svelte";
 	import { withRecipeBrowse } from "./recipe-browse-coordination.mjs";
 	import { loadBrowseLibrary } from "./recipe-browse-library.mjs";
 	import { madeDateFor, readMadeRecipes, watchMadeRecipes } from "./recipe-made.mjs";
@@ -17,7 +18,7 @@
 	import { loadRecipePack } from "./recipe-pack.mjs";
 	import { createRecipePrintSession } from "./recipe-print-session.mjs";
 	import { parseSavedSettings, validateSettings } from "./recipe-settings.mjs";
-	import { readRecipeURL, recipeBrowseHref, recipeHref, retiredRecipePath } from "./recipe-url.mjs";
+	import { collectionHref, readRecipeURL, recipeBrowseHref, recipeHref, retiredRecipePath } from "./recipe-url.mjs";
 
 	
 	
@@ -44,7 +45,8 @@
 	let failure = $state("");
 	let releaseMismatch = $state(false);
 	let RecipePrint = $state.raw(null);
-	let printRecipe = $state.raw(null);
+	let printRecipes = $state.raw([]);
+	let printingCollection = $state(false);
 	let printPrepared = $state(false);
 	let libraryElement = $state(null);
 	let listHeading = $state(null);
@@ -257,18 +259,40 @@
 		return loadRecipePack(id, initial.release);
 	}
 	const printSession = createRecipePrintSession(() => "recipe", () => {
-		if (printRecipe) flushSync(() => { printPrepared = true; });
-	}, () => { printPrepared = false; printRecipe = null; });
+		if (printRecipes.length) flushSync(() => { printPrepared = true; });
+	}, () => { printPrepared = false; printRecipes = []; });
 	async function print(id) {
 		const record = savedRecords.find((item) => item.id === id);
 		if (savedMode && record && record.release !== initial.release) { window.location.assign(recipeBrowseHref(record.recipe, recipeSettings)); return; }
 		message = "Loading recipe for printing…";
 		try {
 			const [recipe, module] = await Promise.all([getDetail(id), import("./RecipePrint.svelte")]);
-			RecipePrint = module.default; printRecipe = recipe;
 			if (!savedMode) void saveOpened(recipe);
-			await tick(); message = await printSession.print(tick);
+			await showPrint(module, [recipe]);
 		} catch (error) { void reportError("recipe-print"); message = error.message; }
+	}
+	async function showPrint(module, recipes) {
+		RecipePrint = module.default; printRecipes = recipes;
+		await tick(); message = await printSession.print(tick);
+	}
+	// Print all: the collection's packs download with bounded concurrency and
+	// are not saved offline; only individually opened or printed recipes are.
+	async function printCollection() {
+		if (printingCollection) return;
+		printingCollection = true;
+		// Aborting on any failure stops the remaining downloads and their progress
+		// messages, so the error stays visible.
+		const downloads = new AbortController();
+		// The collection pressed, not whichever is showing once the loader arrives.
+		const chosen = collection;
+		try {
+			const [recipes, module] = await Promise.all([
+				import("./recipe-collection-print.mjs").then(({ loadCollection }) => loadCollection(recipeIndex, chosen, (id) => loadRecipePack(id, initial.release), { signal: downloads.signal, onMessage: (text) => { message = text; } })),
+				import("./RecipePrint.svelte"),
+			]);
+			await showPrint(module, recipes);
+		} catch (error) { downloads.abort(); void reportError("recipe-print"); message = error.message; }
+		finally { printingCollection = false; }
 	}
 	// Card links navigate normally; recording the visit at click time, as well as
 	// on pagehide, lets Back restore the order, search and scroll position.
@@ -358,7 +382,7 @@
 	<LibraryControls {collection} saved={savedMode} onCollectionChange={(value) => { collection = value; }} bind:query {pathname} {hydrated} {servings} onServingsChange={setServings} shownApplianceKeys={result.filterChoices.shownAppliances} collectionHasIron={result.filterChoices.collectionHasIron} {smoothieIngredients} {hasMatches} bind:filters bind:appliancesOnHand />
 	{#if !saved}<noscript><NativeRecipeControls {collection} {pathname} metadata={result.filterChoices} /></noscript>{/if}
 	<div class="browse" id="meal-results" data-match-count={result.total} aria-busy={shuffling || loading}>
-		<div class="results-heading"><h2 bind:this={listHeading} tabindex="-1">{savedMode ? "Saved recipes" : collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2><Button class="enhanced-shuffle" variant="outline" type="button" disabled={!hydrated || shuffling || result.total < 2} onclick={shuffleCards}><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button>{#if !saved}<noscript><Button variant="outline" type="submit" form="recipe-browse-form" name="shuffle" value="1"><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button></noscript>{/if}</div>
+		<div class="results-heading"><h2 bind:this={listHeading} tabindex="-1">{savedMode ? "Saved recipes" : collection === "smoothie" ? "Find your smoothie" : "Find your meal"}</h2><div class="results-actions"><Button class="enhanced-shuffle" variant="outline" type="button" disabled={!hydrated || shuffling || result.total < 2} onclick={shuffleCards}><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button>{#if !saved}<noscript><Button variant="outline" type="submit" form="recipe-browse-form" name="shuffle" value="1"><Shuffle aria-hidden="true" />{collection === "smoothie" ? "Shuffle smoothies" : "Shuffle meals"}</Button></noscript>{/if}{#if !savedMode}<RecipePrintButton class="enhanced-print-all" variant="outline" label={collection === "smoothie" ? "Print all smoothies" : "Print all meals"} subject="collection" href={collectionHref(collection, recipeSettings, recipeIndex)} disabled={!hydrated} busy={printingCollection} onPrint={printCollection} />{/if}</div></div>
 		{#if hydrated && chips.length}<div class="active-filters"><ul aria-label="Active filters and search">{#each chips as chip, index (`${chip.key}:${chip.value ?? ""}`)}<li><Button variant="outline" size="sm" type="button" aria-label={`Remove ${chip.key === "query" ? "search" : "filter"}: ${chip.label}`} onclick={() => removeChip(chip, index)}>{chip.label}<X aria-hidden="true" /></Button></li>{/each}</ul><Button variant="ghost" size="sm" type="button" onclick={clearChips}>Clear all</Button></div>{/if}
 		<p class="no-results" role="status">{!result.total ? savedMode ? "No saved recipes match. Open a recipe online to save it for offline use." : "No recipes match your search and filters. Try fewer words or adjust the filters." : query.trim() ? `${result.total} recipes found` : ""}</p>
 		<div class="recipe-grid">
@@ -370,7 +394,7 @@
 		{#if failure}<p role="alert">{failure}</p>{#if releaseMismatch}<Button variant="outline" onclick={updateLibrary}>Check for update</Button>{:else}<Button variant="outline" onclick={retryBrowse}>Retry</Button>{/if}{/if}
 	</div>
 	<p class="action-status" role="status" aria-live="polite">{message}</p>
-	<div class="print-output">{#if printPrepared && RecipePrint}<RecipePrint recipe={printRecipe} settings={recipeSettings} />{/if}</div>
+	<div class="print-output">{#if printPrepared && RecipePrint}<RecipePrint recipes={printRecipes} settings={recipeSettings} />{/if}</div>
 </section>
 <style>
 	/* Every recipe stylesheet declares the full order (as the blog sheets do), so
@@ -379,6 +403,7 @@
 	@layer blog {
 		.results-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 0.8rem; }
 		.results-heading :global(h2) { margin: 0; }
+		.results-actions { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px; }
 		.active-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 0.8rem; }
 		/* .meal-library outranks the library's general list indent. */
 		.meal-library .active-filters ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
