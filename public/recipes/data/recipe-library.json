@@ -125041,8 +125041,8 @@
               "kind": "operation",
               "col": 1,
               "colspan": 1,
-              "rowspan": 4,
-              "text": "Simmer sausages over medium with separate sausage water 10 min, evaporate; brown with two-thirds butter/half garlic to 160°F pork or 165°F poultry; reserve.",
+              "rowspan": 5,
+              "text": "Simmer sausages over medium with their separate water for 10 min, then let it evaporate. Add two-thirds of the butter, half the garlic and optional chili flakes. Brown to 160°F for pork sausage or 165°F for poultry sausage, then reserve.",
               "equipment": [
                 "Pans"
               ]
@@ -125081,6 +125081,18 @@
               "text": "2 ½ cloves / 8 g / 0.26 oz",
               "name": "garlic cloves",
               "state": "minced",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "A pinch",
+              "name": "Crushed red chili pepper flakes",
+              "state": "optional · For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -125214,18 +125226,6 @@
               "state": "ground",
               "essentialState": false
             }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 2,
-              "rowspan": 1,
-              "text": "A pinch",
-              "name": "Crushed red chili pepper flakes",
-              "state": "optional · For less heat, use less; for more heat, add gradually to taste.",
-              "essentialState": false
-            }
           ]
         ]
       },
@@ -125303,6 +125303,13 @@
               "state": "minced"
             },
             {
+              "id": "ingredient-10",
+              "name": "Crushed red chili pepper flakes",
+              "amount": 0.45,
+              "unit": "g",
+              "state": "optional"
+            },
+            {
               "id": "ingredient-5",
               "name": "Italian seasoning",
               "amount": 1,
@@ -125350,13 +125357,6 @@
               "amount": 0.25,
               "unit": "tsp",
               "state": "ground"
-            },
-            {
-              "id": "ingredient-10",
-              "name": "Crushed red chili pepper flakes",
-              "amount": 0.45,
-              "unit": "g",
-              "state": "optional"
             }
           ],
           "assumptions": [
@@ -125651,6 +125651,21 @@
           "note": ""
         },
         {
+          "quantity": "A pinch",
+          "measurements": [
+            {
+              "quantity": "A pinch",
+              "status": "portion"
+            }
+          ],
+          "status": "portion",
+          "grams": 0.45,
+          "source": "https://www.nist.gov/pml/special-publication-811",
+          "name": "Crushed red chili pepper flakes",
+          "state": "optional",
+          "note": "For less heat, use less; for more heat, add gradually to taste."
+        },
+        {
           "quantity": "1 g / 0.04 oz",
           "measurements": [
             {
@@ -125821,21 +125836,6 @@
           "name": "Black pepper",
           "state": "ground",
           "note": ""
-        },
-        {
-          "quantity": "A pinch",
-          "measurements": [
-            {
-              "quantity": "A pinch",
-              "status": "portion"
-            }
-          ],
-          "status": "portion",
-          "grams": 0.45,
-          "source": "https://www.nist.gov/pml/special-publication-811",
-          "name": "Crushed red chili pepper flakes",
-          "state": "optional",
-          "note": "For less heat, use less; for more heat, add gradually to taste."
         }
       ],
       "sideIngredient": null,
@@ -126177,7 +126177,7 @@
           "Check the center of each stuffed beef roll reaches 165°F.",
           "For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
         ],
-        "columns": 3,
+        "columns": 4,
         "rows": [
           [
             {
@@ -126193,7 +126193,7 @@
             {
               "kind": "operation",
               "col": 1,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 5,
               "text": "Mix the listed dry rice seasonings.",
               "equipment": [
@@ -126202,7 +126202,7 @@
             },
             {
               "kind": "operation",
-              "col": 2,
+              "col": 3,
               "colspan": 1,
               "rowspan": 17,
               "text": "Add the mixed dry seasonings and measured stock to the cauliflower and reduce briefly. Return the rolls and warm through. Remove toothpicks and garnish with cilantro.",
@@ -126266,33 +126266,31 @@
               "col": 0,
               "colspan": 1,
               "rowspan": 1,
-              "text": "454 g / 1 lb",
-              "name": "flank steak",
-              "state": "sliced lengthwise",
+              "text": "about ⅛ stick / 14 g / 0.5 oz",
+              "name": "melted butter",
+              "state": "",
               "essentialState": false
             },
             {
               "kind": "operation",
               "col": 1,
               "colspan": 1,
+              "rowspan": 3,
+              "text": "Mix the melted butter, minced garlic and parsley.",
+              "equipment": [
+                "Large bowl"
+              ]
+            },
+            {
+              "kind": "operation",
+              "col": 2,
+              "colspan": 1,
               "rowspan": 5,
-              "text": "Fill steak with garlic-parsley butter and mozzarella; roll/secure/slice. Sear high 3 min/side until the center of each stuffed roll reaches 165°F; reserve.",
+              "text": "Brush the flank steak with the garlic-parsley butter and add mozzarella. Roll tightly, secure with toothpicks and slice between them. Sear over high heat for 3 min per side until the center of each stuffed roll reaches 165°F, then reserve.",
               "equipment": [
                 "Pans",
                 "Chopping board"
               ]
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "about ⅛ stick / 14 g / 0.5 oz",
-              "name": "melted butter",
-              "state": "",
-              "essentialState": false
             }
           ],
           [
@@ -126323,7 +126321,19 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
+              "rowspan": 1,
+              "text": "454 g / 1 lb",
+              "name": "flank steak",
+              "state": "sliced lengthwise",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 2,
               "rowspan": 1,
               "text": "1 cup / 112 g / 3.95 oz",
               "name": "shredded mozzarella",
@@ -126345,7 +126355,7 @@
             {
               "kind": "operation",
               "col": 1,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 5,
               "text": "After reserving the rolls, soften onion, bell pepper and jalapeño in oil for 3 min. Add cauliflower and cook 2 min.",
               "equipment": [
@@ -126405,7 +126415,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 2,
+              "colspan": 3,
               "rowspan": 1,
               "text": "¼ cup / 55 g / 59 mL",
               "name": "vegetable stock",
@@ -126417,7 +126427,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 2,
+              "colspan": 3,
               "rowspan": 1,
               "text": "½ cup / 8 g / 0.28 oz",
               "name": "Cilantro for garnish",
@@ -126494,13 +126504,6 @@
               "state": ""
             },
             {
-              "id": "ingredient-1",
-              "name": "flank steak",
-              "amount": 1,
-              "unit": "lb",
-              "state": "sliced lengthwise"
-            },
-            {
               "id": "ingredient-2",
               "name": "melted butter",
               "amount": 1,
@@ -126520,6 +126523,13 @@
               "amount": 0.5,
               "unit": "cup",
               "state": ""
+            },
+            {
+              "id": "ingredient-1",
+              "name": "flank steak",
+              "amount": 1,
+              "unit": "lb",
+              "state": "sliced lengthwise"
             },
             {
               "id": "ingredient-5",
@@ -126896,25 +126906,6 @@
           "note": ""
         },
         {
-          "quantity": "454 g / 1 lb",
-          "measurements": [
-            {
-              "quantity": "454 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "1 lb",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 453.59237,
-          "source": "https://www.nist.gov/pml/special-publication-811",
-          "name": "flank steak",
-          "state": "sliced lengthwise",
-          "note": ""
-        },
-        {
           "quantity": "about ⅛ stick / 14 g / 0.5 oz",
           "measurements": [
             {
@@ -126981,6 +126972,25 @@
           "source": "https://fdc.nal.usda.gov/food-details/170416/nutrients",
           "name": "chopped parsley",
           "state": "",
+          "note": ""
+        },
+        {
+          "quantity": "454 g / 1 lb",
+          "measurements": [
+            {
+              "quantity": "454 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "1 lb",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 453.59237,
+          "source": "https://www.nist.gov/pml/special-publication-811",
+          "name": "flank steak",
+          "state": "sliced lengthwise",
           "note": ""
         },
         {

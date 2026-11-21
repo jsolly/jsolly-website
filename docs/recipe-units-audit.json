@@ -182933,6 +182933,99 @@
 		{
 			"recipe": "source-garlic-butter-sausages-with-lemon-green-beans",
 			"family": false,
+			"ingredient": "ingredient-10",
+			"name": "Crushed red chili pepper flakes",
+			"canonical": {
+				"amount": 0.45,
+				"unit": "g",
+				"state": "optional",
+				"grams": 0.45
+			},
+			"weight": {
+				"gramsPerUnit": 1,
+				"source": "https://www.nist.gov/pml/special-publication-811",
+				"kind": "mass"
+			},
+			"provenance": {
+				"original": {
+					"amount": 0,
+					"unit": "",
+					"name": "Crushed red chili pepper flakes",
+					"state": "optional",
+					"note": "Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
+				},
+				"sourceIngredientId": "ingredient-10",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Explicit weighed dried pepper-flake seasoning; preserve flake preparation and optional status without applying ground cayenne or chili-powder density."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "A pinch",
+				"measurements": [
+					{
+						"quantity": "A pinch",
+						"status": "portion"
+					}
+				],
+				"status": "portion",
+				"grams": 0.45,
+				"source": "https://www.nist.gov/pml/special-publication-811"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "A pinch",
+					"measurements": [
+						{
+							"quantity": "A pinch",
+							"status": "portion"
+						}
+					],
+					"status": "portion",
+					"grams": 0.225,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"4": {
+					"quantity": "A pinch",
+					"measurements": [
+						{
+							"quantity": "A pinch",
+							"status": "portion"
+						}
+					],
+					"status": "portion",
+					"grams": 0.45,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"6": {
+					"quantity": "A pinch",
+					"measurements": [
+						{
+							"quantity": "A pinch",
+							"status": "portion"
+						}
+					],
+					"status": "portion",
+					"grams": 0.675,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"8": {
+					"quantity": "A pinch",
+					"measurements": [
+						{
+							"quantity": "A pinch",
+							"status": "portion"
+						}
+					],
+					"status": "portion",
+					"grams": 0.9,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				}
+			}
+		},
+		{
+			"recipe": "source-garlic-butter-sausages-with-lemon-green-beans",
+			"family": false,
 			"ingredient": "ingredient-5",
 			"name": "Italian seasoning",
 			"canonical": {
@@ -183943,99 +184036,6 @@
 			}
 		},
 		{
-			"recipe": "source-garlic-butter-sausages-with-lemon-green-beans",
-			"family": false,
-			"ingredient": "ingredient-10",
-			"name": "Crushed red chili pepper flakes",
-			"canonical": {
-				"amount": 0.45,
-				"unit": "g",
-				"state": "optional",
-				"grams": 0.45
-			},
-			"weight": {
-				"gramsPerUnit": 1,
-				"source": "https://www.nist.gov/pml/special-publication-811",
-				"kind": "mass"
-			},
-			"provenance": {
-				"original": {
-					"amount": 0,
-					"unit": "",
-					"name": "Crushed red chili pepper flakes",
-					"state": "optional",
-					"note": "Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
-				},
-				"sourceIngredientId": "ingredient-10",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Explicit weighed dried pepper-flake seasoning; preserve flake preparation and optional status without applying ground cayenne or chili-powder density."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "A pinch",
-				"measurements": [
-					{
-						"quantity": "A pinch",
-						"status": "portion"
-					}
-				],
-				"status": "portion",
-				"grams": 0.45,
-				"source": "https://www.nist.gov/pml/special-publication-811"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "A pinch",
-					"measurements": [
-						{
-							"quantity": "A pinch",
-							"status": "portion"
-						}
-					],
-					"status": "portion",
-					"grams": 0.225,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"4": {
-					"quantity": "A pinch",
-					"measurements": [
-						{
-							"quantity": "A pinch",
-							"status": "portion"
-						}
-					],
-					"status": "portion",
-					"grams": 0.45,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"6": {
-					"quantity": "A pinch",
-					"measurements": [
-						{
-							"quantity": "A pinch",
-							"status": "portion"
-						}
-					],
-					"status": "portion",
-					"grams": 0.675,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"8": {
-					"quantity": "A pinch",
-					"measurements": [
-						{
-							"quantity": "A pinch",
-							"status": "portion"
-						}
-					],
-					"status": "portion",
-					"grams": 0.9,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				}
-			}
-		},
-		{
 			"recipe": "source-mexican-cauliflower-rice-with-cheesy-steak-roll-ups",
 			"family": false,
 			"ingredient": "ingredient-12",
@@ -184675,119 +184675,6 @@
 		{
 			"recipe": "source-mexican-cauliflower-rice-with-cheesy-steak-roll-ups",
 			"family": false,
-			"ingredient": "ingredient-1",
-			"name": "flank steak",
-			"canonical": {
-				"amount": 1,
-				"unit": "lb",
-				"state": "sliced lengthwise",
-				"grams": 453.59237
-			},
-			"weight": {
-				"gramsPerUnit": 453.59237,
-				"source": "https://www.nist.gov/pml/special-publication-811",
-				"kind": "mass"
-			},
-			"provenance": {
-				"original": {
-					"amount": 1,
-					"unit": "lb",
-					"name": "flank steak",
-					"state": "sliced lengthwise",
-					"note": "(450g) is the source parenthetical; original US quantity controls."
-				},
-				"sourceIngredientId": "ingredient-1",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "454 g / 1 lb",
-				"measurements": [
-					{
-						"quantity": "454 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "1 lb",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 453.59237,
-				"source": "https://www.nist.gov/pml/special-publication-811"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "227 g / 8 oz",
-					"measurements": [
-						{
-							"quantity": "227 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "8 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 226.796185,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"4": {
-					"quantity": "454 g / 1 lb",
-					"measurements": [
-						{
-							"quantity": "454 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "1 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 453.59237,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"6": {
-					"quantity": "680 g / 1.5 lb",
-					"measurements": [
-						{
-							"quantity": "680 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "1.5 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 680.388555,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"8": {
-					"quantity": "907 g / 2 lb",
-					"measurements": [
-						{
-							"quantity": "907 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "2 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 907.18474,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				}
-			}
-		},
-		{
-			"recipe": "source-mexican-cauliflower-rice-with-cheesy-steak-roll-ups",
-			"family": false,
 			"ingredient": "ingredient-2",
 			"name": "melted butter",
 			"canonical": {
@@ -185187,6 +185074,119 @@
 					"status": "multiple",
 					"grams": 60,
 					"source": "https://fdc.nal.usda.gov/food-details/170416/nutrients"
+				}
+			}
+		},
+		{
+			"recipe": "source-mexican-cauliflower-rice-with-cheesy-steak-roll-ups",
+			"family": false,
+			"ingredient": "ingredient-1",
+			"name": "flank steak",
+			"canonical": {
+				"amount": 1,
+				"unit": "lb",
+				"state": "sliced lengthwise",
+				"grams": 453.59237
+			},
+			"weight": {
+				"gramsPerUnit": 453.59237,
+				"source": "https://www.nist.gov/pml/special-publication-811",
+				"kind": "mass"
+			},
+			"provenance": {
+				"original": {
+					"amount": 1,
+					"unit": "lb",
+					"name": "flank steak",
+					"state": "sliced lengthwise",
+					"note": "(450g) is the source parenthetical; original US quantity controls."
+				},
+				"sourceIngredientId": "ingredient-1",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "454 g / 1 lb",
+				"measurements": [
+					{
+						"quantity": "454 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "1 lb",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 453.59237,
+				"source": "https://www.nist.gov/pml/special-publication-811"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "227 g / 8 oz",
+					"measurements": [
+						{
+							"quantity": "227 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "8 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 226.796185,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"4": {
+					"quantity": "454 g / 1 lb",
+					"measurements": [
+						{
+							"quantity": "454 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "1 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 453.59237,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"6": {
+					"quantity": "680 g / 1.5 lb",
+					"measurements": [
+						{
+							"quantity": "680 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "1.5 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 680.388555,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"8": {
+					"quantity": "907 g / 2 lb",
+					"measurements": [
+						{
+							"quantity": "907 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "2 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 907.18474,
+					"source": "https://www.nist.gov/pml/special-publication-811"
 				}
 			}
 		},

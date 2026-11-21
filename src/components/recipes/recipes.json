@@ -89938,6 +89938,34 @@
 					"sourceIngredientId": "ingredient-4"
 				},
 				{
+					"id": "ingredient-10",
+					"name": "Crushed red chili pepper flakes",
+					"state": "optional",
+					"amount": 0.45,
+					"unit": "g",
+					"category": "pantry",
+					"note": "For less heat, use less; for more heat, add gradually to taste.",
+					"scale": "linear",
+					"sourceLine": "Crushed red chili pepper flakes, optional",
+					"sourceAmount": 0,
+					"sourceUnit": "",
+					"optional": true,
+					"measurementProvenance": {
+						"original": {
+							"amount": 0,
+							"unit": "",
+							"name": "Crushed red chili pepper flakes",
+							"state": "optional",
+							"note": "Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
+						},
+						"sourceIngredientId": "ingredient-10",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Explicit weighed dried pepper-flake seasoning; preserve flake preparation and optional status without applying ground cayenne or chili-powder density."
+					},
+					"sourceIngredientId": "ingredient-10"
+				},
+				{
 					"id": "ingredient-5",
 					"name": "Italian seasoning",
 					"state": "",
@@ -90147,34 +90175,6 @@
 					},
 					"sourceIngredientId": "ingredient-7",
 					"pinchGrams": 0.05
-				},
-				{
-					"id": "ingredient-10",
-					"name": "Crushed red chili pepper flakes",
-					"state": "optional",
-					"amount": 0.45,
-					"unit": "g",
-					"category": "pantry",
-					"note": "For less heat, use less; for more heat, add gradually to taste.",
-					"scale": "linear",
-					"sourceLine": "Crushed red chili pepper flakes, optional",
-					"sourceAmount": 0,
-					"sourceUnit": "",
-					"optional": true,
-					"measurementProvenance": {
-						"original": {
-							"amount": 0,
-							"unit": "",
-							"name": "Crushed red chili pepper flakes",
-							"state": "optional",
-							"note": "Unquantified in source; use to taste or as optional garnish as stated. Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
-						},
-						"sourceIngredientId": "ingredient-10",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Explicit weighed dried pepper-flake seasoning; preserve flake preparation and optional status without applying ground cayenne or chili-powder density."
-					},
-					"sourceIngredientId": "ingredient-10"
 				}
 			],
 			"steps": [
@@ -90302,6 +90302,13 @@
 							"state": "minced"
 						},
 						{
+							"id": "ingredient-10",
+							"name": "Crushed red chili pepper flakes",
+							"amount": 0.45,
+							"unit": "g",
+							"state": "optional"
+						},
+						{
 							"id": "ingredient-5",
 							"name": "Italian seasoning",
 							"amount": 1,
@@ -90349,13 +90356,6 @@
 							"amount": 0.25,
 							"unit": "tsp",
 							"state": "ground"
-						},
-						{
-							"id": "ingredient-10",
-							"name": "Crushed red chili pepper flakes",
-							"amount": 0.45,
-							"unit": "g",
-							"state": "optional"
 						}
 					],
 					"assumptions": [
@@ -90529,7 +90529,7 @@
 							]
 						},
 						{
-							"action": "Simmer sausages over medium with separate sausage water 10 min, evaporate; brown with two-thirds butter/half garlic to 160°F pork or 165°F poultry; reserve.",
+							"action": "Simmer sausages over medium with their separate water for 10 min, then let it evaporate. Add two-thirds of the butter, half the garlic and optional chili flakes. Brown to 160°F for pork sausage or 165°F for poultry sausage, then reserve.",
 							"children": [
 								{
 									"ingredientId": "ingredient-1",
@@ -90546,6 +90546,10 @@
 								{
 									"ingredientId": "ingredient-4",
 									"fraction": 0.5
+								},
+								{
+									"ingredientId": "ingredient-10",
+									"fraction": 1
 								}
 							],
 							"equipment": [
@@ -90586,10 +90590,6 @@
 						},
 						{
 							"ingredientId": "ingredient-7-pepper",
-							"fraction": 1
-						},
-						{
-							"ingredientId": "ingredient-10",
 							"fraction": 1
 						}
 					],
@@ -90785,34 +90785,6 @@
 					"sourceIngredientId": "ingredient-16"
 				},
 				{
-					"id": "ingredient-1",
-					"name": "flank steak",
-					"state": "sliced lengthwise",
-					"amount": 1,
-					"unit": "lb",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "1 lb (450g) flank steak, sliced lengthwise",
-					"sourceAmount": 1,
-					"sourceUnit": "lb",
-					"optional": false,
-					"measurementProvenance": {
-						"original": {
-							"amount": 1,
-							"unit": "lb",
-							"name": "flank steak",
-							"state": "sliced lengthwise",
-							"note": "(450g) is the source parenthetical; original US quantity controls."
-						},
-						"sourceIngredientId": "ingredient-1",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-1"
-				},
-				{
 					"id": "ingredient-2",
 					"name": "melted butter",
 					"state": "",
@@ -90898,6 +90870,34 @@
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
 					"sourceIngredientId": "ingredient-4"
+				},
+				{
+					"id": "ingredient-1",
+					"name": "flank steak",
+					"state": "sliced lengthwise",
+					"amount": 1,
+					"unit": "lb",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "1 lb (450g) flank steak, sliced lengthwise",
+					"sourceAmount": 1,
+					"sourceUnit": "lb",
+					"optional": false,
+					"measurementProvenance": {
+						"original": {
+							"amount": 1,
+							"unit": "lb",
+							"name": "flank steak",
+							"state": "sliced lengthwise",
+							"note": "(450g) is the source parenthetical; original US quantity controls."
+						},
+						"sourceIngredientId": "ingredient-1",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-1"
 				},
 				{
 					"id": "ingredient-5",
@@ -91263,13 +91263,6 @@
 							"state": ""
 						},
 						{
-							"id": "ingredient-1",
-							"name": "flank steak",
-							"amount": 1,
-							"unit": "lb",
-							"state": "sliced lengthwise"
-						},
-						{
 							"id": "ingredient-2",
 							"name": "melted butter",
 							"amount": 1,
@@ -91289,6 +91282,13 @@
 							"amount": 0.5,
 							"unit": "cup",
 							"state": ""
+						},
+						{
+							"id": "ingredient-1",
+							"name": "flank steak",
+							"amount": 1,
+							"unit": "lb",
+							"state": "sliced lengthwise"
 						},
 						{
 							"id": "ingredient-5",
@@ -91579,22 +91579,30 @@
 							]
 						},
 						{
-							"action": "Fill steak with garlic-parsley butter and mozzarella; roll/secure/slice. Sear high 3 min/side until the center of each stuffed roll reaches 165°F; reserve.",
+							"action": "Brush the flank steak with the garlic-parsley butter and add mozzarella. Roll tightly, secure with toothpicks and slice between them. Sear over high heat for 3 min per side until the center of each stuffed roll reaches 165°F, then reserve.",
 							"children": [
 								{
+									"action": "Mix the melted butter, minced garlic and parsley.",
+									"children": [
+										{
+											"ingredientId": "ingredient-2",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-3",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-4",
+											"fraction": 1
+										}
+									],
+									"equipment": [
+										"Large bowl"
+									]
+								},
+								{
 									"ingredientId": "ingredient-1",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-2",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-3",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-4",
 									"fraction": 1
 								},
 								{
