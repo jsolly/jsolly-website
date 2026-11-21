@@ -1,7 +1,7 @@
 media:
   input: public/blog/media
   output: /blog/media
-  categories: [image]
+  extensions: [webp]
 settings:
   content:
     merge: true
@@ -62,7 +62,7 @@ content:
         label: Cover image media path
         type: string
         default: /blog/media/default.webp
-        description: "Upload through Media, then paste its /blog/media/... path here. Images are served from this site."
+        description: "Upload a WebP through Media, then paste its /blog/media/... path here."
         pattern: '^/blog/media/\S+$'
       - name: imageAlt
         label: Image description

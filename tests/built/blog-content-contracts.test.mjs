@@ -257,6 +257,18 @@ after(async () => {
 	await copy?.remove();
 });
 
+it("the publishing build rejects unreferenced SVG bytes renamed to .webp", async (t) => {
+	const relative = `public/blog/media/renamed-svg-${randomUUID()}.webp`;
+	const path = join(copy.dir, relative);
+	await writeFile(path, '<svg xmlns="http://www.w3.org/2000/svg"/>', {
+		flag: "wx",
+	});
+	t.onTestFinished(() => rm(path));
+	const { status, output } = copy.npmRun("build");
+	assert.notEqual(status, 0, "the build accepted a renamed SVG");
+	assert.ok(output.includes(`Invalid WebP container: ${relative}`), output);
+});
+
 // Writes `files` ({ path relative to the copy: contents }) into the copy, runs
 // `astro build` and removes the files again, so the next scenario starts from
 // the positive set. Returns the build's { status, output }.
