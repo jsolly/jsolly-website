@@ -259,18 +259,18 @@ it("mobile flow preserves ordered operations, allocation leaves and cooking chec
 			"8",
 		);
 		const scaledMobile = page.locator(".recipe-body .mobile-flow");
-		// US display of canonical eight-serving allocations: oil and garlic each have two branches.
+		// Asparagus is prepared first. Both branches keep their eight-serving oil and garlic allocations.
 		assert.deepEqual(
 			await scaledMobile.locator(".mobile-ingredient strong").allTextContents(),
 			[
+				"about 57 spears / 908 g / 2 lb",
+				"2 tbsp / 27 g / 30 mL",
+				"1 tsp / 3 g / 0.11 oz",
 				"1360 g / 3 lb",
 				"2 tbsp / 27 g / 30 mL",
 				"1 tsp / 3 g / 0.11 oz",
 				"A pinch",
 				"2 tsp / 4 g / 0.14 oz",
-				"about 57 spears / 908 g / 2 lb",
-				"2 tbsp / 27 g / 30 mL",
-				"1 tsp / 3 g / 0.11 oz",
 				"juice of about 1 ¼ lemons / 60 g / 58 mL",
 				"40 g / 1.41 oz",
 			],
