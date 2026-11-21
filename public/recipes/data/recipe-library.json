@@ -2345,7 +2345,7 @@
           "Heat oven to 375°F on bake. Microwave spinach during preheating.",
           "Use one 9-inch square metal dish, at least 2 inches deep, for 2 or 4 servings; use two matching dishes for 6 or 8. Keep the mixture no deeper than the original four-serving layer."
         ],
-        "columns": 5,
+        "columns": 4,
         "rows": [
           [
             {
@@ -2373,19 +2373,10 @@
               "kind": "operation",
               "col": 2,
               "colspan": 1,
-              "rowspan": 8,
-              "text": "Stir squeezed spinach, feta, hemp and yeast into whisked eggs.",
-              "equipment": [
-                "Large bowl"
-              ]
-            },
-            {
-              "kind": "operation",
-              "col": 3,
-              "colspan": 1,
               "rowspan": 9,
-              "text": "Transfer to selected greased dishes; divide so the mixture is no deeper than the original four-serving layer. Then: Bake at 375°F for 25–30 min for the four-serving layer; at 2 servings check from 18 min; center set and 160°F. Then: Rest frittata 3 min, then cut into the selected number of equal portions.",
+              "text": "Set the greased dishes aside. Stir squeezed spinach, feta, hemp and yeast into whisked eggs. Then: Transfer to selected greased dishes; divide so the mixture is no deeper than the original four-serving layer. Then: Bake at 375°F for 25–30 min for the four-serving layer; at 2 servings check from 18 min; center set and 160°F. Then: Rest frittata 3 min, then cut into the selected number of equal portions.",
               "equipment": [
+                "Large bowl",
                 "Baking dish",
                 "Oven",
                 "Chopping board"
@@ -2393,12 +2384,34 @@
             },
             {
               "kind": "operation",
-              "col": 4,
+              "col": 3,
               "colspan": 1,
               "rowspan": 12,
               "text": "Plate equal portions of rested frittata with the separate dressed-greens salad.",
               "equipment": [
                 "Serving dishes"
+              ]
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "1 tsp / 5 g / 4.9 mL",
+              "name": "Olive oil",
+              "state": "as purchased · One quarter for the dish; three quarters for the salad.",
+              "essentialState": false
+            },
+            {
+              "kind": "operation",
+              "col": 1,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "Grease selected metal baking dishes with oil.",
+              "equipment": [
+                "Kitchen utensils"
               ]
             }
           ],
@@ -2502,28 +2515,6 @@
               "col": 0,
               "colspan": 1,
               "rowspan": 1,
-              "text": "1 tsp / 5 g / 4.9 mL",
-              "name": "Olive oil",
-              "state": "as purchased · One quarter for the dish; three quarters for the salad.",
-              "essentialState": false
-            },
-            {
-              "kind": "operation",
-              "col": 1,
-              "colspan": 2,
-              "rowspan": 1,
-              "text": "Grease selected metal baking dishes with oil.",
-              "equipment": [
-                "Kitchen utensils"
-              ]
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
               "text": "142 g / 5.01 oz",
               "name": "Salad greens",
               "state": "washed, ready to eat",
@@ -2532,7 +2523,7 @@
             {
               "kind": "operation",
               "col": 1,
-              "colspan": 3,
+              "colspan": 2,
               "rowspan": 3,
               "text": "During baking, toss greens with oil and lemon juice.",
               "equipment": [
@@ -2602,6 +2593,29 @@
           "name": "Frozen chopped spinach",
           "state": "package weight before thawing and squeezing",
           "note": "Heat according to package directions, cool until safe to handle and press very dry in a sieve. · Buy 1 × 16 oz (454 g) packages; measure out the required weight."
+        },
+        {
+          "quantity": "1 ⅓ tbsp / 18 g / 20 mL",
+          "measurements": [
+            {
+              "quantity": "1 ⅓ tbsp",
+              "status": "volume"
+            },
+            {
+              "quantity": "18 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "20 mL",
+              "status": "volume"
+            }
+          ],
+          "status": "multiple",
+          "grams": 18,
+          "source": "https://www.nist.gov/pml/special-publication-811",
+          "name": "Olive oil",
+          "state": "as purchased",
+          "note": "One quarter for the dish; three quarters for the salad."
         },
         {
           "quantity": "12 large eggs / 600 g / 1.32 lb",
@@ -2747,29 +2761,6 @@
           "name": "Nutritional yeast",
           "state": "flakes",
           "note": "Mix into eggs."
-        },
-        {
-          "quantity": "1 ⅓ tbsp / 18 g / 20 mL",
-          "measurements": [
-            {
-              "quantity": "1 ⅓ tbsp",
-              "status": "volume"
-            },
-            {
-              "quantity": "18 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "20 mL",
-              "status": "volume"
-            }
-          ],
-          "status": "multiple",
-          "grams": 18,
-          "source": "https://www.nist.gov/pml/special-publication-811",
-          "name": "Olive oil",
-          "state": "as purchased",
-          "note": "One quarter for the dish; three quarters for the salad."
         },
         {
           "quantity": "142 g / 5.01 oz",
@@ -71274,7 +71265,7 @@
           "Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
           "For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
         ],
-        "columns": 3,
+        "columns": 4,
         "rows": [
           [
             {
@@ -71291,52 +71282,31 @@
               "kind": "operation",
               "col": 1,
               "colspan": 1,
-              "rowspan": 7,
-              "text": "Season and brown chicken on all sides over medium in oil/half butter, in batches if needed; lower heat, add half garlic/herbs for 1 min until fragrant; reserve.",
+              "rowspan": 3,
+              "text": "Season chicken pieces with pepper and onion powder.",
               "equipment": [
-                "Pans"
+                "Large bowl"
               ]
             },
             {
               "kind": "operation",
               "col": 2,
               "colspan": 1,
+              "rowspan": 8,
+              "text": "Set the blanched asparagus aside. Brown the seasoned chicken on all sides over medium in oil and half the butter, in batches if needed. Lower heat, add half the garlic and the Italian herbs for 1 min until fragrant; reserve chicken.",
+              "equipment": [
+                "Pans"
+              ]
+            },
+            {
+              "kind": "operation",
+              "col": 3,
+              "colspan": 1,
               "rowspan": 16,
               "text": "Toss asparagus in sauce 2 min; return chicken and heat 1 min; garnish",
               "equipment": [
                 "Large bowl"
               ]
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "1 g / 0.04 oz",
-              "name": "Italian seasoning",
-              "state": "",
-              "alternatives": [
-                {
-                  "name": "Herbes de Provence",
-                  "quantity": "1 g / 0.04 oz",
-                  "measurements": [
-                    {
-                      "quantity": "1 g",
-                      "status": "mass"
-                    },
-                    {
-                      "quantity": "0.04 oz",
-                      "status": "mass"
-                    }
-                  ],
-                  "status": "multiple",
-                  "grams": 1,
-                  "source": "https://www.nist.gov/pml/special-publication-811"
-                }
-              ],
-              "essentialState": false
             }
           ],
           [
@@ -71369,17 +71339,27 @@
               "col": 0,
               "colspan": 1,
               "rowspan": 1,
-              "text": "1 tsp / 5 g / 4.9 mL",
-              "name": "Olive oil",
-              "state": "",
+              "text": "2 bunches / 450 g / 15.87 oz",
+              "name": "Asparagus",
+              "state": "rinsed and trimmed",
               "essentialState": false
+            },
+            {
+              "kind": "operation",
+              "col": 1,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "Blanch asparagus 2 min; ice-chill and drain",
+              "equipment": [
+                "Pans"
+              ]
             }
           ],
           [
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "about ½ stick / 57 g / 2 oz",
               "name": "Butter",
@@ -71391,11 +71371,54 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
+              "rowspan": 1,
+              "text": "1 tsp / 5 g / 4.9 mL",
+              "name": "Olive oil",
+              "state": "",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 2,
               "rowspan": 1,
               "text": "about ⅞ clove / 3 g / 0.1 oz",
               "name": "Minced garlic",
               "state": "divided · about ⅞ clove / 3 g / 0.1 oz for the chicken bites and about ⅞ clove / 3 g / 0.1 oz for the asparagus and sauce",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 2,
+              "rowspan": 1,
+              "text": "1 g / 0.04 oz",
+              "name": "Italian seasoning",
+              "state": "",
+              "alternatives": [
+                {
+                  "name": "Herbes de Provence",
+                  "quantity": "1 g / 0.04 oz",
+                  "measurements": [
+                    {
+                      "quantity": "1 g",
+                      "status": "mass"
+                    },
+                    {
+                      "quantity": "0.04 oz",
+                      "status": "mass"
+                    }
+                  ],
+                  "status": "multiple",
+                  "grams": 1,
+                  "source": "https://www.nist.gov/pml/special-publication-811"
+                }
+              ],
               "essentialState": false
             }
           ],
@@ -71413,7 +71436,7 @@
             {
               "kind": "operation",
               "col": 1,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 6,
               "text": "Raise heat to medium-high; reduce broth with remaining garlic by half; stir in remaining butter, lemon, optional hot sauce and parsley.",
               "equipment": [
@@ -71485,29 +71508,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "2 bunches / 450 g / 15.87 oz",
-              "name": "Asparagus",
-              "state": "rinsed and trimmed",
-              "essentialState": false
-            },
-            {
-              "kind": "operation",
-              "col": 1,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "Blanch asparagus 2 min; ice-chill and drain",
-              "equipment": [
-                "Pans"
-              ]
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 2,
+              "colspan": 3,
               "rowspan": 1,
               "text": "A pinch",
               "name": "Crushed red chili pepper flakes",
@@ -71519,7 +71520,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 2,
+              "colspan": 3,
               "rowspan": 1,
               "text": "about 1 lemon / 60 g / 2.12 oz",
               "name": "Slices of lemon for garnish",
@@ -71568,13 +71569,6 @@
               "state": "boneless, skinless, cut into bite-sized chunks"
             },
             {
-              "id": "ingredient-6",
-              "name": "Italian seasoning",
-              "amount": 1,
-              "unit": "g",
-              "state": ""
-            },
-            {
               "id": "ingredient-14",
               "name": "Fresh cracked black pepper",
               "amount": 1,
@@ -71589,11 +71583,11 @@
               "state": ""
             },
             {
-              "id": "ingredient-4",
-              "name": "Olive oil",
-              "amount": 1,
-              "unit": "tsp",
-              "state": ""
+              "id": "ingredient-2",
+              "name": "Asparagus",
+              "amount": 2,
+              "unit": "bunch",
+              "state": "rinsed and trimmed"
             },
             {
               "id": "ingredient-3",
@@ -71603,11 +71597,25 @@
               "state": "divided"
             },
             {
+              "id": "ingredient-4",
+              "name": "Olive oil",
+              "amount": 1,
+              "unit": "tsp",
+              "state": ""
+            },
+            {
               "id": "ingredient-5",
               "name": "Minced garlic",
               "amount": 2,
               "unit": "tsp",
               "state": "divided"
+            },
+            {
+              "id": "ingredient-6",
+              "name": "Italian seasoning",
+              "amount": 1,
+              "unit": "g",
+              "state": ""
             },
             {
               "id": "ingredient-8",
@@ -71636,13 +71644,6 @@
               "amount": 1,
               "unit": "tbsp",
               "state": ""
-            },
-            {
-              "id": "ingredient-2",
-              "name": "Asparagus",
-              "amount": 2,
-              "unit": "bunch",
-              "state": "rinsed and trimmed"
             },
             {
               "id": "ingredient-11",
@@ -71855,44 +71856,6 @@
           "note": ""
         },
         {
-          "quantity": "1 g / 0.04 oz",
-          "measurements": [
-            {
-              "quantity": "1 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "0.04 oz",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 1,
-          "source": "https://www.nist.gov/pml/special-publication-811",
-          "alternatives": [
-            {
-              "name": "Herbes de Provence",
-              "quantity": "1 g / 0.04 oz",
-              "measurements": [
-                {
-                  "quantity": "1 g",
-                  "status": "mass"
-                },
-                {
-                  "quantity": "0.04 oz",
-                  "status": "mass"
-                }
-              ],
-              "status": "multiple",
-              "grams": 1,
-              "source": "https://www.nist.gov/pml/special-publication-811"
-            }
-          ],
-          "name": "Italian seasoning",
-          "state": "",
-          "note": ""
-        },
-        {
           "quantity": "1 tsp / 2 g / 0.08 oz",
           "measurements": [
             {
@@ -71939,26 +71902,26 @@
           "note": ""
         },
         {
-          "quantity": "1 tsp / 5 g / 4.9 mL",
+          "quantity": "2 bunches / 450 g / 15.87 oz",
           "measurements": [
             {
-              "quantity": "1 tsp",
-              "status": "volume"
+              "quantity": "2 bunches",
+              "status": "portion"
             },
             {
-              "quantity": "5 g",
+              "quantity": "450 g",
               "status": "mass"
             },
             {
-              "quantity": "4.9 mL",
-              "status": "volume"
+              "quantity": "15.87 oz",
+              "status": "mass"
             }
           ],
           "status": "multiple",
-          "grams": 4.5,
-          "source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
-          "name": "Olive oil",
-          "state": "",
+          "grams": 450,
+          "source": "https://www.jsolly.com/recipes/",
+          "name": "Asparagus",
+          "state": "rinsed and trimmed",
           "note": ""
         },
         {
@@ -71985,6 +71948,29 @@
           "note": "about ½ stick / 57 g / 2 oz for browning the chicken and about ½ stick / 57 g / 2 oz for the sauce"
         },
         {
+          "quantity": "1 tsp / 5 g / 4.9 mL",
+          "measurements": [
+            {
+              "quantity": "1 tsp",
+              "status": "volume"
+            },
+            {
+              "quantity": "5 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "4.9 mL",
+              "status": "volume"
+            }
+          ],
+          "status": "multiple",
+          "grams": 4.5,
+          "source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+          "name": "Olive oil",
+          "state": "",
+          "note": ""
+        },
+        {
           "quantity": "about 1 ⅞ cloves / 6 g / 0.2 oz",
           "measurements": [
             {
@@ -72006,6 +71992,44 @@
           "name": "Minced garlic",
           "state": "divided",
           "note": "about ⅞ clove / 3 g / 0.1 oz for the chicken bites and about ⅞ clove / 3 g / 0.1 oz for the asparagus and sauce"
+        },
+        {
+          "quantity": "1 g / 0.04 oz",
+          "measurements": [
+            {
+              "quantity": "1 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "0.04 oz",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 1,
+          "source": "https://www.nist.gov/pml/special-publication-811",
+          "alternatives": [
+            {
+              "name": "Herbes de Provence",
+              "quantity": "1 g / 0.04 oz",
+              "measurements": [
+                {
+                  "quantity": "1 g",
+                  "status": "mass"
+                },
+                {
+                  "quantity": "0.04 oz",
+                  "status": "mass"
+                }
+              ],
+              "status": "multiple",
+              "grams": 1,
+              "source": "https://www.nist.gov/pml/special-publication-811"
+            }
+          ],
+          "name": "Italian seasoning",
+          "state": "",
+          "note": ""
         },
         {
           "quantity": "½ cup / 120 g / 118 mL",
@@ -72097,29 +72121,6 @@
           "source": "https://fdc.nal.usda.gov/food-details/170416/nutrients",
           "name": "Minced parsley",
           "state": "",
-          "note": ""
-        },
-        {
-          "quantity": "2 bunches / 450 g / 15.87 oz",
-          "measurements": [
-            {
-              "quantity": "2 bunches",
-              "status": "portion"
-            },
-            {
-              "quantity": "450 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "15.87 oz",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 450,
-          "source": "https://www.jsolly.com/recipes/",
-          "name": "Asparagus",
-          "state": "rinsed and trimmed",
           "note": ""
         },
         {
@@ -76356,9 +76357,32 @@
               "col": 0,
               "colspan": 1,
               "rowspan": 1,
-              "text": "680 g / 1.5 lb",
-              "name": "Flank steak",
-              "state": "sliced against the grain",
+              "text": "⅓ cup / 85 g / 79 mL",
+              "name": "Low-sodium soy sauce",
+              "state": "or coconut amino if you’re strictly paleo",
+              "alternatives": [
+                {
+                  "name": "Big Tree Farms Coconut Aminos",
+                  "quantity": "⅓ cup / 96 g / 79 mL",
+                  "measurements": [
+                    {
+                      "quantity": "⅓ cup",
+                      "status": "volume"
+                    },
+                    {
+                      "quantity": "96 g",
+                      "status": "mass"
+                    },
+                    {
+                      "quantity": "79 mL",
+                      "status": "volume"
+                    }
+                  ],
+                  "status": "multiple",
+                  "grams": 96,
+                  "source": "https://bigtreefarms.com/products/regenerative-organic-coco-aminos"
+                }
+              ],
               "essentialState": false
             },
             {
@@ -76391,41 +76415,6 @@
                 "Serving dishes",
                 "Large bowl"
               ]
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "⅓ cup / 85 g / 79 mL",
-              "name": "Low-sodium soy sauce",
-              "state": "or coconut amino if you’re strictly paleo",
-              "alternatives": [
-                {
-                  "name": "Big Tree Farms Coconut Aminos",
-                  "quantity": "⅓ cup / 96 g / 79 mL",
-                  "measurements": [
-                    {
-                      "quantity": "⅓ cup",
-                      "status": "volume"
-                    },
-                    {
-                      "quantity": "96 g",
-                      "status": "mass"
-                    },
-                    {
-                      "quantity": "79 mL",
-                      "status": "volume"
-                    }
-                  ],
-                  "status": "multiple",
-                  "grams": 96,
-                  "source": "https://bigtreefarms.com/products/regenerative-organic-coco-aminos"
-                }
-              ],
-              "essentialState": false
             }
           ],
           [
@@ -76468,11 +76457,11 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 2,
+              "colspan": 1,
               "rowspan": 1,
-              "text": "A pinch",
-              "name": "Black pepper",
-              "state": "ground",
+              "text": "680 g / 1.5 lb",
+              "name": "Flank steak",
+              "state": "sliced against the grain",
               "essentialState": false
             }
           ],
@@ -76485,6 +76474,18 @@
               "text": "2 tbsp / 27 g / 30 mL",
               "name": "Olive oil",
               "state": "",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 2,
+              "rowspan": 1,
+              "text": "A pinch",
+              "name": "Black pepper",
+              "state": "ground",
               "essentialState": false
             }
           ],
@@ -76649,13 +76650,6 @@
           "publisherBaselineFields": [],
           "ingredientSnapshot": [
             {
-              "id": "ingredient-1",
-              "name": "Flank steak",
-              "amount": 1.5,
-              "unit": "lb",
-              "state": "sliced against the grain"
-            },
-            {
               "id": "ingredient-11",
               "name": "Low-sodium soy sauce",
               "amount": 0.3333333333333333,
@@ -76684,11 +76678,11 @@
               "state": ""
             },
             {
-              "id": "ingredient-10-pepper",
-              "name": "Black pepper",
-              "amount": 0.25,
-              "unit": "tsp",
-              "state": "ground"
+              "id": "ingredient-1",
+              "name": "Flank steak",
+              "amount": 1.5,
+              "unit": "lb",
+              "state": "sliced against the grain"
             },
             {
               "id": "ingredient-3",
@@ -76696,6 +76690,13 @@
               "amount": 2,
               "unit": "tbsp",
               "state": ""
+            },
+            {
+              "id": "ingredient-10-pepper",
+              "name": "Black pepper",
+              "amount": 0.25,
+              "unit": "tsp",
+              "state": "ground"
             },
             {
               "id": "ingredient-4",
@@ -76909,25 +76910,6 @@
       ],
       "ingredients": [
         {
-          "quantity": "680 g / 1.5 lb",
-          "measurements": [
-            {
-              "quantity": "680 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "1.5 lb",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 680.388555,
-          "source": "https://www.nist.gov/pml/special-publication-811",
-          "name": "Flank steak",
-          "state": "sliced against the grain",
-          "note": ""
-        },
-        {
           "quantity": "⅓ cup / 85 g / 79 mL",
           "measurements": [
             {
@@ -77043,18 +77025,22 @@
           "note": "or any hot chili sauce you like For less heat, use less; for more heat, add gradually to taste."
         },
         {
-          "quantity": "A pinch",
+          "quantity": "680 g / 1.5 lb",
           "measurements": [
             {
-              "quantity": "A pinch",
-              "status": "portion"
+              "quantity": "680 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "1.5 lb",
+              "status": "mass"
             }
           ],
-          "status": "portion",
-          "grams": 0.575,
-          "source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
-          "name": "Black pepper",
-          "state": "ground",
+          "status": "multiple",
+          "grams": 680.388555,
+          "source": "https://www.nist.gov/pml/special-publication-811",
+          "name": "Flank steak",
+          "state": "sliced against the grain",
           "note": ""
         },
         {
@@ -77078,6 +77064,21 @@
           "source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
           "name": "Olive oil",
           "state": "",
+          "note": ""
+        },
+        {
+          "quantity": "A pinch",
+          "measurements": [
+            {
+              "quantity": "A pinch",
+              "status": "portion"
+            }
+          ],
+          "status": "portion",
+          "grams": 0.575,
+          "source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
+          "name": "Black pepper",
+          "state": "ground",
           "note": ""
         },
         {
@@ -87102,7 +87103,7 @@
           "Cook shellfish until the flesh is pearly white and opaque.",
           "For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
         ],
-        "columns": 3,
+        "columns": 4,
         "rows": [
           [
             {
@@ -87110,24 +87111,34 @@
               "col": 0,
               "colspan": 1,
               "rowspan": 1,
-              "text": "A pinch",
-              "name": "Black pepper",
-              "state": "ground",
+              "text": "680 g / 1.5 lb",
+              "name": "Medium raw shrimp",
+              "state": "peeled and deveined",
               "essentialState": false
             },
             {
               "kind": "operation",
               "col": 1,
               "colspan": 1,
-              "rowspan": 9,
-              "text": "Season shrimp with part of pepper. Over medium, cook half garlic/onion 1 min in half butter; cauliflower 1 min; one-third stock/half parsley/optional zest 1 min; lemon/two-thirds Parmesan 1 min until cauliflower crisp-tender; reserve.",
+              "rowspan": 2,
+              "text": "Season the shrimp with this portion of the pepper.",
+              "equipment": [
+                "Large bowl"
+              ]
+            },
+            {
+              "kind": "operation",
+              "col": 2,
+              "colspan": 1,
+              "rowspan": 18,
+              "text": "Set the cauliflower rice aside. Melt the remaining butter and cook the seasoned shrimp 1–2 min on one side. Add the remaining garlic, Italian seasoning and onion powder, flip and cook 1 min. Add remaining stock, hot sauce and Parmesan; reduce 1 min and adjust seasoning.",
               "equipment": [
                 "Pans"
               ]
             },
             {
               "kind": "operation",
-              "col": 2,
+              "col": 3,
               "colspan": 1,
               "rowspan": 20,
               "text": "Return cauliflower to cooked shrimp; warm and finish parsley/flakes",
@@ -87142,10 +87153,32 @@
               "col": 0,
               "colspan": 1,
               "rowspan": 1,
+              "text": "A pinch",
+              "name": "Black pepper",
+              "state": "ground",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
               "text": "about ¼ stick / 28 g / 1 oz",
               "name": "Unsalted butter",
               "state": "divided",
               "essentialState": false
+            },
+            {
+              "kind": "operation",
+              "col": 1,
+              "colspan": 1,
+              "rowspan": 8,
+              "text": "Over medium, cook half garlic/onion 1 min in half butter; cauliflower 1 min; one-third stock/half parsley/optional zest 1 min; lemon/two-thirds Parmesan 1 min until cauliflower crisp-tender; reserve.",
+              "equipment": [
+                "Pans"
+              ]
             }
           ],
           [
@@ -87236,29 +87269,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "680 g / 1.5 lb",
-              "name": "Medium raw shrimp",
-              "state": "peeled and deveined",
-              "essentialState": false
-            },
-            {
-              "kind": "operation",
-              "col": 1,
-              "colspan": 1,
-              "rowspan": 9,
-              "text": "Cook shrimp 1–2 min; flip with garlic/spices 1 min; reduce stock/hot sauce/cheese 1 min",
-              "equipment": [
-                "Pans"
-              ]
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "about ¼ stick / 28 g / 1 oz",
               "name": "Unsalted butter",
@@ -87270,7 +87281,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "2 ½ cloves / 8 g / 0.26 oz",
               "name": "Garlic",
@@ -87282,7 +87293,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "1 g / 0.04 oz",
               "name": "Italian seasoning",
@@ -87294,7 +87305,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "1 tsp / 2 g / 0.08 oz",
               "name": "Onion powder",
@@ -87306,19 +87317,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "1 tbsp / 20 g / 15 mL",
-              "name": "Sriracha",
-              "state": "or any hot sauce you like For less heat, use less; for more heat, add gradually to taste.",
-              "essentialState": false
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "¼ cup / 55 g / 59 mL",
               "name": "Vegetable stock",
@@ -87330,7 +87329,19 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
+              "rowspan": 1,
+              "text": "1 tbsp / 20 g / 15 mL",
+              "name": "Sriracha",
+              "state": "or any hot sauce you like For less heat, use less; for more heat, add gradually to taste.",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 2,
               "rowspan": 1,
               "text": "about 3 ¾ tbsp / 19 g / 0.67 oz",
               "name": "Fresh Parmesan",
@@ -87342,7 +87353,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "A pinch",
               "name": "Black pepper",
@@ -87354,7 +87365,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 2,
+              "colspan": 3,
               "rowspan": 1,
               "text": "about 1 tbsp / 4 g / 0.14 oz",
               "name": "Fresh parsley",
@@ -87366,7 +87377,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 2,
+              "colspan": 3,
               "rowspan": 1,
               "text": "2 g / 0.06 oz",
               "name": "Red chili pepper flakes",
@@ -87407,6 +87418,13 @@
           ],
           "publisherBaselineFields": [],
           "ingredientSnapshot": [
+            {
+              "id": "ingredient-1",
+              "name": "Medium raw shrimp",
+              "amount": 1.5,
+              "unit": "lb",
+              "state": "peeled and deveined"
+            },
             {
               "id": "ingredient-5-pepper",
               "name": "Black pepper",
@@ -87469,13 +87487,6 @@
               "amount": 2,
               "unit": "oz",
               "state": "finely grated"
-            },
-            {
-              "id": "ingredient-1",
-              "name": "Medium raw shrimp",
-              "amount": 1.5,
-              "unit": "lb",
-              "state": "peeled and deveined"
             },
             {
               "id": "ingredient-3",
@@ -87802,6 +87813,25 @@
       ],
       "ingredients": [
         {
+          "quantity": "680 g / 1.5 lb",
+          "measurements": [
+            {
+              "quantity": "680 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "1.5 lb",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 680.388555,
+          "source": "https://www.nist.gov/pml/special-publication-811",
+          "name": "Medium raw shrimp",
+          "state": "peeled and deveined",
+          "note": ""
+        },
+        {
           "quantity": "A pinch",
           "measurements": [
             {
@@ -87998,25 +88028,6 @@
           "source": "https://www.nist.gov/pml/special-publication-811",
           "name": "Fresh Parmesan",
           "state": "finely grated",
-          "note": ""
-        },
-        {
-          "quantity": "680 g / 1.5 lb",
-          "measurements": [
-            {
-              "quantity": "680 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "1.5 lb",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 680.388555,
-          "source": "https://www.nist.gov/pml/special-publication-811",
-          "name": "Medium raw shrimp",
-          "state": "peeled and deveined",
           "note": ""
         },
         {
@@ -95112,7 +95123,7 @@
           "Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.",
           "For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
         ],
-        "columns": 3,
+        "columns": 4,
         "rows": [
           [
             {
@@ -95138,6 +95149,16 @@
             {
               "kind": "operation",
               "col": 2,
+              "colspan": 1,
+              "rowspan": 8,
+              "text": "Set the drained spinach aside. In the cleaned skillet, sear seasoned, drained steak in half the butter over medium-high for 1 min on the first side, then turn to finish; work in batches and reserve.",
+              "equipment": [
+                "Pans"
+              ]
+            },
+            {
+              "kind": "operation",
+              "col": 3,
               "colspan": 1,
               "rowspan": 15,
               "text": "Return steak and drained spinach to sauce; warm through",
@@ -95266,7 +95287,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "about ½ stick / 57 g / 2 oz",
               "name": "Butter",
@@ -95295,23 +95316,13 @@
                 }
               ],
               "essentialState": false
-            },
-            {
-              "kind": "operation",
-              "col": 1,
-              "colspan": 1,
-              "rowspan": 2,
-              "text": "After spinach is drained and skillet cleaned, sear seasoned drained steak in half butter over medium-high 1 min first side, then turn to finish; work in batches and reserve.",
-              "equipment": [
-                "Pans"
-              ]
             }
           ],
           [
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "A pinch",
               "name": "Black pepper",
@@ -95356,7 +95367,7 @@
             {
               "kind": "operation",
               "col": 1,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 7,
               "text": "After steak is reserved, add remaining butter and sauce ingredients; bring reserved raw-meat marinade with garlic/lemon/broth/herbs to a full boil, then reduce 1–2 min.",
               "equipment": [
@@ -96521,40 +96532,8 @@
           "Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
           "For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
         ],
-        "columns": 3,
+        "columns": 4,
         "rows": [
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "about ⅛ stick / 14 g / 0.5 oz",
-              "name": "Butter",
-              "state": "divided · grass-fed butter is best for this recipe",
-              "essentialState": false
-            },
-            {
-              "kind": "operation",
-              "col": 1,
-              "colspan": 1,
-              "rowspan": 5,
-              "text": "Cook chicken 1 min over medium-high; add garlic/flakes and turn about 2 min",
-              "equipment": [
-                "Pans"
-              ]
-            },
-            {
-              "kind": "operation",
-              "col": 2,
-              "colspan": 1,
-              "rowspan": 17,
-              "text": "Toss zucchini/herbs in sauce 2–3 min; return chicken 1 min until cooked through; garnish",
-              "equipment": [
-                "Large bowl"
-              ]
-            }
-          ],
           [
             {
               "kind": "ingredient",
@@ -96565,30 +96544,36 @@
               "name": "Chicken breasts",
               "state": "skinless and boneless, cut into strips",
               "essentialState": false
-            }
-          ],
-          [
+            },
             {
-              "kind": "ingredient",
-              "col": 0,
+              "kind": "operation",
+              "col": 1,
               "colspan": 1,
-              "rowspan": 1,
-              "text": "4 cloves / 12 g / 0.42 oz",
-              "name": "Garlic",
-              "state": "minced",
-              "essentialState": false
-            }
-          ],
-          [
+              "rowspan": 2,
+              "text": "Season the chicken strips with pepper.",
+              "equipment": [
+                "Large bowl"
+              ]
+            },
             {
-              "kind": "ingredient",
-              "col": 0,
+              "kind": "operation",
+              "col": 2,
               "colspan": 1,
-              "rowspan": 1,
-              "text": "A pinch",
-              "name": "Crushed red pepper flakes",
-              "state": "For less heat, use less; for more heat, add gradually to taste.",
-              "essentialState": false
+              "rowspan": 6,
+              "text": "Set the spiralized zucchini aside. Melt one-quarter of the butter over medium-high and cook the seasoned chicken in a single layer for 1 min without stirring. Add garlic and chili flakes, turn and cook about 2 min; reserve.",
+              "equipment": [
+                "Pans"
+              ]
+            },
+            {
+              "kind": "operation",
+              "col": 3,
+              "colspan": 1,
+              "rowspan": 17,
+              "text": "Toss zucchini/herbs in sauce 2–3 min; return chicken 1 min until cooked through; garnish",
+              "equipment": [
+                "Large bowl"
+              ]
             }
           ],
           [
@@ -96609,6 +96594,64 @@
               "col": 0,
               "colspan": 1,
               "rowspan": 1,
+              "text": "3 medium zucchini / 588 g / 1.3 lb",
+              "name": "Zucchini",
+              "state": "medium",
+              "essentialState": false
+            },
+            {
+              "kind": "operation",
+              "col": 1,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "Spiralize zucchini",
+              "equipment": [
+                "Spiralizer"
+              ]
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 2,
+              "rowspan": 1,
+              "text": "about ⅛ stick / 14 g / 0.5 oz",
+              "name": "Butter",
+              "state": "divided · grass-fed butter is best for this recipe",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 2,
+              "rowspan": 1,
+              "text": "4 cloves / 12 g / 0.42 oz",
+              "name": "Garlic",
+              "state": "minced",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 2,
+              "rowspan": 1,
+              "text": "A pinch",
+              "name": "Crushed red pepper flakes",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
               "text": "about ⅜ stick / 43 g / 1.5 oz",
               "name": "Butter",
               "state": "divided · grass-fed butter is best for this recipe",
@@ -96617,7 +96660,7 @@
             {
               "kind": "operation",
               "col": 1,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 7,
               "text": "Simmer cowboy butter sauce 2–3 min",
               "equipment": [
@@ -96701,29 +96744,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "3 medium zucchini / 588 g / 1.3 lb",
-              "name": "Zucchini",
-              "state": "medium",
-              "essentialState": false
-            },
-            {
-              "kind": "operation",
-              "col": 1,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "Spiralize zucchini",
-              "equipment": [
-                "Spiralizer"
-              ]
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 2,
+              "colspan": 3,
               "rowspan": 1,
               "text": "2 tbsp / 8 g / 0.27 oz",
               "name": "Fresh chopped parsley",
@@ -96735,7 +96756,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 2,
+              "colspan": 3,
               "rowspan": 1,
               "text": "1 tbsp / 3 g / 0.11 oz",
               "name": "Freshly chopped chives",
@@ -96747,7 +96768,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 2,
+              "colspan": 3,
               "rowspan": 1,
               "text": "2 tsp / 2 g / 0.06 oz",
               "name": "Minced thyme",
@@ -96759,7 +96780,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 2,
+              "colspan": 3,
               "rowspan": 1,
               "text": "about 1 lemon / 60 g / 2.12 oz",
               "name": "Lemon slices",
@@ -96801,18 +96822,32 @@
           "publisherBaselineFields": [],
           "ingredientSnapshot": [
             {
-              "id": "ingredient-3",
-              "name": "Butter",
-              "amount": 4,
-              "unit": "tbsp",
-              "state": "divided"
-            },
-            {
               "id": "ingredient-1",
               "name": "Chicken breasts",
               "amount": 3,
               "unit": "count",
               "state": "skinless and boneless, cut into strips"
+            },
+            {
+              "id": "ingredient-15-pepper",
+              "name": "Black pepper",
+              "amount": 0.25,
+              "unit": "tsp",
+              "state": "ground"
+            },
+            {
+              "id": "ingredient-2",
+              "name": "Zucchini",
+              "amount": 3,
+              "unit": "count",
+              "state": "medium"
+            },
+            {
+              "id": "ingredient-3",
+              "name": "Butter",
+              "amount": 4,
+              "unit": "tbsp",
+              "state": "divided"
             },
             {
               "id": "ingredient-5",
@@ -96827,13 +96862,6 @@
               "amount": 0.45,
               "unit": "g",
               "state": ""
-            },
-            {
-              "id": "ingredient-15-pepper",
-              "name": "Black pepper",
-              "amount": 0.25,
-              "unit": "tsp",
-              "state": "ground"
             },
             {
               "id": "ingredient-4",
@@ -96876,13 +96904,6 @@
               "amount": 1,
               "unit": "tbsp",
               "state": ""
-            },
-            {
-              "id": "ingredient-2",
-              "name": "Zucchini",
-              "amount": 3,
-              "unit": "count",
-              "state": "medium"
             },
             {
               "id": "ingredient-11",
@@ -97097,29 +97118,6 @@
       ],
       "ingredients": [
         {
-          "quantity": "about ½ stick / 57 g / 2 oz",
-          "measurements": [
-            {
-              "quantity": "about ½ stick",
-              "status": "portion"
-            },
-            {
-              "quantity": "57 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "2 oz",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 56.8,
-          "source": "https://fdc.nal.usda.gov/food-details/173430/nutrients",
-          "name": "Butter",
-          "state": "divided",
-          "note": "grass-fed butter is best for this recipe"
-        },
-        {
           "quantity": "3 breasts / 600 g / 1.32 lb",
           "measurements": [
             {
@@ -97141,6 +97139,67 @@
           "name": "Chicken breasts",
           "state": "skinless and boneless, cut into strips",
           "note": ""
+        },
+        {
+          "quantity": "A pinch",
+          "measurements": [
+            {
+              "quantity": "A pinch",
+              "status": "portion"
+            }
+          ],
+          "status": "portion",
+          "grams": 0.575,
+          "source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
+          "name": "Black pepper",
+          "state": "ground",
+          "note": ""
+        },
+        {
+          "quantity": "3 medium zucchini / 588 g / 1.3 lb",
+          "measurements": [
+            {
+              "quantity": "3 medium zucchini",
+              "status": "portion"
+            },
+            {
+              "quantity": "588 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "1.3 lb",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 588,
+          "source": "https://fdc.nal.usda.gov/food-details/169291/nutrients",
+          "name": "Zucchini",
+          "state": "medium",
+          "note": ""
+        },
+        {
+          "quantity": "about ½ stick / 57 g / 2 oz",
+          "measurements": [
+            {
+              "quantity": "about ½ stick",
+              "status": "portion"
+            },
+            {
+              "quantity": "57 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "2 oz",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 56.8,
+          "source": "https://fdc.nal.usda.gov/food-details/173430/nutrients",
+          "name": "Butter",
+          "state": "divided",
+          "note": "grass-fed butter is best for this recipe"
         },
         {
           "quantity": "4 cloves / 12 g / 0.42 oz",
@@ -97179,21 +97238,6 @@
           "name": "Crushed red pepper flakes",
           "state": "",
           "note": "For less heat, use less; for more heat, add gradually to taste."
-        },
-        {
-          "quantity": "A pinch",
-          "measurements": [
-            {
-              "quantity": "A pinch",
-              "status": "portion"
-            }
-          ],
-          "status": "portion",
-          "grams": 0.575,
-          "source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
-          "name": "Black pepper",
-          "state": "ground",
-          "note": ""
         },
         {
           "quantity": "about ⅜ lemon / 25 g / 0.88 oz",
@@ -97316,29 +97360,6 @@
           "name": "Sriracha",
           "state": "",
           "note": "we used Sriracha For less heat, use less; for more heat, add gradually to taste."
-        },
-        {
-          "quantity": "3 medium zucchini / 588 g / 1.3 lb",
-          "measurements": [
-            {
-              "quantity": "3 medium zucchini",
-              "status": "portion"
-            },
-            {
-              "quantity": "588 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "1.3 lb",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 588,
-          "source": "https://fdc.nal.usda.gov/food-details/169291/nutrients",
-          "name": "Zucchini",
-          "state": "medium",
-          "note": ""
         },
         {
           "quantity": "2 tbsp / 8 g / 0.27 oz",
@@ -100006,87 +100027,6 @@
               "col": 0,
               "colspan": 1,
               "rowspan": 1,
-              "text": "1 tbsp / 14 g / 15 mL",
-              "name": "Olive oil",
-              "state": "divided",
-              "essentialState": false
-            },
-            {
-              "kind": "operation",
-              "col": 1,
-              "colspan": 1,
-              "rowspan": 5,
-              "text": "Sauté peppers/onion 5–7 min over medium-high",
-              "equipment": [
-                "Pans"
-              ]
-            },
-            {
-              "kind": "operation",
-              "col": 2,
-              "colspan": 1,
-              "rowspan": 13,
-              "text": "Combine warmed chicken and tender vegetables; cook 1 min and serve",
-              "equipment": [
-                "Serving dishes",
-                "Large bowl"
-              ]
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "1 medium pepper / 119 g / 4.2 oz",
-              "name": "Red bell pepper",
-              "state": "sliced",
-              "essentialState": false
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "1 medium pepper / 119 g / 4.2 oz",
-              "name": "Green bell pepper",
-              "state": "sliced",
-              "essentialState": false
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "119 g / 4.2 oz",
-              "name": "Yellow bell pepper",
-              "state": "sliced",
-              "essentialState": false
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "1 medium onion / 110 g / 3.88 oz",
-              "name": "Onion",
-              "state": "medium, sliced",
-              "essentialState": false
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
               "text": "about 3 ¼ cup / 454 g / 1 lb",
               "name": "Shredded rotisserie chicken",
               "state": "fully cooked, shredded rotisserie chicken",
@@ -100096,10 +100036,21 @@
               "kind": "operation",
               "col": 1,
               "colspan": 1,
-              "rowspan": 8,
-              "text": "Season cooked rotisserie chicken; heat in oil 2–3 min",
+              "rowspan": 7,
+              "text": "Mix cooked shredded rotisserie chicken with the chili powder, paprika, onion powder, cumin, garlic powder and pepper.",
               "equipment": [
-                "Pans"
+                "Large bowl"
+              ]
+            },
+            {
+              "kind": "operation",
+              "col": 2,
+              "colspan": 1,
+              "rowspan": 13,
+              "text": "Move the tender vegetables to one side of the skillet. Heat the seasoned chicken in the remaining oil for 2–3 min, then combine with the vegetables, cook 1 min and serve.",
+              "equipment": [
+                "Pans",
+                "Serving dishes"
               ]
             }
           ],
@@ -100185,6 +100136,76 @@
               "name": "Olive oil",
               "state": "divided",
               "essentialState": false
+            },
+            {
+              "kind": "operation",
+              "col": 1,
+              "colspan": 1,
+              "rowspan": 5,
+              "text": "Sauté peppers/onion 5–7 min over medium-high",
+              "equipment": [
+                "Pans"
+              ]
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "1 medium pepper / 119 g / 4.2 oz",
+              "name": "Red bell pepper",
+              "state": "sliced",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "1 medium pepper / 119 g / 4.2 oz",
+              "name": "Green bell pepper",
+              "state": "sliced",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "119 g / 4.2 oz",
+              "name": "Yellow bell pepper",
+              "state": "sliced",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "1 medium onion / 110 g / 3.88 oz",
+              "name": "Onion",
+              "state": "medium, sliced",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 2,
+              "rowspan": 1,
+              "text": "1 tbsp / 14 g / 15 mL",
+              "name": "Olive oil",
+              "state": "divided",
+              "essentialState": false
             }
           ]
         ]
@@ -100220,41 +100241,6 @@
           ],
           "publisherBaselineFields": [],
           "ingredientSnapshot": [
-            {
-              "id": "ingredient-9",
-              "name": "Olive oil",
-              "amount": 2,
-              "unit": "tbsp",
-              "state": "divided"
-            },
-            {
-              "id": "ingredient-10",
-              "name": "Red bell pepper",
-              "amount": 1,
-              "unit": "count",
-              "state": "sliced"
-            },
-            {
-              "id": "ingredient-11",
-              "name": "Green bell pepper",
-              "amount": 1,
-              "unit": "count",
-              "state": "sliced"
-            },
-            {
-              "id": "ingredient-12",
-              "name": "Yellow bell pepper",
-              "amount": 119,
-              "unit": "g",
-              "state": "sliced"
-            },
-            {
-              "id": "ingredient-13",
-              "name": "Onion",
-              "amount": 1,
-              "unit": "count",
-              "state": "medium, sliced"
-            },
             {
               "id": "ingredient-1",
               "name": "Shredded rotisserie chicken",
@@ -100303,6 +100289,41 @@
               "amount": 0.25,
               "unit": "tsp",
               "state": ""
+            },
+            {
+              "id": "ingredient-9",
+              "name": "Olive oil",
+              "amount": 2,
+              "unit": "tbsp",
+              "state": "divided"
+            },
+            {
+              "id": "ingredient-10",
+              "name": "Red bell pepper",
+              "amount": 1,
+              "unit": "count",
+              "state": "sliced"
+            },
+            {
+              "id": "ingredient-11",
+              "name": "Green bell pepper",
+              "amount": 1,
+              "unit": "count",
+              "state": "sliced"
+            },
+            {
+              "id": "ingredient-12",
+              "name": "Yellow bell pepper",
+              "amount": 119,
+              "unit": "g",
+              "state": "sliced"
+            },
+            {
+              "id": "ingredient-13",
+              "name": "Onion",
+              "amount": 1,
+              "unit": "count",
+              "state": "medium, sliced"
             }
           ],
           "assumptions": [
@@ -100461,117 +100482,6 @@
       ],
       "ingredients": [
         {
-          "quantity": "2 tbsp / 27 g / 30 mL",
-          "measurements": [
-            {
-              "quantity": "2 tbsp",
-              "status": "volume"
-            },
-            {
-              "quantity": "27 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "30 mL",
-              "status": "volume"
-            }
-          ],
-          "status": "multiple",
-          "grams": 27,
-          "source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
-          "name": "Olive oil",
-          "state": "divided",
-          "note": ""
-        },
-        {
-          "quantity": "1 medium pepper / 119 g / 4.2 oz",
-          "measurements": [
-            {
-              "quantity": "1 medium pepper",
-              "status": "portion"
-            },
-            {
-              "quantity": "119 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "4.2 oz",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 119,
-          "source": "https://fdc.nal.usda.gov/food-details/170108/nutrients",
-          "name": "Red bell pepper",
-          "state": "sliced",
-          "note": ""
-        },
-        {
-          "quantity": "1 medium pepper / 119 g / 4.2 oz",
-          "measurements": [
-            {
-              "quantity": "1 medium pepper",
-              "status": "portion"
-            },
-            {
-              "quantity": "119 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "4.2 oz",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 119,
-          "source": "https://fdc.nal.usda.gov/food-details/170427/nutrients",
-          "name": "Green bell pepper",
-          "state": "sliced",
-          "note": ""
-        },
-        {
-          "quantity": "119 g / 4.2 oz",
-          "measurements": [
-            {
-              "quantity": "119 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "4.2 oz",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 119,
-          "source": "https://www.nist.gov/pml/special-publication-811",
-          "name": "Yellow bell pepper",
-          "state": "sliced",
-          "note": ""
-        },
-        {
-          "quantity": "1 medium onion / 110 g / 3.88 oz",
-          "measurements": [
-            {
-              "quantity": "1 medium onion",
-              "status": "portion"
-            },
-            {
-              "quantity": "110 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "3.88 oz",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 110,
-          "source": "https://fdc.nal.usda.gov/food-details/170000/nutrients",
-          "name": "Onion",
-          "state": "medium, sliced",
-          "note": ""
-        },
-        {
           "quantity": "about 3 ¼ cup / 454 g / 1 lb",
           "measurements": [
             {
@@ -100718,6 +100628,117 @@
           "source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
           "name": "Pepper",
           "state": "",
+          "note": ""
+        },
+        {
+          "quantity": "2 tbsp / 27 g / 30 mL",
+          "measurements": [
+            {
+              "quantity": "2 tbsp",
+              "status": "volume"
+            },
+            {
+              "quantity": "27 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "30 mL",
+              "status": "volume"
+            }
+          ],
+          "status": "multiple",
+          "grams": 27,
+          "source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+          "name": "Olive oil",
+          "state": "divided",
+          "note": ""
+        },
+        {
+          "quantity": "1 medium pepper / 119 g / 4.2 oz",
+          "measurements": [
+            {
+              "quantity": "1 medium pepper",
+              "status": "portion"
+            },
+            {
+              "quantity": "119 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "4.2 oz",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 119,
+          "source": "https://fdc.nal.usda.gov/food-details/170108/nutrients",
+          "name": "Red bell pepper",
+          "state": "sliced",
+          "note": ""
+        },
+        {
+          "quantity": "1 medium pepper / 119 g / 4.2 oz",
+          "measurements": [
+            {
+              "quantity": "1 medium pepper",
+              "status": "portion"
+            },
+            {
+              "quantity": "119 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "4.2 oz",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 119,
+          "source": "https://fdc.nal.usda.gov/food-details/170427/nutrients",
+          "name": "Green bell pepper",
+          "state": "sliced",
+          "note": ""
+        },
+        {
+          "quantity": "119 g / 4.2 oz",
+          "measurements": [
+            {
+              "quantity": "119 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "4.2 oz",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 119,
+          "source": "https://www.nist.gov/pml/special-publication-811",
+          "name": "Yellow bell pepper",
+          "state": "sliced",
+          "note": ""
+        },
+        {
+          "quantity": "1 medium onion / 110 g / 3.88 oz",
+          "measurements": [
+            {
+              "quantity": "1 medium onion",
+              "status": "portion"
+            },
+            {
+              "quantity": "110 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "3.88 oz",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 110,
+          "source": "https://fdc.nal.usda.gov/food-details/170000/nutrients",
+          "name": "Onion",
+          "state": "medium, sliced",
           "note": ""
         }
       ],
@@ -109395,7 +109416,7 @@
           "Cook whole-cut pork to 145°F at its thickest point, then rest at least 3 minutes.",
           "For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
         ],
-        "columns": 3,
+        "columns": 4,
         "rows": [
           [
             {
@@ -109412,15 +109433,25 @@
               "kind": "operation",
               "col": 1,
               "colspan": 1,
-              "rowspan": 10,
-              "text": "Season pork; brown uncrowded batches over medium-low in oil and half butter; add half garlic and separate Italian seasoning, then reserve.",
+              "rowspan": 6,
+              "text": "Coat the diced pork with the measured pork spices.",
+              "equipment": [
+                "Large bowl"
+              ]
+            },
+            {
+              "kind": "operation",
+              "col": 2,
+              "colspan": 1,
+              "rowspan": 11,
+              "text": "Set the asparagus aside. Brown the seasoned pork in uncrowded batches over medium-low in oil and half the butter. Add half the garlic and the separate Italian seasoning, then reserve the pork.",
               "equipment": [
                 "Pans"
               ]
             },
             {
               "kind": "operation",
-              "col": 2,
+              "col": 3,
               "colspan": 1,
               "rowspan": 19,
               "text": "Return pork 1 min; ensure 145°F and 3 min rest. Garnish as listed.",
@@ -109483,6 +109514,40 @@
               "col": 0,
               "colspan": 1,
               "rowspan": 1,
+              "text": "1 g / 0.04 oz",
+              "name": "Italian seasoning",
+              "state": "",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "2 bunches / 450 g / 15.87 oz",
+              "name": "asparagus",
+              "state": "rinsed and trimmed",
+              "essentialState": false
+            },
+            {
+              "kind": "operation",
+              "col": 1,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "Blanch asparagus 2 min, ice-chill and drain. Thin spears may skip blanching.",
+              "equipment": [
+                "Pans"
+              ]
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 2,
+              "rowspan": 1,
               "text": "1 tsp / 5 g / 4.9 mL",
               "name": "olive oil",
               "state": "",
@@ -109493,7 +109558,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "about ½ stick / 57 g / 2 oz",
               "name": "butter",
@@ -109505,7 +109570,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "about ⅞ clove / 3 g / 0.1 oz",
               "name": "minced garlic",
@@ -109517,7 +109582,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "1 g / 0.04 oz",
               "name": "Italian seasoning",
@@ -109550,18 +109615,6 @@
               "col": 0,
               "colspan": 1,
               "rowspan": 1,
-              "text": "1 g / 0.04 oz",
-              "name": "Italian seasoning",
-              "state": "",
-              "essentialState": false
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
               "text": "about ⅞ clove / 3 g / 0.1 oz",
               "name": "minced garlic",
               "state": "",
@@ -109570,8 +109623,8 @@
             {
               "kind": "operation",
               "col": 1,
-              "colspan": 1,
-              "rowspan": 7,
+              "colspan": 2,
+              "rowspan": 6,
               "text": "After pork is reserved, add remaining garlic and stock; reduce by half. Add remaining butter, lemon, parsley and optional hot sauce; toss asparagus 3 min.",
               "equipment": [
                 "Large bowl"
@@ -109642,19 +109695,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "2 bunches / 450 g / 15.87 oz",
-              "name": "asparagus",
-              "state": "rinsed and trimmed",
-              "essentialState": false
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 2,
+              "colspan": 3,
               "rowspan": 1,
               "text": "A pinch",
               "name": "Crushed red chili pepper flakes",
@@ -109666,7 +109707,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 2,
+              "colspan": 3,
               "rowspan": 1,
               "text": "about 1 lemon / 60 g / 2.12 oz",
               "name": "Slices of lemon",
@@ -109743,6 +109784,20 @@
               "state": "optional"
             },
             {
+              "id": "ingredient-18",
+              "name": "Italian seasoning",
+              "amount": 1,
+              "unit": "g",
+              "state": ""
+            },
+            {
+              "id": "ingredient-2",
+              "name": "asparagus",
+              "amount": 2,
+              "unit": "bunch",
+              "state": "rinsed and trimmed"
+            },
+            {
               "id": "ingredient-4",
               "name": "olive oil",
               "amount": 1,
@@ -109765,13 +109820,6 @@
             },
             {
               "id": "ingredient-6",
-              "name": "Italian seasoning",
-              "amount": 1,
-              "unit": "g",
-              "state": ""
-            },
-            {
-              "id": "ingredient-18",
               "name": "Italian seasoning",
               "amount": 1,
               "unit": "g",
@@ -109804,13 +109852,6 @@
               "amount": 1,
               "unit": "tbsp",
               "state": "optional (we used Sriracha)"
-            },
-            {
-              "id": "ingredient-2",
-              "name": "asparagus",
-              "amount": 2,
-              "unit": "bunch",
-              "state": "rinsed and trimmed"
             },
             {
               "id": "ingredient-11",
@@ -110147,6 +110188,48 @@
           "note": "For less heat, use less; for more heat, add gradually to taste."
         },
         {
+          "quantity": "1 g / 0.04 oz",
+          "measurements": [
+            {
+              "quantity": "1 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "0.04 oz",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 1,
+          "source": "https://www.nist.gov/pml/special-publication-811",
+          "name": "Italian seasoning",
+          "state": "",
+          "note": ""
+        },
+        {
+          "quantity": "2 bunches / 450 g / 15.87 oz",
+          "measurements": [
+            {
+              "quantity": "2 bunches",
+              "status": "portion"
+            },
+            {
+              "quantity": "450 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "15.87 oz",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 450,
+          "source": "https://www.jsolly.com/recipes/",
+          "name": "asparagus",
+          "state": "rinsed and trimmed",
+          "note": ""
+        },
+        {
           "quantity": "1 tsp / 5 g / 4.9 mL",
           "measurements": [
             {
@@ -110254,25 +110337,6 @@
           "note": ""
         },
         {
-          "quantity": "1 g / 0.04 oz",
-          "measurements": [
-            {
-              "quantity": "1 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "0.04 oz",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 1,
-          "source": "https://www.nist.gov/pml/special-publication-811",
-          "name": "Italian seasoning",
-          "state": "",
-          "note": ""
-        },
-        {
           "quantity": "½ cup / 120 g / 118 mL",
           "measurements": [
             {
@@ -110363,29 +110427,6 @@
           "name": "Sriracha",
           "state": "optional (we used Sriracha)",
           "note": "For less heat, use less; for more heat, add gradually to taste."
-        },
-        {
-          "quantity": "2 bunches / 450 g / 15.87 oz",
-          "measurements": [
-            {
-              "quantity": "2 bunches",
-              "status": "portion"
-            },
-            {
-              "quantity": "450 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "15.87 oz",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 450,
-          "source": "https://www.jsolly.com/recipes/",
-          "name": "asparagus",
-          "state": "rinsed and trimmed",
-          "note": ""
         },
         {
           "quantity": "A pinch",
@@ -114376,7 +114417,7 @@
           "Check poultry or reheated cooked chicken reaches 165°F at the thickest center.",
           "For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
         ],
-        "columns": 3,
+        "columns": 4,
         "rows": [
           [
             {
@@ -114412,18 +114453,28 @@
               "kind": "operation",
               "col": 1,
               "colspan": 1,
-              "rowspan": 5,
-              "text": "Season chicken strips; cook in one layer over medium-low in two-thirds butter 2–3 min/side to 165°F; reserve.",
+              "rowspan": 4,
+              "text": "Season chicken strips with paprika, onion powder and pepper.",
               "equipment": [
-                "Pans"
+                "Large bowl"
               ]
             },
             {
               "kind": "operation",
               "col": 2,
               "colspan": 1,
+              "rowspan": 7,
+              "text": "Set the microwaved beans aside. Cook the seasoned chicken in one layer over medium-low in two-thirds of the butter for 2–3 min per side to 165°F; reserve.",
+              "equipment": [
+                "Pans"
+              ]
+            },
+            {
+              "kind": "operation",
+              "col": 3,
+              "colspan": 1,
               "rowspan": 14,
-              "text": "Return chicken and warm; garnish.",
+              "text": "Cook the beans in the same skillet with the remaining butter, herbs, garlic and hot sauce for 4–5 min. Add stock and lemon, reduce briefly, then return chicken and warm; garnish.",
               "equipment": [
                 "Pans"
               ]
@@ -114471,6 +114522,40 @@
               "col": 0,
               "colspan": 1,
               "rowspan": 1,
+              "text": "454 g / 1 lb",
+              "name": "green beans",
+              "state": "trimmed",
+              "essentialState": false
+            },
+            {
+              "kind": "operation",
+              "col": 1,
+              "colspan": 1,
+              "rowspan": 2,
+              "text": "Microwave the beans with their cooking water, covered, for 8–10 min until nearly tender.",
+              "equipment": [
+                "Microwave"
+              ]
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "½ cup / 118 g / 118 mL",
+              "name": "Water for bean microwave",
+              "state": "",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 2,
+              "rowspan": 1,
               "text": "about ¼ stick / 28 g / 1 oz",
               "name": "butter",
               "state": "divided or (ghee for paleo diet)",
@@ -114504,41 +114589,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "454 g / 1 lb",
-              "name": "green beans",
-              "state": "trimmed",
-              "essentialState": false
-            },
-            {
-              "kind": "operation",
-              "col": 1,
-              "colspan": 1,
-              "rowspan": 9,
-              "text": "Microwave beans with water 8–10 min; after chicken is reserved cook beans with remaining butter, herbs, garlic/hot sauce 4–5 min; reduce stock/lemon briefly.",
-              "equipment": [
-                "Microwave"
-              ]
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "½ cup / 118 g / 118 mL",
-              "name": "Water for bean microwave",
-              "state": "",
-              "essentialState": false
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
+              "colspan": 3,
               "rowspan": 1,
               "text": "about ⅛ stick / 14 g / 0.5 oz",
               "name": "butter",
@@ -114573,7 +114624,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 3,
               "rowspan": 1,
               "text": "½ cup / 30 g / 1.06 oz",
               "name": "fresh chopped parsley",
@@ -114585,7 +114636,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 3,
               "rowspan": 1,
               "text": "4 cloves / 12 g / 0.42 oz",
               "name": "garlic cloves",
@@ -114597,7 +114648,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 3,
               "rowspan": 1,
               "text": "1 tbsp / 20 g / 15 mL",
               "name": "Sriracha",
@@ -114609,7 +114660,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 3,
               "rowspan": 1,
               "text": "A pinch",
               "name": "crushed red chili pepper flakes",
@@ -114621,7 +114672,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 3,
               "rowspan": 1,
               "text": "½ cup / 125 g / 118 mL",
               "name": "chicken stock",
@@ -114633,7 +114684,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 3,
               "rowspan": 1,
               "text": "juice of ½ lemon / 24 g / 23 mL",
               "name": "lemon",
@@ -114703,13 +114754,6 @@
               "state": ""
             },
             {
-              "id": "ingredient-3",
-              "name": "butter",
-              "amount": 3,
-              "unit": "tbsp",
-              "state": "divided or (ghee for paleo diet)"
-            },
-            {
               "id": "ingredient-2",
               "name": "green beans",
               "amount": 1,
@@ -114722,6 +114766,13 @@
               "amount": 0.5,
               "unit": "cup",
               "state": ""
+            },
+            {
+              "id": "ingredient-3",
+              "name": "butter",
+              "amount": 3,
+              "unit": "tbsp",
+              "state": "divided or (ghee for paleo diet)"
             },
             {
               "id": "ingredient-13",
@@ -115027,6 +115078,48 @@
           "note": ""
         },
         {
+          "quantity": "454 g / 1 lb",
+          "measurements": [
+            {
+              "quantity": "454 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "1 lb",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 453.59237,
+          "source": "https://www.nist.gov/pml/special-publication-811",
+          "name": "green beans",
+          "state": "trimmed",
+          "note": ""
+        },
+        {
+          "quantity": "½ cup / 118 g / 118 mL",
+          "measurements": [
+            {
+              "quantity": "½ cup",
+              "status": "volume"
+            },
+            {
+              "quantity": "118 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "118 mL",
+              "status": "volume"
+            }
+          ],
+          "status": "multiple",
+          "grams": 118.29411825,
+          "source": "https://www.nist.gov/pml/special-publication-811",
+          "name": "Water for bean microwave",
+          "state": "",
+          "note": ""
+        },
+        {
           "quantity": "about ⅜ stick / 43 g / 1.5 oz",
           "measurements": [
             {
@@ -115070,48 +115163,6 @@
           ],
           "name": "butter",
           "state": "divided or (ghee for paleo diet)",
-          "note": ""
-        },
-        {
-          "quantity": "454 g / 1 lb",
-          "measurements": [
-            {
-              "quantity": "454 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "1 lb",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 453.59237,
-          "source": "https://www.nist.gov/pml/special-publication-811",
-          "name": "green beans",
-          "state": "trimmed",
-          "note": ""
-        },
-        {
-          "quantity": "½ cup / 118 g / 118 mL",
-          "measurements": [
-            {
-              "quantity": "½ cup",
-              "status": "volume"
-            },
-            {
-              "quantity": "118 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "118 mL",
-              "status": "volume"
-            }
-          ],
-          "status": "multiple",
-          "grams": 118.29411825,
-          "source": "https://www.nist.gov/pml/special-publication-811",
-          "name": "Water for bean microwave",
-          "state": "",
           "note": ""
         },
         {
@@ -124937,6 +124988,50 @@
               "col": 0,
               "colspan": 1,
               "rowspan": 1,
+              "text": "454 g / 1 lb",
+              "name": "fresh stringless green beans",
+              "state": "trimmed",
+              "essentialState": false
+            },
+            {
+              "kind": "operation",
+              "col": 1,
+              "colspan": 1,
+              "rowspan": 2,
+              "text": "Microwave the beans with their cooking water, covered, for 8–10 min until nearly tender.",
+              "equipment": [
+                "Microwave"
+              ]
+            },
+            {
+              "kind": "operation",
+              "col": 2,
+              "colspan": 1,
+              "rowspan": 16,
+              "text": "After reserving the sausages, cook the microwaved beans with remaining butter, garlic and herbs in the same skillet for 4–5 min. Add lemon, stock and optional hot sauce and reduce. Return sausages, warm and garnish.",
+              "equipment": [
+                "Pans"
+              ]
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "½ cup / 118 g / 118 mL",
+              "name": "Water for bean microwave",
+              "state": "",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
               "text": "about 4 ½ links / 454 g / 1 lb",
               "name": "sausage",
               "state": "(Bratwurst or Italian style)",
@@ -124948,16 +125043,6 @@
               "colspan": 1,
               "rowspan": 4,
               "text": "Simmer sausages over medium with separate sausage water 10 min, evaporate; brown with two-thirds butter/half garlic to 160°F pork or 165°F poultry; reserve.",
-              "equipment": [
-                "Pans"
-              ]
-            },
-            {
-              "kind": "operation",
-              "col": 2,
-              "colspan": 1,
-              "rowspan": 16,
-              "text": "Return sausages and warm; garnish.",
               "equipment": [
                 "Pans"
               ]
@@ -125003,41 +125088,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "454 g / 1 lb",
-              "name": "fresh stringless green beans",
-              "state": "trimmed",
-              "essentialState": false
-            },
-            {
-              "kind": "operation",
-              "col": 1,
-              "colspan": 1,
-              "rowspan": 10,
-              "text": "Microwave beans with bean water 8–10 min. After sausages are reserved, cook beans with remaining fat/garlic, herbs 4–5 min; add lemon/stock/optional hot sauce and reduce.",
-              "equipment": [
-                "Microwave"
-              ]
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "½ cup / 118 g / 118 mL",
-              "name": "Water for bean microwave",
-              "state": "",
-              "essentialState": false
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "about ⅛ stick / 14 g / 0.5 oz",
               "name": "butter",
@@ -125049,7 +125100,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "2 ½ cloves / 8 g / 0.26 oz",
               "name": "garlic cloves",
@@ -125061,7 +125112,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "1 g / 0.04 oz",
               "name": "Italian seasoning",
@@ -125073,7 +125124,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "½ cup / 30 g / 1.06 oz",
               "name": "fresh chopped parsley",
@@ -125085,7 +125136,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "1 tbsp / 2 g / 0.08 oz",
               "name": "fresh thyme leaves",
@@ -125097,7 +125148,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "juice of ½ lemon / 24 g / 23 mL",
               "name": "lemon",
@@ -125109,7 +125160,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "¼ cup / 55 g / 59 mL",
               "name": "Vegetable stock",
@@ -125144,7 +125195,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "1 tbsp / 20 g / 15 mL",
               "name": "Sriracha",
@@ -125210,6 +125261,20 @@
           "publisherBaselineFields": [],
           "ingredientSnapshot": [
             {
+              "id": "ingredient-2",
+              "name": "fresh stringless green beans",
+              "amount": 1,
+              "unit": "lb",
+              "state": "trimmed"
+            },
+            {
+              "id": "ingredient-14",
+              "name": "Water for bean microwave",
+              "amount": 0.5,
+              "unit": "cup",
+              "state": ""
+            },
+            {
               "id": "ingredient-1",
               "name": "sausage",
               "amount": 1,
@@ -125236,20 +125301,6 @@
               "amount": 5,
               "unit": "count",
               "state": "minced"
-            },
-            {
-              "id": "ingredient-2",
-              "name": "fresh stringless green beans",
-              "amount": 1,
-              "unit": "lb",
-              "state": "trimmed"
-            },
-            {
-              "id": "ingredient-14",
-              "name": "Water for bean microwave",
-              "amount": 0.5,
-              "unit": "cup",
-              "state": ""
             },
             {
               "id": "ingredient-5",
@@ -125466,6 +125517,48 @@
       ],
       "ingredients": [
         {
+          "quantity": "454 g / 1 lb",
+          "measurements": [
+            {
+              "quantity": "454 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "1 lb",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 453.59237,
+          "source": "https://www.nist.gov/pml/special-publication-811",
+          "name": "fresh stringless green beans",
+          "state": "trimmed",
+          "note": ""
+        },
+        {
+          "quantity": "½ cup / 118 g / 118 mL",
+          "measurements": [
+            {
+              "quantity": "½ cup",
+              "status": "volume"
+            },
+            {
+              "quantity": "118 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "118 mL",
+              "status": "volume"
+            }
+          ],
+          "status": "multiple",
+          "grams": 118.29411825,
+          "source": "https://www.nist.gov/pml/special-publication-811",
+          "name": "Water for bean microwave",
+          "state": "",
+          "note": ""
+        },
+        {
           "quantity": "about 4 ½ links / 454 g / 1 lb",
           "measurements": [
             {
@@ -125555,48 +125648,6 @@
           "source": "https://fdc.nal.usda.gov/food-details/169230/nutrients",
           "name": "garlic cloves",
           "state": "minced",
-          "note": ""
-        },
-        {
-          "quantity": "454 g / 1 lb",
-          "measurements": [
-            {
-              "quantity": "454 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "1 lb",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 453.59237,
-          "source": "https://www.nist.gov/pml/special-publication-811",
-          "name": "fresh stringless green beans",
-          "state": "trimmed",
-          "note": ""
-        },
-        {
-          "quantity": "½ cup / 118 g / 118 mL",
-          "measurements": [
-            {
-              "quantity": "½ cup",
-              "status": "volume"
-            },
-            {
-              "quantity": "118 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "118 mL",
-              "status": "volume"
-            }
-          ],
-          "status": "multiple",
-          "grams": 118.29411825,
-          "source": "https://www.nist.gov/pml/special-publication-811",
-          "name": "Water for bean microwave",
-          "state": "",
           "note": ""
         },
         {
@@ -126134,6 +126185,87 @@
               "col": 0,
               "colspan": 1,
               "rowspan": 1,
+              "text": "½ tsp / 1 g / 0.04 oz",
+              "name": "onion powder",
+              "state": "",
+              "essentialState": false
+            },
+            {
+              "kind": "operation",
+              "col": 1,
+              "colspan": 1,
+              "rowspan": 5,
+              "text": "Mix the listed dry rice seasonings.",
+              "equipment": [
+                "Large bowl"
+              ]
+            },
+            {
+              "kind": "operation",
+              "col": 2,
+              "colspan": 1,
+              "rowspan": 17,
+              "text": "Add the mixed dry seasonings and measured stock to the cauliflower and reduce briefly. Return the rolls and warm through. Remove toothpicks and garnish with cilantro.",
+              "equipment": [
+                "Pans",
+                "Serving dishes"
+              ]
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "½ tsp / 2 g / 0.05 oz",
+              "name": "garlic powder",
+              "state": "",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "2 g / 0.07 oz",
+              "name": "cumin",
+              "state": "",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "1 tsp / 3 g / 0.1 oz",
+              "name": "chili powder",
+              "state": "For less heat, use less; for more heat, add gradually to taste.",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "1 tsp / 2 g / 0.08 oz",
+              "name": "paprika",
+              "state": "",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 1,
+              "rowspan": 1,
               "text": "454 g / 1 lb",
               "name": "flank steak",
               "state": "sliced lengthwise",
@@ -126148,16 +126280,6 @@
               "equipment": [
                 "Pans",
                 "Chopping board"
-              ]
-            },
-            {
-              "kind": "operation",
-              "col": 2,
-              "colspan": 1,
-              "rowspan": 17,
-              "text": "Return rolls and warm; remove toothpicks and garnish with cilantro.",
-              "equipment": [
-                "Pans"
               ]
             }
           ],
@@ -126224,8 +126346,8 @@
               "kind": "operation",
               "col": 1,
               "colspan": 1,
-              "rowspan": 11,
-              "text": "After rolls are reserved, soften onion, pepper and jalapeño in oil 3 min. Add cauliflower 2 min, measured spices and ingredient-list stock; reduce.",
+              "rowspan": 5,
+              "text": "After reserving the rolls, soften onion, bell pepper and jalapeño in oil for 3 min. Add cauliflower and cook 2 min.",
               "equipment": [
                 "Pans"
               ]
@@ -126283,67 +126405,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "½ tsp / 1 g / 0.04 oz",
-              "name": "onion powder",
-              "state": "",
-              "essentialState": false
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "½ tsp / 2 g / 0.05 oz",
-              "name": "garlic powder",
-              "state": "",
-              "essentialState": false
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "2 g / 0.07 oz",
-              "name": "cumin",
-              "state": "",
-              "essentialState": false
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "1 tsp / 3 g / 0.1 oz",
-              "name": "chili powder",
-              "state": "For less heat, use less; for more heat, add gradually to taste.",
-              "essentialState": false
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "1 tsp / 2 g / 0.08 oz",
-              "name": "paprika",
-              "state": "",
-              "essentialState": false
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "¼ cup / 55 g / 59 mL",
               "name": "vegetable stock",
@@ -126396,6 +126458,41 @@
           ],
           "publisherBaselineFields": [],
           "ingredientSnapshot": [
+            {
+              "id": "ingredient-12",
+              "name": "onion powder",
+              "amount": 0.5,
+              "unit": "tsp",
+              "state": ""
+            },
+            {
+              "id": "ingredient-13",
+              "name": "garlic powder",
+              "amount": 0.5,
+              "unit": "tsp",
+              "state": ""
+            },
+            {
+              "id": "ingredient-14",
+              "name": "cumin",
+              "amount": 2.1,
+              "unit": "g",
+              "state": ""
+            },
+            {
+              "id": "ingredient-15",
+              "name": "chili powder",
+              "amount": 1,
+              "unit": "tsp",
+              "state": ""
+            },
+            {
+              "id": "ingredient-16",
+              "name": "paprika",
+              "amount": 1,
+              "unit": "tsp",
+              "state": ""
+            },
             {
               "id": "ingredient-1",
               "name": "flank steak",
@@ -126465,41 +126562,6 @@
               "amount": 1,
               "unit": "head",
               "state": "riced"
-            },
-            {
-              "id": "ingredient-12",
-              "name": "onion powder",
-              "amount": 0.5,
-              "unit": "tsp",
-              "state": ""
-            },
-            {
-              "id": "ingredient-13",
-              "name": "garlic powder",
-              "amount": 0.5,
-              "unit": "tsp",
-              "state": ""
-            },
-            {
-              "id": "ingredient-14",
-              "name": "cumin",
-              "amount": 2.1,
-              "unit": "g",
-              "state": ""
-            },
-            {
-              "id": "ingredient-15",
-              "name": "chili powder",
-              "amount": 1,
-              "unit": "tsp",
-              "state": ""
-            },
-            {
-              "id": "ingredient-16",
-              "name": "paprika",
-              "amount": 1,
-              "unit": "tsp",
-              "state": ""
             },
             {
               "id": "ingredient-17",
@@ -126722,6 +126784,117 @@
         "Toothpicks for securing rolls"
       ],
       "ingredients": [
+        {
+          "quantity": "½ tsp / 1 g / 0.04 oz",
+          "measurements": [
+            {
+              "quantity": "½ tsp",
+              "status": "volume"
+            },
+            {
+              "quantity": "1 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "0.04 oz",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 1.2,
+          "source": "https://fdc.nal.usda.gov/food-details/171327/nutrients",
+          "name": "onion powder",
+          "state": "",
+          "note": ""
+        },
+        {
+          "quantity": "½ tsp / 2 g / 0.05 oz",
+          "measurements": [
+            {
+              "quantity": "½ tsp",
+              "status": "volume"
+            },
+            {
+              "quantity": "2 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "0.05 oz",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 1.55,
+          "source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
+          "name": "garlic powder",
+          "state": "",
+          "note": ""
+        },
+        {
+          "quantity": "2 g / 0.07 oz",
+          "measurements": [
+            {
+              "quantity": "2 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "0.07 oz",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 2.1,
+          "source": "https://www.nist.gov/pml/special-publication-811",
+          "name": "cumin",
+          "state": "",
+          "note": ""
+        },
+        {
+          "quantity": "1 tsp / 3 g / 0.1 oz",
+          "measurements": [
+            {
+              "quantity": "1 tsp",
+              "status": "volume"
+            },
+            {
+              "quantity": "3 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "0.1 oz",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 2.7,
+          "source": "https://fdc.nal.usda.gov/food-details/171319/nutrients",
+          "name": "chili powder",
+          "state": "",
+          "note": "For less heat, use less; for more heat, add gradually to taste."
+        },
+        {
+          "quantity": "1 tsp / 2 g / 0.08 oz",
+          "measurements": [
+            {
+              "quantity": "1 tsp",
+              "status": "volume"
+            },
+            {
+              "quantity": "2 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "0.08 oz",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 2.3,
+          "source": "https://fdc.nal.usda.gov/food-details/171329/nutrients",
+          "name": "paprika",
+          "state": "",
+          "note": ""
+        },
         {
           "quantity": "454 g / 1 lb",
           "measurements": [
@@ -126946,117 +127119,6 @@
           "source": "https://fdc.nal.usda.gov/food-details/169986/nutrients",
           "name": "cauliflower",
           "state": "riced",
-          "note": ""
-        },
-        {
-          "quantity": "½ tsp / 1 g / 0.04 oz",
-          "measurements": [
-            {
-              "quantity": "½ tsp",
-              "status": "volume"
-            },
-            {
-              "quantity": "1 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "0.04 oz",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 1.2,
-          "source": "https://fdc.nal.usda.gov/food-details/171327/nutrients",
-          "name": "onion powder",
-          "state": "",
-          "note": ""
-        },
-        {
-          "quantity": "½ tsp / 2 g / 0.05 oz",
-          "measurements": [
-            {
-              "quantity": "½ tsp",
-              "status": "volume"
-            },
-            {
-              "quantity": "2 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "0.05 oz",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 1.55,
-          "source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
-          "name": "garlic powder",
-          "state": "",
-          "note": ""
-        },
-        {
-          "quantity": "2 g / 0.07 oz",
-          "measurements": [
-            {
-              "quantity": "2 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "0.07 oz",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 2.1,
-          "source": "https://www.nist.gov/pml/special-publication-811",
-          "name": "cumin",
-          "state": "",
-          "note": ""
-        },
-        {
-          "quantity": "1 tsp / 3 g / 0.1 oz",
-          "measurements": [
-            {
-              "quantity": "1 tsp",
-              "status": "volume"
-            },
-            {
-              "quantity": "3 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "0.1 oz",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 2.7,
-          "source": "https://fdc.nal.usda.gov/food-details/171319/nutrients",
-          "name": "chili powder",
-          "state": "",
-          "note": "For less heat, use less; for more heat, add gradually to taste."
-        },
-        {
-          "quantity": "1 tsp / 2 g / 0.08 oz",
-          "measurements": [
-            {
-              "quantity": "1 tsp",
-              "status": "volume"
-            },
-            {
-              "quantity": "2 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "0.08 oz",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 2.3,
-          "source": "https://fdc.nal.usda.gov/food-details/171329/nutrients",
-          "name": "paprika",
-          "state": "",
           "note": ""
         },
         {
@@ -130207,7 +130269,7 @@
           "Check whole-cut beef or pork reaches 145°F, then rest it at least 3 minutes.",
           "For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
         ],
-        "columns": 3,
+        "columns": 4,
         "rows": [
           [
             {
@@ -130224,10 +130286,9 @@
               "kind": "operation",
               "col": 1,
               "colspan": 1,
-              "rowspan": 9,
-              "text": "Marinate steak 10 min in refrigerator; drain and reserve marinade. Sear in two-thirds butter over medium-high about 1 min/side, adding half garlic and optional flakes after turning; continue to 145°F, reserve and rest 3 min.",
+              "rowspan": 6,
+              "text": "Marinate steak in the refrigerator for 10 min.",
               "equipment": [
-                "Pans",
                 "Large bowl"
               ]
             },
@@ -130235,9 +130296,20 @@
               "kind": "operation",
               "col": 2,
               "colspan": 1,
-              "rowspan": 18,
-              "text": "Return steak briefly to warm through and serve.",
+              "rowspan": 11,
+              "text": "Set the microwaved beans aside. Drain steak and reserve marinade. Sear steak in two-thirds of the butter over medium-high about 1 min per side, adding half the garlic and optional flakes after turning; continue to 145°F, reserve and rest 3 min.",
               "equipment": [
+                "Pans"
+              ]
+            },
+            {
+              "kind": "operation",
+              "col": 3,
+              "colspan": 1,
+              "rowspan": 18,
+              "text": "After reserving the steak, cook the beans with the remaining butter, garlic and herbs in the same skillet for 4–5 min. Add stock, lemon and the reserved marinade; bring the marinade to a full boil. Return steak briefly to warm through and serve.",
+              "equipment": [
+                "Pans",
                 "Serving dishes"
               ]
             }
@@ -130331,42 +130403,6 @@
               "col": 0,
               "colspan": 1,
               "rowspan": 1,
-              "text": "about ⅓ stick / 38 g / 1.34 oz",
-              "name": "butter",
-              "state": "divided",
-              "essentialState": false
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "3 ⅓ cloves / 10 g / 0.35 oz",
-              "name": "garlic cloves",
-              "state": "minced",
-              "essentialState": false
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "A pinch",
-              "name": "Crushed red chili pepper flakes",
-              "state": "optional · For less heat, use less; for more heat, add gradually to taste.",
-              "essentialState": false
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
               "text": "605 g / 1.33 lb",
               "name": "fresh stringless green beans",
               "state": "trimmed",
@@ -130376,8 +130412,8 @@
               "kind": "operation",
               "col": 1,
               "colspan": 1,
-              "rowspan": 9,
-              "text": "Microwave beans with water 8–10 min. After steak is reserved, cook beans with remaining fat/garlic and herbs 4–5 min; add stock/lemon and reserved marinade; bring marinade to full boil.",
+              "rowspan": 2,
+              "text": "Microwave the beans with their cooking water, covered, for 8–10 min until nearly tender.",
               "equipment": [
                 "Microwave"
               ]
@@ -130399,9 +130435,9 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
-              "text": "about ⅙ stick / 19 g / 0.67 oz",
+              "text": "about ⅓ stick / 38 g / 1.34 oz",
               "name": "butter",
               "state": "divided",
               "essentialState": false
@@ -130411,7 +130447,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "3 ⅓ cloves / 10 g / 0.35 oz",
               "name": "garlic cloves",
@@ -130423,7 +130459,43 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
+              "rowspan": 1,
+              "text": "A pinch",
+              "name": "Crushed red chili pepper flakes",
+              "state": "optional · For less heat, use less; for more heat, add gradually to taste.",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 3,
+              "rowspan": 1,
+              "text": "about ⅙ stick / 19 g / 0.67 oz",
+              "name": "butter",
+              "state": "divided",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 3,
+              "rowspan": 1,
+              "text": "3 ⅓ cloves / 10 g / 0.35 oz",
+              "name": "garlic cloves",
+              "state": "minced",
+              "essentialState": false
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 3,
               "rowspan": 1,
               "text": "1 g / 0.05 oz",
               "name": "Italian seasoning",
@@ -130435,7 +130507,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 3,
               "rowspan": 1,
               "text": "⅔ cup / 40 g / 1.41 oz",
               "name": "fresh chopped parsley",
@@ -130447,7 +130519,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 3,
               "rowspan": 1,
               "text": "1 ⅓ tbsp / 3 g / 0.11 oz",
               "name": "fresh thyme leaves",
@@ -130459,7 +130531,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 3,
               "rowspan": 1,
               "text": "⅔ cup / 160 g / 158 mL",
               "name": "low-sodium beef stock",
@@ -130471,7 +130543,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 3,
               "rowspan": 1,
               "text": "juice of ⅔ lemon / 32 g / 31 mL",
               "name": "lemon",
@@ -130555,6 +130627,20 @@
               "state": ""
             },
             {
+              "id": "ingredient-2",
+              "name": "fresh stringless green beans",
+              "amount": 1.3333333333333333,
+              "unit": "lb",
+              "state": "trimmed"
+            },
+            {
+              "id": "ingredient-16",
+              "name": "Water for bean microwave",
+              "amount": 0.6666666666666666,
+              "unit": "cup",
+              "state": ""
+            },
+            {
               "id": "ingredient-3",
               "name": "butter",
               "amount": 4,
@@ -130574,20 +130660,6 @@
               "amount": 0.45,
               "unit": "g",
               "state": "optional"
-            },
-            {
-              "id": "ingredient-2",
-              "name": "fresh stringless green beans",
-              "amount": 1.3333333333333333,
-              "unit": "lb",
-              "state": "trimmed"
-            },
-            {
-              "id": "ingredient-16",
-              "name": "Water for bean microwave",
-              "amount": 0.6666666666666666,
-              "unit": "cup",
-              "state": ""
             },
             {
               "id": "ingredient-5",
@@ -130945,6 +131017,48 @@
           "note": ""
         },
         {
+          "quantity": "605 g / 1.33 lb",
+          "measurements": [
+            {
+              "quantity": "605 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "1.33 lb",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 604.7898266666666,
+          "source": "https://www.nist.gov/pml/special-publication-811",
+          "name": "fresh stringless green beans",
+          "state": "trimmed",
+          "note": ""
+        },
+        {
+          "quantity": "⅔ cup / 158 g / 158 mL",
+          "measurements": [
+            {
+              "quantity": "⅔ cup",
+              "status": "volume"
+            },
+            {
+              "quantity": "158 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "158 mL",
+              "status": "volume"
+            }
+          ],
+          "status": "multiple",
+          "grams": 157.72549099999998,
+          "source": "https://www.nist.gov/pml/special-publication-811",
+          "name": "Water for bean microwave",
+          "state": "",
+          "note": ""
+        },
+        {
           "quantity": "about ½ stick / 57 g / 2 oz",
           "measurements": [
             {
@@ -131004,48 +131118,6 @@
           "name": "Crushed red chili pepper flakes",
           "state": "optional",
           "note": "For less heat, use less; for more heat, add gradually to taste."
-        },
-        {
-          "quantity": "605 g / 1.33 lb",
-          "measurements": [
-            {
-              "quantity": "605 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "1.33 lb",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 604.7898266666666,
-          "source": "https://www.nist.gov/pml/special-publication-811",
-          "name": "fresh stringless green beans",
-          "state": "trimmed",
-          "note": ""
-        },
-        {
-          "quantity": "⅔ cup / 158 g / 158 mL",
-          "measurements": [
-            {
-              "quantity": "⅔ cup",
-              "status": "volume"
-            },
-            {
-              "quantity": "158 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "158 mL",
-              "status": "volume"
-            }
-          ],
-          "status": "multiple",
-          "grams": 157.72549099999998,
-          "source": "https://www.nist.gov/pml/special-publication-811",
-          "name": "Water for bean microwave",
-          "state": "",
-          "note": ""
         },
         {
           "quantity": "1 g / 0.05 oz",
@@ -138840,7 +138912,7 @@
               "col": 2,
               "colspan": 1,
               "rowspan": 16,
-              "text": "Return sausage and cauliflower, heat through and finish with parsley.",
+              "text": "Return sausage and cauliflower, heat through, and finish with optional chili flakes and parsley.",
               "equipment": [
                 "Pans"
               ]
@@ -138874,7 +138946,7 @@
               "col": 1,
               "colspan": 1,
               "rowspan": 12,
-              "text": "Brown sausage over medium-high in one-third oil about 5 min; reserve. Cook peppers/onion in remaining oil 4–5 min, garlic/herbs/seasoning 1 min; add broth, scrape pan and simmer 1 min; add optional spices.",
+              "text": "Brown sausage over medium-high in one-third of the oil about 5 min; reserve. Cook peppers and onion in the remaining oil 4–5 min. Add garlic, Italian seasoning and black pepper for 1 min. Add broth, scrape the pan and simmer 1 min, then add optional paprika and cayenne.",
               "equipment": [
                 "Pans"
               ]
@@ -138994,8 +139066,8 @@
               "colspan": 1,
               "rowspan": 1,
               "text": "A pinch",
-              "name": "red pepper flakes",
-              "state": "(optional) For less heat, use less; for more heat, add gradually to taste.",
+              "name": "Black pepper",
+              "state": "ground",
               "essentialState": false
             }
           ],
@@ -139042,8 +139114,8 @@
               "colspan": 2,
               "rowspan": 1,
               "text": "A pinch",
-              "name": "Black pepper",
-              "state": "ground",
+              "name": "red pepper flakes",
+              "state": "(optional) For less heat, use less; for more heat, add gradually to taste.",
               "essentialState": false
             }
           ],
@@ -139163,11 +139235,11 @@
               "state": ""
             },
             {
-              "id": "ingredient-8",
-              "name": "red pepper flakes",
-              "amount": 0.45,
-              "unit": "g",
-              "state": ""
+              "id": "ingredient-12-pepper",
+              "name": "Black pepper",
+              "amount": 0.25,
+              "unit": "tsp",
+              "state": "ground"
             },
             {
               "id": "ingredient-11",
@@ -139191,11 +139263,11 @@
               "state": "optional"
             },
             {
-              "id": "ingredient-12-pepper",
-              "name": "Black pepper",
-              "amount": 0.25,
-              "unit": "tsp",
-              "state": "ground"
+              "id": "ingredient-8",
+              "name": "red pepper flakes",
+              "amount": 0.45,
+              "unit": "g",
+              "state": ""
             },
             {
               "id": "ingredient-15",
@@ -139637,11 +139709,11 @@
             }
           ],
           "status": "portion",
-          "grams": 0.45,
-          "source": "https://www.nist.gov/pml/special-publication-811",
-          "name": "red pepper flakes",
-          "state": "",
-          "note": "(optional) For less heat, use less; for more heat, add gradually to taste."
+          "grams": 0.575,
+          "source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
+          "name": "Black pepper",
+          "state": "ground",
+          "note": ""
         },
         {
           "quantity": "½ cup / 120 g / 118 mL",
@@ -139713,11 +139785,11 @@
             }
           ],
           "status": "portion",
-          "grams": 0.575,
-          "source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
-          "name": "Black pepper",
-          "state": "ground",
-          "note": ""
+          "grams": 0.45,
+          "source": "https://www.nist.gov/pml/special-publication-811",
+          "name": "red pepper flakes",
+          "state": "",
+          "note": "(optional) For less heat, use less; for more heat, add gradually to taste."
         },
         {
           "quantity": "about 2 ⅛ tbsp / 8 g / 0.28 oz",
@@ -140116,8 +140188,9 @@
               "col": 2,
               "colspan": 1,
               "rowspan": 15,
-              "text": "Add bacon and chicken to sauce 10–15 min, continuing to 165°F.",
+              "text": "Add cream, cheese, spinach and flakes to the sauce and simmer for 2–3 min. Add the crisp bacon and chicken and cook for 10–15 min, continuing until the chicken reaches 165°F.",
               "equipment": [
+                "Pans",
                 "Kitchen utensils"
               ]
             }
@@ -140219,11 +140292,10 @@
               "kind": "operation",
               "col": 1,
               "colspan": 1,
-              "rowspan": 11,
-              "text": "After chicken is reserved, use remaining butter for garlic/paprika/herbs 2–3 min; tomatoes/stock 4–5 min; cream/cheese/spinach/flakes, simmer 2–3 min. Meanwhile crisp bacon separately, drain and chop.",
+              "rowspan": 6,
+              "text": "After reserving the chicken, cook garlic, paprika and remaining herbs in the remaining butter for 2–3 min. Add tomatoes and stock and cook for 4–5 min.",
               "equipment": [
-                "Pans",
-                "Chopping board"
+                "Pans"
               ]
             }
           ],
@@ -140293,6 +140365,29 @@
               "col": 0,
               "colspan": 1,
               "rowspan": 1,
+              "text": "about 5 slices / 149 g / 5.27 oz",
+              "name": "bacon",
+              "state": "",
+              "essentialState": false
+            },
+            {
+              "kind": "operation",
+              "col": 1,
+              "colspan": 1,
+              "rowspan": 1,
+              "text": "While the tomatoes and stock cook, crisp the bacon in a separate skillet, then drain and chop.",
+              "equipment": [
+                "Pans",
+                "Chopping board"
+              ]
+            }
+          ],
+          [
+            {
+              "kind": "ingredient",
+              "col": 0,
+              "colspan": 2,
+              "rowspan": 1,
               "text": "1 ⅓ cup / 323 g / 315 mL",
               "name": "half and half",
               "state": "",
@@ -140303,7 +140398,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "1 ⅓ cup / 149 g / 5.27 oz",
               "name": "mozzarella",
@@ -140315,7 +140410,7 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "1 ⅓ cup / 40 g / 1.41 oz",
               "name": "fresh spinach",
@@ -140327,23 +140422,11 @@
             {
               "kind": "ingredient",
               "col": 0,
-              "colspan": 1,
+              "colspan": 2,
               "rowspan": 1,
               "text": "2 g / 0.08 oz",
               "name": "crushed red pepper flakes",
               "state": "For less heat, use less; for more heat, add gradually to taste.",
-              "essentialState": false
-            }
-          ],
-          [
-            {
-              "kind": "ingredient",
-              "col": 0,
-              "colspan": 1,
-              "rowspan": 1,
-              "text": "about 5 slices / 149 g / 5.27 oz",
-              "name": "bacon",
-              "state": "",
               "essentialState": false
             }
           ]
@@ -140437,6 +140520,13 @@
               "state": ""
             },
             {
+              "id": "ingredient-4",
+              "name": "bacon",
+              "amount": 5.333333333333333,
+              "unit": "strip",
+              "state": ""
+            },
+            {
               "id": "ingredient-11",
               "name": "half and half",
               "amount": 1.3333333333333333,
@@ -140462,13 +140552,6 @@
               "name": "crushed red pepper flakes",
               "amount": 2.4,
               "unit": "g",
-              "state": ""
-            },
-            {
-              "id": "ingredient-4",
-              "name": "bacon",
-              "amount": 5.333333333333333,
-              "unit": "strip",
               "state": ""
             }
           ],
@@ -140819,6 +140902,29 @@
           "note": ""
         },
         {
+          "quantity": "about 5 slices / 149 g / 5.27 oz",
+          "measurements": [
+            {
+              "quantity": "about 5 slices",
+              "status": "portion"
+            },
+            {
+              "quantity": "149 g",
+              "status": "mass"
+            },
+            {
+              "quantity": "5.27 oz",
+              "status": "mass"
+            }
+          ],
+          "status": "multiple",
+          "grams": 149.33333333333331,
+          "source": "https://fdc.nal.usda.gov/food-details/168277/nutrients",
+          "name": "bacon",
+          "state": "",
+          "note": ""
+        },
+        {
           "quantity": "1 ⅓ cup / 323 g / 315 mL",
           "measurements": [
             {
@@ -140905,29 +141011,6 @@
           "name": "crushed red pepper flakes",
           "state": "",
           "note": "For less heat, use less; for more heat, add gradually to taste."
-        },
-        {
-          "quantity": "about 5 slices / 149 g / 5.27 oz",
-          "measurements": [
-            {
-              "quantity": "about 5 slices",
-              "status": "portion"
-            },
-            {
-              "quantity": "149 g",
-              "status": "mass"
-            },
-            {
-              "quantity": "5.27 oz",
-              "status": "mass"
-            }
-          ],
-          "status": "multiple",
-          "grams": 149.33333333333331,
-          "source": "https://fdc.nal.usda.gov/food-details/168277/nutrients",
-          "name": "bacon",
-          "state": "",
-          "note": ""
         }
       ],
       "sideIngredient": null,

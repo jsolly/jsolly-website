@@ -3061,6 +3061,142 @@
 		{
 			"recipe": "spinach-feta-and-hemp-frittata",
 			"family": false,
+			"ingredient": "olive_oil",
+			"name": "Olive oil",
+			"canonical": {
+				"amount": 18,
+				"unit": "g",
+				"state": "as purchased",
+				"grams": 18
+			},
+			"weight": {
+				"gramsPerUnit": 1,
+				"source": "https://www.nist.gov/pml/special-publication-811",
+				"kind": "liquid",
+				"referenceId": "usda-171413",
+				"gramsPerMl": 0.9129786129497609,
+				"referenceSource": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
+			},
+			"provenance": {
+				"original": {
+					"amount": 18,
+					"unit": "g",
+					"name": "Olive oil",
+					"state": "as purchased",
+					"note": "One quarter for dish; three quarters for salad. Base batch is 1 tsp + 1 tbsp."
+				},
+				"sourceIngredientId": "olive_oil",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "1 ⅓ tbsp / 18 g / 20 mL",
+				"measurements": [
+					{
+						"quantity": "1 ⅓ tbsp",
+						"status": "volume"
+					},
+					{
+						"quantity": "18 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "20 mL",
+						"status": "volume"
+					}
+				],
+				"status": "multiple",
+				"grams": 18,
+				"source": "https://www.nist.gov/pml/special-publication-811"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "2 tsp / 9 g / 9.9 mL",
+					"measurements": [
+						{
+							"quantity": "2 tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "9 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "9.9 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 9,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"4": {
+					"quantity": "1 ⅓ tbsp / 18 g / 20 mL",
+					"measurements": [
+						{
+							"quantity": "1 ⅓ tbsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "18 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "20 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 18,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"6": {
+					"quantity": "2 tbsp / 27 g / 30 mL",
+					"measurements": [
+						{
+							"quantity": "2 tbsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "27 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "30 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 27,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"8": {
+					"quantity": "2 ⅔ tbsp / 36 g / 39 mL",
+					"measurements": [
+						{
+							"quantity": "2 ⅔ tbsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "36 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "39 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 36,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				}
+			}
+		},
+		{
+			"recipe": "spinach-feta-and-hemp-frittata",
+			"family": false,
 			"ingredient": "egg",
 			"name": "Large eggs",
 			"canonical": {
@@ -3908,142 +4044,6 @@
 					],
 					"status": "multiple",
 					"grams": 16,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				}
-			}
-		},
-		{
-			"recipe": "spinach-feta-and-hemp-frittata",
-			"family": false,
-			"ingredient": "olive_oil",
-			"name": "Olive oil",
-			"canonical": {
-				"amount": 18,
-				"unit": "g",
-				"state": "as purchased",
-				"grams": 18
-			},
-			"weight": {
-				"gramsPerUnit": 1,
-				"source": "https://www.nist.gov/pml/special-publication-811",
-				"kind": "liquid",
-				"referenceId": "usda-171413",
-				"gramsPerMl": 0.9129786129497609,
-				"referenceSource": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
-			},
-			"provenance": {
-				"original": {
-					"amount": 18,
-					"unit": "g",
-					"name": "Olive oil",
-					"state": "as purchased",
-					"note": "One quarter for dish; three quarters for salad. Base batch is 1 tsp + 1 tbsp."
-				},
-				"sourceIngredientId": "olive_oil",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "1 ⅓ tbsp / 18 g / 20 mL",
-				"measurements": [
-					{
-						"quantity": "1 ⅓ tbsp",
-						"status": "volume"
-					},
-					{
-						"quantity": "18 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "20 mL",
-						"status": "volume"
-					}
-				],
-				"status": "multiple",
-				"grams": 18,
-				"source": "https://www.nist.gov/pml/special-publication-811"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "2 tsp / 9 g / 9.9 mL",
-					"measurements": [
-						{
-							"quantity": "2 tsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "9 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "9.9 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 9,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"4": {
-					"quantity": "1 ⅓ tbsp / 18 g / 20 mL",
-					"measurements": [
-						{
-							"quantity": "1 ⅓ tbsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "18 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "20 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 18,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"6": {
-					"quantity": "2 tbsp / 27 g / 30 mL",
-					"measurements": [
-						{
-							"quantity": "2 tbsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "27 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "30 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 27,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"8": {
-					"quantity": "2 ⅔ tbsp / 36 g / 39 mL",
-					"measurements": [
-						{
-							"quantity": "2 ⅔ tbsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "36 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "39 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 36,
 					"source": "https://www.nist.gov/pml/special-publication-811"
 				}
 			}
@@ -101082,212 +101082,6 @@
 		{
 			"recipe": "source-garlic-butter-chicken-bites-with-lemon-asparagus",
 			"family": false,
-			"ingredient": "ingredient-6",
-			"name": "Italian seasoning",
-			"canonical": {
-				"amount": 1,
-				"unit": "g",
-				"state": "",
-				"grams": 1
-			},
-			"weight": {
-				"gramsPerUnit": 1,
-				"source": "https://www.nist.gov/pml/special-publication-811",
-				"kind": "mass"
-			},
-			"provenance": {
-				"original": {
-					"amount": 1,
-					"unit": "tsp",
-					"name": "Italian seasoning or Herbes de Provence",
-					"state": "",
-					"note": ""
-				},
-				"sourceIngredientId": "ingredient-6",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Editorial weighed italian seasoning or herbes de provence amount; original measure or a different herb/brand observation does not establish a reliable density. Retain blend identity and cooking role; not kitchen-tested."
-			},
-			"alternatives": [
-				{
-					"name": "Herbes de Provence",
-					"amount": 1,
-					"unit": "g"
-				}
-			],
-			"displays": {
-				"quantity": "1 g / 0.04 oz",
-				"measurements": [
-					{
-						"quantity": "1 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "0.04 oz",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 1,
-				"source": "https://www.nist.gov/pml/special-publication-811",
-				"alternatives": [
-					{
-						"name": "Herbes de Provence",
-						"quantity": "1 g / 0.04 oz",
-						"measurements": [
-							{
-								"quantity": "1 g",
-								"status": "mass"
-							},
-							{
-								"quantity": "0.04 oz",
-								"status": "mass"
-							}
-						],
-						"status": "multiple",
-						"grams": 1,
-						"source": "https://www.nist.gov/pml/special-publication-811"
-					}
-				]
-			},
-			"scaling": {
-				"2": {
-					"quantity": "A pinch",
-					"measurements": [
-						{
-							"quantity": "A pinch",
-							"status": "portion"
-						}
-					],
-					"status": "portion",
-					"grams": 0.5,
-					"source": "https://www.nist.gov/pml/special-publication-811",
-					"alternatives": [
-						{
-							"name": "Herbes de Provence",
-							"quantity": "A pinch",
-							"measurements": [
-								{
-									"quantity": "A pinch",
-									"status": "portion"
-								}
-							],
-							"status": "portion",
-							"grams": 0.5,
-							"source": "https://www.nist.gov/pml/special-publication-811"
-						}
-					]
-				},
-				"4": {
-					"quantity": "1 g / 0.04 oz",
-					"measurements": [
-						{
-							"quantity": "1 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.04 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 1,
-					"source": "https://www.nist.gov/pml/special-publication-811",
-					"alternatives": [
-						{
-							"name": "Herbes de Provence",
-							"quantity": "1 g / 0.04 oz",
-							"measurements": [
-								{
-									"quantity": "1 g",
-									"status": "mass"
-								},
-								{
-									"quantity": "0.04 oz",
-									"status": "mass"
-								}
-							],
-							"status": "multiple",
-							"grams": 1,
-							"source": "https://www.nist.gov/pml/special-publication-811"
-						}
-					]
-				},
-				"6": {
-					"quantity": "2 g / 0.05 oz",
-					"measurements": [
-						{
-							"quantity": "2 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.05 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 1.5,
-					"source": "https://www.nist.gov/pml/special-publication-811",
-					"alternatives": [
-						{
-							"name": "Herbes de Provence",
-							"quantity": "2 g / 0.05 oz",
-							"measurements": [
-								{
-									"quantity": "2 g",
-									"status": "mass"
-								},
-								{
-									"quantity": "0.05 oz",
-									"status": "mass"
-								}
-							],
-							"status": "multiple",
-							"grams": 1.5,
-							"source": "https://www.nist.gov/pml/special-publication-811"
-						}
-					]
-				},
-				"8": {
-					"quantity": "2 g / 0.07 oz",
-					"measurements": [
-						{
-							"quantity": "2 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.07 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 2,
-					"source": "https://www.nist.gov/pml/special-publication-811",
-					"alternatives": [
-						{
-							"name": "Herbes de Provence",
-							"quantity": "2 g / 0.07 oz",
-							"measurements": [
-								{
-									"quantity": "2 g",
-									"status": "mass"
-								},
-								{
-									"quantity": "0.07 oz",
-									"status": "mass"
-								}
-							],
-							"status": "multiple",
-							"grams": 2,
-							"source": "https://www.nist.gov/pml/special-publication-811"
-						}
-					]
-				}
-			}
-		},
-		{
-			"recipe": "source-garlic-butter-chicken-bites-with-lemon-asparagus",
-			"family": false,
 			"ingredient": "ingredient-14",
 			"name": "Fresh cracked black pepper",
 			"canonical": {
@@ -101558,136 +101352,135 @@
 		{
 			"recipe": "source-garlic-butter-chicken-bites-with-lemon-asparagus",
 			"family": false,
-			"ingredient": "ingredient-4",
-			"name": "Olive oil",
+			"ingredient": "ingredient-2",
+			"name": "Asparagus",
 			"canonical": {
-				"amount": 1,
-				"unit": "tsp",
-				"state": "",
-				"grams": 4.5
+				"amount": 2,
+				"unit": "bunch",
+				"state": "rinsed and trimmed",
+				"grams": 450
 			},
 			"weight": {
-				"gramsPerUnit": 4.5,
-				"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
-				"description": "Oil, olive, salad or cooking",
-				"kind": "liquid",
-				"referenceId": "usda-171413",
-				"gramsPerMl": 0.9129786129497609
+				"gramsPerUnit": 225,
+				"source": "https://www.jsolly.com/recipes/",
+				"description": "Trimmed asparagus, 225 g cooking portion",
+				"kind": "mass",
+				"referenceId": "asparagus-bunch"
 			},
 			"provenance": {
 				"original": {
-					"amount": 1,
-					"unit": "tsp",
-					"name": "Olive oil",
-					"state": "",
+					"amount": 2,
+					"unit": "bunch",
+					"name": "Asparagus",
+					"state": "rinsed and trimmed",
 					"note": ""
 				},
-				"sourceIngredientId": "ingredient-4",
+				"sourceIngredientId": "ingredient-2",
 				"reviewedOn": "2026-10-15",
 				"massBasis": "edible",
 				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 			},
 			"alternatives": [],
 			"displays": {
-				"quantity": "1 tsp / 5 g / 4.9 mL",
+				"quantity": "2 bunches / 450 g / 15.87 oz",
 				"measurements": [
 					{
-						"quantity": "1 tsp",
-						"status": "volume"
+						"quantity": "2 bunches",
+						"status": "portion"
 					},
 					{
-						"quantity": "5 g",
+						"quantity": "450 g",
 						"status": "mass"
 					},
 					{
-						"quantity": "4.9 mL",
-						"status": "volume"
+						"quantity": "15.87 oz",
+						"status": "mass"
 					}
 				],
 				"status": "multiple",
-				"grams": 4.5,
-				"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
+				"grams": 450,
+				"source": "https://www.jsolly.com/recipes/"
 			},
 			"scaling": {
 				"2": {
-					"quantity": "½ tsp / 2 g / 2.5 mL",
+					"quantity": "1 bunch / 225 g / 7.94 oz",
 					"measurements": [
 						{
-							"quantity": "½ tsp",
-							"status": "volume"
+							"quantity": "1 bunch",
+							"status": "portion"
 						},
 						{
-							"quantity": "2 g",
+							"quantity": "225 g",
 							"status": "mass"
 						},
 						{
-							"quantity": "2.5 mL",
-							"status": "volume"
+							"quantity": "7.94 oz",
+							"status": "mass"
 						}
 					],
 					"status": "multiple",
-					"grams": 2.25,
-					"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
+					"grams": 225,
+					"source": "https://www.jsolly.com/recipes/"
 				},
 				"4": {
-					"quantity": "1 tsp / 5 g / 4.9 mL",
+					"quantity": "2 bunches / 450 g / 15.87 oz",
 					"measurements": [
 						{
-							"quantity": "1 tsp",
-							"status": "volume"
+							"quantity": "2 bunches",
+							"status": "portion"
 						},
 						{
-							"quantity": "5 g",
+							"quantity": "450 g",
 							"status": "mass"
 						},
 						{
-							"quantity": "4.9 mL",
-							"status": "volume"
+							"quantity": "15.87 oz",
+							"status": "mass"
 						}
 					],
 					"status": "multiple",
-					"grams": 4.5,
-					"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
+					"grams": 450,
+					"source": "https://www.jsolly.com/recipes/"
 				},
 				"6": {
-					"quantity": "1 ½ tsp / 7 g / 7.4 mL",
+					"quantity": "3 bunches / 675 g / 1.49 lb",
 					"measurements": [
 						{
-							"quantity": "1 ½ tsp",
-							"status": "volume"
+							"quantity": "3 bunches",
+							"status": "portion"
 						},
 						{
-							"quantity": "7 g",
+							"quantity": "675 g",
 							"status": "mass"
 						},
 						{
-							"quantity": "7.4 mL",
-							"status": "volume"
+							"quantity": "1.49 lb",
+							"status": "mass"
 						}
 					],
 					"status": "multiple",
-					"grams": 6.75,
-					"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
+					"grams": 675,
+					"source": "https://www.jsolly.com/recipes/"
 				},
 				"8": {
-					"quantity": "2 tsp / 9 g / 9.9 mL",
+					"quantity": "4 bunches / 900 g / 1.98 lb",
 					"measurements": [
 						{
-							"quantity": "2 tsp",
-							"status": "volume"
+							"quantity": "4 bunches",
+							"status": "portion"
 						},
 						{
-							"quantity": "9 g",
+							"quantity": "900 g",
 							"status": "mass"
 						},
 						{
-							"quantity": "9.9 mL",
-							"status": "volume"
+							"quantity": "1.98 lb",
+							"status": "mass"
 						}
 					],
 					"status": "multiple",
-					"grams": 9,
-					"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
+					"grams": 900,
+					"source": "https://www.jsolly.com/recipes/"
 				}
 			}
 		},
@@ -101829,6 +101622,142 @@
 		{
 			"recipe": "source-garlic-butter-chicken-bites-with-lemon-asparagus",
 			"family": false,
+			"ingredient": "ingredient-4",
+			"name": "Olive oil",
+			"canonical": {
+				"amount": 1,
+				"unit": "tsp",
+				"state": "",
+				"grams": 4.5
+			},
+			"weight": {
+				"gramsPerUnit": 4.5,
+				"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+				"description": "Oil, olive, salad or cooking",
+				"kind": "liquid",
+				"referenceId": "usda-171413",
+				"gramsPerMl": 0.9129786129497609
+			},
+			"provenance": {
+				"original": {
+					"amount": 1,
+					"unit": "tsp",
+					"name": "Olive oil",
+					"state": "",
+					"note": ""
+				},
+				"sourceIngredientId": "ingredient-4",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "1 tsp / 5 g / 4.9 mL",
+				"measurements": [
+					{
+						"quantity": "1 tsp",
+						"status": "volume"
+					},
+					{
+						"quantity": "5 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "4.9 mL",
+						"status": "volume"
+					}
+				],
+				"status": "multiple",
+				"grams": 4.5,
+				"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "½ tsp / 2 g / 2.5 mL",
+					"measurements": [
+						{
+							"quantity": "½ tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "2 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "2.5 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 2.25,
+					"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
+				},
+				"4": {
+					"quantity": "1 tsp / 5 g / 4.9 mL",
+					"measurements": [
+						{
+							"quantity": "1 tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "5 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "4.9 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 4.5,
+					"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
+				},
+				"6": {
+					"quantity": "1 ½ tsp / 7 g / 7.4 mL",
+					"measurements": [
+						{
+							"quantity": "1 ½ tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "7 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "7.4 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 6.75,
+					"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
+				},
+				"8": {
+					"quantity": "2 tsp / 9 g / 9.9 mL",
+					"measurements": [
+						{
+							"quantity": "2 tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "9 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "9.9 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 9,
+					"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
+				}
+			}
+		},
+		{
+			"recipe": "source-garlic-butter-chicken-bites-with-lemon-asparagus",
+			"family": false,
 			"ingredient": "ingredient-5",
 			"name": "Minced garlic",
 			"canonical": {
@@ -101958,6 +101887,212 @@
 					"status": "multiple",
 					"grams": 11.2,
 					"source": "https://fdc.nal.usda.gov/food-details/169230/nutrients"
+				}
+			}
+		},
+		{
+			"recipe": "source-garlic-butter-chicken-bites-with-lemon-asparagus",
+			"family": false,
+			"ingredient": "ingredient-6",
+			"name": "Italian seasoning",
+			"canonical": {
+				"amount": 1,
+				"unit": "g",
+				"state": "",
+				"grams": 1
+			},
+			"weight": {
+				"gramsPerUnit": 1,
+				"source": "https://www.nist.gov/pml/special-publication-811",
+				"kind": "mass"
+			},
+			"provenance": {
+				"original": {
+					"amount": 1,
+					"unit": "tsp",
+					"name": "Italian seasoning or Herbes de Provence",
+					"state": "",
+					"note": ""
+				},
+				"sourceIngredientId": "ingredient-6",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Editorial weighed italian seasoning or herbes de provence amount; original measure or a different herb/brand observation does not establish a reliable density. Retain blend identity and cooking role; not kitchen-tested."
+			},
+			"alternatives": [
+				{
+					"name": "Herbes de Provence",
+					"amount": 1,
+					"unit": "g"
+				}
+			],
+			"displays": {
+				"quantity": "1 g / 0.04 oz",
+				"measurements": [
+					{
+						"quantity": "1 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "0.04 oz",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 1,
+				"source": "https://www.nist.gov/pml/special-publication-811",
+				"alternatives": [
+					{
+						"name": "Herbes de Provence",
+						"quantity": "1 g / 0.04 oz",
+						"measurements": [
+							{
+								"quantity": "1 g",
+								"status": "mass"
+							},
+							{
+								"quantity": "0.04 oz",
+								"status": "mass"
+							}
+						],
+						"status": "multiple",
+						"grams": 1,
+						"source": "https://www.nist.gov/pml/special-publication-811"
+					}
+				]
+			},
+			"scaling": {
+				"2": {
+					"quantity": "A pinch",
+					"measurements": [
+						{
+							"quantity": "A pinch",
+							"status": "portion"
+						}
+					],
+					"status": "portion",
+					"grams": 0.5,
+					"source": "https://www.nist.gov/pml/special-publication-811",
+					"alternatives": [
+						{
+							"name": "Herbes de Provence",
+							"quantity": "A pinch",
+							"measurements": [
+								{
+									"quantity": "A pinch",
+									"status": "portion"
+								}
+							],
+							"status": "portion",
+							"grams": 0.5,
+							"source": "https://www.nist.gov/pml/special-publication-811"
+						}
+					]
+				},
+				"4": {
+					"quantity": "1 g / 0.04 oz",
+					"measurements": [
+						{
+							"quantity": "1 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.04 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 1,
+					"source": "https://www.nist.gov/pml/special-publication-811",
+					"alternatives": [
+						{
+							"name": "Herbes de Provence",
+							"quantity": "1 g / 0.04 oz",
+							"measurements": [
+								{
+									"quantity": "1 g",
+									"status": "mass"
+								},
+								{
+									"quantity": "0.04 oz",
+									"status": "mass"
+								}
+							],
+							"status": "multiple",
+							"grams": 1,
+							"source": "https://www.nist.gov/pml/special-publication-811"
+						}
+					]
+				},
+				"6": {
+					"quantity": "2 g / 0.05 oz",
+					"measurements": [
+						{
+							"quantity": "2 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.05 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 1.5,
+					"source": "https://www.nist.gov/pml/special-publication-811",
+					"alternatives": [
+						{
+							"name": "Herbes de Provence",
+							"quantity": "2 g / 0.05 oz",
+							"measurements": [
+								{
+									"quantity": "2 g",
+									"status": "mass"
+								},
+								{
+									"quantity": "0.05 oz",
+									"status": "mass"
+								}
+							],
+							"status": "multiple",
+							"grams": 1.5,
+							"source": "https://www.nist.gov/pml/special-publication-811"
+						}
+					]
+				},
+				"8": {
+					"quantity": "2 g / 0.07 oz",
+					"measurements": [
+						{
+							"quantity": "2 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.07 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 2,
+					"source": "https://www.nist.gov/pml/special-publication-811",
+					"alternatives": [
+						{
+							"name": "Herbes de Provence",
+							"quantity": "2 g / 0.07 oz",
+							"measurements": [
+								{
+									"quantity": "2 g",
+									"status": "mass"
+								},
+								{
+									"quantity": "0.07 oz",
+									"status": "mass"
+								}
+							],
+							"status": "multiple",
+							"grams": 2,
+							"source": "https://www.nist.gov/pml/special-publication-811"
+						}
+					]
 				}
 			}
 		},
@@ -102501,141 +102636,6 @@
 					"status": "multiple",
 					"grams": 7.6,
 					"source": "https://fdc.nal.usda.gov/food-details/170416/nutrients"
-				}
-			}
-		},
-		{
-			"recipe": "source-garlic-butter-chicken-bites-with-lemon-asparagus",
-			"family": false,
-			"ingredient": "ingredient-2",
-			"name": "Asparagus",
-			"canonical": {
-				"amount": 2,
-				"unit": "bunch",
-				"state": "rinsed and trimmed",
-				"grams": 450
-			},
-			"weight": {
-				"gramsPerUnit": 225,
-				"source": "https://www.jsolly.com/recipes/",
-				"description": "Trimmed asparagus, 225 g cooking portion",
-				"kind": "mass",
-				"referenceId": "asparagus-bunch"
-			},
-			"provenance": {
-				"original": {
-					"amount": 2,
-					"unit": "bunch",
-					"name": "Asparagus",
-					"state": "rinsed and trimmed",
-					"note": ""
-				},
-				"sourceIngredientId": "ingredient-2",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "2 bunches / 450 g / 15.87 oz",
-				"measurements": [
-					{
-						"quantity": "2 bunches",
-						"status": "portion"
-					},
-					{
-						"quantity": "450 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "15.87 oz",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 450,
-				"source": "https://www.jsolly.com/recipes/"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "1 bunch / 225 g / 7.94 oz",
-					"measurements": [
-						{
-							"quantity": "1 bunch",
-							"status": "portion"
-						},
-						{
-							"quantity": "225 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "7.94 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 225,
-					"source": "https://www.jsolly.com/recipes/"
-				},
-				"4": {
-					"quantity": "2 bunches / 450 g / 15.87 oz",
-					"measurements": [
-						{
-							"quantity": "2 bunches",
-							"status": "portion"
-						},
-						{
-							"quantity": "450 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "15.87 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 450,
-					"source": "https://www.jsolly.com/recipes/"
-				},
-				"6": {
-					"quantity": "3 bunches / 675 g / 1.49 lb",
-					"measurements": [
-						{
-							"quantity": "3 bunches",
-							"status": "portion"
-						},
-						{
-							"quantity": "675 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "1.49 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 675,
-					"source": "https://www.jsolly.com/recipes/"
-				},
-				"8": {
-					"quantity": "4 bunches / 900 g / 1.98 lb",
-					"measurements": [
-						{
-							"quantity": "4 bunches",
-							"status": "portion"
-						},
-						{
-							"quantity": "900 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "1.98 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 900,
-					"source": "https://www.jsolly.com/recipes/"
 				}
 			}
 		},
@@ -108796,119 +108796,6 @@
 		{
 			"recipe": "source-15-minute-lemon-garlic-butter-steak-with-zucchini-noodles",
 			"family": false,
-			"ingredient": "ingredient-1",
-			"name": "Flank steak",
-			"canonical": {
-				"amount": 1.5,
-				"unit": "lb",
-				"state": "sliced against the grain",
-				"grams": 680.388555
-			},
-			"weight": {
-				"gramsPerUnit": 453.59237,
-				"source": "https://www.nist.gov/pml/special-publication-811",
-				"kind": "mass"
-			},
-			"provenance": {
-				"original": {
-					"amount": 1.5,
-					"unit": "lb",
-					"name": "Flank steak",
-					"state": "sliced against the grain",
-					"note": ""
-				},
-				"sourceIngredientId": "ingredient-1",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "680 g / 1.5 lb",
-				"measurements": [
-					{
-						"quantity": "680 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "1.5 lb",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 680.388555,
-				"source": "https://www.nist.gov/pml/special-publication-811"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "340 g / 12 oz",
-					"measurements": [
-						{
-							"quantity": "340 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "12 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 340.1942775,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"4": {
-					"quantity": "680 g / 1.5 lb",
-					"measurements": [
-						{
-							"quantity": "680 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "1.5 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 680.388555,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"6": {
-					"quantity": "1021 g / 2.25 lb",
-					"measurements": [
-						{
-							"quantity": "1021 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "2.25 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 1020.5828325,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"8": {
-					"quantity": "1361 g / 3 lb",
-					"measurements": [
-						{
-							"quantity": "1361 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "3 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 1360.77711,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				}
-			}
-		},
-		{
-			"recipe": "source-15-minute-lemon-garlic-butter-steak-with-zucchini-noodles",
-			"family": false,
 			"ingredient": "ingredient-11",
 			"name": "Low-sodium soy sauce",
 			"canonical": {
@@ -109575,103 +109462,113 @@
 		{
 			"recipe": "source-15-minute-lemon-garlic-butter-steak-with-zucchini-noodles",
 			"family": false,
-			"ingredient": "ingredient-10-pepper",
-			"name": "Black pepper",
+			"ingredient": "ingredient-1",
+			"name": "Flank steak",
 			"canonical": {
-				"amount": 0.25,
-				"unit": "tsp",
-				"state": "ground",
-				"grams": 0.575
+				"amount": 1.5,
+				"unit": "lb",
+				"state": "sliced against the grain",
+				"grams": 680.388555
 			},
 			"weight": {
-				"gramsPerUnit": 2.3,
-				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
-				"description": "Spices, pepper, black",
-				"kind": "mass",
-				"referenceId": "usda-170931"
+				"gramsPerUnit": 453.59237,
+				"source": "https://www.nist.gov/pml/special-publication-811",
+				"kind": "mass"
 			},
 			"provenance": {
 				"original": {
-					"amount": 0,
-					"unit": "",
-					"name": "Salt and fresh cracked black pepper",
-					"state": "to taste",
-					"note": "Source gives no numeric quantity; use to taste/as garnish as written."
+					"amount": 1.5,
+					"unit": "lb",
+					"name": "Flank steak",
+					"state": "sliced against the grain",
+					"note": ""
 				},
-				"sourceIngredientId": "ingredient-10",
+				"sourceIngredientId": "ingredient-1",
 				"reviewedOn": "2026-10-15",
 				"massBasis": "edible",
-				"decision": "Measured starting seasoning for four servings: 1/2 tsp fine salt and 1/4 tsp ground black pepper; optional status and fixed/linear scaling retained."
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 			},
 			"alternatives": [],
 			"displays": {
-				"quantity": "A pinch",
+				"quantity": "680 g / 1.5 lb",
 				"measurements": [
 					{
-						"quantity": "A pinch",
-						"status": "portion"
+						"quantity": "680 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "1.5 lb",
+						"status": "mass"
 					}
 				],
-				"status": "portion",
-				"grams": 0.575,
-				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
+				"status": "multiple",
+				"grams": 680.388555,
+				"source": "https://www.nist.gov/pml/special-publication-811"
 			},
 			"scaling": {
 				"2": {
-					"quantity": "A pinch",
+					"quantity": "340 g / 12 oz",
 					"measurements": [
 						{
-							"quantity": "A pinch",
-							"status": "portion"
-						}
-					],
-					"status": "portion",
-					"grams": 0.2875,
-					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
-				},
-				"4": {
-					"quantity": "A pinch",
-					"measurements": [
-						{
-							"quantity": "A pinch",
-							"status": "portion"
-						}
-					],
-					"status": "portion",
-					"grams": 0.575,
-					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
-				},
-				"6": {
-					"quantity": "A pinch",
-					"measurements": [
-						{
-							"quantity": "A pinch",
-							"status": "portion"
-						}
-					],
-					"status": "portion",
-					"grams": 0.8624999999999999,
-					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
-				},
-				"8": {
-					"quantity": "½ tsp / 1 g / 0.04 oz",
-					"measurements": [
-						{
-							"quantity": "½ tsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "1 g",
+							"quantity": "340 g",
 							"status": "mass"
 						},
 						{
-							"quantity": "0.04 oz",
+							"quantity": "12 oz",
 							"status": "mass"
 						}
 					],
 					"status": "multiple",
-					"grams": 1.15,
-					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
+					"grams": 340.1942775,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"4": {
+					"quantity": "680 g / 1.5 lb",
+					"measurements": [
+						{
+							"quantity": "680 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "1.5 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 680.388555,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"6": {
+					"quantity": "1021 g / 2.25 lb",
+					"measurements": [
+						{
+							"quantity": "1021 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "2.25 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 1020.5828325,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"8": {
+					"quantity": "1361 g / 3 lb",
+					"measurements": [
+						{
+							"quantity": "1361 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "3 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 1360.77711,
+					"source": "https://www.nist.gov/pml/special-publication-811"
 				}
 			}
 		},
@@ -109808,6 +109705,109 @@
 					"status": "multiple",
 					"grams": 54,
 					"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
+				}
+			}
+		},
+		{
+			"recipe": "source-15-minute-lemon-garlic-butter-steak-with-zucchini-noodles",
+			"family": false,
+			"ingredient": "ingredient-10-pepper",
+			"name": "Black pepper",
+			"canonical": {
+				"amount": 0.25,
+				"unit": "tsp",
+				"state": "ground",
+				"grams": 0.575
+			},
+			"weight": {
+				"gramsPerUnit": 2.3,
+				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
+				"description": "Spices, pepper, black",
+				"kind": "mass",
+				"referenceId": "usda-170931"
+			},
+			"provenance": {
+				"original": {
+					"amount": 0,
+					"unit": "",
+					"name": "Salt and fresh cracked black pepper",
+					"state": "to taste",
+					"note": "Source gives no numeric quantity; use to taste/as garnish as written."
+				},
+				"sourceIngredientId": "ingredient-10",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Measured starting seasoning for four servings: 1/2 tsp fine salt and 1/4 tsp ground black pepper; optional status and fixed/linear scaling retained."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "A pinch",
+				"measurements": [
+					{
+						"quantity": "A pinch",
+						"status": "portion"
+					}
+				],
+				"status": "portion",
+				"grams": 0.575,
+				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "A pinch",
+					"measurements": [
+						{
+							"quantity": "A pinch",
+							"status": "portion"
+						}
+					],
+					"status": "portion",
+					"grams": 0.2875,
+					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
+				},
+				"4": {
+					"quantity": "A pinch",
+					"measurements": [
+						{
+							"quantity": "A pinch",
+							"status": "portion"
+						}
+					],
+					"status": "portion",
+					"grams": 0.575,
+					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
+				},
+				"6": {
+					"quantity": "A pinch",
+					"measurements": [
+						{
+							"quantity": "A pinch",
+							"status": "portion"
+						}
+					],
+					"status": "portion",
+					"grams": 0.8624999999999999,
+					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
+				},
+				"8": {
+					"quantity": "½ tsp / 1 g / 0.04 oz",
+					"measurements": [
+						{
+							"quantity": "½ tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "1 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.04 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 1.15,
+					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
 				}
 			}
 		},
@@ -125295,6 +125295,119 @@
 		{
 			"recipe": "source-garlic-butter-shrimp-with-lemon-parmesan-cauliflower-rice",
 			"family": false,
+			"ingredient": "ingredient-1",
+			"name": "Medium raw shrimp",
+			"canonical": {
+				"amount": 1.5,
+				"unit": "lb",
+				"state": "peeled and deveined",
+				"grams": 680.388555
+			},
+			"weight": {
+				"gramsPerUnit": 453.59237,
+				"source": "https://www.nist.gov/pml/special-publication-811",
+				"kind": "mass"
+			},
+			"provenance": {
+				"original": {
+					"amount": 1.5,
+					"unit": "lb",
+					"name": "Medium raw shrimp",
+					"state": "peeled and deveined",
+					"note": ""
+				},
+				"sourceIngredientId": "ingredient-1",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "680 g / 1.5 lb",
+				"measurements": [
+					{
+						"quantity": "680 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "1.5 lb",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 680.388555,
+				"source": "https://www.nist.gov/pml/special-publication-811"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "340 g / 12 oz",
+					"measurements": [
+						{
+							"quantity": "340 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "12 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 340.1942775,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"4": {
+					"quantity": "680 g / 1.5 lb",
+					"measurements": [
+						{
+							"quantity": "680 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "1.5 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 680.388555,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"6": {
+					"quantity": "1021 g / 2.25 lb",
+					"measurements": [
+						{
+							"quantity": "1021 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "2.25 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 1020.5828325,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"8": {
+					"quantity": "1361 g / 3 lb",
+					"measurements": [
+						{
+							"quantity": "1361 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "3 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 1360.77711,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				}
+			}
+		},
+		{
+			"recipe": "source-garlic-butter-shrimp-with-lemon-parmesan-cauliflower-rice",
+			"family": false,
 			"ingredient": "ingredient-5-pepper",
 			"name": "Black pepper",
 			"canonical": {
@@ -126473,119 +126586,6 @@
 					],
 					"status": "multiple",
 					"grams": 113.3980925,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				}
-			}
-		},
-		{
-			"recipe": "source-garlic-butter-shrimp-with-lemon-parmesan-cauliflower-rice",
-			"family": false,
-			"ingredient": "ingredient-1",
-			"name": "Medium raw shrimp",
-			"canonical": {
-				"amount": 1.5,
-				"unit": "lb",
-				"state": "peeled and deveined",
-				"grams": 680.388555
-			},
-			"weight": {
-				"gramsPerUnit": 453.59237,
-				"source": "https://www.nist.gov/pml/special-publication-811",
-				"kind": "mass"
-			},
-			"provenance": {
-				"original": {
-					"amount": 1.5,
-					"unit": "lb",
-					"name": "Medium raw shrimp",
-					"state": "peeled and deveined",
-					"note": ""
-				},
-				"sourceIngredientId": "ingredient-1",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "680 g / 1.5 lb",
-				"measurements": [
-					{
-						"quantity": "680 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "1.5 lb",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 680.388555,
-				"source": "https://www.nist.gov/pml/special-publication-811"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "340 g / 12 oz",
-					"measurements": [
-						{
-							"quantity": "340 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "12 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 340.1942775,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"4": {
-					"quantity": "680 g / 1.5 lb",
-					"measurements": [
-						{
-							"quantity": "680 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "1.5 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 680.388555,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"6": {
-					"quantity": "1021 g / 2.25 lb",
-					"measurements": [
-						{
-							"quantity": "1021 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "2.25 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 1020.5828325,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"8": {
-					"quantity": "1361 g / 3 lb",
-					"measurements": [
-						{
-							"quantity": "1361 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "3 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 1360.77711,
 					"source": "https://www.nist.gov/pml/special-publication-811"
 				}
 			}
@@ -138790,141 +138790,6 @@
 		{
 			"recipe": "source-cowboy-butter-chicken-with-zucchini-noodles-15-minute",
 			"family": false,
-			"ingredient": "ingredient-3",
-			"name": "Butter",
-			"canonical": {
-				"amount": 4,
-				"unit": "tbsp",
-				"state": "divided",
-				"grams": 56.8
-			},
-			"weight": {
-				"gramsPerUnit": 14.2,
-				"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients",
-				"description": "Butter, without salt",
-				"kind": "mass",
-				"referenceId": "usda-173430"
-			},
-			"provenance": {
-				"original": {
-					"amount": 4,
-					"unit": "tbsp",
-					"name": "Butter",
-					"state": "divided",
-					"note": "grass-fed butter is best for this recipe"
-				},
-				"sourceIngredientId": "ingredient-3",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "about ½ stick / 57 g / 2 oz",
-				"measurements": [
-					{
-						"quantity": "about ½ stick",
-						"status": "portion"
-					},
-					{
-						"quantity": "57 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "2 oz",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 56.8,
-				"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "about ¼ stick / 28 g / 1 oz",
-					"measurements": [
-						{
-							"quantity": "about ¼ stick",
-							"status": "portion"
-						},
-						{
-							"quantity": "28 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "1 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 28.4,
-					"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
-				},
-				"4": {
-					"quantity": "about ½ stick / 57 g / 2 oz",
-					"measurements": [
-						{
-							"quantity": "about ½ stick",
-							"status": "portion"
-						},
-						{
-							"quantity": "57 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "2 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 56.8,
-					"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
-				},
-				"6": {
-					"quantity": "about ¾ stick / 85 g / 3.01 oz",
-					"measurements": [
-						{
-							"quantity": "about ¾ stick",
-							"status": "portion"
-						},
-						{
-							"quantity": "85 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "3.01 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 85.19999999999999,
-					"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
-				},
-				"8": {
-					"quantity": "about 1 stick / 114 g / 4.01 oz",
-					"measurements": [
-						{
-							"quantity": "about 1 stick",
-							"status": "portion"
-						},
-						{
-							"quantity": "114 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "4.01 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 113.6,
-					"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
-				}
-			}
-		},
-		{
-			"recipe": "source-cowboy-butter-chicken-with-zucchini-noodles-15-minute",
-			"family": false,
 			"ingredient": "ingredient-1",
 			"name": "Chicken breasts",
 			"canonical": {
@@ -139054,6 +138919,379 @@
 					"status": "multiple",
 					"grams": 1200,
 					"source": "https://www.jsolly.com/recipes/"
+				}
+			}
+		},
+		{
+			"recipe": "source-cowboy-butter-chicken-with-zucchini-noodles-15-minute",
+			"family": false,
+			"ingredient": "ingredient-15-pepper",
+			"name": "Black pepper",
+			"canonical": {
+				"amount": 0.25,
+				"unit": "tsp",
+				"state": "ground",
+				"grams": 0.575
+			},
+			"weight": {
+				"gramsPerUnit": 2.3,
+				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
+				"description": "Spices, pepper, black",
+				"kind": "mass",
+				"referenceId": "usda-170931"
+			},
+			"provenance": {
+				"original": {
+					"amount": null,
+					"unit": "",
+					"name": "Salt and freshly ground black pepper",
+					"state": "",
+					"note": "Source gives no numeric quantity; use to taste/as garnish as written."
+				},
+				"sourceIngredientId": "ingredient-15",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Measured starting seasoning for four servings: 1/2 tsp fine salt and 1/4 tsp ground black pepper; optional status and fixed/linear scaling retained."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "A pinch",
+				"measurements": [
+					{
+						"quantity": "A pinch",
+						"status": "portion"
+					}
+				],
+				"status": "portion",
+				"grams": 0.575,
+				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "A pinch",
+					"measurements": [
+						{
+							"quantity": "A pinch",
+							"status": "portion"
+						}
+					],
+					"status": "portion",
+					"grams": 0.2875,
+					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
+				},
+				"4": {
+					"quantity": "A pinch",
+					"measurements": [
+						{
+							"quantity": "A pinch",
+							"status": "portion"
+						}
+					],
+					"status": "portion",
+					"grams": 0.575,
+					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
+				},
+				"6": {
+					"quantity": "A pinch",
+					"measurements": [
+						{
+							"quantity": "A pinch",
+							"status": "portion"
+						}
+					],
+					"status": "portion",
+					"grams": 0.8624999999999999,
+					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
+				},
+				"8": {
+					"quantity": "½ tsp / 1 g / 0.04 oz",
+					"measurements": [
+						{
+							"quantity": "½ tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "1 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.04 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 1.15,
+					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
+				}
+			}
+		},
+		{
+			"recipe": "source-cowboy-butter-chicken-with-zucchini-noodles-15-minute",
+			"family": false,
+			"ingredient": "ingredient-2",
+			"name": "Zucchini",
+			"canonical": {
+				"amount": 3,
+				"unit": "count",
+				"state": "medium",
+				"grams": 588
+			},
+			"weight": {
+				"gramsPerUnit": 196,
+				"source": "https://fdc.nal.usda.gov/food-details/169291/nutrients",
+				"description": "Squash, summer, zucchini, includes skin, raw",
+				"kind": "mass",
+				"referenceId": "usda-169291"
+			},
+			"provenance": {
+				"original": {
+					"amount": 3,
+					"unit": "count",
+					"name": "Zucchini",
+					"state": "medium",
+					"note": "Source quantity range 3–4; lower value selected for scaling."
+				},
+				"sourceIngredientId": "ingredient-2",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "3 medium zucchini / 588 g / 1.3 lb",
+				"measurements": [
+					{
+						"quantity": "3 medium zucchini",
+						"status": "portion"
+					},
+					{
+						"quantity": "588 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "1.3 lb",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 588,
+				"source": "https://fdc.nal.usda.gov/food-details/169291/nutrients"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "1 ½ medium zucchini / 294 g / 10.37 oz",
+					"measurements": [
+						{
+							"quantity": "1 ½ medium zucchini",
+							"status": "portion"
+						},
+						{
+							"quantity": "294 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "10.37 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 294,
+					"source": "https://fdc.nal.usda.gov/food-details/169291/nutrients"
+				},
+				"4": {
+					"quantity": "3 medium zucchini / 588 g / 1.3 lb",
+					"measurements": [
+						{
+							"quantity": "3 medium zucchini",
+							"status": "portion"
+						},
+						{
+							"quantity": "588 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "1.3 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 588,
+					"source": "https://fdc.nal.usda.gov/food-details/169291/nutrients"
+				},
+				"6": {
+					"quantity": "4 ½ medium zucchini / 882 g / 1.94 lb",
+					"measurements": [
+						{
+							"quantity": "4 ½ medium zucchini",
+							"status": "portion"
+						},
+						{
+							"quantity": "882 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "1.94 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 882,
+					"source": "https://fdc.nal.usda.gov/food-details/169291/nutrients"
+				},
+				"8": {
+					"quantity": "6 medium zucchini / 1176 g / 2.59 lb",
+					"measurements": [
+						{
+							"quantity": "6 medium zucchini",
+							"status": "portion"
+						},
+						{
+							"quantity": "1176 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "2.59 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 1176,
+					"source": "https://fdc.nal.usda.gov/food-details/169291/nutrients"
+				}
+			}
+		},
+		{
+			"recipe": "source-cowboy-butter-chicken-with-zucchini-noodles-15-minute",
+			"family": false,
+			"ingredient": "ingredient-3",
+			"name": "Butter",
+			"canonical": {
+				"amount": 4,
+				"unit": "tbsp",
+				"state": "divided",
+				"grams": 56.8
+			},
+			"weight": {
+				"gramsPerUnit": 14.2,
+				"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients",
+				"description": "Butter, without salt",
+				"kind": "mass",
+				"referenceId": "usda-173430"
+			},
+			"provenance": {
+				"original": {
+					"amount": 4,
+					"unit": "tbsp",
+					"name": "Butter",
+					"state": "divided",
+					"note": "grass-fed butter is best for this recipe"
+				},
+				"sourceIngredientId": "ingredient-3",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "about ½ stick / 57 g / 2 oz",
+				"measurements": [
+					{
+						"quantity": "about ½ stick",
+						"status": "portion"
+					},
+					{
+						"quantity": "57 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "2 oz",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 56.8,
+				"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "about ¼ stick / 28 g / 1 oz",
+					"measurements": [
+						{
+							"quantity": "about ¼ stick",
+							"status": "portion"
+						},
+						{
+							"quantity": "28 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "1 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 28.4,
+					"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
+				},
+				"4": {
+					"quantity": "about ½ stick / 57 g / 2 oz",
+					"measurements": [
+						{
+							"quantity": "about ½ stick",
+							"status": "portion"
+						},
+						{
+							"quantity": "57 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "2 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 56.8,
+					"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
+				},
+				"6": {
+					"quantity": "about ¾ stick / 85 g / 3.01 oz",
+					"measurements": [
+						{
+							"quantity": "about ¾ stick",
+							"status": "portion"
+						},
+						{
+							"quantity": "85 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "3.01 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 85.19999999999999,
+					"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
+				},
+				"8": {
+					"quantity": "about 1 stick / 114 g / 4.01 oz",
+					"measurements": [
+						{
+							"quantity": "about 1 stick",
+							"status": "portion"
+						},
+						{
+							"quantity": "114 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "4.01 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 113.6,
+					"source": "https://fdc.nal.usda.gov/food-details/173430/nutrients"
 				}
 			}
 		},
@@ -139282,109 +139520,6 @@
 					"status": "portion",
 					"grams": 0.9,
 					"source": "https://www.nist.gov/pml/special-publication-811"
-				}
-			}
-		},
-		{
-			"recipe": "source-cowboy-butter-chicken-with-zucchini-noodles-15-minute",
-			"family": false,
-			"ingredient": "ingredient-15-pepper",
-			"name": "Black pepper",
-			"canonical": {
-				"amount": 0.25,
-				"unit": "tsp",
-				"state": "ground",
-				"grams": 0.575
-			},
-			"weight": {
-				"gramsPerUnit": 2.3,
-				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
-				"description": "Spices, pepper, black",
-				"kind": "mass",
-				"referenceId": "usda-170931"
-			},
-			"provenance": {
-				"original": {
-					"amount": null,
-					"unit": "",
-					"name": "Salt and freshly ground black pepper",
-					"state": "",
-					"note": "Source gives no numeric quantity; use to taste/as garnish as written."
-				},
-				"sourceIngredientId": "ingredient-15",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Measured starting seasoning for four servings: 1/2 tsp fine salt and 1/4 tsp ground black pepper; optional status and fixed/linear scaling retained."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "A pinch",
-				"measurements": [
-					{
-						"quantity": "A pinch",
-						"status": "portion"
-					}
-				],
-				"status": "portion",
-				"grams": 0.575,
-				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "A pinch",
-					"measurements": [
-						{
-							"quantity": "A pinch",
-							"status": "portion"
-						}
-					],
-					"status": "portion",
-					"grams": 0.2875,
-					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
-				},
-				"4": {
-					"quantity": "A pinch",
-					"measurements": [
-						{
-							"quantity": "A pinch",
-							"status": "portion"
-						}
-					],
-					"status": "portion",
-					"grams": 0.575,
-					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
-				},
-				"6": {
-					"quantity": "A pinch",
-					"measurements": [
-						{
-							"quantity": "A pinch",
-							"status": "portion"
-						}
-					],
-					"status": "portion",
-					"grams": 0.8624999999999999,
-					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
-				},
-				"8": {
-					"quantity": "½ tsp / 1 g / 0.04 oz",
-					"measurements": [
-						{
-							"quantity": "½ tsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "1 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.04 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 1.15,
-					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
 				}
 			}
 		},
@@ -140123,141 +140258,6 @@
 					"status": "multiple",
 					"grams": 39,
 					"source": "https://fdc.nal.usda.gov/food-details/171186/nutrients"
-				}
-			}
-		},
-		{
-			"recipe": "source-cowboy-butter-chicken-with-zucchini-noodles-15-minute",
-			"family": false,
-			"ingredient": "ingredient-2",
-			"name": "Zucchini",
-			"canonical": {
-				"amount": 3,
-				"unit": "count",
-				"state": "medium",
-				"grams": 588
-			},
-			"weight": {
-				"gramsPerUnit": 196,
-				"source": "https://fdc.nal.usda.gov/food-details/169291/nutrients",
-				"description": "Squash, summer, zucchini, includes skin, raw",
-				"kind": "mass",
-				"referenceId": "usda-169291"
-			},
-			"provenance": {
-				"original": {
-					"amount": 3,
-					"unit": "count",
-					"name": "Zucchini",
-					"state": "medium",
-					"note": "Source quantity range 3–4; lower value selected for scaling."
-				},
-				"sourceIngredientId": "ingredient-2",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "3 medium zucchini / 588 g / 1.3 lb",
-				"measurements": [
-					{
-						"quantity": "3 medium zucchini",
-						"status": "portion"
-					},
-					{
-						"quantity": "588 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "1.3 lb",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 588,
-				"source": "https://fdc.nal.usda.gov/food-details/169291/nutrients"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "1 ½ medium zucchini / 294 g / 10.37 oz",
-					"measurements": [
-						{
-							"quantity": "1 ½ medium zucchini",
-							"status": "portion"
-						},
-						{
-							"quantity": "294 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "10.37 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 294,
-					"source": "https://fdc.nal.usda.gov/food-details/169291/nutrients"
-				},
-				"4": {
-					"quantity": "3 medium zucchini / 588 g / 1.3 lb",
-					"measurements": [
-						{
-							"quantity": "3 medium zucchini",
-							"status": "portion"
-						},
-						{
-							"quantity": "588 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "1.3 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 588,
-					"source": "https://fdc.nal.usda.gov/food-details/169291/nutrients"
-				},
-				"6": {
-					"quantity": "4 ½ medium zucchini / 882 g / 1.94 lb",
-					"measurements": [
-						{
-							"quantity": "4 ½ medium zucchini",
-							"status": "portion"
-						},
-						{
-							"quantity": "882 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "1.94 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 882,
-					"source": "https://fdc.nal.usda.gov/food-details/169291/nutrients"
-				},
-				"8": {
-					"quantity": "6 medium zucchini / 1176 g / 2.59 lb",
-					"measurements": [
-						{
-							"quantity": "6 medium zucchini",
-							"status": "portion"
-						},
-						{
-							"quantity": "1176 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "2.59 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 1176,
-					"source": "https://fdc.nal.usda.gov/food-details/169291/nutrients"
 				}
 			}
 		},
@@ -144066,660 +144066,6 @@
 		{
 			"recipe": "source-easy-chicken-fajitas",
 			"family": false,
-			"ingredient": "ingredient-9",
-			"name": "Olive oil",
-			"canonical": {
-				"amount": 2,
-				"unit": "tbsp",
-				"state": "divided",
-				"grams": 27
-			},
-			"weight": {
-				"gramsPerUnit": 13.5,
-				"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
-				"description": "Oil, olive, salad or cooking",
-				"kind": "liquid",
-				"referenceId": "usda-171413",
-				"gramsPerMl": 0.9129786129497609
-			},
-			"provenance": {
-				"original": {
-					"amount": 2,
-					"unit": "tbsp",
-					"name": "Olive oil",
-					"state": "divided",
-					"note": ""
-				},
-				"sourceIngredientId": "ingredient-9",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "2 tbsp / 27 g / 30 mL",
-				"measurements": [
-					{
-						"quantity": "2 tbsp",
-						"status": "volume"
-					},
-					{
-						"quantity": "27 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "30 mL",
-						"status": "volume"
-					}
-				],
-				"status": "multiple",
-				"grams": 27,
-				"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "1 tbsp / 14 g / 15 mL",
-					"measurements": [
-						{
-							"quantity": "1 tbsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "14 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "15 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 13.5,
-					"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
-				},
-				"4": {
-					"quantity": "2 tbsp / 27 g / 30 mL",
-					"measurements": [
-						{
-							"quantity": "2 tbsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "27 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "30 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 27,
-					"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
-				},
-				"6": {
-					"quantity": "3 tbsp / 41 g / 44 mL",
-					"measurements": [
-						{
-							"quantity": "3 tbsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "41 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "44 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 40.5,
-					"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
-				},
-				"8": {
-					"quantity": "¼ cup / 54 g / 59 mL",
-					"measurements": [
-						{
-							"quantity": "¼ cup",
-							"status": "volume"
-						},
-						{
-							"quantity": "54 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "59 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 54,
-					"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
-				}
-			}
-		},
-		{
-			"recipe": "source-easy-chicken-fajitas",
-			"family": false,
-			"ingredient": "ingredient-10",
-			"name": "Red bell pepper",
-			"canonical": {
-				"amount": 1,
-				"unit": "count",
-				"state": "sliced",
-				"grams": 119
-			},
-			"weight": {
-				"gramsPerUnit": 119,
-				"source": "https://fdc.nal.usda.gov/food-details/170108/nutrients",
-				"description": "Peppers, sweet, red, raw",
-				"kind": "mass",
-				"referenceId": "usda-170108"
-			},
-			"provenance": {
-				"original": {
-					"amount": 1,
-					"unit": "count",
-					"name": "Red bell pepper",
-					"state": "sliced",
-					"note": ""
-				},
-				"sourceIngredientId": "ingredient-10",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "1 medium pepper / 119 g / 4.2 oz",
-				"measurements": [
-					{
-						"quantity": "1 medium pepper",
-						"status": "portion"
-					},
-					{
-						"quantity": "119 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "4.2 oz",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 119,
-				"source": "https://fdc.nal.usda.gov/food-details/170108/nutrients"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "½ medium pepper / 60 g / 2.1 oz",
-					"measurements": [
-						{
-							"quantity": "½ medium pepper",
-							"status": "portion"
-						},
-						{
-							"quantity": "60 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "2.1 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 59.5,
-					"source": "https://fdc.nal.usda.gov/food-details/170108/nutrients"
-				},
-				"4": {
-					"quantity": "1 medium pepper / 119 g / 4.2 oz",
-					"measurements": [
-						{
-							"quantity": "1 medium pepper",
-							"status": "portion"
-						},
-						{
-							"quantity": "119 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "4.2 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 119,
-					"source": "https://fdc.nal.usda.gov/food-details/170108/nutrients"
-				},
-				"6": {
-					"quantity": "1 ½ medium peppers / 179 g / 6.3 oz",
-					"measurements": [
-						{
-							"quantity": "1 ½ medium peppers",
-							"status": "portion"
-						},
-						{
-							"quantity": "179 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "6.3 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 178.5,
-					"source": "https://fdc.nal.usda.gov/food-details/170108/nutrients"
-				},
-				"8": {
-					"quantity": "2 medium peppers / 238 g / 8.4 oz",
-					"measurements": [
-						{
-							"quantity": "2 medium peppers",
-							"status": "portion"
-						},
-						{
-							"quantity": "238 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "8.4 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 238,
-					"source": "https://fdc.nal.usda.gov/food-details/170108/nutrients"
-				}
-			}
-		},
-		{
-			"recipe": "source-easy-chicken-fajitas",
-			"family": false,
-			"ingredient": "ingredient-11",
-			"name": "Green bell pepper",
-			"canonical": {
-				"amount": 1,
-				"unit": "count",
-				"state": "sliced",
-				"grams": 119
-			},
-			"weight": {
-				"gramsPerUnit": 119,
-				"source": "https://fdc.nal.usda.gov/food-details/170427/nutrients",
-				"description": "Peppers, sweet, green, raw",
-				"kind": "mass",
-				"referenceId": "usda-170427"
-			},
-			"provenance": {
-				"original": {
-					"amount": 1,
-					"unit": "count",
-					"name": "Green bell pepper",
-					"state": "sliced",
-					"note": ""
-				},
-				"sourceIngredientId": "ingredient-11",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "1 medium pepper / 119 g / 4.2 oz",
-				"measurements": [
-					{
-						"quantity": "1 medium pepper",
-						"status": "portion"
-					},
-					{
-						"quantity": "119 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "4.2 oz",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 119,
-				"source": "https://fdc.nal.usda.gov/food-details/170427/nutrients"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "½ medium pepper / 60 g / 2.1 oz",
-					"measurements": [
-						{
-							"quantity": "½ medium pepper",
-							"status": "portion"
-						},
-						{
-							"quantity": "60 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "2.1 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 59.5,
-					"source": "https://fdc.nal.usda.gov/food-details/170427/nutrients"
-				},
-				"4": {
-					"quantity": "1 medium pepper / 119 g / 4.2 oz",
-					"measurements": [
-						{
-							"quantity": "1 medium pepper",
-							"status": "portion"
-						},
-						{
-							"quantity": "119 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "4.2 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 119,
-					"source": "https://fdc.nal.usda.gov/food-details/170427/nutrients"
-				},
-				"6": {
-					"quantity": "1 ½ medium peppers / 179 g / 6.3 oz",
-					"measurements": [
-						{
-							"quantity": "1 ½ medium peppers",
-							"status": "portion"
-						},
-						{
-							"quantity": "179 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "6.3 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 178.5,
-					"source": "https://fdc.nal.usda.gov/food-details/170427/nutrients"
-				},
-				"8": {
-					"quantity": "2 medium peppers / 238 g / 8.4 oz",
-					"measurements": [
-						{
-							"quantity": "2 medium peppers",
-							"status": "portion"
-						},
-						{
-							"quantity": "238 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "8.4 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 238,
-					"source": "https://fdc.nal.usda.gov/food-details/170427/nutrients"
-				}
-			}
-		},
-		{
-			"recipe": "source-easy-chicken-fajitas",
-			"family": false,
-			"ingredient": "ingredient-12",
-			"name": "Yellow bell pepper",
-			"canonical": {
-				"amount": 119,
-				"unit": "g",
-				"state": "sliced",
-				"grams": 119
-			},
-			"weight": {
-				"gramsPerUnit": 1,
-				"source": "https://www.nist.gov/pml/special-publication-811",
-				"kind": "mass"
-			},
-			"provenance": {
-				"original": {
-					"amount": 1,
-					"unit": "count",
-					"name": "Yellow bell pepper",
-					"state": "sliced",
-					"note": ""
-				},
-				"sourceIngredientId": "ingredient-12",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Editorial medium yellow bell pepper: 119 g edible flesh, seeds and stalk removed."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "119 g / 4.2 oz",
-				"measurements": [
-					{
-						"quantity": "119 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "4.2 oz",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 119,
-				"source": "https://www.nist.gov/pml/special-publication-811"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "60 g / 2.1 oz",
-					"measurements": [
-						{
-							"quantity": "60 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "2.1 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 59.5,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"4": {
-					"quantity": "119 g / 4.2 oz",
-					"measurements": [
-						{
-							"quantity": "119 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "4.2 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 119,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"6": {
-					"quantity": "179 g / 6.3 oz",
-					"measurements": [
-						{
-							"quantity": "179 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "6.3 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 178.5,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"8": {
-					"quantity": "238 g / 8.4 oz",
-					"measurements": [
-						{
-							"quantity": "238 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "8.4 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 238,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				}
-			}
-		},
-		{
-			"recipe": "source-easy-chicken-fajitas",
-			"family": false,
-			"ingredient": "ingredient-13",
-			"name": "Onion",
-			"canonical": {
-				"amount": 1,
-				"unit": "count",
-				"state": "medium, sliced",
-				"grams": 110
-			},
-			"weight": {
-				"gramsPerUnit": 110,
-				"source": "https://fdc.nal.usda.gov/food-details/170000/nutrients",
-				"description": "Onions, raw",
-				"kind": "mass",
-				"referenceId": "usda-170000"
-			},
-			"provenance": {
-				"original": {
-					"amount": 1,
-					"unit": "count",
-					"name": "Onion",
-					"state": "medium, sliced",
-					"note": ""
-				},
-				"sourceIngredientId": "ingredient-13",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "1 medium onion / 110 g / 3.88 oz",
-				"measurements": [
-					{
-						"quantity": "1 medium onion",
-						"status": "portion"
-					},
-					{
-						"quantity": "110 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "3.88 oz",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 110,
-				"source": "https://fdc.nal.usda.gov/food-details/170000/nutrients"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "½ medium onion / 55 g / 1.94 oz",
-					"measurements": [
-						{
-							"quantity": "½ medium onion",
-							"status": "portion"
-						},
-						{
-							"quantity": "55 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "1.94 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 55,
-					"source": "https://fdc.nal.usda.gov/food-details/170000/nutrients"
-				},
-				"4": {
-					"quantity": "1 medium onion / 110 g / 3.88 oz",
-					"measurements": [
-						{
-							"quantity": "1 medium onion",
-							"status": "portion"
-						},
-						{
-							"quantity": "110 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "3.88 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 110,
-					"source": "https://fdc.nal.usda.gov/food-details/170000/nutrients"
-				},
-				"6": {
-					"quantity": "1 ½ medium onions / 165 g / 5.82 oz",
-					"measurements": [
-						{
-							"quantity": "1 ½ medium onions",
-							"status": "portion"
-						},
-						{
-							"quantity": "165 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "5.82 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 165,
-					"source": "https://fdc.nal.usda.gov/food-details/170000/nutrients"
-				},
-				"8": {
-					"quantity": "2 medium onions / 220 g / 7.76 oz",
-					"measurements": [
-						{
-							"quantity": "2 medium onions",
-							"status": "portion"
-						},
-						{
-							"quantity": "220 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "7.76 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 220,
-					"source": "https://fdc.nal.usda.gov/food-details/170000/nutrients"
-				}
-			}
-		},
-		{
-			"recipe": "source-easy-chicken-fajitas",
-			"family": false,
 			"ingredient": "ingredient-1",
 			"name": "Shredded rotisserie chicken",
 			"canonical": {
@@ -145597,6 +144943,660 @@
 					"status": "multiple",
 					"grams": 1.15,
 					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
+				}
+			}
+		},
+		{
+			"recipe": "source-easy-chicken-fajitas",
+			"family": false,
+			"ingredient": "ingredient-9",
+			"name": "Olive oil",
+			"canonical": {
+				"amount": 2,
+				"unit": "tbsp",
+				"state": "divided",
+				"grams": 27
+			},
+			"weight": {
+				"gramsPerUnit": 13.5,
+				"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+				"description": "Oil, olive, salad or cooking",
+				"kind": "liquid",
+				"referenceId": "usda-171413",
+				"gramsPerMl": 0.9129786129497609
+			},
+			"provenance": {
+				"original": {
+					"amount": 2,
+					"unit": "tbsp",
+					"name": "Olive oil",
+					"state": "divided",
+					"note": ""
+				},
+				"sourceIngredientId": "ingredient-9",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "2 tbsp / 27 g / 30 mL",
+				"measurements": [
+					{
+						"quantity": "2 tbsp",
+						"status": "volume"
+					},
+					{
+						"quantity": "27 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "30 mL",
+						"status": "volume"
+					}
+				],
+				"status": "multiple",
+				"grams": 27,
+				"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "1 tbsp / 14 g / 15 mL",
+					"measurements": [
+						{
+							"quantity": "1 tbsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "14 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "15 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 13.5,
+					"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
+				},
+				"4": {
+					"quantity": "2 tbsp / 27 g / 30 mL",
+					"measurements": [
+						{
+							"quantity": "2 tbsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "27 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "30 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 27,
+					"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
+				},
+				"6": {
+					"quantity": "3 tbsp / 41 g / 44 mL",
+					"measurements": [
+						{
+							"quantity": "3 tbsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "41 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "44 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 40.5,
+					"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
+				},
+				"8": {
+					"quantity": "¼ cup / 54 g / 59 mL",
+					"measurements": [
+						{
+							"quantity": "¼ cup",
+							"status": "volume"
+						},
+						{
+							"quantity": "54 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "59 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 54,
+					"source": "https://fdc.nal.usda.gov/food-details/171413/nutrients"
+				}
+			}
+		},
+		{
+			"recipe": "source-easy-chicken-fajitas",
+			"family": false,
+			"ingredient": "ingredient-10",
+			"name": "Red bell pepper",
+			"canonical": {
+				"amount": 1,
+				"unit": "count",
+				"state": "sliced",
+				"grams": 119
+			},
+			"weight": {
+				"gramsPerUnit": 119,
+				"source": "https://fdc.nal.usda.gov/food-details/170108/nutrients",
+				"description": "Peppers, sweet, red, raw",
+				"kind": "mass",
+				"referenceId": "usda-170108"
+			},
+			"provenance": {
+				"original": {
+					"amount": 1,
+					"unit": "count",
+					"name": "Red bell pepper",
+					"state": "sliced",
+					"note": ""
+				},
+				"sourceIngredientId": "ingredient-10",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "1 medium pepper / 119 g / 4.2 oz",
+				"measurements": [
+					{
+						"quantity": "1 medium pepper",
+						"status": "portion"
+					},
+					{
+						"quantity": "119 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "4.2 oz",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 119,
+				"source": "https://fdc.nal.usda.gov/food-details/170108/nutrients"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "½ medium pepper / 60 g / 2.1 oz",
+					"measurements": [
+						{
+							"quantity": "½ medium pepper",
+							"status": "portion"
+						},
+						{
+							"quantity": "60 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "2.1 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 59.5,
+					"source": "https://fdc.nal.usda.gov/food-details/170108/nutrients"
+				},
+				"4": {
+					"quantity": "1 medium pepper / 119 g / 4.2 oz",
+					"measurements": [
+						{
+							"quantity": "1 medium pepper",
+							"status": "portion"
+						},
+						{
+							"quantity": "119 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "4.2 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 119,
+					"source": "https://fdc.nal.usda.gov/food-details/170108/nutrients"
+				},
+				"6": {
+					"quantity": "1 ½ medium peppers / 179 g / 6.3 oz",
+					"measurements": [
+						{
+							"quantity": "1 ½ medium peppers",
+							"status": "portion"
+						},
+						{
+							"quantity": "179 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "6.3 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 178.5,
+					"source": "https://fdc.nal.usda.gov/food-details/170108/nutrients"
+				},
+				"8": {
+					"quantity": "2 medium peppers / 238 g / 8.4 oz",
+					"measurements": [
+						{
+							"quantity": "2 medium peppers",
+							"status": "portion"
+						},
+						{
+							"quantity": "238 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "8.4 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 238,
+					"source": "https://fdc.nal.usda.gov/food-details/170108/nutrients"
+				}
+			}
+		},
+		{
+			"recipe": "source-easy-chicken-fajitas",
+			"family": false,
+			"ingredient": "ingredient-11",
+			"name": "Green bell pepper",
+			"canonical": {
+				"amount": 1,
+				"unit": "count",
+				"state": "sliced",
+				"grams": 119
+			},
+			"weight": {
+				"gramsPerUnit": 119,
+				"source": "https://fdc.nal.usda.gov/food-details/170427/nutrients",
+				"description": "Peppers, sweet, green, raw",
+				"kind": "mass",
+				"referenceId": "usda-170427"
+			},
+			"provenance": {
+				"original": {
+					"amount": 1,
+					"unit": "count",
+					"name": "Green bell pepper",
+					"state": "sliced",
+					"note": ""
+				},
+				"sourceIngredientId": "ingredient-11",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "1 medium pepper / 119 g / 4.2 oz",
+				"measurements": [
+					{
+						"quantity": "1 medium pepper",
+						"status": "portion"
+					},
+					{
+						"quantity": "119 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "4.2 oz",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 119,
+				"source": "https://fdc.nal.usda.gov/food-details/170427/nutrients"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "½ medium pepper / 60 g / 2.1 oz",
+					"measurements": [
+						{
+							"quantity": "½ medium pepper",
+							"status": "portion"
+						},
+						{
+							"quantity": "60 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "2.1 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 59.5,
+					"source": "https://fdc.nal.usda.gov/food-details/170427/nutrients"
+				},
+				"4": {
+					"quantity": "1 medium pepper / 119 g / 4.2 oz",
+					"measurements": [
+						{
+							"quantity": "1 medium pepper",
+							"status": "portion"
+						},
+						{
+							"quantity": "119 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "4.2 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 119,
+					"source": "https://fdc.nal.usda.gov/food-details/170427/nutrients"
+				},
+				"6": {
+					"quantity": "1 ½ medium peppers / 179 g / 6.3 oz",
+					"measurements": [
+						{
+							"quantity": "1 ½ medium peppers",
+							"status": "portion"
+						},
+						{
+							"quantity": "179 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "6.3 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 178.5,
+					"source": "https://fdc.nal.usda.gov/food-details/170427/nutrients"
+				},
+				"8": {
+					"quantity": "2 medium peppers / 238 g / 8.4 oz",
+					"measurements": [
+						{
+							"quantity": "2 medium peppers",
+							"status": "portion"
+						},
+						{
+							"quantity": "238 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "8.4 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 238,
+					"source": "https://fdc.nal.usda.gov/food-details/170427/nutrients"
+				}
+			}
+		},
+		{
+			"recipe": "source-easy-chicken-fajitas",
+			"family": false,
+			"ingredient": "ingredient-12",
+			"name": "Yellow bell pepper",
+			"canonical": {
+				"amount": 119,
+				"unit": "g",
+				"state": "sliced",
+				"grams": 119
+			},
+			"weight": {
+				"gramsPerUnit": 1,
+				"source": "https://www.nist.gov/pml/special-publication-811",
+				"kind": "mass"
+			},
+			"provenance": {
+				"original": {
+					"amount": 1,
+					"unit": "count",
+					"name": "Yellow bell pepper",
+					"state": "sliced",
+					"note": ""
+				},
+				"sourceIngredientId": "ingredient-12",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Editorial medium yellow bell pepper: 119 g edible flesh, seeds and stalk removed."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "119 g / 4.2 oz",
+				"measurements": [
+					{
+						"quantity": "119 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "4.2 oz",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 119,
+				"source": "https://www.nist.gov/pml/special-publication-811"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "60 g / 2.1 oz",
+					"measurements": [
+						{
+							"quantity": "60 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "2.1 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 59.5,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"4": {
+					"quantity": "119 g / 4.2 oz",
+					"measurements": [
+						{
+							"quantity": "119 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "4.2 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 119,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"6": {
+					"quantity": "179 g / 6.3 oz",
+					"measurements": [
+						{
+							"quantity": "179 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "6.3 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 178.5,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"8": {
+					"quantity": "238 g / 8.4 oz",
+					"measurements": [
+						{
+							"quantity": "238 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "8.4 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 238,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				}
+			}
+		},
+		{
+			"recipe": "source-easy-chicken-fajitas",
+			"family": false,
+			"ingredient": "ingredient-13",
+			"name": "Onion",
+			"canonical": {
+				"amount": 1,
+				"unit": "count",
+				"state": "medium, sliced",
+				"grams": 110
+			},
+			"weight": {
+				"gramsPerUnit": 110,
+				"source": "https://fdc.nal.usda.gov/food-details/170000/nutrients",
+				"description": "Onions, raw",
+				"kind": "mass",
+				"referenceId": "usda-170000"
+			},
+			"provenance": {
+				"original": {
+					"amount": 1,
+					"unit": "count",
+					"name": "Onion",
+					"state": "medium, sliced",
+					"note": ""
+				},
+				"sourceIngredientId": "ingredient-13",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "1 medium onion / 110 g / 3.88 oz",
+				"measurements": [
+					{
+						"quantity": "1 medium onion",
+						"status": "portion"
+					},
+					{
+						"quantity": "110 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "3.88 oz",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 110,
+				"source": "https://fdc.nal.usda.gov/food-details/170000/nutrients"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "½ medium onion / 55 g / 1.94 oz",
+					"measurements": [
+						{
+							"quantity": "½ medium onion",
+							"status": "portion"
+						},
+						{
+							"quantity": "55 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "1.94 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 55,
+					"source": "https://fdc.nal.usda.gov/food-details/170000/nutrients"
+				},
+				"4": {
+					"quantity": "1 medium onion / 110 g / 3.88 oz",
+					"measurements": [
+						{
+							"quantity": "1 medium onion",
+							"status": "portion"
+						},
+						{
+							"quantity": "110 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "3.88 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 110,
+					"source": "https://fdc.nal.usda.gov/food-details/170000/nutrients"
+				},
+				"6": {
+					"quantity": "1 ½ medium onions / 165 g / 5.82 oz",
+					"measurements": [
+						{
+							"quantity": "1 ½ medium onions",
+							"status": "portion"
+						},
+						{
+							"quantity": "165 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "5.82 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 165,
+					"source": "https://fdc.nal.usda.gov/food-details/170000/nutrients"
+				},
+				"8": {
+					"quantity": "2 medium onions / 220 g / 7.76 oz",
+					"measurements": [
+						{
+							"quantity": "2 medium onions",
+							"status": "portion"
+						},
+						{
+							"quantity": "220 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "7.76 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 220,
+					"source": "https://fdc.nal.usda.gov/food-details/170000/nutrients"
 				}
 			}
 		},
@@ -158568,6 +158568,250 @@
 		{
 			"recipe": "source-garlic-butter-pork-with-lemon-asparagus",
 			"family": false,
+			"ingredient": "ingredient-18",
+			"name": "Italian seasoning",
+			"canonical": {
+				"amount": 1,
+				"unit": "g",
+				"state": "",
+				"grams": 1
+			},
+			"weight": {
+				"gramsPerUnit": 1,
+				"source": "https://www.nist.gov/pml/special-publication-811",
+				"kind": "mass"
+			},
+			"provenance": {
+				"original": {
+					"amount": 1,
+					"unit": "tsp",
+					"name": "Italian seasoning",
+					"state": "",
+					"note": ""
+				},
+				"sourceIngredientId": "ingredient-18",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Editorial weighed italian seasoning amount; original measure or a different herb/brand observation does not establish a reliable density. Retain blend identity and cooking role; not kitchen-tested."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "1 g / 0.04 oz",
+				"measurements": [
+					{
+						"quantity": "1 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "0.04 oz",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 1,
+				"source": "https://www.nist.gov/pml/special-publication-811"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "A pinch",
+					"measurements": [
+						{
+							"quantity": "A pinch",
+							"status": "portion"
+						}
+					],
+					"status": "portion",
+					"grams": 0.5,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"4": {
+					"quantity": "1 g / 0.04 oz",
+					"measurements": [
+						{
+							"quantity": "1 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.04 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 1,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"6": {
+					"quantity": "2 g / 0.05 oz",
+					"measurements": [
+						{
+							"quantity": "2 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.05 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 1.5,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"8": {
+					"quantity": "2 g / 0.07 oz",
+					"measurements": [
+						{
+							"quantity": "2 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.07 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 2,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				}
+			}
+		},
+		{
+			"recipe": "source-garlic-butter-pork-with-lemon-asparagus",
+			"family": false,
+			"ingredient": "ingredient-2",
+			"name": "asparagus",
+			"canonical": {
+				"amount": 2,
+				"unit": "bunch",
+				"state": "rinsed and trimmed",
+				"grams": 450
+			},
+			"weight": {
+				"gramsPerUnit": 225,
+				"source": "https://www.jsolly.com/recipes/",
+				"description": "Trimmed asparagus, 225 g cooking portion",
+				"kind": "mass",
+				"referenceId": "asparagus-bunch"
+			},
+			"provenance": {
+				"original": {
+					"amount": 2,
+					"unit": "bunch",
+					"name": "asparagus",
+					"state": "rinsed and trimmed",
+					"note": ""
+				},
+				"sourceIngredientId": "ingredient-2",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "2 bunches / 450 g / 15.87 oz",
+				"measurements": [
+					{
+						"quantity": "2 bunches",
+						"status": "portion"
+					},
+					{
+						"quantity": "450 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "15.87 oz",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 450,
+				"source": "https://www.jsolly.com/recipes/"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "1 bunch / 225 g / 7.94 oz",
+					"measurements": [
+						{
+							"quantity": "1 bunch",
+							"status": "portion"
+						},
+						{
+							"quantity": "225 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "7.94 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 225,
+					"source": "https://www.jsolly.com/recipes/"
+				},
+				"4": {
+					"quantity": "2 bunches / 450 g / 15.87 oz",
+					"measurements": [
+						{
+							"quantity": "2 bunches",
+							"status": "portion"
+						},
+						{
+							"quantity": "450 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "15.87 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 450,
+					"source": "https://www.jsolly.com/recipes/"
+				},
+				"6": {
+					"quantity": "3 bunches / 675 g / 1.49 lb",
+					"measurements": [
+						{
+							"quantity": "3 bunches",
+							"status": "portion"
+						},
+						{
+							"quantity": "675 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "1.49 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 675,
+					"source": "https://www.jsolly.com/recipes/"
+				},
+				"8": {
+					"quantity": "4 bunches / 900 g / 1.98 lb",
+					"measurements": [
+						{
+							"quantity": "4 bunches",
+							"status": "portion"
+						},
+						{
+							"quantity": "900 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "1.98 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 900,
+					"source": "https://www.jsolly.com/recipes/"
+				}
+			}
+		},
+		{
+			"recipe": "source-garlic-butter-pork-with-lemon-asparagus",
+			"family": false,
 			"ingredient": "ingredient-4",
 			"name": "olive oil",
 			"canonical": {
@@ -159180,115 +159424,6 @@
 		{
 			"recipe": "source-garlic-butter-pork-with-lemon-asparagus",
 			"family": false,
-			"ingredient": "ingredient-18",
-			"name": "Italian seasoning",
-			"canonical": {
-				"amount": 1,
-				"unit": "g",
-				"state": "",
-				"grams": 1
-			},
-			"weight": {
-				"gramsPerUnit": 1,
-				"source": "https://www.nist.gov/pml/special-publication-811",
-				"kind": "mass"
-			},
-			"provenance": {
-				"original": {
-					"amount": 1,
-					"unit": "tsp",
-					"name": "Italian seasoning",
-					"state": "",
-					"note": ""
-				},
-				"sourceIngredientId": "ingredient-18",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Editorial weighed italian seasoning amount; original measure or a different herb/brand observation does not establish a reliable density. Retain blend identity and cooking role; not kitchen-tested."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "1 g / 0.04 oz",
-				"measurements": [
-					{
-						"quantity": "1 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "0.04 oz",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 1,
-				"source": "https://www.nist.gov/pml/special-publication-811"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "A pinch",
-					"measurements": [
-						{
-							"quantity": "A pinch",
-							"status": "portion"
-						}
-					],
-					"status": "portion",
-					"grams": 0.5,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"4": {
-					"quantity": "1 g / 0.04 oz",
-					"measurements": [
-						{
-							"quantity": "1 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.04 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 1,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"6": {
-					"quantity": "2 g / 0.05 oz",
-					"measurements": [
-						{
-							"quantity": "2 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.05 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 1.5,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"8": {
-					"quantity": "2 g / 0.07 oz",
-					"measurements": [
-						{
-							"quantity": "2 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.07 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 2,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				}
-			}
-		},
-		{
-			"recipe": "source-garlic-butter-pork-with-lemon-asparagus",
-			"family": false,
 			"ingredient": "ingredient-8",
 			"name": "low-sodium chicken broth",
 			"canonical": {
@@ -159826,141 +159961,6 @@
 					"status": "multiple",
 					"grams": 39,
 					"source": "https://fdc.nal.usda.gov/food-details/171186/nutrients"
-				}
-			}
-		},
-		{
-			"recipe": "source-garlic-butter-pork-with-lemon-asparagus",
-			"family": false,
-			"ingredient": "ingredient-2",
-			"name": "asparagus",
-			"canonical": {
-				"amount": 2,
-				"unit": "bunch",
-				"state": "rinsed and trimmed",
-				"grams": 450
-			},
-			"weight": {
-				"gramsPerUnit": 225,
-				"source": "https://www.jsolly.com/recipes/",
-				"description": "Trimmed asparagus, 225 g cooking portion",
-				"kind": "mass",
-				"referenceId": "asparagus-bunch"
-			},
-			"provenance": {
-				"original": {
-					"amount": 2,
-					"unit": "bunch",
-					"name": "asparagus",
-					"state": "rinsed and trimmed",
-					"note": ""
-				},
-				"sourceIngredientId": "ingredient-2",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "2 bunches / 450 g / 15.87 oz",
-				"measurements": [
-					{
-						"quantity": "2 bunches",
-						"status": "portion"
-					},
-					{
-						"quantity": "450 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "15.87 oz",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 450,
-				"source": "https://www.jsolly.com/recipes/"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "1 bunch / 225 g / 7.94 oz",
-					"measurements": [
-						{
-							"quantity": "1 bunch",
-							"status": "portion"
-						},
-						{
-							"quantity": "225 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "7.94 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 225,
-					"source": "https://www.jsolly.com/recipes/"
-				},
-				"4": {
-					"quantity": "2 bunches / 450 g / 15.87 oz",
-					"measurements": [
-						{
-							"quantity": "2 bunches",
-							"status": "portion"
-						},
-						{
-							"quantity": "450 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "15.87 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 450,
-					"source": "https://www.jsolly.com/recipes/"
-				},
-				"6": {
-					"quantity": "3 bunches / 675 g / 1.49 lb",
-					"measurements": [
-						{
-							"quantity": "3 bunches",
-							"status": "portion"
-						},
-						{
-							"quantity": "675 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "1.49 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 675,
-					"source": "https://www.jsolly.com/recipes/"
-				},
-				"8": {
-					"quantity": "4 bunches / 900 g / 1.98 lb",
-					"measurements": [
-						{
-							"quantity": "4 bunches",
-							"status": "portion"
-						},
-						{
-							"quantity": "900 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "1.98 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 900,
-					"source": "https://www.jsolly.com/recipes/"
 				}
 			}
 		},
@@ -166287,6 +166287,255 @@
 		{
 			"recipe": "source-lemon-garlic-butter-chicken-tenders-recipe",
 			"family": false,
+			"ingredient": "ingredient-2",
+			"name": "green beans",
+			"canonical": {
+				"amount": 1,
+				"unit": "lb",
+				"state": "trimmed",
+				"grams": 453.59237
+			},
+			"weight": {
+				"gramsPerUnit": 453.59237,
+				"source": "https://www.nist.gov/pml/special-publication-811",
+				"kind": "mass"
+			},
+			"provenance": {
+				"original": {
+					"amount": 1,
+					"unit": "lb",
+					"name": "green beans",
+					"state": "trimmed",
+					"note": "(450g) is the source parenthetical; original US quantity controls."
+				},
+				"sourceIngredientId": "ingredient-2",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "454 g / 1 lb",
+				"measurements": [
+					{
+						"quantity": "454 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "1 lb",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 453.59237,
+				"source": "https://www.nist.gov/pml/special-publication-811"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "227 g / 8 oz",
+					"measurements": [
+						{
+							"quantity": "227 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "8 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 226.796185,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"4": {
+					"quantity": "454 g / 1 lb",
+					"measurements": [
+						{
+							"quantity": "454 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "1 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 453.59237,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"6": {
+					"quantity": "680 g / 1.5 lb",
+					"measurements": [
+						{
+							"quantity": "680 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "1.5 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 680.388555,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"8": {
+					"quantity": "907 g / 2 lb",
+					"measurements": [
+						{
+							"quantity": "907 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "2 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 907.18474,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				}
+			}
+		},
+		{
+			"recipe": "source-lemon-garlic-butter-chicken-tenders-recipe",
+			"family": false,
+			"ingredient": "ingredient-14",
+			"name": "Water for bean microwave",
+			"canonical": {
+				"amount": 0.5,
+				"unit": "cup",
+				"state": "",
+				"grams": 118.29411825
+			},
+			"weight": {
+				"gramsPerUnit": 236.5882365,
+				"source": "https://www.nist.gov/pml/special-publication-811",
+				"description": "Potable water",
+				"kind": "liquid",
+				"referenceId": "water",
+				"gramsPerMl": 1
+			},
+			"provenance": {
+				"original": {
+					"amount": 0.5,
+					"unit": "cup",
+					"name": "Water for bean microwave",
+					"state": "",
+					"note": "Added from the source method; omitted from its ingredient list."
+				},
+				"sourceIngredientId": "ingredient-14",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "½ cup / 118 g / 118 mL",
+				"measurements": [
+					{
+						"quantity": "½ cup",
+						"status": "volume"
+					},
+					{
+						"quantity": "118 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "118 mL",
+						"status": "volume"
+					}
+				],
+				"status": "multiple",
+				"grams": 118.29411825,
+				"source": "https://www.nist.gov/pml/special-publication-811"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "¼ cup / 59 g / 59 mL",
+					"measurements": [
+						{
+							"quantity": "¼ cup",
+							"status": "volume"
+						},
+						{
+							"quantity": "59 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "59 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 59.147059125,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"4": {
+					"quantity": "½ cup / 118 g / 118 mL",
+					"measurements": [
+						{
+							"quantity": "½ cup",
+							"status": "volume"
+						},
+						{
+							"quantity": "118 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "118 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 118.29411825,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"6": {
+					"quantity": "¾ cup / 177 g / 177 mL",
+					"measurements": [
+						{
+							"quantity": "¾ cup",
+							"status": "volume"
+						},
+						{
+							"quantity": "177 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "177 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 177.441177375,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"8": {
+					"quantity": "1 cup / 237 g / 237 mL",
+					"measurements": [
+						{
+							"quantity": "1 cup",
+							"status": "volume"
+						},
+						{
+							"quantity": "237 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "237 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 236.5882365,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				}
+			}
+		},
+		{
+			"recipe": "source-lemon-garlic-butter-chicken-tenders-recipe",
+			"family": false,
 			"ingredient": "ingredient-3",
 			"name": "butter",
 			"canonical": {
@@ -166538,255 +166787,6 @@
 							"source": "https://fdc.nal.usda.gov/food-details/173412/nutrients"
 						}
 					]
-				}
-			}
-		},
-		{
-			"recipe": "source-lemon-garlic-butter-chicken-tenders-recipe",
-			"family": false,
-			"ingredient": "ingredient-2",
-			"name": "green beans",
-			"canonical": {
-				"amount": 1,
-				"unit": "lb",
-				"state": "trimmed",
-				"grams": 453.59237
-			},
-			"weight": {
-				"gramsPerUnit": 453.59237,
-				"source": "https://www.nist.gov/pml/special-publication-811",
-				"kind": "mass"
-			},
-			"provenance": {
-				"original": {
-					"amount": 1,
-					"unit": "lb",
-					"name": "green beans",
-					"state": "trimmed",
-					"note": "(450g) is the source parenthetical; original US quantity controls."
-				},
-				"sourceIngredientId": "ingredient-2",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "454 g / 1 lb",
-				"measurements": [
-					{
-						"quantity": "454 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "1 lb",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 453.59237,
-				"source": "https://www.nist.gov/pml/special-publication-811"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "227 g / 8 oz",
-					"measurements": [
-						{
-							"quantity": "227 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "8 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 226.796185,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"4": {
-					"quantity": "454 g / 1 lb",
-					"measurements": [
-						{
-							"quantity": "454 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "1 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 453.59237,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"6": {
-					"quantity": "680 g / 1.5 lb",
-					"measurements": [
-						{
-							"quantity": "680 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "1.5 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 680.388555,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"8": {
-					"quantity": "907 g / 2 lb",
-					"measurements": [
-						{
-							"quantity": "907 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "2 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 907.18474,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				}
-			}
-		},
-		{
-			"recipe": "source-lemon-garlic-butter-chicken-tenders-recipe",
-			"family": false,
-			"ingredient": "ingredient-14",
-			"name": "Water for bean microwave",
-			"canonical": {
-				"amount": 0.5,
-				"unit": "cup",
-				"state": "",
-				"grams": 118.29411825
-			},
-			"weight": {
-				"gramsPerUnit": 236.5882365,
-				"source": "https://www.nist.gov/pml/special-publication-811",
-				"description": "Potable water",
-				"kind": "liquid",
-				"referenceId": "water",
-				"gramsPerMl": 1
-			},
-			"provenance": {
-				"original": {
-					"amount": 0.5,
-					"unit": "cup",
-					"name": "Water for bean microwave",
-					"state": "",
-					"note": "Added from the source method; omitted from its ingredient list."
-				},
-				"sourceIngredientId": "ingredient-14",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "½ cup / 118 g / 118 mL",
-				"measurements": [
-					{
-						"quantity": "½ cup",
-						"status": "volume"
-					},
-					{
-						"quantity": "118 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "118 mL",
-						"status": "volume"
-					}
-				],
-				"status": "multiple",
-				"grams": 118.29411825,
-				"source": "https://www.nist.gov/pml/special-publication-811"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "¼ cup / 59 g / 59 mL",
-					"measurements": [
-						{
-							"quantity": "¼ cup",
-							"status": "volume"
-						},
-						{
-							"quantity": "59 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "59 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 59.147059125,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"4": {
-					"quantity": "½ cup / 118 g / 118 mL",
-					"measurements": [
-						{
-							"quantity": "½ cup",
-							"status": "volume"
-						},
-						{
-							"quantity": "118 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "118 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 118.29411825,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"6": {
-					"quantity": "¾ cup / 177 g / 177 mL",
-					"measurements": [
-						{
-							"quantity": "¾ cup",
-							"status": "volume"
-						},
-						{
-							"quantity": "177 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "177 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 177.441177375,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"8": {
-					"quantity": "1 cup / 237 g / 237 mL",
-					"measurements": [
-						{
-							"quantity": "1 cup",
-							"status": "volume"
-						},
-						{
-							"quantity": "237 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "237 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 236.5882365,
-					"source": "https://www.nist.gov/pml/special-publication-811"
 				}
 			}
 		},
@@ -182143,6 +182143,255 @@
 		{
 			"recipe": "source-garlic-butter-sausages-with-lemon-green-beans",
 			"family": false,
+			"ingredient": "ingredient-2",
+			"name": "fresh stringless green beans",
+			"canonical": {
+				"amount": 1,
+				"unit": "lb",
+				"state": "trimmed",
+				"grams": 453.59237
+			},
+			"weight": {
+				"gramsPerUnit": 453.59237,
+				"source": "https://www.nist.gov/pml/special-publication-811",
+				"kind": "mass"
+			},
+			"provenance": {
+				"original": {
+					"amount": 1,
+					"unit": "lb",
+					"name": "fresh stringless green beans",
+					"state": "trimmed",
+					"note": "(450g) is the source parenthetical; original US quantity controls."
+				},
+				"sourceIngredientId": "ingredient-2",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "454 g / 1 lb",
+				"measurements": [
+					{
+						"quantity": "454 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "1 lb",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 453.59237,
+				"source": "https://www.nist.gov/pml/special-publication-811"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "227 g / 8 oz",
+					"measurements": [
+						{
+							"quantity": "227 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "8 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 226.796185,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"4": {
+					"quantity": "454 g / 1 lb",
+					"measurements": [
+						{
+							"quantity": "454 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "1 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 453.59237,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"6": {
+					"quantity": "680 g / 1.5 lb",
+					"measurements": [
+						{
+							"quantity": "680 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "1.5 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 680.388555,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"8": {
+					"quantity": "907 g / 2 lb",
+					"measurements": [
+						{
+							"quantity": "907 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "2 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 907.18474,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				}
+			}
+		},
+		{
+			"recipe": "source-garlic-butter-sausages-with-lemon-green-beans",
+			"family": false,
+			"ingredient": "ingredient-14",
+			"name": "Water for bean microwave",
+			"canonical": {
+				"amount": 0.5,
+				"unit": "cup",
+				"state": "",
+				"grams": 118.29411825
+			},
+			"weight": {
+				"gramsPerUnit": 236.5882365,
+				"source": "https://www.nist.gov/pml/special-publication-811",
+				"description": "Potable water",
+				"kind": "liquid",
+				"referenceId": "water",
+				"gramsPerMl": 1
+			},
+			"provenance": {
+				"original": {
+					"amount": 0.5,
+					"unit": "cup",
+					"name": "Water for bean microwave",
+					"state": "",
+					"note": "Added from the source method; omitted from its ingredient list."
+				},
+				"sourceIngredientId": "ingredient-14",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "½ cup / 118 g / 118 mL",
+				"measurements": [
+					{
+						"quantity": "½ cup",
+						"status": "volume"
+					},
+					{
+						"quantity": "118 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "118 mL",
+						"status": "volume"
+					}
+				],
+				"status": "multiple",
+				"grams": 118.29411825,
+				"source": "https://www.nist.gov/pml/special-publication-811"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "¼ cup / 59 g / 59 mL",
+					"measurements": [
+						{
+							"quantity": "¼ cup",
+							"status": "volume"
+						},
+						{
+							"quantity": "59 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "59 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 59.147059125,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"4": {
+					"quantity": "½ cup / 118 g / 118 mL",
+					"measurements": [
+						{
+							"quantity": "½ cup",
+							"status": "volume"
+						},
+						{
+							"quantity": "118 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "118 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 118.29411825,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"6": {
+					"quantity": "¾ cup / 177 g / 177 mL",
+					"measurements": [
+						{
+							"quantity": "¾ cup",
+							"status": "volume"
+						},
+						{
+							"quantity": "177 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "177 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 177.441177375,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"8": {
+					"quantity": "1 cup / 237 g / 237 mL",
+					"measurements": [
+						{
+							"quantity": "1 cup",
+							"status": "volume"
+						},
+						{
+							"quantity": "237 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "237 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 236.5882365,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				}
+			}
+		},
+		{
+			"recipe": "source-garlic-butter-sausages-with-lemon-green-beans",
+			"family": false,
 			"ingredient": "ingredient-1",
 			"name": "sausage",
 			"canonical": {
@@ -182678,255 +182927,6 @@
 					"status": "multiple",
 					"grams": 30,
 					"source": "https://fdc.nal.usda.gov/food-details/169230/nutrients"
-				}
-			}
-		},
-		{
-			"recipe": "source-garlic-butter-sausages-with-lemon-green-beans",
-			"family": false,
-			"ingredient": "ingredient-2",
-			"name": "fresh stringless green beans",
-			"canonical": {
-				"amount": 1,
-				"unit": "lb",
-				"state": "trimmed",
-				"grams": 453.59237
-			},
-			"weight": {
-				"gramsPerUnit": 453.59237,
-				"source": "https://www.nist.gov/pml/special-publication-811",
-				"kind": "mass"
-			},
-			"provenance": {
-				"original": {
-					"amount": 1,
-					"unit": "lb",
-					"name": "fresh stringless green beans",
-					"state": "trimmed",
-					"note": "(450g) is the source parenthetical; original US quantity controls."
-				},
-				"sourceIngredientId": "ingredient-2",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "454 g / 1 lb",
-				"measurements": [
-					{
-						"quantity": "454 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "1 lb",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 453.59237,
-				"source": "https://www.nist.gov/pml/special-publication-811"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "227 g / 8 oz",
-					"measurements": [
-						{
-							"quantity": "227 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "8 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 226.796185,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"4": {
-					"quantity": "454 g / 1 lb",
-					"measurements": [
-						{
-							"quantity": "454 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "1 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 453.59237,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"6": {
-					"quantity": "680 g / 1.5 lb",
-					"measurements": [
-						{
-							"quantity": "680 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "1.5 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 680.388555,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"8": {
-					"quantity": "907 g / 2 lb",
-					"measurements": [
-						{
-							"quantity": "907 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "2 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 907.18474,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				}
-			}
-		},
-		{
-			"recipe": "source-garlic-butter-sausages-with-lemon-green-beans",
-			"family": false,
-			"ingredient": "ingredient-14",
-			"name": "Water for bean microwave",
-			"canonical": {
-				"amount": 0.5,
-				"unit": "cup",
-				"state": "",
-				"grams": 118.29411825
-			},
-			"weight": {
-				"gramsPerUnit": 236.5882365,
-				"source": "https://www.nist.gov/pml/special-publication-811",
-				"description": "Potable water",
-				"kind": "liquid",
-				"referenceId": "water",
-				"gramsPerMl": 1
-			},
-			"provenance": {
-				"original": {
-					"amount": 0.5,
-					"unit": "cup",
-					"name": "Water for bean microwave",
-					"state": "",
-					"note": "Added from the source method; omitted from its ingredient list."
-				},
-				"sourceIngredientId": "ingredient-14",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "½ cup / 118 g / 118 mL",
-				"measurements": [
-					{
-						"quantity": "½ cup",
-						"status": "volume"
-					},
-					{
-						"quantity": "118 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "118 mL",
-						"status": "volume"
-					}
-				],
-				"status": "multiple",
-				"grams": 118.29411825,
-				"source": "https://www.nist.gov/pml/special-publication-811"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "¼ cup / 59 g / 59 mL",
-					"measurements": [
-						{
-							"quantity": "¼ cup",
-							"status": "volume"
-						},
-						{
-							"quantity": "59 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "59 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 59.147059125,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"4": {
-					"quantity": "½ cup / 118 g / 118 mL",
-					"measurements": [
-						{
-							"quantity": "½ cup",
-							"status": "volume"
-						},
-						{
-							"quantity": "118 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "118 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 118.29411825,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"6": {
-					"quantity": "¾ cup / 177 g / 177 mL",
-					"measurements": [
-						{
-							"quantity": "¾ cup",
-							"status": "volume"
-						},
-						{
-							"quantity": "177 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "177 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 177.441177375,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"8": {
-					"quantity": "1 cup / 237 g / 237 mL",
-					"measurements": [
-						{
-							"quantity": "1 cup",
-							"status": "volume"
-						},
-						{
-							"quantity": "237 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "237 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 236.5882365,
-					"source": "https://www.nist.gov/pml/special-publication-811"
 				}
 			}
 		},
@@ -184032,6 +184032,643 @@
 					"status": "portion",
 					"grams": 0.9,
 					"source": "https://www.nist.gov/pml/special-publication-811"
+				}
+			}
+		},
+		{
+			"recipe": "source-mexican-cauliflower-rice-with-cheesy-steak-roll-ups",
+			"family": false,
+			"ingredient": "ingredient-12",
+			"name": "onion powder",
+			"canonical": {
+				"amount": 0.5,
+				"unit": "tsp",
+				"state": "",
+				"grams": 1.2
+			},
+			"weight": {
+				"gramsPerUnit": 2.4,
+				"source": "https://fdc.nal.usda.gov/food-details/171327/nutrients",
+				"description": "Spices, onion powder",
+				"kind": "mass",
+				"referenceId": "usda-171327"
+			},
+			"provenance": {
+				"original": {
+					"amount": 0.5,
+					"unit": "tsp",
+					"name": "onion powder",
+					"state": "",
+					"note": ""
+				},
+				"sourceIngredientId": "ingredient-12",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "½ tsp / 1 g / 0.04 oz",
+				"measurements": [
+					{
+						"quantity": "½ tsp",
+						"status": "volume"
+					},
+					{
+						"quantity": "1 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "0.04 oz",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 1.2,
+				"source": "https://fdc.nal.usda.gov/food-details/171327/nutrients"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "A pinch",
+					"measurements": [
+						{
+							"quantity": "A pinch",
+							"status": "portion"
+						}
+					],
+					"status": "portion",
+					"grams": 0.6,
+					"source": "https://fdc.nal.usda.gov/food-details/171327/nutrients"
+				},
+				"4": {
+					"quantity": "½ tsp / 1 g / 0.04 oz",
+					"measurements": [
+						{
+							"quantity": "½ tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "1 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.04 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 1.2,
+					"source": "https://fdc.nal.usda.gov/food-details/171327/nutrients"
+				},
+				"6": {
+					"quantity": "¾ tsp / 2 g / 0.06 oz",
+					"measurements": [
+						{
+							"quantity": "¾ tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "2 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.06 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 1.7999999999999998,
+					"source": "https://fdc.nal.usda.gov/food-details/171327/nutrients"
+				},
+				"8": {
+					"quantity": "1 tsp / 2 g / 0.08 oz",
+					"measurements": [
+						{
+							"quantity": "1 tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "2 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.08 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 2.4,
+					"source": "https://fdc.nal.usda.gov/food-details/171327/nutrients"
+				}
+			}
+		},
+		{
+			"recipe": "source-mexican-cauliflower-rice-with-cheesy-steak-roll-ups",
+			"family": false,
+			"ingredient": "ingredient-13",
+			"name": "garlic powder",
+			"canonical": {
+				"amount": 0.5,
+				"unit": "tsp",
+				"state": "",
+				"grams": 1.55
+			},
+			"weight": {
+				"gramsPerUnit": 3.1,
+				"source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
+				"description": "Spices, garlic powder",
+				"kind": "mass",
+				"referenceId": "usda-171325"
+			},
+			"provenance": {
+				"original": {
+					"amount": 0.5,
+					"unit": "tsp",
+					"name": "garlic powder",
+					"state": "",
+					"note": ""
+				},
+				"sourceIngredientId": "ingredient-13",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "½ tsp / 2 g / 0.05 oz",
+				"measurements": [
+					{
+						"quantity": "½ tsp",
+						"status": "volume"
+					},
+					{
+						"quantity": "2 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "0.05 oz",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 1.55,
+				"source": "https://fdc.nal.usda.gov/food-details/171325/nutrients"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "A pinch",
+					"measurements": [
+						{
+							"quantity": "A pinch",
+							"status": "portion"
+						}
+					],
+					"status": "portion",
+					"grams": 0.775,
+					"source": "https://fdc.nal.usda.gov/food-details/171325/nutrients"
+				},
+				"4": {
+					"quantity": "½ tsp / 2 g / 0.05 oz",
+					"measurements": [
+						{
+							"quantity": "½ tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "2 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.05 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 1.55,
+					"source": "https://fdc.nal.usda.gov/food-details/171325/nutrients"
+				},
+				"6": {
+					"quantity": "¾ tsp / 2 g / 0.08 oz",
+					"measurements": [
+						{
+							"quantity": "¾ tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "2 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.08 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 2.325,
+					"source": "https://fdc.nal.usda.gov/food-details/171325/nutrients"
+				},
+				"8": {
+					"quantity": "1 tsp / 3 g / 0.11 oz",
+					"measurements": [
+						{
+							"quantity": "1 tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "3 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.11 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 3.1,
+					"source": "https://fdc.nal.usda.gov/food-details/171325/nutrients"
+				}
+			}
+		},
+		{
+			"recipe": "source-mexican-cauliflower-rice-with-cheesy-steak-roll-ups",
+			"family": false,
+			"ingredient": "ingredient-14",
+			"name": "cumin",
+			"canonical": {
+				"amount": 2.1,
+				"unit": "g",
+				"state": "",
+				"grams": 2.1
+			},
+			"weight": {
+				"gramsPerUnit": 1,
+				"source": "https://www.nist.gov/pml/special-publication-811",
+				"kind": "mass"
+			},
+			"provenance": {
+				"original": {
+					"amount": 1,
+					"unit": "tsp",
+					"name": "cumin",
+					"state": "",
+					"note": ""
+				},
+				"sourceIngredientId": "ingredient-14",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Ground cumin adopted at a weighed seasoning amount; seed portion data is not presented as ground-powder measurement."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "2 g / 0.07 oz",
+				"measurements": [
+					{
+						"quantity": "2 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "0.07 oz",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 2.1,
+				"source": "https://www.nist.gov/pml/special-publication-811"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "1 g / 0.04 oz",
+					"measurements": [
+						{
+							"quantity": "1 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.04 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 1.05,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"4": {
+					"quantity": "2 g / 0.07 oz",
+					"measurements": [
+						{
+							"quantity": "2 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.07 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 2.1,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"6": {
+					"quantity": "3 g / 0.11 oz",
+					"measurements": [
+						{
+							"quantity": "3 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.11 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 3.1500000000000004,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"8": {
+					"quantity": "4 g / 0.15 oz",
+					"measurements": [
+						{
+							"quantity": "4 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.15 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 4.2,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				}
+			}
+		},
+		{
+			"recipe": "source-mexican-cauliflower-rice-with-cheesy-steak-roll-ups",
+			"family": false,
+			"ingredient": "ingredient-15",
+			"name": "chili powder",
+			"canonical": {
+				"amount": 1,
+				"unit": "tsp",
+				"state": "",
+				"grams": 2.7
+			},
+			"weight": {
+				"gramsPerUnit": 2.7,
+				"source": "https://fdc.nal.usda.gov/food-details/171319/nutrients",
+				"description": "Spices, chili powder",
+				"kind": "mass",
+				"referenceId": "usda-171319"
+			},
+			"provenance": {
+				"original": {
+					"amount": 1,
+					"unit": "tsp",
+					"name": "chili powder",
+					"state": "",
+					"note": "For less heat, use less; for more heat, add gradually to taste."
+				},
+				"sourceIngredientId": "ingredient-15",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "1 tsp / 3 g / 0.1 oz",
+				"measurements": [
+					{
+						"quantity": "1 tsp",
+						"status": "volume"
+					},
+					{
+						"quantity": "3 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "0.1 oz",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 2.7,
+				"source": "https://fdc.nal.usda.gov/food-details/171319/nutrients"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "½ tsp / 1 g / 0.05 oz",
+					"measurements": [
+						{
+							"quantity": "½ tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "1 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.05 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 1.35,
+					"source": "https://fdc.nal.usda.gov/food-details/171319/nutrients"
+				},
+				"4": {
+					"quantity": "1 tsp / 3 g / 0.1 oz",
+					"measurements": [
+						{
+							"quantity": "1 tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "3 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.1 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 2.7,
+					"source": "https://fdc.nal.usda.gov/food-details/171319/nutrients"
+				},
+				"6": {
+					"quantity": "1 ½ tsp / 4 g / 0.14 oz",
+					"measurements": [
+						{
+							"quantity": "1 ½ tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "4 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.14 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 4.050000000000001,
+					"source": "https://fdc.nal.usda.gov/food-details/171319/nutrients"
+				},
+				"8": {
+					"quantity": "2 tsp / 5 g / 0.19 oz",
+					"measurements": [
+						{
+							"quantity": "2 tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "5 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.19 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 5.4,
+					"source": "https://fdc.nal.usda.gov/food-details/171319/nutrients"
+				}
+			}
+		},
+		{
+			"recipe": "source-mexican-cauliflower-rice-with-cheesy-steak-roll-ups",
+			"family": false,
+			"ingredient": "ingredient-16",
+			"name": "paprika",
+			"canonical": {
+				"amount": 1,
+				"unit": "tsp",
+				"state": "",
+				"grams": 2.3
+			},
+			"weight": {
+				"gramsPerUnit": 2.3,
+				"source": "https://fdc.nal.usda.gov/food-details/171329/nutrients",
+				"description": "Spices, paprika",
+				"kind": "mass",
+				"referenceId": "usda-171329"
+			},
+			"provenance": {
+				"original": {
+					"amount": 1,
+					"unit": "tsp",
+					"name": "paprika",
+					"state": "",
+					"note": ""
+				},
+				"sourceIngredientId": "ingredient-16",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "1 tsp / 2 g / 0.08 oz",
+				"measurements": [
+					{
+						"quantity": "1 tsp",
+						"status": "volume"
+					},
+					{
+						"quantity": "2 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "0.08 oz",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 2.3,
+				"source": "https://fdc.nal.usda.gov/food-details/171329/nutrients"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "½ tsp / 1 g / 0.04 oz",
+					"measurements": [
+						{
+							"quantity": "½ tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "1 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.04 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 1.15,
+					"source": "https://fdc.nal.usda.gov/food-details/171329/nutrients"
+				},
+				"4": {
+					"quantity": "1 tsp / 2 g / 0.08 oz",
+					"measurements": [
+						{
+							"quantity": "1 tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "2 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.08 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 2.3,
+					"source": "https://fdc.nal.usda.gov/food-details/171329/nutrients"
+				},
+				"6": {
+					"quantity": "1 ½ tsp / 3 g / 0.12 oz",
+					"measurements": [
+						{
+							"quantity": "1 ½ tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "3 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.12 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 3.4499999999999997,
+					"source": "https://fdc.nal.usda.gov/food-details/171329/nutrients"
+				},
+				"8": {
+					"quantity": "2 tsp / 5 g / 0.16 oz",
+					"measurements": [
+						{
+							"quantity": "2 tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "5 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.16 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 4.6,
+					"source": "https://fdc.nal.usda.gov/food-details/171329/nutrients"
 				}
 			}
 		},
@@ -185361,643 +185998,6 @@
 					"status": "multiple",
 					"grams": 1176,
 					"source": "https://fdc.nal.usda.gov/food-details/169986/nutrients"
-				}
-			}
-		},
-		{
-			"recipe": "source-mexican-cauliflower-rice-with-cheesy-steak-roll-ups",
-			"family": false,
-			"ingredient": "ingredient-12",
-			"name": "onion powder",
-			"canonical": {
-				"amount": 0.5,
-				"unit": "tsp",
-				"state": "",
-				"grams": 1.2
-			},
-			"weight": {
-				"gramsPerUnit": 2.4,
-				"source": "https://fdc.nal.usda.gov/food-details/171327/nutrients",
-				"description": "Spices, onion powder",
-				"kind": "mass",
-				"referenceId": "usda-171327"
-			},
-			"provenance": {
-				"original": {
-					"amount": 0.5,
-					"unit": "tsp",
-					"name": "onion powder",
-					"state": "",
-					"note": ""
-				},
-				"sourceIngredientId": "ingredient-12",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "½ tsp / 1 g / 0.04 oz",
-				"measurements": [
-					{
-						"quantity": "½ tsp",
-						"status": "volume"
-					},
-					{
-						"quantity": "1 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "0.04 oz",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 1.2,
-				"source": "https://fdc.nal.usda.gov/food-details/171327/nutrients"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "A pinch",
-					"measurements": [
-						{
-							"quantity": "A pinch",
-							"status": "portion"
-						}
-					],
-					"status": "portion",
-					"grams": 0.6,
-					"source": "https://fdc.nal.usda.gov/food-details/171327/nutrients"
-				},
-				"4": {
-					"quantity": "½ tsp / 1 g / 0.04 oz",
-					"measurements": [
-						{
-							"quantity": "½ tsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "1 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.04 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 1.2,
-					"source": "https://fdc.nal.usda.gov/food-details/171327/nutrients"
-				},
-				"6": {
-					"quantity": "¾ tsp / 2 g / 0.06 oz",
-					"measurements": [
-						{
-							"quantity": "¾ tsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "2 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.06 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 1.7999999999999998,
-					"source": "https://fdc.nal.usda.gov/food-details/171327/nutrients"
-				},
-				"8": {
-					"quantity": "1 tsp / 2 g / 0.08 oz",
-					"measurements": [
-						{
-							"quantity": "1 tsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "2 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.08 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 2.4,
-					"source": "https://fdc.nal.usda.gov/food-details/171327/nutrients"
-				}
-			}
-		},
-		{
-			"recipe": "source-mexican-cauliflower-rice-with-cheesy-steak-roll-ups",
-			"family": false,
-			"ingredient": "ingredient-13",
-			"name": "garlic powder",
-			"canonical": {
-				"amount": 0.5,
-				"unit": "tsp",
-				"state": "",
-				"grams": 1.55
-			},
-			"weight": {
-				"gramsPerUnit": 3.1,
-				"source": "https://fdc.nal.usda.gov/food-details/171325/nutrients",
-				"description": "Spices, garlic powder",
-				"kind": "mass",
-				"referenceId": "usda-171325"
-			},
-			"provenance": {
-				"original": {
-					"amount": 0.5,
-					"unit": "tsp",
-					"name": "garlic powder",
-					"state": "",
-					"note": ""
-				},
-				"sourceIngredientId": "ingredient-13",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "½ tsp / 2 g / 0.05 oz",
-				"measurements": [
-					{
-						"quantity": "½ tsp",
-						"status": "volume"
-					},
-					{
-						"quantity": "2 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "0.05 oz",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 1.55,
-				"source": "https://fdc.nal.usda.gov/food-details/171325/nutrients"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "A pinch",
-					"measurements": [
-						{
-							"quantity": "A pinch",
-							"status": "portion"
-						}
-					],
-					"status": "portion",
-					"grams": 0.775,
-					"source": "https://fdc.nal.usda.gov/food-details/171325/nutrients"
-				},
-				"4": {
-					"quantity": "½ tsp / 2 g / 0.05 oz",
-					"measurements": [
-						{
-							"quantity": "½ tsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "2 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.05 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 1.55,
-					"source": "https://fdc.nal.usda.gov/food-details/171325/nutrients"
-				},
-				"6": {
-					"quantity": "¾ tsp / 2 g / 0.08 oz",
-					"measurements": [
-						{
-							"quantity": "¾ tsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "2 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.08 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 2.325,
-					"source": "https://fdc.nal.usda.gov/food-details/171325/nutrients"
-				},
-				"8": {
-					"quantity": "1 tsp / 3 g / 0.11 oz",
-					"measurements": [
-						{
-							"quantity": "1 tsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "3 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.11 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 3.1,
-					"source": "https://fdc.nal.usda.gov/food-details/171325/nutrients"
-				}
-			}
-		},
-		{
-			"recipe": "source-mexican-cauliflower-rice-with-cheesy-steak-roll-ups",
-			"family": false,
-			"ingredient": "ingredient-14",
-			"name": "cumin",
-			"canonical": {
-				"amount": 2.1,
-				"unit": "g",
-				"state": "",
-				"grams": 2.1
-			},
-			"weight": {
-				"gramsPerUnit": 1,
-				"source": "https://www.nist.gov/pml/special-publication-811",
-				"kind": "mass"
-			},
-			"provenance": {
-				"original": {
-					"amount": 1,
-					"unit": "tsp",
-					"name": "cumin",
-					"state": "",
-					"note": ""
-				},
-				"sourceIngredientId": "ingredient-14",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Ground cumin adopted at a weighed seasoning amount; seed portion data is not presented as ground-powder measurement."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "2 g / 0.07 oz",
-				"measurements": [
-					{
-						"quantity": "2 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "0.07 oz",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 2.1,
-				"source": "https://www.nist.gov/pml/special-publication-811"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "1 g / 0.04 oz",
-					"measurements": [
-						{
-							"quantity": "1 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.04 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 1.05,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"4": {
-					"quantity": "2 g / 0.07 oz",
-					"measurements": [
-						{
-							"quantity": "2 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.07 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 2.1,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"6": {
-					"quantity": "3 g / 0.11 oz",
-					"measurements": [
-						{
-							"quantity": "3 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.11 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 3.1500000000000004,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"8": {
-					"quantity": "4 g / 0.15 oz",
-					"measurements": [
-						{
-							"quantity": "4 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.15 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 4.2,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				}
-			}
-		},
-		{
-			"recipe": "source-mexican-cauliflower-rice-with-cheesy-steak-roll-ups",
-			"family": false,
-			"ingredient": "ingredient-15",
-			"name": "chili powder",
-			"canonical": {
-				"amount": 1,
-				"unit": "tsp",
-				"state": "",
-				"grams": 2.7
-			},
-			"weight": {
-				"gramsPerUnit": 2.7,
-				"source": "https://fdc.nal.usda.gov/food-details/171319/nutrients",
-				"description": "Spices, chili powder",
-				"kind": "mass",
-				"referenceId": "usda-171319"
-			},
-			"provenance": {
-				"original": {
-					"amount": 1,
-					"unit": "tsp",
-					"name": "chili powder",
-					"state": "",
-					"note": "For less heat, use less; for more heat, add gradually to taste."
-				},
-				"sourceIngredientId": "ingredient-15",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "1 tsp / 3 g / 0.1 oz",
-				"measurements": [
-					{
-						"quantity": "1 tsp",
-						"status": "volume"
-					},
-					{
-						"quantity": "3 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "0.1 oz",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 2.7,
-				"source": "https://fdc.nal.usda.gov/food-details/171319/nutrients"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "½ tsp / 1 g / 0.05 oz",
-					"measurements": [
-						{
-							"quantity": "½ tsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "1 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.05 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 1.35,
-					"source": "https://fdc.nal.usda.gov/food-details/171319/nutrients"
-				},
-				"4": {
-					"quantity": "1 tsp / 3 g / 0.1 oz",
-					"measurements": [
-						{
-							"quantity": "1 tsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "3 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.1 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 2.7,
-					"source": "https://fdc.nal.usda.gov/food-details/171319/nutrients"
-				},
-				"6": {
-					"quantity": "1 ½ tsp / 4 g / 0.14 oz",
-					"measurements": [
-						{
-							"quantity": "1 ½ tsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "4 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.14 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 4.050000000000001,
-					"source": "https://fdc.nal.usda.gov/food-details/171319/nutrients"
-				},
-				"8": {
-					"quantity": "2 tsp / 5 g / 0.19 oz",
-					"measurements": [
-						{
-							"quantity": "2 tsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "5 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.19 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 5.4,
-					"source": "https://fdc.nal.usda.gov/food-details/171319/nutrients"
-				}
-			}
-		},
-		{
-			"recipe": "source-mexican-cauliflower-rice-with-cheesy-steak-roll-ups",
-			"family": false,
-			"ingredient": "ingredient-16",
-			"name": "paprika",
-			"canonical": {
-				"amount": 1,
-				"unit": "tsp",
-				"state": "",
-				"grams": 2.3
-			},
-			"weight": {
-				"gramsPerUnit": 2.3,
-				"source": "https://fdc.nal.usda.gov/food-details/171329/nutrients",
-				"description": "Spices, paprika",
-				"kind": "mass",
-				"referenceId": "usda-171329"
-			},
-			"provenance": {
-				"original": {
-					"amount": 1,
-					"unit": "tsp",
-					"name": "paprika",
-					"state": "",
-					"note": ""
-				},
-				"sourceIngredientId": "ingredient-16",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "1 tsp / 2 g / 0.08 oz",
-				"measurements": [
-					{
-						"quantity": "1 tsp",
-						"status": "volume"
-					},
-					{
-						"quantity": "2 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "0.08 oz",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 2.3,
-				"source": "https://fdc.nal.usda.gov/food-details/171329/nutrients"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "½ tsp / 1 g / 0.04 oz",
-					"measurements": [
-						{
-							"quantity": "½ tsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "1 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.04 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 1.15,
-					"source": "https://fdc.nal.usda.gov/food-details/171329/nutrients"
-				},
-				"4": {
-					"quantity": "1 tsp / 2 g / 0.08 oz",
-					"measurements": [
-						{
-							"quantity": "1 tsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "2 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.08 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 2.3,
-					"source": "https://fdc.nal.usda.gov/food-details/171329/nutrients"
-				},
-				"6": {
-					"quantity": "1 ½ tsp / 3 g / 0.12 oz",
-					"measurements": [
-						{
-							"quantity": "1 ½ tsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "3 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.12 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 3.4499999999999997,
-					"source": "https://fdc.nal.usda.gov/food-details/171329/nutrients"
-				},
-				"8": {
-					"quantity": "2 tsp / 5 g / 0.16 oz",
-					"measurements": [
-						{
-							"quantity": "2 tsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "5 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.16 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 4.6,
-					"source": "https://fdc.nal.usda.gov/food-details/171329/nutrients"
 				}
 			}
 		},
@@ -191572,6 +191572,255 @@
 		{
 			"recipe": "source-garlic-butter-steak-and-green-beans",
 			"family": false,
+			"ingredient": "ingredient-2",
+			"name": "fresh stringless green beans",
+			"canonical": {
+				"amount": 1.3333333333333333,
+				"unit": "lb",
+				"state": "trimmed",
+				"grams": 604.7898266666666
+			},
+			"weight": {
+				"gramsPerUnit": 453.59237,
+				"source": "https://www.nist.gov/pml/special-publication-811",
+				"kind": "mass"
+			},
+			"provenance": {
+				"original": {
+					"amount": 1.3333333333333333,
+					"unit": "lb",
+					"name": "fresh stringless green beans",
+					"state": "trimmed",
+					"note": "(450g) is the source parenthetical; original US quantity controls."
+				},
+				"sourceIngredientId": "ingredient-2",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "605 g / 1.33 lb",
+				"measurements": [
+					{
+						"quantity": "605 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "1.33 lb",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 604.7898266666666,
+				"source": "https://www.nist.gov/pml/special-publication-811"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "302 g / 10.67 oz",
+					"measurements": [
+						{
+							"quantity": "302 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "10.67 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 302.3949133333333,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"4": {
+					"quantity": "605 g / 1.33 lb",
+					"measurements": [
+						{
+							"quantity": "605 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "1.33 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 604.7898266666666,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"6": {
+					"quantity": "907 g / 2 lb",
+					"measurements": [
+						{
+							"quantity": "907 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "2 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 907.18474,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"8": {
+					"quantity": "1210 g / 2.67 lb",
+					"measurements": [
+						{
+							"quantity": "1210 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "2.67 lb",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 1209.5796533333332,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				}
+			}
+		},
+		{
+			"recipe": "source-garlic-butter-steak-and-green-beans",
+			"family": false,
+			"ingredient": "ingredient-16",
+			"name": "Water for bean microwave",
+			"canonical": {
+				"amount": 0.6666666666666666,
+				"unit": "cup",
+				"state": "",
+				"grams": 157.72549099999998
+			},
+			"weight": {
+				"gramsPerUnit": 236.5882365,
+				"source": "https://www.nist.gov/pml/special-publication-811",
+				"description": "Potable water",
+				"kind": "liquid",
+				"referenceId": "water",
+				"gramsPerMl": 1
+			},
+			"provenance": {
+				"original": {
+					"amount": 0.6666666666666666,
+					"unit": "cup",
+					"name": "Water for bean microwave",
+					"state": "",
+					"note": "Added from the source method; omitted from its ingredient list."
+				},
+				"sourceIngredientId": "ingredient-16",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "⅔ cup / 158 g / 158 mL",
+				"measurements": [
+					{
+						"quantity": "⅔ cup",
+						"status": "volume"
+					},
+					{
+						"quantity": "158 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "158 mL",
+						"status": "volume"
+					}
+				],
+				"status": "multiple",
+				"grams": 157.72549099999998,
+				"source": "https://www.nist.gov/pml/special-publication-811"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "⅓ cup / 79 g / 79 mL",
+					"measurements": [
+						{
+							"quantity": "⅓ cup",
+							"status": "volume"
+						},
+						{
+							"quantity": "79 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "79 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 78.86274549999999,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"4": {
+					"quantity": "⅔ cup / 158 g / 158 mL",
+					"measurements": [
+						{
+							"quantity": "⅔ cup",
+							"status": "volume"
+						},
+						{
+							"quantity": "158 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "158 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 157.72549099999998,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"6": {
+					"quantity": "1 cup / 237 g / 237 mL",
+					"measurements": [
+						{
+							"quantity": "1 cup",
+							"status": "volume"
+						},
+						{
+							"quantity": "237 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "237 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 236.5882365,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				},
+				"8": {
+					"quantity": "1 ⅓ cup / 315 g / 315 mL",
+					"measurements": [
+						{
+							"quantity": "1 ⅓ cup",
+							"status": "volume"
+						},
+						{
+							"quantity": "315 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "315 mL",
+							"status": "volume"
+						}
+					],
+					"status": "multiple",
+					"grams": 315.45098199999995,
+					"source": "https://www.nist.gov/pml/special-publication-811"
+				}
+			}
+		},
+		{
+			"recipe": "source-garlic-butter-steak-and-green-beans",
+			"family": false,
 			"ingredient": "ingredient-3",
 			"name": "butter",
 			"canonical": {
@@ -191928,255 +192177,6 @@
 					],
 					"status": "portion",
 					"grams": 0.9,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				}
-			}
-		},
-		{
-			"recipe": "source-garlic-butter-steak-and-green-beans",
-			"family": false,
-			"ingredient": "ingredient-2",
-			"name": "fresh stringless green beans",
-			"canonical": {
-				"amount": 1.3333333333333333,
-				"unit": "lb",
-				"state": "trimmed",
-				"grams": 604.7898266666666
-			},
-			"weight": {
-				"gramsPerUnit": 453.59237,
-				"source": "https://www.nist.gov/pml/special-publication-811",
-				"kind": "mass"
-			},
-			"provenance": {
-				"original": {
-					"amount": 1.3333333333333333,
-					"unit": "lb",
-					"name": "fresh stringless green beans",
-					"state": "trimmed",
-					"note": "(450g) is the source parenthetical; original US quantity controls."
-				},
-				"sourceIngredientId": "ingredient-2",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "605 g / 1.33 lb",
-				"measurements": [
-					{
-						"quantity": "605 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "1.33 lb",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 604.7898266666666,
-				"source": "https://www.nist.gov/pml/special-publication-811"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "302 g / 10.67 oz",
-					"measurements": [
-						{
-							"quantity": "302 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "10.67 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 302.3949133333333,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"4": {
-					"quantity": "605 g / 1.33 lb",
-					"measurements": [
-						{
-							"quantity": "605 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "1.33 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 604.7898266666666,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"6": {
-					"quantity": "907 g / 2 lb",
-					"measurements": [
-						{
-							"quantity": "907 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "2 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 907.18474,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"8": {
-					"quantity": "1210 g / 2.67 lb",
-					"measurements": [
-						{
-							"quantity": "1210 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "2.67 lb",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 1209.5796533333332,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				}
-			}
-		},
-		{
-			"recipe": "source-garlic-butter-steak-and-green-beans",
-			"family": false,
-			"ingredient": "ingredient-16",
-			"name": "Water for bean microwave",
-			"canonical": {
-				"amount": 0.6666666666666666,
-				"unit": "cup",
-				"state": "",
-				"grams": 157.72549099999998
-			},
-			"weight": {
-				"gramsPerUnit": 236.5882365,
-				"source": "https://www.nist.gov/pml/special-publication-811",
-				"description": "Potable water",
-				"kind": "liquid",
-				"referenceId": "water",
-				"gramsPerMl": 1
-			},
-			"provenance": {
-				"original": {
-					"amount": 0.6666666666666666,
-					"unit": "cup",
-					"name": "Water for bean microwave",
-					"state": "",
-					"note": "Added from the source method; omitted from its ingredient list."
-				},
-				"sourceIngredientId": "ingredient-16",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "⅔ cup / 158 g / 158 mL",
-				"measurements": [
-					{
-						"quantity": "⅔ cup",
-						"status": "volume"
-					},
-					{
-						"quantity": "158 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "158 mL",
-						"status": "volume"
-					}
-				],
-				"status": "multiple",
-				"grams": 157.72549099999998,
-				"source": "https://www.nist.gov/pml/special-publication-811"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "⅓ cup / 79 g / 79 mL",
-					"measurements": [
-						{
-							"quantity": "⅓ cup",
-							"status": "volume"
-						},
-						{
-							"quantity": "79 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "79 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 78.86274549999999,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"4": {
-					"quantity": "⅔ cup / 158 g / 158 mL",
-					"measurements": [
-						{
-							"quantity": "⅔ cup",
-							"status": "volume"
-						},
-						{
-							"quantity": "158 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "158 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 157.72549099999998,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"6": {
-					"quantity": "1 cup / 237 g / 237 mL",
-					"measurements": [
-						{
-							"quantity": "1 cup",
-							"status": "volume"
-						},
-						{
-							"quantity": "237 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "237 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 236.5882365,
-					"source": "https://www.nist.gov/pml/special-publication-811"
-				},
-				"8": {
-					"quantity": "1 ⅓ cup / 315 g / 315 mL",
-					"measurements": [
-						{
-							"quantity": "1 ⅓ cup",
-							"status": "volume"
-						},
-						{
-							"quantity": "315 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "315 mL",
-							"status": "volume"
-						}
-					],
-					"status": "multiple",
-					"grams": 315.45098199999995,
 					"source": "https://www.nist.gov/pml/special-publication-811"
 				}
 			}
@@ -205111,31 +205111,33 @@
 		{
 			"recipe": "source-sausage-pepper-and-cauliflower-fried-rice",
 			"family": false,
-			"ingredient": "ingredient-8",
-			"name": "red pepper flakes",
+			"ingredient": "ingredient-12-pepper",
+			"name": "Black pepper",
 			"canonical": {
-				"amount": 0.45,
-				"unit": "g",
-				"state": "",
-				"grams": 0.45
+				"amount": 0.25,
+				"unit": "tsp",
+				"state": "ground",
+				"grams": 0.575
 			},
 			"weight": {
-				"gramsPerUnit": 1,
-				"source": "https://www.nist.gov/pml/special-publication-811",
-				"kind": "mass"
+				"gramsPerUnit": 2.3,
+				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
+				"description": "Spices, pepper, black",
+				"kind": "mass",
+				"referenceId": "usda-170931"
 			},
 			"provenance": {
 				"original": {
-					"amount": 0.25,
-					"unit": "tsp",
-					"name": "red pepper flakes",
+					"amount": 0,
+					"unit": "",
+					"name": "Salt and freshly cracked black pepper",
 					"state": "",
-					"note": "(optional) Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
+					"note": "Unquantified in source; use to taste or as optional garnish as stated."
 				},
-				"sourceIngredientId": "ingredient-8",
+				"sourceIngredientId": "ingredient-12",
 				"reviewedOn": "2026-10-15",
 				"massBasis": "edible",
-				"decision": "Explicit weighed dried pepper-flake seasoning; preserve flake preparation and optional status without applying ground cayenne or chili-powder density."
+				"decision": "Measured starting seasoning for four servings: 1/2 tsp fine salt and 1/4 tsp ground black pepper; optional status and fixed/linear scaling retained."
 			},
 			"alternatives": [],
 			"displays": {
@@ -205147,8 +205149,8 @@
 					}
 				],
 				"status": "portion",
-				"grams": 0.45,
-				"source": "https://www.nist.gov/pml/special-publication-811"
+				"grams": 0.575,
+				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
 			},
 			"scaling": {
 				"2": {
@@ -205160,8 +205162,8 @@
 						}
 					],
 					"status": "portion",
-					"grams": 0.225,
-					"source": "https://www.nist.gov/pml/special-publication-811"
+					"grams": 0.2875,
+					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
 				},
 				"4": {
 					"quantity": "A pinch",
@@ -205172,8 +205174,8 @@
 						}
 					],
 					"status": "portion",
-					"grams": 0.45,
-					"source": "https://www.nist.gov/pml/special-publication-811"
+					"grams": 0.575,
+					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
 				},
 				"6": {
 					"quantity": "A pinch",
@@ -205184,20 +205186,28 @@
 						}
 					],
 					"status": "portion",
-					"grams": 0.675,
-					"source": "https://www.nist.gov/pml/special-publication-811"
+					"grams": 0.8624999999999999,
+					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
 				},
 				"8": {
-					"quantity": "A pinch",
+					"quantity": "½ tsp / 1 g / 0.04 oz",
 					"measurements": [
 						{
-							"quantity": "A pinch",
-							"status": "portion"
+							"quantity": "½ tsp",
+							"status": "volume"
+						},
+						{
+							"quantity": "1 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "0.04 oz",
+							"status": "mass"
 						}
 					],
-					"status": "portion",
-					"grams": 0.9,
-					"source": "https://www.nist.gov/pml/special-publication-811"
+					"status": "multiple",
+					"grams": 1.15,
+					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
 				}
 			}
 		},
@@ -205578,33 +205588,31 @@
 		{
 			"recipe": "source-sausage-pepper-and-cauliflower-fried-rice",
 			"family": false,
-			"ingredient": "ingredient-12-pepper",
-			"name": "Black pepper",
+			"ingredient": "ingredient-8",
+			"name": "red pepper flakes",
 			"canonical": {
-				"amount": 0.25,
-				"unit": "tsp",
-				"state": "ground",
-				"grams": 0.575
+				"amount": 0.45,
+				"unit": "g",
+				"state": "",
+				"grams": 0.45
 			},
 			"weight": {
-				"gramsPerUnit": 2.3,
-				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients",
-				"description": "Spices, pepper, black",
-				"kind": "mass",
-				"referenceId": "usda-170931"
+				"gramsPerUnit": 1,
+				"source": "https://www.nist.gov/pml/special-publication-811",
+				"kind": "mass"
 			},
 			"provenance": {
 				"original": {
-					"amount": 0,
-					"unit": "",
-					"name": "Salt and freshly cracked black pepper",
+					"amount": 0.25,
+					"unit": "tsp",
+					"name": "red pepper flakes",
 					"state": "",
-					"note": "Unquantified in source; use to taste or as optional garnish as stated."
+					"note": "(optional) Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
 				},
-				"sourceIngredientId": "ingredient-12",
+				"sourceIngredientId": "ingredient-8",
 				"reviewedOn": "2026-10-15",
 				"massBasis": "edible",
-				"decision": "Measured starting seasoning for four servings: 1/2 tsp fine salt and 1/4 tsp ground black pepper; optional status and fixed/linear scaling retained."
+				"decision": "Explicit weighed dried pepper-flake seasoning; preserve flake preparation and optional status without applying ground cayenne or chili-powder density."
 			},
 			"alternatives": [],
 			"displays": {
@@ -205616,8 +205624,8 @@
 					}
 				],
 				"status": "portion",
-				"grams": 0.575,
-				"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
+				"grams": 0.45,
+				"source": "https://www.nist.gov/pml/special-publication-811"
 			},
 			"scaling": {
 				"2": {
@@ -205629,8 +205637,8 @@
 						}
 					],
 					"status": "portion",
-					"grams": 0.2875,
-					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
+					"grams": 0.225,
+					"source": "https://www.nist.gov/pml/special-publication-811"
 				},
 				"4": {
 					"quantity": "A pinch",
@@ -205641,8 +205649,8 @@
 						}
 					],
 					"status": "portion",
-					"grams": 0.575,
-					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
+					"grams": 0.45,
+					"source": "https://www.nist.gov/pml/special-publication-811"
 				},
 				"6": {
 					"quantity": "A pinch",
@@ -205653,28 +205661,20 @@
 						}
 					],
 					"status": "portion",
-					"grams": 0.8624999999999999,
-					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
+					"grams": 0.675,
+					"source": "https://www.nist.gov/pml/special-publication-811"
 				},
 				"8": {
-					"quantity": "½ tsp / 1 g / 0.04 oz",
+					"quantity": "A pinch",
 					"measurements": [
 						{
-							"quantity": "½ tsp",
-							"status": "volume"
-						},
-						{
-							"quantity": "1 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "0.04 oz",
-							"status": "mass"
+							"quantity": "A pinch",
+							"status": "portion"
 						}
 					],
-					"status": "multiple",
-					"grams": 1.15,
-					"source": "https://fdc.nal.usda.gov/food-details/170931/nutrients"
+					"status": "portion",
+					"grams": 0.9,
+					"source": "https://www.nist.gov/pml/special-publication-811"
 				}
 			}
 		},
@@ -206943,6 +206943,141 @@
 		{
 			"recipe": "source-creamy-chicken-with-bacon-and-spinach",
 			"family": false,
+			"ingredient": "ingredient-4",
+			"name": "bacon",
+			"canonical": {
+				"amount": 5.333333333333333,
+				"unit": "strip",
+				"state": "",
+				"grams": 149.33333333333331
+			},
+			"weight": {
+				"gramsPerUnit": 28,
+				"source": "https://fdc.nal.usda.gov/food-details/168277/nutrients",
+				"description": "Pork, cured, bacon, unprepared",
+				"kind": "mass",
+				"referenceId": "usda-168277"
+			},
+			"provenance": {
+				"original": {
+					"amount": 5.333333333333333,
+					"unit": "strip",
+					"name": "bacon",
+					"state": "",
+					"note": ""
+				},
+				"sourceIngredientId": "ingredient-4",
+				"reviewedOn": "2026-10-15",
+				"massBasis": "edible",
+				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+			},
+			"alternatives": [],
+			"displays": {
+				"quantity": "about 5 slices / 149 g / 5.27 oz",
+				"measurements": [
+					{
+						"quantity": "about 5 slices",
+						"status": "portion"
+					},
+					{
+						"quantity": "149 g",
+						"status": "mass"
+					},
+					{
+						"quantity": "5.27 oz",
+						"status": "mass"
+					}
+				],
+				"status": "multiple",
+				"grams": 149.33333333333331,
+				"source": "https://fdc.nal.usda.gov/food-details/168277/nutrients"
+			},
+			"scaling": {
+				"2": {
+					"quantity": "about 2 ⅔ slices / 75 g / 2.63 oz",
+					"measurements": [
+						{
+							"quantity": "about 2 ⅔ slices",
+							"status": "portion"
+						},
+						{
+							"quantity": "75 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "2.63 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 74.66666666666666,
+					"source": "https://fdc.nal.usda.gov/food-details/168277/nutrients"
+				},
+				"4": {
+					"quantity": "about 5 slices / 149 g / 5.27 oz",
+					"measurements": [
+						{
+							"quantity": "about 5 slices",
+							"status": "portion"
+						},
+						{
+							"quantity": "149 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "5.27 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 149.33333333333331,
+					"source": "https://fdc.nal.usda.gov/food-details/168277/nutrients"
+				},
+				"6": {
+					"quantity": "about 8 slices / 224 g / 7.9 oz",
+					"measurements": [
+						{
+							"quantity": "about 8 slices",
+							"status": "portion"
+						},
+						{
+							"quantity": "224 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "7.9 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 224,
+					"source": "https://fdc.nal.usda.gov/food-details/168277/nutrients"
+				},
+				"8": {
+					"quantity": "about 11 slices / 299 g / 10.54 oz",
+					"measurements": [
+						{
+							"quantity": "about 11 slices",
+							"status": "portion"
+						},
+						{
+							"quantity": "299 g",
+							"status": "mass"
+						},
+						{
+							"quantity": "10.54 oz",
+							"status": "mass"
+						}
+					],
+					"status": "multiple",
+					"grams": 298.66666666666663,
+					"source": "https://fdc.nal.usda.gov/food-details/168277/nutrients"
+				}
+			}
+		},
+		{
+			"recipe": "source-creamy-chicken-with-bacon-and-spinach",
+			"family": false,
 			"ingredient": "ingredient-11",
 			"name": "half and half",
 			"canonical": {
@@ -207456,141 +207591,6 @@
 					"status": "multiple",
 					"grams": 4.8,
 					"source": "https://www.nist.gov/pml/special-publication-811"
-				}
-			}
-		},
-		{
-			"recipe": "source-creamy-chicken-with-bacon-and-spinach",
-			"family": false,
-			"ingredient": "ingredient-4",
-			"name": "bacon",
-			"canonical": {
-				"amount": 5.333333333333333,
-				"unit": "strip",
-				"state": "",
-				"grams": 149.33333333333331
-			},
-			"weight": {
-				"gramsPerUnit": 28,
-				"source": "https://fdc.nal.usda.gov/food-details/168277/nutrients",
-				"description": "Pork, cured, bacon, unprepared",
-				"kind": "mass",
-				"referenceId": "usda-168277"
-			},
-			"provenance": {
-				"original": {
-					"amount": 5.333333333333333,
-					"unit": "strip",
-					"name": "bacon",
-					"state": "",
-					"note": ""
-				},
-				"sourceIngredientId": "ingredient-4",
-				"reviewedOn": "2026-10-15",
-				"massBasis": "edible",
-				"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-			},
-			"alternatives": [],
-			"displays": {
-				"quantity": "about 5 slices / 149 g / 5.27 oz",
-				"measurements": [
-					{
-						"quantity": "about 5 slices",
-						"status": "portion"
-					},
-					{
-						"quantity": "149 g",
-						"status": "mass"
-					},
-					{
-						"quantity": "5.27 oz",
-						"status": "mass"
-					}
-				],
-				"status": "multiple",
-				"grams": 149.33333333333331,
-				"source": "https://fdc.nal.usda.gov/food-details/168277/nutrients"
-			},
-			"scaling": {
-				"2": {
-					"quantity": "about 2 ⅔ slices / 75 g / 2.63 oz",
-					"measurements": [
-						{
-							"quantity": "about 2 ⅔ slices",
-							"status": "portion"
-						},
-						{
-							"quantity": "75 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "2.63 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 74.66666666666666,
-					"source": "https://fdc.nal.usda.gov/food-details/168277/nutrients"
-				},
-				"4": {
-					"quantity": "about 5 slices / 149 g / 5.27 oz",
-					"measurements": [
-						{
-							"quantity": "about 5 slices",
-							"status": "portion"
-						},
-						{
-							"quantity": "149 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "5.27 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 149.33333333333331,
-					"source": "https://fdc.nal.usda.gov/food-details/168277/nutrients"
-				},
-				"6": {
-					"quantity": "about 8 slices / 224 g / 7.9 oz",
-					"measurements": [
-						{
-							"quantity": "about 8 slices",
-							"status": "portion"
-						},
-						{
-							"quantity": "224 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "7.9 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 224,
-					"source": "https://fdc.nal.usda.gov/food-details/168277/nutrients"
-				},
-				"8": {
-					"quantity": "about 11 slices / 299 g / 10.54 oz",
-					"measurements": [
-						{
-							"quantity": "about 11 slices",
-							"status": "portion"
-						},
-						{
-							"quantity": "299 g",
-							"status": "mass"
-						},
-						{
-							"quantity": "10.54 oz",
-							"status": "mass"
-						}
-					],
-					"status": "multiple",
-					"grams": 298.66666666666663,
-					"source": "https://fdc.nal.usda.gov/food-details/168277/nutrients"
 				}
 			}
 		},

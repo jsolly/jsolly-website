@@ -1500,6 +1500,31 @@
 					"sourceIngredientId": "spinach_frozen"
 				},
 				{
+					"id": "olive_oil",
+					"name": "Olive oil",
+					"state": "as purchased",
+					"amount": 18,
+					"unit": "g",
+					"category": "pantry",
+					"note": "One quarter for the dish; three quarters for the salad.",
+					"scale": "linear",
+					"weightRef": "usda-171413",
+					"measurementProvenance": {
+						"original": {
+							"amount": 18,
+							"unit": "g",
+							"name": "Olive oil",
+							"state": "as purchased",
+							"note": "One quarter for dish; three quarters for salad. Base batch is 1 tsp + 1 tbsp."
+						},
+						"sourceIngredientId": "olive_oil",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "olive_oil"
+				},
+				{
 					"id": "egg",
 					"name": "Large eggs",
 					"state": "as purchased",
@@ -1674,31 +1699,6 @@
 					"sourceIngredientId": "nutritional_yeast"
 				},
 				{
-					"id": "olive_oil",
-					"name": "Olive oil",
-					"state": "as purchased",
-					"amount": 18,
-					"unit": "g",
-					"category": "pantry",
-					"note": "One quarter for the dish; three quarters for the salad.",
-					"scale": "linear",
-					"weightRef": "usda-171413",
-					"measurementProvenance": {
-						"original": {
-							"amount": 18,
-							"unit": "g",
-							"name": "Olive oil",
-							"state": "as purchased",
-							"note": "One quarter for dish; three quarters for salad. Base batch is 1 tsp + 1 tbsp."
-						},
-						"sourceIngredientId": "olive_oil",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "olive_oil"
-				},
-				{
 					"id": "salad_greens",
 					"name": "Salad greens",
 					"state": "washed, ready to eat",
@@ -1851,7 +1851,7 @@
 											"action": "Transfer to selected greased dishes; divide so the mixture is no deeper than the original four-serving layer.",
 											"children": [
 												{
-													"action": "Stir squeezed spinach, feta, hemp and yeast into whisked eggs.",
+													"action": "Set the greased dishes aside. Stir squeezed spinach, feta, hemp and yeast into whisked eggs.",
 													"children": [
 														{
 															"action": "Fine-mesh sieve: cool spinach until safe to handle, then press very dry with a spoon.",
@@ -1871,6 +1871,18 @@
 															],
 															"equipment": [
 																"Sieve"
+															]
+														},
+														{
+															"action": "Grease selected metal baking dishes with oil.",
+															"children": [
+																{
+																	"ingredientId": "olive_oil",
+																	"fraction": 0.25
+																}
+															],
+															"equipment": [
+																"Kitchen utensils"
 															]
 														},
 														{
@@ -1912,18 +1924,6 @@
 													],
 													"equipment": [
 														"Large bowl"
-													]
-												},
-												{
-													"action": "Grease selected metal baking dishes with oil.",
-													"children": [
-														{
-															"ingredientId": "olive_oil",
-															"fraction": 0.25
-														}
-													],
-													"equipment": [
-														"Kitchen utensils"
 													]
 												}
 											],
@@ -1998,6 +1998,13 @@
 						"state": "package weight before thawing and squeezing"
 					},
 					{
+						"id": "olive_oil",
+						"name": "Olive oil",
+						"amount": 18,
+						"unit": "g",
+						"state": "as purchased"
+					},
+					{
 						"id": "egg",
 						"name": "Large eggs",
 						"amount": 12,
@@ -2045,13 +2052,6 @@
 						"amount": 8,
 						"unit": "g",
 						"state": "flakes"
-					},
-					{
-						"id": "olive_oil",
-						"name": "Olive oil",
-						"amount": 18,
-						"unit": "g",
-						"state": "as purchased"
 					},
 					{
 						"id": "salad_greens",
@@ -51071,41 +51071,6 @@
 					"sourceIngredientId": "ingredient-1"
 				},
 				{
-					"id": "ingredient-6",
-					"name": "Italian seasoning",
-					"state": "",
-					"amount": 1,
-					"unit": "g",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "1 teaspoon Italian seasoning or Herbes de Provence",
-					"sourceAmount": 1,
-					"sourceUnit": "tsp",
-					"optional": false,
-					"alternatives": [
-						{
-							"name": "Herbes de Provence",
-							"amount": 1,
-							"unit": "g"
-						}
-					],
-					"measurementProvenance": {
-						"original": {
-							"amount": 1,
-							"unit": "tsp",
-							"name": "Italian seasoning or Herbes de Provence",
-							"state": "",
-							"note": ""
-						},
-						"sourceIngredientId": "ingredient-6",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Editorial weighed italian seasoning or herbes de provence amount; original measure or a different herb/brand observation does not establish a reliable density. Retain blend identity and cooking role; not kitchen-tested."
-					},
-					"sourceIngredientId": "ingredient-6"
-				},
-				{
 					"id": "ingredient-14",
 					"name": "Fresh cracked black pepper",
 					"state": "",
@@ -51164,33 +51129,33 @@
 					"sourceIngredientId": "ingredient-15"
 				},
 				{
-					"id": "ingredient-4",
-					"name": "Olive oil",
-					"state": "",
-					"amount": 1,
-					"unit": "tsp",
+					"id": "ingredient-2",
+					"name": "Asparagus",
+					"state": "rinsed and trimmed",
+					"amount": 2,
+					"unit": "bunch",
 					"category": "pantry",
 					"note": "",
 					"scale": "linear",
-					"sourceLine": "1 teaspoon olive oil",
-					"sourceAmount": 1,
-					"sourceUnit": "tsp",
+					"sourceLine": "2 bunch of asparagus, rinsed and trimmed",
+					"sourceAmount": 2,
+					"sourceUnit": "bunch",
 					"optional": false,
-					"weightRef": "usda-171413",
+					"weightRef": "asparagus-bunch",
 					"measurementProvenance": {
 						"original": {
-							"amount": 1,
-							"unit": "tsp",
-							"name": "Olive oil",
-							"state": "",
+							"amount": 2,
+							"unit": "bunch",
+							"name": "Asparagus",
+							"state": "rinsed and trimmed",
 							"note": ""
 						},
-						"sourceIngredientId": "ingredient-4",
+						"sourceIngredientId": "ingredient-2",
 						"reviewedOn": "2026-10-15",
 						"massBasis": "edible",
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "ingredient-4"
+					"sourceIngredientId": "ingredient-2"
 				},
 				{
 					"id": "ingredient-3",
@@ -51222,6 +51187,35 @@
 					"sourceIngredientId": "ingredient-3"
 				},
 				{
+					"id": "ingredient-4",
+					"name": "Olive oil",
+					"state": "",
+					"amount": 1,
+					"unit": "tsp",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "1 teaspoon olive oil",
+					"sourceAmount": 1,
+					"sourceUnit": "tsp",
+					"optional": false,
+					"weightRef": "usda-171413",
+					"measurementProvenance": {
+						"original": {
+							"amount": 1,
+							"unit": "tsp",
+							"name": "Olive oil",
+							"state": "",
+							"note": ""
+						},
+						"sourceIngredientId": "ingredient-4",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-4"
+				},
+				{
 					"id": "ingredient-5",
 					"name": "Minced garlic",
 					"state": "divided",
@@ -51249,6 +51243,41 @@
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
 					"sourceIngredientId": "ingredient-5"
+				},
+				{
+					"id": "ingredient-6",
+					"name": "Italian seasoning",
+					"state": "",
+					"amount": 1,
+					"unit": "g",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "1 teaspoon Italian seasoning or Herbes de Provence",
+					"sourceAmount": 1,
+					"sourceUnit": "tsp",
+					"optional": false,
+					"alternatives": [
+						{
+							"name": "Herbes de Provence",
+							"amount": 1,
+							"unit": "g"
+						}
+					],
+					"measurementProvenance": {
+						"original": {
+							"amount": 1,
+							"unit": "tsp",
+							"name": "Italian seasoning or Herbes de Provence",
+							"state": "",
+							"note": ""
+						},
+						"sourceIngredientId": "ingredient-6",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Editorial weighed italian seasoning or herbes de provence amount; original measure or a different herb/brand observation does not establish a reliable density. Retain blend identity and cooking role; not kitchen-tested."
+					},
+					"sourceIngredientId": "ingredient-6"
 				},
 				{
 					"id": "ingredient-8",
@@ -51365,35 +51394,6 @@
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
 					"sourceIngredientId": "ingredient-10"
-				},
-				{
-					"id": "ingredient-2",
-					"name": "Asparagus",
-					"state": "rinsed and trimmed",
-					"amount": 2,
-					"unit": "bunch",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "2 bunch of asparagus, rinsed and trimmed",
-					"sourceAmount": 2,
-					"sourceUnit": "bunch",
-					"optional": false,
-					"weightRef": "asparagus-bunch",
-					"measurementProvenance": {
-						"original": {
-							"amount": 2,
-							"unit": "bunch",
-							"name": "Asparagus",
-							"state": "rinsed and trimmed",
-							"note": ""
-						},
-						"sourceIngredientId": "ingredient-2",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-2"
 				},
 				{
 					"id": "ingredient-11",
@@ -51549,13 +51549,6 @@
 							"state": "boneless, skinless, cut into bite-sized chunks"
 						},
 						{
-							"id": "ingredient-6",
-							"name": "Italian seasoning",
-							"amount": 1,
-							"unit": "g",
-							"state": ""
-						},
-						{
 							"id": "ingredient-14",
 							"name": "Fresh cracked black pepper",
 							"amount": 1,
@@ -51570,11 +51563,11 @@
 							"state": ""
 						},
 						{
-							"id": "ingredient-4",
-							"name": "Olive oil",
-							"amount": 1,
-							"unit": "tsp",
-							"state": ""
+							"id": "ingredient-2",
+							"name": "Asparagus",
+							"amount": 2,
+							"unit": "bunch",
+							"state": "rinsed and trimmed"
 						},
 						{
 							"id": "ingredient-3",
@@ -51584,11 +51577,25 @@
 							"state": "divided"
 						},
 						{
+							"id": "ingredient-4",
+							"name": "Olive oil",
+							"amount": 1,
+							"unit": "tsp",
+							"state": ""
+						},
+						{
 							"id": "ingredient-5",
 							"name": "Minced garlic",
 							"amount": 2,
 							"unit": "tsp",
 							"state": "divided"
+						},
+						{
+							"id": "ingredient-6",
+							"name": "Italian seasoning",
+							"amount": 1,
+							"unit": "g",
+							"state": ""
 						},
 						{
 							"id": "ingredient-8",
@@ -51617,13 +51624,6 @@
 							"amount": 1,
 							"unit": "tbsp",
 							"state": ""
-						},
-						{
-							"id": "ingredient-2",
-							"name": "Asparagus",
-							"amount": 2,
-							"unit": "bunch",
-							"state": "rinsed and trimmed"
 						},
 						{
 							"id": "ingredient-11",
@@ -51813,35 +51813,55 @@
 					"action": "Toss asparagus in sauce 2 min; return chicken and heat 1 min; garnish",
 					"children": [
 						{
-							"action": "Season and brown chicken on all sides over medium in oil/half butter, in batches if needed; lower heat, add half garlic/herbs for 1 min until fragrant; reserve.",
+							"action": "Set the blanched asparagus aside. Brown the seasoned chicken on all sides over medium in oil and half the butter, in batches if needed. Lower heat, add half the garlic and the Italian herbs for 1 min until fragrant; reserve chicken.",
 							"children": [
 								{
-									"ingredientId": "ingredient-1",
-									"fraction": 1
+									"action": "Season chicken pieces with pepper and onion powder.",
+									"children": [
+										{
+											"ingredientId": "ingredient-1",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-14",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-15",
+											"fraction": 1
+										}
+									],
+									"equipment": [
+										"Large bowl"
+									]
 								},
 								{
-									"ingredientId": "ingredient-6",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-14",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-15",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-4",
-									"fraction": 1
+									"action": "Blanch asparagus 2 min; ice-chill and drain",
+									"children": [
+										{
+											"ingredientId": "ingredient-2",
+											"fraction": 1
+										}
+									],
+									"equipment": [
+										"Pans"
+									]
 								},
 								{
 									"ingredientId": "ingredient-3",
 									"fraction": 0.5
 								},
 								{
+									"ingredientId": "ingredient-4",
+									"fraction": 1
+								},
+								{
 									"ingredientId": "ingredient-5",
 									"fraction": 0.5
+								},
+								{
+									"ingredientId": "ingredient-6",
+									"fraction": 1
 								}
 							],
 							"equipment": [
@@ -51873,18 +51893,6 @@
 								},
 								{
 									"ingredientId": "ingredient-10",
-									"fraction": 1
-								}
-							],
-							"equipment": [
-								"Pans"
-							]
-						},
-						{
-							"action": "Blanch asparagus 2 min; ice-chill and drain",
-							"children": [
-								{
-									"ingredientId": "ingredient-2",
 									"fraction": 1
 								}
 							],
@@ -54759,34 +54767,6 @@
 			"boosters": [],
 			"ingredients": [
 				{
-					"id": "ingredient-1",
-					"name": "Flank steak",
-					"state": "sliced against the grain",
-					"amount": 1.5,
-					"unit": "lb",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "1 1/2 lb (650g) flank steak, sliced against the grain",
-					"sourceAmount": 1.5,
-					"sourceUnit": "lb",
-					"optional": false,
-					"measurementProvenance": {
-						"original": {
-							"amount": 1.5,
-							"unit": "lb",
-							"name": "Flank steak",
-							"state": "sliced against the grain",
-							"note": ""
-						},
-						"sourceIngredientId": "ingredient-1",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-1"
-				},
-				{
 					"id": "ingredient-11",
 					"name": "Low-sodium soy sauce",
 					"state": "",
@@ -54911,34 +54891,32 @@
 					"sourceIngredientId": "ingredient-14"
 				},
 				{
-					"id": "ingredient-10-pepper",
-					"name": "Black pepper",
-					"state": "ground",
-					"amount": 0.25,
-					"unit": "tsp",
+					"id": "ingredient-1",
+					"name": "Flank steak",
+					"state": "sliced against the grain",
+					"amount": 1.5,
+					"unit": "lb",
 					"category": "pantry",
 					"note": "",
 					"scale": "linear",
-					"sourceLine": "Salt and fresh cracked black pepper, to taste",
-					"sourceAmount": null,
-					"sourceUnit": "",
+					"sourceLine": "1 1/2 lb (650g) flank steak, sliced against the grain",
+					"sourceAmount": 1.5,
+					"sourceUnit": "lb",
 					"optional": false,
-					"weightRef": "usda-170931",
 					"measurementProvenance": {
 						"original": {
-							"amount": 0,
-							"unit": "",
-							"name": "Salt and fresh cracked black pepper",
-							"state": "to taste",
-							"note": "Source gives no numeric quantity; use to taste/as garnish as written."
+							"amount": 1.5,
+							"unit": "lb",
+							"name": "Flank steak",
+							"state": "sliced against the grain",
+							"note": ""
 						},
-						"sourceIngredientId": "ingredient-10",
+						"sourceIngredientId": "ingredient-1",
 						"reviewedOn": "2026-10-15",
 						"massBasis": "edible",
-						"decision": "Measured starting seasoning for four servings: 1/2 tsp fine salt and 1/4 tsp ground black pepper; optional status and fixed/linear scaling retained."
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
-					"sourceIngredientId": "ingredient-10",
-					"pinchGrams": 0.05
+					"sourceIngredientId": "ingredient-1"
 				},
 				{
 					"id": "ingredient-3",
@@ -54968,6 +54946,36 @@
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
 					"sourceIngredientId": "ingredient-3"
+				},
+				{
+					"id": "ingredient-10-pepper",
+					"name": "Black pepper",
+					"state": "ground",
+					"amount": 0.25,
+					"unit": "tsp",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "Salt and fresh cracked black pepper, to taste",
+					"sourceAmount": null,
+					"sourceUnit": "",
+					"optional": false,
+					"weightRef": "usda-170931",
+					"measurementProvenance": {
+						"original": {
+							"amount": 0,
+							"unit": "",
+							"name": "Salt and fresh cracked black pepper",
+							"state": "to taste",
+							"note": "Source gives no numeric quantity; use to taste/as garnish as written."
+						},
+						"sourceIngredientId": "ingredient-10",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Measured starting seasoning for four servings: 1/2 tsp fine salt and 1/4 tsp ground black pepper; optional status and fixed/linear scaling retained."
+					},
+					"sourceIngredientId": "ingredient-10",
+					"pinchGrams": 0.05
 				},
 				{
 					"id": "ingredient-4",
@@ -55270,13 +55278,6 @@
 					"publisherBaselineFields": [],
 					"ingredientSnapshot": [
 						{
-							"id": "ingredient-1",
-							"name": "Flank steak",
-							"amount": 1.5,
-							"unit": "lb",
-							"state": "sliced against the grain"
-						},
-						{
 							"id": "ingredient-11",
 							"name": "Low-sodium soy sauce",
 							"amount": 0.3333333333333333,
@@ -55305,11 +55306,11 @@
 							"state": ""
 						},
 						{
-							"id": "ingredient-10-pepper",
-							"name": "Black pepper",
-							"amount": 0.25,
-							"unit": "tsp",
-							"state": "ground"
+							"id": "ingredient-1",
+							"name": "Flank steak",
+							"amount": 1.5,
+							"unit": "lb",
+							"state": "sliced against the grain"
 						},
 						{
 							"id": "ingredient-3",
@@ -55317,6 +55318,13 @@
 							"amount": 2,
 							"unit": "tbsp",
 							"state": ""
+						},
+						{
+							"id": "ingredient-10-pepper",
+							"name": "Black pepper",
+							"amount": 0.25,
+							"unit": "tsp",
+							"state": "ground"
 						},
 						{
 							"id": "ingredient-4",
@@ -55535,10 +55543,6 @@
 									"action": "Marinate steak refrigerated 30–60 min; reserve drained liquid",
 									"children": [
 										{
-											"ingredientId": "ingredient-1",
-											"fraction": 1
-										},
-										{
 											"ingredientId": "ingredient-11",
 											"fraction": 1
 										},
@@ -55553,6 +55557,10 @@
 										{
 											"ingredientId": "ingredient-14",
 											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-1",
+											"fraction": 1
 										}
 									],
 									"equipment": [
@@ -55560,11 +55568,11 @@
 									]
 								},
 								{
-									"ingredientId": "ingredient-10-pepper",
+									"ingredientId": "ingredient-3",
 									"fraction": 1
 								},
 								{
-									"ingredientId": "ingredient-3",
+									"ingredientId": "ingredient-10-pepper",
 									"fraction": 1
 								},
 								{
@@ -62613,6 +62621,34 @@
 			"boosters": [],
 			"ingredients": [
 				{
+					"id": "ingredient-1",
+					"name": "Medium raw shrimp",
+					"state": "peeled and deveined",
+					"amount": 1.5,
+					"unit": "lb",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "1 1/2 lbs (700g) medium raw shrimp, peeled and deveined",
+					"sourceAmount": 1.5,
+					"sourceUnit": "lb",
+					"optional": false,
+					"measurementProvenance": {
+						"original": {
+							"amount": 1.5,
+							"unit": "lb",
+							"name": "Medium raw shrimp",
+							"state": "peeled and deveined",
+							"note": ""
+						},
+						"sourceIngredientId": "ingredient-1",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-1"
+				},
+				{
 					"id": "ingredient-5-pepper",
 					"name": "Black pepper",
 					"state": "ground",
@@ -62875,34 +62911,6 @@
 					"sourceIngredientId": "ingredient-11"
 				},
 				{
-					"id": "ingredient-1",
-					"name": "Medium raw shrimp",
-					"state": "peeled and deveined",
-					"amount": 1.5,
-					"unit": "lb",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "1 1/2 lbs (700g) medium raw shrimp, peeled and deveined",
-					"sourceAmount": 1.5,
-					"sourceUnit": "lb",
-					"optional": false,
-					"measurementProvenance": {
-						"original": {
-							"amount": 1.5,
-							"unit": "lb",
-							"name": "Medium raw shrimp",
-							"state": "peeled and deveined",
-							"note": ""
-						},
-						"sourceIngredientId": "ingredient-1",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-1"
-				},
-				{
 					"id": "ingredient-3",
 					"name": "Italian seasoning",
 					"state": "",
@@ -63108,6 +63116,13 @@
 					"publisherBaselineFields": [],
 					"ingredientSnapshot": [
 						{
+							"id": "ingredient-1",
+							"name": "Medium raw shrimp",
+							"amount": 1.5,
+							"unit": "lb",
+							"state": "peeled and deveined"
+						},
+						{
 							"id": "ingredient-5-pepper",
 							"name": "Black pepper",
 							"amount": 0.25,
@@ -63169,13 +63184,6 @@
 							"amount": 2,
 							"unit": "oz",
 							"state": "finely grated"
-						},
-						{
-							"id": "ingredient-1",
-							"name": "Medium raw shrimp",
-							"amount": 1.5,
-							"unit": "lb",
-							"state": "peeled and deveined"
 						},
 						{
 							"id": "ingredient-3",
@@ -63501,55 +63509,63 @@
 					"action": "Return cauliflower to cooked shrimp; warm and finish parsley/flakes",
 					"children": [
 						{
-							"action": "Season shrimp with part of pepper. Over medium, cook half garlic/onion 1 min in half butter; cauliflower 1 min; one-third stock/half parsley/optional zest 1 min; lemon/two-thirds Parmesan 1 min until cauliflower crisp-tender; reserve.",
+							"action": "Set the cauliflower rice aside. Melt the remaining butter and cook the seasoned shrimp 1–2 min on one side. Add the remaining garlic, Italian seasoning and onion powder, flip and cook 1 min. Add remaining stock, hot sauce and Parmesan; reduce 1 min and adjust seasoning.",
 							"children": [
 								{
-									"ingredientId": "ingredient-5-pepper",
-									"fraction": 0.5
+									"action": "Season the shrimp with this portion of the pepper.",
+									"children": [
+										{
+											"ingredientId": "ingredient-1",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-5-pepper",
+											"fraction": 0.5
+										}
+									],
+									"equipment": [
+										"Large bowl"
+									]
 								},
 								{
-									"ingredientId": "ingredient-2",
-									"fraction": 0.5
-								},
-								{
-									"ingredientId": "ingredient-10",
-									"fraction": 0.5
-								},
-								{
-									"ingredientId": "ingredient-9",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-8",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-6",
-									"fraction": 0.3333333333333333
-								},
-								{
-									"ingredientId": "ingredient-14",
-									"fraction": 0.5
-								},
-								{
-									"ingredientId": "ingredient-12",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-11",
-									"fraction": 0.6666666666666666
-								}
-							],
-							"equipment": [
-								"Pans"
-							]
-						},
-						{
-							"action": "Cook shrimp 1–2 min; flip with garlic/spices 1 min; reduce stock/hot sauce/cheese 1 min",
-							"children": [
-								{
-									"ingredientId": "ingredient-1",
-									"fraction": 1
+									"action": "Over medium, cook half garlic/onion 1 min in half butter; cauliflower 1 min; one-third stock/half parsley/optional zest 1 min; lemon/two-thirds Parmesan 1 min until cauliflower crisp-tender; reserve.",
+									"children": [
+										{
+											"ingredientId": "ingredient-2",
+											"fraction": 0.5
+										},
+										{
+											"ingredientId": "ingredient-10",
+											"fraction": 0.5
+										},
+										{
+											"ingredientId": "ingredient-9",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-8",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-6",
+											"fraction": 0.3333333333333333
+										},
+										{
+											"ingredientId": "ingredient-14",
+											"fraction": 0.5
+										},
+										{
+											"ingredientId": "ingredient-12",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-11",
+											"fraction": 0.6666666666666666
+										}
+									],
+									"equipment": [
+										"Pans"
+									]
 								},
 								{
 									"ingredientId": "ingredient-2",
@@ -63568,12 +63584,12 @@
 									"fraction": 1
 								},
 								{
-									"ingredientId": "ingredient-7",
-									"fraction": 1
-								},
-								{
 									"ingredientId": "ingredient-6",
 									"fraction": 0.6666666666666666
+								},
+								{
+									"ingredientId": "ingredient-7",
+									"fraction": 1
 								},
 								{
 									"ingredientId": "ingredient-11",
@@ -69277,48 +69293,48 @@
 					"action": "Return steak and drained spinach to sauce; warm through",
 					"children": [
 						{
-							"action": "Marinate steak refrigerated 30–60 min; reserve drained liquid",
+							"action": "Set the drained spinach aside. In the cleaned skillet, sear seasoned, drained steak in half the butter over medium-high for 1 min on the first side, then turn to finish; work in batches and reserve.",
 							"children": [
 								{
-									"ingredientId": "ingredient-1",
-									"fraction": 1
+									"action": "Marinate steak refrigerated 30–60 min; reserve drained liquid",
+									"children": [
+										{
+											"ingredientId": "ingredient-1",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-11",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-12",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-13",
+											"fraction": 1
+										}
+									],
+									"equipment": [
+										"Large bowl"
+									]
 								},
 								{
-									"ingredientId": "ingredient-11",
-									"fraction": 1
+									"action": "Wilt washed spinach 1 min in one-quarter butter, turning; drain and clean skillet.",
+									"children": [
+										{
+											"ingredientId": "ingredient-2",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-3",
+											"fraction": 0.25
+										}
+									],
+									"equipment": [
+										"Pans"
+									]
 								},
-								{
-									"ingredientId": "ingredient-12",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-13",
-									"fraction": 1
-								}
-							],
-							"equipment": [
-								"Large bowl"
-							]
-						},
-						{
-							"action": "Wilt washed spinach 1 min in one-quarter butter, turning; drain and clean skillet.",
-							"children": [
-								{
-									"ingredientId": "ingredient-2",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-3",
-									"fraction": 0.25
-								}
-							],
-							"equipment": [
-								"Pans"
-							]
-						},
-						{
-							"action": "After spinach is drained and skillet cleaned, sear seasoned drained steak in half butter over medium-high 1 min first side, then turn to finish; work in batches and reserve.",
-							"children": [
 								{
 									"ingredientId": "ingredient-3",
 									"fraction": 0.5
@@ -69434,35 +69450,6 @@
 			"boosters": [],
 			"ingredients": [
 				{
-					"id": "ingredient-3",
-					"name": "Butter",
-					"state": "divided",
-					"amount": 4,
-					"unit": "tbsp",
-					"category": "pantry",
-					"note": "grass-fed butter is best for this recipe",
-					"scale": "linear",
-					"sourceLine": "4 tablespoons butter, divided (grass-fed butter is best for this recipe)",
-					"sourceAmount": 4,
-					"sourceUnit": "tbsp",
-					"optional": false,
-					"weightRef": "usda-173430",
-					"measurementProvenance": {
-						"original": {
-							"amount": 4,
-							"unit": "tbsp",
-							"name": "Butter",
-							"state": "divided",
-							"note": "grass-fed butter is best for this recipe"
-						},
-						"sourceIngredientId": "ingredient-3",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-3"
-				},
-				{
 					"id": "ingredient-1",
 					"name": "Chicken breasts",
 					"state": "skinless and boneless, cut into strips",
@@ -69490,6 +69477,94 @@
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
 					"sourceIngredientId": "ingredient-1"
+				},
+				{
+					"id": "ingredient-15-pepper",
+					"name": "Black pepper",
+					"state": "ground",
+					"amount": 0.25,
+					"unit": "tsp",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "Salt and freshly ground black pepper",
+					"sourceAmount": null,
+					"sourceUnit": "",
+					"optional": false,
+					"weightRef": "usda-170931",
+					"measurementProvenance": {
+						"original": {
+							"amount": null,
+							"unit": "",
+							"name": "Salt and freshly ground black pepper",
+							"state": "",
+							"note": "Source gives no numeric quantity; use to taste/as garnish as written."
+						},
+						"sourceIngredientId": "ingredient-15",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Measured starting seasoning for four servings: 1/2 tsp fine salt and 1/4 tsp ground black pepper; optional status and fixed/linear scaling retained."
+					},
+					"sourceIngredientId": "ingredient-15",
+					"pinchGrams": 0.05
+				},
+				{
+					"id": "ingredient-2",
+					"name": "Zucchini",
+					"state": "medium",
+					"amount": 3,
+					"unit": "count",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "3 or 4 medium zucchini",
+					"sourceAmount": 3,
+					"sourceUnit": "count",
+					"optional": false,
+					"weightRef": "usda-169291",
+					"measurementProvenance": {
+						"original": {
+							"amount": 3,
+							"unit": "count",
+							"name": "Zucchini",
+							"state": "medium",
+							"note": "Source quantity range 3–4; lower value selected for scaling."
+						},
+						"sourceIngredientId": "ingredient-2",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-2"
+				},
+				{
+					"id": "ingredient-3",
+					"name": "Butter",
+					"state": "divided",
+					"amount": 4,
+					"unit": "tbsp",
+					"category": "pantry",
+					"note": "grass-fed butter is best for this recipe",
+					"scale": "linear",
+					"sourceLine": "4 tablespoons butter, divided (grass-fed butter is best for this recipe)",
+					"sourceAmount": 4,
+					"sourceUnit": "tbsp",
+					"optional": false,
+					"weightRef": "usda-173430",
+					"measurementProvenance": {
+						"original": {
+							"amount": 4,
+							"unit": "tbsp",
+							"name": "Butter",
+							"state": "divided",
+							"note": "grass-fed butter is best for this recipe"
+						},
+						"sourceIngredientId": "ingredient-3",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-3"
 				},
 				{
 					"id": "ingredient-5",
@@ -69547,36 +69622,6 @@
 						"decision": "Explicit weighed dried pepper-flake seasoning; preserve flake preparation and optional status without applying ground cayenne or chili-powder density."
 					},
 					"sourceIngredientId": "ingredient-14"
-				},
-				{
-					"id": "ingredient-15-pepper",
-					"name": "Black pepper",
-					"state": "ground",
-					"amount": 0.25,
-					"unit": "tsp",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "Salt and freshly ground black pepper",
-					"sourceAmount": null,
-					"sourceUnit": "",
-					"optional": false,
-					"weightRef": "usda-170931",
-					"measurementProvenance": {
-						"original": {
-							"amount": null,
-							"unit": "",
-							"name": "Salt and freshly ground black pepper",
-							"state": "",
-							"note": "Source gives no numeric quantity; use to taste/as garnish as written."
-						},
-						"sourceIngredientId": "ingredient-15",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Measured starting seasoning for four servings: 1/2 tsp fine salt and 1/4 tsp ground black pepper; optional status and fixed/linear scaling retained."
-					},
-					"sourceIngredientId": "ingredient-15",
-					"pinchGrams": 0.05
 				},
 				{
 					"id": "ingredient-4",
@@ -69750,35 +69795,6 @@
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis. Select Sriracha, matching the source examples, as the measured hot-sauce default."
 					},
 					"sourceIngredientId": "ingredient-10"
-				},
-				{
-					"id": "ingredient-2",
-					"name": "Zucchini",
-					"state": "medium",
-					"amount": 3,
-					"unit": "count",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "3 or 4 medium zucchini",
-					"sourceAmount": 3,
-					"sourceUnit": "count",
-					"optional": false,
-					"weightRef": "usda-169291",
-					"measurementProvenance": {
-						"original": {
-							"amount": 3,
-							"unit": "count",
-							"name": "Zucchini",
-							"state": "medium",
-							"note": "Source quantity range 3–4; lower value selected for scaling."
-						},
-						"sourceIngredientId": "ingredient-2",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-2"
 				},
 				{
 					"id": "ingredient-11",
@@ -69988,18 +70004,32 @@
 					"publisherBaselineFields": [],
 					"ingredientSnapshot": [
 						{
-							"id": "ingredient-3",
-							"name": "Butter",
-							"amount": 4,
-							"unit": "tbsp",
-							"state": "divided"
-						},
-						{
 							"id": "ingredient-1",
 							"name": "Chicken breasts",
 							"amount": 3,
 							"unit": "count",
 							"state": "skinless and boneless, cut into strips"
+						},
+						{
+							"id": "ingredient-15-pepper",
+							"name": "Black pepper",
+							"amount": 0.25,
+							"unit": "tsp",
+							"state": "ground"
+						},
+						{
+							"id": "ingredient-2",
+							"name": "Zucchini",
+							"amount": 3,
+							"unit": "count",
+							"state": "medium"
+						},
+						{
+							"id": "ingredient-3",
+							"name": "Butter",
+							"amount": 4,
+							"unit": "tbsp",
+							"state": "divided"
 						},
 						{
 							"id": "ingredient-5",
@@ -70014,13 +70044,6 @@
 							"amount": 0.45,
 							"unit": "g",
 							"state": ""
-						},
-						{
-							"id": "ingredient-15-pepper",
-							"name": "Black pepper",
-							"amount": 0.25,
-							"unit": "tsp",
-							"state": "ground"
 						},
 						{
 							"id": "ingredient-4",
@@ -70063,13 +70086,6 @@
 							"amount": 1,
 							"unit": "tbsp",
 							"state": ""
-						},
-						{
-							"id": "ingredient-2",
-							"name": "Zucchini",
-							"amount": 3,
-							"unit": "count",
-							"state": "medium"
 						},
 						{
 							"id": "ingredient-11",
@@ -70283,15 +70299,39 @@
 					"action": "Toss zucchini/herbs in sauce 2–3 min; return chicken 1 min until cooked through; garnish",
 					"children": [
 						{
-							"action": "Cook chicken 1 min over medium-high; add garlic/flakes and turn about 2 min",
+							"action": "Set the spiralized zucchini aside. Melt one-quarter of the butter over medium-high and cook the seasoned chicken in a single layer for 1 min without stirring. Add garlic and chili flakes, turn and cook about 2 min; reserve.",
 							"children": [
+								{
+									"action": "Season the chicken strips with pepper.",
+									"children": [
+										{
+											"ingredientId": "ingredient-1",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-15-pepper",
+											"fraction": 1
+										}
+									],
+									"equipment": [
+										"Large bowl"
+									]
+								},
+								{
+									"action": "Spiralize zucchini",
+									"children": [
+										{
+											"ingredientId": "ingredient-2",
+											"fraction": 1
+										}
+									],
+									"equipment": [
+										"Spiralizer"
+									]
+								},
 								{
 									"ingredientId": "ingredient-3",
 									"fraction": 0.25
-								},
-								{
-									"ingredientId": "ingredient-1",
-									"fraction": 1
 								},
 								{
 									"ingredientId": "ingredient-5",
@@ -70299,10 +70339,6 @@
 								},
 								{
 									"ingredientId": "ingredient-14",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-15-pepper",
 									"fraction": 1
 								}
 							],
@@ -70344,18 +70380,6 @@
 							],
 							"equipment": [
 								"Pans"
-							]
-						},
-						{
-							"action": "Spiralize zucchini",
-							"children": [
-								{
-									"ingredientId": "ingredient-2",
-									"fraction": 1
-								}
-							],
-							"equipment": [
-								"Spiralizer"
 							]
 						},
 						{
@@ -72060,150 +72084,6 @@
 			"boosters": [],
 			"ingredients": [
 				{
-					"id": "ingredient-9",
-					"name": "Olive oil",
-					"state": "divided",
-					"amount": 2,
-					"unit": "tbsp",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "2 tablespoons olive oil, divided",
-					"sourceAmount": 2,
-					"sourceUnit": "tbsp",
-					"optional": false,
-					"weightRef": "usda-171413",
-					"measurementProvenance": {
-						"original": {
-							"amount": 2,
-							"unit": "tbsp",
-							"name": "Olive oil",
-							"state": "divided",
-							"note": ""
-						},
-						"sourceIngredientId": "ingredient-9",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-9"
-				},
-				{
-					"id": "ingredient-10",
-					"name": "Red bell pepper",
-					"state": "sliced",
-					"amount": 1,
-					"unit": "count",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "1 red bell pepper, sliced",
-					"sourceAmount": 1,
-					"sourceUnit": "count",
-					"optional": false,
-					"weightRef": "usda-170108",
-					"measurementProvenance": {
-						"original": {
-							"amount": 1,
-							"unit": "count",
-							"name": "Red bell pepper",
-							"state": "sliced",
-							"note": ""
-						},
-						"sourceIngredientId": "ingredient-10",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-10"
-				},
-				{
-					"id": "ingredient-11",
-					"name": "Green bell pepper",
-					"state": "sliced",
-					"amount": 1,
-					"unit": "count",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "1 green bell pepper, sliced",
-					"sourceAmount": 1,
-					"sourceUnit": "count",
-					"optional": false,
-					"weightRef": "usda-170427",
-					"measurementProvenance": {
-						"original": {
-							"amount": 1,
-							"unit": "count",
-							"name": "Green bell pepper",
-							"state": "sliced",
-							"note": ""
-						},
-						"sourceIngredientId": "ingredient-11",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-11"
-				},
-				{
-					"id": "ingredient-12",
-					"name": "Yellow bell pepper",
-					"state": "sliced",
-					"amount": 119,
-					"unit": "g",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "1 yellow bell pepper, sliced",
-					"sourceAmount": 1,
-					"sourceUnit": "count",
-					"optional": false,
-					"measurementProvenance": {
-						"original": {
-							"amount": 1,
-							"unit": "count",
-							"name": "Yellow bell pepper",
-							"state": "sliced",
-							"note": ""
-						},
-						"sourceIngredientId": "ingredient-12",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Editorial medium yellow bell pepper: 119 g edible flesh, seeds and stalk removed."
-					},
-					"sourceIngredientId": "ingredient-12"
-				},
-				{
-					"id": "ingredient-13",
-					"name": "Onion",
-					"state": "medium, sliced",
-					"amount": 1,
-					"unit": "count",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "1 medium onion, sliced",
-					"sourceAmount": 1,
-					"sourceUnit": "count",
-					"optional": false,
-					"weightRef": "usda-170000",
-					"measurementProvenance": {
-						"original": {
-							"amount": 1,
-							"unit": "count",
-							"name": "Onion",
-							"state": "medium, sliced",
-							"note": ""
-						},
-						"sourceIngredientId": "ingredient-13",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-13"
-				},
-				{
 					"id": "ingredient-1",
 					"name": "Shredded rotisserie chicken",
 					"state": "fully cooked, shredded rotisserie chicken",
@@ -72404,6 +72284,150 @@
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
 					"sourceIngredientId": "ingredient-8"
+				},
+				{
+					"id": "ingredient-9",
+					"name": "Olive oil",
+					"state": "divided",
+					"amount": 2,
+					"unit": "tbsp",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "2 tablespoons olive oil, divided",
+					"sourceAmount": 2,
+					"sourceUnit": "tbsp",
+					"optional": false,
+					"weightRef": "usda-171413",
+					"measurementProvenance": {
+						"original": {
+							"amount": 2,
+							"unit": "tbsp",
+							"name": "Olive oil",
+							"state": "divided",
+							"note": ""
+						},
+						"sourceIngredientId": "ingredient-9",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-9"
+				},
+				{
+					"id": "ingredient-10",
+					"name": "Red bell pepper",
+					"state": "sliced",
+					"amount": 1,
+					"unit": "count",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "1 red bell pepper, sliced",
+					"sourceAmount": 1,
+					"sourceUnit": "count",
+					"optional": false,
+					"weightRef": "usda-170108",
+					"measurementProvenance": {
+						"original": {
+							"amount": 1,
+							"unit": "count",
+							"name": "Red bell pepper",
+							"state": "sliced",
+							"note": ""
+						},
+						"sourceIngredientId": "ingredient-10",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-10"
+				},
+				{
+					"id": "ingredient-11",
+					"name": "Green bell pepper",
+					"state": "sliced",
+					"amount": 1,
+					"unit": "count",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "1 green bell pepper, sliced",
+					"sourceAmount": 1,
+					"sourceUnit": "count",
+					"optional": false,
+					"weightRef": "usda-170427",
+					"measurementProvenance": {
+						"original": {
+							"amount": 1,
+							"unit": "count",
+							"name": "Green bell pepper",
+							"state": "sliced",
+							"note": ""
+						},
+						"sourceIngredientId": "ingredient-11",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-11"
+				},
+				{
+					"id": "ingredient-12",
+					"name": "Yellow bell pepper",
+					"state": "sliced",
+					"amount": 119,
+					"unit": "g",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "1 yellow bell pepper, sliced",
+					"sourceAmount": 1,
+					"sourceUnit": "count",
+					"optional": false,
+					"measurementProvenance": {
+						"original": {
+							"amount": 1,
+							"unit": "count",
+							"name": "Yellow bell pepper",
+							"state": "sliced",
+							"note": ""
+						},
+						"sourceIngredientId": "ingredient-12",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Editorial medium yellow bell pepper: 119 g edible flesh, seeds and stalk removed."
+					},
+					"sourceIngredientId": "ingredient-12"
+				},
+				{
+					"id": "ingredient-13",
+					"name": "Onion",
+					"state": "medium, sliced",
+					"amount": 1,
+					"unit": "count",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "1 medium onion, sliced",
+					"sourceAmount": 1,
+					"sourceUnit": "count",
+					"optional": false,
+					"weightRef": "usda-170000",
+					"measurementProvenance": {
+						"original": {
+							"amount": 1,
+							"unit": "count",
+							"name": "Onion",
+							"state": "medium, sliced",
+							"note": ""
+						},
+						"sourceIngredientId": "ingredient-13",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-13"
 				}
 			],
 			"steps": [
@@ -72488,41 +72512,6 @@
 					"publisherBaselineFields": [],
 					"ingredientSnapshot": [
 						{
-							"id": "ingredient-9",
-							"name": "Olive oil",
-							"amount": 2,
-							"unit": "tbsp",
-							"state": "divided"
-						},
-						{
-							"id": "ingredient-10",
-							"name": "Red bell pepper",
-							"amount": 1,
-							"unit": "count",
-							"state": "sliced"
-						},
-						{
-							"id": "ingredient-11",
-							"name": "Green bell pepper",
-							"amount": 1,
-							"unit": "count",
-							"state": "sliced"
-						},
-						{
-							"id": "ingredient-12",
-							"name": "Yellow bell pepper",
-							"amount": 119,
-							"unit": "g",
-							"state": "sliced"
-						},
-						{
-							"id": "ingredient-13",
-							"name": "Onion",
-							"amount": 1,
-							"unit": "count",
-							"state": "medium, sliced"
-						},
-						{
 							"id": "ingredient-1",
 							"name": "Shredded rotisserie chicken",
 							"amount": 1,
@@ -72570,6 +72559,41 @@
 							"amount": 0.25,
 							"unit": "tsp",
 							"state": ""
+						},
+						{
+							"id": "ingredient-9",
+							"name": "Olive oil",
+							"amount": 2,
+							"unit": "tbsp",
+							"state": "divided"
+						},
+						{
+							"id": "ingredient-10",
+							"name": "Red bell pepper",
+							"amount": 1,
+							"unit": "count",
+							"state": "sliced"
+						},
+						{
+							"id": "ingredient-11",
+							"name": "Green bell pepper",
+							"amount": 1,
+							"unit": "count",
+							"state": "sliced"
+						},
+						{
+							"id": "ingredient-12",
+							"name": "Yellow bell pepper",
+							"amount": 119,
+							"unit": "g",
+							"state": "sliced"
+						},
+						{
+							"id": "ingredient-13",
+							"name": "Onion",
+							"amount": 1,
+							"unit": "count",
+							"state": "medium, sliced"
 						}
 					],
 					"assumptions": [
@@ -72724,8 +72748,44 @@
 					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Combine warmed chicken and tender vegetables; cook 1 min and serve",
+					"action": "Move the tender vegetables to one side of the skillet. Heat the seasoned chicken in the remaining oil for 2–3 min, then combine with the vegetables, cook 1 min and serve.",
 					"children": [
+						{
+							"action": "Mix cooked shredded rotisserie chicken with the chili powder, paprika, onion powder, cumin, garlic powder and pepper.",
+							"children": [
+								{
+									"ingredientId": "ingredient-1",
+									"fraction": 1
+								},
+								{
+									"ingredientId": "ingredient-2",
+									"fraction": 1
+								},
+								{
+									"ingredientId": "ingredient-3",
+									"fraction": 1
+								},
+								{
+									"ingredientId": "ingredient-4",
+									"fraction": 1
+								},
+								{
+									"ingredientId": "ingredient-5",
+									"fraction": 1
+								},
+								{
+									"ingredientId": "ingredient-6",
+									"fraction": 1
+								},
+								{
+									"ingredientId": "ingredient-8",
+									"fraction": 1
+								}
+							],
+							"equipment": [
+								"Large bowl"
+							]
+						},
 						{
 							"action": "Sauté peppers/onion 5–7 min over medium-high",
 							"children": [
@@ -72755,49 +72815,13 @@
 							]
 						},
 						{
-							"action": "Season cooked rotisserie chicken; heat in oil 2–3 min",
-							"children": [
-								{
-									"ingredientId": "ingredient-1",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-2",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-3",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-4",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-5",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-6",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-8",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-9",
-									"fraction": 0.5
-								}
-							],
-							"equipment": [
-								"Pans"
-							]
+							"ingredientId": "ingredient-9",
+							"fraction": 0.5
 						}
 					],
 					"equipment": [
-						"Serving dishes",
-						"Large bowl"
+						"Pans",
+						"Serving dishes"
 					]
 				}
 			},
@@ -78984,6 +79008,63 @@
 					"sourceIngredientId": "ingredient-17"
 				},
 				{
+					"id": "ingredient-18",
+					"name": "Italian seasoning",
+					"state": "",
+					"amount": 1,
+					"unit": "g",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "1 teaspoon Italian seasoning",
+					"sourceAmount": 1,
+					"sourceUnit": "tsp",
+					"optional": false,
+					"measurementProvenance": {
+						"original": {
+							"amount": 1,
+							"unit": "tsp",
+							"name": "Italian seasoning",
+							"state": "",
+							"note": ""
+						},
+						"sourceIngredientId": "ingredient-18",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Editorial weighed italian seasoning amount; original measure or a different herb/brand observation does not establish a reliable density. Retain blend identity and cooking role; not kitchen-tested."
+					},
+					"sourceIngredientId": "ingredient-18"
+				},
+				{
+					"id": "ingredient-2",
+					"name": "asparagus",
+					"state": "rinsed and trimmed",
+					"amount": 2,
+					"unit": "bunch",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "2 bunch of asparagus, rinsed and trimmed",
+					"sourceAmount": 2,
+					"sourceUnit": "bunch",
+					"optional": false,
+					"weightRef": "asparagus-bunch",
+					"measurementProvenance": {
+						"original": {
+							"amount": 2,
+							"unit": "bunch",
+							"name": "asparagus",
+							"state": "rinsed and trimmed",
+							"note": ""
+						},
+						"sourceIngredientId": "ingredient-2",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-2"
+				},
+				{
 					"id": "ingredient-4",
 					"name": "olive oil",
 					"state": "",
@@ -79106,34 +79187,6 @@
 					"sourceIngredientId": "ingredient-6"
 				},
 				{
-					"id": "ingredient-18",
-					"name": "Italian seasoning",
-					"state": "",
-					"amount": 1,
-					"unit": "g",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "1 teaspoon Italian seasoning",
-					"sourceAmount": 1,
-					"sourceUnit": "tsp",
-					"optional": false,
-					"measurementProvenance": {
-						"original": {
-							"amount": 1,
-							"unit": "tsp",
-							"name": "Italian seasoning",
-							"state": "",
-							"note": ""
-						},
-						"sourceIngredientId": "ingredient-18",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Editorial weighed italian seasoning amount; original measure or a different herb/brand observation does not establish a reliable density. Retain blend identity and cooking role; not kitchen-tested."
-					},
-					"sourceIngredientId": "ingredient-18"
-				},
-				{
 					"id": "ingredient-8",
 					"name": "low-sodium chicken broth",
 					"state": "",
@@ -79248,35 +79301,6 @@
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis. Select Sriracha, matching the source examples, as the measured hot-sauce default."
 					},
 					"sourceIngredientId": "ingredient-7"
-				},
-				{
-					"id": "ingredient-2",
-					"name": "asparagus",
-					"state": "rinsed and trimmed",
-					"amount": 2,
-					"unit": "bunch",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "2 bunch of asparagus, rinsed and trimmed",
-					"sourceAmount": 2,
-					"sourceUnit": "bunch",
-					"optional": false,
-					"weightRef": "asparagus-bunch",
-					"measurementProvenance": {
-						"original": {
-							"amount": 2,
-							"unit": "bunch",
-							"name": "asparagus",
-							"state": "rinsed and trimmed",
-							"note": ""
-						},
-						"sourceIngredientId": "ingredient-2",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-2"
 				},
 				{
 					"id": "ingredient-11",
@@ -79460,6 +79484,20 @@
 							"state": "optional"
 						},
 						{
+							"id": "ingredient-18",
+							"name": "Italian seasoning",
+							"amount": 1,
+							"unit": "g",
+							"state": ""
+						},
+						{
+							"id": "ingredient-2",
+							"name": "asparagus",
+							"amount": 2,
+							"unit": "bunch",
+							"state": "rinsed and trimmed"
+						},
+						{
 							"id": "ingredient-4",
 							"name": "olive oil",
 							"amount": 1,
@@ -79482,13 +79520,6 @@
 						},
 						{
 							"id": "ingredient-6",
-							"name": "Italian seasoning",
-							"amount": 1,
-							"unit": "g",
-							"state": ""
-						},
-						{
-							"id": "ingredient-18",
 							"name": "Italian seasoning",
 							"amount": 1,
 							"unit": "g",
@@ -79521,13 +79552,6 @@
 							"amount": 1,
 							"unit": "tbsp",
 							"state": "optional (we used Sriracha)"
-						},
-						{
-							"id": "ingredient-2",
-							"name": "asparagus",
-							"amount": 2,
-							"unit": "bunch",
-							"state": "rinsed and trimmed"
 						},
 						{
 							"id": "ingredient-11",
@@ -79747,27 +79771,51 @@
 					"action": "Return pork 1 min; ensure 145°F and 3 min rest. Garnish as listed.",
 					"children": [
 						{
-							"action": "Season pork; brown uncrowded batches over medium-low in oil and half butter; add half garlic and separate Italian seasoning, then reserve.",
+							"action": "Set the asparagus aside. Brown the seasoned pork in uncrowded batches over medium-low in oil and half the butter. Add half the garlic and the separate Italian seasoning, then reserve the pork.",
 							"children": [
 								{
-									"ingredientId": "ingredient-1",
-									"fraction": 1
+									"action": "Coat the diced pork with the measured pork spices.",
+									"children": [
+										{
+											"ingredientId": "ingredient-1",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-14",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-15",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-16",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-17",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-18",
+											"fraction": 1
+										}
+									],
+									"equipment": [
+										"Large bowl"
+									]
 								},
 								{
-									"ingredientId": "ingredient-14",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-15",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-16",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-17",
-									"fraction": 1
+									"action": "Blanch asparagus 2 min, ice-chill and drain. Thin spears may skip blanching.",
+									"children": [
+										{
+											"ingredientId": "ingredient-2",
+											"fraction": 1
+										}
+									],
+									"equipment": [
+										"Pans"
+									]
 								},
 								{
 									"ingredientId": "ingredient-4",
@@ -79783,10 +79831,6 @@
 								},
 								{
 									"ingredientId": "ingredient-6",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-18",
 									"fraction": 1
 								}
 							],
@@ -79819,10 +79863,6 @@
 								},
 								{
 									"ingredientId": "ingredient-7",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-2",
 									"fraction": 1
 								}
 							],
@@ -82433,43 +82473,6 @@
 					"sourceIngredientId": "ingredient-8"
 				},
 				{
-					"id": "ingredient-3",
-					"name": "butter",
-					"state": "divided or (ghee for paleo diet)",
-					"amount": 3,
-					"unit": "tbsp",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "3 tablespoons butter, divided or (ghee for paleo diet)",
-					"sourceAmount": 3,
-					"sourceUnit": "tbsp",
-					"optional": false,
-					"weightRef": "usda-173430",
-					"alternatives": [
-						{
-							"name": "Ghee",
-							"amount": 3,
-							"unit": "tbsp",
-							"weightRef": "usda-173412"
-						}
-					],
-					"measurementProvenance": {
-						"original": {
-							"amount": 3,
-							"unit": "tbsp",
-							"name": "butter",
-							"state": "divided or (ghee for paleo diet)",
-							"note": ""
-						},
-						"sourceIngredientId": "ingredient-3",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-3"
-				},
-				{
 					"id": "ingredient-2",
 					"name": "green beans",
 					"state": "trimmed",
@@ -82525,6 +82528,43 @@
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
 					"sourceIngredientId": "ingredient-14"
+				},
+				{
+					"id": "ingredient-3",
+					"name": "butter",
+					"state": "divided or (ghee for paleo diet)",
+					"amount": 3,
+					"unit": "tbsp",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "3 tablespoons butter, divided or (ghee for paleo diet)",
+					"sourceAmount": 3,
+					"sourceUnit": "tbsp",
+					"optional": false,
+					"weightRef": "usda-173430",
+					"alternatives": [
+						{
+							"name": "Ghee",
+							"amount": 3,
+							"unit": "tbsp",
+							"weightRef": "usda-173412"
+						}
+					],
+					"measurementProvenance": {
+						"original": {
+							"amount": 3,
+							"unit": "tbsp",
+							"name": "butter",
+							"state": "divided or (ghee for paleo diet)",
+							"note": ""
+						},
+						"sourceIngredientId": "ingredient-3",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-3"
 				},
 				{
 					"id": "ingredient-13",
@@ -82816,13 +82856,6 @@
 							"state": ""
 						},
 						{
-							"id": "ingredient-3",
-							"name": "butter",
-							"amount": 3,
-							"unit": "tbsp",
-							"state": "divided or (ghee for paleo diet)"
-						},
-						{
 							"id": "ingredient-2",
 							"name": "green beans",
 							"amount": 1,
@@ -82835,6 +82868,13 @@
 							"amount": 0.5,
 							"unit": "cup",
 							"state": ""
+						},
+						{
+							"id": "ingredient-3",
+							"name": "butter",
+							"amount": 3,
+							"unit": "tbsp",
+							"state": "divided or (ghee for paleo diet)"
 						},
 						{
 							"id": "ingredient-13",
@@ -83036,26 +83076,50 @@
 					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Return chicken and warm; garnish.",
+					"action": "Cook the beans in the same skillet with the remaining butter, herbs, garlic and hot sauce for 4–5 min. Add stock and lemon, reduce briefly, then return chicken and warm; garnish.",
 					"children": [
 						{
-							"action": "Season chicken strips; cook in one layer over medium-low in two-thirds butter 2–3 min/side to 165°F; reserve.",
+							"action": "Set the microwaved beans aside. Cook the seasoned chicken in one layer over medium-low in two-thirds of the butter for 2–3 min per side to 165°F; reserve.",
 							"children": [
 								{
-									"ingredientId": "ingredient-1",
-									"fraction": 1
+									"action": "Season chicken strips with paprika, onion powder and pepper.",
+									"children": [
+										{
+											"ingredientId": "ingredient-1",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-5",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-6",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-8",
+											"fraction": 1
+										}
+									],
+									"equipment": [
+										"Large bowl"
+									]
 								},
 								{
-									"ingredientId": "ingredient-5",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-6",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-8",
-									"fraction": 1
+									"action": "Microwave the beans with their cooking water, covered, for 8–10 min until nearly tender.",
+									"children": [
+										{
+											"ingredientId": "ingredient-2",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-14",
+											"fraction": 1
+										}
+									],
+									"equipment": [
+										"Microwave"
+									]
 								},
 								{
 									"ingredientId": "ingredient-3",
@@ -83067,48 +83131,32 @@
 							]
 						},
 						{
-							"action": "Microwave beans with water 8–10 min; after chicken is reserved cook beans with remaining butter, herbs, garlic/hot sauce 4–5 min; reduce stock/lemon briefly.",
-							"children": [
-								{
-									"ingredientId": "ingredient-2",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-14",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-3",
-									"fraction": 0.33333333333333337
-								},
-								{
-									"ingredientId": "ingredient-13",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-4",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-11",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-12",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-10",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-9",
-									"fraction": 1
-								}
-							],
-							"equipment": [
-								"Microwave"
-							]
+							"ingredientId": "ingredient-3",
+							"fraction": 0.33333333333333337
+						},
+						{
+							"ingredientId": "ingredient-13",
+							"fraction": 1
+						},
+						{
+							"ingredientId": "ingredient-4",
+							"fraction": 1
+						},
+						{
+							"ingredientId": "ingredient-11",
+							"fraction": 1
+						},
+						{
+							"ingredientId": "ingredient-12",
+							"fraction": 1
+						},
+						{
+							"ingredientId": "ingredient-10",
+							"fraction": 1
+						},
+						{
+							"ingredientId": "ingredient-9",
+							"fraction": 1
 						}
 					],
 					"equipment": [
@@ -89717,6 +89765,63 @@
 			"boosters": [],
 			"ingredients": [
 				{
+					"id": "ingredient-2",
+					"name": "fresh stringless green beans",
+					"state": "trimmed",
+					"amount": 1,
+					"unit": "lb",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "1 lb (450g) fresh stringless green beans, trimmed",
+					"sourceAmount": 1,
+					"sourceUnit": "lb",
+					"optional": false,
+					"measurementProvenance": {
+						"original": {
+							"amount": 1,
+							"unit": "lb",
+							"name": "fresh stringless green beans",
+							"state": "trimmed",
+							"note": "(450g) is the source parenthetical; original US quantity controls."
+						},
+						"sourceIngredientId": "ingredient-2",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-2"
+				},
+				{
+					"id": "ingredient-14",
+					"name": "Water for bean microwave",
+					"state": "",
+					"amount": 0.5,
+					"unit": "cup",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "Source method: 0.5 cup water",
+					"sourceAmount": 0.5,
+					"sourceUnit": "cup",
+					"optional": false,
+					"weightRef": "water",
+					"measurementProvenance": {
+						"original": {
+							"amount": 0.5,
+							"unit": "cup",
+							"name": "Water for bean microwave",
+							"state": "",
+							"note": "Added from the source method; omitted from its ingredient list."
+						},
+						"sourceIngredientId": "ingredient-14",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-14"
+				},
+				{
 					"id": "ingredient-1",
 					"name": "sausage",
 					"state": "",
@@ -89831,63 +89936,6 @@
 						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
 					},
 					"sourceIngredientId": "ingredient-4"
-				},
-				{
-					"id": "ingredient-2",
-					"name": "fresh stringless green beans",
-					"state": "trimmed",
-					"amount": 1,
-					"unit": "lb",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "1 lb (450g) fresh stringless green beans, trimmed",
-					"sourceAmount": 1,
-					"sourceUnit": "lb",
-					"optional": false,
-					"measurementProvenance": {
-						"original": {
-							"amount": 1,
-							"unit": "lb",
-							"name": "fresh stringless green beans",
-							"state": "trimmed",
-							"note": "(450g) is the source parenthetical; original US quantity controls."
-						},
-						"sourceIngredientId": "ingredient-2",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-2"
-				},
-				{
-					"id": "ingredient-14",
-					"name": "Water for bean microwave",
-					"state": "",
-					"amount": 0.5,
-					"unit": "cup",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "Source method: 0.5 cup water",
-					"sourceAmount": 0.5,
-					"sourceUnit": "cup",
-					"optional": false,
-					"weightRef": "water",
-					"measurementProvenance": {
-						"original": {
-							"amount": 0.5,
-							"unit": "cup",
-							"name": "Water for bean microwave",
-							"state": "",
-							"note": "Added from the source method; omitted from its ingredient list."
-						},
-						"sourceIngredientId": "ingredient-14",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-14"
 				},
 				{
 					"id": "ingredient-5",
@@ -90212,6 +90260,20 @@
 					"publisherBaselineFields": [],
 					"ingredientSnapshot": [
 						{
+							"id": "ingredient-2",
+							"name": "fresh stringless green beans",
+							"amount": 1,
+							"unit": "lb",
+							"state": "trimmed"
+						},
+						{
+							"id": "ingredient-14",
+							"name": "Water for bean microwave",
+							"amount": 0.5,
+							"unit": "cup",
+							"state": ""
+						},
+						{
 							"id": "ingredient-1",
 							"name": "sausage",
 							"amount": 1,
@@ -90238,20 +90300,6 @@
 							"amount": 5,
 							"unit": "count",
 							"state": "minced"
-						},
-						{
-							"id": "ingredient-2",
-							"name": "fresh stringless green beans",
-							"amount": 1,
-							"unit": "lb",
-							"state": "trimmed"
-						},
-						{
-							"id": "ingredient-14",
-							"name": "Water for bean microwave",
-							"amount": 0.5,
-							"unit": "cup",
-							"state": ""
 						},
 						{
 							"id": "ingredient-5",
@@ -90462,8 +90510,24 @@
 					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Return sausages and warm; garnish.",
+					"action": "After reserving the sausages, cook the microwaved beans with remaining butter, garlic and herbs in the same skillet for 4–5 min. Add lemon, stock and optional hot sauce and reduce. Return sausages, warm and garnish.",
 					"children": [
+						{
+							"action": "Microwave the beans with their cooking water, covered, for 8–10 min until nearly tender.",
+							"children": [
+								{
+									"ingredientId": "ingredient-2",
+									"fraction": 1
+								},
+								{
+									"ingredientId": "ingredient-14",
+									"fraction": 1
+								}
+							],
+							"equipment": [
+								"Microwave"
+							]
+						},
 						{
 							"action": "Simmer sausages over medium with separate sausage water 10 min, evaporate; brown with two-thirds butter/half garlic to 160°F pork or 165°F poultry; reserve.",
 							"children": [
@@ -90489,52 +90553,36 @@
 							]
 						},
 						{
-							"action": "Microwave beans with bean water 8–10 min. After sausages are reserved, cook beans with remaining fat/garlic, herbs 4–5 min; add lemon/stock/optional hot sauce and reduce.",
-							"children": [
-								{
-									"ingredientId": "ingredient-2",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-14",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-3",
-									"fraction": 0.33333333333333337
-								},
-								{
-									"ingredientId": "ingredient-4",
-									"fraction": 0.5
-								},
-								{
-									"ingredientId": "ingredient-5",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-11",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-12",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-6",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-8",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-9",
-									"fraction": 1
-								}
-							],
-							"equipment": [
-								"Microwave"
-							]
+							"ingredientId": "ingredient-3",
+							"fraction": 0.33333333333333337
+						},
+						{
+							"ingredientId": "ingredient-4",
+							"fraction": 0.5
+						},
+						{
+							"ingredientId": "ingredient-5",
+							"fraction": 1
+						},
+						{
+							"ingredientId": "ingredient-11",
+							"fraction": 1
+						},
+						{
+							"ingredientId": "ingredient-12",
+							"fraction": 1
+						},
+						{
+							"ingredientId": "ingredient-6",
+							"fraction": 1
+						},
+						{
+							"ingredientId": "ingredient-8",
+							"fraction": 1
+						},
+						{
+							"ingredientId": "ingredient-9",
+							"fraction": 1
 						},
 						{
 							"ingredientId": "ingredient-7-pepper",
@@ -90592,6 +90640,150 @@
 			],
 			"boosters": [],
 			"ingredients": [
+				{
+					"id": "ingredient-12",
+					"name": "onion powder",
+					"state": "",
+					"amount": 0.5,
+					"unit": "tsp",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "1/2 teaspoon onion powder",
+					"sourceAmount": 0.5,
+					"sourceUnit": "tsp",
+					"optional": false,
+					"weightRef": "usda-171327",
+					"measurementProvenance": {
+						"original": {
+							"amount": 0.5,
+							"unit": "tsp",
+							"name": "onion powder",
+							"state": "",
+							"note": ""
+						},
+						"sourceIngredientId": "ingredient-12",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-12"
+				},
+				{
+					"id": "ingredient-13",
+					"name": "garlic powder",
+					"state": "",
+					"amount": 0.5,
+					"unit": "tsp",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "1/2 teaspoon garlic powder",
+					"sourceAmount": 0.5,
+					"sourceUnit": "tsp",
+					"optional": false,
+					"weightRef": "usda-171325",
+					"measurementProvenance": {
+						"original": {
+							"amount": 0.5,
+							"unit": "tsp",
+							"name": "garlic powder",
+							"state": "",
+							"note": ""
+						},
+						"sourceIngredientId": "ingredient-13",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-13"
+				},
+				{
+					"id": "ingredient-14",
+					"name": "cumin",
+					"state": "",
+					"amount": 2.1,
+					"unit": "g",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "1 teaspoon cumin",
+					"sourceAmount": 1,
+					"sourceUnit": "tsp",
+					"optional": false,
+					"measurementProvenance": {
+						"original": {
+							"amount": 1,
+							"unit": "tsp",
+							"name": "cumin",
+							"state": "",
+							"note": ""
+						},
+						"sourceIngredientId": "ingredient-14",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Ground cumin adopted at a weighed seasoning amount; seed portion data is not presented as ground-powder measurement."
+					},
+					"sourceIngredientId": "ingredient-14"
+				},
+				{
+					"id": "ingredient-15",
+					"name": "chili powder",
+					"state": "",
+					"amount": 1,
+					"unit": "tsp",
+					"category": "pantry",
+					"note": "For less heat, use less; for more heat, add gradually to taste.",
+					"scale": "linear",
+					"sourceLine": "1 teaspoon chili powder",
+					"sourceAmount": 1,
+					"sourceUnit": "tsp",
+					"optional": false,
+					"weightRef": "usda-171319",
+					"measurementProvenance": {
+						"original": {
+							"amount": 1,
+							"unit": "tsp",
+							"name": "chili powder",
+							"state": "",
+							"note": "For less heat, use less; for more heat, add gradually to taste."
+						},
+						"sourceIngredientId": "ingredient-15",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-15"
+				},
+				{
+					"id": "ingredient-16",
+					"name": "paprika",
+					"state": "",
+					"amount": 1,
+					"unit": "tsp",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "1 teaspoon paprika",
+					"sourceAmount": 1,
+					"sourceUnit": "tsp",
+					"optional": false,
+					"weightRef": "usda-171329",
+					"measurementProvenance": {
+						"original": {
+							"amount": 1,
+							"unit": "tsp",
+							"name": "paprika",
+							"state": "",
+							"note": ""
+						},
+						"sourceIngredientId": "ingredient-16",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-16"
+				},
 				{
 					"id": "ingredient-1",
 					"name": "flank steak",
@@ -90882,150 +91074,6 @@
 					"sourceIngredientId": "ingredient-6"
 				},
 				{
-					"id": "ingredient-12",
-					"name": "onion powder",
-					"state": "",
-					"amount": 0.5,
-					"unit": "tsp",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "1/2 teaspoon onion powder",
-					"sourceAmount": 0.5,
-					"sourceUnit": "tsp",
-					"optional": false,
-					"weightRef": "usda-171327",
-					"measurementProvenance": {
-						"original": {
-							"amount": 0.5,
-							"unit": "tsp",
-							"name": "onion powder",
-							"state": "",
-							"note": ""
-						},
-						"sourceIngredientId": "ingredient-12",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-12"
-				},
-				{
-					"id": "ingredient-13",
-					"name": "garlic powder",
-					"state": "",
-					"amount": 0.5,
-					"unit": "tsp",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "1/2 teaspoon garlic powder",
-					"sourceAmount": 0.5,
-					"sourceUnit": "tsp",
-					"optional": false,
-					"weightRef": "usda-171325",
-					"measurementProvenance": {
-						"original": {
-							"amount": 0.5,
-							"unit": "tsp",
-							"name": "garlic powder",
-							"state": "",
-							"note": ""
-						},
-						"sourceIngredientId": "ingredient-13",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-13"
-				},
-				{
-					"id": "ingredient-14",
-					"name": "cumin",
-					"state": "",
-					"amount": 2.1,
-					"unit": "g",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "1 teaspoon cumin",
-					"sourceAmount": 1,
-					"sourceUnit": "tsp",
-					"optional": false,
-					"measurementProvenance": {
-						"original": {
-							"amount": 1,
-							"unit": "tsp",
-							"name": "cumin",
-							"state": "",
-							"note": ""
-						},
-						"sourceIngredientId": "ingredient-14",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Ground cumin adopted at a weighed seasoning amount; seed portion data is not presented as ground-powder measurement."
-					},
-					"sourceIngredientId": "ingredient-14"
-				},
-				{
-					"id": "ingredient-15",
-					"name": "chili powder",
-					"state": "",
-					"amount": 1,
-					"unit": "tsp",
-					"category": "pantry",
-					"note": "For less heat, use less; for more heat, add gradually to taste.",
-					"scale": "linear",
-					"sourceLine": "1 teaspoon chili powder",
-					"sourceAmount": 1,
-					"sourceUnit": "tsp",
-					"optional": false,
-					"weightRef": "usda-171319",
-					"measurementProvenance": {
-						"original": {
-							"amount": 1,
-							"unit": "tsp",
-							"name": "chili powder",
-							"state": "",
-							"note": "For less heat, use less; for more heat, add gradually to taste."
-						},
-						"sourceIngredientId": "ingredient-15",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-15"
-				},
-				{
-					"id": "ingredient-16",
-					"name": "paprika",
-					"state": "",
-					"amount": 1,
-					"unit": "tsp",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "1 teaspoon paprika",
-					"sourceAmount": 1,
-					"sourceUnit": "tsp",
-					"optional": false,
-					"weightRef": "usda-171329",
-					"measurementProvenance": {
-						"original": {
-							"amount": 1,
-							"unit": "tsp",
-							"name": "paprika",
-							"state": "",
-							"note": ""
-						},
-						"sourceIngredientId": "ingredient-16",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-16"
-				},
-				{
 					"id": "ingredient-17",
 					"name": "vegetable stock",
 					"state": "",
@@ -91180,6 +91228,41 @@
 					"publisherBaselineFields": [],
 					"ingredientSnapshot": [
 						{
+							"id": "ingredient-12",
+							"name": "onion powder",
+							"amount": 0.5,
+							"unit": "tsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-13",
+							"name": "garlic powder",
+							"amount": 0.5,
+							"unit": "tsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-14",
+							"name": "cumin",
+							"amount": 2.1,
+							"unit": "g",
+							"state": ""
+						},
+						{
+							"id": "ingredient-15",
+							"name": "chili powder",
+							"amount": 1,
+							"unit": "tsp",
+							"state": ""
+						},
+						{
+							"id": "ingredient-16",
+							"name": "paprika",
+							"amount": 1,
+							"unit": "tsp",
+							"state": ""
+						},
+						{
 							"id": "ingredient-1",
 							"name": "flank steak",
 							"amount": 1,
@@ -91248,41 +91331,6 @@
 							"amount": 1,
 							"unit": "head",
 							"state": "riced"
-						},
-						{
-							"id": "ingredient-12",
-							"name": "onion powder",
-							"amount": 0.5,
-							"unit": "tsp",
-							"state": ""
-						},
-						{
-							"id": "ingredient-13",
-							"name": "garlic powder",
-							"amount": 0.5,
-							"unit": "tsp",
-							"state": ""
-						},
-						{
-							"id": "ingredient-14",
-							"name": "cumin",
-							"amount": 2.1,
-							"unit": "g",
-							"state": ""
-						},
-						{
-							"id": "ingredient-15",
-							"name": "chili powder",
-							"amount": 1,
-							"unit": "tsp",
-							"state": ""
-						},
-						{
-							"id": "ingredient-16",
-							"name": "paprika",
-							"amount": 1,
-							"unit": "tsp",
-							"state": ""
 						},
 						{
 							"id": "ingredient-17",
@@ -91500,8 +91548,36 @@
 					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Return rolls and warm; remove toothpicks and garnish with cilantro.",
+					"action": "Add the mixed dry seasonings and measured stock to the cauliflower and reduce briefly. Return the rolls and warm through. Remove toothpicks and garnish with cilantro.",
 					"children": [
+						{
+							"action": "Mix the listed dry rice seasonings.",
+							"children": [
+								{
+									"ingredientId": "ingredient-12",
+									"fraction": 1
+								},
+								{
+									"ingredientId": "ingredient-13",
+									"fraction": 1
+								},
+								{
+									"ingredientId": "ingredient-14",
+									"fraction": 1
+								},
+								{
+									"ingredientId": "ingredient-15",
+									"fraction": 1
+								},
+								{
+									"ingredientId": "ingredient-16",
+									"fraction": 1
+								}
+							],
+							"equipment": [
+								"Large bowl"
+							]
+						},
 						{
 							"action": "Fill steak with garlic-parsley butter and mozzarella; roll/secure/slice. Sear high 3 min/side until the center of each stuffed roll reaches 165°F; reserve.",
 							"children": [
@@ -91532,7 +91608,7 @@
 							]
 						},
 						{
-							"action": "After rolls are reserved, soften onion, pepper and jalapeño in oil 3 min. Add cauliflower 2 min, measured spices and ingredient-list stock; reduce.",
+							"action": "After reserving the rolls, soften onion, bell pepper and jalapeño in oil for 3 min. Add cauliflower and cook 2 min.",
 							"children": [
 								{
 									"ingredientId": "ingredient-7",
@@ -91553,30 +91629,6 @@
 								{
 									"ingredientId": "ingredient-6",
 									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-12",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-13",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-14",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-15",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-16",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-17",
-									"fraction": 1
 								}
 							],
 							"equipment": [
@@ -91584,12 +91636,17 @@
 							]
 						},
 						{
+							"ingredientId": "ingredient-17",
+							"fraction": 1
+						},
+						{
 							"ingredientId": "ingredient-18",
 							"fraction": 1
 						}
 					],
 					"equipment": [
-						"Pans"
+						"Pans",
+						"Serving dishes"
 					]
 				}
 			},
@@ -93896,6 +93953,63 @@
 					"sourceIngredientId": "ingredient-15"
 				},
 				{
+					"id": "ingredient-2",
+					"name": "fresh stringless green beans",
+					"state": "trimmed",
+					"amount": 1.3333333333333333,
+					"unit": "lb",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "1 lb (450g) fresh stringless green beans, trimmed",
+					"sourceAmount": 1,
+					"sourceUnit": "lb",
+					"optional": false,
+					"measurementProvenance": {
+						"original": {
+							"amount": 1.3333333333333333,
+							"unit": "lb",
+							"name": "fresh stringless green beans",
+							"state": "trimmed",
+							"note": "(450g) is the source parenthetical; original US quantity controls."
+						},
+						"sourceIngredientId": "ingredient-2",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-2"
+				},
+				{
+					"id": "ingredient-16",
+					"name": "Water for bean microwave",
+					"state": "",
+					"amount": 0.6666666666666666,
+					"unit": "cup",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "Source method: 0.5 cup water",
+					"sourceAmount": 0.5,
+					"sourceUnit": "cup",
+					"optional": false,
+					"weightRef": "water",
+					"measurementProvenance": {
+						"original": {
+							"amount": 0.6666666666666666,
+							"unit": "cup",
+							"name": "Water for bean microwave",
+							"state": "",
+							"note": "Added from the source method; omitted from its ingredient list."
+						},
+						"sourceIngredientId": "ingredient-16",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-16"
+				},
+				{
 					"id": "ingredient-3",
 					"name": "butter",
 					"state": "divided",
@@ -93980,63 +94094,6 @@
 						"decision": "Explicit weighed dried pepper-flake seasoning; preserve flake preparation and optional status without applying ground cayenne or chili-powder density."
 					},
 					"sourceIngredientId": "ingredient-9"
-				},
-				{
-					"id": "ingredient-2",
-					"name": "fresh stringless green beans",
-					"state": "trimmed",
-					"amount": 1.3333333333333333,
-					"unit": "lb",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "1 lb (450g) fresh stringless green beans, trimmed",
-					"sourceAmount": 1,
-					"sourceUnit": "lb",
-					"optional": false,
-					"measurementProvenance": {
-						"original": {
-							"amount": 1.3333333333333333,
-							"unit": "lb",
-							"name": "fresh stringless green beans",
-							"state": "trimmed",
-							"note": "(450g) is the source parenthetical; original US quantity controls."
-						},
-						"sourceIngredientId": "ingredient-2",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-2"
-				},
-				{
-					"id": "ingredient-16",
-					"name": "Water for bean microwave",
-					"state": "",
-					"amount": 0.6666666666666666,
-					"unit": "cup",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "Source method: 0.5 cup water",
-					"sourceAmount": 0.5,
-					"sourceUnit": "cup",
-					"optional": false,
-					"weightRef": "water",
-					"measurementProvenance": {
-						"original": {
-							"amount": 0.6666666666666666,
-							"unit": "cup",
-							"name": "Water for bean microwave",
-							"state": "",
-							"note": "Added from the source method; omitted from its ingredient list."
-						},
-						"sourceIngredientId": "ingredient-16",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-16"
 				},
 				{
 					"id": "ingredient-5",
@@ -94315,6 +94372,20 @@
 							"state": ""
 						},
 						{
+							"id": "ingredient-2",
+							"name": "fresh stringless green beans",
+							"amount": 1.3333333333333333,
+							"unit": "lb",
+							"state": "trimmed"
+						},
+						{
+							"id": "ingredient-16",
+							"name": "Water for bean microwave",
+							"amount": 0.6666666666666666,
+							"unit": "cup",
+							"state": ""
+						},
+						{
 							"id": "ingredient-3",
 							"name": "butter",
 							"amount": 4,
@@ -94334,20 +94405,6 @@
 							"amount": 0.45,
 							"unit": "g",
 							"state": "optional"
-						},
-						{
-							"id": "ingredient-2",
-							"name": "fresh stringless green beans",
-							"amount": 1.3333333333333333,
-							"unit": "lb",
-							"state": "trimmed"
-						},
-						{
-							"id": "ingredient-16",
-							"name": "Water for bean microwave",
-							"amount": 0.6666666666666666,
-							"unit": "cup",
-							"state": ""
 						},
 						{
 							"id": "ingredient-5",
@@ -94559,34 +94616,58 @@
 					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Return steak briefly to warm through and serve.",
+					"action": "After reserving the steak, cook the beans with the remaining butter, garlic and herbs in the same skillet for 4–5 min. Add stock, lemon and the reserved marinade; bring the marinade to a full boil. Return steak briefly to warm through and serve.",
 					"children": [
 						{
-							"action": "Marinate steak 10 min in refrigerator; drain and reserve marinade. Sear in two-thirds butter over medium-high about 1 min/side, adding half garlic and optional flakes after turning; continue to 145°F, reserve and rest 3 min.",
+							"action": "Set the microwaved beans aside. Drain steak and reserve marinade. Sear steak in two-thirds of the butter over medium-high about 1 min per side, adding half the garlic and optional flakes after turning; continue to 145°F, reserve and rest 3 min.",
 							"children": [
 								{
-									"ingredientId": "ingredient-1",
-									"fraction": 1
+									"action": "Marinate steak in the refrigerator for 10 min.",
+									"children": [
+										{
+											"ingredientId": "ingredient-1",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-7-pepper",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-12",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-13",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-14",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-15",
+											"fraction": 1
+										}
+									],
+									"equipment": [
+										"Large bowl"
+									]
 								},
 								{
-									"ingredientId": "ingredient-7-pepper",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-12",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-13",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-14",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-15",
-									"fraction": 1
+									"action": "Microwave the beans with their cooking water, covered, for 8–10 min until nearly tender.",
+									"children": [
+										{
+											"ingredientId": "ingredient-2",
+											"fraction": 1
+										},
+										{
+											"ingredientId": "ingredient-16",
+											"fraction": 1
+										}
+									],
+									"equipment": [
+										"Microwave"
+									]
 								},
 								{
 									"ingredientId": "ingredient-3",
@@ -94602,56 +94683,40 @@
 								}
 							],
 							"equipment": [
-								"Pans",
-								"Large bowl"
+								"Pans"
 							]
 						},
 						{
-							"action": "Microwave beans with water 8–10 min. After steak is reserved, cook beans with remaining fat/garlic and herbs 4–5 min; add stock/lemon and reserved marinade; bring marinade to full boil.",
-							"children": [
-								{
-									"ingredientId": "ingredient-2",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-16",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-3",
-									"fraction": 0.33333333333333337
-								},
-								{
-									"ingredientId": "ingredient-4",
-									"fraction": 0.5
-								},
-								{
-									"ingredientId": "ingredient-5",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-10",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-11",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-8",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-6",
-									"fraction": 1
-								}
-							],
-							"equipment": [
-								"Microwave"
-							]
+							"ingredientId": "ingredient-3",
+							"fraction": 0.33333333333333337
+						},
+						{
+							"ingredientId": "ingredient-4",
+							"fraction": 0.5
+						},
+						{
+							"ingredientId": "ingredient-5",
+							"fraction": 1
+						},
+						{
+							"ingredientId": "ingredient-10",
+							"fraction": 1
+						},
+						{
+							"ingredientId": "ingredient-11",
+							"fraction": 1
+						},
+						{
+							"ingredientId": "ingredient-8",
+							"fraction": 1
+						},
+						{
+							"ingredientId": "ingredient-6",
+							"fraction": 1
 						}
 					],
 					"equipment": [
+						"Pans",
 						"Serving dishes"
 					]
 				}
@@ -100411,32 +100476,34 @@
 					"sourceIngredientId": "ingredient-10"
 				},
 				{
-					"id": "ingredient-8",
-					"name": "red pepper flakes",
-					"state": "",
-					"amount": 0.45,
-					"unit": "g",
+					"id": "ingredient-12-pepper",
+					"name": "Black pepper",
+					"state": "ground",
+					"amount": 0.25,
+					"unit": "tsp",
 					"category": "pantry",
-					"note": "(optional) For less heat, use less; for more heat, add gradually to taste.",
+					"note": "",
 					"scale": "linear",
-					"sourceLine": "1/4 teaspoon red pepper flakes (optional)",
-					"sourceAmount": 0.25,
-					"sourceUnit": "tsp",
-					"optional": true,
+					"sourceLine": "Salt and freshly cracked black pepper",
+					"sourceAmount": 0,
+					"sourceUnit": "",
+					"optional": false,
+					"weightRef": "usda-170931",
 					"measurementProvenance": {
 						"original": {
-							"amount": 0.25,
-							"unit": "tsp",
-							"name": "red pepper flakes",
+							"amount": 0,
+							"unit": "",
+							"name": "Salt and freshly cracked black pepper",
 							"state": "",
-							"note": "(optional) Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
+							"note": "Unquantified in source; use to taste or as optional garnish as stated."
 						},
-						"sourceIngredientId": "ingredient-8",
+						"sourceIngredientId": "ingredient-12",
 						"reviewedOn": "2026-10-15",
 						"massBasis": "edible",
-						"decision": "Explicit weighed dried pepper-flake seasoning; preserve flake preparation and optional status without applying ground cayenne or chili-powder density."
+						"decision": "Measured starting seasoning for four servings: 1/2 tsp fine salt and 1/4 tsp ground black pepper; optional status and fixed/linear scaling retained."
 					},
-					"sourceIngredientId": "ingredient-8"
+					"sourceIngredientId": "ingredient-12",
+					"pinchGrams": 0.05
 				},
 				{
 					"id": "ingredient-11",
@@ -100526,34 +100593,32 @@
 					"sourceIngredientId": "ingredient-14"
 				},
 				{
-					"id": "ingredient-12-pepper",
-					"name": "Black pepper",
-					"state": "ground",
-					"amount": 0.25,
-					"unit": "tsp",
+					"id": "ingredient-8",
+					"name": "red pepper flakes",
+					"state": "",
+					"amount": 0.45,
+					"unit": "g",
 					"category": "pantry",
-					"note": "",
+					"note": "(optional) For less heat, use less; for more heat, add gradually to taste.",
 					"scale": "linear",
-					"sourceLine": "Salt and freshly cracked black pepper",
-					"sourceAmount": 0,
-					"sourceUnit": "",
-					"optional": false,
-					"weightRef": "usda-170931",
+					"sourceLine": "1/4 teaspoon red pepper flakes (optional)",
+					"sourceAmount": 0.25,
+					"sourceUnit": "tsp",
+					"optional": true,
 					"measurementProvenance": {
 						"original": {
-							"amount": 0,
-							"unit": "",
-							"name": "Salt and freshly cracked black pepper",
+							"amount": 0.25,
+							"unit": "tsp",
+							"name": "red pepper flakes",
 							"state": "",
-							"note": "Unquantified in source; use to taste or as optional garnish as stated."
+							"note": "(optional) Optional; excluded or included as stated in the publisher nutrition. For less heat, use less; for more heat, add gradually to taste."
 						},
-						"sourceIngredientId": "ingredient-12",
+						"sourceIngredientId": "ingredient-8",
 						"reviewedOn": "2026-10-15",
 						"massBasis": "edible",
-						"decision": "Measured starting seasoning for four servings: 1/2 tsp fine salt and 1/4 tsp ground black pepper; optional status and fixed/linear scaling retained."
+						"decision": "Explicit weighed dried pepper-flake seasoning; preserve flake preparation and optional status without applying ground cayenne or chili-powder density."
 					},
-					"sourceIngredientId": "ingredient-12",
-					"pinchGrams": 0.05
+					"sourceIngredientId": "ingredient-8"
 				},
 				{
 					"id": "ingredient-15",
@@ -100744,11 +100809,11 @@
 							"state": ""
 						},
 						{
-							"id": "ingredient-8",
-							"name": "red pepper flakes",
-							"amount": 0.45,
-							"unit": "g",
-							"state": ""
+							"id": "ingredient-12-pepper",
+							"name": "Black pepper",
+							"amount": 0.25,
+							"unit": "tsp",
+							"state": "ground"
 						},
 						{
 							"id": "ingredient-11",
@@ -100772,11 +100837,11 @@
 							"state": "optional"
 						},
 						{
-							"id": "ingredient-12-pepper",
-							"name": "Black pepper",
-							"amount": 0.25,
-							"unit": "tsp",
-							"state": "ground"
+							"id": "ingredient-8",
+							"name": "red pepper flakes",
+							"amount": 0.45,
+							"unit": "g",
+							"state": ""
 						},
 						{
 							"id": "ingredient-15",
@@ -100963,7 +101028,7 @@
 					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Return sausage and cauliflower, heat through and finish with parsley.",
+					"action": "Return sausage and cauliflower, heat through, and finish with optional chili flakes and parsley.",
 					"children": [
 						{
 							"action": "Rice cauliflower; microwave covered with its listed water about 7 min until just tender.",
@@ -100983,7 +101048,7 @@
 							]
 						},
 						{
-							"action": "Brown sausage over medium-high in one-third oil about 5 min; reserve. Cook peppers/onion in remaining oil 4–5 min, garlic/herbs/seasoning 1 min; add broth, scrape pan and simmer 1 min; add optional spices.",
+							"action": "Brown sausage over medium-high in one-third of the oil about 5 min; reserve. Cook peppers and onion in the remaining oil 4–5 min. Add garlic, Italian seasoning and black pepper for 1 min. Add broth, scrape the pan and simmer 1 min, then add optional paprika and cayenne.",
 							"children": [
 								{
 									"ingredientId": "ingredient-7",
@@ -101018,7 +101083,7 @@
 									"fraction": 1
 								},
 								{
-									"ingredientId": "ingredient-8",
+									"ingredientId": "ingredient-12-pepper",
 									"fraction": 1
 								},
 								{
@@ -101039,7 +101104,7 @@
 							]
 						},
 						{
-							"ingredientId": "ingredient-12-pepper",
+							"ingredientId": "ingredient-8",
 							"fraction": 1
 						},
 						{
@@ -101334,6 +101399,35 @@
 					"sourceIngredientId": "ingredient-10"
 				},
 				{
+					"id": "ingredient-4",
+					"name": "bacon",
+					"state": "",
+					"amount": 5.333333333333333,
+					"unit": "strip",
+					"category": "pantry",
+					"note": "",
+					"scale": "linear",
+					"sourceLine": "4 strips of bacon",
+					"sourceAmount": 4,
+					"sourceUnit": "strip",
+					"optional": false,
+					"weightRef": "usda-168277",
+					"measurementProvenance": {
+						"original": {
+							"amount": 5.333333333333333,
+							"unit": "strip",
+							"name": "bacon",
+							"state": "",
+							"note": ""
+						},
+						"sourceIngredientId": "ingredient-4",
+						"reviewedOn": "2026-10-15",
+						"massBasis": "edible",
+						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
+					},
+					"sourceIngredientId": "ingredient-4"
+				},
+				{
 					"id": "ingredient-11",
 					"name": "half and half",
 					"state": "",
@@ -101447,35 +101541,6 @@
 						"decision": "Explicit weighed dried pepper-flake seasoning; preserve flake preparation and optional status without applying ground cayenne or chili-powder density."
 					},
 					"sourceIngredientId": "ingredient-9"
-				},
-				{
-					"id": "ingredient-4",
-					"name": "bacon",
-					"state": "",
-					"amount": 5.333333333333333,
-					"unit": "strip",
-					"category": "pantry",
-					"note": "",
-					"scale": "linear",
-					"sourceLine": "4 strips of bacon",
-					"sourceAmount": 4,
-					"sourceUnit": "strip",
-					"optional": false,
-					"weightRef": "usda-168277",
-					"measurementProvenance": {
-						"original": {
-							"amount": 5.333333333333333,
-							"unit": "strip",
-							"name": "bacon",
-							"state": "",
-							"note": ""
-						},
-						"sourceIngredientId": "ingredient-4",
-						"reviewedOn": "2026-10-15",
-						"massBasis": "edible",
-						"decision": "Retain original measured quantity; reviewed dimensional and preparation basis."
-					},
-					"sourceIngredientId": "ingredient-4"
 				}
 			],
 			"steps": [
@@ -101624,6 +101689,13 @@
 							"state": ""
 						},
 						{
+							"id": "ingredient-4",
+							"name": "bacon",
+							"amount": 5.333333333333333,
+							"unit": "strip",
+							"state": ""
+						},
+						{
 							"id": "ingredient-11",
 							"name": "half and half",
 							"amount": 1.3333333333333333,
@@ -101649,13 +101721,6 @@
 							"name": "crushed red pepper flakes",
 							"amount": 2.4,
 							"unit": "g",
-							"state": ""
-						},
-						{
-							"id": "ingredient-4",
-							"name": "bacon",
-							"amount": 5.333333333333333,
-							"unit": "strip",
 							"state": ""
 						}
 					],
@@ -101811,7 +101876,7 @@
 					"For larger servings, use extra cooking space or separate batches; keep the stated piece thickness and check each batch at its doneness endpoint. Weigh or divide prepared whole ingredients when a scaled quantity is fractional."
 				],
 				"root": {
-					"action": "Add bacon and chicken to sauce 10–15 min, continuing to 165°F.",
+					"action": "Add cream, cheese, spinach and flakes to the sauce and simmer for 2–3 min. Add the crisp bacon and chicken and cook for 10–15 min, continuing until the chicken reaches 165°F.",
 					"children": [
 						{
 							"action": "Season chicken with half Italian seasoning and pepper; brown over medium-high in half butter 4–5 min/side and reserve.",
@@ -101838,7 +101903,7 @@
 							]
 						},
 						{
-							"action": "After chicken is reserved, use remaining butter for garlic/paprika/herbs 2–3 min; tomatoes/stock 4–5 min; cream/cheese/spinach/flakes, simmer 2–3 min. Meanwhile crisp bacon separately, drain and chop.",
+							"action": "After reserving the chicken, cook garlic, paprika and remaining herbs in the remaining butter for 2–3 min. Add tomatoes and stock and cook for 4–5 min.",
 							"children": [
 								{
 									"ingredientId": "ingredient-6",
@@ -101863,23 +101928,15 @@
 								{
 									"ingredientId": "ingredient-10",
 									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-11",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-12",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-8",
-									"fraction": 1
-								},
-								{
-									"ingredientId": "ingredient-9",
-									"fraction": 1
-								},
+								}
+							],
+							"equipment": [
+								"Pans"
+							]
+						},
+						{
+							"action": "While the tomatoes and stock cook, crisp the bacon in a separate skillet, then drain and chop.",
+							"children": [
 								{
 									"ingredientId": "ingredient-4",
 									"fraction": 1
@@ -101889,9 +101946,26 @@
 								"Pans",
 								"Chopping board"
 							]
+						},
+						{
+							"ingredientId": "ingredient-11",
+							"fraction": 1
+						},
+						{
+							"ingredientId": "ingredient-12",
+							"fraction": 1
+						},
+						{
+							"ingredientId": "ingredient-8",
+							"fraction": 1
+						},
+						{
+							"ingredientId": "ingredient-9",
+							"fraction": 1
 						}
 					],
 					"equipment": [
+						"Pans",
 						"Kitchen utensils"
 					]
 				}
