@@ -66,7 +66,7 @@ follow Local UI verification below.
 
 ```bash
 npm run dev                 # Astro dev server (localhost:4321)
-npm run build               # astro build (writes the route manifest and pins hosted stylesheet links) + static Markdown siblings (build/markdown-build.mjs) + recipe service worker (build/recipes/pwa-build.mjs) + built-CSP test (csp suite)
+npm run build               # validate blog media, then astro build (writes the route manifest and pins hosted stylesheet links) + static Markdown siblings (build/markdown-build.mjs) + recipe service worker (build/recipes/pwa-build.mjs) + built-CSP test (csp suite)
 npm run build:maintenance   # MAINTENANCE_MODE=true npm run build (renders Maintenance.astro)
 npm run preview             # Preview the production build locally
 npm run gate                # the full pre-commit gate (see CI below)

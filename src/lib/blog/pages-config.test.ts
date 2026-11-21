@@ -64,7 +64,12 @@ const fieldSchema = z.object({
 		.optional(),
 });
 const pagesSchema = z.object({
-	media: z.object({ input: z.string(), output: z.string() }),
+	media: z.object({
+		input: z.string(),
+		output: z.string(),
+		extensions: z.array(z.string()),
+		categories: z.array(z.string()).optional(),
+	}),
 	settings: z.object({ content: z.object({ merge: z.boolean() }) }),
 	content: z.array(
 		z.object({
@@ -175,7 +180,11 @@ describe(".pages.yml", () => {
 
 	it("An editor creating a post or category in PagesCMS writes it where the collections load it, with the schema's required fields and defaults", async () => {
 		const cms = await pagesConfig();
-		assert.equal(cms.media.input, `public${cms.media.output}`);
+		assert.deepEqual(cms.media, {
+			input: "public/blog/media",
+			output: "/blog/media",
+			extensions: ["webp"],
+		});
 		assert.ok(statSync(join(ROOT, cms.media.input)).isDirectory());
 
 		const posts = cms.collection("posts");

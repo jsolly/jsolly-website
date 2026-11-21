@@ -56,10 +56,11 @@ old blog's algorithm, which must not change.
 
 ### Images and media
 
-Upload ordinary images through the CMS Media sidebar. They land in
-`public/blog/media/` and are served at `/blog/media/`. Resize and compress them
-before uploading, then paste the uploaded `/blog/media/...` path into the
-cover-image field. The field accepts these first-party paths. The default cover
+Resize and export images as WebP before uploading them through the CMS Media
+sidebar. They land in `public/blog/media/` and are served at `/blog/media/`.
+The build checks the filename and decodes every image in that directory,
+including files no post uses. Paste the uploaded `/blog/media/...` path into
+the cover-image field. The default cover
 is `/blog/media/default.webp`. Existing migrated images retain their generated
 responsive variants; ordinary CMS uploads use their authored image path.
 
