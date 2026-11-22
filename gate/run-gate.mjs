@@ -253,8 +253,7 @@ async function runValidation(root, built) {
 										"--no-install",
 										"playwright",
 										"install",
-										// TEMPORARY: no `--with-deps`. apt on the arm runner could not reach ports.ubuntu.com
-										// on 2026-11-11. Restore with the workflow steps: https://app.todoist.com/app/task/6hxj7q93qR2WxXW5
+										"--with-deps",
 										"--only-shell",
 										"chromium",
 									],
