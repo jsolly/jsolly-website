@@ -69,6 +69,9 @@ async function goRecipe(page, path) {
 
 async function goHydrated(page, path) {
 	await page.goto(`${site.origin}${path}`);
+	await page.waitForFunction(
+		() => !document.querySelector("astro-island[ssr]"),
+	);
 	await page.locator("[data-hydrated=true]").waitFor();
 	await page.waitForFunction(
 		() =>
@@ -307,6 +310,42 @@ it("Print all meals and Print all smoothies print every recipe in that collectio
 			"collection printing saves nothing offline",
 		);
 		assert.deepEqual(errors, []);
+	} finally {
+		await close();
+	}
+});
+
+it("a failed Print all pack download leaves a visible error and clears the button's busy state", {
+	timeout: 60_000,
+}, async () => {
+	const { page, close } = await openPage({
+		initScript: printFiresBeforePrint,
+		serviceWorkers: "block",
+	});
+	try {
+		const failedPack = `/recipes/data/packs/${meals[0].id}.json`;
+		const button = page.getByRole("button", { name: "Print all meals" });
+		const busyButton = button.and(page.locator('[aria-busy="true"]'));
+		await page.route(`${site.origin}${failedPack}`, async (route) => {
+			await busyButton.waitFor({ state: "visible", timeout: 5_000 });
+			await route.fulfill({ status: 503 });
+		});
+		await goHydrated(page, "/recipes/meals/");
+		const [response] = await Promise.all([
+			page.waitForResponse(`${site.origin}${failedPack}`),
+			button.click(),
+		]);
+		assert.equal(response.status(), 503);
+		await page
+			.getByRole("status")
+			.filter({
+				hasText:
+					"The recipe could not be loaded. Check your connection and try again.",
+			})
+			.waitFor({ state: "visible" });
+		assert.notEqual(await button.getAttribute("aria-busy"), "true");
+		assert.equal(await button.isEnabled(), true);
+		assert.equal(await page.locator("[data-test-print-requested]").count(), 0);
 	} finally {
 		await close();
 	}

@@ -22,6 +22,7 @@ const ASSISTANT_EXPORTS = [
 	"/recipes/data/recipe-library.json",
 	"/recipes/data/recipe-library.md",
 ];
+const PRINT_ALL = /^Print all /u;
 const PROTEINS = /^Proteins:/u;
 const SAVE_ERROR = /could not be saved/iu;
 const ID = "lemon-salmon-and-asparagus";
@@ -330,6 +331,13 @@ it("Saved-only search, filters and shuffle retain their scope after a shell upda
 		await navigateHydrated(page, `${site.origin}/recipes/saved/`);
 		await page.waitForFunction(
 			() => document.querySelectorAll(".recipe-card").length === 2,
+		);
+		assert.equal(
+			await page
+				.getByRole("button", { name: PRINT_ALL, includeHidden: true })
+				.count(),
+			0,
+			"the populated Saved view has no collection print button while online",
 		);
 		await serve("B");
 		await page.evaluate(async () =>
