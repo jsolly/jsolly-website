@@ -2,6 +2,7 @@
 
 ## 2026-11-22
 
+- Remove the `auto-merge.yml` workflow, its `AUTO_MERGE_TOKEN` use, its contract test and the two auto-merge check files. Each agent now arms native squash auto-merge on its own reviewed pull request, and GitHub merges it on green `ci` and `security`.
 - Remove npm overrides for `@tootallnate/once`, `minimatch`, `tar` and `srvx`. None appears in the lockfile.
 
 ## 2026-11-20
