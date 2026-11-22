@@ -626,6 +626,7 @@ canonical HTML and Markdown, its detail pack, the full cooking-runtime dependenc
 closure and one illustration. Responsive image requests use that saved cooking
 illustration offline. Each response must match its built SHA-256 digest and
 byte count. Downloads have bounded concurrency, body size and duration.
+Offline snapshot requests omit browser credentials so personalized HTML, such as a Vercel Toolbar injection, cannot replace the public build bytes. Normal online navigation still uses browser credentials.
 Only after every file validates does one registry write expose the recipe as
 saved. A failed or interrupted save preserves the previous saved version and
 never exposes a partial replacement.
