@@ -309,17 +309,15 @@ Merge only when the required CI validates the exact current head. Never push to
 the default branch, weaken rulesets, bypass checks or use an admin merge. Optional
 personal review skills may help, but they are not prerequisites for this flow.
 
-A non-draft pull request authored by `solly-agent`, `jsolly`, `cursor[bot]`, or `app/cursor`, with its head
-in this repository, arms GitHub squash auto-merge from
-`.github/workflows/auto-merge.yml` when it is opened, updated, reopened, or
-marked ready. Hold it by converting it to a draft or running
-`gh pr merge --disable-auto`. Any other author stays untouched. At 09:00, 17:00 and 22:00 UTC daily, and on manual dispatch, the same workflow re-arms auto-merge for each
-open eligible pull request. If `ci` and `security` are already green on that
-head and the pull request is still open, the sweep squash-merges it with
-`--match-head-commit`. Both paths use `secrets.AUTO_MERGE_TOKEN` and fail if
-that secret is missing; they do not fall back to `GITHUB_TOKEN`. A merge made
-with that token starts push workflows, including CI and the accessibility
-audit. Repository auto-merge stays enabled. Rulesets are unchanged.
+The agent that opens a pull request owns it. It opens ready work as non-draft
+and, right after the last of opening it, marking it ready, or pushing the final reviewed head, arms native squash auto-merge on the reviewed head
+with its own session: `gh pr merge <n> --auto --squash --match-head-commit <sha>`
+(dotagents `rules/pr-auto-merge.md`). GitHub merges once `ci` and `security`
+pass on that head. The merge is attributed to the agent's account, so push
+workflows, including CI and the accessibility audit, start normally. Hold a pull
+request by converting it to a draft or running `gh pr merge --disable-auto`.
+Dependabot pull requests are never armed unless John asks. Repository
+auto-merge stays enabled. Rulesets are unchanged.
 
 Preserve existing code-only Deploy, production-main-only Vercel and
 `preview/`-branch-only Preview rules. Never push a `preview/` branch merely to
