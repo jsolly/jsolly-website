@@ -3,6 +3,7 @@
 import assert from "node:assert/strict";
 import { mkdir } from "node:fs/promises";
 import { afterAll as after, beforeAll as before, it } from "vitest";
+import { STORAGE_KEY } from "../../src/components/recipes/constants.mjs";
 import { launchTestBrowser } from "../network/browser.ts";
 import { collectErrors, serveStatic } from "./pages.mjs";
 import { legacyUnits, setLegacyUnits } from "./recipe-legacy-units.mjs";
@@ -24,40 +25,54 @@ const FAMILY_SIDE = /^Add a side/u;
 const ORIGIN = "https://recipe-preview.example.test";
 const recipeId = "shawarma-chicken-bowls";
 
+async function openSafariPrintPages(width) {
+	const context = await browser.newContext({
+		viewport: { width, height: 900 },
+		reducedMotion: "reduce",
+		serviceWorkers: "block",
+	});
+	const safari = await browser.newContext({
+		serviceWorkers: "block",
+		viewport: { width, height: 900 },
+	});
+	await context.addInitScript(() => {
+		Object.defineProperty(navigator, "userAgent", {
+			value: "Mozilla/5.0 (iPhone; CPU iPhone OS 27_0_1 like Mac OS X)",
+		});
+		Object.defineProperty(navigator, "standalone", { value: true });
+		window.printCalls = 0;
+		window.print = () => {
+			window.printCalls++;
+		};
+	});
+	// Serve the built bytes at an HTTPS origin without reaching the network.
+	const servePreview = async (route) => {
+		const response = await route.fetch({
+			url: route.request().url().replace(ORIGIN, site.origin),
+		});
+		await route.fulfill({ response });
+	};
+	await context.route(`${ORIGIN}/**`, servePreview);
+	await safari.route(`${ORIGIN}/**`, servePreview);
+	const page = await context.newPage();
+	const browserPage = await safari.newPage();
+	return {
+		page,
+		browserPage,
+		async close() {
+			await context.unrouteAll({ behavior: "wait" });
+			await safari.unrouteAll({ behavior: "wait" });
+			await context.close();
+			await safari.close();
+		},
+	};
+}
+
 function verifySafariPrint(width) {
 	it(`Home Screen recipe printing hands settings to a browser from page and card at ${width}px`, {
 		timeout: 60_000,
 	}, async () => {
-		const context = await browser.newContext({
-			viewport: { width, height: 900 },
-			reducedMotion: "reduce",
-			serviceWorkers: "block",
-		});
-		const safari = await browser.newContext({
-			serviceWorkers: "block",
-			viewport: { width, height: 900 },
-		});
-		await context.addInitScript(() => {
-			Object.defineProperty(navigator, "userAgent", {
-				value: "Mozilla/5.0 (iPhone; CPU iPhone OS 27_0_1 like Mac OS X)",
-			});
-			Object.defineProperty(navigator, "standalone", { value: true });
-			window.printCalls = 0;
-			window.print = () => {
-				window.printCalls++;
-			};
-		});
-		// Serve the built bytes at an HTTPS origin without reaching the network.
-		const servePreview = async (route) => {
-			const response = await route.fetch({
-				url: route.request().url().replace(ORIGIN, site.origin),
-			});
-			await route.fulfill({ response });
-		};
-		await context.route(`${ORIGIN}/**`, servePreview);
-		await safari.route(`${ORIGIN}/**`, servePreview);
-		const page = await context.newPage();
-		const browserPage = await safari.newPage();
+		const { page, browserPage, close } = await openSafariPrintPages(width);
 		const errors = collectErrors(page, { warnings: true });
 		try {
 			await page.goto(`${ORIGIN}/recipes/${recipeId}/?servings=2&units=grams`);
@@ -168,13 +183,75 @@ function verifySafariPrint(width) {
 				[],
 			);
 		} finally {
-			await context.unrouteAll({ behavior: "wait" });
-			await safari.unrouteAll({ behavior: "wait" });
-			await context.close();
-			await safari.close();
+			await close();
 		}
 	});
 }
 
 verifySafariPrint(390);
 verifySafariPrint(1280);
+
+it("Home Screen Print all meals handoff replaces Safari's saved meal sides at 390px", {
+	timeout: 60_000,
+}, async () => {
+	const {
+		page: app,
+		browserPage: safari,
+		close,
+	} = await openSafariPrintPages(390);
+	const errors = collectErrors(app);
+	try {
+		await app.goto(`${ORIGIN}/recipes/${recipeId}/`);
+		await ready(app);
+		await app
+			.getByRole("combobox", { name: FAMILY_SIDE })
+			.selectOption("pita_one");
+		const starch = `${recipeId}:pita_one`;
+		await app.waitForURL(
+			(recipeUrl) => recipeUrl.searchParams.get("starch") === starch,
+		);
+
+		await app.goto(`${ORIGIN}/recipes/meals/`);
+		await ready(app);
+		await app.getByRole("button", { name: "Print all meals" }).click();
+		const link = app.getByRole("textbox", {
+			name: "Collection link for Safari",
+		});
+		await link.waitFor({ state: "visible" });
+		const href = await link.inputValue();
+		const url = new URL(href);
+		assert.equal(url.origin, ORIGIN);
+		assert.equal(url.pathname, "/recipes/meals/");
+		assert.equal(url.searchParams.get("starch"), starch);
+		assert.equal(
+			await app
+				.getByRole("link", { name: "Open in Safari" })
+				.getAttribute("href"),
+			`x-safari-${href}`,
+		);
+		assert.equal(await app.evaluate(() => window.printCalls), 0);
+
+		await safari.goto(`${ORIGIN}/recipes/meals/`);
+		await ready(safari);
+		await safari.evaluate(
+			([key, familyChoice]) =>
+				localStorage.setItem(key, JSON.stringify({ familyChoice })),
+			[
+				STORAGE_KEY,
+				{ [recipeId]: "rice_half_cup", "greek-turkey-patties": "bun_one" },
+			],
+		);
+		await safari.goto(href);
+		await ready(safari);
+		await safari.waitForFunction(
+			([key, id]) => {
+				const sides = JSON.parse(localStorage.getItem(key)).familyChoice;
+				return sides[id] === "pita_one" && !("greek-turkey-patties" in sides);
+			},
+			[STORAGE_KEY, recipeId],
+		);
+		assert.deepEqual(errors, []);
+	} finally {
+		await close();
+	}
+});
