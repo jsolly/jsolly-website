@@ -283,7 +283,24 @@ it("An installed worker serves offline HTML when the cached request has a differ
 	});
 	const page = await context.newPage();
 	try {
-		await navigateHydrated(page, `${site.origin}${LANDING}`);
+		await context.addCookies([
+			{ name: "toolbar", value: "enabled", url: site.origin },
+		]);
+		const landingUrl = `${site.origin}${LANDING}`;
+		const [snapshot, navigation] = await Promise.all([
+			context.waitForEvent(
+				"request",
+				(request) =>
+					request.url() === landingUrl && Boolean(request.serviceWorker()),
+			),
+			page.waitForRequest(
+				(request) =>
+					request.isNavigationRequest() && request.url() === landingUrl,
+			),
+			navigateHydrated(page, landingUrl),
+		]);
+		assert.equal(await navigation.headerValue("cookie"), "toolbar=enabled");
+		assert.equal(await snapshot.headerValue("cookie"), null);
 		await statusText(page, SAVED);
 		await page.waitForFunction(() => navigator.serviceWorker.controller);
 		// Keep a cached navigation carrying its HTML Accept. A bare Cache.match

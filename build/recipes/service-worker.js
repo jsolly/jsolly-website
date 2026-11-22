@@ -152,6 +152,7 @@ const RECIPE_PACK = /^\/recipes\/data\/packs\/(?<id>[^/.]+)\.json$/u;
 const FULL_SHA = /^[a-f0-9]{40}$/u;
 function snapshotRequest(path) {
 	return new Request(new URL(path, self.location.origin), {
+		credentials: "omit",
 		headers: {
 			accept: path.endsWith("/")
 				? "text/html"
