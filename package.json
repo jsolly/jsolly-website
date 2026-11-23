@@ -51,7 +51,7 @@
 		"@tailwindcss/node": "^4.3.3",
 		"@tailwindcss/oxide": "^4.3.3",
 		"@tailwindcss/vite": "^4.3.3",
-		"@types/node": "^26.6.5",
+		"@types/node": "^26.6.6",
 		"@types/sanitize-html": "2.16.2",
 		"@typescript/native": "npm:typescript@7.0.2",
 		"@vercel/config": "0.14.1",
