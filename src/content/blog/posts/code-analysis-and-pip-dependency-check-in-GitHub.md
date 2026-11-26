@@ -11,7 +11,7 @@ imageAttribution: ""
 imageWidth: 960
 imageHeight: 516
 published: "2022-06-06T01:34:56Z"
-updated: "2024-11-06T13:36:05.671Z"
+updated: "2026-11-26T14:06:06Z"
 author: John Solly
 feedAuthor: John_Solly
 legacyAuthorId: 2
@@ -155,10 +155,10 @@ updates:
     schedule:
       interval: "daily"</code></pre>
 
-I changed <strong> line 18</strong> to point it to my requirements.txt file. Dependabot creates PRs for the issues it finds. I have four open Dependabot branches that I'll tackle in <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/awesome-django-blog/issues/101">this issue</a>. The code changes Dependabot suggests often bump the module version number in the requirements.txt. Since unit tests pass, I'll merge them and roll back if things go sideways.
+I changed <strong> line 18</strong> to point it to my requirements.txt file. Dependabot creates PRs for the issues it finds. At the time, I had four open Dependabot branches to review. The code changes Dependabot suggests often bump the module version number in the requirements.txt. Since unit tests pass, I'll merge them and roll back if things go sideways.
 
 <img class="image_resized" style="width:82.17%;" src="/blog/media/migrated/image-585cf545c19238b3f5fb2747-960.webp" alt="Screenshot of Dependabot PR. Code change from Pillow8.3.2 to 9.0.1"> 
 
 ## Conclusion
 
-I lint, assess code coverage, run unit tests, and security scan my code + dependencies with two short YAML files. It takes 7-8 minutes for the CI workflow to finish, and dependabot creates PRs to fix vulnerabilities. My next step is to fix the <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/awesome-django-blog/issues/101">issues that were found</a>. Add CodeQL and Dependabot to your repo today!
+I lint, assess code coverage, run unit tests, and security scan my code + dependencies with two short YAML files. It takes 7-8 minutes for the CI workflow to finish, and dependabot creates PRs to fix vulnerabilities. My next step was to fix the issues Dependabot found. Add CodeQL and Dependabot to your repo today!

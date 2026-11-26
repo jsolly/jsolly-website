@@ -962,14 +962,14 @@ it("the online library loads one release-named summary artifact and browses loca
 		if (path === "/api/recipe-browse/") dynamic.push(path);
 	});
 	try {
-		await goHydrated(page, "/recipes/meals/");
-		await page.waitForFunction(
-			() =>
-				!document.querySelector("#meal-results").getAttribute("aria-busy") ||
-				document.querySelector("#meal-results").getAttribute("aria-busy") ===
-					"false",
-		);
-		await page.waitForTimeout(800);
+		const [backgroundSummary] = await Promise.all([
+			page.waitForResponse((response) =>
+				new URL(response.url()).pathname.startsWith("/recipes/data/summaries/"),
+			),
+			goHydrated(page, "/recipes/meals/"),
+		]);
+		assert.ok(backgroundSummary.ok(), "the background summary loads");
+		await page.locator('#meal-results[aria-busy="false"]').waitFor();
 		assert.equal(
 			searches.length,
 			0,
