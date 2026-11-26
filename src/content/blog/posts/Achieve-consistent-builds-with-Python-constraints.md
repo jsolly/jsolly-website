@@ -35,7 +35,7 @@ Just add a second flag to pip install.
 
 <pre><code class="language-python">python3 -m pip install -r requirements.txt -c constraints.txt</code></pre>
 
-Inside <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/awesome-django-blog/blob/master/requirements.txt">requirements.txt </a> are packages blogthedata directly uses. 
+The archived blog's <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/awesome-blog/blob/b4e10f7f2e8ac7ce69233d26e0ffa593af3ad6f7/django_project/requirements/requirements.txt">requirements.txt</a> lists its direct dependencies. 
 
 <pre><code class="language-bash"># requirements.txt
 black

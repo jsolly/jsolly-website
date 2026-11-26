@@ -5,6 +5,7 @@ import {
 	mkdirSync,
 	mkdtempSync,
 	readFileSync,
+	realpathSync,
 	rmSync,
 	writeFileSync,
 } from "node:fs";
@@ -52,7 +53,9 @@ const BASE_ENV = Object.fromEntries(
 );
 
 function fixture() {
-	const root = mkdtempSync(join(tmpdir(), "website-push-policy-"));
+	const root = mkdtempSync(
+		join(realpathSync(tmpdir()), "website-push-policy-"),
+	);
 	fixtures.push(root);
 	const repo = join(root, "repo");
 	const home = join(root, "home");
