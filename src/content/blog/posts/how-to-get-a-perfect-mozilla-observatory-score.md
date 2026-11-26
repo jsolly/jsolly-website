@@ -11,7 +11,7 @@ imageAttribution: ""
 imageWidth: 562
 imageHeight: 372
 published: "2022-05-03T14:30:38Z"
-updated: "2026-09-07T18:01:33.453Z"
+updated: "2026-11-26T16:24:43Z"
 author: John Solly
 feedAuthor: John_Solly
 legacyAuthorId: 2
@@ -198,7 +198,7 @@ The <a target="_blank" rel="noopener noreferrer" href="https://ssltools.godaddy.
 
 <blockquote><p>OCSP stapling can enhance the OCSP protocol by letting the webhosting site be more proactive in improving the client (browsing) experience. OCSP stapling allows the certificate presenter (i.e. web server) to query the OCSP responder directly and then cache the response. This securely cached response is then delivered with the TLS/SSL handshake via the&nbsp;<strong>Certificate Status Request</strong>&nbsp;extension response, ensuring that the browser gets the same response performance for the certificate status as it does for the website content.</p></blockquote>
 
-See this <a target="_blank" rel="noopener noreferrer" href="https://github.com/jsolly/blogthedata/issues/42">open issue</a> for my implementation of OCSP.
+I tracked my OCSP stapling work in issue #42 of the old blog repository.
 
 ### CAA Record
 
