@@ -1,4 +1,5 @@
 ---
+import articleHeadingFont from "@fontsource/poppins/files/poppins-latin-600-normal.woff2?url";
 import type { InferGetStaticPropsType } from "astro";
 import AuthorCard from "../../components/blog/AuthorCard.astro";
 import Breadcrumbs from "../../components/blog/Breadcrumbs.astro";
@@ -58,7 +59,7 @@ const SHARE_TARGETS = [
 	},
 ];
 
-const { post, related } = Astro.props;
+const { post, related }: Props = Astro.props;
 const { data, html, categoryName } = post;
 const image = imageUrl(data.image);
 const attribution = attributionLink(data.imageAttribution);
@@ -77,6 +78,7 @@ const breadcrumb = jsonLd(breadcrumbList(crumbs, site));
 ---
 <BlogLayout title={data.title} description={data.description} image={image} imageAlt={data.imageAlt} section="blog" article>
 	<Fragment slot="head">
+		<link rel="preload" as="font" type="font/woff2" href={articleHeadingFont} crossorigin="anonymous" />
 		<meta property="article:published_time" content={data.published.toISOString()} />
 		<meta property="article:modified_time" content={data.updated.toISOString()} />
 		<!-- biome-ignore lint/nursery/noAstroSetHtmlDirective: first-party JSON-LD must stay raw JSON; every "<" is escaped above -->
