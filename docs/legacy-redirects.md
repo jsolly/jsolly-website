@@ -3,7 +3,7 @@
 The blog and recipes now live at <https://www.jsolly.com/blog/> and
 <https://www.jsolly.com/recipes/>. [awesome-blog](https://github.com/jsolly/awesome-blog)
 was archived on October 9, 2026 after archive-notice PR703. Its public MIT history
-remains available; the active website repository is private.
+remains available.
 
 ## Deployment and monitoring
 
@@ -39,7 +39,7 @@ three old hosts. `/wp-login.php` alone may return 403 with
 `x-vercel-mitigated: deny` and no Location instead of 404, under John's exact-path
 approval. Other 404 checks remain strict; no security protection was disabled.
 
-The promoted redirect build is `dpl_B8xPDJsxu9vkPmgLzxEU7JC8ycL8`,
+The October cutover used `dpl_B8xPDJsxu9vkPmgLzxEU7JC8ycL8`,
 <https://blogthedata-jas5p97oh-jsollys-projects.vercel.app>, from
 `fa9249762c873fbb03a79600768a0b8c6c949a25`. Monitoring landed in
 [PR106](https://github.com/jsolly/jsolly-website/pull/106), release
@@ -47,6 +47,15 @@ The promoted redirect build is `dpl_B8xPDJsxu9vkPmgLzxEU7JC8ycL8`,
 [legacy sample verification](https://github.com/jsolly/jsolly-website/actions/runs/37929163354)
 and [exact website production smoke](https://github.com/jsolly/jsolly-website/actions/runs/37929227438)
 passed. Website deploy success and legacy deployment success are distinct.
+
+On November 26, 2026, deployment `dpl_FC3qyywL4TuiMgCtkcvvRr9TQWqH` from
+[PR288](https://github.com/jsolly/jsolly-website/pull/288) was promoted to all
+three legacy hosts. Its security contact file lists both custom domains as
+canonical. All 1,467 staged checks passed before promotion, both custom domains
+then served the reviewed file byte for byte, and the
+[production redirect monitor](https://github.com/jsolly/jsolly-website/actions/runs/45855928762)
+passed. For the current deployment, check the production domains in the
+[blogthedata project](https://vercel.com/jsollys-projects/blogthedata).
 
 ## Recovery and retained resources
 
