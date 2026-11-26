@@ -499,7 +499,10 @@ it("Security researchers on the old host get a valid, unexpired security.txt", (
 			{
 				contact: `${JSOLLY_ORIGIN}/contact/`,
 				"preferred-languages": "en",
-				canonical: "https://www.blogthedata.com/.well-known/security.txt",
+				canonical: [
+					"https://www.blogthedata.com/.well-known/security.txt",
+					"https://blogthedata.com/.well-known/security.txt",
+				],
 			},
 			{ committed: headCommitDate() },
 		),

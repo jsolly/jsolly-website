@@ -71,7 +71,8 @@ export function securityTxtExpires(fields) {
 // What is wrong with security.txt `text`, as messages (none when it is
 // valid): a line that is not blank, a comment or a field; a field in
 // `expected` (lowercase names) that does not appear exactly once with that
-// value; any other field but Expires; or an Expires that does not appear
+// value (or match the values in a supplied array); any other field but
+// Expires; or an Expires that does not appear
 // once as a valid RFC 3339 time after `committed` and less than 365 days
 // after it. Callers pass HEAD's commit date, not today, which keeps the
 // check hermetic; the future-date check will run daily in
@@ -86,8 +87,14 @@ export function securityTxtProblems(text, expected, { committed }) {
 	const problems = unparsed.map((line) => `line "${line}" is not a field`);
 	for (const [name, value] of Object.entries(expected)) {
 		const found = fieldValues(fields, name);
-		if (found.length !== 1 || found[0] !== value) {
-			problems.push(`${name} is ${JSON.stringify(found)}, not ["${value}"]`);
+		const values = Array.isArray(value) ? value : [value];
+		if (
+			found.length !== values.length ||
+			found.some((item, i) => item !== values[i])
+		) {
+			problems.push(
+				`${name} is ${JSON.stringify(found)}, not ${JSON.stringify(values)}`,
+			);
 		}
 	}
 	for (const [name, value] of fields) {
