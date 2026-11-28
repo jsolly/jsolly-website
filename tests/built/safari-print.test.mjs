@@ -5,14 +5,14 @@ import { mkdir } from "node:fs/promises";
 import { afterAll as after, beforeAll as before, it } from "vitest";
 import { STORAGE_KEY } from "../../src/components/recipes/constants.mjs";
 import { launchTestBrowser } from "../network/browser.ts";
-import { collectErrors, serveStatic } from "./pages.mjs";
+import { collectErrors, serveStaticHttps } from "./pages.mjs";
 import { legacyUnits, setLegacyUnits } from "./recipe-legacy-units.mjs";
 
 let site;
 let browser;
 before(async () => {
-	site = await serveStatic("dist");
-	browser = await launchTestBrowser();
+	site = await serveStaticHttps("dist");
+	browser = await launchTestBrowser({ ignoreCertificateErrors: true });
 });
 after(async () => {
 	await browser?.close();
@@ -22,7 +22,6 @@ const ready = (page) =>
 	page.waitForFunction(() => !document.querySelector("astro-island[ssr]"));
 const SERVINGS = /^Servings/u;
 const FAMILY_SIDE = /^Add a side/u;
-const ORIGIN = "https://recipe-preview.example.test";
 const recipeId = "shawarma-chicken-bowls";
 
 async function openSafariPrintPages(width) {
@@ -30,52 +29,47 @@ async function openSafariPrintPages(width) {
 		viewport: { width, height: 900 },
 		reducedMotion: "reduce",
 		serviceWorkers: "block",
+		ignoreHTTPSErrors: true,
 	});
-	const safari = await browser.newContext({
-		serviceWorkers: "block",
-		viewport: { width, height: 900 },
-	});
-	await context.addInitScript(() => {
-		Object.defineProperty(navigator, "userAgent", {
-			value: "Mozilla/5.0 (iPhone; CPU iPhone OS 27_0_1 like Mac OS X)",
-		});
-		Object.defineProperty(navigator, "standalone", { value: true });
-		window.printCalls = 0;
-		window.print = () => {
-			window.printCalls++;
-		};
-	});
-	// Serve the built bytes at an HTTPS origin without reaching the network.
-	const servePreview = async (route) => {
-		const response = await route.fetch({
-			url: route.request().url().replace(ORIGIN, site.origin),
-		});
-		await route.fulfill({ response });
+	let safari;
+	const close = async () => {
+		const contexts = safari ? [context, safari] : [context];
+		await Promise.all(contexts.map((entry) => entry.close()));
 	};
-	await context.route(`${ORIGIN}/**`, servePreview);
-	await safari.route(`${ORIGIN}/**`, servePreview);
-	const page = await context.newPage();
-	const browserPage = await safari.newPage();
-	return {
-		page,
-		browserPage,
-		async close() {
-			await context.unrouteAll({ behavior: "wait" });
-			await safari.unrouteAll({ behavior: "wait" });
-			await context.close();
-			await safari.close();
-		},
-	};
+	try {
+		safari = await browser.newContext({
+			serviceWorkers: "block",
+			viewport: { width, height: 900 },
+			ignoreHTTPSErrors: true,
+		});
+		await context.addInitScript(() => {
+			Object.defineProperty(navigator, "userAgent", {
+				value: "Mozilla/5.0 (iPhone; CPU iPhone OS 27_0_1 like Mac OS X)",
+			});
+			Object.defineProperty(navigator, "standalone", { value: true });
+			window.printCalls = 0;
+			window.print = () => {
+				window.printCalls++;
+			};
+		});
+		const page = await context.newPage();
+		const browserPage = await safari.newPage();
+		return { page, browserPage, close };
+	} catch (error) {
+		await close();
+		throw error;
+	}
 }
 
 function verifySafariPrint(width) {
 	it(`Home Screen recipe printing hands settings to a browser from page and card at ${width}px`, {
 		timeout: 60_000,
 	}, async () => {
+		const origin = site.origin;
 		const { page, browserPage, close } = await openSafariPrintPages(width);
 		const errors = collectErrors(page, { warnings: true });
 		try {
-			await page.goto(`${ORIGIN}/recipes/${recipeId}/?servings=2&units=grams`);
+			await page.goto(`${origin}/recipes/${recipeId}/?servings=2&units=grams`);
 			await ready(page);
 			await page.getByRole("combobox", { name: SERVINGS }).selectOption("6");
 			await setLegacyUnits(page, "metric");
@@ -85,7 +79,7 @@ function verifySafariPrint(width) {
 			for (const view of ["page", "card"]) {
 				if (view === "card") {
 					await page.goto(
-						`${ORIGIN}/recipes/?servings=6&units=metric&starch=${recipeId}:pita_one`,
+						`${origin}/recipes/?servings=6&units=metric&starch=${recipeId}:pita_one`,
 					);
 					await ready(page);
 				}
@@ -120,7 +114,8 @@ function verifySafariPrint(width) {
 					true,
 				);
 				const url = new URL(href);
-				assert.equal(url.origin, ORIGIN);
+				assert.equal(url.origin, origin);
+				assert.equal(url.protocol, "https:");
 				assert.equal(url.pathname, `/recipes/${recipeId}/`);
 				assert.equal(url.searchParams.get("servings"), "6");
 				assert.equal(url.searchParams.get("units"), "metric");
@@ -194,6 +189,7 @@ verifySafariPrint(1280);
 it("Home Screen Print all meals handoff replaces Safari's saved meal sides at 390px", {
 	timeout: 60_000,
 }, async () => {
+	const origin = site.origin;
 	const {
 		page: app,
 		browserPage: safari,
@@ -201,7 +197,7 @@ it("Home Screen Print all meals handoff replaces Safari's saved meal sides at 39
 	} = await openSafariPrintPages(390);
 	const errors = collectErrors(app);
 	try {
-		await app.goto(`${ORIGIN}/recipes/${recipeId}/`);
+		await app.goto(`${origin}/recipes/${recipeId}/`);
 		await ready(app);
 		await app
 			.getByRole("combobox", { name: FAMILY_SIDE })
@@ -211,7 +207,7 @@ it("Home Screen Print all meals handoff replaces Safari's saved meal sides at 39
 			(recipeUrl) => recipeUrl.searchParams.get("starch") === starch,
 		);
 
-		await app.goto(`${ORIGIN}/recipes/meals/`);
+		await app.goto(`${origin}/recipes/meals/`);
 		await ready(app);
 		await app.getByRole("button", { name: "Print all meals" }).click();
 		const link = app.getByRole("textbox", {
@@ -220,7 +216,8 @@ it("Home Screen Print all meals handoff replaces Safari's saved meal sides at 39
 		await link.waitFor({ state: "visible" });
 		const href = await link.inputValue();
 		const url = new URL(href);
-		assert.equal(url.origin, ORIGIN);
+		assert.equal(url.origin, origin);
+		assert.equal(url.protocol, "https:");
 		assert.equal(url.pathname, "/recipes/meals/");
 		assert.equal(url.searchParams.get("starch"), starch);
 		assert.equal(
@@ -231,7 +228,7 @@ it("Home Screen Print all meals handoff replaces Safari's saved meal sides at 39
 		);
 		assert.equal(await app.evaluate(() => window.printCalls), 0);
 
-		await safari.goto(`${ORIGIN}/recipes/meals/`);
+		await safari.goto(`${origin}/recipes/meals/`);
 		await ready(safari);
 		await safari.evaluate(
 			([key, familyChoice]) =>
@@ -254,4 +251,37 @@ it("Home Screen Print all meals handoff replaces Safari's saved meal sides at 39
 	} finally {
 		await close();
 	}
+});
+
+it("Home Screen teardown stays on loopback HTTPS while background library loads start", {
+	timeout: 60_000,
+}, async () => {
+	const origin = new URL(site.origin);
+	assert.equal(origin.protocol, "https:");
+	assert.equal(origin.hostname, "127.0.0.1");
+	const {
+		page: app,
+		browserPage: safari,
+		close,
+	} = await openSafariPrintPages(390);
+	const errors = collectErrors(app, { warnings: true });
+	try {
+		const safariSummaryStarted = safari.waitForRequest((request) =>
+			request.url().includes("/recipes/data/summaries/"),
+		);
+		await safari.goto(`${site.origin}/recipes/meals/`);
+		await ready(safari);
+		await safariSummaryStarted;
+		await app.goto(`${site.origin}/recipes/meals/`);
+		await ready(app);
+	} finally {
+		await close();
+	}
+	assert.deepEqual(
+		errors.filter(
+			(message) =>
+				message !== "Service Worker registration blocked by Playwright",
+		),
+		[],
+	);
 });

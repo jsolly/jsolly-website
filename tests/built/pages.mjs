@@ -1,9 +1,13 @@
 // Shared readers, a static server and browser helpers for tests over a built
 // dist/ (the real one or a temp copy's).
-import { access, readFile } from "node:fs/promises";
+import { execFile } from "node:child_process";
+import { access, mkdtemp, readFile, rm } from "node:fs/promises";
 import { createServer } from "node:http";
+import { createServer as createHttpsServer } from "node:https";
+import { tmpdir } from "node:os";
 import { extname, join, normalize } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { promisify } from "node:util";
 import { globby } from "globby";
 import { parse } from "parse5";
 import { recipeBrowseDestination } from "../../src/lib/recipe-browse-route.mjs";
@@ -161,13 +165,9 @@ const CONTENT_TYPES = {
 	".woff2": "font/woff2",
 };
 
-// Serves `root` on a free local port the way a static host does: a path
-// ending in / answers with its index.html, anything missing with a plain 404.
-// `headers` go on every response, as vercel.ts's do. Resolves to
-// { origin, close }.
-export async function serveStatic(root, headers = {}) {
-	const server = createServer(async (request, response) => {
-		const url = new URL(request.url, "http://localhost");
+function createStaticRequestHandler(root, headers = {}, protocol = "http") {
+	return async (request, response) => {
+		const url = new URL(request.url, `${protocol}://localhost`);
 		const { pathname } = url;
 		const webRequest = new Request(url, {
 			method: request.method,
@@ -211,18 +211,70 @@ export async function serveStatic(root, headers = {}) {
 			response.writeHead(404, { ...headers, "Content-Type": "text/plain" });
 			response.end("not found");
 		}
+	};
+}
+
+async function listenLoopback(server, protocol) {
+	await new Promise((resolveListen, rejectListen) => {
+		server.once("error", rejectListen);
+		server.listen(0, "127.0.0.1", () => {
+			server.removeListener("error", rejectListen);
+			resolveListen();
+		});
 	});
-	await new Promise((resolveListen) =>
-		server.listen(0, "127.0.0.1", resolveListen),
-	);
 	return {
-		origin: `http://127.0.0.1:${server.address().port}`,
+		origin: `${protocol}://127.0.0.1:${server.address().port}`,
 		close: () =>
 			new Promise((resolveClose) => {
 				server.closeAllConnections();
 				server.close(() => resolveClose());
 			}),
 	};
+}
+
+// Serves `root` on a free local port the way a static host does: a path
+// ending in / answers with its index.html, anything missing with a plain 404.
+// `headers` go on every response, as vercel.ts's do. Resolves to
+// { origin, close }.
+export function serveStatic(root, headers = {}) {
+	const server = createServer(createStaticRequestHandler(root, headers));
+	return listenLoopback(server, "http");
+}
+
+// Serves `root` over loopback HTTPS with an ephemeral self-signed certificate
+// so tests that need an https: origin never rely on a routed synthetic host.
+export async function serveStaticHttps(root, headers = {}) {
+	const workDir = await mkdtemp(join(tmpdir(), "jsolly-static-https-"));
+	let key;
+	let cert;
+	try {
+		await promisify(execFile)("openssl", [
+			"req",
+			"-x509",
+			"-newkey",
+			"rsa:2048",
+			"-nodes",
+			"-keyout",
+			join(workDir, "key.pem"),
+			"-out",
+			join(workDir, "cert.pem"),
+			"-days",
+			"1",
+			"-subj",
+			"/CN=127.0.0.1",
+		]);
+		[key, cert] = await Promise.all([
+			readFile(join(workDir, "key.pem")),
+			readFile(join(workDir, "cert.pem")),
+		]);
+	} finally {
+		await rm(workDir, { recursive: true, force: true });
+	}
+	const server = createHttpsServer(
+		{ key, cert },
+		createStaticRequestHandler(root, headers, "https"),
+	);
+	return listenLoopback(server, "https");
 }
 
 // Collects console errors and uncaught page errors. Warnings can be included
